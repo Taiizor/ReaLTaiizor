@@ -1,0 +1,14 @@
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\bin\Debug\TEST.exe.config
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\bin\Debug\TEST.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\bin\Debug\TEST.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\bin\Debug\ReaLTaiizor.dll
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\bin\Debug\ReaLTaiizor.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.csprojAssemblyReference.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Properties.Resources.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.csproj.GenerateResource.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.csproj.CoreCompileInputs.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.csproj.CopyComplete
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Form1.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.g.resources
