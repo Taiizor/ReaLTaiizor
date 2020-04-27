@@ -73,7 +73,7 @@ namespace ReaLTaiizor
             X = e.X;
             Invalidate();
         }
-        protected override void OnTextChanged(System.EventArgs e)
+        protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
             int textSize = 0;
@@ -123,9 +123,7 @@ namespace ReaLTaiizor
             G.FillEllipse(new SolidBrush(Color.FromArgb(66, 76, 85)), new Rectangle(0, 0, 16, 16));
 
             if (_Checked)
-            {
                 G.DrawString("a", new Font("Marlett", 15), new SolidBrush(Color.FromArgb(32, 34, 37)), new Point(-3, -2));
-            }
 
             G.DrawString(Text, Font, new SolidBrush(Color.FromArgb(116, 125, 132)), new Point(20, 0));
         }

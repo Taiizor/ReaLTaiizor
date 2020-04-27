@@ -31,12 +31,51 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Badge.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ChatButtonRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ChatButtonLeft.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ChatBubbleLeft.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ChatBubbleRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProgressaIndicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CircleProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToggleEdit.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TrackBar.cs">
@@ -83,6 +122,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReaLTaiizor.cs" />
+    <Compile Include="TrackEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
