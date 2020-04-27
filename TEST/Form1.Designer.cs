@@ -368,7 +368,7 @@
             // 
             // radioButton1
             // 
-            this.radioButton1.Checked = false;
+            this.radioButton1.Checked = true;
             this.radioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton1.Location = new System.Drawing.Point(387, 85);
             this.radioButton1.Name = "radioButton1";
