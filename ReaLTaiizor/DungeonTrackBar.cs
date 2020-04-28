@@ -13,7 +13,7 @@ namespace ReaLTaiizor
     #region  TrackBar
 
     [DefaultEvent("ValueChanged")]
-    public class AmbianceTrackBar : Control
+    public class DungeonTrackBar : Control
     {
 
         #region  Enums
@@ -247,7 +247,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceTrackBar()
+        public DungeonTrackBar()
         {
             SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer), true);
 

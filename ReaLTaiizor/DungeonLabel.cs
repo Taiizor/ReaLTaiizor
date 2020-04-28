@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceHeaderLabel
+    #region DungeonLabel
 
-    public class AmbianceHeaderLabel : Label
+    public class DungeonLabel : Label
     {
 
-        public AmbianceHeaderLabel()
+        public DungeonLabel()
         {
-            Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            Font = new Font("Segoe UI", 11);
             ForeColor = Color.FromArgb(76, 76, 77);
             BackColor = Color.Transparent;
         }

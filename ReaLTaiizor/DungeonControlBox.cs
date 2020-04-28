@@ -9,9 +9,9 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceControlBox
+    #region DungeonControlBox
 
-    public class AmbianceControlBox : Control
+    public class DungeonControlBox : Control
     {
 
         #region  Enums
@@ -162,7 +162,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceControlBox()
+        public DungeonControlBox()
         {
             SetStyle((ControlStyles)(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer), true);
             DoubleBuffered = true;

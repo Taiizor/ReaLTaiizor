@@ -10,14 +10,14 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceTextBox
+    #region DungeonTextBox
 
     [DefaultEvent("TextChanged")]
-    public class AmbianceTextBox : Control
+    public class DungeonTextBox : Control
     {
         #region Variables
 
-        public TextBox AmbianceTB = new TextBox();
+        public TextBox DungeonTB = new TextBox();
         private GraphicsPath Shape;
         private int _maxchars = 32767;
         private bool _ReadOnly;
@@ -45,7 +45,7 @@ namespace ReaLTaiizor
             set
             {
                 _maxchars = value;
-                AmbianceTB.MaxLength = MaxLength;
+                DungeonTB.MaxLength = MaxLength;
                 Invalidate();
             }
         }
@@ -55,7 +55,7 @@ namespace ReaLTaiizor
             get { return isPasswordMasked; }
             set
             {
-                AmbianceTB.UseSystemPasswordChar = UseSystemPasswordChar;
+                DungeonTB.UseSystemPasswordChar = UseSystemPasswordChar;
                 isPasswordMasked = value;
                 Invalidate();
             }
@@ -66,9 +66,9 @@ namespace ReaLTaiizor
             set
             {
                 _ReadOnly = value;
-                if (AmbianceTB != null)
+                if (DungeonTB != null)
                 {
-                    AmbianceTB.ReadOnly = value;
+                    DungeonTB.ReadOnly = value;
                 }
             }
         }
@@ -78,17 +78,17 @@ namespace ReaLTaiizor
             set
             {
                 _Multiline = value;
-                if (AmbianceTB != null)
+                if (DungeonTB != null)
                 {
-                    AmbianceTB.Multiline = value;
+                    DungeonTB.Multiline = value;
 
                     if (value)
                     {
-                        AmbianceTB.Height = Height - 10;
+                        DungeonTB.Height = Height - 10;
                     }
                     else
                     {
-                        Height = AmbianceTB.Height + 10;
+                        Height = DungeonTB.Height + 10;
                     }
                 }
             }
@@ -100,26 +100,26 @@ namespace ReaLTaiizor
         protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
-            AmbianceTB.Text = Text;
+            DungeonTB.Text = Text;
             Invalidate();
         }
 
         private void OnBaseTextChanged(object s, EventArgs e)
         {
-            Text = AmbianceTB.Text;
+            Text = DungeonTB.Text;
         }
 
         protected override void OnForeColorChanged(EventArgs e)
         {
             base.OnForeColorChanged(e);
-            AmbianceTB.ForeColor = ForeColor;
+            DungeonTB.ForeColor = ForeColor;
             Invalidate();
         }
 
         protected override void OnFontChanged(EventArgs e)
         {
             base.OnFontChanged(e);
-            AmbianceTB.Font = Font;
+            DungeonTB.Font = Font;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -131,12 +131,12 @@ namespace ReaLTaiizor
         {
             if (e.Control && e.KeyCode == Keys.A)
             {
-                AmbianceTB.SelectAll();
+                DungeonTB.SelectAll();
                 e.SuppressKeyPress = true;
             }
             if (e.Control && e.KeyCode == Keys.C)
             {
-                AmbianceTB.Copy();
+                DungeonTB.Copy();
                 e.SuppressKeyPress = true;
             }
         }
@@ -158,11 +158,11 @@ namespace ReaLTaiizor
             base.OnResize(e);
             if (_Multiline)
             {
-                AmbianceTB.Height = Height - 10;
+                DungeonTB.Height = Height - 10;
             }
             else
             {
-                Height = AmbianceTB.Height + 10;
+                Height = DungeonTB.Height + 10;
             }
 
             Shape = new GraphicsPath();
@@ -177,13 +177,13 @@ namespace ReaLTaiizor
         protected override void OnGotFocus(EventArgs e)
         {
             base.OnGotFocus(e);
-            AmbianceTB.Focus();
+            DungeonTB.Focus();
         }
 
         #endregion
         public void AddTextBox()
         {
-            var _TB = AmbianceTB;
+            var _TB = DungeonTB;
             _TB.Size = new Size(Width - 10, 33);
             _TB.Location = new Point(7, 4);
             _TB.Text = String.Empty;
@@ -192,20 +192,20 @@ namespace ReaLTaiizor
             _TB.Font = new Font("Tahoma", 11);
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;
             _TB.Multiline = false;
-            AmbianceTB.KeyDown += _OnKeyDown;
-            AmbianceTB.Enter += _Enter;
-            AmbianceTB.Leave += _Leave;
-            AmbianceTB.TextChanged += OnBaseTextChanged;
+            DungeonTB.KeyDown += _OnKeyDown;
+            DungeonTB.Enter += _Enter;
+            DungeonTB.Leave += _Leave;
+            DungeonTB.TextChanged += OnBaseTextChanged;
 
         }
 
-        public AmbianceTextBox()
+        public DungeonTextBox()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
 
             AddTextBox();
-            Controls.Add(AmbianceTB);
+            Controls.Add(DungeonTB);
 
             P1 = new Pen(Color.FromArgb(180, 180, 180)); // P1 = Border color
             B1 = new SolidBrush(Color.White); // B1 = Rect Background color
@@ -225,7 +225,7 @@ namespace ReaLTaiizor
 
             G.SmoothingMode = SmoothingMode.AntiAlias;
 
-            var _TB = AmbianceTB;
+            var _TB = DungeonTB;
             _TB.Width = Width - 10;
             _TB.TextAlign = TextAlignment;
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;

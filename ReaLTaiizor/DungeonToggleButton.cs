@@ -10,10 +10,10 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  AmbianceToggleButton
+    #region  DungeonToggleButton
 
     [DefaultEvent("ToggledChanged")]
-    public class AmbianceToggleButton : Control
+    public class DungeonToggleButton : Control
     {
 
         #region  Enums
@@ -97,7 +97,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceToggleButton()
+        public DungeonToggleButton()
         {
             SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
             Cursor = Cursors.Hand;

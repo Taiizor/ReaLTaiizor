@@ -31,52 +31,64 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AmbianceComboBox.cs">
+    <Compile Include="DreamProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceRichTextBox.cs">
+    <Compile Include="DreamTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceListBox.cs">
+    <Compile Include="DreamButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceHeaderLabel.cs">
+    <Compile Include="DungeonComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceLinkLabel.cs">
+    <Compile Include="DreamForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceTrackBar.cs">
+    <Compile Include="DungeonRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceToggleButton.cs">
+    <Compile Include="DungeonListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceProgressBar.cs">
+    <Compile Include="DungeonHeaderLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceTabPage.cs">
+    <Compile Include="DungeonLinkLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceLabel.cs">
+    <Compile Include="DungeonTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceTextBox.cs">
+    <Compile Include="DungeonToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceNumeric.cs">
+    <Compile Include="DungeonProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceRadioButton.cs">
+    <Compile Include="DungeonTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceCheckBox.cs">
+    <Compile Include="DungeonLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceButtonRight.cs">
+    <Compile Include="DungeonTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceButtonLeft.cs">
+    <Compile Include="DungeonNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DungeonRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DungeonCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DungeonButtonRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DungeonButtonLeft.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ChromeTabPage.cs">
@@ -94,7 +106,7 @@
     <Compile Include="ChromeButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceControlBox.cs">
+    <Compile Include="DungeonControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GroupBox.cs">
@@ -141,7 +153,7 @@
     <Compile Include="ChromeForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AmbianceForm.cs">
+    <Compile Include="DungeonForm.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ToggleButton.cs">

@@ -9,9 +9,9 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceButtonRight
+    #region DungeonButtonLeft
 
-    public class AmbianceButtonRight : Control
+    public class DungeonButtonLeft : Control
     {
 
         #region Variables
@@ -199,17 +199,17 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceButtonRight()
+        public DungeonButtonLeft()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
 
             BackColor = Color.Transparent;
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 11f, FontStyle.Bold);
+            Font = new Font("Segoe UI", 12);
             ForeColor = Color.FromArgb(76, 76, 76);
             Size = new Size(177, 30);
             _TextAlignment = StringAlignment.Center;
-            P1 = new Pen(Color.FromArgb(162, 120, 101));
+            P1 = new Pen(Color.FromArgb(180, 180, 180));
             // P1 = Border color
             Cursor = Cursors.Hand;
         }
@@ -222,9 +222,9 @@ namespace ReaLTaiizor
                 Shape = new GraphicsPath();
                 R1 = new Rectangle(0, 0, Width, Height);
 
-                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(253, 175, 143), Color.FromArgb(244, 146, 106), 90f);
-                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(244, 146, 106), Color.FromArgb(244, 146, 106), 90f);
-                PressedContourGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(162, 120, 101), Color.FromArgb(162, 120, 101), 90f);
+                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(253, 252, 252), Color.FromArgb(239, 237, 236), 90f);
+                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(226, 226, 226), Color.FromArgb(237, 237, 237), 90f);
+                PressedContourGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(167, 167, 167), Color.FromArgb(167, 167, 167), 90f);
 
                 P3 = new Pen(PressedContourGB);
             }

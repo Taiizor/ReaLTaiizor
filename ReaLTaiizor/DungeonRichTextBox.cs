@@ -10,15 +10,15 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceRichTextBox
+    #region DungeonRichTextBox
 
     [DefaultEvent("TextChanged")]
-    public class AmbianceRichTextBox : Control
+    public class DungeonRichTextBox : Control
     {
 
         #region Variables
 
-        public RichTextBox AmbianceRTB = new RichTextBox();
+        public RichTextBox DungeonRTB = new RichTextBox();
         private bool _ReadOnly;
         private bool _WordWrap;
         private bool _AutoWordSelection;
@@ -30,10 +30,10 @@ namespace ReaLTaiizor
 
         public override string Text
         {
-            get { return AmbianceRTB.Text; }
+            get { return DungeonRTB.Text; }
             set
             {
-                AmbianceRTB.Text = value;
+                DungeonRTB.Text = value;
                 Invalidate();
             }
         }
@@ -43,9 +43,9 @@ namespace ReaLTaiizor
             set
             {
                 _ReadOnly = value;
-                if (AmbianceRTB != null)
+                if (DungeonRTB != null)
                 {
-                    AmbianceRTB.ReadOnly = value;
+                    DungeonRTB.ReadOnly = value;
                 }
             }
         }
@@ -55,9 +55,9 @@ namespace ReaLTaiizor
             set
             {
                 _WordWrap = value;
-                if (AmbianceRTB != null)
+                if (DungeonRTB != null)
                 {
-                    AmbianceRTB.WordWrap = value;
+                    DungeonRTB.WordWrap = value;
                 }
             }
         }
@@ -67,9 +67,9 @@ namespace ReaLTaiizor
             set
             {
                 _AutoWordSelection = value;
-                if (AmbianceRTB != null)
+                if (DungeonRTB != null)
                 {
-                    AmbianceRTB.AutoWordSelection = value;
+                    DungeonRTB.AutoWordSelection = value;
                 }
             }
         }
@@ -79,14 +79,14 @@ namespace ReaLTaiizor
         protected override void OnForeColorChanged(System.EventArgs e)
         {
             base.OnForeColorChanged(e);
-            AmbianceRTB.ForeColor = ForeColor;
+            DungeonRTB.ForeColor = ForeColor;
             Invalidate();
         }
 
         protected override void OnFontChanged(System.EventArgs e)
         {
             base.OnFontChanged(e);
-            AmbianceRTB.Font = Font;
+            DungeonRTB.Font = Font;
         }
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -96,7 +96,7 @@ namespace ReaLTaiizor
         protected override void OnSizeChanged(System.EventArgs e)
         {
             base.OnSizeChanged(e);
-            AmbianceRTB.Size = new Size(Width - 13, Height - 11);
+            DungeonRTB.Size = new Size(Width - 13, Height - 11);
         }
 
         private void _Enter(object Obj, EventArgs e)
@@ -126,14 +126,14 @@ namespace ReaLTaiizor
 
         public void _TextChanged(object s, EventArgs e)
         {
-            AmbianceRTB.Text = Text;
+            DungeonRTB.Text = Text;
         }
 
         #endregion
 
         public void AddRichTextBox()
         {
-            var _RTB = AmbianceRTB;
+            var _RTB = DungeonRTB;
             _RTB.BackColor = Color.White;
             _RTB.Size = new Size(Width - 10, 100);
             _RTB.Location = new Point(7, 5);
@@ -143,14 +143,14 @@ namespace ReaLTaiizor
             _RTB.Multiline = true;
         }
 
-        public AmbianceRichTextBox() : base()
+        public DungeonRichTextBox() : base()
         {
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
 
             AddRichTextBox();
-            Controls.Add(AmbianceRTB);
+            Controls.Add(DungeonRTB);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(76, 76, 76);
 
@@ -162,8 +162,8 @@ namespace ReaLTaiizor
             AutoWordSelection = false;
             DoubleBuffered = true;
 
-            AmbianceRTB.Enter += _Enter;
-            AmbianceRTB.Leave += _Leave;
+            DungeonRTB.Enter += _Enter;
+            DungeonRTB.Leave += _Leave;
             TextChanged += _TextChanged;
         }
 

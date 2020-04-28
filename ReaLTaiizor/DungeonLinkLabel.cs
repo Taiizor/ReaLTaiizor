@@ -8,10 +8,10 @@ using System.Windows.Forms;
 namespace ReaLTaiizor
 {
     #region Link Label
-    public class AmbianceLinkLabel : LinkLabel
+    public class DungeonLinkLabel : LinkLabel
     {
 
-        public AmbianceLinkLabel()
+        public DungeonLinkLabel()
         {
             Font = new Font("Segoe UI", 11, FontStyle.Regular);
             BackColor = Color.Transparent;

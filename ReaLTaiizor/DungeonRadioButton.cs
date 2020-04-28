@@ -10,10 +10,10 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceRadioButton
+    #region DungeonRadioButton
 
     [DefaultEvent("CheckedChanged")]
-    public class AmbianceRadioButton : Control
+    public class DungeonRadioButton : Control
     {
 
         #region Enums
@@ -73,7 +73,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceRadioButton()
+        public DungeonRadioButton()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
@@ -89,9 +89,9 @@ namespace ReaLTaiizor
 
             foreach (Control _Control in Parent.Controls)
             {
-                if (!object.ReferenceEquals(_Control, this) && _Control is AmbianceRadioButton)
+                if (!object.ReferenceEquals(_Control, this) && _Control is DungeonRadioButton)
                 {
-                    ((AmbianceRadioButton)_Control).Checked = false;
+                    ((DungeonRadioButton)_Control).Checked = false;
                 }
             }
         }

@@ -10,10 +10,10 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceCheckBox
+    #region DungeonCheckBox
 
     [DefaultEvent("CheckedChanged")]
-    public class AmbianceCheckBox : Control
+    public class DungeonCheckBox : Control
     {
 
         #region Variables
@@ -42,7 +42,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceCheckBox()
+        public DungeonCheckBox()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
 

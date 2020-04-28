@@ -9,9 +9,9 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceProgressBar
+    #region DungeonProgressBar
 
-    public class AmbianceProgressBar : Control
+    public class DungeonProgressBar : Control
     {
 
         #region Enums 
@@ -129,7 +129,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceProgressBar()
+        public DungeonProgressBar()
         {
             _Maximum = 100;
             _ShowPercentage = true;

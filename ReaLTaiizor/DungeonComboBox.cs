@@ -9,9 +9,9 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  AmbianceComboBox
+    #region  DungeonComboBox
 
-    public class AmbianceComboBox : ComboBox
+    public class DungeonComboBox : ComboBox
     {
 
         #region  Variables
@@ -106,7 +106,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceComboBox()
+        public DungeonComboBox()
         {
             SetStyle((ControlStyles)(139286), true);
             SetStyle(ControlStyles.Selectable, false);

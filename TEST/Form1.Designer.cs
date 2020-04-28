@@ -52,7 +52,7 @@
             this.radioButton1 = new ReaLTaiizor.RadioButton();
             this.radioButton2 = new ReaLTaiizor.RadioButton();
             this.comboBoxEdit2 = new ReaLTaiizor.ComboBoxEdit();
-            this.chatButtonRight2 = new ReaLTaiizor.ChatButtonRight();
+            this.chatButtonRight1 = new ReaLTaiizor.ChatButtonRight();
             this.chatButtonLeft1 = new ReaLTaiizor.ChatButtonLeft();
             this.toggleEdit4 = new ReaLTaiizor.ToggleEdit();
             this.toggleEdit3 = new ReaLTaiizor.ToggleEdit();
@@ -111,7 +111,7 @@
             this.themeForm1.Controls.Add(this.radioButton1);
             this.themeForm1.Controls.Add(this.radioButton2);
             this.themeForm1.Controls.Add(this.comboBoxEdit2);
-            this.themeForm1.Controls.Add(this.chatButtonRight2);
+            this.themeForm1.Controls.Add(this.chatButtonRight1);
             this.themeForm1.Controls.Add(this.chatButtonLeft1);
             this.themeForm1.Controls.Add(this.toggleEdit4);
             this.themeForm1.Controls.Add(this.toggleEdit3);
@@ -268,7 +268,7 @@
             // 
             // badge10
             // 
-            this.badge10.Location = new System.Drawing.Point(416, 408);
+            this.badge10.Location = new System.Drawing.Point(416, 411);
             this.badge10.Maximum = 99;
             this.badge10.Name = "badge10";
             this.badge10.Size = new System.Drawing.Size(20, 20);
@@ -278,7 +278,7 @@
             // 
             // badge9
             // 
-            this.badge9.Location = new System.Drawing.Point(390, 408);
+            this.badge9.Location = new System.Drawing.Point(390, 411);
             this.badge9.Maximum = 99;
             this.badge9.Name = "badge9";
             this.badge9.Size = new System.Drawing.Size(20, 20);
@@ -288,7 +288,7 @@
             // 
             // badge8
             // 
-            this.badge8.Location = new System.Drawing.Point(366, 408);
+            this.badge8.Location = new System.Drawing.Point(366, 411);
             this.badge8.Maximum = 99;
             this.badge8.Name = "badge8";
             this.badge8.Size = new System.Drawing.Size(20, 20);
@@ -298,7 +298,7 @@
             // 
             // badge7
             // 
-            this.badge7.Location = new System.Drawing.Point(340, 408);
+            this.badge7.Location = new System.Drawing.Point(340, 411);
             this.badge7.Maximum = 99;
             this.badge7.Name = "badge7";
             this.badge7.Size = new System.Drawing.Size(20, 20);
@@ -308,7 +308,7 @@
             // 
             // badge6
             // 
-            this.badge6.Location = new System.Drawing.Point(314, 408);
+            this.badge6.Location = new System.Drawing.Point(314, 411);
             this.badge6.Maximum = 99;
             this.badge6.Name = "badge6";
             this.badge6.Size = new System.Drawing.Size(20, 20);
@@ -318,7 +318,7 @@
             // 
             // badge5
             // 
-            this.badge5.Location = new System.Drawing.Point(288, 408);
+            this.badge5.Location = new System.Drawing.Point(288, 411);
             this.badge5.Maximum = 99;
             this.badge5.Name = "badge5";
             this.badge5.Size = new System.Drawing.Size(20, 20);
@@ -328,7 +328,7 @@
             // 
             // badge4
             // 
-            this.badge4.Location = new System.Drawing.Point(262, 408);
+            this.badge4.Location = new System.Drawing.Point(262, 411);
             this.badge4.Maximum = 99;
             this.badge4.Name = "badge4";
             this.badge4.Size = new System.Drawing.Size(20, 20);
@@ -338,7 +338,7 @@
             // 
             // badge3
             // 
-            this.badge3.Location = new System.Drawing.Point(239, 408);
+            this.badge3.Location = new System.Drawing.Point(239, 411);
             this.badge3.Maximum = 99;
             this.badge3.Name = "badge3";
             this.badge3.Size = new System.Drawing.Size(20, 20);
@@ -348,7 +348,7 @@
             // 
             // badge2
             // 
-            this.badge2.Location = new System.Drawing.Point(214, 408);
+            this.badge2.Location = new System.Drawing.Point(214, 411);
             this.badge2.Maximum = 99;
             this.badge2.Name = "badge2";
             this.badge2.Size = new System.Drawing.Size(20, 20);
@@ -358,7 +358,7 @@
             // 
             // badge1
             // 
-            this.badge1.Location = new System.Drawing.Point(188, 408);
+            this.badge1.Location = new System.Drawing.Point(188, 411);
             this.badge1.Maximum = 99;
             this.badge1.Name = "badge1";
             this.badge1.Size = new System.Drawing.Size(20, 20);
@@ -411,20 +411,20 @@
             this.comboBoxEdit2.StartIndex = 0;
             this.comboBoxEdit2.TabIndex = 37;
             // 
-            // chatButtonRight2
+            // chatButtonRight1
             // 
-            this.chatButtonRight2.BackColor = System.Drawing.Color.Transparent;
-            this.chatButtonRight2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chatButtonRight2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.chatButtonRight2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.chatButtonRight2.Image = null;
-            this.chatButtonRight2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.chatButtonRight2.Location = new System.Drawing.Point(445, 408);
-            this.chatButtonRight2.Name = "chatButtonRight2";
-            this.chatButtonRight2.Size = new System.Drawing.Size(165, 38);
-            this.chatButtonRight2.TabIndex = 35;
-            this.chatButtonRight2.Text = "chatButtonRight2";
-            this.chatButtonRight2.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.chatButtonRight1.BackColor = System.Drawing.Color.Transparent;
+            this.chatButtonRight1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chatButtonRight1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.chatButtonRight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.chatButtonRight1.Image = null;
+            this.chatButtonRight1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chatButtonRight1.Location = new System.Drawing.Point(445, 408);
+            this.chatButtonRight1.Name = "chatButtonRight1";
+            this.chatButtonRight1.Size = new System.Drawing.Size(165, 38);
+            this.chatButtonRight1.TabIndex = 35;
+            this.chatButtonRight1.Text = "chatButtonRight1";
+            this.chatButtonRight1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // chatButtonLeft1
             // 
@@ -903,7 +903,7 @@
         private ReaLTaiizor.ToggleEdit toggleEdit2;
         private ReaLTaiizor.ToggleEdit toggleEdit1;
         private ReaLTaiizor.ChatButtonLeft chatButtonLeft1;
-        private ReaLTaiizor.ChatButtonRight chatButtonRight2;
+        private ReaLTaiizor.ChatButtonRight chatButtonRight1;
         private ReaLTaiizor.CircleProgressBar circleProgressBar1;
         private ReaLTaiizor.RadioButton radioButton1;
         private ReaLTaiizor.RadioButton radioButton2;

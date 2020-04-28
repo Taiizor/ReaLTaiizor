@@ -9,9 +9,9 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  AmbianceNumeric
+    #region  DungeonNumeric
 
-    public class AmbianceNumeric : Control
+    public class DungeonNumeric : Control
     {
 
         #region  Enums
@@ -246,7 +246,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public AmbianceNumeric()
+        public DungeonNumeric()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);

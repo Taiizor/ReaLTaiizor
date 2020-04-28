@@ -9,9 +9,9 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region AmbianceForm
+    #region DungeonForm
 
-    public class AmbianceForm : ContainerControl
+    public class DungeonForm : ContainerControl
     {
 
         #region  Enums
@@ -428,7 +428,7 @@ namespace ReaLTaiizor
             base.CreateHandle();
         }
 
-        public AmbianceForm()
+        public DungeonForm()
         {
             SetStyle((ControlStyles)(139270), true);
             BackColor = Color.FromArgb(244, 241, 243);

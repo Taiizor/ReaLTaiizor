@@ -9,12 +9,12 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  AmbianceListBox
+    #region  DungeonListBox
 
-    public class AmbianceListBox : ListBox
+    public class DungeonListBox : ListBox
     {
 
-        public AmbianceListBox()
+        public DungeonListBox()
         {
             this.SetStyle((ControlStyles)(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
             this.DrawMode = DrawMode.OwnerDrawFixed;

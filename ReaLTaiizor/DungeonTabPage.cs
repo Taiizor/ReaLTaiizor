@@ -9,12 +9,12 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  AmbianceTabPage
+    #region  DungeonTabPage
 
-    public class AmbianceTabPage : TabControl
+    public class DungeonTabPage : TabControl
     {
 
-        public AmbianceTabPage()
+        public DungeonTabPage()
         {
             SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
         }

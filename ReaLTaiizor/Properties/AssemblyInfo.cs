@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
 // bu öznitelik değerlerini değiştirin.
 [assembly: AssemblyTitle("ReaLTaiizor")]
-[assembly: AssemblyDescription("ReaLTaiizor v3.7.4.5")]
+[assembly: AssemblyDescription("ReaLTaiizor v3.7.4.6")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Taiizor")]
 [assembly: AssemblyProduct("ReaLTaiizor")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Tüm değerleri belirtebilir veya varsayılan Derleme ve Düzeltme Numaralarını kullanmak için
 // aşağıda gösterildiği gibi '*' kullanabilirsiniz:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.7.4.5")]
-[assembly: AssemblyFileVersion("3.7.4.5")]
+[assembly: AssemblyVersion("3.7.4.6")]
+[assembly: AssemblyFileVersion("3.7.4.6")]
