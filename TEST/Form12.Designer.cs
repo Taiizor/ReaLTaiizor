@@ -265,6 +265,7 @@
             this.Controls.Add(this.foxCheckBox2);
             this.Controls.Add(this.foxCheckBox1);
             this.Controls.Add(this.foxButton1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

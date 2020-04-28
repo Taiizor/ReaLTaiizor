@@ -130,6 +130,45 @@
     <Compile Include="DungeonControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ForeverComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverPalette.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverNotification.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverToggle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverMinimize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverMaximize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverClose.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FormMenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -200,6 +239,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AloneProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverForm.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TickIcon.cs">
