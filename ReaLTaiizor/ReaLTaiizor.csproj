@@ -31,6 +31,54 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AmbianceComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceHeaderLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceLinkLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceButtonRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceButtonLeft.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ChromeTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -44,6 +92,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ChromeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GroupBox.cs">
@@ -88,6 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ChromeForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmbianceForm.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ToggleButton.cs">

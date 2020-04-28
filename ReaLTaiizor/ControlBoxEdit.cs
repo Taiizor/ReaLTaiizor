@@ -25,6 +25,22 @@ namespace ReaLTaiizor
         }
 
         #endregion
+
+        #region Properties
+
+        private bool _DefaultLocation = true;
+        public bool DefaultLocation
+        {
+            get { return _DefaultLocation; }
+            set
+            {
+                _DefaultLocation = value;
+                Invalidate();
+            }
+        }
+
+        #endregion
+
         #region Variables
 
         MouseState State = MouseState.None;
@@ -46,14 +62,14 @@ namespace ReaLTaiizor
             State = MouseState.Down;
         }
 
-        protected override void OnMouseEnter(System.EventArgs e)
+        protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
             State = MouseState.Over;
             Invalidate();
         }
 
-        protected override void OnMouseLeave(System.EventArgs e)
+        protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
             State = MouseState.None;
@@ -93,8 +109,8 @@ namespace ReaLTaiizor
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            Point location = new Point(checked(this.FindForm().Width - 81), -1);
-            this.Location = location;
+            if (DefaultLocation)
+                this.Location = new Point(checked(this.FindForm().Width - 81), -1);
         }
 
         protected override void OnPaint(PaintEventArgs e)

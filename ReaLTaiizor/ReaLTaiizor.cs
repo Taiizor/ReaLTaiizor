@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 //    Site   : www.Taiizor.com
 //    Created: 15.May.2019
 //    Changed: 28.Apr.2020
-//    Version: 3.7.4.4
+//    Version: 3.7.4.5
 //
 //|---------DO-NOT-REMOVE---------|
 
@@ -51,6 +51,17 @@ namespace ReaLTaiizor
             GP.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - EndArcWidth + Rectangle.Y, EndArcWidth, EndArcWidth), 90, 90);
             GP.AddLine(new Point(Rectangle.X, Rectangle.Height - EndArcWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
             return GP;
+        }
+
+        public static GraphicsPath RoundedTopRect(Rectangle Rectangle, int Curve)
+        {
+            GraphicsPath P = new GraphicsPath();
+            int ArcRectangleWidth = Curve * 2;
+            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -180, 90);
+            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
+            P.AddLine(new Point(Rectangle.X + Rectangle.Width, Rectangle.Y + ArcRectangleWidth), new Point(Rectangle.X + Rectangle.Width, Rectangle.Y + Rectangle.Height - 1));
+            P.AddLine(new Point(Rectangle.X, Rectangle.Height - 1 + Rectangle.Y), new Point(Rectangle.X, Rectangle.Y + Curve));
+            return P;
         }
     }
 

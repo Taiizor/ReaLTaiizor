@@ -54,6 +54,7 @@
             // 
             this.controlBoxEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.controlBoxEdit1.BackColor = System.Drawing.Color.Transparent;
+            this.controlBoxEdit1.DefaultLocation = true;
             this.controlBoxEdit1.Location = new System.Drawing.Point(431, -1);
             this.controlBoxEdit1.Name = "controlBoxEdit1";
             this.controlBoxEdit1.Size = new System.Drawing.Size(77, 19);

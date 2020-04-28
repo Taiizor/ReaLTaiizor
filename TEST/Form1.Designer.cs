@@ -151,7 +151,7 @@
             this.themeForm1.Name = "themeForm1";
             this.themeForm1.Padding = new System.Windows.Forms.Padding(10, 70, 10, 9);
             this.themeForm1.RoundCorners = true;
-            this.themeForm1.Sizable = true;
+            this.themeForm1.Sizable = false;
             this.themeForm1.Size = new System.Drawing.Size(625, 655);
             this.themeForm1.SmartBounds = true;
             this.themeForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
