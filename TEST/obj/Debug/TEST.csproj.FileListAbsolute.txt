@@ -17,3 +17,4 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.csproj.CopyComplete
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.exe
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.pdb
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Form6.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Form7.resources

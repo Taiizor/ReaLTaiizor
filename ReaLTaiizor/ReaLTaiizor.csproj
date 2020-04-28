@@ -142,6 +142,36 @@
     <Compile Include="RibbonButtonLeft.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SpaceBorderLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceQuest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceMinimize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceMaximize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceClose.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceSeperatorVertical.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceSeperatorHorizantal.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TabPage.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -187,6 +217,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RibbonForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpaceForm.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ToggleButton.cs">

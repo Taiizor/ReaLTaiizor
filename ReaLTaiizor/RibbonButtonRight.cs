@@ -14,29 +14,29 @@ namespace ReaLTaiizor
     public class RibbonButtonRight : Control
     {
         #region " MouseStates "
-        MouseState State = MouseState.None;
+        MouseStateRibbon State = MouseStateRibbon.None;
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            State = MouseState.Down;
+            State = MouseStateRibbon.Down;
             Invalidate();
         }
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            State = MouseState.Over;
+            State = MouseStateRibbon.Over;
             Invalidate();
         }
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            State = MouseState.Over;
+            State = MouseStateRibbon.Over;
             Invalidate();
         }
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            State = MouseState.None;
+            State = MouseStateRibbon.None;
             Invalidate();
         }
         #endregion
@@ -69,29 +69,29 @@ namespace ReaLTaiizor
 
             switch (State)
             {
-                case MouseState.None:
+                case MouseStateRibbon.None:
                     LinearGradientBrush lgb = new LinearGradientBrush(ClientRectangle, Color.FromArgb(123, 190, 216), Color.FromArgb(108, 175, 201), 90);
-                    G.FillPath(lgb, Draw.RoundRect(ClientRectangle, 2));
+                    G.FillPath(lgb, DrawRibbon.RoundRect(ClientRectangle, 2));
                     Pen p = new Pen(new SolidBrush(Color.FromArgb(60, 113, 132)));
-                    G.DrawPath(p, Draw.RoundRect(ClientRectangle, 2));
+                    G.DrawPath(p, DrawRibbon.RoundRect(ClientRectangle, 2));
                     Pen Ip = new Pen(Color.FromArgb(75, Color.White));
-                    G.DrawPath(Ip, Draw.RoundRect(InnerRect, 2));
+                    G.DrawPath(Ip, DrawRibbon.RoundRect(InnerRect, 2));
                     break;
-                case MouseState.Over:
+                case MouseStateRibbon.Over:
                     LinearGradientBrush lgb2 = new LinearGradientBrush(ClientRectangle, Color.FromArgb(113, 180, 206), Color.FromArgb(114, 181, 207), 90);
-                    G.FillPath(lgb2, Draw.RoundRect(ClientRectangle, 2));
+                    G.FillPath(lgb2, DrawRibbon.RoundRect(ClientRectangle, 2));
                     Pen p2 = new Pen(new SolidBrush(Color.FromArgb(60, 113, 132)));
-                    G.DrawPath(p2, Draw.RoundRect(ClientRectangle, 2));
+                    G.DrawPath(p2, DrawRibbon.RoundRect(ClientRectangle, 2));
                     Pen Ip2 = new Pen(Color.FromArgb(75, Color.White));
-                    G.DrawPath(Ip2, Draw.RoundRect(InnerRect, 2));
+                    G.DrawPath(Ip2, DrawRibbon.RoundRect(InnerRect, 2));
                     break;
-                case MouseState.Down:
+                case MouseStateRibbon.Down:
                     LinearGradientBrush lgb3 = new LinearGradientBrush(ClientRectangle, Color.FromArgb(123, 190, 216), Color.FromArgb(108, 175, 201), 90);
-                    G.FillPath(lgb3, Draw.RoundRect(ClientRectangle, 2));
+                    G.FillPath(lgb3, DrawRibbon.RoundRect(ClientRectangle, 2));
                     Pen p3 = new Pen(new SolidBrush(Color.FromArgb(60, 113, 132)));
-                    G.DrawPath(p3, Draw.RoundRect(ClientRectangle, 2));
+                    G.DrawPath(p3, DrawRibbon.RoundRect(ClientRectangle, 2));
                     Pen Ip3 = new Pen(Color.FromArgb(75, Color.White));
-                    G.DrawPath(Ip3, Draw.RoundRect(InnerRect, 2));
+                    G.DrawPath(Ip3, DrawRibbon.RoundRect(InnerRect, 2));
                     break;
             }
 

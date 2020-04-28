@@ -104,18 +104,18 @@ namespace ReaLTaiizor
             G.Clear(BackColor);
 
             LinearGradientBrush gB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), Color.FromArgb(203, 201, 205), Color.FromArgb(188, 186, 190), 90);
-            G.FillPath(gB, Draw.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 1));
-            G.DrawPath(new Pen(new SolidBrush(Color.FromArgb(75, Color.White))), Draw.RoundRect(new Rectangle(1, 1, Width - 3, Height - 3), 1));
+            G.FillPath(gB, DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 1));
+            G.DrawPath(new Pen(new SolidBrush(Color.FromArgb(75, Color.White))), DrawRibbon.RoundRect(new Rectangle(1, 1, Width - 3, Height - 3), 1));
             LinearGradientBrush g1 = new LinearGradientBrush(new Rectangle(2, 2, intValue - 1, Height - 2), Color.FromArgb(214, 162, 68), Color.FromArgb(199, 147, 53), 90);
-            G.FillPath(g1, Draw.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
+            G.FillPath(g1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
             HatchBrush h1 = new HatchBrush(HatchStyle.DarkUpwardDiagonal, Color.FromArgb(40, Color.White), Color.FromArgb(20, Color.White));
-            G.FillPath(h1, Draw.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
+            G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
 
             //G.DrawPath(New Pen(Color.FromArgb(125, 97, 94, 90)), Draw.RoundRect(New Rectangle(0, 1, Width - 1, Height - 3), 2))
-            G.DrawPath(new Pen(Color.FromArgb(117, 120, 117)), Draw.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
+            G.DrawPath(new Pen(Color.FromArgb(117, 120, 117)), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
 
-            G.DrawPath(new Pen(Color.FromArgb(150, 97, 94, 90)), Draw.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
-            G.DrawPath(new Pen(Color.FromArgb(142, 107, 46)), Draw.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
+            G.DrawPath(new Pen(Color.FromArgb(150, 97, 94, 90)), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
+            G.DrawPath(new Pen(Color.FromArgb(142, 107, 46)), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
 
             if (_ShowPercentage)
             {
