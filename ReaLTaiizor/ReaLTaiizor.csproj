@@ -34,6 +34,24 @@
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AloneNotice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AloneTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AloneButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AloneComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AloneRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AloneCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DreamProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -152,6 +170,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SmallTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AloneProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TickIcon.cs">
@@ -376,6 +397,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
