@@ -222,6 +222,30 @@
     <Compile Include="SpaceForm.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ThunderRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThunderLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThunderCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThunderProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThunderGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThunderButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThunderControlBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThunderForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
