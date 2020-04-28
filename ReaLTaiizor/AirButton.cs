@@ -8,11 +8,11 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region ChromeButton
+    #region AirButton
 
-    public class ChromeButton : ChromeControl
+    public class AirButton : AirControl
     {
-        public ChromeButton()
+        public AirButton()
         {
             Font = new Font("Segoe UI", 9);
             SetColor("Gradient top normal", 237, 237, 237);
@@ -62,10 +62,10 @@ namespace ReaLTaiizor
 
             switch (State)
             {
-                case MouseStateChrome.None:
+                case MouseStateAir.None:
                     LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f);
                     break;
-                case MouseStateChrome.Over:
+                case MouseStateAir.Over:
                     LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTO, GBO, 90f);
                     break;
                 default:
@@ -93,7 +93,7 @@ namespace ReaLTaiizor
             {
                 switch (State)
                 {
-                    case MouseStateChrome.None:
+                    case MouseStateAir.None:
                         DrawText(new SolidBrush(TN), HorizontalAlignment.Center, 1, 0);
                         break;
                     default:

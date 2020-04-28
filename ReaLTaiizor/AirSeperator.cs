@@ -6,12 +6,12 @@ using System.Drawing;
 
 namespace ReaLTaiizor
 {
-    #region ChromeSeperator
+    #region AirSeperator
 
-    public class ChromeSeparator : ChromeControl
+    public class AirSeparator : AirControl
     {
 
-        public ChromeSeparator()
+        public AirSeparator()
         {
             LockHeight = 1;
             BackColor = Color.FromArgb(238, 238, 238);

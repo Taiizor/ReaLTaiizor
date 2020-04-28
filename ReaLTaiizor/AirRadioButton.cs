@@ -9,13 +9,13 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region ChromeRadioButton
+    #region AirRadioButton
 
     [DefaultEventAttribute("CheckedChanged")]
-    public class ChromeRadioButton : ChromeControl
+    public class AirRadioButton : AirControl
     {
 
-        public ChromeRadioButton()
+        public AirRadioButton()
         {
             Font = new Font("Segoe UI", 9);
             LockHeight = 17;
@@ -24,7 +24,7 @@ namespace ReaLTaiizor
             SetColor("Gradient bottom", 230, 230, 230);
             SetColor("Borders", 167, 167, 167);
             SetColor("Bullet", 100, 100, 100);
-            Width = 140;
+            Width = 110;
             Cursor = Cursors.Hand;
         }
 
@@ -66,12 +66,12 @@ namespace ReaLTaiizor
                 G.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(14, 14)));
             }
 
-            if (State == MouseStateChrome.Over & X < 15)
+            if (State == MouseStateAir.Over & X < 15)
             {
                 SolidBrush SB = new SolidBrush(Color.FromArgb(10, Color.Black));
                 G.FillEllipse(SB, new Rectangle(new Point(0, 0), new Size(14, 14)));
             }
-            else if (State == MouseStateChrome.Down & X < 15)
+            else if (State == MouseStateAir.Down & X < 15)
             {
                 SolidBrush SB = new SolidBrush(Color.FromArgb(20, Color.Black));
                 G.FillEllipse(SB, new Rectangle(new Point(0, 0), new Size(14, 14)));
@@ -146,8 +146,8 @@ namespace ReaLTaiizor
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is ChromeRadioButton)
-                    ((ChromeRadioButton)C).Checked = false;
+                if (!object.ReferenceEquals(C, this) && C is AirRadioButton)
+                    ((AirRadioButton)C).Checked = false;
             }
         }
 

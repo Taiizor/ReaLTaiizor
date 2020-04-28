@@ -10,13 +10,13 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region ChromeCheckBox
+    #region AirCheckBox
 
     [DefaultEventAttribute("CheckedChanged")]
-    public class ChromeCheckbox : ChromeControl
+    public class AirCheckbox : AirControl
     {
 
-        public ChromeCheckbox()
+        public AirCheckbox()
         {
             LockHeight = 17;
             Font = new Font("Segoe UI", 9);
@@ -28,7 +28,7 @@ namespace ReaLTaiizor
             SetColor("Gradient bottom down", 223, 223, 223);
             SetColor("Border", 167, 167, 167);
             SetColor("Text", 60, 60, 60);
-            Width = 120;
+            Width = 92;
             Cursor = Cursors.Hand;
         }
 
@@ -67,10 +67,10 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.HighQuality;
             switch (State)
             {
-                case MouseStateChrome.None:
+                case MouseStateAir.None:
                     LGB = new LinearGradientBrush(new Rectangle(0, 0, 14, 14), GTN, GBN, 90f);
                     break;
-                case MouseStateChrome.Over:
+                case MouseStateAir.Over:
                     LGB = new LinearGradientBrush(new Rectangle(0, 0, 14, 14), GTO, GBO, 90f);
                     break;
                 default:

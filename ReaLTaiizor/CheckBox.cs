@@ -63,6 +63,7 @@ namespace ReaLTaiizor
             X = e.Location.X;
             Invalidate();
         }
+
         protected override void OnMouseDown(MouseEventArgs e)
         {
             _Checked = !_Checked;

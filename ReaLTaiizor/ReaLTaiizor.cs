@@ -67,9 +67,9 @@ namespace ReaLTaiizor
 
     #endregion
 
-    #region ChromeLibrary
+    #region AirLibrary
 
-    public abstract class ChromeLibrary : ContainerControl
+    public abstract class AirLibrary : ContainerControl
     {
 
         #region " Initialization "
@@ -77,7 +77,7 @@ namespace ReaLTaiizor
         protected Graphics G;
 
         protected Bitmap B;
-        public ChromeLibrary()
+        public AirLibrary()
         {
             SetStyle((ControlStyles)139270, true);
 
@@ -148,7 +148,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        private void DoAnimationChrome(bool i)
+        private void DoAnimationAir(bool i)
         {
             OnAnimation();
             if (i)
@@ -174,7 +174,7 @@ namespace ReaLTaiizor
 
         protected override void OnHandleDestroyed(EventArgs e)
         {
-            ThemeShareChrome.RemoveAnimationCallback(DoAnimationChrome);
+            ThemeShareAir.RemoveAnimationCallback(DoAnimationAir);
             base.OnHandleDestroyed(e);
         }
 
@@ -224,8 +224,8 @@ namespace ReaLTaiizor
 
         #region " State Handling "
 
-        protected MouseStateChrome State;
-        private void SetState(MouseStateChrome current)
+        protected MouseStateAir State;
+        private void SetState(MouseStateAir current)
         {
             State = current;
             Invalidate();
@@ -245,27 +245,27 @@ namespace ReaLTaiizor
         protected override void OnEnabledChanged(EventArgs e)
         {
             if (Enabled)
-                SetState(MouseStateChrome.None);
+                SetState(MouseStateAir.None);
             else
-                SetState(MouseStateChrome.Block);
+                SetState(MouseStateAir.Block);
             base.OnEnabledChanged(e);
         }
 
         protected override void OnMouseEnter(EventArgs e)
         {
-            SetState(MouseStateChrome.Over);
+            SetState(MouseStateAir.Over);
             base.OnMouseEnter(e);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            SetState(MouseStateChrome.Over);
+            SetState(MouseStateAir.Over);
             base.OnMouseUp(e);
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
-            SetState(MouseStateChrome.None);
+            SetState(MouseStateAir.None);
 
             if (GetChildAtPoint(PointToClient(MousePosition)) != null)
             {
@@ -282,7 +282,7 @@ namespace ReaLTaiizor
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                SetState(MouseStateChrome.Down);
+                SetState(MouseStateAir.Down);
 
             if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
             {
@@ -315,7 +315,7 @@ namespace ReaLTaiizor
             {
                 WM_LMBUTTONDOWN = false;
 
-                SetState(MouseStateChrome.Over);
+                SetState(MouseStateAir.Over);
                 if (!_SmartBounds)
                     return;
 
@@ -659,23 +659,23 @@ namespace ReaLTaiizor
         }
 
         private Dictionary<string, Color> Items = new Dictionary<string, Color>();
-        public BloomChrome[] Colors
+        public BloomAir[] Colors
         {
             get
             {
-                List<BloomChrome> T = new List<BloomChrome>();
+                List<BloomAir> T = new List<BloomAir>();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
                 {
-                    T.Add(new BloomChrome(E.Current.Key, E.Current.Value));
+                    T.Add(new BloomAir(E.Current.Key, E.Current.Value));
                 }
 
                 return T.ToArray();
             }
             set
             {
-                foreach (BloomChrome B in value)
+                foreach (BloomAir B in value)
                 {
                     if (Items.ContainsKey(B.Name))
                         Items[B.Name] = B.Value;
@@ -697,7 +697,7 @@ namespace ReaLTaiizor
                     return;
 
                 byte[] Data = null;
-                BloomChrome[] Items = Colors;
+                BloomAir[] Items = Colors;
 
                 try
                 {
@@ -901,7 +901,7 @@ namespace ReaLTaiizor
         {
             MemoryStream M = new MemoryStream(Items.Count * 4);
 
-            foreach (BloomChrome B in Colors)
+            foreach (BloomAir B in Colors)
             {
                 M.Write(BitConverter.GetBytes(B.Value.ToArgb()), 0, 4);
             }
@@ -917,11 +917,11 @@ namespace ReaLTaiizor
 
             if (_IsAnimated)
             {
-                ThemeShareChrome.AddAnimationCallback(DoAnimationChrome);
+                ThemeShareAir.AddAnimationCallback(DoAnimationAir);
             }
             else
             {
-                ThemeShareChrome.RemoveAnimationCallback(DoAnimationChrome);
+                ThemeShareAir.RemoveAnimationCallback(DoAnimationAir);
             }
         }
 
@@ -1387,7 +1387,7 @@ namespace ReaLTaiizor
         #endregion
 
     }
-    public abstract class ChromeControl : Control
+    public abstract class AirControl : Control
     {
 
         #region " Initialization "
@@ -1395,7 +1395,7 @@ namespace ReaLTaiizor
         protected Graphics G;
 
         protected Bitmap B;
-        public ChromeControl()
+        public AirControl()
         {
             SetStyle((ControlStyles)139270, true);
 
@@ -1443,7 +1443,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        private void DoAnimationChrome(bool i)
+        private void DoAnimationAir(bool i)
         {
             OnAnimation();
             if (i)
@@ -1469,7 +1469,7 @@ namespace ReaLTaiizor
 
         protected override void OnHandleDestroyed(EventArgs e)
         {
-            ThemeShareChrome.RemoveAnimationCallback(DoAnimationChrome);
+            ThemeShareAir.RemoveAnimationCallback(DoAnimationAir);
             base.OnHandleDestroyed(e);
         }
 
@@ -1503,42 +1503,42 @@ namespace ReaLTaiizor
         protected override void OnMouseEnter(EventArgs e)
         {
             InPosition = true;
-            SetState(MouseStateChrome.Over);
+            SetState(MouseStateAir.Over);
             base.OnMouseEnter(e);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
             if (InPosition)
-                SetState(MouseStateChrome.Over);
+                SetState(MouseStateAir.Over);
             base.OnMouseUp(e);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                SetState(MouseStateChrome.Down);
+                SetState(MouseStateAir.Down);
             base.OnMouseDown(e);
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             InPosition = false;
-            SetState(MouseStateChrome.None);
+            SetState(MouseStateAir.None);
             base.OnMouseLeave(e);
         }
 
         protected override void OnEnabledChanged(EventArgs e)
         {
             if (Enabled)
-                SetState(MouseStateChrome.None);
+                SetState(MouseStateAir.None);
             else
-                SetState(MouseStateChrome.Block);
+                SetState(MouseStateAir.Block);
             base.OnEnabledChanged(e);
         }
 
-        protected MouseStateChrome State;
-        private void SetState(MouseStateChrome current)
+        protected MouseStateAir State;
+        private void SetState(MouseStateAir current)
         {
             State = current;
             Invalidate();
@@ -1668,23 +1668,23 @@ namespace ReaLTaiizor
         }
 
         private Dictionary<string, Color> Items = new Dictionary<string, Color>();
-        public BloomChrome[] Colors
+        public BloomAir[] Colors
         {
             get
             {
-                List<BloomChrome> T = new List<BloomChrome>();
+                List<BloomAir> T = new List<BloomAir>();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
                 {
-                    T.Add(new BloomChrome(E.Current.Key, E.Current.Value));
+                    T.Add(new BloomAir(E.Current.Key, E.Current.Value));
                 }
 
                 return T.ToArray();
             }
             set
             {
-                foreach (BloomChrome B in value)
+                foreach (BloomAir B in value)
                 {
                     if (Items.ContainsKey(B.Name))
                         Items[B.Name] = B.Value;
@@ -1706,7 +1706,7 @@ namespace ReaLTaiizor
                     return;
 
                 byte[] Data = null;
-                BloomChrome[] Items = Colors;
+                BloomAir[] Items = Colors;
 
                 try
                 {
@@ -1830,7 +1830,7 @@ namespace ReaLTaiizor
         {
             MemoryStream M = new MemoryStream(Items.Count * 4);
 
-            foreach (BloomChrome B in Colors)
+            foreach (BloomAir B in Colors)
             {
                 M.Write(BitConverter.GetBytes(B.Value.ToArgb()), 0, 4);
             }
@@ -1846,11 +1846,11 @@ namespace ReaLTaiizor
 
             if (_IsAnimated)
             {
-                ThemeShareChrome.AddAnimationCallback(DoAnimationChrome);
+                ThemeShareAir.AddAnimationCallback(DoAnimationAir);
             }
             else
             {
-                ThemeShareChrome.RemoveAnimationCallback(DoAnimationChrome);
+                ThemeShareAir.RemoveAnimationCallback(DoAnimationAir);
             }
         }
         #endregion
@@ -2306,7 +2306,7 @@ namespace ReaLTaiizor
         #endregion
 
     }
-    public static class ThemeShareChrome
+    public static class ThemeShareAir
     {
 
         #region " Animation "
@@ -2314,7 +2314,7 @@ namespace ReaLTaiizor
         private static int Frames;
         private static bool Invalidate;
 
-        public static PrecisionTimerChrome ThemeTimer = new PrecisionTimerChrome();
+        public static PrecisionTimerAir ThemeTimer = new PrecisionTimerAir();
         //1000 / 50 = 20 FPS
         private const int FPS = 50;
 
@@ -2323,7 +2323,7 @@ namespace ReaLTaiizor
 
 
         private static List<AnimationDelegate> Callbacks = new List<AnimationDelegate>();
-        private static void HandleCallbacksChrome(IntPtr state, bool reserve)
+        private static void HandleCallbacksAir(IntPtr state, bool reserve)
         {
             Invalidate = (Frames >= FPS);
             if (Invalidate)
@@ -2348,7 +2348,7 @@ namespace ReaLTaiizor
             }
             else
             {
-                ThemeTimer.Create(0, Rate, HandleCallbacksChrome);
+                ThemeTimer.Create(0, Rate, HandleCallbacksAir);
             }
         }
 
@@ -2379,14 +2379,14 @@ namespace ReaLTaiizor
         #endregion
 
     }
-    public enum MouseStateChrome : byte
+    public enum MouseStateAir : byte
     {
         None = 0,
         Over = 1,
         Down = 2,
         Block = 3
     }
-    public struct BloomChrome
+    public struct BloomAir
     {
 
         public string _Name;
@@ -2419,14 +2419,14 @@ namespace ReaLTaiizor
         }
 
 
-        public BloomChrome(string name, Color value)
+        public BloomAir(string name, Color value)
         {
             _Name = name;
             _Value = value;
         }
     }
 
-    public class PrecisionTimerChrome : IDisposable
+    public class PrecisionTimerAir : IDisposable
     {
 
         private bool _Enabled;
@@ -2479,6 +2479,58 @@ namespace ReaLTaiizor
         public void Dispose()
         {
             Delete();
+        }
+    }
+
+    #endregion
+
+    #region RibbonLibrary
+
+    public enum MouseState : byte
+    {
+        None = 0,
+        Over = 1,
+        Down = 2,
+        Block = 3
+    }
+    public static class Draw
+    {
+        public static GraphicsPath RoundRect(Rectangle Rectangle, int Curve)
+        {
+            GraphicsPath P = new GraphicsPath();
+            int ArcRectangleWidth = Curve * 2;
+            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -180, 90);
+            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
+            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 0, 90);
+            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 90, 90);
+            P.AddLine(new Point(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
+            return P;
+        }
+        public static GraphicsPath RoundRect(int X, int Y, int Width, int Height, int Curve)
+        {
+            Rectangle Rectangle = new Rectangle(X, Y, Width, Height);
+            GraphicsPath P = new GraphicsPath();
+            int ArcRectangleWidth = Curve * 2;
+            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -180, 90);
+            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
+            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 0, 90);
+            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 90, 90);
+            P.AddLine(new Point(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
+            return P;
+        }
+
+    }
+
+    public class ImageToCodeClass
+    {
+        public string ImageToCode(Bitmap Img)
+        {
+            return Convert.ToBase64String((byte[])TypeDescriptor.GetConverter(Img).ConvertTo(Img, typeof(byte[])));
+        }
+
+        public Image CodeToImage(string Code)
+        {
+            return Image.FromStream(new MemoryStream(Convert.FromBase64String(Code)));
         }
     }
 

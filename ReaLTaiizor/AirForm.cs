@@ -8,11 +8,11 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region ChromeForm
+    #region AirForm
 
-    public class ChromeForm : ChromeLibrary
+    public class AirForm : AirLibrary
     {
-        public ChromeForm()
+        public AirForm()
         {
             TransparencyKey = Color.Fuchsia;
             StartPosition = FormStartPosition.CenterScreen;

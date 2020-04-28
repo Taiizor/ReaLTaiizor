@@ -28,101 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.chromeForm1 = new ReaLTaiizor.ChromeForm();
-            this.chromeButton2 = new ReaLTaiizor.ChromeButton();
-            this.chromeSeparator2 = new ReaLTaiizor.ChromeSeparator();
-            this.chromeTabPage1 = new ReaLTaiizor.ChromeTabPage();
+            this.airForm1 = new ReaLTaiizor.AirForm();
+            this.airButton2 = new ReaLTaiizor.AirButton();
+            this.airSeparator2 = new ReaLTaiizor.AirSeparator();
+            this.airTabPage1 = new ReaLTaiizor.AirTabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.chromeSeparator1 = new ReaLTaiizor.ChromeSeparator();
-            this.chromeRadioButton1 = new ReaLTaiizor.ChromeRadioButton();
-            this.chromeButton1 = new ReaLTaiizor.ChromeButton();
-            this.chromeCheckbox1 = new ReaLTaiizor.ChromeCheckbox();
-            this.chromeRadioButton2 = new ReaLTaiizor.ChromeRadioButton();
-            this.chromeForm1.SuspendLayout();
-            this.chromeTabPage1.SuspendLayout();
+            this.airSeparator1 = new ReaLTaiizor.AirSeparator();
+            this.airRadioButton1 = new ReaLTaiizor.AirRadioButton();
+            this.airButton1 = new ReaLTaiizor.AirButton();
+            this.airCheckbox1 = new ReaLTaiizor.AirCheckbox();
+            this.airRadioButton2 = new ReaLTaiizor.AirRadioButton();
+            this.airForm1.SuspendLayout();
+            this.airTabPage1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // chromeForm1
+            // airForm1
             // 
-            this.chromeForm1.BackColor = System.Drawing.Color.White;
-            this.chromeForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.chromeForm1.Controls.Add(this.chromeButton2);
-            this.chromeForm1.Controls.Add(this.chromeSeparator2);
-            this.chromeForm1.Controls.Add(this.chromeTabPage1);
-            this.chromeForm1.Controls.Add(this.chromeSeparator1);
-            this.chromeForm1.Controls.Add(this.chromeRadioButton1);
-            this.chromeForm1.Controls.Add(this.chromeButton1);
-            this.chromeForm1.Controls.Add(this.chromeCheckbox1);
-            this.chromeForm1.Controls.Add(this.chromeRadioButton2);
-            this.chromeForm1.Customization = "AAAA/1paWv9ycnL/";
-            this.chromeForm1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chromeForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chromeForm1.Image = null;
-            this.chromeForm1.Location = new System.Drawing.Point(0, 0);
-            this.chromeForm1.MinimumSize = new System.Drawing.Size(112, 35);
-            this.chromeForm1.Movable = true;
-            this.chromeForm1.Name = "chromeForm1";
-            this.chromeForm1.NoRounding = false;
-            this.chromeForm1.Sizable = false;
-            this.chromeForm1.Size = new System.Drawing.Size(512, 256);
-            this.chromeForm1.SmartBounds = true;
-            this.chromeForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.chromeForm1.TabIndex = 0;
-            this.chromeForm1.Text = "chromeForm1";
-            this.chromeForm1.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.chromeForm1.Transparent = false;
+            this.airForm1.BackColor = System.Drawing.Color.White;
+            this.airForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.airForm1.Controls.Add(this.airButton2);
+            this.airForm1.Controls.Add(this.airSeparator2);
+            this.airForm1.Controls.Add(this.airTabPage1);
+            this.airForm1.Controls.Add(this.airSeparator1);
+            this.airForm1.Controls.Add(this.airRadioButton1);
+            this.airForm1.Controls.Add(this.airButton1);
+            this.airForm1.Controls.Add(this.airCheckbox1);
+            this.airForm1.Controls.Add(this.airRadioButton2);
+            this.airForm1.Customization = "AAAA/1paWv9ycnL/";
+            this.airForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.airForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airForm1.Image = null;
+            this.airForm1.Location = new System.Drawing.Point(0, 0);
+            this.airForm1.MinimumSize = new System.Drawing.Size(112, 35);
+            this.airForm1.Movable = true;
+            this.airForm1.Name = "airForm1";
+            this.airForm1.NoRounding = false;
+            this.airForm1.Sizable = false;
+            this.airForm1.Size = new System.Drawing.Size(512, 256);
+            this.airForm1.SmartBounds = true;
+            this.airForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.airForm1.TabIndex = 0;
+            this.airForm1.Text = "airForm1";
+            this.airForm1.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.airForm1.Transparent = false;
             // 
-            // chromeButton2
+            // airButton2
             // 
-            this.chromeButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chromeButton2.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
-            this.chromeButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chromeButton2.Image = null;
-            this.chromeButton2.Location = new System.Drawing.Point(400, 169);
-            this.chromeButton2.Name = "chromeButton2";
-            this.chromeButton2.NoRounding = true;
-            this.chromeButton2.Size = new System.Drawing.Size(100, 45);
-            this.chromeButton2.TabIndex = 7;
-            this.chromeButton2.Text = "chromeButton2";
-            this.chromeButton2.Transparent = false;
+            this.airButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.airButton2.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            this.airButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airButton2.Image = null;
+            this.airButton2.Location = new System.Drawing.Point(400, 169);
+            this.airButton2.Name = "airButton2";
+            this.airButton2.NoRounding = true;
+            this.airButton2.Size = new System.Drawing.Size(100, 45);
+            this.airButton2.TabIndex = 7;
+            this.airButton2.Text = "airButton2";
+            this.airButton2.Transparent = false;
             // 
-            // chromeSeparator2
+            // airSeparator2
             // 
-            this.chromeSeparator2.BackColor = System.Drawing.Color.Black;
-            this.chromeSeparator2.Colors = new ReaLTaiizor.BloomChrome[0];
-            this.chromeSeparator2.Customization = "";
-            this.chromeSeparator2.Font = new System.Drawing.Font("Verdana", 8F);
-            this.chromeSeparator2.Image = null;
-            this.chromeSeparator2.Location = new System.Drawing.Point(12, 162);
-            this.chromeSeparator2.Name = "chromeSeparator2";
-            this.chromeSeparator2.NoRounding = false;
-            this.chromeSeparator2.Size = new System.Drawing.Size(488, 1);
-            this.chromeSeparator2.TabIndex = 5;
-            this.chromeSeparator2.Text = "chromeSeparator2";
-            this.chromeSeparator2.Transparent = false;
+            this.airSeparator2.BackColor = System.Drawing.Color.Black;
+            this.airSeparator2.Colors = new ReaLTaiizor.BloomAir[0];
+            this.airSeparator2.Customization = "";
+            this.airSeparator2.Font = new System.Drawing.Font("Verdana", 8F);
+            this.airSeparator2.Image = null;
+            this.airSeparator2.Location = new System.Drawing.Point(12, 162);
+            this.airSeparator2.Name = "airSeparator2";
+            this.airSeparator2.NoRounding = false;
+            this.airSeparator2.Size = new System.Drawing.Size(488, 1);
+            this.airSeparator2.TabIndex = 5;
+            this.airSeparator2.Text = "airSeparator2";
+            this.airSeparator2.Transparent = false;
             // 
-            // chromeTabPage1
+            // airTabPage1
             // 
-            this.chromeTabPage1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.chromeTabPage1.Controls.Add(this.tabPage1);
-            this.chromeTabPage1.Controls.Add(this.tabPage2);
-            this.chromeTabPage1.ItemSize = new System.Drawing.Size(30, 115);
-            this.chromeTabPage1.Location = new System.Drawing.Point(12, 36);
-            this.chromeTabPage1.Multiline = true;
-            this.chromeTabPage1.Name = "chromeTabPage1";
-            this.chromeTabPage1.SelectedIndex = 0;
-            this.chromeTabPage1.ShowOuterBorders = false;
-            this.chromeTabPage1.Size = new System.Drawing.Size(488, 120);
-            this.chromeTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.chromeTabPage1.SquareColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(87)))), ((int)(((byte)(100)))));
-            this.chromeTabPage1.TabIndex = 4;
+            this.airTabPage1.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.airTabPage1.Controls.Add(this.tabPage1);
+            this.airTabPage1.Controls.Add(this.tabPage2);
+            this.airTabPage1.ItemSize = new System.Drawing.Size(30, 115);
+            this.airTabPage1.Location = new System.Drawing.Point(12, 36);
+            this.airTabPage1.Multiline = true;
+            this.airTabPage1.Name = "airTabPage1";
+            this.airTabPage1.SelectedIndex = 0;
+            this.airTabPage1.ShowOuterBorders = false;
+            this.airTabPage1.Size = new System.Drawing.Size(488, 120);
+            this.airTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.airTabPage1.SquareColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(87)))), ((int)(((byte)(100)))));
+            this.airTabPage1.TabIndex = 4;
             // 
             // tabPage1
             // 
@@ -166,97 +166,97 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // chromeSeparator1
+            // airSeparator1
             // 
-            this.chromeSeparator1.BackColor = System.Drawing.Color.Black;
-            this.chromeSeparator1.Colors = new ReaLTaiizor.BloomChrome[0];
-            this.chromeSeparator1.Customization = "";
-            this.chromeSeparator1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.chromeSeparator1.Image = null;
-            this.chromeSeparator1.Location = new System.Drawing.Point(12, 220);
-            this.chromeSeparator1.Name = "chromeSeparator1";
-            this.chromeSeparator1.NoRounding = false;
-            this.chromeSeparator1.Size = new System.Drawing.Size(488, 1);
-            this.chromeSeparator1.TabIndex = 3;
-            this.chromeSeparator1.Text = "chromeSeparator1";
-            this.chromeSeparator1.Transparent = false;
+            this.airSeparator1.BackColor = System.Drawing.Color.Black;
+            this.airSeparator1.Colors = new ReaLTaiizor.BloomAir[0];
+            this.airSeparator1.Customization = "";
+            this.airSeparator1.Font = new System.Drawing.Font("Verdana", 8F);
+            this.airSeparator1.Image = null;
+            this.airSeparator1.Location = new System.Drawing.Point(12, 220);
+            this.airSeparator1.Name = "airSeparator1";
+            this.airSeparator1.NoRounding = false;
+            this.airSeparator1.Size = new System.Drawing.Size(488, 1);
+            this.airSeparator1.TabIndex = 3;
+            this.airSeparator1.Text = "airSeparator1";
+            this.airSeparator1.Transparent = false;
             // 
-            // chromeRadioButton1
+            // airRadioButton1
             // 
-            this.chromeRadioButton1.Checked = true;
-            this.chromeRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chromeRadioButton1.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
-            this.chromeRadioButton1.Field = 16;
-            this.chromeRadioButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chromeRadioButton1.Image = null;
-            this.chromeRadioButton1.Location = new System.Drawing.Point(214, 228);
-            this.chromeRadioButton1.Name = "chromeRadioButton1";
-            this.chromeRadioButton1.NoRounding = true;
-            this.chromeRadioButton1.Size = new System.Drawing.Size(140, 16);
-            this.chromeRadioButton1.TabIndex = 2;
-            this.chromeRadioButton1.Text = "chromeRadioButton1";
-            this.chromeRadioButton1.Transparent = false;
+            this.airRadioButton1.Checked = true;
+            this.airRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.airRadioButton1.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
+            this.airRadioButton1.Field = 16;
+            this.airRadioButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airRadioButton1.Image = null;
+            this.airRadioButton1.Location = new System.Drawing.Point(274, 228);
+            this.airRadioButton1.Name = "airRadioButton1";
+            this.airRadioButton1.NoRounding = true;
+            this.airRadioButton1.Size = new System.Drawing.Size(110, 16);
+            this.airRadioButton1.TabIndex = 2;
+            this.airRadioButton1.Text = "airRadioButton1";
+            this.airRadioButton1.Transparent = false;
             // 
-            // chromeButton1
+            // airButton1
             // 
-            this.chromeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chromeButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
-            this.chromeButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chromeButton1.Image = null;
-            this.chromeButton1.Location = new System.Drawing.Point(12, 169);
-            this.chromeButton1.Name = "chromeButton1";
-            this.chromeButton1.NoRounding = false;
-            this.chromeButton1.Size = new System.Drawing.Size(100, 45);
-            this.chromeButton1.TabIndex = 1;
-            this.chromeButton1.Text = "chromeButton1";
-            this.chromeButton1.Transparent = false;
+            this.airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.airButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            this.airButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airButton1.Image = null;
+            this.airButton1.Location = new System.Drawing.Point(12, 169);
+            this.airButton1.Name = "airButton1";
+            this.airButton1.NoRounding = false;
+            this.airButton1.Size = new System.Drawing.Size(100, 45);
+            this.airButton1.TabIndex = 1;
+            this.airButton1.Text = "airButton1";
+            this.airButton1.Transparent = false;
             // 
-            // chromeCheckbox1
+            // airCheckbox1
             // 
-            this.chromeCheckbox1.BackColor = System.Drawing.Color.White;
-            this.chromeCheckbox1.Checked = true;
-            this.chromeCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chromeCheckbox1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
-            this.chromeCheckbox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chromeCheckbox1.Image = null;
-            this.chromeCheckbox1.Location = new System.Drawing.Point(12, 227);
-            this.chromeCheckbox1.Name = "chromeCheckbox1";
-            this.chromeCheckbox1.NoRounding = false;
-            this.chromeCheckbox1.Size = new System.Drawing.Size(120, 17);
-            this.chromeCheckbox1.TabIndex = 0;
-            this.chromeCheckbox1.Text = "chromeCheckbox1";
-            this.chromeCheckbox1.Transparent = false;
+            this.airCheckbox1.BackColor = System.Drawing.Color.White;
+            this.airCheckbox1.Checked = true;
+            this.airCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.airCheckbox1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
+            this.airCheckbox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airCheckbox1.Image = null;
+            this.airCheckbox1.Location = new System.Drawing.Point(12, 227);
+            this.airCheckbox1.Name = "airCheckbox1";
+            this.airCheckbox1.NoRounding = false;
+            this.airCheckbox1.Size = new System.Drawing.Size(92, 17);
+            this.airCheckbox1.TabIndex = 0;
+            this.airCheckbox1.Text = "airCheckbox1";
+            this.airCheckbox1.Transparent = false;
             // 
-            // chromeRadioButton2
+            // airRadioButton2
             // 
-            this.chromeRadioButton2.Checked = false;
-            this.chromeRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chromeRadioButton2.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
-            this.chromeRadioButton2.Field = 16;
-            this.chromeRadioButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chromeRadioButton2.Image = null;
-            this.chromeRadioButton2.Location = new System.Drawing.Point(360, 228);
-            this.chromeRadioButton2.Name = "chromeRadioButton2";
-            this.chromeRadioButton2.NoRounding = false;
-            this.chromeRadioButton2.Size = new System.Drawing.Size(140, 16);
-            this.chromeRadioButton2.TabIndex = 6;
-            this.chromeRadioButton2.Text = "chromeRadioButton2";
-            this.chromeRadioButton2.Transparent = false;
+            this.airRadioButton2.Checked = false;
+            this.airRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.airRadioButton2.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
+            this.airRadioButton2.Field = 16;
+            this.airRadioButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airRadioButton2.Image = null;
+            this.airRadioButton2.Location = new System.Drawing.Point(390, 228);
+            this.airRadioButton2.Name = "airRadioButton2";
+            this.airRadioButton2.NoRounding = false;
+            this.airRadioButton2.Size = new System.Drawing.Size(110, 16);
+            this.airRadioButton2.TabIndex = 6;
+            this.airRadioButton2.Text = "airRadioButton2";
+            this.airRadioButton2.Transparent = false;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 256);
-            this.Controls.Add(this.chromeForm1);
+            this.Controls.Add(this.airForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(112, 35);
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.chromeForm1.ResumeLayout(false);
-            this.chromeTabPage1.ResumeLayout(false);
+            this.airForm1.ResumeLayout(false);
+            this.airTabPage1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -267,18 +267,18 @@
 
         #endregion
 
-        private ReaLTaiizor.ChromeForm chromeForm1;
-        private ReaLTaiizor.ChromeButton chromeButton1;
-        private ReaLTaiizor.ChromeCheckbox chromeCheckbox1;
-        private ReaLTaiizor.ChromeRadioButton chromeRadioButton1;
-        private ReaLTaiizor.ChromeSeparator chromeSeparator1;
-        private ReaLTaiizor.ChromeSeparator chromeSeparator2;
-        private ReaLTaiizor.ChromeTabPage chromeTabPage1;
+        private ReaLTaiizor.AirForm airForm1;
+        private ReaLTaiizor.AirButton airButton1;
+        private ReaLTaiizor.AirCheckbox airCheckbox1;
+        private ReaLTaiizor.AirRadioButton airRadioButton1;
+        private ReaLTaiizor.AirSeparator airSeparator1;
+        private ReaLTaiizor.AirSeparator airSeparator2;
+        private ReaLTaiizor.AirTabPage airTabPage1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ReaLTaiizor.ChromeRadioButton chromeRadioButton2;
-        private ReaLTaiizor.ChromeButton chromeButton2;
+        private ReaLTaiizor.AirRadioButton airRadioButton2;
+        private ReaLTaiizor.AirButton airButton2;
     }
 }

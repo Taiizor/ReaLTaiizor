@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor
 {
-    #region ChromeTabPage
+    #region AirTabPage
 
-    public class ChromeTabPage : TabControl
+    public class AirTabPage : TabControl
     {
 
-        public ChromeTabPage()
+        public AirTabPage()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             DoubleBuffered = true;

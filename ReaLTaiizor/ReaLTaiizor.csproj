@@ -91,25 +91,52 @@
     <Compile Include="DungeonButtonLeft.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChromeTabPage.cs">
+    <Compile Include="AirTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChromeSeperator.cs">
+    <Compile Include="AirSeperator.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChromeRadioButton.cs">
+    <Compile Include="AirRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChromeCheckBox.cs">
+    <Compile Include="AirCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChromeButton.cs">
+    <Compile Include="AirButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DungeonControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonButtonCenter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonProgressBarCenter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonProgressBarLeft.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonProgressBarRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonButtonRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonButtonLeft.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TabPage.cs">
@@ -150,10 +177,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ChromeForm.cs">
+    <Compile Include="AirForm.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DungeonForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RibbonForm.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ToggleButton.cs">
