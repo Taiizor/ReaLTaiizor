@@ -177,7 +177,7 @@ namespace ReaLTaiizor
             if (_EnableMaximize == false || _EnableMinimize == false)
             {
                 if (_EnableMaximize == false && _EnableMinimize == false)
-                    this.Size = new Size(24, 22);
+                    this.Size = new Size(23, 22);
                 else
                     this.Size = new Size(44, 22);
             }

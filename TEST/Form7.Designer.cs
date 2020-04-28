@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form7));
             this.spaceForm1 = new ReaLTaiizor.SpaceForm();
+            this.spaceQuest1 = new ReaLTaiizor.SpaceQuest();
             this.spaceMinimize1 = new ReaLTaiizor.SpaceMinimize();
             this.spaceMaximize1 = new ReaLTaiizor.SpaceMaximize();
             this.spaceClose1 = new ReaLTaiizor.SpaceClose();
@@ -38,7 +39,6 @@
             this.spaceBorderLabel1 = new ReaLTaiizor.SpaceBorderLabel();
             this.spaceLabel1 = new ReaLTaiizor.SpaceLabel();
             this.spaceButton1 = new ReaLTaiizor.SpaceButton();
-            this.spaceQuest1 = new ReaLTaiizor.SpaceQuest();
             this.spaceForm1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,21 @@
             this.spaceForm1.Text = "spaceForm1";
             this.spaceForm1.TransparencyKey = System.Drawing.Color.Purple;
             this.spaceForm1.Transparent = false;
+            // 
+            // spaceQuest1
+            // 
+            this.spaceQuest1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.spaceQuest1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.spaceQuest1.Customization = "G4qM/3LEtP8yMjL/Kioq/yPJzP8bioz//v7+/yMjI/8qKir/";
+            this.spaceQuest1.Font = new System.Drawing.Font("Verdana", 8F);
+            this.spaceQuest1.Image = null;
+            this.spaceQuest1.Location = new System.Drawing.Point(333, 3);
+            this.spaceQuest1.Name = "spaceQuest1";
+            this.spaceQuest1.NoRounding = false;
+            this.spaceQuest1.Size = new System.Drawing.Size(23, 22);
+            this.spaceQuest1.TabIndex = 12;
+            this.spaceQuest1.Text = "spaceQuest1";
+            this.spaceQuest1.Transparent = false;
             // 
             // spaceMinimize1
             // 
@@ -190,21 +205,6 @@
             this.spaceButton1.TabIndex = 0;
             this.spaceButton1.Text = "spaceButton1";
             this.spaceButton1.Transparent = false;
-            // 
-            // spaceQuest1
-            // 
-            this.spaceQuest1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.spaceQuest1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceQuest1.Customization = "G4qM/3LEtP8yMjL/Kioq/yPJzP8bioz//v7+/yMjI/8qKir/";
-            this.spaceQuest1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceQuest1.Image = null;
-            this.spaceQuest1.Location = new System.Drawing.Point(333, 3);
-            this.spaceQuest1.Name = "spaceQuest1";
-            this.spaceQuest1.NoRounding = false;
-            this.spaceQuest1.Size = new System.Drawing.Size(23, 22);
-            this.spaceQuest1.TabIndex = 12;
-            this.spaceQuest1.Text = "spaceQuest1";
-            this.spaceQuest1.Transparent = false;
             // 
             // Form7
             // 

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.themeForm1 = new ReaLTaiizor.ThemeForm();
+            this.socialButton2 = new ReaLTaiizor.SocialButton();
             this.tabPage1 = new ReaLTaiizor.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.progressIndicator1 = new ReaLTaiizor.ProgressIndicator();
@@ -54,10 +55,6 @@
             this.comboBoxEdit2 = new ReaLTaiizor.ComboBoxEdit();
             this.chatButtonRight1 = new ReaLTaiizor.ChatButtonRight();
             this.chatButtonLeft1 = new ReaLTaiizor.ChatButtonLeft();
-            this.toggleEdit4 = new ReaLTaiizor.ToggleEdit();
-            this.toggleEdit3 = new ReaLTaiizor.ToggleEdit();
-            this.toggleEdit2 = new ReaLTaiizor.ToggleEdit();
-            this.toggleEdit1 = new ReaLTaiizor.ToggleEdit();
             this.trackEdit1 = new ReaLTaiizor.TrackEdit();
             this.chatBubbleRight1 = new ReaLTaiizor.ChatBubbleRight();
             this.chatBubbleLeft1 = new ReaLTaiizor.ChatBubbleLeft();
@@ -94,6 +91,7 @@
             // themeForm1
             // 
             this.themeForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.themeForm1.Controls.Add(this.socialButton2);
             this.themeForm1.Controls.Add(this.tabPage1);
             this.themeForm1.Controls.Add(this.badge13);
             this.themeForm1.Controls.Add(this.badge11);
@@ -113,10 +111,6 @@
             this.themeForm1.Controls.Add(this.comboBoxEdit2);
             this.themeForm1.Controls.Add(this.chatButtonRight1);
             this.themeForm1.Controls.Add(this.chatButtonLeft1);
-            this.themeForm1.Controls.Add(this.toggleEdit4);
-            this.themeForm1.Controls.Add(this.toggleEdit3);
-            this.themeForm1.Controls.Add(this.toggleEdit2);
-            this.themeForm1.Controls.Add(this.toggleEdit1);
             this.themeForm1.Controls.Add(this.trackEdit1);
             this.themeForm1.Controls.Add(this.chatBubbleRight1);
             this.themeForm1.Controls.Add(this.chatBubbleLeft1);
@@ -157,6 +151,16 @@
             this.themeForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.themeForm1.TabIndex = 0;
             this.themeForm1.Text = "themeForm1";
+            // 
+            // socialButton2
+            // 
+            this.socialButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.socialButton2.Image = global::TEST.Properties.Resources.Twitter;
+            this.socialButton2.Location = new System.Drawing.Point(71, 244);
+            this.socialButton2.Name = "socialButton2";
+            this.socialButton2.Size = new System.Drawing.Size(54, 54);
+            this.socialButton2.TabIndex = 55;
+            this.socialButton2.Text = "socialButton2";
             // 
             // tabPage1
             // 
@@ -268,7 +272,7 @@
             // 
             // badge10
             // 
-            this.badge10.Location = new System.Drawing.Point(416, 411);
+            this.badge10.Location = new System.Drawing.Point(416, 417);
             this.badge10.Maximum = 99;
             this.badge10.Name = "badge10";
             this.badge10.Size = new System.Drawing.Size(20, 20);
@@ -278,7 +282,7 @@
             // 
             // badge9
             // 
-            this.badge9.Location = new System.Drawing.Point(390, 411);
+            this.badge9.Location = new System.Drawing.Point(390, 417);
             this.badge9.Maximum = 99;
             this.badge9.Name = "badge9";
             this.badge9.Size = new System.Drawing.Size(20, 20);
@@ -288,7 +292,7 @@
             // 
             // badge8
             // 
-            this.badge8.Location = new System.Drawing.Point(366, 411);
+            this.badge8.Location = new System.Drawing.Point(366, 417);
             this.badge8.Maximum = 99;
             this.badge8.Name = "badge8";
             this.badge8.Size = new System.Drawing.Size(20, 20);
@@ -298,7 +302,7 @@
             // 
             // badge7
             // 
-            this.badge7.Location = new System.Drawing.Point(340, 411);
+            this.badge7.Location = new System.Drawing.Point(340, 417);
             this.badge7.Maximum = 99;
             this.badge7.Name = "badge7";
             this.badge7.Size = new System.Drawing.Size(20, 20);
@@ -308,7 +312,7 @@
             // 
             // badge6
             // 
-            this.badge6.Location = new System.Drawing.Point(314, 411);
+            this.badge6.Location = new System.Drawing.Point(314, 417);
             this.badge6.Maximum = 99;
             this.badge6.Name = "badge6";
             this.badge6.Size = new System.Drawing.Size(20, 20);
@@ -318,7 +322,7 @@
             // 
             // badge5
             // 
-            this.badge5.Location = new System.Drawing.Point(288, 411);
+            this.badge5.Location = new System.Drawing.Point(288, 417);
             this.badge5.Maximum = 99;
             this.badge5.Name = "badge5";
             this.badge5.Size = new System.Drawing.Size(20, 20);
@@ -328,7 +332,7 @@
             // 
             // badge4
             // 
-            this.badge4.Location = new System.Drawing.Point(262, 411);
+            this.badge4.Location = new System.Drawing.Point(262, 417);
             this.badge4.Maximum = 99;
             this.badge4.Name = "badge4";
             this.badge4.Size = new System.Drawing.Size(20, 20);
@@ -338,7 +342,7 @@
             // 
             // badge3
             // 
-            this.badge3.Location = new System.Drawing.Point(239, 411);
+            this.badge3.Location = new System.Drawing.Point(239, 417);
             this.badge3.Maximum = 99;
             this.badge3.Name = "badge3";
             this.badge3.Size = new System.Drawing.Size(20, 20);
@@ -348,7 +352,7 @@
             // 
             // badge2
             // 
-            this.badge2.Location = new System.Drawing.Point(214, 411);
+            this.badge2.Location = new System.Drawing.Point(214, 417);
             this.badge2.Maximum = 99;
             this.badge2.Name = "badge2";
             this.badge2.Size = new System.Drawing.Size(20, 20);
@@ -358,7 +362,7 @@
             // 
             // badge1
             // 
-            this.badge1.Location = new System.Drawing.Point(188, 411);
+            this.badge1.Location = new System.Drawing.Point(188, 417);
             this.badge1.Maximum = 99;
             this.badge1.Name = "badge1";
             this.badge1.Size = new System.Drawing.Size(20, 20);
@@ -440,50 +444,6 @@
             this.chatButtonLeft1.Text = "chatButtonLeft1";
             this.chatButtonLeft1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // toggleEdit4
-            // 
-            this.toggleEdit4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleEdit4.Location = new System.Drawing.Point(554, 268);
-            this.toggleEdit4.Name = "toggleEdit4";
-            this.toggleEdit4.Size = new System.Drawing.Size(41, 23);
-            this.toggleEdit4.TabIndex = 33;
-            this.toggleEdit4.Text = "toggleEdit4";
-            this.toggleEdit4.Toggled = true;
-            this.toggleEdit4.Type = ReaLTaiizor.ToggleEdit._Type.YesNo;
-            // 
-            // toggleEdit3
-            // 
-            this.toggleEdit3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleEdit3.Location = new System.Drawing.Point(554, 250);
-            this.toggleEdit3.Name = "toggleEdit3";
-            this.toggleEdit3.Size = new System.Drawing.Size(41, 23);
-            this.toggleEdit3.TabIndex = 32;
-            this.toggleEdit3.Text = "toggleEdit3";
-            this.toggleEdit3.Toggled = false;
-            this.toggleEdit3.Type = ReaLTaiizor.ToggleEdit._Type.OnOff;
-            // 
-            // toggleEdit2
-            // 
-            this.toggleEdit2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleEdit2.Location = new System.Drawing.Point(507, 268);
-            this.toggleEdit2.Name = "toggleEdit2";
-            this.toggleEdit2.Size = new System.Drawing.Size(41, 23);
-            this.toggleEdit2.TabIndex = 31;
-            this.toggleEdit2.Text = "toggleEdit2";
-            this.toggleEdit2.Toggled = false;
-            this.toggleEdit2.Type = ReaLTaiizor.ToggleEdit._Type.IO;
-            // 
-            // toggleEdit1
-            // 
-            this.toggleEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleEdit1.Location = new System.Drawing.Point(507, 250);
-            this.toggleEdit1.Name = "toggleEdit1";
-            this.toggleEdit1.Size = new System.Drawing.Size(41, 23);
-            this.toggleEdit1.TabIndex = 30;
-            this.toggleEdit1.Text = "toggleEdit1";
-            this.toggleEdit1.Toggled = false;
-            this.toggleEdit1.Type = ReaLTaiizor.ToggleEdit._Type.YesNo;
-            // 
             // trackEdit1
             // 
             this.trackEdit1.DrawHatch = true;
@@ -547,7 +507,7 @@
             this.notificationBox8.Name = "notificationBox8";
             this.notificationBox8.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
             this.notificationBox8.RoundCorners = true;
-            this.notificationBox8.ShowCloseButton = true;
+            this.notificationBox8.ShowCloseButton = false;
             this.notificationBox8.Size = new System.Drawing.Size(145, 40);
             this.notificationBox8.TabIndex = 24;
             this.notificationBox8.Text = "notificationBox8";
@@ -577,7 +537,7 @@
             this.notificationBox6.Name = "notificationBox6";
             this.notificationBox6.NotificationType = ReaLTaiizor.NotificationBox.Type.Error;
             this.notificationBox6.RoundCorners = true;
-            this.notificationBox6.ShowCloseButton = true;
+            this.notificationBox6.ShowCloseButton = false;
             this.notificationBox6.Size = new System.Drawing.Size(145, 40);
             this.notificationBox6.TabIndex = 22;
             this.notificationBox6.Text = "notificationBox6";
@@ -637,7 +597,7 @@
             // toggleButton4
             // 
             this.toggleButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleButton4.Location = new System.Drawing.Point(425, 255);
+            this.toggleButton4.Location = new System.Drawing.Point(534, 255);
             this.toggleButton4.Name = "toggleButton4";
             this.toggleButton4.Size = new System.Drawing.Size(76, 33);
             this.toggleButton4.TabIndex = 16;
@@ -648,7 +608,7 @@
             // toggleButton3
             // 
             this.toggleButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleButton3.Location = new System.Drawing.Point(343, 255);
+            this.toggleButton3.Location = new System.Drawing.Point(452, 255);
             this.toggleButton3.Name = "toggleButton3";
             this.toggleButton3.Size = new System.Drawing.Size(76, 33);
             this.toggleButton3.TabIndex = 15;
@@ -659,7 +619,7 @@
             // toggleButton2
             // 
             this.toggleButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleButton2.Location = new System.Drawing.Point(261, 255);
+            this.toggleButton2.Location = new System.Drawing.Point(366, 255);
             this.toggleButton2.Name = "toggleButton2";
             this.toggleButton2.Size = new System.Drawing.Size(76, 33);
             this.toggleButton2.TabIndex = 14;
@@ -670,7 +630,7 @@
             // toggleButton1
             // 
             this.toggleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleButton1.Location = new System.Drawing.Point(179, 255);
+            this.toggleButton1.Location = new System.Drawing.Point(284, 255);
             this.toggleButton1.Name = "toggleButton1";
             this.toggleButton1.Size = new System.Drawing.Size(76, 33);
             this.toggleButton1.TabIndex = 13;
@@ -684,12 +644,12 @@
             this.textEdit1.Font = new System.Drawing.Font("Tahoma", 11F);
             this.textEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
             this.textEdit1.Image = global::TEST.Properties.Resources.Google;
-            this.textEdit1.Location = new System.Drawing.Point(71, 250);
+            this.textEdit1.Location = new System.Drawing.Point(131, 250);
             this.textEdit1.MaxLength = 32767;
             this.textEdit1.Multiline = false;
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.ReadOnly = false;
-            this.textEdit1.Size = new System.Drawing.Size(102, 41);
+            this.textEdit1.Size = new System.Drawing.Size(144, 41);
             this.textEdit1.TabIndex = 12;
             this.textEdit1.Text = "textEdit1";
             this.textEdit1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -698,7 +658,7 @@
             // socialButton1
             // 
             this.socialButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.socialButton1.Image = global::TEST.Properties.Resources.Twitter;
+            this.socialButton1.Image = global::TEST.Properties.Resources.Google;
             this.socialButton1.Location = new System.Drawing.Point(11, 244);
             this.socialButton1.Name = "socialButton1";
             this.socialButton1.Size = new System.Drawing.Size(54, 54);
@@ -741,7 +701,7 @@
             this.notificationBox3.Name = "notificationBox3";
             this.notificationBox3.NotificationType = ReaLTaiizor.NotificationBox.Type.Error;
             this.notificationBox3.RoundCorners = false;
-            this.notificationBox3.ShowCloseButton = true;
+            this.notificationBox3.ShowCloseButton = false;
             this.notificationBox3.Size = new System.Drawing.Size(145, 40);
             this.notificationBox3.TabIndex = 7;
             this.notificationBox3.Text = "notificationBox3";
@@ -771,7 +731,7 @@
             this.notificationBox1.Name = "notificationBox1";
             this.notificationBox1.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
             this.notificationBox1.RoundCorners = false;
-            this.notificationBox1.ShowCloseButton = true;
+            this.notificationBox1.ShowCloseButton = false;
             this.notificationBox1.Size = new System.Drawing.Size(145, 40);
             this.notificationBox1.TabIndex = 5;
             this.notificationBox1.Text = "notificationBox1";
@@ -899,10 +859,6 @@
         private ReaLTaiizor.ChatBubbleRight chatBubbleRight1;
         private ReaLTaiizor.ChatBubbleLeft chatBubbleLeft1;
         private ReaLTaiizor.TrackEdit trackEdit1;
-        private ReaLTaiizor.ToggleEdit toggleEdit4;
-        private ReaLTaiizor.ToggleEdit toggleEdit3;
-        private ReaLTaiizor.ToggleEdit toggleEdit2;
-        private ReaLTaiizor.ToggleEdit toggleEdit1;
         private ReaLTaiizor.ChatButtonLeft chatButtonLeft1;
         private ReaLTaiizor.ChatButtonRight chatButtonRight1;
         private ReaLTaiizor.CircleProgressBar circleProgressBar1;
@@ -927,5 +883,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private ReaLTaiizor.ProgressIndicator progressIndicator1;
         private ReaLTaiizor.GroupBox groupBox1;
+        private ReaLTaiizor.SocialButton socialButton2;
     }
 }

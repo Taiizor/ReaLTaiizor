@@ -20,3 +20,4 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Form6.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Form7.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Form8.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Form9.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\TEST\obj\Debug\TEST.Form10.resources

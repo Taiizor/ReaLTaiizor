@@ -128,7 +128,7 @@ namespace ReaLTaiizor
             base.OnMouseMove(e);
 
             // Decides the location of the drawn ellipse. If mouse is over the correct coordinates, "IsOverClose" boolean will be triggered to draw the ellipse
-            if (e.X >= Width - 19 && e.X <= Width - 10 && e.Y > CloseCoordinates.Y && e.Y < CloseCoordinates.Y + 12)
+            if (e.X >= Width - 19 && e.X <= Width - 10 && e.Y > CloseCoordinates.Y && e.Y < CloseCoordinates.Y + 12 && ShowCloseButton)
             {
                 IsOverClose = true;
                 Cursor = Cursors.Hand;

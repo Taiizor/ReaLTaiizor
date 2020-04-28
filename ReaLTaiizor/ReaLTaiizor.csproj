@@ -121,6 +121,27 @@
     <Compile Include="BigLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MoonLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MoonCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MoonRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MoonTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MoonProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MoonButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MoonForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SmallLabel.cs">
       <SubType>Component</SubType>
     </Compile>
