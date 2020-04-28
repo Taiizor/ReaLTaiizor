@@ -29,7 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form13));
+            this.foreverStatusBar1 = new ReaLTaiizor.ForeverStatusBar();
             this.foreverForm1 = new ReaLTaiizor.ForeverForm();
+            this.foreverRadioButton3 = new ReaLTaiizor.ForeverRadioButton();
+            this.foreverTextBox1 = new ReaLTaiizor.ForeverTextBox();
+            this.foreverButtonSticky1 = new ReaLTaiizor.ForeverButtonSticky();
+            this.foreverRadioButton2 = new ReaLTaiizor.ForeverRadioButton();
+            this.foreverRadioButton1 = new ReaLTaiizor.ForeverRadioButton();
+            this.foreverCheckBox1 = new ReaLTaiizor.ForeverCheckBox();
+            this.foreverTabPage1 = new ReaLTaiizor.ForeverTabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.foreverButton2 = new ReaLTaiizor.ForeverButton();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.foreverButton3 = new ReaLTaiizor.ForeverButton();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.foreverButton4 = new ReaLTaiizor.ForeverButton();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.foreverButton5 = new ReaLTaiizor.ForeverButton();
             this.foreverComboBox1 = new ReaLTaiizor.ForeverComboBox();
             this.foreverPalette1 = new ReaLTaiizor.ForeverPalette();
             this.foreverNotification3 = new ReaLTaiizor.ForeverNotification();
@@ -53,15 +69,6 @@
             this.foreverMaximize1 = new ReaLTaiizor.ForeverMaximize();
             this.foreverClose1 = new ReaLTaiizor.ForeverClose();
             this.foreverButton1 = new ReaLTaiizor.ForeverButton();
-            this.foreverTabPage1 = new ReaLTaiizor.ForeverTabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.foreverButton2 = new ReaLTaiizor.ForeverButton();
-            this.foreverButton3 = new ReaLTaiizor.ForeverButton();
-            this.foreverButton4 = new ReaLTaiizor.ForeverButton();
-            this.foreverButton5 = new ReaLTaiizor.ForeverButton();
             this.foreverForm1.SuspendLayout();
             this.foreverTabPage1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -70,11 +77,32 @@
             this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
+            // foreverStatusBar1
+            // 
+            this.foreverStatusBar1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.foreverStatusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.foreverStatusBar1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.foreverStatusBar1.ForeColor = System.Drawing.Color.White;
+            this.foreverStatusBar1.Location = new System.Drawing.Point(0, 468);
+            this.foreverStatusBar1.Name = "foreverStatusBar1";
+            this.foreverStatusBar1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverStatusBar1.ShowTimeDate = false;
+            this.foreverStatusBar1.Size = new System.Drawing.Size(800, 23);
+            this.foreverStatusBar1.TabIndex = 1;
+            this.foreverStatusBar1.Text = "foreverStatusBar1";
+            this.foreverStatusBar1.TextColor = System.Drawing.Color.White;
+            // 
             // foreverForm1
             // 
             this.foreverForm1.BackColor = System.Drawing.Color.White;
             this.foreverForm1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverForm1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
+            this.foreverForm1.Controls.Add(this.foreverRadioButton3);
+            this.foreverForm1.Controls.Add(this.foreverTextBox1);
+            this.foreverForm1.Controls.Add(this.foreverButtonSticky1);
+            this.foreverForm1.Controls.Add(this.foreverRadioButton2);
+            this.foreverForm1.Controls.Add(this.foreverRadioButton1);
+            this.foreverForm1.Controls.Add(this.foreverCheckBox1);
             this.foreverForm1.Controls.Add(this.foreverTabPage1);
             this.foreverForm1.Controls.Add(this.foreverComboBox1);
             this.foreverForm1.Controls.Add(this.foreverPalette1);
@@ -106,9 +134,210 @@
             this.foreverForm1.HeaderMaximize = false;
             this.foreverForm1.Location = new System.Drawing.Point(0, 0);
             this.foreverForm1.Name = "foreverForm1";
-            this.foreverForm1.Size = new System.Drawing.Size(800, 469);
+            this.foreverForm1.Size = new System.Drawing.Size(800, 491);
             this.foreverForm1.TabIndex = 0;
             this.foreverForm1.Text = "foreverForm1";
+            // 
+            // foreverRadioButton3
+            // 
+            this.foreverRadioButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.foreverRadioButton3.Checked = false;
+            this.foreverRadioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverRadioButton3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverRadioButton3.Location = new System.Drawing.Point(560, 116);
+            this.foreverRadioButton3.Name = "foreverRadioButton3";
+            this.foreverRadioButton3.Options = ReaLTaiizor.ForeverRadioButton._Options.Style1;
+            this.foreverRadioButton3.Size = new System.Drawing.Size(145, 22);
+            this.foreverRadioButton3.TabIndex = 29;
+            this.foreverRadioButton3.Text = "foreverRadioButton3";
+            // 
+            // foreverTextBox1
+            // 
+            this.foreverTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.foreverTextBox1.FocusOnHover = false;
+            this.foreverTextBox1.Location = new System.Drawing.Point(424, 150);
+            this.foreverTextBox1.MaxLength = 32767;
+            this.foreverTextBox1.Multiline = false;
+            this.foreverTextBox1.Name = "foreverTextBox1";
+            this.foreverTextBox1.ReadOnly = false;
+            this.foreverTextBox1.Size = new System.Drawing.Size(103, 29);
+            this.foreverTextBox1.TabIndex = 28;
+            this.foreverTextBox1.Text = "foreverTextBox1";
+            this.foreverTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.foreverTextBox1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.foreverTextBox1.UseSystemPasswordChar = false;
+            // 
+            // foreverButtonSticky1
+            // 
+            this.foreverButtonSticky1.BackColor = System.Drawing.Color.Transparent;
+            this.foreverButtonSticky1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverButtonSticky1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverButtonSticky1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.foreverButtonSticky1.Location = new System.Drawing.Point(258, 144);
+            this.foreverButtonSticky1.Name = "foreverButtonSticky1";
+            this.foreverButtonSticky1.Rounded = false;
+            this.foreverButtonSticky1.Size = new System.Drawing.Size(160, 40);
+            this.foreverButtonSticky1.TabIndex = 27;
+            this.foreverButtonSticky1.Text = "foreverButtonSticky1";
+            this.foreverButtonSticky1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
+            // foreverRadioButton2
+            // 
+            this.foreverRadioButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.foreverRadioButton2.Checked = true;
+            this.foreverRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverRadioButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverRadioButton2.Location = new System.Drawing.Point(409, 116);
+            this.foreverRadioButton2.Name = "foreverRadioButton2";
+            this.foreverRadioButton2.Options = ReaLTaiizor.ForeverRadioButton._Options.Style1;
+            this.foreverRadioButton2.Size = new System.Drawing.Size(145, 22);
+            this.foreverRadioButton2.TabIndex = 26;
+            this.foreverRadioButton2.Text = "foreverRadioButton2";
+            // 
+            // foreverRadioButton1
+            // 
+            this.foreverRadioButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.foreverRadioButton1.Checked = false;
+            this.foreverRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverRadioButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverRadioButton1.Location = new System.Drawing.Point(258, 116);
+            this.foreverRadioButton1.Name = "foreverRadioButton1";
+            this.foreverRadioButton1.Options = ReaLTaiizor.ForeverRadioButton._Options.Style1;
+            this.foreverRadioButton1.Size = new System.Drawing.Size(145, 22);
+            this.foreverRadioButton1.TabIndex = 25;
+            this.foreverRadioButton1.Text = "foreverRadioButton1";
+            // 
+            // foreverCheckBox1
+            // 
+            this.foreverCheckBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.foreverCheckBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.foreverCheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverCheckBox1.Checked = false;
+            this.foreverCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverCheckBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverCheckBox1.Location = new System.Drawing.Point(653, 72);
+            this.foreverCheckBox1.Name = "foreverCheckBox1";
+            this.foreverCheckBox1.Options = ReaLTaiizor.ForeverCheckBox._Options.Style1;
+            this.foreverCheckBox1.Size = new System.Drawing.Size(130, 22);
+            this.foreverCheckBox1.TabIndex = 24;
+            this.foreverCheckBox1.Text = "foreverCheckBox1";
+            // 
+            // foreverTabPage1
+            // 
+            this.foreverTabPage1.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverTabPage1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.foreverTabPage1.Controls.Add(this.tabPage1);
+            this.foreverTabPage1.Controls.Add(this.tabPage2);
+            this.foreverTabPage1.Controls.Add(this.tabPage3);
+            this.foreverTabPage1.Controls.Add(this.tabPage4);
+            this.foreverTabPage1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverTabPage1.ItemSize = new System.Drawing.Size(120, 40);
+            this.foreverTabPage1.Location = new System.Drawing.Point(244, 354);
+            this.foreverTabPage1.Name = "foreverTabPage1";
+            this.foreverTabPage1.SelectedIndex = 0;
+            this.foreverTabPage1.Size = new System.Drawing.Size(489, 98);
+            this.foreverTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.foreverTabPage1.TabIndex = 23;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage1.Controls.Add(this.foreverButton2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 44);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(481, 50);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            // 
+            // foreverButton2
+            // 
+            this.foreverButton2.BackColor = System.Drawing.Color.Transparent;
+            this.foreverButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.foreverButton2.Location = new System.Drawing.Point(180, 5);
+            this.foreverButton2.Name = "foreverButton2";
+            this.foreverButton2.Rounded = false;
+            this.foreverButton2.Size = new System.Drawing.Size(120, 40);
+            this.foreverButton2.TabIndex = 1;
+            this.foreverButton2.Text = "foreverButton2";
+            this.foreverButton2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage2.Controls.Add(this.foreverButton3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 44);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(481, 50);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            // 
+            // foreverButton3
+            // 
+            this.foreverButton3.BackColor = System.Drawing.Color.Transparent;
+            this.foreverButton3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverButton3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.foreverButton3.Location = new System.Drawing.Point(180, 5);
+            this.foreverButton3.Name = "foreverButton3";
+            this.foreverButton3.Rounded = false;
+            this.foreverButton3.Size = new System.Drawing.Size(120, 40);
+            this.foreverButton3.TabIndex = 1;
+            this.foreverButton3.Text = "foreverButton3";
+            this.foreverButton3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage3.Controls.Add(this.foreverButton4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 44);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(481, 50);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            // 
+            // foreverButton4
+            // 
+            this.foreverButton4.BackColor = System.Drawing.Color.Transparent;
+            this.foreverButton4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverButton4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.foreverButton4.Location = new System.Drawing.Point(180, 5);
+            this.foreverButton4.Name = "foreverButton4";
+            this.foreverButton4.Rounded = false;
+            this.foreverButton4.Size = new System.Drawing.Size(120, 40);
+            this.foreverButton4.TabIndex = 1;
+            this.foreverButton4.Text = "foreverButton4";
+            this.foreverButton4.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage4.Controls.Add(this.foreverButton5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 44);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(481, 50);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            // 
+            // foreverButton5
+            // 
+            this.foreverButton5.BackColor = System.Drawing.Color.Transparent;
+            this.foreverButton5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverButton5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.foreverButton5.Location = new System.Drawing.Point(180, 5);
+            this.foreverButton5.Name = "foreverButton5";
+            this.foreverButton5.Rounded = false;
+            this.foreverButton5.Size = new System.Drawing.Size(120, 40);
+            this.foreverButton5.TabIndex = 1;
+            this.foreverButton5.Text = "foreverButton5";
+            this.foreverButton5.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             // 
             // foreverComboBox1
             // 
@@ -156,39 +385,39 @@
             this.foreverNotification3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverNotification3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverNotification3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.foreverNotification3.kind = ReaLTaiizor.ForeverNotification._Kind.Info;
+            this.foreverNotification3.Kind = ReaLTaiizor.ForeverNotification._Kind.Info;
+            this.foreverNotification3.Visible = true;
             this.foreverNotification3.Location = new System.Drawing.Point(506, 306);
             this.foreverNotification3.Name = "foreverNotification3";
             this.foreverNotification3.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification3.TabIndex = 20;
             this.foreverNotification3.Text = "foreverNotification3";
-            this.foreverNotification3.Visible = false;
             // 
             // foreverNotification2
             // 
             this.foreverNotification2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverNotification2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverNotification2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.foreverNotification2.kind = ReaLTaiizor.ForeverNotification._Kind.Success;
+            this.foreverNotification2.Kind = ReaLTaiizor.ForeverNotification._Kind.Success;
+            this.foreverNotification2.Visible = true;
             this.foreverNotification2.Location = new System.Drawing.Point(285, 306);
             this.foreverNotification2.Name = "foreverNotification2";
             this.foreverNotification2.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification2.TabIndex = 19;
             this.foreverNotification2.Text = "foreverNotification2";
-            this.foreverNotification2.Visible = false;
             // 
             // foreverNotification1
             // 
             this.foreverNotification1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverNotification1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverNotification1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.foreverNotification1.kind = ReaLTaiizor.ForeverNotification._Kind.Error;
+            this.foreverNotification1.Kind = ReaLTaiizor.ForeverNotification._Kind.Error;
+            this.foreverNotification1.Visible = true;
             this.foreverNotification1.Location = new System.Drawing.Point(64, 306);
             this.foreverNotification1.Name = "foreverNotification1";
             this.foreverNotification1.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification1.TabIndex = 18;
             this.foreverNotification1.Text = "foreverNotification1";
-            this.foreverNotification1.Visible = false;
             // 
             // foreverProgressBar4
             // 
@@ -448,128 +677,12 @@
             this.foreverButton1.Text = "foreverButton1";
             this.foreverButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             // 
-            // foreverTabPage1
-            // 
-            this.foreverTabPage1.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverTabPage1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverTabPage1.Controls.Add(this.tabPage1);
-            this.foreverTabPage1.Controls.Add(this.tabPage2);
-            this.foreverTabPage1.Controls.Add(this.tabPage3);
-            this.foreverTabPage1.Controls.Add(this.tabPage4);
-            this.foreverTabPage1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.foreverTabPage1.ItemSize = new System.Drawing.Size(120, 40);
-            this.foreverTabPage1.Location = new System.Drawing.Point(244, 354);
-            this.foreverTabPage1.Name = "foreverTabPage1";
-            this.foreverTabPage1.SelectedIndex = 0;
-            this.foreverTabPage1.Size = new System.Drawing.Size(489, 98);
-            this.foreverTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.foreverTabPage1.TabIndex = 23;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.tabPage1.Controls.Add(this.foreverButton2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 44);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(481, 50);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.tabPage2.Controls.Add(this.foreverButton3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(481, 50);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.tabPage3.Controls.Add(this.foreverButton4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 44);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(481, 50);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.tabPage4.Controls.Add(this.foreverButton5);
-            this.tabPage4.Location = new System.Drawing.Point(4, 44);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(481, 50);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            // 
-            // foreverButton2
-            // 
-            this.foreverButton2.BackColor = System.Drawing.Color.Transparent;
-            this.foreverButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.foreverButton2.Location = new System.Drawing.Point(180, 5);
-            this.foreverButton2.Name = "foreverButton2";
-            this.foreverButton2.Rounded = false;
-            this.foreverButton2.Size = new System.Drawing.Size(120, 40);
-            this.foreverButton2.TabIndex = 1;
-            this.foreverButton2.Text = "foreverButton2";
-            this.foreverButton2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            // 
-            // foreverButton3
-            // 
-            this.foreverButton3.BackColor = System.Drawing.Color.Transparent;
-            this.foreverButton3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverButton3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.foreverButton3.Location = new System.Drawing.Point(180, 5);
-            this.foreverButton3.Name = "foreverButton3";
-            this.foreverButton3.Rounded = false;
-            this.foreverButton3.Size = new System.Drawing.Size(120, 40);
-            this.foreverButton3.TabIndex = 1;
-            this.foreverButton3.Text = "foreverButton3";
-            this.foreverButton3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            // 
-            // foreverButton4
-            // 
-            this.foreverButton4.BackColor = System.Drawing.Color.Transparent;
-            this.foreverButton4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverButton4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.foreverButton4.Location = new System.Drawing.Point(180, 5);
-            this.foreverButton4.Name = "foreverButton4";
-            this.foreverButton4.Rounded = false;
-            this.foreverButton4.Size = new System.Drawing.Size(120, 40);
-            this.foreverButton4.TabIndex = 1;
-            this.foreverButton4.Text = "foreverButton4";
-            this.foreverButton4.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            // 
-            // foreverButton5
-            // 
-            this.foreverButton5.BackColor = System.Drawing.Color.Transparent;
-            this.foreverButton5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverButton5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.foreverButton5.Location = new System.Drawing.Point(180, 5);
-            this.foreverButton5.Name = "foreverButton5";
-            this.foreverButton5.Rounded = false;
-            this.foreverButton5.Size = new System.Drawing.Size(120, 40);
-            this.foreverButton5.TabIndex = 1;
-            this.foreverButton5.Text = "foreverButton5";
-            this.foreverButton5.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            // 
             // Form13
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 469);
+            this.ClientSize = new System.Drawing.Size(800, 491);
+            this.Controls.Add(this.foreverStatusBar1);
             this.Controls.Add(this.foreverForm1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -625,5 +738,12 @@
         private ReaLTaiizor.ForeverButton foreverButton3;
         private ReaLTaiizor.ForeverButton foreverButton4;
         private ReaLTaiizor.ForeverButton foreverButton5;
+        private ReaLTaiizor.ForeverCheckBox foreverCheckBox1;
+        private ReaLTaiizor.ForeverRadioButton foreverRadioButton1;
+        private ReaLTaiizor.ForeverRadioButton foreverRadioButton2;
+        private ReaLTaiizor.ForeverButtonSticky foreverButtonSticky1;
+        private ReaLTaiizor.ForeverTextBox foreverTextBox1;
+        private ReaLTaiizor.ForeverStatusBar foreverStatusBar1;
+        private ReaLTaiizor.ForeverRadioButton foreverRadioButton3;
     }
 }

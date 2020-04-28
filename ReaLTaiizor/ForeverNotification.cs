@@ -26,6 +26,7 @@ namespace ReaLTaiizor
 		private string _Text;
 		private MouseStateForever State = MouseStateForever.None;
 		private int X;
+
 		private Timer withEventsField_T;
 		private Timer T
 		{
@@ -50,7 +51,7 @@ namespace ReaLTaiizor
 		}
 
 		[Category("Options")]
-		public _Kind kind
+		public _Kind Kind
 		{
 			get { return K; }
 			set { K = value; }

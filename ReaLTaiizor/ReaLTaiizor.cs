@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 //    Site   : www.Taiizor.com
 //    Created: 15.May.2019
 //    Changed: 28.Apr.2020
-//    Version: 3.7.5.3
+//    Version: 3.7.5.6
 //
 //|---------DO-NOT-REMOVE---------|
 

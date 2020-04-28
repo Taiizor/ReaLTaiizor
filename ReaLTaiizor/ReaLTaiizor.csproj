@@ -130,7 +130,34 @@
     <Compile Include="DungeonControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ForeverGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverContextMentuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverStatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverButtonSticky.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ForeverComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ForeverCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ForeverTabPage.cs">
