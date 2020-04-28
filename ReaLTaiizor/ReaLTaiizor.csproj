@@ -139,6 +139,30 @@
     <Compile Include="BigLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FoxTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FoxLinkLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FoxLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FoxBigLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FoxNotification.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FoxRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FoxCheckEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FoxCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MoonLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -158,6 +182,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MoonForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FoxButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SmallLabel.cs">
