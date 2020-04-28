@@ -112,6 +112,33 @@
     <Compile Include="DungeonControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FormMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormContextMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BigLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SmallLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BigTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SmallTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TickIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InfoIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -140,6 +167,27 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RibbonButtonLeft.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkyStatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkyNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkyLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkyComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkyCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkyRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SpaceBorderLabel.cs">
@@ -222,6 +270,9 @@
     <Compile Include="SpaceForm.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SkyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ThunderRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -250,6 +301,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ToggleEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormStatusStrip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TrackBar.cs">

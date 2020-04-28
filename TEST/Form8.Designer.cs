@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form8));
             this.thunderTheme1 = new ReaLTaiizor.ThunderTheme();
             this.thunderControlBox1 = new ReaLTaiizor.ThunderControlBox();
             this.thunderGroupBox1 = new ReaLTaiizor.ThunderGroupBox();
+            this.thunderRadioButton1 = new ReaLTaiizor.ThunderRadioButton();
             this.thunderLabel1 = new ReaLTaiizor.ThunderLabel();
             this.thunderCheckBox1 = new ReaLTaiizor.ThunderCheckBox();
             this.thunderProgressBar2 = new ReaLTaiizor.ThunderProgressBar();
             this.thunderProgressBar1 = new ReaLTaiizor.ThunderProgressBar();
             this.thunderButton1 = new ReaLTaiizor.ThunderButton();
-            this.thunderRadioButton1 = new ReaLTaiizor.ThunderRadioButton();
             this.thunderTheme1.SuspendLayout();
             this.thunderGroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +82,18 @@
             this.thunderGroupBox1.Size = new System.Drawing.Size(364, 202);
             this.thunderGroupBox1.TabIndex = 1;
             this.thunderGroupBox1.Text = "thunderGroupBox1";
+            // 
+            // thunderRadioButton1
+            // 
+            this.thunderRadioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.thunderRadioButton1.Checked = false;
+            this.thunderRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.thunderRadioButton1.ForeColor = System.Drawing.Color.Black;
+            this.thunderRadioButton1.Location = new System.Drawing.Point(192, 160);
+            this.thunderRadioButton1.Name = "thunderRadioButton1";
+            this.thunderRadioButton1.Size = new System.Drawing.Size(160, 16);
+            this.thunderRadioButton1.TabIndex = 5;
+            this.thunderRadioButton1.Text = "thunderRadioButton1";
             // 
             // thunderLabel1
             // 
@@ -139,18 +152,6 @@
             this.thunderButton1.TabIndex = 0;
             this.thunderButton1.Text = "thunderButton1";
             // 
-            // thunderRadioButton1
-            // 
-            this.thunderRadioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.thunderRadioButton1.Checked = false;
-            this.thunderRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.thunderRadioButton1.ForeColor = System.Drawing.Color.Black;
-            this.thunderRadioButton1.Location = new System.Drawing.Point(192, 160);
-            this.thunderRadioButton1.Name = "thunderRadioButton1";
-            this.thunderRadioButton1.Size = new System.Drawing.Size(160, 16);
-            this.thunderRadioButton1.TabIndex = 5;
-            this.thunderRadioButton1.Text = "thunderRadioButton1";
-            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +160,7 @@
             this.Controls.Add(this.thunderTheme1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form8";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "monoFlat_ThemeContainer1";

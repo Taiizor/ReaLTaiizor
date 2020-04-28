@@ -2,9 +2,9 @@
 
 namespace TEST
 {
-    public partial class Form5 : Form
+    public partial class Form9 : Form
     {
-        public Form5()
+        public Form9()
         {
             InitializeComponent();
         }
