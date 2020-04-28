@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             this.dungeonForm1 = new ReaLTaiizor.DungeonForm();
             this.dungeonTextBox1 = new ReaLTaiizor.DungeonTextBox();
             this.dungeonTrackBar1 = new ReaLTaiizor.DungeonTrackBar();
@@ -414,6 +415,7 @@
             this.ClientSize = new System.Drawing.Size(512, 512);
             this.Controls.Add(this.dungeonForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(261, 65);
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -35,6 +35,9 @@
   <PropertyGroup>
     <StartupObject>TEST.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ReaLTaiizor">
       <HintPath>..\ReaLTaiizor\bin\Debug\ReaLTaiizor.dll</HintPath>
@@ -136,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Taiizor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

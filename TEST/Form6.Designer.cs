@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
             this.ribbonForm1 = new ReaLTaiizor.RibbonForm();
             this.ribbonGroupBox1 = new ReaLTaiizor.RibbonGroupBox();
+            this.ribbonProgressBarLeft2 = new ReaLTaiizor.RibbonProgressBarLeft();
+            this.ribbonProgressBarLeft1 = new ReaLTaiizor.RibbonProgressBarLeft();
             this.ribbonProgressBarCenter2 = new ReaLTaiizor.RibbonProgressBarCenter();
             this.ribbonProgressBarCenter1 = new ReaLTaiizor.RibbonProgressBarCenter();
             this.ribbonProgressBarRight2 = new ReaLTaiizor.RibbonProgressBarRight();
@@ -40,8 +43,6 @@
             this.ribbonButtonRight1 = new ReaLTaiizor.RibbonButtonRight();
             this.ribbonButtonLeft1 = new ReaLTaiizor.RibbonButtonLeft();
             this.ribbonButtonCenter1 = new ReaLTaiizor.RibbonButtonCenter();
-            this.ribbonProgressBarLeft1 = new ReaLTaiizor.RibbonProgressBarLeft();
-            this.ribbonProgressBarLeft2 = new ReaLTaiizor.RibbonProgressBarLeft();
             this.ribbonForm1.SuspendLayout();
             this.ribbonGroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +79,30 @@
             this.ribbonGroupBox1.Size = new System.Drawing.Size(490, 107);
             this.ribbonGroupBox1.TabIndex = 6;
             this.ribbonGroupBox1.Text = "ribbonGroupBox1";
+            // 
+            // ribbonProgressBarLeft2
+            // 
+            this.ribbonProgressBarLeft2.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarLeft2.Location = new System.Drawing.Point(12, 65);
+            this.ribbonProgressBarLeft2.Maximum = 100;
+            this.ribbonProgressBarLeft2.Name = "ribbonProgressBarLeft2";
+            this.ribbonProgressBarLeft2.ShowPercentage = true;
+            this.ribbonProgressBarLeft2.Size = new System.Drawing.Size(131, 23);
+            this.ribbonProgressBarLeft2.TabIndex = 6;
+            this.ribbonProgressBarLeft2.Text = "ribbonProgressBarLeft2";
+            this.ribbonProgressBarLeft2.Value = 25;
+            // 
+            // ribbonProgressBarLeft1
+            // 
+            this.ribbonProgressBarLeft1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarLeft1.Location = new System.Drawing.Point(12, 36);
+            this.ribbonProgressBarLeft1.Maximum = 100;
+            this.ribbonProgressBarLeft1.Name = "ribbonProgressBarLeft1";
+            this.ribbonProgressBarLeft1.ShowPercentage = false;
+            this.ribbonProgressBarLeft1.Size = new System.Drawing.Size(131, 23);
+            this.ribbonProgressBarLeft1.TabIndex = 5;
+            this.ribbonProgressBarLeft1.Text = "ribbonProgressBarLeft1";
+            this.ribbonProgressBarLeft1.Value = 50;
             // 
             // ribbonProgressBarCenter2
             // 
@@ -196,30 +221,6 @@
             this.ribbonButtonCenter1.TabIndex = 0;
             this.ribbonButtonCenter1.Text = "ribbonButtonCenter1";
             // 
-            // ribbonProgressBarLeft1
-            // 
-            this.ribbonProgressBarLeft1.BackColor = System.Drawing.Color.Transparent;
-            this.ribbonProgressBarLeft1.Location = new System.Drawing.Point(12, 36);
-            this.ribbonProgressBarLeft1.Maximum = 100;
-            this.ribbonProgressBarLeft1.Name = "ribbonProgressBarLeft1";
-            this.ribbonProgressBarLeft1.ShowPercentage = false;
-            this.ribbonProgressBarLeft1.Size = new System.Drawing.Size(131, 23);
-            this.ribbonProgressBarLeft1.TabIndex = 5;
-            this.ribbonProgressBarLeft1.Text = "ribbonProgressBarLeft1";
-            this.ribbonProgressBarLeft1.Value = 50;
-            // 
-            // ribbonProgressBarLeft2
-            // 
-            this.ribbonProgressBarLeft2.BackColor = System.Drawing.Color.Transparent;
-            this.ribbonProgressBarLeft2.Location = new System.Drawing.Point(12, 65);
-            this.ribbonProgressBarLeft2.Maximum = 100;
-            this.ribbonProgressBarLeft2.Name = "ribbonProgressBarLeft2";
-            this.ribbonProgressBarLeft2.ShowPercentage = true;
-            this.ribbonProgressBarLeft2.Size = new System.Drawing.Size(131, 23);
-            this.ribbonProgressBarLeft2.TabIndex = 6;
-            this.ribbonProgressBarLeft2.Text = "ribbonProgressBarLeft2";
-            this.ribbonProgressBarLeft2.Value = 25;
-            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +229,7 @@
             this.Controls.Add(this.ribbonForm1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form6";
             this.ShowIcon = false;

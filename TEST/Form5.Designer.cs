@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.dreamForm1 = new ReaLTaiizor.DreamForm();
+            this.dungeonControlBox1 = new ReaLTaiizor.DungeonControlBox();
             this.dreamProgressBar1 = new ReaLTaiizor.DreamProgressBar();
             this.dreamTextBox1 = new ReaLTaiizor.DreamTextBox();
             this.dreamButton1 = new ReaLTaiizor.DreamButton();
-            this.dungeonControlBox1 = new ReaLTaiizor.DungeonControlBox();
             this.dreamForm1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,20 @@
             this.dreamForm1.Text = "dreamForm1";
             this.dreamForm1.TitleAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dreamForm1.TitleHeight = 25;
+            // 
+            // dungeonControlBox1
+            // 
+            this.dungeonControlBox1.BackColor = System.Drawing.Color.Transparent;
+            this.dungeonControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dungeonControlBox1.DefaultLocation = false;
+            this.dungeonControlBox1.EnableMaximize = false;
+            this.dungeonControlBox1.EnableMinimize = false;
+            this.dungeonControlBox1.Font = new System.Drawing.Font("Marlett", 7F);
+            this.dungeonControlBox1.Location = new System.Drawing.Point(224, 2);
+            this.dungeonControlBox1.Name = "dungeonControlBox1";
+            this.dungeonControlBox1.Size = new System.Drawing.Size(24, 22);
+            this.dungeonControlBox1.TabIndex = 4;
+            this.dungeonControlBox1.Text = "dungeonControlBox1";
             // 
             // dreamProgressBar1
             // 
@@ -89,20 +104,6 @@
             this.dreamButton1.Text = "dreamButton1";
             this.dreamButton1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // dungeonControlBox1
-            // 
-            this.dungeonControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.dungeonControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dungeonControlBox1.DefaultLocation = false;
-            this.dungeonControlBox1.EnableMaximize = false;
-            this.dungeonControlBox1.EnableMinimize = false;
-            this.dungeonControlBox1.Font = new System.Drawing.Font("Marlett", 7F);
-            this.dungeonControlBox1.Location = new System.Drawing.Point(224, 2);
-            this.dungeonControlBox1.Name = "dungeonControlBox1";
-            this.dungeonControlBox1.Size = new System.Drawing.Size(24, 22);
-            this.dungeonControlBox1.TabIndex = 4;
-            this.dungeonControlBox1.Text = "dungeonControlBox1";
-            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +111,7 @@
             this.ClientSize = new System.Drawing.Size(256, 177);
             this.Controls.Add(this.dreamForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";

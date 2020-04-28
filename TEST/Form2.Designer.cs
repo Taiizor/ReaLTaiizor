@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.formTheme1 = new ReaLTaiizor.FormTheme();
             this.controlBoxEdit1 = new ReaLTaiizor.ControlBoxEdit();
             this.formTheme1.SuspendLayout();
@@ -68,6 +69,7 @@
             this.ClientSize = new System.Drawing.Size(512, 256);
             this.Controls.Add(this.formTheme1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(126, 50);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

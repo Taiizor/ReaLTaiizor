@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.airForm1 = new ReaLTaiizor.AirForm();
             this.airButton2 = new ReaLTaiizor.AirButton();
             this.airSeparator2 = new ReaLTaiizor.AirSeparator();
@@ -250,6 +251,7 @@
             this.ClientSize = new System.Drawing.Size(512, 256);
             this.Controls.Add(this.airForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(112, 35);
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

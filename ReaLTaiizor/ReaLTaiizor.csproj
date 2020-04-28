@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="DreamProgressBar.cs">
       <SubType>Component</SubType>
@@ -259,6 +262,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Google.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Taiizor.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
