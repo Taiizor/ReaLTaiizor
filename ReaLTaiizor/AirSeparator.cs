@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace ReaLTaiizor
 {
-    #region AirSeperator
+    #region AirSeparator
 
     public class AirSeparator : AirControl
     {

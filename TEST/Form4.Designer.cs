@@ -114,6 +114,7 @@
             // 
             // dungeonTrackBar1
             // 
+            this.dungeonTrackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dungeonTrackBar1.DrawValueString = false;
             this.dungeonTrackBar1.JumpToMouse = false;
             this.dungeonTrackBar1.Location = new System.Drawing.Point(389, 126);

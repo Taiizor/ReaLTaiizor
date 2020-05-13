@@ -7,18 +7,18 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor
 {
-    #region SpaceSeperatorVertical
+    #region SpaceSeparatorHorizantal
 
-    public class SpaceSeperatorVertical : SpaceControl // A Vertical Seperator
+    public class SpaceSeparatorHorizantal : SpaceControl // A Horizontal Separator
     {
 
-        public SpaceSeperatorVertical()
+        public SpaceSeparatorHorizantal()
         {
             SetColor("DownGradient1", 42, 42, 42); // Basic Gradients Used to Shade the Button
             SetColor("DownGradient2", 42, 42, 42); // The Gradients are reversed, depending on if Button is Pressed or not
             SetColor("Border1", 35, 35, 35); // The Inside Border
             SetColor("Border2", 42, 42, 42); // The Outside Border
-            Size = new Size(4, 50);
+            Size = new Size(50, 4);
         }
 
         private Color C1; // Set up Simple Colors
@@ -46,9 +46,9 @@ namespace ReaLTaiizor
         {
             // EDIT: ADD AN EXTRA HEIGHT VALIDATION TO AVOID INITIALIZATION PROBLEMS
             // BITWISE 'AND' OPERATION: IF ZERO THEN HEIGHT IS NOT INVOLVED IN THIS OPERATION
-            if ((specified & BoundsSpecified.Width) == 0 || width == 4)
+            if ((specified & BoundsSpecified.Height) == 0 || height == 4)
             {
-                base.SetBoundsCore(x, y, 4, height, specified);
+                base.SetBoundsCore(x, y, width, 4, specified);
             }
             else
             {

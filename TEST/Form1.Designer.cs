@@ -446,6 +446,7 @@
             // 
             // trackEdit1
             // 
+            this.trackEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.trackEdit1.DrawHatch = true;
             this.trackEdit1.DrawValueString = false;
             this.trackEdit1.JumpToMouse = true;
@@ -581,6 +582,7 @@
             // 
             // trackBar1
             // 
+            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.trackBar1.JumpToMouse = true;
             this.trackBar1.Location = new System.Drawing.Point(11, 320);
             this.trackBar1.Maximum = 100;

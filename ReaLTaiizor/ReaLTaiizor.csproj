@@ -115,7 +115,7 @@
     <Compile Include="AirTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AirSeperator.cs">
+    <Compile Include="AirSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AirRadioButton.cs">
@@ -352,10 +352,10 @@
     <Compile Include="SpaceButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceSeperatorVertical.cs">
+    <Compile Include="SpaceSeparatorVertical.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceSeperatorHorizantal.cs">
+    <Compile Include="SpaceSeparatorHorizantal.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TabPage.cs">
