@@ -30,22 +30,14 @@ namespace ReaLTaiizor
             functionReturnValue = new GraphicsPath();
 
             if (PillStyle.Left)
-            {
                 functionReturnValue.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, Rectangle.Height, Rectangle.Height), -270, 180);
-            }
             else
-            {
                 functionReturnValue.AddLine(Rectangle.X, Rectangle.Y + Rectangle.Height, Rectangle.X, Rectangle.Y);
-            }
 
             if (PillStyle.Right)
-            {
                 functionReturnValue.AddArc(new Rectangle(Rectangle.X + Rectangle.Width - Rectangle.Height, Rectangle.Y, Rectangle.Height, Rectangle.Height), -90, 180);
-            }
             else
-            {
                 functionReturnValue.AddLine(Rectangle.X + Rectangle.Width, Rectangle.Y, Rectangle.X + Rectangle.Width, Rectangle.Y + Rectangle.Height);
-            }
 
             functionReturnValue.CloseAllFigures();
             return functionReturnValue;
@@ -89,10 +81,7 @@ namespace ReaLTaiizor
                 _Toggled = value;
                 Invalidate();
 
-                if (ToggledChanged != null)
-                {
-                    ToggledChanged();
-                }
+                ToggledChanged?.Invoke();
             }
         }
 

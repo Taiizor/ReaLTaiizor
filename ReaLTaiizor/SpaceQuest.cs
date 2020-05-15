@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -24,6 +25,12 @@ namespace ReaLTaiizor
             SetColor("Border2", 42, 42, 42); // The Outside Border
             Cursor = Cursors.Hand;
             Size = new Size(23, 22);
+        }
+
+        protected override void OnLocationChanged(EventArgs e)
+        {
+            base.OnLocationChanged(e);
+            Text = "?";
         }
 
         private Color C1; // Set up Simple Colors
@@ -51,16 +58,12 @@ namespace ReaLTaiizor
 
         protected override void PaintHook()
         {
-            if (this.State == MouseStateSpace.Over)
+            if (State == MouseStateSpace.Over)
             { // Used to see if button is Hovered over
                 DrawGradient(C1, C2, ClientRectangle, 90f); // if button is hovered over
-                this.Text = "?";
             }
-            else if (this.State == MouseStateSpace.Down)
-            {
+            else if (State == MouseStateSpace.Down)
                 DrawGradient(C6, C5, ClientRectangle, 90f);
-                this.Text = "?";
-            }
             else
                 DrawGradient(C3, C4, ClientRectangle, 90f); // else change the shading
             DrawText(B1, HorizontalAlignment.Center, 0, 0); // Draw the Text Smack dab in the middle of the button

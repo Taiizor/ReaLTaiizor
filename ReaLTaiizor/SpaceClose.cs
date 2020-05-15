@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -27,6 +28,12 @@ namespace ReaLTaiizor
             Size = new Size(23, 22);
         }
 
+        protected override void OnLocationChanged(EventArgs e)
+        {
+            base.OnLocationChanged(e);
+            Text = "x";
+        }
+
         private Color C1; // Set up Simple Colors
         private Color C2;
         private Color C3;
@@ -52,16 +59,14 @@ namespace ReaLTaiizor
 
         protected override void PaintHook()
         {
-            if (this.State == MouseStateSpace.Over)
+            if (State == MouseStateSpace.Over)
             { // Used to see if button is Hovered over
                 DrawGradient(C1, C2, ClientRectangle, 90f); // if button is hovered over
-                this.Text = "x";
             }
-            else if (this.State == MouseStateSpace.Down)
+            else if (State == MouseStateSpace.Down)
             {
                 DrawGradient(C6, C5, ClientRectangle, 90f);
-                this.Text = "x";
-                Application.Exit();
+                Parent.FindForm().Close();
             }
             else
             {

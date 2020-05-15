@@ -1,6 +1,8 @@
 ﻿#region Imports
 
+using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 #endregion
@@ -25,6 +27,18 @@ namespace ReaLTaiizor
             SetColor("Border2", 42, 42, 42); // The Outside Border
             Cursor = Cursors.Hand;
             Size = new Size(23, 22);
+        }
+
+        protected override void OnLocationChanged(EventArgs e)
+        {
+            base.OnLocationChanged(e);
+            /*
+                if (Parent.FindForm().WindowState == FormWindowState.Normal)
+                    Text = "+";
+                else if (Parent.FindForm().WindowState == FormWindowState.Maximized)
+                    Text = "-";
+            */
+            Text = "+";
         }
 
         private Color C1; // Set up Simple Colors
@@ -52,35 +66,35 @@ namespace ReaLTaiizor
 
         protected override void PaintHook()
         {
-            if (this.State == MouseStateSpace.Over)
+            if (State == MouseStateSpace.Over)
             { // Used to see if button is Hovered over
                 DrawGradient(C1, C2, ClientRectangle, 90f); // if button is hovered over
-                if (Application.OpenForms[0].WindowState == FormWindowState.Normal)
-                    this.Text = "+";
-                else if (Application.OpenForms[0].WindowState == FormWindowState.Maximized)
-                    this.Text = "-";
+                if (Parent.FindForm().WindowState == FormWindowState.Normal)
+                    Text = "+";
+                else if (Parent.FindForm().WindowState == FormWindowState.Maximized)
+                    Text = "-";
             }
-            else if (this.State == MouseStateSpace.Down)
+            else if (State == MouseStateSpace.Down)
             {
                 DrawGradient(C6, C5, ClientRectangle, 90f);
-                if (Application.OpenForms[0].WindowState == FormWindowState.Normal)
+                if (Parent.FindForm().WindowState == FormWindowState.Normal)
                 {
-                    this.Text = "+";
-                    System.Threading.Thread.Sleep(100);
-                    Application.OpenForms[0].WindowState = FormWindowState.Maximized;
-                    this.Text = "-";
+                    Text = "+";
+                    Thread.Sleep(100);
+                    Parent.FindForm().WindowState = FormWindowState.Maximized;
+                    Text = "-";
                 }
-                else if (Application.OpenForms[0].WindowState == FormWindowState.Maximized)
+                else if (Parent.FindForm().WindowState == FormWindowState.Maximized)
                 {
-                    this.Text = "-";
-                    System.Threading.Thread.Sleep(100);
-                    Application.OpenForms[0].WindowState = FormWindowState.Normal;
-                    this.Text = "+";
+                    Text = "-";
+                    Thread.Sleep(100);
+                    Parent.FindForm().WindowState = FormWindowState.Normal;
+                    Text = "+";
                 }
             }
             else
                 DrawGradient(C3, C4, ClientRectangle, 90f); // else change the shading
-            if (Application.OpenForms[0].WindowState == FormWindowState.Maximized)
+            if (Parent.FindForm().WindowState == FormWindowState.Maximized)
                 DrawText(B1, HorizontalAlignment.Left, 7, 1); // Draw the Text Smack dab in the middle of the button
             else
                 DrawText(B1, HorizontalAlignment.Center, 0, 0); // Draw the Text Smack dab in the middle of the button
