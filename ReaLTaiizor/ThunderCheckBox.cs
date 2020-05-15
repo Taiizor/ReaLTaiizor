@@ -80,7 +80,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
-            ForeColor = Color.Black;
+            ForeColor = Color.WhiteSmoke;
             Size = new Size(135, 16);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
@@ -94,7 +94,7 @@ namespace ReaLTaiizor
             G.CompositingQuality = CompositingQuality.HighQuality;
             Rectangle checkBoxRectangle = new Rectangle(0, 0, Height - 1, Height - 1);
             LinearGradientBrush bodyGrad = new LinearGradientBrush(checkBoxRectangle, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
-            SolidBrush nb = new SolidBrush(Color.FromArgb(205, 205, 205));
+            SolidBrush nb = new SolidBrush(ForeColor);
             StringFormat format = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
             Font drawFont = new Font("Tahoma", 9, FontStyle.Bold);
             G.Clear(BackColor);

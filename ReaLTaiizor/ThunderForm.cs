@@ -17,6 +17,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.FromArgb(25, 25, 25);
+            ForeColor = Color.WhiteSmoke;
             DoubleBuffered = true;
         }
 
@@ -60,14 +61,16 @@ namespace ReaLTaiizor
             G.DrawLine(P1, 23, 12, 23, 19);
             G.DrawLine(P1, 8, 14, 8, 17);
             G.DrawLine(P1, 26, 14, 26, 17);
-            G.DrawString(Text, drawFont, new SolidBrush(Color.WhiteSmoke), new Rectangle(32, 1, Width - 1, 27), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });
+            G.DrawString(Text, drawFont, new SolidBrush(ForeColor), new Rectangle(32, 1, Width - 1, 27), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();
         }
+
         private Point MouseP = new Point(0, 0);
         private bool cap = false;
         private int moveheight = 29;
+
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);

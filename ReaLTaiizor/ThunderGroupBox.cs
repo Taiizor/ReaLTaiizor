@@ -16,6 +16,7 @@ namespace ReaLTaiizor
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
+            ForeColor = Color.WhiteSmoke;
             DoubleBuffered = true;
             Size = new Size(132, 100);
         }
@@ -41,7 +42,7 @@ namespace ReaLTaiizor
             G.FillPath(BodyBrush2, DrawThunder.RoundRect(Body, 3));
             G.DrawPath(P1, DrawThunder.RoundRect(Body, 3));
 
-            G.DrawString(Text, drawFont, new SolidBrush(Color.WhiteSmoke), 67, 14, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            G.DrawString(Text, drawFont, new SolidBrush(ForeColor), 67, 14, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();

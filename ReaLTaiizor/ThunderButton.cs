@@ -43,7 +43,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
-            ForeColor = Color.FromArgb(205, 205, 205);
+            ForeColor = Color.WhiteSmoke;
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
             Size = new Size(120, 40);
@@ -84,7 +84,7 @@ namespace ReaLTaiizor
             G.DrawPath(o, DrawThunder.RoundRect(ClientRectangle, 2));
             G.DrawPath(Pens.Black, DrawThunder.RoundRect(R4, 2));
             G.DrawString(Text, drawFont, new SolidBrush(Color.FromArgb(5, 5, 5)), R5, format);
-            G.DrawString(Text, drawFont, new SolidBrush(Color.FromArgb(205, 205, 205)), R6, format);
+            G.DrawString(Text, drawFont, new SolidBrush(ForeColor), R6, format);
 
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();

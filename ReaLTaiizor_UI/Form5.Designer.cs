@@ -40,6 +40,7 @@
             // dreamForm1
             // 
             this.dreamForm1.BackColor = System.Drawing.Color.Transparent;
+            this.dreamForm1.BackGColor = System.Drawing.Color.DodgerBlue;
             this.dreamForm1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.dreamForm1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
             this.dreamForm1.Controls.Add(this.dungeonControlBox1);
@@ -48,6 +49,7 @@
             this.dreamForm1.Controls.Add(this.dreamButton1);
             this.dreamForm1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dreamForm1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.dreamForm1.HeaderColor = System.Drawing.Color.CornflowerBlue;
             this.dreamForm1.Location = new System.Drawing.Point(0, 0);
             this.dreamForm1.MinimumSize = new System.Drawing.Size(136, 50);
             this.dreamForm1.Name = "dreamForm1";

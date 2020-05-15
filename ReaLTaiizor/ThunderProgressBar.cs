@@ -58,6 +58,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
+            ForeColor = Color.WhiteSmoke;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -91,7 +92,7 @@ namespace ReaLTaiizor
             G.DrawPath(P1, GP2);
 
             if (_ShowPercentage)
-                G.DrawString(Convert.ToString(string.Concat(Value, "%")), Font, Brushes.White, R1, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                G.DrawString(Convert.ToString(string.Concat(Value, "%")), Font, new SolidBrush(ForeColor), R1, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();

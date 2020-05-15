@@ -48,6 +48,7 @@
             this.thunderTheme1.Controls.Add(this.thunderControlBox1);
             this.thunderTheme1.Controls.Add(this.thunderGroupBox1);
             this.thunderTheme1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.thunderTheme1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.thunderTheme1.Location = new System.Drawing.Point(0, 0);
             this.thunderTheme1.Name = "thunderTheme1";
             this.thunderTheme1.Size = new System.Drawing.Size(398, 249);
@@ -58,7 +59,7 @@
             // 
             this.thunderControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.thunderControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.thunderControlBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.thunderControlBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(195)))), ((int)(((byte)(30)))));
             this.thunderControlBox1.Location = new System.Drawing.Point(320, 3);
             this.thunderControlBox1.Name = "thunderControlBox1";
             this.thunderControlBox1.Size = new System.Drawing.Size(75, 23);
@@ -77,8 +78,10 @@
             this.thunderGroupBox1.Controls.Add(this.thunderProgressBar2);
             this.thunderGroupBox1.Controls.Add(this.thunderProgressBar1);
             this.thunderGroupBox1.Controls.Add(this.thunderButton1);
+            this.thunderGroupBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.thunderGroupBox1.Location = new System.Drawing.Point(17, 35);
             this.thunderGroupBox1.Name = "thunderGroupBox1";
+            this.thunderGroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.thunderGroupBox1.Size = new System.Drawing.Size(364, 202);
             this.thunderGroupBox1.TabIndex = 1;
             this.thunderGroupBox1.Text = "thunderGroupBox1";
@@ -88,7 +91,7 @@
             this.thunderRadioButton1.BackColor = System.Drawing.Color.Transparent;
             this.thunderRadioButton1.Checked = false;
             this.thunderRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.thunderRadioButton1.ForeColor = System.Drawing.Color.Black;
+            this.thunderRadioButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.thunderRadioButton1.Location = new System.Drawing.Point(192, 160);
             this.thunderRadioButton1.Name = "thunderRadioButton1";
             this.thunderRadioButton1.Size = new System.Drawing.Size(160, 16);
@@ -98,7 +101,7 @@
             // thunderLabel1
             // 
             this.thunderLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.thunderLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.thunderLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.thunderLabel1.Location = new System.Drawing.Point(256, 104);
             this.thunderLabel1.Name = "thunderLabel1";
             this.thunderLabel1.Size = new System.Drawing.Size(96, 16);
@@ -110,7 +113,7 @@
             this.thunderCheckBox1.BackColor = System.Drawing.Color.Transparent;
             this.thunderCheckBox1.Checked = false;
             this.thunderCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.thunderCheckBox1.ForeColor = System.Drawing.Color.Black;
+            this.thunderCheckBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.thunderCheckBox1.Location = new System.Drawing.Point(218, 44);
             this.thunderCheckBox1.Name = "thunderCheckBox1";
             this.thunderCheckBox1.Size = new System.Drawing.Size(134, 16);
@@ -120,6 +123,7 @@
             // thunderProgressBar2
             // 
             this.thunderProgressBar2.BackColor = System.Drawing.Color.Transparent;
+            this.thunderProgressBar2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.thunderProgressBar2.Location = new System.Drawing.Point(14, 136);
             this.thunderProgressBar2.Maximum = 100;
             this.thunderProgressBar2.Name = "thunderProgressBar2";
@@ -132,6 +136,7 @@
             // thunderProgressBar1
             // 
             this.thunderProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.thunderProgressBar1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.thunderProgressBar1.Location = new System.Drawing.Point(14, 90);
             this.thunderProgressBar1.Maximum = 100;
             this.thunderProgressBar1.Name = "thunderProgressBar1";
@@ -145,7 +150,7 @@
             // 
             this.thunderButton1.BackColor = System.Drawing.Color.Transparent;
             this.thunderButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.thunderButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.thunderButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.thunderButton1.Location = new System.Drawing.Point(14, 44);
             this.thunderButton1.Name = "thunderButton1";
             this.thunderButton1.Size = new System.Drawing.Size(120, 40);

@@ -71,7 +71,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
-            ForeColor = Color.FromArgb(205, 205, 205);
+            ForeColor = Color.FromArgb(174, 195, 30);
             DoubleBuffered = true;
         }
 
@@ -85,7 +85,7 @@ namespace ReaLTaiizor
 
             LinearGradientBrush mlgb = null;
             Font mf = new Font("Marlett", 9);
-            SolidBrush mfb = new SolidBrush(Color.FromArgb(174, 195, 30));
+            SolidBrush mfb = new SolidBrush(ForeColor);
             Pen P1 = new Pen(Color.FromArgb(21, 21, 21), 1);
             Color C1 = Color.FromArgb(66, 67, 70);
             Color C2 = Color.FromArgb(43, 44, 48);

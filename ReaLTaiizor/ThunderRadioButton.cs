@@ -92,7 +92,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
-            ForeColor = Color.Black;
+            ForeColor = Color.WhiteSmoke;
             Size = new Size(160, 16);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
@@ -108,7 +108,7 @@ namespace ReaLTaiizor
             StringFormat format = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
             LinearGradientBrush bgGrad = new LinearGradientBrush(radioBtnRectangle, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
             Color C1 = Color.FromArgb(250, 15, 15, 15);
-            SolidBrush nb = new SolidBrush(Color.FromArgb(205, 205, 205));
+            SolidBrush nb = new SolidBrush(ForeColor);
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.CompositingQuality = CompositingQuality.HighQuality;
             Font drawFont = new Font("Tahoma", 10, FontStyle.Bold);
