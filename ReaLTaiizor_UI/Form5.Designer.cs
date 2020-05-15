@@ -40,11 +40,14 @@
             // dreamForm1
             // 
             this.dreamForm1.BackColor = System.Drawing.Color.Transparent;
+            this.dreamForm1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.dreamForm1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
             this.dreamForm1.Controls.Add(this.dungeonControlBox1);
             this.dreamForm1.Controls.Add(this.dreamProgressBar1);
             this.dreamForm1.Controls.Add(this.dreamTextBox1);
             this.dreamForm1.Controls.Add(this.dreamButton1);
             this.dreamForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dreamForm1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.dreamForm1.Location = new System.Drawing.Point(0, 0);
             this.dreamForm1.MinimumSize = new System.Drawing.Size(136, 50);
             this.dreamForm1.Name = "dreamForm1";
@@ -65,7 +68,7 @@
             this.dungeonControlBox1.Font = new System.Drawing.Font("Marlett", 7F);
             this.dungeonControlBox1.Location = new System.Drawing.Point(224, 2);
             this.dungeonControlBox1.Name = "dungeonControlBox1";
-            this.dungeonControlBox1.Size = new System.Drawing.Size(24, 22);
+            this.dungeonControlBox1.Size = new System.Drawing.Size(23, 22);
             this.dungeonControlBox1.TabIndex = 4;
             this.dungeonControlBox1.Text = "dungeonControlBox1";
             // 

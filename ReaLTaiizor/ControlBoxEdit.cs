@@ -104,6 +104,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
             DoubleBuffered = true;
+            Cursor = Cursors.Hand;
             Anchor = AnchorStyles.Top | AnchorStyles.Right;
         }
         protected override void OnCreateControl()

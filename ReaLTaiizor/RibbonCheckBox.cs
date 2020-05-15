@@ -111,7 +111,7 @@ namespace ReaLTaiizor
             }
 
             Font drawFont = new Font("Tahoma", 8, FontStyle.Bold);
-            Brush nb = new SolidBrush(Color.FromArgb(40, 40, 40));
+            Brush nb = new SolidBrush(ForeColor);
             G.DrawString(Text, drawFont, nb, new Point(18, 7), new StringFormat
             {
                 Alignment = StringAlignment.Near,

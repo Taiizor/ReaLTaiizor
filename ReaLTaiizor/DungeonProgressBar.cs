@@ -122,9 +122,8 @@ namespace ReaLTaiizor
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            this.Height = 20;
-            Size minimumSize = new Size(58, 20);
-            this.MinimumSize = minimumSize;
+            Height = 20;
+            MinimumSize = new Size(58, 20);
         }
 
         #endregion
@@ -188,9 +187,7 @@ namespace ReaLTaiizor
                 if (_DrawHatch == true)
                 {
                     for (var i = 0; i <= (Width - 1) * _Maximum / _Value; i += 20)
-                    {
-                        G.DrawLine(new Pen(new SolidBrush(Color.FromArgb(25, Color.White)), 10.0F), new Point(System.Convert.ToInt32(i), 0), new Point((int)(i - 10), Height));
-                    }
+                        G.DrawLine(new Pen(new SolidBrush(Color.FromArgb(25, Color.White)), 10.0F), new Point(Convert.ToInt32(i), 0), new Point((int)(i - 10), Height));
                 }
 
                 G.SetClip(GP3);
@@ -202,7 +199,7 @@ namespace ReaLTaiizor
             // Draw value as a string
             string DrawString = Convert.ToString(Convert.ToInt32(Value)) + "%";
             int textX = (int)(this.Width - G.MeasureString(DrawString, Font).Width - 1);
-            int textY = (int)((this.Height / 2) - (System.Convert.ToInt32(G.MeasureString(DrawString, Font).Height / 2) - 2));
+            int textY = (int)((this.Height / 2) - (Convert.ToInt32(G.MeasureString(DrawString, Font).Height / 2) - 2));
 
             if (_ShowPercentage == true)
             {

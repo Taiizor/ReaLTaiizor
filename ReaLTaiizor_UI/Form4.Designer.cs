@@ -114,6 +114,7 @@
             // 
             // dungeonTrackBar1
             // 
+            this.dungeonTrackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dungeonTrackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dungeonTrackBar1.DrawValueString = false;
             this.dungeonTrackBar1.JumpToMouse = false;
@@ -292,7 +293,7 @@
             this.dungeonNumeric1.Size = new System.Drawing.Size(100, 28);
             this.dungeonNumeric1.TabIndex = 10;
             this.dungeonNumeric1.Text = "dungeonNumeric1";
-            this.dungeonNumeric1.TextAlignment = ReaLTaiizor.DungeonNumeric._TextAlignment.Near;
+            this.dungeonNumeric1.TextAlignment = ReaLTaiizor.DungeonNumeric._TextAlignment.Far;
             this.dungeonNumeric1.Value = ((long)(50));
             // 
             // dungeonComboBox1
@@ -326,6 +327,7 @@
             this.dungeonRadioButton2.Checked = false;
             this.dungeonRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dungeonRadioButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.dungeonRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(95)))));
             this.dungeonRadioButton2.Location = new System.Drawing.Point(23, 137);
             this.dungeonRadioButton2.Name = "dungeonRadioButton2";
             this.dungeonRadioButton2.Size = new System.Drawing.Size(185, 15);
@@ -338,6 +340,7 @@
             this.dungeonCheckBox1.Checked = false;
             this.dungeonCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dungeonCheckBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.dungeonCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(95)))));
             this.dungeonCheckBox1.Location = new System.Drawing.Point(23, 95);
             this.dungeonCheckBox1.Name = "dungeonCheckBox1";
             this.dungeonCheckBox1.Size = new System.Drawing.Size(165, 15);
@@ -350,6 +353,7 @@
             this.dungeonRadioButton1.Checked = true;
             this.dungeonRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dungeonRadioButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.dungeonRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(95)))));
             this.dungeonRadioButton1.Location = new System.Drawing.Point(23, 116);
             this.dungeonRadioButton1.Name = "dungeonRadioButton1";
             this.dungeonRadioButton1.Size = new System.Drawing.Size(185, 15);
@@ -400,6 +404,7 @@
             // 
             // dungeonToggleButton1
             // 
+            this.dungeonToggleButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dungeonToggleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dungeonToggleButton1.Location = new System.Drawing.Point(214, 94);
             this.dungeonToggleButton1.Name = "dungeonToggleButton1";

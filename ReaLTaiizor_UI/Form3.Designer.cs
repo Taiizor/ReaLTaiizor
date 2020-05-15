@@ -68,7 +68,7 @@
             this.airForm1.Image = null;
             this.airForm1.Location = new System.Drawing.Point(0, 0);
             this.airForm1.MinimumSize = new System.Drawing.Size(112, 35);
-            this.airForm1.Movable = true;
+            this.airForm1.Movable = false;
             this.airForm1.Name = "airForm1";
             this.airForm1.NoRounding = false;
             this.airForm1.Sizable = false;
@@ -200,6 +200,7 @@
             // 
             // airButton1
             // 
+            this.airButton1.BackColor = System.Drawing.Color.White;
             this.airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.airButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
             this.airButton1.Font = new System.Drawing.Font("Segoe UI", 9F);

@@ -63,7 +63,7 @@ namespace ReaLTaiizor
             base.OnDrawItem(e);
             LinearGradientBrush LGB = new LinearGradientBrush(e.Bounds, Color.FromArgb(246, 132, 85), Color.FromArgb(231, 108, 57), 90.0F);
 
-            if (System.Convert.ToInt32((e.State & DrawItemState.Selected)) == (int)DrawItemState.Selected)
+            if (Convert.ToInt32((e.State & DrawItemState.Selected)) == (int)DrawItemState.Selected)
             {
                 if (!(e.Index == -1))
                 {
@@ -99,9 +99,7 @@ namespace ReaLTaiizor
         {
             base.OnResize(e);
             if (!Focused)
-            {
                 SelectionLength = 0;
-            }
         }
 
         #endregion
@@ -115,7 +113,7 @@ namespace ReaLTaiizor
             DropDownStyle = ComboBoxStyle.DropDownList;
 
             BackColor = Color.FromArgb(246, 246, 246);
-            ForeColor = Color.FromArgb(142, 142, 142);
+            ForeColor = Color.FromArgb(76, 76, 97);
             Size = new Size(135, 26);
             ItemHeight = 20;
             DropDownHeight = 100;
@@ -144,7 +142,7 @@ namespace ReaLTaiizor
             // Draw rectangle border
             e.Graphics.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), GP);
             // Draw string
-            e.Graphics.DrawString(Text, Font, new SolidBrush(Color.FromArgb(76, 76, 97)), new Rectangle(3, 0, Width - 20, Height), new StringFormat
+            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(3, 0, Width - 20, Height), new StringFormat
             {
                 LineAlignment = StringAlignment.Center,
                 Alignment = StringAlignment.Near

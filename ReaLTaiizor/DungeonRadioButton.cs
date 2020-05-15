@@ -79,6 +79,7 @@ namespace ReaLTaiizor
             BackColor = Color.Transparent;
             Font = new Font("Segoe UI", 12);
             Width = 185;
+            ForeColor = Color.FromArgb(76, 76, 95);
             Cursor = Cursors.Hand;
         }
 
@@ -90,9 +91,7 @@ namespace ReaLTaiizor
             foreach (Control _Control in Parent.Controls)
             {
                 if (!object.ReferenceEquals(_Control, this) && _Control is DungeonRadioButton)
-                {
                     ((DungeonRadioButton)_Control).Checked = false;
-                }
             }
         }
 
@@ -122,7 +121,7 @@ namespace ReaLTaiizor
                 SolidBrush EllipseColor = new SolidBrush(Color.FromArgb(255, 255, 255));
                 MyDrawer.FillEllipse(EllipseColor, new Rectangle(new Point(4, 4), new Size(6, 6)));
             }
-            MyDrawer.DrawString(Text, Font, new SolidBrush(Color.FromArgb(76, 76, 95)), 16, 7, new StringFormat { LineAlignment = StringAlignment.Center });
+            MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), 16, 7, new StringFormat { LineAlignment = StringAlignment.Center });
             e.Dispose();
         }
     }

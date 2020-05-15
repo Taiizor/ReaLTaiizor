@@ -15,16 +15,16 @@ namespace ReaLTaiizor
     {
         #region Variables
 
-        private Brush _HeaderColor = Brushes.CornflowerBlue;
+        private Color _HeaderColor = Color.CornflowerBlue;
         private Color _BorderColorH = Color.FromArgb(182, 180, 186);
         private Color _BorderColorG = Color.FromArgb(159, 159, 161);
-        private Brush _BackGColor = Brushes.DodgerBlue;
+        private Color _BackGColor = Color.DodgerBlue;
 
         #endregion
 
         #region Custom Properties
 
-        public Brush HeaderColor
+        public Color HeaderColor
         {
             get { return _HeaderColor; }
             set
@@ -54,7 +54,7 @@ namespace ReaLTaiizor
             }
         }
 
-        public Brush BackGColor
+        public Color BackGColor
         {
             get { return _BackGColor; }
             set
@@ -89,12 +89,12 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.HighQuality;
 
             // Draw the body of the GroupBox
-            G.FillPath(_BackGColor, RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, box.Height - 1), 8));
+            G.FillPath(new SolidBrush(_BackGColor), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, box.Height - 1), 8));
             // Draw the border of the GroupBox
             G.DrawPath(new Pen(_BorderColorG), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, Height - 13), 8));
 
             // Draw the background of the title box
-            G.FillPath(_HeaderColor, RoundRectangle.RoundRect(TitleBox, 1));
+            G.FillPath(new SolidBrush(_HeaderColor), RoundRectangle.RoundRect(TitleBox, 1));
             // Draw the border of the title box
             G.DrawPath(new Pen(_BorderColorH), RoundRectangle.RoundRect(TitleBox, 4));
             // Draw the specified string from 'Text' property inside the title box

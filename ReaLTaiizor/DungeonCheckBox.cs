@@ -51,6 +51,7 @@ namespace ReaLTaiizor
             // Reduce control flicker
             Font = new Font("Segoe UI", 12);
             Size = new Size(165, 26);
+            ForeColor = Color.FromArgb(76, 76, 95);
             Cursor = Cursors.Hand;
         }
 
@@ -105,12 +106,10 @@ namespace ReaLTaiizor
             MyDrawer.DrawPath(new Pen(Color.FromArgb(182, 88, 55)), Shape);
             // Draw the border
 
-            MyDrawer.DrawString(Text, Font, new SolidBrush(Color.FromArgb(76, 76, 95)), new Rectangle(17, 0, Width, Height - 1), new StringFormat { LineAlignment = StringAlignment.Center });
+            MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(17, 0, Width, Height - 1), new StringFormat { LineAlignment = StringAlignment.Center });
 
             if (Checked)
-            {
                 MyDrawer.DrawString("ü", new Font("Wingdings", 12), new SolidBrush(Color.FromArgb(255, 255, 255)), new Rectangle(-2, 1, Width, Height + 2), new StringFormat { LineAlignment = StringAlignment.Center });
-            }
             e.Dispose();
         }
     }
