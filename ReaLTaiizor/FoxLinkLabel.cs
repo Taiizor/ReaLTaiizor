@@ -13,8 +13,6 @@ namespace ReaLTaiizor
 
 	public class FoxLinkLabel : FoxBase.ButtonFoxBase
 	{
-
-
 		private Graphics G;
 
 		protected override void OnPaint(PaintEventArgs e)
@@ -25,47 +23,31 @@ namespace ReaLTaiizor
 
 			switch (State)
 			{
-
 				case FoxLibrary.MouseState.Over:
 
 					using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#178CE5")))
 					{
 						using (Font TextFont = new Font("Segoe UI", 10, FontStyle.Underline))
-						{
 							G.DrawString(Text, TextFont, TextColor, new Point(0, 0));
-						}
 					}
-
-
 					break;
 				case FoxLibrary.MouseState.Down:
-
 					using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#FF9500")))
 					{
 						using (Font TextFont = new Font("Segoe UI", 10))
-						{
 							G.DrawString(Text, TextFont, TextColor, new Point(0, 0));
-						}
 					}
-
-
 					break;
 				default:
-
 					using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#0095DD")))
 					{
 						using (Font TextFont = new Font("Segoe UI", 10))
-						{
 							G.DrawString(Text, TextFont, TextColor, new Point(0, 0));
-						}
 					}
-
-
 					break;
 			}
 
 			base.OnPaint(e);
-
 		}
 
 	}

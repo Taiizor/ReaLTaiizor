@@ -116,6 +116,8 @@ namespace ReaLTaiizor
             B64Disabled = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA1UlEQVQ4T6WTzQ2CQBCF56EnLpaiXvUAJBRgB2oFtkALdEAJnoVEMIGzdEIFjNkFN4DLn+xpD/N9efMWQAsPFvL0lyBMUg8MiwzyZwuiJAuI6CyTMxezBC24EuSTBTp4xaaN6JWdqKQbge6udfB1pfbBjrMvEMZZAdCm3ilw7eO1KRmCxRyiOH0TsFUQs5KMwVLweKY7ALFKUZUTECD6qdquCxM7i9jNhLJEraQ5xZzrYJngO9crGYBbAm2SEfhHoCQGeeK+Ls1Ld+fuM0/+kPp+usWCD10idEOGa4QuAAAAAElFTkSuQmCC";
             DoubleBuffered = true;
             Enabled = true;
+            ForeColor = AloneLibrary.ColorFromHex("#7C858E");
+            BackColor = Color.White;
             Size = new Size(118, 18);
         }
 
@@ -125,7 +127,7 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
-            G.Clear(Color.White);
+            G.Clear(BackColor);
             bool enabled = Enabled;
             if (enabled)
             {
@@ -133,7 +135,7 @@ namespace ReaLTaiizor
                 {
                     using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
                     {
-                        using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
+                        using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
                         {
                             using (Font font = new Font("Segoe UI", 9f))
                             {
@@ -148,9 +150,7 @@ namespace ReaLTaiizor
                 if (@checked)
                 {
                     using (Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Enabled))))
-                    {
                         G.DrawImage(image, new Rectangle(3, 3, 11, 11));
-                    }
                 }
             }
             else
@@ -174,9 +174,7 @@ namespace ReaLTaiizor
                 if (checked2)
                 {
                     using (Image image2 = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Disabled))))
-                    {
                         G.DrawImage(image2, new Rectangle(3, 3, 11, 11));
-                    }
                 }
             }
         }

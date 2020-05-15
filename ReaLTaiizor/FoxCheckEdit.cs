@@ -15,7 +15,7 @@ namespace ReaLTaiizor
 	#region FoxChecEdit
 
 	[DefaultEvent("CheckedChanged")]
-	public class FoxChecEdit : FoxBase.CheckControl2
+	public class FoxChecEdit : FoxBase.CheckControlEdit
 	{
 
 		private Graphics G;
@@ -32,90 +32,54 @@ namespace ReaLTaiizor
 
 			G.Clear(Parent.BackColor);
 
-
 			if (Enabled)
 			{
 				switch (State)
 				{
-
 					case FoxLibrary.MouseState.None:
-
 						using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#C8C8C8")))
-						{
 							G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(0, 0, 20, 20), 2));
-						}
-
-
 						break;
-
 					default:
-
 						using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#2C9CDA")))
-						{
 							G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(0, 0, 20, 20), 2));
-						}
-
-
 						break;
 				}
 
-				using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#424E5A")))
+				using (SolidBrush TextColor = new SolidBrush(ForeColor))
 				{
-
-
 					if (Bold)
 					{
 						using (Font BFont = new Font("Segoe UI", 10, FontStyle.Bold))
-						{
 							G.DrawString(Text, BFont, TextColor, new Point(27, 1));
-						}
-
 					}
 					else
 					{
 						using (Font DFont = new Font("Segoe UI", 10))
-						{
 							G.DrawString(Text, DFont, TextColor, new Point(27, 1));
-						}
-
 					}
-
 				}
-
-
 			}
 			else
 			{
 				using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#E6E6E6")))
-				{
 					G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(0, 0, 20, 20), 2));
-				}
 
 				using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#A6B2BE")))
 				{
-
-
 					if (Bold)
 					{
 						using (Font BFont = new Font("Segoe UI", 10, FontStyle.Bold))
-						{
 							G.DrawString(Text, BFont, TextColor, new Point(27, 1));
-						}
-
 					}
 					else
 					{
 						using (Font DFont = new Font("Segoe UI", 10))
-						{
 							G.DrawString(Text, DFont, TextColor, new Point(27, 1));
-						}
-
 					}
-
 				}
 
 			}
-
 
 			if (Checked)
 			{
@@ -123,21 +87,14 @@ namespace ReaLTaiizor
 				if (Enabled)
 				{
 					using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64E))))
-					{
 						G.DrawImage(I, new Rectangle(5, 4, 12, 12));
-					}
-
-
 				}
 				else
 				{
 					using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64D))))
-					{
 						G.DrawImage(I, new Rectangle(5, 4, 12, 12));
-					}
 
 				}
-
 			}
 
 			base.OnPaint(e);

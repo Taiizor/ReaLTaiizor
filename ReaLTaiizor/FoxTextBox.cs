@@ -16,22 +16,18 @@ namespace ReaLTaiizor
 	[DefaultEvent("TextChanged")]
 	public class FoxTextbox : Control
 	{
-
 		private TextBox withEventsField_TB = new TextBox();
+
 		private TextBox TB
 		{
 			get { return withEventsField_TB; }
 			set
 			{
 				if (withEventsField_TB != null)
-				{
 					withEventsField_TB.TextChanged -= TextChangeTb;
-				}
 				withEventsField_TB = value;
 				if (withEventsField_TB != null)
-				{
 					withEventsField_TB.TextChanged += TextChangeTb;
-				}
 			}
 		}
 
@@ -53,13 +49,9 @@ namespace ReaLTaiizor
 				IsEnabled = value;
 
 				if (Enabled)
-				{
 					Cursor = Cursors.Hand;
-				}
 				else
-				{
 					Cursor = Cursors.Default;
-				}
 
 				Invalidate();
 			}
@@ -127,9 +119,7 @@ namespace ReaLTaiizor
 			{
 				_readOnly = value;
 				if (TB != null)
-				{
 					TB.ReadOnly = value;
-				}
 			}
 		}
 
@@ -173,12 +163,12 @@ namespace ReaLTaiizor
 		{
 			var _with1 = TB;
 			_with1.Text = string.Empty;
-			_with1.BackColor = Color.White;
-			_with1.ForeColor = Color.FromArgb(66, 78, 90);
+			_with1.BackColor = BackColor;
+			_with1.ForeColor = ForeColor;
 			_with1.TextAlign = HorizontalAlignment.Left;
 			_with1.BorderStyle = BorderStyle.None;
 			_with1.Location = new Point(3, 3);
-			_with1.Font = new Font("Segoe UI", 10);
+			_with1.Font = Font;
 			_with1.Size = new Size(Width - 3, Height - 3);
 			_with1.UseSystemPasswordChar = UseSystemPasswordChar;
 		}
@@ -191,6 +181,7 @@ namespace ReaLTaiizor
 			SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
 			DoubleBuffered = true;
 			TextAlign = HorizontalAlignment.Left;
+			BackColor = Color.White;
 			ForeColor = Color.FromArgb(66, 78, 90);
 			Font = new Font("Segoe UI", 10);
 			Size = new Size(90, 29);
@@ -201,7 +192,6 @@ namespace ReaLTaiizor
 		{
 			TB.Text = Text;
 		}
-
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
@@ -214,34 +204,21 @@ namespace ReaLTaiizor
 
 			if (Enabled)
 			{
-
 				if (State == FoxLibrary.MouseState.Down)
 				{
 					using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#2C9CDA")))
-					{
 						G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-					}
-
-
 				}
 				else
 				{
 					using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#C8C8C8")))
-					{
 						G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-					}
-
 				}
-
-
 			}
 			else
 			{
 				using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#E6E6E6")))
-				{
 					G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-				}
-
 			}
 
 			TB.TextAlign = TextAlign;

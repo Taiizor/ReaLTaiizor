@@ -15,7 +15,7 @@ namespace ReaLTaiizor
 	#region FoxCheckBox
 
 	[DefaultEvent("CheckedChanged")]
-	public class FoxCheckBox : FoxBase.CheckControl1
+	public class FoxCheckBox : FoxBase.CheckControlBox
 	{
 
 		private Graphics G;

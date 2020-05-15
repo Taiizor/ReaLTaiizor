@@ -50,7 +50,7 @@ namespace ReaLTaiizor
 
 				using (Font TextFont = new Font("Segoe UI", 10))
 				{
-					using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#424E5A")))
+					using (SolidBrush TextColor = new SolidBrush(ForeColor))
 						FoxLibrary.CenterString(G, Text, TextFont, TextColor.Color, new Rectangle(3, 0, Width, Height));
 				}
 

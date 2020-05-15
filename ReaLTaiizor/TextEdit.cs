@@ -235,10 +235,11 @@ namespace ReaLTaiizor
             ReaLTaiizorTB.Text = String.Empty;
             ReaLTaiizorTB.BorderStyle = BorderStyle.None;
             ReaLTaiizorTB.TextAlign = HorizontalAlignment.Left;
-            ReaLTaiizorTB.Font = new Font("Tahoma", 11);
+            ReaLTaiizorTB.Font = Font;
             ReaLTaiizorTB.UseSystemPasswordChar = UseSystemPasswordChar;
             ReaLTaiizorTB.Multiline = false;
             ReaLTaiizorTB.BackColor = Color.FromArgb(66, 76, 85);
+            ReaLTaiizorTB.ForeColor = ForeColor;
             ReaLTaiizorTB.ScrollBars = ScrollBars.None;
             ReaLTaiizorTB.KeyDown += _OnKeyDown;
             ReaLTaiizorTB.Enter += _Enter;

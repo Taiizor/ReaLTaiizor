@@ -33,6 +33,7 @@ namespace ReaLTaiizor
         }
 
         private int X;
+
         Color GTN;
         Color GTO;
         Color GTD;
@@ -41,6 +42,7 @@ namespace ReaLTaiizor
         Color GBD;
         Color Bo;
         Color T;
+
         protected override void ColorHook()
         {
             GTN = GetColor("Gradient top normal");

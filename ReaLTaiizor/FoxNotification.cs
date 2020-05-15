@@ -12,7 +12,7 @@ namespace ReaLTaiizor
 {
 	#region FoxNotification
 
-	public class FoxNotification : FoxBase.ButtonFoxBase
+	public class FoxNotification : FoxBase.NotifyFoxBase
 	{
 
 		public Styles Style { get; set; }

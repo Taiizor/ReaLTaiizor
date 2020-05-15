@@ -41,16 +41,12 @@ namespace ReaLTaiizor
 
 			using (Font HFont = new Font("Segoe UI Semibold", 20))
 			{
-				using (SolidBrush HColor = new SolidBrush(FoxLibrary.ColorFromHex("#4C5864")))
-				{
+				using (SolidBrush HColor = new SolidBrush(ForeColor))
 					G.DrawString(Text, HFont, HColor, new Point(0, 0));
-				}
 			}
 
 			using (Pen BottomLine = new Pen(FoxLibrary.ColorFromHex("#C8C8C8")))
-			{
 				G.DrawLine(BottomLine, new Point(0, 50), new Point(Width, 50));
-			}
 
 			base.OnPaint(e);
 

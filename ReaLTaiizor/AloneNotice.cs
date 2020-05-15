@@ -27,6 +27,8 @@ namespace ReaLTaiizor
             base.ReadOnly = true;
             base.BorderStyle = BorderStyle.None;
             Multiline = true;
+            BackColor = AloneLibrary.ColorFromHex("#FFFDE8");
+            ForeColor = AloneLibrary.ColorFromHex("#B9B595");
             Cursor = Cursors.Default;
         }
 
@@ -43,11 +45,11 @@ namespace ReaLTaiizor
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
             G.Clear(Color.White);
-            using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#FFFDE8")))
+            using (SolidBrush solidBrush = new SolidBrush(BackColor))
             {
                 using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#F2F3F7")))
                 {
-                    using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#B9B595")))
+                    using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
                     {
                         using (Font font = new Font("Segoe UI", 9f))
                         {

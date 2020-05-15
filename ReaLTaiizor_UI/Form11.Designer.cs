@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form11));
+            this.aloneProgressBar2 = new ReaLTaiizor.AloneProgressBar();
+            this.aloneNotice1 = new ReaLTaiizor.AloneNotice();
             this.aloneTextBox1 = new ReaLTaiizor.AloneTextBox();
             this.aloneButton1 = new ReaLTaiizor.AloneButton();
             this.aloneCombobox1 = new ReaLTaiizor.AloneCombobox();
@@ -36,12 +38,40 @@
             this.aloneRadioButton1 = new ReaLTaiizor.AloneRadioButton();
             this.aloneCheckBox1 = new ReaLTaiizor.AloneCheckBox();
             this.aloneProgressBar1 = new ReaLTaiizor.AloneProgressBar();
-            this.aloneNotice1 = new ReaLTaiizor.AloneNotice();
-            this.aloneProgressBar2 = new ReaLTaiizor.AloneProgressBar();
             this.SuspendLayout();
+            // 
+            // aloneProgressBar2
+            // 
+            this.aloneProgressBar2.BackgroundColor = System.Drawing.Color.Crimson;
+            this.aloneProgressBar2.Location = new System.Drawing.Point(254, 12);
+            this.aloneProgressBar2.Maximum = 100;
+            this.aloneProgressBar2.Minimum = 0;
+            this.aloneProgressBar2.Name = "aloneProgressBar2";
+            this.aloneProgressBar2.Size = new System.Drawing.Size(230, 51);
+            this.aloneProgressBar2.Stripes = System.Drawing.Color.Yellow;
+            this.aloneProgressBar2.TabIndex = 8;
+            this.aloneProgressBar2.Text = "aloneProgressBar2";
+            this.aloneProgressBar2.Value = 50;
+            // 
+            // aloneNotice1
+            // 
+            this.aloneNotice1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(232)))));
+            this.aloneNotice1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.aloneNotice1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.aloneNotice1.Enabled = false;
+            this.aloneNotice1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(181)))), ((int)(((byte)(149)))));
+            this.aloneNotice1.Location = new System.Drawing.Point(20, 139);
+            this.aloneNotice1.Multiline = true;
+            this.aloneNotice1.Name = "aloneNotice1";
+            this.aloneNotice1.ReadOnly = true;
+            this.aloneNotice1.Size = new System.Drawing.Size(455, 64);
+            this.aloneNotice1.TabIndex = 7;
+            this.aloneNotice1.Text = resources.GetString("aloneNotice1.Text");
+            this.aloneNotice1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // aloneTextBox1
             // 
+            this.aloneTextBox1.BackColor = System.Drawing.SystemColors.Control;
             this.aloneTextBox1.EnabledCalc = true;
             this.aloneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.aloneTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
@@ -53,13 +83,15 @@
             this.aloneTextBox1.Size = new System.Drawing.Size(97, 40);
             this.aloneTextBox1.TabIndex = 6;
             this.aloneTextBox1.Text = "aloneTextBox1";
-            this.aloneTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.aloneTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.aloneTextBox1.UseSystemPasswordChar = false;
             // 
             // aloneButton1
             // 
+            this.aloneButton1.BackColor = System.Drawing.SystemColors.Control;
             this.aloneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aloneButton1.EnabledCalc = true;
+            this.aloneButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
             this.aloneButton1.Location = new System.Drawing.Point(12, 93);
             this.aloneButton1.Name = "aloneButton1";
             this.aloneButton1.Size = new System.Drawing.Size(120, 40);
@@ -87,9 +119,11 @@
             // 
             // aloneRadioButton2
             // 
+            this.aloneRadioButton2.BackColor = System.Drawing.SystemColors.Control;
             this.aloneRadioButton2.Checked = true;
             this.aloneRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aloneRadioButton2.EnabledCalc = true;
+            this.aloneRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
             this.aloneRadioButton2.Location = new System.Drawing.Point(350, 69);
             this.aloneRadioButton2.Name = "aloneRadioButton2";
             this.aloneRadioButton2.Size = new System.Drawing.Size(134, 18);
@@ -98,9 +132,11 @@
             // 
             // aloneRadioButton1
             // 
+            this.aloneRadioButton1.BackColor = System.Drawing.SystemColors.Control;
             this.aloneRadioButton1.Checked = false;
             this.aloneRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aloneRadioButton1.EnabledCalc = true;
+            this.aloneRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
             this.aloneRadioButton1.Location = new System.Drawing.Point(210, 69);
             this.aloneRadioButton1.Name = "aloneRadioButton1";
             this.aloneRadioButton1.Size = new System.Drawing.Size(134, 18);
@@ -109,9 +145,11 @@
             // 
             // aloneCheckBox1
             // 
+            this.aloneCheckBox1.BackColor = System.Drawing.SystemColors.Control;
             this.aloneCheckBox1.Checked = false;
             this.aloneCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aloneCheckBox1.EnabledCalc = true;
+            this.aloneCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
             this.aloneCheckBox1.Location = new System.Drawing.Point(12, 69);
             this.aloneCheckBox1.Name = "aloneCheckBox1";
             this.aloneCheckBox1.Size = new System.Drawing.Size(118, 18);
@@ -130,33 +168,6 @@
             this.aloneProgressBar1.TabIndex = 0;
             this.aloneProgressBar1.Text = "aloneProgressBar1";
             this.aloneProgressBar1.Value = 50;
-            // 
-            // aloneNotice1
-            // 
-            this.aloneNotice1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.aloneNotice1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.aloneNotice1.Enabled = false;
-            this.aloneNotice1.Location = new System.Drawing.Point(12, 139);
-            this.aloneNotice1.Multiline = true;
-            this.aloneNotice1.Name = "aloneNotice1";
-            this.aloneNotice1.ReadOnly = true;
-            this.aloneNotice1.Size = new System.Drawing.Size(472, 64);
-            this.aloneNotice1.TabIndex = 7;
-            this.aloneNotice1.Text = resources.GetString("aloneNotice1.Text");
-            this.aloneNotice1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // aloneProgressBar2
-            // 
-            this.aloneProgressBar2.BackgroundColor = System.Drawing.Color.Crimson;
-            this.aloneProgressBar2.Location = new System.Drawing.Point(254, 12);
-            this.aloneProgressBar2.Maximum = 100;
-            this.aloneProgressBar2.Minimum = 0;
-            this.aloneProgressBar2.Name = "aloneProgressBar2";
-            this.aloneProgressBar2.Size = new System.Drawing.Size(230, 51);
-            this.aloneProgressBar2.Stripes = System.Drawing.Color.Yellow;
-            this.aloneProgressBar2.TabIndex = 8;
-            this.aloneProgressBar2.Text = "aloneProgressBar2";
-            this.aloneProgressBar2.Value = 50;
             // 
             // Form11
             // 

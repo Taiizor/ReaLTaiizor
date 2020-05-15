@@ -8401,9 +8401,7 @@ namespace ReaLTaiizor
                         Invalidate();
                     }
                     else
-                    {
                         _Max = value;
-                    }
                 }
             }
 
@@ -8419,9 +8417,7 @@ namespace ReaLTaiizor
                         Invalidate();
                     }
                     else
-                    {
                         _Min = value;
-                    }
                 }
             }
 
@@ -8450,6 +8446,7 @@ namespace ReaLTaiizor
             {
                 Enabled = true;
                 DoubleBuffered = true;
+                ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
             protected override void OnPaint(PaintEventArgs e)
@@ -8457,7 +8454,6 @@ namespace ReaLTaiizor
                 G = e.Graphics;
                 G.SmoothingMode = SmoothingMode.HighQuality;
                 G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-
 
                 if (Enabled)
                 {
@@ -8467,12 +8463,10 @@ namespace ReaLTaiizor
                         G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
                     }
 
-                    using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#424E5A")))
+                    using (SolidBrush TextColor = new SolidBrush(ForeColor))
                     {
                         using (Font TextFont = new Font("Segoe UI", 10))
-                        {
                             FoxLibrary.CenterString(G, Value.ToString(), TextFont, TextColor.Color, new Rectangle(-10, 0, Width, Height));
-                        }
                     }
 
                     using (SolidBrush SignColor = new SolidBrush(FoxLibrary.ColorFromHex("#56626E")))
@@ -8483,8 +8477,6 @@ namespace ReaLTaiizor
                             G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
                         }
                     }
-
-
                 }
                 else
                 {
@@ -8497,9 +8489,7 @@ namespace ReaLTaiizor
                     using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#A6B2BE")))
                     {
                         using (Font TextFont = new Font("Segoe UI", 10))
-                        {
                             FoxLibrary.CenterString(G, Value.ToString(), TextFont, TextColor.Color, new Rectangle(-10, 0, Width, Height));
-                        }
                     }
 
                     using (SolidBrush SignColor = new SolidBrush(FoxLibrary.ColorFromHex("#BAC6D2")))
@@ -8510,7 +8500,6 @@ namespace ReaLTaiizor
                             G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
                         }
                     }
-
                 }
 
                 base.OnPaint(e);
@@ -8520,44 +8509,28 @@ namespace ReaLTaiizor
             {
                 base.OnMouseUp(e);
 
-
                 if (Enabled)
                 {
                     if (e.X > Width - 20 & e.Y < 10)
-                    {
                         Value += 1;
-                    }
                     else if (e.X > Width - 20 & e.Y > 10)
-                    {
                         Value -= 1;
-                    }
-
                 }
-
             }
 
             protected override void OnMouseMove(MouseEventArgs e)
             {
                 base.OnMouseMove(e);
 
-
                 if (Enabled)
                 {
                     if (e.X > Width - 20 & e.Y < 10)
-                    {
                         Cursor = Cursors.Hand;
-                    }
                     else if (e.X > Width - 20 & e.Y > 10)
-                    {
                         Cursor = Cursors.Hand;
-                    }
                     else
-                    {
                         Cursor = Cursors.Default;
-                    }
-
                 }
-
             }
 
             protected override void OnResize(EventArgs e)
@@ -8568,7 +8541,7 @@ namespace ReaLTaiizor
 
         }
 
-        public abstract class CheckControl1 : Control
+        public abstract class CheckControlBox : Control
         {
 
             public event CheckedChangedEventHandler CheckedChanged;
@@ -8619,7 +8592,7 @@ namespace ReaLTaiizor
                 }
             }
 
-            public CheckControl1()
+            public CheckControlBox()
             {
                 Enabled = true;
                 DoubleBuffered = true;
@@ -8662,7 +8635,7 @@ namespace ReaLTaiizor
 
         }
 
-        public abstract class CheckControl2 : Control
+        public abstract class CheckControlEdit : Control
         {
 
             public event CheckedChangedEventHandler CheckedChanged;
@@ -8680,13 +8653,9 @@ namespace ReaLTaiizor
                     IsEnabled = value;
 
                     if (Enabled)
-                    {
                         Cursor = Cursors.Hand;
-                    }
                     else
-                    {
                         Cursor = Cursors.Default;
-                    }
 
                     Invalidate();
                 }
@@ -8713,11 +8682,12 @@ namespace ReaLTaiizor
                 }
             }
 
-            public CheckControl2()
+            public CheckControlEdit()
             {
                 Enabled = true;
                 DoubleBuffered = true;
                 Size = new Size(110, 23);
+                ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
             protected override void OnMouseEnter(EventArgs e)
@@ -8775,13 +8745,9 @@ namespace ReaLTaiizor
                     IsEnabled = value;
 
                     if (Enabled)
-                    {
                         Cursor = Cursors.Hand;
-                    }
                     else
-                    {
                         Cursor = Cursors.Default;
-                    }
 
                     Invalidate();
                 }
@@ -8813,6 +8779,7 @@ namespace ReaLTaiizor
                 Enabled = true;
                 DoubleBuffered = true;
                 Size = new Size(130, 23);
+                ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
             protected override void OnMouseEnter(EventArgs e)
@@ -8868,7 +8835,6 @@ namespace ReaLTaiizor
 
         public abstract class ButtonFoxBase : Control
         {
-
             public new event ClickEventHandler Click;
             public new delegate void ClickEventHandler(object sender, EventArgs e);
 
@@ -8883,13 +8849,9 @@ namespace ReaLTaiizor
                     IsEnabled = value;
 
                     if (Enabled)
-                    {
                         Cursor = Cursors.Hand;
-                    }
                     else
-                    {
                         Cursor = Cursors.Default;
-                    }
 
                     Invalidate();
                 }
@@ -8911,6 +8873,158 @@ namespace ReaLTaiizor
                 DoubleBuffered = true;
                 Enabled = true;
                 Size = new Size(120, 40);
+                ForeColor = FoxLibrary.ColorFromHex("#424E5A");
+            }
+
+            protected override void OnMouseEnter(EventArgs e)
+            {
+                base.OnMouseEnter(e);
+                State = FoxLibrary.MouseState.Over;
+                Invalidate();
+            }
+
+            protected override void OnMouseLeave(EventArgs e)
+            {
+                base.OnMouseLeave(e);
+                State = FoxLibrary.MouseState.None;
+                Invalidate();
+            }
+
+            protected override void OnMouseUp(MouseEventArgs e)
+            {
+                base.OnMouseUp(e);
+                State = FoxLibrary.MouseState.Over;
+                Invalidate();
+
+                if (Enabled)
+                    Click?.Invoke(this, e);
+            }
+
+            protected override void OnMouseDown(MouseEventArgs e)
+            {
+                base.OnMouseDown(e);
+                State = FoxLibrary.MouseState.Down;
+                Invalidate();
+            }
+
+        }
+
+        public abstract class NotifyFoxBase : Control
+        {
+            public new event ClickEventHandler Click;
+            public new delegate void ClickEventHandler(object sender, EventArgs e);
+
+            public FoxLibrary.MouseState State;
+
+            private bool IsEnabled;
+            public new bool Enabled
+            {
+                get { return EnabledCalc; }
+                set
+                {
+                    IsEnabled = value;
+
+                    if (Enabled)
+                        Cursor = Cursor;
+                    else
+                        Cursor = Cursors.Default;
+
+                    Invalidate();
+                }
+            }
+
+            [DisplayName("Enabled")]
+            public bool EnabledCalc
+            {
+                get { return IsEnabled; }
+                set
+                {
+                    Enabled = value;
+                    Invalidate();
+                }
+            }
+
+            public NotifyFoxBase()
+            {
+                DoubleBuffered = true;
+                Enabled = true;
+                Cursor = Cursors.Default;
+                Size = new Size(120, 40);
+            }
+
+            protected override void OnMouseEnter(EventArgs e)
+            {
+                base.OnMouseEnter(e);
+                State = FoxLibrary.MouseState.Over;
+                Invalidate();
+            }
+
+            protected override void OnMouseLeave(EventArgs e)
+            {
+                base.OnMouseLeave(e);
+                State = FoxLibrary.MouseState.None;
+                Invalidate();
+            }
+
+            protected override void OnMouseUp(MouseEventArgs e)
+            {
+                base.OnMouseUp(e);
+                State = FoxLibrary.MouseState.Over;
+                Invalidate();
+
+                if (Enabled)
+                    Click?.Invoke(this, e);
+            }
+
+            protected override void OnMouseDown(MouseEventArgs e)
+            {
+                base.OnMouseDown(e);
+                State = FoxLibrary.MouseState.Down;
+                Invalidate();
+            }
+
+        }
+
+        public abstract class LinkFoxBase : Control
+        {
+            public new event ClickEventHandler Click;
+            public new delegate void ClickEventHandler(object sender, EventArgs e);
+
+            public FoxLibrary.MouseState State;
+
+            private bool IsEnabled;
+            public new bool Enabled
+            {
+                get { return EnabledCalc; }
+                set
+                {
+                    IsEnabled = value;
+
+                    if (Enabled)
+                        Cursor = Cursors.Hand;
+                    else
+                        Cursor = Cursors.Default;
+
+                    Invalidate();
+                }
+            }
+
+            [DisplayName("Enabled")]
+            public bool EnabledCalc
+            {
+                get { return IsEnabled; }
+                set
+                {
+                    Enabled = value;
+                    Invalidate();
+                }
+            }
+
+            public LinkFoxBase()
+            {
+                DoubleBuffered = true;
+                Enabled = true;
+                Size = new Size(85, 19);
             }
 
             protected override void OnMouseEnter(EventArgs e)

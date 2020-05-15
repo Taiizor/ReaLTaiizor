@@ -99,6 +99,7 @@ namespace ReaLTaiizor
             Enabled = true;
             Cursor = Cursors.Hand;
             Size = new Size(120, 40);
+            ForeColor = AloneLibrary.ColorFromHex("#7C858E");
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -107,8 +108,7 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
-            bool enabled = Enabled;
-            if (enabled)
+            if (Enabled)
             {
                 AloneButton.MouseState state = State;
                 if (state != AloneButton.MouseState.Over)
@@ -116,31 +116,25 @@ namespace ReaLTaiizor
                     if (state != AloneButton.MouseState.Down)
                     {
                         using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#F6F6F6")))
-                        {
                             G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                        }
                     }
                     else
                     {
                         using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#F0F0F0")))
-                        {
                             G.FillPath(solidBrush2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                        }
                     }
                 }
                 else
                 {
                     using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#FDFDFD")))
-                    {
                         G.FillPath(solidBrush3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                    }
                 }
                 using (Font font = new Font("Segoe UI", 9f))
                 {
                     using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#C3C3C3")))
                     {
                         G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                        AloneLibrary.CenterString(G, Text, font, AloneLibrary.ColorFromHex("#7C858E"), AloneLibrary.FullRectangle(base.Size, false));
+                        AloneLibrary.CenterString(G, Text, font, ForeColor, AloneLibrary.FullRectangle(base.Size, false));
                     }
                 }
                 Cursor = Cursors.Hand;
@@ -182,9 +176,7 @@ namespace ReaLTaiizor
             base.OnMouseUp(e);
             bool enabled = Enabled;
             if (enabled)
-            {
                 ClickEvent?.Invoke(this, e);
-            }
             State = AloneButton.MouseState.Over;
             base.Invalidate();
         }

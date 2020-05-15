@@ -85,13 +85,9 @@ namespace ReaLTaiizor
                 _EnabledCalc = value;
                 bool enabled = Enabled;
                 if (enabled)
-                {
                     Cursor = Cursors.Hand;
-                }
                 else
-                {
                     Cursor = Cursors.Default;
-                }
                 base.Invalidate();
             }
         }
@@ -115,6 +111,8 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
             Enabled = true;
             Size = new Size(138, 18);
+            ForeColor = AloneLibrary.ColorFromHex("#7C858E");
+            BackColor = Color.White;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -123,7 +121,7 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
-            G.Clear(Color.White);
+            G.Clear(BackColor);
             bool enabled = Enabled;
             if (enabled)
             {
@@ -131,7 +129,7 @@ namespace ReaLTaiizor
                 {
                     using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
                     {
-                        using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
+                        using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
                         {
                             using (Font font = new Font("Segoe UI", 9f))
                             {
