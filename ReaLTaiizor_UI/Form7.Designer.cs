@@ -46,6 +46,7 @@
             // 
             this.spaceForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.spaceForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.spaceForm1.CausesValidation = false;
             this.spaceForm1.Controls.Add(this.spaceQuest1);
             this.spaceForm1.Controls.Add(this.spaceMinimize1);
             this.spaceForm1.Controls.Add(this.spaceMaximize1);
@@ -60,9 +61,11 @@
             this.spaceForm1.Font = new System.Drawing.Font("Verdana", 8F);
             this.spaceForm1.Image = null;
             this.spaceForm1.Location = new System.Drawing.Point(0, 0);
+            this.spaceForm1.MinimumSize = new System.Drawing.Size(200, 25);
             this.spaceForm1.Movable = true;
             this.spaceForm1.Name = "spaceForm1";
             this.spaceForm1.NoRounding = false;
+            this.spaceForm1.Padding = new System.Windows.Forms.Padding(5, 25, 5, 5);
             this.spaceForm1.Sizable = false;
             this.spaceForm1.Size = new System.Drawing.Size(444, 98);
             this.spaceForm1.SmartBounds = true;
@@ -84,7 +87,7 @@
             this.spaceQuest1.NoRounding = false;
             this.spaceQuest1.Size = new System.Drawing.Size(23, 22);
             this.spaceQuest1.TabIndex = 12;
-            this.spaceQuest1.Text = "spaceQuest1";
+            this.spaceQuest1.Text = "?";
             this.spaceQuest1.Transparent = false;
             // 
             // spaceMinimize1
@@ -99,7 +102,7 @@
             this.spaceMinimize1.NoRounding = false;
             this.spaceMinimize1.Size = new System.Drawing.Size(23, 22);
             this.spaceMinimize1.TabIndex = 11;
-            this.spaceMinimize1.Text = "spaceMinimize1";
+            this.spaceMinimize1.Text = "_";
             this.spaceMinimize1.Transparent = false;
             this.spaceMinimize1.WindowState = System.Windows.Forms.FormWindowState.Normal;
             // 
@@ -115,7 +118,7 @@
             this.spaceMaximize1.NoRounding = false;
             this.spaceMaximize1.Size = new System.Drawing.Size(23, 22);
             this.spaceMaximize1.TabIndex = 10;
-            this.spaceMaximize1.Text = "spaceMaximize1";
+            this.spaceMaximize1.Text = "+";
             this.spaceMaximize1.Transparent = false;
             this.spaceMaximize1.WindowState = System.Windows.Forms.FormWindowState.Normal;
             // 
@@ -131,7 +134,7 @@
             this.spaceClose1.NoRounding = false;
             this.spaceClose1.Size = new System.Drawing.Size(23, 22);
             this.spaceClose1.TabIndex = 9;
-            this.spaceClose1.Text = "spaceClose1";
+            this.spaceClose1.Text = "x";
             this.spaceClose1.Transparent = false;
             // 
             // spaceCheckBox2
@@ -215,6 +218,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(200, 25);
             this.Name = "Form7";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form7";

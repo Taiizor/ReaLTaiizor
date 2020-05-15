@@ -20,7 +20,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.UserPaint, true);
 
             BackColor = Color.FromArgb(39, 51, 63);
-            this.Size = new Size(187, 117);
+            Size = new Size(187, 117);
             Padding = new Padding(5, 5, 5, 5);
             DoubleBuffered = true;
         }
@@ -46,8 +46,8 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.HighQuality;
 
             G.Clear(Color.FromArgb(32, 41, 50)); // Set control background to transparent
-            G.FillPath(new SolidBrush(Color.FromArgb(39, 51, 63)), Shape); // Draw RTB background
-            G.DrawPath(new Pen(Color.FromArgb(39, 51, 63)), Shape); // Draw border
+            G.FillPath(new SolidBrush(BackColor), Shape); // Draw RTB background
+            G.DrawPath(new Pen(BackColor), Shape); // Draw border
 
             G.Dispose();
             e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);

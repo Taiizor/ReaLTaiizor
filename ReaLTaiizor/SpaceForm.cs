@@ -24,6 +24,8 @@ namespace ReaLTaiizor
             SetColor("Text", 254, 254, 254);// Text Color
             SetColor("Border1", 43, 43, 43); // First Border
             SetColor("Border2", 25, 25, 25); // Second Borders
+            MinimumSize = new Size(200, 25);
+            Padding = new Padding(5, 25, 5, 5);
             StartPosition = FormStartPosition.CenterScreen;
         }
 
