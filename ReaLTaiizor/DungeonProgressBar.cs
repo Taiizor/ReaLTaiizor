@@ -142,13 +142,13 @@ namespace ReaLTaiizor
 
         public void Increment(int value)
         {
-            this._Value += value;
+            _Value += value;
             Invalidate();
         }
 
         public void Deincrement(int value)
         {
-            this._Value -= value;
+            _Value -= value;
             Invalidate();
         }
 
@@ -173,7 +173,7 @@ namespace ReaLTaiizor
             G.FillPath(new SolidBrush(Color.FromArgb(244, 241, 243)), RoundRectangle.RoundRect(new Rectangle(1, 1, Width - 3, Height / 2 - 2), 4));
 
 
-            I1 = (int)Math.Round(((double)(this._Value - this._Minimum) / (double)(this._Maximum - this._Minimum)) * (double)(this.Width - 3));
+            I1 = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 3));
             if (I1 > 1)
             {
                 GP3 = RoundRectangle.RoundRect(new Rectangle(1, 1, I1, Height - 3), 4);
@@ -199,8 +199,8 @@ namespace ReaLTaiizor
 
             // Draw value as a string
             string DrawString = Convert.ToString(Convert.ToInt32(Value)) + "%";
-            int textX = (int)(this.Width - G.MeasureString(DrawString, Font).Width - 1);
-            int textY = (int)((this.Height / 2) - (Convert.ToInt32(G.MeasureString(DrawString, Font).Height / 2) - 2));
+            int textX = (int)(Width - G.MeasureString(DrawString, Font).Width - 1);
+            int textY = (int)((Height / 2) - (Convert.ToInt32(G.MeasureString(DrawString, Font).Height / 2) - 2));
 
             if (_ShowPercentage == true)
             {

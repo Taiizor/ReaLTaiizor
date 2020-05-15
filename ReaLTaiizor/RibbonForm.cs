@@ -106,9 +106,9 @@ namespace ReaLTaiizor
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            this.ParentForm.FormBorderStyle = FormBorderStyle.Sizable;
-            this.ParentForm.ShowIcon = false;
-            this.ParentForm.TransparencyKey = Color.Fuchsia;
+            ParentForm.FormBorderStyle = FormBorderStyle.Sizable;
+            ParentForm.ShowIcon = false;
+            ParentForm.TransparencyKey = Color.Fuchsia;
             Dock = DockStyle.Fill;
         }
     }

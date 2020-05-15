@@ -97,8 +97,8 @@ namespace ReaLTaiizor
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.ResumeLayout(false);
+            SuspendLayout();
+            ResumeLayout(false);
         }
     }
 

@@ -16,6 +16,8 @@ namespace ReaLTaiizor
     {
 
         Color BG;
+        Color FC;
+
         private bool _Checked;
         public bool Checked
         {
@@ -56,12 +58,14 @@ namespace ReaLTaiizor
             LockHeight = 22;
             Width = 130;
             SetColor("BG", Color.FromArgb(240, 240, 240));
+            SetColor("FC", Color.Gray);
             Cursor = Cursors.Hand;
         }
 
         protected override void ColorHook()
         {
             BG = GetColor("BG");
+            FC = GetColor("FC");
         }
 
         protected override void PaintHook()
@@ -84,7 +88,7 @@ namespace ReaLTaiizor
             G.DrawEllipse(Pens.LightGray, new Rectangle(new Point(2, 2), new Size(18, 18)));
             G.DrawEllipse(Pens.LightGray, new Rectangle(new Point(4, 4), new Size(14, 14)));
 
-            G.DrawString(Text, new Font("Segoe UI", 9), Brushes.Gray, 23, 3);
+            G.DrawString(Text, new Font("Segoe UI", 9), new SolidBrush(FC), 23, 3);
         }
     }
 

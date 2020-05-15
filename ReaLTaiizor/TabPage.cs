@@ -43,7 +43,7 @@ namespace ReaLTaiizor
                 IEnumerator enumerator;
                 try
                 {
-                    enumerator = this.Controls.GetEnumerator();
+                    enumerator = Controls.GetEnumerator();
                     while (enumerator.MoveNext())
                     {
                         TabPage current = (TabPage)enumerator.Current;
@@ -89,7 +89,7 @@ namespace ReaLTaiizor
                     // Draw tab text
                     _Graphics.DrawString(TabPages[TabIndex].Text, new Font(Font.FontFamily, Font.Size, FontStyle.Bold), new SolidBrush(Color.FromArgb(254, 255, 255)), new Rectangle(TabRect.Left + 40, TabRect.Top + 12, TabRect.Width - 40, TabRect.Height), new StringFormat { Alignment = StringAlignment.Near });
 
-                    if (this.ImageList != null)
+                    if (ImageList != null)
                     {
                         int Index = TabPages[TabIndex].ImageIndex;
                         if (!(Index == -1))
@@ -101,7 +101,7 @@ namespace ReaLTaiizor
                     Rectangle TabRect = new Rectangle(new Point(GetTabRect(TabIndex).Location.X - 2, GetTabRect(TabIndex).Location.Y - 2), new Size(GetTabRect(TabIndex).Width + 3, GetTabRect(TabIndex).Height - 8));
                     _Graphics.DrawString(TabPages[TabIndex].Text, new Font(Font.FontFamily, Font.Size, FontStyle.Bold), new SolidBrush(Color.FromArgb(159, 162, 167)), new Rectangle(TabRect.Left + 40, TabRect.Top + 12, TabRect.Width - 40, TabRect.Height), new StringFormat { Alignment = StringAlignment.Near });
 
-                    if (this.ImageList != null)
+                    if (ImageList != null)
                     {
                         int Index = TabPages[TabIndex].ImageIndex;
                         if (!(Index == -1))
@@ -117,7 +117,7 @@ namespace ReaLTaiizor
             G.Dispose();
             B.Dispose();
 
-            foreach (System.Windows.Forms.TabPage Page in this.TabPages)
+            foreach (System.Windows.Forms.TabPage Page in TabPages)
                 Page.BackColor = Color.FromArgb(50, 63, 74);
         }
     }

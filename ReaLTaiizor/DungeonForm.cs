@@ -156,8 +156,8 @@ namespace ReaLTaiizor
 
                 if (_IsParentForm)
                 {
-                    this.ParentForm.FormBorderStyle = FormBorderStyle.None;
-                    this.ParentForm.TransparencyKey = Color.Fuchsia;
+                    ParentForm.FormBorderStyle = FormBorderStyle.None;
+                    ParentForm.TransparencyKey = Color.Fuchsia;
 
                     if (!DesignMode)
                         ParentForm.Shown += FormShown;

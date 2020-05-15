@@ -75,7 +75,7 @@ namespace ReaLTaiizor
         {
             base.OnTextChanged(e);
             int textSize = 0;
-            textSize = (int)(this.CreateGraphics().MeasureString(Text, Font).Width);
+            textSize = (int)(CreateGraphics().MeasureString(Text, Font).Width);
             Width = 28 + textSize;
         }
 

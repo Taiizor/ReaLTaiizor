@@ -28,11 +28,11 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this.EnabledCalc;
+                return EnabledCalc;
             }
             set
             {
-                this._EnabledCalc = value;
+                _EnabledCalc = value;
                 base.Invalidate();
             }
         }
@@ -42,25 +42,25 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this._EnabledCalc;
+                return _EnabledCalc;
             }
             set
             {
                 base.Enabled = value;
-                this.Enabled = value;
+                Enabled = value;
                 base.Invalidate();
             }
         }
 
         public AloneCombobox()
         {
-            this.DoubleBuffered = true;
+            DoubleBuffered = true;
             base.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.Cursor = Cursors.Hand;
-            this.Enabled = true;
+            Cursor = Cursors.Hand;
+            Enabled = true;
             base.DrawMode = DrawMode.OwnerDrawFixed;
             base.ItemHeight = 20;
-            this.Size = new Size(64, 26);
+            Size = new Size(64, 26);
         }
 
         protected override void OnCreateControl()
@@ -71,12 +71,12 @@ namespace ReaLTaiizor
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            this.G = e.Graphics;
-            this.G.SmoothingMode = SmoothingMode.HighQuality;
-            this.G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            G = e.Graphics;
+            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
-            this.G.Clear(Color.White);
-            bool enabled = this.Enabled;
+            G.Clear(Color.White);
+            bool enabled = Enabled;
             checked
             {
                 if (enabled)
@@ -87,8 +87,8 @@ namespace ReaLTaiizor
                         {
                             using (Font font = new Font("Marlett", 13f))
                             {
-                                this.G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
-                                this.G.DrawString("6", font, solidBrush, new Point(base.Width - 22, 3));
+                                G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
+                                G.DrawString("6", font, solidBrush, new Point(base.Width - 22, 3));
                             }
                         }
                     }
@@ -101,8 +101,8 @@ namespace ReaLTaiizor
                         {
                             using (Font font2 = new Font("Marlett", 13f))
                             {
-                                this.G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
-                                this.G.DrawString("6", font2, solidBrush2, new Point(base.Width - 22, 3));
+                                G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
+                                G.DrawString("6", font2, solidBrush2, new Point(base.Width - 22, 3));
                             }
                         }
                     }
@@ -114,19 +114,19 @@ namespace ReaLTaiizor
                     {
                         using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
                         {
-                            bool enabled2 = this.Enabled;
+                            bool enabled2 = Enabled;
                             if (enabled2)
                             {
-                                bool flag2 = this.SelectedIndex != -1;
+                                bool flag2 = SelectedIndex != -1;
                                 if (flag2)
                                 {
-                                    this.G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[this.SelectedIndex])), font3, solidBrush3, new Point(7, 4));
+                                    G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[SelectedIndex])), font3, solidBrush3, new Point(7, 4));
                                 }
                                 else
                                 {
                                     try
                                     {
-                                        this.G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[0])), font3, solidBrush3, new Point(7, 4));
+                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[0])), font3, solidBrush3, new Point(7, 4));
                                     }
                                     catch (Exception arg_272_0)
                                     {
@@ -139,14 +139,14 @@ namespace ReaLTaiizor
                             {
                                 using (SolidBrush solidBrush4 = new SolidBrush(AloneLibrary.ColorFromHex("#D0D3D7")))
                                 {
-                                    bool flag3 = this.SelectedIndex != -1;
+                                    bool flag3 = SelectedIndex != -1;
                                     if (flag3)
                                     {
-                                        this.G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[this.SelectedIndex])), font3, solidBrush4, new Point(7, 4));
+                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[SelectedIndex])), font3, solidBrush4, new Point(7, 4));
                                     }
                                     else
                                     {
-                                        this.G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[0])), font3, solidBrush4, new Point(7, 4));
+                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[0])), font3, solidBrush4, new Point(7, 4));
                                     }
                                 }
                             }
@@ -159,16 +159,16 @@ namespace ReaLTaiizor
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
             base.OnDrawItem(e);
-            this.G = e.Graphics;
-            this.G.SmoothingMode = SmoothingMode.HighQuality;
-            this.G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            bool enabled = this.Enabled;
+            G = e.Graphics;
+            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            bool enabled = Enabled;
             checked
             {
                 if (enabled)
                 {
                     e.DrawBackground();
-                    this.Rect = e.Bounds;
+                    Rect = e.Bounds;
                     try
                     {
                         using (new Font("Segoe UI", 9f))
@@ -182,8 +182,8 @@ namespace ReaLTaiizor
                                     {
                                         using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#78B7E6")))
                                         {
-                                            this.G.FillRectangle(solidBrush2, this.Rect);
-                                            this.G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), Brushes.White, new Point(this.Rect.X + 5, this.Rect.Y + 1));
+                                            G.FillRectangle(solidBrush2, Rect);
+                                            G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), Brushes.White, new Point(Rect.X + 5, Rect.Y + 1));
                                         }
                                     }
                                 }
@@ -191,8 +191,8 @@ namespace ReaLTaiizor
                                 {
                                     using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
                                     {
-                                        this.G.FillRectangle(Brushes.White, this.Rect);
-                                        this.G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), solidBrush3, new Point(this.Rect.X + 5, this.Rect.Y + 1));
+                                        G.FillRectangle(Brushes.White, Rect);
+                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), solidBrush3, new Point(Rect.X + 5, Rect.Y + 1));
                                     }
                                 }
                             }

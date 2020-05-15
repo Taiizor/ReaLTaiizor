@@ -92,7 +92,7 @@ namespace ReaLTaiizor
 		{
 			K = Kind;
 			Text = Str;
-			this.Visible = true;
+			Visible = true;
 			T = new Timer();
 			T.Interval = Interval;
 			T.Enabled = true;
@@ -100,7 +100,7 @@ namespace ReaLTaiizor
 
 		private void T_Tick(object sender, EventArgs e)
 		{
-			this.Visible = false;
+			Visible = false;
 			T.Enabled = false;
 			T.Dispose();
 		}
@@ -143,7 +143,7 @@ namespace ReaLTaiizor
 		protected override void OnClick(EventArgs e)
 		{
 			base.OnClick(e);
-			this.Visible = false;
+			Visible = false;
 		}
 
 		private Color SuccessColor = Color.FromArgb(60, 85, 79);

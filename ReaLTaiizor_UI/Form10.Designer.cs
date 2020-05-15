@@ -75,7 +75,7 @@
             // 
             this.moonCheckbox2.Checked = false;
             this.moonCheckbox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.moonCheckbox2.Customization = "/////9PT0//w8PD/";
+            this.moonCheckbox2.Customization = "/////9PT0//w8PD/gICA/4CAgP+AgID/";
             this.moonCheckbox2.Font = new System.Drawing.Font("Verdana", 8F);
             this.moonCheckbox2.Image = null;
             this.moonCheckbox2.Location = new System.Drawing.Point(354, 68);
@@ -90,7 +90,7 @@
             // 
             this.moonCheckbox1.Checked = true;
             this.moonCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.moonCheckbox1.Customization = "/////9PT0//w8PD/";
+            this.moonCheckbox1.Customization = "/////9PT0//w8PD/gICA/4CAgP9paWn/";
             this.moonCheckbox1.Font = new System.Drawing.Font("Verdana", 8F);
             this.moonCheckbox1.Image = null;
             this.moonCheckbox1.Location = new System.Drawing.Point(220, 68);
@@ -105,7 +105,7 @@
             // 
             this.moonRadiobutton2.Checked = true;
             this.moonRadiobutton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.moonRadiobutton2.Customization = "8PDw/w==";
+            this.moonRadiobutton2.Customization = "8PDw/4CAgP8=";
             this.moonRadiobutton2.Font = new System.Drawing.Font("Verdana", 8F);
             this.moonRadiobutton2.Image = null;
             this.moonRadiobutton2.Location = new System.Drawing.Point(354, 37);
@@ -120,7 +120,7 @@
             // 
             this.moonRadiobutton1.Checked = false;
             this.moonRadiobutton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.moonRadiobutton1.Customization = "8PDw/w==";
+            this.moonRadiobutton1.Customization = "8PDw/4CAgP8=";
             this.moonRadiobutton1.Font = new System.Drawing.Font("Verdana", 8F);
             this.moonRadiobutton1.Image = null;
             this.moonRadiobutton1.Location = new System.Drawing.Point(220, 37);
@@ -188,8 +188,9 @@
             // 
             // moonButton1
             // 
+            this.moonButton1.BackColor = System.Drawing.SystemColors.Control;
             this.moonButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.moonButton1.Customization = "/////9PT0//w8PD/";
+            this.moonButton1.Customization = "/////9PT0//w8PD/gICA/w==";
             this.moonButton1.Font = new System.Drawing.Font("Verdana", 8F);
             this.moonButton1.Image = null;
             this.moonButton1.Location = new System.Drawing.Point(12, 35);

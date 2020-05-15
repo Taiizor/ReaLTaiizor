@@ -55,9 +55,9 @@ namespace ReaLTaiizor
         {
             base.OnMouseClick(e);
             if (i > 0 & i < 28)
-                this.FindForm().WindowState = FormWindowState.Minimized;
+                FindForm().WindowState = FormWindowState.Minimized;
             else if (i > 30 & i < 75)
-                this.FindForm().Close();
+                FindForm().Close();
 
             State = MouseState.Down;
         }
@@ -111,7 +111,7 @@ namespace ReaLTaiizor
         {
             base.OnCreateControl();
             if (DefaultLocation)
-                this.Location = new Point(checked(this.FindForm().Width - 81), -1);
+                Location = new Point(checked(FindForm().Width - 81), -1);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -144,7 +144,7 @@ namespace ReaLTaiizor
                 case MouseState.Over:
                     if (i > 0 & i < 28)
                     {
-                        LinearGradientBrush xMinimizeGradient = new LinearGradientBrush(this.MinimizeRect, Color.FromArgb(76, 76, 76, 76), Color.FromArgb(48, 48, 48), 90f);
+                        LinearGradientBrush xMinimizeGradient = new LinearGradientBrush(MinimizeRect, Color.FromArgb(76, 76, 76, 76), Color.FromArgb(48, 48, 48), 90f);
                         G.FillPath(xMinimizeGradient, GP_MinimizeRect);
                         G.DrawPath(new Pen(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);
                         G.DrawString("0", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), MinimizeRect.Width - 22, MinimizeRect.Height - 16);

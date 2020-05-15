@@ -235,13 +235,13 @@ namespace ReaLTaiizor
 
         public void Increment(int Value)
         {
-            this._Value += Value;
+            _Value += Value;
             Invalidate();
         }
 
         public void Decrement(int Value)
         {
-            this._Value -= Value;
+            _Value -= Value;
             Invalidate();
         }
 

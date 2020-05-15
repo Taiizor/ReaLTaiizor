@@ -116,12 +116,12 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this.DividedValue;
+                return DividedValue;
             }
             set
             {
-                this.DividedValue = value;
-                this.Invalidate();
+                DividedValue = value;
+                Invalidate();
             }
         }
 
@@ -130,11 +130,11 @@ namespace ReaLTaiizor
         {
             get
             {
-                return (float)(((double)this._Value) / ((double)this.DividedValue));
+                return (float)(((double)_Value) / ((double)DividedValue));
             }
             set
             {
-                this.Value = (int)Math.Round((double)(value * ((float)this.DividedValue)));
+                Value = (int)Math.Round((double)(value * ((float)DividedValue)));
             }
         }
 
@@ -180,11 +180,11 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this._JumpToMouse;
+                return _JumpToMouse;
             }
             set
             {
-                this._JumpToMouse = value;
+                _JumpToMouse = value;
             }
         }
 
@@ -194,9 +194,9 @@ namespace ReaLTaiizor
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if ((this.Cap && (e.X > -1)) && (e.X < (this.Width + 1)))
+            if ((Cap && (e.X > -1)) && (e.X < (Width + 1)))
             {
-                this.Value = this._Minimum + ((int)Math.Round((double)((this._Maximum - this._Minimum) * (((double)e.X) / ((double)this.Width)))));
+                Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (((double)e.X) / ((double)Width)))));
             }
         }
 
@@ -205,12 +205,12 @@ namespace ReaLTaiizor
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
-                this.ValueDrawer = (int)Math.Round((double)((((double)(this._Value - this._Minimum)) / ((double)(this._Maximum - this._Minimum))) * (this.Width - 11)));
-                this.TrackBarHandleRect = new Rectangle(this.ValueDrawer, 0, 10, 20);
-                this.Cap = this.TrackBarHandleRect.Contains(e.Location);
-                if (this._JumpToMouse)
+                ValueDrawer = (int)Math.Round((double)((((double)(_Value - _Minimum)) / ((double)(_Maximum - _Minimum))) * (Width - 11)));
+                TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 10, 20);
+                Cap = TrackBarHandleRect.Contains(e.Location);
+                if (_JumpToMouse)
                 {
-                    this.Value = this._Minimum + ((int)Math.Round((double)((this._Maximum - this._Minimum) * (((double)e.X) / ((double)this.Width)))));
+                    Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (((double)e.X) / ((double)Width)))));
                 }
             }
         }
@@ -218,7 +218,7 @@ namespace ReaLTaiizor
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            this.Cap = false;
+            Cap = false;
         }
 
 
@@ -255,32 +255,32 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.AntiAlias;
             checked
             {
-                this.PipeBorder = RoundRectangle.RoundRect(1, 6, this.Width - 3, 8, 3);
+                PipeBorder = RoundRectangle.RoundRect(1, 6, Width - 3, 8, 3);
                 try
                 {
-                    this.ValueDrawer = (int)Math.Round(unchecked(checked((double)(this._Value - this._Minimum) / (double)(this._Maximum - this._Minimum)) * (double)checked(this.Width - 11)));
+                    ValueDrawer = (int)Math.Round(unchecked(checked((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)checked(Width - 11)));
                 }
                 catch (Exception)
                 {
                 }
-                this.TrackBarHandleRect = new Rectangle(this.ValueDrawer, 0, 10, 20);
-                G.SetClip(this.PipeBorder);
-                this.ValueRect = new Rectangle(1, 7, this.TrackBarHandleRect.X + this.TrackBarHandleRect.Width - 2, 7);
-                this.VlaueLGB = new LinearGradientBrush(this.ValueRect, this._ValueColour, this._ValueColour, 90f);
-                G.FillRectangle(this.VlaueLGB, this.ValueRect);
+                TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 10, 20);
+                G.SetClip(PipeBorder);
+                ValueRect = new Rectangle(1, 7, TrackBarHandleRect.X + TrackBarHandleRect.Width - 2, 7);
+                VlaueLGB = new LinearGradientBrush(ValueRect, _ValueColour, _ValueColour, 90f);
+                G.FillRectangle(VlaueLGB, ValueRect);
 
                 if (_DrawHatch == true)
                 {
-                    G.FillRectangle(Hatch, this.ValueRect);
+                    G.FillRectangle(Hatch, ValueRect);
                 }
 
                 G.ResetClip();
                 G.SmoothingMode = SmoothingMode.AntiAlias;
-                G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), this.PipeBorder);
-                this.TrackBarHandle = RoundRectangle.RoundRect(this.TrackBarHandleRect, 3);
-                this.TrackBarHandleLGB = new LinearGradientBrush(this.ClientRectangle, SystemColors.Control, SystemColors.Control, 90f);
-                G.FillPath(this.TrackBarHandleLGB, this.TrackBarHandle);
-                G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), this.TrackBarHandle);
+                G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), PipeBorder);
+                TrackBarHandle = RoundRectangle.RoundRect(TrackBarHandleRect, 3);
+                TrackBarHandleLGB = new LinearGradientBrush(ClientRectangle, SystemColors.Control, SystemColors.Control, 90f);
+                G.FillPath(TrackBarHandleLGB, TrackBarHandle);
+                G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), TrackBarHandle);
 
                 if (_DrawValueString == true)
                 {

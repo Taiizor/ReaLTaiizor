@@ -16,12 +16,15 @@ namespace ReaLTaiizor
         Color G2;
 
         Color BG;
+        Color FC;
+
         public MoonButton()
         {
-            this.Size = new Size(120, 26);
+            Size = new Size(120, 26);
             SetColor("G1", Color.White);
             SetColor("G2", Color.LightGray);
             SetColor("BG", Color.FromArgb(240, 240, 240));
+            SetColor("FC", Color.Gray);
             Cursor = Cursors.Hand;
         }
 
@@ -30,6 +33,7 @@ namespace ReaLTaiizor
             G1 = GetColor("G1");
             G2 = GetColor("G2");
             BG = GetColor("BG");
+            FC = GetColor("FC");
         }
 
         protected override void PaintHook()
@@ -55,7 +59,7 @@ namespace ReaLTaiizor
             StringFormat SF = new StringFormat();
             SF.Alignment = StringAlignment.Center;
             SF.LineAlignment = StringAlignment.Center;
-            G.DrawString(this.Text, new Font("Segoe UI", 9), Brushes.Gray, new RectangleF(2, 2, this.Width - 5, this.Height - 4), SF);
+            G.DrawString(Text, new Font("Segoe UI", 9), new SolidBrush(FC), new RectangleF(2, 2, Width - 5, Height - 4), SF);
         }
     }
 

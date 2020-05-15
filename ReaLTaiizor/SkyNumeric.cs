@@ -80,7 +80,7 @@ namespace ReaLTaiizor
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseClick(e);
-            if (X > this.Width - 21 && X < this.Width - 3)
+            if (X > Width - 21 && X < Width - 3)
             {
                 if (Y < 15)
                 {

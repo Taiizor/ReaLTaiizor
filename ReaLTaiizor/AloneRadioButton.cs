@@ -36,26 +36,26 @@ namespace ReaLTaiizor
             [CompilerGenerated]
             add
             {
-                AloneRadioButton.CheckedChangedEventHandler checkedChangedEventHandler = this.CheckedChangedEvent;
+                AloneRadioButton.CheckedChangedEventHandler checkedChangedEventHandler = CheckedChangedEvent;
                 AloneRadioButton.CheckedChangedEventHandler checkedChangedEventHandler2;
                 do
                 {
                     checkedChangedEventHandler2 = checkedChangedEventHandler;
                     AloneRadioButton.CheckedChangedEventHandler value2 = (AloneRadioButton.CheckedChangedEventHandler)Delegate.Combine(checkedChangedEventHandler2, value);
-                    checkedChangedEventHandler = Interlocked.CompareExchange<AloneRadioButton.CheckedChangedEventHandler>(ref this.CheckedChangedEvent, value2, checkedChangedEventHandler2);
+                    checkedChangedEventHandler = Interlocked.CompareExchange<AloneRadioButton.CheckedChangedEventHandler>(ref CheckedChangedEvent, value2, checkedChangedEventHandler2);
                 }
                 while (checkedChangedEventHandler != checkedChangedEventHandler2);
             }
             [CompilerGenerated]
             remove
             {
-                AloneRadioButton.CheckedChangedEventHandler checkedChangedEventHandler = this.CheckedChangedEvent;
+                AloneRadioButton.CheckedChangedEventHandler checkedChangedEventHandler = CheckedChangedEvent;
                 AloneRadioButton.CheckedChangedEventHandler checkedChangedEventHandler2;
                 do
                 {
                     checkedChangedEventHandler2 = checkedChangedEventHandler;
                     AloneRadioButton.CheckedChangedEventHandler value2 = (AloneRadioButton.CheckedChangedEventHandler)Delegate.Remove(checkedChangedEventHandler2, value);
-                    checkedChangedEventHandler = Interlocked.CompareExchange<AloneRadioButton.CheckedChangedEventHandler>(ref this.CheckedChangedEvent, value2, checkedChangedEventHandler2);
+                    checkedChangedEventHandler = Interlocked.CompareExchange<AloneRadioButton.CheckedChangedEventHandler>(ref CheckedChangedEvent, value2, checkedChangedEventHandler2);
                 }
                 while (checkedChangedEventHandler != checkedChangedEventHandler2);
             }
@@ -65,11 +65,11 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this._Checked;
+                return _Checked;
             }
             set
             {
-                this._Checked = value;
+                _Checked = value;
                 base.Invalidate();
             }
         }
@@ -78,19 +78,19 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this.EnabledCalc;
+                return EnabledCalc;
             }
             set
             {
-                this._EnabledCalc = value;
-                bool enabled = this.Enabled;
+                _EnabledCalc = value;
+                bool enabled = Enabled;
                 if (enabled)
                 {
-                    this.Cursor = Cursors.Hand;
+                    Cursor = Cursors.Hand;
                 }
                 else
                 {
-                    this.Cursor = Cursors.Default;
+                    Cursor = Cursors.Default;
                 }
                 base.Invalidate();
             }
@@ -101,30 +101,30 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this._EnabledCalc;
+                return _EnabledCalc;
             }
             set
             {
-                this.Enabled = value;
+                Enabled = value;
                 base.Invalidate();
             }
         }
 
         public AloneRadioButton()
         {
-            this.DoubleBuffered = true;
-            this.Enabled = true;
-            this.Size = new Size(138, 18);
+            DoubleBuffered = true;
+            Enabled = true;
+            Size = new Size(138, 18);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            this.G = e.Graphics;
-            this.G.SmoothingMode = SmoothingMode.HighQuality;
-            this.G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            G = e.Graphics;
+            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
-            this.G.Clear(Color.White);
-            bool enabled = this.Enabled;
+            G.Clear(Color.White);
+            bool enabled = Enabled;
             if (enabled)
             {
                 using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#F3F4F7")))
@@ -135,19 +135,19 @@ namespace ReaLTaiizor
                         {
                             using (Font font = new Font("Segoe UI", 9f))
                             {
-                                this.G.FillEllipse(solidBrush, new Rectangle(0, 0, 16, 16));
-                                this.G.DrawEllipse(pen, new Rectangle(0, 0, 16, 16));
-                                this.G.DrawString(this.Text, font, solidBrush2, new Point(25, 0));
+                                G.FillEllipse(solidBrush, new Rectangle(0, 0, 16, 16));
+                                G.DrawEllipse(pen, new Rectangle(0, 0, 16, 16));
+                                G.DrawString(Text, font, solidBrush2, new Point(25, 0));
                             }
                         }
                     }
                 }
-                bool @checked = this.Checked;
+                bool @checked = Checked;
                 if (@checked)
                 {
                     using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#575C62")))
                     {
-                        this.G.FillEllipse(solidBrush3, new Rectangle(4, 4, 8, 8));
+                        G.FillEllipse(solidBrush3, new Rectangle(4, 4, 8, 8));
                     }
                 }
             }
@@ -161,19 +161,19 @@ namespace ReaLTaiizor
                         {
                             using (Font font2 = new Font("Segoe UI", 9f))
                             {
-                                this.G.FillEllipse(solidBrush4, new Rectangle(0, 0, 16, 16));
-                                this.G.DrawEllipse(pen2, new Rectangle(0, 0, 16, 16));
-                                this.G.DrawString(this.Text, font2, solidBrush5, new Point(25, 0));
+                                G.FillEllipse(solidBrush4, new Rectangle(0, 0, 16, 16));
+                                G.DrawEllipse(pen2, new Rectangle(0, 0, 16, 16));
+                                G.DrawString(Text, font2, solidBrush5, new Point(25, 0));
                             }
                         }
                     }
                 }
-                bool checked2 = this.Checked;
+                bool checked2 = Checked;
                 if (checked2)
                 {
                     using (SolidBrush solidBrush6 = new SolidBrush(AloneLibrary.ColorFromHex("#BCC1C6")))
                     {
-                        this.G.FillEllipse(solidBrush6, new Rectangle(4, 4, 8, 8));
+                        G.FillEllipse(solidBrush6, new Rectangle(4, 4, 8, 8));
                     }
                 }
             }
@@ -182,7 +182,7 @@ namespace ReaLTaiizor
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            bool enabled = this.Enabled;
+            bool enabled = Enabled;
             if (enabled)
             {
                 try
@@ -202,8 +202,8 @@ namespace ReaLTaiizor
                 {
 
                 }
-                this.Checked = !this.Checked;
-                AloneRadioButton.CheckedChangedEventHandler checkedChangedEvent = this.CheckedChangedEvent;
+                Checked = !Checked;
+                AloneRadioButton.CheckedChangedEventHandler checkedChangedEvent = CheckedChangedEvent;
                 if (checkedChangedEvent != null)
                 {
                     checkedChangedEvent(this, e);

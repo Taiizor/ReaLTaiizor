@@ -170,12 +170,12 @@ namespace ReaLTaiizor
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(this.Width, this.Height);
+            Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingMode.AntiAlias;
             G.Clear(Color.Transparent);
-            G.FillPath(Brushes.White, this.Shape);
-            G.DrawPath(P1, this.Shape);
+            G.FillPath(Brushes.White, Shape);
+            G.DrawPath(P1, Shape);
             G.Dispose();
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             B.Dispose();

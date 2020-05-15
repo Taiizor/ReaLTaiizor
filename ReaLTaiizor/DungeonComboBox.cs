@@ -152,8 +152,8 @@ namespace ReaLTaiizor
                 LineAlignment = StringAlignment.Center,
                 Alignment = StringAlignment.Far
             });
-            e.Graphics.DrawLine(new Pen(Color.FromArgb(224, 222, 220)), Width - 24, 4, Width - 24, this.Height - 5);
-            e.Graphics.DrawLine(new Pen(Color.FromArgb(250, 249, 249)), Width - 25, 4, Width - 25, this.Height - 5);
+            e.Graphics.DrawLine(new Pen(Color.FromArgb(224, 222, 220)), Width - 24, 4, Width - 24, Height - 5);
+            e.Graphics.DrawLine(new Pen(Color.FromArgb(250, 249, 249)), Width - 25, 4, Width - 25, Height - 5);
 
             GP.Dispose();
             LGB.Dispose();

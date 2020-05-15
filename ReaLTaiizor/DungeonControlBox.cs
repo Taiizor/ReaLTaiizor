@@ -127,12 +127,12 @@ namespace ReaLTaiizor
                 if (_EnableMaximize == false || _EnableMinimize == false)
                 {
                     if (_EnableMaximize == false && _EnableMinimize == false)
-                        this.Size = new Size(24, 22);
+                        Size = new Size(24, 22);
                     else
-                        this.Size = new Size(44, 22);
+                        Size = new Size(44, 22);
                 }
                 else
-                    this.Size = new Size(64, 22);
+                    Size = new Size(64, 22);
                 Invalidate();
             }
         }
@@ -150,12 +150,12 @@ namespace ReaLTaiizor
                 if (_EnableMaximize == false || _EnableMinimize == false)
                 {
                     if (_EnableMaximize == false && _EnableMinimize == false)
-                        this.Size = new Size(24, 22);
+                        Size = new Size(24, 22);
                     else
-                        this.Size = new Size(44, 22);
+                        Size = new Size(44, 22);
                 }
                 else
-                    this.Size = new Size(64, 22);
+                    Size = new Size(64, 22);
                 Invalidate();
             }
         }
@@ -177,12 +177,12 @@ namespace ReaLTaiizor
             if (_EnableMaximize == false || _EnableMinimize == false)
             {
                 if (_EnableMaximize == false && _EnableMinimize == false)
-                    this.Size = new Size(23, 22);
+                    Size = new Size(23, 22);
                 else
-                    this.Size = new Size(44, 22);
+                    Size = new Size(44, 22);
             }
             else
-                this.Size = new Size(64, 22);
+                Size = new Size(64, 22);
         }
 
         protected override void OnCreateControl()

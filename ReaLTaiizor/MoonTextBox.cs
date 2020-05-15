@@ -19,7 +19,7 @@ namespace ReaLTaiizor
                 case 15:
                     Invalidate();
                     base.WndProc(ref m);
-                    this.CustomPaint();
+                    CustomPaint();
                     break; // TODO: might not be correct. Was : Exit Select
                 default:
                     base.WndProc(ref m);

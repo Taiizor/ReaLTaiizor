@@ -210,10 +210,10 @@ namespace ReaLTaiizor
             base.OnMouseMove(e);
             checked
             {
-                bool flag = this.Cap && e.X > -1 && e.X < this.Width + 1;
+                bool flag = Cap && e.X > -1 && e.X < Width + 1;
                 if (flag)
                 {
-                    this.Value = this._Minimum + (int)Math.Round((double)(this._Maximum - this._Minimum) * ((double)e.X / (double)this.Width));
+                    Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
                 }
             }
         }
@@ -226,14 +226,14 @@ namespace ReaLTaiizor
             {
                 if (flag)
                 {
-                    this.ValueDrawer = (int)Math.Round(((double)(this._Value - this._Minimum) / (double)(this._Maximum - this._Minimum)) * (double)(this.Width - 11));
-                    this.TrackBarHandleRect = new Rectangle(this.ValueDrawer, 0, 25, 25);
-                    this.Cap = this.TrackBarHandleRect.Contains(e.Location);
-                    this.Focus();
-                    flag = this._JumpToMouse;
+                    ValueDrawer = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 11));
+                    TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 25, 25);
+                    Cap = TrackBarHandleRect.Contains(e.Location);
+                    Focus();
+                    flag = _JumpToMouse;
                     if (flag)
                     {
-                        this.Value = this._Minimum + (int)Math.Round((double)(this._Maximum - this._Minimum) * ((double)e.X / (double)this.Width));
+                        Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
                     }
                 }
             }
@@ -280,7 +280,7 @@ namespace ReaLTaiizor
 
             try
             {
-                this.ValueDrawer = (int)Math.Round(((double)(this._Value - this._Minimum) / (double)(this._Maximum - this._Minimum)) * (double)(this.Width - 11));
+                ValueDrawer = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 11));
             }
             catch (Exception)
             {
@@ -298,8 +298,8 @@ namespace ReaLTaiizor
             G.DrawPath(new Pen(Color.FromArgb(200, 200, 200)), PipeBorder); // Draw pipe border
             G.FillPath(new SolidBrush(Color.FromArgb(217, 99, 50)), FillValue);
 
-            G.FillEllipse(new SolidBrush(Color.FromArgb(244, 244, 244)), this.TrackThumb.X + (int)Math.Round(unchecked((double)this.TrackThumb.Width * ((double)this.Value / (double)this.Maximum))) - (int)Math.Round((double)this.ThumbSize.Width / 2.0), this.TrackThumb.Y + (int)Math.Round((double)this.TrackThumb.Height / 2.0) - (int)Math.Round((double)this.ThumbSize.Height / 2.0), this.ThumbSize.Width, this.ThumbSize.Height);
-            G.DrawEllipse(new Pen(Color.FromArgb(180, 180, 180)), this.TrackThumb.X + (int)Math.Round(unchecked((double)this.TrackThumb.Width * ((double)this.Value / (double)this.Maximum))) - (int)Math.Round((double)this.ThumbSize.Width / 2.0), this.TrackThumb.Y + (int)Math.Round((double)this.TrackThumb.Height / 2.0) - (int)Math.Round((double)this.ThumbSize.Height / 2.0), this.ThumbSize.Width, this.ThumbSize.Height);
+            G.FillEllipse(new SolidBrush(Color.FromArgb(244, 244, 244)), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.DrawEllipse(new Pen(Color.FromArgb(180, 180, 180)), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)
             {

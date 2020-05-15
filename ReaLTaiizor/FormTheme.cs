@@ -136,8 +136,8 @@ namespace ReaLTaiizor
 
                 if (_IsParentForm)
                 {
-                    this.ParentForm.FormBorderStyle = FormBorderStyle.None;
-                    this.ParentForm.TransparencyKey = Color.Fuchsia;
+                    ParentForm.FormBorderStyle = FormBorderStyle.None;
+                    ParentForm.TransparencyKey = Color.Fuchsia;
 
                     if (!DesignMode)
                         ParentForm.Shown += FormShown;
@@ -358,8 +358,8 @@ namespace ReaLTaiizor
         //protected override void OnCreateControl()
         //{
         //    base.OnCreateControl();
-        //    this.ParentForm.FormBorderStyle = FormBorderStyle.None;
-        //    this.ParentForm.TransparencyKey = Color.Fuchsia;
+        //    ParentForm.FormBorderStyle = FormBorderStyle.None;
+        //    ParentForm.TransparencyKey = Color.Fuchsia;
         //}
 
         protected override void CreateHandle()
@@ -387,7 +387,7 @@ namespace ReaLTaiizor
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
-            Color TransparencyKey = this.ParentForm.TransparencyKey;
+            Color TransparencyKey = ParentForm.TransparencyKey;
 
             G.SmoothingMode = SmoothingMode.Default;
             G.Clear(TransparencyKey);

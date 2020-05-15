@@ -25,21 +25,21 @@ namespace ReaLTaiizor
 
         public override Color ForeColor
         {
-            get { return this._TextColor; }
+            get { return _TextColor; }
             set
             {
-                this._TextColor = value;
-                this.Invalidate();
+                _TextColor = value;
+                Invalidate();
             }
         }
 
         public Color BubbleColor
         {
-            get { return this._BubbleColor; }
+            get { return _BubbleColor; }
             set
             {
-                this._BubbleColor = value;
-                this.Invalidate();
+                _BubbleColor = value;
+                Invalidate();
             }
         }
 
@@ -83,7 +83,7 @@ namespace ReaLTaiizor
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(this.Width, this.Height);
+            Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             var _G = G;

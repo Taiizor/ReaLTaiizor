@@ -132,11 +132,11 @@ namespace ReaLTaiizor
 
         public StringAlignment TextAlignment
         {
-            get { return this._TextAlignment; }
+            get { return _TextAlignment; }
             set
             {
-                this._TextAlignment = value;
-                this.Invalidate();
+                _TextAlignment = value;
+                Invalidate();
             }
         }
 

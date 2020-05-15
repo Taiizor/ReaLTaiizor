@@ -44,11 +44,11 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this._Val;
+                return _Val;
             }
             set
             {
-                this._Val = value;
+                _Val = value;
                 base.Invalidate();
             }
         }
@@ -57,11 +57,11 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this._Min;
+                return _Min;
             }
             set
             {
-                this._Min = value;
+                _Min = value;
                 base.Invalidate();
             }
         }
@@ -70,26 +70,26 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this._Max;
+                return _Max;
             }
             set
             {
-                this._Max = value;
+                _Max = value;
                 base.Invalidate();
             }
         }
 
         public AloneProgressBar()
         {
-            this._Val = 0;
-            this._Min = 0;
-            this._Max = 100;
-            this.Stripes = Color.DarkGreen;
-            this.BackgroundColor = Color.Green;
-            this.DoubleBuffered = true;
-            this.Maximum = 100;
-            this.Minimum = 0;
-            this.Value = 0;
+            _Val = 0;
+            _Min = 0;
+            _Max = 100;
+            Stripes = Color.DarkGreen;
+            BackgroundColor = Color.Green;
+            DoubleBuffered = true;
+            Maximum = 100;
+            Minimum = 0;
+            Value = 0;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -103,12 +103,12 @@ namespace ReaLTaiizor
             {
                 graphics.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
             }
-            bool flag = this.Value != 0;
+            bool flag = Value != 0;
             if (flag)
             {
-                using (HatchBrush hatchBrush = new HatchBrush(HatchStyle.LightUpwardDiagonal, this.Stripes, this.BackgroundColor))
+                using (HatchBrush hatchBrush = new HatchBrush(HatchStyle.LightUpwardDiagonal, Stripes, BackgroundColor))
                 {
-                    graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked((double)this.Value / (double)this.Maximum * (double)base.Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
+                    graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked((double)Value / (double)Maximum * (double)base.Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
                 }
             }
         }

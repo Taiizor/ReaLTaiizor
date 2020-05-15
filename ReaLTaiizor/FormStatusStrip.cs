@@ -13,7 +13,7 @@ namespace ReaLTaiizor
 
         public FormStatusStrip()
         {
-            this.Renderer = new ControlRenderer();
+            Renderer = new ControlRenderer();
             SizingGrip = false;
         }
 

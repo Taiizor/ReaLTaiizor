@@ -61,7 +61,7 @@ namespace ReaLTaiizor
         protected override void OnEnabledChanged(EventArgs e)
         {
             base.OnEnabledChanged(e);
-            AnimationSpeed.Enabled = this.Enabled;
+            AnimationSpeed.Enabled = Enabled;
         }
 
         protected override void OnHandleCreated(EventArgs e)
@@ -81,14 +81,14 @@ namespace ReaLTaiizor
             {
                 IndicatorIndex -= 1;
             }
-            this.Invalidate(false);
+            Invalidate(false);
         }
 
         #endregion
 
         public ProgressIndicator()
         {
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
 
             Size = new Size(80, 80);
             Text = string.Empty;
@@ -106,45 +106,45 @@ namespace ReaLTaiizor
         private void SetPoints()
         {
             Stack<PointF> stack = new Stack<PointF>();
-            PointF startingFloatPoint = new PointF(((float)this.Width) / 2f, ((float)this.Height) / 2f);
+            PointF startingFloatPoint = new PointF(((float)Width) / 2f, ((float)Height) / 2f);
             for (float i = 0f; i < 360f; i += 45f)
             {
-                this.SetValue(startingFloatPoint, (int)Math.Round((double)((((double)this.Width) / 2.0) - 15.0)), (double)i);
-                PointF endPoint = this.EndPoint;
+                SetValue(startingFloatPoint, (int)Math.Round((double)((((double)Width) / 2.0) - 15.0)), (double)i);
+                PointF endPoint = EndPoint;
                 endPoint = new PointF(endPoint.X - 7.5f, endPoint.Y - 7.5f);
                 stack.Push(endPoint);
             }
-            this.FloatPoint = stack.ToArray();
+            FloatPoint = stack.ToArray();
         }
 
         private void UpdateGraphics()
         {
-            if ((this.Width > 0) && (this.Height > 0))
+            if ((Width > 0) && (Height > 0))
             {
-                Size size2 = new Size(this.Width + 1, this.Height + 1);
-                this.GraphicsContext.MaximumBuffer = size2;
-                this.BuffGraphics = this.GraphicsContext.Allocate(this.CreateGraphics(), this.ClientRectangle);
-                this.BuffGraphics.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                Size size2 = new Size(Width + 1, Height + 1);
+                GraphicsContext.MaximumBuffer = size2;
+                BuffGraphics = GraphicsContext.Allocate(CreateGraphics(), ClientRectangle);
+                BuffGraphics.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            this.BuffGraphics.Graphics.Clear(this.BackColor);
-            int num2 = this.FloatPoint.Length - 1;
+            BuffGraphics.Graphics.Clear(BackColor);
+            int num2 = FloatPoint.Length - 1;
             for (int i = 0; i <= num2; i++)
             {
-                if (this.IndicatorIndex == i)
+                if (IndicatorIndex == i)
                 {
-                    this.BuffGraphics.Graphics.FillEllipse(this.AnimationColor, this.FloatPoint[i].X, this.FloatPoint[i].Y, 15f, 15f);
+                    BuffGraphics.Graphics.FillEllipse(AnimationColor, FloatPoint[i].X, FloatPoint[i].Y, 15f, 15f);
                 }
                 else
                 {
-                    this.BuffGraphics.Graphics.FillEllipse(this.BaseColor, this.FloatPoint[i].X, this.FloatPoint[i].Y, 15f, 15f);
+                    BuffGraphics.Graphics.FillEllipse(BaseColor, FloatPoint[i].X, FloatPoint[i].Y, 15f, 15f);
                 }
             }
-            this.BuffGraphics.Render(e.Graphics);
+            BuffGraphics.Render(e.Graphics);
         }
 
 

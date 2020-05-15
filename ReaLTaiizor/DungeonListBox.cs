@@ -16,8 +16,8 @@ namespace ReaLTaiizor
 
         public DungeonListBox()
         {
-            this.SetStyle((ControlStyles)(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
-            this.DrawMode = DrawMode.OwnerDrawFixed;
+            SetStyle((ControlStyles)(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
+            DrawMode = DrawMode.OwnerDrawFixed;
             IntegralHeight = false;
             ItemHeight = 18;
             Font = new Font("Seoge UI", 11, FontStyle.Regular);
@@ -48,19 +48,19 @@ namespace ReaLTaiizor
         {
             base.OnPaint(e);
             Region MyRegion = new Region(e.ClipRectangle);
-            e.Graphics.FillRegion(new SolidBrush(this.BackColor), MyRegion);
+            e.Graphics.FillRegion(new SolidBrush(BackColor), MyRegion);
 
-            if (this.Items.Count > 0)
+            if (Items.Count > 0)
             {
-                for (int i = 0; i <= this.Items.Count - 1; i++)
+                for (int i = 0; i <= Items.Count - 1; i++)
                 {
-                    System.Drawing.Rectangle RegionRect = this.GetItemRectangle(i);
+                    System.Drawing.Rectangle RegionRect = GetItemRectangle(i);
                     if (e.ClipRectangle.IntersectsWith(RegionRect))
                     {
-                        if ((this.SelectionMode == SelectionMode.One && this.SelectedIndex == i) || (this.SelectionMode == SelectionMode.MultiSimple && this.SelectedIndices.Contains(i)) || (this.SelectionMode == SelectionMode.MultiExtended && this.SelectedIndices.Contains(i)))
-                            OnDrawItem(new DrawItemEventArgs(e.Graphics, this.Font, RegionRect, i, DrawItemState.Selected, this.ForeColor, this.BackColor));
+                        if ((SelectionMode == SelectionMode.One && SelectedIndex == i) || (SelectionMode == SelectionMode.MultiSimple && SelectedIndices.Contains(i)) || (SelectionMode == SelectionMode.MultiExtended && SelectedIndices.Contains(i)))
+                            OnDrawItem(new DrawItemEventArgs(e.Graphics, Font, RegionRect, i, DrawItemState.Selected, ForeColor, BackColor));
                         else
-                            OnDrawItem(new DrawItemEventArgs(e.Graphics, this.Font, RegionRect, i, DrawItemState.Default, Color.FromArgb(60, 60, 60), this.BackColor));
+                            OnDrawItem(new DrawItemEventArgs(e.Graphics, Font, RegionRect, i, DrawItemState.Default, Color.FromArgb(60, 60, 60), BackColor));
                         MyRegion.Complement(RegionRect);
                     }
                 }

@@ -173,9 +173,9 @@ namespace ReaLTaiizor
             base.OnMouseMove(e);
             checked
             {
-                bool flag = this.Cap && e.X > -1 && e.X < this.Width + 1;
+                bool flag = Cap && e.X > -1 && e.X < Width + 1;
                 if (flag)
-                    this.Value = this._Minimum + (int)Math.Round((double)(this._Maximum - this._Minimum) * ((double)e.X / (double)this.Width));
+                    Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
             }
         }
 
@@ -184,12 +184,12 @@ namespace ReaLTaiizor
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
-                this.ValueDrawer = (int)Math.Round(((double)(this._Value - this._Minimum) / (double)(this._Maximum - this._Minimum)) * (double)(this.Width - 11));
+                ValueDrawer = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 11));
                 TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 25, 25);
                 Cap = TrackBarHandleRect.Contains(e.Location);
                 Focus();
                 if (_JumpToMouse)
-                    this.Value = this._Minimum + (int)Math.Round((double)(this._Maximum - this._Minimum) * ((double)e.X / (double)this.Width));
+                    Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
             }
         }
 
@@ -227,7 +227,7 @@ namespace ReaLTaiizor
 
             try
             {
-                this.ValueDrawer = (int)Math.Round(((double)(this._Value - this._Minimum) / (double)(this._Maximum - this._Minimum)) * (double)(this.Width));
+                ValueDrawer = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width));
             }
             catch (Exception)
             {
@@ -249,8 +249,8 @@ namespace ReaLTaiizor
 
             G.SmoothingMode = SmoothingMode.HighQuality;
 
-            G.FillEllipse(new SolidBrush(Color.FromArgb(32, 34, 37)), this.TrackThumb.X + (int)Math.Round(unchecked((double)this.TrackThumb.Width * ((double)this.Value / (double)this.Maximum))) - (int)Math.Round((double)this.ThumbSize.Width / 2.0), this.TrackThumb.Y + (int)Math.Round((double)this.TrackThumb.Height / 2.0) - (int)Math.Round((double)this.ThumbSize.Height / 2.0), this.ThumbSize.Width, this.ThumbSize.Height);
-            G.DrawEllipse(new Pen(Color.FromArgb(32, 34, 37)), this.TrackThumb.X + (int)Math.Round(unchecked((double)this.TrackThumb.Width * ((double)this.Value / (double)this.Maximum))) - (int)Math.Round((double)this.ThumbSize.Width / 2.0), this.TrackThumb.Y + (int)Math.Round((double)this.TrackThumb.Height / 2.0) - (int)Math.Round((double)this.ThumbSize.Height / 2.0), this.ThumbSize.Width, this.ThumbSize.Height);
+            G.FillEllipse(new SolidBrush(Color.FromArgb(32, 34, 37)), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.DrawEllipse(new Pen(Color.FromArgb(32, 34, 37)), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
         }
     }
 

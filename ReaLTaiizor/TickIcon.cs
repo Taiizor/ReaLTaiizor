@@ -16,9 +16,9 @@ namespace ReaLTaiizor
 
         public TickIcon()
         {
-            this.ForeColor = Color.DimGray;
-            this.BackColor = Color.FromArgb(246, 246, 246);
-            this.Size = new Size(33, 33);
+            ForeColor = Color.DimGray;
+            BackColor = Color.FromArgb(246, 246, 246);
+            Size = new Size(33, 33);
             DoubleBuffered = true;
         }
 

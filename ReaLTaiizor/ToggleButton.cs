@@ -86,7 +86,7 @@ namespace ReaLTaiizor
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            this.Size = new Size(76, 33);
+            Size = new Size(76, 33);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)

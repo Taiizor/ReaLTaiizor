@@ -133,13 +133,13 @@ namespace ReaLTaiizor
                 if ((ToggleLocation < 100))
                 {
                     ToggleLocation += 10;
-                    this.Invalidate(false);
+                    Invalidate(false);
                 }
             }
             else if ((ToggleLocation > 0))
             {
                 ToggleLocation -= 10;
-                this.Invalidate(false);
+                Invalidate(false);
             }
         }
 
@@ -150,32 +150,32 @@ namespace ReaLTaiizor
             G.Clear(Parent.BackColor);
             checked
             {
-                Point point = new Point(0, (int)Math.Round(unchecked((double)this.Height / 2.0 - (double)this.cHandle.Height / 2.0)));
+                Point point = new Point(0, (int)Math.Round(unchecked((double)Height / 2.0 - (double)cHandle.Height / 2.0)));
                 Point arg_A8_0 = point;
-                Point point2 = new Point(0, (int)Math.Round(unchecked((double)this.Height / 2.0 + (double)this.cHandle.Height / 2.0)));
+                Point point2 = new Point(0, (int)Math.Round(unchecked((double)Height / 2.0 + (double)cHandle.Height / 2.0)));
                 LinearGradientBrush Gradient = new LinearGradientBrush(arg_A8_0, point2, Color.FromArgb(250, 250, 250), Color.FromArgb(240, 240, 240));
-                this.Bar = new Rectangle(8, 10, this.Width - 21, this.Height - 21);
+                Bar = new Rectangle(8, 10, Width - 21, Height - 21);
 
                 G.SmoothingMode = SmoothingMode.AntiAlias;
-                G.FillPath(Gradient, (GraphicsPath)this.Pill(0, (int)Math.Round(unchecked((double)this.Height / 2.0 - (double)this.cHandle.Height / 2.0)), this.Width - 1, this.cHandle.Height - 5, new ToggleEdit.PillStyle
+                G.FillPath(Gradient, (GraphicsPath)Pill(0, (int)Math.Round(unchecked((double)Height / 2.0 - (double)cHandle.Height / 2.0)), Width - 1, cHandle.Height - 5, new ToggleEdit.PillStyle
                 {
                     Left = true,
                     Right = true
                 }));
-                G.DrawPath(new Pen(Color.FromArgb(177, 177, 176)), (GraphicsPath)this.Pill(0, (int)Math.Round(unchecked((double)this.Height / 2.0 - (double)this.cHandle.Height / 2.0)), this.Width - 1, this.cHandle.Height - 5, new ToggleEdit.PillStyle
+                G.DrawPath(new Pen(Color.FromArgb(177, 177, 176)), (GraphicsPath)Pill(0, (int)Math.Round(unchecked((double)Height / 2.0 - (double)cHandle.Height / 2.0)), Width - 1, cHandle.Height - 5, new ToggleEdit.PillStyle
                 {
                     Left = true,
                     Right = true
                 }));
                 Gradient.Dispose();
-                switch (this.ToggleType)
+                switch (ToggleType)
                 {
                     case ToggleEdit._Type.YesNo:
                         {
-                            bool toggled = this.Toggled;
+                            bool toggled = Toggled;
                             if (toggled)
                             {
-                                G.DrawString("Yes", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(this.Bar.X + 7), (float)this.Bar.Y, new StringFormat
+                                G.DrawString("Yes", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(Bar.X + 7), (float)Bar.Y, new StringFormat
                                 {
                                     Alignment = StringAlignment.Center,
                                     LineAlignment = StringAlignment.Center
@@ -183,7 +183,7 @@ namespace ReaLTaiizor
                             }
                             else
                             {
-                                G.DrawString("No", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(this.Bar.X + 18), (float)this.Bar.Y, new StringFormat
+                                G.DrawString("No", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(Bar.X + 18), (float)Bar.Y, new StringFormat
                                 {
                                     Alignment = StringAlignment.Center,
                                     LineAlignment = StringAlignment.Center
@@ -193,10 +193,10 @@ namespace ReaLTaiizor
                         }
                     case ToggleEdit._Type.OnOff:
                         {
-                            bool toggled = this.Toggled;
+                            bool toggled = Toggled;
                             if (toggled)
                             {
-                                G.DrawString("On", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(this.Bar.X + 7), (float)this.Bar.Y, new StringFormat
+                                G.DrawString("On", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(Bar.X + 7), (float)Bar.Y, new StringFormat
                                 {
                                     Alignment = StringAlignment.Center,
                                     LineAlignment = StringAlignment.Center
@@ -204,7 +204,7 @@ namespace ReaLTaiizor
                             }
                             else
                             {
-                                G.DrawString("Off", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(this.Bar.X + 18), (float)this.Bar.Y, new StringFormat
+                                G.DrawString("Off", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(Bar.X + 18), (float)Bar.Y, new StringFormat
                                 {
                                     Alignment = StringAlignment.Center,
                                     LineAlignment = StringAlignment.Center
@@ -214,10 +214,10 @@ namespace ReaLTaiizor
                         }
                     case ToggleEdit._Type.IO:
                         {
-                            bool toggled = this.Toggled;
+                            bool toggled = Toggled;
                             if (toggled)
                             {
-                                G.DrawString("I", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(this.Bar.X + 7), (float)this.Bar.Y, new StringFormat
+                                G.DrawString("I", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(Bar.X + 7), (float)Bar.Y, new StringFormat
                                 {
                                     Alignment = StringAlignment.Center,
                                     LineAlignment = StringAlignment.Center
@@ -225,7 +225,7 @@ namespace ReaLTaiizor
                             }
                             else
                             {
-                                G.DrawString("O", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(this.Bar.X + 18), (float)this.Bar.Y, new StringFormat
+                                G.DrawString("O", new Font("Segoe UI", 7f, FontStyle.Regular), Brushes.Gray, (float)(Bar.X + 18), (float)Bar.Y, new StringFormat
                                 {
                                     Alignment = StringAlignment.Center,
                                     LineAlignment = StringAlignment.Center
@@ -234,8 +234,8 @@ namespace ReaLTaiizor
                             break;
                         }
                 }
-                G.FillEllipse(new SolidBrush(Color.FromArgb(249, 249, 249)), this.Bar.X + (int)Math.Round(unchecked((double)this.Bar.Width * ((double)this.ToggleLocation / 80.0))) - (int)Math.Round((double)this.cHandle.Width / 2.0), this.Bar.Y + (int)Math.Round((double)this.Bar.Height / 2.0) - (int)Math.Round(unchecked((double)this.cHandle.Height / 2.0 - 1.0)), this.cHandle.Width, this.cHandle.Height - 5);
-                G.DrawEllipse(new Pen(Color.FromArgb(177, 177, 176)), this.Bar.X + (int)Math.Round(unchecked((double)this.Bar.Width * ((double)this.ToggleLocation / 80.0) - (double)checked((int)Math.Round((double)this.cHandle.Width / 2.0)))), this.Bar.Y + (int)Math.Round((double)this.Bar.Height / 2.0) - (int)Math.Round(unchecked((double)this.cHandle.Height / 2.0 - 1.0)), this.cHandle.Width, this.cHandle.Height - 5);
+                G.FillEllipse(new SolidBrush(Color.FromArgb(249, 249, 249)), Bar.X + (int)Math.Round(unchecked((double)Bar.Width * ((double)ToggleLocation / 80.0))) - (int)Math.Round((double)cHandle.Width / 2.0), Bar.Y + (int)Math.Round((double)Bar.Height / 2.0) - (int)Math.Round(unchecked((double)cHandle.Height / 2.0 - 1.0)), cHandle.Width, cHandle.Height - 5);
+                G.DrawEllipse(new Pen(Color.FromArgb(177, 177, 176)), Bar.X + (int)Math.Round(unchecked((double)Bar.Width * ((double)ToggleLocation / 80.0) - (double)checked((int)Math.Round((double)cHandle.Width / 2.0)))), Bar.Y + (int)Math.Round((double)Bar.Height / 2.0) - (int)Math.Round(unchecked((double)cHandle.Height / 2.0 - 1.0)), cHandle.Width, cHandle.Height - 5);
             }
         }
     }

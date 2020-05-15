@@ -52,9 +52,9 @@ namespace ReaLTaiizor
                 case true:
                     //Put your checked state here
                     DrawGradient(C1, C1, ClientRectangle, 90f); // checked background
-                    DrawGradient(C2, C3, 3, 3, this.Width - 6, this.Height - 6, 90f); // checked background
+                    DrawGradient(C2, C3, 3, 3, Width - 6, Height - 6, 90f); // checked background
                     DrawBorders(P1, 1); // Create the Inner Border
-                    this.Height = this.Width;
+                    Height = Width;
                     DrawBorders(P2); // Create the Outer Border
                     DrawCorners(BackColor); // Draw the Corners
                     break;
@@ -62,7 +62,7 @@ namespace ReaLTaiizor
                     //Put your unchecked state here
                     DrawGradient(C1, C1, ClientRectangle, 90f); // unchecked background
                     DrawBorders(P1, 1); // Create the Inner Border
-                    this.Height = this.Width;
+                    Height = Width;
                     DrawBorders(P2); // Create the Outer Border
                     DrawCorners(BackColor); // Draw the Corners
                     break;

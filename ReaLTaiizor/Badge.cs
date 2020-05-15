@@ -25,16 +25,16 @@ namespace ReaLTaiizor
         {
             get
             {
-                if (this._Value == 0)
+                if (_Value == 0)
                     return 0;
-                return this._Value;
+                return _Value;
             }
             set
             {
-                if (value > this._Maximum)
-                    value = this._Maximum;
-                this._Value = value;
-                this.Invalidate();
+                if (value > _Maximum)
+                    value = _Maximum;
+                _Value = value;
+                Invalidate();
             }
         }
 
@@ -42,14 +42,14 @@ namespace ReaLTaiizor
         {
             get
             {
-                return this._Maximum;
+                return _Maximum;
             }
             set
             {
-                if (value < this._Value)
-                    this._Value = value;
-                this._Maximum = value;
-                this.Invalidate();
+                if (value < _Value)
+                    _Value = value;
+                _Maximum = value;
+                Invalidate();
             }
         }
 

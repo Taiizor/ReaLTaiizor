@@ -49,7 +49,7 @@ namespace ReaLTaiizor
             if (Parent.GetType() == typeof(Form))
             {//.FormBorderStyle = 0;
              //(ParentForm)Parent;
-                this.FindForm().FormBorderStyle = 0;
+                FindForm().FormBorderStyle = 0;
                 //Convert.ChangeType(Parent, typeof(Form));
 
             }

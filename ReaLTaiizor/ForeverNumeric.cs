@@ -159,7 +159,7 @@ namespace ReaLTaiizor
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			this.UpdateColors();
+			UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);

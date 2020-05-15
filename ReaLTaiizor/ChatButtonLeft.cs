@@ -149,21 +149,21 @@ namespace ReaLTaiizor
 
         public StringAlignment TextAlignment
         {
-            get { return this._TextAlignment; }
+            get { return _TextAlignment; }
             set
             {
-                this._TextAlignment = value;
-                this.Invalidate();
+                _TextAlignment = value;
+                Invalidate();
             }
         }
 
         public override Color ForeColor
         {
-            get { return this._TextColor; }
+            get { return _TextColor; }
             set
             {
-                this._TextColor = value;
-                this.Invalidate();
+                _TextColor = value;
+                Invalidate();
             }
         }
 

@@ -13,7 +13,7 @@ namespace ReaLTaiizor
 
         public FormContextMenuStrip()
         {
-            this.Renderer = new ControlRenderer();
+            Renderer = new ControlRenderer();
         }
 
         public new ControlRenderer Renderer
