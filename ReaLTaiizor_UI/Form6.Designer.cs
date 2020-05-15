@@ -74,6 +74,7 @@
             this.ribbonGroupBox1.Controls.Add(this.ribbonProgressBarCenter1);
             this.ribbonGroupBox1.Controls.Add(this.ribbonProgressBarRight2);
             this.ribbonGroupBox1.Controls.Add(this.ribbonProgressBarRight1);
+            this.ribbonGroupBox1.ForeColor = System.Drawing.Color.Black;
             this.ribbonGroupBox1.Location = new System.Drawing.Point(3, 123);
             this.ribbonGroupBox1.Name = "ribbonGroupBox1";
             this.ribbonGroupBox1.Size = new System.Drawing.Size(490, 107);
@@ -83,6 +84,7 @@
             // ribbonProgressBarLeft2
             // 
             this.ribbonProgressBarLeft2.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarLeft2.ForeColor = System.Drawing.Color.Black;
             this.ribbonProgressBarLeft2.Location = new System.Drawing.Point(12, 65);
             this.ribbonProgressBarLeft2.Maximum = 100;
             this.ribbonProgressBarLeft2.Name = "ribbonProgressBarLeft2";
@@ -95,6 +97,7 @@
             // ribbonProgressBarLeft1
             // 
             this.ribbonProgressBarLeft1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarLeft1.ForeColor = System.Drawing.Color.Black;
             this.ribbonProgressBarLeft1.Location = new System.Drawing.Point(12, 36);
             this.ribbonProgressBarLeft1.Maximum = 100;
             this.ribbonProgressBarLeft1.Name = "ribbonProgressBarLeft1";
@@ -107,6 +110,7 @@
             // ribbonProgressBarCenter2
             // 
             this.ribbonProgressBarCenter2.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarCenter2.ForeColor = System.Drawing.Color.Black;
             this.ribbonProgressBarCenter2.Location = new System.Drawing.Point(178, 65);
             this.ribbonProgressBarCenter2.Maximum = 100;
             this.ribbonProgressBarCenter2.Name = "ribbonProgressBarCenter2";
@@ -119,6 +123,7 @@
             // ribbonProgressBarCenter1
             // 
             this.ribbonProgressBarCenter1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarCenter1.ForeColor = System.Drawing.Color.Black;
             this.ribbonProgressBarCenter1.Location = new System.Drawing.Point(178, 36);
             this.ribbonProgressBarCenter1.Maximum = 100;
             this.ribbonProgressBarCenter1.Name = "ribbonProgressBarCenter1";
@@ -131,6 +136,7 @@
             // ribbonProgressBarRight2
             // 
             this.ribbonProgressBarRight2.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarRight2.ForeColor = System.Drawing.Color.Black;
             this.ribbonProgressBarRight2.Location = new System.Drawing.Point(350, 65);
             this.ribbonProgressBarRight2.Maximum = 100;
             this.ribbonProgressBarRight2.Name = "ribbonProgressBarRight2";
@@ -143,6 +149,7 @@
             // ribbonProgressBarRight1
             // 
             this.ribbonProgressBarRight1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarRight1.ForeColor = System.Drawing.Color.Black;
             this.ribbonProgressBarRight1.Location = new System.Drawing.Point(350, 36);
             this.ribbonProgressBarRight1.Maximum = 100;
             this.ribbonProgressBarRight1.Name = "ribbonProgressBarRight1";
@@ -192,7 +199,7 @@
             // 
             this.ribbonButtonRight1.BackColor = System.Drawing.Color.Transparent;
             this.ribbonButtonRight1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonRight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.ribbonButtonRight1.ForeColor = System.Drawing.Color.Black;
             this.ribbonButtonRight1.Location = new System.Drawing.Point(353, 77);
             this.ribbonButtonRight1.Name = "ribbonButtonRight1";
             this.ribbonButtonRight1.Size = new System.Drawing.Size(140, 40);
@@ -203,7 +210,7 @@
             // 
             this.ribbonButtonLeft1.BackColor = System.Drawing.Color.Transparent;
             this.ribbonButtonLeft1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonLeft1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.ribbonButtonLeft1.ForeColor = System.Drawing.Color.Black;
             this.ribbonButtonLeft1.Location = new System.Drawing.Point(3, 77);
             this.ribbonButtonLeft1.Name = "ribbonButtonLeft1";
             this.ribbonButtonLeft1.Size = new System.Drawing.Size(140, 40);
@@ -214,7 +221,7 @@
             // 
             this.ribbonButtonCenter1.BackColor = System.Drawing.Color.Transparent;
             this.ribbonButtonCenter1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonCenter1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.ribbonButtonCenter1.ForeColor = System.Drawing.Color.Black;
             this.ribbonButtonCenter1.Location = new System.Drawing.Point(179, 77);
             this.ribbonButtonCenter1.Name = "ribbonButtonCenter1";
             this.ribbonButtonCenter1.Size = new System.Drawing.Size(140, 40);

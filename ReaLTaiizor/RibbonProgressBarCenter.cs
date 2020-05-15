@@ -73,13 +73,9 @@ namespace ReaLTaiizor
             while (true)
             {
                 if (OFS <= Width)
-                {
                     OFS += 1;
-                }
                 else
-                {
                     OFS = 0;
-                }
                 Invalidate();
                 System.Threading.Thread.Sleep(Speed);
             }
@@ -90,6 +86,7 @@ namespace ReaLTaiizor
         {
             DoubleBuffered = true;
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
+            ForeColor = Color.Black;
             BackColor = Color.Transparent;
         }
 
@@ -119,7 +116,7 @@ namespace ReaLTaiizor
 
             if (_ShowPercentage)
             {
-                G.DrawString(Convert.ToString(string.Concat(Value, "%")), Font, Brushes.White, new Rectangle(0, 0, Width - 1, Height - 1), new StringFormat
+                G.DrawString(Convert.ToString(string.Concat(Value, "%")), Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 1, Height - 1), new StringFormat
                 {
                     Alignment = StringAlignment.Center,
                     LineAlignment = StringAlignment.Center

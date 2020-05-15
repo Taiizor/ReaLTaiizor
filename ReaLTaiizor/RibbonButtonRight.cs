@@ -45,7 +45,7 @@ namespace ReaLTaiizor
         {
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
-            ForeColor = Color.FromArgb(205, 205, 205);
+            ForeColor = Color.Black;
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
             Size = new Size(140, 40);
@@ -95,7 +95,7 @@ namespace ReaLTaiizor
                     break;
             }
 
-            G.DrawString(Text, drawFont, new SolidBrush(Color.White), new Rectangle(0, 1, Width - 1, Height - 1), new StringFormat
+            G.DrawString(Text, drawFont, new SolidBrush(ForeColor), new Rectangle(0, 1, Width - 1, Height - 1), new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center

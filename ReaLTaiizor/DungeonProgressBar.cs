@@ -136,6 +136,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
+            ForeColor = Color.DimGray;
             DoubleBuffered = true;
         }
 
@@ -206,10 +207,10 @@ namespace ReaLTaiizor
                 switch (ValueAlignment)
                 {
                     case Alignment.Right:
-                        G.DrawString(DrawString, new Font("Segoe UI", 8), Brushes.DimGray, new Point(textX, textY));
+                        G.DrawString(DrawString, new Font("Segoe UI", 8), new SolidBrush(ForeColor), new Point(textX, textY));
                         break;
                     case Alignment.Center:
-                        G.DrawString(DrawString, new Font("Segoe UI", 8), Brushes.DimGray, new Rectangle(0, 0, Width, Height + 2), new StringFormat
+                        G.DrawString(DrawString, new Font("Segoe UI", 8), new SolidBrush(ForeColor), new Rectangle(0, 0, Width, Height + 2), new StringFormat
                         {
                             Alignment = StringAlignment.Center,
                             LineAlignment = StringAlignment.Center

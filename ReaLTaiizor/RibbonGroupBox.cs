@@ -18,6 +18,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
             DoubleBuffered = true;
+            ForeColor = Color.Black;
             Size = new Size(170, 90);
         }
 
@@ -49,7 +50,7 @@ namespace ReaLTaiizor
             Font t = new Font("Tahoma", 10, FontStyle.Bold);
 
             //G.DrawString(Text, t, New SolidBrush(Color.FromArgb(50, 50, 50)), New Rectangle(-1, 1, Width - 1, 25), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
-            G.DrawString(Text, t, new SolidBrush(Color.FromArgb(40, 40, 40)), new Rectangle(0, 1, Width - 1, 25), new StringFormat
+            G.DrawString(Text, t, new SolidBrush(ForeColor), new Rectangle(0, 1, Width - 1, 25), new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center

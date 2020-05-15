@@ -220,6 +220,7 @@
             // 
             this.dungeonProgressBar4.BackColor = System.Drawing.Color.Transparent;
             this.dungeonProgressBar4.DrawHatch = false;
+            this.dungeonProgressBar4.ForeColor = System.Drawing.Color.DimGray;
             this.dungeonProgressBar4.Location = new System.Drawing.Point(336, 184);
             this.dungeonProgressBar4.Maximum = 100;
             this.dungeonProgressBar4.Minimum = 0;
@@ -236,6 +237,7 @@
             // 
             this.dungeonProgressBar3.BackColor = System.Drawing.Color.Transparent;
             this.dungeonProgressBar3.DrawHatch = true;
+            this.dungeonProgressBar3.ForeColor = System.Drawing.Color.DimGray;
             this.dungeonProgressBar3.Location = new System.Drawing.Point(336, 158);
             this.dungeonProgressBar3.Maximum = 100;
             this.dungeonProgressBar3.Minimum = 0;
@@ -252,6 +254,7 @@
             // 
             this.dungeonProgressBar2.BackColor = System.Drawing.Color.Transparent;
             this.dungeonProgressBar2.DrawHatch = false;
+            this.dungeonProgressBar2.ForeColor = System.Drawing.Color.DimGray;
             this.dungeonProgressBar2.Location = new System.Drawing.Point(23, 184);
             this.dungeonProgressBar2.Maximum = 100;
             this.dungeonProgressBar2.Minimum = 0;
@@ -268,6 +271,7 @@
             // 
             this.dungeonProgressBar1.BackColor = System.Drawing.Color.Transparent;
             this.dungeonProgressBar1.DrawHatch = true;
+            this.dungeonProgressBar1.ForeColor = System.Drawing.Color.DimGray;
             this.dungeonProgressBar1.Location = new System.Drawing.Point(23, 158);
             this.dungeonProgressBar1.Maximum = 100;
             this.dungeonProgressBar1.Minimum = 0;
