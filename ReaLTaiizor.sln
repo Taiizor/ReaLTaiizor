@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor", "ReaLTaiizor\ReaLTaiizor.csproj", "{73276DC6-B307-4C0F-BE72-29D66F58EAC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "TEST\TEST.csproj", "{F443B3ED-2838-456C-A4B8-2342C95D3B2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor_UI", "ReaLTaiizor_UI\ReaLTaiizor_UI.csproj", "{F443B3ED-2838-456C-A4B8-2342C95D3B2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
