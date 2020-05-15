@@ -1,5 +1,3 @@
-.vs/ReaLTaiizor/v16/.suo
-.vs/ReaLTaiizor/v16/Server/sqlite3/db.lock
-.vs/ReaLTaiizor/v16/Server/sqlite3/storage.ide
-.vs/ReaLTaiizor/v16/Server/sqlite3/storage.ide-wal
-.vs/ReaLTaiizor/v16/Server/sqlite3/storage.ide-shm
+.vs/
+
+packages/

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>ReaLTaiizor</id>
+    <version>3.7.6.1</version>
+    <title>ReaLTaiizor</title>
+    <authors>Taiizor</authors>
+    <owners>Taiizor</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">GPL-3.0-or-later</license>
+    <projectUrl>https://github.com/Taiizor/ReaLTaiizor</projectUrl>
+	<repository type="git" url="https://github.com/Taiizor/ReaLTaiizor" />
+    <iconUrl>https://www.photo.herominyum.com/resimler/2020/05/15/OoFq.png</iconUrl>
+    <description>C# WinForm UI/Design Library - ReaLTaiizor</description>
+    <releaseNotes>Minor bugs are fixed.</releaseNotes>
+    <copyright>Copyright © 2020 Taiizor Inc.</copyright>
+    <tags>ReaL Taiizor ReaLTaiizor UI Design WinForm WinForms DotNet</tags>
+  </metadata>
+</package>

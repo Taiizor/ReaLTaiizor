@@ -19,8 +19,8 @@ using System.Runtime.InteropServices;
 //    Creator: Taiizor
 //    Site   : www.Taiizor.com
 //    Created: 15.May.2019
-//    Changed: 13.May.2020
-//    Version: 3.7.5.7
+//    Changed: 15.May.2020
+//    Version: 3.7.6.1
 //
 //|---------DO-NOT-REMOVE---------|
 
@@ -9047,9 +9047,7 @@ namespace ReaLTaiizor
             ForeverColors colors = new ForeverColors();
 
             while (control != null && (control.GetType() != typeof(ForeverForm)))
-            {
                 control = control.Parent;
-            }
 
             if (control != null)
             {
