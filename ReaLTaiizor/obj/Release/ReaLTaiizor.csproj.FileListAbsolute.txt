@@ -6,3 +6,4 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.csp
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.csproj.CoreCompileInputs.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.dll
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.csprojAssemblyReference.cache

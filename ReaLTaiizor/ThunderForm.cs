@@ -18,6 +18,8 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.FromArgb(25, 25, 25);
             ForeColor = Color.WhiteSmoke;
+            Padding = new Padding(11, 29, 11, 6);
+            MinimumSize = new Size(270, 50);
             DoubleBuffered = true;
         }
 

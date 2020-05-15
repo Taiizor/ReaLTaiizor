@@ -1,6 +1,5 @@
 ﻿#region Imports
 
-using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -29,16 +28,13 @@ namespace ReaLTaiizor
             Size = new Size(23, 22);
         }
 
-        protected override void OnLocationChanged(EventArgs e)
+        protected override void OnCreateControl()
         {
-            base.OnLocationChanged(e);
-            /*
-                if (Parent.FindForm().WindowState == FormWindowState.Normal)
-                    Text = "+";
-                else if (Parent.FindForm().WindowState == FormWindowState.Maximized)
-                    Text = "-";
-            */
-            Text = "+";
+            base.OnCreateControl();
+            if (Parent.FindForm().WindowState == FormWindowState.Normal)
+                Text = "+";
+            else if (Parent.FindForm().WindowState == FormWindowState.Maximized)
+                Text = "-";
         }
 
         private Color C1; // Set up Simple Colors

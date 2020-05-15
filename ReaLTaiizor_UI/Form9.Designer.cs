@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form9));
+            this.skyStatusBar1 = new ReaLTaiizor.SkyStatusBar();
             this.skyNumeric1 = new ReaLTaiizor.SkyNumeric();
             this.skyLabel1 = new ReaLTaiizor.SkyLabel();
             this.skyTextBox1 = new ReaLTaiizor.SkyTextBox();
@@ -37,8 +38,18 @@
             this.skyRadioButton2 = new ReaLTaiizor.SkyRadioButton();
             this.skyRadioButton1 = new ReaLTaiizor.SkyRadioButton();
             this.skyButton1 = new ReaLTaiizor.SkyButton();
-            this.skyStatusBar1 = new ReaLTaiizor.SkyStatusBar();
             this.SuspendLayout();
+            // 
+            // skyStatusBar1
+            // 
+            this.skyStatusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.skyStatusBar1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.skyStatusBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyStatusBar1.Location = new System.Drawing.Point(0, 107);
+            this.skyStatusBar1.Name = "skyStatusBar1";
+            this.skyStatusBar1.Size = new System.Drawing.Size(263, 23);
+            this.skyStatusBar1.TabIndex = 8;
+            this.skyStatusBar1.Text = "skyStatusBar1";
             // 
             // skyNumeric1
             // 
@@ -154,17 +165,6 @@
             this.skyButton1.Size = new System.Drawing.Size(75, 23);
             this.skyButton1.TabIndex = 0;
             this.skyButton1.Text = "skyButton1";
-            // 
-            // skyStatusBar1
-            // 
-            this.skyStatusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.skyStatusBar1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.skyStatusBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyStatusBar1.Location = new System.Drawing.Point(0, 107);
-            this.skyStatusBar1.Name = "skyStatusBar1";
-            this.skyStatusBar1.Size = new System.Drawing.Size(263, 23);
-            this.skyStatusBar1.TabIndex = 8;
-            this.skyStatusBar1.Text = "skyStatusBar1";
             // 
             // Form9
             // 

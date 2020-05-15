@@ -66,15 +66,15 @@ namespace ReaLTaiizor
             Y = e.Location.Y;
             Invalidate();
             if (e.X < Width - 23)
-                Cursor = Cursors.IBeam;
-            else
                 Cursor = Cursors.Default;
+            else
+                Cursor = Cursors.Hand;
         }
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            this.Height = 30;
+            Height = 30;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)

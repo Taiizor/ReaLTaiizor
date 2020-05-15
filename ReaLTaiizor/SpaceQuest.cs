@@ -1,6 +1,5 @@
 ﻿#region Imports
 
-using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -27,9 +26,9 @@ namespace ReaLTaiizor
             Size = new Size(23, 22);
         }
 
-        protected override void OnLocationChanged(EventArgs e)
+        protected override void OnCreateControl()
         {
-            base.OnLocationChanged(e);
+            base.OnCreateControl();
             Text = "?";
         }
 

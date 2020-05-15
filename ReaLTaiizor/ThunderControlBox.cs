@@ -13,6 +13,22 @@ namespace ReaLTaiizor
 
     public class ThunderControlBox : Control
     {
+
+        #region Properties
+
+        private bool _DefaultLocation = true;
+        public bool DefaultLocation
+        {
+            get { return _DefaultLocation; }
+            set
+            {
+                _DefaultLocation = value;
+                Invalidate();
+            }
+        }
+
+        #endregion
+
         MouseStateThunder State = MouseStateThunder.None;
 
         Rectangle MinBtn = new Rectangle(0, 0, 20, 20);
@@ -20,6 +36,20 @@ namespace ReaLTaiizor
         Rectangle ClsBtn = new Rectangle(50, 0, 20, 20);
 
         int x = 0;
+
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+            try
+            {
+                if (DefaultLocation)
+                    Location = new Point(Parent.Width - Width - 3, 3);
+            }
+            catch (Exception)
+            {
+                //
+            }
+        }
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -72,6 +102,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(174, 195, 30);
+            Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DoubleBuffered = true;
         }
 
