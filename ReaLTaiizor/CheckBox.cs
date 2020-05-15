@@ -76,7 +76,7 @@ namespace ReaLTaiizor
         {
             base.OnResize(e);
 
-            this.Height = 16;
+            Height = 16;
 
             Shape = new GraphicsPath();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
@@ -96,6 +96,7 @@ namespace ReaLTaiizor
             Font = new Font("Microsoft Sans Serif", 9);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
+            ForeColor = Color.FromArgb(116, 125, 132);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -126,7 +127,7 @@ namespace ReaLTaiizor
                     G.DrawString("a", new Font("Marlett", 16), new SolidBrush(Color.Gray), new Point(-5, -3));
             }
 
-            G.DrawString(Text, Font, new SolidBrush(Color.FromArgb(116, 125, 132)), new Point(20, 0));
+            G.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(20, 0));
         }
     }
     #endregion

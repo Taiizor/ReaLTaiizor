@@ -61,9 +61,7 @@ namespace ReaLTaiizor
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (!_Checked)
-            {
                 @Checked = true;
-            }
             Focus();
             base.OnMouseDown(e);
         }
@@ -78,13 +76,13 @@ namespace ReaLTaiizor
             base.OnTextChanged(e);
             int textSize = 0;
             textSize = (int)(this.CreateGraphics().MeasureString(Text, Font).Width);
-            this.Width = 28 + textSize;
+            Width = 28 + textSize;
         }
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            this.Height = 17;
+            Height = 17;
         }
 
         #endregion
@@ -95,21 +93,18 @@ namespace ReaLTaiizor
             Height = 17;
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
+            ForeColor = Color.FromArgb(116, 125, 132);
         }
 
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
-            {
                 return;
-            }
 
             foreach (Control _Control in Parent.Controls)
             {
                 if (_Control != this && _Control is RadioButton)
-                {
                     ((RadioButton)_Control).Checked = false;
-                }
             }
         }
 
@@ -125,7 +120,7 @@ namespace ReaLTaiizor
             if (_Checked)
                 G.DrawString("a", new Font("Marlett", 15), new SolidBrush(Color.FromArgb(32, 34, 37)), new Point(-3, -2));
 
-            G.DrawString(Text, Font, new SolidBrush(Color.FromArgb(116, 125, 132)), new Point(20, 0));
+            G.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(20, 0));
         }
     }
 

@@ -13,15 +13,68 @@ namespace ReaLTaiizor
 
     public class GroupBox : ContainerControl
     {
+        #region Variables
+
+        private Brush _HeaderColor = Brushes.CornflowerBlue;
+        private Color _BorderColorH = Color.FromArgb(182, 180, 186);
+        private Color _BorderColorG = Color.FromArgb(159, 159, 161);
+        private Brush _BackGColor = Brushes.DodgerBlue;
+
+        #endregion
+
+        #region Custom Properties
+
+        public Brush HeaderColor
+        {
+            get { return _HeaderColor; }
+            set
+            {
+                _HeaderColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color BorderColorH
+        {
+            get { return _BorderColorH; }
+            set
+            {
+                _BorderColorH = value;
+                Invalidate();
+            }
+        }
+
+        public Color BorderColorG
+        {
+            get { return _BorderColorG; }
+            set
+            {
+                _BorderColorG = value;
+                Invalidate();
+            }
+        }
+
+        public Brush BackGColor
+        {
+            get { return _BackGColor; }
+            set
+            {
+                _BackGColor = value;
+                Invalidate();
+            }
+        }
+
+        #endregion
 
         public GroupBox()
         {
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
             DoubleBuffered = true;
-            this.Size = new Size(212, 104);
-            this.MinimumSize = new Size(136, 50);
-            this.Padding = new Padding(5, 28, 5, 5);
+            Size = new Size(212, 104);
+            MinimumSize = new Size(136, 50);
+            Padding = new Padding(5, 28, 5, 5);
+            ForeColor = Color.FromArgb(53, 53, 53);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -36,16 +89,16 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.HighQuality;
 
             // Draw the body of the GroupBox
-            G.FillPath(Brushes.DodgerBlue, RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, box.Height - 1), 8));
+            G.FillPath(_BackGColor, RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, box.Height - 1), 8));
             // Draw the border of the GroupBox
-            G.DrawPath(new Pen(Color.FromArgb(159, 159, 161)), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, Height - 13), 8));
+            G.DrawPath(new Pen(_BorderColorG), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, Height - 13), 8));
 
             // Draw the background of the title box
-            G.FillPath(Brushes.CornflowerBlue, RoundRectangle.RoundRect(TitleBox, 1));
+            G.FillPath(_HeaderColor, RoundRectangle.RoundRect(TitleBox, 1));
             // Draw the border of the title box
-            G.DrawPath(new Pen(Color.FromArgb(182, 180, 186)), RoundRectangle.RoundRect(TitleBox, 4));
+            G.DrawPath(new Pen(_BorderColorH), RoundRectangle.RoundRect(TitleBox, 4));
             // Draw the specified string from 'Text' property inside the title box
-            G.DrawString(Text, new Font("Tahoma", 9, FontStyle.Regular), new SolidBrush(Color.FromArgb(53, 53, 53)), TitleBox, new StringFormat
+            G.DrawString(Text, new Font("Tahoma", 9, FontStyle.Regular), new SolidBrush(ForeColor), TitleBox, new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center

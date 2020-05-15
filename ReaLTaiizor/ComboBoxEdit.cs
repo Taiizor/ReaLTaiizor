@@ -55,18 +55,12 @@ namespace ReaLTaiizor
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-            {
                 e.Graphics.FillRectangle(new SolidBrush(_HoverSelectionColor), e.Bounds);
-            }
             else
-            {
                 e.Graphics.FillRectangle(Brushes.White, e.Bounds);
-            }
 
             if (!(e.Index == -1))
-            {
                 e.Graphics.DrawString(GetItemText(Items[e.Index]), e.Font, Brushes.DimGray, e.Bounds);
-            }
         }
 
         protected override void OnLostFocus(EventArgs e)
@@ -122,7 +116,7 @@ namespace ReaLTaiizor
             // Draw rectangle border
             e.Graphics.DrawPath(new Pen(Color.FromArgb(204, 204, 204)), GP);
             // Draw string
-            e.Graphics.DrawString(Text, Font, new SolidBrush(Color.FromArgb(142, 142, 142)), new Rectangle(3, 0, Width - 20, Height), new StringFormat
+            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(3, 0, Width - 20, Height), new StringFormat
             {
                 LineAlignment = StringAlignment.Center,
                 Alignment = StringAlignment.Near

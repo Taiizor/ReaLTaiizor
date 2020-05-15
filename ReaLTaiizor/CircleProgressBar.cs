@@ -27,6 +27,7 @@ namespace ReaLTaiizor
 
         private long _Value;
         private long _Maximum = 100;
+        private Brush _PercentColor = Brushes.White;
         private Color _ProgressColor1 = Color.FromArgb(92, 92, 92);
         private Color _ProgressColor2 = Color.FromArgb(92, 92, 92);
         private _ProgressShape ProgressShapeVal;
@@ -54,6 +55,16 @@ namespace ReaLTaiizor
                 if (value < 1)
                     value = 1;
                 _Maximum = value;
+                Invalidate();
+            }
+        }
+
+        public Brush PercentColor
+        {
+            get { return _PercentColor; }
+            set
+            {
+                _PercentColor = value;
                 Invalidate();
             }
         }
@@ -169,7 +180,7 @@ namespace ReaLTaiizor
                         graphics.FillEllipse(brush2, 0x18, 0x18, (this.Width - 0x30) - 1, (this.Height - 0x30) - 1);
                     }
                     SizeF MS = graphics.MeasureString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font);
-                    graphics.DrawString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font, Brushes.White, Convert.ToInt32(Width / 2 - MS.Width / 2), Convert.ToInt32(Height / 2 - MS.Height / 2));
+                    graphics.DrawString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font, _PercentColor, Convert.ToInt32(Width / 2 - MS.Width / 2), Convert.ToInt32(Height / 2 - MS.Height / 2));
                     e.Graphics.DrawImage(bitmap, 0, 0);
                     graphics.Dispose();
                     bitmap.Dispose();

@@ -1,9 +1,9 @@
 # ReaLTaiizor
-  <p>ReaLTaiizor v3.7.6.1</p>
+  <p>ReaLTaiizor v3.7.6.2</p>
   <p>Visual Studio 2019</p>
   <p>.NET Framework 4.8 (Minimum 4.0)</p>
 
-## Usage
+# Usage
 
   Step 1： Add a reference to ReaLTaiizor or search for ReaLTaiizor on the nuget;
 

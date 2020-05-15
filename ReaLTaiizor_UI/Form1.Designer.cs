@@ -203,6 +203,7 @@
             // 
             // circleProgressBar1
             // 
+            this.circleProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(63)))), ((int)(((byte)(74)))));
             this.circleProgressBar1.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.circleProgressBar1.Location = new System.Drawing.Point(6, 11);
             this.circleProgressBar1.Maximum = ((long)(100));
@@ -230,6 +231,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox1.Name = "groupBox1";
@@ -240,6 +244,7 @@
             // 
             // badge13
             // 
+            this.badge13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge13.Location = new System.Drawing.Point(297, 372);
             this.badge13.Maximum = 99;
             this.badge13.Name = "badge13";
@@ -250,6 +255,7 @@
             // 
             // badge11
             // 
+            this.badge11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge11.Location = new System.Drawing.Point(271, 372);
             this.badge11.Maximum = 99;
             this.badge11.Name = "badge11";
@@ -263,7 +269,7 @@
             this.headerLabel1.AutoSize = true;
             this.headerLabel1.BackColor = System.Drawing.Color.Transparent;
             this.headerLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.headerLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.headerLabel1.ForeColor = System.Drawing.Color.White;
             this.headerLabel1.Location = new System.Drawing.Point(328, 372);
             this.headerLabel1.Name = "headerLabel1";
             this.headerLabel1.Size = new System.Drawing.Size(108, 18);
@@ -272,6 +278,7 @@
             // 
             // badge10
             // 
+            this.badge10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge10.Location = new System.Drawing.Point(416, 417);
             this.badge10.Maximum = 99;
             this.badge10.Name = "badge10";
@@ -282,6 +289,7 @@
             // 
             // badge9
             // 
+            this.badge9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge9.Location = new System.Drawing.Point(390, 417);
             this.badge9.Maximum = 99;
             this.badge9.Name = "badge9";
@@ -292,6 +300,7 @@
             // 
             // badge8
             // 
+            this.badge8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge8.Location = new System.Drawing.Point(366, 417);
             this.badge8.Maximum = 99;
             this.badge8.Name = "badge8";
@@ -302,6 +311,7 @@
             // 
             // badge7
             // 
+            this.badge7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge7.Location = new System.Drawing.Point(340, 417);
             this.badge7.Maximum = 99;
             this.badge7.Name = "badge7";
@@ -312,6 +322,7 @@
             // 
             // badge6
             // 
+            this.badge6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge6.Location = new System.Drawing.Point(314, 417);
             this.badge6.Maximum = 99;
             this.badge6.Name = "badge6";
@@ -322,6 +333,7 @@
             // 
             // badge5
             // 
+            this.badge5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge5.Location = new System.Drawing.Point(288, 417);
             this.badge5.Maximum = 99;
             this.badge5.Name = "badge5";
@@ -332,6 +344,7 @@
             // 
             // badge4
             // 
+            this.badge4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge4.Location = new System.Drawing.Point(262, 417);
             this.badge4.Maximum = 99;
             this.badge4.Name = "badge4";
@@ -342,6 +355,7 @@
             // 
             // badge3
             // 
+            this.badge3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge3.Location = new System.Drawing.Point(239, 417);
             this.badge3.Maximum = 99;
             this.badge3.Name = "badge3";
@@ -352,6 +366,7 @@
             // 
             // badge2
             // 
+            this.badge2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge2.Location = new System.Drawing.Point(214, 417);
             this.badge2.Maximum = 99;
             this.badge2.Name = "badge2";
@@ -362,6 +377,7 @@
             // 
             // badge1
             // 
+            this.badge1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.badge1.Location = new System.Drawing.Point(188, 417);
             this.badge1.Maximum = 99;
             this.badge1.Name = "badge1";
@@ -374,6 +390,7 @@
             // 
             this.radioButton1.Checked = true;
             this.radioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             this.radioButton1.Location = new System.Drawing.Point(387, 85);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(95, 17);
@@ -384,6 +401,7 @@
             // 
             this.radioButton2.Checked = false;
             this.radioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             this.radioButton2.Location = new System.Drawing.Point(488, 85);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(95, 17);
@@ -582,6 +600,7 @@
             // 
             // trackBar1
             // 
+            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.trackBar1.JumpToMouse = true;
             this.trackBar1.Location = new System.Drawing.Point(11, 320);
@@ -631,6 +650,7 @@
             // 
             // toggleButton1
             // 
+            this.toggleButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             this.toggleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.toggleButton1.Location = new System.Drawing.Point(284, 255);
             this.toggleButton1.Name = "toggleButton1";
@@ -769,9 +789,11 @@
             // 
             // checkBox1
             // 
+            this.checkBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             this.checkBox1.Checked = false;
             this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             this.checkBox1.Location = new System.Drawing.Point(164, 85);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(89, 16);
