@@ -9,7 +9,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">GPL-3.0-or-later</license>
     <projectUrl>https://github.com/Taiizor/ReaLTaiizor</projectUrl>
-	<repository type="git" url="https://github.com/Taiizor/ReaLTaiizor" />
+    <repository type="git" url="https://github.com/Taiizor/ReaLTaiizor" />
     <iconUrl>https://www.photo.herominyum.com/resimler/2020/05/15/OoFq.png</iconUrl>
     <description>C# WinForm UI/Design Library - ReaLTaiizor</description>
     <releaseNotes>Minor bugs are fixed.</releaseNotes>
