@@ -10,13 +10,13 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  TrackBar
+    #region TrackBar
 
     [DefaultEvent("ValueChanged")]
     public class DungeonTrackBar : Control
     {
 
-        #region  Enums
+        #region Enums
 
         public enum ValueDivisor
         {
@@ -27,7 +27,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Variables
+        #region Variables
 
         private GraphicsPath PipeBorder;
         private GraphicsPath FillValue;
@@ -47,7 +47,7 @@ namespace ReaLTaiizor
         private ValueDivisor DividedValue = ValueDivisor.By1;
 
         #endregion
-        #region  Properties
+        #region Properties
 
         public int Minimum
         {
@@ -203,7 +203,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected override void OnMouseMove(MouseEventArgs e)
         {

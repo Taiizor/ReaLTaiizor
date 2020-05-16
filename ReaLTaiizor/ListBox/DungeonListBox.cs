@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  DungeonListBox
+    #region DungeonListBox
 
     public class DungeonListBox : ListBox
     {

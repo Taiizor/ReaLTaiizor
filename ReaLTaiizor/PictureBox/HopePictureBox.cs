@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  HopePictureBox
+    #region HopePictureBox
 
     public class HopePictureBox : PictureBox
     {

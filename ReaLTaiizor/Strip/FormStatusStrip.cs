@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor
 {
-    #region  StatusStrip
+    #region StatusStrip
 
     public class FormStatusStrip : StatusStrip
     {

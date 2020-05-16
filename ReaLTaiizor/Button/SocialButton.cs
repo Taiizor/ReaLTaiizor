@@ -13,14 +13,14 @@ namespace ReaLTaiizor
 
     public class SocialButton : Control
     {
-        #region  Variables
+        #region Variables
 
         private Image _Image;
         private Size _ImageSize;
         private Color EllipseColor; // VBConversions Note: Initial value cannot be assigned here since it is non-static.  Assignment has been moved to the class constructors.
 
         #endregion
-        #region  Properties
+        #region Properties
 
         public Image Image
         {
@@ -49,7 +49,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected override void OnResize(EventArgs e)
         {
@@ -85,7 +85,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Image Designer
+        #region Image Designer
 
         private static PointF ImageLocation(StringFormat SF, SizeF Area, SizeF ImageArea)
         {

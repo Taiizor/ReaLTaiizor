@@ -16,13 +16,13 @@ namespace ReaLTaiizor
     public class RadioButton : Control
     {
 
-        #region  Variables
+        #region Variables
 
         private int X;
         private bool _Checked;
 
         #endregion
-        #region  Properties
+        #region Properties
 
         public bool Checked
         {
@@ -40,7 +40,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         public delegate void CheckedChangedEventHandler(object sender);
         private CheckedChangedEventHandler CheckedChangedEvent;

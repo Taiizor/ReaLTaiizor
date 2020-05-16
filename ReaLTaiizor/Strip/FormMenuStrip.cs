@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor
 {
-    #region  FormMenuStrip
+    #region FormMenuStrip
 
     public class FormMenuStrip : MenuStrip
     {

@@ -9,11 +9,11 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  NotificationBox
+    #region NotificationBox
 
     public class NotificationBox : Control
     {
-        #region  Variables
+        #region Variables
 
         private Point CloseCoordinates;
         private bool IsOverClose;
@@ -27,7 +27,7 @@ namespace ReaLTaiizor
         private Size _ImageSize;
 
         #endregion
-        #region  Enums
+        #region Enums
 
         // Create a list of Notification Types
         public enum Type
@@ -39,7 +39,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Custom Properties
+        #region Custom Properties
 
         // Create a NotificationType property and add the Type enum to it
         public Type NotificationType
@@ -121,7 +121,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected override void OnMouseMove(MouseEventArgs e)
         {

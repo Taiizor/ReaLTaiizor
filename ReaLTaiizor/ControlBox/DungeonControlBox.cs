@@ -14,7 +14,7 @@ namespace ReaLTaiizor
     public class DungeonControlBox : Control
     {
 
-        #region  Enums
+        #region Enums
 
         public enum MouseState
         {
@@ -24,7 +24,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  MouseStates
+        #region MouseStates
         MouseState State = MouseState.None;
         int X;
         Rectangle CloseBtn = new Rectangle(3, 2, 17, 17);
@@ -101,7 +101,7 @@ namespace ReaLTaiizor
             Invalidate();
         }
         #endregion
-        #region  Properties
+        #region Properties
 
         private bool _DefaultLocation = true;
         public bool DefaultLocation

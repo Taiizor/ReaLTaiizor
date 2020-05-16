@@ -14,7 +14,7 @@ namespace ReaLTaiizor
     public class DungeonForm : ContainerControl
     {
 
-        #region  Enums
+        #region Enums
 
         public enum MouseState
         {
@@ -25,7 +25,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Variables
+        #region Variables
 
         private Rectangle HeaderRect;
         protected MouseState State;
@@ -35,7 +35,7 @@ namespace ReaLTaiizor
         private bool HasShown;
 
         #endregion
-        #region  Properties
+        #region Properties
 
         private bool _Sizable = true;
         public bool Sizable
@@ -138,7 +138,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected sealed override void OnParentChanged(EventArgs e)
         {
@@ -257,7 +257,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Mouse & Size
+        #region Mouse & Size
 
         private void SetState(MouseState current)
         {

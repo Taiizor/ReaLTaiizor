@@ -9,18 +9,18 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  DungeonComboBox
+    #region DungeonComboBox
 
     public class DungeonComboBox : ComboBox
     {
 
-        #region  Variables
+        #region Variables
 
         private int _StartIndex = 0;
         private Color _HoverSelectionColor; // VBConversions Note: Initial value cannot be assigned here since it is non-static.  Assignment has been moved to the class constructors.
 
         #endregion
-        #region  Custom Properties
+        #region Custom Properties
 
         public int StartIndex
         {
@@ -56,7 +56,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected override void OnDrawItem(DrawItemEventArgs e)
         {

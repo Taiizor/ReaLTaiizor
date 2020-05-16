@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  Panel
+    #region Panel
 
     public class Panel : ContainerControl
     {

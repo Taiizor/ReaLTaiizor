@@ -14,7 +14,7 @@ namespace ReaLTaiizor
     public class FormTheme : ContainerControl
     {
 
-        #region  Variables
+        #region Variables
 
         private Point MouseP = new Point(0, 0);
         private bool Cap = false;
@@ -26,7 +26,7 @@ namespace ReaLTaiizor
         private Rectangle HeaderRect;
 
         #endregion
-        #region  Enums
+        #region Enums
 
         public enum MouseState
         {
@@ -37,7 +37,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Properties
+        #region Properties
 
         private bool _Sizable = true;
         public bool Sizable
@@ -120,7 +120,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected sealed override void OnParentChanged(EventArgs e)
         {
@@ -227,7 +227,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Mouse & Size
+        #region Mouse & Size
 
         private void SetState(MouseState current)
         {

@@ -9,12 +9,12 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  DungeonNumeric
+    #region DungeonNumeric
 
     public class DungeonNumeric : Control
     {
 
-        #region  Enums
+        #region Enums
 
         public enum _TextAlignment
         {
@@ -23,7 +23,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Variables
+        #region Variables
 
         private GraphicsPath Shape;
         private Pen P1;
@@ -38,7 +38,7 @@ namespace ReaLTaiizor
         private Timer LongPressTimer = new Timer();
 
         #endregion
-        #region  Properties
+        #region Properties
 
         public long Value
         {
@@ -100,7 +100,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected override void OnResize(System.EventArgs e)
         {

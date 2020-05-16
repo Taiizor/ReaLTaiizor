@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  TickIcon
+    #region TickIcon
 
     public class TickIcon : Control
     {

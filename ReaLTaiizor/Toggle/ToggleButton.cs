@@ -16,7 +16,7 @@ namespace ReaLTaiizor
     [DefaultEvent("ToggledChanged")]
     public class ToggleButton : Control
     {
-        #region  Enums
+        #region Enums
 
         public enum _Type
         {
@@ -27,7 +27,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Variables
+        #region Variables
 
         public delegate void ToggledChangedEventHandler();
         private ToggledChangedEventHandler ToggledChangedEvent;
@@ -51,7 +51,7 @@ namespace ReaLTaiizor
         private int _Height;
 
         #endregion
-        #region  Properties
+        #region Properties
 
         public bool Toggled
         {
@@ -81,7 +81,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected override void OnResize(EventArgs e)
         {

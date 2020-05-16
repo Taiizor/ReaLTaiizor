@@ -142,7 +142,7 @@ namespace ReaLTaiizor
 
     #region ControlRenderer
 
-    #region  Color Table
+    #region Color Table
 
     public abstract class xColorTable
     {
@@ -348,7 +348,7 @@ namespace ReaLTaiizor
     }
 
     #endregion
-    #region  Renderer
+    #region Renderer
 
     public class ControlRenderer : ToolStripProfessionalRenderer
     {
@@ -766,7 +766,7 @@ namespace ReaLTaiizor
     }
 
     #endregion
-    #region  Drawing
+    #region Drawing
 
     public class RectDrawing
     {

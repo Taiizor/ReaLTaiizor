@@ -10,13 +10,13 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  DungeonToggleButton
+    #region DungeonToggleButton
 
     [DefaultEvent("ToggledChanged")]
     public class DungeonToggleButton : Control
     {
 
-        #region  Enums
+        #region Enums
 
         public enum _Type
         {
@@ -26,7 +26,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  Variables
+        #region Variables
 
         public delegate void ToggledChangedEventHandler();
         private ToggledChangedEventHandler ToggledChangedEvent;
@@ -49,7 +49,7 @@ namespace ReaLTaiizor
         private Size cHandle = new Size(15, 20);
 
         #endregion
-        #region  Properties
+        #region Properties
 
         public bool Toggled
         {
@@ -79,7 +79,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         protected override void OnResize(EventArgs e)
         {

@@ -11,7 +11,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  FoxNumeric
+    #region FoxNumeric
 
     public class FoxNumeric : Control
     {

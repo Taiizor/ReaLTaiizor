@@ -15,7 +15,7 @@ namespace ReaLTaiizor
     [DefaultEvent("TextChanged")]
     public class TextEdit : Control
     {
-        #region  Variables
+        #region Variables
 
         public TextBox ReaLTaiizorTB = new TextBox();
         private int _maxchars = 32767;
@@ -30,7 +30,7 @@ namespace ReaLTaiizor
         private GraphicsPath Shape;
 
         #endregion
-        #region  Properties
+        #region Properties
 
         public HorizontalAlignment TextAlignment
         {
@@ -137,7 +137,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
-        #region  EventArgs
+        #region EventArgs
 
         private void _Enter(object Obj, EventArgs e)
         {

@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region  DungeonTabPage
+    #region DungeonTabPage
 
     public class DungeonTabPage : TabControl
     {
