@@ -43,6 +43,9 @@
     <Compile Include="GroupBox\HopeGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Notify\HopeNotify.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Notify\AloneNotice.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -52,7 +55,13 @@
     <Compile Include="Numeric\FoxNumeric.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="PictureBox\HopePictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RadioButton\HopeRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form\HopeForm.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Strip\HopeContextMenuStrip.cs">
