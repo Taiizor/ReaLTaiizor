@@ -40,6 +40,9 @@
     <Compile Include="CheckBox\HopeCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DatePicker\HopeDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GroupBox\HopeGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -56,6 +59,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="PictureBox\HopePictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Progress\HopeRoundPrgoressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Progress\HopePrgoressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RadioButton\HopeRadioButton.cs">

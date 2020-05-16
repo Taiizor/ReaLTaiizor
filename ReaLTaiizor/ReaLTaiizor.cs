@@ -9290,6 +9290,18 @@ namespace ReaLTaiizor
 
             }
         }
+
+        public class DateRectHopeBase
+        {
+            public RectangleF Rect;
+            public bool Drawn = false;
+            public DateTime Date;
+
+            public DateRectHopeBase(RectangleF pRect)
+            {
+                Rect = pRect;
+            }
+        }
     }
 
     #endregion

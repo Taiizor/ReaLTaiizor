@@ -22,9 +22,31 @@ namespace ReaLTaiizor
         private Rectangle closeRectangle;
 
         private Color _themeColor = HopeColors.LightPrimary;
-        private Image _iconImage = null;
+        private Color _ControlBoxColorN = Color.White;
+        private Color _ControlBoxColorH = HopeColors.TwoLevelBorder;
+        private Color _ControlBoxColorHC = HopeColors.Danger;
+        private Image _Image = Properties.Resources.Taiizor;
+        private Size _ImageSize;
 
         #region Settings
+
+        public Image Image
+        {
+            get
+            {
+                return _Image;
+            }
+            set
+            {
+                if (value == null)
+                    _ImageSize = Size.Empty;
+                else
+                    _ImageSize = value.Size;
+
+                _Image = value;
+                Invalidate();
+            }
+        }
 
         public Color ThemeColor
         {
@@ -32,6 +54,36 @@ namespace ReaLTaiizor
             set
             {
                 _themeColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color ControlBoxColorN
+        {
+            get { return _ControlBoxColorN; }
+            set
+            {
+                _ControlBoxColorN = value;
+                Invalidate();
+            }
+        }
+
+        public Color ControlBoxColorH
+        {
+            get { return _ControlBoxColorH; }
+            set
+            {
+                _ControlBoxColorH = value;
+                Invalidate();
+            }
+        }
+
+        public Color ControlBoxColorHC
+        {
+            get { return _ControlBoxColorHC; }
+            set
+            {
+                _ControlBoxColorHC = value;
                 Invalidate();
             }
         }
@@ -134,10 +186,13 @@ namespace ReaLTaiizor
             base.OnMouseMove(e);
             if (mouseFlag)
             {
-                if (Dock == DockStyle.Top)
-                    Parent.Location = new Point(MousePosition.X - mousePoint.X, MousePosition.Y - mousePoint.Y);
-                else
-                    Parent.Location = new Point(MousePosition.X - mousePoint.X, MousePosition.Y - Parent.Height + mousePoint.Y);
+                if (!minRectangle.Contains(mousePoint) && !maxRectangle.Contains(mousePoint) && !closeRectangle.Contains(mousePoint))
+                {
+                    if (Dock == DockStyle.Top)
+                        Parent.Location = new Point(MousePosition.X - mousePoint.X, MousePosition.Y - mousePoint.Y);
+                    else
+                        Parent.Location = new Point(MousePosition.X - mousePoint.X, MousePosition.Y - Parent.Height - mousePoint.Y + Height);
+                }
             }
             else
             {
@@ -210,14 +265,14 @@ namespace ReaLTaiizor
 
             var icoFont = new Font("Marlett", 12);
 
-            if (_iconImage != null)
+            if (_Image != null)
             {
-                graphics.DrawImage(_iconImage, new Rectangle(10, 10, 25, 25));
+                graphics.DrawImage(_Image, new Rectangle(12, 7, 26, 26));
 
-                graphics.DrawString(Text, new Font("Segoe UI", 12f), new SolidBrush(HopeColors.FourLevelBorder), new Rectangle(45, 1, Width - 100, Height), HopeStringAlign.Left);
+                graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(45, 1, Width - 100, Height), HopeStringAlign.Left);
             }
             else
-                graphics.DrawString(Text, new Font("Segoe UI", 12f), new SolidBrush(HopeColors.FourLevelBorder), new Rectangle(15, 1, Width - 100, Height), HopeStringAlign.Left);
+                graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(15, 1, Width - 100, Height), HopeStringAlign.Left);
 
             if (ControlBox)
             {
@@ -226,9 +281,12 @@ namespace ReaLTaiizor
                     minRectangle = new Rectangle(Width - 54 - (MaximizeBox ? 1 : 0) * 22, (Height - 16) / 2, 18, 18);
 
                     if (minRectangle.Contains(mousePoint))
-                        graphics.DrawString("0", icoFont, new SolidBrush(HopeColors.TwoLevelBorder), minRectangle, HopeStringAlign.Center);
+                    {
+                        graphics.DrawString("0", icoFont, new SolidBrush(_ControlBoxColorH), minRectangle, HopeStringAlign.Center);
+                        Cursor = Cursors.Hand;
+                    }
                     else
-                        graphics.DrawString("0", icoFont, new SolidBrush(Color.White), minRectangle, HopeStringAlign.Center);
+                        graphics.DrawString("0", icoFont, new SolidBrush(_ControlBoxColorN), minRectangle, HopeStringAlign.Center);
                 }
                 if (MaximizeBox)
                 {
@@ -237,25 +295,32 @@ namespace ReaLTaiizor
                     if (maxRectangle.Contains(mousePoint))
                     {
                         if (ParentForm.WindowState == FormWindowState.Normal)
-                            graphics.DrawString("1", icoFont, new SolidBrush(HopeColors.TwoLevelBorder), maxRectangle, HopeStringAlign.Center);
+                            graphics.DrawString("1", icoFont, new SolidBrush(_ControlBoxColorH), maxRectangle, HopeStringAlign.Center);
                         else
-                            graphics.DrawString("2", icoFont, new SolidBrush(HopeColors.TwoLevelBorder), maxRectangle, HopeStringAlign.Center);
+                            graphics.DrawString("2", icoFont, new SolidBrush(_ControlBoxColorH), maxRectangle, HopeStringAlign.Center);
+                        Cursor = Cursors.Hand;
                     }
                     else
                     {
                         if (ParentForm.WindowState == FormWindowState.Normal)
-                            graphics.DrawString("1", icoFont, new SolidBrush(Color.White), maxRectangle, HopeStringAlign.Center);
+                            graphics.DrawString("1", icoFont, new SolidBrush(_ControlBoxColorN), maxRectangle, HopeStringAlign.Center);
                         else
-                            graphics.DrawString("2", icoFont, new SolidBrush(Color.White), maxRectangle, HopeStringAlign.Center);
+                            graphics.DrawString("2", icoFont, new SolidBrush(_ControlBoxColorN), maxRectangle, HopeStringAlign.Center);
                     }
                 }
 
                 closeRectangle = new Rectangle(Width - 32, (Height - 16) / 2, 18, 18);
 
                 if (closeRectangle.Contains(mousePoint))
-                    graphics.DrawString("r", icoFont, new SolidBrush(HopeColors.Danger), closeRectangle, HopeStringAlign.Center);
+                {
+                    graphics.DrawString("r", icoFont, new SolidBrush(_ControlBoxColorHC), closeRectangle, HopeStringAlign.Center);
+                    Cursor = Cursors.Hand;
+                }
                 else
-                    graphics.DrawString("r", icoFont, new SolidBrush(Color.White), closeRectangle, HopeStringAlign.Center);
+                    graphics.DrawString("r", icoFont, new SolidBrush(_ControlBoxColorN), closeRectangle, HopeStringAlign.Center);
+
+                if (!minRectangle.Contains(mousePoint) && !maxRectangle.Contains(mousePoint) && !closeRectangle.Contains(mousePoint))
+                    Cursor = Cursors.Default;
             }
 
             base.OnPaint(e);
@@ -270,6 +335,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
             Font = new Font("Segoe UI", 12);
+            ForeColor = HopeColors.FourLevelBorder;
             Height = 40;
             Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             Dock = DockStyle.Top;
