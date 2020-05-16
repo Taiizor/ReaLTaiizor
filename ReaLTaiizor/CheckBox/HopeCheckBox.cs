@@ -130,6 +130,7 @@ namespace ReaLTaiizor
             Font = new Font("Segoe UI", 12);
             ForeColor = HopeColors.MainText;
             Size = new Size(147, 20);
+            Cursor = Cursors.Hand;
         }
     }
 

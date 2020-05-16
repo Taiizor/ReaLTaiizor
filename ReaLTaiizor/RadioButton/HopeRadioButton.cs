@@ -114,6 +114,7 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
             Font = new Font("Segoe UI", 12);
             ForeColor = Color.Black;
+            Cursor = Cursors.Hand;
         }
     }
 
