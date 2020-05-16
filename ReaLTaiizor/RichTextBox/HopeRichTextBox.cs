@@ -12,16 +12,27 @@ using System.Runtime.InteropServices;
 
 namespace ReaLTaiizor
 {
-    #region HopeTextBox
+    #region HopeRichTextBox
 
-    public class HopeTextBox : Control
+    public class HopeRichTextBox : Control
     {
-        private readonly TextBoxHopeBase _baseTextBox = new TextBoxHopeBase
+        private readonly BaseTextBox _baseTextBox = new BaseTextBox
         {
             BorderStyle = BorderStyle.None,
             ForeColor = HopeColors.MainText,
             BackColor = Color.White
         };
+
+        private RectangleF arrowRectangleF = new RectangleF()
+        {
+            Width = 20,
+            Height = 20
+        };
+
+        private Point mousePoint = new Point();
+        private static Size _currentControlStartSize;
+        private bool _resizing = false;
+        private Point _cursorStartPoint;
 
         public override string Text { get { return _baseTextBox.Text; } set { _baseTextBox.Text = value; } }
         public new object Tag { get { return _baseTextBox.Tag; } set { _baseTextBox.Tag = value; } }
@@ -56,6 +67,42 @@ namespace ReaLTaiizor
             }
         }
 
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            mousePoint = e.Location;
+            if (arrowRectangleF.Contains(mousePoint))
+                Cursor = Cursors.SizeNWSE;
+            else
+                Cursor = Cursors.IBeam;
+
+            if (_resizing)
+            {
+                Width = (e.X - _cursorStartPoint.X) + _currentControlStartSize.Width;
+                Height = (e.Y - _cursorStartPoint.Y) + _currentControlStartSize.Height;
+                Height = Height < 38 ? 38 : Height;
+                Width = Width < 100 ? 100 : Width;
+            }
+        }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnClick(e);
+            if (arrowRectangleF.Contains(mousePoint))
+            {
+                _currentControlStartSize = Size;
+                _resizing = true;
+            }
+            _cursorStartPoint = new Point(e.X, e.Y);
+            Capture = true;
+        }
+
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnClick(e);
+            _resizing = false;
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             _baseTextBox.Location = new Point(12, 8);
@@ -72,10 +119,18 @@ namespace ReaLTaiizor
             var bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(Color.White), bg);
             g.DrawPath(new Pen(_baseTextBox.Focused ? HopeColors.PrimaryColor : HopeColors.OneLevelBorder, 0.5f), bg);
+
+            arrowRectangleF.X = Width - 22;
+            arrowRectangleF.Y = Height - 20;
+
+            g.DrawString("p", new Font("Marlett", 12), new SolidBrush(SystemColors.ControlDark), arrowRectangleF);
+
         }
 
-        public HopeTextBox()
+        public HopeRichTextBox()
         {
+            Width = 200;
+            Height = 50;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
             Font = new Font("Segoe UI", 12);
@@ -87,7 +142,6 @@ namespace ReaLTaiizor
             _baseTextBox.KeyPress += _baseTextBox_KeyPress;
             _baseTextBox.TabStop = true;
             TabStop = false;
-            Width = 120;
         }
 
         private void _baseTextBox_LostFocus(object sender, EventArgs e)
@@ -1011,8 +1065,7 @@ namespace ReaLTaiizor
         }
         #endregion
 
-
-        private class TextBoxHopeBase : TextBox
+        private class BaseTextBox : TextBox
         {
             [DllImport("user32.dll", CharSet = CharSet.Unicode)]
             private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
@@ -1081,11 +1134,13 @@ namespace ReaLTaiizor
                 base.PasswordChar = UseSystemPasswordChar ? _useSystemPasswordChar : _passwordChar;
             }
 
-            public TextBoxHopeBase()
+            public BaseTextBox()
             {
-
+                Multiline = true;
+                AutoSize = false;
             }
         }
+
     }
 
     #endregion

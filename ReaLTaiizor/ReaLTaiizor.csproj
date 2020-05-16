@@ -34,13 +34,28 @@
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Button\HopeRoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Button\HopeSimpleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Button\HopeButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CheckBox\HopeCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ComboBox\HopeComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DatePicker\HopeDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextBox\HopeRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TrackBar\HopeTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GroupBox\HopeGroupBox.cs">

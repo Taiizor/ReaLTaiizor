@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 //    Creator: Taiizor
 //    Site   : www.Taiizor.com
 //    Created: 15.May.2019
-//    Changed: 16.May.2020
+//    Changed: 17.May.2020
 //    Version: 3.7.6.3
 //
 //|---------DO-NOT-REMOVE---------|
@@ -9213,81 +9213,6 @@ namespace ReaLTaiizor
             private Rectangle GetItemRect(ToolStripItem item)
             {
                 return new Rectangle(0, item.ContentRectangle.Y, item.ContentRectangle.Width + 4, item.ContentRectangle.Height);
-            }
-        }
-
-        partial class TextBoxHopeBase : TextBox
-        {
-            [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-            private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
-
-            private const int EM_SETCUEBANNER = 0x1501;
-            private const char EmptyChar = (char)0;
-            private const char VisualStylePasswordChar = '\u25CF';
-            private const char NonVisualStylePasswordChar = '\u002A';
-
-            private string hint = string.Empty;
-            public string Hint
-            {
-                get { return hint; }
-                set
-                {
-                    hint = value;
-                    SendMessage(Handle, EM_SETCUEBANNER, (int)IntPtr.Zero, Hint);
-                }
-            }
-
-            private char _passwordChar = EmptyChar;
-            public new char PasswordChar
-            {
-                get { return _passwordChar; }
-                set
-                {
-                    _passwordChar = value;
-                    SetBasePasswordChar();
-                }
-            }
-
-            public new void SelectAll()
-            {
-                BeginInvoke((MethodInvoker)delegate ()
-                {
-                    base.Focus();
-                    base.SelectAll();
-                });
-            }
-
-            public new void Focus()
-            {
-                BeginInvoke((MethodInvoker)delegate ()
-                {
-                    base.Focus();
-                });
-            }
-
-            private char _useSystemPasswordChar = EmptyChar;
-            public new bool UseSystemPasswordChar
-            {
-                get { return _useSystemPasswordChar != EmptyChar; }
-                set
-                {
-                    if (value)
-                        _useSystemPasswordChar = Application.RenderWithVisualStyles ? VisualStylePasswordChar : NonVisualStylePasswordChar;
-                    else
-                        _useSystemPasswordChar = EmptyChar;
-
-                    SetBasePasswordChar();
-                }
-            }
-
-            private void SetBasePasswordChar()
-            {
-                base.PasswordChar = UseSystemPasswordChar ? _useSystemPasswordChar : _passwordChar;
-            }
-
-            public TextBoxHopeBase()
-            {
-
             }
         }
 

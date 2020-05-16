@@ -231,7 +231,7 @@ namespace ReaLTaiizor
             graphics.FillPath(new SolidBrush(Color.White), bg);
             graphics.DrawPath(new Pen(HopeColors.OneLevelBorder), bg);
 
-            graphics.DrawString(string.Format("{0}Y {1,2}M", CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(HopeColors.MainText), TopDateRect, HopeStringAlign.Center);
+            graphics.DrawString(string.Format("{0} Y - {1,2} M", CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(HopeColors.MainText), TopDateRect, HopeStringAlign.Center);
 
             graphics.DrawString("7", new Font("webdings", 12f), new SolidBrush(previousYearHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), PreviousYearRect, HopeStringAlign.Center);
             graphics.DrawString("3", new Font("webdings", 12f), new SolidBrush(previousMonthHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), PreviousMonthRect, HopeStringAlign.Center);

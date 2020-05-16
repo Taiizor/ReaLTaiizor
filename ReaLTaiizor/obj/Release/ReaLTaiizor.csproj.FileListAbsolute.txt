@@ -1,9 +1,9 @@
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\ReaLTaiizor.dll
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\ReaLTaiizor.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.csprojAssemblyReference.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.g.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.Properties.Resources.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.csproj.GenerateResource.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.csproj.CoreCompileInputs.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.dll
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.pdb
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\ReaLTaiizor.csprojAssemblyReference.cache

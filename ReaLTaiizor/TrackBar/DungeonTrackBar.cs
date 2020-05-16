@@ -10,7 +10,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region TrackBar
+    #region DungeonTrackBar
 
     [DefaultEvent("ValueChanged")]
     public class DungeonTrackBar : Control
@@ -302,9 +302,7 @@ namespace ReaLTaiizor
             G.DrawEllipse(new Pen(Color.FromArgb(180, 180, 180)), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)
-            {
-                G.DrawString(System.Convert.ToString(ValueToSet), Font, Brushes.DimGray, 1, 20);
-            }
+                G.DrawString(Convert.ToString(ValueToSet), Font, Brushes.DimGray, 1, 20);
         }
     }
 

@@ -4,33 +4,47 @@ using System;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using System.ComponentModel;
 using System.Drawing.Drawing2D;
 
 #endregion
 
 namespace ReaLTaiizor
 {
-    #region HopeButton
+    #region HopeRoundButton
 
-    public class HopeButton : Control
+    public class HopeRoundButton : Control
     {
         #region Variables
         bool enterFlag = false;
         bool clickFlag = false;
         #endregion
 
-        #region Settings
+        #region Events
 
-        [RefreshProperties(RefreshProperties.Repaint)]
-        public HopeButtonType ButtonType { get; set; } = HopeButtonType.Primary;
+        private HopeButtonType _buttonType = HopeButtonType.Primary;
+        public HopeButtonType ButtonType
+        {
+            get { return _buttonType; }
+            set
+            {
+                _buttonType = value;
+                Invalidate();
+            }
+        }
 
-        [RefreshProperties(RefreshProperties.Repaint)]
-        public Color TextColor { get; set; } = Color.White;
-
+        private Color _textColor = Color.White;
+        public Color TextColor
+        {
+            get { return _textColor; }
+            set
+            {
+                _textColor = value;
+                Invalidate();
+            }
+        }
         #endregion
 
-        #region Events
+        #region 事件
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -68,18 +82,21 @@ namespace ReaLTaiizor
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            if (ButtonType == HopeButtonType.Default)
+            var backPath = new GraphicsPath();
+            backPath.AddArc(new RectangleF(0.5f, 0.5f, Height - 1, Height - 1), 90, 180);
+            backPath.AddArc(new RectangleF(Width - Height + 0.5f, 0.5f, Height - 1, Height - 1), 270, 180);
+            backPath.CloseAllFigures();
+
+            if (_buttonType == HopeButtonType.Default)
             {
-                var BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
-                graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, HopeColors.PrimaryColor) : Color.White), BG);
-                graphics.DrawPath(new Pen(clickFlag ? HopeColors.PrimaryColor : HopeColors.OneLevelBorder, 1), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HopeColors.PrimaryColor : HopeColors.MainText), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawPath(new Pen(clickFlag ? HopeColors.PrimaryColor : HopeColors.OneLevelBorder, 1), backPath);
+                graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, HopeColors.PrimaryColor) : Color.White), backPath);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HopeColors.PrimaryColor : HopeColors.MainText), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }
             else
             {
-                var BG = RoundRectangle.CreateRoundRect(0, 0, Width, Height, 3);
                 var backColor = HopeColors.PrimaryColor;
-                switch (ButtonType)
+                switch (_buttonType)
                 {
                     case HopeButtonType.Primary:
                         backColor = HopeColors.PrimaryColor;
@@ -99,24 +116,21 @@ namespace ReaLTaiizor
                     default:
                         break;
                 }
-
                 var brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
-                graphics.FillPath(brush, BG);
-                if (!Enabled)
-                    graphics.FillPath(new SolidBrush(Color.FromArgb(125, HopeColors.OneLevelBorder)), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.FillPath(brush, backPath);
+                graphics.DrawString(Text, Font, new SolidBrush(_textColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }
         }
 
-        public HopeButton()
+
+        public HopeRoundButton()
         {
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
             Font = new Font("Segoe UI", 12);
-            Size = new Size(120, 40);
             Cursor = Cursors.Hand;
+            Size = new Size(190, 40);
         }
-
     }
 
     #endregion

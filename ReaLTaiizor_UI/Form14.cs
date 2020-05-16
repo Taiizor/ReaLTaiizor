@@ -6,7 +6,18 @@ namespace ReaLTaiizor_UI
     {
         public Form14()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (System.Exception Hata)
+            {
+                MessageBox.Show(Hata.Message + "\n\n\n" + Hata.StackTrace + "\n\n\n" + Hata.Source + "\n" + Hata.TargetSite + "\n" + Hata.Data + "\n" + Hata.HResult + "\n" + Hata.HelpLink);
+            }
+            finally
+            {
+                Application.Exit();
+            }
         }
     }
 }

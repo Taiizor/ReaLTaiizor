@@ -12,7 +12,7 @@ namespace ReaLTaiizor
 {
     #region HopeRadioButton
 
-    public class HopeRadioButton : RadioButton
+    public class HopeRadioButton : System.Windows.Forms.RadioButton
     {
         #region Variables
         Color EnabledCheckedColor;
@@ -49,6 +49,20 @@ namespace ReaLTaiizor
 
         protected override void OnResize(EventArgs e)
         {
+            Height = 20;
+            Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
+        }
+
+        protected override void OnLocationChanged(EventArgs e)
+        {
+            base.OnLocationChanged(e);
+            Height = 20;
+            Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
+        }
+
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
             Height = 20;
             Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
         }
@@ -106,7 +120,6 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
-
 
         public HopeRadioButton()
         {

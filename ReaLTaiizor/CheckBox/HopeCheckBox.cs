@@ -59,6 +59,13 @@ namespace ReaLTaiizor
             Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
         }
 
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+            Height = 20;
+            Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
+        }
+
         protected override void OnMouseEnter(EventArgs eventargs)
         {
             base.OnMouseEnter(eventargs);
