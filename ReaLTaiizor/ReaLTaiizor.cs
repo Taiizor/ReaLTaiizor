@@ -3,6 +3,7 @@
 using System;
 using System.IO;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -8450,13 +8451,9 @@ namespace ReaLTaiizor
                     IsEnabled = value;
 
                     if (Enabled)
-                    {
                         Cursor = Cursors.Hand;
-                    }
                     else
-                    {
                         Cursor = Cursors.Default;
-                    }
 
                     Invalidate();
                 }
@@ -9132,6 +9129,167 @@ namespace ReaLTaiizor
         Info = 3,
         Waring = 4,
         Danger = 5
+    }
+
+    namespace HopeBase
+    {
+        public class ToolStripRender : ToolStripProfessionalRenderer
+        {
+            public ToolStripRender()
+            {
+                base.RoundedEdges = true;
+            }
+
+            protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
+            {
+                e.ToolStrip.ForeColor = HopeColors.MainText;
+                if (e.ToolStrip is ToolStripDropDown)
+                {
+                    var g = e.Graphics;
+                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+                    g.Clear(Color.White);
+                    var bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1, 3);
+                    g.DrawPath(new Pen(HopeColors.OneLevelBorder, 1), bg);
+                    g.FillPath(new SolidBrush(Color.White), bg);
+                }
+                else
+                {
+                    base.OnRenderToolStripBackground(e);
+                }
+            }
+
+            protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
+            {
+                if (e.ToolStrip is MenuStrip)
+                {
+                    if (e.Item.Selected || e.Item.Pressed)
+                        e.Graphics.FillRectangle(new SolidBrush(HopeColors.FourLevelBorder), 0, 0, e.Item.Size.Width, e.Item.Height);
+                    else
+                        base.OnRenderMenuItemBackground(e);
+                }
+                else if (e.ToolStrip is ToolStripDropDown)
+                {
+                    if (e.Item.Selected)
+                        e.Graphics.FillRectangle(new SolidBrush(HopeColors.FourLevelBorder), 0, 0, e.Item.Size.Width, e.Item.Height);
+                }
+                else
+                    base.OnRenderMenuItemBackground(e);
+            }
+
+            protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
+            {
+                e.Graphics.DrawLine(new Pen(HopeColors.OneLevelBorder, 1.5f), 5, 2.75f, e.Item.Width - 5, 2.75f);
+            }
+
+            protected override void OnRenderImageMargin(ToolStripRenderEventArgs e)
+            {
+                e.Graphics.Clear(Color.White);
+            }
+
+            protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
+            {
+                var g = e.Graphics;
+                g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
+                var itemRect = GetItemRect(e.Item);
+                var textRect = new Rectangle(0, itemRect.Y, itemRect.Width, itemRect.Height);
+                g.DrawString( e.Text, new Font("Segoe UI", 11f), new SolidBrush(e.Item.Selected ? HopeColors.PrimaryColor : HopeColors.RegularText), textRect, HopeStringAlign.Center);
+            }
+
+            protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
+            {
+                var g = e.Graphics;
+                g.DrawRectangle(new Pen(HopeColors.OneLevelBorder), new Rectangle(e.AffectedBounds.X, e.AffectedBounds.Y, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1));
+            }
+
+            protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
+            {
+                e.ArrowColor = HopeColors.PlaceholderText;
+                base.OnRenderArrow(e);
+            }
+
+            private Rectangle GetItemRect(ToolStripItem item)
+            {
+                return new Rectangle(0, item.ContentRectangle.Y, item.ContentRectangle.Width + 4, item.ContentRectangle.Height);
+            }
+        }
+
+        partial class TextBoxHopeBase : TextBox
+        {
+            [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+            private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
+
+            private const int EM_SETCUEBANNER = 0x1501;
+            private const char EmptyChar = (char)0;
+            private const char VisualStylePasswordChar = '\u25CF';
+            private const char NonVisualStylePasswordChar = '\u002A';
+
+            private string hint = string.Empty;
+            public string Hint
+            {
+                get { return hint; }
+                set
+                {
+                    hint = value;
+                    SendMessage(Handle, EM_SETCUEBANNER, (int)IntPtr.Zero, Hint);
+                }
+            }
+
+            private char _passwordChar = EmptyChar;
+            public new char PasswordChar
+            {
+                get { return _passwordChar; }
+                set
+                {
+                    _passwordChar = value;
+                    SetBasePasswordChar();
+                }
+            }
+
+            public new void SelectAll()
+            {
+                BeginInvoke((MethodInvoker)delegate ()
+                {
+                    base.Focus();
+                    base.SelectAll();
+                });
+            }
+
+            public new void Focus()
+            {
+                BeginInvoke((MethodInvoker)delegate ()
+                {
+                    base.Focus();
+                });
+            }
+
+            private char _useSystemPasswordChar = EmptyChar;
+            public new bool UseSystemPasswordChar
+            {
+                get { return _useSystemPasswordChar != EmptyChar; }
+                set
+                {
+                    if (value)
+                        _useSystemPasswordChar = Application.RenderWithVisualStyles ? VisualStylePasswordChar : NonVisualStylePasswordChar;
+                    else
+                        _useSystemPasswordChar = EmptyChar;
+
+                    SetBasePasswordChar();
+                }
+            }
+
+            private void SetBasePasswordChar()
+            {
+                base.PasswordChar = UseSystemPasswordChar ? _useSystemPasswordChar : _passwordChar;
+            }
+
+            public TextBoxHopeBase()
+            {
+
+            }
+        }
     }
 
     #endregion

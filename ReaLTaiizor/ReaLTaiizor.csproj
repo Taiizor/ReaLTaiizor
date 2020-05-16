@@ -46,13 +46,22 @@
     <Compile Include="Notify\AloneNotice.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Numeric\HopeNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Numeric\FoxNumeric.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RadioButton\HopeRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Strip\HopeContextMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Switch\HopeSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TabPage\HopeTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TextBox\AloneTextBox.cs">
@@ -95,6 +104,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="LinkLabel\DungeonLinkLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBox\HopeTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Toggle\HopeToggle.cs">
