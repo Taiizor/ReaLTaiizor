@@ -3,7 +3,6 @@
 using System;
 using System.IO;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Globalization;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -65,6 +64,77 @@ namespace ReaLTaiizor
             P.AddLine(new Point(Rectangle.X, Rectangle.Height - 1 + Rectangle.Y), new Point(Rectangle.X, Rectangle.Y + Curve));
             return P;
         }
+
+        public static GraphicsPath CreateRoundRect(float x, float y, float width, float height, float radius)
+        {
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddLine(x + radius, y, x + width - (radius * 2), y);
+            gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
+
+            gp.AddLine(x + width, y + radius, x + width, y + height - (radius * 2));
+            gp.AddArc(x + width - (radius * 2), y + height - (radius * 2), radius * 2, radius * 2, 0, 90);
+
+            gp.AddLine(x + width - (radius * 2), y + height, x + radius, y + height);
+            gp.AddArc(x, y + height - (radius * 2), radius * 2, radius * 2, 90, 90);
+
+            gp.AddLine(x, y + height - (radius * 2), x, y + radius);
+            gp.AddArc(x, y, radius * 2, radius * 2, 180, 90);
+
+            gp.CloseFigure();
+            return gp;
+        }
+
+        public static GraphicsPath CreateUpRoundRect(float x, float y, float width, float height, float radius)
+        {
+            GraphicsPath gp = new GraphicsPath();
+
+            gp.AddLine(x + radius, y, x + width - (radius * 2), y);
+            gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
+
+            gp.AddLine(x + width, y + radius, x + width, y + height - (radius * 2) + 1);
+            gp.AddArc(x + width - (radius * 2), y + height - (radius * 2), radius * 2, 2, 0, 90);
+
+            gp.AddLine(x + width, y + height, x + radius, y + height);
+            gp.AddArc(x, y + height - (radius * 2) + 1, radius * 2, 1, 90, 90);
+
+            gp.AddLine(x, y + height, x, y + radius);
+            gp.AddArc(x, y, radius * 2, radius * 2, 180, 90);
+
+            gp.CloseFigure();
+            return gp;
+        }
+        public static GraphicsPath CreateLeftRoundRect(float x, float y, float width, float height, float radius)
+        {
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddLine(x + radius, y, x + width - (radius * 2), y);
+            gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
+
+            gp.AddLine(x + width, y + 0, x + width, y + height);
+            gp.AddArc(x + width - (radius * 2), y + height - (1), radius * 2, 1, 0, 90);
+
+            gp.AddLine(x + width - (radius * 2), y + height, x + radius, y + height);
+            gp.AddArc(x, y + height - (radius * 2), radius * 2, radius * 2, 90, 90);
+
+            gp.AddLine(x, y + height - (radius * 2), x, y + radius);
+            gp.AddArc(x, y, radius * 2, radius * 2, 180, 90);
+
+            gp.CloseFigure();
+            return gp;
+        }
+
+        public static Color BlendColor(Color backgroundColor, Color frontColor)
+        {
+            double ratio = 0 / 255d;
+            double invRatio = 1d - ratio;
+            int r = (int)((backgroundColor.R * invRatio) + (frontColor.R * ratio));
+            int g = (int)((backgroundColor.G * invRatio) + (frontColor.G * ratio));
+            int b = (int)((backgroundColor.B * invRatio) + (frontColor.B * ratio));
+            return Color.FromArgb(r, g, b);
+        }
+
+        public static Color BackColor = ColorTranslator.FromHtml("#dadcdf"); //bcbfc4
+        public static Color DarkBackColor = ColorTranslator.FromHtml("#90949a");
+        public static Color LightBackColor = ColorTranslator.FromHtml("#F5F5F5");
     }
 
     #endregion
@@ -9005,6 +9075,63 @@ namespace ReaLTaiizor
         Over = 1,
         Down = 2,
         Block = 3
+    }
+
+    #endregion
+
+    #region HopeLibrary
+
+    public static class HopeColors
+    {
+        public static Color PrimaryColor = ColorTranslator.FromHtml("#409eff");
+        public static Color LightPrimary = ColorTranslator.FromHtml("#5cadff");
+        public static Color DarkPrimary = ColorTranslator.FromHtml("#2b85e4");
+
+        public static Color Success = ColorTranslator.FromHtml("#67c23a");
+        public static Color Warning = ColorTranslator.FromHtml("#e6a23c");
+        public static Color Danger = ColorTranslator.FromHtml("#f56c6c");
+        public static Color Info = ColorTranslator.FromHtml("#909399");
+
+        public static Color MainText = ColorTranslator.FromHtml("#303133");
+        public static Color RegularText = ColorTranslator.FromHtml("#606266");
+        public static Color SecondaryText = ColorTranslator.FromHtml("#909399");
+        public static Color PlaceholderText = ColorTranslator.FromHtml("#c0c4cc");
+
+        public static Color OneLevelBorder = ColorTranslator.FromHtml("#dcdfe6");
+        public static Color TwoLevelBorder = ColorTranslator.FromHtml("#e4e7ed");
+        public static Color ThreeLevelBorder = ColorTranslator.FromHtml("#ebeef5");
+        public static Color FourLevelBorder = ColorTranslator.FromHtml("#f2f6fc");
+    }
+
+    public static class HopeStringAlign
+    {
+        public static StringFormat TopLeft { get => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near }; }
+
+        public static StringFormat TopCenter { get => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near }; }
+
+        public static StringFormat TopRight { get => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Near }; }
+
+        public static StringFormat Left { get => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center }; }
+
+        public static StringFormat Center { get => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center }; }
+
+        public static StringFormat Right { get => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center }; }
+
+        public static StringFormat BottomLeft { get => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Far }; }
+
+        public static StringFormat BottomCenter { get => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far }; }
+
+        public static StringFormat BottomRight { get => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far }; }
+    }
+
+    public enum HopeButtonType
+    {
+        Default = 0,
+        Primary = 1,
+        Success = 2,
+        Info = 3,
+        Waring = 4,
+        Danger = 5
     }
 
     #endregion

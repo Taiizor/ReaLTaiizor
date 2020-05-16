@@ -34,10 +34,19 @@
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Button\HopeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBox\HopeCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Notify\AloneNotice.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Numeric\FoxNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RadioButton\HopeRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TextBox\AloneTextBox.cs">
