@@ -34,361 +34,361 @@
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AloneNotice.cs">
+    <Compile Include="Notify\AloneNotice.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AloneTextBox.cs">
+    <Compile Include="TextBox\AloneTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AloneButton.cs">
+    <Compile Include="Button\AloneButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AloneComboBox.cs">
+    <Compile Include="ComboBox\AloneComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AloneRadioButton.cs">
+    <Compile Include="RadioButton\AloneRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AloneCheckBox.cs">
+    <Compile Include="CheckBox\AloneCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DreamProgressBar.cs">
+    <Compile Include="ProgressBar\DreamProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DreamTextBox.cs">
+    <Compile Include="TextBox\DreamTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DreamButton.cs">
+    <Compile Include="Button\DreamButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonComboBox.cs">
+    <Compile Include="ComboBox\DungeonComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DreamForm.cs">
+    <Compile Include="Form\DreamForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonRichTextBox.cs">
+    <Compile Include="RichTextBox\DungeonRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonListBox.cs">
+    <Compile Include="ListBox\DungeonListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonHeaderLabel.cs">
+    <Compile Include="Label\DungeonHeaderLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonLinkLabel.cs">
+    <Compile Include="LinkLabel\DungeonLinkLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonTrackBar.cs">
+    <Compile Include="TrackBar\DungeonTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonToggleButton.cs">
+    <Compile Include="Toggle\DungeonToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonProgressBar.cs">
+    <Compile Include="ProgressBar\DungeonProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonTabPage.cs">
+    <Compile Include="TabPage\DungeonTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonLabel.cs">
+    <Compile Include="Label\DungeonLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonTextBox.cs">
+    <Compile Include="TextBox\DungeonTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonNumeric.cs">
+    <Compile Include="Numeric\DungeonNumeric.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonRadioButton.cs">
+    <Compile Include="RadioButton\DungeonRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonCheckBox.cs">
+    <Compile Include="CheckBox\DungeonCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonButtonRight.cs">
+    <Compile Include="Button\DungeonButtonRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonButtonLeft.cs">
+    <Compile Include="Button\DungeonButtonLeft.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AirTabPage.cs">
+    <Compile Include="TabPage\AirTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AirSeparator.cs">
+    <Compile Include="Separator\AirSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AirRadioButton.cs">
+    <Compile Include="RadioButton\AirRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AirCheckBox.cs">
+    <Compile Include="CheckBox\AirCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AirButton.cs">
+    <Compile Include="Button\AirButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonControlBox.cs">
+    <Compile Include="ControlBox\DungeonControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverGroupBox.cs">
+    <Compile Include="GroupBox\ForeverGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverListBox.cs">
+    <Compile Include="ListBox\ForeverListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverTreeView.cs">
+    <Compile Include="TreeView\ForeverTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverContextMentuStrip.cs">
+    <Compile Include="Strip\ForeverContextMentuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverStatusBar.cs">
+    <Compile Include="StatusBar\ForeverStatusBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverTextBox.cs">
+    <Compile Include="TextBox\ForeverTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverButtonSticky.cs">
+    <Compile Include="Button\ForeverButtonSticky.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverRadioButton.cs">
+    <Compile Include="RadioButton\ForeverRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverComboBox.cs">
+    <Compile Include="ComboBox\ForeverComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverCheckBox.cs">
+    <Compile Include="CheckBox\ForeverCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverTabPage.cs">
+    <Compile Include="TabPage\ForeverTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverPalette.cs">
+    <Compile Include="Palette\ForeverPalette.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverNotification.cs">
+    <Compile Include="Notify\ForeverNotification.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverProgressBar.cs">
+    <Compile Include="ProgressBar\ForeverProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverNumeric.cs">
+    <Compile Include="Numeric\ForeverNumeric.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverLabel.cs">
+    <Compile Include="Label\ForeverLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverTrackBar.cs">
+    <Compile Include="TrackBar\ForeverTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverToggle.cs">
+    <Compile Include="Toggle\ForeverToggle.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverMinimize.cs">
+    <Compile Include="ControlBox\ForeverMinimize.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverMaximize.cs">
+    <Compile Include="ControlBox\ForeverMaximize.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverClose.cs">
+    <Compile Include="ControlBox\ForeverClose.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverButton.cs">
+    <Compile Include="Button\ForeverButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FormMenuStrip.cs">
+    <Compile Include="Strip\FormMenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FormContextMenuStrip.cs">
+    <Compile Include="Strip\FormContextMenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BigLabel.cs">
+    <Compile Include="Label\BigLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxTextBox.cs">
+    <Compile Include="TextBox\FoxTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxLinkLabel.cs">
+    <Compile Include="LinkLabel\FoxLinkLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxLabel.cs">
+    <Compile Include="Label\FoxLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxBigLabel.cs">
+    <Compile Include="Label\FoxBigLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxNotification.cs">
+    <Compile Include="Notify\FoxNotification.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxRadioButton.cs">
+    <Compile Include="RadioButton\FoxRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxCheckEdit.cs">
+    <Compile Include="CheckBox\FoxCheckEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxCheckBox.cs">
+    <Compile Include="CheckBox\FoxCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MoonLabel.cs">
+    <Compile Include="Label\MoonLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MoonCheckBox.cs">
+    <Compile Include="CheckBox\MoonCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MoonRadioButton.cs">
+    <Compile Include="RadioButton\MoonRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MoonTextBox.cs">
+    <Compile Include="TextBox\MoonTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MoonProgressBar.cs">
+    <Compile Include="ProgressBar\MoonProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MoonButton.cs">
+    <Compile Include="Button\MoonButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MoonForm.cs">
+    <Compile Include="Form\MoonForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FoxButton.cs">
+    <Compile Include="Button\FoxButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SmallLabel.cs">
+    <Compile Include="Label\SmallLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RichTextEditx.cs">
+    <Compile Include="RichTextBox\RichTextEditx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BigTextBox.cs">
+    <Compile Include="TextBox\BigTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SmallTextBox.cs">
+    <Compile Include="TextBox\SmallTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AloneProgressBar.cs">
+    <Compile Include="ProgressBar\AloneProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ForeverForm.cs">
+    <Compile Include="Form\ForeverForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TickIcon.cs">
+    <Compile Include="Icon\TickIcon.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="InfoIcon.cs">
+    <Compile Include="Icon\InfoIcon.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GroupBox.cs">
+    <Compile Include="GroupBox\GroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonButtonCenter.cs">
+    <Compile Include="Button\RibbonButtonCenter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonProgressBarCenter.cs">
+    <Compile Include="ProgressBar\RibbonProgressBarCenter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonProgressBarLeft.cs">
+    <Compile Include="ProgressBar\RibbonProgressBarLeft.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonProgressBarRight.cs">
+    <Compile Include="ProgressBar\RibbonProgressBarRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonGroupBox.cs">
+    <Compile Include="GroupBox\RibbonGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonRadioButton.cs">
+    <Compile Include="RadioButton\RibbonRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonCheckBox.cs">
+    <Compile Include="CheckBox\RibbonCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonButtonRight.cs">
+    <Compile Include="Button\RibbonButtonRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonButtonLeft.cs">
+    <Compile Include="Button\RibbonButtonLeft.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SkyStatusBar.cs">
+    <Compile Include="StatusBar\SkyStatusBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SkyNumeric.cs">
+    <Compile Include="Numeric\SkyNumeric.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SkyLabel.cs">
+    <Compile Include="Label\SkyLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SkyTextBox.cs">
+    <Compile Include="TextBox\SkyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SkyComboBox.cs">
+    <Compile Include="ComboBox\SkyComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SkyCheckBox.cs">
+    <Compile Include="CheckBox\SkyCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SkyRadioButton.cs">
+    <Compile Include="RadioButton\SkyRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceBorderLabel.cs">
+    <Compile Include="Label\SpaceBorderLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceCheckBox.cs">
+    <Compile Include="CheckBox\SpaceCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceQuest.cs">
+    <Compile Include="ControlBox\SpaceQuest.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceMinimize.cs">
+    <Compile Include="ControlBox\SpaceMinimize.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceMaximize.cs">
+    <Compile Include="ControlBox\SpaceMaximize.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceClose.cs">
+    <Compile Include="ControlBox\SpaceClose.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceLabel.cs">
+    <Compile Include="Label\SpaceLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceButton.cs">
+    <Compile Include="Button\SpaceButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceSeparatorVertical.cs">
+    <Compile Include="Separator\SpaceSeparatorVertical.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceSeparatorHorizantal.cs">
+    <Compile Include="Separator\SpaceSeparatorHorizantal.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabPage.cs">
+    <Compile Include="TabPage\TabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Badge.cs">
+    <Compile Include="Badge\Badge.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChatButtonRight.cs">
+    <Compile Include="Button\ChatButtonRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChatButtonLeft.cs">
+    <Compile Include="Button\ChatButtonLeft.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChatBubbleLeft.cs">
+    <Compile Include="Bubble\ChatBubbleLeft.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChatBubbleRight.cs">
+    <Compile Include="Bubble\ChatBubbleRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressaIndicator.cs">
+    <Compile Include="ProgressBar\ProgressaIndicator.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ComboBoxEdit.cs">
+    <Compile Include="ComboBox\ComboBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CircleProgressBar.cs">
+    <Compile Include="ProgressBar\CircleProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ControlBoxEdit.cs">
+    <Compile Include="ControlBox\ControlBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FormTheme.cs">
+    <Compile Include="Form\FormTheme.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -396,99 +396,99 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="AirForm.cs">
+    <Compile Include="Form\AirForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DungeonForm.cs">
+    <Compile Include="Form\DungeonForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RibbonForm.cs">
+    <Compile Include="Form\RibbonForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SpaceForm.cs">
+    <Compile Include="Form\SpaceForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SkyButton.cs">
+    <Compile Include="Button\SkyButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThunderRadioButton.cs">
+    <Compile Include="RadioButton\ThunderRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThunderLabel.cs">
+    <Compile Include="Label\ThunderLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThunderCheckBox.cs">
+    <Compile Include="CheckBox\ThunderCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThunderProgressBar.cs">
+    <Compile Include="ProgressBar\ThunderProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThunderGroupBox.cs">
+    <Compile Include="GroupBox\ThunderGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThunderButton.cs">
+    <Compile Include="Button\ThunderButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThunderControlBox.cs">
+    <Compile Include="ControlBox\ThunderControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThunderForm.cs">
+    <Compile Include="Form\ThunderForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ToggleButton.cs">
+    <Compile Include="Toggle\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ToggleEdit.cs">
+    <Compile Include="Toggle\ToggleEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FormStatusStrip.cs">
+    <Compile Include="Strip\FormStatusStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TrackBar.cs">
+    <Compile Include="TrackBar\TrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TextEdit.cs">
+    <Compile Include="TextBox\TextEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SocialButton.cs">
+    <Compile Include="Button\SocialButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Separator.cs">
+    <Compile Include="Separator\Separator.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ThemeForm.cs">
+    <Compile Include="Form\ThemeForm.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ControlBox.cs">
+    <Compile Include="ControlBox\ControlBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="LabelEdit.cs">
+    <Compile Include="Label\LabelEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="HeaderLabel.cs">
+    <Compile Include="Label\HeaderLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RadioButton.cs">
+    <Compile Include="RadioButton\RadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Panel.cs">
+    <Compile Include="Panel\Panel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NotificationBox.cs">
+    <Compile Include="Notify\NotificationBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="LinkEdit.cs">
+    <Compile Include="LinkLabel\LinkEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CheckBox.cs">
+    <Compile Include="CheckBox\CheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Button.cs">
+    <Compile Include="Button\Button.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReaLTaiizor.cs" />
-    <Compile Include="TrackEdit.cs">
+    <Compile Include="TrackBar\TrackEdit.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
@@ -516,5 +516,6 @@
   <ItemGroup>
     <Resource Include="Resources\Taiizor.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
