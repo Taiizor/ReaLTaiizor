@@ -37,6 +37,9 @@
     <Compile Include="Notify\AloneNotice.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Numeric\FoxNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TextBox\AloneTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -52,7 +55,7 @@
     <Compile Include="CheckBox\AloneCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\DreamProgressBar.cs">
+    <Compile Include="Progress\DreamProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TextBox\DreamTextBox.cs">
@@ -85,7 +88,7 @@
     <Compile Include="Toggle\DungeonToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\DungeonProgressBar.cs">
+    <Compile Include="Progress\DungeonProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TabPage\DungeonTabPage.cs">
@@ -169,7 +172,7 @@
     <Compile Include="Notify\ForeverNotification.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\ForeverProgressBar.cs">
+    <Compile Include="Progress\ForeverProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Numeric\ForeverNumeric.cs">
@@ -241,7 +244,7 @@
     <Compile Include="TextBox\MoonTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\MoonProgressBar.cs">
+    <Compile Include="Progress\MoonProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Button\MoonButton.cs">
@@ -265,7 +268,7 @@
     <Compile Include="TextBox\SmallTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\AloneProgressBar.cs">
+    <Compile Include="Progress\AloneProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Form\ForeverForm.cs">
@@ -283,13 +286,13 @@
     <Compile Include="Button\RibbonButtonCenter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\RibbonProgressBarCenter.cs">
+    <Compile Include="Progress\RibbonProgressBarCenter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\RibbonProgressBarLeft.cs">
+    <Compile Include="Progress\RibbonProgressBarLeft.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\RibbonProgressBarRight.cs">
+    <Compile Include="Progress\RibbonProgressBarRight.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GroupBox\RibbonGroupBox.cs">
@@ -376,13 +379,13 @@
     <Compile Include="Bubble\ChatBubbleRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\ProgressaIndicator.cs">
+    <Compile Include="Progress\ProgressaIndicator.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ComboBox\ComboBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\CircleProgressBar.cs">
+    <Compile Include="Progress\CircleProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ControlBox\ControlBoxEdit.cs">
@@ -420,7 +423,7 @@
     <Compile Include="CheckBox\ThunderCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProgressBar\ThunderProgressBar.cs">
+    <Compile Include="Progress\ThunderProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GroupBox\ThunderGroupBox.cs">

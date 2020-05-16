@@ -32,7 +32,7 @@
             this.foxTextbox1 = new ReaLTaiizor.FoxTextbox();
             this.foxLinkLabel1 = new ReaLTaiizor.FoxLinkLabel();
             this.foxLabel1 = new ReaLTaiizor.FoxLabel();
-            this.foxNumeric1 = new ReaLTaiizor.FoxBase.FoxNumeric();
+            this.foxNumeric1 = new ReaLTaiizor.FoxNumeric();
             this.foxBigLabel1 = new ReaLTaiizor.FoxBigLabel();
             this.foxNotification4 = new ReaLTaiizor.FoxNotification();
             this.foxNotification3 = new ReaLTaiizor.FoxNotification();
@@ -304,7 +304,7 @@
         private ReaLTaiizor.FoxNotification foxNotification3;
         private ReaLTaiizor.FoxNotification foxNotification4;
         private ReaLTaiizor.FoxBigLabel foxBigLabel1;
-        private ReaLTaiizor.FoxBase.FoxNumeric foxNumeric1;
+        private ReaLTaiizor.FoxNumeric foxNumeric1;
         private ReaLTaiizor.FoxLabel foxLabel1;
         private ReaLTaiizor.FoxLinkLabel foxLinkLabel1;
         private ReaLTaiizor.FoxTextbox foxTextbox1;
