@@ -31,9 +31,7 @@ namespace ReaLTaiizor
 			{
 				_TextAlign = value;
 				if (TB != null)
-				{
 					TB.TextAlign = value;
-				}
 			}
 		}
 
@@ -46,9 +44,7 @@ namespace ReaLTaiizor
 			{
 				_MaxLength = value;
 				if (TB != null)
-				{
 					TB.MaxLength = value;
-				}
 			}
 		}
 
@@ -61,9 +57,7 @@ namespace ReaLTaiizor
 			{
 				_ReadOnly = value;
 				if (TB != null)
-				{
 					TB.ReadOnly = value;
-				}
 			}
 		}
 
@@ -76,9 +70,7 @@ namespace ReaLTaiizor
 			{
 				_UseSystemPasswordChar = value;
 				if (TB != null)
-				{
 					TB.UseSystemPasswordChar = value;
-				}
 			}
 		}
 
@@ -95,14 +87,9 @@ namespace ReaLTaiizor
 					TB.Multiline = value;
 
 					if (value)
-					{
 						TB.Height = Height - 11;
-					}
 					else
-					{
 						Height = TB.Height + 11;
-					}
-
 				}
 			}
 		}
@@ -123,9 +110,7 @@ namespace ReaLTaiizor
 			{
 				base.Text = value;
 				if (TB != null)
-				{
 					TB.Text = value;
-				}
 			}
 		}
 
@@ -143,9 +128,7 @@ namespace ReaLTaiizor
 					TB.Width = Width - 6;
 
 					if (!_Multiline)
-					{
 						Height = TB.Height + 11;
-					}
 				}
 			}
 		}
@@ -154,9 +137,7 @@ namespace ReaLTaiizor
 		{
 			base.OnCreateControl();
 			if (!Controls.Contains(TB))
-			{
 				Controls.Add(TB);
-			}
 		}
 
 		private void OnBaseTextChanged(object s, EventArgs e)
@@ -184,13 +165,9 @@ namespace ReaLTaiizor
 			TB.Width = Width - 10;
 
 			if (_Multiline)
-			{
 				TB.Height = Height - 11;
-			}
 			else
-			{
 				Height = TB.Height + 11;
-			}
 
 			base.OnResize(e);
 		}
@@ -227,7 +204,8 @@ namespace ReaLTaiizor
 		{
 			base.OnMouseEnter(e);
 			State = MouseStateForever.Over;
-			if (FocusOnHover) TB.Focus();
+			if (FocusOnHover)
+				TB.Focus();
 			Invalidate();
 		}
 

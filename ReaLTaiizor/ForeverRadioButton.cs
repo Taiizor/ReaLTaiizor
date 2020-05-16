@@ -114,7 +114,6 @@ namespace ReaLTaiizor
 
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
 		private Color _BorderColor = ForeverLibrary.ForeverColor;
-		private Color _TextColor = Color.FromArgb(243, 243, 243);
 
 		public ForeverRadioButton()
 		{
@@ -123,6 +122,7 @@ namespace ReaLTaiizor
 			Cursor = Cursors.Hand;
 			Size = new Size(145, 22);
 			BackColor = Color.FromArgb(60, 70, 73);
+			ForeColor = Color.FromArgb(243, 243, 243);
 			Font = new Font("Segoe UI", 10);
 		}
 
@@ -192,7 +192,7 @@ namespace ReaLTaiizor
 					break;
 			}
 
-			_with10.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(20, 2, W, H), ForeverLibrary.NearSF);
+			_with10.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(20, 2, W, H), ForeverLibrary.NearSF);
 
 			base.OnPaint(e);
 			G.Dispose();

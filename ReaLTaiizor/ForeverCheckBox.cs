@@ -110,7 +110,6 @@ namespace ReaLTaiizor
 		}
 
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
-		private Color _TextColor = Color.FromArgb(243, 243, 243);
 		private Color _BorderColor = ForeverLibrary.ForeverColor;
 
 		public ForeverCheckBox()
@@ -118,6 +117,7 @@ namespace ReaLTaiizor
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
 			DoubleBuffered = true;
 			BackColor = Color.FromArgb(60, 70, 73);
+			ForeColor = Color.FromArgb(243, 243, 243);
 			Cursor = Cursors.Hand;
 			Font = new Font("Segoe UI", 10);
 			Size = new Size(130, 22);
@@ -159,9 +159,7 @@ namespace ReaLTaiizor
 
 					//-- If Checked
 					if (Checked)
-					{
 						_with11.DrawString("ü", new Font("Wingdings", 18), new SolidBrush(_BorderColor), new Rectangle(5, 7, H - 9, H - 9), ForeverLibrary.CenterSF);
-					}
 
 					//-- If Enabled
 					if (Enabled == false)
@@ -171,7 +169,7 @@ namespace ReaLTaiizor
 					}
 
 					//-- Text
-					_with11.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(20, 2, W, H), ForeverLibrary.NearSF);
+					_with11.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(20, 2, W, H), ForeverLibrary.NearSF);
 					break;
 				case _Options.Style2:
 					//-- Style 2
@@ -194,9 +192,7 @@ namespace ReaLTaiizor
 
 					//-- If Checked
 					if (Checked)
-					{
 						_with11.DrawString("ü", new Font("Wingdings", 18), new SolidBrush(_BorderColor), new Rectangle(5, 7, H - 9, H - 9), ForeverLibrary.CenterSF);
-					}
 
 					//-- If Enabled
 					if (Enabled == false)
@@ -206,7 +202,7 @@ namespace ReaLTaiizor
 					}
 
 					//-- Text
-					_with11.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(20, 2, W, H), ForeverLibrary.NearSF);
+					_with11.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(20, 2, W, H), ForeverLibrary.NearSF);
 					break;
 			}
 

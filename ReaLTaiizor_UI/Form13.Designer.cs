@@ -133,7 +133,9 @@
             this.foreverForm1.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             this.foreverForm1.HeaderMaximize = false;
             this.foreverForm1.Location = new System.Drawing.Point(0, 0);
+            this.foreverForm1.MinimumSize = new System.Drawing.Size(210, 50);
             this.foreverForm1.Name = "foreverForm1";
+            this.foreverForm1.Padding = new System.Windows.Forms.Padding(1, 50, 1, 1);
             this.foreverForm1.Size = new System.Drawing.Size(800, 491);
             this.foreverForm1.TabIndex = 0;
             this.foreverForm1.Text = "foreverForm1";
@@ -144,6 +146,7 @@
             this.foreverRadioButton3.Checked = false;
             this.foreverRadioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverRadioButton3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverRadioButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.foreverRadioButton3.Location = new System.Drawing.Point(560, 116);
             this.foreverRadioButton3.Name = "foreverRadioButton3";
             this.foreverRadioButton3.Options = ReaLTaiizor.ForeverRadioButton._Options.Style1;
@@ -164,7 +167,7 @@
             this.foreverTextBox1.TabIndex = 28;
             this.foreverTextBox1.Text = "foreverTextBox1";
             this.foreverTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.foreverTextBox1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.foreverTextBox1.TextColor = System.Drawing.Color.Silver;
             this.foreverTextBox1.UseSystemPasswordChar = false;
             // 
             // foreverButtonSticky1
@@ -175,7 +178,7 @@
             this.foreverButtonSticky1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.foreverButtonSticky1.Location = new System.Drawing.Point(258, 144);
             this.foreverButtonSticky1.Name = "foreverButtonSticky1";
-            this.foreverButtonSticky1.Rounded = false;
+            this.foreverButtonSticky1.Rounded = true;
             this.foreverButtonSticky1.Size = new System.Drawing.Size(160, 40);
             this.foreverButtonSticky1.TabIndex = 27;
             this.foreverButtonSticky1.Text = "foreverButtonSticky1";
@@ -187,6 +190,7 @@
             this.foreverRadioButton2.Checked = true;
             this.foreverRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverRadioButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.foreverRadioButton2.Location = new System.Drawing.Point(409, 116);
             this.foreverRadioButton2.Name = "foreverRadioButton2";
             this.foreverRadioButton2.Options = ReaLTaiizor.ForeverRadioButton._Options.Style1;
@@ -200,6 +204,7 @@
             this.foreverRadioButton1.Checked = false;
             this.foreverRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverRadioButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.foreverRadioButton1.Location = new System.Drawing.Point(258, 116);
             this.foreverRadioButton1.Name = "foreverRadioButton1";
             this.foreverRadioButton1.Options = ReaLTaiizor.ForeverRadioButton._Options.Style1;
@@ -215,6 +220,7 @@
             this.foreverCheckBox1.Checked = false;
             this.foreverCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverCheckBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.foreverCheckBox1.Location = new System.Drawing.Point(653, 72);
             this.foreverCheckBox1.Name = "foreverCheckBox1";
             this.foreverCheckBox1.Options = ReaLTaiizor.ForeverCheckBox._Options.Style1;
@@ -386,7 +392,6 @@
             this.foreverNotification3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverNotification3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.foreverNotification3.Kind = ReaLTaiizor.ForeverNotification._Kind.Info;
-            this.foreverNotification3.Visible = true;
             this.foreverNotification3.Location = new System.Drawing.Point(506, 306);
             this.foreverNotification3.Name = "foreverNotification3";
             this.foreverNotification3.Size = new System.Drawing.Size(215, 42);
@@ -399,7 +404,6 @@
             this.foreverNotification2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverNotification2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.foreverNotification2.Kind = ReaLTaiizor.ForeverNotification._Kind.Success;
-            this.foreverNotification2.Visible = true;
             this.foreverNotification2.Location = new System.Drawing.Point(285, 306);
             this.foreverNotification2.Name = "foreverNotification2";
             this.foreverNotification2.Size = new System.Drawing.Size(215, 42);
@@ -412,7 +416,6 @@
             this.foreverNotification1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverNotification1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.foreverNotification1.Kind = ReaLTaiizor.ForeverNotification._Kind.Error;
-            this.foreverNotification1.Visible = true;
             this.foreverNotification1.Location = new System.Drawing.Point(64, 306);
             this.foreverNotification1.Name = "foreverNotification1";
             this.foreverNotification1.Size = new System.Drawing.Size(215, 42);
@@ -423,6 +426,7 @@
             // 
             this.foreverProgressBar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverProgressBar4.DarkerProgress = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
+            this.foreverProgressBar4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.foreverProgressBar4.Location = new System.Drawing.Point(428, 258);
             this.foreverProgressBar4.Maximum = 100;
             this.foreverProgressBar4.Name = "foreverProgressBar4";
@@ -439,6 +443,7 @@
             // 
             this.foreverProgressBar3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverProgressBar3.DarkerProgress = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
+            this.foreverProgressBar3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.foreverProgressBar3.Location = new System.Drawing.Point(12, 258);
             this.foreverProgressBar3.Maximum = 100;
             this.foreverProgressBar3.Name = "foreverProgressBar3";
@@ -455,6 +460,7 @@
             // 
             this.foreverProgressBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverProgressBar2.DarkerProgress = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
+            this.foreverProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.foreverProgressBar2.Location = new System.Drawing.Point(428, 198);
             this.foreverProgressBar2.Maximum = 100;
             this.foreverProgressBar2.Name = "foreverProgressBar2";
@@ -471,6 +477,7 @@
             // 
             this.foreverProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverProgressBar1.DarkerProgress = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
+            this.foreverProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.foreverProgressBar1.Location = new System.Drawing.Point(12, 198);
             this.foreverProgressBar1.Maximum = 100;
             this.foreverProgressBar1.Name = "foreverProgressBar1";
@@ -627,6 +634,7 @@
             this.foreverMinimize1.BackColor = System.Drawing.Color.White;
             this.foreverMinimize1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             this.foreverMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverMinimize1.DefaultLocation = true;
             this.foreverMinimize1.Font = new System.Drawing.Font("Marlett", 12F);
             this.foreverMinimize1.Location = new System.Drawing.Point(722, 16);
             this.foreverMinimize1.Name = "foreverMinimize1";
@@ -641,6 +649,7 @@
             this.foreverMaximize1.BackColor = System.Drawing.Color.White;
             this.foreverMaximize1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             this.foreverMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverMaximize1.DefaultLocation = true;
             this.foreverMaximize1.Font = new System.Drawing.Font("Marlett", 12F);
             this.foreverMaximize1.Location = new System.Drawing.Point(746, 16);
             this.foreverMaximize1.Name = "foreverMaximize1";
@@ -655,6 +664,7 @@
             this.foreverClose1.BackColor = System.Drawing.Color.White;
             this.foreverClose1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.foreverClose1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverClose1.DefaultLocation = true;
             this.foreverClose1.Font = new System.Drawing.Font("Marlett", 10F);
             this.foreverClose1.Location = new System.Drawing.Point(770, 16);
             this.foreverClose1.Name = "foreverClose1";

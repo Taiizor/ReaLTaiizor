@@ -18,6 +18,35 @@ namespace ReaLTaiizor
 		private MouseStateForever State = MouseStateForever.None;
 		private int x;
 
+		#region Properties
+
+		private bool _DefaultLocation = true;
+		public bool DefaultLocation
+		{
+			get { return _DefaultLocation; }
+			set
+			{
+				_DefaultLocation = value;
+				Invalidate();
+			}
+		}
+
+		#endregion
+
+		protected override void OnCreateControl()
+		{
+			base.OnCreateControl();
+			try
+			{
+				if (DefaultLocation)
+					Location = new Point(Parent.Width - Width - 60, 16);
+			}
+			catch (Exception)
+			{
+				//
+			}
+		}
+
 		protected override void OnMouseEnter(EventArgs e)
 		{
 			base.OnMouseEnter(e);

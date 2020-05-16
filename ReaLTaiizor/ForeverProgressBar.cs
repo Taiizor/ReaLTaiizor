@@ -127,6 +127,7 @@ namespace ReaLTaiizor
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
 			DoubleBuffered = true;
 			BackColor = Color.FromArgb(60, 70, 73);
+			ForeColor = _ProgressColor;
 			Height = 42;
 		}
 
@@ -198,7 +199,7 @@ namespace ReaLTaiizor
 						//-- Value > You can add "%" > value & "%"
 						string text = (_PercentSign ? Value.ToString() + "%" : Value.ToString());
 						int wOffset = (_PercentSign ? iValue - 15 : iValue - 11);
-						_with15.DrawString(text, new Font("Segoe UI", 10), new SolidBrush(_ProgressColor), new Rectangle(wOffset, -2, W, H), ForeverLibrary.NearSF);
+						_with15.DrawString(text, new Font("Segoe UI", 10), new SolidBrush(ForeColor), new Rectangle(wOffset, -2, W, H), ForeverLibrary.NearSF);
 					}
 
 					break;

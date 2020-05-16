@@ -69,7 +69,7 @@ namespace ReaLTaiizor
 			y = e.Location.Y;
 			Invalidate();
 			if (e.X < Width - 23)
-				Cursor = Cursors.IBeam;
+				Cursor = Cursors.Default;
 			else
 				Cursor = Cursors.Hand;
 		}
@@ -118,9 +118,7 @@ namespace ReaLTaiizor
 		{
 			base.OnKeyDown(e);
 			if (e.KeyCode == Keys.Back)
-			{
 				Value = 0;
-			}
 		}
 
 		protected override void OnResize(EventArgs e)
@@ -184,7 +182,7 @@ namespace ReaLTaiizor
 			_with18.DrawString("-", new Font("Segoe UI", 10, FontStyle.Bold), Brushes.White, new Point(Width - 12, 22), ForeverLibrary.CenterSF);
 
 			//-- Text
-			_with18.DrawString(Value.ToString(), Font, Brushes.White, new Rectangle(5, 1, W, H), new StringFormat { LineAlignment = StringAlignment.Center });
+			_with18.DrawString(Value.ToString(), Font, new SolidBrush(ForeColor), new Rectangle(5, 1, W, H), new StringFormat { LineAlignment = StringAlignment.Center });
 
 			base.OnPaint(e);
 			G.Dispose();

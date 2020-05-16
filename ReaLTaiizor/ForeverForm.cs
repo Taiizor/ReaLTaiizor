@@ -135,6 +135,8 @@ namespace ReaLTaiizor
 			DoubleBuffered = true;
 			BackColor = Color.White;
 			Font = new Font("Segoe UI", 12);
+			MinimumSize = new Size(210, 50);
+			Padding = new Padding(1, 51, 1, 1);
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
