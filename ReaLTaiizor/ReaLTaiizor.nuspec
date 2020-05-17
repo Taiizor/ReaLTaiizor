@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ReaLTaiizor</id>
-    <version>3.7.6.3</version>
+    <version>3.7.6.4</version>
     <title>ReaLTaiizor</title>
     <authors>Taiizor</authors>
     <owners>Taiizor</owners>
@@ -14,6 +14,6 @@
     <description>C# WinForm UI/Design Library - ReaLTaiizor</description>
     <releaseNotes>Performance improvements, innovations, and minor bug fixes have been made.</releaseNotes>
     <copyright>Copyright © 2020 Taiizor Inc.</copyright>
-    <tags>ReaL Taiizor ReaLTaiizor C# UI Design Theme Forms WinForm WinForms DotNet</tags>
+    <tags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</tags>
   </metadata>
 </package>

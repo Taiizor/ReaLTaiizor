@@ -61,9 +61,7 @@ namespace ReaLTaiizor
                 }
             }
             using (Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64))))
-            {
                 G.DrawImage(image, new Rectangle(8, checked((int)Math.Round(unchecked((double)base.Height / 2.0 - 8.0))), 16, 16));
-            }
         }
 
         protected override void OnMouseUp(MouseEventArgs e)

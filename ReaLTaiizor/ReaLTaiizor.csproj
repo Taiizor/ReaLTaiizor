@@ -34,6 +34,15 @@
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Button\LostAcceptButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Button\LostCancelButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Button\LostButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Button\HopeRoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -41,6 +50,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Button\HopeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBox\LostCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CheckBox\HopeCheckBox.cs">
@@ -52,7 +64,25 @@
     <Compile Include="DatePicker\HopeDatePicker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Form\LostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Label\LostLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panel\LostBorderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panel\LostPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Progress\LostProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RichTextBox\HopeRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Separator\LostSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TrackBar\HopeTrackBar.cs">
@@ -559,6 +589,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -568,6 +599,9 @@
     <Resource Include="Resources\Taiizor.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\LostForm.resx">
+      <DependentUpon>LostForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
