@@ -9412,11 +9412,7 @@ namespace ReaLTaiizor
         public virtual void DrawShadow(Graphics g)
         {
             for (int i = 0; i < ThemeLost.ShadowSize; i++)
-            {
-                g.DrawRectangle(
-                    new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)),
-                    ShadeRect(i));
-            }
+                g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
         }
 
         public virtual Rectangle ShadeRect(int index)

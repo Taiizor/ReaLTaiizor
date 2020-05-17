@@ -24,5 +24,4 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor.
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.csproj.CopyComplete
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.exe
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.pdb
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor.pdb
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form15.resources

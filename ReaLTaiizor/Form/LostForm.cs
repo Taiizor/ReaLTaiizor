@@ -31,6 +31,26 @@ namespace ReaLTaiizor
         private const int htBottomLeft = 16;
         private const int htBottomRight = 17;
 
+        private Image _Image = Properties.Resources.Taiizor;
+        private Size _ImageSize;
+        public Image Image
+        {
+            get
+            {
+                return _Image;
+            }
+            set
+            {
+                if (value == null)
+                    _ImageSize = Size.Empty;
+                else
+                    _ImageSize = value.Size;
+
+                _Image = value;
+                Invalidate();
+            }
+        }
+
         private bool _sizable = true;
         public bool Sizable
         {
@@ -38,10 +58,17 @@ namespace ReaLTaiizor
             set { _sizable = value; Invalidate(); }
         }
 
+        private Color _bordercolor = ThemeLost.AccentColor;
+        public Color BorderColor
+        {
+            get { return _bordercolor; }
+            set { _bordercolor = value; Invalidate(); }
+        }
+
         public LostForm()
         {
             //FormBorderStyle = FormBorderStyle.Sizable;
-            Padding = new Padding(2, 31, 2, 2);
+            Padding = new Padding(2, 36, 2, 2);
             ResizeRedraw = true;
             MinimumSize = new Size(160, 160);
         }
@@ -137,22 +164,26 @@ namespace ReaLTaiizor
                     {
                         if ((MaximizeBox || MinimizeBox) && !new Rectangle(Width - 60, 2, 29, 29).Contains(e.Location))
                         {
-                            if (MinimizeBox && new Rectangle(Width - 89, 2, 29, 29).Contains(e.Location))
-                            {
-                                //
-                            }
+                            if (MaximizeBox && MinimizeBox && new Rectangle(Width - 89, 2, 29, 29).Contains(e.Location))
+                                return;
                             else
                             {
-                                ReleaseCapture();
-                                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                                if (e.X <= Width && e.Y <= 30)
+                                {
+                                    ReleaseCapture();
+                                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                                }
                             }
                         }
                     }
                 }
                 else
                 {
-                    ReleaseCapture();
-                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                    if (e.X <= Width && e.Y <= 30)
+                    {
+                        ReleaseCapture();
+                        SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                    }
                 }
 
                 if (ControlBox)
@@ -270,7 +301,13 @@ namespace ReaLTaiizor
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.FillRectangle(ThemeLost.ForeBrush, 1, 2, Width - 3, 30);
-            e.Graphics.DrawString(Text, ThemeLost.TitleFont, ThemeLost.FontBrush, 4, 5);
+            if (_Image == null)
+                e.Graphics.DrawString(Text, ThemeLost.TitleFont, ThemeLost.FontBrush, 4, 5);
+            else
+            {
+                e.Graphics.DrawImage(_Image, new Rectangle(4, 3, 27, 27));
+                e.Graphics.DrawString(Text, ThemeLost.TitleFont, ThemeLost.FontBrush, 33, 5);
+            }
             DrawShadow(e.Graphics);
             base.OnPaint(e);
 
@@ -305,7 +342,7 @@ namespace ReaLTaiizor
             }
 
             if (WindowState != FormWindowState.Maximized)
-                ControlPaint.DrawBorder(e.Graphics, ClientRectangle, ThemeLost.AccentColor, ButtonBorderStyle.Solid);
+                ControlPaint.DrawBorder(e.Graphics, ClientRectangle, _bordercolor, ButtonBorderStyle.Solid);
         }
     }
 
