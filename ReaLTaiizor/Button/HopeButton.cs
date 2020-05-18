@@ -90,7 +90,7 @@ namespace ReaLTaiizor
                     case HopeButtonType.Info:
                         backColor = HopeColors.Info;
                         break;
-                    case HopeButtonType.Waring:
+                    case HopeButtonType.Warning:
                         backColor = HopeColors.Warning;
                         break;
                     case HopeButtonType.Danger:

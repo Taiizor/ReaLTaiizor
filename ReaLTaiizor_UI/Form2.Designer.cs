@@ -29,54 +29,54 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.formTheme1 = new ReaLTaiizor.FormTheme();
-            this.controlBoxEdit1 = new ReaLTaiizor.ControlBoxEdit();
-            this.formTheme1.SuspendLayout();
-            this.SuspendLayout();
+            formTheme1 = new ReaLTaiizor.FormTheme();
+            controlBoxEdit1 = new ReaLTaiizor.ControlBoxEdit();
+            formTheme1.SuspendLayout();
+            SuspendLayout();
             // 
             // formTheme1
             // 
-            this.formTheme1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.formTheme1.Controls.Add(this.controlBoxEdit1);
-            this.formTheme1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.formTheme1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.formTheme1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.formTheme1.Location = new System.Drawing.Point(0, 0);
-            this.formTheme1.Name = "formTheme1";
-            this.formTheme1.Padding = new System.Windows.Forms.Padding(3, 28, 3, 28);
-            this.formTheme1.Sizable = true;
-            this.formTheme1.Size = new System.Drawing.Size(512, 256);
-            this.formTheme1.SmartBounds = true;
-            this.formTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.formTheme1.TabIndex = 0;
-            this.formTheme1.Text = "formTheme1";
+            formTheme1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            formTheme1.Controls.Add(controlBoxEdit1);
+            formTheme1.Dock = System.Windows.Forms.DockStyle.Fill;
+            formTheme1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            formTheme1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            formTheme1.Location = new System.Drawing.Point(0, 0);
+            formTheme1.Name = "formTheme1";
+            formTheme1.Padding = new System.Windows.Forms.Padding(3, 28, 3, 28);
+            formTheme1.Sizable = true;
+            formTheme1.Size = new System.Drawing.Size(512, 256);
+            formTheme1.SmartBounds = true;
+            formTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            formTheme1.TabIndex = 0;
+            formTheme1.Text = "formTheme1";
             // 
             // controlBoxEdit1
             // 
-            this.controlBoxEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.controlBoxEdit1.BackColor = System.Drawing.Color.Transparent;
-            this.controlBoxEdit1.DefaultLocation = true;
-            this.controlBoxEdit1.Location = new System.Drawing.Point(431, -1);
-            this.controlBoxEdit1.Name = "controlBoxEdit1";
-            this.controlBoxEdit1.Size = new System.Drawing.Size(77, 19);
-            this.controlBoxEdit1.TabIndex = 0;
-            this.controlBoxEdit1.Text = "controlBoxEdit1";
+            controlBoxEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            controlBoxEdit1.BackColor = System.Drawing.Color.Transparent;
+            controlBoxEdit1.DefaultLocation = true;
+            controlBoxEdit1.Location = new System.Drawing.Point(431, -1);
+            controlBoxEdit1.Name = "controlBoxEdit1";
+            controlBoxEdit1.Size = new System.Drawing.Size(77, 19);
+            controlBoxEdit1.TabIndex = 0;
+            controlBoxEdit1.Text = "controlBoxEdit1";
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 256);
-            this.Controls.Add(this.formTheme1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(126, 50);
-            this.Name = "Form2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formTheme1";
-            this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.formTheme1.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(512, 256);
+            Controls.Add(formTheme1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            MinimumSize = new System.Drawing.Size(126, 50);
+            Name = "Form2";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "formTheme1";
+            TransparencyKey = System.Drawing.Color.Fuchsia;
+            formTheme1.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
 

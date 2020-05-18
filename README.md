@@ -1,5 +1,5 @@
 # ReaLTaiizor
-  <p>ReaLTaiizor v3.7.6.4</p>
+  <p>ReaLTaiizor v3.7.6.5</p>
   <p>Visual Studio 2019</p>
   <p>.NET Framework 4.8 (Minimum 4.0)</p>
 
@@ -26,3 +26,4 @@
   <img src="https://www.photo.herominyum.com/resimler/2020/04/28/IUWW.png" />
   <img src="https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png" />
   <img src="https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png" />
+  <img src="https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png" />

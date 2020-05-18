@@ -29,263 +29,263 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form12));
-            this.foxTextbox1 = new ReaLTaiizor.FoxTextbox();
-            this.foxLinkLabel1 = new ReaLTaiizor.FoxLinkLabel();
-            this.foxLabel1 = new ReaLTaiizor.FoxLabel();
-            this.foxNumeric1 = new ReaLTaiizor.FoxNumeric();
-            this.foxBigLabel1 = new ReaLTaiizor.FoxBigLabel();
-            this.foxNotification4 = new ReaLTaiizor.FoxNotification();
-            this.foxNotification3 = new ReaLTaiizor.FoxNotification();
-            this.foxNotification2 = new ReaLTaiizor.FoxNotification();
-            this.foxNotification1 = new ReaLTaiizor.FoxNotification();
-            this.foxRadioButton3 = new ReaLTaiizor.FoxRadioButton();
-            this.foxRadioButton2 = new ReaLTaiizor.FoxRadioButton();
-            this.foxRadioButton1 = new ReaLTaiizor.FoxRadioButton();
-            this.foxChecEdit2 = new ReaLTaiizor.FoxChecEdit();
-            this.foxChecEdit1 = new ReaLTaiizor.FoxChecEdit();
-            this.foxCheckBox2 = new ReaLTaiizor.FoxCheckBox();
-            this.foxCheckBox1 = new ReaLTaiizor.FoxCheckBox();
-            this.foxButton1 = new ReaLTaiizor.FoxButton();
-            this.SuspendLayout();
+            foxTextbox1 = new ReaLTaiizor.FoxTextbox();
+            foxLinkLabel1 = new ReaLTaiizor.FoxLinkLabel();
+            foxLabel1 = new ReaLTaiizor.FoxLabel();
+            foxNumeric1 = new ReaLTaiizor.FoxNumeric();
+            foxBigLabel1 = new ReaLTaiizor.FoxBigLabel();
+            foxNotification4 = new ReaLTaiizor.FoxNotification();
+            foxNotification3 = new ReaLTaiizor.FoxNotification();
+            foxNotification2 = new ReaLTaiizor.FoxNotification();
+            foxNotification1 = new ReaLTaiizor.FoxNotification();
+            foxRadioButton3 = new ReaLTaiizor.FoxRadioButton();
+            foxRadioButton2 = new ReaLTaiizor.FoxRadioButton();
+            foxRadioButton1 = new ReaLTaiizor.FoxRadioButton();
+            foxChecEdit2 = new ReaLTaiizor.FoxChecEdit();
+            foxChecEdit1 = new ReaLTaiizor.FoxChecEdit();
+            foxCheckBox2 = new ReaLTaiizor.FoxCheckBox();
+            foxCheckBox1 = new ReaLTaiizor.FoxCheckBox();
+            foxButton1 = new ReaLTaiizor.FoxButton();
+            SuspendLayout();
             // 
             // foxTextbox1
             // 
-            this.foxTextbox1.BackColor = System.Drawing.Color.White;
-            this.foxTextbox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxTextbox1.EnabledCalc = true;
-            this.foxTextbox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.foxTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxTextbox1.Location = new System.Drawing.Point(339, 144);
-            this.foxTextbox1.MaxLength = 32767;
-            this.foxTextbox1.MultiLine = false;
-            this.foxTextbox1.Name = "foxTextbox1";
-            this.foxTextbox1.ReadOnly = false;
-            this.foxTextbox1.Size = new System.Drawing.Size(90, 29);
-            this.foxTextbox1.TabIndex = 16;
-            this.foxTextbox1.Text = "foxTextbox1";
-            this.foxTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.foxTextbox1.UseSystemPasswordChar = false;
+            foxTextbox1.BackColor = System.Drawing.Color.White;
+            foxTextbox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxTextbox1.EnabledCalc = true;
+            foxTextbox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            foxTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxTextbox1.Location = new System.Drawing.Point(339, 144);
+            foxTextbox1.MaxLength = 32767;
+            foxTextbox1.MultiLine = false;
+            foxTextbox1.Name = "foxTextbox1";
+            foxTextbox1.ReadOnly = false;
+            foxTextbox1.Size = new System.Drawing.Size(90, 29);
+            foxTextbox1.TabIndex = 16;
+            foxTextbox1.Text = "foxTextbox1";
+            foxTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            foxTextbox1.UseSystemPasswordChar = false;
             // 
             // foxLinkLabel1
             // 
-            this.foxLinkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxLinkLabel1.EnabledCalc = true;
-            this.foxLinkLabel1.ForeColor = System.Drawing.SystemColors.Control;
-            this.foxLinkLabel1.Location = new System.Drawing.Point(254, 150);
-            this.foxLinkLabel1.Name = "foxLinkLabel1";
-            this.foxLinkLabel1.Size = new System.Drawing.Size(85, 19);
-            this.foxLinkLabel1.TabIndex = 15;
-            this.foxLinkLabel1.Text = "foxLinkLabel1";
+            foxLinkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxLinkLabel1.EnabledCalc = true;
+            foxLinkLabel1.ForeColor = System.Drawing.SystemColors.Control;
+            foxLinkLabel1.Location = new System.Drawing.Point(254, 150);
+            foxLinkLabel1.Name = "foxLinkLabel1";
+            foxLinkLabel1.Size = new System.Drawing.Size(85, 19);
+            foxLinkLabel1.TabIndex = 15;
+            foxLinkLabel1.Text = "foxLinkLabel1";
             // 
             // foxLabel1
             // 
-            this.foxLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.foxLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
-            this.foxLabel1.Location = new System.Drawing.Point(183, 150);
-            this.foxLabel1.Name = "foxLabel1";
-            this.foxLabel1.Size = new System.Drawing.Size(65, 19);
-            this.foxLabel1.TabIndex = 14;
-            this.foxLabel1.Text = "foxLabel1";
+            foxLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            foxLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
+            foxLabel1.Location = new System.Drawing.Point(183, 150);
+            foxLabel1.Name = "foxLabel1";
+            foxLabel1.Size = new System.Drawing.Size(65, 19);
+            foxLabel1.TabIndex = 14;
+            foxLabel1.Text = "foxLabel1";
             // 
             // foxNumeric1
             // 
-            this.foxNumeric1.EnabledCalc = true;
-            this.foxNumeric1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxNumeric1.Location = new System.Drawing.Point(435, 145);
-            this.foxNumeric1.Max = 100;
-            this.foxNumeric1.Min = 0;
-            this.foxNumeric1.Name = "foxNumeric1";
-            this.foxNumeric1.Size = new System.Drawing.Size(75, 27);
-            this.foxNumeric1.TabIndex = 13;
-            this.foxNumeric1.Text = "foxNumeric1";
-            this.foxNumeric1.Value = 50;
+            foxNumeric1.EnabledCalc = true;
+            foxNumeric1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxNumeric1.Location = new System.Drawing.Point(435, 145);
+            foxNumeric1.Max = 100;
+            foxNumeric1.Min = 0;
+            foxNumeric1.Name = "foxNumeric1";
+            foxNumeric1.Size = new System.Drawing.Size(75, 27);
+            foxNumeric1.TabIndex = 13;
+            foxNumeric1.Text = "foxNumeric1";
+            foxNumeric1.Value = 50;
             // 
             // foxBigLabel1
             // 
-            this.foxBigLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F);
-            this.foxBigLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
-            this.foxBigLabel1.Location = new System.Drawing.Point(12, 133);
-            this.foxBigLabel1.Name = "foxBigLabel1";
-            this.foxBigLabel1.Size = new System.Drawing.Size(165, 51);
-            this.foxBigLabel1.TabIndex = 12;
-            this.foxBigLabel1.Text = "foxBigLabel1";
+            foxBigLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F);
+            foxBigLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
+            foxBigLabel1.Location = new System.Drawing.Point(12, 133);
+            foxBigLabel1.Name = "foxBigLabel1";
+            foxBigLabel1.Size = new System.Drawing.Size(165, 51);
+            foxBigLabel1.TabIndex = 12;
+            foxBigLabel1.Text = "foxBigLabel1";
             // 
             // foxNotification4
             // 
-            this.foxNotification4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.foxNotification4.EnabledCalc = true;
-            this.foxNotification4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxNotification4.Location = new System.Drawing.Point(390, 87);
-            this.foxNotification4.Name = "foxNotification4";
-            this.foxNotification4.Size = new System.Drawing.Size(120, 40);
-            this.foxNotification4.Style = ReaLTaiizor.FoxNotification.Styles.Red;
-            this.foxNotification4.TabIndex = 11;
-            this.foxNotification4.Text = "foxNotification4";
+            foxNotification4.Cursor = System.Windows.Forms.Cursors.Default;
+            foxNotification4.EnabledCalc = true;
+            foxNotification4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxNotification4.Location = new System.Drawing.Point(390, 87);
+            foxNotification4.Name = "foxNotification4";
+            foxNotification4.Size = new System.Drawing.Size(120, 40);
+            foxNotification4.Style = ReaLTaiizor.FoxNotification.Styles.Red;
+            foxNotification4.TabIndex = 11;
+            foxNotification4.Text = "foxNotification4";
             // 
             // foxNotification3
             // 
-            this.foxNotification3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.foxNotification3.EnabledCalc = true;
-            this.foxNotification3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxNotification3.Location = new System.Drawing.Point(264, 87);
-            this.foxNotification3.Name = "foxNotification3";
-            this.foxNotification3.Size = new System.Drawing.Size(120, 40);
-            this.foxNotification3.Style = ReaLTaiizor.FoxNotification.Styles.Yellow;
-            this.foxNotification3.TabIndex = 10;
-            this.foxNotification3.Text = "foxNotification3";
+            foxNotification3.Cursor = System.Windows.Forms.Cursors.Default;
+            foxNotification3.EnabledCalc = true;
+            foxNotification3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxNotification3.Location = new System.Drawing.Point(264, 87);
+            foxNotification3.Name = "foxNotification3";
+            foxNotification3.Size = new System.Drawing.Size(120, 40);
+            foxNotification3.Style = ReaLTaiizor.FoxNotification.Styles.Yellow;
+            foxNotification3.TabIndex = 10;
+            foxNotification3.Text = "foxNotification3";
             // 
             // foxNotification2
             // 
-            this.foxNotification2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.foxNotification2.EnabledCalc = true;
-            this.foxNotification2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxNotification2.Location = new System.Drawing.Point(138, 87);
-            this.foxNotification2.Name = "foxNotification2";
-            this.foxNotification2.Size = new System.Drawing.Size(120, 40);
-            this.foxNotification2.Style = ReaLTaiizor.FoxNotification.Styles.Blue;
-            this.foxNotification2.TabIndex = 9;
-            this.foxNotification2.Text = "foxNotification2";
+            foxNotification2.Cursor = System.Windows.Forms.Cursors.Default;
+            foxNotification2.EnabledCalc = true;
+            foxNotification2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxNotification2.Location = new System.Drawing.Point(138, 87);
+            foxNotification2.Name = "foxNotification2";
+            foxNotification2.Size = new System.Drawing.Size(120, 40);
+            foxNotification2.Style = ReaLTaiizor.FoxNotification.Styles.Blue;
+            foxNotification2.TabIndex = 9;
+            foxNotification2.Text = "foxNotification2";
             // 
             // foxNotification1
             // 
-            this.foxNotification1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.foxNotification1.EnabledCalc = true;
-            this.foxNotification1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxNotification1.Location = new System.Drawing.Point(12, 87);
-            this.foxNotification1.Name = "foxNotification1";
-            this.foxNotification1.Size = new System.Drawing.Size(120, 40);
-            this.foxNotification1.Style = ReaLTaiizor.FoxNotification.Styles.Green;
-            this.foxNotification1.TabIndex = 8;
-            this.foxNotification1.Text = "foxNotification1";
+            foxNotification1.Cursor = System.Windows.Forms.Cursors.Default;
+            foxNotification1.EnabledCalc = true;
+            foxNotification1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxNotification1.Location = new System.Drawing.Point(12, 87);
+            foxNotification1.Name = "foxNotification1";
+            foxNotification1.Size = new System.Drawing.Size(120, 40);
+            foxNotification1.Style = ReaLTaiizor.FoxNotification.Styles.Green;
+            foxNotification1.TabIndex = 8;
+            foxNotification1.Text = "foxNotification1";
             // 
             // foxRadioButton3
             // 
-            this.foxRadioButton3.Bold = false;
-            this.foxRadioButton3.Checked = false;
-            this.foxRadioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxRadioButton3.EnabledCalc = true;
-            this.foxRadioButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxRadioButton3.Location = new System.Drawing.Point(329, 58);
-            this.foxRadioButton3.Name = "foxRadioButton3";
-            this.foxRadioButton3.Size = new System.Drawing.Size(130, 23);
-            this.foxRadioButton3.TabIndex = 7;
-            this.foxRadioButton3.Text = "foxRadioButton3";
+            foxRadioButton3.Bold = false;
+            foxRadioButton3.Checked = false;
+            foxRadioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxRadioButton3.EnabledCalc = true;
+            foxRadioButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxRadioButton3.Location = new System.Drawing.Point(329, 58);
+            foxRadioButton3.Name = "foxRadioButton3";
+            foxRadioButton3.Size = new System.Drawing.Size(130, 23);
+            foxRadioButton3.TabIndex = 7;
+            foxRadioButton3.Text = "foxRadioButton3";
             // 
             // foxRadioButton2
             // 
-            this.foxRadioButton2.Bold = false;
-            this.foxRadioButton2.Checked = true;
-            this.foxRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxRadioButton2.EnabledCalc = true;
-            this.foxRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxRadioButton2.Location = new System.Drawing.Point(193, 58);
-            this.foxRadioButton2.Name = "foxRadioButton2";
-            this.foxRadioButton2.Size = new System.Drawing.Size(130, 23);
-            this.foxRadioButton2.TabIndex = 6;
-            this.foxRadioButton2.Text = "foxRadioButton2";
+            foxRadioButton2.Bold = false;
+            foxRadioButton2.Checked = true;
+            foxRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxRadioButton2.EnabledCalc = true;
+            foxRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxRadioButton2.Location = new System.Drawing.Point(193, 58);
+            foxRadioButton2.Name = "foxRadioButton2";
+            foxRadioButton2.Size = new System.Drawing.Size(130, 23);
+            foxRadioButton2.TabIndex = 6;
+            foxRadioButton2.Text = "foxRadioButton2";
             // 
             // foxRadioButton1
             // 
-            this.foxRadioButton1.Bold = false;
-            this.foxRadioButton1.Checked = false;
-            this.foxRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxRadioButton1.EnabledCalc = true;
-            this.foxRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxRadioButton1.Location = new System.Drawing.Point(57, 58);
-            this.foxRadioButton1.Name = "foxRadioButton1";
-            this.foxRadioButton1.Size = new System.Drawing.Size(130, 23);
-            this.foxRadioButton1.TabIndex = 5;
-            this.foxRadioButton1.Text = "foxRadioButton1";
+            foxRadioButton1.Bold = false;
+            foxRadioButton1.Checked = false;
+            foxRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxRadioButton1.EnabledCalc = true;
+            foxRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxRadioButton1.Location = new System.Drawing.Point(57, 58);
+            foxRadioButton1.Name = "foxRadioButton1";
+            foxRadioButton1.Size = new System.Drawing.Size(130, 23);
+            foxRadioButton1.TabIndex = 5;
+            foxRadioButton1.Text = "foxRadioButton1";
             // 
             // foxChecEdit2
             // 
-            this.foxChecEdit2.Bold = false;
-            this.foxChecEdit2.Checked = true;
-            this.foxChecEdit2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxChecEdit2.EnabledCalc = true;
-            this.foxChecEdit2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxChecEdit2.Location = new System.Drawing.Point(387, 19);
-            this.foxChecEdit2.Name = "foxChecEdit2";
-            this.foxChecEdit2.Size = new System.Drawing.Size(110, 23);
-            this.foxChecEdit2.TabIndex = 4;
-            this.foxChecEdit2.Text = "foxChecEdit2";
+            foxChecEdit2.Bold = false;
+            foxChecEdit2.Checked = true;
+            foxChecEdit2.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxChecEdit2.EnabledCalc = true;
+            foxChecEdit2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxChecEdit2.Location = new System.Drawing.Point(387, 19);
+            foxChecEdit2.Name = "foxChecEdit2";
+            foxChecEdit2.Size = new System.Drawing.Size(110, 23);
+            foxChecEdit2.TabIndex = 4;
+            foxChecEdit2.Text = "foxChecEdit2";
             // 
             // foxChecEdit1
             // 
-            this.foxChecEdit1.Bold = false;
-            this.foxChecEdit1.Checked = false;
-            this.foxChecEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxChecEdit1.EnabledCalc = true;
-            this.foxChecEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxChecEdit1.Location = new System.Drawing.Point(271, 21);
-            this.foxChecEdit1.Name = "foxChecEdit1";
-            this.foxChecEdit1.Size = new System.Drawing.Size(110, 23);
-            this.foxChecEdit1.TabIndex = 3;
-            this.foxChecEdit1.Text = "foxChecEdit1";
+            foxChecEdit1.Bold = false;
+            foxChecEdit1.Checked = false;
+            foxChecEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxChecEdit1.EnabledCalc = true;
+            foxChecEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxChecEdit1.Location = new System.Drawing.Point(271, 21);
+            foxChecEdit1.Name = "foxChecEdit1";
+            foxChecEdit1.Size = new System.Drawing.Size(110, 23);
+            foxChecEdit1.TabIndex = 3;
+            foxChecEdit1.Text = "foxChecEdit1";
             // 
             // foxCheckBox2
             // 
-            this.foxCheckBox2.Checked = true;
-            this.foxCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxCheckBox2.EnabledCalc = true;
-            this.foxCheckBox2.Location = new System.Drawing.Point(210, 18);
-            this.foxCheckBox2.Name = "foxCheckBox2";
-            this.foxCheckBox2.Size = new System.Drawing.Size(55, 28);
-            this.foxCheckBox2.TabIndex = 2;
-            this.foxCheckBox2.Text = "foxCheckBox2";
+            foxCheckBox2.Checked = true;
+            foxCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxCheckBox2.EnabledCalc = true;
+            foxCheckBox2.Location = new System.Drawing.Point(210, 18);
+            foxCheckBox2.Name = "foxCheckBox2";
+            foxCheckBox2.Size = new System.Drawing.Size(55, 28);
+            foxCheckBox2.TabIndex = 2;
+            foxCheckBox2.Text = "foxCheckBox2";
             // 
             // foxCheckBox1
             // 
-            this.foxCheckBox1.Checked = false;
-            this.foxCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxCheckBox1.EnabledCalc = true;
-            this.foxCheckBox1.Location = new System.Drawing.Point(149, 18);
-            this.foxCheckBox1.Name = "foxCheckBox1";
-            this.foxCheckBox1.Size = new System.Drawing.Size(55, 28);
-            this.foxCheckBox1.TabIndex = 1;
-            this.foxCheckBox1.Text = "foxCheckBox1";
+            foxCheckBox1.Checked = false;
+            foxCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxCheckBox1.EnabledCalc = true;
+            foxCheckBox1.Location = new System.Drawing.Point(149, 18);
+            foxCheckBox1.Name = "foxCheckBox1";
+            foxCheckBox1.Size = new System.Drawing.Size(55, 28);
+            foxCheckBox1.TabIndex = 1;
+            foxCheckBox1.Text = "foxCheckBox1";
             // 
             // foxButton1
             // 
-            this.foxButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foxButton1.EnabledCalc = true;
-            this.foxButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxButton1.Location = new System.Drawing.Point(23, 12);
-            this.foxButton1.Name = "foxButton1";
-            this.foxButton1.Size = new System.Drawing.Size(120, 40);
-            this.foxButton1.TabIndex = 0;
-            this.foxButton1.Text = "foxButton1";
+            foxButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxButton1.EnabledCalc = true;
+            foxButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxButton1.Location = new System.Drawing.Point(23, 12);
+            foxButton1.Name = "foxButton1";
+            foxButton1.Size = new System.Drawing.Size(120, 40);
+            foxButton1.TabIndex = 0;
+            foxButton1.Text = "foxButton1";
             // 
             // Form12
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 199);
-            this.Controls.Add(this.foxTextbox1);
-            this.Controls.Add(this.foxLinkLabel1);
-            this.Controls.Add(this.foxLabel1);
-            this.Controls.Add(this.foxNumeric1);
-            this.Controls.Add(this.foxBigLabel1);
-            this.Controls.Add(this.foxNotification4);
-            this.Controls.Add(this.foxNotification3);
-            this.Controls.Add(this.foxNotification2);
-            this.Controls.Add(this.foxNotification1);
-            this.Controls.Add(this.foxRadioButton3);
-            this.Controls.Add(this.foxRadioButton2);
-            this.Controls.Add(this.foxRadioButton1);
-            this.Controls.Add(this.foxChecEdit2);
-            this.Controls.Add(this.foxChecEdit1);
-            this.Controls.Add(this.foxCheckBox2);
-            this.Controls.Add(this.foxCheckBox1);
-            this.Controls.Add(this.foxButton1);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.Name = "Form12";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form12";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(522, 199);
+            Controls.Add(foxTextbox1);
+            Controls.Add(foxLinkLabel1);
+            Controls.Add(foxLabel1);
+            Controls.Add(foxNumeric1);
+            Controls.Add(foxBigLabel1);
+            Controls.Add(foxNotification4);
+            Controls.Add(foxNotification3);
+            Controls.Add(foxNotification2);
+            Controls.Add(foxNotification1);
+            Controls.Add(foxRadioButton3);
+            Controls.Add(foxRadioButton2);
+            Controls.Add(foxRadioButton1);
+            Controls.Add(foxChecEdit2);
+            Controls.Add(foxChecEdit1);
+            Controls.Add(foxCheckBox2);
+            Controls.Add(foxCheckBox1);
+            Controls.Add(foxButton1);
+            DoubleBuffered = true;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            MaximizeBox = false;
+            Name = "Form12";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Form12";
+            ResumeLayout(false);
 
         }
 

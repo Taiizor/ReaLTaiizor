@@ -34,6 +34,12 @@
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Button\RoyalEllipseButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Button\RoyalButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Button\LostAcceptButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -64,11 +70,20 @@
     <Compile Include="DatePicker\HopeDatePicker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Form\RoyalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\LostForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Label\LostLabel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListBox\RoyalListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MessageBox\RoyalMessageBox.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Panel\LostBorderPanel.cs">
       <SubType>Component</SubType>
@@ -82,7 +97,13 @@
     <Compile Include="RichTextBox\HopeRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ScrollBar\RoyalScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Separator\LostSeparator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Strip\RoyalMenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TrackBar\HopeTrackBar.cs">
@@ -599,6 +620,9 @@
     <Resource Include="Resources\Taiizor.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\RoyalForm.resx">
+      <DependentUpon>RoyalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\LostForm.resx">
       <DependentUpon>LostForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -616,6 +640,29 @@
   <ItemGroup>
     <Resource Include="Resources\Taiizor.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Royal\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\Maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\MessageBox\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\MessageBox\Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\MessageBox\Question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\MessageBox\Warning.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
