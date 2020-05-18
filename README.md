@@ -1,29 +1,46 @@
-# ReaLTaiizor
-  <p>ReaLTaiizor v3.7.6.5</p>
-  <p>Visual Studio 2019</p>
-  <p>.NET Framework 4.8 (Minimum 4.0)</p>
+![logo](https://www.photo.herominyum.com/resimler/2020/05/15/OoFq.png)
 
-# Usage
+![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg)
+![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg)
+![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
+[![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
+[![Nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
-  Step 1： Add a reference to ReaLTaiizor or search for ReaLTaiizor on the nuget;
+# Welcome to ReaLTaiizor
+ReaLTaiizor is a UI/Design library. It allows you to make modern designs using the various components it offers.
 
-  ```Install-Package ReaLTaiizor```
+## Contributors
 
-  Step 2： Enjoy designing
+<a href="https://github.com/Taiizor" target="_blank"><img width="64px" alt="Taiizor" src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4"></a>
 
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/If1P.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/IYx1.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/OMFn.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/Ibhj.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/Ic2e.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/Ipj5.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/ID12.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/IHvY.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/I3Jy.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/ITXV.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/Iuq3.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/I5pN.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/04/28/IUWW.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png" />
+## Backers
+
+<a href="https://github.com/Soferity" target="_blank"><img width="64px" alt="Soferity" src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4"></a>
+
+## Special thanks to
+
+[![Visual Studio Community 2019](https://www.photo.herominyum.com/resimler/2020/05/18/O0tD.png)](https://visualstudio.microsoft.com/free-developer-offers/)
+
+## Usage
+
+Step 1：Add a reference to ReaLTaiizor or search for ReaLTaiizor on the nuget; 
+
+```Install-Package ReaLTaiizor```
+
+Step 2：Enjoy designing
+
+## Overview
+
+![Overview-1](https://www.photo.herominyum.com/resimler/2020/04/28/If1P.png)
+
+![Overview-2](https://www.photo.herominyum.com/resimler/2020/04/28/IYx1.png)
+
+## Latest Theme Examples
+
+### Air
+
+![AirTheme](https://www.photo.herominyum.com/resimler/2020/04/28/OMFn.png)
+
+### Dungeon
+
+![DungeonTheme](https://www.photo.herominyum.com/resimler/2020/04/28/Ibhj.png)
