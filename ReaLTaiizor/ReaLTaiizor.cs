@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
 
 #endregion
@@ -9890,6 +9891,311 @@ namespace ReaLTaiizor
         protected virtual void OnEffectEnded(object sender, EventArgs e)
         {
 
+        }
+    }
+
+    public class RoyalListBoxItemCollection : Collection<object>
+    {
+        public event EventHandler ItemAdded;
+        public event EventHandler ItemRemoved;
+
+        public RoyalListBoxItemCollection()
+        {
+            ItemAdded = new EventHandler(OnItemAdded);
+            ItemRemoved = new EventHandler(OnItemRemoved);
+        }
+
+        public void AddRange(IEnumerable<object> items)
+        {
+            foreach (object item in items)
+                Items.Add(item);
+        }
+
+        protected override void InsertItem(int index, object item)
+        {
+            base.InsertItem(index, item);
+            ItemAdded(this, EventArgs.Empty);
+        }
+
+        protected override void RemoveItem(int index)
+        {
+            base.RemoveItem(index);
+            ItemRemoved(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnItemAdded(object sender, EventArgs e)
+        {
+
+        }
+
+        protected virtual void OnItemRemoved(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class RoyalListBoxSelectedItemCollection : Collection<object>
+    {
+        public RoyalListBoxSelectedItemCollection()
+        {
+
+        }
+    }
+
+    public class RoyalListBoxSelectedIndexCollection : Collection<int>
+    {
+        public RoyalListBoxSelectedIndexCollection()
+        {
+
+        }
+    }
+
+    public class RoyalToolStripRenderer : ToolStripRenderer
+    {
+        public Color ForeColor
+        {
+            get { return RoyalColors.ForeColor; }
+            set { RoyalColors.ForeColor = value; }
+        }
+
+        public Color PressedForeColor
+        {
+            get { return RoyalColors.PressedForeColor; }
+            set { RoyalColors.PressedForeColor = value; }
+        }
+
+        public Color BackColor
+        {
+            get { return RoyalColors.BackColor; }
+            set { RoyalColors.BackColor = value; }
+        }
+
+        public Color SelectedColor
+        {
+            get { return RoyalColors.HotTrackColor; }
+            set { RoyalColors.HotTrackColor = value; }
+        }
+
+        public Color PressedColor
+        {
+            get { return RoyalColors.AccentColor; }
+            set { RoyalColors.AccentColor = value; }
+        }
+
+        public RoyalToolStripRenderer()
+        {
+
+        }
+
+        protected override void Initialize(ToolStrip toolStrip)
+        {
+            toolStrip.ForeColor = RoyalColors.ForeColor;
+            toolStrip.BackColor = RoyalColors.BackColor;
+
+            base.Initialize(toolStrip);
+        }
+
+        protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
+        {
+            //e.Graphics.FillRectangle(new SolidBrush(foreColor), e.ArrowRectangle);
+
+            base.OnRenderArrow(e);
+        }
+
+        protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
+        {
+            base.OnRenderButtonBackground(e);
+
+            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Color color = this.BackColor;
+
+            if (e.Item.Selected && !e.Item.Pressed)
+                color = this.SelectedColor;
+            else if (e.Item.Pressed)
+                color = this.PressedColor;
+
+            e.Graphics.FillRectangle(new SolidBrush(color), rect);
+        }
+
+        protected override void OnRenderDropDownButtonBackground(ToolStripItemRenderEventArgs e)
+        {
+            base.OnRenderDropDownButtonBackground(e);
+
+            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Color color = this.BackColor;
+
+            if (e.Item.Selected && !e.Item.Pressed)
+                color = this.SelectedColor;
+            else if (e.Item.Pressed)
+                color = this.PressedColor;
+
+            e.Graphics.FillRectangle(new SolidBrush(color), rect);
+        }
+
+        protected override void OnRenderItemBackground(ToolStripItemRenderEventArgs e)
+        {
+            base.OnRenderItemBackground(e);
+
+            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Color color = this.BackColor;
+
+            if (e.Item.Selected && !e.Item.Pressed)
+                color = this.SelectedColor;
+            else if (e.Item.Pressed)
+                color = this.PressedColor;
+
+            e.Graphics.FillRectangle(new SolidBrush(color), rect);
+        }
+
+        protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
+        {
+            base.OnRenderMenuItemBackground(e);
+
+            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Color color = this.BackColor;
+
+            if (e.Item.Selected && !e.Item.Pressed)
+                color = this.SelectedColor;
+            else if (e.Item.Pressed)
+                color = this.PressedColor;
+
+            e.Graphics.FillRectangle(new SolidBrush(color), rect);
+        }
+
+        protected override void OnRenderLabelBackground(ToolStripItemRenderEventArgs e)
+        {
+            base.OnRenderLabelBackground(e);
+
+            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Color color = this.BackColor;
+
+            if (e.Item.Selected && !e.Item.Pressed)
+                color = this.SelectedColor;
+            else if (e.Item.Pressed)
+                color = this.PressedColor;
+
+            e.Graphics.FillRectangle(new SolidBrush(color), rect);
+        }
+
+        protected override void OnRenderGrip(ToolStripGripRenderEventArgs e)
+        {
+            base.OnRenderGrip(e);
+
+            e.Graphics.DrawString("GRIP", SystemFonts.MenuFont, Brushes.Black, e.GripBounds);
+        }
+
+        protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
+        {
+            base.OnRenderToolStripBackground(e);
+            e.Graphics.FillRectangle(new SolidBrush(this.BackColor), e.AffectedBounds);
+        }
+
+        protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
+        {
+            base.OnRenderItemText(e);
+
+            Color foreColor = RoyalColors.ForeColor;
+
+            if (e.Item.Pressed)
+                foreColor = RoyalColors.PressedForeColor;
+
+            TextRenderer.DrawText(e.Graphics, e.Text, e.TextFont, e.TextRectangle, foreColor,
+                Color.Transparent, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+
+        }
+
+        protected override void OnRenderImageMargin(ToolStripRenderEventArgs e)
+        {
+            base.OnRenderImageMargin(e);
+        }
+
+        protected override void OnRenderItemCheck(ToolStripItemImageRenderEventArgs e)
+        {
+            //base.OnRenderItemCheck(e);
+
+            e.Graphics.DrawImage(Properties.Resources.Check, e.ImageRectangle);
+        }
+
+        protected override void OnRenderItemImage(ToolStripItemImageRenderEventArgs e)
+        {
+            base.OnRenderItemImage(e);
+        }
+
+        protected override void OnRenderOverflowButtonBackground(ToolStripItemRenderEventArgs e)
+        {
+            base.OnRenderOverflowButtonBackground(e);
+
+            Color color = this.BackColor;
+
+            if (e.Item.Selected && !e.Item.Pressed)
+                color = this.SelectedColor;
+            else if (e.Item.Pressed)
+                color = this.PressedColor;
+
+            e.Graphics.FillRectangle(new SolidBrush(color), e.Item.Bounds);
+        }
+
+        protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
+        {
+            base.OnRenderSeparator(e);
+            Rectangle itemRect = e.Item.Bounds;
+
+            if (e.Vertical)
+            {
+                e.Graphics.DrawLine(Pens.Gainsboro, new Point(0, 0), new Point(0, itemRect.Height));
+                e.Graphics.DrawLine(Pens.WhiteSmoke, new Point(1, 0), new Point(1, itemRect.Height));
+            }
+            else
+            {
+                //e.Graphics.DrawLine(Pens.Gainsboro, new Point(0, 0), new Point(itemRect.Width, 0));
+                //e.Graphics.DrawLine(Pens.WhiteSmoke, new Point(0, 1), new Point(itemRect.Width, 1));
+                e.Graphics.DrawLine(new Pen(Color.Gainsboro, 2), new Point(0, 0), new Point(itemRect.Width, 0));
+            }
+        }
+
+        protected override void OnRenderSplitButtonBackground(ToolStripItemRenderEventArgs e)
+        {
+            base.OnRenderSplitButtonBackground(e);
+
+            Color color = this.BackColor;
+
+            if (e.Item.Selected && !e.Item.Pressed)
+                color = this.SelectedColor;
+            else if (e.Item.Pressed)
+                color = this.PressedColor;
+
+            e.Graphics.FillRectangle(new SolidBrush(color), e.Item.Bounds);
+        }
+
+        protected override void OnRenderStatusStripSizingGrip(ToolStripRenderEventArgs e)
+        {
+            base.OnRenderStatusStripSizingGrip(e);
+        }
+
+        protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
+        {
+            base.OnRenderToolStripBorder(e);
+
+            if (e.ToolStrip.IsDropDown)
+            {
+                Rectangle rect = new Rectangle(0, 0, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
+                e.Graphics.DrawRectangle(Pens.Gainsboro, rect);
+            }
+        }
+
+        protected override void OnRenderToolStripContentPanelBackground(ToolStripContentPanelRenderEventArgs e)
+        {
+            base.OnRenderToolStripContentPanelBackground(e);
+        }
+
+        protected override void OnRenderToolStripPanelBackground(ToolStripPanelRenderEventArgs e)
+        {
+            base.OnRenderToolStripPanelBackground(e);
+        }
+
+        protected override void OnRenderToolStripStatusLabelBackground(ToolStripItemRenderEventArgs e)
+        {
+            base.OnRenderToolStripStatusLabelBackground(e);
         }
     }
 
