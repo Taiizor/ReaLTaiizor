@@ -1,4 +1,5 @@
-﻿using ReaLTaiizor;
+﻿using System;
+using ReaLTaiizor;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor_UI
@@ -10,7 +11,7 @@ namespace ReaLTaiizor_UI
             InitializeComponent();
         }
 
-        private void LostAcceptButton1_Click(object sender, System.EventArgs e)
+        private void LostAcceptButton1_Click(object sender, EventArgs e)
         {
             FrameLost FL = new FrameLost
             {
@@ -19,7 +20,7 @@ namespace ReaLTaiizor_UI
             FL.Present(this, DockStyle.Left);
         }
 
-        private void LostCancelButton1_Click(object sender, System.EventArgs e)
+        private void LostCancelButton1_Click(object sender, EventArgs e)
         {
             ToolFrameLost TFL = new ToolFrameLost
             {

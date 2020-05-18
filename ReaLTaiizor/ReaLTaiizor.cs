@@ -9456,7 +9456,7 @@ namespace ReaLTaiizor
         {
             base.OnMouseDown(e);
 
-            if (e.Button == MouseButtons.Left && Parent != null && !(Parent is ToolFrameLost))
+            if (e.Button == MouseButtons.Left && Parent != null && !(Parent is ToolFrameLost) && e.X <= Width && e.Y <= 30)
             {
                 ReleaseCapture();
                 SendMessage(Parent.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -9483,11 +9483,7 @@ namespace ReaLTaiizor
         private void DrawShadow(Graphics g, Rectangle rect)
         {
             for (int i = 0; i < ThemeLost.ShadowSize; i++)
-            {
-                g.DrawRectangle(
-                    new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)),
-                    ShadeRect(rect, i));
-            }
+                g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(rect, i));
         }
     }
 
@@ -9618,5 +9614,11 @@ namespace ReaLTaiizor
         }
     }
 
+    #endregion
+
+    #region RoyalLibrary
+    
+    
+    
     #endregion
 }
