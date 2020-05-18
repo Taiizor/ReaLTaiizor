@@ -25,5 +25,4 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.exe
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.pdb
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form15.resources
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor.pdb
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form16.resources

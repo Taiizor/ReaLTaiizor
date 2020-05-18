@@ -13,8 +13,8 @@ namespace ReaLTaiizor_UI
 
         private void Form16_Load(object sender, EventArgs e)
         {
-            for (int C = 0; C <= 5; C++)
-                royalListBox1.Items.Add("Test Item " + C.ToString());
+            for (int C = 1; C <= 5; C++)
+                royalListBox1.Items.Add("Item " + C.ToString());
         }
 
         private void RoyalButton1_Click(object sender, EventArgs e)

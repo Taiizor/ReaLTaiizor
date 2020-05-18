@@ -26,4 +26,4 @@
   <img src="https://www.photo.herominyum.com/resimler/2020/04/28/IUWW.png" />
   <img src="https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png" />
   <img src="https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png" />
-  <img src="https://www.photo.herominyum.com/resimler/2020/05/18/OeUE.png" />
+  <img src="https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png" />
