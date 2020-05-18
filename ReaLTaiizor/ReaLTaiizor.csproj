@@ -76,6 +76,9 @@
     <Compile Include="Label\LostLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MessageBox\RoyalMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Panel\LostBorderPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -636,6 +639,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Royal\Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\MessageBox\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\MessageBox\Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\MessageBox\Question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\MessageBox\Warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
