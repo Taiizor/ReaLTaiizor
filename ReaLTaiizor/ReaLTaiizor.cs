@@ -3,6 +3,7 @@
 using System;
 using System.IO;
 using System.Drawing;
+using System.Threading;
 using System.Drawing.Text;
 using System.Globalization;
 using System.Windows.Forms;
@@ -9127,7 +9128,7 @@ namespace ReaLTaiizor
         Primary = 1,
         Success = 2,
         Info = 3,
-        Waring = 4,
+        Warning = 4,
         Danger = 5
     }
 
@@ -9326,7 +9327,7 @@ namespace ReaLTaiizor
         public bool MouseOver = false;
         public bool IsMouseDown = false;
 
-        private Timer _ticker = new Timer();
+        private System.Windows.Forms.Timer _ticker = new System.Windows.Forms.Timer();
 
         public ControlLostBase()
         {
@@ -9617,8 +9618,290 @@ namespace ReaLTaiizor
     #endregion
 
     #region RoyalLibrary
-    
-    
-    
+
+    public static class RoyalColors
+    {
+        static Color foreColor = Color.FromArgb(31, 31, 31);
+        public static Color ForeColor
+        {
+            get { return foreColor; }
+            set { foreColor = value; }
+        }
+
+        static Color backColor = Color.FromArgb(243, 243, 243);
+        public static Color BackColor
+        {
+            get { return backColor; }
+            set { backColor = value; }
+        }
+
+        static Color borderColor = Color.FromArgb(180, 180, 180);
+        public static Color BorderColor
+        {
+            get { return borderColor; }
+            set { borderColor = value; }
+        }
+
+        static Color hotTrackColor = Color.FromArgb(221, 221, 221);
+        public static Color HotTrackColor
+        {
+            get { return hotTrackColor; }
+            set { hotTrackColor = value; }
+        }
+
+        static Color accentColor = Color.FromArgb(51, 102, 255);
+        public static Color AccentColor
+        {
+            get { return accentColor; }
+            set { accentColor = value; }
+        }
+
+        static Color pressedForeColor = Color.White;
+        public static Color PressedForeColor
+        {
+            get { return pressedForeColor; }
+            set { pressedForeColor = value; }
+        }
+
+        static Color pressedBackColor = accentColor;
+        public static Color PressedBackColor
+        {
+            get { return pressedBackColor; }
+            set { pressedBackColor = value; }
+        }
+    }
+
+    public abstract class ControlRoyalBase : Control
+    {
+        Thread animationThread;
+        double framesPerSecond = (1000 / 15);
+
+        protected delegate void MoveControlDelegate(Point location);
+        protected delegate void ResizeControlDelegate(Size size);
+        protected delegate void SetControlBackColorDelegate(Color c);
+        protected delegate void RefreshControlDelegate();
+
+        public event EventHandler EffectStarted;
+        public event EventHandler EffectEnded;
+
+        public bool AnimateBackColorChange = false;
+        public double SecondsToChange = 0.5;
+
+        public override Color BackColor
+        {
+            get
+            {
+                return base.BackColor;
+            }
+            set
+            {
+                if (AnimateBackColorChange)
+                    SetBackgroundColor(value, SecondsToChange);
+                else
+                    base.BackColor = value;
+            }
+        }
+
+        public ControlRoyalBase()
+        {
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
+            EffectStarted = new EventHandler(OnEffectStarted);
+            EffectEnded = new EventHandler(OnEffectEnded);
+        }
+
+        public new void Move(Point location, double seconds)
+        {
+            animationThread = new Thread(new ThreadStart(delegate ()
+            {
+                MoveControl(location, seconds);
+            }));
+            animationThread.Start();
+        }
+
+        public new void Resize(Size size, double seconds)
+        {
+            animationThread = new Thread(new ThreadStart(delegate ()
+            {
+                ResizeControl(size, seconds);
+            }));
+            animationThread.Start();
+        }
+
+        public void SetBackgroundColor(Color backColor, double seconds)
+        {
+            animationThread = new Thread(new ThreadStart(delegate ()
+            {
+                FadeToColor(backColor, seconds);
+            }));
+            animationThread.Start();
+        }
+
+        private void MoveControl(Point location, double seconds)
+        {
+            double x = (location.X - Location.X);
+            double y = (location.Y - Location.Y);
+
+            double xStepDist = (x / (framesPerSecond * seconds));
+            double yStepDist = (y / (framesPerSecond * seconds));
+
+            double ox = Location.X;
+            double oy = Location.Y;
+
+            try
+            {
+                for (int i = 0; i < (seconds * framesPerSecond); i++)
+                {
+                    ox += xStepDist;
+                    oy += yStepDist;
+
+                    Point p = new Point((int)ox, (int)oy);
+
+                    if (InvokeRequired)
+                    {
+                        Invoke(new MoveControlDelegate(SetControlLocation), p);
+                        Invoke(new RefreshControlDelegate(RefreshControl));
+                    }
+                    else
+                    {
+                        Location = p;
+                        Refresh();
+                    }
+
+                    Thread.Sleep(10);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void ResizeControl(Size size, double seconds)
+        {
+            double x = (size.Width - Width);
+            double y = (size.Height - Height);
+
+            double xStepDist = (x / (framesPerSecond * seconds));
+            double yStepDist = (y / (framesPerSecond * seconds));
+
+            double ox = Width;
+            double oy = Height;
+
+            try
+            {
+                for (int i = 0; i < (seconds * framesPerSecond); i++)
+                {
+                    ox += xStepDist;
+                    oy += yStepDist;
+
+                    Size s = new Size((int)ox, (int)oy);
+
+                    if (InvokeRequired)
+                    {
+                        Invoke(new ResizeControlDelegate(SetControlSize), s);
+                        Invoke(new RefreshControlDelegate(RefreshControl));
+                    }
+                    else
+                    {
+                        Size = s;
+                        Refresh();
+                    }
+
+                    Thread.Sleep(10);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void FadeToColor(Color color, double seconds)
+        {
+            double r = (color.R - BackColor.R);
+            double g = (color.G - BackColor.G);
+            double b = (color.B - BackColor.B);
+
+            double rStep = (r / (framesPerSecond * seconds));
+            double gStep = (g / (framesPerSecond * seconds));
+            double bStep = (b / (framesPerSecond * seconds));
+
+            double or = BackColor.R;
+            double og = BackColor.G;
+            double ob = BackColor.B;
+
+            try
+            {
+                for (int i = 0; i < (seconds * framesPerSecond); i++)
+                {
+                    or += rStep;
+                    og += gStep;
+                    ob += gStep;
+
+                    Color c = Color.FromArgb((int)or, (int)og, (int)ob);
+
+                    if (InvokeRequired)
+                    {
+                        Invoke(new SetControlBackColorDelegate(SetControlBackColor), c);
+                        Invoke(new RefreshControlDelegate(RefreshControl));
+                    }
+                    else
+                    {
+                        BackColor = c;
+                        Refresh();
+                    }
+
+                    Thread.Sleep(10);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        protected void SetControlLocation(Point location)
+        {
+            Location = location;
+        }
+
+        protected void SetControlSize(Size size)
+        {
+            Size = size;
+        }
+
+        protected void SetControlBackColor(Color c)
+        {
+            BackColor = c;
+        }
+
+        protected void RefreshControl()
+        {
+            Refresh();
+        }
+
+        protected virtual void OnEffectStarted(object sender, EventArgs e)
+        {
+
+        }
+
+        protected virtual void OnEffectEnded(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public enum RoyalLayoutFlags
+    {
+        TextOnly,
+        ImageOnly,
+        ImageBeforeText,
+        TextBeforeImage,
+        TextAboveImage,
+        ImageAboveText
+    };
+
     #endregion
 }

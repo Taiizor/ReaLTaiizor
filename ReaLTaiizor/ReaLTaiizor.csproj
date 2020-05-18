@@ -34,6 +34,9 @@
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Button\RoyalButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Button\LostAcceptButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -63,6 +66,9 @@
     </Compile>
     <Compile Include="DatePicker\HopeDatePicker.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form\RoyalForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\LostForm.cs">
       <SubType>Form</SubType>
@@ -599,6 +605,9 @@
     <Resource Include="Resources\Taiizor.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\RoyalForm.resx">
+      <DependentUpon>RoyalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\LostForm.resx">
       <DependentUpon>LostForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -616,6 +625,17 @@
   <ItemGroup>
     <Resource Include="Resources\Taiizor.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Royal\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\Maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Royal\Minimize.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

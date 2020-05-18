@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor_UI
 {
-    public partial class Form15 : LostForm
+    public partial class Form15 : LostForm //Summon LostForm
     {
         public Form15()
         {
