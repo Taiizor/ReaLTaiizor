@@ -17,10 +17,6 @@ ReaLTaiizor is a UI/Design library. It allows you to make modern designs using t
 
 <a href="https://github.com/Soferity" target="_blank"><img width="64px" alt="Soferity" src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4"></a>
 
-## Special thanks to
-
-[![Visual Studio Community 2019](https://www.photo.herominyum.com/resimler/2020/05/18/O0tD.png)](https://visualstudio.microsoft.com/free-developer-offers/)
-
 ## Usage
 
 Step 1：Add a reference to ReaLTaiizor or search for ReaLTaiizor on the nuget; 
@@ -44,3 +40,39 @@ Step 2：Enjoy designing
 ### Dungeon
 
 ![DungeonTheme](https://www.photo.herominyum.com/resimler/2020/04/28/Ibhj.png)
+
+### Dream
+
+![DreamTheme](https://www.photo.herominyum.com/resimler/2020/04/28/Ic2e.png)
+
+### Ribbon
+
+![RibbonTheme](https://www.photo.herominyum.com/resimler/2020/04/28/Ipj5.png)
+
+### Space
+
+![SpaceTheme](https://www.photo.herominyum.com/resimler/2020/04/28/ID12.png)
+
+### Thunder
+
+![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/04/28/IHvY.png)
+
+### Moon
+
+![MoonTheme](https://www.photo.herominyum.com/resimler/2020/04/28/ITXV.png)
+
+### Forever
+
+![ForeverTheme](https://www.photo.herominyum.com/resimler/2020/04/28/IUWW.png)
+
+### Hope
+
+![HopeTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png)
+
+### Lost
+
+![LostTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png)
+
+### Royal
+
+![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
