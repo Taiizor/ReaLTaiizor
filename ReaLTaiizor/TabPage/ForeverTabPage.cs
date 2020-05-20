@@ -25,6 +25,13 @@ namespace ReaLTaiizor
 		}
 
 		[Category("Colors")]
+		public Color BGColor
+		{
+			get { return _BGColor; }
+			set { _BGColor = value; }
+		}
+
+		[Category("Colors")]
 		public Color BaseColor
 		{
 			get { return _BaseColor; }
@@ -38,7 +45,7 @@ namespace ReaLTaiizor
 			set { _ActiveColor = value; }
 		}
 
-		private Color BGColor = Color.FromArgb(60, 70, 73);
+		private Color _BGColor = Color.FromArgb(60, 70, 73);
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
 		private Color _ActiveColor = ForeverLibrary.ForeverColor;
 
@@ -55,7 +62,7 @@ namespace ReaLTaiizor
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -70,7 +77,7 @@ namespace ReaLTaiizor
 
 			try
 			{
-				SelectedTab.BackColor = BGColor;
+				SelectedTab.BackColor = _BGColor;
 			}
 			catch
 			{
@@ -176,9 +183,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_ActiveColor = colors.Forever;
+			_ActiveColor = Colors.Forever;
 		}
 	}
 

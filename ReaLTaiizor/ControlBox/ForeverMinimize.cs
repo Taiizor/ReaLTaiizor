@@ -104,6 +104,20 @@ namespace ReaLTaiizor
 		}
 
 		[Category("Colors")]
+		public Color OverColor
+		{
+			get { return _OverColor; }
+			set { _OverColor = value; }
+		}
+
+		[Category("Colors")]
+		public Color DownColor
+		{
+			get { return _DownColor; }
+			set { _DownColor = value; }
+		}
+
+		[Category("Colors")]
 		public Color TextColor
 		{
 			get { return _TextColor; }
@@ -117,6 +131,8 @@ namespace ReaLTaiizor
 		}
 
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
+		private Color _OverColor = Color.White;
+		private Color _DownColor = Color.Black;
 		private Color _TextColor = Color.FromArgb(243, 243, 243);
 
 		public ForeverMinimize()
@@ -153,10 +169,10 @@ namespace ReaLTaiizor
 			switch (State)
 			{
 				case MouseStateForever.Over:
-					_with5.FillRectangle(new SolidBrush(Color.FromArgb(30, Color.White)), Base);
+					_with5.FillRectangle(new SolidBrush(Color.FromArgb(30, _OverColor)), Base);
 					break;
 				case MouseStateForever.Down:
-					_with5.FillRectangle(new SolidBrush(Color.FromArgb(30, Color.Black)), Base);
+					_with5.FillRectangle(new SolidBrush(Color.FromArgb(30, _DownColor)), Base);
 					break;
 			}
 

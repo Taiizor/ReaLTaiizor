@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace ReaLTaiizor
 {
-    #region Progress Indicator
+    #region ProgressIndicator
 
     public class ProgressIndicator : Control
     {

@@ -115,6 +115,20 @@ namespace ReaLTaiizor
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
 		private Color _BorderColor = ForeverLibrary.ForeverColor;
 
+		[Category("Options")]
+		public Color BaseColor
+		{
+			get { return _BaseColor; }
+			set { _BaseColor = value; }
+		}
+
+		[Category("Options")]
+		public Color BorderColor
+		{
+			get { return _BorderColor; }
+			set { _BorderColor = value; }
+		}
+
 		public ForeverRadioButton()
 		{
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
@@ -128,7 +142,7 @@ namespace ReaLTaiizor
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -203,9 +217,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_BorderColor = colors.Forever;
+			_BorderColor = Colors.Forever;
 		}
 	}
 
