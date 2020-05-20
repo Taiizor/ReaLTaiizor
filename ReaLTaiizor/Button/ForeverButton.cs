@@ -84,7 +84,7 @@ namespace ReaLTaiizor
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -174,9 +174,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_BaseColor = colors.Forever;
+			_BaseColor = Colors.Forever;
 		}
 	}
 

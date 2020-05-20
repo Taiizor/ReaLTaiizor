@@ -149,15 +149,13 @@ namespace ReaLTaiizor
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
 			DoubleBuffered = true;
 			Font = new Font("Segoe UI", 10);
-			BackColor = Color.FromArgb(60, 70, 73);
-			ForeColor = Color.White;
 			_Min = 0;
 			_Max = 9999999;
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -170,7 +168,7 @@ namespace ReaLTaiizor
 			_with18.SmoothingMode = SmoothingMode.HighQuality;
 			_with18.PixelOffsetMode = PixelOffsetMode.HighQuality;
 			_with18.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-			_with18.Clear(BackColor);
+			_with18.Clear(_BaseColor);
 
 			//-- Base
 			_with18.FillRectangle(new SolidBrush(_BaseColor), Base);
@@ -193,9 +191,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_ButtonColor = colors.Forever;
+			_ButtonColor = Colors.Forever;
 		}
 	}
 

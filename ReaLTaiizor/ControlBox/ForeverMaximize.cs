@@ -104,6 +104,20 @@ namespace ReaLTaiizor
 		}
 
 		[Category("Colors")]
+		public Color OverColor
+		{
+			get { return _OverColor; }
+			set { _OverColor = value; }
+		}
+
+		[Category("Colors")]
+		public Color DownColor
+		{
+			get { return _DownColor; }
+			set { _DownColor = value; }
+		}
+
+		[Category("Colors")]
 		public Color TextColor
 		{
 			get { return _TextColor; }
@@ -117,6 +131,8 @@ namespace ReaLTaiizor
 		}
 
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
+		private Color _OverColor = Color.White;
+		private Color _DownColor = Color.Black;
 		private Color _TextColor = Color.FromArgb(243, 243, 243);
 
 		public ForeverMaximize()
@@ -148,22 +164,18 @@ namespace ReaLTaiizor
 
 			//-- Maximize
 			if (FindForm().WindowState == FormWindowState.Maximized)
-			{
 				_with4.DrawString("2", Font, new SolidBrush(TextColor), new Rectangle(1, 1, Width, Height), ForeverLibrary.CenterSF);
-			}
 			else if (FindForm().WindowState == FormWindowState.Normal)
-			{
 				_with4.DrawString("1", Font, new SolidBrush(TextColor), new Rectangle(1, 1, Width, Height), ForeverLibrary.CenterSF);
-			}
 
 			//-- Hover/down
 			switch (State)
 			{
 				case MouseStateForever.Over:
-					_with4.FillRectangle(new SolidBrush(Color.FromArgb(30, Color.White)), Base);
+					_with4.FillRectangle(new SolidBrush(Color.FromArgb(30, _OverColor)), Base);
 					break;
 				case MouseStateForever.Down:
-					_with4.FillRectangle(new SolidBrush(Color.FromArgb(30, Color.Black)), Base);
+					_with4.FillRectangle(new SolidBrush(Color.FromArgb(30, _DownColor)), Base);
 					break;
 			}
 

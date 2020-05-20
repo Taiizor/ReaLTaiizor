@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ReaLTaiizor</id>
-    <version>3.7.6.5</version>
+    <version>3.7.6.6</version>
     <title>ReaLTaiizor</title>
     <authors>Taiizor</authors>
     <owners>Taiizor</owners>
@@ -12,7 +12,7 @@
     <repository type="git" url="https://github.com/Taiizor/ReaLTaiizor.git" />
     <iconUrl>https://www.photo.herominyum.com/resimler/2020/05/15/OoFq.png</iconUrl>
     <description>C# WinForm UI/Design Library - ReaLTaiizor</description>
-    <releaseNotes>Performance improvements, innovations, and minor bug fixes have been made.</releaseNotes>
+    <releaseNotes>Minor bugs are fixed.</releaseNotes>
     <copyright>Copyright © 2020 Taiizor Inc.</copyright>
     <tags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</tags>
   </metadata>

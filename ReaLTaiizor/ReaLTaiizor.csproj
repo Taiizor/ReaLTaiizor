@@ -493,7 +493,7 @@
     <Compile Include="Bubble\ChatBubbleRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Progress\ProgressaIndicator.cs">
+    <Compile Include="Progress\ProgressIndicator.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ComboBox\ComboBoxEdit.cs">

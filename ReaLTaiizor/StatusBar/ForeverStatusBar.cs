@@ -46,26 +46,58 @@ namespace ReaLTaiizor
 		}
 
 		[Category("Colors")]
+		public Color TimeColor
+		{
+			get { return _TimeColor; }
+			set { _TimeColor = value; }
+		}
+
+		[Category("Colors")]
 		public Color RectColor
 		{
 			get { return _RectColor; }
 			set { _RectColor = value; }
 		}
 
+		[Category("Options")]
 		public bool ShowTimeDate
 		{
 			get { return _ShowTimeDate; }
 			set { _ShowTimeDate = value; }
 		}
 
-		public string GetTimeDate()
+		[Category("Options")]
+		public string TimeFormat
 		{
-			return DateTime.Now.Date + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute;
+			get { return _TimeFormat; }
+			set { _TimeFormat = value; }
+		}
+
+		[Category("Options")]
+		public string TimeFormatDefault
+		{
+			get { return "dd.MM.yyyy - hh:mm:ss"; }
+		}
+
+		public string GetTimeFormat(string TF)
+		{
+			try
+			{
+				return DateTime.Now.ToString(TF);
+			}
+			catch
+			{
+				TimeFormat = TimeFormatDefault;
+				_TimeFormat = TimeFormatDefault;
+				return DateTime.Now.ToString(TimeFormatDefault);
+			}
 		}
 
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
 		private Color _TextColor = Color.White;
+		private Color _TimeColor = Color.White;
 		private Color _RectColor = ForeverLibrary.ForeverColor;
+		private string _TimeFormat = "dd.MM.yyyy - hh:mm:ss";
 
 		public ForeverStatusBar()
 		{
@@ -73,12 +105,13 @@ namespace ReaLTaiizor
 			DoubleBuffered = true;
 			Font = new Font("Segoe UI", 8);
 			ForeColor = Color.White;
+			TimeFormat = _TimeFormat;
 			Size = new Size(Width, 20);
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -97,7 +130,7 @@ namespace ReaLTaiizor
 			_with21.FillRectangle(new SolidBrush(BaseColor), Base);
 
 			//-- Text
-			_with21.DrawString(Text, Font, Brushes.White, new Rectangle(10, 4, W, H), ForeverLibrary.NearSF);
+			_with21.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(10, 4, W, H), ForeverLibrary.NearSF);
 
 			//-- Rectangle
 			_with21.FillRectangle(new SolidBrush(_RectColor), new Rectangle(4, 4, 4, 14));
@@ -105,7 +138,8 @@ namespace ReaLTaiizor
 			//-- TimeDate
 			if (ShowTimeDate)
 			{
-				_with21.DrawString(GetTimeDate(), Font, new SolidBrush(_TextColor), new Rectangle(-4, 2, W, H), new StringFormat
+				string Time = GetTimeFormat(_TimeFormat);
+				_with21.DrawString(Time, Font, new SolidBrush(_TimeColor), new Rectangle(-4, 2, W, H), new StringFormat
 				{
 					Alignment = StringAlignment.Far,
 					LineAlignment = StringAlignment.Center
@@ -121,9 +155,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_RectColor = colors.Forever;
+			_RectColor = Colors.Forever;
 		}
 	}
 

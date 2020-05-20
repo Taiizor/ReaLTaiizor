@@ -57,7 +57,8 @@ namespace ReaLTaiizor
 
             G.FillRectangle(BACKIMAGE, SecondBox);
 
-            Point[] Pt = {
+            Point[] Pt =
+            {
                 new Point(10, 0),
                 new Point(10, 66),
                 new Point(36, 40),
@@ -70,7 +71,8 @@ namespace ReaLTaiizor
             SolidBrush br = new SolidBrush(Color.FromArgb(86, 86, 86));
             G.FillPolygon(br, Pt);
 
-            Point[] Pt2 = {
+            Point[] Pt2 =
+            {
                 new Point(14, 0),
                 new Point(14, 62),
                 new Point(36, 40),

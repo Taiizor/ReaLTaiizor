@@ -30,6 +30,7 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
         private HorizontalAlignment _TitleAlign = (HorizontalAlignment)2;
         public HorizontalAlignment TitleAlign
         {
@@ -43,6 +44,7 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
         protected override void OnHandleCreated(EventArgs e)
         {
             Dock = (DockStyle)5;
@@ -56,6 +58,7 @@ namespace ReaLTaiizor
 
             base.OnHandleCreated(e);
         }
+
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (new Rectangle(Parent.Location.X, Parent.Location.Y, Width - 1, _TitleHeight - 1).IntersectsWith(new Rectangle(MousePosition.X, MousePosition.Y, 1, 1)))
@@ -68,11 +71,14 @@ namespace ReaLTaiizor
             }
             base.OnMouseDown(e);
         }
+
         Color C1 = Color.FromArgb(40, 218, 255), C2 = Color.FromArgb(63, 63, 63), C3 = Color.FromArgb(41, 41, 41);//(74, 74, 74)
         Color C4 = Color.FromArgb(27, 27, 27), C5 = Color.FromArgb(0, 0, 0, 0), C6 = Color.FromArgb(25, 255, 255, 255);
+        
         protected override void OnPaintBackground(PaintEventArgs e)
         {
         }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             using (Bitmap B = new Bitmap(Width, Height))
@@ -86,18 +92,12 @@ namespace ReaLTaiizor
                     SizeF S = G.MeasureString(Text + "1", Font);
                     float O = 6;
                     if (_TitleAlign == (HorizontalAlignment)2)
-                    {
                         O = Width / 2 - S.Width / 2;
-                    }
                     if (_TitleAlign == (HorizontalAlignment)1)
-                    {
                         O = Width - S.Width - 6;
-                    }
                     Rectangle R = new Rectangle((int)O, (_TitleHeight + 2) / 2 - (int)S.Height / 2, (int)S.Width, (int)S.Height);
                     using (Brush T = new LinearGradientBrush(R, C1, C3, LinearGradientMode.Vertical))
-                    {
                         G.DrawString(Text, Font, T, R);
-                    }
 
                     G.DrawLine(new Pen(C3), 0, 1, Width, 1);
 
@@ -108,10 +108,7 @@ namespace ReaLTaiizor
                     float[] temp2 = { 0.5F, 0, 0, _TitleHeight + 1, Width, 1 };
                     x.Positions = temp2;
                     /*
-                    LinearGradientBrush B = new LinearGradientBrush(new Point(10, 110),
-                                                        new Point(140, 110),
-                                                        Color.White,
-                                                        Color.Black);
+                    LinearGradientBrush B = new LinearGradientBrush(new Point(10, 110), new Point(140, 110), Color.White, Color.Black);
                     B.InterpolationColors = C_Blend;
                     */
                     G.DrawLine(new Pen(C4), 0, _TitleHeight, Width, _TitleHeight);

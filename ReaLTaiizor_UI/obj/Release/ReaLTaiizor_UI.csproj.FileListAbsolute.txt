@@ -1,3 +1,7 @@
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_UI.exe.config
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_UI.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_UI.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor.dll
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.csprojAssemblyReference.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.g.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form1.resources
@@ -6,6 +10,8 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form12.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form13.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form14.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form15.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form16.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form2.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form3.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form4.resources
@@ -17,12 +23,6 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Properties.Resources.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.csproj.GenerateResource.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.csproj.CoreCompileInputs.cache
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_UI.exe.config
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_UI.exe
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_UI.pdb
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor.dll
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.csproj.CopyComplete
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.exe
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.pdb
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form15.resources
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form16.resources
