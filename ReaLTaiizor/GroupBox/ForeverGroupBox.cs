@@ -25,6 +25,14 @@ namespace ReaLTaiizor
 			set { _BaseColor = value; }
 		}
 
+		[Category("Colors")]
+		public Color TextColor
+		{
+			get { return _TextColor; }
+			set { _TextColor = value; }
+		}
+
+		[Category("Options")]
 		public bool ShowText
 		{
 			get { return _ShowText; }
@@ -40,12 +48,12 @@ namespace ReaLTaiizor
 			DoubleBuffered = true;
 			BackColor = Color.Transparent;
 			Size = new Size(240, 180);
-			Font = new Font("Segoe ui", 10);
+			Font = new Font("Segoe UI", 10);
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -75,9 +83,7 @@ namespace ReaLTaiizor
 
 			//-- if ShowText
 			if (ShowText)
-			{
 				_with7.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(16, 16, W, H), ForeverLibrary.NearSF);
-			}
 
 			base.OnPaint(e);
 			G.Dispose();
@@ -88,9 +94,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_TextColor = colors.Forever;
+			_TextColor = Colors.Forever;
 		}
 	}
 

@@ -79,9 +79,7 @@ namespace ReaLTaiizor
             get
             {
                 if (Parent == null)
-                {
                     return false;
-                }
                 return Parent.Parent != null;
             }
         }

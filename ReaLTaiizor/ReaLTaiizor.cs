@@ -10007,12 +10007,12 @@ namespace ReaLTaiizor
             base.OnRenderButtonBackground(e);
 
             Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
-            Color color = this.BackColor;
+            Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
-                color = this.SelectedColor;
+                color = SelectedColor;
             else if (e.Item.Pressed)
-                color = this.PressedColor;
+                color = PressedColor;
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -10022,12 +10022,12 @@ namespace ReaLTaiizor
             base.OnRenderDropDownButtonBackground(e);
 
             Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
-            Color color = this.BackColor;
+            Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
-                color = this.SelectedColor;
+                color = SelectedColor;
             else if (e.Item.Pressed)
-                color = this.PressedColor;
+                color = PressedColor;
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -10037,12 +10037,12 @@ namespace ReaLTaiizor
             base.OnRenderItemBackground(e);
 
             Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
-            Color color = this.BackColor;
+            Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
-                color = this.SelectedColor;
+                color = SelectedColor;
             else if (e.Item.Pressed)
-                color = this.PressedColor;
+                color = PressedColor;
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -10052,12 +10052,12 @@ namespace ReaLTaiizor
             base.OnRenderMenuItemBackground(e);
 
             Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
-            Color color = this.BackColor;
+            Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
-                color = this.SelectedColor;
+                color = SelectedColor;
             else if (e.Item.Pressed)
-                color = this.PressedColor;
+                color = PressedColor;
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -10067,12 +10067,12 @@ namespace ReaLTaiizor
             base.OnRenderLabelBackground(e);
 
             Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
-            Color color = this.BackColor;
+            Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
-                color = this.SelectedColor;
+                color = SelectedColor;
             else if (e.Item.Pressed)
-                color = this.PressedColor;
+                color = PressedColor;
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -10087,7 +10087,7 @@ namespace ReaLTaiizor
         protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
         {
             base.OnRenderToolStripBackground(e);
-            e.Graphics.FillRectangle(new SolidBrush(this.BackColor), e.AffectedBounds);
+            e.Graphics.FillRectangle(new SolidBrush(BackColor), e.AffectedBounds);
         }
 
         protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
@@ -10125,12 +10125,12 @@ namespace ReaLTaiizor
         {
             base.OnRenderOverflowButtonBackground(e);
 
-            Color color = this.BackColor;
+            Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
-                color = this.SelectedColor;
+                color = SelectedColor;
             else if (e.Item.Pressed)
-                color = this.PressedColor;
+                color = PressedColor;
 
             e.Graphics.FillRectangle(new SolidBrush(color), e.Item.Bounds);
         }
@@ -10157,12 +10157,12 @@ namespace ReaLTaiizor
         {
             base.OnRenderSplitButtonBackground(e);
 
-            Color color = this.BackColor;
+            Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
-                color = this.SelectedColor;
+                color = SelectedColor;
             else if (e.Item.Pressed)
-                color = this.PressedColor;
+                color = PressedColor;
 
             e.Graphics.FillRectangle(new SolidBrush(color), e.Item.Bounds);
         }

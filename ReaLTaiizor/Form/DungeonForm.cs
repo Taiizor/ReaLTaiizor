@@ -118,22 +118,16 @@ namespace ReaLTaiizor
             get
             {
                 if (_IsParentForm && !_ControlMode)
-                {
                     return ParentForm.StartPosition;
-                }
                 else
-                {
                     return _StartPosition;
-                }
             }
             set
             {
                 _StartPosition = value;
 
                 if (_IsParentForm && !_ControlMode)
-                {
                     ParentForm.StartPosition = value;
-                }
             }
         }
 
@@ -145,9 +139,7 @@ namespace ReaLTaiizor
             base.OnParentChanged(e);
 
             if (Parent == null)
-            {
                 return;
-            }
             _IsParentForm = Parent is Form;
 
             if (!_ControlMode)
@@ -171,9 +163,7 @@ namespace ReaLTaiizor
         {
             base.OnSizeChanged(e);
             if (!_ControlMode)
-            {
                 HeaderRect = new Rectangle(0, 0, Width - 14, MoveHeight - 7);
-            }
             Invalidate();
         }
 
@@ -213,14 +203,10 @@ namespace ReaLTaiizor
             if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
                 if (_Sizable && !_ControlMode)
-                {
                     InvalidateMouse();
-                }
             }
             if (Cap)
-            {
                 Parent.Location = (Point)((object)(System.Convert.ToDouble(MousePosition) - System.Convert.ToDouble(MouseP)));
-            }
         }
 
         protected override void OnInvalidated(InvalidateEventArgs e)
@@ -234,7 +220,7 @@ namespace ReaLTaiizor
             base.OnPaintBackground(e);
         }
 
-        protected override void OnTextChanged(System.EventArgs e)
+        protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
             Invalidate();
@@ -279,37 +265,21 @@ namespace ReaLTaiizor
             B4 = GetIndexPoint.Y > Height - 7;
 
             if (B1x && B3)
-            {
                 return 4;
-            }
             if (B1x && B4)
-            {
                 return 7;
-            }
             if (B2x && B3)
-            {
                 return 5;
-            }
             if (B2x && B4)
-            {
                 return 8;
-            }
             if (B1x)
-            {
                 return 1;
-            }
             if (B2x)
-            {
                 return 2;
-            }
             if (B3)
-            {
                 return 3;
-            }
             if (B4)
-            {
                 return 6;
-            }
             return 0;
         }
 
@@ -319,9 +289,7 @@ namespace ReaLTaiizor
         {
             Current = GetIndex();
             if (Current == Previous)
-            {
                 return;
-            }
 
             Previous = Current;
             switch (Previous)
@@ -352,45 +320,31 @@ namespace ReaLTaiizor
         {
             Messages[0] = Message.Create(Parent.Handle, 161, new IntPtr(2), IntPtr.Zero);
             for (int I = 1; I <= 8; I++)
-            {
                 Messages[I] = Message.Create(Parent.Handle, 161, new IntPtr(I + 9), IntPtr.Zero);
-            }
         }
 
         private void CorrectBounds(Rectangle bounds)
         {
             if (Parent.Width > bounds.Width)
-            {
                 Parent.Width = bounds.Width;
-            }
             if (Parent.Height > bounds.Height)
-            {
                 Parent.Height = bounds.Height;
-            }
 
             int X = Parent.Location.X;
             int Y = Parent.Location.Y;
 
             if (X < bounds.X)
-            {
                 X = bounds.X;
-            }
             if (Y < bounds.Y)
-            {
                 Y = bounds.Y;
-            }
 
             int Width = bounds.X + bounds.Width;
             int Height = bounds.Y + bounds.Height;
 
             if (X + Parent.Width > Width)
-            {
                 X = Width - Parent.Width;
-            }
             if (Y + Parent.Height > Height)
-            {
                 Y = Height - Parent.Height;
-            }
 
             Parent.Location = new Point(X, Y);
         }
@@ -406,18 +360,12 @@ namespace ReaLTaiizor
 
                 SetState(MouseState.Over);
                 if (!_SmartBounds)
-                {
                     return;
-                }
 
                 if (IsParentMdi)
-                {
                     CorrectBounds(new Rectangle(Point.Empty, Parent.Parent.Size));
-                }
                 else
-                {
                     CorrectBounds(Screen.FromControl(Parent).WorkingArea);
-                }
             }
         }
 
@@ -457,7 +405,6 @@ namespace ReaLTaiizor
 
             if (_RoundCorners == true)
             {
-
                 // Draw Left upper corner
                 G.FillRectangle(Brushes.Fuchsia, 0, 0, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, 1, 0, 1, 1);

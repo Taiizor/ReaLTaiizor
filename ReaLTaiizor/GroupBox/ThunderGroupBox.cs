@@ -2,6 +2,7 @@
 
 using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 using System.Drawing.Drawing2D;
 
 #endregion
@@ -12,6 +13,38 @@ namespace ReaLTaiizor
 
     public class ThunderGroupBox : ContainerControl
     {
+        [Category("Colors")]
+        public Color BodyColorA
+        {
+            get { return _BodyColorA; }
+            set { _BodyColorA = value; }
+        }
+
+        [Category("Colors")]
+        public Color BodyColorB
+        {
+            get { return _BodyColorB; }
+            set { _BodyColorB = value; }
+        }
+        [Category("Colors")]
+        public Color BodyColorC
+        {
+            get { return _BodyColorC; }
+            set { _BodyColorC = value; }
+        }
+
+        [Category("Colors")]
+        public Color BodyColorD
+        {
+            get { return _BodyColorD; }
+            set { _BodyColorD = value; }
+        }
+
+        private Color _BodyColorA = Color.FromArgb(26, 26, 26);
+        private Color _BodyColorB = Color.FromArgb(30, 30, 30);
+        private Color _BodyColorC = Color.FromArgb(46, 46, 46);
+        private Color _BodyColorD = Color.FromArgb(50, 55, 58);
+
         public ThunderGroupBox()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -33,8 +66,8 @@ namespace ReaLTaiizor
             G.CompositingQuality = CompositingQuality.HighQuality;
 
             Pen P1 = new Pen(Color.Black);
-            LinearGradientBrush BodyBrush = new LinearGradientBrush(Body2, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
-            LinearGradientBrush BodyBrush2 = new LinearGradientBrush(Body, Color.FromArgb(46, 46, 46), Color.FromArgb(50, 55, 58), 120);
+            LinearGradientBrush BodyBrush = new LinearGradientBrush(Body2, _BodyColorA, _BodyColorB, 90);
+            LinearGradientBrush BodyBrush2 = new LinearGradientBrush(Body, _BodyColorC, _BodyColorD, 120);
             Font drawFont = new Font("Tahoma", 9, FontStyle.Bold);
             G.FillPath(BodyBrush, DrawThunder.RoundRect(Body2, 3));
             G.DrawPath(P1, DrawThunder.RoundRect(Body2, 3));

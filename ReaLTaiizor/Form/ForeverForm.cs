@@ -116,7 +116,7 @@ namespace ReaLTaiizor
 		{
 			base.WndProc(ref m);
 
-			if (Sizable && m.Msg == wmNcHitTest && FindForm().WindowState != FormWindowState.Maximized)
+			if (_Sizable && m.Msg == wmNcHitTest && FindForm().WindowState != FormWindowState.Maximized)
 			{
 				int gripDist = 10;
 				//int x = (int)(m.LParam.ToInt64() & 0xFFFF);
@@ -125,7 +125,7 @@ namespace ReaLTaiizor
 				//Console.WriteLine(x);
 				Point pt = PointToClient(Cursor.Position);
 				//Console.WriteLine(pt);
-				Size clientSize = FindForm().ClientSize;
+				Size clientSize = ClientSize;
 				///allow resize on the lower right corner
 				if (pt.X >= clientSize.Width - gripDist && pt.Y >= clientSize.Height - gripDist && clientSize.Height >= gripDist)
 				{
@@ -286,7 +286,7 @@ namespace ReaLTaiizor
 			}
 			else
 			{
-				G.DrawImage(_Image, 12, 12, 27, 27);
+				_with2.DrawImage(_Image, 12, 12, 27, 27);
 				_with2.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(48, 15, W, H), ForeverLibrary.NearSF);
 			}
 

@@ -66,7 +66,6 @@
             this.foreverToggle2 = new ReaLTaiizor.ForeverToggle();
             this.foreverToggle1 = new ReaLTaiizor.ForeverToggle();
             this.foreverMinimize1 = new ReaLTaiizor.ForeverMinimize();
-            this.foreverMaximize1 = new ReaLTaiizor.ForeverMaximize();
             this.foreverClose1 = new ReaLTaiizor.ForeverClose();
             this.foreverButton1 = new ReaLTaiizor.ForeverButton();
             this.foreverForm1.SuspendLayout();
@@ -110,7 +109,6 @@
             this.foreverForm1.Controls.Add(this.foreverToggle2);
             this.foreverForm1.Controls.Add(this.foreverToggle1);
             this.foreverForm1.Controls.Add(this.foreverMinimize1);
-            this.foreverForm1.Controls.Add(this.foreverMaximize1);
             this.foreverForm1.Controls.Add(this.foreverClose1);
             this.foreverForm1.Controls.Add(this.foreverButton1);
             this.foreverForm1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -140,11 +138,13 @@
             this.foreverStatusBar1.Margin = new System.Windows.Forms.Padding(1);
             this.foreverStatusBar1.Name = "foreverStatusBar1";
             this.foreverStatusBar1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverStatusBar1.ShowTimeDate = false;
+            this.foreverStatusBar1.ShowTimeDate = true;
             this.foreverStatusBar1.Size = new System.Drawing.Size(798, 23);
             this.foreverStatusBar1.TabIndex = 1;
             this.foreverStatusBar1.Text = "foreverStatusBar1";
-            this.foreverStatusBar1.TextColor = System.Drawing.Color.White;
+            this.foreverStatusBar1.TextColor = System.Drawing.Color.Orange;
+            this.foreverStatusBar1.TimeColor = System.Drawing.Color.Yellow;
+            this.foreverStatusBar1.TimeFormat = "dd.MM.yyyy - hh:mm:ss";
             // 
             // foreverRadioButton3
             // 
@@ -165,6 +165,7 @@
             // foreverTextBox1
             // 
             this.foreverTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.foreverTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.foreverTextBox1.FocusOnHover = false;
             this.foreverTextBox1.Location = new System.Drawing.Point(424, 150);
             this.foreverTextBox1.MaxLength = 32767;
@@ -412,7 +413,6 @@
             this.foreverNotification3.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification3.TabIndex = 20;
             this.foreverNotification3.Text = "foreverNotification3";
-            this.foreverNotification3.Visible = false;
             // 
             // foreverNotification2
             // 
@@ -425,7 +425,6 @@
             this.foreverNotification2.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification2.TabIndex = 19;
             this.foreverNotification2.Text = "foreverNotification2";
-            this.foreverNotification2.Visible = false;
             // 
             // foreverNotification1
             // 
@@ -438,7 +437,6 @@
             this.foreverNotification1.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification1.TabIndex = 18;
             this.foreverNotification1.Text = "foreverNotification1";
-            this.foreverNotification1.Visible = false;
             // 
             // foreverProgressBar4
             // 
@@ -684,33 +682,16 @@
             this.foreverMinimize1.BackColor = System.Drawing.Color.White;
             this.foreverMinimize1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             this.foreverMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverMinimize1.DefaultLocation = true;
+            this.foreverMinimize1.DefaultLocation = false;
             this.foreverMinimize1.DownColor = System.Drawing.Color.Black;
             this.foreverMinimize1.Font = new System.Drawing.Font("Marlett", 12F);
-            this.foreverMinimize1.Location = new System.Drawing.Point(722, 16);
+            this.foreverMinimize1.Location = new System.Drawing.Point(746, 16);
             this.foreverMinimize1.Name = "foreverMinimize1";
             this.foreverMinimize1.OverColor = System.Drawing.Color.White;
             this.foreverMinimize1.Size = new System.Drawing.Size(18, 18);
             this.foreverMinimize1.TabIndex = 3;
             this.foreverMinimize1.Text = "foreverMinimize1";
             this.foreverMinimize1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            // 
-            // foreverMaximize1
-            // 
-            this.foreverMaximize1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.foreverMaximize1.BackColor = System.Drawing.Color.White;
-            this.foreverMaximize1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverMaximize1.DefaultLocation = true;
-            this.foreverMaximize1.DownColor = System.Drawing.Color.Black;
-            this.foreverMaximize1.Font = new System.Drawing.Font("Marlett", 12F);
-            this.foreverMaximize1.Location = new System.Drawing.Point(746, 16);
-            this.foreverMaximize1.Name = "foreverMaximize1";
-            this.foreverMaximize1.OverColor = System.Drawing.Color.White;
-            this.foreverMaximize1.Size = new System.Drawing.Size(18, 18);
-            this.foreverMaximize1.TabIndex = 2;
-            this.foreverMaximize1.Text = "foreverMaximize1";
-            this.foreverMaximize1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             // 
             // foreverClose1
             // 
@@ -719,7 +700,7 @@
             this.foreverClose1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             this.foreverClose1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverClose1.DefaultLocation = true;
-            this.foreverClose1.DownColor = System.Drawing.Color.Black;
+            this.foreverClose1.DownColor = System.Drawing.Color.Crimson;
             this.foreverClose1.Font = new System.Drawing.Font("Marlett", 10F);
             this.foreverClose1.Location = new System.Drawing.Point(770, 16);
             this.foreverClose1.Name = "foreverClose1";
@@ -751,7 +732,6 @@
             this.Controls.Add(this.foreverForm1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form13";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -773,7 +753,6 @@
         private ReaLTaiizor.ForeverForm foreverForm1;
         private ReaLTaiizor.ForeverButton foreverButton1;
         private ReaLTaiizor.ForeverClose foreverClose1;
-        private ReaLTaiizor.ForeverMaximize foreverMaximize1;
         private ReaLTaiizor.ForeverMinimize foreverMinimize1;
         private ReaLTaiizor.ForeverToggle foreverToggle3;
         private ReaLTaiizor.ForeverToggle foreverToggle2;

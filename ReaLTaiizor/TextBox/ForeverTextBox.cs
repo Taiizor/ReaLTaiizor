@@ -179,6 +179,13 @@ namespace ReaLTaiizor
 			set { _TextColor = value; }
 		}
 
+		[Category("Colors")]
+		public Color BorderColor
+		{
+			get { return _BorderColor; }
+			set { _BorderColor = value; }
+		}
+
 		public override Color ForeColor
 		{
 			get { return _TextColor; }
@@ -254,7 +261,7 @@ namespace ReaLTaiizor
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -285,9 +292,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_BorderColor = colors.Forever;
+			_BorderColor = Colors.Forever;
 		}
 	}
 
