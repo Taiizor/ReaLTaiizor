@@ -94,11 +94,46 @@ namespace ReaLTaiizor
 			CheckedChanged?.Invoke(this);
 		}
 
-		private Color BaseColor = ForeverLibrary.ForeverColor;
-		private Color BaseColorRed = Color.FromArgb(220, 85, 96);
-		private Color BGColor = Color.FromArgb(84, 85, 86);
-		private Color ToggleColor = Color.FromArgb(45, 47, 49);
-		private Color TextColor = Color.FromArgb(243, 243, 243);
+		private Color _BaseColor = ForeverLibrary.ForeverColor;
+		private Color _BaseColorRed = Color.FromArgb(220, 85, 96);
+		private Color _BGColor = Color.FromArgb(84, 85, 86);
+		private Color _ToggleColor = Color.FromArgb(45, 47, 49);
+		private Color _TextColor = Color.FromArgb(243, 243, 243);
+
+		[Category("Options")]
+		public Color BaseColor
+		{
+			get { return _BaseColor; }
+			set { _BaseColor = value; }
+		}
+
+		[Category("Options")]
+		public Color BaseColorRed
+		{
+			get { return _BaseColorRed; }
+			set { _BaseColorRed = value; }
+		}
+
+		[Category("Options")]
+		public Color BGColor
+		{
+			get { return _BGColor; }
+			set { _BGColor = value; }
+		}
+
+		[Category("Options")]
+		public Color ToggleColor
+		{
+			get { return _ToggleColor; }
+			set { _ToggleColor = value; }
+		}
+
+		[Category("Options")]
+		public Color TextColor
+		{
+			get { return _TextColor; }
+			set { _TextColor = value; }
+		}
 
 		public ForeverToggle()
 		{
@@ -113,7 +148,7 @@ namespace ReaLTaiizor
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -138,22 +173,22 @@ namespace ReaLTaiizor
 					//-- Base
 					GP = ForeverLibrary.RoundRec(Base, 6);
 					GP2 = ForeverLibrary.RoundRec(Toggle, 6);
-					_with9.FillPath(new SolidBrush(BGColor), GP);
-					_with9.FillPath(new SolidBrush(ToggleColor), GP2);
+					_with9.FillPath(new SolidBrush(_BGColor), GP);
+					_with9.FillPath(new SolidBrush(_ToggleColor), GP2);
 
 					//-- Text
-					_with9.DrawString("OFF", Font, new SolidBrush(BGColor), new Rectangle(19, 1, W, H), ForeverLibrary.CenterSF);
+					_with9.DrawString("OFF", Font, new SolidBrush(_BGColor), new Rectangle(19, 1, W, H), ForeverLibrary.CenterSF);
 
 					if (Checked)
 					{
 						//-- Base
 						GP = ForeverLibrary.RoundRec(Base, 6);
 						GP2 = ForeverLibrary.RoundRec(new Rectangle(Convert.ToInt32(W / 2), 0, 38, H), 6);
-						_with9.FillPath(new SolidBrush(ToggleColor), GP);
-						_with9.FillPath(new SolidBrush(BaseColor), GP2);
+						_with9.FillPath(new SolidBrush(_ToggleColor), GP);
+						_with9.FillPath(new SolidBrush(_BaseColor), GP2);
 
 						//-- Text
-						_with9.DrawString("ON", Font, new SolidBrush(BaseColor), new Rectangle(8, 7, W, H), ForeverLibrary.NearSF);
+						_with9.DrawString("ON", Font, new SolidBrush(_BaseColor), new Rectangle(8, 7, W, H), ForeverLibrary.NearSF);
 					}
 					break;
 				case _Options.Style2:
@@ -162,32 +197,32 @@ namespace ReaLTaiizor
 					GP = ForeverLibrary.RoundRec(Base, 6);
 					Toggle = new Rectangle(4, 4, 36, H - 8);
 					GP2 = ForeverLibrary.RoundRec(Toggle, 4);
-					_with9.FillPath(new SolidBrush(BaseColorRed), GP);
-					_with9.FillPath(new SolidBrush(ToggleColor), GP2);
+					_with9.FillPath(new SolidBrush(_BaseColorRed), GP);
+					_with9.FillPath(new SolidBrush(_ToggleColor), GP2);
 
 					//-- Lines
-					_with9.DrawLine(new Pen(BGColor), 18, 20, 18, 12);
-					_with9.DrawLine(new Pen(BGColor), 22, 20, 22, 12);
-					_with9.DrawLine(new Pen(BGColor), 26, 20, 26, 12);
+					_with9.DrawLine(new Pen(_BGColor), 18, 20, 18, 12);
+					_with9.DrawLine(new Pen(_BGColor), 22, 20, 22, 12);
+					_with9.DrawLine(new Pen(_BGColor), 26, 20, 26, 12);
 
 					//-- Text
-					_with9.DrawString("r", new Font("Marlett", 8), new SolidBrush(TextColor), new Rectangle(19, 2, Width, Height), ForeverLibrary.CenterSF);
+					_with9.DrawString("r", new Font("Marlett", 8), new SolidBrush(_TextColor), new Rectangle(19, 2, Width, Height), ForeverLibrary.CenterSF);
 
 					if (Checked)
 					{
 						GP = ForeverLibrary.RoundRec(Base, 6);
 						Toggle = new Rectangle(Convert.ToInt32(W / 2) - 2, 4, 36, H - 8);
 						GP2 = ForeverLibrary.RoundRec(Toggle, 4);
-						_with9.FillPath(new SolidBrush(BaseColor), GP);
-						_with9.FillPath(new SolidBrush(ToggleColor), GP2);
+						_with9.FillPath(new SolidBrush(_BaseColor), GP);
+						_with9.FillPath(new SolidBrush(_ToggleColor), GP2);
 
 						//-- Lines
-						_with9.DrawLine(new Pen(BGColor), Convert.ToInt32(W / 2) + 12, 20, Convert.ToInt32(W / 2) + 12, 12);
-						_with9.DrawLine(new Pen(BGColor), Convert.ToInt32(W / 2) + 16, 20, Convert.ToInt32(W / 2) + 16, 12);
-						_with9.DrawLine(new Pen(BGColor), Convert.ToInt32(W / 2) + 20, 20, Convert.ToInt32(W / 2) + 20, 12);
+						_with9.DrawLine(new Pen(_BGColor), Convert.ToInt32(W / 2) + 12, 20, Convert.ToInt32(W / 2) + 12, 12);
+						_with9.DrawLine(new Pen(_BGColor), Convert.ToInt32(W / 2) + 16, 20, Convert.ToInt32(W / 2) + 16, 12);
+						_with9.DrawLine(new Pen(_BGColor), Convert.ToInt32(W / 2) + 20, 20, Convert.ToInt32(W / 2) + 20, 12);
 
 						//-- Text
-						_with9.DrawString("ü", new Font("Wingdings", 14), new SolidBrush(TextColor), new Rectangle(8, 7, Width, Height), ForeverLibrary.NearSF);
+						_with9.DrawString("ü", new Font("Wingdings", 14), new SolidBrush(_TextColor), new Rectangle(8, 7, Width, Height), ForeverLibrary.NearSF);
 					}
 					break;
 				case _Options.Style3:
@@ -196,11 +231,11 @@ namespace ReaLTaiizor
 					GP = ForeverLibrary.RoundRec(Base, 16);
 					Toggle = new Rectangle(W - 28, 4, 22, H - 8);
 					GP2.AddEllipse(Toggle);
-					_with9.FillPath(new SolidBrush(ToggleColor), GP);
-					_with9.FillPath(new SolidBrush(BaseColorRed), GP2);
+					_with9.FillPath(new SolidBrush(_ToggleColor), GP);
+					_with9.FillPath(new SolidBrush(_BaseColorRed), GP2);
 
 					//-- Text
-					_with9.DrawString("OFF", Font, new SolidBrush(BaseColorRed), new Rectangle(-12, 2, W, H), ForeverLibrary.CenterSF);
+					_with9.DrawString("OFF", Font, new SolidBrush(_BaseColorRed), new Rectangle(-12, 2, W, H), ForeverLibrary.CenterSF);
 
 					if (Checked)
 					{
@@ -209,11 +244,11 @@ namespace ReaLTaiizor
 						Toggle = new Rectangle(6, 4, 22, H - 8);
 						GP2.Reset();
 						GP2.AddEllipse(Toggle);
-						_with9.FillPath(new SolidBrush(ToggleColor), GP);
-						_with9.FillPath(new SolidBrush(BaseColor), GP2);
+						_with9.FillPath(new SolidBrush(_ToggleColor), GP);
+						_with9.FillPath(new SolidBrush(_BaseColor), GP2);
 
 						//-- Text
-						_with9.DrawString("ON", Font, new SolidBrush(BaseColor), new Rectangle(12, 2, W, H), ForeverLibrary.CenterSF);
+						_with9.DrawString("ON", Font, new SolidBrush(_BaseColor), new Rectangle(12, 2, W, H), ForeverLibrary.CenterSF);
 					}
 					break;
 			}
@@ -227,9 +262,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			BaseColor = colors.Forever;
+			_BaseColor = Colors.Forever;
 		}
 	}
 

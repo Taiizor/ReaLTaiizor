@@ -40,9 +40,7 @@ namespace ReaLTaiizor
 		{
 			base.OnMouseMove(e);
 			if (Bool && e.X > -1 && e.X < (Width + 1))
-			{
 				Value = _Minimum + Convert.ToInt32((float)(_Maximum - _Minimum) * ((float)e.X / (float)Width));
-			}
 		}
 
 		protected override void OnMouseUp(MouseEventArgs e)
@@ -87,7 +85,6 @@ namespace ReaLTaiizor
 			get
 			{
 				int functionReturnValue = 0;
-				return functionReturnValue;
 				return functionReturnValue;
 			}
 			set
@@ -140,10 +137,7 @@ namespace ReaLTaiizor
 
 				_Value = value;
 				Invalidate();
-				if (Scroll != null)
-				{
-					Scroll(this);
-				}
+				Scroll?.Invoke(this);
 			}
 		}
 
@@ -193,13 +187,14 @@ namespace ReaLTaiizor
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
 			DoubleBuffered = true;
 			Height = 18;
+			Cursor = Cursors.Hand;
 
 			BackColor = Color.FromArgb(60, 70, 73);
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			UpdateColors();
+			//UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -264,9 +259,9 @@ namespace ReaLTaiizor
 
 		private void UpdateColors()
 		{
-			ForeverColors colors = ForeverLibrary.GetColors(this);
+			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_TrackColor = colors.Forever;
+			_TrackColor = Colors.Forever;
 		}
 	}
 
