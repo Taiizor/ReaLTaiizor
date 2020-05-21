@@ -26,6 +26,7 @@ namespace ReaLTaiizor
             get { return _BodyColorB; }
             set { _BodyColorB = value; }
         }
+
         [Category("Colors")]
         public Color BodyColorC
         {

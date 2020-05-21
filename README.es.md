@@ -6,26 +6,26 @@
 [![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
-# Welcome to ReaLTaiizor
-ReaLTaiizor is a UI/Design library. It allows you to make modern designs using the various components it offers.
+# Bienvenido a ReaLTaiizor
+ReaLTaiizor es una biblioteca de interfaz de UI/Design. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
 
-## Contributors
+## Colaboradores
 
 <a href="https://github.com/Taiizor" target="_blank"><img width="64px" alt="Taiizor" src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4"></a>
 
-## Backers
+## Partidarios
 
 <a href="https://github.com/Soferity" target="_blank"><img width="64px" alt="Soferity" src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4"></a>
 
-## Usage
+## Utilizar
 
-Step 1：Add a reference to ReaLTaiizor or search for ReaLTaiizor on the nuget;
+Step 1：Agregue una referencia a ReaLTaiizor o busque ReaLTaiizor en el nuget;
 
 ```Install-Package ReaLTaiizor```
 
-Step 2：Enjoy designing
+Step 2：Disfruta diseñando
 
-## Overview
+## Visión General
 
 ![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/20/O1FY.png)
 
@@ -35,45 +35,45 @@ Step 2：Enjoy designing
 
 ![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
 
-## Latest Theme Examples
+## Últimos Ejemplos de Temas
 
-### Air
+### Aire
 
 ![AirTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OaZy.png)
 
-### Dungeon
+### Calabozo
 
 ![DungeonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OqyV.png)
 
-### Dream
+### Sueño
 
 ![DreamTheme](https://www.photo.herominyum.com/resimler/2020/05/20/Ot33.png)
 
-### Ribbon
+### Cinta
 
 ![RibbonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O4sN.png)
 
-### Space
+### Espacio
 
 ![SpaceTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O7EW.png)
 
-### Thunder
+### Trueno
 
 ![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OxyR.png)
 
-### Moon
+### Luna
 
 ![MoonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O6k1.png)
 
-### Forever
+### Siempre
 
 ![ForeverTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OveM.png)
 
-### Hope
+### Esperanza
 
 ![HopeTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png)
 
-### Lost
+### Perdió
 
 ![LostTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png)
 

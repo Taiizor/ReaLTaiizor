@@ -76,7 +76,7 @@ namespace ReaLTaiizor
 		[Category("Options")]
 		public string TimeFormatDefault
 		{
-			get { return "dd.MM.yyyy - hh:mm:ss"; }
+			get { return "dd.MM.yyyy - HH:mm:ss"; }
 		}
 
 		public string GetTimeFormat(string TF)
@@ -97,7 +97,7 @@ namespace ReaLTaiizor
 		private Color _TextColor = Color.White;
 		private Color _TimeColor = Color.White;
 		private Color _RectColor = ForeverLibrary.ForeverColor;
-		private string _TimeFormat = "dd.MM.yyyy - hh:mm:ss";
+		private string _TimeFormat = "dd.MM.yyyy - HH:mm:ss";
 
 		public ForeverStatusBar()
 		{
