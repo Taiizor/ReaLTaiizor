@@ -122,9 +122,9 @@ namespace ReaLTaiizor
 			set { _TextColor = value; }
 		}
 
-		private Color _BaseColor = Color.FromArgb(168, 35, 35);
-		private Color _OverColor = Color.White;
-		private Color _DownColor = Color.Black;
+		private Color _BaseColor = Color.FromArgb(45, 47, 49);
+		private Color _OverColor = Color.FromArgb(30, 255, 255, 255);
+		private Color _DownColor = Color.FromArgb(30, 0, 0, 0);
 		private Color _TextColor = Color.FromArgb(243, 243, 243);
 
 		public ForeverClose()
@@ -161,10 +161,10 @@ namespace ReaLTaiizor
 			switch (State)
 			{
 				case MouseStateForever.Over:
-					_with3.FillRectangle(new SolidBrush(Color.FromArgb(30, _OverColor)), Base);
+					_with3.FillRectangle(new SolidBrush(_OverColor), Base);
 					break;
 				case MouseStateForever.Down:
-					_with3.FillRectangle(new SolidBrush(Color.FromArgb(30, _DownColor)), Base);
+					_with3.FillRectangle(new SolidBrush(_DownColor), Base);
 					break;
 			}
 

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form13));
             this.foreverForm1 = new ReaLTaiizor.ForeverForm();
+            this.foreverMinimize1 = new ReaLTaiizor.ForeverMinimize();
+            this.foreverClose1 = new ReaLTaiizor.ForeverClose();
             this.foreverStatusBar1 = new ReaLTaiizor.ForeverStatusBar();
             this.foreverRadioButton3 = new ReaLTaiizor.ForeverRadioButton();
             this.foreverTextBox1 = new ReaLTaiizor.ForeverTextBox();
@@ -65,8 +67,6 @@
             this.foreverToggle3 = new ReaLTaiizor.ForeverToggle();
             this.foreverToggle2 = new ReaLTaiizor.ForeverToggle();
             this.foreverToggle1 = new ReaLTaiizor.ForeverToggle();
-            this.foreverMinimize1 = new ReaLTaiizor.ForeverMinimize();
-            this.foreverClose1 = new ReaLTaiizor.ForeverClose();
             this.foreverButton1 = new ReaLTaiizor.ForeverButton();
             this.foreverForm1.SuspendLayout();
             this.foreverTabPage1.SuspendLayout();
@@ -81,6 +81,8 @@
             this.foreverForm1.BackColor = System.Drawing.Color.White;
             this.foreverForm1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.foreverForm1.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.foreverForm1.Controls.Add(this.foreverMinimize1);
+            this.foreverForm1.Controls.Add(this.foreverClose1);
             this.foreverForm1.Controls.Add(this.foreverStatusBar1);
             this.foreverForm1.Controls.Add(this.foreverRadioButton3);
             this.foreverForm1.Controls.Add(this.foreverTextBox1);
@@ -108,8 +110,6 @@
             this.foreverForm1.Controls.Add(this.foreverToggle3);
             this.foreverForm1.Controls.Add(this.foreverToggle2);
             this.foreverForm1.Controls.Add(this.foreverToggle1);
-            this.foreverForm1.Controls.Add(this.foreverMinimize1);
-            this.foreverForm1.Controls.Add(this.foreverClose1);
             this.foreverForm1.Controls.Add(this.foreverButton1);
             this.foreverForm1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.foreverForm1.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -128,6 +128,40 @@
             this.foreverForm1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.foreverForm1.TextLight = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             // 
+            // foreverMinimize1
+            // 
+            this.foreverMinimize1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.foreverMinimize1.BackColor = System.Drawing.Color.White;
+            this.foreverMinimize1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.foreverMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverMinimize1.DefaultLocation = false;
+            this.foreverMinimize1.DownColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.foreverMinimize1.Font = new System.Drawing.Font("Marlett", 12F);
+            this.foreverMinimize1.Location = new System.Drawing.Point(746, 16);
+            this.foreverMinimize1.Name = "foreverMinimize1";
+            this.foreverMinimize1.OverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.foreverMinimize1.Size = new System.Drawing.Size(18, 18);
+            this.foreverMinimize1.TabIndex = 31;
+            this.foreverMinimize1.Text = "foreverMinimize1";
+            this.foreverMinimize1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
+            // foreverClose1
+            // 
+            this.foreverClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.foreverClose1.BackColor = System.Drawing.Color.White;
+            this.foreverClose1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.foreverClose1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverClose1.DefaultLocation = true;
+            this.foreverClose1.DownColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.foreverClose1.Font = new System.Drawing.Font("Marlett", 10F);
+            this.foreverClose1.Location = new System.Drawing.Point(770, 16);
+            this.foreverClose1.Name = "foreverClose1";
+            this.foreverClose1.OverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.foreverClose1.Size = new System.Drawing.Size(18, 18);
+            this.foreverClose1.TabIndex = 30;
+            this.foreverClose1.Text = "foreverClose1";
+            this.foreverClose1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
             // foreverStatusBar1
             // 
             this.foreverStatusBar1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
@@ -144,7 +178,7 @@
             this.foreverStatusBar1.Text = "foreverStatusBar1";
             this.foreverStatusBar1.TextColor = System.Drawing.Color.Orange;
             this.foreverStatusBar1.TimeColor = System.Drawing.Color.Yellow;
-            this.foreverStatusBar1.TimeFormat = "dd.MM.yyyy - hh:mm:ss";
+            this.foreverStatusBar1.TimeFormat = "dd.MM.yyyy - HH:mm:ss";
             // 
             // foreverRadioButton3
             // 
@@ -676,40 +710,6 @@
             this.foreverToggle1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.foreverToggle1.ToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             // 
-            // foreverMinimize1
-            // 
-            this.foreverMinimize1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.foreverMinimize1.BackColor = System.Drawing.Color.White;
-            this.foreverMinimize1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverMinimize1.DefaultLocation = false;
-            this.foreverMinimize1.DownColor = System.Drawing.Color.Black;
-            this.foreverMinimize1.Font = new System.Drawing.Font("Marlett", 12F);
-            this.foreverMinimize1.Location = new System.Drawing.Point(746, 16);
-            this.foreverMinimize1.Name = "foreverMinimize1";
-            this.foreverMinimize1.OverColor = System.Drawing.Color.White;
-            this.foreverMinimize1.Size = new System.Drawing.Size(18, 18);
-            this.foreverMinimize1.TabIndex = 3;
-            this.foreverMinimize1.Text = "foreverMinimize1";
-            this.foreverMinimize1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            // 
-            // foreverClose1
-            // 
-            this.foreverClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.foreverClose1.BackColor = System.Drawing.Color.White;
-            this.foreverClose1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverClose1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverClose1.DefaultLocation = true;
-            this.foreverClose1.DownColor = System.Drawing.Color.Crimson;
-            this.foreverClose1.Font = new System.Drawing.Font("Marlett", 10F);
-            this.foreverClose1.Location = new System.Drawing.Point(770, 16);
-            this.foreverClose1.Name = "foreverClose1";
-            this.foreverClose1.OverColor = System.Drawing.Color.White;
-            this.foreverClose1.Size = new System.Drawing.Size(18, 18);
-            this.foreverClose1.TabIndex = 1;
-            this.foreverClose1.Text = "foreverClose1";
-            this.foreverClose1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            // 
             // foreverButton1
             // 
             this.foreverButton1.BackColor = System.Drawing.Color.Transparent;
@@ -752,8 +752,6 @@
 
         private ReaLTaiizor.ForeverForm foreverForm1;
         private ReaLTaiizor.ForeverButton foreverButton1;
-        private ReaLTaiizor.ForeverClose foreverClose1;
-        private ReaLTaiizor.ForeverMinimize foreverMinimize1;
         private ReaLTaiizor.ForeverToggle foreverToggle3;
         private ReaLTaiizor.ForeverToggle foreverToggle2;
         private ReaLTaiizor.ForeverToggle foreverToggle1;
@@ -789,5 +787,7 @@
         private ReaLTaiizor.ForeverTextBox foreverTextBox1;
         private ReaLTaiizor.ForeverStatusBar foreverStatusBar1;
         private ReaLTaiizor.ForeverRadioButton foreverRadioButton3;
+        private ReaLTaiizor.ForeverMinimize foreverMinimize1;
+        private ReaLTaiizor.ForeverClose foreverClose1;
     }
 }

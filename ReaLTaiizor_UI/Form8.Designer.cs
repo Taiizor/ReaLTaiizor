@@ -44,11 +44,15 @@
             // 
             // thunderTheme1
             // 
-            this.thunderTheme1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.thunderTheme1.BodyColorA = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.thunderTheme1.BodyColorB = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(48)))));
+            this.thunderTheme1.BodyColorC = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.thunderTheme1.BodyColorD = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(58)))));
             this.thunderTheme1.Controls.Add(this.thunderControlBox1);
             this.thunderTheme1.Controls.Add(this.thunderGroupBox1);
             this.thunderTheme1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.thunderTheme1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.thunderTheme1.Image = ((System.Drawing.Image)(resources.GetObject("thunderTheme1.Image")));
             this.thunderTheme1.Location = new System.Drawing.Point(0, 0);
             this.thunderTheme1.MinimumSize = new System.Drawing.Size(270, 50);
             this.thunderTheme1.Name = "thunderTheme1";
@@ -175,7 +179,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form8";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "monoFlat_ThemeContainer1";
+            this.Text = "thunderTheme1";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.thunderTheme1.ResumeLayout(false);
             this.thunderGroupBox1.ResumeLayout(false);
