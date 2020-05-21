@@ -2,9 +2,9 @@
 
 ![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg)
 ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg)
-![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
+![ide-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
 [![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
-[![Nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
+[![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # Welcome to ReaLTaiizor
 ReaLTaiizor is a UI/Design library. It allows you to make modern designs using the various components it offers.

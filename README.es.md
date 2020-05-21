@@ -6,26 +6,26 @@
 [![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
-# ReaLTaiizor'a Hoşgeldiniz
-ReaLTaiizor bir UI/Design kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
+# Bienvenido a ReaLTaiizor
+ReaLTaiizor es una biblioteca de interfaz de UI/Design. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
 
-## Katkıda Bulunanlar
+## Colaboradores
 
 <a href="https://github.com/Taiizor" target="_blank"><img width="64px" alt="Taiizor" src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4"></a>
 
-## Destekleyenler
+## Partidarios
 
 <a href="https://github.com/Soferity" target="_blank"><img width="64px" alt="Soferity" src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4"></a>
 
-## Kullanım
+## Utilizar
 
-Step 1：Referans olarak ReaLTaiizor'u ekleyin veya nuget üzerinden ReaLTaiizor'u aratın;
+Step 1：Agregue una referencia a ReaLTaiizor o busque ReaLTaiizor en el nuget;
 
 ```Install-Package ReaLTaiizor```
 
-Step 2：Tasarlamanın tadını çıkarın
+Step 2：Disfruta diseñando
 
-## Genel Bakış
+## Visión General
 
 ![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/20/O1FY.png)
 
@@ -35,48 +35,48 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
 
-## Son Tema Örnekleri
+## Últimos Ejemplos de Temas
 
-### Hava
+### Aire
 
 ![AirTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OaZy.png)
 
-### Zindan
+### Calabozo
 
 ![DungeonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OqyV.png)
 
-### Rüya
+### Sueño
 
 ![DreamTheme](https://www.photo.herominyum.com/resimler/2020/05/20/Ot33.png)
 
-### Kurdele
+### Cinta
 
 ![RibbonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O4sN.png)
 
-### Uzay
+### Espacio
 
 ![SpaceTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O7EW.png)
 
-### Gök Gürültüsü
+### Trueno
 
 ![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OxyR.png)
 
-### Ay
+### Luna
 
 ![MoonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O6k1.png)
 
-### Sonsuza Kadar
+### Siempre
 
 ![ForeverTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OveM.png)
 
-### Umut
+### Esperanza
 
 ![HopeTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png)
 
-### Kayıp
+### Perdió
 
 ![LostTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png)
 
-### Kraliyet
+### Royal
 
 ![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
