@@ -1,9 +1,7 @@
 ﻿#region Imports
 
-using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 
 #endregion
 
@@ -13,6 +11,12 @@ namespace ReaLTaiizor
 
     public class DungeonTabPage : TabControl
     {
+        private Color _BaseColor = Color.Transparent;
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set { _BaseColor = value; }
+        }
 
         public DungeonTabPage()
         {
@@ -31,7 +35,7 @@ namespace ReaLTaiizor
         {
             Graphics G = e.Graphics;
             Rectangle ItemBoundsRect = new Rectangle();
-            G.Clear(Parent.BackColor);
+            G.Clear(_BaseColor);
             for (int TabIndex = 0; TabIndex <= TabCount - 1; TabIndex++)
             {
                 ItemBoundsRect = GetTabRect(TabIndex);

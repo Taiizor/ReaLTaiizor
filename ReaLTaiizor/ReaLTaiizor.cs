@@ -106,6 +106,7 @@ namespace ReaLTaiizor
             gp.CloseFigure();
             return gp;
         }
+        
         public static GraphicsPath CreateLeftRoundRect(float x, float y, float width, float height, float radius)
         {
             GraphicsPath gp = new GraphicsPath();
