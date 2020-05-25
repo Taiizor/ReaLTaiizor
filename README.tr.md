@@ -7,7 +7,7 @@
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # ReaLTaiizor'a Hoşgeldiniz
-ReaLTaiizor bir UI/Design kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
+ReaLTaiizor bir UI/UX kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
 
 ## Katkıda Bulunanlar
 

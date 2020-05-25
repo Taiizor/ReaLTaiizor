@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // Bir bütünleştirilmiş koda ilişkin Genel Bilgiler aşağıdaki öznitelikler kümesiyle
 // denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
 // bu öznitelik değerlerini değiştirin.
-[assembly: AssemblyTitle("ReaLTaiizor UI")]
-[assembly: AssemblyDescription("ReaLTaiizor UI v1.4.6.2")]
+[assembly: AssemblyTitle("ReaLTaiizor CR")]
+[assembly: AssemblyDescription("ReaLTaiizor CR v1.0.0.0")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Taiizor")]
-[assembly: AssemblyProduct("ReaLTaiizor UI")]
+[assembly: AssemblyProduct("ReaLTaiizor CR")]
 [assembly: AssemblyCopyright("Copyright © 2020 Taiizor Inc.")]
 [assembly: AssemblyTrademark("ReaLTaiizor")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Bu proje COM'un kullanımına sunulursa, aşağıdaki GUID tür kitaplığının kimliği içindir
-[assembly: Guid("f443b3ed-2838-456c-a4b8-2342c95d3b2a")]
+[assembly: Guid("264aba7c-7a3f-4e8c-8ebb-6c6f1f031128")]
 
 // Bir derlemenin sürüm bilgileri aşağıdaki dört değerden oluşur:
 //
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Tüm değerleri belirtebilir veya varsayılan Derleme ve Düzeltme Numaralarını kullanmak için
 // aşağıda gösterildiği gibi '*' kullanabilirsiniz:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.4.6.2")]
-[assembly: AssemblyFileVersion("1.4.6.2")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

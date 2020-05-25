@@ -7,7 +7,7 @@
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # Welcome to ReaLTaiizor
-ReaLTaiizor is a UI/Design library. It allows you to make modern designs using the various components it offers.
+ReaLTaiizor is a UI/UX library. It allows you to make modern designs using the various components it offers.
 
 ## Contributors
 
