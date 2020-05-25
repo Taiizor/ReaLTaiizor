@@ -34,6 +34,7 @@
             comboBoxEdit1 = new ReaLTaiizor.ComboBoxEdit();
             dreamProgressBar1 = new ReaLTaiizor.DreamProgressBar();
             dreamTextBox1 = new ReaLTaiizor.DreamTextBox();
+            dungeonProgressBar1 = new ReaLTaiizor.DungeonProgressBar();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -125,12 +126,30 @@
             dreamTextBox1.Text = "dreamTextBox1";
             dreamTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // dungeonProgressBar1
+            // 
+            dungeonProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            dungeonProgressBar1.DrawHatch = true;
+            dungeonProgressBar1.ForeColor = System.Drawing.Color.DimGray;
+            dungeonProgressBar1.Location = new System.Drawing.Point(120, 235);
+            dungeonProgressBar1.Maximum = 100;
+            dungeonProgressBar1.Minimum = 0;
+            dungeonProgressBar1.MinimumSize = new System.Drawing.Size(58, 20);
+            dungeonProgressBar1.Name = "dungeonProgressBar1";
+            dungeonProgressBar1.ShowPercentage = true;
+            dungeonProgressBar1.Size = new System.Drawing.Size(202, 20);
+            dungeonProgressBar1.TabIndex = 5;
+            dungeonProgressBar1.Text = "dungeonProgressBar1";
+            dungeonProgressBar1.Value = 50;
+            dungeonProgressBar1.ValueAlignment = ReaLTaiizor.DungeonProgressBar.Alignment.Right;
+            // 
             // Catcher
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             ClientSize = new System.Drawing.Size(398, 473);
+            Controls.Add(dungeonProgressBar1);
             Controls.Add(dreamTextBox1);
             Controls.Add(dreamProgressBar1);
             Controls.Add(comboBoxEdit1);
@@ -152,5 +171,6 @@
         private ReaLTaiizor.ComboBoxEdit comboBoxEdit1;
         private ReaLTaiizor.DreamProgressBar dreamProgressBar1;
         private ReaLTaiizor.DreamTextBox dreamTextBox1;
+        private ReaLTaiizor.DungeonProgressBar dungeonProgressBar1;
     }
 }

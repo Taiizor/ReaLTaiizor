@@ -552,8 +552,8 @@
             chatBubbleRight1.Font = new System.Drawing.Font("Segoe UI", 10F);
             chatBubbleRight1.Location = new System.Drawing.Point(445, 364);
             chatBubbleRight1.Name = "chatBubbleRight1";
-            chatBubbleRight1.Size = new System.Drawing.Size(132, 34);
-            chatBubbleRight1.SizeAuto = true;
+            chatBubbleRight1.Size = new System.Drawing.Size(165, 34);
+            chatBubbleRight1.SizeAuto = false;
             chatBubbleRight1.SizeAutoH = true;
             chatBubbleRight1.SizeAutoW = true;
             chatBubbleRight1.TabIndex = 28;
@@ -567,8 +567,8 @@
             chatBubbleLeft1.Font = new System.Drawing.Font("Segoe UI", 10F);
             chatBubbleLeft1.Location = new System.Drawing.Point(11, 364);
             chatBubbleLeft1.Name = "chatBubbleLeft1";
-            chatBubbleLeft1.Size = new System.Drawing.Size(123, 34);
-            chatBubbleLeft1.SizeAuto = true;
+            chatBubbleLeft1.Size = new System.Drawing.Size(165, 34);
+            chatBubbleLeft1.SizeAuto = false;
             chatBubbleLeft1.SizeAutoH = true;
             chatBubbleLeft1.SizeAutoW = true;
             chatBubbleLeft1.TabIndex = 27;

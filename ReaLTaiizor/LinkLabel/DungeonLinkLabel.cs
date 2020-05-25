@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor
 {
-    #region Link Label
+    #region DungeonLinkLabel
+
     public class DungeonLinkLabel : LinkLabel
     {
-
         public DungeonLinkLabel()
         {
             Font = new Font("Segoe UI", 11, FontStyle.Regular);

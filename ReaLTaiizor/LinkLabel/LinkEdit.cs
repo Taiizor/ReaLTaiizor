@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor
 {
-    #region Link Edit
+    #region LinkEdit
 
     public class LinkEdit : LinkLabel
     {
