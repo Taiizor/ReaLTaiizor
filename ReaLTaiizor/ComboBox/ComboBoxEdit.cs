@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region ComboBox Edit
+    #region ComboBoxEdit
 
     public class ComboBoxEdit : ComboBox
     {
@@ -85,6 +85,8 @@ namespace ReaLTaiizor
 
             DrawMode = DrawMode.OwnerDrawFixed;
             DropDownStyle = ComboBoxStyle.DropDownList;
+
+            Cursor = Cursors.Hand;
 
             BackColor = Color.FromArgb(246, 246, 246);
             ForeColor = Color.FromArgb(142, 142, 142);

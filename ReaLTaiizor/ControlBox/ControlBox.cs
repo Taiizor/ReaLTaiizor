@@ -75,6 +75,27 @@ namespace ReaLTaiizor
             }
         }
 
+        private Color _MinimizeHoverColor = Color.FromArgb(63, 63, 65);
+        public Color MinimizeHoverColor
+        {
+            get { return _MinimizeHoverColor; }
+            set { _MinimizeHoverColor = value; }
+        }
+
+        private Color _MaximizeHoverColor = Color.FromArgb(74, 74, 74);
+        public Color MaximizeHoverColor
+        {
+            get { return _MaximizeHoverColor; }
+            set { _MaximizeHoverColor = value; }
+        }
+
+        private Color _CloseHoverColor = Color.FromArgb(230, 17, 35);
+        public Color CloseHoverColor
+        {
+            get { return _CloseHoverColor; }
+            set { _CloseHoverColor = value; }
+        }
+
         #endregion
         #region EventArgs
 
@@ -236,7 +257,7 @@ namespace ReaLTaiizor
                     case ButtonHoverState.Minimize:
                         if (_EnableMinimize == true)
                         {
-                            G.FillRectangle(new SolidBrush(Color.FromArgb(63, 63, 65)), new Rectangle(0, 0, 30, Height));
+                            G.FillRectangle(new SolidBrush(_MinimizeHoverColor), new Rectangle(0, 0, 30, Height));
                             G.DrawString("0", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
                         }
                         else
@@ -248,7 +269,7 @@ namespace ReaLTaiizor
                             case FormWindowState.Maximized:
                                 if (_EnableMaximize == true)
                                 {
-                                    G.FillRectangle(new SolidBrush(Color.FromArgb(74, 74, 74)), new Rectangle(30, 0, 30, Height));
+                                    G.FillRectangle(new SolidBrush(_MaximizeHoverColor), new Rectangle(30, 0, 30, Height));
                                     G.DrawString("2", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
                                 }
                                 else
@@ -257,7 +278,7 @@ namespace ReaLTaiizor
                             case FormWindowState.Normal:
                                 if (_EnableMaximize == true)
                                 {
-                                    G.FillRectangle(new SolidBrush(Color.FromArgb(74, 74, 74)), new Rectangle(30, 0, 30, Height));
+                                    G.FillRectangle(new SolidBrush(_MaximizeHoverColor), new Rectangle(30, 0, 30, Height));
                                     G.DrawString("1", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
                                 }
                                 else
@@ -266,7 +287,7 @@ namespace ReaLTaiizor
                         }
                         break;
                     case ButtonHoverState.Close:
-                        G.FillRectangle(new SolidBrush(Color.FromArgb(230, 17, 35)), new Rectangle(60, 0, 30, Height));
+                        G.FillRectangle(new SolidBrush(_CloseHoverColor), new Rectangle(60, 0, 30, Height));
                         G.DrawString("r", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(75, 5), new StringFormat { Alignment = StringAlignment.Center });
                         break;
                 }
