@@ -26,6 +26,13 @@ namespace ReaLTaiizor
             set { _hovercolor = value; Invalidate(); }
         }
 
+        public LostButton() : base()
+        {
+            Cursor = Cursors.Hand;
+            Size = new Size(120, 40);
+            Font = ThemeLost.BodyFont;
+        }
+
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
             pevent.Graphics.FillRectangle(MouseOver ? new SolidBrush(_hovercolor) : new SolidBrush(BackColor), ClientRectangle);
@@ -34,13 +41,10 @@ namespace ReaLTaiizor
         protected override void OnPaint(PaintEventArgs e)
         {
             if (_image != null)
-                e.Graphics.DrawImage(_image,
-                    Width / 2 - _image.Width / 2, Height / 2 - _image.Height / 2,
-                    _image.Width, _image.Height);
+                e.Graphics.DrawImage(_image,  Width / 2 - _image.Width / 2, Height / 2 - _image.Height / 2, _image.Width, _image.Height);
 
-            SizeF textSize = e.Graphics.MeasureString(Text, ThemeLost.BodyFont);
-            e.Graphics.DrawString(Text, ThemeLost.BodyFont, new SolidBrush(ForeColor),
-                Width / 2 - textSize.Width / 2, Height / 2 - textSize.Height / 2);
+            SizeF textSize = e.Graphics.MeasureString(Text, Font);
+            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor),  Width / 2 - textSize.Width / 2, Height / 2 - textSize.Height / 2);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)

@@ -57,7 +57,7 @@ namespace ReaLTaiizor
 			y = e.Location.Y;
 			Invalidate();
 			if (e.X < Width - 41)
-				Cursor = Cursors.IBeam;
+				Cursor = Cursors.Default; //Cursors.IBeam
 			else
 				Cursor = Cursors.Hand;
 		}
@@ -83,6 +83,20 @@ namespace ReaLTaiizor
 		{
 			get { return _HoverColor; }
 			set { _HoverColor = value; }
+		}
+
+		[Category("Colors")]
+		public Color BaseColor
+		{
+			get { return _BaseColor; }
+			set { _BaseColor = value; }
+		}
+
+		[Category("Colors")]
+		public Color BGColor
+		{
+			get { return _BGColor; }
+			set { _BGColor = value; }
 		}
 
 		private int StartIndex
@@ -128,7 +142,6 @@ namespace ReaLTaiizor
 			//-- Text
 			e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), new Font("Segoe UI", 8), Brushes.White, new Rectangle(e.Bounds.X + 2, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height));
 
-
 			e.Graphics.Dispose();
 		}
 
@@ -149,7 +162,6 @@ namespace ReaLTaiizor
 			DoubleBuffered = true;
 
 			DrawMode = DrawMode.OwnerDrawFixed;
-			BackColor = Color.FromArgb(45, 45, 48);
 			ForeColor = Color.White;
 			DropDownStyle = ComboBoxStyle.DropDownList;
 			Cursor = Cursors.Hand;

@@ -65,12 +65,27 @@ namespace ReaLTaiizor
             set { _bordercolor = value; Invalidate(); }
         }
 
+        private Color _HeaderColor = ThemeLost.ForeBrush.Color;
+        public Color HeaderColor
+        {
+            get { return _HeaderColor; }
+            set { _HeaderColor = value; Invalidate(); }
+        }
+
+        private Color _TitleColor = ThemeLost.FontBrush.Color;
+        public Color TitleColor
+        {
+            get { return _TitleColor; }
+            set { _TitleColor = value; Invalidate(); }
+        }
+
         public LostForm()
         {
             //FormBorderStyle = FormBorderStyle.Sizable;
             Padding = new Padding(2, 36, 2, 2);
             ResizeRedraw = true;
             MinimumSize = new Size(160, 160);
+            Font = ThemeLost.TitleFont;
         }
 
         public override Rectangle ShadeRect(int index)
@@ -300,13 +315,13 @@ namespace ReaLTaiizor
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(ThemeLost.ForeBrush, 1, 2, Width - 3, 30);
+            e.Graphics.FillRectangle(new SolidBrush(_HeaderColor), 1, 2, Width - 3, 30);
             if (_Image == null)
-                e.Graphics.DrawString(Text, ThemeLost.TitleFont, ThemeLost.FontBrush, 4, 5);
+                e.Graphics.DrawString(Text, Font, new SolidBrush(_TitleColor), 4, 5);
             else
             {
                 e.Graphics.DrawImage(_Image, new Rectangle(4, 3, 27, 27));
-                e.Graphics.DrawString(Text, ThemeLost.TitleFont, ThemeLost.FontBrush, 33, 5);
+                e.Graphics.DrawString(Text, Font, new SolidBrush(_TitleColor), 33, 5);
             }
             DrawShadow(e.Graphics);
             base.OnPaint(e);

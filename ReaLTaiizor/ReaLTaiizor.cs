@@ -9408,6 +9408,7 @@ namespace ReaLTaiizor
         {
             AutoScaleMode = AutoScaleMode.Dpi;
             FormBorderStyle = FormBorderStyle.None;
+            BackColor = ThemeLost.BackBrush.Color;
             DoubleBuffered = true;
         }
 
@@ -9424,7 +9425,7 @@ namespace ReaLTaiizor
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(ThemeLost.BackBrush, ClientRectangle);
+            e.Graphics.FillRectangle(new SolidBrush(BackColor), ClientRectangle);
         }
 
         protected override void OnPaint(PaintEventArgs e)

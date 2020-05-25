@@ -7,3 +7,8 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\obj\Release\ReaLTaiizor_
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\obj\Release\ReaLTaiizor_CR.csproj.CoreCompileInputs.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\obj\Release\ReaLTaiizor_CR.exe
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\obj\Release\ReaLTaiizor_CR.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\obj\Release\ReaLTaiizor_CR.Catcher.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\bin\Release\ReaLTaiizor.dll
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\bin\Release\ReaLTaiizor.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\obj\Release\ReaLTaiizor_CR.csproj.CopyComplete
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_CR\obj\Release\ReaLTaiizor_CR.g.resources
