@@ -37,8 +37,44 @@ namespace ReaLTaiizor
 
         private Timer LongPressTimer = new Timer();
 
+        private Color _BorderColor = Color.FromArgb(180, 180, 180);
+        private Color _BackColorA = Color.FromArgb(246, 246, 246);
+        private Color _BackColorB = Color.FromArgb(254, 254, 254);
+        private Color _ButtonForeColorA = Color.FromArgb(75, 75, 75);
+        private Color _ButtonForeColorB = Color.FromArgb(75, 75, 75);
+
         #endregion
         #region Properties
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        public Color BackColorA
+        {
+            get { return _BackColorA; }
+            set { _BackColorA = value; }
+        }
+
+        public Color BackColorB
+        {
+            get { return _BackColorB; }
+            set { _BackColorB = value; }
+        }
+
+        public Color ButtonForeColorA
+        {
+            get { return _ButtonForeColorA; }
+            set { _ButtonForeColorA = value; }
+        }
+
+        public Color ButtonForeColorB
+        {
+            get { return _ButtonForeColorB; }
+            set { _ButtonForeColorB = value; }
+        }
 
         public long Value
         {
@@ -102,7 +138,7 @@ namespace ReaLTaiizor
         #endregion
         #region EventArgs
 
-        protected override void OnResize(System.EventArgs e)
+        protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
             Height = 28;
@@ -122,7 +158,7 @@ namespace ReaLTaiizor
             Invalidate();
 
             if (e.X < Width - 50)
-                Cursor = Cursors.IBeam;
+                Cursor = Cursors.Default; //Cursors.IBeam
             else
                 Cursor = Cursors.Default;
             if (e.X > Width - 25 && e.X < Width - 10)
@@ -157,15 +193,18 @@ namespace ReaLTaiizor
             ClickButton();
             LongPressTimer.Start();
         }
+
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
             LongPressTimer.Stop();
         }
+
         private void LongPressTimer_Tick(object sender, EventArgs e)
         {
             ClickButton();
         }
+
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             base.OnKeyPress(e);
@@ -219,7 +258,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
 
-            P1 = new Pen(Color.FromArgb(180, 180, 180));
+            P1 = new Pen(_BorderColor);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(76, 76, 76);
             _Minimum = 0;
@@ -252,7 +291,7 @@ namespace ReaLTaiizor
             Graphics G = Graphics.FromImage(B);
             LinearGradientBrush BackgroundLGB = default(LinearGradientBrush);
 
-            BackgroundLGB = new LinearGradientBrush(ClientRectangle, Color.FromArgb(246, 246, 246), Color.FromArgb(254, 254, 254), 90.0F);
+            BackgroundLGB = new LinearGradientBrush(ClientRectangle, _BackColorA, _BackColorB, 90.0F);
 
             G.SmoothingMode = SmoothingMode.AntiAlias;
 
@@ -260,10 +299,10 @@ namespace ReaLTaiizor
             G.FillPath(BackgroundLGB, Shape); // Draw background
             G.DrawPath(P1, Shape); // Draw border
 
-            G.DrawString("+", new Font("Tahoma", 14), new SolidBrush(Color.FromArgb(75, 75, 75)), new Rectangle(Width - 25, 1, 19, 30));
-            G.DrawLine(new Pen(Color.FromArgb(229, 228, 227)), Width - 28, 1, Width - 28, Height - 2);
-            G.DrawString("-", new Font("Tahoma", 14), new SolidBrush(Color.FromArgb(75, 75, 75)), new Rectangle(Width - 44, 1, 19, 30));
-            G.DrawLine(new Pen(Color.FromArgb(229, 228, 227)), Width - 48, 1, Width - 48, Height - 2);
+            G.DrawString("+", new Font("Tahoma", 14), new SolidBrush(_ButtonForeColorA), new Rectangle(Width - 25, 1, 19, 30));
+            G.DrawLine(new Pen(_BorderColor), Width - 28, 1, Width - 28, Height - 2);
+            G.DrawString("-", new Font("Tahoma", 14), new SolidBrush(_ButtonForeColorB), new Rectangle(Width - 44, 1, 19, 30));
+            G.DrawLine(new Pen(_BorderColor), Width - 48, 1, Width - 48, Height - 2);
 
             switch (MyStringAlignment)
             {

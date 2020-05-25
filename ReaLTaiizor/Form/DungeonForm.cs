@@ -34,8 +34,58 @@ namespace ReaLTaiizor
         private bool Cap = false;
         private bool HasShown;
 
+        private Color _TitleColor = Color.FromArgb(223, 219, 210);
+        private Color _BorderColor = Color.FromArgb(38, 38, 38);
+        private Color _HeaderEdgeColorA = Color.FromArgb(87, 85, 77);
+        private Color _HeaderEdgeColorB = Color.FromArgb(69, 68, 63);
+        private Color _FooterEdgeColor = Color.FromArgb(69, 68, 63);
+        private Color _FillEdgeColorA = Color.FromArgb(69, 68, 63);
+        private Color _FillEdgeColorB = Color.FromArgb(69, 68, 63);
+
         #endregion
         #region Properties
+
+        public Color TitleColor
+        {
+            get { return _TitleColor; }
+            set { _TitleColor = value; }
+        }
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        public Color HeaderEdgeColorA
+        {
+            get { return _HeaderEdgeColorA; }
+            set { _HeaderEdgeColorA = value; }
+        }
+
+        public Color HeaderEdgeColorB
+        {
+            get { return _HeaderEdgeColorB; }
+            set { _HeaderEdgeColorB = value; }
+        }
+
+        public Color FooterEdgeColor
+        {
+            get { return _FooterEdgeColor; }
+            set { _FooterEdgeColor = value; }
+        }
+
+        public Color FillEdgeColorA
+        {
+            get { return _FillEdgeColorA; }
+            set { _FillEdgeColorA = value; }
+        }
+
+        public Color FillEdgeColorB
+        {
+            get { return _FillEdgeColorB; }
+            set { _FillEdgeColorB = value; }
+        }
 
         private bool _Sizable = true;
         public bool Sizable
@@ -380,6 +430,7 @@ namespace ReaLTaiizor
         {
             SetStyle((ControlStyles)(139270), true);
             BackColor = Color.FromArgb(244, 241, 243);
+            ForeColor = Color.FromArgb(223, 219, 210);
             Padding = new Padding(20, 56, 20, 16);
             DoubleBuffered = true;
             Dock = DockStyle.Fill;
@@ -392,16 +443,16 @@ namespace ReaLTaiizor
         {
             base.OnPaint(e);
             Graphics G = e.Graphics;
-            G.Clear(Color.FromArgb(69, 68, 63));
+            G.Clear(_FooterEdgeColor);
 
-            G.DrawRectangle(new Pen(Color.FromArgb(38, 38, 38)), new Rectangle(0, 0, Width - 1, Height - 1));
+            G.DrawRectangle(new Pen(_BorderColor), new Rectangle(0, 0, Width - 1, Height - 1));
             // Use [Color.FromArgb(87, 86, 81), Color.FromArgb(60, 59, 55)] for a darker taste
             // And replace each (60, 59, 55) with (69, 68, 63)
-            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, 36), Color.FromArgb(87, 85, 77), Color.FromArgb(69, 68, 63)), new Rectangle(1, 1, Width - 2, 36));
-            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, Height), Color.FromArgb(69, 68, 63), Color.FromArgb(69, 68, 63)), new Rectangle(1, 36, Width - 2, Height - 46));
+            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, 36), _HeaderEdgeColorA, _HeaderEdgeColorB), new Rectangle(1, 1, Width - 2, 36));
+            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, Height), _FillEdgeColorA, _FillEdgeColorB), new Rectangle(1, 36, Width - 2, Height - 46));
 
-            G.DrawRectangle(new Pen(Color.FromArgb(38, 38, 38)), new Rectangle(9, 47, Width - 19, Height - 55));
-            G.FillRectangle(new SolidBrush(Color.FromArgb(244, 241, 243)), new Rectangle(10, 48, Width - 20, Height - 56));
+            G.DrawRectangle(new Pen(_BorderColor), new Rectangle(9, 47, Width - 19, Height - 55));
+            G.FillRectangle(new SolidBrush(BackColor), new Rectangle(10, 48, Width - 20, Height - 56));
 
             if (_RoundCorners == true)
             {
@@ -415,10 +466,10 @@ namespace ReaLTaiizor
                 G.FillRectangle(Brushes.Fuchsia, 0, 3, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, 1, 1, 1, 1);
 
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), 1, 3, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), 1, 2, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), 2, 1, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), 3, 1, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), 1, 3, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), 1, 2, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), 2, 1, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), 3, 1, 1, 1);
 
                 // Draw right upper corner
                 G.FillRectangle(Brushes.Fuchsia, Width - 1, 0, 1, 1);
@@ -430,10 +481,10 @@ namespace ReaLTaiizor
                 G.FillRectangle(Brushes.Fuchsia, Width - 1, 3, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, Width - 2, 1, 1, 1);
 
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), Width - 2, 3, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), Width - 2, 2, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), Width - 3, 1, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), Width - 4, 1, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, 3, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, 2, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), Width - 3, 1, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), Width - 4, 1, 1, 1);
 
                 // Draw Left bottom corner
                 G.FillRectangle(Brushes.Fuchsia, 0, Height - 1, 1, 1);
@@ -446,10 +497,10 @@ namespace ReaLTaiizor
                 G.FillRectangle(Brushes.Fuchsia, 1, Height - 1, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, 1, Height - 2, 1, 1);
 
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), 1, Height - 3, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), 1, Height - 4, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), 3, Height - 2, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), 2, Height - 2, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), 1, Height - 3, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), 1, Height - 4, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), 3, Height - 2, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), 2, Height - 2, 1, 1);
 
                 // Draw right bottom corner
                 G.FillRectangle(Brushes.Fuchsia, Width - 1, Height, 1, 1);
@@ -465,13 +516,13 @@ namespace ReaLTaiizor
                 G.FillRectangle(Brushes.Fuchsia, Width - 1, Height - 4, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, Width - 2, Height - 2, 1, 1);
 
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), Width - 2, Height - 3, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), Width - 2, Height - 4, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), Width - 4, Height - 2, 1, 1);
-                G.FillRectangle(new SolidBrush(Color.FromArgb(38, 38, 38)), Width - 3, Height - 2, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, Height - 3, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, Height - 4, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), Width - 4, Height - 2, 1, 1);
+                G.FillRectangle(new SolidBrush(_BorderColor), Width - 3, Height - 2, 1, 1);
             }
 
-            G.DrawString(Text, new Font("Tahoma", 12, FontStyle.Bold), new SolidBrush(Color.FromArgb(223, 219, 210)), new Rectangle(0, 14, Width - 1, Height), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near });
+            G.DrawString(Text, new Font("Tahoma", 12, FontStyle.Bold), new SolidBrush(_TitleColor), new Rectangle(0, 14, Width - 1, Height), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near });
         }
     }
 

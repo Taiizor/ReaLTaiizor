@@ -21,8 +21,8 @@ using System.Runtime.InteropServices;
 //    Creator: Taiizor
 //    Site   : www.Taiizor.com
 //    Created: 15.May.2019
-//    Changed: 21.May.2020
-//    Version: 3.7.6.7
+//    Changed: 25.May.2020
+//    Version: 3.7.6.8
 //
 //|---------DO-NOT-REMOVE---------|
 
@@ -106,6 +106,7 @@ namespace ReaLTaiizor
             gp.CloseFigure();
             return gp;
         }
+        
         public static GraphicsPath CreateLeftRoundRect(float x, float y, float width, float height, float radius)
         {
             GraphicsPath gp = new GraphicsPath();
@@ -9408,6 +9409,7 @@ namespace ReaLTaiizor
         {
             AutoScaleMode = AutoScaleMode.Dpi;
             FormBorderStyle = FormBorderStyle.None;
+            BackColor = ThemeLost.BackBrush.Color;
             DoubleBuffered = true;
         }
 
@@ -9424,7 +9426,7 @@ namespace ReaLTaiizor
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(ThemeLost.BackBrush, ClientRectangle);
+            e.Graphics.FillRectangle(new SolidBrush(BackColor), ClientRectangle);
         }
 
         protected override void OnPaint(PaintEventArgs e)

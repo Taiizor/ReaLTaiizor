@@ -24,9 +24,30 @@ namespace ReaLTaiizor
         private bool _AutoWordSelection;
         private GraphicsPath Shape;
         private Pen P1;
+        private Color _BorderColor = Color.FromArgb(180, 180, 180);
+        private Color _EdgeColor = Color.White;
+        private Color _TextBackColor = Color.White;
 
         #endregion
         #region Properties
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        public Color EdgeColor
+        {
+            get { return _EdgeColor; }
+            set { _EdgeColor = value; }
+        }
+
+        public Color TextBackColor
+        {
+            get { return _TextBackColor; }
+            set { _TextBackColor = value; }
+        }
 
         public override string Text
         {
@@ -134,18 +155,17 @@ namespace ReaLTaiizor
         public void AddRichTextBox()
         {
             var _RTB = DungeonRTB;
-            _RTB.BackColor = Color.White;
+            _RTB.BackColor = _TextBackColor;
             _RTB.Size = new Size(Width - 10, 100);
             _RTB.Location = new Point(7, 5);
             _RTB.Text = string.Empty;
             _RTB.BorderStyle = BorderStyle.None;
-            _RTB.Font = new Font("Tahoma", 10);
+            _RTB.Font = Font;
             _RTB.Multiline = true;
         }
 
         public DungeonRichTextBox() : base()
         {
-
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
 
@@ -154,7 +174,7 @@ namespace ReaLTaiizor
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(76, 76, 76);
 
-            P1 = new Pen(Color.FromArgb(180, 180, 180));
+            P1 = new Pen(_BorderColor);
             Text = null;
             Font = new Font("Tahoma", 10);
             Size = new Size(150, 100);
@@ -167,14 +187,14 @@ namespace ReaLTaiizor
             TextChanged += _TextChanged;
         }
 
-        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingMode.AntiAlias;
-            G.Clear(Color.Transparent);
-            G.FillPath(Brushes.White, Shape);
+            G.Clear(BackColor);
+            G.FillPath(new SolidBrush(_EdgeColor), Shape);
             G.DrawPath(P1, Shape);
             G.Dispose();
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);

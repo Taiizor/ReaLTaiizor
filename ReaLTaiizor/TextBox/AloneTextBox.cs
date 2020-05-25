@@ -166,9 +166,7 @@ namespace ReaLTaiizor
                 _readOnly = value;
                 bool flag = TB != null;
                 if (flag)
-                {
                     TB.ReadOnly = value;
-                }
             }
         }
 

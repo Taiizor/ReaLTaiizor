@@ -17,6 +17,7 @@ namespace ReaLTaiizor
 		private int W;
 		private int H;
 		private bool _ShowText = true;
+		private bool _ShowArrow = true;
 
 		[Category("Colors")]
 		public Color BaseColor
@@ -32,6 +33,20 @@ namespace ReaLTaiizor
 			set { _TextColor = value; }
 		}
 
+		[Category("Colors")]
+		public Color ArrowColorH
+		{
+			get { return _ArrowColorH; }
+			set { _ArrowColorH = value; }
+		}
+
+		[Category("Colors")]
+		public Color ArrowColorF
+		{
+			get { return _ArrowColorF; }
+			set { _ArrowColorF = value; }
+		}
+
 		[Category("Options")]
 		public bool ShowText
 		{
@@ -39,7 +54,16 @@ namespace ReaLTaiizor
 			set { _ShowText = value; }
 		}
 
+		[Category("Options")]
+		public bool ShowArror
+		{
+			get { return _ShowArrow; }
+			set { _ShowArrow = value; }
+		}
+
 		private Color _BaseColor = Color.FromArgb(60, 70, 73);
+		private Color _ArrowColorH = Color.FromArgb(60, 70, 73);
+		private Color _ArrowColorF = Color.FromArgb(60, 70, 73);
 		private Color _TextColor = ForeverLibrary.ForeverColor;
 
 		public ForeverGroupBox()
@@ -76,10 +100,13 @@ namespace ReaLTaiizor
 			_with7.FillPath(new SolidBrush(_BaseColor), GP);
 
 			//-- Arrows
-			GP2 = ForeverLibrary.DrawArrow(28, 2, false);
-			_with7.FillPath(new SolidBrush(_BaseColor), GP2);
-			GP3 = ForeverLibrary.DrawArrow(28, 8, true);
-			_with7.FillPath(new SolidBrush(Color.FromArgb(60, 70, 73)), GP3);
+			if (_ShowArrow)
+			{
+				GP2 = ForeverLibrary.DrawArrow(28, 2, false);
+				_with7.FillPath(new SolidBrush(_ArrowColorH), GP2);
+				GP3 = ForeverLibrary.DrawArrow(28, 8, true);
+				_with7.FillPath(new SolidBrush(_ArrowColorF), GP3);
+			}
 
 			//-- if ShowText
 			if (ShowText)

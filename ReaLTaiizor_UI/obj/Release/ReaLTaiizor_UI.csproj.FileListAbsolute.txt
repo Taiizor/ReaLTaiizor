@@ -2,7 +2,6 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_UI.exe
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor_UI.pdb
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\bin\Release\ReaLTaiizor.dll
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.csprojAssemblyReference.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.g.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form1.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.Form10.resources
@@ -26,3 +25,4 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.csproj.CopyComplete
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.exe
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor_UI\obj\Release\ReaLTaiizor_UI.csprojAssemblyReference.cache

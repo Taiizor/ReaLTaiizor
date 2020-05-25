@@ -247,6 +247,10 @@
             // 
             // badge13
             // 
+            badge13.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge13.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge13.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge13.Location = new System.Drawing.Point(297, 372);
             badge13.Maximum = 99;
@@ -258,6 +262,10 @@
             // 
             // badge11
             // 
+            badge11.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge11.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge11.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge11.Location = new System.Drawing.Point(271, 372);
             badge11.Maximum = 99;
@@ -281,6 +289,10 @@
             // 
             // badge10
             // 
+            badge10.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge10.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge10.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge10.Location = new System.Drawing.Point(416, 417);
             badge10.Maximum = 99;
@@ -292,6 +304,10 @@
             // 
             // badge9
             // 
+            badge9.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge9.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge9.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge9.Location = new System.Drawing.Point(390, 417);
             badge9.Maximum = 99;
@@ -303,6 +319,10 @@
             // 
             // badge8
             // 
+            badge8.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge8.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge8.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge8.Location = new System.Drawing.Point(366, 417);
             badge8.Maximum = 99;
@@ -314,6 +334,10 @@
             // 
             // badge7
             // 
+            badge7.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge7.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge7.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge7.Location = new System.Drawing.Point(340, 417);
             badge7.Maximum = 99;
@@ -325,6 +349,10 @@
             // 
             // badge6
             // 
+            badge6.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge6.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge6.Location = new System.Drawing.Point(314, 417);
             badge6.Maximum = 99;
@@ -336,6 +364,10 @@
             // 
             // badge5
             // 
+            badge5.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge5.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge5.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge5.Location = new System.Drawing.Point(288, 417);
             badge5.Maximum = 99;
@@ -347,6 +379,10 @@
             // 
             // badge4
             // 
+            badge4.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge4.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge4.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge4.Location = new System.Drawing.Point(262, 417);
             badge4.Maximum = 99;
@@ -358,6 +394,10 @@
             // 
             // badge3
             // 
+            badge3.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge3.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge3.Location = new System.Drawing.Point(239, 417);
             badge3.Maximum = 99;
@@ -369,6 +409,10 @@
             // 
             // badge2
             // 
+            badge2.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge2.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge2.Location = new System.Drawing.Point(214, 417);
             badge2.Maximum = 99;
@@ -380,6 +424,10 @@
             // 
             // badge1
             // 
+            badge1.BGColorA = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(69)))), ((int)(((byte)(68)))));
+            badge1.BGColorB = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            badge1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(70)))), ((int)(((byte)(66)))));
+            badge1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             badge1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             badge1.Location = new System.Drawing.Point(188, 417);
             badge1.Maximum = 99;
@@ -444,8 +492,14 @@
             chatButtonRight1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             chatButtonRight1.Image = null;
             chatButtonRight1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            chatButtonRight1.InactiveColorA = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(231)))));
+            chatButtonRight1.InactiveColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             chatButtonRight1.Location = new System.Drawing.Point(445, 408);
             chatButtonRight1.Name = "chatButtonRight1";
+            chatButtonRight1.PressedColorA = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
+            chatButtonRight1.PressedColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(149)))), ((int)(((byte)(222)))));
+            chatButtonRight1.PressedContourColorA = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
+            chatButtonRight1.PressedContourColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
             chatButtonRight1.Size = new System.Drawing.Size(165, 38);
             chatButtonRight1.TabIndex = 35;
             chatButtonRight1.Text = "chatButtonRight1";
@@ -458,8 +512,14 @@
             chatButtonLeft1.Font = new System.Drawing.Font("Segoe UI", 12F);
             chatButtonLeft1.Image = null;
             chatButtonLeft1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            chatButtonLeft1.InactiveColorA = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            chatButtonLeft1.InactiveColorB = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             chatButtonLeft1.Location = new System.Drawing.Point(11, 408);
             chatButtonLeft1.Name = "chatButtonLeft1";
+            chatButtonLeft1.PressedColorA = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            chatButtonLeft1.PressedColorB = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            chatButtonLeft1.PressedContourColorA = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
+            chatButtonLeft1.PressedContourColorB = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
             chatButtonLeft1.Size = new System.Drawing.Size(165, 38);
             chatButtonLeft1.TabIndex = 1;
             chatButtonLeft1.Text = "chatButtonLeft1";
@@ -479,10 +539,10 @@
             trackEdit1.Size = new System.Drawing.Size(296, 22);
             trackEdit1.TabIndex = 29;
             trackEdit1.Text = "trackEdit1";
-            trackEdit1.Value = 0;
+            trackEdit1.Value = 50;
             trackEdit1.ValueColour = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             trackEdit1.ValueDivison = ReaLTaiizor.TrackEdit.ValueDivisor.By1;
-            trackEdit1.ValueToSet = 0F;
+            trackEdit1.ValueToSet = 50F;
             // 
             // chatBubbleRight1
             // 
@@ -492,7 +552,10 @@
             chatBubbleRight1.Font = new System.Drawing.Font("Segoe UI", 10F);
             chatBubbleRight1.Location = new System.Drawing.Point(445, 364);
             chatBubbleRight1.Name = "chatBubbleRight1";
-            chatBubbleRight1.Size = new System.Drawing.Size(165, 38);
+            chatBubbleRight1.Size = new System.Drawing.Size(165, 34);
+            chatBubbleRight1.SizeAuto = false;
+            chatBubbleRight1.SizeAutoH = true;
+            chatBubbleRight1.SizeAutoW = true;
             chatBubbleRight1.TabIndex = 28;
             chatBubbleRight1.Text = "chatBubbleRight1";
             // 
@@ -504,7 +567,10 @@
             chatBubbleLeft1.Font = new System.Drawing.Font("Segoe UI", 10F);
             chatBubbleLeft1.Location = new System.Drawing.Point(11, 364);
             chatBubbleLeft1.Name = "chatBubbleLeft1";
-            chatBubbleLeft1.Size = new System.Drawing.Size(165, 38);
+            chatBubbleLeft1.Size = new System.Drawing.Size(165, 34);
+            chatBubbleLeft1.SizeAuto = false;
+            chatBubbleLeft1.SizeAutoH = true;
+            chatBubbleLeft1.SizeAutoW = true;
             chatBubbleLeft1.TabIndex = 27;
             chatBubbleLeft1.Text = "chatBubbleLeft1";
             // 
@@ -614,7 +680,7 @@
             trackBar1.Size = new System.Drawing.Size(297, 22);
             trackBar1.TabIndex = 17;
             trackBar1.Text = "trackBar1";
-            trackBar1.Value = 0;
+            trackBar1.Value = 50;
             trackBar1.ValueDivison = ReaLTaiizor.TrackBar.ValueDivisor.By100;
             trackBar1.ValueToSet = 0F;
             // 
@@ -794,7 +860,12 @@
             // 
             checkBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             checkBox1.Checked = false;
+            checkBox1.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
+            checkBox1.CheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
+            checkBox1.CheckedDisabledColor = System.Drawing.Color.Gray;
+            checkBox1.CheckedEnabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            checkBox1.Enable = true;
             checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             checkBox1.Location = new System.Drawing.Point(164, 85);
@@ -807,11 +878,14 @@
             // 
             button1.BackColor = System.Drawing.Color.Transparent;
             button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            button1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             button1.Image = null;
             button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             button1.Location = new System.Drawing.Point(11, 73);
             button1.Name = "button1";
+            button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             button1.Size = new System.Drawing.Size(146, 41);
             button1.TabIndex = 1;
             button1.Text = "button1";
@@ -821,6 +895,7 @@
             // 
             controlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             controlBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            controlBox1.CloseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
             controlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             controlBox1.DefaultLocation = true;
             controlBox1.EnableHoverHighlight = true;
@@ -828,6 +903,8 @@
             controlBox1.EnableMinimizeButton = true;
             controlBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             controlBox1.Location = new System.Drawing.Point(525, 18);
+            controlBox1.MaximizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            controlBox1.MinimizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             controlBox1.Name = "controlBox1";
             controlBox1.Size = new System.Drawing.Size(90, 25);
             controlBox1.TabIndex = 0;

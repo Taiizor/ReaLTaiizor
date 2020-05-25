@@ -19,10 +19,17 @@ namespace ReaLTaiizor
         private int MouseState;
         private GraphicsPath Shape;
         private LinearGradientBrush InactiveGB;
+        private Color _InactiveColorA = Color.FromArgb(253, 252, 252);
+        private Color _InactiveColorB = Color.FromArgb(239, 237, 236);
         private LinearGradientBrush PressedGB;
+        private Color _PressedColorA = Color.FromArgb(226, 226, 226);
+        private Color _PressedColorB = Color.FromArgb(237, 237, 237);
         private LinearGradientBrush PressedContourGB;
+        private Color _PressedContourColorA = Color.FromArgb(167, 167, 167);
+        private Color _PressedContourColorB = Color.FromArgb(167, 167, 167);
         private Rectangle R1;
         private Pen P1;
+        private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Pen P3;
         private Image _Image;
         private Size _ImageSize;
@@ -119,13 +126,9 @@ namespace ReaLTaiizor
             set
             {
                 if (value == null)
-                {
                     _ImageSize = Size.Empty;
-                }
                 else
-                {
                     _ImageSize = value.Size;
-                }
 
                 _Image = value;
                 Invalidate();
@@ -165,6 +168,48 @@ namespace ReaLTaiizor
                 _TextColor = value;
                 Invalidate();
             }
+        }
+
+        public Color InactiveColorA
+        {
+            get { return _InactiveColorA; }
+            set { _InactiveColorA = value; }
+        }
+
+        public Color InactiveColorB
+        {
+            get { return _InactiveColorB; }
+            set { _InactiveColorB = value; }
+        }
+
+        public Color PressedColorA
+        {
+            get { return _PressedColorA; }
+            set { _PressedColorA = value; }
+        }
+
+        public Color PressedColorB
+        {
+            get { return _PressedColorB; }
+            set { _PressedColorB = value; }
+        }
+
+        public Color PressedContourColorA
+        {
+            get { return _PressedContourColorA; }
+            set { _PressedContourColorA = value; }
+        }
+
+        public Color PressedContourColorB
+        {
+            get { return _PressedContourColorB; }
+            set { _PressedContourColorB = value; }
+        }
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
         }
 
         #endregion
@@ -209,12 +254,12 @@ namespace ReaLTaiizor
             ForeColor = Color.FromArgb(76, 76, 76);
             Size = new Size(177, 30);
             _TextAlignment = StringAlignment.Center;
-            P1 = new Pen(Color.FromArgb(180, 180, 180));
+            P1 = new Pen(_BorderColor);
             // P1 = Border color
             Cursor = Cursors.Hand;
         }
 
-        protected override void OnResize(System.EventArgs e)
+        protected override void OnResize(EventArgs e)
         {
 
             if (Width > 0 && Height > 0)
@@ -222,9 +267,9 @@ namespace ReaLTaiizor
                 Shape = new GraphicsPath();
                 R1 = new Rectangle(0, 0, Width, Height);
 
-                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(253, 252, 252), Color.FromArgb(239, 237, 236), 90f);
-                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(226, 226, 226), Color.FromArgb(237, 237, 237), 90f);
-                PressedContourGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(167, 167, 167), Color.FromArgb(167, 167, 167), 90f);
+                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
+                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
+                PressedContourGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
 
                 P3 = new Pen(PressedContourGB);
             }

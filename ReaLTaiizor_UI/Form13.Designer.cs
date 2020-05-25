@@ -116,6 +116,7 @@
             foreverForm1.ForeverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             foreverForm1.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverForm1.HeaderMaximize = true;
+            foreverForm1.HeaderTextFont = new System.Drawing.Font("Segoe UI", 12F);
             foreverForm1.Image = ((System.Drawing.Image)(resources.GetObject("foreverForm1.Image")));
             foreverForm1.Location = new System.Drawing.Point(0, 0);
             foreverForm1.MinimumSize = new System.Drawing.Size(210, 50);
@@ -396,6 +397,8 @@
             // foreverComboBox1
             // 
             foreverComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            foreverComboBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
+            foreverComboBox1.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             foreverComboBox1.DisplayMember = "1";
             foreverComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;

@@ -7,7 +7,7 @@
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # Bienvenido a ReaLTaiizor
-ReaLTaiizor es una biblioteca de interfaz de UI/Design. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
+ReaLTaiizor es una biblioteca de interfaz de UI/UX. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
 
 ## Colaboradores
 
@@ -27,7 +27,7 @@ Step 2：Disfruta diseñando
 
 ## Visión General
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/20/O1FY.png)
+![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
 ![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
 
@@ -59,7 +59,7 @@ Step 2：Disfruta diseñando
 
 ### Trueno
 
-![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OxyR.png)
+![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/25/dMLF.png)
 
 ### Luna
 

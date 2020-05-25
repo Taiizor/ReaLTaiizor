@@ -19,8 +19,11 @@ namespace ReaLTaiizor
         private int MouseState;
         private GraphicsPath Shape;
         private LinearGradientBrush InactiveGB;
+        private Color _InactiveColor = Color.FromArgb(32, 34, 37);
         private LinearGradientBrush PressedGB;
+        private Color _PressedColor = Color.FromArgb(165, 37, 37);
         private LinearGradientBrush EnteredGB;
+        private Color _EnteredColor = Color.FromArgb(32, 34, 37);
         private Rectangle R1;
         private Pen P1;
         private Pen P3;
@@ -178,6 +181,24 @@ namespace ReaLTaiizor
             }
         }
 
+        public Color InactiveColor
+        {
+            get { return _InactiveColor; }
+            set { _InactiveColor = value; }
+        }
+
+        public Color PressedColor
+        {
+            get { return _PressedColor; }
+            set { _PressedColor = value; }
+        }
+
+        public Color EnteredColor
+        {
+            get { return _EnteredColor; }
+            set { _EnteredColor = value; }
+        }
+
         #endregion
         #region EventArgs
 
@@ -236,7 +257,7 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
             Font = new Font("Microsoft Sans Serif", 12);
             ForeColor = Color.FromArgb(255, 255, 255);
-            Size = new Size(146, 41);
+            Size = new Size(120, 40);
             _TextAlignment = StringAlignment.Center;
             P1 = new Pen(Color.FromArgb(32, 34, 37)); // P1 = Border color
             P3 = new Pen(Color.FromArgb(165, 37, 37)); // P3 = Border color when pressed
@@ -250,9 +271,9 @@ namespace ReaLTaiizor
                 Shape = new GraphicsPath();
                 R1 = new Rectangle(0, 0, Width, Height);
 
-                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(32, 34, 37), Color.FromArgb(32, 34, 37), 90.0F);
-                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(165, 37, 37), Color.FromArgb(165, 37, 37), 90.0F);
-                EnteredGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(32, 34, 37), Color.FromArgb(32, 34, 37), 90.0F);
+                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _InactiveColor, _InactiveColor, 90.0F);
+                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedColor, _PressedColor, 90.0F);
+                EnteredGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _EnteredColor, _EnteredColor, 90.0F);
             }
 
             Shape.AddArc(0, 0, 10, 10, 180, 90);

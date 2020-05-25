@@ -7,7 +7,7 @@
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # Welcome to ReaLTaiizor
-ReaLTaiizor is a UI/Design library. It allows you to make modern designs using the various components it offers.
+ReaLTaiizor is a UI/UX library. It allows you to make modern designs using the various components it offers.
 
 ## Contributors
 
@@ -27,7 +27,7 @@ Step 2：Enjoy designing
 
 ## Overview
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/20/O1FY.png)
+![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
 ![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
 
@@ -59,7 +59,7 @@ Step 2：Enjoy designing
 
 ### Thunder
 
-![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OxyR.png)
+![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/25/dMLF.png)
 
 ### Moon
 

@@ -7,7 +7,7 @@
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # ReaLTaiizor'a Hoşgeldiniz
-ReaLTaiizor bir UI/Design kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
+ReaLTaiizor bir UI/UX kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
 
 ## Katkıda Bulunanlar
 
@@ -27,7 +27,7 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ## Genel Bakış
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/20/O1FY.png)
+![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
 ![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
 
@@ -59,7 +59,7 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ### Gök Gürültüsü
 
-![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OxyR.png)
+![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/25/dMLF.png)
 
 ### Ay
 

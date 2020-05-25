@@ -40,6 +40,13 @@ namespace ReaLTaiizor
             set { _forecolor = value; Invalidate(); }
         }
 
+        public LostCancelButton() : base()
+        {
+            Cursor = Cursors.Hand;
+            Size = new Size(120, 40);
+            Font = ThemeLost.BodyFont;
+        }
+
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
             pevent.Graphics.FillRectangle(MouseOver ? new SolidBrush(_hovercolor) : new SolidBrush(_backcolor), ClientRectangle);
@@ -50,12 +57,10 @@ namespace ReaLTaiizor
             e.Graphics.FillRectangle(MouseOver ? new SolidBrush(_hovercolor) : new SolidBrush(_backcolor), ClientRectangle);
 
             if (BackgroundImage != null)
-                e.Graphics.DrawImage(BackgroundImage,
-                    Width / 2 - BackgroundImage.Width / 2, Height / 2 - BackgroundImage.Height / 2);
+                e.Graphics.DrawImage(BackgroundImage, Width / 2 - BackgroundImage.Width / 2, Height / 2 - BackgroundImage.Height / 2);
 
-            SizeF textSize = e.Graphics.MeasureString(Text, ThemeLost.BodyFont);
-            e.Graphics.DrawString(Text, ThemeLost.BodyFont, new SolidBrush(_forecolor),
-                Width / 2 - textSize.Width / 2, Height / 2 - textSize.Height / 2);
+            SizeF textSize = e.Graphics.MeasureString(Text, Font);
+            e.Graphics.DrawString(Text, Font, new SolidBrush(_forecolor), Width / 2 - textSize.Width / 2, Height / 2 - textSize.Height / 2);
         }
 
         /*
