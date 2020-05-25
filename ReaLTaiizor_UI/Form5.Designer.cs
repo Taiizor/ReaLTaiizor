@@ -40,16 +40,12 @@
             // dreamForm1
             // 
             dreamForm1.BackColor = System.Drawing.Color.Transparent;
-            dreamForm1.BackGColor = System.Drawing.Color.DodgerBlue;
-            dreamForm1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            dreamForm1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
             dreamForm1.Controls.Add(dungeonControlBox1);
             dreamForm1.Controls.Add(dreamProgressBar1);
             dreamForm1.Controls.Add(dreamTextBox1);
             dreamForm1.Controls.Add(dreamButton1);
             dreamForm1.Dock = System.Windows.Forms.DockStyle.Fill;
             dreamForm1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            dreamForm1.HeaderColor = System.Drawing.Color.CornflowerBlue;
             dreamForm1.Location = new System.Drawing.Point(0, 0);
             dreamForm1.MinimumSize = new System.Drawing.Size(136, 50);
             dreamForm1.Name = "dreamForm1";
@@ -107,7 +103,6 @@
             dreamButton1.Size = new System.Drawing.Size(236, 41);
             dreamButton1.TabIndex = 0;
             dreamButton1.Text = "dreamButton1";
-            dreamButton1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // Form5
             // 

@@ -23,6 +23,10 @@ namespace ReaLTaiizor
         private Rectangle R1;
         private Rectangle R2;
         private bool _Checked;
+        private Color _CheckedColor = Color.FromArgb(255, 255, 255);
+        private Color _CheckedBackColorA = Color.FromArgb(213, 85, 32);
+        private Color _CheckedBackColorB = Color.FromArgb(224, 123, 82);
+        private Color _CheckedBorderColor = Color.FromArgb(182, 88, 55);
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
 
@@ -40,6 +44,30 @@ namespace ReaLTaiizor
             }
         }
 
+        public Color CheckedColor
+        {
+            get { return _CheckedColor; }
+            set { _CheckedColor = value; }
+        }
+
+        public Color CheckedBackColorA
+        {
+            get { return _CheckedBackColorA; }
+            set { _CheckedBackColorA = value; }
+        }
+
+        public Color CheckedBackColorB
+        {
+            get { return _CheckedBackColorB; }
+            set { _CheckedBackColorB = value; }
+        }
+
+        public Color CheckedBorderColor
+        {
+            get { return _CheckedBorderColor; }
+            set { _CheckedBorderColor = value; }
+        }
+
         #endregion
 
         public DungeonCheckBox()
@@ -50,7 +78,7 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
             // Reduce control flicker
             Font = new Font("Segoe UI", 12);
-            Size = new Size(165, 26);
+            Size = new Size(160, 26);
             ForeColor = Color.FromArgb(76, 76, 95);
             Cursor = Cursors.Hand;
         }
@@ -78,7 +106,7 @@ namespace ReaLTaiizor
 
                 R1 = new Rectangle(17, 0, Width, Height + 1);
                 R2 = new Rectangle(0, 0, Width, Height);
-                GB = new LinearGradientBrush(new Rectangle(0, 0, 25, 25), Color.FromArgb(213, 85, 32), Color.FromArgb(224, 123, 82), 90);
+                GB = new LinearGradientBrush(new Rectangle(0, 0, 25, 25), _CheckedBackColorA, _CheckedBackColorB, 90);
 
                 var MyDrawer = Shape;
                 MyDrawer.AddArc(0, 0, 7, 7, 180, 90);
@@ -98,18 +126,18 @@ namespace ReaLTaiizor
             base.OnPaint(e);
 
             var MyDrawer = e.Graphics;
-            MyDrawer.Clear(Parent.BackColor);
+            MyDrawer.Clear(BackColor);
             MyDrawer.SmoothingMode = SmoothingMode.AntiAlias;
 
             MyDrawer.FillPath(GB, Shape);
             // Fill the body of the CheckBox
-            MyDrawer.DrawPath(new Pen(Color.FromArgb(182, 88, 55)), Shape);
+            MyDrawer.DrawPath(new Pen(_CheckedBorderColor), Shape);
             // Draw the border
 
             MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(17, 0, Width, Height - 1), new StringFormat { LineAlignment = StringAlignment.Center });
 
             if (Checked)
-                MyDrawer.DrawString("ü", new Font("Wingdings", 12), new SolidBrush(Color.FromArgb(255, 255, 255)), new Rectangle(-2, 1, Width, Height + 2), new StringFormat { LineAlignment = StringAlignment.Center });
+                MyDrawer.DrawString("ü", new Font("Wingdings", 12), new SolidBrush(_CheckedColor), new Rectangle(-2, 1, Width, Height + 2), new StringFormat { LineAlignment = StringAlignment.Center });
             e.Dispose();
         }
     }

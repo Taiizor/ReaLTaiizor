@@ -11,7 +11,7 @@ namespace ReaLTaiizor
 {
     #region DreamForm
 
-    public class DreamForm : GroupBox
+    public class DreamForm : System.Windows.Forms.GroupBox
     {
         private int _TitleHeight = 25;
         public int TitleHeight
@@ -53,7 +53,6 @@ namespace ReaLTaiizor
              //(ParentForm)Parent;
                 FindForm().FormBorderStyle = 0;
                 //Convert.ChangeType(Parent, typeof(Form));
-
             }
 
             base.OnHandleCreated(e);
@@ -72,11 +71,52 @@ namespace ReaLTaiizor
             base.OnMouseDown(e);
         }
 
-        Color C1 = Color.FromArgb(40, 218, 255), C2 = Color.FromArgb(63, 63, 63), C3 = Color.FromArgb(41, 41, 41);//(74, 74, 74)
-        Color C4 = Color.FromArgb(27, 27, 27), C5 = Color.FromArgb(0, 0, 0, 0), C6 = Color.FromArgb(25, 255, 255, 255);
-        
+        Color _ColorA = Color.FromArgb(40, 218, 255);
+        public Color ColorA
+        {
+            get { return _ColorA; }
+            set { _ColorA = value; }
+        }
+
+        Color _ColorB = Color.FromArgb(63, 63, 63);
+        public Color ColorB
+        {
+            get { return _ColorB; }
+            set { _ColorB = value; }
+        }
+
+        Color _ColorC = Color.FromArgb(41, 41, 41); //(74, 74, 74)
+        public Color ColorC
+        {
+            get { return _ColorC; }
+            set { _ColorC = value; }
+        }
+
+        Color _ColorD = Color.FromArgb(27, 27, 27);
+        public Color ColorD
+        {
+            get { return _ColorD; }
+            set { _ColorD = value; }
+        }
+
+        Color _ColorE = Color.FromArgb(0, 0, 0, 0);
+        public Color ColorE
+        {
+            get { return _ColorE; }
+            set { _ColorE = value; }
+        }
+
+        Color _ColorF = Color.FromArgb(25, 255, 255, 255);
+        public Color ColorF
+        {
+            get { return _ColorF; }
+            set { _ColorF = value; }
+        }
+
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
+            //
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -85,9 +125,9 @@ namespace ReaLTaiizor
             {
                 using (Graphics G = Graphics.FromImage(B))
                 {
-                    G.Clear(C3);
+                    G.Clear(_ColorC);
 
-                    //Draw.Gradient(G, C4, C3, 0, 0, Width, _TitleHeight)
+                    //Draw.Gradient(G, _ColorD, _ColorC, 0, 0, Width, _TitleHeight)
 
                     SizeF S = G.MeasureString(Text + "1", Font);
                     float O = 6;
@@ -96,23 +136,25 @@ namespace ReaLTaiizor
                     if (_TitleAlign == (HorizontalAlignment)1)
                         O = Width - S.Width - 6;
                     Rectangle R = new Rectangle((int)O, (_TitleHeight + 2) / 2 - (int)S.Height / 2, (int)S.Width, (int)S.Height);
-                    using (Brush T = new LinearGradientBrush(R, C1, C3, LinearGradientMode.Vertical))
+                    using (Brush T = new LinearGradientBrush(R, _ColorA, _ColorC, LinearGradientMode.Vertical))
                         G.DrawString(Text, Font, T, R);
 
-                    G.DrawLine(new Pen(C3), 0, 1, Width, 1);
+                    G.DrawLine(new Pen(_ColorC), 0, 1, Width, 1);
 
-                    // Draw.Blend(G, C5, C6, C5, 0.5, 0, 0, _TitleHeight + 1, Width, 1)
+                    // Draw.Blend(G, _ColorE, _ColorF, _ColorE, 0.5, 0, 0, _TitleHeight + 1, Width, 1)
                     ColorBlend x = new ColorBlend();
-                    Color[] temp = { C5, C6, C5 };
+                    Color[] temp = { _ColorE, _ColorF, _ColorE };
                     x.Colors = temp;
                     float[] temp2 = { 0.5F, 0, 0, _TitleHeight + 1, Width, 1 };
                     x.Positions = temp2;
+
                     /*
-                    LinearGradientBrush B = new LinearGradientBrush(new Point(10, 110), new Point(140, 110), Color.White, Color.Black);
-                    B.InterpolationColors = C_Blend;
+                        LinearGradientBrush B = new LinearGradientBrush(new Point(10, 110), new Point(140, 110), Color.White, Color.Black);
+                        B.InterpolationColors = C_Blend;
                     */
-                    G.DrawLine(new Pen(C4), 0, _TitleHeight, Width, _TitleHeight);
-                    G.DrawRectangle(new Pen(C4), 0, 0, Width - 1, Height - 1);
+
+                    G.DrawLine(new Pen(_ColorD), 0, _TitleHeight, Width, _TitleHeight);
+                    G.DrawRectangle(new Pen(_ColorD), 0, 0, Width - 1, Height - 1);
                     Bitmap B1 = B;
                     e.Graphics.DrawImage(B, 0, 0);
                 }
