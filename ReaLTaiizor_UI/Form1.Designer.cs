@@ -539,10 +539,10 @@
             trackEdit1.Size = new System.Drawing.Size(296, 22);
             trackEdit1.TabIndex = 29;
             trackEdit1.Text = "trackEdit1";
-            trackEdit1.Value = 0;
+            trackEdit1.Value = 50;
             trackEdit1.ValueColour = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             trackEdit1.ValueDivison = ReaLTaiizor.TrackEdit.ValueDivisor.By1;
-            trackEdit1.ValueToSet = 0F;
+            trackEdit1.ValueToSet = 50F;
             // 
             // chatBubbleRight1
             // 
@@ -680,7 +680,7 @@
             trackBar1.Size = new System.Drawing.Size(297, 22);
             trackBar1.TabIndex = 17;
             trackBar1.Text = "trackBar1";
-            trackBar1.Value = 0;
+            trackBar1.Value = 50;
             trackBar1.ValueDivison = ReaLTaiizor.TrackBar.ValueDivisor.By100;
             trackBar1.ValueToSet = 0F;
             // 

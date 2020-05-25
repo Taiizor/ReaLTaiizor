@@ -64,6 +64,7 @@
             // dungeonForm1
             // 
             dungeonForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonForm1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             dungeonForm1.Controls.Add(dungeonTextBox1);
             dungeonForm1.Controls.Add(dungeonTrackBar1);
             dungeonForm1.Controls.Add(dungeonToggleButton4);
@@ -84,7 +85,13 @@
             dungeonForm1.Controls.Add(dungeonControlBox1);
             dungeonForm1.Controls.Add(dungeonToggleButton1);
             dungeonForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            dungeonForm1.FillEdgeColorA = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(63)))));
+            dungeonForm1.FillEdgeColorB = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(63)))));
             dungeonForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dungeonForm1.FooterEdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(63)))));
+            dungeonForm1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(219)))), ((int)(((byte)(210)))));
+            dungeonForm1.HeaderEdgeColorA = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(85)))), ((int)(((byte)(77)))));
+            dungeonForm1.HeaderEdgeColorB = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(63)))));
             dungeonForm1.Location = new System.Drawing.Point(0, 0);
             dungeonForm1.Name = "dungeonForm1";
             dungeonForm1.Padding = new System.Windows.Forms.Padding(20, 56, 20, 16);
@@ -95,10 +102,13 @@
             dungeonForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             dungeonForm1.TabIndex = 0;
             dungeonForm1.Text = "dungeonForm1";
+            dungeonForm1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(219)))), ((int)(((byte)(210)))));
             // 
             // dungeonTextBox1
             // 
             dungeonTextBox1.BackColor = System.Drawing.Color.Transparent;
+            dungeonTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            dungeonTextBox1.EdgeColor = System.Drawing.Color.White;
             dungeonTextBox1.Font = new System.Drawing.Font("Tahoma", 11F);
             dungeonTextBox1.ForeColor = System.Drawing.Color.DimGray;
             dungeonTextBox1.Location = new System.Drawing.Point(182, 167);
@@ -115,8 +125,11 @@
             // dungeonTrackBar1
             // 
             dungeonTrackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonTrackBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             dungeonTrackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonTrackBar1.DrawValueString = false;
+            dungeonTrackBar1.EmptyBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            dungeonTrackBar1.FillBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(99)))), ((int)(((byte)(50)))));
             dungeonTrackBar1.JumpToMouse = false;
             dungeonTrackBar1.Location = new System.Drawing.Point(389, 126);
             dungeonTrackBar1.Maximum = 100;
@@ -126,6 +139,8 @@
             dungeonTrackBar1.Size = new System.Drawing.Size(100, 22);
             dungeonTrackBar1.TabIndex = 24;
             dungeonTrackBar1.Text = "dungeonTrackBar1";
+            dungeonTrackBar1.ThumbBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dungeonTrackBar1.ThumbBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             dungeonTrackBar1.Value = 50;
             dungeonTrackBar1.ValueDivison = ReaLTaiizor.DungeonTrackBar.ValueDivisor.By10;
             dungeonTrackBar1.ValueToSet = 5F;
@@ -139,6 +154,22 @@
             dungeonToggleButton4.TabIndex = 23;
             dungeonToggleButton4.Text = "dungeonToggleButton4";
             dungeonToggleButton4.Toggled = true;
+            dungeonToggleButton4.ToggledBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            dungeonToggleButton4.ToggledBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(237)))));
+            dungeonToggleButton4.ToggledBorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(89)))), ((int)(((byte)(55)))));
+            dungeonToggleButton4.ToggledBorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(89)))), ((int)(((byte)(55)))));
+            dungeonToggleButton4.ToggledBorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            dungeonToggleButton4.ToggledBorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            dungeonToggleButton4.ToggledColorA = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(58)))));
+            dungeonToggleButton4.ToggledColorB = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(113)))), ((int)(((byte)(63)))));
+            dungeonToggleButton4.ToggledColorC = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            dungeonToggleButton4.ToggledColorD = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            dungeonToggleButton4.ToggledIOColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton4.ToggledIOColorB = System.Drawing.Color.DimGray;
+            dungeonToggleButton4.ToggledOnOffColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton4.ToggledOnOffColorB = System.Drawing.Color.DimGray;
+            dungeonToggleButton4.ToggledYesNoColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton4.ToggledYesNoColorB = System.Drawing.Color.DimGray;
             dungeonToggleButton4.Type = ReaLTaiizor.DungeonToggleButton._Type.IO;
             // 
             // dungeonToggleButton3
@@ -150,6 +181,22 @@
             dungeonToggleButton3.TabIndex = 22;
             dungeonToggleButton3.Text = "dungeonToggleButton3";
             dungeonToggleButton3.Toggled = false;
+            dungeonToggleButton3.ToggledBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            dungeonToggleButton3.ToggledBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(237)))));
+            dungeonToggleButton3.ToggledBorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(89)))), ((int)(((byte)(55)))));
+            dungeonToggleButton3.ToggledBorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(89)))), ((int)(((byte)(55)))));
+            dungeonToggleButton3.ToggledBorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            dungeonToggleButton3.ToggledBorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            dungeonToggleButton3.ToggledColorA = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(58)))));
+            dungeonToggleButton3.ToggledColorB = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(113)))), ((int)(((byte)(63)))));
+            dungeonToggleButton3.ToggledColorC = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            dungeonToggleButton3.ToggledColorD = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            dungeonToggleButton3.ToggledIOColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton3.ToggledIOColorB = System.Drawing.Color.DimGray;
+            dungeonToggleButton3.ToggledOnOffColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton3.ToggledOnOffColorB = System.Drawing.Color.DimGray;
+            dungeonToggleButton3.ToggledYesNoColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton3.ToggledYesNoColorB = System.Drawing.Color.DimGray;
             dungeonToggleButton3.Type = ReaLTaiizor.DungeonToggleButton._Type.YesNo;
             // 
             // dungeonToggleButton2
@@ -161,15 +208,39 @@
             dungeonToggleButton2.TabIndex = 21;
             dungeonToggleButton2.Text = "dungeonToggleButton2";
             dungeonToggleButton2.Toggled = true;
+            dungeonToggleButton2.ToggledBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            dungeonToggleButton2.ToggledBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(237)))));
+            dungeonToggleButton2.ToggledBorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(89)))), ((int)(((byte)(55)))));
+            dungeonToggleButton2.ToggledBorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(89)))), ((int)(((byte)(55)))));
+            dungeonToggleButton2.ToggledBorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            dungeonToggleButton2.ToggledBorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            dungeonToggleButton2.ToggledColorA = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(58)))));
+            dungeonToggleButton2.ToggledColorB = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(113)))), ((int)(((byte)(63)))));
+            dungeonToggleButton2.ToggledColorC = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            dungeonToggleButton2.ToggledColorD = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            dungeonToggleButton2.ToggledIOColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton2.ToggledIOColorB = System.Drawing.Color.DimGray;
+            dungeonToggleButton2.ToggledOnOffColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton2.ToggledOnOffColorB = System.Drawing.Color.DimGray;
+            dungeonToggleButton2.ToggledYesNoColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton2.ToggledYesNoColorB = System.Drawing.Color.DimGray;
             dungeonToggleButton2.Type = ReaLTaiizor.DungeonToggleButton._Type.OnOff;
             // 
             // dungeonTabPage1
             // 
+            dungeonTabPage1.ActivePageBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            dungeonTabPage1.ActivePageBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(198)))), ((int)(((byte)(195)))));
+            dungeonTabPage1.ActivePageTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            dungeonTabPage1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             dungeonTabPage1.Controls.Add(tabPage1);
             dungeonTabPage1.Controls.Add(tabPage2);
+            dungeonTabPage1.DeactivePageTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             dungeonTabPage1.ItemSize = new System.Drawing.Size(80, 24);
             dungeonTabPage1.Location = new System.Drawing.Point(23, 210);
             dungeonTabPage1.Name = "dungeonTabPage1";
+            dungeonTabPage1.PageBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            dungeonTabPage1.PageEdgeBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(198)))), ((int)(((byte)(195)))));
+            dungeonTabPage1.PageEdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             dungeonTabPage1.SelectedIndex = 0;
             dungeonTabPage1.Size = new System.Drawing.Size(466, 283);
             dungeonTabPage1.TabIndex = 1;
@@ -219,6 +290,9 @@
             // dungeonProgressBar4
             // 
             dungeonProgressBar4.BackColor = System.Drawing.Color.Transparent;
+            dungeonProgressBar4.BackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonProgressBar4.BackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonProgressBar4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             dungeonProgressBar4.DrawHatch = false;
             dungeonProgressBar4.ForeColor = System.Drawing.Color.DimGray;
             dungeonProgressBar4.Location = new System.Drawing.Point(336, 184);
@@ -226,6 +300,9 @@
             dungeonProgressBar4.Minimum = 0;
             dungeonProgressBar4.MinimumSize = new System.Drawing.Size(58, 20);
             dungeonProgressBar4.Name = "dungeonProgressBar4";
+            dungeonProgressBar4.ProgressColorA = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(89)))), ((int)(((byte)(37)))));
+            dungeonProgressBar4.ProgressColorB = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(118)))), ((int)(((byte)(75)))));
+            dungeonProgressBar4.ProgressHatchColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dungeonProgressBar4.ShowPercentage = true;
             dungeonProgressBar4.Size = new System.Drawing.Size(153, 20);
             dungeonProgressBar4.TabIndex = 14;
@@ -236,6 +313,9 @@
             // dungeonProgressBar3
             // 
             dungeonProgressBar3.BackColor = System.Drawing.Color.Transparent;
+            dungeonProgressBar3.BackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonProgressBar3.BackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonProgressBar3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             dungeonProgressBar3.DrawHatch = true;
             dungeonProgressBar3.ForeColor = System.Drawing.Color.DimGray;
             dungeonProgressBar3.Location = new System.Drawing.Point(336, 158);
@@ -243,6 +323,9 @@
             dungeonProgressBar3.Minimum = 0;
             dungeonProgressBar3.MinimumSize = new System.Drawing.Size(58, 20);
             dungeonProgressBar3.Name = "dungeonProgressBar3";
+            dungeonProgressBar3.ProgressColorA = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(89)))), ((int)(((byte)(37)))));
+            dungeonProgressBar3.ProgressColorB = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(118)))), ((int)(((byte)(75)))));
+            dungeonProgressBar3.ProgressHatchColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dungeonProgressBar3.ShowPercentage = true;
             dungeonProgressBar3.Size = new System.Drawing.Size(153, 20);
             dungeonProgressBar3.TabIndex = 13;
@@ -253,6 +336,9 @@
             // dungeonProgressBar2
             // 
             dungeonProgressBar2.BackColor = System.Drawing.Color.Transparent;
+            dungeonProgressBar2.BackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonProgressBar2.BackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonProgressBar2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             dungeonProgressBar2.DrawHatch = false;
             dungeonProgressBar2.ForeColor = System.Drawing.Color.DimGray;
             dungeonProgressBar2.Location = new System.Drawing.Point(23, 184);
@@ -260,6 +346,9 @@
             dungeonProgressBar2.Minimum = 0;
             dungeonProgressBar2.MinimumSize = new System.Drawing.Size(58, 20);
             dungeonProgressBar2.Name = "dungeonProgressBar2";
+            dungeonProgressBar2.ProgressColorA = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(89)))), ((int)(((byte)(37)))));
+            dungeonProgressBar2.ProgressColorB = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(118)))), ((int)(((byte)(75)))));
+            dungeonProgressBar2.ProgressHatchColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dungeonProgressBar2.ShowPercentage = true;
             dungeonProgressBar2.Size = new System.Drawing.Size(153, 20);
             dungeonProgressBar2.TabIndex = 12;
@@ -270,6 +359,9 @@
             // dungeonProgressBar1
             // 
             dungeonProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            dungeonProgressBar1.BackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonProgressBar1.BackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonProgressBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             dungeonProgressBar1.DrawHatch = true;
             dungeonProgressBar1.ForeColor = System.Drawing.Color.DimGray;
             dungeonProgressBar1.Location = new System.Drawing.Point(23, 158);
@@ -277,6 +369,9 @@
             dungeonProgressBar1.Minimum = 0;
             dungeonProgressBar1.MinimumSize = new System.Drawing.Size(58, 20);
             dungeonProgressBar1.Name = "dungeonProgressBar1";
+            dungeonProgressBar1.ProgressColorA = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(89)))), ((int)(((byte)(37)))));
+            dungeonProgressBar1.ProgressColorB = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(118)))), ((int)(((byte)(75)))));
+            dungeonProgressBar1.ProgressHatchColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dungeonProgressBar1.ShowPercentage = true;
             dungeonProgressBar1.Size = new System.Drawing.Size(153, 20);
             dungeonProgressBar1.TabIndex = 11;
@@ -287,6 +382,11 @@
             // dungeonNumeric1
             // 
             dungeonNumeric1.BackColor = System.Drawing.Color.Transparent;
+            dungeonNumeric1.BackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            dungeonNumeric1.BackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            dungeonNumeric1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            dungeonNumeric1.ButtonForeColorA = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            dungeonNumeric1.ButtonForeColorB = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             dungeonNumeric1.Font = new System.Drawing.Font("Tahoma", 11F);
             dungeonNumeric1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             dungeonNumeric1.Location = new System.Drawing.Point(389, 94);
@@ -336,8 +436,12 @@
             // 
             // dungeonRadioButton2
             // 
-            dungeonRadioButton2.BackColor = System.Drawing.Color.Transparent;
+            dungeonRadioButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonRadioButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(88)))), ((int)(((byte)(55)))));
             dungeonRadioButton2.Checked = false;
+            dungeonRadioButton2.CheckedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(85)))), ((int)(((byte)(32)))));
+            dungeonRadioButton2.CheckedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(123)))), ((int)(((byte)(82)))));
+            dungeonRadioButton2.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dungeonRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonRadioButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
             dungeonRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(95)))));
@@ -366,8 +470,12 @@
             // 
             // dungeonRadioButton1
             // 
-            dungeonRadioButton1.BackColor = System.Drawing.Color.Transparent;
+            dungeonRadioButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dungeonRadioButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(88)))), ((int)(((byte)(55)))));
             dungeonRadioButton1.Checked = true;
+            dungeonRadioButton1.CheckedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(85)))), ((int)(((byte)(32)))));
+            dungeonRadioButton1.CheckedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(123)))), ((int)(((byte)(82)))));
+            dungeonRadioButton1.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dungeonRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonRadioButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
             dungeonRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(95)))));
@@ -424,12 +532,12 @@
             dungeonControlBox1.BackColor = System.Drawing.Color.Transparent;
             dungeonControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonControlBox1.DefaultLocation = true;
-            dungeonControlBox1.EnableMaximize = true;
+            dungeonControlBox1.EnableMaximize = false;
             dungeonControlBox1.EnableMinimize = true;
             dungeonControlBox1.Font = new System.Drawing.Font("Marlett", 7F);
             dungeonControlBox1.Location = new System.Drawing.Point(5, 13);
             dungeonControlBox1.Name = "dungeonControlBox1";
-            dungeonControlBox1.Size = new System.Drawing.Size(64, 22);
+            dungeonControlBox1.Size = new System.Drawing.Size(44, 22);
             dungeonControlBox1.TabIndex = 0;
             dungeonControlBox1.Text = "dungeonControlBox1";
             // 
@@ -443,6 +551,22 @@
             dungeonToggleButton1.TabIndex = 20;
             dungeonToggleButton1.Text = "dungeonToggleButton1";
             dungeonToggleButton1.Toggled = false;
+            dungeonToggleButton1.ToggledBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            dungeonToggleButton1.ToggledBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(237)))));
+            dungeonToggleButton1.ToggledBorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(89)))), ((int)(((byte)(55)))));
+            dungeonToggleButton1.ToggledBorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(89)))), ((int)(((byte)(55)))));
+            dungeonToggleButton1.ToggledBorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            dungeonToggleButton1.ToggledBorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            dungeonToggleButton1.ToggledColorA = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(58)))));
+            dungeonToggleButton1.ToggledColorB = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(113)))), ((int)(((byte)(63)))));
+            dungeonToggleButton1.ToggledColorC = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            dungeonToggleButton1.ToggledColorD = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            dungeonToggleButton1.ToggledIOColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton1.ToggledIOColorB = System.Drawing.Color.DimGray;
+            dungeonToggleButton1.ToggledOnOffColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton1.ToggledOnOffColorB = System.Drawing.Color.DimGray;
+            dungeonToggleButton1.ToggledYesNoColorA = System.Drawing.Color.WhiteSmoke;
+            dungeonToggleButton1.ToggledYesNoColorB = System.Drawing.Color.DimGray;
             dungeonToggleButton1.Type = ReaLTaiizor.DungeonToggleButton._Type.OnOff;
             // 
             // Form4

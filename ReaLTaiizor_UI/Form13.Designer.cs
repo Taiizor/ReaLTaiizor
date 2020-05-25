@@ -116,6 +116,7 @@
             foreverForm1.ForeverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             foreverForm1.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverForm1.HeaderMaximize = true;
+            foreverForm1.HeaderTextFont = new System.Drawing.Font("Segoe UI", 12F);
             foreverForm1.Image = ((System.Drawing.Image)(resources.GetObject("foreverForm1.Image")));
             foreverForm1.Location = new System.Drawing.Point(0, 0);
             foreverForm1.MinimumSize = new System.Drawing.Size(210, 50);
