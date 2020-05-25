@@ -25,10 +25,25 @@ namespace ReaLTaiizor
         private HorizontalAlignment ALNType;
         private bool isPasswordMasked = false;
         private Pen P1;
+        private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private SolidBrush B1;
+        private Color _EdgeColor = Color.White;
 
         #endregion
+
         #region Properties
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        public Color EdgeColor
+        {
+            get { return _EdgeColor; }
+            set { _EdgeColor = value; }
+        }
 
         public HorizontalAlignment TextAlignment
         {
@@ -60,6 +75,7 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
         public bool ReadOnly
         {
             get { return _ReadOnly; }
@@ -67,11 +83,10 @@ namespace ReaLTaiizor
             {
                 _ReadOnly = value;
                 if (DungeonTB != null)
-                {
                     DungeonTB.ReadOnly = value;
-                }
             }
         }
+
         public bool Multiline
         {
             get { return _Multiline; }
@@ -83,18 +98,15 @@ namespace ReaLTaiizor
                     DungeonTB.Multiline = value;
 
                     if (value)
-                    {
                         DungeonTB.Height = Height - 10;
-                    }
                     else
-                    {
                         Height = DungeonTB.Height + 10;
-                    }
                 }
             }
         }
 
         #endregion
+
         #region EventArgs
 
         protected override void OnTextChanged(EventArgs e)
@@ -181,6 +193,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
+
         public void AddTextBox()
         {
             var _TB = DungeonTB;
@@ -189,7 +202,7 @@ namespace ReaLTaiizor
             _TB.Text = String.Empty;
             _TB.BorderStyle = BorderStyle.None;
             _TB.TextAlign = HorizontalAlignment.Left;
-            _TB.Font = new Font("Tahoma", 11);
+            _TB.Font = Font;
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;
             _TB.Multiline = false;
             DungeonTB.KeyDown += _OnKeyDown;
@@ -207,8 +220,8 @@ namespace ReaLTaiizor
             AddTextBox();
             Controls.Add(DungeonTB);
 
-            P1 = new Pen(Color.FromArgb(180, 180, 180)); // P1 = Border color
-            B1 = new SolidBrush(Color.White); // B1 = Rect Background color
+            P1 = new Pen(_BorderColor); // P1 = Border color
+            B1 = new SolidBrush(_EdgeColor); // B1 = Rect Background color
             BackColor = Color.Transparent;
             ForeColor = Color.DimGray;
 
@@ -217,6 +230,7 @@ namespace ReaLTaiizor
             Size = new Size(135, 33);
             DoubleBuffered = true;
         }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -230,7 +244,7 @@ namespace ReaLTaiizor
             _TB.TextAlign = TextAlignment;
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;
 
-            G.Clear(Color.Transparent);
+            G.Clear(BackColor);
             G.FillPath(B1, Shape); // Draw background
             G.DrawPath(P1, Shape); // Draw border
 
