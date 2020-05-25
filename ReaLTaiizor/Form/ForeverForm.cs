@@ -112,6 +112,13 @@ namespace ReaLTaiizor
 			set { _Sizable = value; }
 		}
 
+		[Category("Options")]
+		public Font HeaderTextFont
+		{
+			get { return _HeaderTextFont; }
+			set { _HeaderTextFont = value; }
+		}
+
 		protected override void WndProc(ref Message m)
 		{
 			base.WndProc(ref m);
@@ -240,9 +247,11 @@ namespace ReaLTaiizor
 		private Color _ForeverColor = ForeverLibrary.ForeverColor;
 		private Color _TextColor = Color.FromArgb(234, 234, 234);
 
+		private Font _HeaderTextFont = new Font("Segoe UI", 12);
+
 		private Color _HeaderLight = Color.FromArgb(171, 171, 172);
 		private Color _BaseLight = Color.FromArgb(196, 199, 200);
-		public Color _TextLight = Color.FromArgb(45, 47, 49);
+		public Color _TextLight = Color.SeaGreen;
 
 		public ForeverForm()
 		{
@@ -282,12 +291,12 @@ namespace ReaLTaiizor
 			{
 				_with2.FillRectangle(new SolidBrush(_TextLight), new Rectangle(8, 16, 4, 18));
 				_with2.FillRectangle(new SolidBrush(_ForeverColor), 16, 16, 4, 18);
-				_with2.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(26, 15, W, H), ForeverLibrary.NearSF);
+				_with2.DrawString(Text, _HeaderTextFont, new SolidBrush(_TextColor), new Rectangle(26, 15, W, H), ForeverLibrary.NearSF);
 			}
 			else
 			{
 				_with2.DrawImage(_Image, 12, 12, 27, 27);
-				_with2.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(48, 15, W, H), ForeverLibrary.NearSF);
+				_with2.DrawString(Text, _HeaderTextFont, new SolidBrush(_TextColor), new Rectangle(48, 15, W, H), ForeverLibrary.NearSF);
 			}
 
 			//-- Border

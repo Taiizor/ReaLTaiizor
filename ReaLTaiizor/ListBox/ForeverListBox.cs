@@ -52,7 +52,11 @@ namespace ReaLTaiizor
 
 		public string SelectedItem
 		{
-			get { return ListBx.SelectedItem.ToString(); }
+			get
+			{
+				//return ListBx.SelectedItem.ToString();
+				return (string)ListBx.Items[SelectedIndex];
+			}
 		}
 
 		public int SelectedIndex
@@ -60,7 +64,7 @@ namespace ReaLTaiizor
 			get
 			{
 				int functionReturnValue = 0;
-				return ListBx.SelectedIndex;
+				//return ListBx.SelectedIndex;
 				if (ListBx.SelectedIndex < 0)
 					return functionReturnValue;
 				return functionReturnValue;
@@ -114,10 +118,8 @@ namespace ReaLTaiizor
 		protected override void OnCreateControl()
 		{
 			base.OnCreateControl();
-			if (!Controls.Contains(ListBx))
-			{
+            if (!Controls.Contains(ListBx))
 				Controls.Add(ListBx);
-			}
 		}
 
 		public void AddRange(object[] items)

@@ -27,6 +27,7 @@ namespace ReaLTaiizor
         }
 
         #endregion
+
         #region Variables
 
         private GraphicsPath PipeBorder;
@@ -46,8 +47,45 @@ namespace ReaLTaiizor
         private bool _JumpToMouse = false;
         private ValueDivisor DividedValue = ValueDivisor.By1;
 
+        private Color _EmptyBackColor = Color.FromArgb(221, 221, 221);
+        private Color _BorderColor = Color.FromArgb(200, 200, 200);
+        private Color _FillBackColor = Color.FromArgb(217, 99, 50);
+        private Color _ThumbBackColor = Color.FromArgb(244, 244, 244);
+        private Color _ThumbBorderColor = Color.FromArgb(180, 180, 180);
+
         #endregion
+
         #region Properties
+
+        public Color EmptyBackColor
+        {
+            get { return _EmptyBackColor; }
+            set { _EmptyBackColor = value; }
+        }
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        public Color FillBackColor
+        {
+            get { return _FillBackColor; }
+            set { _FillBackColor = value; }
+        }
+
+        public Color ThumbBackColor
+        {
+            get { return _ThumbBackColor; }
+            set { _ThumbBackColor = value; }
+        }
+
+        public Color ThumbBorderColor
+        {
+            get { return _ThumbBorderColor; }
+            set { _ThumbBorderColor = value; }
+        }
 
         public int Minimum
         {
@@ -59,13 +97,9 @@ namespace ReaLTaiizor
             {
 
                 if (value >= _Maximum)
-                {
                     value = _Maximum - 10;
-                }
                 if (_Value < value)
-                {
                     _Value = value;
-                }
 
                 _Minimum = value;
                 Invalidate();
@@ -82,13 +116,9 @@ namespace ReaLTaiizor
             {
 
                 if (value <= _Minimum)
-                {
                     value = _Minimum + 10;
-                }
                 if (_Value > value)
-                {
                     _Value = value;
-                }
 
                 _Maximum = value;
                 Invalidate();
@@ -121,23 +151,16 @@ namespace ReaLTaiizor
                 if (_Value != value)
                 {
                     if (value < _Minimum)
-                    {
                         _Value = _Minimum;
-                    }
                     else
                     {
                         if (value > _Maximum)
-                        {
                             _Value = _Maximum;
-                        }
                         else
-                        {
                             _Value = value;
-                        }
                     }
                     Invalidate();
-                    if (ValueChangedEvent != null)
-                        ValueChangedEvent();
+                    ValueChangedEvent?.Invoke();
                 }
             }
         }
@@ -191,18 +214,15 @@ namespace ReaLTaiizor
             {
                 _DrawValueString = value;
                 if (_DrawValueString == true)
-                {
                     Height = 35;
-                }
                 else
-                {
                     Height = 22;
-                }
                 Invalidate();
             }
         }
 
         #endregion
+
         #region EventArgs
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -251,6 +271,7 @@ namespace ReaLTaiizor
         {
             SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer), true);
 
+            Cursor = Cursors.Hand;
             Size = new Size(80, 22);
             MinimumSize = new Size(47, 22);
         }
@@ -258,14 +279,10 @@ namespace ReaLTaiizor
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            if (_DrawValueString == true)
-            {
-                Height = 35;
-            }
+            if (_DrawValueString)
+                Height = 40;
             else
-            {
                 Height = 22;
-            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -289,17 +306,17 @@ namespace ReaLTaiizor
             TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 10, 20);
 
             G.SetClip(PipeBorder); // Set the clipping region of this Graphics to the specified GraphicsPath
-            G.FillPath(new SolidBrush(Color.FromArgb(221, 221, 221)), PipeBorder);
+            G.FillPath(new SolidBrush(_EmptyBackColor), PipeBorder);
             FillValue = RoundRectangle.RoundRect(1, 8, TrackBarHandleRect.X + TrackBarHandleRect.Width - 4, 5, 2);
 
             G.ResetClip(); // Reset the clip region of this Graphics to an infinite region
 
             G.SmoothingMode = SmoothingMode.HighQuality;
-            G.DrawPath(new Pen(Color.FromArgb(200, 200, 200)), PipeBorder); // Draw pipe border
-            G.FillPath(new SolidBrush(Color.FromArgb(217, 99, 50)), FillValue);
+            G.DrawPath(new Pen(_BorderColor), PipeBorder); // Draw pipe border
+            G.FillPath(new SolidBrush(_FillBackColor), FillValue);
 
-            G.FillEllipse(new SolidBrush(Color.FromArgb(244, 244, 244)), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
-            G.DrawEllipse(new Pen(Color.FromArgb(180, 180, 180)), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.FillEllipse(new SolidBrush(_ThumbBackColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.DrawEllipse(new Pen(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)
                 G.DrawString(Convert.ToString(ValueToSet), Font, Brushes.DimGray, 1, 20);
