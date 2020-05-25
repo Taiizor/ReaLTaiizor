@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region Chat Bubble Right
+    #region ChatBubbleRight
 
     public class ChatBubbleRight : Control
     {
@@ -19,6 +19,9 @@ namespace ReaLTaiizor
         private Color _TextColor = Color.FromArgb(52, 52, 52);
         private Color _BubbleColor = Color.FromArgb(192, 206, 215);
         private bool _DrawBubbleArrow = true;
+        private bool _SizeAuto = true;
+        private bool _SizeAutoW = true;
+        private bool _SizeAutoH = true;
 
         #endregion
         #region Properties
@@ -53,13 +56,43 @@ namespace ReaLTaiizor
             }
         }
 
+        public bool SizeAuto
+        {
+            get { return _SizeAuto; }
+            set
+            {
+                _SizeAuto = value;
+                Invalidate();
+            }
+        }
+
+        public bool SizeAutoW
+        {
+            get { return _SizeAutoW; }
+            set
+            {
+                _SizeAutoW = value;
+                Invalidate();
+            }
+        }
+
+        public bool SizeAutoH
+        {
+            get { return _SizeAutoH; }
+            set
+            {
+                _SizeAutoH = value;
+                Invalidate();
+            }
+        }
+
         #endregion
 
         public ChatBubbleRight()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
             DoubleBuffered = true;
-            Size = new Size(152, 38);
+            Size = new Size(130, 40);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(52, 52, 52);
             Font = new Font("Segoe UI", 10);
@@ -83,6 +116,20 @@ namespace ReaLTaiizor
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
+            if (_SizeAuto)
+            {
+                if (_SizeAutoW && _SizeAutoH)
+                {
+                    Width = TextRenderer.MeasureText(Text, Font).Width + 15;
+                    Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+                }
+                else if (_SizeAutoW)
+                    Width = TextRenderer.MeasureText(Text, Font).Width + 15;
+                else
+                    Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+            }
+
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
@@ -94,16 +141,17 @@ namespace ReaLTaiizor
             // Fill the body of the bubble with the specified color
             _G.FillPath(new SolidBrush(_BubbleColor), Shape);
             // Draw the string specified in 'Text' property
-            _G.DrawString(Text, Font, new SolidBrush(ForeColor), (new Rectangle(6, 4, Width - 15, Height)));
+            _G.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(6, 7, Width - 15, Height));
 
             // Draw a polygon on the right side of the bubble
             if (_DrawBubbleArrow == true)
             {
-                Point[] p = {
-            new Point(Width - 8, Height - 19),
-            new Point(Width, Height - 25),
-            new Point(Width - 8, Height - 30)
-        };
+                Point[] p =
+                {
+                    new Point(Width - 8, Height - 19),
+                    new Point(Width, Height - 25),
+                    new Point(Width - 8, Height - 30)
+                };
                 _G.FillPolygon(new SolidBrush(_BubbleColor), p);
                 _G.DrawPolygon(new Pen(new SolidBrush(_BubbleColor)), p);
             }

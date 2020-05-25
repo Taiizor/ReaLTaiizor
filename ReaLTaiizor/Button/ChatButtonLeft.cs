@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor
 {
-    #region Button 1
+    #region ChatButtonLeft
 
     public class ChatButtonLeft : Control
     {
@@ -19,8 +19,14 @@ namespace ReaLTaiizor
         private int MouseState;
         private GraphicsPath Shape;
         private LinearGradientBrush InactiveGB;
+        private Color _InactiveColorA = Color.FromArgb(251, 251, 251);
+        private Color _InactiveColorB = Color.FromArgb(225, 225, 225);
         private LinearGradientBrush PressedGB;
+        private Color _PressedColorA = Color.FromArgb(235, 235, 235);
+        private Color _PressedColorB = Color.FromArgb(223, 223, 223);
         private LinearGradientBrush PressedContourGB;
+        private Color _PressedContourColorA = Color.FromArgb(167, 167, 167);
+        private Color _PressedContourColorB = Color.FromArgb(167, 167, 167);
         private Rectangle R1;
         private Pen P1;
         private Pen P3;
@@ -196,6 +202,42 @@ namespace ReaLTaiizor
             base.OnTextChanged(e);
         }
 
+        public Color InactiveColorA
+        {
+            get { return _InactiveColorA; }
+            set { _InactiveColorA = value; }
+        }
+
+        public Color InactiveColorB
+        {
+            get { return _InactiveColorB; }
+            set { _InactiveColorB = value; }
+        }
+
+        public Color PressedColorA
+        {
+            get { return _PressedColorA; }
+            set { _PressedColorA = value; }
+        }
+
+        public Color PressedColorB
+        {
+            get { return _PressedColorB; }
+            set { _PressedColorB = value; }
+        }
+
+        public Color PressedContourColorA
+        {
+            get { return _PressedContourColorA; }
+            set { _PressedContourColorA = value; }
+        }
+
+        public Color PressedContourColorB
+        {
+            get { return _PressedContourColorB; }
+            set { _PressedContourColorB = value; }
+        }
+
         #endregion
 
         public ChatButtonLeft()
@@ -219,9 +261,9 @@ namespace ReaLTaiizor
                 Shape = new GraphicsPath();
                 R1 = new Rectangle(0, 0, Width, Height);
 
-                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(251, 251, 251), Color.FromArgb(225, 225, 225), 90f);
-                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(235, 235, 235), Color.FromArgb(223, 223, 223), 90f);
-                PressedContourGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.FromArgb(167, 167, 167), Color.FromArgb(167, 167, 167), 90f);
+                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
+                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
+                PressedContourGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
 
                 P3 = new Pen(PressedContourGB);
             }
