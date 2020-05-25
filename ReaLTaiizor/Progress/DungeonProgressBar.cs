@@ -18,6 +18,7 @@ namespace ReaLTaiizor
 
         public enum Alignment
         {
+            Left,
             Right,
             Center
         }
@@ -41,8 +42,51 @@ namespace ReaLTaiizor
         private LinearGradientBrush GB2;
         private int I1;
 
+        private Color _BorderColor = Color.FromArgb(180, 180, 180);
+        private Color _BackColorA = Color.FromArgb(244, 241, 243);
+        private Color _BackColorB = Color.FromArgb(244, 241, 243);
+        private Color _ProgressColorA = Color.FromArgb(214, 89, 37);
+        private Color _ProgressColorB = Color.FromArgb(223, 118, 75);
+        private Color _ProgressHatchColor = Color.FromArgb(25, 255, 255, 255);
+
         #endregion
-        #region Properties 
+        #region Properties
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        public Color BackColorA
+        {
+            get { return _BackColorA; }
+            set { _BackColorA = value; }
+        }
+
+        public Color BackColorB
+        {
+            get { return _BackColorB; }
+            set { _BackColorB = value; }
+        }
+
+        public Color ProgressColorA
+        {
+            get { return _ProgressColorA; }
+            set { _ProgressColorA = value; }
+        }
+
+        public Color ProgressColorB
+        {
+            get { return _ProgressColorB; }
+            set { _ProgressColorB = value; }
+        }
+
+        public Color ProgressHatchColor
+        {
+            get { return _ProgressHatchColor; }
+            set { _ProgressHatchColor = value; }
+        }
 
         public int Maximum
         {
@@ -165,12 +209,12 @@ namespace ReaLTaiizor
             GP2 = RoundRectangle.RoundRect(new Rectangle(1, 1, Width - 3, Height - 3), 4);
 
             R1 = new Rectangle(0, 2, Width - 1, Height - 1);
-            GB1 = new LinearGradientBrush(R1, Color.FromArgb(255, 255, 255), Color.FromArgb(230, 230, 230), 90f);
+            //GB1 = new LinearGradientBrush(R1, Color.FromArgb(255, 255, 255), Color.FromArgb(230, 230, 230), 90f);
 
             // Draw inside background
-            G.FillRectangle(new SolidBrush(Color.FromArgb(244, 241, 243)), R1);
+            G.FillRectangle(new SolidBrush(_BackColorA), R1);
             G.SetClip(GP1);
-            G.FillPath(new SolidBrush(Color.FromArgb(244, 241, 243)), RoundRectangle.RoundRect(new Rectangle(1, 1, Width - 3, Height / 2 - 2), 4));
+            G.FillPath(new SolidBrush(_BackColorB), RoundRectangle.RoundRect(new Rectangle(1, 1, Width - 3, Height / 2 - 2), 4));
 
 
             I1 = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 3));
@@ -179,7 +223,7 @@ namespace ReaLTaiizor
                 GP3 = RoundRectangle.RoundRect(new Rectangle(1, 1, I1, Height - 3), 4);
 
                 R2 = new Rectangle(1, 1, I1, Height - 3);
-                GB2 = new LinearGradientBrush(R2, Color.FromArgb(214, 89, 37), Color.FromArgb(223, 118, 75), 90f);
+                GB2 = new LinearGradientBrush(R2, _ProgressColorA, _ProgressColorB, 90f);
 
                 // Fill the value with its gradient
                 G.FillPath(GB2, GP3);
@@ -188,7 +232,7 @@ namespace ReaLTaiizor
                 if (_DrawHatch == true)
                 {
                     for (var i = 0; i <= (Width - 1) * _Maximum / _Value; i += 20)
-                        G.DrawLine(new Pen(new SolidBrush(Color.FromArgb(25, Color.White)), 10.0F), new Point(Convert.ToInt32(i), 0), new Point((int)(i - 10), Height));
+                        G.DrawLine(new Pen(new SolidBrush(_ProgressHatchColor), 10.0F), new Point(Convert.ToInt32(i), 0), new Point((int)(i - 10), Height));
                 }
 
                 G.SetClip(GP3);
@@ -199,15 +243,28 @@ namespace ReaLTaiizor
 
             // Draw value as a string
             string DrawString = Convert.ToString(Convert.ToInt32(Value)) + "%";
-            int textX = (int)(Width - G.MeasureString(DrawString, Font).Width - 1);
-            int textY = (int)((Height / 2) - (Convert.ToInt32(G.MeasureString(DrawString, Font).Height / 2) - 2));
+            /*
+                int textX = (int)(Width - G.MeasureString(DrawString, Font).Width - 1);
+                int textY = (int)((Height / 2) - (Convert.ToInt32(G.MeasureString(DrawString, Font).Height / 2) - 2));
+            */
 
             if (_ShowPercentage == true)
             {
                 switch (ValueAlignment)
                 {
+                    case Alignment.Left:
+                        G.DrawString(DrawString, new Font("Segoe UI", 8), new SolidBrush(ForeColor), new Rectangle(0, 0, Width, Height + 2), new StringFormat
+                        {
+                            Alignment = StringAlignment.Near,
+                            LineAlignment = StringAlignment.Center
+                        });
+                        break;
                     case Alignment.Right:
-                        G.DrawString(DrawString, new Font("Segoe UI", 8), new SolidBrush(ForeColor), new Point(textX, textY));
+                        G.DrawString(DrawString, new Font("Segoe UI", 8), new SolidBrush(ForeColor), new Rectangle(0, 0, Width, Height + 2), new StringFormat
+                        {
+                            Alignment = StringAlignment.Far,
+                            LineAlignment = StringAlignment.Center
+                        });
                         break;
                     case Alignment.Center:
                         G.DrawString(DrawString, new Font("Segoe UI", 8), new SolidBrush(ForeColor), new Rectangle(0, 0, Width, Height + 2), new StringFormat
@@ -220,7 +277,7 @@ namespace ReaLTaiizor
             }
 
             // Draw border
-            G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), GP2);
+            G.DrawPath(new Pen(_BorderColor), GP2);
 
             e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);
             G.Dispose();
