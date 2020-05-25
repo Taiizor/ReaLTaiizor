@@ -241,7 +241,7 @@
             hopeRadioButton1.ForeColor = System.Drawing.Color.SeaGreen;
             hopeRadioButton1.Location = new System.Drawing.Point(327, 352);
             hopeRadioButton1.Name = "hopeRadioButton1";
-            hopeRadioButton1.Size = new System.Drawing.Size(167, 20);
+            hopeRadioButton1.Size = new System.Drawing.Size(25, 20);
             hopeRadioButton1.TabIndex = 18;
             hopeRadioButton1.TabStop = true;
             hopeRadioButton1.Text = "hopeRadioButton1";
@@ -254,33 +254,43 @@
             hopeRadioButton2.ForeColor = System.Drawing.Color.SeaGreen;
             hopeRadioButton2.Location = new System.Drawing.Point(327, 378);
             hopeRadioButton2.Name = "hopeRadioButton2";
-            hopeRadioButton2.Size = new System.Drawing.Size(167, 20);
+            hopeRadioButton2.Size = new System.Drawing.Size(25, 20);
             hopeRadioButton2.TabIndex = 19;
             hopeRadioButton2.Text = "hopeRadioButton2";
             // 
             // hopeCheckBox1
             // 
             hopeCheckBox1.Checked = true;
+            hopeCheckBox1.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
+            hopeCheckBox1.CheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
             hopeCheckBox1.CheckedColor = System.Drawing.Color.Crimson;
+            hopeCheckBox1.CheckedDisabledColor = System.Drawing.Color.Gray;
+            hopeCheckBox1.CheckedEnabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             hopeCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeCheckBox1.Enable = true;
             hopeCheckBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             hopeCheckBox1.Location = new System.Drawing.Point(337, 300);
             hopeCheckBox1.Name = "hopeCheckBox1";
-            hopeCheckBox1.Size = new System.Drawing.Size(147, 20);
+            hopeCheckBox1.Size = new System.Drawing.Size(25, 20);
             hopeCheckBox1.TabIndex = 20;
             hopeCheckBox1.Text = "hopeCheckBox1";
             // 
             // hopeCheckBox2
             // 
             hopeCheckBox2.Checked = false;
+            hopeCheckBox2.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
+            hopeCheckBox2.CheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
             hopeCheckBox2.CheckedColor = System.Drawing.Color.Crimson;
+            hopeCheckBox2.CheckedDisabledColor = System.Drawing.Color.Gray;
+            hopeCheckBox2.CheckedEnabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             hopeCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeCheckBox2.Enable = true;
             hopeCheckBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeCheckBox2.ForeColor = System.Drawing.Color.SeaGreen;
             hopeCheckBox2.Location = new System.Drawing.Point(337, 326);
             hopeCheckBox2.Name = "hopeCheckBox2";
-            hopeCheckBox2.Size = new System.Drawing.Size(147, 20);
+            hopeCheckBox2.Size = new System.Drawing.Size(25, 20);
             hopeCheckBox2.TabIndex = 21;
             hopeCheckBox2.Text = "hopeCheckBox2";
             // 

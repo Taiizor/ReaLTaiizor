@@ -303,6 +303,15 @@
             // dungeonComboBox1
             // 
             dungeonComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            dungeonComboBox1.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(132)))), ((int)(((byte)(85)))));
+            dungeonComboBox1.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(57)))));
+            dungeonComboBox1.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+            dungeonComboBox1.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            dungeonComboBox1.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
+            dungeonComboBox1.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            dungeonComboBox1.ColorG = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(118)))));
+            dungeonComboBox1.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
+            dungeonComboBox1.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             dungeonComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             dungeonComboBox1.DropDownHeight = 100;
@@ -340,8 +349,12 @@
             // 
             // dungeonCheckBox1
             // 
-            dungeonCheckBox1.BackColor = System.Drawing.Color.Transparent;
+            dungeonCheckBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             dungeonCheckBox1.Checked = false;
+            dungeonCheckBox1.CheckedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(85)))), ((int)(((byte)(32)))));
+            dungeonCheckBox1.CheckedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(123)))), ((int)(((byte)(82)))));
+            dungeonCheckBox1.CheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(88)))), ((int)(((byte)(55)))));
+            dungeonCheckBox1.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dungeonCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonCheckBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             dungeonCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(95)))));
@@ -367,12 +380,19 @@
             // dungeonButtonRight1
             // 
             dungeonButtonRight1.BackColor = System.Drawing.Color.Transparent;
+            dungeonButtonRight1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(120)))), ((int)(((byte)(101)))));
             dungeonButtonRight1.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonButtonRight1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             dungeonButtonRight1.Image = null;
             dungeonButtonRight1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            dungeonButtonRight1.InactiveColorA = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(175)))), ((int)(((byte)(143)))));
+            dungeonButtonRight1.InactiveColorB = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(146)))), ((int)(((byte)(106)))));
             dungeonButtonRight1.Location = new System.Drawing.Point(206, 59);
             dungeonButtonRight1.Name = "dungeonButtonRight1";
+            dungeonButtonRight1.PressedColorA = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(146)))), ((int)(((byte)(106)))));
+            dungeonButtonRight1.PressedColorB = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(146)))), ((int)(((byte)(106)))));
+            dungeonButtonRight1.PressedContourColorA = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(120)))), ((int)(((byte)(101)))));
+            dungeonButtonRight1.PressedContourColorB = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(120)))), ((int)(((byte)(101)))));
             dungeonButtonRight1.Size = new System.Drawing.Size(177, 30);
             dungeonButtonRight1.TabIndex = 2;
             dungeonButtonRight1.Text = "dungeonButtonRight1";
@@ -381,12 +401,19 @@
             // dungeonButtonLeft1
             // 
             dungeonButtonLeft1.BackColor = System.Drawing.Color.Transparent;
+            dungeonButtonLeft1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             dungeonButtonLeft1.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonButtonLeft1.Font = new System.Drawing.Font("Segoe UI", 12F);
             dungeonButtonLeft1.Image = null;
             dungeonButtonLeft1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            dungeonButtonLeft1.InactiveColorA = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            dungeonButtonLeft1.InactiveColorB = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(237)))), ((int)(((byte)(236)))));
             dungeonButtonLeft1.Location = new System.Drawing.Point(23, 59);
             dungeonButtonLeft1.Name = "dungeonButtonLeft1";
+            dungeonButtonLeft1.PressedColorA = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            dungeonButtonLeft1.PressedColorB = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            dungeonButtonLeft1.PressedContourColorA = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
+            dungeonButtonLeft1.PressedContourColorB = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(167)))), ((int)(((byte)(167)))));
             dungeonButtonLeft1.Size = new System.Drawing.Size(177, 30);
             dungeonButtonLeft1.TabIndex = 1;
             dungeonButtonLeft1.Text = "dungeonButtonLeft1";
@@ -397,12 +424,12 @@
             dungeonControlBox1.BackColor = System.Drawing.Color.Transparent;
             dungeonControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             dungeonControlBox1.DefaultLocation = true;
-            dungeonControlBox1.EnableMaximize = false;
+            dungeonControlBox1.EnableMaximize = true;
             dungeonControlBox1.EnableMinimize = true;
             dungeonControlBox1.Font = new System.Drawing.Font("Marlett", 7F);
             dungeonControlBox1.Location = new System.Drawing.Point(5, 13);
             dungeonControlBox1.Name = "dungeonControlBox1";
-            dungeonControlBox1.Size = new System.Drawing.Size(44, 22);
+            dungeonControlBox1.Size = new System.Drawing.Size(64, 22);
             dungeonControlBox1.TabIndex = 0;
             dungeonControlBox1.Text = "dungeonControlBox1";
             // 

@@ -396,6 +396,8 @@
             // foreverComboBox1
             // 
             foreverComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            foreverComboBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
+            foreverComboBox1.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             foreverComboBox1.DisplayMember = "1";
             foreverComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
