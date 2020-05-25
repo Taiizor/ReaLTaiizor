@@ -59,7 +59,7 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ### Gök Gürültüsü
 
-![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OxyR.png)
+![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/25/dMLF.png)
 
 ### Ay
 

@@ -59,7 +59,7 @@ Step 2：Enjoy designing
 
 ### Thunder
 
-![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OxyR.png)
+![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/25/dMLF.png)
 
 ### Moon
 
