@@ -19,6 +19,13 @@ namespace ReaLTaiizor
 
         private string B64;
 
+        private Color _BorderColor = Color.White;
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
         public AloneNotice()
         {
             B64 = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABL0lEQVQ4T5VT0VGDQBB9e2cBdGBSgTIDEr9MCw7pI0kFtgB9yFiC+KWMmREqMOnAAuDWOfAiudzhyA/svtvH7Xu7BOv5eH2atVKtwbwk0LWGGVyDqLzoRB7e3u/HJTQOdm+PGYjWNuk4ZkIW36RbkzsS7KqiBnB1Usw49DHh8oQEXMfJKhwgAM4/Mw7RIp0NeLG3ScCcR4vVhnTPnVCf9rUZeImTdKnz71VREnBnn5FKzMnX95jA2V6vLufkBQFESTq0WBXsEla7owmcoC6QJMKW2oCUePY5M0lAjK0iBAQ8TBGc2/d7+uvnM/AQNF4Rp4bpiGkRfTb2Gigx12+XzQb3D9JfBGaQzHWm7HS000RJ2i/av5fJjPDZMplErwl1GxDpMTbL1YC5lCwze52/AQFekh7wKBpGAAAAAElFTkSuQmCC";
@@ -44,10 +51,10 @@ namespace ReaLTaiizor
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
-            G.Clear(Color.White);
+            G.Clear(_BorderColor);
             using (SolidBrush solidBrush = new SolidBrush(BackColor))
             {
-                using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#F2F3F7")))
+                using (Pen pen = new Pen(_BorderColor))
                 {
                     using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
                     {

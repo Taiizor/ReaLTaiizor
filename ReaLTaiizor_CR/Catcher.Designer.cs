@@ -29,22 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catcher));
-            this.SuspendLayout();
+            aloneTextBox1 = new ReaLTaiizor.AloneTextBox();
+            SuspendLayout();
+            // 
+            // aloneTextBox1
+            // 
+            aloneTextBox1.BackColor = System.Drawing.Color.White;
+            aloneTextBox1.EnabledCalc = true;
+            aloneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            aloneTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            aloneTextBox1.Location = new System.Drawing.Point(104, 201);
+            aloneTextBox1.MaxLength = 32767;
+            aloneTextBox1.MultiLine = false;
+            aloneTextBox1.Name = "aloneTextBox1";
+            aloneTextBox1.ReadOnly = false;
+            aloneTextBox1.Size = new System.Drawing.Size(159, 54);
+            aloneTextBox1.TabIndex = 0;
+            aloneTextBox1.Text = "aloneTextBox1";
+            aloneTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            aloneTextBox1.UseSystemPasswordChar = false;
             // 
             // Catcher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(398, 473);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Catcher";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Catcher";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            ClientSize = new System.Drawing.Size(398, 473);
+            Controls.Add(aloneTextBox1);
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            Name = "Catcher";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Catcher";
+            ResumeLayout(false);
 
         }
 
         #endregion
+
+        private ReaLTaiizor.AloneTextBox aloneTextBox1;
     }
 }
