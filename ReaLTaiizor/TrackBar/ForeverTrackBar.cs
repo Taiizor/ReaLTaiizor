@@ -27,7 +27,7 @@ namespace ReaLTaiizor
 		protected override void OnMouseDown(MouseEventArgs e)
 		{
 			base.OnMouseDown(e);
-			if (e.Button == System.Windows.Forms.MouseButtons.Left)
+			if (e.Button == MouseButtons.Left)
 			{
 				Val = Convert.ToInt32((float)(_Value - _Minimum) / (float)(_Maximum - _Minimum) * (float)(Width - 11));
 				Track = new Rectangle(Val, 0, 10, 20);
@@ -76,6 +76,20 @@ namespace ReaLTaiizor
 			set { _HatchColor = value; }
 		}
 
+		[Category("Colors")]
+		public Color SliderColor
+		{
+			get { return _SliderColor; }
+			set { _SliderColor = value; }
+		}
+
+		[Category("Colors")]
+		public Color BaseColor
+		{
+			get { return _BaseColor; }
+			set { _BaseColor = value; }
+		}
+
 		public event ScrollEventHandler Scroll;
 		public delegate void ScrollEventHandler(object sender);
 
@@ -90,8 +104,7 @@ namespace ReaLTaiizor
 			set
 			{
 				if (value < 0)
-				{
-				}
+					_Value = 0;
 
 				_Minimum = value;
 
@@ -110,8 +123,7 @@ namespace ReaLTaiizor
 			set
 			{
 				if (value < 0)
-				{
-				}
+					_Value = 0;
 
 				_Maximum = value;
 				if (value < _Value)
@@ -133,6 +145,10 @@ namespace ReaLTaiizor
 
 				if (value > _Maximum || value < _Minimum)
 				{
+					if (value > _Maximum)
+						_Value = Maximum;
+					else
+						_Value = _Minimum;
 				}
 
 				_Value = value;
@@ -177,9 +193,9 @@ namespace ReaLTaiizor
 			Height = 23;
 		}
 
-		private Color BaseColor = Color.FromArgb(45, 47, 49);
+		private Color _BaseColor = Color.FromArgb(45, 47, 49);
 		private Color _TrackColor = ForeverLibrary.ForeverColor;
-		private Color SliderColor = Color.FromArgb(25, 27, 29);
+		private Color _SliderColor = Color.FromArgb(25, 27, 29);
 		private Color _HatchColor = Color.FromArgb(23, 148, 92);
 
 		public ForeverTrackBar()
@@ -190,6 +206,8 @@ namespace ReaLTaiizor
 			Cursor = Cursors.Hand;
 
 			BackColor = Color.FromArgb(60, 70, 73);
+			ForeColor = Color.White;
+			Font = new Font("Segoe UI", 8);
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
@@ -219,7 +237,7 @@ namespace ReaLTaiizor
 			//-- Base
 			GP.AddRectangle(Base);
 			_with20.SetClip(GP);
-			_with20.FillRectangle(new SolidBrush(BaseColor), new Rectangle(0, 7, W, 8));
+			_with20.FillRectangle(new SolidBrush(_BaseColor), new Rectangle(0, 7, W, 8));
 			_with20.FillRectangle(new SolidBrush(_TrackColor), new Rectangle(0, 7, Track.X + Track.Width, 8));
 			_with20.ResetClip();
 
@@ -232,18 +250,18 @@ namespace ReaLTaiizor
 			{
 				case _Style.Slider:
 					GP2.AddRectangle(Track);
-					_with20.FillPath(new SolidBrush(SliderColor), GP2);
+					_with20.FillPath(new SolidBrush(_SliderColor), GP2);
 					break;
 				case _Style.Knob:
 					GP2.AddEllipse(Knob);
-					_with20.FillPath(new SolidBrush(SliderColor), GP2);
+					_with20.FillPath(new SolidBrush(_SliderColor), GP2);
 					break;
 			}
 
 			//-- Show the value 
 			if (ShowValue)
 			{
-				_with20.DrawString(Value.ToString(), new Font("Segoe UI", 8), Brushes.White, new Rectangle(1, 6, W, H), new StringFormat
+				_with20.DrawString(Value.ToString(), Font, new SolidBrush(ForeColor), new Rectangle(1, 6, W, H), new StringFormat
 				{
 					Alignment = StringAlignment.Far,
 					LineAlignment = StringAlignment.Far

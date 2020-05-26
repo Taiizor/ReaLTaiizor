@@ -45,9 +45,25 @@ namespace ReaLTaiizor
 			set { _ActiveColor = value; }
 		}
 
+		[Category("Colors")]
+		public Color ActiveFontColor
+		{
+			get { return _ActiveFontColor; }
+			set { _ActiveFontColor = value; }
+		}
+
+		[Category("Colors")]
+		public Color DeactiveFontColor
+		{
+			get { return _DeactiveFontColor; }
+			set { _DeactiveFontColor = value; }
+		}
+
 		private Color _BGColor = Color.FromArgb(60, 70, 73);
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
 		private Color _ActiveColor = ForeverLibrary.ForeverColor;
+		private Color _ActiveFontColor = Color.White;
+		private Color _DeactiveFontColor = Color.White;
 
 		public ForeverTabPage()
 		{
@@ -107,12 +123,12 @@ namespace ReaLTaiizor
 								//-- Image
 								_with13.DrawImage(ImageList.Images[TabPages[i].ImageIndex], new Point(BaseSize.Location.X + 8, BaseSize.Location.Y + 6));
 								//-- Text
-								_with13.DrawString("      " + TabPages[i].Text, Font, Brushes.White, BaseSize, ForeverLibrary.CenterSF);
+								_with13.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(_ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
 							}
 							else
 							{
 								//-- Text
-								_with13.DrawString(TabPages[i].Text, Font, Brushes.White, BaseSize, ForeverLibrary.CenterSF);
+								_with13.DrawString(TabPages[i].Text, Font, new SolidBrush(_ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
 							}
 						}
 						catch (Exception ex)
@@ -123,7 +139,7 @@ namespace ReaLTaiizor
 					else
 					{
 						//-- Text
-						_with13.DrawString(TabPages[i].Text, Font, Brushes.White, BaseSize, ForeverLibrary.CenterSF);
+						_with13.DrawString(TabPages[i].Text, Font, new SolidBrush(_ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
 					}
 				}
 				else
@@ -141,7 +157,7 @@ namespace ReaLTaiizor
 								//-- Image
 								_with13.DrawImage(ImageList.Images[TabPages[i].ImageIndex], new Point(BaseSize.Location.X + 8, BaseSize.Location.Y + 6));
 								//-- Text
-								_with13.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(Color.White), BaseSize, new StringFormat
+								_with13.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(_DeactiveFontColor), BaseSize, new StringFormat
 								{
 									LineAlignment = StringAlignment.Center,
 									Alignment = StringAlignment.Center
@@ -150,7 +166,7 @@ namespace ReaLTaiizor
 							else
 							{
 								//-- Text
-								_with13.DrawString(TabPages[i].Text, Font, new SolidBrush(Color.White), BaseSize, new StringFormat
+								_with13.DrawString(TabPages[i].Text, Font, new SolidBrush(_DeactiveFontColor), BaseSize, new StringFormat
 								{
 									LineAlignment = StringAlignment.Center,
 									Alignment = StringAlignment.Center
@@ -165,7 +181,7 @@ namespace ReaLTaiizor
 					else
 					{
 						//-- Text
-						_with13.DrawString(TabPages[i].Text, Font, new SolidBrush(Color.White), BaseSize, new StringFormat
+						_with13.DrawString(TabPages[i].Text, Font, new SolidBrush(_DeactiveFontColor), BaseSize, new StringFormat
 						{
 							LineAlignment = StringAlignment.Center,
 							Alignment = StringAlignment.Center

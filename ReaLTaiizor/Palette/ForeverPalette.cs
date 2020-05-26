@@ -88,6 +88,20 @@ namespace ReaLTaiizor
 			set { _White = value; }
 		}
 
+		[Category("Options")]
+		public string String
+		{
+			get { return _String; }
+			set { _String = value; }
+		}
+
+		[Category("Colors")]
+		public Color StringColor
+		{
+			get { return _StringColor; }
+			set { _StringColor = value; }
+		}
+
 		private Color _Red = Color.FromArgb(220, 85, 96);
 		private Color _Cyan = Color.FromArgb(10, 154, 157);
 		private Color _Blue = Color.FromArgb(0, 128, 255);
@@ -97,6 +111,8 @@ namespace ReaLTaiizor
 		private Color _Black = Color.FromArgb(45, 47, 49);
 		private Color _Gray = Color.FromArgb(63, 70, 73);
 		private Color _White = Color.FromArgb(243, 243, 243);
+		private string _String = "Color Palette";
+		private Color _StringColor = Color.White;
 
 		public ForeverPalette()
 		{
@@ -132,7 +148,7 @@ namespace ReaLTaiizor
 			_with6.FillRectangle(new SolidBrush(_White), new Rectangle(160, 0, 20, 40));
 
 			//-- Text
-			_with6.DrawString("Color Palette", Font, new SolidBrush(_White), new Rectangle(0, 22, W, H), ForeverLibrary.CenterSF);
+			_with6.DrawString(_String, Font, new SolidBrush(_StringColor), new Rectangle(0, 22, W, H), ForeverLibrary.CenterSF);
 
 			base.OnPaint(e);
 			G.Dispose();

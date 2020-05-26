@@ -211,7 +211,7 @@
             foreverTextBox1.TabIndex = 28;
             foreverTextBox1.Text = "foreverTextBox1";
             foreverTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            foreverTextBox1.TextColor = System.Drawing.Color.Silver;
+            foreverTextBox1.ForeColor = System.Drawing.Color.Silver;
             foreverTextBox1.UseSystemPasswordChar = false;
             // 
             // foreverButtonSticky1
@@ -547,7 +547,7 @@
             // 
             foreverNumeric1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             foreverNumeric1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            foreverNumeric1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverNumeric1.ButtonColorA = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             foreverNumeric1.Font = new System.Drawing.Font("Segoe UI", 10F);
             foreverNumeric1.ForeColor = System.Drawing.Color.White;
             foreverNumeric1.Location = new System.Drawing.Point(460, 68);
