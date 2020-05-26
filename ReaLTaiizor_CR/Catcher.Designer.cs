@@ -65,7 +65,7 @@
             aloneTextBox2 = new ReaLTaiizor.AloneTextBox();
             foreverProgressBar1 = new ReaLTaiizor.ForeverProgressBar();
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
-            foxLabel1 = new ReaLTaiizor.FoxLabel();
+            foxNumeric1 = new ReaLTaiizor.FoxNumeric();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -331,15 +331,18 @@
             foreverTreeView1.Size = new System.Drawing.Size(388, 22);
             foreverTreeView1.TabIndex = 14;
             // 
-            // foxLabel1
+            // foxNumeric1
             // 
-            foxLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            foxLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
-            foxLabel1.Location = new System.Drawing.Point(559, 167);
-            foxLabel1.Name = "foxLabel1";
-            foxLabel1.Size = new System.Drawing.Size(65, 19);
-            foxLabel1.TabIndex = 15;
-            foxLabel1.Text = "foxLabel1";
+            foxNumeric1.EnabledCalc = true;
+            foxNumeric1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxNumeric1.Location = new System.Drawing.Point(547, 145);
+            foxNumeric1.Max = 100;
+            foxNumeric1.Min = 0;
+            foxNumeric1.Name = "foxNumeric1";
+            foxNumeric1.Size = new System.Drawing.Size(75, 27);
+            foxNumeric1.TabIndex = 15;
+            foxNumeric1.Text = "foxNumeric1";
+            foxNumeric1.Value = 0;
             // 
             // Catcher
             // 
@@ -347,7 +350,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             ClientSize = new System.Drawing.Size(796, 278);
-            Controls.Add(foxLabel1);
+            Controls.Add(foxNumeric1);
             Controls.Add(foreverTreeView1);
             Controls.Add(foreverProgressBar1);
             Controls.Add(aloneTextBox2);
@@ -391,6 +394,6 @@
         private ReaLTaiizor.AloneTextBox aloneTextBox2;
         private ReaLTaiizor.ForeverProgressBar foreverProgressBar1;
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
-        private ReaLTaiizor.FoxLabel foxLabel1;
+        private ReaLTaiizor.FoxNumeric foxNumeric1;
     }
 }
