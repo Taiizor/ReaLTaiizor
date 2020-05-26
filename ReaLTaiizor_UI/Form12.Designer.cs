@@ -160,7 +160,6 @@
             // 
             // foxRadioButton3
             // 
-            foxRadioButton3.Bold = false;
             foxRadioButton3.Checked = false;
             foxRadioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             foxRadioButton3.EnabledCalc = true;
@@ -173,7 +172,6 @@
             // 
             // foxRadioButton2
             // 
-            foxRadioButton2.Bold = false;
             foxRadioButton2.Checked = true;
             foxRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             foxRadioButton2.EnabledCalc = true;
@@ -186,7 +184,6 @@
             // 
             // foxRadioButton1
             // 
-            foxRadioButton1.Bold = false;
             foxRadioButton1.Checked = false;
             foxRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             foxRadioButton1.EnabledCalc = true;

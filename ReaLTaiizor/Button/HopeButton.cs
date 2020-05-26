@@ -116,7 +116,6 @@ namespace ReaLTaiizor
             Size = new Size(120, 40);
             Cursor = Cursors.Hand;
         }
-
     }
 
     #endregion

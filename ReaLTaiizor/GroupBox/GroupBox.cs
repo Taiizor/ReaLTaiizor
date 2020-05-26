@@ -74,6 +74,7 @@ namespace ReaLTaiizor
             MinimumSize = new Size(136, 50);
             Padding = new Padding(5, 28, 5, 5);
             ForeColor = Color.FromArgb(53, 53, 53);
+            Font = new Font("Tahoma", 9, FontStyle.Regular);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -97,7 +98,7 @@ namespace ReaLTaiizor
             // Draw the border of the title box
             G.DrawPath(new Pen(_BorderColorH), RoundRectangle.RoundRect(TitleBox, 4));
             // Draw the specified string from 'Text' property inside the title box
-            G.DrawString(Text, new Font("Tahoma", 9, FontStyle.Regular), new SolidBrush(ForeColor), TitleBox, new StringFormat
+            G.DrawString(Text, Font, new SolidBrush(ForeColor), TitleBox, new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
