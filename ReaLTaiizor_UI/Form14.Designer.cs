@@ -244,6 +244,12 @@
             this.hopeRadioButton1.Checked = true;
             this.hopeRadioButton1.CheckedColor = System.Drawing.Color.Crimson;
             this.hopeRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeRadioButton1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(198)))), ((int)(((byte)(202)))));
+            this.hopeRadioButton1.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.hopeRadioButton1.Enable = true;
+            this.hopeRadioButton1.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.hopeRadioButton1.EnabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(146)))), ((int)(((byte)(146)))));
+            this.hopeRadioButton1.EnabledUncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             this.hopeRadioButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.hopeRadioButton1.ForeColor = System.Drawing.Color.SeaGreen;
             this.hopeRadioButton1.Location = new System.Drawing.Point(327, 352);
@@ -257,6 +263,12 @@
             // 
             this.hopeRadioButton2.CheckedColor = System.Drawing.Color.Crimson;
             this.hopeRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeRadioButton2.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(198)))), ((int)(((byte)(202)))));
+            this.hopeRadioButton2.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.hopeRadioButton2.Enable = true;
+            this.hopeRadioButton2.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.hopeRadioButton2.EnabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(146)))), ((int)(((byte)(146)))));
+            this.hopeRadioButton2.EnabledUncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             this.hopeRadioButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.hopeRadioButton2.ForeColor = System.Drawing.Color.SeaGreen;
             this.hopeRadioButton2.Location = new System.Drawing.Point(327, 378);
@@ -269,7 +281,14 @@
             // 
             this.hopeCheckBox1.Checked = true;
             this.hopeCheckBox1.CheckedColor = System.Drawing.Color.Crimson;
+            this.hopeCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.hopeCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeCheckBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(198)))), ((int)(((byte)(202)))));
+            this.hopeCheckBox1.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.hopeCheckBox1.Enable = true;
+            this.hopeCheckBox1.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.hopeCheckBox1.EnabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.hopeCheckBox1.EnabledUncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             this.hopeCheckBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.hopeCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             this.hopeCheckBox1.Location = new System.Drawing.Point(337, 300);
@@ -280,9 +299,14 @@
             // 
             // hopeCheckBox2
             // 
-            this.hopeCheckBox2.Checked = false;
             this.hopeCheckBox2.CheckedColor = System.Drawing.Color.Crimson;
             this.hopeCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeCheckBox2.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(198)))), ((int)(((byte)(202)))));
+            this.hopeCheckBox2.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.hopeCheckBox2.Enable = true;
+            this.hopeCheckBox2.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.hopeCheckBox2.EnabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.hopeCheckBox2.EnabledUncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             this.hopeCheckBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.hopeCheckBox2.ForeColor = System.Drawing.Color.SeaGreen;
             this.hopeCheckBox2.Location = new System.Drawing.Point(337, 326);

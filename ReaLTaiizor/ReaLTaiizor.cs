@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 //    Creator: Taiizor
 //    Site   : www.Taiizor.com
 //    Created: 15.May.2019
-//    Changed: 26.May.2020
+//    Changed: 27.May.2020
 //    Version: 3.7.6.9
 //
 //|---------DO-NOT-REMOVE---------|

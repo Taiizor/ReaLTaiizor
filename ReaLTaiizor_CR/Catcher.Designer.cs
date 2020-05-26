@@ -67,6 +67,7 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextbox1 = new ReaLTaiizor.FoxTextbox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
+            this.hopeDatePicker1 = new ReaLTaiizor.HopeDatePicker();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -368,12 +369,25 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
+            // hopeDatePicker1
+            // 
+            this.hopeDatePicker1.BackColor = System.Drawing.Color.White;
+            this.hopeDatePicker1.Date = new System.DateTime(2020, 5, 26, 0, 0, 0, 0);
+            this.hopeDatePicker1.DayNames = "MTWTFSS";
+            this.hopeDatePicker1.HeaderFormat = "{0} Y - {1} M";
+            this.hopeDatePicker1.Location = new System.Drawing.Point(399, 81);
+            this.hopeDatePicker1.Name = "hopeDatePicker1";
+            this.hopeDatePicker1.Size = new System.Drawing.Size(250, 270);
+            this.hopeDatePicker1.TabIndex = 17;
+            this.hopeDatePicker1.Text = "hopeDatePicker1";
+            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(796, 278);
+            this.ClientSize = new System.Drawing.Size(796, 440);
+            this.Controls.Add(this.hopeDatePicker1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextbox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -421,5 +435,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextbox foxTextbox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
+        private ReaLTaiizor.HopeDatePicker hopeDatePicker1;
     }
 }

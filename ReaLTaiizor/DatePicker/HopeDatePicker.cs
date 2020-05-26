@@ -15,8 +15,6 @@ namespace ReaLTaiizor
 
     public partial class HopeDatePicker : Control
     {
-        public new Color BackColor { get { return HopeColors.PrimaryColor; } set { } }
-
         private RectangleF TopDateRect;
         private RectangleF WeekRect;
 
@@ -28,8 +26,62 @@ namespace ReaLTaiizor
         private RectangleF NextYearRect;
 
         private DateTime CurrentDate;
-        public DateTime Date { get { return CurrentDate; } set { CurrentDate = value; Invalidate(); } }
+        public DateTime Date { get { return CurrentDate.Date; } set { CurrentDate = value; Invalidate(); } }
 
+        private Color _SelectedTextColor = Color.White;
+        private Color _SelectedBackColor = HopeColors.PrimaryColor;
+        private Color _ValueTextColor = HopeColors.DarkPrimary;
+        private Color _HoverColor = HopeColors.ThreeLevelBorder;
+        private Color _DayTextColorA = HopeColors.MainText;
+        private Color _DayTextColorB = HopeColors.MainText; ////////////
+        private Color _HeadLineColor = HopeColors.TwoLevelBorder;
+        private Color _DaysTextColor = HopeColors.RegularText;
+        private Color _BorderColor = HopeColors.OneLevelBorder;
+        private Color _HeaderTextColor = HopeColors.MainText;
+
+        private string _HeaderFormat = "{0} Y - {1} M"; //"{0} Y - {1,2} M"
+        public string HeaderFormat
+        {
+            get
+            {
+                return _HeaderFormat;
+            }
+            set
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) || value.Length < 9)
+                        _HeaderFormat = "{0} Y - {1} M";
+                    else
+                    {
+                        string.Format(value, CurrentDate.Year, CurrentDate.Month);
+                        _HeaderFormat = value;
+                    }
+                }
+                catch
+                {
+                    _HeaderFormat = "{0} Y - {1} M";
+                }
+            }
+        }
+
+        private string _DayNames = "MTWTFSS";
+        public string DayNames
+        {
+            get
+            {
+                return _DayNames;
+            }
+            set
+            {
+                if (value.Length == 7)
+                    _DayNames = value;
+                else if (value.Length > 7)
+                    _DayNames = value.Substring(0, 7);
+                else
+                    _DayNames = "MTWTFSS";
+            }
+        }
 
         private int DateRectDefaultSize;
         private int HoverX;
@@ -187,7 +239,6 @@ namespace ReaLTaiizor
             }
         }
 
-
         protected override void OnResize(EventArgs e)
         {
             Width = 250;
@@ -200,6 +251,8 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
             Width = 250;
             Height = 260;
+
+            BackColor = Color.White;
 
             DateRectDefaultSize = (Width - 20) / 7;
             TopDateRect = new RectangleF(20, 5, Width - 40, DateRectDefaultSize);
@@ -228,47 +281,47 @@ namespace ReaLTaiizor
             graphics.Clear(Parent.BackColor);
 
             var bg = RoundRectangle.CreateRoundRect(1f, 1f, Width - 2, Height - 2, 3);
-            graphics.FillPath(new SolidBrush(Color.White), bg);
-            graphics.DrawPath(new Pen(HopeColors.OneLevelBorder), bg);
+            graphics.FillPath(new SolidBrush(BackColor), bg);
+            graphics.DrawPath(new Pen(_BorderColor), bg);
 
-            graphics.DrawString(string.Format("{0} Y - {1,2} M", CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(HopeColors.MainText), TopDateRect, HopeStringAlign.Center);
+            graphics.DrawString(string.Format(_HeaderFormat, CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(_HeaderTextColor), TopDateRect, HopeStringAlign.Center);
 
             graphics.DrawString("7", new Font("webdings", 12f), new SolidBrush(previousYearHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), PreviousYearRect, HopeStringAlign.Center);
             graphics.DrawString("3", new Font("webdings", 12f), new SolidBrush(previousMonthHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), PreviousMonthRect, HopeStringAlign.Center);
             graphics.DrawString("4", new Font("webdings", 12f), new SolidBrush(nextMonthHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), NextMonthRect, HopeStringAlign.Center);
             graphics.DrawString("8", new Font("webdings", 12f), new SolidBrush(nextYearHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), NextYearRect, HopeStringAlign.Center);
 
-            string s = "MTWTFSS";
+            string s = _DayNames;
             for (int i = 0; i < 7; i++)
-                graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(HopeColors.RegularText), new RectangleF(10 + i * (Width - 20) / 7, WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
+                graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(_DaysTextColor), new RectangleF(10 + i * (Width - 20) / 7, WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
 
-            graphics.DrawLine(new Pen(HopeColors.TwoLevelBorder, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);
+            graphics.DrawLine(new Pen(_HeadLineColor, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);
 
             DateTime FirstDay = FirstDayOfMonth(CurrentDate);
             for (int i = 0; i < 42; i++)
             {
                 var tempDate = DateRectangles[i / 7][i % 7];
-                var brush = new SolidBrush(HopeColors.MainText);
+                var brush = new SolidBrush(_DayTextColorA);
 
                 if (HoverX == i / 7 && HoverY == i % 7)
                 {
                     var rect1 = tempDate.Rect;
                     var bg1 = RoundRectangle.CreateRoundRect(rect1.X + 2, rect1.Y + 2, rect1.Width - 4, rect1.Width - 4, 3);
-                    graphics.FillPath(new SolidBrush(HopeColors.ThreeLevelBorder), bg1);
+                    graphics.FillPath(new SolidBrush(_HoverColor), bg1);
                     //graphics.FillRectangle(new SolidBrush(HopeColors.ThreeLevelBorder), new RectangleF(rect1.X + 3, rect1.Y + 3, rect1.Width - 6, rect1.Width - 6));
                 }
 
                 if (tempDate.Date == DateTime.Today)
-                    brush = new SolidBrush(HopeColors.DarkPrimary);
+                    brush = new SolidBrush(_ValueTextColor);
 
                 if (tempDate.Date == Date)
                 {
                     var rect1 = tempDate.Rect;
                     var bg1 = RoundRectangle.CreateRoundRect(rect1.X + 2, rect1.Y + 2, rect1.Width - 4, rect1.Width - 4, 3);
-                    graphics.FillPath(new SolidBrush(HopeColors.PrimaryColor), bg1);
+                    graphics.FillPath(new SolidBrush(_SelectedBackColor), bg1);
 
                     //graphics.FillRectangle(new SolidBrush(HopeColors.PrimaryColor), new RectangleF(rect1.X+3,rect1.Y+3,rect1.Width-6,rect1.Width-6));
-                    brush = new SolidBrush(Color.White);
+                    brush = new SolidBrush(_SelectedTextColor);
                 }
                 graphics.DrawString(DateRectangles[i / 7][i % 7].Date.Day.ToString(), Font, DateRectangles[i / 7][i % 7].Drawn ? brush : new SolidBrush(HopeColors.SecondaryText), DateRectangles[i / 7][i % 7].Rect, HopeStringAlign.Center);
             }
