@@ -15,26 +15,86 @@ namespace ReaLTaiizor
     public class HopeRadioButton : System.Windows.Forms.RadioButton
     {
         #region Variables
-        Color EnabledCheckedColor;
-        Color EnabledUnCheckedColor = ColorTranslator.FromHtml("#9c9ea1");
-        Color DisabledColor = ColorTranslator.FromHtml("#c4c6ca");
-        Color EnabledStringColor = ColorTranslator.FromHtml("#929292");
-        Color DisabledStringColor = ColorTranslator.FromHtml("#babbbd");
+        Color _EnabledCheckedColor = HopeColors.PrimaryColor;
+        Color _EnabledUncheckedColor = ColorTranslator.FromHtml("#9c9ea1");
+        Color _DisabledColor = ColorTranslator.FromHtml("#c4c6ca");
+        Color _EnabledStringColor = ColorTranslator.FromHtml("#929292");
+        Color _DisabledStringColor = ColorTranslator.FromHtml("#babbbd");
+        Color _CheckedColor = HopeColors.PrimaryColor;
         int SizeAnimationNum = 0;
         int PointAnimationNum = 10;
         Timer SizeAnimationTimer = new Timer { Interval = 35 };
         bool enterFalg = false;
+        bool _Enable = true;
         #endregion
 
-        private Color _checkedColor = HopeColors.PrimaryColor;
-
         #region Settings
-        public Color CheckedColor
+        public bool Enable
         {
-            get { return _checkedColor; }
+            get { return _Enable; }
             set
             {
-                _checkedColor = value;
+                _Enable = value;
+                Invalidate();
+            }
+        }
+
+        public Color EnabledCheckedColor
+        {
+            get { return _EnabledCheckedColor; }
+            set
+            {
+                _EnabledCheckedColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color EnabledUncheckedColor
+        {
+            get { return _EnabledUncheckedColor; }
+            set
+            {
+                _EnabledUncheckedColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color DisabledColor
+        {
+            get { return _DisabledColor; }
+            set
+            {
+                _DisabledColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color EnabledStringColor
+        {
+            get { return _EnabledStringColor; }
+            set
+            {
+                _EnabledStringColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color DisabledStringColor
+        {
+            get { return _DisabledStringColor; }
+            set
+            {
+                _DisabledStringColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color CheckedColor
+        {
+            get { return _CheckedColor; }
+            set
+            {
+                _CheckedColor = value;
                 Invalidate();
             }
         }
@@ -66,6 +126,12 @@ namespace ReaLTaiizor
         {
             base.OnMouseEnter(eventargs);
             enterFalg = true;
+
+            if (_Enable)
+                Cursor = Cursors.Hand;
+            else
+                Cursor = Cursors.Default;
+
             Invalidate();
         }
 
@@ -83,18 +149,17 @@ namespace ReaLTaiizor
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            graphics.Clear(Parent.BackColor);
+            graphics.Clear(BackColor);
 
             Rectangle BGEllipse = new Rectangle(1, 1, 18, 18);
-            EnabledCheckedColor = _checkedColor;
-            SolidBrush BG = new SolidBrush(Enabled ? (Checked || enterFalg ? EnabledCheckedColor : EnabledUnCheckedColor) : DisabledColor);
+            SolidBrush BG = new SolidBrush(_Enable ? (Checked || enterFalg ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
 
             graphics.FillEllipse(BG, BGEllipse);
             graphics.FillEllipse(new SolidBrush(Color.White), new Rectangle(3, 3, 14, 14));
 
             graphics.FillEllipse(BG, new Rectangle(PointAnimationNum, PointAnimationNum, SizeAnimationNum, SizeAnimationNum));
 
-            graphics.DrawString(Text, Font, new SolidBrush(Checked ? _checkedColor : ForeColor), new RectangleF(22, 0, Width - 22, Height), HopeStringAlign.Center);
+            graphics.DrawString(Text, Font, new SolidBrush(_Enable ? (Checked ? _CheckedColor : ForeColor) : _DisabledStringColor), new RectangleF(22, 0, Width - 22, Height), HopeStringAlign.Center);
         }
 
         private void AnimationTick(object sender, EventArgs e)

@@ -339,7 +339,7 @@
             this.foxTextbox1.EnabledCalc = true;
             this.foxTextbox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.foxTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxTextbox1.Location = new System.Drawing.Point(399, 36);
+            this.foxTextbox1.Location = new System.Drawing.Point(399, 39);
             this.foxTextbox1.MaxLength = 32767;
             this.foxTextbox1.MultiLine = false;
             this.foxTextbox1.Name = "foxTextbox1";
@@ -358,10 +358,15 @@
             this.hopeComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.hopeComboBox1.FormattingEnabled = true;
             this.hopeComboBox1.ItemHeight = 30;
-            this.hopeComboBox1.Location = new System.Drawing.Point(464, 153);
+            this.hopeComboBox1.Items.AddRange(new object[] {
+            "Item 1",
+            "Item 2",
+            "Item 3"});
+            this.hopeComboBox1.Location = new System.Drawing.Point(522, 39);
             this.hopeComboBox1.Name = "hopeComboBox1";
             this.hopeComboBox1.Size = new System.Drawing.Size(121, 36);
             this.hopeComboBox1.TabIndex = 16;
+            this.hopeComboBox1.Text = "Item 1";
             // 
             // Catcher
             // 
