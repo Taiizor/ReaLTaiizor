@@ -18,7 +18,6 @@ namespace ReaLTaiizor
 		/// <summary>
 		/// How to use: ForeverNotification.ShowControl(Kind, String, Interval)
 		/// </summary>
-		/// <remarks></remarks>
 
 		private int W;
 		private int H;

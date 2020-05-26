@@ -217,7 +217,6 @@ namespace ReaLTaiizor
         /// <summary>
         /// How to use: HopeNotify.ShowAlertBox(Type, String, Interval)
         /// </summary>
-        /// <remarks></remarks>
 
         public void ShowAlertBox(AlertType type, string text, int Interval)
         {

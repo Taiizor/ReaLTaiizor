@@ -46,6 +46,7 @@
             // 
             lostButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(77)))), ((int)(((byte)(88)))));
             lostButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            lostButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             lostButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             lostButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(44)))), ((int)(((byte)(54)))));
             lostButton1.Image = null;
@@ -59,6 +60,7 @@
             // 
             lostCancelButton1.BackColor = System.Drawing.Color.Crimson;
             lostCancelButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            lostCancelButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             lostCancelButton1.ForeColor = System.Drawing.Color.White;
             lostCancelButton1.HoverColor = System.Drawing.Color.IndianRed;
             lostCancelButton1.Image = null;
@@ -73,6 +75,7 @@
             // 
             lostAcceptButton1.BackColor = System.Drawing.Color.SeaGreen;
             lostAcceptButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            lostAcceptButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             lostAcceptButton1.ForeColor = System.Drawing.Color.White;
             lostAcceptButton1.HoverColor = System.Drawing.Color.ForestGreen;
             lostAcceptButton1.Image = null;
@@ -184,7 +187,7 @@
             // 
             // Form15
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(382, 396);
             Controls.Add(lostBorderPanel1);

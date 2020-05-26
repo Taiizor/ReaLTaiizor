@@ -40,6 +40,12 @@
             // dreamForm1
             // 
             dreamForm1.BackColor = System.Drawing.Color.Transparent;
+            dreamForm1.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(218)))), ((int)(((byte)(255)))));
+            dreamForm1.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            dreamForm1.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dreamForm1.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            dreamForm1.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dreamForm1.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dreamForm1.Controls.Add(dungeonControlBox1);
             dreamForm1.Controls.Add(dreamProgressBar1);
             dreamForm1.Controls.Add(dreamTextBox1);
@@ -52,6 +58,7 @@
             dreamForm1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
             dreamForm1.Size = new System.Drawing.Size(256, 177);
             dreamForm1.TabIndex = 0;
+            dreamForm1.TabStop = false;
             dreamForm1.Text = "dreamForm1";
             dreamForm1.TitleAlign = System.Windows.Forms.HorizontalAlignment.Center;
             dreamForm1.TitleHeight = 25;
@@ -72,6 +79,11 @@
             // 
             // dreamProgressBar1
             // 
+            dreamProgressBar1.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dreamProgressBar1.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dreamProgressBar1.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dreamProgressBar1.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dreamProgressBar1.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dreamProgressBar1.Location = new System.Drawing.Point(8, 116);
             dreamProgressBar1.Name = "dreamProgressBar1";
             dreamProgressBar1.Size = new System.Drawing.Size(236, 41);
@@ -82,6 +94,12 @@
             // 
             dreamTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             dreamTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            dreamTextBox1.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dreamTextBox1.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dreamTextBox1.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dreamTextBox1.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dreamTextBox1.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dreamTextBox1.ColorF = System.Drawing.Color.Black;
             dreamTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             dreamTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(218)))), ((int)(((byte)(255)))));
             dreamTextBox1.Location = new System.Drawing.Point(8, 31);
@@ -94,15 +112,21 @@
             // dreamButton1
             // 
             dreamButton1.BackColor = System.Drawing.Color.Transparent;
+            dreamButton1.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            dreamButton1.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            dreamButton1.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dreamButton1.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dreamButton1.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dreamButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             dreamButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dreamButton1.Image = null;
+            dreamButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(218)))), ((int)(((byte)(255)))));
             dreamButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             dreamButton1.Location = new System.Drawing.Point(8, 69);
             dreamButton1.Name = "dreamButton1";
             dreamButton1.Size = new System.Drawing.Size(236, 41);
             dreamButton1.TabIndex = 0;
             dreamButton1.Text = "dreamButton1";
+            dreamButton1.UseVisualStyleBackColor = false;
             // 
             // Form5
             // 

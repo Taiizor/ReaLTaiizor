@@ -55,8 +55,9 @@
             // 
             controlBoxEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             controlBoxEdit1.BackColor = System.Drawing.Color.Transparent;
+            controlBoxEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
             controlBoxEdit1.DefaultLocation = true;
-            controlBoxEdit1.Location = new System.Drawing.Point(431, -1);
+            controlBoxEdit1.Location = new System.Drawing.Point(325, 92);
             controlBoxEdit1.Name = "controlBoxEdit1";
             controlBoxEdit1.Size = new System.Drawing.Size(77, 19);
             controlBoxEdit1.TabIndex = 0;

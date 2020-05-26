@@ -111,9 +111,11 @@
             // 
             // hopeGroupBox1
             // 
+            hopeGroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeGroupBox1.Controls.Add(hopeDatePicker1);
             hopeGroupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeGroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            hopeGroupBox1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeGroupBox1.Location = new System.Drawing.Point(12, 134);
             hopeGroupBox1.Name = "hopeGroupBox1";
             hopeGroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -431,25 +433,45 @@
             // 
             // hopeNotify1
             // 
+            hopeNotify1.Close = true;
+            hopeNotify1.CloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(154)))));
             hopeNotify1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeNotify1.ErrorBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeNotify1.ErrorTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeNotify1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeNotify1.InfoBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            hopeNotify1.InfoTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeNotify1.Location = new System.Drawing.Point(250, 56);
             hopeNotify1.Name = "hopeNotify1";
             hopeNotify1.Size = new System.Drawing.Size(150, 34);
+            hopeNotify1.SuccessBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeNotify1.SuccessTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeNotify1.TabIndex = 23;
             hopeNotify1.Text = "hopeNotify1";
             hopeNotify1.Type = ReaLTaiizor.HopeNotify.AlertType.Warning;
+            hopeNotify1.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            hopeNotify1.WarningTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // hopeNotify2
             // 
+            hopeNotify2.Close = true;
+            hopeNotify2.CloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(154)))));
             hopeNotify2.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeNotify2.ErrorBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeNotify2.ErrorTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeNotify2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeNotify2.InfoBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            hopeNotify2.InfoTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeNotify2.Location = new System.Drawing.Point(250, 95);
             hopeNotify2.Name = "hopeNotify2";
             hopeNotify2.Size = new System.Drawing.Size(150, 34);
+            hopeNotify2.SuccessBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeNotify2.SuccessTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeNotify2.TabIndex = 24;
             hopeNotify2.Text = "hopeNotify2";
             hopeNotify2.Type = ReaLTaiizor.HopeNotify.AlertType.Error;
+            hopeNotify2.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            hopeNotify2.WarningTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // hopeRoundButton1
             // 

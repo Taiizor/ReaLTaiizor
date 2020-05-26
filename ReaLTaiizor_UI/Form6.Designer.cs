@@ -177,7 +177,7 @@
             ribbonRadioButton1.Checked = true;
             ribbonRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             ribbonRadioButton1.ForeColor = System.Drawing.Color.Black;
-            ribbonRadioButton1.Location = new System.Drawing.Point(221, 40);
+            ribbonRadioButton1.Location = new System.Drawing.Point(221, 42);
             ribbonRadioButton1.Name = "ribbonRadioButton1";
             ribbonRadioButton1.Size = new System.Drawing.Size(133, 16);
             ribbonRadioButton1.TabIndex = 4;
