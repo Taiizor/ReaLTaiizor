@@ -111,9 +111,11 @@
             // 
             // hopeGroupBox1
             // 
+            hopeGroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeGroupBox1.Controls.Add(hopeDatePicker1);
             hopeGroupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeGroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            hopeGroupBox1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeGroupBox1.Location = new System.Drawing.Point(12, 134);
             hopeGroupBox1.Name = "hopeGroupBox1";
             hopeGroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -126,12 +128,33 @@
             // 
             // hopeDatePicker1
             // 
+            hopeDatePicker1.BackColor = System.Drawing.Color.White;
+            hopeDatePicker1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeDatePicker1.Date = new System.DateTime(2020, 5, 17, 0, 0, 0, 0);
+            hopeDatePicker1.DayNames = "MTWTFSS";
+            hopeDatePicker1.DaysTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
+            hopeDatePicker1.DayTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            hopeDatePicker1.DayTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            hopeDatePicker1.HeaderFormat = "{0} Y - {1} M";
+            hopeDatePicker1.HeaderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            hopeDatePicker1.HeadLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
+            hopeDatePicker1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
             hopeDatePicker1.Location = new System.Drawing.Point(6, 43);
             hopeDatePicker1.Name = "hopeDatePicker1";
+            hopeDatePicker1.NMColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            hopeDatePicker1.NMHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeDatePicker1.NYColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            hopeDatePicker1.NYHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeDatePicker1.PMColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            hopeDatePicker1.PMHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeDatePicker1.PYColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            hopeDatePicker1.PYHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeDatePicker1.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeDatePicker1.SelectedTextColor = System.Drawing.Color.White;
             hopeDatePicker1.Size = new System.Drawing.Size(250, 270);
             hopeDatePicker1.TabIndex = 4;
             hopeDatePicker1.Text = "hopeDatePicker1";
+            hopeDatePicker1.ValueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
             // 
             // hopeTrackBar1
             // 
@@ -201,6 +224,7 @@
             hopeForm1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             hopeForm1.Image = ((System.Drawing.Image)(resources.GetObject("hopeForm1.Image")));
             hopeForm1.Location = new System.Drawing.Point(0, 465);
+            hopeForm1.MaximizeBox = false;
             hopeForm1.Name = "hopeForm1";
             hopeForm1.Size = new System.Drawing.Size(541, 40);
             hopeForm1.TabIndex = 0;
@@ -211,13 +235,19 @@
             // 
             hopeButton1.ButtonType = ReaLTaiizor.HopeButtonType.Warning;
             hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             hopeButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeButton1.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeButton1.Location = new System.Drawing.Point(36, 12);
             hopeButton1.Name = "hopeButton1";
+            hopeButton1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             hopeButton1.Size = new System.Drawing.Size(120, 40);
+            hopeButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeButton1.TabIndex = 16;
             hopeButton1.Text = "hopeButton1";
             hopeButton1.TextColor = System.Drawing.Color.White;
+            hopeButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // hopeSimpleButton1
             // 
@@ -237,11 +267,17 @@
             hopeRadioButton1.Checked = true;
             hopeRadioButton1.CheckedColor = System.Drawing.Color.Crimson;
             hopeRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeRadioButton1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(198)))), ((int)(((byte)(202)))));
+            hopeRadioButton1.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            hopeRadioButton1.Enable = true;
+            hopeRadioButton1.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeRadioButton1.EnabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(146)))), ((int)(((byte)(146)))));
+            hopeRadioButton1.EnabledUncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             hopeRadioButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeRadioButton1.ForeColor = System.Drawing.Color.SeaGreen;
             hopeRadioButton1.Location = new System.Drawing.Point(327, 352);
             hopeRadioButton1.Name = "hopeRadioButton1";
-            hopeRadioButton1.Size = new System.Drawing.Size(25, 20);
+            hopeRadioButton1.Size = new System.Drawing.Size(165, 20);
             hopeRadioButton1.TabIndex = 18;
             hopeRadioButton1.TabStop = true;
             hopeRadioButton1.Text = "hopeRadioButton1";
@@ -250,47 +286,55 @@
             // 
             hopeRadioButton2.CheckedColor = System.Drawing.Color.Crimson;
             hopeRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeRadioButton2.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(198)))), ((int)(((byte)(202)))));
+            hopeRadioButton2.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            hopeRadioButton2.Enable = true;
+            hopeRadioButton2.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeRadioButton2.EnabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(146)))), ((int)(((byte)(146)))));
+            hopeRadioButton2.EnabledUncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             hopeRadioButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeRadioButton2.ForeColor = System.Drawing.Color.SeaGreen;
             hopeRadioButton2.Location = new System.Drawing.Point(327, 378);
             hopeRadioButton2.Name = "hopeRadioButton2";
-            hopeRadioButton2.Size = new System.Drawing.Size(25, 20);
+            hopeRadioButton2.Size = new System.Drawing.Size(165, 20);
             hopeRadioButton2.TabIndex = 19;
             hopeRadioButton2.Text = "hopeRadioButton2";
             // 
             // hopeCheckBox1
             // 
             hopeCheckBox1.Checked = true;
-            hopeCheckBox1.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
-            hopeCheckBox1.CheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
             hopeCheckBox1.CheckedColor = System.Drawing.Color.Crimson;
-            hopeCheckBox1.CheckedDisabledColor = System.Drawing.Color.Gray;
-            hopeCheckBox1.CheckedEnabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            hopeCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             hopeCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeCheckBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(198)))), ((int)(((byte)(202)))));
+            hopeCheckBox1.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
             hopeCheckBox1.Enable = true;
+            hopeCheckBox1.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeCheckBox1.EnabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            hopeCheckBox1.EnabledUncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             hopeCheckBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             hopeCheckBox1.Location = new System.Drawing.Point(337, 300);
             hopeCheckBox1.Name = "hopeCheckBox1";
-            hopeCheckBox1.Size = new System.Drawing.Size(25, 20);
+            hopeCheckBox1.Size = new System.Drawing.Size(146, 20);
             hopeCheckBox1.TabIndex = 20;
             hopeCheckBox1.Text = "hopeCheckBox1";
             // 
             // hopeCheckBox2
             // 
-            hopeCheckBox2.Checked = false;
-            hopeCheckBox2.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
-            hopeCheckBox2.CheckedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
             hopeCheckBox2.CheckedColor = System.Drawing.Color.Crimson;
-            hopeCheckBox2.CheckedDisabledColor = System.Drawing.Color.Gray;
-            hopeCheckBox2.CheckedEnabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             hopeCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeCheckBox2.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(198)))), ((int)(((byte)(202)))));
+            hopeCheckBox2.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
             hopeCheckBox2.Enable = true;
+            hopeCheckBox2.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeCheckBox2.EnabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            hopeCheckBox2.EnabledUncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             hopeCheckBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeCheckBox2.ForeColor = System.Drawing.Color.SeaGreen;
             hopeCheckBox2.Location = new System.Drawing.Point(337, 326);
             hopeCheckBox2.Name = "hopeCheckBox2";
-            hopeCheckBox2.Size = new System.Drawing.Size(25, 20);
+            hopeCheckBox2.Size = new System.Drawing.Size(146, 20);
             hopeCheckBox2.TabIndex = 21;
             hopeCheckBox2.Text = "hopeCheckBox2";
             // 
@@ -389,25 +433,45 @@
             // 
             // hopeNotify1
             // 
+            hopeNotify1.Close = true;
+            hopeNotify1.CloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(154)))));
             hopeNotify1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeNotify1.ErrorBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeNotify1.ErrorTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeNotify1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeNotify1.InfoBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            hopeNotify1.InfoTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeNotify1.Location = new System.Drawing.Point(250, 56);
             hopeNotify1.Name = "hopeNotify1";
             hopeNotify1.Size = new System.Drawing.Size(150, 34);
+            hopeNotify1.SuccessBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeNotify1.SuccessTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeNotify1.TabIndex = 23;
             hopeNotify1.Text = "hopeNotify1";
             hopeNotify1.Type = ReaLTaiizor.HopeNotify.AlertType.Warning;
+            hopeNotify1.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            hopeNotify1.WarningTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // hopeNotify2
             // 
+            hopeNotify2.Close = true;
+            hopeNotify2.CloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(154)))));
             hopeNotify2.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeNotify2.ErrorBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeNotify2.ErrorTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeNotify2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeNotify2.InfoBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            hopeNotify2.InfoTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeNotify2.Location = new System.Drawing.Point(250, 95);
             hopeNotify2.Name = "hopeNotify2";
             hopeNotify2.Size = new System.Drawing.Size(150, 34);
+            hopeNotify2.SuccessBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeNotify2.SuccessTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeNotify2.TabIndex = 24;
             hopeNotify2.Text = "hopeNotify2";
             hopeNotify2.Type = ReaLTaiizor.HopeNotify.AlertType.Error;
+            hopeNotify2.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            hopeNotify2.WarningTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // hopeRoundButton1
             // 
@@ -449,6 +513,7 @@
             Controls.Add(hopeForm1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            MaximizeBox = false;
             MaximumSize = new System.Drawing.Size(1366, 768);
             MinimumSize = new System.Drawing.Size(190, 40);
             Name = "Form14";

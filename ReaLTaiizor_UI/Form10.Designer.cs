@@ -59,6 +59,7 @@
             moonForm1.Font = new System.Drawing.Font("Verdana", 8F);
             moonForm1.Image = null;
             moonForm1.Location = new System.Drawing.Point(0, 0);
+            moonForm1.MinimumSize = new System.Drawing.Size(100, 50);
             moonForm1.Movable = true;
             moonForm1.Name = "moonForm1";
             moonForm1.NoRounding = false;
@@ -210,6 +211,7 @@
             DoubleBuffered = true;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            MinimumSize = new System.Drawing.Size(100, 50);
             Name = "Form10";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Form10";

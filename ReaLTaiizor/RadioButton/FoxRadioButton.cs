@@ -15,9 +15,54 @@ namespace ReaLTaiizor
 	[DefaultEvent("CheckedChanged")]
 	public class FoxRadioButton : FoxBase.FoxBaseRadioButton
 	{
-
 		private Graphics G;
-		public bool Bold { get; set; }
+
+		private Color _CheckedColor = FoxLibrary.ColorFromHex("#2C9CDA");
+		public Color CheckedColor
+		{
+			get { return _CheckedColor; }
+			set { _CheckedColor = value; }
+		}
+
+		private Color _DisabledCheckedColor = FoxLibrary.ColorFromHex("#B6B4B4");
+		public Color DisabledCheckedColor
+		{
+			get { return _DisabledCheckedColor; }
+			set { _DisabledCheckedColor = value; }
+		}
+
+		private Color _BorderColor = FoxLibrary.ColorFromHex("#C8C8C8");
+		public Color BorderColor
+		{
+			get { return _BorderColor; }
+			set { _BorderColor = value; }
+		}
+
+		private Color _DisabledBorderColor = FoxLibrary.ColorFromHex("#E6E6E6");
+		public Color DisabledBorderColor
+		{
+			get { return _DisabledBorderColor; }
+			set { _DisabledBorderColor = value; }
+		}
+
+		private Color _DisabledTextColor = FoxLibrary.ColorFromHex("#A6B2BE");
+		public Color DisabledTextColor
+		{
+			get { return _DisabledTextColor; }
+			set { _DisabledTextColor = value; }
+		}
+
+		private Color _HoverBorderColor = FoxLibrary.ColorFromHex("#2C9CDA");
+		public Color HoverBorderColor
+		{
+			get { return _HoverBorderColor; }
+			set { _HoverBorderColor = value; }
+		}
+
+		public FoxRadioButton() : base()
+        {
+			Font = new Font("Segoe UI", 10);
+		}
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
@@ -25,74 +70,50 @@ namespace ReaLTaiizor
 			G.SmoothingMode = SmoothingMode.HighQuality;
 			G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-			G.Clear(Parent.BackColor);
-
+			G.Clear(BackColor);
 
 			if (Enabled)
 			{
 				switch (State)
 				{
 					case FoxLibrary.MouseState.None:
-						using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#C8C8C8")))
+						using (Pen Border = new Pen(_BorderColor))
 							G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
 						break;
 					default:
-						using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#2C9CDA")))
+						using (Pen Border = new Pen(_HoverBorderColor))
 							G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
 						break;
 				}
 
 				using (SolidBrush TextColor = new SolidBrush(ForeColor))
-				{
-					if (Bold)
-					{
-						using (Font BFont = new Font("Segoe UI", 10, FontStyle.Bold))
-							G.DrawString(Text, BFont, TextColor, new Point(27, 1));
-					}
-					else
-					{
-						using (Font DFont = new Font("Segoe UI", 10))
-							G.DrawString(Text, DFont, TextColor, new Point(27, 1));
-					}
-				}
+					G.DrawString(Text, Font, TextColor, new Point(27, 1));
 			}
 			else
 			{
-				using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#E6E6E6")))
+				using (Pen Border = new Pen(_DisabledBorderColor))
 					G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
 
-				using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#A6B2BE")))
-				{
-					if (Bold)
-					{
-						using (Font BFont = new Font("Segoe UI", 10, FontStyle.Bold))
-							G.DrawString(Text, BFont, TextColor, new Point(27, 1));
-					}
-					else
-					{
-						using (Font DFont = new Font("Segoe UI", 10))
-							G.DrawString(Text, DFont, TextColor, new Point(27, 1));
-					}
-				}
+				using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+					G.DrawString(Text, Font, TextColor, new Point(27, 1));
 			}
 
 			if (Checked)
 			{
 				if (Enabled)
 				{
-					using (SolidBrush FillColor = new SolidBrush(FoxLibrary.ColorFromHex("#2C9CDA")))
+					using (SolidBrush FillColor = new SolidBrush(_CheckedColor))
 						G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
 				}
 				else
 				{
-					using (SolidBrush FillColor = new SolidBrush(FoxLibrary.ColorFromHex("#B6B4B4")))
+					using (SolidBrush FillColor = new SolidBrush(_DisabledCheckedColor))
 						G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
 				}
 			}
 
 			base.OnPaint(e);
 		}
-
 	}
 
 	#endregion

@@ -86,6 +86,13 @@ namespace ReaLTaiizor
 		}
 
 		[Category("Colors")]
+		public Color HoverFontColor
+		{
+			get { return _HoverFontColor; }
+			set { _HoverFontColor = value; }
+		}
+
+		[Category("Colors")]
 		public Color BaseColor
 		{
 			get { return _BaseColor; }
@@ -140,7 +147,7 @@ namespace ReaLTaiizor
 			}
 
 			//-- Text
-			e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), new Font("Segoe UI", 8), Brushes.White, new Rectangle(e.Bounds.X + 2, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height));
+			e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), new Font("Segoe UI", 8), new SolidBrush(_HoverFontColor), new Rectangle(e.Bounds.X + 2, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height));
 
 			e.Graphics.Dispose();
 		}
@@ -154,6 +161,7 @@ namespace ReaLTaiizor
 		private Color _BaseColor = Color.FromArgb(25, 27, 29);
 		private Color _BGColor = Color.FromArgb(45, 47, 49);
 		private Color _HoverColor = Color.FromArgb(35, 168, 109);
+		private Color _HoverFontColor = Color.White;
 
 		public ForeverComboBox()
 		{
@@ -162,7 +170,7 @@ namespace ReaLTaiizor
 			DoubleBuffered = true;
 
 			DrawMode = DrawMode.OwnerDrawFixed;
-			ForeColor = Color.White;
+			ForeColor = _HoverFontColor;
 			DropDownStyle = ComboBoxStyle.DropDownList;
 			Cursor = Cursors.Hand;
 			StartIndex = 0;
@@ -191,6 +199,9 @@ namespace ReaLTaiizor
 			//-- Base
 			_with16.FillRectangle(new SolidBrush(_BGColor), Base);
 
+			//-- Text
+			_with16.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(4, 6), ForeverLibrary.NearSF);
+
 			//-- Button
 			GP.Reset();
 			GP.AddRectangle(Button);
@@ -202,9 +213,6 @@ namespace ReaLTaiizor
 			_with16.DrawLine(Pens.White, W - 10, 6, W - 30, 6);
 			_with16.DrawLine(Pens.White, W - 10, 12, W - 30, 12);
 			_with16.DrawLine(Pens.White, W - 10, 18, W - 30, 18);
-
-			//-- Text
-			_with16.DrawString(Text, Font, Brushes.White, new Point(4, 6), ForeverLibrary.NearSF);
 
 			G.Dispose();
 			e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;

@@ -28,6 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Düğüm3");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Düğüm4");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Düğüm5");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Düğüm6");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Düğüm7");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Düğüm8");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catcher));
             aloneTextBox1 = new ReaLTaiizor.AloneTextBox();
             bigTextBox1 = new ReaLTaiizor.BigTextBox();
@@ -35,7 +56,18 @@
             dreamProgressBar1 = new ReaLTaiizor.DreamProgressBar();
             dreamTextBox1 = new ReaLTaiizor.DreamTextBox();
             foreverListBox1 = new ReaLTaiizor.ForeverListBox();
-            foreverNotification1 = new ReaLTaiizor.ForeverNotification();
+            aloneButton1 = new ReaLTaiizor.AloneButton();
+            aloneCheckBox1 = new ReaLTaiizor.AloneCheckBox();
+            aloneCombobox1 = new ReaLTaiizor.AloneCombobox();
+            aloneNotice1 = new ReaLTaiizor.AloneNotice();
+            aloneProgressBar1 = new ReaLTaiizor.AloneProgressBar();
+            aloneRadioButton1 = new ReaLTaiizor.AloneRadioButton();
+            aloneTextBox2 = new ReaLTaiizor.AloneTextBox();
+            foreverProgressBar1 = new ReaLTaiizor.ForeverProgressBar();
+            foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
+            foxTextbox1 = new ReaLTaiizor.FoxTextbox();
+            hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
+            hopeNumeric1 = new ReaLTaiizor.HopeNumeric();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -141,25 +173,238 @@
             foreverListBox1.TabIndex = 5;
             foreverListBox1.Text = "foreverListBox1";
             // 
-            // foreverNotification1
+            // aloneButton1
             // 
-            foreverNotification1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            foreverNotification1.Cursor = System.Windows.Forms.Cursors.Hand;
-            foreverNotification1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            foreverNotification1.Kind = ReaLTaiizor.ForeverNotification._Kind.Success;
-            foreverNotification1.Location = new System.Drawing.Point(60, 244);
-            foreverNotification1.Name = "foreverNotification1";
-            foreverNotification1.Size = new System.Drawing.Size(215, 42);
-            foreverNotification1.TabIndex = 6;
-            foreverNotification1.Text = "foreverNotification1";
+            aloneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            aloneButton1.EnabledCalc = true;
+            aloneButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            aloneButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            aloneButton1.Location = new System.Drawing.Point(5, 121);
+            aloneButton1.Name = "aloneButton1";
+            aloneButton1.Size = new System.Drawing.Size(120, 40);
+            aloneButton1.TabIndex = 6;
+            aloneButton1.Text = "aloneButton1";
+            // 
+            // aloneCheckBox1
+            // 
+            aloneCheckBox1.BackColor = System.Drawing.Color.White;
+            aloneCheckBox1.Checked = false;
+            aloneCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            aloneCheckBox1.EnabledCalc = true;
+            aloneCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            aloneCheckBox1.Location = new System.Drawing.Point(131, 121);
+            aloneCheckBox1.Name = "aloneCheckBox1";
+            aloneCheckBox1.Size = new System.Drawing.Size(118, 18);
+            aloneCheckBox1.TabIndex = 7;
+            aloneCheckBox1.Text = "aloneCheckBox1";
+            // 
+            // aloneCombobox1
+            // 
+            aloneCombobox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            aloneCombobox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            aloneCombobox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            aloneCombobox1.EnabledCalc = true;
+            aloneCombobox1.FormattingEnabled = true;
+            aloneCombobox1.ItemHeight = 20;
+            aloneCombobox1.Items.AddRange(new object[] {
+            "Item 1",
+            "Item 2",
+            "Item 3"});
+            aloneCombobox1.Location = new System.Drawing.Point(255, 121);
+            aloneCombobox1.Name = "aloneCombobox1";
+            aloneCombobox1.Size = new System.Drawing.Size(138, 26);
+            aloneCombobox1.TabIndex = 8;
+            // 
+            // aloneNotice1
+            // 
+            aloneNotice1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(232)))));
+            aloneNotice1.BorderColor = System.Drawing.Color.White;
+            aloneNotice1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            aloneNotice1.Cursor = System.Windows.Forms.Cursors.Default;
+            aloneNotice1.Enabled = false;
+            aloneNotice1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(181)))), ((int)(((byte)(149)))));
+            aloneNotice1.Location = new System.Drawing.Point(5, 167);
+            aloneNotice1.Multiline = true;
+            aloneNotice1.Name = "aloneNotice1";
+            aloneNotice1.ReadOnly = true;
+            aloneNotice1.Size = new System.Drawing.Size(120, 27);
+            aloneNotice1.TabIndex = 9;
+            aloneNotice1.Text = "Deneme";
+            // 
+            // aloneProgressBar1
+            // 
+            aloneProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            aloneProgressBar1.BackgroundColor = System.Drawing.Color.Green;
+            aloneProgressBar1.BorderColor = System.Drawing.Color.DodgerBlue;
+            aloneProgressBar1.Location = new System.Drawing.Point(132, 145);
+            aloneProgressBar1.Maximum = 100;
+            aloneProgressBar1.Minimum = 0;
+            aloneProgressBar1.Name = "aloneProgressBar1";
+            aloneProgressBar1.Size = new System.Drawing.Size(117, 49);
+            aloneProgressBar1.Stripes = System.Drawing.Color.DarkGreen;
+            aloneProgressBar1.TabIndex = 10;
+            aloneProgressBar1.Text = "aloneProgressBar1";
+            aloneProgressBar1.Value = 50;
+            // 
+            // aloneRadioButton1
+            // 
+            aloneRadioButton1.BackColor = System.Drawing.Color.White;
+            aloneRadioButton1.Checked = false;
+            aloneRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            aloneRadioButton1.EnabledCalc = true;
+            aloneRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            aloneRadioButton1.Location = new System.Drawing.Point(255, 153);
+            aloneRadioButton1.Name = "aloneRadioButton1";
+            aloneRadioButton1.Size = new System.Drawing.Size(138, 18);
+            aloneRadioButton1.TabIndex = 11;
+            aloneRadioButton1.Text = "aloneRadioButton1";
+            // 
+            // aloneTextBox2
+            // 
+            aloneTextBox2.BackColor = System.Drawing.Color.White;
+            aloneTextBox2.EnabledCalc = true;
+            aloneTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            aloneTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            aloneTextBox2.Location = new System.Drawing.Point(255, 177);
+            aloneTextBox2.MaxLength = 32767;
+            aloneTextBox2.MultiLine = false;
+            aloneTextBox2.Name = "aloneTextBox2";
+            aloneTextBox2.ReadOnly = false;
+            aloneTextBox2.Size = new System.Drawing.Size(138, 17);
+            aloneTextBox2.TabIndex = 12;
+            aloneTextBox2.Text = "aloneTextBox2";
+            aloneTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            aloneTextBox2.UseSystemPasswordChar = false;
+            // 
+            // foreverProgressBar1
+            // 
+            foreverProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            foreverProgressBar1.DarkerProgress = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
+            foreverProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverProgressBar1.Location = new System.Drawing.Point(5, 200);
+            foreverProgressBar1.Maximum = 100;
+            foreverProgressBar1.Name = "foreverProgressBar1";
+            foreverProgressBar1.Pattern = true;
+            foreverProgressBar1.PercentSign = true;
+            foreverProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverProgressBar1.ShowBalloon = true;
+            foreverProgressBar1.Size = new System.Drawing.Size(388, 42);
+            foreverProgressBar1.TabIndex = 13;
+            foreverProgressBar1.Text = "foreverProgressBar1";
+            foreverProgressBar1.Value = 50;
+            // 
+            // foreverTreeView1
+            // 
+            foreverTreeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            foreverTreeView1.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
+            foreverTreeView1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            foreverTreeView1.ForeColor = System.Drawing.Color.White;
+            foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
+            foreverTreeView1.Location = new System.Drawing.Point(5, 248);
+            foreverTreeView1.Name = "foreverTreeView1";
+            treeNode1.Name = "Düğüm2";
+            treeNode1.Text = "Düğüm2";
+            treeNode2.Name = "Düğüm1";
+            treeNode2.Text = "Düğüm1";
+            treeNode3.Name = "Düğüm0";
+            treeNode3.Text = "Düğüm0";
+            treeNode4.Name = "Düğüm2";
+            treeNode4.Text = "Düğüm2";
+            treeNode5.Name = "Düğüm3";
+            treeNode5.Text = "Düğüm3";
+            treeNode6.Name = "Düğüm4";
+            treeNode6.Text = "Düğüm4";
+            treeNode7.Name = "Düğüm0";
+            treeNode7.Text = "Düğüm0";
+            treeNode8.Name = "Düğüm5";
+            treeNode8.Text = "Düğüm5";
+            treeNode9.Name = "Düğüm6";
+            treeNode9.Text = "Düğüm6";
+            treeNode10.Name = "Düğüm7";
+            treeNode10.Text = "Düğüm7";
+            treeNode11.Name = "Düğüm8";
+            treeNode11.Text = "Düğüm8";
+            treeNode12.Name = "Düğüm1";
+            treeNode12.Text = "Düğüm1";
+            foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode7,
+            treeNode12});
+            foreverTreeView1.Size = new System.Drawing.Size(388, 22);
+            foreverTreeView1.TabIndex = 14;
+            // 
+            // foxTextbox1
+            // 
+            foxTextbox1.BackColor = System.Drawing.Color.Red;
+            foxTextbox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxTextbox1.EnabledCalc = true;
+            foxTextbox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            foxTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxTextbox1.Location = new System.Drawing.Point(399, 39);
+            foxTextbox1.MaxLength = 32767;
+            foxTextbox1.MultiLine = false;
+            foxTextbox1.Name = "foxTextbox1";
+            foxTextbox1.ReadOnly = false;
+            foxTextbox1.Size = new System.Drawing.Size(117, 32);
+            foxTextbox1.TabIndex = 15;
+            foxTextbox1.Text = "foxTextbox1";
+            foxTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            foxTextbox1.UseSystemPasswordChar = false;
+            // 
+            // hopeComboBox1
+            // 
+            hopeComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            hopeComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            hopeComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeComboBox1.FormattingEnabled = true;
+            hopeComboBox1.ItemHeight = 30;
+            hopeComboBox1.Items.AddRange(new object[] {
+            "Item 1",
+            "Item 2",
+            "Item 3"});
+            hopeComboBox1.Location = new System.Drawing.Point(522, 39);
+            hopeComboBox1.Name = "hopeComboBox1";
+            hopeComboBox1.Size = new System.Drawing.Size(121, 36);
+            hopeComboBox1.TabIndex = 16;
+            hopeComboBox1.Text = "Item 1";
+            // 
+            // hopeNumeric1
+            // 
+            hopeNumeric1.BackColor = System.Drawing.Color.White;
+            hopeNumeric1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeNumeric1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeNumeric1.ForeColor = System.Drawing.Color.Black;
+            hopeNumeric1.Location = new System.Drawing.Point(671, 238);
+            hopeNumeric1.MaxNum = 10F;
+            hopeNumeric1.MinNum = 0F;
+            hopeNumeric1.Name = "hopeNumeric1";
+            hopeNumeric1.Precision = 0;
+            hopeNumeric1.Size = new System.Drawing.Size(120, 32);
+            hopeNumeric1.Step = 1F;
+            hopeNumeric1.Style = ReaLTaiizor.HopeNumeric.NumericStyle.LeftRight;
+            hopeNumeric1.TabIndex = 17;
+            hopeNumeric1.Text = "hopeNumeric1";
+            hopeNumeric1.ValueNumber = 5F;
             // 
             // Catcher
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            ClientSize = new System.Drawing.Size(398, 473);
-            Controls.Add(foreverNotification1);
+            ClientSize = new System.Drawing.Size(796, 276);
+            Controls.Add(hopeNumeric1);
+            Controls.Add(hopeComboBox1);
+            Controls.Add(foxTextbox1);
+            Controls.Add(foreverTreeView1);
+            Controls.Add(foreverProgressBar1);
+            Controls.Add(aloneTextBox2);
+            Controls.Add(aloneRadioButton1);
+            Controls.Add(aloneProgressBar1);
+            Controls.Add(aloneNotice1);
+            Controls.Add(aloneCombobox1);
+            Controls.Add(aloneCheckBox1);
+            Controls.Add(aloneButton1);
             Controls.Add(foreverListBox1);
             Controls.Add(dreamTextBox1);
             Controls.Add(dreamProgressBar1);
@@ -185,6 +430,17 @@
         private ReaLTaiizor.DreamProgressBar dreamProgressBar1;
         private ReaLTaiizor.DreamTextBox dreamTextBox1;
         private ReaLTaiizor.ForeverListBox foreverListBox1;
-        private ReaLTaiizor.ForeverNotification foreverNotification1;
+        private ReaLTaiizor.AloneButton aloneButton1;
+        private ReaLTaiizor.AloneCheckBox aloneCheckBox1;
+        private ReaLTaiizor.AloneCombobox aloneCombobox1;
+        private ReaLTaiizor.AloneNotice aloneNotice1;
+        private ReaLTaiizor.AloneProgressBar aloneProgressBar1;
+        private ReaLTaiizor.AloneRadioButton aloneRadioButton1;
+        private ReaLTaiizor.AloneTextBox aloneTextBox2;
+        private ReaLTaiizor.ForeverProgressBar foreverProgressBar1;
+        private ReaLTaiizor.ForeverTreeView foreverTreeView1;
+        private ReaLTaiizor.FoxTextbox foxTextbox1;
+        private ReaLTaiizor.HopeComboBox hopeComboBox1;
+        private ReaLTaiizor.HopeNumeric hopeNumeric1;
     }
 }

@@ -42,7 +42,9 @@
             // 
             // aloneProgressBar2
             // 
+            aloneProgressBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             aloneProgressBar2.BackgroundColor = System.Drawing.Color.Crimson;
+            aloneProgressBar2.BorderColor = System.Drawing.Color.DodgerBlue;
             aloneProgressBar2.Location = new System.Drawing.Point(254, 12);
             aloneProgressBar2.Maximum = 100;
             aloneProgressBar2.Minimum = 0;
@@ -56,6 +58,7 @@
             // aloneNotice1
             // 
             aloneNotice1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(232)))));
+            aloneNotice1.BorderColor = System.Drawing.Color.White;
             aloneNotice1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             aloneNotice1.Cursor = System.Windows.Forms.Cursors.Default;
             aloneNotice1.Enabled = false;
@@ -91,6 +94,7 @@
             aloneButton1.BackColor = System.Drawing.SystemColors.Control;
             aloneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             aloneButton1.EnabledCalc = true;
+            aloneButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             aloneButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
             aloneButton1.Location = new System.Drawing.Point(12, 93);
             aloneButton1.Name = "aloneButton1";
@@ -158,7 +162,9 @@
             // 
             // aloneProgressBar1
             // 
+            aloneProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             aloneProgressBar1.BackgroundColor = System.Drawing.Color.Green;
+            aloneProgressBar1.BorderColor = System.Drawing.Color.DodgerBlue;
             aloneProgressBar1.Location = new System.Drawing.Point(12, 12);
             aloneProgressBar1.Maximum = 100;
             aloneProgressBar1.Minimum = 0;

@@ -256,7 +256,6 @@ namespace ReaLTaiizor
 			State = FoxLibrary.MouseState.None;
 			Invalidate();
 		}
-
 	}
 
 	#endregion

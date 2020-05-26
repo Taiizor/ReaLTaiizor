@@ -15,10 +15,10 @@ namespace ReaLTaiizor
 
     public class FoxNumeric : Control
     {
-
         private Graphics G;
 
         private bool IsEnabled;
+
         private int _Value;
         public int Value
         {
@@ -93,11 +93,47 @@ namespace ReaLTaiizor
             }
         }
 
+        private Color _BorderColor = FoxLibrary.ColorFromHex("#C8C8C8");
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        private Color _DisabledBorderColor = FoxLibrary.ColorFromHex("#E6E6E6");
+        public Color DisabledBorderColor
+        {
+            get { return _DisabledBorderColor; }
+            set { _DisabledBorderColor = value; }
+        }
+
+        private Color _ButtonTextColor = FoxLibrary.ColorFromHex("#56626E");
+        public Color ButtonTextColor
+        {
+            get { return _ButtonTextColor; }
+            set { _ButtonTextColor = value; }
+        }
+
+        private Color _DisabledTextColor = FoxLibrary.ColorFromHex("#A6B2BE");
+        public Color DisabledTextColor
+        {
+            get { return _DisabledTextColor; }
+            set { _DisabledTextColor = value; }
+        }
+
+        private Color _DisabledButtonTextColor = FoxLibrary.ColorFromHex("#BAC6D2");
+        public Color DisabledButtonTextColor
+        {
+            get { return _DisabledButtonTextColor; }
+            set { _DisabledButtonTextColor = value; }
+        }
+
         public FoxNumeric()
         {
             Enabled = true;
             DoubleBuffered = true;
             ForeColor = FoxLibrary.ColorFromHex("#424E5A");
+            Font = new Font("Segoe UI", 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -108,19 +144,16 @@ namespace ReaLTaiizor
 
             if (Enabled)
             {
-                using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#C8C8C8")))
+                using (Pen Border = new Pen(_BorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
                 }
 
                 using (SolidBrush TextColor = new SolidBrush(ForeColor))
-                {
-                    using (Font TextFont = new Font("Segoe UI", 10))
-                        FoxLibrary.CenterString(G, Value.ToString(), TextFont, TextColor.Color, new Rectangle(-10, 0, Width, Height));
-                }
+                    FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
 
-                using (SolidBrush SignColor = new SolidBrush(FoxLibrary.ColorFromHex("#56626E")))
+                using (SolidBrush SignColor = new SolidBrush(_ButtonTextColor))
                 {
                     using (Font SignFont = new Font("Marlett", 10))
                     {
@@ -131,19 +164,16 @@ namespace ReaLTaiizor
             }
             else
             {
-                using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#E6E6E6")))
+                using (Pen Border = new Pen(_DisabledBorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(FoxLibrary.ColorFromHex("#A6B2BE")))
-                {
-                    using (Font TextFont = new Font("Segoe UI", 10))
-                        FoxLibrary.CenterString(G, Value.ToString(), TextFont, TextColor.Color, new Rectangle(-10, 0, Width, Height));
-                }
+                using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+                    FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
 
-                using (SolidBrush SignColor = new SolidBrush(FoxLibrary.ColorFromHex("#BAC6D2")))
+                using (SolidBrush SignColor = new SolidBrush(_DisabledButtonTextColor))
                 {
                     using (Font SignFont = new Font("Marlett", 10))
                     {
@@ -189,7 +219,6 @@ namespace ReaLTaiizor
             base.OnResize(e);
             Size = new Size(Width, 27);
         }
-
     }
 
     #endregion

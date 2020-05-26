@@ -235,6 +235,7 @@
             groupBox1.BackGColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(35)))), ((int)(((byte)(45)))));
             groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
             groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             groupBox1.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
             groupBox1.Location = new System.Drawing.Point(6, 6);
@@ -680,7 +681,7 @@
             trackBar1.Size = new System.Drawing.Size(297, 22);
             trackBar1.TabIndex = 17;
             trackBar1.Text = "trackBar1";
-            trackBar1.Value = 50;
+            trackBar1.Value = 0;
             trackBar1.ValueDivison = ReaLTaiizor.TrackBar.ValueDivisor.By100;
             trackBar1.ValueToSet = 0F;
             // 

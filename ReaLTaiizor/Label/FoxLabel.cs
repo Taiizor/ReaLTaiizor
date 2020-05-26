@@ -21,14 +21,14 @@ namespace ReaLTaiizor
 			Font = new Font("Segoe UI", 10, FontStyle.Bold);
 			ForeColor = FoxLibrary.ColorFromHex("#4C5864");
 			DoubleBuffered = true;
+			Size = new Size(65, 19);
 		}
 
 		protected override void OnResize(EventArgs e)
 		{
 			base.OnResize(e);
-			Size = new Size(65, 19);
+			//Size = new Size(65, 19);
 		}
-
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
@@ -36,13 +36,10 @@ namespace ReaLTaiizor
 			G.SmoothingMode = SmoothingMode.HighQuality;
 			G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-			G.Clear(Parent.BackColor);
+			G.Clear(BackColor);
 
-			using (Font HFont = new Font("Segoe UI", 10, FontStyle.Bold))
-			{
-				using (SolidBrush HColor = new SolidBrush(ForeColor))
-					G.DrawString(Text, HFont, HColor, new Point(0, 0));
-			}
+			using (SolidBrush HColor = new SolidBrush(ForeColor))
+				G.DrawString(Text, Font, HColor, new Point(0, 0));
 
 			base.OnPaint(e);
 

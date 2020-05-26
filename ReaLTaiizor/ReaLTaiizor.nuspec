@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package >
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>ReaLTaiizor</id>
-    <version>3.7.6.8</version>
+    <version>3.7.6.9</version>
     <title>ReaLTaiizor</title>
     <authors>Taiizor</authors>
     <owners>Taiizor</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">GPL-3.0-or-later</license>
     <projectUrl>https://github.com/Taiizor/ReaLTaiizor</projectUrl>
-    <repository type="git" url="https://github.com/Taiizor/ReaLTaiizor.git" />
+    <repository type="git" url="git://github.com/Taiizor/ReaLTaiizor" commit="e5784153dac2391fc1c7fdf95f894ad089e24ce1" />
     <iconUrl>https://www.photo.herominyum.com/resimler/2020/05/15/OoFq.png</iconUrl>
     <description>C# WinForm UI/UX Library - ReaLTaiizor</description>
-    <releaseNotes>Component customizations have been replicated.</releaseNotes>
+    <releaseNotes>Component customizations have been replicated. Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</releaseNotes>
     <copyright>Copyright © 2020 Taiizor Inc.</copyright>
     <tags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0" />
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETFramework4.5.1" />
+      <group targetFramework=".NETFramework4.5.2" />
+      <group targetFramework=".NETFramework4.6" />
+      <group targetFramework=".NETFramework4.6.1" />
+      <group targetFramework=".NETFramework4.6.2" />
+      <group targetFramework=".NETFramework4.7" />
+      <group targetFramework=".NETFramework4.7.1" />
+      <group targetFramework=".NETFramework4.7.2" />
+      <group targetFramework=".NETFramework4.8" />
+    </dependencies>
   </metadata>
 </package>

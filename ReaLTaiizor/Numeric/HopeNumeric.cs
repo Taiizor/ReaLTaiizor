@@ -14,11 +14,6 @@ namespace ReaLTaiizor
 
     public class HopeNumeric : Control
     {
-        public enum NumericStyle
-        {
-            LeftRight = 0,
-            TopDown = 1
-        }
 
         #region Variables
         private bool enterFlag = false;
@@ -26,6 +21,12 @@ namespace ReaLTaiizor
         private RectangleF upRectangleF = new RectangleF();
         private RectangleF downRectangleF = new RectangleF();
         private Point mousePoint = new Point();
+
+        public enum NumericStyle
+        {
+            LeftRight = 0,
+            TopDown = 1
+        }
         #endregion
 
         #region Settings

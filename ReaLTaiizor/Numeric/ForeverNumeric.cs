@@ -135,14 +135,30 @@ namespace ReaLTaiizor
 		}
 
 		[Category("Colors")]
-		public Color ButtonColor
+		public Color ButtonColorA
 		{
-			get { return _ButtonColor; }
-			set { _ButtonColor = value; }
+			get { return _ButtonColorA; }
+			set { _ButtonColorA = value; }
+		}
+
+		[Category("Colors")]
+		public Color ButtonColorB
+		{
+			get { return _ButtonColorB; }
+			set { _ButtonColorB = value; }
+		}
+
+		[Category("Colors")]
+		public Color ButtonColorC
+		{
+			get { return _ButtonColorC; }
+			set { _ButtonColorC = value; }
 		}
 
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
-		private Color _ButtonColor = ForeverLibrary.ForeverColor;
+		private Color _ButtonColorA = ForeverLibrary.ForeverColor;
+		private Color _ButtonColorB = Color.White;
+		private Color _ButtonColorC = Color.White;
 
 		public ForeverNumeric()
 		{
@@ -150,7 +166,8 @@ namespace ReaLTaiizor
 			DoubleBuffered = true;
 			Font = new Font("Segoe UI", 10);
 			_Min = 0;
-			_Max = 9999999;
+			_Max = 100;
+			ForeColor = Color.Silver;
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
@@ -172,12 +189,12 @@ namespace ReaLTaiizor
 
 			//-- Base
 			_with18.FillRectangle(new SolidBrush(_BaseColor), Base);
-			_with18.FillRectangle(new SolidBrush(_ButtonColor), new Rectangle(Width - 24, 0, 24, H));
+			_with18.FillRectangle(new SolidBrush(_ButtonColorA), new Rectangle(Width - 24, 0, 24, H));
 
 			//-- Add
-			_with18.DrawString("+", new Font("Segoe UI", 12), Brushes.White, new Point(Width - 12, 8), ForeverLibrary.CenterSF);
+			_with18.DrawString("+", new Font("Segoe UI", 12), new SolidBrush(_ButtonColorB), new Point(Width - 12, 8), ForeverLibrary.CenterSF);
 			//-- Subtract
-			_with18.DrawString("-", new Font("Segoe UI", 10, FontStyle.Bold), Brushes.White, new Point(Width - 12, 22), ForeverLibrary.CenterSF);
+			_with18.DrawString("-", new Font("Segoe UI", 10, FontStyle.Bold), new SolidBrush(_ButtonColorC), new Point(Width - 12, 22), ForeverLibrary.CenterSF);
 
 			//-- Text
 			_with18.DrawString(Value.ToString(), Font, new SolidBrush(ForeColor), new Rectangle(5, 1, W, H), new StringFormat { LineAlignment = StringAlignment.Center });
@@ -193,7 +210,7 @@ namespace ReaLTaiizor
 		{
 			ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-			_ButtonColor = Colors.Forever;
+			_ButtonColorA = Colors.Forever;
 		}
 	}
 

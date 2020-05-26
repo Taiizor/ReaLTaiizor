@@ -28,10 +28,10 @@ namespace ReaLTaiizor
             ItemHeight = 30;
         }
 
-        [System.Runtime.InteropServices.DllImport("user32.dll ")]
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
         static extern IntPtr GetWindowDC(IntPtr hWnd);
 
-        [System.Runtime.InteropServices.DllImport("user32.dll ")]
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
         static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
         protected override void WndProc(ref Message m)

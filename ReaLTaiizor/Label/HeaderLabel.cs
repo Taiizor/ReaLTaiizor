@@ -5,10 +5,9 @@ using System.Windows.Forms;
 
 #endregion
 
-
 namespace ReaLTaiizor
 {
-    #region Header Label
+    #region HeaderLabel
 
     public class HeaderLabel : Label
     {

@@ -15,7 +15,7 @@ namespace ReaLTaiizor
 
     public partial class HopeDatePicker : Control
     {
-        public new Color BackColor { get { return HopeColors.PrimaryColor; } set { } }
+        #region General
 
         private RectangleF TopDateRect;
         private RectangleF WeekRect;
@@ -28,8 +28,177 @@ namespace ReaLTaiizor
         private RectangleF NextYearRect;
 
         private DateTime CurrentDate;
-        public DateTime Date { get { return CurrentDate; } set { CurrentDate = value; Invalidate(); } }
+        public DateTime Date { get { return CurrentDate.Date; } set { CurrentDate = value; Invalidate(); } }
 
+        private Color _SelectedTextColor = Color.White;
+        public Color SelectedTextColor
+        {
+            get { return _SelectedTextColor; }
+            set { _SelectedTextColor = value; }
+        }
+
+        private Color _SelectedBackColor = HopeColors.PrimaryColor;
+        public Color SelectedBackColor
+        {
+            get { return _SelectedBackColor; }
+            set { _SelectedBackColor = value; }
+        }
+
+        private Color _ValueTextColor = HopeColors.DarkPrimary;
+        public Color ValueTextColor
+        {
+            get { return _ValueTextColor; }
+            set { _ValueTextColor = value; }
+        }
+
+        private Color _HoverColor = HopeColors.ThreeLevelBorder;
+        public Color HoverColor
+        {
+            get { return _HoverColor; }
+            set { _HoverColor = value; }
+        }
+
+        private Color _DayTextColorA = HopeColors.MainText;
+        public Color DayTextColorA
+        {
+            get { return _DayTextColorA; }
+            set { _DayTextColorA = value; }
+        }
+
+        private Color _DayTextColorB = HopeColors.SecondaryText;
+        public Color DayTextColorB
+        {
+            get { return _DayTextColorB; }
+            set { _DayTextColorB = value; }
+        }
+
+        private Color _HeadLineColor = HopeColors.TwoLevelBorder;
+        public Color HeadLineColor
+        {
+            get { return _HeadLineColor; }
+            set { _HeadLineColor = value; }
+        }
+
+        private Color _DaysTextColor = HopeColors.RegularText;
+        public Color DaysTextColor
+        {
+            get { return _DaysTextColor; }
+            set { _DaysTextColor = value; }
+        }
+
+        private Color _BorderColor = HopeColors.OneLevelBorder;
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        private Color _HeaderTextColor = HopeColors.MainText;
+        public Color HeaderTextColor
+        {
+            get { return _HeaderTextColor; }
+            set { _HeaderTextColor = value; }
+        }
+
+        private Color _PYHoverColor = HopeColors.PrimaryColor;
+        public Color PYHoverColor
+        {
+            get { return _PYHoverColor; }
+            set { _PYHoverColor = value; }
+        }
+
+        private Color _PYColor = HopeColors.PlaceholderText;
+        public Color PYColor
+        {
+            get { return _PYColor; }
+            set { _PYColor = value; }
+        }
+
+        private Color _NYHoverColor = HopeColors.PrimaryColor;
+        public Color NYHoverColor
+        {
+            get { return _NYHoverColor; }
+            set { _NYHoverColor = value; }
+        }
+
+        private Color _NYColor = HopeColors.PlaceholderText;
+        public Color NYColor
+        {
+            get { return _NYColor; }
+            set { _NYColor = value; }
+        }
+
+        private Color _PMHoverColor = HopeColors.PrimaryColor;
+        public Color PMHoverColor
+        {
+            get { return _PMHoverColor; }
+            set { _PMHoverColor = value; }
+        }
+
+        private Color _PMColor = HopeColors.PlaceholderText;
+        public Color PMColor
+        {
+            get { return _PMColor; }
+            set { _PMColor = value; }
+        }
+
+        private Color _NMHoverColor = HopeColors.PrimaryColor;
+        public Color NMHoverColor
+        {
+            get { return _NMHoverColor; }
+            set { _NMHoverColor = value; }
+        }
+
+        private Color _NMColor = HopeColors.PlaceholderText;
+        public Color NMColor
+        {
+            get { return _NMColor; }
+            set { _NMColor = value; }
+        }
+
+        private string _HeaderFormat = "{0} Y - {1} M"; //"{0} Y - {1,2} M"
+        public string HeaderFormat
+        {
+            get
+            {
+                return _HeaderFormat;
+            }
+            set
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) || value.Length < 9)
+                        _HeaderFormat = "{0} Y - {1} M";
+                    else
+                    {
+                        string.Format(value, CurrentDate.Year, CurrentDate.Month);
+                        _HeaderFormat = value;
+                    }
+                }
+                catch
+                {
+                    _HeaderFormat = "{0} Y - {1} M";
+                }
+            }
+        }
+
+        private string _DayNames = "MTWTFSS";
+        public string DayNames
+        {
+            get
+            {
+                return _DayNames;
+            }
+            set
+            {
+                if (value.Length == 7)
+                    _DayNames = value;
+                else if (value.Length > 7)
+                    _DayNames = value.Substring(0, 7);
+                else
+                    _DayNames = "MTWTFSS";
+            }
+        }
 
         private int DateRectDefaultSize;
         private int HoverX;
@@ -41,6 +210,8 @@ namespace ReaLTaiizor
         private bool previousMonthHovered;
         private bool nextMonthHovered;
         private bool nextYearHovered;
+
+        #endregion
 
         #region Variables
         public delegate void DateChanged(DateTime newDateTime);
@@ -187,7 +358,6 @@ namespace ReaLTaiizor
             }
         }
 
-
         protected override void OnResize(EventArgs e)
         {
             Width = 250;
@@ -200,6 +370,8 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
             Width = 250;
             Height = 260;
+
+            BackColor = Color.White;
 
             DateRectDefaultSize = (Width - 20) / 7;
             TopDateRect = new RectangleF(20, 5, Width - 40, DateRectDefaultSize);
@@ -228,49 +400,49 @@ namespace ReaLTaiizor
             graphics.Clear(Parent.BackColor);
 
             var bg = RoundRectangle.CreateRoundRect(1f, 1f, Width - 2, Height - 2, 3);
-            graphics.FillPath(new SolidBrush(Color.White), bg);
-            graphics.DrawPath(new Pen(HopeColors.OneLevelBorder), bg);
+            graphics.FillPath(new SolidBrush(BackColor), bg);
+            graphics.DrawPath(new Pen(_BorderColor), bg);
 
-            graphics.DrawString(string.Format("{0} Y - {1,2} M", CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(HopeColors.MainText), TopDateRect, HopeStringAlign.Center);
+            graphics.DrawString(string.Format(_HeaderFormat, CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(_HeaderTextColor), TopDateRect, HopeStringAlign.Center);
 
-            graphics.DrawString("7", new Font("webdings", 12f), new SolidBrush(previousYearHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), PreviousYearRect, HopeStringAlign.Center);
-            graphics.DrawString("3", new Font("webdings", 12f), new SolidBrush(previousMonthHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), PreviousMonthRect, HopeStringAlign.Center);
-            graphics.DrawString("4", new Font("webdings", 12f), new SolidBrush(nextMonthHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), NextMonthRect, HopeStringAlign.Center);
-            graphics.DrawString("8", new Font("webdings", 12f), new SolidBrush(nextYearHovered ? HopeColors.PrimaryColor : HopeColors.PlaceholderText), NextYearRect, HopeStringAlign.Center);
+            graphics.DrawString("7", new Font("webdings", 12f), new SolidBrush(previousYearHovered ? _PYHoverColor : _PYColor), PreviousYearRect, HopeStringAlign.Center);
+            graphics.DrawString("3", new Font("webdings", 12f), new SolidBrush(previousMonthHovered ? _PMHoverColor : _PMColor), PreviousMonthRect, HopeStringAlign.Center);
+            graphics.DrawString("4", new Font("webdings", 12f), new SolidBrush(nextMonthHovered ? _NMHoverColor : _NMColor), NextMonthRect, HopeStringAlign.Center);
+            graphics.DrawString("8", new Font("webdings", 12f), new SolidBrush(nextYearHovered ? _NYHoverColor : _NYColor), NextYearRect, HopeStringAlign.Center);
 
-            string s = "MTWTFSS";
+            string s = _DayNames;
             for (int i = 0; i < 7; i++)
-                graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(HopeColors.RegularText), new RectangleF(10 + i * (Width - 20) / 7, WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
+                graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(_DaysTextColor), new RectangleF(10 + i * (Width - 20) / 7, WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
 
-            graphics.DrawLine(new Pen(HopeColors.TwoLevelBorder, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);
+            graphics.DrawLine(new Pen(_HeadLineColor, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);
 
             DateTime FirstDay = FirstDayOfMonth(CurrentDate);
             for (int i = 0; i < 42; i++)
             {
                 var tempDate = DateRectangles[i / 7][i % 7];
-                var brush = new SolidBrush(HopeColors.MainText);
+                var brush = new SolidBrush(_DayTextColorA);
 
                 if (HoverX == i / 7 && HoverY == i % 7)
                 {
                     var rect1 = tempDate.Rect;
                     var bg1 = RoundRectangle.CreateRoundRect(rect1.X + 2, rect1.Y + 2, rect1.Width - 4, rect1.Width - 4, 3);
-                    graphics.FillPath(new SolidBrush(HopeColors.ThreeLevelBorder), bg1);
+                    graphics.FillPath(new SolidBrush(_HoverColor), bg1);
                     //graphics.FillRectangle(new SolidBrush(HopeColors.ThreeLevelBorder), new RectangleF(rect1.X + 3, rect1.Y + 3, rect1.Width - 6, rect1.Width - 6));
                 }
 
                 if (tempDate.Date == DateTime.Today)
-                    brush = new SolidBrush(HopeColors.DarkPrimary);
+                    brush = new SolidBrush(_ValueTextColor);
 
                 if (tempDate.Date == Date)
                 {
                     var rect1 = tempDate.Rect;
                     var bg1 = RoundRectangle.CreateRoundRect(rect1.X + 2, rect1.Y + 2, rect1.Width - 4, rect1.Width - 4, 3);
-                    graphics.FillPath(new SolidBrush(HopeColors.PrimaryColor), bg1);
+                    graphics.FillPath(new SolidBrush(_SelectedBackColor), bg1);
 
                     //graphics.FillRectangle(new SolidBrush(HopeColors.PrimaryColor), new RectangleF(rect1.X+3,rect1.Y+3,rect1.Width-6,rect1.Width-6));
-                    brush = new SolidBrush(Color.White);
+                    brush = new SolidBrush(_SelectedTextColor);
                 }
-                graphics.DrawString(DateRectangles[i / 7][i % 7].Date.Day.ToString(), Font, DateRectangles[i / 7][i % 7].Drawn ? brush : new SolidBrush(HopeColors.SecondaryText), DateRectangles[i / 7][i % 7].Rect, HopeStringAlign.Center);
+                graphics.DrawString(DateRectangles[i / 7][i % 7].Date.Day.ToString(), Font, DateRectangles[i / 7][i % 7].Drawn ? brush : new SolidBrush(_DayTextColorB), DateRectangles[i / 7][i % 7].Rect, HopeStringAlign.Center);
             }
         }
 

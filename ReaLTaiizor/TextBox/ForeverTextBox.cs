@@ -173,23 +173,17 @@ namespace ReaLTaiizor
 		}
 
 		[Category("Colors")]
-		public Color TextColor
-		{
-			get { return _TextColor; }
-			set { _TextColor = value; }
-		}
-
-		[Category("Colors")]
 		public Color BorderColor
 		{
 			get { return _BorderColor; }
 			set { _BorderColor = value; }
 		}
 
-		public override Color ForeColor
+		[Category("Colors")]
+		public Color BaseColor
 		{
-			get { return _TextColor; }
-			set { _TextColor = value; }
+			get { return _BaseColor; }
+			set { _BaseColor = value; }
 		}
 
 		protected override void OnMouseDown(MouseEventArgs e)
@@ -224,7 +218,6 @@ namespace ReaLTaiizor
 		}
 
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
-		private Color _TextColor = Color.FromArgb(192, 192, 192);
 		private Color _BorderColor = ForeverLibrary.ForeverColor;
 
 		public ForeverTextBox()
@@ -232,19 +225,19 @@ namespace ReaLTaiizor
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
 			DoubleBuffered = true;
 
-			BackColor = Color.Transparent;
+			ForeColor = Color.FromArgb(192, 192, 192);
 
 			TB = new TextBox();
 			TB.Font = new Font("Segoe UI", 10);
 			TB.Text = Text;
 			TB.BackColor = _BaseColor;
-			TB.ForeColor = _TextColor;
+			TB.ForeColor = ForeColor;
 			TB.MaxLength = _MaxLength;
 			TB.Multiline = _Multiline;
 			TB.ReadOnly = _ReadOnly;
 			TB.UseSystemPasswordChar = _UseSystemPasswordChar;
 			TB.BorderStyle = BorderStyle.None;
-			TB.Location = new Point(5, 5);
+			TB.Location = new Point(6, 6);
 			TB.Width = Width - 10;
 
 			TB.Cursor = Cursors.IBeam;
@@ -263,22 +256,24 @@ namespace ReaLTaiizor
 		{
 			//UpdateColors();
 
+			BackColor = Color.Transparent;
+
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
-			W = Width - 1;
-			H = Height - 1;
+			W = Width - 2;
+			H = Height - 2;
 
-			Rectangle Base = new Rectangle(0, 0, W, H);
+			Rectangle Base = new Rectangle(1, 1, W, H);
 
 			var _with12 = G;
 			_with12.SmoothingMode = SmoothingMode.HighQuality;
 			_with12.PixelOffsetMode = PixelOffsetMode.HighQuality;
 			_with12.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-			_with12.Clear(BackColor);
+			_with12.Clear(_BorderColor);
 
 			//-- Colors
 			TB.BackColor = _BaseColor;
-			TB.ForeColor = _TextColor;
+			TB.ForeColor = ForeColor;
 
 			//-- Base
 			_with12.FillRectangle(new SolidBrush(_BaseColor), Base);

@@ -26,17 +26,17 @@ namespace ReaLTaiizor
 				{
 					case TreeNodeStates.Default:
 						e.Graphics.FillRectangle(Brushes.Red, Bounds);
-						e.Graphics.DrawString(e.Node.Text, new Font("Segoe UI", 8), Brushes.LimeGreen, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
+						e.Graphics.DrawString(e.Node.Text, Font, Brushes.LimeGreen, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
 						Invalidate();
 						break;
 					case TreeNodeStates.Checked:
 						e.Graphics.FillRectangle(Brushes.Green, Bounds);
-						e.Graphics.DrawString(e.Node.Text, new Font("Segoe UI", 8), Brushes.Black, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
+						e.Graphics.DrawString(e.Node.Text, Font, Brushes.Black, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
 						Invalidate();
 						break;
 					case TreeNodeStates.Selected:
 						e.Graphics.FillRectangle(Brushes.Green, Bounds);
-						e.Graphics.DrawString(e.Node.Text, new Font("Segoe UI", 8), Brushes.Black, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
+						e.Graphics.DrawString(e.Node.Text, Font, Brushes.Black, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
 						Invalidate();
 						break;
 				}
@@ -62,6 +62,8 @@ namespace ReaLTaiizor
 			ForeColor = Color.White;
 			LineColor = _LineColor;
 			DrawMode = TreeViewDrawMode.OwnerDrawAll;
+
+			Font = new Font("Segoe UI", 8);
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
@@ -78,7 +80,7 @@ namespace ReaLTaiizor
 			_with22.Clear(BackColor);
 
 			_with22.FillRectangle(new SolidBrush(_BaseColor), Base);
-			_with22.DrawString(Text, new Font("Segoe UI", 8), Brushes.Black, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
+			_with22.DrawString(Text, Font, Brushes.Black, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
 
 
 			base.OnPaint(e);
