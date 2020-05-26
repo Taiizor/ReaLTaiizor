@@ -29,242 +29,242 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.airForm1 = new ReaLTaiizor.AirForm();
-            this.airButton2 = new ReaLTaiizor.AirButton();
-            this.airSeparator2 = new ReaLTaiizor.AirSeparator();
-            this.airTabPage1 = new ReaLTaiizor.AirTabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.airSeparator1 = new ReaLTaiizor.AirSeparator();
-            this.airRadioButton1 = new ReaLTaiizor.AirRadioButton();
-            this.airButton1 = new ReaLTaiizor.AirButton();
-            this.airCheckbox1 = new ReaLTaiizor.AirCheckbox();
-            this.airRadioButton2 = new ReaLTaiizor.AirRadioButton();
-            this.airForm1.SuspendLayout();
-            this.airTabPage1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.SuspendLayout();
+            airForm1 = new ReaLTaiizor.AirForm();
+            airButton2 = new ReaLTaiizor.AirButton();
+            airSeparator2 = new ReaLTaiizor.AirSeparator();
+            airTabPage1 = new ReaLTaiizor.AirTabPage();
+            tabPage1 = new System.Windows.Forms.TabPage();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            tabPage2 = new System.Windows.Forms.TabPage();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            airSeparator1 = new ReaLTaiizor.AirSeparator();
+            airRadioButton1 = new ReaLTaiizor.AirRadioButton();
+            airButton1 = new ReaLTaiizor.AirButton();
+            airCheckbox1 = new ReaLTaiizor.AirCheckbox();
+            airRadioButton2 = new ReaLTaiizor.AirRadioButton();
+            airForm1.SuspendLayout();
+            airTabPage1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
+            SuspendLayout();
             // 
             // airForm1
             // 
-            this.airForm1.BackColor = System.Drawing.Color.White;
-            this.airForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.airForm1.Controls.Add(this.airButton2);
-            this.airForm1.Controls.Add(this.airSeparator2);
-            this.airForm1.Controls.Add(this.airTabPage1);
-            this.airForm1.Controls.Add(this.airSeparator1);
-            this.airForm1.Controls.Add(this.airRadioButton1);
-            this.airForm1.Controls.Add(this.airButton1);
-            this.airForm1.Controls.Add(this.airCheckbox1);
-            this.airForm1.Controls.Add(this.airRadioButton2);
-            this.airForm1.Customization = "AAAA/1paWv9ycnL/";
-            this.airForm1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.airForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.airForm1.Image = null;
-            this.airForm1.Location = new System.Drawing.Point(0, 0);
-            this.airForm1.MinimumSize = new System.Drawing.Size(112, 35);
-            this.airForm1.Movable = false;
-            this.airForm1.Name = "airForm1";
-            this.airForm1.NoRounding = false;
-            this.airForm1.Sizable = false;
-            this.airForm1.Size = new System.Drawing.Size(512, 256);
-            this.airForm1.SmartBounds = true;
-            this.airForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.airForm1.TabIndex = 0;
-            this.airForm1.Text = "airForm1";
-            this.airForm1.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.airForm1.Transparent = false;
+            airForm1.BackColor = System.Drawing.Color.White;
+            airForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            airForm1.Controls.Add(airButton2);
+            airForm1.Controls.Add(airSeparator2);
+            airForm1.Controls.Add(airTabPage1);
+            airForm1.Controls.Add(airSeparator1);
+            airForm1.Controls.Add(airRadioButton1);
+            airForm1.Controls.Add(airButton1);
+            airForm1.Controls.Add(airCheckbox1);
+            airForm1.Controls.Add(airRadioButton2);
+            airForm1.Customization = "AAAA/1paWv9ycnL/";
+            airForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            airForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            airForm1.Image = null;
+            airForm1.Location = new System.Drawing.Point(0, 0);
+            airForm1.MinimumSize = new System.Drawing.Size(112, 35);
+            airForm1.Movable = false;
+            airForm1.Name = "airForm1";
+            airForm1.NoRounding = false;
+            airForm1.Sizable = false;
+            airForm1.Size = new System.Drawing.Size(512, 256);
+            airForm1.SmartBounds = true;
+            airForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            airForm1.TabIndex = 0;
+            airForm1.Text = "airForm1";
+            airForm1.TransparencyKey = System.Drawing.Color.Fuchsia;
+            airForm1.Transparent = false;
             // 
             // airButton2
             // 
-            this.airButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.airButton2.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
-            this.airButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.airButton2.Image = null;
-            this.airButton2.Location = new System.Drawing.Point(400, 169);
-            this.airButton2.Name = "airButton2";
-            this.airButton2.NoRounding = true;
-            this.airButton2.Size = new System.Drawing.Size(100, 45);
-            this.airButton2.TabIndex = 7;
-            this.airButton2.Text = "airButton2";
-            this.airButton2.Transparent = false;
+            airButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            airButton2.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            airButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            airButton2.Image = null;
+            airButton2.Location = new System.Drawing.Point(400, 169);
+            airButton2.Name = "airButton2";
+            airButton2.NoRounding = true;
+            airButton2.Size = new System.Drawing.Size(100, 45);
+            airButton2.TabIndex = 7;
+            airButton2.Text = "airButton2";
+            airButton2.Transparent = false;
             // 
             // airSeparator2
             // 
-            this.airSeparator2.BackColor = System.Drawing.Color.Black;
-            this.airSeparator2.Colors = new ReaLTaiizor.BloomAir[0];
-            this.airSeparator2.Customization = "";
-            this.airSeparator2.Font = new System.Drawing.Font("Verdana", 8F);
-            this.airSeparator2.Image = null;
-            this.airSeparator2.Location = new System.Drawing.Point(12, 162);
-            this.airSeparator2.Name = "airSeparator2";
-            this.airSeparator2.NoRounding = false;
-            this.airSeparator2.Size = new System.Drawing.Size(488, 1);
-            this.airSeparator2.TabIndex = 5;
-            this.airSeparator2.Text = "airSeparator2";
-            this.airSeparator2.Transparent = false;
+            airSeparator2.BackColor = System.Drawing.Color.Black;
+            airSeparator2.Colors = new ReaLTaiizor.BloomAir[0];
+            airSeparator2.Customization = "";
+            airSeparator2.Font = new System.Drawing.Font("Verdana", 8F);
+            airSeparator2.Image = null;
+            airSeparator2.Location = new System.Drawing.Point(12, 162);
+            airSeparator2.Name = "airSeparator2";
+            airSeparator2.NoRounding = false;
+            airSeparator2.Size = new System.Drawing.Size(488, 1);
+            airSeparator2.TabIndex = 5;
+            airSeparator2.Text = "airSeparator2";
+            airSeparator2.Transparent = false;
             // 
             // airTabPage1
             // 
-            this.airTabPage1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.airTabPage1.Controls.Add(this.tabPage1);
-            this.airTabPage1.Controls.Add(this.tabPage2);
-            this.airTabPage1.ItemSize = new System.Drawing.Size(30, 115);
-            this.airTabPage1.Location = new System.Drawing.Point(12, 36);
-            this.airTabPage1.Multiline = true;
-            this.airTabPage1.Name = "airTabPage1";
-            this.airTabPage1.SelectedIndex = 0;
-            this.airTabPage1.ShowOuterBorders = false;
-            this.airTabPage1.Size = new System.Drawing.Size(488, 120);
-            this.airTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.airTabPage1.SquareColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(87)))), ((int)(((byte)(100)))));
-            this.airTabPage1.TabIndex = 4;
+            airTabPage1.Alignment = System.Windows.Forms.TabAlignment.Left;
+            airTabPage1.Controls.Add(tabPage1);
+            airTabPage1.Controls.Add(tabPage2);
+            airTabPage1.ItemSize = new System.Drawing.Size(30, 115);
+            airTabPage1.Location = new System.Drawing.Point(12, 36);
+            airTabPage1.Multiline = true;
+            airTabPage1.Name = "airTabPage1";
+            airTabPage1.SelectedIndex = 0;
+            airTabPage1.ShowOuterBorders = false;
+            airTabPage1.Size = new System.Drawing.Size(488, 120);
+            airTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            airTabPage1.SquareColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(87)))), ((int)(((byte)(100)))));
+            airTabPage1.TabIndex = 4;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Location = new System.Drawing.Point(119, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(365, 112);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            tabPage1.BackColor = System.Drawing.Color.White;
+            tabPage1.Controls.Add(pictureBox1);
+            tabPage1.Location = new System.Drawing.Point(119, 4);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            tabPage1.Size = new System.Drawing.Size(365, 112);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ReaLTaiizor_UI.Properties.Resources.Google;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(353, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = global::ReaLTaiizor_UI.Properties.Resources.Google;
+            pictureBox1.Location = new System.Drawing.Point(6, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(353, 100);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Location = new System.Drawing.Point(119, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(365, 112);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            tabPage2.BackColor = System.Drawing.Color.White;
+            tabPage2.Controls.Add(pictureBox2);
+            tabPage2.Location = new System.Drawing.Point(119, 4);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            tabPage2.Size = new System.Drawing.Size(365, 112);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::ReaLTaiizor_UI.Properties.Resources.Twitter;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(353, 100);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = global::ReaLTaiizor_UI.Properties.Resources.Twitter;
+            pictureBox2.Location = new System.Drawing.Point(6, 6);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(353, 100);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
             // 
             // airSeparator1
             // 
-            this.airSeparator1.BackColor = System.Drawing.Color.Black;
-            this.airSeparator1.Colors = new ReaLTaiizor.BloomAir[0];
-            this.airSeparator1.Customization = "";
-            this.airSeparator1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.airSeparator1.Image = null;
-            this.airSeparator1.Location = new System.Drawing.Point(12, 220);
-            this.airSeparator1.Name = "airSeparator1";
-            this.airSeparator1.NoRounding = false;
-            this.airSeparator1.Size = new System.Drawing.Size(488, 1);
-            this.airSeparator1.TabIndex = 3;
-            this.airSeparator1.Text = "airSeparator1";
-            this.airSeparator1.Transparent = false;
+            airSeparator1.BackColor = System.Drawing.Color.Black;
+            airSeparator1.Colors = new ReaLTaiizor.BloomAir[0];
+            airSeparator1.Customization = "";
+            airSeparator1.Font = new System.Drawing.Font("Verdana", 8F);
+            airSeparator1.Image = null;
+            airSeparator1.Location = new System.Drawing.Point(12, 220);
+            airSeparator1.Name = "airSeparator1";
+            airSeparator1.NoRounding = false;
+            airSeparator1.Size = new System.Drawing.Size(488, 1);
+            airSeparator1.TabIndex = 3;
+            airSeparator1.Text = "airSeparator1";
+            airSeparator1.Transparent = false;
             // 
             // airRadioButton1
             // 
-            this.airRadioButton1.Checked = true;
-            this.airRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.airRadioButton1.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
-            this.airRadioButton1.Field = 16;
-            this.airRadioButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.airRadioButton1.Image = null;
-            this.airRadioButton1.Location = new System.Drawing.Point(274, 228);
-            this.airRadioButton1.Name = "airRadioButton1";
-            this.airRadioButton1.NoRounding = true;
-            this.airRadioButton1.Size = new System.Drawing.Size(110, 16);
-            this.airRadioButton1.TabIndex = 2;
-            this.airRadioButton1.Text = "airRadioButton1";
-            this.airRadioButton1.Transparent = false;
+            airRadioButton1.Checked = true;
+            airRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            airRadioButton1.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
+            airRadioButton1.Field = 16;
+            airRadioButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            airRadioButton1.Image = null;
+            airRadioButton1.Location = new System.Drawing.Point(274, 228);
+            airRadioButton1.Name = "airRadioButton1";
+            airRadioButton1.NoRounding = true;
+            airRadioButton1.Size = new System.Drawing.Size(110, 16);
+            airRadioButton1.TabIndex = 2;
+            airRadioButton1.Text = "airRadioButton1";
+            airRadioButton1.Transparent = false;
             // 
             // airButton1
             // 
-            this.airButton1.BackColor = System.Drawing.Color.White;
-            this.airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.airButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
-            this.airButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.airButton1.Image = null;
-            this.airButton1.Location = new System.Drawing.Point(12, 169);
-            this.airButton1.Name = "airButton1";
-            this.airButton1.NoRounding = false;
-            this.airButton1.Size = new System.Drawing.Size(100, 45);
-            this.airButton1.TabIndex = 1;
-            this.airButton1.Text = "airButton1";
-            this.airButton1.Transparent = false;
+            airButton1.BackColor = System.Drawing.Color.White;
+            airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            airButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            airButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            airButton1.Image = null;
+            airButton1.Location = new System.Drawing.Point(12, 169);
+            airButton1.Name = "airButton1";
+            airButton1.NoRounding = false;
+            airButton1.Size = new System.Drawing.Size(100, 45);
+            airButton1.TabIndex = 1;
+            airButton1.Text = "airButton1";
+            airButton1.Transparent = false;
             // 
             // airCheckbox1
             // 
-            this.airCheckbox1.BackColor = System.Drawing.Color.White;
-            this.airCheckbox1.Checked = true;
-            this.airCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.airCheckbox1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
-            this.airCheckbox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.airCheckbox1.Image = null;
-            this.airCheckbox1.Location = new System.Drawing.Point(12, 227);
-            this.airCheckbox1.Name = "airCheckbox1";
-            this.airCheckbox1.NoRounding = false;
-            this.airCheckbox1.Size = new System.Drawing.Size(92, 17);
-            this.airCheckbox1.TabIndex = 0;
-            this.airCheckbox1.Text = "airCheckbox1";
-            this.airCheckbox1.Transparent = false;
+            airCheckbox1.BackColor = System.Drawing.Color.White;
+            airCheckbox1.Checked = true;
+            airCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            airCheckbox1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
+            airCheckbox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            airCheckbox1.Image = null;
+            airCheckbox1.Location = new System.Drawing.Point(12, 227);
+            airCheckbox1.Name = "airCheckbox1";
+            airCheckbox1.NoRounding = false;
+            airCheckbox1.Size = new System.Drawing.Size(92, 17);
+            airCheckbox1.TabIndex = 0;
+            airCheckbox1.Text = "airCheckbox1";
+            airCheckbox1.Transparent = false;
             // 
             // airRadioButton2
             // 
-            this.airRadioButton2.Checked = false;
-            this.airRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.airRadioButton2.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
-            this.airRadioButton2.Field = 16;
-            this.airRadioButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.airRadioButton2.Image = null;
-            this.airRadioButton2.Location = new System.Drawing.Point(390, 228);
-            this.airRadioButton2.Name = "airRadioButton2";
-            this.airRadioButton2.NoRounding = false;
-            this.airRadioButton2.Size = new System.Drawing.Size(110, 16);
-            this.airRadioButton2.TabIndex = 6;
-            this.airRadioButton2.Text = "airRadioButton2";
-            this.airRadioButton2.Transparent = false;
+            airRadioButton2.Checked = false;
+            airRadioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            airRadioButton2.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
+            airRadioButton2.Field = 16;
+            airRadioButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            airRadioButton2.Image = null;
+            airRadioButton2.Location = new System.Drawing.Point(390, 228);
+            airRadioButton2.Name = "airRadioButton2";
+            airRadioButton2.NoRounding = false;
+            airRadioButton2.Size = new System.Drawing.Size(110, 16);
+            airRadioButton2.TabIndex = 6;
+            airRadioButton2.Text = "airRadioButton2";
+            airRadioButton2.Transparent = false;
             // 
             // Form3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 256);
-            this.Controls.Add(this.airForm1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(112, 35);
-            this.Name = "Form3";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form3";
-            this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.airForm1.ResumeLayout(false);
-            this.airTabPage1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(512, 256);
+            Controls.Add(airForm1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            MinimumSize = new System.Drawing.Size(112, 35);
+            Name = "Form3";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Form3";
+            TransparencyKey = System.Drawing.Color.Fuchsia;
+            airForm1.ResumeLayout(false);
+            airTabPage1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
+            ResumeLayout(false);
 
         }
 
