@@ -8345,9 +8345,7 @@ namespace ReaLTaiizor
             SizeF TS = G.MeasureString(T, F);
 
             using (SolidBrush B = new SolidBrush(C))
-            {
                 G.DrawString(T, F, B, new Point((int)(R.X + R.Width / 2 - (TS.Width / 2)), (int)(R.Y + R.Height / 2 - (TS.Height / 2))));
-            }
         }
 
         public static Color ColorFromHex(string Hex)
@@ -8357,16 +8355,10 @@ namespace ReaLTaiizor
 
         public static Rectangle FullRectangle(Size S, bool Subtract)
         {
-
             if (Subtract)
-            {
                 return new Rectangle(0, 0, S.Width - 1, S.Height - 1);
-            }
             else
-            {
                 return new Rectangle(0, 0, S.Width, S.Height);
-            }
-
         }
 
         public static GraphicsPath RoundRect(Rectangle Rect, int Rounding, RoundingStyle Style = RoundingStyle.All)
@@ -8429,9 +8421,7 @@ namespace ReaLTaiizor
             GP.CloseAllFigures();
 
             return GP;
-
         }
-
     }
 
     namespace FoxBase
@@ -8577,7 +8567,7 @@ namespace ReaLTaiizor
             {
                 Enabled = true;
                 DoubleBuffered = true;
-                Size = new Size(110, 23);
+                Size = new Size(115, 23);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 

@@ -28,6 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Düğüm3");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Düğüm4");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Düğüm5");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Düğüm6");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Düğüm7");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Düğüm8");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catcher));
             aloneTextBox1 = new ReaLTaiizor.AloneTextBox();
             bigTextBox1 = new ReaLTaiizor.BigTextBox();
@@ -44,6 +65,7 @@
             aloneTextBox2 = new ReaLTaiizor.AloneTextBox();
             foreverProgressBar1 = new ReaLTaiizor.ForeverProgressBar();
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
+            foxLabel1 = new ReaLTaiizor.FoxLabel();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -273,19 +295,59 @@
             // 
             foreverTreeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverTreeView1.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
+            foreverTreeView1.Font = new System.Drawing.Font("Segoe UI", 8F);
             foreverTreeView1.ForeColor = System.Drawing.Color.White;
             foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
-            foreverTreeView1.Location = new System.Drawing.Point(128, 310);
+            foreverTreeView1.Location = new System.Drawing.Point(5, 248);
             foreverTreeView1.Name = "foreverTreeView1";
-            foreverTreeView1.Size = new System.Drawing.Size(121, 97);
+            treeNode1.Name = "Düğüm2";
+            treeNode1.Text = "Düğüm2";
+            treeNode2.Name = "Düğüm1";
+            treeNode2.Text = "Düğüm1";
+            treeNode3.Name = "Düğüm0";
+            treeNode3.Text = "Düğüm0";
+            treeNode4.Name = "Düğüm2";
+            treeNode4.Text = "Düğüm2";
+            treeNode5.Name = "Düğüm3";
+            treeNode5.Text = "Düğüm3";
+            treeNode6.Name = "Düğüm4";
+            treeNode6.Text = "Düğüm4";
+            treeNode7.Name = "Düğüm0";
+            treeNode7.Text = "Düğüm0";
+            treeNode8.Name = "Düğüm5";
+            treeNode8.Text = "Düğüm5";
+            treeNode9.Name = "Düğüm6";
+            treeNode9.Text = "Düğüm6";
+            treeNode10.Name = "Düğüm7";
+            treeNode10.Text = "Düğüm7";
+            treeNode11.Name = "Düğüm8";
+            treeNode11.Text = "Düğüm8";
+            treeNode12.Name = "Düğüm1";
+            treeNode12.Text = "Düğüm1";
+            foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode7,
+            treeNode12});
+            foreverTreeView1.Size = new System.Drawing.Size(388, 22);
             foreverTreeView1.TabIndex = 14;
+            // 
+            // foxLabel1
+            // 
+            foxLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            foxLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
+            foxLabel1.Location = new System.Drawing.Point(559, 167);
+            foxLabel1.Name = "foxLabel1";
+            foxLabel1.Size = new System.Drawing.Size(65, 19);
+            foxLabel1.TabIndex = 15;
+            foxLabel1.Text = "foxLabel1";
             // 
             // Catcher
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            ClientSize = new System.Drawing.Size(398, 473);
+            ClientSize = new System.Drawing.Size(796, 278);
+            Controls.Add(foxLabel1);
             Controls.Add(foreverTreeView1);
             Controls.Add(foreverProgressBar1);
             Controls.Add(aloneTextBox2);
@@ -329,5 +391,6 @@
         private ReaLTaiizor.AloneTextBox aloneTextBox2;
         private ReaLTaiizor.ForeverProgressBar foreverProgressBar1;
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
+        private ReaLTaiizor.FoxLabel foxLabel1;
     }
 }

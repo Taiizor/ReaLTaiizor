@@ -41,8 +41,8 @@
             foxRadioButton3 = new ReaLTaiizor.FoxRadioButton();
             foxRadioButton2 = new ReaLTaiizor.FoxRadioButton();
             foxRadioButton1 = new ReaLTaiizor.FoxRadioButton();
-            foxChecEdit2 = new ReaLTaiizor.FoxChecEdit();
-            foxChecEdit1 = new ReaLTaiizor.FoxChecEdit();
+            foxCheckEdit2 = new ReaLTaiizor.FoxCheckEdit();
+            foxCheckEdit1 = new ReaLTaiizor.FoxCheckEdit();
             foxCheckBox2 = new ReaLTaiizor.FoxCheckBox();
             foxCheckBox1 = new ReaLTaiizor.FoxCheckBox();
             foxButton1 = new ReaLTaiizor.FoxButton();
@@ -197,31 +197,29 @@
             foxRadioButton1.TabIndex = 5;
             foxRadioButton1.Text = "foxRadioButton1";
             // 
-            // foxChecEdit2
+            // foxCheckEdit2
             // 
-            foxChecEdit2.Bold = false;
-            foxChecEdit2.Checked = true;
-            foxChecEdit2.Cursor = System.Windows.Forms.Cursors.Hand;
-            foxChecEdit2.EnabledCalc = true;
-            foxChecEdit2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            foxChecEdit2.Location = new System.Drawing.Point(387, 19);
-            foxChecEdit2.Name = "foxChecEdit2";
-            foxChecEdit2.Size = new System.Drawing.Size(110, 23);
-            foxChecEdit2.TabIndex = 4;
-            foxChecEdit2.Text = "foxChecEdit2";
+            foxCheckEdit2.Checked = true;
+            foxCheckEdit2.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxCheckEdit2.EnabledCalc = true;
+            foxCheckEdit2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxCheckEdit2.Location = new System.Drawing.Point(387, 19);
+            foxCheckEdit2.Name = "foxCheckEdit2";
+            foxCheckEdit2.Size = new System.Drawing.Size(110, 23);
+            foxCheckEdit2.TabIndex = 4;
+            foxCheckEdit2.Text = "foxCheckEdit2";
             // 
-            // foxChecEdit1
+            // foxCheckEdit1
             // 
-            foxChecEdit1.Bold = false;
-            foxChecEdit1.Checked = false;
-            foxChecEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
-            foxChecEdit1.EnabledCalc = true;
-            foxChecEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            foxChecEdit1.Location = new System.Drawing.Point(271, 21);
-            foxChecEdit1.Name = "foxChecEdit1";
-            foxChecEdit1.Size = new System.Drawing.Size(110, 23);
-            foxChecEdit1.TabIndex = 3;
-            foxChecEdit1.Text = "foxChecEdit1";
+            foxCheckEdit1.Checked = false;
+            foxCheckEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxCheckEdit1.EnabledCalc = true;
+            foxCheckEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxCheckEdit1.Location = new System.Drawing.Point(271, 21);
+            foxCheckEdit1.Name = "foxCheckEdit1";
+            foxCheckEdit1.Size = new System.Drawing.Size(110, 23);
+            foxCheckEdit1.TabIndex = 3;
+            foxCheckEdit1.Text = "foxCheckEdit1";
             // 
             // foxCheckBox2
             // 
@@ -273,8 +271,8 @@
             Controls.Add(foxRadioButton3);
             Controls.Add(foxRadioButton2);
             Controls.Add(foxRadioButton1);
-            Controls.Add(foxChecEdit2);
-            Controls.Add(foxChecEdit1);
+            Controls.Add(foxCheckEdit2);
+            Controls.Add(foxCheckEdit1);
             Controls.Add(foxCheckBox2);
             Controls.Add(foxCheckBox1);
             Controls.Add(foxButton1);
@@ -294,8 +292,8 @@
         private ReaLTaiizor.FoxButton foxButton1;
         private ReaLTaiizor.FoxCheckBox foxCheckBox1;
         private ReaLTaiizor.FoxCheckBox foxCheckBox2;
-        private ReaLTaiizor.FoxChecEdit foxChecEdit1;
-        private ReaLTaiizor.FoxChecEdit foxChecEdit2;
+        private ReaLTaiizor.FoxCheckEdit foxCheckEdit1;
+        private ReaLTaiizor.FoxCheckEdit foxCheckEdit2;
         private ReaLTaiizor.FoxRadioButton foxRadioButton1;
         private ReaLTaiizor.FoxRadioButton foxRadioButton2;
         private ReaLTaiizor.FoxRadioButton foxRadioButton3;

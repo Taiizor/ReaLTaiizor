@@ -680,7 +680,7 @@
             trackBar1.Size = new System.Drawing.Size(297, 22);
             trackBar1.TabIndex = 17;
             trackBar1.Text = "trackBar1";
-            trackBar1.Value = 50;
+            trackBar1.Value = 0;
             trackBar1.ValueDivison = ReaLTaiizor.TrackBar.ValueDivisor.By100;
             trackBar1.ValueToSet = 0F;
             // 

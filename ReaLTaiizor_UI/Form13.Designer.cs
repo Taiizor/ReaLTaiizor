@@ -200,8 +200,10 @@
             // foreverTextBox1
             // 
             foreverTextBox1.BackColor = System.Drawing.Color.Transparent;
+            foreverTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             foreverTextBox1.FocusOnHover = false;
+            foreverTextBox1.ForeColor = System.Drawing.Color.Silver;
             foreverTextBox1.Location = new System.Drawing.Point(424, 150);
             foreverTextBox1.MaxLength = 32767;
             foreverTextBox1.Multiline = false;
@@ -211,7 +213,6 @@
             foreverTextBox1.TabIndex = 28;
             foreverTextBox1.Text = "foreverTextBox1";
             foreverTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            foreverTextBox1.ForeColor = System.Drawing.Color.Silver;
             foreverTextBox1.UseSystemPasswordChar = false;
             // 
             // foreverButtonSticky1
@@ -279,12 +280,14 @@
             // foreverTabPage1
             // 
             foreverTabPage1.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverTabPage1.ActiveFontColor = System.Drawing.Color.White;
             foreverTabPage1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverTabPage1.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             foreverTabPage1.Controls.Add(tabPage1);
             foreverTabPage1.Controls.Add(tabPage2);
             foreverTabPage1.Controls.Add(tabPage3);
             foreverTabPage1.Controls.Add(tabPage4);
+            foreverTabPage1.DeactiveFontColor = System.Drawing.Color.White;
             foreverTabPage1.Font = new System.Drawing.Font("Segoe UI", 10F);
             foreverTabPage1.ItemSize = new System.Drawing.Size(120, 40);
             foreverTabPage1.Location = new System.Drawing.Point(244, 354);
@@ -407,6 +410,7 @@
             foreverComboBox1.ForeColor = System.Drawing.Color.White;
             foreverComboBox1.FormattingEnabled = true;
             foreverComboBox1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverComboBox1.HoverFontColor = System.Drawing.Color.White;
             foreverComboBox1.ItemHeight = 18;
             foreverComboBox1.Items.AddRange(new object[] {
             "Item 1",
@@ -435,6 +439,8 @@
             foreverPalette1.Purple = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(88)))), ((int)(((byte)(181)))));
             foreverPalette1.Red = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             foreverPalette1.Size = new System.Drawing.Size(180, 80);
+            foreverPalette1.String = "Color Palette";
+            foreverPalette1.StringColor = System.Drawing.Color.White;
             foreverPalette1.TabIndex = 21;
             foreverPalette1.Text = "foreverPalette1";
             foreverPalette1.White = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
@@ -442,6 +448,7 @@
             // foreverNotification3
             // 
             foreverNotification3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            foreverNotification3.Close = true;
             foreverNotification3.Cursor = System.Windows.Forms.Cursors.Hand;
             foreverNotification3.Font = new System.Drawing.Font("Segoe UI", 10F);
             foreverNotification3.Kind = ReaLTaiizor.ForeverNotification._Kind.Info;
@@ -454,6 +461,7 @@
             // foreverNotification2
             // 
             foreverNotification2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            foreverNotification2.Close = true;
             foreverNotification2.Cursor = System.Windows.Forms.Cursors.Hand;
             foreverNotification2.Font = new System.Drawing.Font("Segoe UI", 10F);
             foreverNotification2.Kind = ReaLTaiizor.ForeverNotification._Kind.Success;
@@ -466,6 +474,7 @@
             // foreverNotification1
             // 
             foreverNotification1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            foreverNotification1.Close = true;
             foreverNotification1.Cursor = System.Windows.Forms.Cursors.Hand;
             foreverNotification1.Font = new System.Drawing.Font("Segoe UI", 10F);
             foreverNotification1.Kind = ReaLTaiizor.ForeverNotification._Kind.Error;
@@ -548,6 +557,8 @@
             foreverNumeric1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             foreverNumeric1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverNumeric1.ButtonColorA = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverNumeric1.ButtonColorB = System.Drawing.Color.White;
+            foreverNumeric1.ButtonColorC = System.Drawing.Color.White;
             foreverNumeric1.Font = new System.Drawing.Font("Segoe UI", 10F);
             foreverNumeric1.ForeColor = System.Drawing.Color.White;
             foreverNumeric1.Location = new System.Drawing.Point(460, 68);
@@ -574,7 +585,10 @@
             // foreverTrackBar2
             // 
             foreverTrackBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            foreverTrackBar2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverTrackBar2.Cursor = System.Windows.Forms.Cursors.Hand;
+            foreverTrackBar2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            foreverTrackBar2.ForeColor = System.Drawing.Color.White;
             foreverTrackBar2.HatchColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
             foreverTrackBar2.Location = new System.Drawing.Point(258, 74);
             foreverTrackBar2.Maximum = 10;
@@ -582,6 +596,7 @@
             foreverTrackBar2.Name = "foreverTrackBar2";
             foreverTrackBar2.ShowValue = false;
             foreverTrackBar2.Size = new System.Drawing.Size(114, 23);
+            foreverTrackBar2.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
             foreverTrackBar2.Style = ReaLTaiizor.ForeverTrackBar._Style.Knob;
             foreverTrackBar2.TabIndex = 11;
             foreverTrackBar2.Text = "foreverTrackBar2";
@@ -591,7 +606,10 @@
             // foreverTrackBar1
             // 
             foreverTrackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            foreverTrackBar1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             foreverTrackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foreverTrackBar1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            foreverTrackBar1.ForeColor = System.Drawing.Color.White;
             foreverTrackBar1.HatchColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
             foreverTrackBar1.Location = new System.Drawing.Point(138, 74);
             foreverTrackBar1.Maximum = 10;
@@ -599,6 +617,7 @@
             foreverTrackBar1.Name = "foreverTrackBar1";
             foreverTrackBar1.ShowValue = false;
             foreverTrackBar1.Size = new System.Drawing.Size(114, 23);
+            foreverTrackBar1.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
             foreverTrackBar1.Style = ReaLTaiizor.ForeverTrackBar._Style.Slider;
             foreverTrackBar1.TabIndex = 10;
             foreverTrackBar1.Text = "foreverTrackBar1";
