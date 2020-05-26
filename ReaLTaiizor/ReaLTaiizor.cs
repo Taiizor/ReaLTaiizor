@@ -9073,6 +9073,8 @@ namespace ReaLTaiizor
 
     public static class HopeColors
     {
+        public static Color DefaultColor = ColorTranslator.FromHtml("#ffffff");
+
         public static Color PrimaryColor = ColorTranslator.FromHtml("#409eff");
         public static Color LightPrimary = ColorTranslator.FromHtml("#5cadff");
         public static Color DarkPrimary = ColorTranslator.FromHtml("#2b85e4");

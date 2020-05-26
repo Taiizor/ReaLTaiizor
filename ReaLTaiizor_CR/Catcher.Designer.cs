@@ -66,7 +66,7 @@
             this.foreverProgressBar1 = new ReaLTaiizor.ForeverProgressBar();
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextbox1 = new ReaLTaiizor.FoxTextbox();
-            this.hopeButton1 = new ReaLTaiizor.HopeButton();
+            this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -350,17 +350,18 @@
             this.foxTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.foxTextbox1.UseSystemPasswordChar = false;
             // 
-            // hopeButton1
+            // hopeComboBox1
             // 
-            this.hopeButton1.ButtonType = ReaLTaiizor.HopeButtonType.Danger;
-            this.hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hopeButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.hopeButton1.Location = new System.Drawing.Point(445, 130);
-            this.hopeButton1.Name = "hopeButton1";
-            this.hopeButton1.Size = new System.Drawing.Size(120, 40);
-            this.hopeButton1.TabIndex = 16;
-            this.hopeButton1.Text = "hopeButton1";
-            this.hopeButton1.TextColor = System.Drawing.Color.Black;
+            this.hopeComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.hopeComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hopeComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.hopeComboBox1.FormattingEnabled = true;
+            this.hopeComboBox1.ItemHeight = 30;
+            this.hopeComboBox1.Location = new System.Drawing.Point(464, 153);
+            this.hopeComboBox1.Name = "hopeComboBox1";
+            this.hopeComboBox1.Size = new System.Drawing.Size(121, 36);
+            this.hopeComboBox1.TabIndex = 16;
             // 
             // Catcher
             // 
@@ -368,7 +369,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 278);
-            this.Controls.Add(this.hopeButton1);
+            this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextbox1);
             this.Controls.Add(this.foreverTreeView1);
             this.Controls.Add(this.foreverProgressBar1);
@@ -414,6 +415,6 @@
         private ReaLTaiizor.ForeverProgressBar foreverProgressBar1;
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextbox foxTextbox1;
-        private ReaLTaiizor.HopeButton hopeButton1;
+        private ReaLTaiizor.HopeComboBox hopeComboBox1;
     }
 }

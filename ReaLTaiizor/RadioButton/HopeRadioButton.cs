@@ -50,21 +50,16 @@ namespace ReaLTaiizor
         protected override void OnResize(EventArgs e)
         {
             Height = 20;
-            Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
-        }
-
-        protected override void OnLocationChanged(EventArgs e)
-        {
-            base.OnLocationChanged(e);
-            Height = 20;
-            Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
+            //Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
+            Width = 25 + (int)TextRenderer.MeasureText(Text, Font).Width;
         }
 
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
             Height = 20;
-            Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
+            //Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
+            Width = 25 + (int)TextRenderer.MeasureText(Text, Font).Width;
         }
 
         protected override void OnMouseEnter(EventArgs eventargs)

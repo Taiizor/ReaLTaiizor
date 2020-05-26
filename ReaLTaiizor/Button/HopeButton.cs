@@ -18,6 +18,13 @@ namespace ReaLTaiizor
         #region Variables
         bool enterFlag = false;
         bool clickFlag = false;
+
+        Color _DefaultColor = HopeColors.DefaultColor;
+        Color _PrimaryColor = HopeColors.PrimaryColor;
+        Color _SuccessColor = HopeColors.Success;
+        Color _InfoColor = HopeColors.Info;
+        Color _WarningColor = HopeColors.Warning;
+        Color _DangerColor = HopeColors.Danger;
         #endregion
 
         #region Settings
@@ -27,6 +34,48 @@ namespace ReaLTaiizor
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color TextColor { get; set; } = Color.White;
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color DefaultColor
+        {
+            get { return _DefaultColor; }
+            set { _DefaultColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color PrimaryColor
+        {
+            get { return _PrimaryColor; }
+            set { _PrimaryColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color SuccessColor
+        {
+            get { return _SuccessColor; }
+            set { _SuccessColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color InfoColor
+        {
+            get { return _InfoColor; }
+            set { _InfoColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color WarningColor
+        {
+            get { return _WarningColor; }
+            set { _WarningColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color DangerColor
+        {
+            get { return _DangerColor; }
+            set { _DangerColor = value; }
+        }
 
         #endregion
 
@@ -71,30 +120,30 @@ namespace ReaLTaiizor
             if (ButtonType == HopeButtonType.Default)
             {
                 var BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
-                graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, HopeColors.PrimaryColor) : Color.White), BG);
-                graphics.DrawPath(new Pen(clickFlag ? HopeColors.PrimaryColor : HopeColors.OneLevelBorder, 1), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HopeColors.PrimaryColor : HopeColors.MainText), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, _DefaultColor) : _DefaultColor), BG);
+                graphics.DrawPath(new Pen(clickFlag ? _DefaultColor : HopeColors.OneLevelBorder, 1), BG);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _DefaultColor : HopeColors.MainText), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {
                 var BG = RoundRectangle.CreateRoundRect(0, 0, Width, Height, 3);
-                var backColor = HopeColors.PrimaryColor;
+                var backColor = _DefaultColor;
                 switch (ButtonType)
                 {
                     case HopeButtonType.Primary:
-                        backColor = HopeColors.PrimaryColor;
+                        backColor = _PrimaryColor;
                         break;
                     case HopeButtonType.Success:
-                        backColor = HopeColors.Success;
+                        backColor = _SuccessColor;
                         break;
                     case HopeButtonType.Info:
-                        backColor = HopeColors.Info;
+                        backColor = _InfoColor;
                         break;
                     case HopeButtonType.Warning:
-                        backColor = HopeColors.Warning;
+                        backColor = _WarningColor;
                         break;
                     case HopeButtonType.Danger:
-                        backColor = HopeColors.Danger;
+                        backColor = _DangerColor;
                         break;
                     default:
                         break;
