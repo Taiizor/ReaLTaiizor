@@ -16,6 +16,23 @@ namespace ReaLTaiizor
     public class HopeNotify : Control
     {
         #region Variables
+
+        private bool _Close = true;
+
+        private Color _DefaultBackColor = HopeColors.PrimaryColor;
+        private Color _DefaultTextColor = HopeColors.PrimaryColor;
+
+        private Color _SuccessBackColor = Color.FromArgb(25, HopeColors.Success);
+        private Color _SuccessTextColor = HopeColors.Success;
+        private Color _WarningBackColor = Color.FromArgb(25, HopeColors.Warning);
+        private Color _WarningTextColor = HopeColors.Warning;
+        private Color _InfoBackColor = Color.FromArgb(25, HopeColors.Info);
+        private Color _InfoTextColor = HopeColors.Info;
+        private Color _ErrorBackColor = Color.FromArgb(25, HopeColors.Danger);
+        private Color _ErrorTextColor = HopeColors.Danger;
+
+        private Color _CloseColor = RoundRectangle.DarkBackColor;
+
         public enum AlertType
         {
             Success = 0,
@@ -44,6 +61,76 @@ namespace ReaLTaiizor
             }
         }
 
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public bool Close
+        {
+            get { return _Close; }
+            set { _Close = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color SuccessBackColor
+        {
+            get { return _SuccessBackColor; }
+            set { _SuccessBackColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color SuccessTextColor
+        {
+            get { return _SuccessTextColor; }
+            set { _SuccessTextColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color WarningBackColor
+        {
+            get { return _WarningBackColor; }
+            set { _WarningBackColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color WarningTextColor
+        {
+            get { return _WarningTextColor; }
+            set { _WarningTextColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color InfoBackColor
+        {
+            get { return _InfoBackColor; }
+            set { _InfoBackColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color InfoTextColor
+        {
+            get { return _InfoTextColor; }
+            set { _InfoTextColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color ErrorBackColor
+        {
+            get { return _ErrorBackColor; }
+            set { _ErrorBackColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color ErrorTextColor
+        {
+            get { return _ErrorTextColor; }
+            set { _ErrorTextColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color CloseColor
+        {
+            get { return _CloseColor; }
+            set { _CloseColor = value; }
+        }
+
         #endregion
 
         #region Events
@@ -56,7 +143,8 @@ namespace ReaLTaiizor
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            Visible = false;
+            if (_Close)
+                Visible = false;
         }
         #endregion
 
@@ -70,25 +158,25 @@ namespace ReaLTaiizor
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            var backBrush = new SolidBrush(HopeColors.PrimaryColor);
-            var textBrush = new SolidBrush(HopeColors.PrimaryColor);
+            var backBrush = new SolidBrush(_DefaultBackColor);
+            var textBrush = new SolidBrush(_DefaultTextColor);
             switch (Type)
             {
                 case AlertType.Success:
-                    backBrush = new SolidBrush(Color.FromArgb(25, HopeColors.Success));
-                    textBrush = new SolidBrush(HopeColors.Success);
+                    backBrush = new SolidBrush(_SuccessBackColor);
+                    textBrush = new SolidBrush(_SuccessTextColor);
                     break;
                 case AlertType.Warning:
-                    backBrush = new SolidBrush(Color.FromArgb(25, HopeColors.Warning));
-                    textBrush = new SolidBrush(HopeColors.Warning);
+                    backBrush = new SolidBrush(_WarningBackColor);
+                    textBrush = new SolidBrush(_WarningTextColor);
                     break;
                 case AlertType.Info:
-                    backBrush = new SolidBrush(Color.FromArgb(25, HopeColors.Info));
-                    textBrush = new SolidBrush(HopeColors.Info);
+                    backBrush = new SolidBrush(_InfoBackColor);
+                    textBrush = new SolidBrush(_InfoTextColor);
                     break;
                 case AlertType.Error:
-                    backBrush = new SolidBrush(Color.FromArgb(25, HopeColors.Danger));
-                    textBrush = new SolidBrush(HopeColors.Danger);
+                    backBrush = new SolidBrush(_ErrorBackColor);
+                    textBrush = new SolidBrush(_ErrorTextColor);
                     break;
                 default:
                     break;
@@ -98,8 +186,13 @@ namespace ReaLTaiizor
             graphics.FillPath(new SolidBrush(Color.White), back);
             graphics.FillPath(backBrush, back);
             graphics.DrawPath(new Pen(textBrush, 1f), back);
-            graphics.DrawString(Text, Font, textBrush, new RectangleF(20, 0, Width - 40, Height), HopeStringAlign.Left);
-            graphics.DrawString("r", new Font("Marlett", 10), new SolidBrush(RoundRectangle.DarkBackColor), new Rectangle(Width - 34, 1, 34, 34), HopeStringAlign.Center);
+            if (_Close)
+            {
+                graphics.DrawString(Text, Font, textBrush, new RectangleF(20, 0, Width - 40, Height), HopeStringAlign.Left);
+                graphics.DrawString("r", new Font("Marlett", 10), new SolidBrush(_CloseColor), new Rectangle(Width - 34, 1, 34, 34), HopeStringAlign.Center);
+            }
+            else
+                graphics.DrawString(Text, Font, textBrush, new RectangleF(20, 0, Width - 35, Height), HopeStringAlign.Left);
         }
 
         #endregion
@@ -115,10 +208,16 @@ namespace ReaLTaiizor
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Visible = false;
+            if (_Close)
+                Visible = false;
             _Timer.Enabled = false;
             _Timer.Dispose();
         }
+
+        /// <summary>
+        /// How to use: HopeNotify.ShowAlertBox(Type, String, Interval)
+        /// </summary>
+        /// <remarks></remarks>
 
         public void ShowAlertBox(AlertType type, string text, int Interval)
         {

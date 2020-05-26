@@ -108,7 +108,8 @@ namespace ReaLTaiizor
 
 		private void T_Tick(object sender, EventArgs e)
 		{
-			Visible = false;
+			if (_Close)
+				Visible = false;
 			T.Enabled = false;
 			T.Dispose();
 		}
