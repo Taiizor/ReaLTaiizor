@@ -66,9 +66,17 @@
             // hopeNumeric1
             // 
             hopeNumeric1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(54)))));
+            hopeNumeric1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
+            hopeNumeric1.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            hopeNumeric1.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            hopeNumeric1.BorderHoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeNumeric1.ButtonTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            hopeNumeric1.ButtonTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeNumeric1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeNumeric1.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeNumeric1.ForeColor = System.Drawing.Color.Silver;
+            hopeNumeric1.HoverButtonTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeNumeric1.HoverButtonTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             hopeNumeric1.Location = new System.Drawing.Point(350, 404);
             hopeNumeric1.MaxNum = 10F;
             hopeNumeric1.MinNum = 0F;
@@ -99,6 +107,9 @@
             // 
             hopeSwitch1.AutoSize = true;
             hopeSwitch1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeSwitch1.BaseColor = System.Drawing.Color.White;
+            hopeSwitch1.BaseOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeSwitch1.BaseOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             hopeSwitch1.Checked = true;
             hopeSwitch1.CheckState = System.Windows.Forms.CheckState.Checked;
             hopeSwitch1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -177,11 +188,20 @@
             // hopeRoundProgressBar1
             // 
             hopeRoundProgressBar1.BackColor = System.Drawing.Color.White;
+            hopeRoundProgressBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeRoundProgressBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeRoundProgressBar1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeRoundProgressBar1.DangerTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeRoundProgressBar1.DangerTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeRoundProgressBar1.Font = new System.Drawing.Font("Segoe UI", 10F);
             hopeRoundProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeRoundProgressBar1.FullBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeRoundProgressBar1.FullTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeRoundProgressBar1.FullTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeRoundProgressBar1.IsError = false;
             hopeRoundProgressBar1.Location = new System.Drawing.Point(343, 211);
             hopeRoundProgressBar1.Name = "hopeRoundProgressBar1";
+            hopeRoundProgressBar1.PercentText = "%";
             hopeRoundProgressBar1.Size = new System.Drawing.Size(83, 83);
             hopeRoundProgressBar1.TabIndex = 5;
             hopeRoundProgressBar1.Text = "hopeRoundProgressBar1";
@@ -189,8 +209,14 @@
             // 
             // hopeProgressBar2
             // 
+            hopeProgressBar2.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeProgressBar2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeProgressBar2.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeProgressBar2.Font = new System.Drawing.Font("Segoe UI", 10F);
             hopeProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
+            hopeProgressBar2.FullBallonColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeProgressBar2.FullBallonText = "Ok!";
+            hopeProgressBar2.FullBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeProgressBar2.IsError = true;
             hopeProgressBar2.Location = new System.Drawing.Point(12, 96);
             hopeProgressBar2.Name = "hopeProgressBar2";
@@ -202,8 +228,14 @@
             // 
             // hopeProgressBar1
             // 
+            hopeProgressBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeProgressBar1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeProgressBar1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeProgressBar1.Font = new System.Drawing.Font("Segoe UI", 10F);
             hopeProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
+            hopeProgressBar1.FullBallonColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeProgressBar1.FullBallonText = "Ok!";
+            hopeProgressBar1.FullBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeProgressBar1.IsError = false;
             hopeProgressBar1.Location = new System.Drawing.Point(12, 58);
             hopeProgressBar1.Name = "hopeProgressBar1";
@@ -233,11 +265,13 @@
             // 
             // hopeButton1
             // 
+            hopeButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeButton1.ButtonType = ReaLTaiizor.HopeButtonType.Warning;
             hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             hopeButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeButton1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             hopeButton1.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeButton1.Location = new System.Drawing.Point(36, 12);
             hopeButton1.Name = "hopeButton1";
@@ -251,16 +285,26 @@
             // 
             // hopeSimpleButton1
             // 
+            hopeSimpleButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeSimpleButton1.ButtonType = ReaLTaiizor.HopeButtonType.Primary;
             hopeSimpleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeSimpleButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeSimpleButton1.DefaultClickColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
+            hopeSimpleButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             hopeSimpleButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
             hopeSimpleButton1.ForeColor = System.Drawing.Color.White;
+            hopeSimpleButton1.HoverClickTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
+            hopeSimpleButton1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            hopeSimpleButton1.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeSimpleButton1.Location = new System.Drawing.Point(162, 12);
             hopeSimpleButton1.Name = "hopeSimpleButton1";
+            hopeSimpleButton1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             hopeSimpleButton1.Size = new System.Drawing.Size(150, 40);
+            hopeSimpleButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeSimpleButton1.TabIndex = 17;
             hopeSimpleButton1.Text = "hopeSimpleButton1";
             hopeSimpleButton1.TextColor = System.Drawing.Color.White;
+            hopeSimpleButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // hopeRadioButton1
             // 
@@ -475,15 +519,23 @@
             // 
             // hopeRoundButton1
             // 
+            hopeRoundButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeRoundButton1.ButtonType = ReaLTaiizor.HopeButtonType.Success;
             hopeRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeRoundButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeRoundButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             hopeRoundButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeRoundButton1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            hopeRoundButton1.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
             hopeRoundButton1.Location = new System.Drawing.Point(317, 12);
             hopeRoundButton1.Name = "hopeRoundButton1";
+            hopeRoundButton1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             hopeRoundButton1.Size = new System.Drawing.Size(190, 40);
+            hopeRoundButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeRoundButton1.TabIndex = 25;
             hopeRoundButton1.Text = "hopeRoundButton1";
             hopeRoundButton1.TextColor = System.Drawing.Color.White;
+            hopeRoundButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // Form14
             // 
