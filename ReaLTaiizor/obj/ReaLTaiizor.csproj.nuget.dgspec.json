@@ -1,0 +1,124 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\ReaLTaiizor.csproj": {}
+  },
+  "projects": {
+    "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\ReaLTaiizor.csproj": {
+      "version": "3.7.7",
+      "restore": {
+        "projectUniqueName": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\ReaLTaiizor.csproj",
+        "projectName": "ReaLTaiizor",
+        "projectPath": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\ReaLTaiizor.csproj",
+        "packagesPath": "C:\\Users\\DR. AbdaL\\.nuget\\packages\\",
+        "outputPath": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "E:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\DR. AbdaL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net40",
+          "net45",
+          "net451",
+          "net452",
+          "net46",
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
+          "https://www.nuget.org/api/v2/": {},
+          "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
+        },
+        "frameworks": {
+          "net40": {
+            "projectReferences": {}
+          },
+          "net45": {
+            "projectReferences": {}
+          },
+          "net451": {
+            "projectReferences": {}
+          },
+          "net452": {
+            "projectReferences": {}
+          },
+          "net46": {
+            "projectReferences": {}
+          },
+          "net461": {
+            "projectReferences": {}
+          },
+          "net462": {
+            "projectReferences": {}
+          },
+          "net47": {
+            "projectReferences": {}
+          },
+          "net471": {
+            "projectReferences": {}
+          },
+          "net472": {
+            "projectReferences": {}
+          },
+          "net48": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net40": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net45": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net451": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net452": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net46": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net461": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net462": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net47": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net471": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net472": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        },
+        "net48": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
