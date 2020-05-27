@@ -33,7 +33,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "3.7.7",
+    "version": "3.7.7.1",
     "restore": {
       "projectUniqueName": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\ReaLTaiizor.csproj",
       "projectName": "ReaLTaiizor",
