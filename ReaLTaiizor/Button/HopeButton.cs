@@ -25,6 +25,8 @@ namespace ReaLTaiizor
         Color _InfoColor = HopeColors.Info;
         Color _WarningColor = HopeColors.Warning;
         Color _DangerColor = HopeColors.Danger;
+        Color _BorderColor = HopeColors.OneLevelBorder;
+        Color _HoverTextColor = HopeColors.MainText;
         #endregion
 
         #region Settings
@@ -77,6 +79,20 @@ namespace ReaLTaiizor
             set { _DangerColor = value; }
         }
 
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Color HoverTextColor
+        {
+            get { return _HoverTextColor; }
+            set { _HoverTextColor = value; }
+        }
+
         #endregion
 
         #region Events
@@ -121,8 +137,8 @@ namespace ReaLTaiizor
             {
                 var BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, _DefaultColor) : _DefaultColor), BG);
-                graphics.DrawPath(new Pen(clickFlag ? _DefaultColor : HopeColors.OneLevelBorder, 1), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _DefaultColor : HopeColors.MainText), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawPath(new Pen(clickFlag ? _DefaultColor : _BorderColor, 1), BG);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {
@@ -152,8 +168,8 @@ namespace ReaLTaiizor
                 var brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
                 graphics.FillPath(brush, BG);
                 if (!Enabled)
-                    graphics.FillPath(new SolidBrush(Color.FromArgb(125, HopeColors.OneLevelBorder)), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                    graphics.FillPath(new SolidBrush(Color.FromArgb(125, _BorderColor)), BG);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
         }
 

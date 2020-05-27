@@ -14,12 +14,18 @@ namespace ReaLTaiizor
 
     public class HopeProgressBar : Control
     {
+        #region Variable
+
         public enum Style
         {
             ToolTip = 0,
             ValueInSide = 1,
             ValueOutSide = 2
         }
+
+        #endregion
+
+        #region Settings
 
         private Style _style = Style.ToolTip;
         public Style ProgressBarStyle
@@ -54,6 +60,50 @@ namespace ReaLTaiizor
             }
         }
 
+        private Color _DangerColor = HopeColors.Danger;
+        public Color DangerColor
+        {
+            get { return _DangerColor; }
+            set { _DangerColor = value; }
+        }
+
+        private Color _BaseColor = HopeColors.PrimaryColor;
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set { _BaseColor = value; }
+        }
+
+        private Color _FullBallonColor = HopeColors.Success;
+        public Color FullBallonColor
+        {
+            get { return _FullBallonColor; }
+            set { _FullBallonColor = value; }
+        }
+
+        private Color _FullBarColor = HopeColors.Success;
+        public Color FullBarColor
+        {
+            get { return _FullBarColor; }
+            set { _FullBarColor = value; }
+        }
+
+        private Color _BarColor = HopeColors.OneLevelBorder;
+        public Color BarColor
+        {
+            get { return _BarColor; }
+            set { _BarColor = value; }
+        }
+
+        private string _FullBallonText = "Ok!";
+        public string FullBallonText
+        {
+            get { return _FullBallonText; }
+            set { _FullBallonText = value; }
+        }
+
+        #endregion
+
         #region Events
         protected override void OnResize(EventArgs e)
         {
@@ -80,23 +130,23 @@ namespace ReaLTaiizor
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            graphics.Clear(Parent.BackColor);
+            graphics.Clear(BackColor);
 
-            var tempColor = _isError ? HopeColors.Danger : HopeColors.PrimaryColor;
+            var tempColor = _isError ? _DangerColor : _BaseColor;
 
             switch (_style)
             {
                 case Style.ToolTip:
                     var x = _valueNumber * (Width - 32) / 100 + 16f;
                     var y = 25;
-                    graphics.FillPolygon(new SolidBrush(_valueNumber == 100 && !_isError ? HopeColors.Success : tempColor), new PointF[]
+                    graphics.FillPolygon(new SolidBrush(_valueNumber == 100 && !_isError ? _FullBallonColor : tempColor), new PointF[]
                     {
                          new PointF(x,y),new PointF(x+5,y-5),new PointF(x+16,y-5),new PointF(x+16,y-25),new PointF(x-16,y-25),new PointF(x-16,y-5),new PointF(x-5,y-5)
                     });
-                    graphics.DrawString(_valueNumber != 100 ? _valueNumber.ToString() + "%" : Text, Font, new SolidBrush(ForeColor), new RectangleF(x - 16, y - 25, 32, 20), HopeStringAlign.Center);
+                    graphics.DrawString(_valueNumber != 100 ? _valueNumber.ToString() + "%" : _FullBallonText, Font, new SolidBrush(ForeColor), new RectangleF(x - 16, y - 25, 32, 20), HopeStringAlign.Center);
 
-                    graphics.FillRectangle(new SolidBrush(HopeColors.OneLevelBorder), new RectangleF(16, 25, Width - 32, Height - 25));
-                    graphics.FillRectangle(new SolidBrush(_valueNumber == 100 && !_isError ? HopeColors.Success : tempColor), new RectangleF(16, 25, x - 16, Height - 25));
+                    graphics.FillRectangle(new SolidBrush(_BarColor), new RectangleF(16, 25, Width - 32, Height - 25));
+                    graphics.FillRectangle(new SolidBrush(_valueNumber == 100 && !_isError ? _FullBarColor : tempColor), new RectangleF(16, 25, x - 16, Height - 25));
                     break;
 
                 case Style.ValueInSide:
@@ -104,17 +154,17 @@ namespace ReaLTaiizor
                     path1.AddArc(new RectangleF(0, 0, Height, Height), 90, 180);
                     path1.AddArc(new RectangleF(Width - Height, 0, Height, Height), -90, 180);
                     path1.CloseAllFigures();
-                    graphics.FillPath(new SolidBrush(HopeColors.OneLevelBorder), path1);
+                    graphics.FillPath(new SolidBrush(_BarColor), path1);
 
                     if (_valueNumber == 0)
-                        graphics.DrawString("0%", new Font("Segoe UI", 9f), new SolidBrush(HopeColors.FourLevelBorder), new RectangleF(5, 0, 50, Height), HopeStringAlign.Left);
+                        graphics.DrawString("0%", new Font("Segoe UI", 9f), new SolidBrush(ForeColor), new RectangleF(5, 0, 50, Height), HopeStringAlign.Left);
                     else
                     {
                         var path2 = new GraphicsPath();
                         path2.AddArc(new RectangleF(0, 0, Height, Height), 90, 180);
                         path2.AddArc(new RectangleF(_valueNumber * (Width - Height) / 100, 0, Height, Height), -90, 180);
                         path2.CloseAllFigures();
-                        graphics.FillPath(new SolidBrush(_valueNumber == 100 && !_isError ? HopeColors.Success : tempColor), path2);
+                        graphics.FillPath(new SolidBrush(_valueNumber == 100 && !_isError ? _FullBarColor : tempColor), path2);
 
                         graphics.DrawString(_valueNumber.ToString() + "%", new Font("Segoe UI", 9f), new SolidBrush(ForeColor), new RectangleF(_valueNumber * (Width - Height) / 100 - 33, 0, 45, Height), HopeStringAlign.Right);
                     }
@@ -124,7 +174,7 @@ namespace ReaLTaiizor
                     path3.AddArc(new RectangleF(0, 4, Height - 8, Height - 8), 90, 180);
                     path3.AddArc(new RectangleF(Width - 50, 4, Height - 8, Height - 8), -90, 180);
                     path3.CloseAllFigures();
-                    graphics.FillPath(new SolidBrush(HopeColors.OneLevelBorder), path3);
+                    graphics.FillPath(new SolidBrush(_BarColor), path3);
 
                     if (_valueNumber != 0)
                     {
@@ -132,12 +182,12 @@ namespace ReaLTaiizor
                         path4.AddArc(new RectangleF(0, 4, Height - 8, Height - 8), 90, 180);
                         path4.AddArc(new RectangleF(_valueNumber * (Width - 50) / 100, 4, Height - 8, Height - 8), -90, 180);
                         path4.CloseAllFigures();
-                        graphics.FillPath(new SolidBrush(_valueNumber == 100 && !_isError ? HopeColors.Success : tempColor), path4);
+                        graphics.FillPath(new SolidBrush(_valueNumber == 100 && !_isError ? _FullBarColor : tempColor), path4);
                     }
 
                     if (_isError)
                     {
-                        graphics.FillEllipse(new SolidBrush(HopeColors.Danger), new RectangleF(Width - 40, 0, Height, Height));
+                        graphics.FillEllipse(new SolidBrush(_DangerColor), new RectangleF(Width - 40, 0, Height, Height));
                         var a = Width - 40 + 4;
                         var b = Height - 4;
                         graphics.DrawLine(new Pen(ForeColor), a, b - 6, a + 6, b);
@@ -147,11 +197,11 @@ namespace ReaLTaiizor
                     {
                         if (_valueNumber == 100)
                         {
-                            graphics.FillEllipse(new SolidBrush(HopeColors.Success), new RectangleF(Width - 40, 0, Height, Height));
+                            graphics.FillEllipse(new SolidBrush(_FullBarColor), new RectangleF(Width - 40, 0, Height, Height));
                             var a = Width - 40 + 4;
                             var b = Height - 4;
-                            graphics.DrawLine(new Pen(HopeColors.FourLevelBorder), a, b - 3, a + 3, b);
-                            graphics.DrawLine(new Pen(HopeColors.FourLevelBorder), a + 3, b, a + 6, b - 6);
+                            graphics.DrawLine(new Pen(ForeColor), a, b - 3, a + 3, b);
+                            graphics.DrawLine(new Pen(ForeColor), a + 3, b, a + 6, b - 6);
                         }
                         else
                             graphics.DrawString(_valueNumber.ToString() + "%", new Font("Segoe UI", 10f), new SolidBrush(ForeColor), new RectangleF(Width - 40, 0, 50, Height), HopeStringAlign.Left);

@@ -67,7 +67,10 @@
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             foxTextbox1 = new ReaLTaiizor.FoxTextbox();
             hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            hopeNumeric1 = new ReaLTaiizor.HopeNumeric();
+            hopeTabPage1 = new ReaLTaiizor.HopeTabPage();
+            tabPage1 = new System.Windows.Forms.TabPage();
+            tabPage2 = new System.Windows.Forms.TabPage();
+            hopeTabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,23 +372,39 @@
             hopeComboBox1.TabIndex = 16;
             hopeComboBox1.Text = "Item 1";
             // 
-            // hopeNumeric1
+            // hopeTabPage1
             // 
-            hopeNumeric1.BackColor = System.Drawing.Color.White;
-            hopeNumeric1.Cursor = System.Windows.Forms.Cursors.Hand;
-            hopeNumeric1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            hopeNumeric1.ForeColor = System.Drawing.Color.Black;
-            hopeNumeric1.Location = new System.Drawing.Point(671, 238);
-            hopeNumeric1.MaxNum = 10F;
-            hopeNumeric1.MinNum = 0F;
-            hopeNumeric1.Name = "hopeNumeric1";
-            hopeNumeric1.Precision = 0;
-            hopeNumeric1.Size = new System.Drawing.Size(120, 32);
-            hopeNumeric1.Step = 1F;
-            hopeNumeric1.Style = ReaLTaiizor.HopeNumeric.NumericStyle.LeftRight;
-            hopeNumeric1.TabIndex = 17;
-            hopeNumeric1.Text = "hopeNumeric1";
-            hopeNumeric1.ValueNumber = 5F;
+            hopeTabPage1.Controls.Add(tabPage1);
+            hopeTabPage1.Controls.Add(tabPage2);
+            hopeTabPage1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeTabPage1.ItemSize = new System.Drawing.Size(120, 40);
+            hopeTabPage1.Location = new System.Drawing.Point(399, 86);
+            hopeTabPage1.Name = "hopeTabPage1";
+            hopeTabPage1.SelectedIndex = 0;
+            hopeTabPage1.Size = new System.Drawing.Size(392, 184);
+            hopeTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            hopeTabPage1.TabIndex = 17;
+            hopeTabPage1.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            // 
+            // tabPage1
+            // 
+            tabPage1.Location = new System.Drawing.Point(0, 40);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            tabPage1.Size = new System.Drawing.Size(392, 144);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new System.Drawing.Point(0, 40);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            tabPage2.Size = new System.Drawing.Size(392, 144);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // Catcher
             // 
@@ -393,7 +412,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             ClientSize = new System.Drawing.Size(796, 276);
-            Controls.Add(hopeNumeric1);
+            Controls.Add(hopeTabPage1);
             Controls.Add(hopeComboBox1);
             Controls.Add(foxTextbox1);
             Controls.Add(foreverTreeView1);
@@ -417,6 +436,7 @@
             Name = "Catcher";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Catcher";
+            hopeTabPage1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -441,6 +461,8 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextbox foxTextbox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.HopeNumeric hopeNumeric1;
+        private ReaLTaiizor.HopeTabPage hopeTabPage1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

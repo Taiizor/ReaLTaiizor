@@ -172,6 +172,7 @@ namespace ReaLTaiizor
 			base.OnResize(e);
 		}
 
+		private Color _BorderColor = ForeverLibrary.ForeverColor;
 		[Category("Colors")]
 		public Color BorderColor
 		{
@@ -179,6 +180,7 @@ namespace ReaLTaiizor
 			set { _BorderColor = value; }
 		}
 
+		private Color _BaseColor = Color.FromArgb(45, 47, 49);
 		[Category("Colors")]
 		public Color BaseColor
 		{
@@ -216,9 +218,6 @@ namespace ReaLTaiizor
 			State = MouseStateForever.None;
 			Invalidate();
 		}
-
-		private Color _BaseColor = Color.FromArgb(45, 47, 49);
-		private Color _BorderColor = ForeverLibrary.ForeverColor;
 
 		public ForeverTextBox()
 		{
@@ -285,7 +284,47 @@ namespace ReaLTaiizor
 			B.Dispose();
 		}
 
-		private void UpdateColors()
+        #region TB Events
+
+        public new event KeyEventHandler KeyUp
+		{
+			add
+			{
+				TB.KeyUp += value;
+			}
+			remove
+			{
+				TB.KeyUp -= value;
+			}
+		}
+
+		public new event KeyEventHandler KeyDown
+		{
+			add
+			{
+				TB.KeyDown += value;
+			}
+			remove
+			{
+				TB.KeyDown -= value;
+			}
+		}
+
+		public new event KeyPressEventHandler KeyPress
+		{
+			add
+			{
+                TB.KeyPress += value;
+			}
+			remove
+			{
+				TB.KeyPress -= value;
+			}
+		}
+
+        #endregion
+
+        private void UpdateColors()
 		{
 			ForeverColors Colors = ForeverLibrary.GetColors(this);
 

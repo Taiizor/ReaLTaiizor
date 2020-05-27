@@ -16,15 +16,15 @@ using System.Runtime.InteropServices;
 
 #endregion
 
-//|---------DO-NOT-REMOVE---------|
+// |---------DO-NOT-REMOVE---------|
 //
-//    Creator: Taiizor
-//    Site   : www.Taiizor.com
-//    Created: 15.May.2019
-//    Changed: 27.May.2020
-//    Version: 3.7.7.1
+//     Creator: Taiizor
+//     Site   : www.Taiizor.com
+//     Created: 15.May.2019
+//     Changed: 27.May.2020
+//     Version: 3.7.7.1
 //
-//|---------DO-NOT-REMOVE---------|
+// |---------DO-NOT-REMOVE---------|
 
 namespace ReaLTaiizor
 {
