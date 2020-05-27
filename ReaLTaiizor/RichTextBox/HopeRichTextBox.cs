@@ -34,6 +34,21 @@ namespace ReaLTaiizor
         private bool _resizing = false;
         private Point _cursorStartPoint;
 
+        private Color _BorderColor = HopeColors.OneLevelBorder;
+        private Color _HoverBorderColor = HopeColors.PrimaryColor;
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set { _BorderColor = value; }
+        }
+
+        public Color HoverBorderColor
+        {
+            get { return _HoverBorderColor; }
+            set { _HoverBorderColor = value; }
+        }
+
         public override string Text { get { return _baseTextBox.Text; } set { _baseTextBox.Text = value; } }
         public new object Tag { get { return _baseTextBox.Tag; } set { _baseTextBox.Tag = value; } }
         public int MaxLength { get { return _baseTextBox.MaxLength; } set { _baseTextBox.MaxLength = value; } }
@@ -108,6 +123,7 @@ namespace ReaLTaiizor
             _baseTextBox.Location = new Point(12, 8);
             _baseTextBox.Width = Width - 24;
             _baseTextBox.Height = (Height - 16) > 0 ? (Height - 16) : 0;
+            _baseTextBox.ForeColor = ForeColor;
             Height = _baseTextBox.Height + 16;
 
             var g = e.Graphics;
@@ -118,7 +134,7 @@ namespace ReaLTaiizor
 
             var bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(Color.White), bg);
-            g.DrawPath(new Pen(_baseTextBox.Focused ? HopeColors.PrimaryColor : HopeColors.OneLevelBorder, 0.5f), bg);
+            g.DrawPath(new Pen(_baseTextBox.Focused ? _HoverBorderColor : _BorderColor, 0.5f), bg);
 
             arrowRectangleF.X = Width - 22;
             arrowRectangleF.Y = Height - 20;
@@ -134,6 +150,7 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
             Font = new Font("Segoe UI", 12);
+            ForeColor = HopeColors.MainText;
 
             if (!Controls.Contains(_baseTextBox) && !DesignMode)
                 Controls.Add(_baseTextBox);
@@ -1140,7 +1157,6 @@ namespace ReaLTaiizor
                 AutoSize = false;
             }
         }
-
     }
 
     #endregion

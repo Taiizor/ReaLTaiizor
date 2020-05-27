@@ -19,9 +19,32 @@ namespace ReaLTaiizor
         Timer AnimationTimer = new Timer { Interval = 1 };
         int PointAnimationNum = 3;
 
+        Color _BaseColor = Color.White;
+        Color _BaseOnColor = HopeColors.PrimaryColor;
+        Color _BaseOffColor = HopeColors.OneLevelBorder;
+
         #endregion
 
         #region Settings
+
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set { _BaseColor = value; }
+        }
+
+        public Color BaseOnColor
+        {
+            get { return _BaseOnColor; }
+            set { _BaseOnColor = value; }
+        }
+
+        public Color BaseOffColor
+        {
+            get { return _BaseOffColor; }
+            set { _BaseOffColor = value; }
+        }
+
         #endregion
 
         #region Events
@@ -54,8 +77,8 @@ namespace ReaLTaiizor
             backRect.AddArc(new RectangleF(Width - Height + 0.5f, 0.5f, Height - 1, Height - 1), 270, 180);
             backRect.CloseAllFigures();
 
-            graphics.FillPath(new SolidBrush(Checked ? BackColor : HopeColors.OneLevelBorder), backRect);
-            graphics.FillEllipse(new SolidBrush(Color.White), new RectangleF(PointAnimationNum, 2, 16, 16));
+            graphics.FillPath(new SolidBrush(Checked ? _BaseOnColor : _BaseOffColor), backRect);
+            graphics.FillEllipse(new SolidBrush(_BaseColor), new RectangleF(PointAnimationNum, 2, 16, 16));
         }
 
         public HopeSwitch()
@@ -65,7 +88,6 @@ namespace ReaLTaiizor
             Height = 20; Width = 42;
             AnimationTimer.Tick += new EventHandler(AnimationTick);
             Cursor = Cursors.Hand;
-            BackColor = HopeColors.PrimaryColor;
         }
 
         void AnimationTick(object sender, EventArgs e)
