@@ -566,7 +566,7 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size(1366, 768);
+            MaximumSize = new System.Drawing.Size(0, 0);
             MinimumSize = new System.Drawing.Size(190, 40);
             Name = "Form14";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
