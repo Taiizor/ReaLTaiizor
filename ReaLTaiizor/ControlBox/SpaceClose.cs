@@ -11,7 +11,6 @@ namespace ReaLTaiizor
 
     public class SpaceClose : SpaceControl // A Close Button for the App
     {
-
         public SpaceClose()
         {
             SetColor("DownGradient1", 210, 15, 13); // Basic Gradients Used to Shade the Button
