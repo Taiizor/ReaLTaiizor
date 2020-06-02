@@ -15,6 +15,8 @@ namespace ReaLTaiizor
 
     public class HopeForm : ContainerControl
     {
+
+        #region Variables
         private bool mouseFlag = false;
         private Point mousePoint;
         private Rectangle minRectangle;
@@ -27,6 +29,7 @@ namespace ReaLTaiizor
         private Color _ControlBoxColorHC = HopeColors.Danger;
         private Image _Image = Properties.Resources.Taiizor;
         private Size _ImageSize;
+        #endregion
 
         #region Settings
 
@@ -220,7 +223,7 @@ namespace ReaLTaiizor
                     ParentForm.WindowState = FormWindowState.Maximized;
             }
             if (closeRectangle.Contains(mousePoint))
-                Environment.Exit(0);
+                ParentForm.Close();
         }
 
         protected override void OnResize(EventArgs e)
