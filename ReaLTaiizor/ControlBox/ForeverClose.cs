@@ -85,7 +85,7 @@ namespace ReaLTaiizor
 		protected override void OnClick(EventArgs e)
 		{
 			base.OnClick(e);
-			Environment.Exit(0);
+			Parent.FindForm().Close();
 		}
 
 		protected override void OnResize(EventArgs e)

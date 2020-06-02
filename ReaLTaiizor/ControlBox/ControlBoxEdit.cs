@@ -25,7 +25,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
         #region Properties
 
         private bool _DefaultLocation = true;
@@ -40,7 +39,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
         #region Variables
 
         MouseState State = MouseState.None;
@@ -167,9 +165,7 @@ namespace ReaLTaiizor
                         G.DrawString("0", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), MinimizeRect.Width - 22, MinimizeRect.Height - 16);
                     }
                     else
-                    {
-                        goto NonePoint; // Return to [MouseState = None]     
-                    }
+                        goto NonePoint; // Return to [MouseState = None]
                     break;
             }
 
