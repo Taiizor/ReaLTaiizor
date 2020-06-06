@@ -21,16 +21,6 @@ namespace ReaLTaiizor
         #endregion
 
         #region Settings
-        private Color _themeColor = HopeColors.PrimaryColor;
-        public Color ThemeColor
-        {
-            get { return _themeColor; }
-            set
-            {
-                _themeColor = value;
-                Invalidate();
-            }
-        }
 
         private int _minValue = 0;
         public int MinValue
@@ -96,6 +86,105 @@ namespace ReaLTaiizor
             get { return Convert.ToInt32(_value * (Width - 30) / (_maxValue - _minValue)); }
         }
 
+        private Color _themeColor = HopeColors.PrimaryColor;
+        public Color ThemeColor
+        {
+            get { return _themeColor; }
+            set
+            {
+                _themeColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BaseColor = Color.FromArgb(44, 55, 66);
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set
+            {
+                _BaseColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BarColor = RoundRectangle.BackColor;
+        public Color BarColor
+        {
+            get { return _BarColor; }
+            set
+            {
+                _BarColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BallonColor = HopeColors.PrimaryColor;
+        public Color BallonColor
+        {
+            get { return _BallonColor; }
+            set
+            {
+                _BallonColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BallonArrowColor = HopeColors.PrimaryColor;
+        public Color BallonArrowColor
+        {
+            get { return _BallonArrowColor; }
+            set
+            {
+                _BallonArrowColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _FillBarColor = HopeColors.PrimaryColor;
+        public Color FillBarColor
+        {
+            get { return _FillBarColor; }
+            set
+            {
+                _FillBarColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _HeadBorderColor = Color.DodgerBlue;
+        public Color HeadBorderColor
+        {
+            get { return _HeadBorderColor; }
+            set
+            {
+                _HeadBorderColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _HeadColor = Color.Black;
+        public Color HeadColor
+        {
+            get { return _HeadColor; }
+            set
+            {
+                _HeadColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _UnknownColor = Color.White;
+        public Color UnknownColor
+        {
+            get { return _UnknownColor; }
+            set
+            {
+                _UnknownColor = value;
+                Invalidate();
+            }
+        }
+
         #endregion
 
         #region Events
@@ -140,25 +229,25 @@ namespace ReaLTaiizor
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            graphics.Clear(Parent.BackColor);
+            graphics.Clear(_BaseColor);
 
             if (ShowValue && (mouseFlat || _AlwaysValueVisible))
             {
-                graphics.FillEllipse(new SolidBrush(_themeColor), new RectangleF(ValueWidth - 2 + 5, 1, 18, 18));
-                graphics.FillPolygon(new SolidBrush(_themeColor), new PointF[]
+                graphics.FillEllipse(new SolidBrush(_BallonColor), new RectangleF(ValueWidth - 2 + 5, 1, 18, 18));
+                graphics.FillPolygon(new SolidBrush(_BallonArrowColor), new PointF[]
                 {
-                    new PointF(ValueWidth+1.305F-2+5,13.5F+1),
-                    new PointF(ValueWidth+7.794F+9-2+5,13.5F+1),
-                    new PointF(ValueWidth+9-2+5,28F)
+                    new PointF(ValueWidth + 1.305F - 2 + 5,13.5F + 1),
+                    new PointF(ValueWidth + 7.794F + 9-2 + 5,13.5F + 1),
+                    new PointF(ValueWidth + 9-2 + 5,28F)
                 });
                 graphics.DrawString(_value.ToString(), Font, new SolidBrush(ForeColor), new RectangleF(ValueWidth - 2 + 5, 2, 18, 18), HopeStringAlign.Center);
             }
 
-            graphics.FillRectangle(new SolidBrush(RoundRectangle.BackColor), new RectangleF(15, Height - 10, Width - 30, 4));
-            graphics.FillRectangle(new SolidBrush(Color.White), new RectangleF(15, Height - 10, ValueWidth, 4));
-            graphics.FillRectangle(new SolidBrush(_themeColor), new RectangleF(15, Height - 10, ValueWidth, 4));
-            graphics.FillEllipse(new SolidBrush(_themeColor), new RectangleF(ValueWidth + 5, Height - 17, 16, 16));
-            graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(ValueWidth + 8, Height - 14, 10, 10));
+            graphics.FillRectangle(new SolidBrush(_BarColor), new RectangleF(15, Height - 10, Width - 30, 4));
+            graphics.FillRectangle(new SolidBrush(_UnknownColor), new RectangleF(15, Height - 10, ValueWidth, 4));
+            graphics.FillRectangle(new SolidBrush(_FillBarColor), new RectangleF(15, Height - 10, ValueWidth, 4));
+            graphics.FillEllipse(new SolidBrush(_HeadBorderColor), new RectangleF(ValueWidth + 5, Height - 17, 16, 16));
+            graphics.FillEllipse(new SolidBrush(_HeadColor), new RectangleF(ValueWidth + 8, Height - 14, 10, 10));
         }
 
         public HopeTrackBar()
@@ -167,7 +256,6 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
             Height = 45;
             Font = new Font("Segoe UI", 8F);
-            BackColor = Color.White;
             ForeColor = Color.White;
             Cursor = Cursors.Hand;
         }
