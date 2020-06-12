@@ -67,7 +67,7 @@
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             foxTextbox1 = new ReaLTaiizor.FoxTextbox();
             hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            ınfoIcon1 = new ReaLTaiizor.InfoIcon();
+            labelEdit1 = new ReaLTaiizor.LabelEdit();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,15 +369,17 @@
             hopeComboBox1.TabIndex = 16;
             hopeComboBox1.Text = "Item 1";
             // 
-            // ınfoIcon1
+            // labelEdit1
             // 
-            ınfoIcon1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            ınfoIcon1.ForeColor = System.Drawing.Color.DimGray;
-            ınfoIcon1.Location = new System.Drawing.Point(522, 167);
-            ınfoIcon1.Name = "ınfoIcon1";
-            ınfoIcon1.Size = new System.Drawing.Size(33, 33);
-            ınfoIcon1.TabIndex = 17;
-            ınfoIcon1.Text = "ınfoIcon1";
+            labelEdit1.AutoSize = true;
+            labelEdit1.BackColor = System.Drawing.Color.Transparent;
+            labelEdit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            labelEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            labelEdit1.Location = new System.Drawing.Point(729, 255);
+            labelEdit1.Name = "labelEdit1";
+            labelEdit1.Size = new System.Drawing.Size(62, 15);
+            labelEdit1.TabIndex = 17;
+            labelEdit1.Text = "labelEdit1";
             // 
             // Catcher
             // 
@@ -385,7 +387,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             ClientSize = new System.Drawing.Size(796, 276);
-            Controls.Add(ınfoIcon1);
+            Controls.Add(labelEdit1);
             Controls.Add(hopeComboBox1);
             Controls.Add(foxTextbox1);
             Controls.Add(foreverTreeView1);
@@ -433,6 +435,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextbox foxTextbox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.InfoIcon ınfoIcon1;
+        private ReaLTaiizor.LabelEdit labelEdit1;
     }
 }

@@ -12,7 +12,7 @@
     <icon>Taiizor.png</icon>
     <projectUrl>https://github.com/Taiizor/ReaLTaiizor</projectUrl>
     <description>C# WinForm UI/UX Library - ReaLTaiizor</description>
-    <releaseNotes>Various issues have been fixed.
+    <releaseNotes>Component customizations have been replicated.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</releaseNotes>
     <copyright>Copyright © 2020 Taiizor Inc.</copyright>
     <tags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</tags>

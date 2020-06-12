@@ -1,6 +1,5 @@
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net471\ReaLTaiizor.dll
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net471\ReaLTaiizor.pdb
-E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaiizor.csprojAssemblyReference.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaiizor.g.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaiizor.Form.LostForm.resources
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaiizor.Form.RoyalForm.resources
@@ -11,3 +10,4 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaii
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaiizor.csproj.CoreCompileInputs.cache
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaiizor.dll
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaiizor.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\obj\Release\net471\ReaLTaiizor.csprojAssemblyReference.cache
