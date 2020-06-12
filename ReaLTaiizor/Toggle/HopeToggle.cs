@@ -19,9 +19,52 @@ namespace ReaLTaiizor
         Timer AnimationTimer = new Timer { Interval = 1 };
         int PointAnimationNum = 4;
 
+        private Color _BaseColor = Color.FromArgb(44, 55, 66);
+        private Color _BaseColorA = HopeColors.OneLevelBorder;
+        private Color _BaseColorB = Color.FromArgb(100, HopeColors.PrimaryColor);
+        private Color _HeadColorA = HopeColors.OneLevelBorder;
+        private Color _HeadColorB = Color.White;
+        private Color _HeadColorC = HopeColors.PrimaryColor;
+        private Color _HeadColorD = HopeColors.PrimaryColor;
+
         #endregion
 
         #region Settings
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set { _BaseColor = value; }
+        }
+        public Color BaseColorA
+        {
+            get { return _BaseColorA; }
+            set { _BaseColorA = value; }
+        }
+        public Color BaseColorB
+        {
+            get { return _BaseColorB; }
+            set { _BaseColorB = value; }
+        }
+        public Color HeadColorA
+        {
+            get { return _HeadColorA; }
+            set { _HeadColorA = value; }
+        }
+        public Color HeadColorB
+        {
+            get { return _HeadColorB; }
+            set { _HeadColorB = value; }
+        }
+        public Color HeadColorC
+        {
+            get { return _HeadColorC; }
+            set { _HeadColorC = value; }
+        }
+        public Color HeadColorD
+        {
+            get { return _HeadColorD; }
+            set { _HeadColorD = value; }
+        }
         #endregion
 
         #region Events
@@ -46,7 +89,7 @@ namespace ReaLTaiizor
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            graphics.Clear(Parent.BackColor);
+            graphics.Clear(BaseColor);
 
             var roundRectangle = new GraphicsPath();
             var radius = 9;
@@ -56,10 +99,10 @@ namespace ReaLTaiizor
             roundRectangle.AddArc(11, Height - 14, radius - 1, radius, 90, 90);
             roundRectangle.CloseAllFigures();
 
-            graphics.FillPath(new SolidBrush(Checked ? Color.FromArgb(100, BackColor) : HopeColors.OneLevelBorder), roundRectangle);
+            graphics.FillPath(new SolidBrush(Checked ? _BaseColorB : _BaseColorA), roundRectangle);
 
-            graphics.FillEllipse(new SolidBrush(Checked ? BackColor : HopeColors.OneLevelBorder), new RectangleF(PointAnimationNum, 1, 18, 18));
-            graphics.FillEllipse(new SolidBrush(Checked ? BackColor : Color.White), new RectangleF(PointAnimationNum + 2, 3, 14, 14));
+            graphics.FillEllipse(new SolidBrush(Checked ? _HeadColorC : _HeadColorA), new RectangleF(PointAnimationNum, 1, 18, 18));
+            graphics.FillEllipse(new SolidBrush(Checked ? _HeadColorD : _HeadColorB), new RectangleF(PointAnimationNum + 2, 3, 14, 14));
         }
 
         public HopeToggle()
@@ -68,7 +111,6 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
             Height = 20; Width = 47;
             AnimationTimer.Tick += new EventHandler(AnimationTick);
-            BackColor = HopeColors.PrimaryColor;
             Cursor = Cursors.Hand;
         }
 

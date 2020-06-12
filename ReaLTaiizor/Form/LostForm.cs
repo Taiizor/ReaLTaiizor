@@ -180,7 +180,9 @@ namespace ReaLTaiizor
                         if ((MaximizeBox || MinimizeBox) && !new Rectangle(Width - 60, 2, 29, 29).Contains(e.Location))
                         {
                             if (MaximizeBox && MinimizeBox && new Rectangle(Width - 89, 2, 29, 29).Contains(e.Location))
-                                return;
+                            {
+                                //return;
+                            }
                             else
                             {
                                 if (e.X <= Width && e.Y <= 30)
@@ -203,7 +205,8 @@ namespace ReaLTaiizor
 
                 if (ControlBox)
                 {
-                    if (new Rectangle(Width - 31, 2, 29, 29).Contains(e.Location)) Close();
+                    if (new Rectangle(Width - 31, 2, 29, 29).Contains(e.Location))
+                        Close();
 
                     if (MinimizeBox)
                     {
@@ -214,7 +217,6 @@ namespace ReaLTaiizor
                         }
                         else
                         {
-
                             if (new Rectangle(Width - 60, 2, 29, 29).Contains(e.Location))
                                 WindowState = FormWindowState.Minimized;
                         }

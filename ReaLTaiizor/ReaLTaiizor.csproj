@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-    <Version>3.7.7.2</Version>
-    <AssemblyVersion>3.7.7.2</AssemblyVersion>
+    <Version>3.7.7.3</Version>
+    <AssemblyVersion>3.7.7.3</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
     <Authors>Taiizor</Authors>
@@ -12,7 +12,7 @@
     <Description>C# WinForm UI/UX Library - ReaLTaiizor</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Various issues have been fixed.
+    <PackageReleaseNotes>Component customizations have been replicated.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
     <PackageTags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
@@ -22,7 +22,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Company>Taiizor</Company>
     <Owners>Taiizor</Owners>
     <NeutralLanguage>en</NeutralLanguage>
-    <FileVersion>3.7.7.2</FileVersion>
+    <FileVersion>3.7.7.3</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -67,10 +67,7 @@
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             foxTextbox1 = new ReaLTaiizor.FoxTextbox();
             hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            hopeTabPage1 = new ReaLTaiizor.HopeTabPage();
-            tabPage1 = new System.Windows.Forms.TabPage();
-            tabPage2 = new System.Windows.Forms.TabPage();
-            hopeTabPage1.SuspendLayout();
+            labelEdit1 = new ReaLTaiizor.LabelEdit();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -372,39 +369,17 @@
             hopeComboBox1.TabIndex = 16;
             hopeComboBox1.Text = "Item 1";
             // 
-            // hopeTabPage1
+            // labelEdit1
             // 
-            hopeTabPage1.Controls.Add(tabPage1);
-            hopeTabPage1.Controls.Add(tabPage2);
-            hopeTabPage1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            hopeTabPage1.ItemSize = new System.Drawing.Size(120, 40);
-            hopeTabPage1.Location = new System.Drawing.Point(399, 86);
-            hopeTabPage1.Name = "hopeTabPage1";
-            hopeTabPage1.SelectedIndex = 0;
-            hopeTabPage1.Size = new System.Drawing.Size(392, 184);
-            hopeTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            hopeTabPage1.TabIndex = 17;
-            hopeTabPage1.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            // 
-            // tabPage1
-            // 
-            tabPage1.Location = new System.Drawing.Point(0, 40);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            tabPage1.Size = new System.Drawing.Size(392, 144);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new System.Drawing.Point(0, 40);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            tabPage2.Size = new System.Drawing.Size(392, 144);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            labelEdit1.AutoSize = true;
+            labelEdit1.BackColor = System.Drawing.Color.Transparent;
+            labelEdit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            labelEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            labelEdit1.Location = new System.Drawing.Point(729, 255);
+            labelEdit1.Name = "labelEdit1";
+            labelEdit1.Size = new System.Drawing.Size(62, 15);
+            labelEdit1.TabIndex = 17;
+            labelEdit1.Text = "labelEdit1";
             // 
             // Catcher
             // 
@@ -412,7 +387,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             ClientSize = new System.Drawing.Size(796, 276);
-            Controls.Add(hopeTabPage1);
+            Controls.Add(labelEdit1);
             Controls.Add(hopeComboBox1);
             Controls.Add(foxTextbox1);
             Controls.Add(foreverTreeView1);
@@ -436,7 +411,6 @@
             Name = "Catcher";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Catcher";
-            hopeTabPage1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -461,8 +435,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextbox foxTextbox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.HopeTabPage hopeTabPage1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private ReaLTaiizor.LabelEdit labelEdit1;
     }
 }

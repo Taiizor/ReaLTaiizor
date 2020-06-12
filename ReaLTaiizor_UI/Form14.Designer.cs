@@ -93,9 +93,16 @@
             // 
             hopeToggle1.AutoSize = true;
             hopeToggle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeToggle1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            hopeToggle1.BaseColorA = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeToggle1.BaseColorB = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             hopeToggle1.Checked = true;
             hopeToggle1.CheckState = System.Windows.Forms.CheckState.Checked;
             hopeToggle1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeToggle1.HeadColorA = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeToggle1.HeadColorB = System.Drawing.Color.White;
+            hopeToggle1.HeadColorC = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeToggle1.HeadColorD = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             hopeToggle1.Location = new System.Drawing.Point(432, 274);
             hopeToggle1.Name = "hopeToggle1";
             hopeToggle1.Size = new System.Drawing.Size(48, 20);
@@ -171,9 +178,16 @@
             // 
             hopeTrackBar1.AlwaysValueVisible = true;
             hopeTrackBar1.BackColor = System.Drawing.Color.White;
+            hopeTrackBar1.BallonArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeTrackBar1.BallonColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeTrackBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(220)))), ((int)(((byte)(223)))));
+            hopeTrackBar1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
             hopeTrackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeTrackBar1.FillBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             hopeTrackBar1.Font = new System.Drawing.Font("Segoe UI", 8F);
             hopeTrackBar1.ForeColor = System.Drawing.Color.Black;
+            hopeTrackBar1.HeadBorderColor = System.Drawing.Color.DodgerBlue;
+            hopeTrackBar1.HeadColor = System.Drawing.Color.Black;
             hopeTrackBar1.Location = new System.Drawing.Point(294, 151);
             hopeTrackBar1.MaxValue = 10;
             hopeTrackBar1.MinValue = 0;
@@ -183,6 +197,7 @@
             hopeTrackBar1.TabIndex = 6;
             hopeTrackBar1.Text = "hopeTrackBar1";
             hopeTrackBar1.ThemeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeTrackBar1.UnknownColor = System.Drawing.Color.White;
             hopeTrackBar1.Value = 5;
             // 
             // hopeRoundProgressBar1
@@ -458,7 +473,12 @@
             // 
             // hopeTextBox1
             // 
+            hopeTextBox1.BackColor = System.Drawing.Color.White;
+            hopeTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            hopeTextBox1.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeTextBox1.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             hopeTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             hopeTextBox1.Hint = "Test";
             hopeTextBox1.Location = new System.Drawing.Point(406, 73);
             hopeTextBox1.MaxLength = 32767;
@@ -566,7 +586,7 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size(0, 0);
+            MaximumSize = new System.Drawing.Size(1366, 768);
             MinimumSize = new System.Drawing.Size(190, 40);
             Name = "Form14";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

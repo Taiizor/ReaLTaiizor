@@ -17,18 +17,66 @@ namespace ReaLTaiizor
         #region Variables
         int enterIndex;
         bool enterFlag = false;
-
+        private Color _baseColor = Color.FromArgb(44, 55, 66);
+        private Color _themeColorA = HopeColors.PrimaryColor;
+        private Color _themeColorB = Color.FromArgb(150, HopeColors.PrimaryColor);
+        private Color _foreColorA = Color.Silver;
+        private Color _foreColorB = Color.Black;
+        private Color _foreColorC = Color.FromArgb(150, Color.White);
         #endregion
 
         #region Settings
-
-        private Color _themeColor = HopeColors.PrimaryColor;
-        public Color ThemeColor
+        public Color BaseColor
         {
-            get { return _themeColor; }
+            get { return _baseColor; }
             set
             {
-                _themeColor = value;
+                _baseColor = value;
+                Invalidate();
+            }
+        }
+        public Color ThemeColorA
+        {
+            get { return _themeColorA; }
+            set
+            {
+                _themeColorA = value;
+                Invalidate();
+            }
+        }
+        public Color ThemeColorB
+        {
+            get { return _themeColorB; }
+            set
+            {
+                _themeColorB = value;
+                Invalidate();
+            }
+        }
+        public Color ForeColorA
+        {
+            get { return _foreColorA; }
+            set
+            {
+                _foreColorA = value;
+                Invalidate();
+            }
+        }
+        public Color ForeColorB
+        {
+            get { return _foreColorB; }
+            set
+            {
+                _foreColorB = value;
+                Invalidate();
+            }
+        }
+        public Color ForeColorC
+        {
+            get { return _foreColorC; }
+            set
+            {
+                _foreColorC = value;
                 Invalidate();
             }
         }
@@ -80,21 +128,24 @@ namespace ReaLTaiizor
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            graphics.Clear(Parent.BackColor);
+            graphics.Clear(_baseColor);
 
             for (int i = 0; i < TabCount; i++)
             {
                 if (i == SelectedIndex)
                 {
-                    graphics.FillRectangle(new SolidBrush(_themeColor), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
-                    graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_themeColor), GetTabRect(i), HopeStringAlign.Center);
+                    graphics.FillRectangle(new SolidBrush(_themeColorA), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
+                    graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorA), GetTabRect(i), HopeStringAlign.Center);
                 }
                 else
                 {
                     if (i == enterIndex && enterFlag)
-                        graphics.FillRectangle(new SolidBrush(Color.FromArgb(150, _themeColor)), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
-
-                    graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(Color.Black), GetTabRect(i), HopeStringAlign.Center);
+                    {
+                        graphics.FillRectangle(new SolidBrush(_themeColorB), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
+                        graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorC), GetTabRect(i), HopeStringAlign.Center);
+                    }
+                    else
+                        graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorB), GetTabRect(i), HopeStringAlign.Center);
                 }
             }
         }

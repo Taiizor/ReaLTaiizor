@@ -13,11 +13,37 @@ namespace ReaLTaiizor
 
     public class TickIcon : Control
     {
+        #region Variables
+
+        private Color _BaseColor = Color.FromArgb(246, 246, 246);
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set { _BaseColor = value; }
+        }
+
+        private Color _CircleColor = Color.Gray;
+        public Color CircleColor
+        {
+            get { return _CircleColor; }
+            set { _CircleColor = value; }
+        }
+
+        private string _String = "ü";
+        private string String
+        {
+            get { return _String; }
+            set { _String = value; }
+        }
+
+        #endregion
 
         public TickIcon()
         {
             ForeColor = Color.DimGray;
             BackColor = Color.FromArgb(246, 246, 246);
+            ForeColor = Color.Gray;
+            Font = new Font("Wingdings", 25, FontStyle.Bold);
             Size = new Size(33, 33);
             DoubleBuffered = true;
         }
@@ -27,10 +53,10 @@ namespace ReaLTaiizor
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            e.Graphics.FillEllipse(new SolidBrush(Color.Gray), new Rectangle(1, 1, 29, 29));
-            e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(246, 246, 246)), new Rectangle(3, 3, 25, 25));
+            e.Graphics.FillEllipse(new SolidBrush(_CircleColor), new Rectangle(1, 1, 29, 29));
+            e.Graphics.FillEllipse(new SolidBrush(_BaseColor), new Rectangle(3, 3, 25, 25));
 
-            e.Graphics.DrawString("ü", new Font("Wingdings", 25, FontStyle.Bold), new SolidBrush(Color.Gray), new Rectangle(0, -3, Width, 43), new StringFormat
+            e.Graphics.DrawString(_String, Font, new SolidBrush(ForeColor), new Rectangle(0, -3, Width, 43), new StringFormat
             {
                 Alignment = StringAlignment.Near,
                 LineAlignment = StringAlignment.Near

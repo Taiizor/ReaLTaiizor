@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ReaLTaiizor</id>
+    <version>3.7.7.3</version>
+    <title>ReaLTaiizor</title>
+    <authors>Taiizor</authors>
+    <owners>Taiizor</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">GPL-3.0-or-later</license>
+    <licenseUrl>https://licenses.nuget.org/GPL-3.0-or-later</licenseUrl>
+    <icon>Taiizor.png</icon>
+    <projectUrl>https://github.com/Taiizor/ReaLTaiizor</projectUrl>
+    <description>C# WinForm UI/UX Library - ReaLTaiizor</description>
+    <releaseNotes>Component customizations have been replicated.
+Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</releaseNotes>
+    <copyright>Copyright © 2020 Taiizor Inc.</copyright>
+    <tags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</tags>
+    <repository type="git" url="git://github.com/Taiizor/ReaLTaiizor" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.0" />
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETFramework4.5.1" />
+      <group targetFramework=".NETFramework4.5.2" />
+      <group targetFramework=".NETFramework4.6" />
+      <group targetFramework=".NETFramework4.6.1" />
+      <group targetFramework=".NETFramework4.6.2" />
+      <group targetFramework=".NETFramework4.7" />
+      <group targetFramework=".NETFramework4.7.1" />
+      <group targetFramework=".NETFramework4.7.2" />
+      <group targetFramework=".NETFramework4.8" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.0, .NETFramework4.5, .NETFramework4.5.1, .NETFramework4.5.2, .NETFramework4.6, .NETFramework4.6.1, .NETFramework4.6.2, .NETFramework4.7, .NETFramework4.7.1, .NETFramework4.7.2, .NETFramework4.8" />
+      <frameworkAssembly assemblyName="Microsoft.VisualBasic" targetFramework=".NETFramework4.0, .NETFramework4.5, .NETFramework4.5.1, .NETFramework4.5.2, .NETFramework4.6, .NETFramework4.6.1, .NETFramework4.6.2, .NETFramework4.7, .NETFramework4.7.1, .NETFramework4.7.2, .NETFramework4.8" />
+      <frameworkAssembly assemblyName="System.Windows.Forms" targetFramework=".NETFramework4.0, .NETFramework4.5, .NETFramework4.5.1, .NETFramework4.5.2, .NETFramework4.6, .NETFramework4.6.1, .NETFramework4.6.2, .NETFramework4.7, .NETFramework4.7.1, .NETFramework4.7.2, .NETFramework4.8" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net40\ReaLTaiizor.dll" target="lib\net40\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net45\ReaLTaiizor.dll" target="lib\net45\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net451\ReaLTaiizor.dll" target="lib\net451\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net452\ReaLTaiizor.dll" target="lib\net452\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net46\ReaLTaiizor.dll" target="lib\net46\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net461\ReaLTaiizor.dll" target="lib\net461\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net462\ReaLTaiizor.dll" target="lib\net462\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net47\ReaLTaiizor.dll" target="lib\net47\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net471\ReaLTaiizor.dll" target="lib\net471\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net472\ReaLTaiizor.dll" target="lib\net472\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.dll" target="lib\net48\ReaLTaiizor.dll" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\Resources\Taiizor.png" target="Taiizor.png" />
+  </files>
+</package>

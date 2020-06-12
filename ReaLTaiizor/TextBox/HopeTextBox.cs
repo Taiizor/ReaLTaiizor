@@ -56,6 +56,61 @@ namespace ReaLTaiizor
             }
         }
 
+        public override Color ForeColor
+        {
+            get => base.ForeColor;
+            set
+            {
+                base.ForeColor = value;
+                _baseTextBox.ForeColor = value;
+                Invalidate();
+            }
+        }
+
+        public override Color BackColor
+        {
+            get => base.BackColor;
+            set
+            {
+                base.BackColor = value;
+                _baseTextBox.BackColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BaseColor = Color.FromArgb(44, 55, 66);
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set
+            {
+                _BaseColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BorderColorA = HopeColors.PrimaryColor;
+        public Color BorderColorA
+        {
+            get { return _BorderColorA; }
+            set
+            {
+                _BorderColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BorderColorB = HopeColors.OneLevelBorder;
+        public Color BorderColorB
+        {
+            get { return _BorderColorB; }
+            set
+            {
+                _BorderColorB = value;
+                Invalidate();
+            }
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             _baseTextBox.Location = new Point(12, 8);
@@ -67,11 +122,11 @@ namespace ReaLTaiizor
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
             g.SmoothingMode = SmoothingMode.HighQuality;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            g.Clear(Parent.BackColor);
+            g.Clear(_BaseColor);
 
             var bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
-            g.FillPath(new SolidBrush(Color.White), bg);
-            g.DrawPath(new Pen(_baseTextBox.Focused ? HopeColors.PrimaryColor : HopeColors.OneLevelBorder, 0.5f), bg);
+            g.FillPath(new SolidBrush(BackColor), bg);
+            g.DrawPath(new Pen(_baseTextBox.Focused ? _BorderColorA : _BorderColorB, 0.5f), bg);
         }
 
         public HopeTextBox()
@@ -79,6 +134,8 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
             Font = new Font("Segoe UI", 12);
+            ForeColor = HopeColors.MainText;
+            BackColor = Color.White;
 
             if (!Controls.Contains(_baseTextBox) && !DesignMode)
                 Controls.Add(_baseTextBox);
@@ -1010,7 +1067,6 @@ namespace ReaLTaiizor
             }
         }
         #endregion
-
 
         private class TextBoxHopeBase : TextBox
         {
