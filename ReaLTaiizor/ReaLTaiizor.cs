@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 //     Site   : www.Taiizor.com
 //     Created: 15.May.2019
 //     Changed: 12.Jun.2020
-//     Version: 3.7.7.3
+//     Version: 3.7.7.4
 //
 // |---------DO-NOT-REMOVE---------|
 
