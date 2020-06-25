@@ -23,7 +23,15 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Owners>Taiizor</Owners>
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>3.7.7.4</FileVersion>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <None Remove="Resources\Google.png" />
