@@ -12,6 +12,7 @@ ReaLTaiizor bir UI/UX kütüphanesidir. Sunduğu çeşitli bileşenleri kullanar
 ## Katkıda Bulunanlar
 
 <a href="https://github.com/Taiizor" target="_blank"><img width="64px" alt="Taiizor" src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4"></a>
+<a href="https://github.com/JTOne123" target="_blank"><img width="64px" alt="Taiizor" src="https://avatars2.githubusercontent.com/u/3457140?s=460&v=4"></a>
 
 ## Destekleyenler
 
