@@ -11,8 +11,33 @@ ReaLTaiizor bir UI/UX kütüphanesidir. Sunduğu çeşitli bileşenleri kullanar
 
 ## Katkıda Bulunanlar
 
-<a href="https://github.com/Taiizor" target="_blank"><img width="64px" alt="Taiizor" src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4"></a>
-<a href="https://github.com/JTOne123" target="_blank"><img width="64px" alt="Taiizor" src="https://avatars2.githubusercontent.com/u/3457140?s=460&v=4"></a>
+<table>
+  <tr>
+    <td align="center">
+		<a href="https://github.com/Taiizor">
+			<img src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4" width="80px;" alt="Taiizor"/>
+			<br/>
+			<sub>
+				<b>Taiizor</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Kodlayıcı">💻</a>
+		<a href="https://www.taiizor.com" title="Fikirler, Planlama, Geri Bildirim">🤔</a>
+	</td>
+    <td align="center">
+		<a href="https://github.com/JTOne123">
+			<img src="https://avatars2.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123"/>
+			<br/>
+			<sub>
+				<b>JTOne123</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="Çekme İstekleri">🍷</a>
+	</td>
+  </tr>
+</table>
 
 ## Destekleyenler
 
