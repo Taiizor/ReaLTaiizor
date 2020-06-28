@@ -11,6 +11,8 @@ ReaLTaiizor is a UI/UX library. It allows you to make modern designs using the v
 
 ## Contributors
 
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
 <table>
   <tr>
     <td align="center">
@@ -22,8 +24,8 @@ ReaLTaiizor is a UI/UX library. It allows you to make modern designs using the v
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Coder">💻</a>
-		<a href="https://www.taiizor.com" title="Ideas, Planning, Feedback">🤔</a>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Code">💻</a>
+		<a href="https://www.taiizor.com" title="Ideas & Planning, Feedback">🤔</a>
 	</td>
     <td align="center">
 		<a href="https://github.com/JTOne123">
@@ -34,14 +36,30 @@ ReaLTaiizor is a UI/UX library. It allows you to make modern designs using the v
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="Pull Requests">🍷</a>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="Reviewed Pull Requests">👀</a>
 	</td>
   </tr>
 </table>
 
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
 ## Backers
 
-<a href="https://github.com/Soferity" target="_blank"><img width="64px" alt="Soferity" src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4"></a>
+<table>
+  <tr>
+    <td align="center">
+		<a href="https://github.com/Soferity">
+			<img src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4" width="80px;" alt="Soferity"/>
+			<br/>
+			<sub>
+				<b>Soferity</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Soferity" target="_blank" title="Content">🖋</a>
+	</td>
+  </tr>
+</table>
 
 ## Usage
 
