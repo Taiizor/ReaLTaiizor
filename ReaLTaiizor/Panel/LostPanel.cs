@@ -63,6 +63,7 @@ namespace ReaLTaiizor
 
         protected override void OnMouseEnter(EventArgs e)
         {
+            //return;
         }
 
         protected override void OnMouseLeave(EventArgs e)

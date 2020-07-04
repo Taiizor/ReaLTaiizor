@@ -35,6 +35,13 @@ namespace ReaLTaiizor
             }
         }
 
+        public LostCheckBox() : base()
+        {
+            Font = ThemeLost.BodyFont;
+            ForeColor = Color.White;
+            Cursor = Cursors.Hand;
+        }
+
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
             pevent.Graphics.FillRectangle(MouseOver ? new SolidBrush(ThemeLost.ForeColor.Shade(ThemeLost.ShadowSize, 0)) : new SolidBrush(BackColor), ClientRectangle);
@@ -50,8 +57,8 @@ namespace ReaLTaiizor
             if (Checked)
                 e.Graphics.FillRectangle(new SolidBrush(_checkedcolor), 4, 4, Height - 7, Height - 7);
 
-            SizeF textSize = e.Graphics.MeasureString(Text, ThemeLost.BodyFont);
-            e.Graphics.DrawString(Text, ThemeLost.BodyFont, new SolidBrush(ForeColor), Height + 3, Height / 2 - textSize.Height / 2);
+            SizeF textSize = e.Graphics.MeasureString(Text, Font);
+            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), Height + 3, Height / 2 - textSize.Height / 2);
         }
 
 

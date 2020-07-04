@@ -5,13 +5,17 @@ using System.Windows.Forms;
 
 #endregion
 
-
 namespace ReaLTaiizor
 {
     #region LostLabel
 
     public class LostLabel : ControlLostBase
     {
+        public LostLabel() : base()
+        {
+            ForeColor = Color.White;
+        }
+
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
             pevent.Graphics.FillRectangle(new SolidBrush(BackColor), pevent.ClipRectangle);
