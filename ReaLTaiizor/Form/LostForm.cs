@@ -15,6 +15,7 @@ namespace ReaLTaiizor
     {
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -63,6 +64,13 @@ namespace ReaLTaiizor
         {
             get { return _bordercolor; }
             set { _bordercolor = value; Invalidate(); }
+        }
+
+        private ButtonBorderStyle _borderstyle = ButtonBorderStyle.Solid;
+        public ButtonBorderStyle BorderStyle
+        {
+            get { return _borderstyle; }
+            set { _borderstyle = value; Invalidate(); }
         }
 
         private Color _HeaderColor = ThemeLost.ForeBrush.Color;
@@ -202,7 +210,15 @@ namespace ReaLTaiizor
                         SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                     }
                 }
+            }
+        }
 
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnMouseUp(e);
+
+            if (e.Button == MouseButtons.Left)
+            {
                 if (ControlBox)
                 {
                     if (new Rectangle(Width - 31, 2, 29, 29).Contains(e.Location))
@@ -359,7 +375,7 @@ namespace ReaLTaiizor
             }
 
             if (WindowState != FormWindowState.Maximized)
-                ControlPaint.DrawBorder(e.Graphics, ClientRectangle, _bordercolor, ButtonBorderStyle.Solid);
+                ControlPaint.DrawBorder(e.Graphics, ClientRectangle, _bordercolor, _borderstyle);
         }
     }
 
