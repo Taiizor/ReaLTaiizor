@@ -31,6 +31,7 @@ namespace ReaLTaiizor
             Cursor = Cursors.Hand;
             Size = new Size(120, 40);
             Font = ThemeLost.BodyFont;
+            ForeColor = Color.White;
         }
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
