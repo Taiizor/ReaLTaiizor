@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dXXonUP6dCWhOtjuwGPP5f58zSuWRaD+zeoe1lZj23SNg2oRGiIjyBQUCBqqD0RQbzUllryhnNLJylkDB+ErZw==",
+  "dgSpecHash": "12htnbabpKLqy0ijBKK06suebWGukP+y8x9D8neYV+FeSX60qJOgiNRfZKL6ec2yg2rOqR6g70ZjNIQoB+1HGA==",
   "success": true,
   "projectFilePath": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\ReaLTaiizor.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DR. AbdaL\\.nuget\\packages\\microsoft.build.tasks.git\\1.0.0\\microsoft.build.tasks.git.1.0.0.nupkg.sha512",
-    "C:\\Users\\DR. AbdaL\\.nuget\\packages\\microsoft.sourcelink.common\\1.0.0\\microsoft.sourcelink.common.1.0.0.nupkg.sha512",
-    "C:\\Users\\DR. AbdaL\\.nuget\\packages\\microsoft.sourcelink.github\\1.0.0\\microsoft.sourcelink.github.1.0.0.nupkg.sha512"
+    "C:\\Users\\DR. AbdaL\\.nuget\\packages\\microsoft.build.tasks.git\\1.1.0-beta-20204-02\\microsoft.build.tasks.git.1.1.0-beta-20204-02.nupkg.sha512",
+    "C:\\Users\\DR. AbdaL\\.nuget\\packages\\microsoft.sourcelink.common\\1.1.0-beta-20204-02\\microsoft.sourcelink.common.1.1.0-beta-20204-02.nupkg.sha512",
+    "C:\\Users\\DR. AbdaL\\.nuget\\packages\\microsoft.sourcelink.github\\1.1.0-beta-20204-02\\microsoft.sourcelink.github.1.1.0-beta-20204-02.nupkg.sha512"
   ],
   "logs": []
 }

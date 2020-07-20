@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.0": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -13,7 +13,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -24,11 +24,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -41,7 +41,7 @@
       }
     },
     ".NETFramework,Version=v4.5": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -52,7 +52,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -63,11 +63,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -80,7 +80,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -91,7 +91,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -102,11 +102,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -119,7 +119,7 @@
       }
     },
     ".NETFramework,Version=v4.5.2": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -130,7 +130,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -141,11 +141,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -158,7 +158,7 @@
       }
     },
     ".NETFramework,Version=v4.6": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -169,7 +169,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -180,11 +180,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -197,7 +197,7 @@
       }
     },
     ".NETFramework,Version=v4.6.1": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -208,7 +208,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -219,11 +219,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -236,7 +236,7 @@
       }
     },
     ".NETFramework,Version=v4.6.2": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -247,7 +247,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -258,11 +258,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -275,7 +275,7 @@
       }
     },
     ".NETFramework,Version=v4.7": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -286,7 +286,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -297,11 +297,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -314,7 +314,7 @@
       }
     },
     ".NETFramework,Version=v4.7.1": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -325,7 +325,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -336,11 +336,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -353,7 +353,7 @@
       }
     },
     ".NETFramework,Version=v4.7.2": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -364,7 +364,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -375,11 +375,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -392,7 +392,7 @@
       }
     },
     ".NETFramework,Version=v4.8": {
-      "Microsoft.Build.Tasks.Git/1.0.0": {
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.Build.Tasks.Git.props": {},
@@ -403,7 +403,7 @@
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/1.0.0": {
+      "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
         "type": "package",
         "build": {
           "build/Microsoft.SourceLink.Common.props": {},
@@ -414,11 +414,11 @@
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/1.0.0": {
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "1.0.0",
-          "Microsoft.SourceLink.Common": "1.0.0"
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-20204-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-20204-02"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -432,10 +432,10 @@
     }
   },
   "libraries": {
-    "Microsoft.Build.Tasks.Git/1.0.0": {
-      "sha512": "z2fpmmt+1Jfl+ZnBki9nSP08S1/tbEOxFdsK1rSR+LBehIJz1Xv9/6qOOoGNqlwnAGGVGis1Oj6S8Kt9COEYlQ==",
+    "Microsoft.Build.Tasks.Git/1.1.0-beta-20204-02": {
+      "sha512": "T7mMbmgoT3XXKrXbLeEj6D9fQLZDmF/T8W5NQsrlcfQ24nOLrkr1Cst9cmI44zIH16rIo+4ws0tEqUN+Jw5Iag==",
       "type": "package",
-      "path": "microsoft.build.tasks.git/1.0.0",
+      "path": "microsoft.build.tasks.git/1.1.0-beta-20204-02",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -445,7 +445,7 @@
         "build/Microsoft.Build.Tasks.Git.targets",
         "buildMultiTargeting/Microsoft.Build.Tasks.Git.props",
         "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets",
-        "microsoft.build.tasks.git.1.0.0.nupkg.sha512",
+        "microsoft.build.tasks.git.1.1.0-beta-20204-02.nupkg.sha512",
         "microsoft.build.tasks.git.nuspec",
         "tools/net461/Microsoft.Build.Tasks.Git.dll",
         "tools/net461/System.Collections.Immutable.dll",
@@ -478,10 +478,10 @@
         "tools/netcoreapp2.0/zh-Hant/Microsoft.Build.Tasks.Git.resources.dll"
       ]
     },
-    "Microsoft.SourceLink.Common/1.0.0": {
-      "sha512": "G8DuQY8/DK5NN+3jm5wcMcd9QYD90UV7MiLmdljSJixi3U/vNaeBKmmXUqI4DJCOeWizIUEh4ALhSt58mR+5eg==",
+    "Microsoft.SourceLink.Common/1.1.0-beta-20204-02": {
+      "sha512": "3tLuYVu7iPSUGVgSygxZnN4q6ZdXFbKd2A/1Zgva5i6VMoVXoTJwggKVZTGyemlWriziOwY76I5MZI+vnJ8ztA==",
       "type": "package",
-      "path": "microsoft.sourcelink.common/1.0.0",
+      "path": "microsoft.sourcelink.common/1.1.0-beta-20204-02",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -492,7 +492,7 @@
         "build/Microsoft.SourceLink.Common.targets",
         "buildMultiTargeting/Microsoft.SourceLink.Common.props",
         "buildMultiTargeting/Microsoft.SourceLink.Common.targets",
-        "microsoft.sourcelink.common.1.0.0.nupkg.sha512",
+        "microsoft.sourcelink.common.1.1.0-beta-20204-02.nupkg.sha512",
         "microsoft.sourcelink.common.nuspec",
         "tools/net461/Microsoft.SourceLink.Common.dll",
         "tools/net461/cs/Microsoft.SourceLink.Common.resources.dll",
@@ -524,10 +524,10 @@
         "tools/netcoreapp2.0/zh-Hant/Microsoft.SourceLink.Common.resources.dll"
       ]
     },
-    "Microsoft.SourceLink.GitHub/1.0.0": {
-      "sha512": "aZyGyGg2nFSxix+xMkPmlmZSsnGQ3w+mIG23LTxJZHN+GPwTQ5FpPgDo7RMOq+Kcf5D4hFWfXkGhoGstawX13Q==",
+    "Microsoft.SourceLink.GitHub/1.1.0-beta-20204-02": {
+      "sha512": "nVB0LiCn+q0eprqpQ9BeZ6xMdIobiRTwZlrvyAYDv4Zprek5BUHJ8usXUEtJlCTqQYF5HvLgvwf361jCkhmXCg==",
       "type": "package",
-      "path": "microsoft.sourcelink.github/1.0.0",
+      "path": "microsoft.sourcelink.github/1.1.0-beta-20204-02",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -537,7 +537,7 @@
         "build/Microsoft.SourceLink.GitHub.targets",
         "buildMultiTargeting/Microsoft.SourceLink.GitHub.props",
         "buildMultiTargeting/Microsoft.SourceLink.GitHub.targets",
-        "microsoft.sourcelink.github.1.0.0.nupkg.sha512",
+        "microsoft.sourcelink.github.1.1.0-beta-20204-02.nupkg.sha512",
         "microsoft.sourcelink.github.nuspec",
         "tools/net461/Microsoft.SourceLink.GitHub.dll",
         "tools/net461/cs/Microsoft.SourceLink.GitHub.resources.dll",
@@ -572,37 +572,37 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.0": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.5": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.5.1": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.5.2": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.6": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.6.1": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.6.2": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.7": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.7.1": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.7.2": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ],
     ".NETFramework,Version=v4.8": [
-      "Microsoft.SourceLink.GitHub >= 1.0.0"
+      "Microsoft.SourceLink.GitHub >= 1.1.0-beta-20204-02"
     ]
   },
   "packageFolders": {
@@ -696,110 +696,110 @@
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net45": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net451": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net452": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net46": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net461": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net462": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net47": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net471": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net472": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       },
       "net48": {
         "dependencies": {
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0-beta-20204-02, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
