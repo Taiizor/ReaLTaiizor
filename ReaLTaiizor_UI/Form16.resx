@@ -406,7 +406,7 @@
         PdXm80/AfDokTVu+8DfPXv9XCcIPTvjvLQ8YoakAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="$Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIACGAgAAZgAAAICAAAABACAAKAgBAOwCAABAQAAAAQAgAChCAAAUCwEAMDAAAAEA
         IACoJQAAPE0BACAgAAABACAAqBAAAORyAQAQEAAAAQAgAGgEAACMgwEAiVBORw0KGgoAAAANSUhEUgAA
