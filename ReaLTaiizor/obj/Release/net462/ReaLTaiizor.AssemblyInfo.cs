@@ -15,11 +15,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2020 Taiizor Inc.")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("C# WinForm UI/UX Library - ReaLTaiizor")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("3.7.7.4")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.7.7.4+b879dd176e153de323210dffc1184fa4aff9c206")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("3.7.7.5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.7.7.5+41601a3a9121787dd5be3d7f0d635a4d6ca8e837")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReaLTaiizor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReaLTaiizor")]
-[assembly: System.Reflection.AssemblyVersionAttribute("3.7.7.4")]
+[assembly: System.Reflection.AssemblyVersionAttribute("3.7.7.5")]
 [assembly: System.Resources.NeutralResourcesLanguageAttribute("en")]
 
 // MSBuild WriteCodeFragment sınıfı tarafından oluşturuldu.
