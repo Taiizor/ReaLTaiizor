@@ -63,7 +63,7 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 
 ## Utilizar
 
-Step 1：Agregue una referencia a ReaLTaiizor o busque ReaLTaiizor en el nuget;
+Step 1：Agregue una referencia a ReaLTaiizor o busque ReaLTaiizor en el NuGet;
 
 ```Install-Package ReaLTaiizor```
 

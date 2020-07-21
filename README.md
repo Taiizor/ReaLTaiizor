@@ -63,7 +63,7 @@ This project follows the [all contributors](https://github.com/all-contributors/
 
 ## Usage
 
-Step 1：Add a reference to ReaLTaiizor or search for ReaLTaiizor on the nuget;
+Step 1：Add a reference to ReaLTaiizor or search for ReaLTaiizor on the NuGet;
 
 ```Install-Package ReaLTaiizor```
 

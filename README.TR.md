@@ -63,7 +63,7 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 
 ## Kullanım
 
-Step 1：Referans olarak ReaLTaiizor'u ekleyin veya nuget üzerinden ReaLTaiizor'u aratın;
+Step 1：Referans olarak ReaLTaiizor'u ekleyin veya NuGet üzerinden ReaLTaiizor'u aratın;
 
 ```Install-Package ReaLTaiizor```
 
