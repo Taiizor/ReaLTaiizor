@@ -7,7 +7,7 @@
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # Bienvenido a ReaLTaiizor
-ReaLTaiizor es una biblioteca de interfaz de UI/UX. Le permite hacer dise?os modernos utilizando los diversos componentes que ofrece.
+ReaLTaiizor es una biblioteca de interfaz de UI/UX. Le permite hacer dise帽os modernos utilizando los diversos componentes que ofrece.
 
 ## Colaboradores
 
@@ -24,8 +24,8 @@ Gracias a estas personas maravillosas ([clave emoji](https://allcontributors.org
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Código">??</a>
-		<a href="https://www.taiizor.com" title="Ideas & Planificación, Comentarios">??</a>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="C贸digo">馃捇</a>
+		<a href="https://www.taiizor.com" title="Ideas & Planificaci贸n, Comentarios">馃</a>
 	</td>
     <td align="center">
 		<a href="https://github.com/JTOne123">
@@ -36,12 +36,12 @@ Gracias a estas personas maravillosas ([clave emoji](https://allcontributors.org
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="Solicitudes de Extracción Revisadas">??</a>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="Solicitudes de Extracci贸n Revisadas">馃憖</a>
 	</td>
   </tr>
 </table>
 
-Este proyecto sigue la especificación de [todos los contribuyentes](https://github.com/all-contributors/all-contributors). ?Contribuciones de cualquier tipo de bienvenida!
+Este proyecto sigue la especificaci贸n de [todos los contribuyentes](https://github.com/all-contributors/all-contributors). 隆Contribuciones de cualquier tipo de bienvenida!
 
 ## Partidarios
 
@@ -56,26 +56,26 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Soferity" target="_blank" title="Contenido">??</a>
+		<a href="https://github.com/Soferity" target="_blank" title="Contenido">馃枊</a>
 	</td>
   </tr>
 </table>
 
 ## Utilizar
 
-Step 1：Agregue una referencia a ReaLTaiizor o busque ReaLTaiizor en el NuGet;
+Step 1锛欰gregue una referencia a ReaLTaiizor o busque ReaLTaiizor en el NuGet;
 
 ```Install-Package ReaLTaiizor```
 
-Step 2：Disfruta dise?ando
+Step 2锛欴isfruta dise帽ando
 
 ## Ejemplos
 
-### Iniciar Sesión
+### Iniciar Sesi贸n
 
 ![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)
 
-## Visión General
+## Visi贸n General
 
 ![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
@@ -85,7 +85,7 @@ Step 2：Disfruta dise?ando
 
 ![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
 
-## últimos Ejemplos de Temas
+## 脷ltimos Ejemplos de Temas
 
 ### Aire
 
@@ -95,7 +95,7 @@ Step 2：Disfruta dise?ando
 
 ![DungeonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OqyV.png)
 
-### Sue?o
+### Sue帽o
 
 ![DreamTheme](https://www.photo.herominyum.com/resimler/2020/05/20/Ot33.png)
 
@@ -123,7 +123,7 @@ Step 2：Disfruta dise?ando
 
 ![HopeTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png)
 
-### Perdió
+### Perdi贸
 
 ![LostTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png)
 
