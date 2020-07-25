@@ -1,17 +1,16 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Bir bütünleştirilmiş koda ilişkin Genel Bilgiler aşağıdaki öznitelikler kümesiyle
 // denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
 // bu öznitelik değerlerini değiştirin.
-[assembly: AssemblyTitle("ReaLTaiizor.Login")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ReaLTaiizor Login")]
+[assembly: AssemblyDescription("ReaLTaiizor Login v1.0.0.0")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ReaLTaiizor.Login")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Taiizor")]
+[assembly: AssemblyProduct("ReaLTaiizor Login")]
+[assembly: AssemblyCopyright("Copyright © 2020 Taiizor Inc.")]
+[assembly: AssemblyTrademark("ReaLTaiizor")]
 [assembly: AssemblyCulture("")]
 
 // ComVisible özniteliğinin false olarak ayarlanması bu bütünleştirilmiş koddaki türleri
