@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ReaLTaiizor.Login.Dark.Properties
+namespace ReaLTaiizor.Login.Properties
 {
 
 

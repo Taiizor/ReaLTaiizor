@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form12));
-            foxTextbox1 = new ReaLTaiizor.FoxTextbox();
+            foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             foxLabel1 = new ReaLTaiizor.FoxLabel();
             foxNumeric1 = new ReaLTaiizor.FoxNumeric();
             foxBigLabel1 = new ReaLTaiizor.FoxBigLabel();
@@ -48,23 +48,23 @@
             foxLinkLabel1 = new ReaLTaiizor.FoxLinkLabel();
             SuspendLayout();
             // 
-            // foxTextbox1
+            // foxTextBox1
             // 
-            foxTextbox1.BackColor = System.Drawing.Color.White;
-            foxTextbox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            foxTextbox1.EnabledCalc = true;
-            foxTextbox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            foxTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            foxTextbox1.Location = new System.Drawing.Point(339, 144);
-            foxTextbox1.MaxLength = 32767;
-            foxTextbox1.MultiLine = false;
-            foxTextbox1.Name = "foxTextbox1";
-            foxTextbox1.ReadOnly = false;
-            foxTextbox1.Size = new System.Drawing.Size(90, 29);
-            foxTextbox1.TabIndex = 16;
-            foxTextbox1.Text = "foxTextbox1";
-            foxTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            foxTextbox1.UseSystemPasswordChar = false;
+            foxTextBox1.BackColor = System.Drawing.Color.White;
+            foxTextBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxTextBox1.EnabledCalc = true;
+            foxTextBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            foxTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxTextBox1.Location = new System.Drawing.Point(339, 144);
+            foxTextBox1.MaxLength = 32767;
+            foxTextBox1.MultiLine = false;
+            foxTextBox1.Name = "foxTextbox1";
+            foxTextBox1.ReadOnly = false;
+            foxTextBox1.Size = new System.Drawing.Size(90, 29);
+            foxTextBox1.TabIndex = 16;
+            foxTextBox1.Text = "foxTextbox1";
+            foxTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            foxTextBox1.UseSystemPasswordChar = false;
             // 
             // foxLabel1
             // 
@@ -383,7 +383,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(522, 199);
             Controls.Add(foxLinkLabel1);
-            Controls.Add(foxTextbox1);
+            Controls.Add(foxTextBox1);
             Controls.Add(foxLabel1);
             Controls.Add(foxNumeric1);
             Controls.Add(foxBigLabel1);
@@ -427,7 +427,7 @@
         private ReaLTaiizor.FoxBigLabel foxBigLabel1;
         private ReaLTaiizor.FoxNumeric foxNumeric1;
         private ReaLTaiizor.FoxLabel foxLabel1;
-        private ReaLTaiizor.FoxTextbox foxTextbox1;
+        private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.FoxLinkLabel foxLinkLabel1;
     }
 }

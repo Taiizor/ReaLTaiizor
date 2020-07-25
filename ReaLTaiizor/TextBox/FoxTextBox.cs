@@ -14,7 +14,7 @@ namespace ReaLTaiizor
 	#region FoxTextBox
 
 	[DefaultEvent("TextChanged")]
-	public class FoxTextbox : Control
+	public class FoxTextBox : Control
 	{
 		private TextBox withEventsField_TB = new TextBox();
 
@@ -173,7 +173,7 @@ namespace ReaLTaiizor
 			_with1.UseSystemPasswordChar = UseSystemPasswordChar;
 		}
 
-		public FoxTextbox() : base()
+		public FoxTextBox() : base()
 		{
 			TextChanged += FoxTextbox_TextChanged;
 			NewTextBox();

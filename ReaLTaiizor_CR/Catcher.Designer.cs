@@ -65,7 +65,7 @@
             aloneTextBox2 = new ReaLTaiizor.AloneTextBox();
             foreverProgressBar1 = new ReaLTaiizor.ForeverProgressBar();
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
-            foxTextbox1 = new ReaLTaiizor.FoxTextbox();
+            foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
             moonButton1 = new ReaLTaiizor.MoonButton();
             SuspendLayout();
@@ -333,23 +333,23 @@
             foreverTreeView1.Size = new System.Drawing.Size(388, 22);
             foreverTreeView1.TabIndex = 14;
             // 
-            // foxTextbox1
+            // foxTextBox1
             // 
-            foxTextbox1.BackColor = System.Drawing.Color.Red;
-            foxTextbox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            foxTextbox1.EnabledCalc = true;
-            foxTextbox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            foxTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            foxTextbox1.Location = new System.Drawing.Point(399, 39);
-            foxTextbox1.MaxLength = 32767;
-            foxTextbox1.MultiLine = false;
-            foxTextbox1.Name = "foxTextbox1";
-            foxTextbox1.ReadOnly = false;
-            foxTextbox1.Size = new System.Drawing.Size(117, 32);
-            foxTextbox1.TabIndex = 15;
-            foxTextbox1.Text = "foxTextbox1";
-            foxTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            foxTextbox1.UseSystemPasswordChar = false;
+            foxTextBox1.BackColor = System.Drawing.Color.Red;
+            foxTextBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foxTextBox1.EnabledCalc = true;
+            foxTextBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            foxTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            foxTextBox1.Location = new System.Drawing.Point(399, 39);
+            foxTextBox1.MaxLength = 32767;
+            foxTextBox1.MultiLine = false;
+            foxTextBox1.Name = "foxTextbox1";
+            foxTextBox1.ReadOnly = false;
+            foxTextBox1.Size = new System.Drawing.Size(117, 32);
+            foxTextBox1.TabIndex = 15;
+            foxTextBox1.Text = "foxTextbox1";
+            foxTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            foxTextBox1.UseSystemPasswordChar = false;
             // 
             // hopeComboBox1
             // 
@@ -391,7 +391,7 @@
             ClientSize = new System.Drawing.Size(796, 276);
             Controls.Add(moonButton1);
             Controls.Add(hopeComboBox1);
-            Controls.Add(foxTextbox1);
+            Controls.Add(foxTextBox1);
             Controls.Add(foreverTreeView1);
             Controls.Add(foreverProgressBar1);
             Controls.Add(aloneTextBox2);
@@ -435,7 +435,7 @@
         private ReaLTaiizor.AloneTextBox aloneTextBox2;
         private ReaLTaiizor.ForeverProgressBar foreverProgressBar1;
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
-        private ReaLTaiizor.FoxTextbox foxTextbox1;
+        private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.MoonButton moonButton1;
     }
