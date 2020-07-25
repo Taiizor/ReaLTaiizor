@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor_CR", "ReaLTaiiz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor_UI", "ReaLTaiizor_UI\ReaLTaiizor_UI.csproj", "{F443B3ED-2838-456C-A4B8-2342C95D3B2A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{8814848E-CE17-4701-B16C-059EC27239B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor.Login.Dark", "ReaLTaiizor.Login.Dark\ReaLTaiizor.Login.Dark.csproj", "{01875904-C93A-4739-9F82-A098B3D19A56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{268AD606-BC81-44ED-9F8E-2C94CD7DBF28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +33,19 @@ Global
 		{F443B3ED-2838-456C-A4B8-2342C95D3B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F443B3ED-2838-456C-A4B8-2342C95D3B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F443B3ED-2838-456C-A4B8-2342C95D3B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01875904-C93A-4739-9F82-A098B3D19A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01875904-C93A-4739-9F82-A098B3D19A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01875904-C93A-4739-9F82-A098B3D19A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01875904-C93A-4739-9F82-A098B3D19A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E57199F-0C03-4D03-9C2B-A4EE805FA173} = {268AD606-BC81-44ED-9F8E-2C94CD7DBF28}
+		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128} = {268AD606-BC81-44ED-9F8E-2C94CD7DBF28}
+		{F443B3ED-2838-456C-A4B8-2342C95D3B2A} = {268AD606-BC81-44ED-9F8E-2C94CD7DBF28}
+		{01875904-C93A-4739-9F82-A098B3D19A56} = {8814848E-CE17-4701-B16C-059EC27239B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEB12F1D-8C3B-492E-8590-D56D5B56FC2A}
