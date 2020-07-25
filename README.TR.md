@@ -69,6 +69,12 @@ Step 1：Referans olarak ReaLTaiizor'u ekleyin veya NuGet üzerinden ReaLTaiizor
 
 Step 2：Tasarlamanın tadını çıkarın
 
+## Örnekler
+
+### Oturum Aç
+
+![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)
+
 ## Genel Bakış
 
 ![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
