@@ -71,9 +71,9 @@ Step 2：Disfruta diseñando
 
 ## Ejemplos
 
-### Defender
+### Windows Defender
 
-![DefenderSample](https://www.photo.herominyum.com/resimler/2020/07/26/1gv2.png)
+![WindowsDefenderSample](https://www.photo.herominyum.com/resimler/2020/07/26/1gv2.png)
 
 ### Iniciar Sesión
 
