@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.hopePictureBox1 = new ReaLTaiizor.HopePictureBox();
             this.hopeForm1 = new ReaLTaiizor.HopeForm();
             this.hopeTextBox2 = new ReaLTaiizor.HopeTextBox();
@@ -314,6 +315,7 @@
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1366, 768);
             this.MinimizeBox = false;

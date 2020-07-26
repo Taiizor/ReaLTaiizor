@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2020 Taiizor Inc.")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("C# WinForm UI/UX Library - ReaLTaiizor")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("3.7.7.5")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.7.7.5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.7.7.5+910989bda0f3cdc6f23ea9fb327c3e0e119b022f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReaLTaiizor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReaLTaiizor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("3.7.7.5")]
