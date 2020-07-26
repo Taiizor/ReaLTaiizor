@@ -75,6 +75,10 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ![WindowsDefenderSample](https://www.photo.herominyum.com/resimler/2020/07/26/1gv2.png)
 
+### Ödeme
+
+![PaymentSample](https://www.photo.herominyum.com/resimler/2020/07/26/1155.png)
+
 ### Oturum Aç
 
 ![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)

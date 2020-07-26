@@ -75,6 +75,10 @@ Step 2：Disfruta diseñando
 
 ![WindowsDefenderSample](https://www.photo.herominyum.com/resimler/2020/07/26/1gv2.png)
 
+### Pago
+
+![PaymentSample](https://www.photo.herominyum.com/resimler/2020/07/26/1155.png)
+
 ### Iniciar Sesión
 
 ![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)
