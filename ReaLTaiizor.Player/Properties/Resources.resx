@@ -139,29 +139,17 @@
   <data name="fast_forward_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fast_forward_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="music" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\music.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICO.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="music1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\music.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICO2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="musical_note" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\musical_note.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICO3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="musical_note1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\musical_note.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="musical_notes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\musical_notes.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="musical_notes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\musical_notes.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="musical_notes_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\musical_notes_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="musical_notes_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\musical_notes_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICO4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="musical_notes_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\musical_notes_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

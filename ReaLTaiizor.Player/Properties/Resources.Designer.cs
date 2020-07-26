@@ -133,9 +133,39 @@ namespace ReaLTaiizor.Player.Properties {
         /// <summary>
         ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Icon music {
+        internal static System.Drawing.Icon ICO {
             get {
-                object obj = ResourceManager.GetObject("music", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Icon ICO2 {
+            get {
+                object obj = ResourceManager.GetObject("ICO2", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Icon ICO3 {
+            get {
+                object obj = ResourceManager.GetObject("ICO3", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Icon ICO4 {
+            get {
+                object obj = ResourceManager.GetObject("ICO4", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -151,72 +181,12 @@ namespace ReaLTaiizor.Player.Properties {
         }
         
         /// <summary>
-        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Icon music1 {
-            get {
-                object obj = ResourceManager.GetObject("music1", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Icon musical_note {
-            get {
-                object obj = ResourceManager.GetObject("musical_note", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         internal static System.Drawing.Bitmap musical_note_96px {
             get {
                 object obj = ResourceManager.GetObject("musical_note_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Icon musical_note1 {
-            get {
-                object obj = ResourceManager.GetObject("musical_note1", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Icon musical_notes {
-            get {
-                object obj = ResourceManager.GetObject("musical_notes", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Icon musical_notes_1 {
-            get {
-                object obj = ResourceManager.GetObject("musical_notes_1", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Icon musical_notes_11 {
-            get {
-                object obj = ResourceManager.GetObject("musical_notes_11", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -247,16 +217,6 @@ namespace ReaLTaiizor.Player.Properties {
             get {
                 object obj = ResourceManager.GetObject("musical_notes_96px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Icon musical_notes1 {
-            get {
-                object obj = ResourceManager.GetObject("musical_notes1", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
