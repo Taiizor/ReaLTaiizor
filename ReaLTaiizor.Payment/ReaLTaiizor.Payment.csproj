@@ -35,6 +35,9 @@
   <PropertyGroup>
     <StartupObject>ReaLTaiizor.Payment.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ReaLTaiizor">
       <HintPath>..\ReaLTaiizor\obj\Release\net40\ReaLTaiizor.dll</HintPath>
@@ -94,6 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Visa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICO.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
