@@ -68,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,6 +82,90 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Album2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Album3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\audio_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\available_updates_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast_forward_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musical_notes_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mute_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repeat_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rewind_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shuffle_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shutdown_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skip_to_start_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\synchronize_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update_left_rotation_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\voice_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Album1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\music.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\music_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musical_note.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musical_note_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musical_notes.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musical_notes_1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musical_notes_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musical_notes_96px_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
