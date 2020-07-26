@@ -29,227 +29,227 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
-            this.airForm1 = new ReaLTaiizor.AirForm();
-            this.hopeProgressBar1 = new ReaLTaiizor.HopeProgressBar();
-            this.lostBorderPanel2 = new ReaLTaiizor.LostBorderPanel();
-            this.lostPanel2 = new ReaLTaiizor.LostPanel();
-            this.bigLabel2 = new ReaLTaiizor.BigLabel();
-            this.hopeButton2 = new ReaLTaiizor.HopeButton();
-            this.hopeButton1 = new ReaLTaiizor.HopeButton();
-            this.foreverLabel5 = new ReaLTaiizor.ForeverLabel();
-            this.foreverComboBox2 = new ReaLTaiizor.ForeverComboBox();
-            this.foreverComboBox1 = new ReaLTaiizor.ForeverComboBox();
-            this.foreverLabel4 = new ReaLTaiizor.ForeverLabel();
-            this.foreverTextBox3 = new ReaLTaiizor.ForeverTextBox();
-            this.foreverLabel2 = new ReaLTaiizor.ForeverLabel();
-            this.foreverTextBox2 = new ReaLTaiizor.ForeverTextBox();
-            this.foreverLabel1 = new ReaLTaiizor.ForeverLabel();
-            this.foreverTextBox1 = new ReaLTaiizor.ForeverTextBox();
-            this.lostBorderPanel1 = new ReaLTaiizor.LostBorderPanel();
-            this.lostPanel1 = new ReaLTaiizor.LostPanel();
-            this.panel1 = new ReaLTaiizor.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bigLabel1 = new ReaLTaiizor.BigLabel();
-            this.airForm1.SuspendLayout();
-            this.lostBorderPanel2.SuspendLayout();
-            this.lostPanel2.SuspendLayout();
-            this.lostBorderPanel1.SuspendLayout();
-            this.lostPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            airForm1 = new ReaLTaiizor.AirForm();
+            hopeProgressBar1 = new ReaLTaiizor.HopeProgressBar();
+            lostBorderPanel2 = new ReaLTaiizor.LostBorderPanel();
+            lostPanel2 = new ReaLTaiizor.LostPanel();
+            bigLabel2 = new ReaLTaiizor.BigLabel();
+            hopeButton2 = new ReaLTaiizor.HopeButton();
+            hopeButton1 = new ReaLTaiizor.HopeButton();
+            foreverLabel5 = new ReaLTaiizor.ForeverLabel();
+            foreverComboBox2 = new ReaLTaiizor.ForeverComboBox();
+            foreverComboBox1 = new ReaLTaiizor.ForeverComboBox();
+            foreverLabel4 = new ReaLTaiizor.ForeverLabel();
+            foreverTextBox3 = new ReaLTaiizor.ForeverTextBox();
+            foreverLabel2 = new ReaLTaiizor.ForeverLabel();
+            foreverTextBox2 = new ReaLTaiizor.ForeverTextBox();
+            foreverLabel1 = new ReaLTaiizor.ForeverLabel();
+            foreverTextBox1 = new ReaLTaiizor.ForeverTextBox();
+            lostBorderPanel1 = new ReaLTaiizor.LostBorderPanel();
+            lostPanel1 = new ReaLTaiizor.LostPanel();
+            panel1 = new ReaLTaiizor.Panel();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            bigLabel1 = new ReaLTaiizor.BigLabel();
+            airForm1.SuspendLayout();
+            lostBorderPanel2.SuspendLayout();
+            lostPanel2.SuspendLayout();
+            lostBorderPanel1.SuspendLayout();
+            lostPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            SuspendLayout();
             // 
             // airForm1
             // 
-            this.airForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
-            this.airForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.airForm1.Controls.Add(this.hopeProgressBar1);
-            this.airForm1.Controls.Add(this.lostBorderPanel2);
-            this.airForm1.Controls.Add(this.lostBorderPanel1);
-            this.airForm1.Customization = "AAAA/1paWv9ycnL/";
-            this.airForm1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.airForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.airForm1.Image = null;
-            this.airForm1.Location = new System.Drawing.Point(0, 0);
-            this.airForm1.MinimumSize = new System.Drawing.Size(112, 35);
-            this.airForm1.Movable = true;
-            this.airForm1.Name = "airForm1";
-            this.airForm1.NoRounding = true;
-            this.airForm1.Sizable = false;
-            this.airForm1.Size = new System.Drawing.Size(751, 410);
-            this.airForm1.SmartBounds = true;
-            this.airForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.airForm1.TabIndex = 0;
-            this.airForm1.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.airForm1.Transparent = false;
+            airForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
+            airForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            airForm1.Controls.Add(hopeProgressBar1);
+            airForm1.Controls.Add(lostBorderPanel2);
+            airForm1.Controls.Add(lostBorderPanel1);
+            airForm1.Customization = "AAAA/1paWv9ycnL/";
+            airForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            airForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            airForm1.Image = null;
+            airForm1.Location = new System.Drawing.Point(0, 0);
+            airForm1.MinimumSize = new System.Drawing.Size(112, 35);
+            airForm1.Movable = true;
+            airForm1.Name = "airForm1";
+            airForm1.NoRounding = true;
+            airForm1.Sizable = false;
+            airForm1.Size = new System.Drawing.Size(751, 410);
+            airForm1.SmartBounds = true;
+            airForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            airForm1.TabIndex = 0;
+            airForm1.TransparencyKey = System.Drawing.Color.Fuchsia;
+            airForm1.Transparent = false;
             // 
             // hopeProgressBar1
             // 
-            this.hopeProgressBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.hopeProgressBar1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeProgressBar1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.hopeProgressBar1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.hopeProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
-            this.hopeProgressBar1.FullBallonColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.hopeProgressBar1.FullBallonText = "Ok!";
-            this.hopeProgressBar1.FullBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.hopeProgressBar1.IsError = false;
-            this.hopeProgressBar1.Location = new System.Drawing.Point(286, 35);
-            this.hopeProgressBar1.Name = "hopeProgressBar1";
-            this.hopeProgressBar1.ProgressBarStyle = ReaLTaiizor.HopeProgressBar.Style.ToolTip;
-            this.hopeProgressBar1.Size = new System.Drawing.Size(465, 32);
-            this.hopeProgressBar1.TabIndex = 6;
-            this.hopeProgressBar1.Text = "hopeProgressBar1";
-            this.hopeProgressBar1.ValueNumber = 75;
+            hopeProgressBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeProgressBar1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeProgressBar1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeProgressBar1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            hopeProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
+            hopeProgressBar1.FullBallonColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeProgressBar1.FullBallonText = "Ok!";
+            hopeProgressBar1.FullBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeProgressBar1.IsError = false;
+            hopeProgressBar1.Location = new System.Drawing.Point(286, 35);
+            hopeProgressBar1.Name = "hopeProgressBar1";
+            hopeProgressBar1.ProgressBarStyle = ReaLTaiizor.HopeProgressBar.Style.ToolTip;
+            hopeProgressBar1.Size = new System.Drawing.Size(465, 32);
+            hopeProgressBar1.TabIndex = 6;
+            hopeProgressBar1.Text = "hopeProgressBar1";
+            hopeProgressBar1.ValueNumber = 75;
             // 
             // lostBorderPanel2
             // 
-            this.lostBorderPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.lostBorderPanel2.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.lostBorderPanel2.Controls.Add(this.lostPanel2);
-            this.lostBorderPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel2.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel2.Location = new System.Drawing.Point(286, 73);
-            this.lostBorderPanel2.Name = "lostBorderPanel2";
-            this.lostBorderPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel2.ShowText = false;
-            this.lostBorderPanel2.Size = new System.Drawing.Size(465, 337);
-            this.lostBorderPanel2.TabIndex = 3;
-            this.lostBorderPanel2.Text = "lostBorderPanel2";
+            lostBorderPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            lostBorderPanel2.BorderColor = System.Drawing.Color.DodgerBlue;
+            lostBorderPanel2.Controls.Add(lostPanel2);
+            lostBorderPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            lostBorderPanel2.ForeColor = System.Drawing.Color.White;
+            lostBorderPanel2.Location = new System.Drawing.Point(286, 73);
+            lostBorderPanel2.Name = "lostBorderPanel2";
+            lostBorderPanel2.Padding = new System.Windows.Forms.Padding(5);
+            lostBorderPanel2.ShowText = false;
+            lostBorderPanel2.Size = new System.Drawing.Size(465, 337);
+            lostBorderPanel2.TabIndex = 3;
+            lostBorderPanel2.Text = "lostBorderPanel2";
             // 
             // lostPanel2
             // 
-            this.lostPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
-            this.lostPanel2.Controls.Add(this.bigLabel2);
-            this.lostPanel2.Controls.Add(this.hopeButton2);
-            this.lostPanel2.Controls.Add(this.hopeButton1);
-            this.lostPanel2.Controls.Add(this.foreverLabel5);
-            this.lostPanel2.Controls.Add(this.foreverComboBox2);
-            this.lostPanel2.Controls.Add(this.foreverComboBox1);
-            this.lostPanel2.Controls.Add(this.foreverLabel4);
-            this.lostPanel2.Controls.Add(this.foreverTextBox3);
-            this.lostPanel2.Controls.Add(this.foreverLabel2);
-            this.lostPanel2.Controls.Add(this.foreverTextBox2);
-            this.lostPanel2.Controls.Add(this.foreverLabel1);
-            this.lostPanel2.Controls.Add(this.foreverTextBox1);
-            this.lostPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostPanel2.ForeColor = System.Drawing.Color.White;
-            this.lostPanel2.Location = new System.Drawing.Point(8, 10);
-            this.lostPanel2.Name = "lostPanel2";
-            this.lostPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.lostPanel2.ShowText = false;
-            this.lostPanel2.Size = new System.Drawing.Size(448, 318);
-            this.lostPanel2.TabIndex = 2;
-            this.lostPanel2.Text = "lostPanel2";
+            lostPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
+            lostPanel2.Controls.Add(bigLabel2);
+            lostPanel2.Controls.Add(hopeButton2);
+            lostPanel2.Controls.Add(hopeButton1);
+            lostPanel2.Controls.Add(foreverLabel5);
+            lostPanel2.Controls.Add(foreverComboBox2);
+            lostPanel2.Controls.Add(foreverComboBox1);
+            lostPanel2.Controls.Add(foreverLabel4);
+            lostPanel2.Controls.Add(foreverTextBox3);
+            lostPanel2.Controls.Add(foreverLabel2);
+            lostPanel2.Controls.Add(foreverTextBox2);
+            lostPanel2.Controls.Add(foreverLabel1);
+            lostPanel2.Controls.Add(foreverTextBox1);
+            lostPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            lostPanel2.ForeColor = System.Drawing.Color.White;
+            lostPanel2.Location = new System.Drawing.Point(8, 10);
+            lostPanel2.Name = "lostPanel2";
+            lostPanel2.Padding = new System.Windows.Forms.Padding(5);
+            lostPanel2.ShowText = false;
+            lostPanel2.Size = new System.Drawing.Size(448, 318);
+            lostPanel2.TabIndex = 2;
+            lostPanel2.Text = "lostPanel2";
             // 
             // bigLabel2
             // 
-            this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.bigLabel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bigLabel2.Font = new System.Drawing.Font("Segoe UI", 25F);
-            this.bigLabel2.ForeColor = System.Drawing.Color.Gold;
-            this.bigLabel2.Location = new System.Drawing.Point(0, 0);
-            this.bigLabel2.Name = "bigLabel2";
-            this.bigLabel2.Size = new System.Drawing.Size(448, 46);
-            this.bigLabel2.TabIndex = 17;
-            this.bigLabel2.Text = "$250.00";
-            this.bigLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            bigLabel2.BackColor = System.Drawing.Color.Transparent;
+            bigLabel2.Dock = System.Windows.Forms.DockStyle.Top;
+            bigLabel2.Font = new System.Drawing.Font("Segoe UI", 25F);
+            bigLabel2.ForeColor = System.Drawing.Color.Gold;
+            bigLabel2.Location = new System.Drawing.Point(0, 0);
+            bigLabel2.Name = "bigLabel2";
+            bigLabel2.Size = new System.Drawing.Size(448, 46);
+            bigLabel2.TabIndex = 17;
+            bigLabel2.Text = "$250.00";
+            bigLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hopeButton2
             // 
-            this.hopeButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.hopeButton2.ButtonType = ReaLTaiizor.HopeButtonType.Warning;
-            this.hopeButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hopeButton2.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.hopeButton2.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.hopeButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.hopeButton2.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.hopeButton2.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
-            this.hopeButton2.Location = new System.Drawing.Point(329, 250);
-            this.hopeButton2.Name = "hopeButton2";
-            this.hopeButton2.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeButton2.Size = new System.Drawing.Size(116, 40);
-            this.hopeButton2.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.hopeButton2.TabIndex = 16;
-            this.hopeButton2.Text = "CONFIRM";
-            this.hopeButton2.TextColor = System.Drawing.Color.White;
-            this.hopeButton2.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            hopeButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeButton2.ButtonType = ReaLTaiizor.HopeButtonType.Warning;
+            hopeButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeButton2.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeButton2.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            hopeButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeButton2.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            hopeButton2.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            hopeButton2.Location = new System.Drawing.Point(329, 250);
+            hopeButton2.Name = "hopeButton2";
+            hopeButton2.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeButton2.Size = new System.Drawing.Size(116, 40);
+            hopeButton2.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeButton2.TabIndex = 16;
+            hopeButton2.Text = "CONFIRM";
+            hopeButton2.TextColor = System.Drawing.Color.White;
+            hopeButton2.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // hopeButton1
             // 
-            this.hopeButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.hopeButton1.ButtonType = ReaLTaiizor.HopeButtonType.Danger;
-            this.hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hopeButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.hopeButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.hopeButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.hopeButton1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.hopeButton1.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
-            this.hopeButton1.Location = new System.Drawing.Point(3, 250);
-            this.hopeButton1.Name = "hopeButton1";
-            this.hopeButton1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeButton1.Size = new System.Drawing.Size(116, 40);
-            this.hopeButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.hopeButton1.TabIndex = 15;
-            this.hopeButton1.Text = "BACK";
-            this.hopeButton1.TextColor = System.Drawing.Color.White;
-            this.hopeButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            hopeButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            hopeButton1.ButtonType = ReaLTaiizor.HopeButtonType.Danger;
+            hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            hopeButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            hopeButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            hopeButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            hopeButton1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            hopeButton1.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            hopeButton1.Location = new System.Drawing.Point(3, 250);
+            hopeButton1.Name = "hopeButton1";
+            hopeButton1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            hopeButton1.Size = new System.Drawing.Size(116, 40);
+            hopeButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            hopeButton1.TabIndex = 15;
+            hopeButton1.Text = "BACK";
+            hopeButton1.TextColor = System.Drawing.Color.White;
+            hopeButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // foreverLabel5
             // 
-            this.foreverLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-            this.foreverLabel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.foreverLabel5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.foreverLabel5.ForeColor = System.Drawing.Color.Silver;
-            this.foreverLabel5.Location = new System.Drawing.Point(0, 293);
-            this.foreverLabel5.Name = "foreverLabel5";
-            this.foreverLabel5.Size = new System.Drawing.Size(448, 25);
-            this.foreverLabel5.TabIndex = 13;
-            this.foreverLabel5.Text = "All your information is safe. You can read Terms of Service and our Privacy Polic" +
+            foreverLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
+            foreverLabel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            foreverLabel5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            foreverLabel5.ForeColor = System.Drawing.Color.Silver;
+            foreverLabel5.Location = new System.Drawing.Point(0, 293);
+            foreverLabel5.Name = "foreverLabel5";
+            foreverLabel5.Size = new System.Drawing.Size(448, 25);
+            foreverLabel5.TabIndex = 13;
+            foreverLabel5.Text = "All your information is safe. You can read Terms of Service and our Privacy Polic" +
     "y.";
-            this.foreverLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            foreverLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // foreverComboBox2
             // 
-            this.foreverComboBox2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
-            this.foreverComboBox2.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverComboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.foreverComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.foreverComboBox2.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.foreverComboBox2.ForeColor = System.Drawing.Color.LightGray;
-            this.foreverComboBox2.FormattingEnabled = true;
-            this.foreverComboBox2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverComboBox2.HoverFontColor = System.Drawing.Color.White;
-            this.foreverComboBox2.ItemHeight = 18;
-            this.foreverComboBox2.Items.AddRange(new object[] {
+            foreverComboBox2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
+            foreverComboBox2.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            foreverComboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            foreverComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            foreverComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            foreverComboBox2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            foreverComboBox2.ForeColor = System.Drawing.Color.LightGray;
+            foreverComboBox2.FormattingEnabled = true;
+            foreverComboBox2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverComboBox2.HoverFontColor = System.Drawing.Color.White;
+            foreverComboBox2.ItemHeight = 18;
+            foreverComboBox2.Items.AddRange(new object[] {
             "2020",
             "2021",
             "2022",
             "2023",
             "2024"});
-            this.foreverComboBox2.Location = new System.Drawing.Point(178, 243);
-            this.foreverComboBox2.Name = "foreverComboBox2";
-            this.foreverComboBox2.Size = new System.Drawing.Size(89, 24);
-            this.foreverComboBox2.TabIndex = 12;
+            foreverComboBox2.Location = new System.Drawing.Point(178, 243);
+            foreverComboBox2.Name = "foreverComboBox2";
+            foreverComboBox2.Size = new System.Drawing.Size(89, 24);
+            foreverComboBox2.TabIndex = 12;
             // 
             // foreverComboBox1
             // 
-            this.foreverComboBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
-            this.foreverComboBox1.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.foreverComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.foreverComboBox1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.foreverComboBox1.ForeColor = System.Drawing.Color.LightGray;
-            this.foreverComboBox1.FormattingEnabled = true;
-            this.foreverComboBox1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverComboBox1.HoverFontColor = System.Drawing.Color.White;
-            this.foreverComboBox1.ItemHeight = 18;
-            this.foreverComboBox1.Items.AddRange(new object[] {
+            foreverComboBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
+            foreverComboBox1.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            foreverComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            foreverComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            foreverComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            foreverComboBox1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            foreverComboBox1.ForeColor = System.Drawing.Color.LightGray;
+            foreverComboBox1.FormattingEnabled = true;
+            foreverComboBox1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverComboBox1.HoverFontColor = System.Drawing.Color.White;
+            foreverComboBox1.ItemHeight = 18;
+            foreverComboBox1.Items.AddRange(new object[] {
             "January",
             "February",
             "March",
@@ -262,222 +262,222 @@
             "October",
             "November",
             "December"});
-            this.foreverComboBox1.Location = new System.Drawing.Point(167, 213);
-            this.foreverComboBox1.Name = "foreverComboBox1";
-            this.foreverComboBox1.Size = new System.Drawing.Size(111, 24);
-            this.foreverComboBox1.TabIndex = 10;
+            foreverComboBox1.Location = new System.Drawing.Point(167, 213);
+            foreverComboBox1.Name = "foreverComboBox1";
+            foreverComboBox1.Size = new System.Drawing.Size(111, 24);
+            foreverComboBox1.TabIndex = 10;
             // 
             // foreverLabel4
             // 
-            this.foreverLabel4.AutoSize = true;
-            this.foreverLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.foreverLabel4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.foreverLabel4.ForeColor = System.Drawing.Color.LightGray;
-            this.foreverLabel4.Location = new System.Drawing.Point(165, 189);
-            this.foreverLabel4.Name = "foreverLabel4";
-            this.foreverLabel4.Size = new System.Drawing.Size(115, 21);
-            this.foreverLabel4.TabIndex = 6;
-            this.foreverLabel4.Text = "Expiration Date";
+            foreverLabel4.AutoSize = true;
+            foreverLabel4.BackColor = System.Drawing.Color.Transparent;
+            foreverLabel4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            foreverLabel4.ForeColor = System.Drawing.Color.LightGray;
+            foreverLabel4.Location = new System.Drawing.Point(165, 189);
+            foreverLabel4.Name = "foreverLabel4";
+            foreverLabel4.Size = new System.Drawing.Size(115, 21);
+            foreverLabel4.TabIndex = 6;
+            foreverLabel4.Text = "Expiration Date";
             // 
             // foreverTextBox3
             // 
-            this.foreverTextBox3.BackColor = System.Drawing.Color.Transparent;
-            this.foreverTextBox3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverTextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.foreverTextBox3.FocusOnHover = false;
-            this.foreverTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.foreverTextBox3.Location = new System.Drawing.Point(277, 152);
-            this.foreverTextBox3.MaxLength = 3;
-            this.foreverTextBox3.Multiline = false;
-            this.foreverTextBox3.Name = "foreverTextBox3";
-            this.foreverTextBox3.ReadOnly = false;
-            this.foreverTextBox3.Size = new System.Drawing.Size(31, 29);
-            this.foreverTextBox3.TabIndex = 4;
-            this.foreverTextBox3.Text = "304";
-            this.foreverTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.foreverTextBox3.UseSystemPasswordChar = false;
+            foreverTextBox3.BackColor = System.Drawing.Color.Transparent;
+            foreverTextBox3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            foreverTextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            foreverTextBox3.FocusOnHover = false;
+            foreverTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            foreverTextBox3.Location = new System.Drawing.Point(277, 152);
+            foreverTextBox3.MaxLength = 3;
+            foreverTextBox3.Multiline = false;
+            foreverTextBox3.Name = "foreverTextBox3";
+            foreverTextBox3.ReadOnly = false;
+            foreverTextBox3.Size = new System.Drawing.Size(31, 29);
+            foreverTextBox3.TabIndex = 4;
+            foreverTextBox3.Text = "304";
+            foreverTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            foreverTextBox3.UseSystemPasswordChar = false;
             // 
             // foreverLabel2
             // 
-            this.foreverLabel2.AutoSize = true;
-            this.foreverLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.foreverLabel2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.foreverLabel2.ForeColor = System.Drawing.Color.LightGray;
-            this.foreverLabel2.Location = new System.Drawing.Point(148, 128);
-            this.foreverLabel2.Name = "foreverLabel2";
-            this.foreverLabel2.Size = new System.Drawing.Size(149, 21);
-            this.foreverLabel2.TabIndex = 3;
-            this.foreverLabel2.Text = "Card Number - CVC";
+            foreverLabel2.AutoSize = true;
+            foreverLabel2.BackColor = System.Drawing.Color.Transparent;
+            foreverLabel2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            foreverLabel2.ForeColor = System.Drawing.Color.LightGray;
+            foreverLabel2.Location = new System.Drawing.Point(148, 128);
+            foreverLabel2.Name = "foreverLabel2";
+            foreverLabel2.Size = new System.Drawing.Size(149, 21);
+            foreverLabel2.TabIndex = 3;
+            foreverLabel2.Text = "Card Number - CVC";
             // 
             // foreverTextBox2
             // 
-            this.foreverTextBox2.BackColor = System.Drawing.Color.Transparent;
-            this.foreverTextBox2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverTextBox2.BorderColor = System.Drawing.Color.Yellow;
-            this.foreverTextBox2.FocusOnHover = false;
-            this.foreverTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.foreverTextBox2.Location = new System.Drawing.Point(137, 152);
-            this.foreverTextBox2.MaxLength = 25;
-            this.foreverTextBox2.Multiline = false;
-            this.foreverTextBox2.Name = "foreverTextBox2";
-            this.foreverTextBox2.ReadOnly = false;
-            this.foreverTextBox2.Size = new System.Drawing.Size(134, 29);
-            this.foreverTextBox2.TabIndex = 2;
-            this.foreverTextBox2.Text = "1355 1489 3219 9841";
-            this.foreverTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.foreverTextBox2.UseSystemPasswordChar = false;
+            foreverTextBox2.BackColor = System.Drawing.Color.Transparent;
+            foreverTextBox2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            foreverTextBox2.BorderColor = System.Drawing.Color.Yellow;
+            foreverTextBox2.FocusOnHover = false;
+            foreverTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            foreverTextBox2.Location = new System.Drawing.Point(137, 152);
+            foreverTextBox2.MaxLength = 25;
+            foreverTextBox2.Multiline = false;
+            foreverTextBox2.Name = "foreverTextBox2";
+            foreverTextBox2.ReadOnly = false;
+            foreverTextBox2.Size = new System.Drawing.Size(134, 29);
+            foreverTextBox2.TabIndex = 2;
+            foreverTextBox2.Text = "1355 1489 3219 9841";
+            foreverTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            foreverTextBox2.UseSystemPasswordChar = false;
             // 
             // foreverLabel1
             // 
-            this.foreverLabel1.AutoSize = true;
-            this.foreverLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.foreverLabel1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.foreverLabel1.ForeColor = System.Drawing.Color.LightGray;
-            this.foreverLabel1.Location = new System.Drawing.Point(155, 67);
-            this.foreverLabel1.Name = "foreverLabel1";
-            this.foreverLabel1.Size = new System.Drawing.Size(134, 21);
-            this.foreverLabel1.TabIndex = 1;
-            this.foreverLabel1.Text = "Cardholder Name";
+            foreverLabel1.AutoSize = true;
+            foreverLabel1.BackColor = System.Drawing.Color.Transparent;
+            foreverLabel1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            foreverLabel1.ForeColor = System.Drawing.Color.LightGray;
+            foreverLabel1.Location = new System.Drawing.Point(155, 67);
+            foreverLabel1.Name = "foreverLabel1";
+            foreverLabel1.Size = new System.Drawing.Size(134, 21);
+            foreverLabel1.TabIndex = 1;
+            foreverLabel1.Text = "Cardholder Name";
             // 
             // foreverTextBox1
             // 
-            this.foreverTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.foreverTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverTextBox1.FocusOnHover = false;
-            this.foreverTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.foreverTextBox1.Location = new System.Drawing.Point(141, 91);
-            this.foreverTextBox1.MaxLength = 100;
-            this.foreverTextBox1.Multiline = false;
-            this.foreverTextBox1.Name = "foreverTextBox1";
-            this.foreverTextBox1.ReadOnly = false;
-            this.foreverTextBox1.Size = new System.Drawing.Size(162, 29);
-            this.foreverTextBox1.TabIndex = 0;
-            this.foreverTextBox1.Text = "John Doe";
-            this.foreverTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.foreverTextBox1.UseSystemPasswordChar = false;
+            foreverTextBox1.BackColor = System.Drawing.Color.Transparent;
+            foreverTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            foreverTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            foreverTextBox1.FocusOnHover = false;
+            foreverTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            foreverTextBox1.Location = new System.Drawing.Point(141, 91);
+            foreverTextBox1.MaxLength = 100;
+            foreverTextBox1.Multiline = false;
+            foreverTextBox1.Name = "foreverTextBox1";
+            foreverTextBox1.ReadOnly = false;
+            foreverTextBox1.Size = new System.Drawing.Size(162, 29);
+            foreverTextBox1.TabIndex = 0;
+            foreverTextBox1.Text = "John Doe";
+            foreverTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            foreverTextBox1.UseSystemPasswordChar = false;
             // 
             // lostBorderPanel1
             // 
-            this.lostBorderPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
-            this.lostBorderPanel1.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.lostBorderPanel1.Controls.Add(this.lostPanel1);
-            this.lostBorderPanel1.Controls.Add(this.bigLabel1);
-            this.lostBorderPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lostBorderPanel1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel1.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel1.Location = new System.Drawing.Point(0, 0);
-            this.lostBorderPanel1.Name = "lostBorderPanel1";
-            this.lostBorderPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel1.ShowText = false;
-            this.lostBorderPanel1.Size = new System.Drawing.Size(280, 410);
-            this.lostBorderPanel1.TabIndex = 2;
-            this.lostBorderPanel1.Text = "lostBorderPanel1";
+            lostBorderPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
+            lostBorderPanel1.BorderColor = System.Drawing.Color.DodgerBlue;
+            lostBorderPanel1.Controls.Add(lostPanel1);
+            lostBorderPanel1.Controls.Add(bigLabel1);
+            lostBorderPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            lostBorderPanel1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            lostBorderPanel1.ForeColor = System.Drawing.Color.White;
+            lostBorderPanel1.Location = new System.Drawing.Point(0, 0);
+            lostBorderPanel1.Name = "lostBorderPanel1";
+            lostBorderPanel1.Padding = new System.Windows.Forms.Padding(5);
+            lostBorderPanel1.ShowText = false;
+            lostBorderPanel1.Size = new System.Drawing.Size(280, 410);
+            lostBorderPanel1.TabIndex = 2;
+            lostBorderPanel1.Text = "lostBorderPanel1";
             // 
             // lostPanel1
             // 
-            this.lostPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
-            this.lostPanel1.Controls.Add(this.panel1);
-            this.lostPanel1.Controls.Add(this.pictureBox3);
-            this.lostPanel1.Controls.Add(this.pictureBox2);
-            this.lostPanel1.Controls.Add(this.pictureBox1);
-            this.lostPanel1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostPanel1.ForeColor = System.Drawing.Color.White;
-            this.lostPanel1.Location = new System.Drawing.Point(27, 54);
-            this.lostPanel1.Name = "lostPanel1";
-            this.lostPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.lostPanel1.ShowText = false;
-            this.lostPanel1.Size = new System.Drawing.Size(227, 340);
-            this.lostPanel1.TabIndex = 1;
-            this.lostPanel1.Text = "lostPanel1";
+            lostPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(50)))));
+            lostPanel1.Controls.Add(panel1);
+            lostPanel1.Controls.Add(pictureBox3);
+            lostPanel1.Controls.Add(pictureBox2);
+            lostPanel1.Controls.Add(pictureBox1);
+            lostPanel1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            lostPanel1.ForeColor = System.Drawing.Color.White;
+            lostPanel1.Location = new System.Drawing.Point(27, 54);
+            lostPanel1.Name = "lostPanel1";
+            lostPanel1.Padding = new System.Windows.Forms.Padding(5);
+            lostPanel1.ShowText = false;
+            lostPanel1.Size = new System.Drawing.Size(227, 340);
+            lostPanel1.TabIndex = 1;
+            lostPanel1.Text = "lostPanel1";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Location = new System.Drawing.Point(3, 114);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(5, 105);
-            this.panel1.TabIndex = 3;
-            this.panel1.Text = "panel1";
+            panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            panel1.Location = new System.Drawing.Point(3, 114);
+            panel1.Margin = new System.Windows.Forms.Padding(0);
+            panel1.Name = "panel1";
+            panel1.Padding = new System.Windows.Forms.Padding(5);
+            panel1.Size = new System.Drawing.Size(5, 105);
+            panel1.TabIndex = 3;
+            panel1.Text = "panel1";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::ReaLTaiizor.Payment.Properties.Resources.MasterCard;
-            this.pictureBox3.Location = new System.Drawing.Point(11, 225);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(210, 105);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
+            pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
+            pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox3.Image = global::ReaLTaiizor.Payment.Properties.Resources.MasterCard;
+            pictureBox3.Location = new System.Drawing.Point(11, 225);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(210, 105);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 2;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += new System.EventHandler(PictureBox3_Click);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::ReaLTaiizor.Payment.Properties.Resources.Visa;
-            this.pictureBox2.Location = new System.Drawing.Point(11, 114);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(210, 105);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
+            pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
+            pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox2.Image = global::ReaLTaiizor.Payment.Properties.Resources.Visa;
+            pictureBox2.Location = new System.Drawing.Point(11, 114);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(210, 105);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += new System.EventHandler(PictureBox2_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::ReaLTaiizor.Payment.Properties.Resources.PayPal;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(210, 105);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+            pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
+            pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox1.Image = global::ReaLTaiizor.Payment.Properties.Resources.PayPal;
+            pictureBox1.Location = new System.Drawing.Point(11, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(210, 105);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += new System.EventHandler(PictureBox1_Click);
             // 
             // bigLabel1
             // 
-            this.bigLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.bigLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bigLabel1.Font = new System.Drawing.Font("Segoe UI", 25F);
-            this.bigLabel1.ForeColor = System.Drawing.Color.Silver;
-            this.bigLabel1.Location = new System.Drawing.Point(0, 0);
-            this.bigLabel1.Name = "bigLabel1";
-            this.bigLabel1.Size = new System.Drawing.Size(280, 46);
-            this.bigLabel1.TabIndex = 0;
-            this.bigLabel1.Text = "Payment Method";
-            this.bigLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            bigLabel1.BackColor = System.Drawing.Color.Transparent;
+            bigLabel1.Dock = System.Windows.Forms.DockStyle.Top;
+            bigLabel1.Font = new System.Drawing.Font("Segoe UI", 25F);
+            bigLabel1.ForeColor = System.Drawing.Color.Silver;
+            bigLabel1.Location = new System.Drawing.Point(0, 0);
+            bigLabel1.Name = "bigLabel1";
+            bigLabel1.Size = new System.Drawing.Size(280, 46);
+            bigLabel1.TabIndex = 0;
+            bigLabel1.Text = "Payment Method";
+            bigLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Payment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 410);
-            this.Controls.Add(this.airForm1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(112, 35);
-            this.Name = "Payment";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Payment";
-            this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.Load += new System.EventHandler(this.Payment_Load);
-            this.airForm1.ResumeLayout(false);
-            this.lostBorderPanel2.ResumeLayout(false);
-            this.lostPanel2.ResumeLayout(false);
-            this.lostPanel2.PerformLayout();
-            this.lostBorderPanel1.ResumeLayout(false);
-            this.lostPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(751, 410);
+            Controls.Add(airForm1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            MinimumSize = new System.Drawing.Size(112, 35);
+            Name = "Payment";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Payment";
+            TransparencyKey = System.Drawing.Color.Fuchsia;
+            Load += new System.EventHandler(Payment_Load);
+            airForm1.ResumeLayout(false);
+            lostBorderPanel2.ResumeLayout(false);
+            lostPanel2.ResumeLayout(false);
+            lostPanel2.PerformLayout();
+            lostBorderPanel1.ResumeLayout(false);
+            lostPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            ResumeLayout(false);
 
         }
 
