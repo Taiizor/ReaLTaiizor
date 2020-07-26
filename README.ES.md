@@ -75,6 +75,10 @@ Step 2：Disfruta diseñando
 
 ![WindowsDefenderSample](https://www.photo.herominyum.com/resimler/2020/07/26/1gv2.png)
 
+### Reproductor de MP3
+
+![MP3PlayerSample](https://www.photo.herominyum.com/resimler/2020/07/26/1LqV.png)
+
 ### Pago
 
 ![PaymentSample](https://www.photo.herominyum.com/resimler/2020/07/26/1155.png)
