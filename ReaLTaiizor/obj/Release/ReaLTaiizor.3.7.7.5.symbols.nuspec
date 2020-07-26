@@ -16,7 +16,7 @@
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</releaseNotes>
     <copyright>Copyright © 2020 Taiizor Inc.</copyright>
     <tags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</tags>
-    <repository type="git" url="git://github.com/Taiizor/ReaLTaiizor" commit="1c58350f0756539363b17a022a079c817cb40522" />
+    <repository type="git" url="git://github.com/Taiizor/ReaLTaiizor" commit="4882c975d9c653dae6891a32be7b6959c2fd971b" />
     <dependencies>
       <group targetFramework=".NETFramework4.0" />
       <group targetFramework=".NETFramework4.5" />

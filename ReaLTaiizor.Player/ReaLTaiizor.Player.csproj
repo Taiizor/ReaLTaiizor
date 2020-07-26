@@ -167,5 +167,23 @@
   <ItemGroup>
     <None Include="Resources\ICO4.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
