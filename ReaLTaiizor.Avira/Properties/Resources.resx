@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,136 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AdvenceTileButton1_CheckedImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdvenceTileButton1.CheckedImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AdvenceTileButton1_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdvenceTileButton1.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AdvenceTileButton1_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdvenceTileButton1.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AdvenceTileButton7_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdvenceTileButton7.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AdvenceTileButton7_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdvenceTileButton7.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Avira" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Avira.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AviraIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AviraIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Avira_Free_Antivirusn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Avira-Free-Antivirusn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beach_umbrella" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beach_umbrella.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beach_umbrella_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beach_umbrella_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button2_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button2.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ctl_AviraStateButton1_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ctl_AviraStateButton1.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ctl_AviraStateButton1_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ctl_AviraStateButton1.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ctl_AviraStateButton2_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ctl_AviraStateButton2.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ctl_AviraStateButton2_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ctl_AviraStateButton2.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ctl_AviraStateButton3_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ctl_AviraStateButton3.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ctl_AviraStateButton3_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ctl_AviraStateButton3.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ctl_AviraStateButton4_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ctl_AviraStateButton4.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ctl_AviraStateButton4_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ctl_AviraStateButton4.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GunaAdvenceTileButton7_CheckedImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GunaAdvenceTileButton7.CheckedImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICO.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_activity_CheckedImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_activity.CheckedImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_activity_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_activity.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_activity_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_activity.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_modules_CheckedImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_modules.CheckedImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_modules_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_modules.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_modules_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_modules.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_quarantine_CheckedImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_quarantine.CheckedImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_quarantine_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_quarantine.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_quarantine_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_quarantine.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_scan_CheckedImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_scan.CheckedImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_scan_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_scan.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_scan_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_scan.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_status_CheckedImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_status.CheckedImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_status_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_status.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_status_OnHoverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_status.OnHoverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PictureBox1_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PictureBox1.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PictureBox2_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PictureBox2.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PictureBox5_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PictureBox5.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TransfarantPictureBox1_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TransfarantPictureBox1.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="umbrella_128px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\umbrella_128px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_42458" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\42458.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

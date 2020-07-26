@@ -35,6 +35,9 @@
   <PropertyGroup>
     <StartupObject>ReaLTaiizor.Avira.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Avira.resx">
+      <DependentUpon>Avira.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -65,6 +71,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +85,132 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avira-Free-Antivirusn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AviraIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beach_umbrella.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beach_umbrella_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button2.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ctl_AviraStateButton1.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ctl_AviraStateButton1.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ctl_AviraStateButton2.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ctl_AviraStateButton2.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ctl_AviraStateButton3.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ctl_AviraStateButton3.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ctl_AviraStateButton4.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ctl_AviraStateButton4.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GunaAdvenceTileButton7.CheckedImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICO.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_activity.CheckedImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_activity.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_activity.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_modules.CheckedImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_modules.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_modules.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_quarantine.CheckedImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_quarantine.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_quarantine.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_scan.CheckedImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_scan.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_scan.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_status.CheckedImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_status.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_status.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PictureBox1.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PictureBox2.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PictureBox5.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TransfarantPictureBox1.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\umbrella_128px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\42458.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdvenceTileButton1.CheckedImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdvenceTileButton1.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdvenceTileButton1.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdvenceTileButton7.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdvenceTileButton7.OnHoverImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avira.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

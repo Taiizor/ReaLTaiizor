@@ -7,3 +7,4 @@ E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiiz
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.exe
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.pdb
 E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.csprojAssemblyReference.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.Avira.resources
