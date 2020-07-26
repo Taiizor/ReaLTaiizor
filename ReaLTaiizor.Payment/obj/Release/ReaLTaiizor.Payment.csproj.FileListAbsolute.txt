@@ -1,0 +1,9 @@
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\bin\Release\ReaLTaiizor.Payment.exe.config
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\bin\Release\ReaLTaiizor.Payment.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\bin\Release\ReaLTaiizor.Payment.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\obj\Release\ReaLTaiizor.Payment.csprojAssemblyReference.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\obj\Release\ReaLTaiizor.Payment.Properties.Resources.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\obj\Release\ReaLTaiizor.Payment.csproj.GenerateResource.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\obj\Release\ReaLTaiizor.Payment.csproj.CoreCompileInputs.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\obj\Release\ReaLTaiizor.Payment.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Payment\obj\Release\ReaLTaiizor.Payment.pdb

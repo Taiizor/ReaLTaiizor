@@ -1,0 +1,9 @@
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\bin\Release\ReaLTaiizor.Avira.exe.config
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\bin\Release\ReaLTaiizor.Avira.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\bin\Release\ReaLTaiizor.Avira.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.Properties.Resources.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.csproj.GenerateResource.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.csproj.CoreCompileInputs.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.csprojAssemblyReference.cache
