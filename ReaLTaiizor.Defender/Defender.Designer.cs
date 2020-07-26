@@ -1,0 +1,380 @@
+﻿namespace ReaLTaiizor.Defender
+{
+    partial class Defender
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lostPanel1 = new ReaLTaiizor.LostPanel();
+            this.lostPanel2 = new ReaLTaiizor.LostPanel();
+            this.hopePictureBox1 = new ReaLTaiizor.HopePictureBox();
+            this.labelEdit1 = new ReaLTaiizor.LabelEdit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lostButton1 = new ReaLTaiizor.LostButton();
+            this.lostButton2 = new ReaLTaiizor.LostButton();
+            this.lostButton3 = new ReaLTaiizor.LostButton();
+            this.lostButton4 = new ReaLTaiizor.LostButton();
+            this.hopeRoundProgressBar1 = new ReaLTaiizor.HopeRoundProgressBar();
+            this.hopeSwitch1 = new ReaLTaiizor.HopeSwitch();
+            this.hopeSwitch2 = new ReaLTaiizor.HopeSwitch();
+            this.labelEdit2 = new ReaLTaiizor.LabelEdit();
+            this.hopeRoundProgressBar2 = new ReaLTaiizor.HopeRoundProgressBar();
+            this.labelEdit3 = new ReaLTaiizor.LabelEdit();
+            this.labelEdit4 = new ReaLTaiizor.LabelEdit();
+            this.labelEdit5 = new ReaLTaiizor.LabelEdit();
+            this.labelEdit6 = new ReaLTaiizor.LabelEdit();
+            this.labelEdit7 = new ReaLTaiizor.LabelEdit();
+            this.lostPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hopePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // lostPanel1
+            // 
+            this.lostPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.lostPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lostPanel1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostPanel1.ForeColor = System.Drawing.Color.White;
+            this.lostPanel1.Location = new System.Drawing.Point(2, 36);
+            this.lostPanel1.Name = "lostPanel1";
+            this.lostPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.lostPanel1.ShowText = false;
+            this.lostPanel1.Size = new System.Drawing.Size(50, 502);
+            this.lostPanel1.TabIndex = 1;
+            this.lostPanel1.Text = "lostPanel1";
+            // 
+            // lostPanel2
+            // 
+            this.lostPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
+            this.lostPanel2.Controls.Add(this.labelEdit5);
+            this.lostPanel2.Controls.Add(this.labelEdit4);
+            this.lostPanel2.Controls.Add(this.labelEdit3);
+            this.lostPanel2.Controls.Add(this.labelEdit2);
+            this.lostPanel2.Controls.Add(this.lostButton4);
+            this.lostPanel2.Controls.Add(this.lostButton3);
+            this.lostPanel2.Controls.Add(this.lostButton2);
+            this.lostPanel2.Controls.Add(this.lostButton1);
+            this.lostPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lostPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostPanel2.ForeColor = System.Drawing.Color.White;
+            this.lostPanel2.Location = new System.Drawing.Point(52, 426);
+            this.lostPanel2.Name = "lostPanel2";
+            this.lostPanel2.Padding = new System.Windows.Forms.Padding(5);
+            this.lostPanel2.ShowText = false;
+            this.lostPanel2.Size = new System.Drawing.Size(746, 112);
+            this.lostPanel2.TabIndex = 2;
+            this.lostPanel2.Text = "lostPanel2";
+            // 
+            // hopePictureBox1
+            // 
+            this.hopePictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.hopePictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hopePictureBox1.Image = global::ReaLTaiizor.Defender.Properties.Resources.Live;
+            this.hopePictureBox1.Location = new System.Drawing.Point(52, 36);
+            this.hopePictureBox1.Name = "hopePictureBox1";
+            this.hopePictureBox1.Size = new System.Drawing.Size(746, 390);
+            this.hopePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hopePictureBox1.TabIndex = 3;
+            this.hopePictureBox1.TabStop = false;
+            // 
+            // labelEdit1
+            // 
+            this.labelEdit1.AutoSize = true;
+            this.labelEdit1.BackColor = System.Drawing.Color.Transparent;
+            this.labelEdit1.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.labelEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(196)))), ((int)(((byte)(150)))));
+            this.labelEdit1.Location = new System.Drawing.Point(193, 92);
+            this.labelEdit1.Name = "labelEdit1";
+            this.labelEdit1.Size = new System.Drawing.Size(464, 32);
+            this.labelEdit1.TabIndex = 6;
+            this.labelEdit1.Text = "Your PC is being Monitored and Protected";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ReaLTaiizor.Defender.Properties.Resources.Protected;
+            this.pictureBox1.Location = new System.Drawing.Point(400, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lostButton1
+            // 
+            this.lostButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.lostButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lostButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lostButton1.ForeColor = System.Drawing.Color.White;
+            this.lostButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(15)))), ((int)(((byte)(21)))));
+            this.lostButton1.Image = global::ReaLTaiizor.Defender.Properties.Resources.QuickScan;
+            this.lostButton1.Location = new System.Drawing.Point(6, 6);
+            this.lostButton1.Name = "lostButton1";
+            this.lostButton1.Size = new System.Drawing.Size(103, 103);
+            this.lostButton1.TabIndex = 0;
+            // 
+            // lostButton2
+            // 
+            this.lostButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.lostButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lostButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lostButton2.ForeColor = System.Drawing.Color.White;
+            this.lostButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(15)))), ((int)(((byte)(21)))));
+            this.lostButton2.Image = global::ReaLTaiizor.Defender.Properties.Resources.CustomScan;
+            this.lostButton2.Location = new System.Drawing.Point(217, 6);
+            this.lostButton2.Name = "lostButton2";
+            this.lostButton2.Size = new System.Drawing.Size(103, 103);
+            this.lostButton2.TabIndex = 1;
+            // 
+            // lostButton3
+            // 
+            this.lostButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.lostButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lostButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lostButton3.ForeColor = System.Drawing.Color.White;
+            this.lostButton3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(15)))), ((int)(((byte)(21)))));
+            this.lostButton3.Image = global::ReaLTaiizor.Defender.Properties.Resources.FullScan;
+            this.lostButton3.Location = new System.Drawing.Point(428, 6);
+            this.lostButton3.Name = "lostButton3";
+            this.lostButton3.Size = new System.Drawing.Size(103, 103);
+            this.lostButton3.TabIndex = 2;
+            // 
+            // lostButton4
+            // 
+            this.lostButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.lostButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lostButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lostButton4.ForeColor = System.Drawing.Color.White;
+            this.lostButton4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(15)))), ((int)(((byte)(21)))));
+            this.lostButton4.Image = global::ReaLTaiizor.Defender.Properties.Resources.Firewall;
+            this.lostButton4.Location = new System.Drawing.Point(640, 6);
+            this.lostButton4.Name = "lostButton4";
+            this.lostButton4.Size = new System.Drawing.Size(103, 103);
+            this.lostButton4.TabIndex = 3;
+            // 
+            // hopeRoundProgressBar1
+            // 
+            this.hopeRoundProgressBar1.BackColor = System.Drawing.Color.White;
+            this.hopeRoundProgressBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.hopeRoundProgressBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            this.hopeRoundProgressBar1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundProgressBar1.DangerTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundProgressBar1.DangerTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundProgressBar1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.hopeRoundProgressBar1.ForeColor = System.Drawing.Color.White;
+            this.hopeRoundProgressBar1.FullBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.hopeRoundProgressBar1.FullTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.hopeRoundProgressBar1.FullTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.hopeRoundProgressBar1.IsError = false;
+            this.hopeRoundProgressBar1.Location = new System.Drawing.Point(312, 387);
+            this.hopeRoundProgressBar1.Name = "hopeRoundProgressBar1";
+            this.hopeRoundProgressBar1.PercentText = "%";
+            this.hopeRoundProgressBar1.Size = new System.Drawing.Size(30, 30);
+            this.hopeRoundProgressBar1.TabIndex = 10;
+            this.hopeRoundProgressBar1.Text = "hopeRoundProgressBar1";
+            this.hopeRoundProgressBar1.ValueNumber = 100;
+            // 
+            // hopeSwitch1
+            // 
+            this.hopeSwitch1.AutoSize = true;
+            this.hopeSwitch1.BaseColor = System.Drawing.Color.Gainsboro;
+            this.hopeSwitch1.BaseOffColor = System.Drawing.Color.Gray;
+            this.hopeSwitch1.BaseOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(196)))), ((int)(((byte)(150)))));
+            this.hopeSwitch1.Checked = true;
+            this.hopeSwitch1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.hopeSwitch1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeSwitch1.Location = new System.Drawing.Point(509, 356);
+            this.hopeSwitch1.Name = "hopeSwitch1";
+            this.hopeSwitch1.Size = new System.Drawing.Size(40, 20);
+            this.hopeSwitch1.TabIndex = 11;
+            this.hopeSwitch1.Text = "hopeSwitch1";
+            this.hopeSwitch1.UseVisualStyleBackColor = true;
+            // 
+            // hopeSwitch2
+            // 
+            this.hopeSwitch2.AutoSize = true;
+            this.hopeSwitch2.BaseColor = System.Drawing.Color.Gainsboro;
+            this.hopeSwitch2.BaseOffColor = System.Drawing.Color.Gray;
+            this.hopeSwitch2.BaseOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.hopeSwitch2.Checked = true;
+            this.hopeSwitch2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.hopeSwitch2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeSwitch2.Location = new System.Drawing.Point(509, 392);
+            this.hopeSwitch2.Name = "hopeSwitch2";
+            this.hopeSwitch2.Size = new System.Drawing.Size(40, 20);
+            this.hopeSwitch2.TabIndex = 12;
+            this.hopeSwitch2.Text = "hopeSwitch2";
+            this.hopeSwitch2.UseVisualStyleBackColor = true;
+            // 
+            // labelEdit2
+            // 
+            this.labelEdit2.AutoSize = true;
+            this.labelEdit2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.labelEdit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelEdit2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(95)))), ((int)(((byte)(235)))));
+            this.labelEdit2.Location = new System.Drawing.Point(17, 86);
+            this.labelEdit2.Name = "labelEdit2";
+            this.labelEdit2.Size = new System.Drawing.Size(80, 17);
+            this.labelEdit2.TabIndex = 4;
+            this.labelEdit2.Text = "Quick Scan";
+            // 
+            // hopeRoundProgressBar2
+            // 
+            this.hopeRoundProgressBar2.BackColor = System.Drawing.Color.White;
+            this.hopeRoundProgressBar2.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(196)))), ((int)(((byte)(150)))));
+            this.hopeRoundProgressBar2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            this.hopeRoundProgressBar2.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundProgressBar2.DangerTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundProgressBar2.DangerTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundProgressBar2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.hopeRoundProgressBar2.ForeColor = System.Drawing.Color.White;
+            this.hopeRoundProgressBar2.FullBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(196)))), ((int)(((byte)(150)))));
+            this.hopeRoundProgressBar2.FullTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.hopeRoundProgressBar2.FullTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.hopeRoundProgressBar2.IsError = false;
+            this.hopeRoundProgressBar2.Location = new System.Drawing.Point(312, 351);
+            this.hopeRoundProgressBar2.Name = "hopeRoundProgressBar2";
+            this.hopeRoundProgressBar2.PercentText = "%";
+            this.hopeRoundProgressBar2.Size = new System.Drawing.Size(30, 30);
+            this.hopeRoundProgressBar2.TabIndex = 13;
+            this.hopeRoundProgressBar2.Text = "hopeRoundProgressBar2";
+            this.hopeRoundProgressBar2.ValueNumber = 100;
+            // 
+            // labelEdit3
+            // 
+            this.labelEdit3.AutoSize = true;
+            this.labelEdit3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.labelEdit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelEdit3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(101)))), ((int)(((byte)(235)))));
+            this.labelEdit3.Location = new System.Drawing.Point(223, 86);
+            this.labelEdit3.Name = "labelEdit3";
+            this.labelEdit3.Size = new System.Drawing.Size(91, 17);
+            this.labelEdit3.TabIndex = 5;
+            this.labelEdit3.Text = "Custom Scan";
+            // 
+            // labelEdit4
+            // 
+            this.labelEdit4.AutoSize = true;
+            this.labelEdit4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.labelEdit4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelEdit4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(121)))), ((int)(((byte)(162)))));
+            this.labelEdit4.Location = new System.Drawing.Point(446, 86);
+            this.labelEdit4.Name = "labelEdit4";
+            this.labelEdit4.Size = new System.Drawing.Size(66, 17);
+            this.labelEdit4.TabIndex = 6;
+            this.labelEdit4.Text = "Full Scan";
+            // 
+            // labelEdit5
+            // 
+            this.labelEdit5.AutoSize = true;
+            this.labelEdit5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.labelEdit5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelEdit5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(88)))), ((int)(((byte)(104)))));
+            this.labelEdit5.Location = new System.Drawing.Point(664, 86);
+            this.labelEdit5.Name = "labelEdit5";
+            this.labelEdit5.Size = new System.Drawing.Size(55, 17);
+            this.labelEdit5.TabIndex = 7;
+            this.labelEdit5.Text = "Firewall";
+            // 
+            // labelEdit6
+            // 
+            this.labelEdit6.AutoSize = true;
+            this.labelEdit6.BackColor = System.Drawing.Color.Transparent;
+            this.labelEdit6.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.labelEdit6.ForeColor = System.Drawing.Color.Gray;
+            this.labelEdit6.Location = new System.Drawing.Point(348, 356);
+            this.labelEdit6.Name = "labelEdit6";
+            this.labelEdit6.Size = new System.Drawing.Size(155, 21);
+            this.labelEdit6.TabIndex = 14;
+            this.labelEdit6.Text = "Real-Time Protection";
+            // 
+            // labelEdit7
+            // 
+            this.labelEdit7.AutoSize = true;
+            this.labelEdit7.BackColor = System.Drawing.Color.Transparent;
+            this.labelEdit7.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.labelEdit7.ForeColor = System.Drawing.Color.Gray;
+            this.labelEdit7.Location = new System.Drawing.Point(348, 392);
+            this.labelEdit7.Name = "labelEdit7";
+            this.labelEdit7.Size = new System.Drawing.Size(155, 21);
+            this.labelEdit7.TabIndex = 15;
+            this.labelEdit7.Text = "Real-Time Protection";
+            // 
+            // Defender
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(108)))));
+            this.ClientSize = new System.Drawing.Size(800, 540);
+            this.Controls.Add(this.labelEdit7);
+            this.Controls.Add(this.labelEdit6);
+            this.Controls.Add(this.hopeRoundProgressBar2);
+            this.Controls.Add(this.hopeSwitch2);
+            this.Controls.Add(this.hopeSwitch1);
+            this.Controls.Add(this.hopeRoundProgressBar1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.labelEdit1);
+            this.Controls.Add(this.hopePictureBox1);
+            this.Controls.Add(this.lostPanel2);
+            this.Controls.Add(this.lostPanel1);
+            this.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
+            this.Image = global::ReaLTaiizor.Defender.Properties.Resources.Windows;
+            this.MaximizeBox = false;
+            this.Name = "Defender";
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Windows Defender";
+            this.lostPanel2.ResumeLayout(false);
+            this.lostPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hopePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+        private LostPanel lostPanel1;
+        private LostPanel lostPanel2;
+        private HopePictureBox hopePictureBox1;
+        private LabelEdit labelEdit1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private LostButton lostButton1;
+        private LostButton lostButton4;
+        private LostButton lostButton3;
+        private LostButton lostButton2;
+        private HopeRoundProgressBar hopeRoundProgressBar1;
+        private LabelEdit labelEdit2;
+        private HopeSwitch hopeSwitch1;
+        private HopeSwitch hopeSwitch2;
+        private LabelEdit labelEdit5;
+        private LabelEdit labelEdit4;
+        private LabelEdit labelEdit3;
+        private HopeRoundProgressBar hopeRoundProgressBar2;
+        private LabelEdit labelEdit6;
+        private LabelEdit labelEdit7;
+    }
+}

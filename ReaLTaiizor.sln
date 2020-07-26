@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{268AD606-B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor.Login", "ReaLTaiizor.Login\ReaLTaiizor.Login.csproj", "{2179D123-F94C-45BE-B9CE-8F6FFE7A7264}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor.Defender", "ReaLTaiizor.Defender\ReaLTaiizor.Defender.csproj", "{A918BF99-8F5A-435D-A641-D2D648DB25EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{2179D123-F94C-45BE-B9CE-8F6FFE7A7264}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2179D123-F94C-45BE-B9CE-8F6FFE7A7264}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2179D123-F94C-45BE-B9CE-8F6FFE7A7264}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A918BF99-8F5A-435D-A641-D2D648DB25EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A918BF99-8F5A-435D-A641-D2D648DB25EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A918BF99-8F5A-435D-A641-D2D648DB25EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A918BF99-8F5A-435D-A641-D2D648DB25EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128} = {268AD606-BC81-44ED-9F8E-2C94CD7DBF28}
 		{F443B3ED-2838-456C-A4B8-2342C95D3B2A} = {268AD606-BC81-44ED-9F8E-2C94CD7DBF28}
 		{2179D123-F94C-45BE-B9CE-8F6FFE7A7264} = {8814848E-CE17-4701-B16C-059EC27239B5}
+		{A918BF99-8F5A-435D-A641-D2D648DB25EF} = {8814848E-CE17-4701-B16C-059EC27239B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEB12F1D-8C3B-492E-8590-D56D5B56FC2A}
