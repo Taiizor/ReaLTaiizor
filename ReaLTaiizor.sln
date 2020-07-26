@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor.Avira", "ReaLTa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor.Payment", "ReaLTaiizor.Payment\ReaLTaiizor.Payment.csproj", "{692FA768-FBB3-47DD-BFB4-0C7F697C2AEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor.Player", "ReaLTaiizor.Player\ReaLTaiizor.Player.csproj", "{BE8A177D-CCD0-4EAE-A7FF-DD38173B2A87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{692FA768-FBB3-47DD-BFB4-0C7F697C2AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{692FA768-FBB3-47DD-BFB4-0C7F697C2AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{692FA768-FBB3-47DD-BFB4-0C7F697C2AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8A177D-CCD0-4EAE-A7FF-DD38173B2A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8A177D-CCD0-4EAE-A7FF-DD38173B2A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8A177D-CCD0-4EAE-A7FF-DD38173B2A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8A177D-CCD0-4EAE-A7FF-DD38173B2A87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{A918BF99-8F5A-435D-A641-D2D648DB25EF} = {8814848E-CE17-4701-B16C-059EC27239B5}
 		{74B5339C-AB3D-45FD-AF89-7F4618F7EEAC} = {8814848E-CE17-4701-B16C-059EC27239B5}
 		{692FA768-FBB3-47DD-BFB4-0C7F697C2AEF} = {8814848E-CE17-4701-B16C-059EC27239B5}
+		{BE8A177D-CCD0-4EAE-A7FF-DD38173B2A87} = {8814848E-CE17-4701-B16C-059EC27239B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEB12F1D-8C3B-492E-8590-D56D5B56FC2A}
