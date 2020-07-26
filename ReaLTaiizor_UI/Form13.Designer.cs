@@ -457,7 +457,6 @@
             this.foreverNotification3.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification3.TabIndex = 20;
             this.foreverNotification3.Text = "foreverNotification3";
-            this.foreverNotification3.Visible = false;
             // 
             // foreverNotification2
             // 
@@ -471,7 +470,6 @@
             this.foreverNotification2.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification2.TabIndex = 19;
             this.foreverNotification2.Text = "foreverNotification2";
-            this.foreverNotification2.Visible = false;
             // 
             // foreverNotification1
             // 
@@ -485,7 +483,6 @@
             this.foreverNotification1.Size = new System.Drawing.Size(215, 42);
             this.foreverNotification1.TabIndex = 18;
             this.foreverNotification1.Text = "foreverNotification1";
-            this.foreverNotification1.Visible = false;
             // 
             // foreverProgressBar4
             // 
