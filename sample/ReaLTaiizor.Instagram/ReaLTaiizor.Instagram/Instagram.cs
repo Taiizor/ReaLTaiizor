@@ -1,4 +1,6 @@
-﻿using ReaLTaiizor;
+﻿using System;
+using ReaLTaiizor;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor.Instagram
 {
@@ -7,6 +9,11 @@ namespace ReaLTaiizor.Instagram
         public Instagram()
         {
             InitializeComponent();
+        }
+
+        private void LostCancelButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

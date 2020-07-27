@@ -181,5 +181,32 @@
   <ItemGroup>
     <None Include="Resources\Notify.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
