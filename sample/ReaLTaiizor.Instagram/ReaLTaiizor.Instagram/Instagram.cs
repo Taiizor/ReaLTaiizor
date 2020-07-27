@@ -1,8 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using ReaLTaiizor;
 
 namespace ReaLTaiizor.Instagram
 {
-    public partial class Instagram : Form
+    public partial class Instagram : RoyalForm
     {
         public Instagram()
         {
