@@ -1,0 +1,13 @@
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\bin\Release\ReaLTaiizor.Avira.exe.config
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\bin\Release\ReaLTaiizor.Avira.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\bin\Release\ReaLTaiizor.Avira.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\bin\Release\ReaLTaiizor.dll
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\bin\Release\ReaLTaiizor.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.csprojAssemblyReference.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.Avira.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.Properties.Resources.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.csproj.GenerateResource.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.csproj.CoreCompileInputs.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.csproj.CopyComplete
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Avira\ReaLTaiizor.Avira\obj\Release\ReaLTaiizor.Avira.pdb

@@ -1,0 +1,12 @@
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\bin\Release\ReaLTaiizor.Defender.exe.config
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\bin\Release\ReaLTaiizor.Defender.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\bin\Release\ReaLTaiizor.Defender.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\bin\Release\ReaLTaiizor.dll
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\bin\Release\ReaLTaiizor.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\obj\Release\ReaLTaiizor.Defender.Defender.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\obj\Release\ReaLTaiizor.Defender.Properties.Resources.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\obj\Release\ReaLTaiizor.Defender.csproj.GenerateResource.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\obj\Release\ReaLTaiizor.Defender.csproj.CoreCompileInputs.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\obj\Release\ReaLTaiizor.Defender.csproj.CopyComplete
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\obj\Release\ReaLTaiizor.Defender.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Defender\ReaLTaiizor.Defender\obj\Release\ReaLTaiizor.Defender.pdb

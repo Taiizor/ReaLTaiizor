@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1E45BD5-4C4F-446F-A6BC-B78353278C50}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ReaLTaiizor.Avira</RootNamespace>
+    <AssemblyName>ReaLTaiizor.Avira</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ReaLTaiizor.Avira.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ReaLTaiizor">
+      <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Avira.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avira.designer.cs">
+      <DependentUpon>Avira.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Avira.resx">
+      <DependentUpon>Avira.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\42458.png" />
+    <Content Include="Resources\AdvenceTileButton1.CheckedImage.png" />
+    <Content Include="Resources\AdvenceTileButton1.Image.png" />
+    <Content Include="Resources\AdvenceTileButton1.OnHoverImage.png" />
+    <Content Include="Resources\AdvenceTileButton7.Image.png" />
+    <Content Include="Resources\AdvenceTileButton7.OnHoverImage.png" />
+    <Content Include="Resources\Avira-Free-Antivirusn.png" />
+    <Content Include="Resources\Avira.png" />
+    <Content Include="Resources\AviraIcon.png" />
+    <Content Include="Resources\beach_umbrella.ico" />
+    <Content Include="Resources\beach_umbrella_96px.png" />
+    <Content Include="Resources\Button2.Image.png" />
+    <Content Include="Resources\Ctl_AviraStateButton1.Image.png" />
+    <Content Include="Resources\Ctl_AviraStateButton1.OnHoverImage.png" />
+    <Content Include="Resources\Ctl_AviraStateButton2.Image.png" />
+    <Content Include="Resources\Ctl_AviraStateButton2.OnHoverImage.png" />
+    <Content Include="Resources\Ctl_AviraStateButton3.Image.png" />
+    <Content Include="Resources\Ctl_AviraStateButton3.OnHoverImage.png" />
+    <Content Include="Resources\Ctl_AviraStateButton4.Image.png" />
+    <Content Include="Resources\Ctl_AviraStateButton4.OnHoverImage.png" />
+    <Content Include="Resources\GunaAdvenceTileButton7.CheckedImage.png" />
+    <Content Include="Resources\ICO.ico" />
+    <Content Include="Resources\nav_activity.CheckedImage.png" />
+    <Content Include="Resources\nav_activity.Image.png" />
+    <Content Include="Resources\nav_activity.OnHoverImage.png" />
+    <Content Include="Resources\nav_modules.CheckedImage.png" />
+    <Content Include="Resources\nav_modules.Image.png" />
+    <Content Include="Resources\nav_modules.OnHoverImage.png" />
+    <Content Include="Resources\nav_quarantine.CheckedImage.png" />
+    <Content Include="Resources\nav_quarantine.Image.png" />
+    <Content Include="Resources\nav_quarantine.OnHoverImage.png" />
+    <Content Include="Resources\nav_scan.CheckedImage.png" />
+    <Content Include="Resources\nav_scan.Image.png" />
+    <Content Include="Resources\nav_scan.OnHoverImage.png" />
+    <Content Include="Resources\nav_status.CheckedImage.png" />
+    <Content Include="Resources\nav_status.Image.png" />
+    <Content Include="Resources\nav_status.OnHoverImage.png" />
+    <Content Include="Resources\PictureBox1.Image.png" />
+    <Content Include="Resources\PictureBox2.Image.png" />
+    <Content Include="Resources\PictureBox5.Image.png" />
+    <Content Include="Resources\TransfarantPictureBox1.Image.png" />
+    <Content Include="Resources\umbrella_128px.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

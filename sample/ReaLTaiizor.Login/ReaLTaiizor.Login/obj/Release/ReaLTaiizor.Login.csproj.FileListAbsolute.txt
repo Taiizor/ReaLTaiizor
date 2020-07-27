@@ -1,0 +1,12 @@
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\bin\Release\ReaLTaiizor.Login.exe.config
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\bin\Release\ReaLTaiizor.Login.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\bin\Release\ReaLTaiizor.Login.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\bin\Release\ReaLTaiizor.dll
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\bin\Release\ReaLTaiizor.pdb
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\obj\Release\ReaLTaiizor.Login.Login.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\obj\Release\ReaLTaiizor.Login.Properties.Resources.resources
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\obj\Release\ReaLTaiizor.Login.csproj.GenerateResource.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\obj\Release\ReaLTaiizor.Login.csproj.CoreCompileInputs.cache
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\obj\Release\ReaLTaiizor.Login.csproj.CopyComplete
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\obj\Release\ReaLTaiizor.Login.exe
+E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\sample\ReaLTaiizor.Login\ReaLTaiizor.Login\obj\Release\ReaLTaiizor.Login.pdb
