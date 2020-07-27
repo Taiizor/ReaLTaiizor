@@ -613,11 +613,11 @@
   "project": {
     "version": "3.7.7.5",
     "restore": {
-      "projectUniqueName": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\ReaLTaiizor.csproj",
+      "projectUniqueName": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\src\\ReaLTaiizor\\ReaLTaiizor.csproj",
       "projectName": "ReaLTaiizor",
-      "projectPath": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\ReaLTaiizor.csproj",
+      "projectPath": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\src\\ReaLTaiizor\\ReaLTaiizor.csproj",
       "packagesPath": "C:\\Users\\DR. AbdaL\\.nuget\\packages\\",
-      "outputPath": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\ReaLTaiizor\\obj\\",
+      "outputPath": "E:\\MyProject\\ReaLTaiizor\\Lib\\ReaLTaiizor\\src\\ReaLTaiizor\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

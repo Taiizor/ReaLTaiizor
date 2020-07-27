@@ -16,7 +16,7 @@
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</releaseNotes>
     <copyright>Copyright © 2020 Taiizor Inc.</copyright>
     <tags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</tags>
-    <repository type="git" url="git://github.com/Taiizor/ReaLTaiizor" commit="4882c975d9c653dae6891a32be7b6959c2fd971b" />
+    <repository type="git" url="git://github.com/Taiizor/ReaLTaiizor" commit="c460d7343500b8605ca6b37f4ca808163d9dbf94" />
     <dependencies>
       <group targetFramework=".NETFramework4.0" />
       <group targetFramework=".NETFramework4.5" />
@@ -37,16 +37,16 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</release
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net40\ReaLTaiizor.pdb" target="lib\net40\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net45\ReaLTaiizor.pdb" target="lib\net45\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net451\ReaLTaiizor.pdb" target="lib\net451\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net452\ReaLTaiizor.pdb" target="lib\net452\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net46\ReaLTaiizor.pdb" target="lib\net46\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net461\ReaLTaiizor.pdb" target="lib\net461\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net462\ReaLTaiizor.pdb" target="lib\net462\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net47\ReaLTaiizor.pdb" target="lib\net47\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net471\ReaLTaiizor.pdb" target="lib\net471\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net472\ReaLTaiizor.pdb" target="lib\net472\ReaLTaiizor.pdb" />
-    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.pdb" target="lib\net48\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net40\ReaLTaiizor.pdb" target="lib\net40\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net45\ReaLTaiizor.pdb" target="lib\net45\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net451\ReaLTaiizor.pdb" target="lib\net451\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net452\ReaLTaiizor.pdb" target="lib\net452\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net46\ReaLTaiizor.pdb" target="lib\net46\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net461\ReaLTaiizor.pdb" target="lib\net461\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net462\ReaLTaiizor.pdb" target="lib\net462\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net47\ReaLTaiizor.pdb" target="lib\net47\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net471\ReaLTaiizor.pdb" target="lib\net471\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net472\ReaLTaiizor.pdb" target="lib\net472\ReaLTaiizor.pdb" />
+    <file src="E:\MyProject\ReaLTaiizor\Lib\ReaLTaiizor\src\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.pdb" target="lib\net48\ReaLTaiizor.pdb" />
   </files>
 </package>
