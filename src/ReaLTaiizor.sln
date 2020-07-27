@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor", "ReaLTaiizor\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor_CR", "ReaLTaiizor_CR\ReaLTaiizor_CR.csproj", "{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor_UI", "ReaLTaiizor_UI\ReaLTaiizor_UI.csproj", "{F443B3ED-2838-456C-A4B8-2342C95D3B2A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F443B3ED-2838-456C-A4B8-2342C95D3B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F443B3ED-2838-456C-A4B8-2342C95D3B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F443B3ED-2838-456C-A4B8-2342C95D3B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F443B3ED-2838-456C-A4B8-2342C95D3B2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
