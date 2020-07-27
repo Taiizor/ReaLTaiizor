@@ -48,11 +48,35 @@
             this.separator3 = new ReaLTaiizor.Separator();
             this.lostSeparator2 = new ReaLTaiizor.LostSeparator();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.labelEdit10 = new ReaLTaiizor.LabelEdit();
+            this.labelEdit11 = new ReaLTaiizor.LabelEdit();
+            this.labelEdit12 = new ReaLTaiizor.LabelEdit();
+            this.separator4 = new ReaLTaiizor.Separator();
+            this.labelEdit13 = new ReaLTaiizor.LabelEdit();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.bigTextBox1 = new ReaLTaiizor.BigTextBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -132,11 +156,11 @@
             this.labelEdit3.BackColor = System.Drawing.Color.Transparent;
             this.labelEdit3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.labelEdit3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.labelEdit3.Location = new System.Drawing.Point(20, 195);
+            this.labelEdit3.Location = new System.Drawing.Point(27, 195);
             this.labelEdit3.Name = "labelEdit3";
-            this.labelEdit3.Size = new System.Drawing.Size(33, 19);
+            this.labelEdit3.Size = new System.Drawing.Size(45, 19);
             this.labelEdit3.TabIndex = 11;
-            this.labelEdit3.Text = "718";
+            this.labelEdit3.Text = "1.718";
             // 
             // labelEdit4
             // 
@@ -144,7 +168,7 @@
             this.labelEdit4.BackColor = System.Drawing.Color.Transparent;
             this.labelEdit4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.labelEdit4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.labelEdit4.Location = new System.Drawing.Point(166, 195);
+            this.labelEdit4.Location = new System.Drawing.Point(157, 195);
             this.labelEdit4.Name = "labelEdit4";
             this.labelEdit4.Size = new System.Drawing.Size(33, 19);
             this.labelEdit4.TabIndex = 12;
@@ -180,7 +204,7 @@
             this.labelEdit7.BackColor = System.Drawing.Color.Transparent;
             this.labelEdit7.Font = new System.Drawing.Font("Calibri", 10F);
             this.labelEdit7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.labelEdit7.Location = new System.Drawing.Point(18, 214);
+            this.labelEdit7.Location = new System.Drawing.Point(31, 214);
             this.labelEdit7.Name = "labelEdit7";
             this.labelEdit7.Size = new System.Drawing.Size(37, 17);
             this.labelEdit7.TabIndex = 15;
@@ -192,7 +216,7 @@
             this.labelEdit8.BackColor = System.Drawing.Color.Transparent;
             this.labelEdit8.Font = new System.Drawing.Font("Calibri", 10F);
             this.labelEdit8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.labelEdit8.Location = new System.Drawing.Point(152, 214);
+            this.labelEdit8.Location = new System.Drawing.Point(143, 214);
             this.labelEdit8.Name = "labelEdit8";
             this.labelEdit8.Size = new System.Drawing.Size(61, 17);
             this.labelEdit8.TabIndex = 16;
@@ -223,11 +247,12 @@
             this.labelEdit9.AutoSize = true;
             this.labelEdit9.BackColor = System.Drawing.Color.Transparent;
             this.labelEdit9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelEdit9.Font = new System.Drawing.Font("Calibri", 13F);
+            this.labelEdit9.Font = new System.Drawing.Font("Calibri", 12F);
             this.labelEdit9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.labelEdit9.Location = new System.Drawing.Point(278, 9);
+            this.labelEdit9.Location = new System.Drawing.Point(262, 11);
+            this.labelEdit9.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.labelEdit9.Name = "labelEdit9";
-            this.labelEdit9.Size = new System.Drawing.Size(114, 22);
+            this.labelEdit9.Size = new System.Drawing.Size(101, 19);
             this.labelEdit9.TabIndex = 19;
             this.labelEdit9.Text = "Back To Home";
             // 
@@ -268,12 +293,200 @@
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Image = global::ReaLTaiizor.Instagram.Properties.Resources.Left;
-            this.pictureBox5.Location = new System.Drawing.Point(232, 0);
+            this.pictureBox5.Location = new System.Drawing.Point(234, 8);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 23;
             this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox6.Image = global::ReaLTaiizor.Instagram.Properties.Resources.BPhoto2;
+            this.pictureBox6.Location = new System.Drawing.Point(234, 46);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(202, 257);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 24;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::ReaLTaiizor.Instagram.Properties.Resources.DM;
+            this.pictureBox7.Location = new System.Drawing.Point(730, 0);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(40, 51);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 25;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox10.Image = global::ReaLTaiizor.Instagram.Properties.Resources.BName;
+            this.pictureBox10.Location = new System.Drawing.Point(234, 309);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(202, 28);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 28;
+            this.pictureBox10.TabStop = false;
+            // 
+            // labelEdit10
+            // 
+            this.labelEdit10.AutoSize = true;
+            this.labelEdit10.BackColor = System.Drawing.Color.Transparent;
+            this.labelEdit10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelEdit10.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            this.labelEdit10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.labelEdit10.Location = new System.Drawing.Point(231, 340);
+            this.labelEdit10.Name = "labelEdit10";
+            this.labelEdit10.Size = new System.Drawing.Size(76, 18);
+            this.labelEdit10.TabIndex = 29;
+            this.labelEdit10.Text = "1.718 Posts";
+            // 
+            // labelEdit11
+            // 
+            this.labelEdit11.AutoSize = true;
+            this.labelEdit11.BackColor = System.Drawing.Color.Transparent;
+            this.labelEdit11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelEdit11.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
+            this.labelEdit11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.labelEdit11.Location = new System.Drawing.Point(326, 340);
+            this.labelEdit11.Name = "labelEdit11";
+            this.labelEdit11.Size = new System.Drawing.Size(110, 18);
+            this.labelEdit11.TabIndex = 30;
+            this.labelEdit11.Text = "14.3M Followers";
+            // 
+            // labelEdit12
+            // 
+            this.labelEdit12.BackColor = System.Drawing.Color.Transparent;
+            this.labelEdit12.Font = new System.Drawing.Font("Calibri", 10F);
+            this.labelEdit12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.labelEdit12.Location = new System.Drawing.Point(234, 375);
+            this.labelEdit12.Name = "labelEdit12";
+            this.labelEdit12.Size = new System.Drawing.Size(202, 70);
+            this.labelEdit12.TabIndex = 31;
+            this.labelEdit12.Text = "IMG Models Worldwide\r\nTwitter : barbarapalvin";
+            this.labelEdit12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // separator4
+            // 
+            this.separator4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.separator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.separator4.Location = new System.Drawing.Point(248, 463);
+            this.separator4.Name = "separator4";
+            this.separator4.Size = new System.Drawing.Size(175, 10);
+            this.separator4.TabIndex = 32;
+            this.separator4.Text = "separator4";
+            // 
+            // labelEdit13
+            // 
+            this.labelEdit13.AutoSize = true;
+            this.labelEdit13.BackColor = System.Drawing.Color.Transparent;
+            this.labelEdit13.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.labelEdit13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.labelEdit13.Location = new System.Drawing.Point(284, 488);
+            this.labelEdit13.Name = "labelEdit13";
+            this.labelEdit13.Size = new System.Drawing.Size(103, 17);
+            this.labelEdit13.TabIndex = 33;
+            this.labelEdit13.Text = "Favorite Profiles";
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox11.Image = global::ReaLTaiizor.Instagram.Properties.Resources.BPhoto1;
+            this.pictureBox11.Location = new System.Drawing.Point(234, 516);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(47, 72);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 34;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox12.Image = global::ReaLTaiizor.Instagram.Properties.Resources.BPhoto3;
+            this.pictureBox12.Location = new System.Drawing.Point(286, 516);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(47, 72);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 35;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox13.Image = global::ReaLTaiizor.Instagram.Properties.Resources.BPhoto4;
+            this.pictureBox13.Location = new System.Drawing.Point(337, 516);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(47, 72);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 36;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox14.Image = global::ReaLTaiizor.Instagram.Properties.Resources.BPhoto5;
+            this.pictureBox14.Location = new System.Drawing.Point(389, 516);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(47, 72);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 37;
+            this.pictureBox14.TabStop = false;
+            // 
+            // bigTextBox1
+            // 
+            this.bigTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.bigTextBox1.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.bigTextBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.bigTextBox1.Image = global::ReaLTaiizor.Instagram.Properties.Resources.Search2;
+            this.bigTextBox1.Location = new System.Drawing.Point(457, 4);
+            this.bigTextBox1.MaxLength = 32767;
+            this.bigTextBox1.Multiline = false;
+            this.bigTextBox1.Name = "bigTextBox1";
+            this.bigTextBox1.ReadOnly = false;
+            this.bigTextBox1.Size = new System.Drawing.Size(267, 41);
+            this.bigTextBox1.TabIndex = 40;
+            this.bigTextBox1.Text = "Search";
+            this.bigTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bigTextBox1.UseSystemPasswordChar = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::ReaLTaiizor.Instagram.Properties.Resources.Notify;
+            this.pictureBox8.Location = new System.Drawing.Point(776, 0);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(40, 51);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 41;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox9.Image = global::ReaLTaiizor.Instagram.Properties.Resources.Setting;
+            this.pictureBox9.Location = new System.Drawing.Point(822, 0);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(40, 51);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 42;
+            this.pictureBox9.TabStop = false;
             // 
             // Instagram
             // 
@@ -282,8 +495,23 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.BorderThickness = 0;
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.bigTextBox1);
+            this.Controls.Add(this.pictureBox14);
+            this.Controls.Add(this.pictureBox13);
+            this.Controls.Add(this.pictureBox12);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.labelEdit13);
+            this.Controls.Add(this.separator4);
+            this.Controls.Add(this.labelEdit12);
+            this.Controls.Add(this.labelEdit11);
+            this.Controls.Add(this.labelEdit10);
+            this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.lostSeparator2);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.lostSeparator1);
             this.Controls.Add(this.separator3);
             this.Controls.Add(this.labelEdit9);
@@ -326,13 +554,37 @@
             this.Controls.SetChildIndex(this.labelEdit9, 0);
             this.Controls.SetChildIndex(this.separator3, 0);
             this.Controls.SetChildIndex(this.lostSeparator1, 0);
-            this.Controls.SetChildIndex(this.lostSeparator2, 0);
             this.Controls.SetChildIndex(this.pictureBox5, 0);
+            this.Controls.SetChildIndex(this.pictureBox6, 0);
+            this.Controls.SetChildIndex(this.pictureBox7, 0);
+            this.Controls.SetChildIndex(this.lostSeparator2, 0);
+            this.Controls.SetChildIndex(this.pictureBox10, 0);
+            this.Controls.SetChildIndex(this.labelEdit10, 0);
+            this.Controls.SetChildIndex(this.labelEdit11, 0);
+            this.Controls.SetChildIndex(this.labelEdit12, 0);
+            this.Controls.SetChildIndex(this.separator4, 0);
+            this.Controls.SetChildIndex(this.labelEdit13, 0);
+            this.Controls.SetChildIndex(this.pictureBox11, 0);
+            this.Controls.SetChildIndex(this.pictureBox12, 0);
+            this.Controls.SetChildIndex(this.pictureBox13, 0);
+            this.Controls.SetChildIndex(this.pictureBox14, 0);
+            this.Controls.SetChildIndex(this.bigTextBox1, 0);
+            this.Controls.SetChildIndex(this.pictureBox8, 0);
+            this.Controls.SetChildIndex(this.pictureBox9, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,5 +611,20 @@
         private Separator separator3;
         private LostSeparator lostSeparator2;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private LabelEdit labelEdit10;
+        private LabelEdit labelEdit11;
+        private LabelEdit labelEdit12;
+        private Separator separator4;
+        private LabelEdit labelEdit13;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private BigTextBox bigTextBox1;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }
