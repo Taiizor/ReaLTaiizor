@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94C0ADB6-0460-424C-A95D-34A85B47FD37}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ReaLTaiizor.Instagram</RootNamespace>
+    <AssemblyName>ReaLTaiizor.Instagram</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ReaLTaiizor.Instagram.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="ReaLTaiizor, Version=3.7.7.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Instagram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instagram.Designer.cs">
+      <DependentUpon>Instagram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Instagram.resx">
+      <DependentUpon>Instagram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Post.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Footer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Friend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Liked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Likes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Live.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Multi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Story.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Head.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICO.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPhoto2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPhoto3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPhoto1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPhoto4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPhoto5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Setting.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BPost6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notify3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
