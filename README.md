@@ -89,7 +89,7 @@ Step 2：Enjoy designing
 
 ### Instagram
 
-![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/1yvP.png)
+![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/182n.png)
 
 ## Overview
 

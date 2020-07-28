@@ -628,7 +628,7 @@
             this.lostCancelButton1.ForeColor = System.Drawing.Color.White;
             this.lostCancelButton1.HoverColor = System.Drawing.Color.MediumSeaGreen;
             this.lostCancelButton1.Image = null;
-            this.lostCancelButton1.Location = new System.Drawing.Point(24, 399);
+            this.lostCancelButton1.Location = new System.Drawing.Point(24, 401);
             this.lostCancelButton1.Name = "lostCancelButton1";
             this.lostCancelButton1.Size = new System.Drawing.Size(175, 40);
             this.lostCancelButton1.TabIndex = 51;
@@ -639,7 +639,7 @@
             // 
             this.separator5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
             this.separator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.separator5.Location = new System.Drawing.Point(24, 376);
+            this.separator5.Location = new System.Drawing.Point(24, 380);
             this.separator5.Name = "separator5";
             this.separator5.Size = new System.Drawing.Size(175, 10);
             this.separator5.TabIndex = 52;
@@ -725,6 +725,7 @@
             this.BorderThickness = 0;
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.lostSeparator1);
             this.Controls.Add(this.pictureBox28);
             this.Controls.Add(this.pictureBox27);
             this.Controls.Add(this.pictureBox26);
@@ -756,7 +757,6 @@
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.lostSeparator1);
             this.Controls.Add(this.separator3);
             this.Controls.Add(this.labelEdit9);
             this.Controls.Add(this.separator2);
@@ -801,7 +801,6 @@
             this.Controls.SetChildIndex(this.separator2, 0);
             this.Controls.SetChildIndex(this.labelEdit9, 0);
             this.Controls.SetChildIndex(this.separator3, 0);
-            this.Controls.SetChildIndex(this.lostSeparator1, 0);
             this.Controls.SetChildIndex(this.pictureBox5, 0);
             this.Controls.SetChildIndex(this.pictureBox6, 0);
             this.Controls.SetChildIndex(this.pictureBox7, 0);
@@ -833,6 +832,7 @@
             this.Controls.SetChildIndex(this.pictureBox26, 0);
             this.Controls.SetChildIndex(this.pictureBox27, 0);
             this.Controls.SetChildIndex(this.pictureBox28, 0);
+            this.Controls.SetChildIndex(this.lostSeparator1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
