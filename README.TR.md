@@ -1,6 +1,6 @@
 ![logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
 
-![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg)
+![dotnetframework-version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
 ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg)
 ![ide-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
 [![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
@@ -89,7 +89,7 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ### Instagram
 
-![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/1yvP.png)
+![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/182n.png)
 
 ## Genel Bakış
 

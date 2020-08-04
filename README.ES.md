@@ -1,6 +1,6 @@
 ![logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
 
-![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg)
+![dotnetframework-version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
 ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg)
 ![ide-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
 [![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
@@ -11,7 +11,7 @@ ReaLTaiizor es una biblioteca de interfaz de UI/UX. Le permite hacer diseños mo
 
 ## Colaboradores
 
-Gracias a estas personas maravillosas ([clave emoji](https://allcontributors.org/docs/en/emoji-key)):
+Gracias a estas personas maravillosas ([emoji clave](https://allcontributors.org/docs/es-es/emoji-key)):
 
 <table>
   <tr>
@@ -89,7 +89,7 @@ Step 2：Disfruta diseñando
 
 ### Instagram
 
-![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/1yvP.png)
+![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/182n.png)
 
 ## Visión General
 

@@ -4,11 +4,11 @@
     <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
     <Version>3.7.7.5</Version>
-    <AssemblyVersion>3.7.7.5</AssemblyVersion>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
     <Authors>Taiizor</Authors>
-    <Copyright>Copyright © 2020 Taiizor Inc.</Copyright>
+    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Taiizor Inc.</Copyright>
     <Description>C# WinForm UI/UX Library - ReaLTaiizor</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
@@ -22,14 +22,17 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Company>Taiizor</Company>
     <Owners>Taiizor</Owners>
     <NeutralLanguage>en</NeutralLanguage>
-    <FileVersion>3.7.7.5</FileVersion>
+    <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub">
+      <Version>1.1.0-beta-20204-02</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
