@@ -11,7 +11,7 @@ ReaLTaiizor es una biblioteca de interfaz de UI/UX. Le permite hacer diseños mo
 
 ## Colaboradores
 
-Gracias a estas personas maravillosas ([clave emoji](https://allcontributors.org/docs/es-es/emoji-key)):
+Gracias a estas personas maravillosas ([emoji clave](https://allcontributors.org/docs/es-es/emoji-key)):
 
 <table>
   <tr>
