@@ -87,6 +87,10 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)
 
+### Çeviri
+
+![TranslateSample](https://www.photo.herominyum.com/resimler/2020/08/08/1UWO.png)
+
 ### Instagram
 
 ![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/182n.png)
