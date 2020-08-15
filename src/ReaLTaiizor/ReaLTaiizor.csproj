@@ -7,6 +7,7 @@
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
+    <PackageId>ReaLTaiizor</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Taiizor Inc.</Copyright>
     <Description>C# WinForm UI/UX Library - ReaLTaiizor</Description>
@@ -18,6 +19,8 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/ReaLTaiizor</RepositoryUrl>
+    <PackageDescription>$(Description)</PackageDescription>
+    <RepositoryUrl>https://github.com/Taiizor/ReaLTaiizor</RepositoryUrl>
     <PackageIcon>Taiizor.png</PackageIcon>
     <Company>Taiizor</Company>
     <Owners>Taiizor</Owners>
