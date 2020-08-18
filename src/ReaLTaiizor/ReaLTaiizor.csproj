@@ -7,10 +7,10 @@
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
-    <PackageId>ReaLTaiizor</PackageId>
+    <PackageId>$(Title)</PackageId>
     <Authors>Taiizor</Authors>
-    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Taiizor Inc.</Copyright>
-    <Description>C# WinForm UI/UX Library - ReaLTaiizor</Description>
+    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
+    <Description>C# WinForm UI/UX Library - $(Title)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Component customizations have been replicated.
@@ -22,8 +22,9 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <PackageDescription>$(Description)</PackageDescription>
     <RepositoryUrl>https://github.com/Taiizor/ReaLTaiizor</RepositoryUrl>
     <PackageIcon>Taiizor.png</PackageIcon>
-    <Company>Taiizor</Company>
-    <Owners>Taiizor</Owners>
+    <Company>$(Authors)</Company>
+    <Owners>$(Authors)</Owners>
+    <LangVersion>Latest</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
