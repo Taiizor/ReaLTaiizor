@@ -67,7 +67,7 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.moonTextBox1 = new ReaLTaiizor.MoonTextBox();
+            this.notificationBox1 = new ReaLTaiizor.NotificationBox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,17 +369,20 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // moonTextBox1
+            // notificationBox1
             // 
-            this.moonTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.moonTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.moonTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.moonTextBox1.ForeColor = System.Drawing.Color.Gray;
-            this.moonTextBox1.Location = new System.Drawing.Point(483, 167);
-            this.moonTextBox1.Name = "moonTextBox1";
-            this.moonTextBox1.Size = new System.Drawing.Size(160, 20);
-            this.moonTextBox1.TabIndex = 17;
-            this.moonTextBox1.Text = "Test";
+            this.notificationBox1.BorderCurve = 8;
+            this.notificationBox1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.notificationBox1.Image = null;
+            this.notificationBox1.Location = new System.Drawing.Point(578, 231);
+            this.notificationBox1.MinimumSize = new System.Drawing.Size(100, 40);
+            this.notificationBox1.Name = "notificationBox1";
+            this.notificationBox1.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
+            this.notificationBox1.RoundCorners = false;
+            this.notificationBox1.ShowCloseButton = true;
+            this.notificationBox1.Size = new System.Drawing.Size(213, 40);
+            this.notificationBox1.TabIndex = 17;
+            this.notificationBox1.Text = "notificationBox1";
             // 
             // Catcher
             // 
@@ -387,7 +390,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.moonTextBox1);
+            this.Controls.Add(this.notificationBox1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -435,6 +438,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.MoonTextBox moonTextBox1;
+        private ReaLTaiizor.NotificationBox notificationBox1;
     }
 }
