@@ -48,6 +48,7 @@ namespace ReaLTaiizor
             ForeColor = Color.Black;
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
+            Font = new Font("Tahoma", 8, FontStyle.Bold);
             Size = new Size(140, 40);
         }
 
@@ -61,7 +62,6 @@ namespace ReaLTaiizor
             base.OnPaint(e);
 
             G.Clear(BackColor);
-            Font drawFont = new Font("Tahoma", 8, FontStyle.Bold);
 
             //G.CompositingQuality = CompositingQuality.HighQuality
             G.SmoothingMode = SmoothingMode.HighQuality;
@@ -95,7 +95,7 @@ namespace ReaLTaiizor
                     break;
             }
 
-            G.DrawString(Text, drawFont, new SolidBrush(ForeColor), new Rectangle(0, 1, Width - 1, Height - 1), new StringFormat
+            G.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(0, 1, Width - 1, Height - 1), new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center

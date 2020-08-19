@@ -440,21 +440,25 @@ namespace ReaLTaiizor
             switch (_NotificationType)
             {
                 case Type.Notice:
+                    NotificationText = NoticeTitleText;
                     BackgroundColor = NoticeBackColor;
                     BorderColor = NoticeBorderColor;
                     ForeColor = NoticeForeColor;
                     break;
                 case Type.Success:
+                    NotificationText = SuccessTitleText;
                     BackgroundColor = SuccessBackColor;
                     BorderColor = SuccessBorderColor;
                     ForeColor = SuccessForeColor;
                     break;
                 case Type.Warning:
+                    NotificationText = WarningTitleText;
                     BackgroundColor = WarningBackColor;
                     BorderColor = WarningBorderColor;
                     ForeColor = WarningForeColor;
                     break;
                 case Type.Error:
+                    NotificationText = ErrorTitleText;
                     BackgroundColor = ErrorBackColor;
                     BorderColor = ErrorBorderColor;
                     ForeColor = ErrorForeColor;
@@ -470,22 +474,6 @@ namespace ReaLTaiizor
             {
                 GFX.FillRectangle(new SolidBrush(BackgroundColor), MainRectangle);
                 GFX.DrawRectangle(new Pen(BorderColor), MainRectangle);
-            }
-
-            switch (_NotificationType)
-            {
-                case Type.Notice:
-                    NotificationText = NoticeTitleText;
-                    break;
-                case Type.Success:
-                    NotificationText = SuccessTitleText;
-                    break;
-                case Type.Warning:
-                    NotificationText = WarningTitleText;
-                    break;
-                case Type.Error:
-                    NotificationText = ErrorTitleText;
-                    break;
             }
 
             if (Image == null)

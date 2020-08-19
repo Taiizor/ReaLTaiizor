@@ -67,7 +67,7 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.progressIndicator1 = new ReaLTaiizor.ProgressIndicator();
+            this.radioButton1 = new ReaLTaiizor.RadioButton();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,16 +369,19 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // progressIndicator1
+            // radioButton1
             // 
-            this.progressIndicator1.Location = new System.Drawing.Point(470, 153);
-            this.progressIndicator1.Name = "progressIndicator1";
-            this.progressIndicator1.P_AnimationColor = System.Drawing.Color.DodgerBlue;
-            this.progressIndicator1.P_AnimationSpeed = 100;
-            this.progressIndicator1.P_BaseColor = System.Drawing.Color.Gray;
-            this.progressIndicator1.Size = new System.Drawing.Size(50, 50);
-            this.progressIndicator1.TabIndex = 17;
-            this.progressIndicator1.Text = "progressIndicator1";
+            this.radioButton1.Checked = false;
+            this.radioButton1.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.radioButton1.CircleColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
+            this.radioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            this.radioButton1.Location = new System.Drawing.Point(442, 167);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(122, 17);
+            this.radioButton1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.radioButton1.TabIndex = 17;
+            this.radioButton1.Text = "radioButton4";
             // 
             // Catcher
             // 
@@ -386,7 +389,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.progressIndicator1);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -434,6 +437,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.ProgressIndicator progressIndicator1;
+        private ReaLTaiizor.RadioButton radioButton1;
     }
 }
