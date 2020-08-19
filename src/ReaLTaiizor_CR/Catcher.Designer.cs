@@ -67,9 +67,7 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.ribbonButtonCenter1 = new ReaLTaiizor.RibbonButtonCenter();
-            this.ribbonButtonRight1 = new ReaLTaiizor.RibbonButtonRight();
-            this.ribbonButtonLeft1 = new ReaLTaiizor.RibbonButtonLeft();
+            this.ribbonCheckBox1 = new ReaLTaiizor.RibbonCheckBox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -371,68 +369,17 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // ribbonButtonCenter1
+            // ribbonCheckBox1
             // 
-            this.ribbonButtonCenter1.BackColor = System.Drawing.Color.Transparent;
-            this.ribbonButtonCenter1.BaseColorA = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(162)))), ((int)(((byte)(68)))));
-            this.ribbonButtonCenter1.BaseColorB = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(147)))), ((int)(((byte)(53)))));
-            this.ribbonButtonCenter1.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(107)))), ((int)(((byte)(46)))));
-            this.ribbonButtonCenter1.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ribbonButtonCenter1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonCenter1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.ribbonButtonCenter1.ForeColor = System.Drawing.Color.Black;
-            this.ribbonButtonCenter1.HoverBaseColorA = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(152)))), ((int)(((byte)(58)))));
-            this.ribbonButtonCenter1.HoverBaseColorB = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(153)))), ((int)(((byte)(59)))));
-            this.ribbonButtonCenter1.HoverBorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(107)))), ((int)(((byte)(46)))));
-            this.ribbonButtonCenter1.HoverBorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ribbonButtonCenter1.Location = new System.Drawing.Point(444, 145);
-            this.ribbonButtonCenter1.Name = "ribbonButtonCenter1";
-            this.ribbonButtonCenter1.Size = new System.Drawing.Size(140, 40);
-            this.ribbonButtonCenter1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.ribbonButtonCenter1.TabIndex = 17;
-            this.ribbonButtonCenter1.Text = "ribbonButtonCenter1";
-            // 
-            // ribbonButtonRight1
-            // 
-            this.ribbonButtonRight1.BackColor = System.Drawing.Color.Transparent;
-            this.ribbonButtonRight1.BaseColorA = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(190)))), ((int)(((byte)(216)))));
-            this.ribbonButtonRight1.BaseColorB = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(201)))));
-            this.ribbonButtonRight1.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(113)))), ((int)(((byte)(132)))));
-            this.ribbonButtonRight1.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ribbonButtonRight1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonRight1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.ribbonButtonRight1.ForeColor = System.Drawing.Color.Black;
-            this.ribbonButtonRight1.HoverBaseColorA = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(180)))), ((int)(((byte)(206)))));
-            this.ribbonButtonRight1.HoverBaseColorB = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(181)))), ((int)(((byte)(207)))));
-            this.ribbonButtonRight1.HoverBorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(113)))), ((int)(((byte)(132)))));
-            this.ribbonButtonRight1.HoverBorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ribbonButtonRight1.Location = new System.Drawing.Point(494, 191);
-            this.ribbonButtonRight1.Name = "ribbonButtonRight1";
-            this.ribbonButtonRight1.Size = new System.Drawing.Size(140, 40);
-            this.ribbonButtonRight1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.ribbonButtonRight1.TabIndex = 19;
-            this.ribbonButtonRight1.Text = "ribbonButtonRight1";
-            // 
-            // ribbonButtonLeft1
-            // 
-            this.ribbonButtonLeft1.BackColor = System.Drawing.Color.Transparent;
-            this.ribbonButtonLeft1.BaseColorA = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(201)))), ((int)(((byte)(205)))));
-            this.ribbonButtonLeft1.BaseColorB = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(186)))), ((int)(((byte)(190)))));
-            this.ribbonButtonLeft1.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(120)))), ((int)(((byte)(117)))));
-            this.ribbonButtonLeft1.BorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ribbonButtonLeft1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonLeft1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.ribbonButtonLeft1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ribbonButtonLeft1.HoverBaseColorA = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(195)))));
-            this.ribbonButtonLeft1.HoverBaseColorB = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(192)))), ((int)(((byte)(196)))));
-            this.ribbonButtonLeft1.HoverBorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(120)))), ((int)(((byte)(117)))));
-            this.ribbonButtonLeft1.HoverBorderColorB = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ribbonButtonLeft1.Location = new System.Drawing.Point(399, 99);
-            this.ribbonButtonLeft1.Name = "ribbonButtonLeft1";
-            this.ribbonButtonLeft1.Size = new System.Drawing.Size(140, 40);
-            this.ribbonButtonLeft1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.ribbonButtonLeft1.TabIndex = 20;
-            this.ribbonButtonLeft1.Text = "ribbonButtonLeft1";
+            this.ribbonCheckBox1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonCheckBox1.Checked = false;
+            this.ribbonCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonCheckBox1.ForeColor = System.Drawing.Color.Black;
+            this.ribbonCheckBox1.Location = new System.Drawing.Point(671, 256);
+            this.ribbonCheckBox1.Name = "ribbonCheckBox1";
+            this.ribbonCheckBox1.Size = new System.Drawing.Size(120, 14);
+            this.ribbonCheckBox1.TabIndex = 17;
+            this.ribbonCheckBox1.Text = "ribbonCheckBox1";
             // 
             // Catcher
             // 
@@ -440,9 +387,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.ribbonButtonLeft1);
-            this.Controls.Add(this.ribbonButtonRight1);
-            this.Controls.Add(this.ribbonButtonCenter1);
+            this.Controls.Add(this.ribbonCheckBox1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -490,8 +435,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.RibbonButtonCenter ribbonButtonCenter1;
-        private ReaLTaiizor.RibbonButtonRight ribbonButtonRight1;
-        private ReaLTaiizor.RibbonButtonLeft ribbonButtonLeft1;
+        private ReaLTaiizor.RibbonCheckBox ribbonCheckBox1;
     }
 }
