@@ -33,9 +33,11 @@
             // 
             // moonForm1
             // 
+            this.moonForm1.BorderColor = System.Drawing.Color.DodgerBlue;
             this.moonForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.moonForm1.Customization = "/////9PT0//w8PD/";
             this.moonForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.moonForm1.FirstEdge = System.Drawing.Color.DarkRed;
             this.moonForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.moonForm1.Image = null;
             this.moonForm1.Location = new System.Drawing.Point(0, 0);
@@ -43,6 +45,7 @@
             this.moonForm1.Movable = true;
             this.moonForm1.Name = "moonForm1";
             this.moonForm1.NoRounding = false;
+            this.moonForm1.SecondEdge = System.Drawing.Color.MidnightBlue;
             this.moonForm1.Sizable = true;
             this.moonForm1.Size = new System.Drawing.Size(800, 450);
             this.moonForm1.SmartBounds = true;

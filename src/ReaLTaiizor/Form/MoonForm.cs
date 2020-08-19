@@ -27,6 +27,39 @@ namespace ReaLTaiizor
             }
         }
 
+        private Color _BorderColor = Color.LightGray;
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set
+            {
+                _BorderColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _FirstEdge = Color.LightGray;
+        public Color FirstEdge
+        {
+            get { return _FirstEdge; }
+            set
+            {
+                _FirstEdge = value;
+                Invalidate();
+            }
+        }
+
+        private Color _SecondEdge = Color.White;
+        public Color SecondEdge
+        {
+            get { return _SecondEdge; }
+            set
+            {
+                _SecondEdge = value;
+                Invalidate();
+            }
+        }
+
         public MoonForm()
         {
             TransparencyKey = Color.Fuchsia;
@@ -55,11 +88,11 @@ namespace ReaLTaiizor
             LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(1, 1), new Size(Width - 2, 23)), G1, G2, 90f);
             G.FillRectangle(LGB, new Rectangle(new Point(1, 1), new Size(Width - 2, 23)));
 
-            G.DrawLine(Pens.Orange, 1, 25, Width - 2, 25);
-            G.DrawLine(Pens.Red, 1, 26, Width - 2, 26);
+            G.DrawLine(new Pen(new SolidBrush(FirstEdge)), 1, 25, Width - 2, 25);
+            G.DrawLine(new Pen(new SolidBrush(SecondEdge)), 1, 26, Width - 2, 26);
 
             DrawCorners(TransparencyKey);
-            DrawBorders(Pens.Purple, 1);
+            DrawBorders(new Pen(new SolidBrush(BorderColor)), 1);
 
             Rectangle IconRec = new Rectangle(3, 3, 20, 20);
             G.DrawIcon(ParentForm.Icon, IconRec);
