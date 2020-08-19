@@ -12,6 +12,50 @@ namespace ReaLTaiizor
 
     public class RibbonForm : ContainerControl
     {
+        string _SubTitle;
+        public string SubTitle
+        {
+            get { return _SubTitle; }
+            set
+            {
+                _SubTitle = value;
+                Invalidate();
+            }
+        }
+
+        private Color _SubTitleColor = Color.WhiteSmoke;
+        public Color SubTitleColor
+        {
+            get { return _SubTitleColor; }
+            set
+            {
+                _SubTitleColor = value;
+                Invalidate();
+            }
+        }
+
+        private Font _SubTitleFont = new Font("Tahoma", 10, FontStyle.Bold);
+        public Font SubTitleFont
+        {
+            get { return _SubTitleFont; }
+            set
+            {
+                _SubTitleFont = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BottomLineColor = Color.FromArgb(99, 99, 99);
+        public Color BottomLineColor
+        {
+            get { return _BottomLineColor; }
+            set
+            {
+                _BottomLineColor = value;
+                Invalidate();
+            }
+        }
+
         public RibbonForm()
         {
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
@@ -19,16 +63,6 @@ namespace ReaLTaiizor
             DoubleBuffered = true;
         }
 
-        string _SubText;
-        public string Subtext
-        {
-            get { return _SubText; }
-            set
-            {
-                _SubText = value;
-                Invalidate();
-            }
-        }
         protected override void OnPaint(PaintEventArgs e)
         {
             Bitmap B = new Bitmap(Width, Height);
@@ -88,13 +122,12 @@ namespace ReaLTaiizor
             G.DrawLine(Pens.Black, 10, 0, 10, 66);
             G.DrawLine(Pens.Black, 10, 66, 36, 40);
 
-            Font p = new Font("Tahoma", 10, FontStyle.Bold);
-            G.DrawString(_SubText, p, Brushes.WhiteSmoke, 68, 9);
+            G.DrawString(SubTitle, SubTitleFont, new SolidBrush(SubTitleColor), 68, 9);
 
             Rectangle IconRect = new Rectangle(23, 8, 26, 26);
             G.DrawIcon(FindForm().Icon, IconRect);
 
-            Pen BottomPen = new Pen(new SolidBrush(Color.FromArgb(99, 99, 99)), 7);
+            Pen BottomPen = new Pen(new SolidBrush(BottomLineColor), 7);
             G.DrawRectangle(BottomPen, BottomBox);
             Image BOTTOMIMAGE = d.CodeToImage("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");
             TextureBrush BOTTOMTEXTURE = new TextureBrush(BOTTOMIMAGE, WrapMode.TileFlipXY);

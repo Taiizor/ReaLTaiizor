@@ -67,7 +67,6 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.ribbonCheckBox1 = new ReaLTaiizor.RibbonCheckBox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,25 +368,12 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // ribbonCheckBox1
-            // 
-            this.ribbonCheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.ribbonCheckBox1.Checked = false;
-            this.ribbonCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonCheckBox1.ForeColor = System.Drawing.Color.Black;
-            this.ribbonCheckBox1.Location = new System.Drawing.Point(671, 256);
-            this.ribbonCheckBox1.Name = "ribbonCheckBox1";
-            this.ribbonCheckBox1.Size = new System.Drawing.Size(120, 14);
-            this.ribbonCheckBox1.TabIndex = 17;
-            this.ribbonCheckBox1.Text = "ribbonCheckBox1";
-            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.ribbonCheckBox1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -435,6 +421,5 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.RibbonCheckBox ribbonCheckBox1;
     }
 }

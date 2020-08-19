@@ -15,7 +15,7 @@ namespace ReaLTaiizor
 	public class FoxNotification : FoxBase.NotifyFoxBase
 	{
 		public FoxNotification() : base()
-        {
+		{
 			Size = new Size(130, 40);
 			Font = new Font("Segoe UI", 10);
 		}
