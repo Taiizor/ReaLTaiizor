@@ -67,7 +67,6 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.moonCheckbox1 = new ReaLTaiizor.MoonCheckbox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,28 +368,12 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // moonCheckbox1
-            // 
-            this.moonCheckbox1.Checked = false;
-            this.moonCheckbox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.moonCheckbox1.Customization = "/////9PT0//w8PD/gICA/4CAgP+AgID/";
-            this.moonCheckbox1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.moonCheckbox1.Image = null;
-            this.moonCheckbox1.Location = new System.Drawing.Point(522, 167);
-            this.moonCheckbox1.Name = "moonCheckbox1";
-            this.moonCheckbox1.NoRounding = false;
-            this.moonCheckbox1.Size = new System.Drawing.Size(118, 22);
-            this.moonCheckbox1.TabIndex = 17;
-            this.moonCheckbox1.Text = "moonCheckbox1";
-            this.moonCheckbox1.Transparent = false;
-            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.moonCheckbox1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -438,6 +421,5 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.MoonCheckbox moonCheckbox1;
     }
 }
