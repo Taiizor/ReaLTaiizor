@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor", "ReaLTaiizor\ReaLTaiizor.csproj", "{2E57199F-0C03-4D03-9C2B-A4EE805FA173}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor_CR", "ReaLTaiizor_CR\ReaLTaiizor_CR.csproj", "{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2E57199F-0C03-4D03-9C2B-A4EE805FA173} = {2E57199F-0C03-4D03-9C2B-A4EE805FA173}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

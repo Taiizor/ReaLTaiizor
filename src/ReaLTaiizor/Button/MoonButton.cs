@@ -25,6 +25,7 @@ namespace ReaLTaiizor
             SetColor("G2", Color.LightGray);
             SetColor("BG", Color.FromArgb(240, 240, 240));
             SetColor("FC", Color.Gray);
+            Font = new Font("Segoe UI", 9);
             Cursor = Cursors.Hand;
         }
 
@@ -59,7 +60,7 @@ namespace ReaLTaiizor
             StringFormat SF = new StringFormat();
             SF.Alignment = StringAlignment.Center;
             SF.LineAlignment = StringAlignment.Center;
-            G.DrawString(Text, new Font("Segoe UI", 9), new SolidBrush(FC), new RectangleF(2, 2, Width - 5, Height - 4), SF);
+            G.DrawString(Text, Font, new SolidBrush(FC), new RectangleF(2, 2, Width - 5, Height - 4), SF);
         }
     }
 
