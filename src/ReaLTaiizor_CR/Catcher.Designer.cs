@@ -67,7 +67,7 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.notificationBox1 = new ReaLTaiizor.NotificationBox();
+            this.progressIndicator1 = new ReaLTaiizor.ProgressIndicator();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,20 +369,16 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // notificationBox1
+            // progressIndicator1
             // 
-            this.notificationBox1.BorderCurve = 8;
-            this.notificationBox1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.notificationBox1.Image = null;
-            this.notificationBox1.Location = new System.Drawing.Point(490, 167);
-            this.notificationBox1.MinimumSize = new System.Drawing.Size(100, 40);
-            this.notificationBox1.Name = "notificationBox1";
-            this.notificationBox1.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
-            this.notificationBox1.RoundCorners = false;
-            this.notificationBox1.ShowCloseButton = true;
-            this.notificationBox1.Size = new System.Drawing.Size(130, 40);
-            this.notificationBox1.TabIndex = 17;
-            this.notificationBox1.Text = "notificationBox1";
+            this.progressIndicator1.Location = new System.Drawing.Point(470, 153);
+            this.progressIndicator1.Name = "progressIndicator1";
+            this.progressIndicator1.P_AnimationColor = System.Drawing.Color.DodgerBlue;
+            this.progressIndicator1.P_AnimationSpeed = 100;
+            this.progressIndicator1.P_BaseColor = System.Drawing.Color.Gray;
+            this.progressIndicator1.Size = new System.Drawing.Size(50, 50);
+            this.progressIndicator1.TabIndex = 17;
+            this.progressIndicator1.Text = "progressIndicator1";
             // 
             // Catcher
             // 
@@ -390,7 +386,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.notificationBox1);
+            this.Controls.Add(this.progressIndicator1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -438,6 +434,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.NotificationBox notificationBox1;
+        private ReaLTaiizor.ProgressIndicator progressIndicator1;
     }
 }

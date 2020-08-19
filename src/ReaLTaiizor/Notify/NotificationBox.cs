@@ -41,6 +41,10 @@ namespace ReaLTaiizor
         private Color _NoticeBackColor = Color.Gray;
         private Color _NoticeForeColor = Color.White;
         private Color _NoticeBorderColor = Color.Gray;
+        private string _ErrorTitleText = "ERROR";
+        private string _SuccessTitleText = "SUCCESS";
+        private string _WarningTitleText = "WARNING";
+        private string _NoticeTitleText = "NOTICE";
 
         #endregion
 
@@ -292,7 +296,60 @@ namespace ReaLTaiizor
             }
         }
 
+        public string ErrorTitleText
+        {
+            get
+            {
+                return _ErrorTitleText;
+            }
+            set
+            {
+                _ErrorTitleText = value;
+                Invalidate();
+            }
+        }
+
+        public string SuccessTitleText
+        {
+            get
+            {
+                return _SuccessTitleText;
+            }
+            set
+            {
+                _SuccessTitleText = value;
+                Invalidate();
+            }
+        }
+
+        public string WarningTitleText
+        {
+            get
+            {
+                return _WarningTitleText;
+            }
+            set
+            {
+                _WarningTitleText = value;
+                Invalidate();
+            }
+        }
+
+        public string NoticeTitleText
+        {
+            get
+            {
+                return _NoticeTitleText;
+            }
+            set
+            {
+                _NoticeTitleText = value;
+                Invalidate();
+            }
+        }
+
         #endregion
+
         #region EventArgs
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -418,16 +475,16 @@ namespace ReaLTaiizor
             switch (_NotificationType)
             {
                 case Type.Notice:
-                    NotificationText = "NOTICE";
+                    NotificationText = NoticeTitleText;
                     break;
                 case Type.Success:
-                    NotificationText = "SUCCESS";
+                    NotificationText = SuccessTitleText;
                     break;
                 case Type.Warning:
-                    NotificationText = "WARNING";
+                    NotificationText = WarningTitleText;
                     break;
                 case Type.Error:
-                    NotificationText = "ERROR";
+                    NotificationText = ErrorTitleText;
                     break;
             }
 
