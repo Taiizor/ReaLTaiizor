@@ -374,13 +374,13 @@
             this.notificationBox1.BorderCurve = 8;
             this.notificationBox1.Font = new System.Drawing.Font("Tahoma", 9F);
             this.notificationBox1.Image = null;
-            this.notificationBox1.Location = new System.Drawing.Point(578, 231);
+            this.notificationBox1.Location = new System.Drawing.Point(490, 167);
             this.notificationBox1.MinimumSize = new System.Drawing.Size(100, 40);
             this.notificationBox1.Name = "notificationBox1";
             this.notificationBox1.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
             this.notificationBox1.RoundCorners = false;
             this.notificationBox1.ShowCloseButton = true;
-            this.notificationBox1.Size = new System.Drawing.Size(213, 40);
+            this.notificationBox1.Size = new System.Drawing.Size(130, 40);
             this.notificationBox1.TabIndex = 17;
             this.notificationBox1.Text = "notificationBox1";
             // 
