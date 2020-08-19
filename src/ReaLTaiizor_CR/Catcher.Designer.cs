@@ -67,6 +67,7 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
+            this.moonProgressBar1 = new ReaLTaiizor.MoonProgressBar();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -368,12 +369,34 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
+            // moonProgressBar1
+            // 
+            this.moonProgressBar1.Animated = true;
+            this.moonProgressBar1.Customization = "8PDw/w==";
+            this.moonProgressBar1.Font = new System.Drawing.Font("Verdana", 8F);
+            this.moonProgressBar1.HatchType = System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal;
+            this.moonProgressBar1.Image = null;
+            this.moonProgressBar1.LineColor = System.Drawing.Color.White;
+            this.moonProgressBar1.LinerColor = System.Drawing.Color.Transparent;
+            this.moonProgressBar1.LinesColor = System.Drawing.Color.LightGray;
+            this.moonProgressBar1.Location = new System.Drawing.Point(483, 145);
+            this.moonProgressBar1.Maximum = 100;
+            this.moonProgressBar1.Minimum = 0;
+            this.moonProgressBar1.Name = "moonProgressBar1";
+            this.moonProgressBar1.NoRounding = false;
+            this.moonProgressBar1.Size = new System.Drawing.Size(213, 41);
+            this.moonProgressBar1.TabIndex = 17;
+            this.moonProgressBar1.Text = "moonProgressBar1";
+            this.moonProgressBar1.Transparent = false;
+            this.moonProgressBar1.Value = 50;
+            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
+            this.Controls.Add(this.moonProgressBar1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -421,5 +444,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
+        private ReaLTaiizor.MoonProgressBar moonProgressBar1;
     }
 }
