@@ -41,6 +41,105 @@ namespace ReaLTaiizor
         }
         #endregion
 
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BaseColorA = Color.FromArgb(214, 162, 68);
+        public Color BaseColorA
+        {
+            get { return _BaseColorA; }
+            set
+            {
+                _BaseColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BaseColorB = Color.FromArgb(199, 147, 53);
+        public Color BaseColorB
+        {
+            get { return _BaseColorB; }
+            set
+            {
+                _BaseColorB = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BorderColorA = Color.FromArgb(142, 107, 46);
+        public Color BorderColorA
+        {
+            get { return _BorderColorA; }
+            set
+            {
+                _BorderColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BorderColorB = Color.FromArgb(75, Color.White);
+        public Color BorderColorB
+        {
+            get { return _BorderColorB; }
+            set
+            {
+                _BorderColorB = value;
+                Invalidate();
+            }
+        }
+
+        private Color _HoverBaseColorA = Color.FromArgb(204, 152, 58);
+        public Color HoverBaseColorA
+        {
+            get { return _HoverBaseColorA; }
+            set
+            {
+                _HoverBaseColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _HoverBaseColorB = Color.FromArgb(205, 153, 59);
+        public Color HoverBaseColorB
+        {
+            get { return _HoverBaseColorB; }
+            set
+            {
+                _HoverBaseColorB = value;
+                Invalidate();
+            }
+        }
+
+        private Color _HoverBorderColorA = Color.FromArgb(142, 107, 46);
+        public Color HoverBorderColorA
+        {
+            get { return _HoverBorderColorA; }
+            set
+            {
+                _HoverBorderColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _HoverBorderColorB = Color.FromArgb(75, Color.White);
+        public Color HoverBorderColorB
+        {
+            get { return _HoverBorderColorB; }
+            set
+            {
+                _HoverBorderColorB = value;
+                Invalidate();
+            }
+        }
+
         public RibbonButtonCenter()
         {
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
@@ -52,7 +151,7 @@ namespace ReaLTaiizor
             Size = new Size(140, 40);
         }
 
-        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
@@ -63,26 +162,25 @@ namespace ReaLTaiizor
 
             G.Clear(BackColor);
 
-            //G.CompositingQuality = CompositingQuality.HighQuality
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            //G.CompositingQuality = CompositingQuality.HighQuality;
+            G.SmoothingMode = SmoothingType;
 
             switch (State)
             {
                 case MouseStateRibbon.None:
-                    LinearGradientBrush lgb = new LinearGradientBrush(ClientRectangle, Color.FromArgb(214, 162, 68), Color.FromArgb(199, 147, 53), 90);
+                    LinearGradientBrush lgb = new LinearGradientBrush(ClientRectangle, BaseColorA, BaseColorB, 90);
                     G.FillPath(lgb, DrawRibbon.RoundRect(ClientRectangle, 2));
-
-                    Pen p = new Pen(new SolidBrush(Color.FromArgb(142, 107, 46)));
+                    Pen p = new Pen(new SolidBrush(BorderColorA));
                     G.DrawPath(p, DrawRibbon.RoundRect(ClientRectangle, 2));
-                    Pen Ip = new Pen(Color.FromArgb(75, Color.White));
+                    Pen Ip = new Pen(BorderColorB);
                     G.DrawPath(Ip, DrawRibbon.RoundRect(InnerRect, 2));
                     break;
                 case MouseStateRibbon.Over:
-                    LinearGradientBrush lgb2 = new LinearGradientBrush(ClientRectangle, Color.FromArgb(204, 152, 58), Color.FromArgb(205, 153, 59), 90);
+                    LinearGradientBrush lgb2 = new LinearGradientBrush(ClientRectangle, HoverBaseColorA, HoverBaseColorB, 90);
                     G.FillPath(lgb2, DrawRibbon.RoundRect(ClientRectangle, 2));
-                    Pen p2 = new Pen(new SolidBrush(Color.FromArgb(142, 107, 46)));
+                    Pen p2 = new Pen(new SolidBrush(HoverBorderColorA));
                     G.DrawPath(p2, DrawRibbon.RoundRect(ClientRectangle, 2));
-                    Pen Ip2 = new Pen(Color.FromArgb(75, Color.White));
+                    Pen Ip2 = new Pen(HoverBorderColorB);
                     G.DrawPath(Ip2, DrawRibbon.RoundRect(InnerRect, 2));
                     break;
                 case MouseStateRibbon.Down:
