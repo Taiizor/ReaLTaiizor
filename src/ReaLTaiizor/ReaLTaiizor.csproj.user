@@ -299,9 +299,6 @@
     <Compile Update="LinkLabel\FoxLinkLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="LinkLabel\LinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="ListBox\DungeonListBox.cs">
       <SubType>Component</SubType>
     </Compile>
