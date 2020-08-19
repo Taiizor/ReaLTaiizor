@@ -67,7 +67,7 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.moonProgressBar1 = new ReaLTaiizor.MoonProgressBar();
+            this.moonTextBox1 = new ReaLTaiizor.MoonTextBox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,26 +369,17 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // moonProgressBar1
+            // moonTextBox1
             // 
-            this.moonProgressBar1.Animated = true;
-            this.moonProgressBar1.Customization = "8PDw/w==";
-            this.moonProgressBar1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.moonProgressBar1.HatchType = System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal;
-            this.moonProgressBar1.Image = null;
-            this.moonProgressBar1.LineColor = System.Drawing.Color.White;
-            this.moonProgressBar1.LinerColor = System.Drawing.Color.Transparent;
-            this.moonProgressBar1.LinesColor = System.Drawing.Color.LightGray;
-            this.moonProgressBar1.Location = new System.Drawing.Point(483, 145);
-            this.moonProgressBar1.Maximum = 100;
-            this.moonProgressBar1.Minimum = 0;
-            this.moonProgressBar1.Name = "moonProgressBar1";
-            this.moonProgressBar1.NoRounding = false;
-            this.moonProgressBar1.Size = new System.Drawing.Size(213, 41);
-            this.moonProgressBar1.TabIndex = 17;
-            this.moonProgressBar1.Text = "moonProgressBar1";
-            this.moonProgressBar1.Transparent = false;
-            this.moonProgressBar1.Value = 50;
+            this.moonTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.moonTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.moonTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.moonTextBox1.ForeColor = System.Drawing.Color.Gray;
+            this.moonTextBox1.Location = new System.Drawing.Point(483, 167);
+            this.moonTextBox1.Name = "moonTextBox1";
+            this.moonTextBox1.Size = new System.Drawing.Size(160, 20);
+            this.moonTextBox1.TabIndex = 17;
+            this.moonTextBox1.Text = "Test";
             // 
             // Catcher
             // 
@@ -396,7 +387,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.moonProgressBar1);
+            this.Controls.Add(this.moonTextBox1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -444,6 +435,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.MoonProgressBar moonProgressBar1;
+        private ReaLTaiizor.MoonTextBox moonTextBox1;
     }
 }
