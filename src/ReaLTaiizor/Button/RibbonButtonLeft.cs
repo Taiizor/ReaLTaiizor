@@ -140,6 +140,50 @@ namespace ReaLTaiizor
             }
         }
 
+        private Color _DownBaseColorA = Color.FromArgb(203, 201, 205);
+        public Color DownBaseColorA
+        {
+            get { return _DownBaseColorA; }
+            set
+            {
+                _DownBaseColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _DownBaseColorB = Color.FromArgb(188, 186, 190);
+        public Color DownBaseColorB
+        {
+            get { return _DownBaseColorB; }
+            set
+            {
+                _DownBaseColorB = value;
+                Invalidate();
+            }
+        }
+
+        private Color _DownBorderColorA = Color.FromArgb(117, 120, 117);
+        public Color DownBorderColorA
+        {
+            get { return _DownBorderColorA; }
+            set
+            {
+                _DownBorderColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _DownBorderColorB = Color.FromArgb(75, Color.White);
+        public Color DownBorderColorB
+        {
+            get { return _DownBorderColorB; }
+            set
+            {
+                _DownBorderColorB = value;
+                Invalidate();
+            }
+        }
+
         public RibbonButtonLeft()
         {
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
@@ -184,11 +228,11 @@ namespace ReaLTaiizor
                     G.DrawPath(Ip2, DrawRibbon.RoundRect(InnerRect, 2));
                     break;
                 case MouseStateRibbon.Down:
-                    LinearGradientBrush lgb3 = new LinearGradientBrush(ClientRectangle, Color.FromArgb(203, 201, 205), Color.FromArgb(188, 186, 190), 90);
+                    LinearGradientBrush lgb3 = new LinearGradientBrush(ClientRectangle, DownBaseColorA, DownBaseColorB, 90);
                     G.FillPath(lgb3, DrawRibbon.RoundRect(ClientRectangle, 2));
-                    Pen p3 = new Pen(new SolidBrush(Color.FromArgb(117, 120, 117)));
+                    Pen p3 = new Pen(new SolidBrush(DownBorderColorA));
                     G.DrawPath(p3, DrawRibbon.RoundRect(ClientRectangle, 2));
-                    Pen Ip3 = new Pen(Color.FromArgb(75, Color.White));
+                    Pen Ip3 = new Pen(DownBorderColorB);
                     G.DrawPath(Ip3, DrawRibbon.RoundRect(InnerRect, 2));
                     break;
             }
