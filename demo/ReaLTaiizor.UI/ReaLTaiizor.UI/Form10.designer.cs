@@ -36,7 +36,7 @@
             moonRadiobutton1 = new ReaLTaiizor.MoonRadiobutton();
             moonTextBox1 = new ReaLTaiizor.MoonTextBox();
             moonLabel1 = new ReaLTaiizor.MoonLabel();
-            moonProgressbar1 = new ReaLTaiizor.MoonProgressbar();
+            moonProgressBar1 = new ReaLTaiizor.MoonProgressBar();
             dungeonControlBox1 = new ReaLTaiizor.DungeonControlBox();
             moonButton1 = new ReaLTaiizor.MoonButton();
             moonForm1.SuspendLayout();
@@ -44,6 +44,7 @@
             // 
             // moonForm1
             // 
+            moonForm1.BorderColor = System.Drawing.Color.LightGray;
             moonForm1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
             moonForm1.Controls.Add(moonCheckbox2);
             moonForm1.Controls.Add(moonCheckbox1);
@@ -51,11 +52,12 @@
             moonForm1.Controls.Add(moonRadiobutton1);
             moonForm1.Controls.Add(moonTextBox1);
             moonForm1.Controls.Add(moonLabel1);
-            moonForm1.Controls.Add(moonProgressbar1);
+            moonForm1.Controls.Add(moonProgressBar1);
             moonForm1.Controls.Add(dungeonControlBox1);
             moonForm1.Controls.Add(moonButton1);
             moonForm1.Customization = "/////9PT0//w8PD/";
             moonForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            moonForm1.FirstEdge = System.Drawing.Color.LightGray;
             moonForm1.Font = new System.Drawing.Font("Verdana", 8F);
             moonForm1.Image = null;
             moonForm1.Location = new System.Drawing.Point(0, 0);
@@ -63,12 +65,14 @@
             moonForm1.Movable = true;
             moonForm1.Name = "moonForm1";
             moonForm1.NoRounding = false;
+            moonForm1.SecondEdge = System.Drawing.Color.White;
             moonForm1.Sizable = false;
             moonForm1.Size = new System.Drawing.Size(496, 101);
             moonForm1.SmartBounds = true;
             moonForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             moonForm1.TabIndex = 0;
             moonForm1.Text = "moonForm1";
+            moonForm1.TitleColor = System.Drawing.Color.Black;
             moonForm1.TransparencyKey = System.Drawing.Color.Fuchsia;
             moonForm1.Transparent = false;
             // 
@@ -105,14 +109,21 @@
             // moonRadiobutton2
             // 
             moonRadiobutton2.Checked = true;
+            moonRadiobutton2.CheckedColor = System.Drawing.Color.Gray;
+            moonRadiobutton2.CircleColorA = System.Drawing.Color.White;
+            moonRadiobutton2.CircleColorB = System.Drawing.Color.LightGray;
+            moonRadiobutton2.CircleColorC = System.Drawing.Color.LightGray;
             moonRadiobutton2.Cursor = System.Windows.Forms.Cursors.Hand;
             moonRadiobutton2.Customization = "8PDw/4CAgP8=";
             moonRadiobutton2.Font = new System.Drawing.Font("Verdana", 8F);
+            moonRadiobutton2.HoverBackColor = System.Drawing.Color.Gray;
+            moonRadiobutton2.HoverColor = System.Drawing.Color.White;
             moonRadiobutton2.Image = null;
             moonRadiobutton2.Location = new System.Drawing.Point(354, 37);
             moonRadiobutton2.Name = "moonRadiobutton2";
             moonRadiobutton2.NoRounding = false;
             moonRadiobutton2.Size = new System.Drawing.Size(130, 22);
+            moonRadiobutton2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             moonRadiobutton2.TabIndex = 7;
             moonRadiobutton2.Text = "moonRadiobutton2";
             moonRadiobutton2.Transparent = false;
@@ -120,14 +131,21 @@
             // moonRadiobutton1
             // 
             moonRadiobutton1.Checked = false;
+            moonRadiobutton1.CheckedColor = System.Drawing.Color.Gray;
+            moonRadiobutton1.CircleColorA = System.Drawing.Color.White;
+            moonRadiobutton1.CircleColorB = System.Drawing.Color.LightGray;
+            moonRadiobutton1.CircleColorC = System.Drawing.Color.LightGray;
             moonRadiobutton1.Cursor = System.Windows.Forms.Cursors.Hand;
             moonRadiobutton1.Customization = "8PDw/4CAgP8=";
             moonRadiobutton1.Font = new System.Drawing.Font("Verdana", 8F);
+            moonRadiobutton1.HoverBackColor = System.Drawing.Color.Gray;
+            moonRadiobutton1.HoverColor = System.Drawing.Color.White;
             moonRadiobutton1.Image = null;
             moonRadiobutton1.Location = new System.Drawing.Point(220, 37);
             moonRadiobutton1.Name = "moonRadiobutton1";
             moonRadiobutton1.NoRounding = false;
             moonRadiobutton1.Size = new System.Drawing.Size(130, 22);
+            moonRadiobutton1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             moonRadiobutton1.TabIndex = 6;
             moonRadiobutton1.Text = "moonRadiobutton1";
             moonRadiobutton1.Transparent = false;
@@ -135,6 +153,7 @@
             // moonTextBox1
             // 
             moonTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            moonTextBox1.BorderColor = System.Drawing.Color.LightGray;
             moonTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             moonTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             moonTextBox1.ForeColor = System.Drawing.Color.Gray;
@@ -155,22 +174,28 @@
             moonLabel1.TabIndex = 4;
             moonLabel1.Text = "moonLabel1";
             // 
-            // moonProgressbar1
+            // moonProgressBar1
             // 
-            moonProgressbar1.Animated = true;
-            moonProgressbar1.Customization = "8PDw/w==";
-            moonProgressbar1.Font = new System.Drawing.Font("Verdana", 8F);
-            moonProgressbar1.Image = null;
-            moonProgressbar1.Location = new System.Drawing.Point(12, 67);
-            moonProgressbar1.Maximum = 100;
-            moonProgressbar1.Minimum = 0;
-            moonProgressbar1.Name = "moonProgressbar1";
-            moonProgressbar1.NoRounding = false;
-            moonProgressbar1.Size = new System.Drawing.Size(120, 23);
-            moonProgressbar1.TabIndex = 3;
-            moonProgressbar1.Text = "moonProgressbar1";
-            moonProgressbar1.Transparent = false;
-            moonProgressbar1.Value = 65;
+            moonProgressBar1.Animated = true;
+            moonProgressBar1.Customization = "8PDw/w==";
+            moonProgressBar1.Font = new System.Drawing.Font("Verdana", 8F);
+            moonProgressBar1.HatchType = System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal;
+            moonProgressBar1.Image = null;
+            moonProgressBar1.LineColor = System.Drawing.Color.White;
+            moonProgressBar1.LineEndColor = System.Drawing.Color.LightGray;
+            moonProgressBar1.LinerColor = System.Drawing.Color.Transparent;
+            moonProgressBar1.LinesColor = System.Drawing.Color.LightGray;
+            moonProgressBar1.LineUpColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            moonProgressBar1.Location = new System.Drawing.Point(12, 67);
+            moonProgressBar1.Maximum = 100;
+            moonProgressBar1.Minimum = 0;
+            moonProgressBar1.Name = "moonProgressBar1";
+            moonProgressBar1.NoRounding = false;
+            moonProgressBar1.Size = new System.Drawing.Size(120, 23);
+            moonProgressBar1.TabIndex = 3;
+            moonProgressBar1.Text = "moonProgressbar1";
+            moonProgressBar1.Transparent = false;
+            moonProgressBar1.Value = 65;
             // 
             // dungeonControlBox1
             // 
@@ -227,7 +252,7 @@
         private ReaLTaiizor.MoonForm moonForm1;
         private ReaLTaiizor.MoonButton moonButton1;
         private ReaLTaiizor.DungeonControlBox dungeonControlBox1;
-        private ReaLTaiizor.MoonProgressbar moonProgressbar1;
+        private ReaLTaiizor.MoonProgressBar moonProgressBar1;
         private ReaLTaiizor.MoonLabel moonLabel1;
         private ReaLTaiizor.MoonTextBox moonTextBox1;
         private ReaLTaiizor.MoonRadiobutton moonRadiobutton1;

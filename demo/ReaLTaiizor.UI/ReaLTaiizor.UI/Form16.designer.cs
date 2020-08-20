@@ -170,6 +170,7 @@
             royalEllipseButton1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             royalEllipseButton1.PressedForeColor = System.Drawing.Color.White;
             royalEllipseButton1.Size = new System.Drawing.Size(120, 120);
+            royalEllipseButton1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             royalEllipseButton1.TabIndex = 8;
             royalEllipseButton1.Text = "royalEllipseButton1";
             // 
@@ -189,6 +190,7 @@
             royalEllipseButton2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             royalEllipseButton2.PressedForeColor = System.Drawing.Color.White;
             royalEllipseButton2.Size = new System.Drawing.Size(120, 120);
+            royalEllipseButton2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             royalEllipseButton2.TabIndex = 9;
             royalEllipseButton2.Text = "royalEllipseButton2";
             // 
@@ -208,6 +210,7 @@
             royalEllipseButton3.PressedColor = System.Drawing.Color.Olive;
             royalEllipseButton3.PressedForeColor = System.Drawing.Color.White;
             royalEllipseButton3.Size = new System.Drawing.Size(120, 120);
+            royalEllipseButton3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             royalEllipseButton3.TabIndex = 10;
             royalEllipseButton3.Text = "royalEllipseButton3";
             // 
