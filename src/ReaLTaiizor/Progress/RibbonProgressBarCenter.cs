@@ -234,6 +234,17 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
+        private HatchStyle _HatchType = HatchStyle.DarkUpwardDiagonal;
+        public HatchStyle HatchType
+        {
+            get { return _HatchType; }
+            set
+            {
+                _HatchType = value;
+                Invalidate();
+            }
+        }
         #endregion
 
         public RibbonProgressBarCenter() : base()
@@ -259,7 +270,7 @@ namespace ReaLTaiizor
             G.DrawPath(new Pen(new SolidBrush(BaseColor)), DrawRibbon.RoundRect(new Rectangle(1, 1, Width - 3, Height - 3), 1));
             LinearGradientBrush g1 = new LinearGradientBrush(new Rectangle(2, 2, intValue - 1, Height - 2), ProgressColorA, ProgressColorB, 90);
             G.FillPath(g1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
-            HatchBrush h1 = new HatchBrush(HatchStyle.DarkUpwardDiagonal, ProgressLineColorA, ProgressLineColorB);
+            HatchBrush h1 = new HatchBrush(HatchType, ProgressLineColorA, ProgressLineColorB);
             G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
 
             if (ShowEdge)
