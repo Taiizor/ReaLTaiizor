@@ -157,6 +157,61 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
+        private Color _ColorA = Color.FromArgb(203, 201, 205);
+        public Color ColorA
+        {
+            get { return _ColorA; }
+            set
+            {
+                _ColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _ColorB = Color.FromArgb(188, 186, 190);
+        public Color ColorB
+        {
+            get { return _ColorB; }
+            set
+            {
+                _ColorB = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BaseColor = Color.FromArgb(75, Color.White);
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set
+            {
+                _BaseColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _ProgressColorA = Color.FromArgb(214, 162, 68);
+        public Color ProgressColorA
+        {
+            get { return _ProgressColorA; }
+            set
+            {
+                _ProgressColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _ProgressColorB = Color.FromArgb(199, 147, 53);
+        public Color ProgressColorB
+        {
+            get { return _ProgressColorB; }
+            set
+            {
+                _ProgressColorB = value;
+                Invalidate();
+            }
+        }
         #endregion
 
         public RibbonProgressBarCenter() : base()
@@ -177,10 +232,10 @@ namespace ReaLTaiizor
             int intValue = Convert.ToInt32((Convert.ToDouble(_Value) / Convert.ToDouble(_Maximum)) * Width);
             G.Clear(BackColor);
 
-            LinearGradientBrush gB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), Color.FromArgb(203, 201, 205), Color.FromArgb(188, 186, 190), 90);
+            LinearGradientBrush gB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), ColorA, ColorB, 90);
             G.FillPath(gB, DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 1));
-            G.DrawPath(new Pen(new SolidBrush(Color.FromArgb(75, Color.White))), DrawRibbon.RoundRect(new Rectangle(1, 1, Width - 3, Height - 3), 1));
-            LinearGradientBrush g1 = new LinearGradientBrush(new Rectangle(2, 2, intValue - 1, Height - 2), Color.FromArgb(214, 162, 68), Color.FromArgb(199, 147, 53), 90);
+            G.DrawPath(new Pen(new SolidBrush(BaseColor)), DrawRibbon.RoundRect(new Rectangle(1, 1, Width - 3, Height - 3), 1));
+            LinearGradientBrush g1 = new LinearGradientBrush(new Rectangle(2, 2, intValue - 1, Height - 2), ProgressColorA, ProgressColorB, 90);
             G.FillPath(g1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
             HatchBrush h1 = new HatchBrush(HatchStyle.DarkUpwardDiagonal, Color.FromArgb(40, Color.White), Color.FromArgb(20, Color.White));
             G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
