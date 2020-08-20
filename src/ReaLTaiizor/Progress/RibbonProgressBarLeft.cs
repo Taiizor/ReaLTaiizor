@@ -119,7 +119,7 @@ namespace ReaLTaiizor
             }
         }
 
-        private Color _ProgressBorderColorB = Color.FromArgb(60, 113, 132);
+        private Color _ProgressBorderColorB = Color.FromArgb(153, 151, 155);
         public Color ProgressBorderColorB
         {
             get { return _ProgressBorderColorB; }
