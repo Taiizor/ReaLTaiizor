@@ -372,10 +372,12 @@
             // ribbonGroupBox1
             // 
             this.ribbonGroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonGroupBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             this.ribbonGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.ribbonGroupBox1.Location = new System.Drawing.Point(621, 177);
+            this.ribbonGroupBox1.Location = new System.Drawing.Point(399, 86);
             this.ribbonGroupBox1.Name = "ribbonGroupBox1";
-            this.ribbonGroupBox1.Size = new System.Drawing.Size(170, 90);
+            this.ribbonGroupBox1.Size = new System.Drawing.Size(244, 90);
+            this.ribbonGroupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.ribbonGroupBox1.TabIndex = 17;
             this.ribbonGroupBox1.Text = "ribbonGroupBox1";
             // 
