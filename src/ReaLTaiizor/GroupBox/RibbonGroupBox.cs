@@ -35,13 +35,35 @@ namespace ReaLTaiizor
             }
         }
 
-        private Color _LineColor = Color.FromArgb(126, 126, 126);
-        public Color LineColor
+        private Color _BaseColor = Color.Transparent;
+        public Color BaseColor
         {
-            get { return _LineColor; }
+            get { return _BaseColor; }
             set
             {
-                _LineColor = value;
+                _BaseColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _LineColorA = Color.FromArgb(126, 126, 126);
+        public Color LineColorA
+        {
+            get { return _LineColorA; }
+            set
+            {
+                _LineColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _LineColorB = Color.FromArgb(126, 126, 126);
+        public Color LineColorB
+        {
+            get { return _LineColorB; }
+            set
+            {
+                _LineColorB = value;
                 Invalidate();
             }
         }
@@ -97,7 +119,7 @@ namespace ReaLTaiizor
 
             base.OnPaint(e);
 
-            G.Clear(Color.Transparent);
+            G.Clear(BaseColor);
 
             G.SmoothingMode = SmoothingType;
             G.CompositingQuality = CompositingQualityType;
@@ -121,10 +143,9 @@ namespace ReaLTaiizor
                 LineAlignment = StringAlignment.Center
             });
 
-            SolidBrush UnderlineBrush = new SolidBrush(LineColor);
-            Pen UnderlinePen = new Pen(UnderlineBrush, 3);
+            Pen UnderlinePen = new Pen(new SolidBrush(LineColorA), 3);
             G.DrawLine(UnderlinePen, 20, 24, Width - 20, 24);
-            Pen UnderlinePen2 = new Pen(UnderlineBrush, 1);
+            Pen UnderlinePen2 = new Pen(new SolidBrush(LineColorB), 1);
             G.DrawLine(UnderlinePen2, 20, 27, Width - 20, 27);
 
             e.Graphics.DrawImage(B, 0, 0);

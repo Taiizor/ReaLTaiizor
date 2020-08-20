@@ -67,7 +67,9 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.ribbonGroupBox1 = new ReaLTaiizor.RibbonGroupBox();
+            this.ribbonProgressBarCenter1 = new ReaLTaiizor.RibbonProgressBarCenter();
+            this.ribbonProgressBarRight1 = new ReaLTaiizor.RibbonProgressBarRight();
+            this.ribbonProgressBarLeft1 = new ReaLTaiizor.RibbonProgressBarLeft();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,17 +371,44 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // ribbonGroupBox1
+            // ribbonProgressBarCenter1
             // 
-            this.ribbonGroupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.ribbonGroupBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            this.ribbonGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.ribbonGroupBox1.Location = new System.Drawing.Point(399, 86);
-            this.ribbonGroupBox1.Name = "ribbonGroupBox1";
-            this.ribbonGroupBox1.Size = new System.Drawing.Size(244, 90);
-            this.ribbonGroupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.ribbonGroupBox1.TabIndex = 17;
-            this.ribbonGroupBox1.Text = "ribbonGroupBox1";
+            this.ribbonProgressBarCenter1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarCenter1.ForeColor = System.Drawing.Color.Black;
+            this.ribbonProgressBarCenter1.Location = new System.Drawing.Point(512, 145);
+            this.ribbonProgressBarCenter1.Maximum = 100;
+            this.ribbonProgressBarCenter1.Name = "ribbonProgressBarCenter1";
+            this.ribbonProgressBarCenter1.ShowPercentage = true;
+            this.ribbonProgressBarCenter1.Size = new System.Drawing.Size(160, 60);
+            this.ribbonProgressBarCenter1.TabIndex = 17;
+            this.ribbonProgressBarCenter1.Text = "ribbonProgressBarCenter1";
+            this.ribbonProgressBarCenter1.Value = 50;
+            // 
+            // ribbonProgressBarRight1
+            // 
+            this.ribbonProgressBarRight1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarRight1.ForeColor = System.Drawing.Color.Black;
+            this.ribbonProgressBarRight1.Location = new System.Drawing.Point(631, 211);
+            this.ribbonProgressBarRight1.Maximum = 100;
+            this.ribbonProgressBarRight1.Name = "ribbonProgressBarRight1";
+            this.ribbonProgressBarRight1.ShowPercentage = true;
+            this.ribbonProgressBarRight1.Size = new System.Drawing.Size(160, 60);
+            this.ribbonProgressBarRight1.TabIndex = 18;
+            this.ribbonProgressBarRight1.Text = "ribbonProgressBarRight1";
+            this.ribbonProgressBarRight1.Value = 50;
+            // 
+            // ribbonProgressBarLeft1
+            // 
+            this.ribbonProgressBarLeft1.BackColor = System.Drawing.Color.Transparent;
+            this.ribbonProgressBarLeft1.ForeColor = System.Drawing.Color.Black;
+            this.ribbonProgressBarLeft1.Location = new System.Drawing.Point(399, 81);
+            this.ribbonProgressBarLeft1.Maximum = 100;
+            this.ribbonProgressBarLeft1.Name = "ribbonProgressBarLeft1";
+            this.ribbonProgressBarLeft1.ShowPercentage = true;
+            this.ribbonProgressBarLeft1.Size = new System.Drawing.Size(160, 60);
+            this.ribbonProgressBarLeft1.TabIndex = 19;
+            this.ribbonProgressBarLeft1.Text = "ribbonProgressBarLeft1";
+            this.ribbonProgressBarLeft1.Value = 50;
             // 
             // Catcher
             // 
@@ -387,7 +416,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.ribbonGroupBox1);
+            this.Controls.Add(this.ribbonProgressBarLeft1);
+            this.Controls.Add(this.ribbonProgressBarRight1);
+            this.Controls.Add(this.ribbonProgressBarCenter1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -435,6 +466,8 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.RibbonGroupBox ribbonGroupBox1;
+        private ReaLTaiizor.RibbonProgressBarCenter ribbonProgressBarCenter1;
+        private ReaLTaiizor.RibbonProgressBarRight ribbonProgressBarRight1;
+        private ReaLTaiizor.RibbonProgressBarLeft ribbonProgressBarLeft1;
     }
 }
