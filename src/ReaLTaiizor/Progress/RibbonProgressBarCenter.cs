@@ -61,6 +61,17 @@ namespace ReaLTaiizor
             }
         }
 
+        private bool _ShowEdge = false;
+        public bool ShowEdge
+        {
+            get { return _ShowEdge; }
+            set
+            {
+                _ShowEdge = value;
+                Invalidate();
+            }
+        }
+
         protected override void CreateHandle()
         {
             base.CreateHandle();
@@ -124,6 +135,28 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
+        private Color _EdgeColor = Color.FromArgb(125, 97, 94, 90);
+        public Color EdgeColor
+        {
+            get { return _EdgeColor; }
+            set
+            {
+                _EdgeColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BorderColor = Color.FromArgb(117, 120, 117);
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set
+            {
+                _BorderColor = value;
+                Invalidate();
+            }
+        }
         #endregion
 
         public RibbonProgressBarCenter() : base()
@@ -134,7 +167,7 @@ namespace ReaLTaiizor
             BackColor = Color.Transparent;
         }
 
-        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
@@ -152,8 +185,10 @@ namespace ReaLTaiizor
             HatchBrush h1 = new HatchBrush(HatchStyle.DarkUpwardDiagonal, Color.FromArgb(40, Color.White), Color.FromArgb(20, Color.White));
             G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
 
-            //G.DrawPath(New Pen(Color.FromArgb(125, 97, 94, 90)), Draw.RoundRect(New Rectangle(0, 1, Width - 1, Height - 3), 2))
-            G.DrawPath(new Pen(Color.FromArgb(117, 120, 117)), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
+            if (ShowEdge)
+                G.DrawPath(new Pen(EdgeColor), DrawRibbon.RoundRect(new Rectangle(0, 1, Width - 1, Height - 3), 2));
+            
+            G.DrawPath(new Pen(BorderColor), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
 
             G.DrawPath(new Pen(ProgressBorderColorA), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
             G.DrawPath(new Pen(ProgressBorderColorB), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
