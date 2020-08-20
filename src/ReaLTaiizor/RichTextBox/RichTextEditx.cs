@@ -23,6 +23,10 @@ namespace ReaLTaiizor
         private bool _WordWrap;
         private bool _AutoWordSelection;
         private GraphicsPath Shape;
+        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
+        private Color _BaseColor = Color.Transparent;
+        private Color _EdgeColor = Color.White;
+        private Color _BorderColor = Color.FromArgb(180, 180, 180);
 
         #endregion
         #region Properties
@@ -36,6 +40,7 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
         public bool ReadOnly
         {
             get { return _ReadOnly; }
@@ -48,6 +53,7 @@ namespace ReaLTaiizor
                 }
             }
         }
+
         public bool WordWrap
         {
             get { return _WordWrap; }
@@ -60,6 +66,7 @@ namespace ReaLTaiizor
                 }
             }
         }
+
         public bool AutoWordSelection
         {
             get { return _AutoWordSelection; }
@@ -70,6 +77,46 @@ namespace ReaLTaiizor
                 {
                     RT_RTB.AutoWordSelection = value;
                 }
+            }
+        }
+
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set
+            {
+                _BaseColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color EdgeColor
+        {
+            get { return _EdgeColor; }
+            set
+            {
+                _EdgeColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set
+            {
+                _BorderColor = value;
+                Invalidate();
             }
         }
         #endregion
@@ -157,10 +204,10 @@ namespace ReaLTaiizor
             base.OnPaint(e);
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            G.SmoothingMode = SmoothingMode.AntiAlias;
-            G.Clear(Color.Transparent);
-            G.FillPath(Brushes.White, Shape);
-            G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), Shape);
+            G.SmoothingMode = SmoothingType;
+            G.Clear(BaseColor);
+            G.FillPath(new SolidBrush(EdgeColor), Shape);
+            G.DrawPath(new Pen(BorderColor), Shape);
             G.Dispose();
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             B.Dispose();

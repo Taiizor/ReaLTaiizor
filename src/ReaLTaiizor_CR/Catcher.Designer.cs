@@ -67,7 +67,7 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.ribbonRadioButton1 = new ReaLTaiizor.RibbonRadioButton();
+            this.richTextEdit1 = new ReaLTaiizor.RichTextEdit();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,17 +369,19 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // ribbonRadioButton1
+            // richTextEdit1
             // 
-            this.ribbonRadioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.ribbonRadioButton1.Checked = false;
-            this.ribbonRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ribbonRadioButton1.Location = new System.Drawing.Point(658, 254);
-            this.ribbonRadioButton1.Name = "ribbonRadioButton1";
-            this.ribbonRadioButton1.Size = new System.Drawing.Size(133, 16);
-            this.ribbonRadioButton1.TabIndex = 17;
-            this.ribbonRadioButton1.Text = "ribbonRadioButton1";
+            this.richTextEdit1.AutoWordSelection = false;
+            this.richTextEdit1.BackColor = System.Drawing.Color.Transparent;
+            this.richTextEdit1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.richTextEdit1.ForeColor = System.Drawing.Color.DimGray;
+            this.richTextEdit1.Location = new System.Drawing.Point(462, 121);
+            this.richTextEdit1.Name = "richTextEdit1";
+            this.richTextEdit1.ReadOnly = false;
+            this.richTextEdit1.Size = new System.Drawing.Size(150, 100);
+            this.richTextEdit1.TabIndex = 17;
+            this.richTextEdit1.Text = "richTextEdit1";
+            this.richTextEdit1.WordWrap = true;
             // 
             // Catcher
             // 
@@ -387,7 +389,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.ribbonRadioButton1);
+            this.Controls.Add(this.richTextEdit1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -435,6 +437,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.RibbonRadioButton ribbonRadioButton1;
+        private ReaLTaiizor.RichTextEdit richTextEdit1;
     }
 }
