@@ -14,6 +14,28 @@ namespace ReaLTaiizor
     {
         private GraphicsPath Shape;
 
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        private Color _EdgeColor = Color.FromArgb(32, 41, 50);
+        public Color EdgeColor
+        {
+            get { return _EdgeColor; }
+            set
+            {
+                _EdgeColor = value;
+                Invalidate();
+            }
+        }
+
         public Panel()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -43,9 +65,9 @@ namespace ReaLTaiizor
             Bitmap B = new Bitmap(Width, Height);
             var G = Graphics.FromImage(B);
 
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.SmoothingMode = SmoothingType;
 
-            G.Clear(Color.FromArgb(32, 41, 50)); // Set control background to transparent
+            G.Clear(EdgeColor); // Set control background to transparent
             G.FillPath(new SolidBrush(BackColor), Shape); // Draw RTB background
             G.DrawPath(new Pen(BackColor), Shape); // Draw border
 

@@ -1,7 +1,7 @@
 ![logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
 
 ![dotnetframework-version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
-![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg)
+![csharp-version](https://img.shields.io/badge/C%23-9.0-blue.svg)
 ![ide-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
 [![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
 [![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
@@ -86,6 +86,10 @@ Step 2：Tasarlamanın tadını çıkarın
 ### Oturum Aç
 
 ![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)
+
+### Çeviri
+
+![TranslateSample](https://www.photo.herominyum.com/resimler/2020/08/08/1UWO.png)
 
 ### Instagram
 

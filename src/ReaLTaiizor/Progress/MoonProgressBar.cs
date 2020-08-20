@@ -10,11 +10,12 @@ namespace ReaLTaiizor
 {
     #region MoonProgressBar
 
-    public class MoonProgressbar : MoonControl
+    public class MoonProgressBar : MoonControl
     {
         Color BG;
 
         int HBPos;
+
         private int _Minimum;
         public int Minimum
         {
@@ -65,6 +66,72 @@ namespace ReaLTaiizor
             }
         }
 
+        private Color _LineColor = Color.White;
+        public Color LineColor
+        {
+            get { return _LineColor; }
+            set
+            {
+                _LineColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _LinesColor = Color.LightGray;
+        public Color LinesColor
+        {
+            get { return _LinesColor; }
+            set
+            {
+                _LinesColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _LinerColor = Color.Transparent;
+        public Color LinerColor
+        {
+            get { return _LinerColor; }
+            set
+            {
+                _LinerColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _LineUpColor = Color.FromArgb(240, 240, 240);
+        public Color LineUpColor
+        {
+            get { return _LineUpColor; }
+            set
+            {
+                _LineUpColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _LineEndColor = Color.LightGray;
+        public Color LineEndColor
+        {
+            get { return _LineEndColor; }
+            set
+            {
+                _LineEndColor = value;
+                Invalidate();
+            }
+        }
+
+        private HatchStyle _HatchType = HatchStyle.BackwardDiagonal;
+        public HatchStyle HatchType
+        {
+            get { return _HatchType; }
+            set
+            {
+                _HatchType = value;
+                Invalidate();
+            }
+        }
+
         private void Increment(int amount)
         {
             Value += amount;
@@ -88,7 +155,7 @@ namespace ReaLTaiizor
                 HBPos += 1;
         }
 
-        public MoonProgressbar()
+        public MoonProgressBar()
         {
             Animated = true;
             SetColor("BG", Color.FromArgb(240, 240, 240));
@@ -106,13 +173,13 @@ namespace ReaLTaiizor
             DrawBorders(Pens.LightGray, 1);
             DrawCorners(Color.Transparent);
 
-            LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(2, 2), new Size(Width - 2, Height - 5)), Color.White, Color.FromArgb(240, 240, 240), 90f);
+            LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(2, 2), new Size(Width - 2, Height - 5)), LineColor, LineUpColor, 90f);
             G.FillRectangle(LGB, new Rectangle(new Point(2, 2), new Size((Width / Maximum) * Value - 5, Height - 5)));
 
             G.RenderingOrigin = new Point(HBPos, 0);
-            HatchBrush HB = new HatchBrush(HatchStyle.BackwardDiagonal, Color.LightGray, Color.Transparent);
+            HatchBrush HB = new HatchBrush(HatchType, LinesColor, LinerColor);
             G.FillRectangle(HB, new Rectangle(new Point(1, 2), new Size((Width / Maximum) * Value - 3, Height - 3)));
-            G.DrawLine(Pens.LightGray, new Point((Width / Maximum) * Value - 2, 1), new Point((Width / Maximum) * Value - 2, Height - 3));
+            G.DrawLine(new Pen(new SolidBrush(LineEndColor)), new Point((Width / Maximum) * Value - 2, 1), new Point((Width / Maximum) * Value - 2, Height - 3));
         }
     }
 

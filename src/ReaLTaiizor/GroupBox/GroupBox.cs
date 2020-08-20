@@ -14,14 +14,26 @@ namespace ReaLTaiizor
     {
         #region Variables
 
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         private Color _HeaderColor = Color.CornflowerBlue;
         private Color _BorderColorH = Color.FromArgb(182, 180, 186);
         private Color _BorderColorG = Color.FromArgb(159, 159, 161);
         private Color _BackGColor = Color.DodgerBlue;
+        private Color _BaseColor = Color.Transparent;
 
         #endregion
 
         #region Custom Properties
+
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
 
         public Color HeaderColor
         {
@@ -63,6 +75,16 @@ namespace ReaLTaiizor
             }
         }
 
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set
+            {
+                _BaseColor = value;
+                Invalidate();
+            }
+        }
+
         #endregion
 
         public GroupBox()
@@ -85,8 +107,8 @@ namespace ReaLTaiizor
             Rectangle TitleBox = new Rectangle(51, 3, Width - 103, 18);
             Rectangle box = new Rectangle(0, 0, Width - 1, Height - 10);
 
-            G.Clear(Color.Transparent);
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.Clear(BaseColor);
+            G.SmoothingMode = SmoothingType;
 
             // Draw the body of the GroupBox
             G.FillPath(new SolidBrush(_BackGColor), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, box.Height - 1), 8));

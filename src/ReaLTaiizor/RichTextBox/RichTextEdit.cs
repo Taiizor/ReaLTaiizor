@@ -23,6 +23,13 @@ namespace ReaLTaiizor
         private bool _WordWrap;
         private bool _AutoWordSelection;
         private GraphicsPath Shape;
+        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
+        private Color _BaseColor = Color.Transparent;
+        private Color _EdgeColor = Color.White;
+        private Color _BorderColor = Color.FromArgb(180, 180, 180);
+        private Color _TextBackColor = Color.White;
+        private Font _TextFont = new Font("Tahoma", 10);
+        private BorderStyle _TextBorderStyle = BorderStyle.None;
 
         #endregion
         #region Properties
@@ -36,6 +43,7 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
         public bool ReadOnly
         {
             get { return _ReadOnly; }
@@ -48,6 +56,7 @@ namespace ReaLTaiizor
                 }
             }
         }
+
         public bool WordWrap
         {
             get { return _WordWrap; }
@@ -60,6 +69,7 @@ namespace ReaLTaiizor
                 }
             }
         }
+
         public bool AutoWordSelection
         {
             get { return _AutoWordSelection; }
@@ -70,6 +80,76 @@ namespace ReaLTaiizor
                 {
                     RT_RTB.AutoWordSelection = value;
                 }
+            }
+        }
+
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public Color BaseColor
+        {
+            get { return _BaseColor; }
+            set
+            {
+                _BaseColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color EdgeColor
+        {
+            get { return _EdgeColor; }
+            set
+            {
+                _EdgeColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set
+            {
+                _BorderColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color TextBackColor
+        {
+            get { return _TextBackColor; }
+            set
+            {
+                _TextBackColor = value;
+                Invalidate();
+            }
+        }
+
+        public Font TextFont
+        {
+            get { return _TextFont; }
+            set
+            {
+                _TextFont = value;
+                Invalidate();
+            }
+        }
+
+        public BorderStyle TextBorderStyle
+        {
+            get { return _TextBorderStyle; }
+            set
+            {
+                _TextBorderStyle = value;
+                Invalidate();
             }
         }
         #endregion
@@ -122,12 +202,12 @@ namespace ReaLTaiizor
         public void AddRichTextBox()
         {
             var _RTB = RT_RTB;
-            _RTB.BackColor = Color.White;
+            _RTB.BackColor = TextBackColor;
             _RTB.Size = new Size(Width - 10, 100);
             _RTB.Location = new Point(7, 5);
             _RTB.Text = string.Empty;
-            _RTB.BorderStyle = BorderStyle.None;
-            _RTB.Font = new Font("Tahoma", 10);
+            _RTB.BorderStyle = TextBorderStyle;
+            _RTB.Font = TextFont;
             _RTB.Multiline = true;
         }
 
@@ -157,10 +237,10 @@ namespace ReaLTaiizor
             base.OnPaint(e);
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            G.SmoothingMode = SmoothingMode.AntiAlias;
-            G.Clear(Color.Transparent);
-            G.FillPath(Brushes.White, Shape);
-            G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), Shape);
+            G.SmoothingMode = SmoothingType;
+            G.Clear(BaseColor);
+            G.FillPath(new SolidBrush(EdgeColor), Shape);
+            G.DrawPath(new Pen(BorderColor), Shape);
             G.Dispose();
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             B.Dispose();

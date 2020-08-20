@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 15.May.2019
-//     Changed: 04.Aug.2020
+//     Changed: 20.Aug.2020
 //     Version: 3.7.7.5
 //
 // |---------DO-NOT-REMOVE---------|
@@ -7115,8 +7115,6 @@ namespace ReaLTaiizor
 
     public abstract class MoonControl : Control
     {
-
-
         #region " Initialization "
 
         protected Graphics G;
@@ -7205,9 +7203,7 @@ namespace ReaLTaiizor
         protected override sealed void OnSizeChanged(EventArgs e)
         {
             if (_Transparent)
-            {
                 InvalidateBitmap();
-            }
 
             Invalidate();
             base.OnSizeChanged(e);
@@ -7272,7 +7268,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
 
         #region " Base Properties "
 
@@ -7503,7 +7498,6 @@ namespace ReaLTaiizor
 
         #endregion
 
-
         #region " Property Helpers "
 
         protected Pen GetPen(string name)
@@ -7582,7 +7576,6 @@ namespace ReaLTaiizor
         }
         #endregion
 
-
         #region " User Hooks "
 
         protected abstract void ColorHook();
@@ -7597,7 +7590,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
 
         #region " Offset "
 
@@ -7681,7 +7673,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
 
         #region " DrawPixel "
 
@@ -8029,7 +8020,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
     }
 
     public static class ThemeShareMoon

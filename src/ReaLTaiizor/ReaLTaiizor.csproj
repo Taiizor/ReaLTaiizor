@@ -1,15 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>
+    <TargetFramework>net48</TargetFramework>
+    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>-->
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
     <Version>3.7.7.5</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
+    <PackageId>$(Title)</PackageId>
     <Authors>Taiizor</Authors>
-    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Taiizor Inc.</Copyright>
-    <Description>C# WinForm UI/UX Library - ReaLTaiizor</Description>
+    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
+    <Description>C# WinForm UI/UX Library - $(Title)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Component customizations have been replicated.
@@ -18,9 +20,12 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/ReaLTaiizor</RepositoryUrl>
+    <PackageDescription>$(Description)</PackageDescription>
+    <RepositoryUrl>https://github.com/Taiizor/ReaLTaiizor</RepositoryUrl>
     <PackageIcon>Taiizor.png</PackageIcon>
-    <Company>Taiizor</Company>
-    <Owners>Taiizor</Owners>
+    <Company>$(Authors)</Company>
+    <Owners>$(Authors)</Owners>
+    <LangVersion>Latest</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>

@@ -11,6 +11,16 @@ namespace ReaLTaiizor
 
     public class MoonTextBox : TextBox
     {
+        private Color _BorderColor = Color.LightGray;
+        public Color BorderColor
+        {
+            get { return _BorderColor; }
+            set
+            {
+                _BorderColor = value;
+                Invalidate();
+            }
+        }
 
         protected override void WndProc(ref Message m)
         {
@@ -38,7 +48,7 @@ namespace ReaLTaiizor
 
         private void CustomPaint()
         {
-            Pen p = Pens.LightGray;
+            Pen p = new Pen(new SolidBrush(BorderColor));
             CreateGraphics().DrawLine(p, 0, 0, Width, 0);
             CreateGraphics().DrawLine(p, 0, Height - 1, Width, Height - 1);
             CreateGraphics().DrawLine(p, 0, 0, 0, Height - 1);

@@ -49,6 +49,7 @@ namespace ReaLTaiizor
             SetColor("TCN", Color.Gray);
             SetColor("TCH", Color.Gray);
             Cursor = Cursors.Hand;
+            Font = new Font("Segoe UI", 9);
             Size = new Size(118, Height);
         }
 
@@ -78,7 +79,7 @@ namespace ReaLTaiizor
             G.DrawRectangle(Pens.LightGray, 3, 3, 15, 15);
             G.DrawRectangle(Pens.LightGray, 1, 1, 19, 19);
 
-            G.DrawString(Text, new Font("Segoe UI", 9), new SolidBrush(FC), 22, 3);
+            G.DrawString(Text, Font, new SolidBrush(FC), 22, 3);
         }
     }
 

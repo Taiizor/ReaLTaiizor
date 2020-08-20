@@ -50,258 +50,258 @@
             treeNode10,
             treeNode11});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catcher));
-            aloneTextBox1 = new ReaLTaiizor.AloneTextBox();
-            bigTextBox1 = new ReaLTaiizor.BigTextBox();
-            comboBoxEdit1 = new ReaLTaiizor.ComboBoxEdit();
-            dreamProgressBar1 = new ReaLTaiizor.DreamProgressBar();
-            dreamTextBox1 = new ReaLTaiizor.DreamTextBox();
-            foreverListBox1 = new ReaLTaiizor.ForeverListBox();
-            aloneButton1 = new ReaLTaiizor.AloneButton();
-            aloneCheckBox1 = new ReaLTaiizor.AloneCheckBox();
-            aloneCombobox1 = new ReaLTaiizor.AloneCombobox();
-            aloneNotice1 = new ReaLTaiizor.AloneNotice();
-            aloneProgressBar1 = new ReaLTaiizor.AloneProgressBar();
-            aloneRadioButton1 = new ReaLTaiizor.AloneRadioButton();
-            aloneTextBox2 = new ReaLTaiizor.AloneTextBox();
-            foreverProgressBar1 = new ReaLTaiizor.ForeverProgressBar();
-            foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
-            foxTextBox1 = new ReaLTaiizor.FoxTextBox();
-            hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            moonButton1 = new ReaLTaiizor.MoonButton();
-            SuspendLayout();
+            this.aloneTextBox1 = new ReaLTaiizor.AloneTextBox();
+            this.bigTextBox1 = new ReaLTaiizor.BigTextBox();
+            this.comboBoxEdit1 = new ReaLTaiizor.ComboBoxEdit();
+            this.dreamProgressBar1 = new ReaLTaiizor.DreamProgressBar();
+            this.dreamTextBox1 = new ReaLTaiizor.DreamTextBox();
+            this.foreverListBox1 = new ReaLTaiizor.ForeverListBox();
+            this.aloneButton1 = new ReaLTaiizor.AloneButton();
+            this.aloneCheckBox1 = new ReaLTaiizor.AloneCheckBox();
+            this.aloneCombobox1 = new ReaLTaiizor.AloneCombobox();
+            this.aloneNotice1 = new ReaLTaiizor.AloneNotice();
+            this.aloneProgressBar1 = new ReaLTaiizor.AloneProgressBar();
+            this.aloneRadioButton1 = new ReaLTaiizor.AloneRadioButton();
+            this.aloneTextBox2 = new ReaLTaiizor.AloneTextBox();
+            this.foreverProgressBar1 = new ReaLTaiizor.ForeverProgressBar();
+            this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
+            this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
+            this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
+            this.royalButton1 = new ReaLTaiizor.RoyalButton();
+            this.SuspendLayout();
             // 
             // aloneTextBox1
             // 
-            aloneTextBox1.BackColor = System.Drawing.Color.White;
-            aloneTextBox1.EnabledCalc = true;
-            aloneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            aloneTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            aloneTextBox1.Location = new System.Drawing.Point(5, 39);
-            aloneTextBox1.MaxLength = 32767;
-            aloneTextBox1.MultiLine = false;
-            aloneTextBox1.Name = "aloneTextBox1";
-            aloneTextBox1.ReadOnly = false;
-            aloneTextBox1.Size = new System.Drawing.Size(96, 29);
-            aloneTextBox1.TabIndex = 0;
-            aloneTextBox1.Text = "aloneTextBox1";
-            aloneTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            aloneTextBox1.UseSystemPasswordChar = false;
+            this.aloneTextBox1.BackColor = System.Drawing.Color.White;
+            this.aloneTextBox1.EnabledCalc = true;
+            this.aloneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.aloneTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            this.aloneTextBox1.Location = new System.Drawing.Point(5, 39);
+            this.aloneTextBox1.MaxLength = 32767;
+            this.aloneTextBox1.MultiLine = false;
+            this.aloneTextBox1.Name = "aloneTextBox1";
+            this.aloneTextBox1.ReadOnly = false;
+            this.aloneTextBox1.Size = new System.Drawing.Size(96, 29);
+            this.aloneTextBox1.TabIndex = 0;
+            this.aloneTextBox1.Text = "aloneTextBox1";
+            this.aloneTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.aloneTextBox1.UseSystemPasswordChar = false;
             // 
             // bigTextBox1
             // 
-            bigTextBox1.BackColor = System.Drawing.Color.Transparent;
-            bigTextBox1.Font = new System.Drawing.Font("Tahoma", 11F);
-            bigTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            bigTextBox1.Image = null;
-            bigTextBox1.Location = new System.Drawing.Point(107, 39);
-            bigTextBox1.MaxLength = 32767;
-            bigTextBox1.Multiline = false;
-            bigTextBox1.Name = "bigTextBox1";
-            bigTextBox1.ReadOnly = false;
-            bigTextBox1.Size = new System.Drawing.Size(100, 41);
-            bigTextBox1.TabIndex = 1;
-            bigTextBox1.Text = "bigTextBox1";
-            bigTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            bigTextBox1.UseSystemPasswordChar = false;
+            this.bigTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.bigTextBox1.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.bigTextBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.bigTextBox1.Image = null;
+            this.bigTextBox1.Location = new System.Drawing.Point(107, 39);
+            this.bigTextBox1.MaxLength = 32767;
+            this.bigTextBox1.Multiline = false;
+            this.bigTextBox1.Name = "bigTextBox1";
+            this.bigTextBox1.ReadOnly = false;
+            this.bigTextBox1.Size = new System.Drawing.Size(100, 41);
+            this.bigTextBox1.TabIndex = 1;
+            this.bigTextBox1.Text = "bigTextBox1";
+            this.bigTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bigTextBox1.UseSystemPasswordChar = false;
             // 
             // comboBoxEdit1
             // 
-            comboBoxEdit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            comboBoxEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
-            comboBoxEdit1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            comboBoxEdit1.DropDownHeight = 100;
-            comboBoxEdit1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            comboBoxEdit1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            comboBoxEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            comboBoxEdit1.FormattingEnabled = true;
-            comboBoxEdit1.HoverSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            comboBoxEdit1.IntegralHeight = false;
-            comboBoxEdit1.ItemHeight = 20;
-            comboBoxEdit1.Items.AddRange(new object[] {
+            this.comboBoxEdit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.comboBoxEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxEdit1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxEdit1.DropDownHeight = 100;
+            this.comboBoxEdit1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEdit1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.comboBoxEdit1.FormattingEnabled = true;
+            this.comboBoxEdit1.HoverSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.comboBoxEdit1.IntegralHeight = false;
+            this.comboBoxEdit1.ItemHeight = 20;
+            this.comboBoxEdit1.Items.AddRange(new object[] {
             "Item 1",
             "Item 2",
             "Item 3"});
-            comboBoxEdit1.Location = new System.Drawing.Point(213, 39);
-            comboBoxEdit1.Name = "comboBoxEdit1";
-            comboBoxEdit1.Size = new System.Drawing.Size(72, 26);
-            comboBoxEdit1.StartIndex = 0;
-            comboBoxEdit1.TabIndex = 2;
+            this.comboBoxEdit1.Location = new System.Drawing.Point(213, 39);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Size = new System.Drawing.Size(72, 26);
+            this.comboBoxEdit1.StartIndex = 0;
+            this.comboBoxEdit1.TabIndex = 2;
             // 
             // dreamProgressBar1
             // 
-            dreamProgressBar1.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            dreamProgressBar1.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dreamProgressBar1.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dreamProgressBar1.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dreamProgressBar1.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dreamProgressBar1.Location = new System.Drawing.Point(291, 39);
-            dreamProgressBar1.Name = "dreamProgressBar1";
-            dreamProgressBar1.Size = new System.Drawing.Size(102, 29);
-            dreamProgressBar1.TabIndex = 3;
-            dreamProgressBar1.Value = 50;
+            this.dreamProgressBar1.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.dreamProgressBar1.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.dreamProgressBar1.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.dreamProgressBar1.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dreamProgressBar1.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dreamProgressBar1.Location = new System.Drawing.Point(291, 39);
+            this.dreamProgressBar1.Name = "dreamProgressBar1";
+            this.dreamProgressBar1.Size = new System.Drawing.Size(102, 29);
+            this.dreamProgressBar1.TabIndex = 3;
+            this.dreamProgressBar1.Value = 50;
             // 
             // dreamTextBox1
             // 
-            dreamTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            dreamTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dreamTextBox1.ColorA = System.Drawing.Color.Orange;
-            dreamTextBox1.ColorB = System.Drawing.Color.Crimson;
-            dreamTextBox1.ColorC = System.Drawing.Color.DodgerBlue;
-            dreamTextBox1.ColorD = System.Drawing.Color.Yellow;
-            dreamTextBox1.ColorE = System.Drawing.Color.Green;
-            dreamTextBox1.ColorF = System.Drawing.Color.Silver;
-            dreamTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(218)))), ((int)(((byte)(255)))));
-            dreamTextBox1.Location = new System.Drawing.Point(5, 86);
-            dreamTextBox1.MaxLength = 50;
-            dreamTextBox1.Name = "dreamTextBox1";
-            dreamTextBox1.Size = new System.Drawing.Size(136, 29);
-            dreamTextBox1.TabIndex = 4;
-            dreamTextBox1.Text = "dreamTextBox1";
-            dreamTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dreamTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.dreamTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dreamTextBox1.ColorA = System.Drawing.Color.Orange;
+            this.dreamTextBox1.ColorB = System.Drawing.Color.Crimson;
+            this.dreamTextBox1.ColorC = System.Drawing.Color.DodgerBlue;
+            this.dreamTextBox1.ColorD = System.Drawing.Color.Yellow;
+            this.dreamTextBox1.ColorE = System.Drawing.Color.Green;
+            this.dreamTextBox1.ColorF = System.Drawing.Color.Silver;
+            this.dreamTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(218)))), ((int)(((byte)(255)))));
+            this.dreamTextBox1.Location = new System.Drawing.Point(5, 86);
+            this.dreamTextBox1.MaxLength = 50;
+            this.dreamTextBox1.Name = "dreamTextBox1";
+            this.dreamTextBox1.Size = new System.Drawing.Size(136, 29);
+            this.dreamTextBox1.TabIndex = 4;
+            this.dreamTextBox1.Text = "dreamTextBox1";
+            this.dreamTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // foreverListBox1
             // 
-            foreverListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
-            foreverListBox1.items = new string[] {
+            this.foreverListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
+            this.foreverListBox1.items = new string[] {
         "Item 1",
         "Item 2",
         "Item 3"};
-            foreverListBox1.Location = new System.Drawing.Point(147, 86);
-            foreverListBox1.Name = "foreverListBox1";
-            foreverListBox1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            foreverListBox1.Size = new System.Drawing.Size(246, 29);
-            foreverListBox1.TabIndex = 5;
-            foreverListBox1.Text = "foreverListBox1";
+            this.foreverListBox1.Location = new System.Drawing.Point(147, 86);
+            this.foreverListBox1.Name = "foreverListBox1";
+            this.foreverListBox1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverListBox1.Size = new System.Drawing.Size(246, 29);
+            this.foreverListBox1.TabIndex = 5;
+            this.foreverListBox1.Text = "foreverListBox1";
             // 
             // aloneButton1
             // 
-            aloneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            aloneButton1.EnabledCalc = true;
-            aloneButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            aloneButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            aloneButton1.Location = new System.Drawing.Point(5, 121);
-            aloneButton1.Name = "aloneButton1";
-            aloneButton1.Size = new System.Drawing.Size(120, 40);
-            aloneButton1.TabIndex = 6;
-            aloneButton1.Text = "aloneButton1";
+            this.aloneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aloneButton1.EnabledCalc = true;
+            this.aloneButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.aloneButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            this.aloneButton1.Location = new System.Drawing.Point(5, 121);
+            this.aloneButton1.Name = "aloneButton1";
+            this.aloneButton1.Size = new System.Drawing.Size(120, 40);
+            this.aloneButton1.TabIndex = 6;
+            this.aloneButton1.Text = "aloneButton1";
             // 
             // aloneCheckBox1
             // 
-            aloneCheckBox1.BackColor = System.Drawing.Color.White;
-            aloneCheckBox1.Checked = false;
-            aloneCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            aloneCheckBox1.EnabledCalc = true;
-            aloneCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            aloneCheckBox1.Location = new System.Drawing.Point(131, 121);
-            aloneCheckBox1.Name = "aloneCheckBox1";
-            aloneCheckBox1.Size = new System.Drawing.Size(118, 18);
-            aloneCheckBox1.TabIndex = 7;
-            aloneCheckBox1.Text = "aloneCheckBox1";
+            this.aloneCheckBox1.BackColor = System.Drawing.Color.White;
+            this.aloneCheckBox1.Checked = false;
+            this.aloneCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aloneCheckBox1.EnabledCalc = true;
+            this.aloneCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            this.aloneCheckBox1.Location = new System.Drawing.Point(131, 121);
+            this.aloneCheckBox1.Name = "aloneCheckBox1";
+            this.aloneCheckBox1.Size = new System.Drawing.Size(118, 18);
+            this.aloneCheckBox1.TabIndex = 7;
+            this.aloneCheckBox1.Text = "aloneCheckBox1";
             // 
             // aloneCombobox1
             // 
-            aloneCombobox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            aloneCombobox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            aloneCombobox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            aloneCombobox1.EnabledCalc = true;
-            aloneCombobox1.FormattingEnabled = true;
-            aloneCombobox1.ItemHeight = 20;
-            aloneCombobox1.Items.AddRange(new object[] {
+            this.aloneCombobox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aloneCombobox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.aloneCombobox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.aloneCombobox1.EnabledCalc = true;
+            this.aloneCombobox1.FormattingEnabled = true;
+            this.aloneCombobox1.ItemHeight = 20;
+            this.aloneCombobox1.Items.AddRange(new object[] {
             "Item 1",
             "Item 2",
             "Item 3"});
-            aloneCombobox1.Location = new System.Drawing.Point(255, 121);
-            aloneCombobox1.Name = "aloneCombobox1";
-            aloneCombobox1.Size = new System.Drawing.Size(138, 26);
-            aloneCombobox1.TabIndex = 8;
+            this.aloneCombobox1.Location = new System.Drawing.Point(255, 121);
+            this.aloneCombobox1.Name = "aloneCombobox1";
+            this.aloneCombobox1.Size = new System.Drawing.Size(138, 26);
+            this.aloneCombobox1.TabIndex = 8;
             // 
             // aloneNotice1
             // 
-            aloneNotice1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(232)))));
-            aloneNotice1.BorderColor = System.Drawing.Color.White;
-            aloneNotice1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            aloneNotice1.Cursor = System.Windows.Forms.Cursors.Default;
-            aloneNotice1.Enabled = false;
-            aloneNotice1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(181)))), ((int)(((byte)(149)))));
-            aloneNotice1.Location = new System.Drawing.Point(5, 167);
-            aloneNotice1.Multiline = true;
-            aloneNotice1.Name = "aloneNotice1";
-            aloneNotice1.ReadOnly = true;
-            aloneNotice1.Size = new System.Drawing.Size(120, 27);
-            aloneNotice1.TabIndex = 9;
-            aloneNotice1.Text = "Deneme";
+            this.aloneNotice1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(232)))));
+            this.aloneNotice1.BorderColor = System.Drawing.Color.White;
+            this.aloneNotice1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.aloneNotice1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.aloneNotice1.Enabled = false;
+            this.aloneNotice1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(181)))), ((int)(((byte)(149)))));
+            this.aloneNotice1.Location = new System.Drawing.Point(5, 167);
+            this.aloneNotice1.Multiline = true;
+            this.aloneNotice1.Name = "aloneNotice1";
+            this.aloneNotice1.ReadOnly = true;
+            this.aloneNotice1.Size = new System.Drawing.Size(120, 27);
+            this.aloneNotice1.TabIndex = 9;
+            this.aloneNotice1.Text = "Deneme";
             // 
             // aloneProgressBar1
             // 
-            aloneProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            aloneProgressBar1.BackgroundColor = System.Drawing.Color.Green;
-            aloneProgressBar1.BorderColor = System.Drawing.Color.DodgerBlue;
-            aloneProgressBar1.Location = new System.Drawing.Point(132, 145);
-            aloneProgressBar1.Maximum = 100;
-            aloneProgressBar1.Minimum = 0;
-            aloneProgressBar1.Name = "aloneProgressBar1";
-            aloneProgressBar1.Size = new System.Drawing.Size(117, 49);
-            aloneProgressBar1.Stripes = System.Drawing.Color.DarkGreen;
-            aloneProgressBar1.TabIndex = 10;
-            aloneProgressBar1.Text = "aloneProgressBar1";
-            aloneProgressBar1.Value = 50;
+            this.aloneProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.aloneProgressBar1.BackgroundColor = System.Drawing.Color.Green;
+            this.aloneProgressBar1.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.aloneProgressBar1.Location = new System.Drawing.Point(132, 145);
+            this.aloneProgressBar1.Maximum = 100;
+            this.aloneProgressBar1.Minimum = 0;
+            this.aloneProgressBar1.Name = "aloneProgressBar1";
+            this.aloneProgressBar1.Size = new System.Drawing.Size(117, 49);
+            this.aloneProgressBar1.Stripes = System.Drawing.Color.DarkGreen;
+            this.aloneProgressBar1.TabIndex = 10;
+            this.aloneProgressBar1.Text = "aloneProgressBar1";
+            this.aloneProgressBar1.Value = 50;
             // 
             // aloneRadioButton1
             // 
-            aloneRadioButton1.BackColor = System.Drawing.Color.White;
-            aloneRadioButton1.Checked = false;
-            aloneRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            aloneRadioButton1.EnabledCalc = true;
-            aloneRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            aloneRadioButton1.Location = new System.Drawing.Point(255, 153);
-            aloneRadioButton1.Name = "aloneRadioButton1";
-            aloneRadioButton1.Size = new System.Drawing.Size(138, 18);
-            aloneRadioButton1.TabIndex = 11;
-            aloneRadioButton1.Text = "aloneRadioButton1";
+            this.aloneRadioButton1.BackColor = System.Drawing.Color.White;
+            this.aloneRadioButton1.Checked = false;
+            this.aloneRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aloneRadioButton1.EnabledCalc = true;
+            this.aloneRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            this.aloneRadioButton1.Location = new System.Drawing.Point(255, 153);
+            this.aloneRadioButton1.Name = "aloneRadioButton1";
+            this.aloneRadioButton1.Size = new System.Drawing.Size(138, 18);
+            this.aloneRadioButton1.TabIndex = 11;
+            this.aloneRadioButton1.Text = "aloneRadioButton1";
             // 
             // aloneTextBox2
             // 
-            aloneTextBox2.BackColor = System.Drawing.Color.White;
-            aloneTextBox2.EnabledCalc = true;
-            aloneTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            aloneTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            aloneTextBox2.Location = new System.Drawing.Point(255, 177);
-            aloneTextBox2.MaxLength = 32767;
-            aloneTextBox2.MultiLine = false;
-            aloneTextBox2.Name = "aloneTextBox2";
-            aloneTextBox2.ReadOnly = false;
-            aloneTextBox2.Size = new System.Drawing.Size(138, 17);
-            aloneTextBox2.TabIndex = 12;
-            aloneTextBox2.Text = "aloneTextBox2";
-            aloneTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            aloneTextBox2.UseSystemPasswordChar = false;
+            this.aloneTextBox2.BackColor = System.Drawing.Color.White;
+            this.aloneTextBox2.EnabledCalc = true;
+            this.aloneTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.aloneTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
+            this.aloneTextBox2.Location = new System.Drawing.Point(255, 177);
+            this.aloneTextBox2.MaxLength = 32767;
+            this.aloneTextBox2.MultiLine = false;
+            this.aloneTextBox2.Name = "aloneTextBox2";
+            this.aloneTextBox2.ReadOnly = false;
+            this.aloneTextBox2.Size = new System.Drawing.Size(138, 17);
+            this.aloneTextBox2.TabIndex = 12;
+            this.aloneTextBox2.Text = "aloneTextBox2";
+            this.aloneTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.aloneTextBox2.UseSystemPasswordChar = false;
             // 
             // foreverProgressBar1
             // 
-            foreverProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            foreverProgressBar1.DarkerProgress = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
-            foreverProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            foreverProgressBar1.Location = new System.Drawing.Point(5, 200);
-            foreverProgressBar1.Maximum = 100;
-            foreverProgressBar1.Name = "foreverProgressBar1";
-            foreverProgressBar1.Pattern = true;
-            foreverProgressBar1.PercentSign = true;
-            foreverProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            foreverProgressBar1.ShowBalloon = true;
-            foreverProgressBar1.Size = new System.Drawing.Size(388, 42);
-            foreverProgressBar1.TabIndex = 13;
-            foreverProgressBar1.Text = "foreverProgressBar1";
-            foreverProgressBar1.Value = 50;
+            this.foreverProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.foreverProgressBar1.DarkerProgress = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
+            this.foreverProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverProgressBar1.Location = new System.Drawing.Point(5, 200);
+            this.foreverProgressBar1.Maximum = 100;
+            this.foreverProgressBar1.Name = "foreverProgressBar1";
+            this.foreverProgressBar1.Pattern = true;
+            this.foreverProgressBar1.PercentSign = true;
+            this.foreverProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverProgressBar1.ShowBalloon = true;
+            this.foreverProgressBar1.Size = new System.Drawing.Size(388, 42);
+            this.foreverProgressBar1.TabIndex = 13;
+            this.foreverProgressBar1.Text = "foreverProgressBar1";
+            this.foreverProgressBar1.Value = 50;
             // 
             // foreverTreeView1
             // 
-            foreverTreeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            foreverTreeView1.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
-            foreverTreeView1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            foreverTreeView1.ForeColor = System.Drawing.Color.White;
-            foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
-            foreverTreeView1.Location = new System.Drawing.Point(5, 248);
-            foreverTreeView1.Name = "foreverTreeView1";
+            this.foreverTreeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.foreverTreeView1.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
+            this.foreverTreeView1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.foreverTreeView1.ForeColor = System.Drawing.Color.White;
+            this.foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
+            this.foreverTreeView1.Location = new System.Drawing.Point(5, 248);
+            this.foreverTreeView1.Name = "foreverTreeView1";
             treeNode1.Name = "Düğüm2";
             treeNode1.Text = "Düğüm2";
             treeNode2.Name = "Düğüm1";
@@ -326,95 +326,100 @@
             treeNode11.Text = "Düğüm8";
             treeNode12.Name = "Düğüm1";
             treeNode12.Text = "Düğüm1";
-            foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            this.foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode3,
             treeNode7,
             treeNode12});
-            foreverTreeView1.Size = new System.Drawing.Size(388, 22);
-            foreverTreeView1.TabIndex = 14;
+            this.foreverTreeView1.Size = new System.Drawing.Size(388, 22);
+            this.foreverTreeView1.TabIndex = 14;
             // 
             // foxTextBox1
             // 
-            foxTextBox1.BackColor = System.Drawing.Color.Red;
-            foxTextBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            foxTextBox1.EnabledCalc = true;
-            foxTextBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            foxTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            foxTextBox1.Location = new System.Drawing.Point(399, 39);
-            foxTextBox1.MaxLength = 32767;
-            foxTextBox1.MultiLine = false;
-            foxTextBox1.Name = "foxTextBox1";
-            foxTextBox1.ReadOnly = false;
-            foxTextBox1.Size = new System.Drawing.Size(117, 32);
-            foxTextBox1.TabIndex = 15;
-            foxTextBox1.Text = "foxTextbox1";
-            foxTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            foxTextBox1.UseSystemPasswordChar = false;
+            this.foxTextBox1.BackColor = System.Drawing.Color.Red;
+            this.foxTextBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foxTextBox1.EnabledCalc = true;
+            this.foxTextBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foxTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.foxTextBox1.Location = new System.Drawing.Point(399, 39);
+            this.foxTextBox1.MaxLength = 32767;
+            this.foxTextBox1.MultiLine = false;
+            this.foxTextBox1.Name = "foxTextBox1";
+            this.foxTextBox1.ReadOnly = false;
+            this.foxTextBox1.Size = new System.Drawing.Size(117, 32);
+            this.foxTextBox1.TabIndex = 15;
+            this.foxTextBox1.Text = "foxTextbox1";
+            this.foxTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.foxTextBox1.UseSystemPasswordChar = false;
             // 
             // hopeComboBox1
             // 
-            hopeComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            hopeComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            hopeComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            hopeComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            hopeComboBox1.FormattingEnabled = true;
-            hopeComboBox1.ItemHeight = 30;
-            hopeComboBox1.Items.AddRange(new object[] {
+            this.hopeComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.hopeComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hopeComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.hopeComboBox1.FormattingEnabled = true;
+            this.hopeComboBox1.ItemHeight = 30;
+            this.hopeComboBox1.Items.AddRange(new object[] {
             "Item 1",
             "Item 2",
             "Item 3"});
-            hopeComboBox1.Location = new System.Drawing.Point(522, 39);
-            hopeComboBox1.Name = "hopeComboBox1";
-            hopeComboBox1.Size = new System.Drawing.Size(121, 36);
-            hopeComboBox1.TabIndex = 16;
-            hopeComboBox1.Text = "Item 1";
+            this.hopeComboBox1.Location = new System.Drawing.Point(522, 39);
+            this.hopeComboBox1.Name = "hopeComboBox1";
+            this.hopeComboBox1.Size = new System.Drawing.Size(121, 36);
+            this.hopeComboBox1.TabIndex = 16;
+            this.hopeComboBox1.Text = "Item 1";
             // 
-            // moonButton1
+            // royalButton1
             // 
-            moonButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            moonButton1.Customization = "/////9PT0//w8PD/gICA/w==";
-            moonButton1.Font = new System.Drawing.Font("Verdana", 8F);
-            moonButton1.Image = null;
-            moonButton1.Location = new System.Drawing.Point(671, 245);
-            moonButton1.Name = "moonButton1";
-            moonButton1.NoRounding = false;
-            moonButton1.Size = new System.Drawing.Size(120, 26);
-            moonButton1.TabIndex = 17;
-            moonButton1.Text = "moonButton1";
-            moonButton1.Transparent = false;
+            this.royalButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.royalButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.royalButton1.BorderThickness = 3;
+            this.royalButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.royalButton1.DrawBorder = true;
+            this.royalButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.royalButton1.HotTrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.royalButton1.Image = null;
+            this.royalButton1.LayoutFlags = ReaLTaiizor.RoyalLayoutFlags.ImageBeforeText;
+            this.royalButton1.Location = new System.Drawing.Point(671, 230);
+            this.royalButton1.Name = "royalButton1";
+            this.royalButton1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
+            this.royalButton1.PressedForeColor = System.Drawing.Color.White;
+            this.royalButton1.Size = new System.Drawing.Size(120, 40);
+            this.royalButton1.TabIndex = 17;
+            this.royalButton1.Text = "royalButton1";
             // 
             // Catcher
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            ClientSize = new System.Drawing.Size(796, 276);
-            Controls.Add(moonButton1);
-            Controls.Add(hopeComboBox1);
-            Controls.Add(foxTextBox1);
-            Controls.Add(foreverTreeView1);
-            Controls.Add(foreverProgressBar1);
-            Controls.Add(aloneTextBox2);
-            Controls.Add(aloneRadioButton1);
-            Controls.Add(aloneProgressBar1);
-            Controls.Add(aloneNotice1);
-            Controls.Add(aloneCombobox1);
-            Controls.Add(aloneCheckBox1);
-            Controls.Add(aloneButton1);
-            Controls.Add(foreverListBox1);
-            Controls.Add(dreamTextBox1);
-            Controls.Add(dreamProgressBar1);
-            Controls.Add(comboBoxEdit1);
-            Controls.Add(bigTextBox1);
-            Controls.Add(aloneTextBox1);
-            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
-            Image = global::ReaLTaiizor_CR.Properties.Resources.Fork2;
-            MaximizeBox = false;
-            Name = "Catcher";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Catcher";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.ClientSize = new System.Drawing.Size(796, 276);
+            this.Controls.Add(this.royalButton1);
+            this.Controls.Add(this.hopeComboBox1);
+            this.Controls.Add(this.foxTextBox1);
+            this.Controls.Add(this.foreverTreeView1);
+            this.Controls.Add(this.foreverProgressBar1);
+            this.Controls.Add(this.aloneTextBox2);
+            this.Controls.Add(this.aloneRadioButton1);
+            this.Controls.Add(this.aloneProgressBar1);
+            this.Controls.Add(this.aloneNotice1);
+            this.Controls.Add(this.aloneCombobox1);
+            this.Controls.Add(this.aloneCheckBox1);
+            this.Controls.Add(this.aloneButton1);
+            this.Controls.Add(this.foreverListBox1);
+            this.Controls.Add(this.dreamTextBox1);
+            this.Controls.Add(this.dreamProgressBar1);
+            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.bigTextBox1);
+            this.Controls.Add(this.aloneTextBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Image = global::ReaLTaiizor_CR.Properties.Resources.Fork2;
+            this.MaximizeBox = false;
+            this.Name = "Catcher";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Catcher";
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -437,6 +442,6 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.MoonButton moonButton1;
+        private ReaLTaiizor.RoyalButton royalButton1;
     }
 }
