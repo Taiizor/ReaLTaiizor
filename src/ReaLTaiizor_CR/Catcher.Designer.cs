@@ -67,7 +67,8 @@
             this.foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
-            this.royalButton1 = new ReaLTaiizor.RoyalButton();
+            this.royalScrollBar1 = new ReaLTaiizor.RoyalScrollBar();
+            this.skyButton1 = new ReaLTaiizor.SkyButton();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -369,24 +370,33 @@
             this.hopeComboBox1.TabIndex = 16;
             this.hopeComboBox1.Text = "Item 1";
             // 
-            // royalButton1
+            // royalScrollBar1
             // 
-            this.royalButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.royalButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.royalButton1.BorderThickness = 3;
-            this.royalButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.royalButton1.DrawBorder = true;
-            this.royalButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.royalButton1.HotTrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.royalButton1.Image = null;
-            this.royalButton1.LayoutFlags = ReaLTaiizor.RoyalLayoutFlags.ImageBeforeText;
-            this.royalButton1.Location = new System.Drawing.Point(671, 230);
-            this.royalButton1.Name = "royalButton1";
-            this.royalButton1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
-            this.royalButton1.PressedForeColor = System.Drawing.Color.White;
-            this.royalButton1.Size = new System.Drawing.Size(120, 40);
-            this.royalButton1.TabIndex = 17;
-            this.royalButton1.Text = "royalButton1";
+            this.royalScrollBar1.GutterColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.royalScrollBar1.LargeChange = 100;
+            this.royalScrollBar1.Location = new System.Drawing.Point(649, 39);
+            this.royalScrollBar1.Max = 10;
+            this.royalScrollBar1.Min = 1;
+            this.royalScrollBar1.Name = "royalScrollBar1";
+            this.royalScrollBar1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.royalScrollBar1.Size = new System.Drawing.Size(142, 36);
+            this.royalScrollBar1.SmallChange = 1;
+            this.royalScrollBar1.TabIndex = 17;
+            this.royalScrollBar1.Text = "royalScrollBar1";
+            this.royalScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
+            this.royalScrollBar1.Value = 5;
+            // 
+            // skyButton1
+            // 
+            this.skyButton1.BackColor = System.Drawing.Color.Transparent;
+            this.skyButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.skyButton1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.skyButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyButton1.Location = new System.Drawing.Point(716, 247);
+            this.skyButton1.Name = "skyButton1";
+            this.skyButton1.Size = new System.Drawing.Size(75, 23);
+            this.skyButton1.TabIndex = 18;
+            this.skyButton1.Text = "skyButton1";
             // 
             // Catcher
             // 
@@ -394,7 +404,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
-            this.Controls.Add(this.royalButton1);
+            this.Controls.Add(this.skyButton1);
+            this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
@@ -442,6 +453,7 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.RoyalButton royalButton1;
+        private ReaLTaiizor.RoyalScrollBar royalScrollBar1;
+        private ReaLTaiizor.SkyButton skyButton1;
     }
 }

@@ -18,14 +18,14 @@ namespace ReaLTaiizor
         public Color GutterColor
         {
             get { return gutterColor; }
-            set { gutterColor = value; }
+            set { gutterColor = value; Invalidate(); }
         }
 
         Color thumbColor;
         public Color ThumbColor
         {
             get { return thumbColor; }
-            set { thumbColor = value; }
+            set { thumbColor = value; Invalidate(); }
         }
 
         int _value;
@@ -43,6 +43,7 @@ namespace ReaLTaiizor
                     _value = value;
                     ValueChanged(this, EventArgs.Empty);
                 }
+                Invalidate();
             }
         }
 
@@ -50,7 +51,7 @@ namespace ReaLTaiizor
         public int Min
         {
             get { return min; }
-            set { min = value; }
+            set { min = value; Invalidate(); }
         }
 
         int max;
@@ -77,6 +78,7 @@ namespace ReaLTaiizor
                 }
 
                 Refresh();
+                Invalidate();
             }
         }
 
@@ -84,14 +86,14 @@ namespace ReaLTaiizor
         public int SmallChange
         {
             get { return smallChange; }
-            set { smallChange = value; }
+            set { smallChange = value; Invalidate(); }
         }
 
         int largeChange;
         public int LargeChange
         {
             get { return largeChange; }
-            set { largeChange = value; }
+            set { largeChange = value; Invalidate(); }
         }
 
         double thumbSize;
@@ -102,7 +104,7 @@ namespace ReaLTaiizor
         public Orientation Orientation
         {
             get { return orientation; }
-            set { orientation = value; }
+            set { orientation = value; Invalidate(); }
         }
 
         public RoyalScrollBar()
