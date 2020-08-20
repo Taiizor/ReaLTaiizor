@@ -27,6 +27,9 @@ namespace ReaLTaiizor
         private Color _BaseColor = Color.Transparent;
         private Color _EdgeColor = Color.White;
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
+        private Color _TextBackColor = Color.White;
+        private Font _TextFont = new Font("Tahoma", 10);
+        private BorderStyle _TextBorderStyle = BorderStyle.None;
 
         #endregion
         #region Properties
@@ -119,6 +122,36 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
+        public Color TextBackColor
+        {
+            get { return _TextBackColor; }
+            set
+            {
+                _TextBackColor = value;
+                Invalidate();
+            }
+        }
+
+        public Font TextFont
+        {
+            get { return _TextFont; }
+            set
+            {
+                _TextFont = value;
+                Invalidate();
+            }
+        }
+
+        public BorderStyle TextBorderStyle
+        {
+            get { return _TextBorderStyle; }
+            set
+            {
+                _TextBorderStyle = value;
+                Invalidate();
+            }
+        }
         #endregion
         #region EventArgs
 
@@ -169,12 +202,12 @@ namespace ReaLTaiizor
         public void AddRichTextBox()
         {
             var _RTB = RT_RTB;
-            _RTB.BackColor = Color.White;
+            _RTB.BackColor = TextBackColor;
             _RTB.Size = new Size(Width - 10, 100);
             _RTB.Location = new Point(7, 5);
             _RTB.Text = string.Empty;
-            _RTB.BorderStyle = BorderStyle.None;
-            _RTB.Font = new Font("Tahoma", 10);
+            _RTB.BorderStyle = TextBorderStyle;
+            _RTB.Font = TextFont;
             _RTB.Multiline = true;
         }
 
