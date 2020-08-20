@@ -2,6 +2,7 @@
 
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
@@ -28,6 +29,7 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
         private int _Value = 0;
         public int Value
         {
@@ -47,6 +49,7 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
         private bool _ShowPercentage = false;
         public bool ShowPercentage
         {
@@ -64,10 +67,11 @@ namespace ReaLTaiizor
             // Dim tmr As New Timer With {.Interval = Speed}
             // AddHandler tmr.Tick, AddressOf Animate
             // tmr.Start()
-            System.Threading.Thread T = new System.Threading.Thread(Animate);
+            Thread T = new Thread(Animate);
             T.IsBackground = true;
             //T.Start()
         }
+
         public void Animate()
         {
             while (true)
@@ -77,7 +81,29 @@ namespace ReaLTaiizor
                 else
                     OFS = 0;
                 Invalidate();
-                System.Threading.Thread.Sleep(Speed);
+                Thread.Sleep(Speed);
+            }
+        }
+
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        private string _PercentageText = "%";
+        public string PercentageText
+        {
+            get { return _PercentageText; }
+            set
+            {
+                _PercentageText = value;
+                Invalidate();
             }
         }
         #endregion
@@ -95,7 +121,7 @@ namespace ReaLTaiizor
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.SmoothingMode = SmoothingType;
 
             int intValue = Convert.ToInt32((Convert.ToDouble(_Value) / Convert.ToDouble(_Maximum)) * Width);
             G.Clear(BackColor);
@@ -116,7 +142,7 @@ namespace ReaLTaiizor
 
             if (_ShowPercentage)
             {
-                G.DrawString(Convert.ToString(string.Concat(Value, "%")), Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 1, Height - 1), new StringFormat
+                G.DrawString(Convert.ToString(string.Concat(Value, PercentageText)), Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 1, Height - 1), new StringFormat
                 {
                     Alignment = StringAlignment.Center,
                     LineAlignment = StringAlignment.Center
