@@ -206,6 +206,28 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
+        private Color _ProgressLineColorA = Color.FromArgb(40, Color.White);
+        public Color ProgressLineColorA
+        {
+            get { return _ProgressLineColorA; }
+            set
+            {
+                _ProgressLineColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _ProgressLineColorB = Color.FromArgb(20, Color.White);
+        public Color ProgressLineColorB
+        {
+            get { return _ProgressLineColorB; }
+            set
+            {
+                _ProgressLineColorB = value;
+                Invalidate();
+            }
+        }
         #endregion
 
         public RibbonProgressBarRight() : base()
@@ -232,7 +254,7 @@ namespace ReaLTaiizor
 
             LinearGradientBrush g1 = new LinearGradientBrush(new Rectangle(2, 2, intValue - 1, Height - 2), ProgressColorA, ProgressColorB, 90);
             G.FillPath(g1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
-            HatchBrush h1 = new HatchBrush(HatchStyle.DarkUpwardDiagonal, Color.FromArgb(40, Color.White), Color.FromArgb(20, Color.White));
+            HatchBrush h1 = new HatchBrush(HatchStyle.DarkUpwardDiagonal, ProgressLineColorA, ProgressLineColorB);
             G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
 
             if (ShowEdge)
