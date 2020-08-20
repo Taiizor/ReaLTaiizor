@@ -64,12 +64,8 @@ namespace ReaLTaiizor
         protected override void CreateHandle()
         {
             base.CreateHandle();
-            // Dim tmr As New Timer With {.Interval = Speed}
-            // AddHandler tmr.Tick, AddressOf Animate
-            // tmr.Start()
             Thread T = new Thread(Animate);
             T.IsBackground = true;
-            //T.Start()
         }
 
         public void Animate()
@@ -106,6 +102,28 @@ namespace ReaLTaiizor
                 Invalidate();
             }
         }
+
+        private Color _ProgressBorderColorA = Color.FromArgb(150, 97, 94, 90);
+        public Color ProgressBorderColorA
+        {
+            get { return _ProgressBorderColorA; }
+            set
+            {
+                _ProgressBorderColorA = value;
+                Invalidate();
+            }
+        }
+
+        private Color _ProgressBorderColorB = Color.FromArgb(142, 107, 46);
+        public Color ProgressBorderColorB
+        {
+            get { return _ProgressBorderColorB; }
+            set
+            {
+                _ProgressBorderColorB = value;
+                Invalidate();
+            }
+        }
         #endregion
 
         public RibbonProgressBarCenter() : base()
@@ -137,8 +155,8 @@ namespace ReaLTaiizor
             //G.DrawPath(New Pen(Color.FromArgb(125, 97, 94, 90)), Draw.RoundRect(New Rectangle(0, 1, Width - 1, Height - 3), 2))
             G.DrawPath(new Pen(Color.FromArgb(117, 120, 117)), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
 
-            G.DrawPath(new Pen(Color.FromArgb(150, 97, 94, 90)), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
-            G.DrawPath(new Pen(Color.FromArgb(142, 107, 46)), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
+            G.DrawPath(new Pen(ProgressBorderColorA), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
+            G.DrawPath(new Pen(ProgressBorderColorB), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
 
             if (_ShowPercentage)
             {
