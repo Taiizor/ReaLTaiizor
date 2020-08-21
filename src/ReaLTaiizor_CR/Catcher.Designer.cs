@@ -69,6 +69,7 @@
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.RoyalScrollBar();
             this.skyButton1 = new ReaLTaiizor.SkyButton();
+            this.extendedPanel1 = new ReaLTaiizor.ExtendedPanel();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -398,12 +399,23 @@
             this.skyButton1.TabIndex = 18;
             this.skyButton1.Text = "skyButton1";
             // 
+            // extendedPanel1
+            // 
+            this.extendedPanel1.BackColor = System.Drawing.Color.Black;
+            this.extendedPanel1.Location = new System.Drawing.Point(399, 81);
+            this.extendedPanel1.Name = "extendedPanel1";
+            this.extendedPanel1.Opacity = 50;
+            this.extendedPanel1.Size = new System.Drawing.Size(392, 41);
+            this.extendedPanel1.TabIndex = 19;
+            this.extendedPanel1.TopMost = true;
+            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 276);
+            this.Controls.Add(this.extendedPanel1);
             this.Controls.Add(this.skyButton1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
@@ -455,5 +467,6 @@
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.RoyalScrollBar royalScrollBar1;
         private ReaLTaiizor.SkyButton skyButton1;
+        private ReaLTaiizor.ExtendedPanel extendedPanel1;
     }
 }

@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 15.May.2019
-//     Changed: 20.Aug.2020
+//     Changed: 21.Aug.2020
 //     Version: 3.7.7.5
 //
 // |---------DO-NOT-REMOVE---------|
@@ -830,6 +830,54 @@ namespace ReaLTaiizor
     }
 
     #endregion
+
+    #endregion
+
+    #region PaintHelper
+
+    public abstract class PaintHelperA
+    {
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
+
+        private const int WM_SETREDRAW = 11;
+
+        public static void Suspend(Control Parent)
+        {
+            SendMessage(Parent.Handle, WM_SETREDRAW, false, 0);
+        }
+
+        public static void Resume(Control Parent)
+        {
+            SendMessage(Parent.Handle, WM_SETREDRAW, true, 0);
+            Parent.Refresh();
+        }
+    }
+
+    public abstract class PaintHelperB
+    {
+        private const int WM_SETREDRAW = 0x000B;
+
+        public static void Suspend(Control Parent)
+        {
+            Message msgSuspendUpdate = Message.Create(Parent.Handle, WM_SETREDRAW, IntPtr.Zero, IntPtr.Zero);
+
+            NativeWindow window = NativeWindow.FromHandle(Parent.Handle);
+            window.DefWndProc(ref msgSuspendUpdate);
+        }
+
+        public static void Resume(Control Parent)
+        {
+            // Create a C "true" boolean as an IntPtr
+            IntPtr wparam = new IntPtr(1);
+            Message msgResumeUpdate = Message.Create(Parent.Handle, WM_SETREDRAW, wparam, IntPtr.Zero);
+
+            NativeWindow window = NativeWindow.FromHandle(Parent.Handle);
+            window.DefWndProc(ref msgResumeUpdate);
+
+            Parent.Invalidate();
+        }
+    }
 
     #endregion
 
@@ -9332,11 +9380,7 @@ namespace ReaLTaiizor
             if (HasShadow)
             {
                 for (int i = 0; i < ShadowLevel; i++)
-                {
-                    g.DrawRectangle(
-                        new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)),
-                        ShadeRect(i));
-                }
+                    g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
             }
         }
 
