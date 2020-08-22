@@ -14,7 +14,7 @@ namespace ReaLTaiizor
     {
         private const int WS_EX_TRANSPARENT = 0x20;
 
-        readonly Timer Timer = new Timer()
+        readonly Timer Most = new Timer()
         {
             Interval = 1
         };
@@ -22,7 +22,8 @@ namespace ReaLTaiizor
         public enum Drawer
         {
             Default,
-            Image
+            Image,
+            Debug
         }
 
         private Drawer _DrawMode = Drawer.Default;
@@ -31,6 +32,19 @@ namespace ReaLTaiizor
             get { return _DrawMode; }
             set
             {
+                if (value == Drawer.Image)
+                {
+                    SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+                    SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+                    SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+                }
+                else
+                {
+                    SetStyle(ControlStyles.AllPaintingInWmPaint, false);
+                    SetStyle(ControlStyles.OptimizedDoubleBuffer, false);
+                    SetStyle(ControlStyles.SupportsTransparentBackColor, false);
+                }
+
                 _DrawMode = value;
                 Invalidate();
             }
@@ -68,9 +82,6 @@ namespace ReaLTaiizor
             SetStyle(ControlStyles.Opaque, true);
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.ResizeRedraw, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
         }
 
@@ -114,13 +125,13 @@ namespace ReaLTaiizor
                     break;
             }
 
-            if (TopMost && !Timer.Enabled)
+            if (TopMost && !Most.Enabled)
             {
-                Timer.Tick += new EventHandler(Timer_Tick);
-                Timer.Start();
+                Most.Tick += new EventHandler(Most_Tick);
+                Most.Start();
             }
-            else if (!TopMost && Timer.Enabled)
-                Timer.Stop();
+            else if (!TopMost && Most.Enabled)
+                Most.Stop();
 
             base.OnPaint(e);
         }
@@ -144,9 +155,8 @@ namespace ReaLTaiizor
             base.OnParentBackColorChanged(e);
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void Most_Tick(object sender, EventArgs e)
         {
-
             switch (DrawMode)
             {
                 case Drawer.Default:
@@ -160,6 +170,23 @@ namespace ReaLTaiizor
                     Graph = CreateGraphics();
                     Graph.CopyFromScreen(PointToScreen(new Point(0, 0)), new Point(0, 0), new Size(Width, Height));
                     Graph.FillRectangle(new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)), new Rectangle(new Point(0, 0), Size));
+                    break;
+                case Drawer.Debug:
+                    foreach (Control C in FindForm().Controls)
+                    {
+                        try
+                        {
+                            ExtendedPanel EP = C as ExtendedPanel;
+                            EP.BringToFront();
+                            FindForm().Controls.SetChildIndex(C, 0);
+                            EP.UpdateZOrder();
+                            EP.Invalidate();
+                        }
+                        catch
+                        {
+                            //
+                        }
+                    }
                     break;
                 default:
                     break;
