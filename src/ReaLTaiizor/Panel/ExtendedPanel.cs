@@ -185,13 +185,13 @@ namespace ReaLTaiizor
                     Graph.FillRectangle(new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)), new Rectangle(new Point(0, 0), Size));
                     break;
                 case Drawer.Debug:
-                    foreach (Control C in FindForm().Controls)
+                    foreach (Control CTRL in FindForm().Controls)
                     {
                         try
                         {
-                            ExtendedPanel EP = C as ExtendedPanel;
+                            ExtendedPanel EP = CTRL as ExtendedPanel;
                             EP.BringToFront();
-                            FindForm().Controls.SetChildIndex(C, 0);
+                            FindForm().Controls.SetChildIndex(CTRL, 0);
                             EP.UpdateZOrder();
                             EP.Invalidate();
                         }
