@@ -16,7 +16,7 @@ namespace ReaLTaiizor
 
         readonly Timer Most = new Timer()
         {
-            Interval = 1
+            Interval = 100
         };
 
         public enum Drawer
@@ -73,6 +73,19 @@ namespace ReaLTaiizor
                 if (value < 0 || value > 100)
                     value = 0;
                 _Opacity = value;
+                Invalidate();
+            }
+        }
+
+        public int MostInterval
+        {
+            get
+            {
+                return Most.Interval;
+            }
+            set
+            {
+                Most.Interval = value;
                 Invalidate();
             }
         }

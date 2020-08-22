@@ -402,8 +402,9 @@
             // extendedPanel1
             // 
             this.extendedPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.extendedPanel1.DrawMode = ReaLTaiizor.ExtendedPanel.Drawer.Image;
+            this.extendedPanel1.DrawMode = ReaLTaiizor.ExtendedPanel.Drawer.Default;
             this.extendedPanel1.Location = new System.Drawing.Point(399, 81);
+            this.extendedPanel1.MostInterval = 100;
             this.extendedPanel1.Name = "extendedPanel1";
             this.extendedPanel1.Opacity = 50;
             this.extendedPanel1.Size = new System.Drawing.Size(392, 66);
