@@ -19,6 +19,23 @@ namespace ReaLTaiizor
             Interval = 1
         };
 
+        public enum Drawer
+        {
+            Default,
+            Image
+        }
+
+        private Drawer _DrawMode = Drawer.Default;
+        public Drawer DrawMode
+        {
+            get { return _DrawMode; }
+            set
+            {
+                _DrawMode = value;
+                Invalidate();
+            }
+        }
+
         private bool _TopMost = true;
         public bool TopMost
         {
@@ -50,6 +67,9 @@ namespace ReaLTaiizor
         {
             SetStyle(ControlStyles.Opaque, true);
             SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
         }
@@ -79,13 +99,25 @@ namespace ReaLTaiizor
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            using (var Brush = new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)))
-                e.Graphics.FillRectangle(Brush, ClientRectangle);
+            switch (DrawMode)
+            {
+                case Drawer.Default:
+                    using (var Brush = new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)))
+                        e.Graphics.FillRectangle(Brush, ClientRectangle);
+                    break;
+                case Drawer.Image:
+                    e.Graphics.Clear(BackColor);
+                    e.Graphics.CopyFromScreen(PointToScreen(new Point(0, 0)), new Point(0, 0), new Size(Width, Height));
+                    e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)), new Rectangle(new Point(0, 0), Size));
+                    break;
+                default:
+                    break;
+            }
 
             if (TopMost && !Timer.Enabled)
             {
                 Timer.Tick += new EventHandler(Timer_Tick);
-                //Timer.Start();
+                Timer.Start();
             }
             else if (!TopMost && Timer.Enabled)
                 Timer.Stop();
@@ -114,7 +146,24 @@ namespace ReaLTaiizor
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            PaintHelperA.Resume(this);
+
+            switch (DrawMode)
+            {
+                case Drawer.Default:
+                    Invalidate();
+                    //PaintHelperA.Resume(this);
+                    //PaintHelperB.Suspend(this);
+                    break;
+                case Drawer.Image:
+                    //BackColor = Color.FromArgb(Opacity * 255 / 100, BackColor);
+                    Graphics Graph = null;
+                    Graph = CreateGraphics();
+                    Graph.CopyFromScreen(PointToScreen(new Point(0, 0)), new Point(0, 0), new Size(Width, Height));
+                    Graph.FillRectangle(new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)), new Rectangle(new Point(0, 0), Size));
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

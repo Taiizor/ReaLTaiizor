@@ -401,13 +401,14 @@
             // 
             // extendedPanel1
             // 
-            this.extendedPanel1.BackColor = System.Drawing.Color.Black;
-            this.extendedPanel1.Location = new System.Drawing.Point(399, 83);
+            this.extendedPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.extendedPanel1.DrawMode = ReaLTaiizor.ExtendedPanel.Drawer.Image;
+            this.extendedPanel1.Location = new System.Drawing.Point(399, 81);
             this.extendedPanel1.Name = "extendedPanel1";
             this.extendedPanel1.Opacity = 50;
-            this.extendedPanel1.Size = new System.Drawing.Size(392, 88);
+            this.extendedPanel1.Size = new System.Drawing.Size(392, 66);
             this.extendedPanel1.TabIndex = 19;
-            this.extendedPanel1.TopMost = true;
+            this.extendedPanel1.TopMost = false;
             // 
             // Catcher
             // 
