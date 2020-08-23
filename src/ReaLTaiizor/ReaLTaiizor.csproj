@@ -34,12 +34,12 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Material\Roboto-Black.ttf" />
-    <EmbeddedResource Include="Resources\Material\Roboto-Bold.ttf" />
-    <EmbeddedResource Include="Resources\Material\Roboto-Light.ttf" />
-    <EmbeddedResource Include="Resources\Material\Roboto-Medium.ttf" />
-    <EmbeddedResource Include="Resources\Material\Roboto-Regular.ttf" />
-    <EmbeddedResource Include="Resources\Material\Roboto-Thin.ttf" />
+    <Resource Include="Resources\Material\Roboto-Black.ttf" />
+    <Resource Include="Resources\Material\Roboto-Bold.ttf" />
+    <Resource Include="Resources\Material\Roboto-Light.ttf" />
+    <Resource Include="Resources\Material\Roboto-Medium.ttf" />
+    <Resource Include="Resources\Material\Roboto-Regular.ttf" />
+    <Resource Include="Resources\Material\Roboto-Thin.ttf" />
   </ItemGroup>
 
   <ItemGroup>

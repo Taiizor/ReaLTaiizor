@@ -25,7 +25,7 @@ using System.Runtime.InteropServices;
 //     Site   : www.Taiizor.com
 //     Created: 15.May.2019
 //     Changed: 23.Aug.2020
-//     Version: 3.7.7.5
+//     Version: 3.7.7.6
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -10816,9 +10816,6 @@ namespace ReaLTaiizor
 
         public event SkinManagerEventHandler ThemeChanged;
 
-        /// <summary>
-        /// Set this property to false to stop enforcing the backcolor on non-materialSkin components
-        /// </summary>
         public bool EnforceBackcolorOnAllComponents = true;
 
         public static MaterialSkinManager Instance => _instance ?? (_instance = new MaterialSkinManager());
@@ -11122,6 +11119,7 @@ namespace ReaLTaiizor
             Marshal.Copy(fontdata, 0, ptrFont, dataLength);
 
             // GDI Font
+            uint cFonts = 0;
             MaterialNativeTextRenderer.AddFontMemResourceEx(fontdata, dataLength, IntPtr.Zero, out _);
 
             // GDI+ Font
