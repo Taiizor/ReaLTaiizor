@@ -26,6 +26,55 @@ namespace ReaLTaiizor
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
+        public enum TextState
+        {
+            Upper,
+            Lower,
+            Normal
+        }
+
+        private TextState _TitleTextState = TextState.Normal;
+        public TextState TitleTextState
+        {
+            get { return _TitleTextState; }
+            set
+            {
+                _TitleTextState = value;
+                Invalidate();
+            }
+        }
+
+        public enum Alignment
+        {
+            Left,
+            Center,
+            Right
+        }
+
+        private Alignment _HeadAlignment = Alignment.Left;
+        public Alignment HeadAlignment
+        {
+            get { return _HeadAlignment; }
+            set
+            {
+                _HeadAlignment = value;
+                Invalidate();
+            }
+        }
+
+        private string TitleText (string Text)
+        {
+            switch (TitleTextState)
+            {
+                case TextState.Upper:
+                    return Text.ToUpperInvariant();
+                case TextState.Lower:
+                    return Text.ToLowerInvariant();
+                default:
+                    return Text;
+            }
+        }
+
         private MaterialTabControl _baseTabControl;
 
         public MaterialTabControl BaseTabControl
@@ -122,7 +171,7 @@ namespace ReaLTaiizor
                 {
                     Rectangle textLocation = _tabRects[currentTabIndex];
                     NativeText.DrawTransparentText(
-                        tabPage.Text.ToUpper(),
+                        TitleText(tabPage.Text),
                         SkinManager.getLogFontByType(MaterialSkinManager.fontType.Button),
                         Color.FromArgb(CalculateTextAlpha(currentTabIndex, animationProgress), SkinManager.ColorScheme.TextColor),
                         textLocation.Location,
@@ -184,9 +233,21 @@ namespace ReaLTaiizor
             {
                 using (var g = Graphics.FromImage(b))
                 {
-                    _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
-                    for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
-                        _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
+                    switch (HeadAlignment)
+                    {
+                        case Alignment.Center:
+                            break;
+                        case Alignment.Right:
+                            _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                            for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
+                                _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
+                            break;
+                        default:
+                            _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                            for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
+                                _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
+                            break;
+                    }
                 }
             }
         }

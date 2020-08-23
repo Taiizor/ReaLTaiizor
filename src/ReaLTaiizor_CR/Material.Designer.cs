@@ -126,6 +126,7 @@
             this.materialTabControl1.Location = new System.Drawing.Point(277, 116);
             this.materialTabControl1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
+            this.materialTabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(447, 240);
             this.materialTabControl1.TabIndex = 8;
@@ -145,7 +146,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.Size = new System.Drawing.Size(439, 214);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -155,12 +156,14 @@
             this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
             this.materialTabSelector1.Depth = 0;
             this.materialTabSelector1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTabSelector1.HeadAlignment = ReaLTaiizor.MaterialTabSelector.Alignment.Right;
             this.materialTabSelector1.Location = new System.Drawing.Point(277, 85);
             this.materialTabSelector1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(443, 25);
-            this.materialTabSelector1.TabIndex = 0;
+            this.materialTabSelector1.Size = new System.Drawing.Size(447, 25);
+            this.materialTabSelector1.TabIndex = 9;
             this.materialTabSelector1.Text = "materialTabSelector1";
+            this.materialTabSelector1.TitleTextState = ReaLTaiizor.MaterialTabSelector.TextState.Normal;
             // 
             // Material
             // 
