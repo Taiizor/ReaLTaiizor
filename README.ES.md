@@ -59,6 +59,17 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<a href="https://github.com/Soferity" target="_blank" title="Contenido">🖋</a>
 	</td>
 	<td align="center">
+		<a href="https://github.com/donaldsteele">
+			<img src="https://avatars3.githubusercontent.com/u/8108109?s=200&v=4" width="80px;" alt="donaldsteele"/>
+			<br/>
+			<sub>
+				<b>donaldsteele</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/donaldsteele" target="_blank" title="Código">💻</a>
+	</td>
+	<td align="center">
 		<a href="https://github.com/leocb">
 			<img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb"/>
 			<br/>
