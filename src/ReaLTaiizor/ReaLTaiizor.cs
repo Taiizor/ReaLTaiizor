@@ -10665,7 +10665,7 @@ namespace ReaLTaiizor
         DeepOrange700 = 0xDD2C00
     }
 
-    internal static class MaterialExtensions
+    public static class MaterialExtensions
     {
         public static bool HasProperty(this object objectToCheck, string propertyName)
         {
@@ -10718,7 +10718,7 @@ namespace ReaLTaiizor
         }
     }
 
-    internal static class MaterialDrawHelper
+    public static class MaterialDrawHelper
     {
         public static GraphicsPath CreateRoundRect(float x, float y, float width, float height, float radius)
         {
