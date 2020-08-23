@@ -77,10 +77,4 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Twitter.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Drawer\MaterialDrawer.cs">
-      <SubType>Component</SubType>
-    </Compile>
-  </ItemGroup>
-
 </Project>

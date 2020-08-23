@@ -342,7 +342,7 @@
             this.foxTextBox1.EnabledCalc = true;
             this.foxTextBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.foxTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.foxTextBox1.Location = new System.Drawing.Point(399, 39);
+            this.foxTextBox1.Location = new System.Drawing.Point(5, 276);
             this.foxTextBox1.MaxLength = 32767;
             this.foxTextBox1.MultiLine = false;
             this.foxTextBox1.Name = "foxTextBox1";
@@ -365,7 +365,7 @@
             "Item 1",
             "Item 2",
             "Item 3"});
-            this.hopeComboBox1.Location = new System.Drawing.Point(522, 39);
+            this.hopeComboBox1.Location = new System.Drawing.Point(128, 276);
             this.hopeComboBox1.Name = "hopeComboBox1";
             this.hopeComboBox1.Size = new System.Drawing.Size(121, 36);
             this.hopeComboBox1.TabIndex = 16;
@@ -375,12 +375,12 @@
             // 
             this.royalScrollBar1.GutterColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
             this.royalScrollBar1.LargeChange = 100;
-            this.royalScrollBar1.Location = new System.Drawing.Point(649, 39);
+            this.royalScrollBar1.Location = new System.Drawing.Point(255, 276);
             this.royalScrollBar1.Max = 10;
             this.royalScrollBar1.Min = 1;
             this.royalScrollBar1.Name = "royalScrollBar1";
             this.royalScrollBar1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.royalScrollBar1.Size = new System.Drawing.Size(142, 36);
+            this.royalScrollBar1.Size = new System.Drawing.Size(138, 36);
             this.royalScrollBar1.SmallChange = 1;
             this.royalScrollBar1.TabIndex = 17;
             this.royalScrollBar1.Text = "royalScrollBar1";
@@ -393,7 +393,7 @@
             this.skyButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.skyButton1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
             this.skyButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyButton1.Location = new System.Drawing.Point(716, 247);
+            this.skyButton1.Location = new System.Drawing.Point(716, 361);
             this.skyButton1.Name = "skyButton1";
             this.skyButton1.Size = new System.Drawing.Size(75, 23);
             this.skyButton1.TabIndex = 18;
@@ -402,12 +402,12 @@
             // extendedPanel1
             // 
             this.extendedPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.extendedPanel1.DrawMode = ReaLTaiizor.ExtendedPanel.Drawer.Default;
-            this.extendedPanel1.Location = new System.Drawing.Point(399, 81);
+            this.extendedPanel1.DrawMode = ReaLTaiizor.ExtendedPanel.Drawer.Image;
+            this.extendedPanel1.Location = new System.Drawing.Point(5, 318);
             this.extendedPanel1.MostInterval = 100;
             this.extendedPanel1.Name = "extendedPanel1";
             this.extendedPanel1.Opacity = 50;
-            this.extendedPanel1.Size = new System.Drawing.Size(392, 66);
+            this.extendedPanel1.Size = new System.Drawing.Size(388, 66);
             this.extendedPanel1.TabIndex = 19;
             this.extendedPanel1.TopMost = false;
             // 
@@ -416,7 +416,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(796, 276);
+            this.ClientSize = new System.Drawing.Size(796, 392);
             this.Controls.Add(this.extendedPanel1);
             this.Controls.Add(this.skyButton1);
             this.Controls.Add(this.royalScrollBar1);
