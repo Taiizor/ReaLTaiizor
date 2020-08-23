@@ -231,7 +231,7 @@ namespace ReaLTaiizor
             zh
         };
 
-        private static readonly String[] BUTTON_TEXTS_ENGLISH_EN = { "Ok", "Cancel", "Yes", "No", "Abort", "Retry", "Ignore" };//Note: This is also the fallback language
+        private static readonly String[] BUTTON_TEXTS_ENGLISH_EN = { "Ok", "Cancel", "Yes", "No", "Abort", "Retry", "Ignore" };
 
         private static readonly String[] BUTTON_TEXTS_GERMAN_DE = { "Ok", "Abbrechen", "Ja", "Nein", "Abbrechen", "Wiederholen", "Ignorieren" };
 
@@ -239,7 +239,7 @@ namespace ReaLTaiizor
 
         private static readonly String[] BUTTON_TEXTS_ITALIAN_IT = { "Ok", "Annulla", "Sì", "No", "Interrompi", "Riprova", "Ignora" };
 
-        private static readonly String[] BUTTON_TEXTS_TURKISH_TR = { "Tamam", "İptal", "Evet", "Hayır", "Durdur", "Yeniden Dene", "Yoksay" };
+        private static readonly String[] BUTTON_TEXTS_TURKISH_TR = { "Tamam", "İptal", "Evet", "Hayır", "Sonlandır", "Yeniden Dene", "Yoksay" };
 
         private static readonly String[] BUTTON_TEXTS_CHINA_ZH = { "确定", "取消", "是", "否", "终止", "重试", "忽略" };
 
