@@ -181,7 +181,7 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static byte[] Roboto_Black
         {
@@ -193,7 +193,7 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static byte[] Roboto_Bold
         {
@@ -205,7 +205,7 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static byte[] Roboto_Light
         {
@@ -217,7 +217,7 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static byte[] Roboto_Medium
         {
@@ -229,7 +229,7 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static byte[] Roboto_Regular
         {
@@ -241,7 +241,7 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static byte[] Roboto_Thin
         {
