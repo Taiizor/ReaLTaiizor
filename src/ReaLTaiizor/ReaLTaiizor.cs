@@ -2,13 +2,16 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Drawing;
 using System.Threading;
+using System.Reflection;
 using System.Drawing.Text;
 using System.Globalization;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Imaging;
+using ReaLTaiizor.Properties;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,8 +24,8 @@ using System.Runtime.InteropServices;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 15.May.2019
-//     Changed: 20.Aug.2020
-//     Version: 3.7.7.5
+//     Changed: 23.Aug.2020
+//     Version: 3.7.7.6
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -830,6 +833,54 @@ namespace ReaLTaiizor
     }
 
     #endregion
+
+    #endregion
+
+    #region PaintHelper
+
+    public abstract class PaintHelperA
+    {
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
+
+        private const int WM_SETREDRAW = 11;
+
+        public static void Suspend(Control Parent)
+        {
+            SendMessage(Parent.Handle, WM_SETREDRAW, false, 0);
+        }
+
+        public static void Resume(Control Parent)
+        {
+            SendMessage(Parent.Handle, WM_SETREDRAW, true, 0);
+            Parent.Refresh();
+        }
+    }
+
+    public abstract class PaintHelperB
+    {
+        private const int WM_SETREDRAW = 0x000B;
+
+        public static void Suspend(Control Parent)
+        {
+            Message msgSuspendUpdate = Message.Create(Parent.Handle, WM_SETREDRAW, IntPtr.Zero, IntPtr.Zero);
+
+            NativeWindow window = NativeWindow.FromHandle(Parent.Handle);
+            window.DefWndProc(ref msgSuspendUpdate);
+        }
+
+        public static void Resume(Control Parent)
+        {
+            // Create a C "true" boolean as an IntPtr
+            IntPtr wparam = new IntPtr(1);
+            Message msgResumeUpdate = Message.Create(Parent.Handle, WM_SETREDRAW, wparam, IntPtr.Zero);
+
+            NativeWindow window = NativeWindow.FromHandle(Parent.Handle);
+            window.DefWndProc(ref msgResumeUpdate);
+
+            Parent.Invalidate();
+        }
+    }
 
     #endregion
 
@@ -9332,11 +9383,7 @@ namespace ReaLTaiizor
             if (HasShadow)
             {
                 for (int i = 0; i < ShadowLevel; i++)
-                {
-                    g.DrawRectangle(
-                        new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)),
-                        ShadeRect(i));
-                }
+                    g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
             }
         }
 
@@ -10192,6 +10239,1863 @@ namespace ReaLTaiizor
         TextAboveImage,
         ImageAboveText
     };
+
+    #endregion
+
+    #region MaterialLibrary
+
+    public static class MaterialColorHelper
+    {
+        public static Color Lighten(this Color color, float percent)
+        {
+            var lighting = color.GetBrightness();
+            lighting = lighting + lighting * percent;
+
+            if (lighting > 1.0)
+                lighting = 1;
+            else if (lighting <= 0)
+                lighting = 0.1f;
+
+            var tintedColor = FromHsl(color.A, color.GetHue(), color.GetSaturation(), lighting);
+
+            return tintedColor;
+        }
+
+        public static Color Darken(this Color color, float percent)
+        {
+            var lighting = color.GetBrightness();
+            lighting = lighting - lighting * percent;
+
+            if (lighting > 1.0)
+                lighting = 1;
+            else if (lighting <= 0)
+                lighting = 0;
+            var tintedColor = FromHsl(color.A, color.GetHue(), color.GetSaturation(), lighting);
+
+            return tintedColor;
+        }
+
+        public static Color FromHsl(int alpha, float hue, float saturation, float lighting)
+        {
+            if (0 > alpha || 255 < alpha)
+                throw new ArgumentOutOfRangeException("alpha");
+            if (0f > hue || 360f < hue)
+                throw new ArgumentOutOfRangeException("hue");
+            if (0f > saturation || 1f < saturation)
+                throw new ArgumentOutOfRangeException("saturation");
+            if (0f > lighting || 1f < lighting)
+                throw new ArgumentOutOfRangeException("lighting");
+
+            if (0 == saturation)
+                return Color.FromArgb(alpha, Convert.ToInt32(lighting * 255), Convert.ToInt32(lighting * 255), Convert.ToInt32(lighting * 255));
+
+            float fMax, fMid, fMin;
+            int iSextant, iMax, iMid, iMin;
+
+            if (0.5 < lighting)
+            {
+                fMax = lighting - (lighting * saturation) + saturation;
+                fMin = lighting + (lighting * saturation) - saturation;
+            }
+            else
+            {
+                fMax = lighting + (lighting * saturation);
+                fMin = lighting - (lighting * saturation);
+            }
+
+            iSextant = (int)Math.Floor(hue / 60f);
+
+            if (300f <= hue)
+            {
+                hue -= 360f;
+            }
+
+            hue /= 60f;
+            hue -= 2f * (float)Math.Floor(((iSextant + 1f) % 6f) / 2f);
+
+            if (0 == iSextant % 2)
+                fMid = hue * (fMax - fMin) + fMin;
+            else
+                fMid = fMin - hue * (fMax - fMin);
+
+            iMax = Convert.ToInt32(fMax * 255);
+            iMid = Convert.ToInt32(fMid * 255);
+            iMin = Convert.ToInt32(fMin * 255);
+
+            switch (iSextant)
+            {
+                case 1:
+                    return Color.FromArgb(alpha, iMid, iMax, iMin);
+                case 2:
+                    return Color.FromArgb(alpha, iMin, iMax, iMid);
+                case 3:
+                    return Color.FromArgb(alpha, iMin, iMid, iMax);
+                case 4:
+                    return Color.FromArgb(alpha, iMid, iMin, iMax);
+                case 5:
+                    return Color.FromArgb(alpha, iMax, iMin, iMid);
+                default:
+                    return Color.FromArgb(alpha, iMax, iMid, iMin);
+            }
+        }
+    }
+
+    public class MaterialColorScheme
+    {
+        public readonly Color PrimaryColor, DarkPrimaryColor, LightPrimaryColor, AccentColor, TextColor;
+
+        public readonly Pen PrimaryPen, DarkPrimaryPen, LightPrimaryPen, AccentPen, TextPen;
+
+        public readonly Brush PrimaryBrush, DarkPrimaryBrush, LightPrimaryBrush, AccentBrush, TextBrush;
+
+        public MaterialColorScheme(MaterialPrimary primary, MaterialPrimary darkPrimary, MaterialPrimary lightPrimary, MaterialAccent accent, MaterialTextShade textShade)
+        {
+            //Color
+            PrimaryColor = ((int)primary).ToColor();
+            DarkPrimaryColor = ((int)darkPrimary).ToColor();
+            LightPrimaryColor = ((int)lightPrimary).ToColor();
+            AccentColor = ((int)accent).ToColor();
+            TextColor = ((int)textShade).ToColor();
+
+            //Pen
+            PrimaryPen = new Pen(PrimaryColor);
+            DarkPrimaryPen = new Pen(DarkPrimaryColor);
+            LightPrimaryPen = new Pen(LightPrimaryColor);
+            AccentPen = new Pen(AccentColor);
+            TextPen = new Pen(TextColor);
+
+            //Brush
+            PrimaryBrush = new SolidBrush(PrimaryColor);
+            DarkPrimaryBrush = new SolidBrush(DarkPrimaryColor);
+            LightPrimaryBrush = new SolidBrush(LightPrimaryColor);
+            AccentBrush = new SolidBrush(AccentColor);
+            TextBrush = new SolidBrush(TextColor);
+        }
+
+        public MaterialColorScheme(Color primary, Color darkPrimary, Color lightPrimary, Color accent, MaterialTextShade textShade)
+        {
+            //Color
+            PrimaryColor = primary;
+            DarkPrimaryColor = darkPrimary;
+            LightPrimaryColor = lightPrimary;
+            AccentColor = accent;
+            TextColor = ((int)textShade).ToColor();
+
+            //Pen
+            PrimaryPen = new Pen(PrimaryColor);
+            DarkPrimaryPen = new Pen(DarkPrimaryColor);
+            LightPrimaryPen = new Pen(LightPrimaryColor);
+            AccentPen = new Pen(AccentColor);
+            TextPen = new Pen(TextColor);
+
+            //Brush
+            PrimaryBrush = new SolidBrush(PrimaryColor);
+            DarkPrimaryBrush = new SolidBrush(DarkPrimaryColor);
+            LightPrimaryBrush = new SolidBrush(LightPrimaryColor);
+            AccentBrush = new SolidBrush(AccentColor);
+            TextBrush = new SolidBrush(TextColor);
+        }
+    }
+
+    public enum MaterialTextShade
+    {
+        WHITE = 0xFFFFFF,
+        BLACK = 0x212121
+    }
+
+    public enum MaterialPrimary
+    {
+        Red50 = 0xFFEBEE,
+        Red100 = 0xFFCDD2,
+        Red200 = 0xEF9A9A,
+        Red300 = 0xE57373,
+        Red400 = 0xEF5350,
+        Red500 = 0xF44336,
+        Red600 = 0xE53935,
+        Red700 = 0xD32F2F,
+        Red800 = 0xC62828,
+        Red900 = 0xB71C1C,
+        Pink50 = 0xFCE4EC,
+        Pink100 = 0xF8BBD0,
+        Pink200 = 0xF48FB1,
+        Pink300 = 0xF06292,
+        Pink400 = 0xEC407A,
+        Pink500 = 0xE91E63,
+        Pink600 = 0xD81B60,
+        Pink700 = 0xC2185B,
+        Pink800 = 0xAD1457,
+        Pink900 = 0x880E4F,
+        Purple50 = 0xF3E5F5,
+        Purple100 = 0xE1BEE7,
+        Purple200 = 0xCE93D8,
+        Purple300 = 0xBA68C8,
+        Purple400 = 0xAB47BC,
+        Purple500 = 0x9C27B0,
+        Purple600 = 0x8E24AA,
+        Purple700 = 0x7B1FA2,
+        Purple800 = 0x6A1B9A,
+        Purple900 = 0x4A148C,
+        DeepPurple50 = 0xEDE7F6,
+        DeepPurple100 = 0xD1C4E9,
+        DeepPurple200 = 0xB39DDB,
+        DeepPurple300 = 0x9575CD,
+        DeepPurple400 = 0x7E57C2,
+        DeepPurple500 = 0x673AB7,
+        DeepPurple600 = 0x5E35B1,
+        DeepPurple700 = 0x512DA8,
+        DeepPurple800 = 0x4527A0,
+        DeepPurple900 = 0x311B92,
+        Indigo50 = 0xE8EAF6,
+        Indigo100 = 0xC5CAE9,
+        Indigo200 = 0x9FA8DA,
+        Indigo300 = 0x7986CB,
+        Indigo400 = 0x5C6BC0,
+        Indigo500 = 0x3F51B5,
+        Indigo600 = 0x3949AB,
+        Indigo700 = 0x303F9F,
+        Indigo800 = 0x283593,
+        Indigo900 = 0x1A237E,
+        Blue50 = 0xE3F2FD,
+        Blue100 = 0xBBDEFB,
+        Blue200 = 0x90CAF9,
+        Blue300 = 0x64B5F6,
+        Blue400 = 0x42A5F5,
+        Blue500 = 0x2196F3,
+        Blue600 = 0x1E88E5,
+        Blue700 = 0x1976D2,
+        Blue800 = 0x1565C0,
+        Blue900 = 0x0D47A1,
+        LightBlue50 = 0xE1F5FE,
+        LightBlue100 = 0xB3E5FC,
+        LightBlue200 = 0x81D4FA,
+        LightBlue300 = 0x4FC3F7,
+        LightBlue400 = 0x29B6F6,
+        LightBlue500 = 0x03A9F4,
+        LightBlue600 = 0x039BE5,
+        LightBlue700 = 0x0288D1,
+        LightBlue800 = 0x0277BD,
+        LightBlue900 = 0x01579B,
+        Cyan50 = 0xE0F7FA,
+        Cyan100 = 0xB2EBF2,
+        Cyan200 = 0x80DEEA,
+        Cyan300 = 0x4DD0E1,
+        Cyan400 = 0x26C6DA,
+        Cyan500 = 0x00BCD4,
+        Cyan600 = 0x00ACC1,
+        Cyan700 = 0x0097A7,
+        Cyan800 = 0x00838F,
+        Cyan900 = 0x006064,
+        Teal50 = 0xE0F2F1,
+        Teal100 = 0xB2DFDB,
+        Teal200 = 0x80CBC4,
+        Teal300 = 0x4DB6AC,
+        Teal400 = 0x26A69A,
+        Teal500 = 0x009688,
+        Teal600 = 0x00897B,
+        Teal700 = 0x00796B,
+        Teal800 = 0x00695C,
+        Teal900 = 0x004D40,
+        Green50 = 0xE8F5E9,
+        Green100 = 0xC8E6C9,
+        Green200 = 0xA5D6A7,
+        Green300 = 0x81C784,
+        Green400 = 0x66BB6A,
+        Green500 = 0x4CAF50,
+        Green600 = 0x43A047,
+        Green700 = 0x388E3C,
+        Green800 = 0x2E7D32,
+        Green900 = 0x1B5E20,
+        LightGreen50 = 0xF1F8E9,
+        LightGreen100 = 0xDCEDC8,
+        LightGreen200 = 0xC5E1A5,
+        LightGreen300 = 0xAED581,
+        LightGreen400 = 0x9CCC65,
+        LightGreen500 = 0x8BC34A,
+        LightGreen600 = 0x7CB342,
+        LightGreen700 = 0x689F38,
+        LightGreen800 = 0x558B2F,
+        LightGreen900 = 0x33691E,
+        Lime50 = 0xF9FBE7,
+        Lime100 = 0xF0F4C3,
+        Lime200 = 0xE6EE9C,
+        Lime300 = 0xDCE775,
+        Lime400 = 0xD4E157,
+        Lime500 = 0xCDDC39,
+        Lime600 = 0xC0CA33,
+        Lime700 = 0xAFB42B,
+        Lime800 = 0x9E9D24,
+        Lime900 = 0x827717,
+        Yellow50 = 0xFFFDE7,
+        Yellow100 = 0xFFF9C4,
+        Yellow200 = 0xFFF59D,
+        Yellow300 = 0xFFF176,
+        Yellow400 = 0xFFEE58,
+        Yellow500 = 0xFFEB3B,
+        Yellow600 = 0xFDD835,
+        Yellow700 = 0xFBC02D,
+        Yellow800 = 0xF9A825,
+        Yellow900 = 0xF57F17,
+        Amber50 = 0xFFF8E1,
+        Amber100 = 0xFFECB3,
+        Amber200 = 0xFFE082,
+        Amber300 = 0xFFD54F,
+        Amber400 = 0xFFCA28,
+        Amber500 = 0xFFC107,
+        Amber600 = 0xFFB300,
+        Amber700 = 0xFFA000,
+        Amber800 = 0xFF8F00,
+        Amber900 = 0xFF6F00,
+        Orange50 = 0xFFF3E0,
+        Orange100 = 0xFFE0B2,
+        Orange200 = 0xFFCC80,
+        Orange300 = 0xFFB74D,
+        Orange400 = 0xFFA726,
+        Orange500 = 0xFF9800,
+        Orange600 = 0xFB8C00,
+        Orange700 = 0xF57C00,
+        Orange800 = 0xEF6C00,
+        Orange900 = 0xE65100,
+        DeepOrange50 = 0xFBE9E7,
+        DeepOrange100 = 0xFFCCBC,
+        DeepOrange200 = 0xFFAB91,
+        DeepOrange300 = 0xFF8A65,
+        DeepOrange400 = 0xFF7043,
+        DeepOrange500 = 0xFF5722,
+        DeepOrange600 = 0xF4511E,
+        DeepOrange700 = 0xE64A19,
+        DeepOrange800 = 0xD84315,
+        DeepOrange900 = 0xBF360C,
+        Brown50 = 0xEFEBE9,
+        Brown100 = 0xD7CCC8,
+        Brown200 = 0xBCAAA4,
+        Brown300 = 0xA1887F,
+        Brown400 = 0x8D6E63,
+        Brown500 = 0x795548,
+        Brown600 = 0x6D4C41,
+        Brown700 = 0x5D4037,
+        Brown800 = 0x4E342E,
+        Brown900 = 0x3E2723,
+        Grey50 = 0xFAFAFA,
+        Grey100 = 0xF5F5F5,
+        Grey200 = 0xEEEEEE,
+        Grey300 = 0xE0E0E0,
+        Grey400 = 0xBDBDBD,
+        Grey500 = 0x9E9E9E,
+        Grey600 = 0x757575,
+        Grey700 = 0x616161,
+        Grey800 = 0x424242,
+        Grey900 = 0x212121,
+        BlueGrey50 = 0xECEFF1,
+        BlueGrey100 = 0xCFD8DC,
+        BlueGrey200 = 0xB0BEC5,
+        BlueGrey300 = 0x90A4AE,
+        BlueGrey400 = 0x78909C,
+        BlueGrey500 = 0x607D8B,
+        BlueGrey600 = 0x546E7A,
+        BlueGrey700 = 0x455A64,
+        BlueGrey800 = 0x37474F,
+        BlueGrey900 = 0x263238
+    }
+
+    public enum MaterialAccent
+    {
+        Red100 = 0xFF8A80,
+        Red200 = 0xFF5252,
+        Red400 = 0xFF1744,
+        Red700 = 0xD50000,
+        Pink100 = 0xFF80AB,
+        Pink200 = 0xFF4081,
+        Pink400 = 0xF50057,
+        Pink700 = 0xC51162,
+        Purple100 = 0xEA80FC,
+        Purple200 = 0xE040FB,
+        Purple400 = 0xD500F9,
+        Purple700 = 0xAA00FF,
+        DeepPurple100 = 0xB388FF,
+        DeepPurple200 = 0x7C4DFF,
+        DeepPurple400 = 0x651FFF,
+        DeepPurple700 = 0x6200EA,
+        Indigo100 = 0x8C9EFF,
+        Indigo200 = 0x536DFE,
+        Indigo400 = 0x3D5AFE,
+        Indigo700 = 0x304FFE,
+        Blue100 = 0x82B1FF,
+        Blue200 = 0x448AFF,
+        Blue400 = 0x2979FF,
+        Blue700 = 0x2962FF,
+        LightBlue100 = 0x80D8FF,
+        LightBlue200 = 0x40C4FF,
+        LightBlue400 = 0x00B0FF,
+        LightBlue700 = 0x0091EA,
+        Cyan100 = 0x84FFFF,
+        Cyan200 = 0x18FFFF,
+        Cyan400 = 0x00E5FF,
+        Cyan700 = 0x00B8D4,
+        Teal100 = 0xA7FFEB,
+        Teal200 = 0x64FFDA,
+        Teal400 = 0x1DE9B6,
+        Teal700 = 0x00BFA5,
+        Green100 = 0xB9F6CA,
+        Green200 = 0x69F0AE,
+        Green400 = 0x00E676,
+        Green700 = 0x00C853,
+        LightGreen100 = 0xCCFF90,
+        LightGreen200 = 0xB2FF59,
+        LightGreen400 = 0x76FF03,
+        LightGreen700 = 0x64DD17,
+        Lime100 = 0xF4FF81,
+        Lime200 = 0xEEFF41,
+        Lime400 = 0xC6FF00,
+        Lime700 = 0xAEEA00,
+        Yellow100 = 0xFFFF8D,
+        Yellow200 = 0xFFFF00,
+        Yellow400 = 0xFFEA00,
+        Yellow700 = 0xFFD600,
+        Amber100 = 0xFFE57F,
+        Amber200 = 0xFFD740,
+        Amber400 = 0xFFC400,
+        Amber700 = 0xFFAB00,
+        Orange100 = 0xFFD180,
+        Orange200 = 0xFFAB40,
+        Orange400 = 0xFF9100,
+        Orange700 = 0xFF6D00,
+        DeepOrange100 = 0xFF9E80,
+        DeepOrange200 = 0xFF6E40,
+        DeepOrange400 = 0xFF3D00,
+        DeepOrange700 = 0xDD2C00
+    }
+
+    public static class MaterialExtensions
+    {
+        public static bool HasProperty(this object objectToCheck, string propertyName)
+        {
+            try
+            {
+                var type = objectToCheck.GetType();
+
+                return type.GetProperty(propertyName) != null;
+            }
+            catch (AmbiguousMatchException)
+            {
+                // ambiguous means there is more than one result,
+                // which means: a method with that name does exist
+                return true;
+            }
+        }
+
+        public static bool IsMaterialControl(this Object obj)
+        {
+            if (obj is MaterialDrawHelper.MaterialControlI)
+                return true;
+            else
+                return false;
+        }
+
+        public static string ToSecureString(this string plainString)
+        {
+            if (plainString == null)
+                return null;
+
+            string secureString = "";
+            for (uint i = 0; i < plainString.Length; i++)
+                secureString += '\u25CF';
+            return secureString;
+        }
+
+        public static Color ToColor(this int argb)
+        {
+            return Color.FromArgb((argb & 0xFF0000) >> 16, (argb & 0x00FF00) >> 8, argb & 0x0000FF);
+        }
+
+        public static Color RemoveAlpha(this Color color)
+        {
+            return Color.FromArgb(color.R, color.G, color.B);
+        }
+
+        public static int PercentageToColorComponent(this int percentage)
+        {
+            return (int)((percentage / 100d) * 255d);
+        }
+    }
+
+    public static class MaterialDrawHelper
+    {
+        public static GraphicsPath CreateRoundRect(float x, float y, float width, float height, float radius)
+        {
+            var gp = new GraphicsPath();
+            gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
+            gp.AddArc(x + width - (radius * 2), y + height - (radius * 2), radius * 2, radius * 2, 0, 90);
+            gp.AddArc(x, y + height - (radius * 2), radius * 2, radius * 2, 90, 90);
+            gp.AddArc(x, y, radius * 2, radius * 2, 180, 90);
+            gp.CloseFigure();
+            return gp;
+        }
+
+        public static GraphicsPath CreateRoundRect(Rectangle rect, float radius)
+        {
+            return CreateRoundRect(rect.X, rect.Y, rect.Width, rect.Height, radius);
+        }
+
+        public static GraphicsPath CreateRoundRect(RectangleF rect, float radius)
+        {
+            return CreateRoundRect(rect.X, rect.Y, rect.Width, rect.Height, radius);
+        }
+
+        public static Color BlendColor(Color backgroundColor, Color frontColor, double blend)
+        {
+            var ratio = blend / 255d;
+            var invRatio = 1d - ratio;
+            var r = (int)((backgroundColor.R * invRatio) + (frontColor.R * ratio));
+            var g = (int)((backgroundColor.G * invRatio) + (frontColor.G * ratio));
+            var b = (int)((backgroundColor.B * invRatio) + (frontColor.B * ratio));
+            return Color.FromArgb(r, g, b);
+        }
+
+        public static Color BlendColor(Color backgroundColor, Color frontColor)
+        {
+            return BlendColor(backgroundColor, frontColor, frontColor.A);
+        }
+
+        public static void DrawSquareShadow(Graphics g, Rectangle bounds)
+        {
+            using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(12, 0, 0, 0)))
+            {
+                GraphicsPath path;
+                path = CreateRoundRect(new RectangleF(bounds.X - 3.5f, bounds.Y - 1.5f, bounds.Width + 6, bounds.Height + 6), 8);
+                g.FillPath(shadowBrush, path);
+                path = CreateRoundRect(new RectangleF(bounds.X - 2.5f, bounds.Y - 1.5f, bounds.Width + 4, bounds.Height + 4), 6);
+                g.FillPath(shadowBrush, path);
+                path = CreateRoundRect(new RectangleF(bounds.X - 1.5f, bounds.Y - 0.5f, bounds.Width + 2, bounds.Height + 2), 4);
+                g.FillPath(shadowBrush, path);
+                path = CreateRoundRect(new RectangleF(bounds.X - 0.5f, bounds.Y + 1.5f, bounds.Width + 0, bounds.Height + 0), 4);
+                g.FillPath(shadowBrush, path);
+                path = CreateRoundRect(new RectangleF(bounds.X - 0.5f, bounds.Y + 2.5f, bounds.Width + 0, bounds.Height + 0), 4);
+                g.FillPath(shadowBrush, path);
+                path.Dispose();
+            }
+        }
+
+        public static void DrawRoundShadow(Graphics g, Rectangle bounds)
+        {
+            using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(12, 0, 0, 0)))
+            {
+                g.FillEllipse(shadowBrush, new Rectangle(bounds.X - 2, bounds.Y - 1, bounds.Width + 4, bounds.Height + 6));
+                g.FillEllipse(shadowBrush, new Rectangle(bounds.X - 1, bounds.Y - 1, bounds.Width + 2, bounds.Height + 4));
+                g.FillEllipse(shadowBrush, new Rectangle(bounds.X - 0, bounds.Y - 0, bounds.Width + 0, bounds.Height + 2));
+                g.FillEllipse(shadowBrush, new Rectangle(bounds.X - 0, bounds.Y + 2, bounds.Width + 0, bounds.Height + 0));
+                g.FillEllipse(shadowBrush, new Rectangle(bounds.X - 0, bounds.Y + 1, bounds.Width + 0, bounds.Height + 0));
+            }
+        }
+
+        public interface MaterialControlI
+        {
+            int Depth { get; set; }
+
+            MaterialSkinManager SkinManager { get; }
+
+            MaterialMouseState MouseState { get; set; }
+        }
+
+        public enum MaterialMouseState
+        {
+            HOVER,
+            DOWN,
+            OUT
+        }
+    }
+
+    public class MaterialSkinManager
+    {
+        private static MaterialSkinManager _instance;
+
+        private readonly List<MaterialForm> _formsToManage = new List<MaterialForm>();
+
+        public delegate void SkinManagerEventHandler(object sender);
+
+        public event SkinManagerEventHandler ColorSchemeChanged;
+
+        public event SkinManagerEventHandler ThemeChanged;
+
+        public bool EnforceBackcolorOnAllComponents = true;
+
+        public static MaterialSkinManager Instance => _instance ?? (_instance = new MaterialSkinManager());
+
+        public int FORM_PADDING = 14;
+
+        // Constructor
+        private MaterialSkinManager()
+        {
+            Theme = Themes.LIGHT;
+            ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
+
+            // Add font to system table in memory and save the font family
+            addFont(Resources.Roboto_Thin);
+            addFont(Resources.Roboto_Light);
+            addFont(Resources.Roboto_Regular);
+            addFont(Resources.Roboto_Medium);
+            addFont(Resources.Roboto_Bold);
+            addFont(Resources.Roboto_Black);
+
+            RobotoFontFamilies = new Dictionary<string, FontFamily>();
+            foreach (FontFamily ff in privateFontCollection.Families.ToArray())
+                RobotoFontFamilies.Add(ff.Name.Replace(' ', '_'), ff);
+
+            // create and save font handles for GDI
+            logicalFonts = new Dictionary<string, IntPtr>(18);
+            logicalFonts.Add("H1", createLogicalFont("Roboto Light", 96, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT));
+            logicalFonts.Add("H2", createLogicalFont("Roboto Light", 60, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT));
+            logicalFonts.Add("H3", createLogicalFont("Roboto", 48, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("H4", createLogicalFont("Roboto", 34, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("H5", createLogicalFont("Roboto", 24, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("H6", createLogicalFont("Roboto Medium", 20, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
+            logicalFonts.Add("Subtitle1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("Subtitle2", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
+            logicalFonts.Add("Body1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("Body2", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("Button", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
+            logicalFonts.Add("Caption", createLogicalFont("Roboto", 12, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("Overline", createLogicalFont("Roboto", 10, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            // Logical fonts for textbox animation
+            logicalFonts.Add("textBox16", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("textBox15", createLogicalFont("Roboto", 15, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("textBox14", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
+            logicalFonts.Add("textBox13", createLogicalFont("Roboto Medium", 13, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
+            logicalFonts.Add("textBox12", createLogicalFont("Roboto Medium", 12, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
+        }
+
+        // Destructor
+        ~MaterialSkinManager()
+        {
+            // RemoveFontMemResourceEx
+            foreach (IntPtr handle in logicalFonts.Values)
+                MaterialNativeTextRenderer.DeleteObject(handle);
+        }
+
+        private Themes _theme;
+        public Themes Theme
+        {
+            get { return _theme; }
+            set
+            {
+                _theme = value;
+                UpdateBackgrounds();
+                ThemeChanged?.Invoke(this);
+            }
+        }
+
+        private MaterialColorScheme _colorScheme;
+        public MaterialColorScheme ColorScheme
+        {
+            get { return _colorScheme; }
+            set
+            {
+                _colorScheme = value;
+                UpdateBackgrounds();
+                ColorSchemeChanged?.Invoke(this);
+            }
+        }
+
+        public enum Themes : byte
+        {
+            LIGHT,
+            DARK
+        }
+
+        // Text
+        private static readonly Color TEXT_HIGH_EMPHASIS_LIGHT = Color.FromArgb(222, 255, 255, 255); // Alpha 87%
+
+        private static readonly Brush TEXT_HIGH_EMPHASIS_LIGHT_BRUSH = new SolidBrush(TEXT_HIGH_EMPHASIS_LIGHT);
+        private static readonly Color TEXT_HIGH_EMPHASIS_DARK = Color.FromArgb(222, 0, 0, 0); // Alpha 87%
+        private static readonly Brush TEXT_HIGH_EMPHASIS_DARK_BRUSH = new SolidBrush(TEXT_HIGH_EMPHASIS_DARK);
+
+        private static readonly Color TEXT_MEDIUM_EMPHASIS_LIGHT = Color.FromArgb(153, 255, 255, 255); // Alpha 60%
+        private static readonly Brush TEXT_MEDIUM_EMPHASIS_LIGHT_BRUSH = new SolidBrush(TEXT_MEDIUM_EMPHASIS_LIGHT);
+        private static readonly Color TEXT_MEDIUM_EMPHASIS_DARK = Color.FromArgb(153, 0, 0, 0); // Alpha 60%
+        private static readonly Brush TEXT_MEDIUM_EMPHASIS_DARK_BRUSH = new SolidBrush(TEXT_MEDIUM_EMPHASIS_DARK);
+
+        private static readonly Color TEXT_DISABLED_OR_HINT_LIGHT = Color.FromArgb(97, 255, 255, 255); // Alpha 38%
+        private static readonly Brush TEXT_DISABLED_OR_HINT_LIGHT_BRUSH = new SolidBrush(TEXT_DISABLED_OR_HINT_LIGHT);
+        private static readonly Color TEXT_DISABLED_OR_HINT_DARK = Color.FromArgb(97, 0, 0, 0); // Alpha 38%
+        private static readonly Brush TEXT_DISABLED_OR_HINT_DARK_BRUSH = new SolidBrush(TEXT_DISABLED_OR_HINT_DARK);
+
+        // Dividers and thin lines
+        private static readonly Color DIVIDERS_LIGHT = Color.FromArgb(30, 255, 255, 255); // Alpha 30%
+
+        private static readonly Brush DIVIDERS_LIGHT_BRUSH = new SolidBrush(DIVIDERS_LIGHT);
+        private static readonly Color DIVIDERS_DARK = Color.FromArgb(30, 0, 0, 0); // Alpha 30%
+        private static readonly Brush DIVIDERS_DARK_BRUSH = new SolidBrush(DIVIDERS_DARK);
+        private static readonly Color DIVIDERS_ALTERNATIVE_LIGHT = Color.FromArgb(153, 255, 255, 255); // Alpha 60%
+        private static readonly Brush DIVIDERS_ALTERNATIVE_LIGHT_BRUSH = new SolidBrush(DIVIDERS_ALTERNATIVE_LIGHT);
+        private static readonly Color DIVIDERS_ALTERNATIVE_DARK = Color.FromArgb(153, 0, 0, 0); // Alpha 60%
+        private static readonly Brush DIVIDERS_ALTERNATIVE_DARK_BRUSH = new SolidBrush(DIVIDERS_ALTERNATIVE_DARK);
+
+        // Checkbox / Radio / Switches
+        private static readonly Color CHECKBOX_OFF_LIGHT = Color.FromArgb(138, 0, 0, 0);
+
+        private static readonly Brush CHECKBOX_OFF_LIGHT_BRUSH = new SolidBrush(CHECKBOX_OFF_LIGHT);
+        private static readonly Color CHECKBOX_OFF_DARK = Color.FromArgb(179, 255, 255, 255);
+        private static readonly Brush CHECKBOX_OFF_DARK_BRUSH = new SolidBrush(CHECKBOX_OFF_DARK);
+        private static readonly Color CHECKBOX_OFF_DISABLED_LIGHT = Color.FromArgb(66, 0, 0, 0);
+        private static readonly Brush CHECKBOX_OFF_DISABLED_LIGHT_BRUSH = new SolidBrush(CHECKBOX_OFF_DISABLED_LIGHT);
+        private static readonly Color CHECKBOX_OFF_DISABLED_DARK = Color.FromArgb(77, 255, 255, 255);
+        private static readonly Brush CHECKBOX_OFF_DISABLED_DARK_BRUSH = new SolidBrush(CHECKBOX_OFF_DISABLED_DARK);
+
+        // Switch specific
+        private static readonly Color SWITCH_OFF_THUMB_LIGHT = Color.FromArgb(255, 255, 255, 255);
+
+        private static readonly Color SWITCH_OFF_THUMB_DARK = Color.FromArgb(255, 190, 190, 190);
+        private static readonly Color SWITCH_OFF_TRACK_LIGHT = Color.FromArgb(100, 0, 0, 0);
+        private static readonly Color SWITCH_OFF_TRACK_DARK = Color.FromArgb(100, 255, 255, 255);
+        private static readonly Color SWITCH_OFF_DISABLED_THUMB_LIGHT = Color.FromArgb(255, 230, 230, 230);
+        private static readonly Color SWITCH_OFF_DISABLED_THUMB_DARK = Color.FromArgb(255, 150, 150, 150);
+
+        // Generic back colors - for user controls
+        private static readonly Color BACKGROUND_LIGHT = Color.FromArgb(255, 255, 255, 255);
+
+        private static readonly Brush BACKGROUND_LIGHT_BRUSH = new SolidBrush(BACKGROUND_LIGHT);
+        private static readonly Color BACKGROUND_DARK = Color.FromArgb(255, 80, 80, 80);
+        private static readonly Brush BACKGROUND_DARK_BRUSH = new SolidBrush(BACKGROUND_DARK);
+        private static readonly Color BACKGROUND_ALTERNATIVE_LIGHT = Color.FromArgb(10, 0, 0, 0);
+        private static readonly Brush BACKGROUND_ALTERNATIVE_LIGHT_BRUSH = new SolidBrush(BACKGROUND_ALTERNATIVE_LIGHT);
+        private static readonly Color BACKGROUND_ALTERNATIVE_DARK = Color.FromArgb(10, 255, 255, 255);
+        private static readonly Brush BACKGROUND_ALTERNATIVE_DARK_BRUSH = new SolidBrush(BACKGROUND_ALTERNATIVE_DARK);
+        private static readonly Color BACKGROUND_HOVER_LIGHT = Color.FromArgb(20, 0, 0, 0);
+        private static readonly Brush BACKGROUND_HOVER_LIGHT_BRUSH = new SolidBrush(BACKGROUND_HOVER_LIGHT);
+        private static readonly Color BACKGROUND_HOVER_DARK = Color.FromArgb(20, 255, 255, 255);
+        private static readonly Brush BACKGROUND_HOVER_DARK_BRUSH = new SolidBrush(BACKGROUND_HOVER_DARK);
+        private static readonly Color BACKGROUND_FOCUS_LIGHT = Color.FromArgb(30, 0, 0, 0);
+        private static readonly Brush BACKGROUND_FOCUS_LIGHT_BRUSH = new SolidBrush(BACKGROUND_FOCUS_LIGHT);
+        private static readonly Color BACKGROUND_FOCUS_DARK = Color.FromArgb(30, 255, 255, 255);
+        private static readonly Brush BACKGROUND_FOCUS_DARK_BRUSH = new SolidBrush(BACKGROUND_FOCUS_DARK);
+        private static readonly Color BACKGROUND_DISABLED_LIGHT = Color.FromArgb(25, 0, 0, 0);
+        private static readonly Brush BACKGROUND_DISABLED_LIGHT_BRUSH = new SolidBrush(BACKGROUND_DISABLED_LIGHT);
+        private static readonly Color BACKGROUND_DISABLED_DARK = Color.FromArgb(25, 255, 255, 255);
+        private static readonly Brush BACKGROUND_DISABLED_DARK_BRUSH = new SolidBrush(BACKGROUND_DISABLED_DARK);
+
+        // Backdrop colors - for containers, like forms or panels
+        private static readonly Color BACKDROP_LIGHT = Color.FromArgb(255, 242, 242, 242);
+
+        private static readonly Brush BACKDROP_LIGHT_BRUSH = new SolidBrush(BACKGROUND_LIGHT);
+        private static readonly Color BACKDROP_DARK = Color.FromArgb(255, 50, 50, 50);
+        private static readonly Brush BACKDROP_DARK_BRUSH = new SolidBrush(BACKGROUND_DARK);
+
+        // Getters - Using these makes handling the dark theme switching easier
+        // Text
+        public Color TextHighEmphasisColor => Theme == Themes.LIGHT ? TEXT_HIGH_EMPHASIS_DARK : TEXT_HIGH_EMPHASIS_LIGHT;
+
+        public Brush TextHighEmphasisBrush => Theme == Themes.LIGHT ? TEXT_HIGH_EMPHASIS_DARK_BRUSH : TEXT_HIGH_EMPHASIS_LIGHT_BRUSH;
+        public Color TextMediumEmphasisColor => Theme == Themes.LIGHT ? TEXT_MEDIUM_EMPHASIS_DARK : TEXT_MEDIUM_EMPHASIS_LIGHT;
+        public Brush TextMediumEmphasisBrush => Theme == Themes.LIGHT ? TEXT_MEDIUM_EMPHASIS_DARK_BRUSH : TEXT_MEDIUM_EMPHASIS_LIGHT_BRUSH;
+        public Color TextDisabledOrHintColor => Theme == Themes.LIGHT ? TEXT_DISABLED_OR_HINT_DARK : TEXT_DISABLED_OR_HINT_LIGHT;
+        public Brush TextDisabledOrHintBrush => Theme == Themes.LIGHT ? TEXT_DISABLED_OR_HINT_DARK_BRUSH : TEXT_DISABLED_OR_HINT_LIGHT_BRUSH;
+
+        // Divider
+        public Color DividersColor => Theme == Themes.LIGHT ? DIVIDERS_DARK : DIVIDERS_LIGHT;
+
+        public Brush DividersBrush => Theme == Themes.LIGHT ? DIVIDERS_DARK_BRUSH : DIVIDERS_LIGHT_BRUSH;
+        public Color DividersAlternativeColor => Theme == Themes.LIGHT ? DIVIDERS_ALTERNATIVE_DARK : DIVIDERS_ALTERNATIVE_LIGHT;
+        public Brush DividersAlternativeBrush => Theme == Themes.LIGHT ? DIVIDERS_ALTERNATIVE_DARK_BRUSH : DIVIDERS_ALTERNATIVE_LIGHT_BRUSH;
+
+        // Checkbox / Radio / Switch
+        public Color CheckboxOffColor => Theme == Themes.LIGHT ? CHECKBOX_OFF_LIGHT : CHECKBOX_OFF_DARK;
+
+        public Brush CheckboxOffBrush => Theme == Themes.LIGHT ? CHECKBOX_OFF_LIGHT_BRUSH : CHECKBOX_OFF_DARK_BRUSH;
+        public Color CheckBoxOffDisabledColor => Theme == Themes.LIGHT ? CHECKBOX_OFF_DISABLED_LIGHT : CHECKBOX_OFF_DISABLED_DARK;
+        public Brush CheckBoxOffDisabledBrush => Theme == Themes.LIGHT ? CHECKBOX_OFF_DISABLED_LIGHT_BRUSH : CHECKBOX_OFF_DISABLED_DARK_BRUSH;
+
+        // Switch
+        public Color SwitchOffColor => Theme == Themes.LIGHT ? CHECKBOX_OFF_DARK : CHECKBOX_OFF_LIGHT;
+
+        public Color SwitchOffThumbColor => Theme == Themes.LIGHT ? SWITCH_OFF_THUMB_LIGHT : SWITCH_OFF_THUMB_DARK;
+        public Color SwitchOffTrackColor => Theme == Themes.LIGHT ? SWITCH_OFF_TRACK_LIGHT : SWITCH_OFF_TRACK_DARK;
+        public Color SwitchOffDisabledThumbColor => Theme == Themes.LIGHT ? SWITCH_OFF_DISABLED_THUMB_LIGHT : SWITCH_OFF_DISABLED_THUMB_DARK;
+
+        // Control Back colors
+        public Color BackgroundColor => Theme == Themes.LIGHT ? BACKGROUND_LIGHT : BACKGROUND_DARK;
+
+        public Brush BackgroundBrush => Theme == Themes.LIGHT ? BACKGROUND_LIGHT_BRUSH : BACKGROUND_DARK_BRUSH;
+        public Color BackgroundAlternativeColor => Theme == Themes.LIGHT ? BACKGROUND_ALTERNATIVE_LIGHT : BACKGROUND_ALTERNATIVE_DARK;
+        public Brush BackgroundAlternativeBrush => Theme == Themes.LIGHT ? BACKGROUND_ALTERNATIVE_LIGHT_BRUSH : BACKGROUND_ALTERNATIVE_DARK_BRUSH;
+        public Color BackgroundDisabledColor => Theme == Themes.LIGHT ? BACKGROUND_DISABLED_LIGHT : BACKGROUND_DISABLED_DARK;
+        public Brush BackgroundDisabledBrush => Theme == Themes.LIGHT ? BACKGROUND_DISABLED_LIGHT_BRUSH : BACKGROUND_DISABLED_DARK_BRUSH;
+        public Color BackgroundHoverColor => Theme == Themes.LIGHT ? BACKGROUND_HOVER_LIGHT : BACKGROUND_HOVER_DARK;
+        public Brush BackgroundHoverBrush => Theme == Themes.LIGHT ? BACKGROUND_HOVER_LIGHT_BRUSH : BACKGROUND_HOVER_DARK_BRUSH;
+        public Color BackgroundFocusColor => Theme == Themes.LIGHT ? BACKGROUND_FOCUS_LIGHT : BACKGROUND_FOCUS_DARK;
+        public Brush BackgroundFocusBrush => Theme == Themes.LIGHT ? BACKGROUND_FOCUS_LIGHT_BRUSH : BACKGROUND_FOCUS_DARK_BRUSH;
+
+        // Backdrop color
+        public Color BackdropColor => Theme == Themes.LIGHT ? BACKDROP_LIGHT : BACKDROP_DARK;
+
+        public Brush BackdropBrush => Theme == Themes.LIGHT ? BACKDROP_LIGHT_BRUSH : BACKDROP_DARK_BRUSH;
+
+        // Font Handling
+        public enum fontType
+        {
+            H1,
+            H2,
+            H3,
+            H4,
+            H5,
+            H6,
+            Subtitle1,
+            Subtitle2,
+            Body1,
+            Body2,
+            Button,
+            Caption,
+            Overline
+        }
+
+        public Font getFontByType(fontType type)
+        {
+            switch (type)
+            {
+                case fontType.H1:
+                    return new Font(RobotoFontFamilies["Roboto_Light"], 96f, FontStyle.Regular, GraphicsUnit.Pixel);
+
+                case fontType.H2:
+                    return new Font(RobotoFontFamilies["Roboto_Light"], 60f, FontStyle.Regular, GraphicsUnit.Pixel);
+
+                case fontType.H3:
+                    return new Font(RobotoFontFamilies["Roboto"], 48f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+                case fontType.H4:
+                    return new Font(RobotoFontFamilies["Roboto"], 34f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+                case fontType.H5:
+                    return new Font(RobotoFontFamilies["Roboto"], 24f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+                case fontType.H6:
+                    return new Font(RobotoFontFamilies["Roboto_Medium"], 20f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+                case fontType.Subtitle1:
+                    return new Font(RobotoFontFamilies["Roboto"], 16f, FontStyle.Regular, GraphicsUnit.Pixel);
+
+                case fontType.Subtitle2:
+                    return new Font(RobotoFontFamilies["Roboto_Medium"], 14f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+                case fontType.Body1:
+                    return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel);
+
+                case fontType.Body2:
+                    return new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel);
+
+                case fontType.Button:
+                    return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+                case fontType.Caption:
+                    return new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel);
+
+                case fontType.Overline:
+                    return new Font(RobotoFontFamilies["Roboto"], 10f, FontStyle.Regular, GraphicsUnit.Pixel);
+            }
+            return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel);
+        }
+
+        public IntPtr getTextBoxFontBySize(int size)
+        {
+            string name = "textBox" + Math.Min(16, Math.Max(12, size)).ToString();
+            return logicalFonts[name];
+        }
+
+        public IntPtr getLogFontByType(fontType type)
+        {
+            return logicalFonts[Enum.GetName(typeof(fontType), type)];
+        }
+
+        // Font stuff
+        private Dictionary<string, IntPtr> logicalFonts;
+
+        private Dictionary<string, FontFamily> RobotoFontFamilies;
+
+        private PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+
+        private void addFont(byte[] fontdata)
+        {
+            // Add font to system table in memory
+            int dataLength = fontdata.Length;
+
+            IntPtr ptrFont = Marshal.AllocCoTaskMem(dataLength);
+            Marshal.Copy(fontdata, 0, ptrFont, dataLength);
+
+            // GDI Font
+            uint cFonts = 0;
+            MaterialNativeTextRenderer.AddFontMemResourceEx(fontdata, dataLength, IntPtr.Zero, out _);
+
+            // GDI+ Font
+            privateFontCollection.AddMemoryFont(ptrFont, dataLength);
+        }
+
+        private IntPtr createLogicalFont(string fontName, int size, MaterialNativeTextRenderer.logFontWeight weight)
+        {
+            // Logical font:
+            MaterialNativeTextRenderer.LogFont lfont = new MaterialNativeTextRenderer.LogFont();
+            lfont.lfFaceName = fontName;
+            lfont.lfHeight = -size;
+            lfont.lfWeight = (int)weight;
+            return MaterialNativeTextRenderer.CreateFontIndirect(lfont);
+        }
+
+        // Dyanmic Themes
+        public void AddFormToManage(MaterialForm materialForm)
+        {
+            _formsToManage.Add(materialForm);
+            UpdateBackgrounds();
+        }
+
+        public void RemoveFormToManage(MaterialForm materialForm)
+        {
+            _formsToManage.Remove(materialForm);
+        }
+
+        private void UpdateBackgrounds()
+        {
+            var newBackColor = BackdropColor;
+            foreach (var materialForm in _formsToManage)
+            {
+                materialForm.BackColor = newBackColor;
+                UpdateControlBackColor(materialForm, newBackColor);
+            }
+        }
+
+        private void UpdateControlBackColor(Control controlToUpdate, Color newBackColor)
+        {
+            // No control
+            if (controlToUpdate == null) return;
+
+            // Control's Context menu
+            if (controlToUpdate.ContextMenuStrip != null) UpdateToolStrip(controlToUpdate.ContextMenuStrip, newBackColor);
+
+            // Material Tabcontrol pages
+            if (controlToUpdate is TabPage)
+                ((TabPage)controlToUpdate).BackColor = newBackColor;
+
+            // Material Divider
+            else if (controlToUpdate is MaterialDivider)
+                controlToUpdate.BackColor = DividersColor;
+
+            // Other Material Skin control
+            else if (controlToUpdate.IsMaterialControl())
+            {
+                controlToUpdate.BackColor = newBackColor;
+                controlToUpdate.ForeColor = TextHighEmphasisColor;
+            }
+
+            // Other Generic control not part of material skin
+            else if (EnforceBackcolorOnAllComponents && controlToUpdate.HasProperty("BackColor") && !controlToUpdate.IsMaterialControl() && controlToUpdate.Parent != null)
+            {
+                controlToUpdate.BackColor = controlToUpdate.Parent.BackColor;
+                controlToUpdate.ForeColor = TextHighEmphasisColor;
+                controlToUpdate.Font = getFontByType(fontType.Body1);
+            }
+
+            // Recursive call to control's children
+            foreach (Control control in controlToUpdate.Controls)
+                UpdateControlBackColor(control, newBackColor);
+        }
+
+        private void UpdateToolStrip(ToolStrip toolStrip, Color newBackColor)
+        {
+            if (toolStrip == null)
+                return;
+
+            toolStrip.BackColor = newBackColor;
+            foreach (ToolStripItem control in toolStrip.Items)
+            {
+                control.BackColor = newBackColor;
+                if (control is MaterialToolStripMenuItem && (control as MaterialToolStripMenuItem).HasDropDown)
+                    UpdateToolStrip((control as MaterialToolStripMenuItem).DropDown, newBackColor);
+            }
+        }
+    }
+
+    public sealed class MaterialNativeTextRenderer : IDisposable
+    {
+        #region Fields and Consts
+
+        private static readonly int[] _charFit = new int[1];
+
+        private static readonly int[] _charFitWidth = new int[1000];
+
+        private static readonly Dictionary<string, Dictionary<float, Dictionary<FontStyle, IntPtr>>> _fontsCache = new Dictionary<string, Dictionary<float, Dictionary<FontStyle, IntPtr>>>(StringComparer.InvariantCultureIgnoreCase);
+
+        private readonly Graphics _g;
+
+        private IntPtr _hdc;
+
+        #endregion Fields and Consts
+
+        public MaterialNativeTextRenderer(Graphics g)
+        {
+            _g = g;
+
+            var clip = _g.Clip.GetHrgn(_g);
+
+            _hdc = _g.GetHdc();
+            SetBkMode(_hdc, 1);
+
+            SelectClipRgn(_hdc, clip);
+
+            DeleteObject(clip);
+        }
+
+        public Size MeasureString(string str, Font font)
+        {
+            SetFont(font);
+
+            var size = new Size();
+            GetTextExtentPoint32(_hdc, str, str.Length, ref size);
+            return size;
+        }
+
+        public Size MeasureLogString(string str, IntPtr LogFont)
+        {
+            SelectObject(_hdc, LogFont);
+
+            var size = new Size();
+            GetTextExtentPoint32(_hdc, str, str.Length, ref size);
+            return size;
+        }
+
+        public Size MeasureString(string str, Font font, float maxWidth, out int charFit, out int charFitWidth)
+        {
+            SetFont(font);
+
+            var size = new Size();
+            GetTextExtentExPoint(_hdc, str, str.Length, (int)Math.Round(maxWidth), _charFit, _charFitWidth, ref size);
+            charFit = _charFit[0];
+            charFitWidth = charFit > 0 ? _charFitWidth[charFit - 1] : 0;
+            return size;
+        }
+
+        public void DrawString(String str, Font font, Color color, Point point)
+        {
+            SetFont(font);
+            SetTextColor(color);
+
+            TextOut(_hdc, point.X, point.Y, str, str.Length);
+        }
+
+        public void DrawString(String str, Font font, Color color, Rectangle rect, TextFormatFlags flags)
+        {
+            SetFont(font);
+            SetTextColor(color);
+
+            var rect2 = new Rect(rect);
+            DrawText(_hdc, str, str.Length, ref rect2, (uint)flags);
+        }
+
+        public void DrawTransparentText(string str, Font font, Color color, Point point, Size size, TextAlignFlags flags)
+        {
+            DrawTransparentText(GetCachedHFont(font), str, color, point, size, flags, false);
+        }
+
+        public void DrawTransparentText(string str, IntPtr LogFont, Color color, Point point, Size size, TextAlignFlags flags)
+        {
+            DrawTransparentText(LogFont, str, color, point, size, flags, false);
+        }
+
+        public void DrawMultilineTransparentText(string str, Font font, Color color, Point point, Size size, TextAlignFlags flags)
+        {
+            DrawTransparentText(GetCachedHFont(font), str, color, point, size, flags, true);
+        }
+
+        public void DrawMultilineTransparentText(string str, IntPtr LogFont, Color color, Point point, Size size, TextAlignFlags flags)
+        {
+            DrawTransparentText(LogFont, str, color, point, size, flags, true);
+        }
+
+        private void DrawTransparentText(IntPtr fontHandle, string str, Color color, Point point, Size size, TextAlignFlags flags, bool multilineSupport)
+        {
+            // Create a memory DC so we can work off-screen
+            IntPtr memoryHdc = CreateCompatibleDC(_hdc);
+            SetBkMode(memoryHdc, 1);
+
+            // Create a device-independent bitmap and select it into our DC
+            var info = new BitMapInfo();
+            info.biSize = Marshal.SizeOf(info);
+            info.biWidth = size.Width;
+            info.biHeight = -size.Height;
+            info.biPlanes = 1;
+            info.biBitCount = 32;
+            info.biCompression = 0; // BI_RGB
+            IntPtr ppvBits;
+            IntPtr dib = CreateDIBSection(_hdc, ref info, 0, out ppvBits, IntPtr.Zero, 0);
+            SelectObject(memoryHdc, dib);
+
+            try
+            {
+                // copy target background to memory HDC so when copied back it will have the proper background
+                BitBlt(memoryHdc, 0, 0, size.Width, size.Height, _hdc, point.X, point.Y, 0x00CC0020);
+
+                // Create and select font
+                SelectObject(memoryHdc, fontHandle);
+                SetTextColor(memoryHdc, (color.B & 0xFF) << 16 | (color.G & 0xFF) << 8 | color.R);
+
+                Size strSize = new Size();
+                Point pos = new Point();
+
+                if (multilineSupport)
+                {
+                    TextFormatFlags fmtFlags = TextFormatFlags.WordBreak;
+                    // Aligment
+                    if (flags.HasFlag(TextAlignFlags.Center))
+                        fmtFlags |= TextFormatFlags.Center;
+                    if (flags.HasFlag(TextAlignFlags.Right))
+                        fmtFlags |= TextFormatFlags.Right;
+
+                    // Calculate the string size
+                    Rect strRect = new Rect(new Rectangle(point, size));
+                    DrawText(memoryHdc, str, str.Length, ref strRect, TextFormatFlags.CalcRect | fmtFlags);
+
+                    if (flags.HasFlag(TextAlignFlags.Middle))
+                        pos.Y = ((size.Height) >> 1) - (strRect.Height >> 1);
+                    if (flags.HasFlag(TextAlignFlags.Bottom))
+                        pos.Y = (size.Height) - (strRect.Height);
+
+                    // Draw Text for multiline format
+                    Rect region = new Rect(new Rectangle(pos, size));
+                    DrawText(memoryHdc, str, str.Length, ref region, fmtFlags);
+                }
+                else
+                {
+                    // Calculate the string size
+                    GetTextExtentPoint32(memoryHdc, str, str.Length, ref strSize);
+                    // Aligment
+                    if (flags.HasFlag(TextAlignFlags.Center))
+                        pos.X = ((size.Width) >> 1) - (strSize.Width >> 1);
+                    if (flags.HasFlag(TextAlignFlags.Right))
+                        pos.X = (size.Width) - (strSize.Width);
+
+                    if (flags.HasFlag(TextAlignFlags.Middle))
+                        pos.Y = ((size.Height) >> 1) - (strSize.Height >> 1);
+                    if (flags.HasFlag(TextAlignFlags.Bottom))
+                        pos.Y = (size.Height) - (strSize.Height);
+
+                    // Draw text to memory HDC
+                    TextOut(memoryHdc, pos.X, pos.Y, str, str.Length);
+                }
+
+                // copy from memory HDC to normal HDC with alpha blend so achieve the transparent text
+                AlphaBlend(_hdc, point.X, point.Y, size.Width, size.Height, memoryHdc, 0, 0, size.Width, size.Height, new BlendFunction(color.A));
+            }
+            finally
+            {
+                DeleteObject(dib);
+                DeleteDC(memoryHdc);
+            }
+        }
+
+        public void Dispose()
+        {
+            if (_hdc != IntPtr.Zero)
+            {
+                SelectClipRgn(_hdc, IntPtr.Zero);
+                _g.ReleaseHdc(_hdc);
+                _hdc = IntPtr.Zero;
+            }
+        }
+
+        #region Private Methods
+
+        private void SetFont(Font font)
+        {
+            SelectObject(_hdc, GetCachedHFont(font));
+        }
+
+        private static IntPtr GetCachedHFont(Font font)
+        {
+            IntPtr hfont = IntPtr.Zero;
+            Dictionary<float, Dictionary<FontStyle, IntPtr>> dic1;
+            if (_fontsCache.TryGetValue(font.Name, out dic1))
+            {
+                Dictionary<FontStyle, IntPtr> dic2;
+                if (dic1.TryGetValue(font.Size, out dic2))
+                    dic2.TryGetValue(font.Style, out hfont);
+                else
+                    dic1[font.Size] = new Dictionary<FontStyle, IntPtr>();
+            }
+            else
+            {
+                _fontsCache[font.Name] = new Dictionary<float, Dictionary<FontStyle, IntPtr>>();
+                _fontsCache[font.Name][font.Size] = new Dictionary<FontStyle, IntPtr>();
+            }
+
+            if (hfont == IntPtr.Zero)
+                _fontsCache[font.Name][font.Size][font.Style] = hfont = font.ToHfont();
+
+            return hfont;
+        }
+
+        private void SetTextColor(Color color)
+        {
+            int rgb = (color.B & 0xFF) << 16 | (color.G & 0xFF) << 8 | color.R;
+            SetTextColor(_hdc, rgb);
+        }
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        private static extern int DrawText(IntPtr hdc, string lpchText, int cchText, ref Rect lprc, TextFormatFlags dwDTFormat);
+
+        [DllImport("gdi32.dll")]
+        private static extern int SetBkMode(IntPtr hdc, int mode);
+
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr SelectObject(IntPtr hdc, IntPtr hgdiObj);
+
+        [DllImport("gdi32.dll")]
+        private static extern int SetTextColor(IntPtr hdc, int color);
+
+        [DllImport("gdi32.dll", EntryPoint = "GetTextExtentPoint32W")]
+        private static extern int GetTextExtentPoint32(IntPtr hdc, [MarshalAs(UnmanagedType.LPWStr)] string str, int len, ref Size size);
+
+        [DllImport("gdi32.dll", EntryPoint = "GetTextExtentExPointW")]
+        private static extern bool GetTextExtentExPoint(IntPtr hDc, [MarshalAs(UnmanagedType.LPWStr)] string str, int nLength, int nMaxExtent, int[] lpnFit, int[] alpDx, ref Size size);
+
+        [DllImport("gdi32.dll", EntryPoint = "TextOutW")]
+        private static extern bool TextOut(IntPtr hdc, int x, int y, [MarshalAs(UnmanagedType.LPWStr)] string str, int len);
+
+        [DllImport("gdi32.dll")]
+        public static extern int SetTextAlign(IntPtr hdc, uint fMode);
+
+        [DllImport("user32.dll", EntryPoint = "DrawTextW")]
+        private static extern int DrawText(IntPtr hdc, [MarshalAs(UnmanagedType.LPWStr)] string str, int len, ref Rect rect, uint uFormat);
+
+        [DllImport("gdi32.dll")]
+        private static extern int SelectClipRgn(IntPtr hdc, IntPtr hrgn);
+
+        [DllImport("gdi32.dll")]
+        public static extern bool DeleteObject(IntPtr hObject);
+
+        [DllImport("gdi32.dll", ExactSpelling = true, SetLastError = true)]
+        public static extern bool DeleteDC(IntPtr hdc);
+
+        [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr CreateFontIndirect([In, MarshalAs(UnmanagedType.LPStruct)] LogFont lplf);
+
+        [DllImport("gdi32.dll", ExactSpelling = true)]
+        public static extern IntPtr AddFontMemResourceEx(byte[] pbFont, int cbFont, IntPtr pdv, out uint pcFonts);
+
+        [DllImport("gdi32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool BitBlt(IntPtr hdc, int nXDest, int nYDest, int nWidth, int nHeight, IntPtr hdcSrc, int nXSrc, int nYSrc, uint dwRop);
+
+        [DllImport("gdi32.dll", EntryPoint = "GdiAlphaBlend")]
+        private static extern bool AlphaBlend(IntPtr hdcDest, int nXOriginDest, int nYOriginDest, int nWidthDest, int nHeightDest, IntPtr hdcSrc, int nXOriginSrc, int nYOriginSrc, int nWidthSrc, int nHeightSrc, BlendFunction blendFunction);
+
+        [DllImport("gdi32.dll", ExactSpelling = true, SetLastError = true)]
+        private static extern IntPtr CreateCompatibleDC(IntPtr hdc);
+
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateDIBSection(IntPtr hdc, [In] ref BitMapInfo pbmi, uint iUsage, out IntPtr ppvBits, IntPtr hSection, uint dwOffset);
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        public class LogFont
+        {
+            public int lfHeight = 0;
+            public int lfWidth = 0;
+            public int lfEscapement = 0;
+            public int lfOrientation = 0;
+            public int lfWeight = 0;
+            public byte lfItalic = 0;
+            public byte lfUnderline = 0;
+            public byte lfStrikeOut = 0;
+            public byte lfCharSet = 0;
+            public byte lfOutPrecision = 0;
+            public byte lfClipPrecision = 0;
+            public byte lfQuality = 0;
+            public byte lfPitchAndFamily = 0;
+
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+            public string lfFaceName = string.Empty;
+        }
+
+        private struct Rect
+        {
+            private int _left;
+            private int _top;
+            private int _right;
+            private int _bottom;
+
+            public Rect(Rectangle r)
+            {
+                _left = r.Left;
+                _top = r.Top;
+                _bottom = r.Bottom;
+                _right = r.Right;
+            }
+
+            public int Height
+            {
+                get
+                {
+                    return _bottom - _top;
+                }
+            }
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct BlendFunction
+        {
+            public byte BlendOp;
+            public byte BlendFlags;
+            public byte SourceConstantAlpha;
+            public byte AlphaFormat;
+
+            public BlendFunction(byte alpha)
+            {
+                BlendOp = 0;
+                BlendFlags = 0;
+                AlphaFormat = 0;
+                SourceConstantAlpha = alpha;
+            }
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct BitMapInfo
+        {
+            public int biSize;
+            public int biWidth;
+            public int biHeight;
+            public short biPlanes;
+            public short biBitCount;
+            public int biCompression;
+            public int biSizeImage;
+            public int biXPelsPerMeter;
+            public int biYPelsPerMeter;
+            public int biClrUsed;
+            public int biClrImportant;
+            public byte bmiColors_rgbBlue;
+            public byte bmiColors_rgbGreen;
+            public byte bmiColors_rgbRed;
+            public byte bmiColors_rgbReserved;
+        }
+
+        [Flags]
+        public enum TextFormatFlags : uint
+        {
+            Default = 0x00000000,
+            Center = 0x00000001,
+            Right = 0x00000002,
+            VCenter = 0x00000004,
+            Bottom = 0x00000008,
+            WordBreak = 0x00000010,
+            SingleLine = 0x00000020,
+            ExpandTabs = 0x00000040,
+            TabStop = 0x00000080,
+            NoClip = 0x00000100,
+            ExternalLeading = 0x00000200,
+            CalcRect = 0x00000400,
+            NoPrefix = 0x00000800,
+            Internal = 0x00001000,
+            EditControl = 0x00002000,
+            PathEllipsis = 0x00004000,
+            EndEllipsis = 0x00008000,
+            ModifyString = 0x00010000,
+            RtlReading = 0x00020000,
+            WordEllipsis = 0x00040000,
+            NoFullWidthCharBreak = 0x00080000,
+            HidePrefix = 0x00100000,
+            ProfixOnly = 0x00200000,
+        }
+
+        private const int DT_TOP = 0x00000000;
+
+        private const int DT_LEFT = 0x00000000;
+
+        private const int DT_CENTER = 0x00000001;
+
+        private const int DT_RIGHT = 0x00000002;
+
+        private const int DT_VCENTER = 0x00000004;
+
+        private const int DT_BOTTOM = 0x00000008;
+
+        private const int DT_WORDBREAK = 0x00000010;
+
+        private const int DT_SINGLELINE = 0x00000020;
+
+        private const int DT_EXPANDTABS = 0x00000040;
+
+        private const int DT_TABSTOP = 0x00000080;
+
+        private const int DT_NOCLIP = 0x00000100;
+
+        private const int DT_EXTERNALLEADING = 0x00000200;
+
+        private const int DT_CALCRECT = 0x00000400;
+
+        private const int DT_NOPREFIX = 0x00000800;
+
+        private const int DT_INTERNAL = 0x00001000;
+
+        private const int DT_EDITCONTROL = 0x00002000;
+
+        private const int DT_PATH_ELLIPSIS = 0x00004000;
+
+        private const int DT_END_ELLIPSIS = 0x00008000;
+
+        private const int DT_MODIFYSTRING = 0x00010000;
+
+        private const int DT_RTLREADING = 0x00020000;
+
+        private const int DT_WORD_ELLIPSIS = 0x00040000;
+
+        private const int DT_NOFULLWIDTHCHARBREAK = 0x00080000;
+
+        private const int DT_HIDEPREFIX = 0x00100000;
+
+        private const int DT_PREFIXONLY = 0x00200000;
+
+        [Flags]
+        public enum TextAlignFlags : uint
+        {
+            Left = 1 << 0,
+            Center = 1 << 1,
+            Right = 1 << 2,
+            Top = 1 << 3,
+            Middle = 1 << 4,
+            Bottom = 1 << 5
+        }
+
+        public enum logFontWeight : int
+        {
+            FW_DONTCARE = 0,
+            FW_THIN = 100,
+            FW_EXTRALIGHT = 200,
+            FW_ULTRALIGHT = 200,
+            FW_LIGHT = 300,
+            FW_NORMAL = 400,
+            FW_REGULAR = 400,
+            FW_MEDIUM = 500,
+            FW_SEMIBOLD = 600,
+            FW_DEMIBOLD = 600,
+            FW_BOLD = 700,
+            FW_EXTRABOLD = 800,
+            FW_ULTRABOLD = 800,
+            FW_HEAVY = 900,
+            FW_BLACK = 900,
+        }
+
+        #endregion Private methods
+    }
+
+    public class MaterialSkinAnimations
+    {
+        internal enum AnimationType
+        {
+            Linear,
+            EaseInOut,
+            EaseOut,
+            CustomQuadratic
+        }
+
+        internal enum AnimationDirection
+        {
+            In,
+            Out,
+            InOutIn,
+            InOutOut,
+            InOutRepeatingIn,
+            InOutRepeatingOut
+        }
+
+        internal static class AnimationLinear
+        {
+            public static double CalculateProgress(double progress)
+            {
+                return progress;
+            }
+        }
+
+        internal static class AnimationEaseInOut
+        {
+            public static double PI = Math.PI;
+
+            public static double PI_HALF = Math.PI / 2;
+
+            public static double CalculateProgress(double progress)
+            {
+                return EaseInOut(progress);
+            }
+
+            private static double EaseInOut(double s)
+            {
+                return s - Math.Sin(s * 2 * PI) / (2 * PI);
+            }
+        }
+
+        public static class AnimationEaseOut
+        {
+            public static double CalculateProgress(double progress)
+            {
+                return -1 * progress * (progress - 2);
+            }
+        }
+
+        public static class AnimationCustomQuadratic
+        {
+            public static double CalculateProgress(double progress)
+            {
+                var kickoff = 0.6;
+                return 1 - Math.Cos((Math.Max(progress, kickoff) - kickoff) * Math.PI / (2 - (2 * kickoff)));
+            }
+        }
+
+        internal class AnimationManager
+        {
+            public bool InterruptAnimation { get; set; }
+
+            public double Increment { get; set; }
+
+            public double SecondaryIncrement { get; set; }
+
+            public AnimationType AnimationType { get; set; }
+
+            public bool Singular { get; set; }
+
+            public delegate void AnimationFinished(object sender);
+
+            public event AnimationFinished OnAnimationFinished;
+
+            public delegate void AnimationProgress(object sender);
+
+            public event AnimationProgress OnAnimationProgress;
+
+            private readonly List<double> _animationProgresses;
+
+            private readonly List<Point> _animationSources;
+
+            private readonly List<AnimationDirection> _animationDirections;
+
+            private readonly List<object[]> _animationDatas;
+
+            private const double MIN_VALUE = 0.00;
+
+            private const double MAX_VALUE = 1.00;
+
+            private readonly System.Windows.Forms.Timer _animationTimer = new System.Windows.Forms.Timer
+            {
+                Interval = 5,
+                Enabled = false
+            };
+
+            public AnimationManager(bool singular = true)
+            {
+                _animationProgresses = new List<double>();
+                _animationSources = new List<Point>();
+                _animationDirections = new List<AnimationDirection>();
+                _animationDatas = new List<object[]>();
+
+                Increment = 0.03;
+                SecondaryIncrement = 0.03;
+                AnimationType = AnimationType.Linear;
+                InterruptAnimation = true;
+                Singular = singular;
+
+                if (Singular)
+                {
+                    _animationProgresses.Add(0);
+                    _animationSources.Add(new Point(0, 0));
+                    _animationDirections.Add(AnimationDirection.In);
+                }
+
+                _animationTimer.Tick += AnimationTimerOnTick;
+            }
+
+            private void AnimationTimerOnTick(object sender, EventArgs eventArgs)
+            {
+                for (var i = 0; i < _animationProgresses.Count; i++)
+                {
+                    UpdateProgress(i);
+
+                    if (!Singular)
+                    {
+                        if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                            _animationDirections[i] = AnimationDirection.InOutOut;
+                        else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE))
+                            _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                        else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                            _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                        else if ((_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] == MAX_VALUE) || (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] == MIN_VALUE) || (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] == MIN_VALUE))
+                        {
+                            _animationProgresses.RemoveAt(i);
+                            _animationSources.RemoveAt(i);
+                            _animationDirections.RemoveAt(i);
+                            _animationDatas.RemoveAt(i);
+                        }
+                    }
+                    else
+                    {
+                        if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                            _animationDirections[i] = AnimationDirection.InOutOut;
+                        else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE))
+                            _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                        else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                            _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                    }
+                }
+
+                OnAnimationProgress?.Invoke(this);
+            }
+
+            public bool IsAnimating()
+            {
+                return _animationTimer.Enabled;
+            }
+
+            public void StartNewAnimation(AnimationDirection animationDirection, object[] data = null)
+            {
+                StartNewAnimation(animationDirection, new Point(0, 0), data);
+            }
+
+            public void StartNewAnimation(AnimationDirection animationDirection, Point animationSource, object[] data = null)
+            {
+                if (!IsAnimating() || InterruptAnimation)
+                {
+                    if (Singular && _animationDirections.Count > 0)
+                        _animationDirections[0] = animationDirection;
+                    else
+                        _animationDirections.Add(animationDirection);
+
+                    if (Singular && _animationSources.Count > 0)
+                        _animationSources[0] = animationSource;
+                    else
+                        _animationSources.Add(animationSource);
+
+                    if (!(Singular && _animationProgresses.Count > 0))
+                    {
+                        switch (_animationDirections[_animationDirections.Count - 1])
+                        {
+                            case AnimationDirection.InOutRepeatingIn:
+                            case AnimationDirection.InOutIn:
+                            case AnimationDirection.In:
+                                _animationProgresses.Add(MIN_VALUE);
+                                break;
+                            case AnimationDirection.InOutRepeatingOut:
+                            case AnimationDirection.InOutOut:
+                            case AnimationDirection.Out:
+                                _animationProgresses.Add(MAX_VALUE);
+                                break;
+                            default:
+                                throw new Exception("Invalid AnimationDirection");
+                        }
+                    }
+
+                    if (Singular && _animationDatas.Count > 0)
+                        _animationDatas[0] = data ?? new object[] { };
+                    else
+                        _animationDatas.Add(data ?? new object[] { });
+                }
+
+                _animationTimer.Start();
+            }
+
+            public void UpdateProgress(int index)
+            {
+                switch (_animationDirections[index])
+                {
+                    case AnimationDirection.InOutRepeatingIn:
+                    case AnimationDirection.InOutIn:
+                    case AnimationDirection.In:
+                        IncrementProgress(index);
+                        break;
+                    case AnimationDirection.InOutRepeatingOut:
+                    case AnimationDirection.InOutOut:
+                    case AnimationDirection.Out:
+                        DecrementProgress(index);
+                        break;
+                    default:
+                        throw new Exception("No AnimationDirection has been set");
+                }
+            }
+
+            private void IncrementProgress(int index)
+            {
+                _animationProgresses[index] += Increment;
+                if (_animationProgresses[index] > MAX_VALUE)
+                {
+                    _animationProgresses[index] = MAX_VALUE;
+
+                    for (int i = 0; i < GetAnimationCount(); i++)
+                    {
+                        if (_animationDirections[i] == AnimationDirection.InOutIn)
+                            return;
+
+                        if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                            return;
+
+                        if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                            return;
+
+                        if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MAX_VALUE)
+                            return;
+
+                        if (_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] != MAX_VALUE)
+                            return;
+                    }
+
+                    _animationTimer.Stop();
+                    OnAnimationFinished?.Invoke(this);
+                }
+            }
+
+            private void DecrementProgress(int index)
+            {
+                _animationProgresses[index] -= (_animationDirections[index] == AnimationDirection.InOutOut || _animationDirections[index] == AnimationDirection.InOutRepeatingOut) ? SecondaryIncrement : Increment;
+                if (_animationProgresses[index] < MIN_VALUE)
+                {
+                    _animationProgresses[index] = MIN_VALUE;
+
+                    for (var i = 0; i < GetAnimationCount(); i++)
+                    {
+                        if (_animationDirections[i] == AnimationDirection.InOutIn)
+                            return;
+
+                        if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                            return;
+
+                        if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                            return;
+
+                        if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MIN_VALUE)
+                            return;
+
+                        if (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] != MIN_VALUE)
+                            return;
+                    }
+
+                    _animationTimer.Stop();
+                    OnAnimationFinished?.Invoke(this);
+                }
+            }
+
+            public double GetProgress()
+            {
+                if (!Singular)
+                    throw new Exception("Animation is not set to Singular.");
+
+                if (_animationProgresses.Count == 0)
+                    throw new Exception("Invalid animation");
+
+                return GetProgress(0);
+            }
+
+            public double GetProgress(int index)
+            {
+                if (!(index < GetAnimationCount()))
+                    throw new IndexOutOfRangeException("Invalid animation index");
+
+                switch (AnimationType)
+                {
+                    case AnimationType.Linear:
+                        return AnimationLinear.CalculateProgress(_animationProgresses[index]);
+                    case AnimationType.EaseInOut:
+                        return AnimationEaseInOut.CalculateProgress(_animationProgresses[index]);
+                    case AnimationType.EaseOut:
+                        return AnimationEaseOut.CalculateProgress(_animationProgresses[index]);
+                    case AnimationType.CustomQuadratic:
+                        return AnimationCustomQuadratic.CalculateProgress(_animationProgresses[index]);
+                    default:
+                        throw new NotImplementedException("The given AnimationType is not implemented");
+                }
+            }
+
+            public Point GetSource(int index)
+            {
+                if (!(index < GetAnimationCount()))
+                    throw new IndexOutOfRangeException("Invalid animation index");
+
+                return _animationSources[index];
+            }
+
+            public Point GetSource()
+            {
+                if (!Singular)
+                    throw new Exception("Animation is not set to Singular.");
+
+                if (_animationSources.Count == 0)
+                    throw new Exception("Invalid animation");
+
+                return _animationSources[0];
+            }
+
+            public AnimationDirection GetDirection()
+            {
+                if (!Singular)
+                    throw new Exception("Animation is not set to Singular.");
+
+                if (_animationDirections.Count == 0)
+                    throw new Exception("Invalid animation");
+
+                return _animationDirections[0];
+            }
+
+            public AnimationDirection GetDirection(int index)
+            {
+                if (!(index < _animationDirections.Count))
+                    throw new IndexOutOfRangeException("Invalid animation index");
+
+                return _animationDirections[index];
+            }
+
+            public object[] GetData()
+            {
+                if (!Singular)
+                    throw new Exception("Animation is not set to Singular.");
+
+                if (_animationDatas.Count == 0)
+                    throw new Exception("Invalid animation");
+
+                return _animationDatas[0];
+            }
+
+            public object[] GetData(int index)
+            {
+                if (!(index < _animationDatas.Count))
+                    throw new IndexOutOfRangeException("Invalid animation index");
+
+                return _animationDatas[index];
+            }
+
+            public int GetAnimationCount()
+            {
+                return _animationProgresses.Count;
+            }
+
+            public void SetProgress(double progress)
+            {
+                if (!Singular)
+                    throw new Exception("Animation is not set to Singular.");
+
+                if (_animationProgresses.Count == 0)
+                    throw new Exception("Invalid animation");
+
+                _animationProgresses[0] = progress;
+            }
+
+            public void SetDirection(AnimationDirection direction)
+            {
+                if (!Singular)
+                    throw new Exception("Animation is not set to Singular.");
+
+                if (_animationProgresses.Count == 0)
+                    throw new Exception("Invalid animation");
+
+                _animationDirections[0] = direction;
+            }
+
+            public void SetData(object[] data)
+            {
+                if (!Singular)
+                    throw new Exception("Animation is not set to Singular.");
+
+                if (_animationDatas.Count == 0)
+                    throw new Exception("Invalid animation");
+
+                _animationDatas[0] = data;
+            }
+        }
+    }
 
     #endregion
 }

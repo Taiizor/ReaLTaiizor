@@ -233,6 +233,7 @@
             // 
             groupBox1.BackColor = System.Drawing.Color.Transparent;
             groupBox1.BackGColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(35)))), ((int)(((byte)(45)))));
+            groupBox1.BaseColor = System.Drawing.Color.Transparent;
             groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
             groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
@@ -243,6 +244,7 @@
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
             groupBox1.Size = new System.Drawing.Size(444, 171);
+            groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             groupBox1.TabIndex = 1;
             groupBox1.Text = "groupBox1";
             // 
@@ -441,22 +443,28 @@
             // radioButton1
             // 
             radioButton1.Checked = true;
+            radioButton1.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            radioButton1.CircleColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
             radioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             radioButton1.Location = new System.Drawing.Point(387, 85);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new System.Drawing.Size(95, 17);
+            radioButton1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             radioButton1.TabIndex = 39;
             radioButton1.Text = "radioButton1";
             // 
             // radioButton2
             // 
             radioButton2.Checked = false;
+            radioButton2.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            radioButton2.CircleColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(76)))), ((int)(((byte)(85)))));
             radioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
             radioButton2.Location = new System.Drawing.Point(488, 85);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new System.Drawing.Size(95, 17);
+            radioButton2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             radioButton2.TabIndex = 38;
             radioButton2.Text = "radioButton2";
             // 
@@ -589,62 +597,138 @@
             // notificationBox8
             // 
             notificationBox8.BorderCurve = 16;
+            notificationBox8.CloseForeColor = System.Drawing.Color.Black;
+            notificationBox8.ErrorBackColor = System.Drawing.Color.Crimson;
+            notificationBox8.ErrorBorderColor = System.Drawing.Color.Crimson;
+            notificationBox8.ErrorForeColor = System.Drawing.Color.White;
+            notificationBox8.ErrorTitleText = "ERROR";
             notificationBox8.Font = new System.Drawing.Font("Tahoma", 9F);
             notificationBox8.Image = null;
             notificationBox8.Location = new System.Drawing.Point(465, 182);
             notificationBox8.MinimumSize = new System.Drawing.Size(100, 40);
             notificationBox8.Name = "notificationBox8";
+            notificationBox8.NoticeBackColor = System.Drawing.Color.Gray;
+            notificationBox8.NoticeBorderColor = System.Drawing.Color.Gray;
+            notificationBox8.NoticeForeColor = System.Drawing.Color.White;
+            notificationBox8.NoticeTitleText = "NOTICE";
             notificationBox8.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
             notificationBox8.RoundCorners = true;
             notificationBox8.ShowCloseButton = false;
             notificationBox8.Size = new System.Drawing.Size(145, 40);
+            notificationBox8.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            notificationBox8.SuccessBackColor = System.Drawing.Color.SeaGreen;
+            notificationBox8.SuccessBorderColor = System.Drawing.Color.SeaGreen;
+            notificationBox8.SuccessForeColor = System.Drawing.Color.White;
+            notificationBox8.SuccessTitleText = "SUCCESS";
             notificationBox8.TabIndex = 24;
             notificationBox8.Text = "notificationBox8";
+            notificationBox8.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            notificationBox8.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox8.WarningBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox8.WarningForeColor = System.Drawing.Color.White;
+            notificationBox8.WarningTitleText = "WARNING";
             // 
             // notificationBox7
             // 
             notificationBox7.BorderCurve = 16;
+            notificationBox7.CloseForeColor = System.Drawing.Color.Black;
+            notificationBox7.ErrorBackColor = System.Drawing.Color.Crimson;
+            notificationBox7.ErrorBorderColor = System.Drawing.Color.Crimson;
+            notificationBox7.ErrorForeColor = System.Drawing.Color.White;
+            notificationBox7.ErrorTitleText = "ERROR";
             notificationBox7.Font = new System.Drawing.Font("Tahoma", 9F);
             notificationBox7.Image = null;
             notificationBox7.Location = new System.Drawing.Point(314, 182);
             notificationBox7.MinimumSize = new System.Drawing.Size(100, 40);
             notificationBox7.Name = "notificationBox7";
+            notificationBox7.NoticeBackColor = System.Drawing.Color.Gray;
+            notificationBox7.NoticeBorderColor = System.Drawing.Color.Gray;
+            notificationBox7.NoticeForeColor = System.Drawing.Color.White;
+            notificationBox7.NoticeTitleText = "NOTICE";
             notificationBox7.NotificationType = ReaLTaiizor.NotificationBox.Type.Warning;
             notificationBox7.RoundCorners = true;
             notificationBox7.ShowCloseButton = true;
             notificationBox7.Size = new System.Drawing.Size(145, 40);
+            notificationBox7.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            notificationBox7.SuccessBackColor = System.Drawing.Color.SeaGreen;
+            notificationBox7.SuccessBorderColor = System.Drawing.Color.SeaGreen;
+            notificationBox7.SuccessForeColor = System.Drawing.Color.White;
+            notificationBox7.SuccessTitleText = "SUCCESS";
             notificationBox7.TabIndex = 23;
             notificationBox7.Text = "notificationBox7";
+            notificationBox7.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            notificationBox7.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox7.WarningBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox7.WarningForeColor = System.Drawing.Color.White;
+            notificationBox7.WarningTitleText = "WARNING";
             // 
             // notificationBox6
             // 
             notificationBox6.BorderCurve = 16;
+            notificationBox6.CloseForeColor = System.Drawing.Color.Black;
+            notificationBox6.ErrorBackColor = System.Drawing.Color.Crimson;
+            notificationBox6.ErrorBorderColor = System.Drawing.Color.Crimson;
+            notificationBox6.ErrorForeColor = System.Drawing.Color.White;
+            notificationBox6.ErrorTitleText = "ERROR";
             notificationBox6.Font = new System.Drawing.Font("Tahoma", 9F);
             notificationBox6.Image = null;
             notificationBox6.Location = new System.Drawing.Point(163, 182);
             notificationBox6.MinimumSize = new System.Drawing.Size(100, 40);
             notificationBox6.Name = "notificationBox6";
+            notificationBox6.NoticeBackColor = System.Drawing.Color.Gray;
+            notificationBox6.NoticeBorderColor = System.Drawing.Color.Gray;
+            notificationBox6.NoticeForeColor = System.Drawing.Color.White;
+            notificationBox6.NoticeTitleText = "NOTICE";
             notificationBox6.NotificationType = ReaLTaiizor.NotificationBox.Type.Error;
             notificationBox6.RoundCorners = true;
             notificationBox6.ShowCloseButton = false;
             notificationBox6.Size = new System.Drawing.Size(145, 40);
+            notificationBox6.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            notificationBox6.SuccessBackColor = System.Drawing.Color.SeaGreen;
+            notificationBox6.SuccessBorderColor = System.Drawing.Color.SeaGreen;
+            notificationBox6.SuccessForeColor = System.Drawing.Color.White;
+            notificationBox6.SuccessTitleText = "SUCCESS";
             notificationBox6.TabIndex = 22;
             notificationBox6.Text = "notificationBox6";
+            notificationBox6.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            notificationBox6.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox6.WarningBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox6.WarningForeColor = System.Drawing.Color.White;
+            notificationBox6.WarningTitleText = "WARNING";
             // 
             // notificationBox5
             // 
             notificationBox5.BorderCurve = 16;
+            notificationBox5.CloseForeColor = System.Drawing.Color.Black;
+            notificationBox5.ErrorBackColor = System.Drawing.Color.Crimson;
+            notificationBox5.ErrorBorderColor = System.Drawing.Color.Crimson;
+            notificationBox5.ErrorForeColor = System.Drawing.Color.White;
+            notificationBox5.ErrorTitleText = "ERROR";
             notificationBox5.Font = new System.Drawing.Font("Tahoma", 9F);
             notificationBox5.Image = null;
             notificationBox5.Location = new System.Drawing.Point(11, 182);
             notificationBox5.MinimumSize = new System.Drawing.Size(100, 40);
             notificationBox5.Name = "notificationBox5";
+            notificationBox5.NoticeBackColor = System.Drawing.Color.Gray;
+            notificationBox5.NoticeBorderColor = System.Drawing.Color.Gray;
+            notificationBox5.NoticeForeColor = System.Drawing.Color.White;
+            notificationBox5.NoticeTitleText = "NOTICE";
             notificationBox5.NotificationType = ReaLTaiizor.NotificationBox.Type.Success;
             notificationBox5.RoundCorners = true;
             notificationBox5.ShowCloseButton = true;
             notificationBox5.Size = new System.Drawing.Size(145, 40);
+            notificationBox5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            notificationBox5.SuccessBackColor = System.Drawing.Color.SeaGreen;
+            notificationBox5.SuccessBorderColor = System.Drawing.Color.SeaGreen;
+            notificationBox5.SuccessForeColor = System.Drawing.Color.White;
+            notificationBox5.SuccessTitleText = "SUCCESS";
             notificationBox5.TabIndex = 21;
             notificationBox5.Text = "notificationBox5";
+            notificationBox5.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            notificationBox5.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox5.WarningBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox5.WarningForeColor = System.Drawing.Color.White;
+            notificationBox5.WarningTitleText = "WARNING";
             // 
             // separator3
             // 
@@ -771,62 +855,138 @@
             // notificationBox4
             // 
             notificationBox4.BorderCurve = 8;
+            notificationBox4.CloseForeColor = System.Drawing.Color.Black;
+            notificationBox4.ErrorBackColor = System.Drawing.Color.Crimson;
+            notificationBox4.ErrorBorderColor = System.Drawing.Color.Crimson;
+            notificationBox4.ErrorForeColor = System.Drawing.Color.White;
+            notificationBox4.ErrorTitleText = "ERROR";
             notificationBox4.Font = new System.Drawing.Font("Tahoma", 9F);
             notificationBox4.Image = null;
             notificationBox4.Location = new System.Drawing.Point(465, 136);
             notificationBox4.MinimumSize = new System.Drawing.Size(100, 40);
             notificationBox4.Name = "notificationBox4";
+            notificationBox4.NoticeBackColor = System.Drawing.Color.Gray;
+            notificationBox4.NoticeBorderColor = System.Drawing.Color.Gray;
+            notificationBox4.NoticeForeColor = System.Drawing.Color.White;
+            notificationBox4.NoticeTitleText = "NOTICE";
             notificationBox4.NotificationType = ReaLTaiizor.NotificationBox.Type.Success;
             notificationBox4.RoundCorners = false;
             notificationBox4.ShowCloseButton = true;
             notificationBox4.Size = new System.Drawing.Size(145, 40);
+            notificationBox4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            notificationBox4.SuccessBackColor = System.Drawing.Color.SeaGreen;
+            notificationBox4.SuccessBorderColor = System.Drawing.Color.SeaGreen;
+            notificationBox4.SuccessForeColor = System.Drawing.Color.White;
+            notificationBox4.SuccessTitleText = "SUCCESS";
             notificationBox4.TabIndex = 8;
             notificationBox4.Text = "notificationBox4";
+            notificationBox4.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            notificationBox4.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox4.WarningBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox4.WarningForeColor = System.Drawing.Color.White;
+            notificationBox4.WarningTitleText = "WARNING";
             // 
             // notificationBox3
             // 
             notificationBox3.BorderCurve = 8;
+            notificationBox3.CloseForeColor = System.Drawing.Color.Black;
+            notificationBox3.ErrorBackColor = System.Drawing.Color.Crimson;
+            notificationBox3.ErrorBorderColor = System.Drawing.Color.Crimson;
+            notificationBox3.ErrorForeColor = System.Drawing.Color.White;
+            notificationBox3.ErrorTitleText = "ERROR";
             notificationBox3.Font = new System.Drawing.Font("Tahoma", 9F);
             notificationBox3.Image = null;
             notificationBox3.Location = new System.Drawing.Point(314, 136);
             notificationBox3.MinimumSize = new System.Drawing.Size(100, 40);
             notificationBox3.Name = "notificationBox3";
+            notificationBox3.NoticeBackColor = System.Drawing.Color.Gray;
+            notificationBox3.NoticeBorderColor = System.Drawing.Color.Gray;
+            notificationBox3.NoticeForeColor = System.Drawing.Color.White;
+            notificationBox3.NoticeTitleText = "NOTICE";
             notificationBox3.NotificationType = ReaLTaiizor.NotificationBox.Type.Error;
             notificationBox3.RoundCorners = false;
             notificationBox3.ShowCloseButton = false;
             notificationBox3.Size = new System.Drawing.Size(145, 40);
+            notificationBox3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            notificationBox3.SuccessBackColor = System.Drawing.Color.SeaGreen;
+            notificationBox3.SuccessBorderColor = System.Drawing.Color.SeaGreen;
+            notificationBox3.SuccessForeColor = System.Drawing.Color.White;
+            notificationBox3.SuccessTitleText = "SUCCESS";
             notificationBox3.TabIndex = 7;
             notificationBox3.Text = "notificationBox3";
+            notificationBox3.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            notificationBox3.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox3.WarningBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox3.WarningForeColor = System.Drawing.Color.White;
+            notificationBox3.WarningTitleText = "WARNING";
             // 
             // notificationBox2
             // 
             notificationBox2.BorderCurve = 8;
+            notificationBox2.CloseForeColor = System.Drawing.Color.Black;
+            notificationBox2.ErrorBackColor = System.Drawing.Color.Crimson;
+            notificationBox2.ErrorBorderColor = System.Drawing.Color.Crimson;
+            notificationBox2.ErrorForeColor = System.Drawing.Color.White;
+            notificationBox2.ErrorTitleText = "ERROR";
             notificationBox2.Font = new System.Drawing.Font("Tahoma", 9F);
             notificationBox2.Image = null;
             notificationBox2.Location = new System.Drawing.Point(163, 136);
             notificationBox2.MinimumSize = new System.Drawing.Size(100, 40);
             notificationBox2.Name = "notificationBox2";
+            notificationBox2.NoticeBackColor = System.Drawing.Color.Gray;
+            notificationBox2.NoticeBorderColor = System.Drawing.Color.Gray;
+            notificationBox2.NoticeForeColor = System.Drawing.Color.White;
+            notificationBox2.NoticeTitleText = "NOTICE";
             notificationBox2.NotificationType = ReaLTaiizor.NotificationBox.Type.Warning;
             notificationBox2.RoundCorners = false;
             notificationBox2.ShowCloseButton = true;
             notificationBox2.Size = new System.Drawing.Size(145, 40);
+            notificationBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            notificationBox2.SuccessBackColor = System.Drawing.Color.SeaGreen;
+            notificationBox2.SuccessBorderColor = System.Drawing.Color.SeaGreen;
+            notificationBox2.SuccessForeColor = System.Drawing.Color.White;
+            notificationBox2.SuccessTitleText = "SUCCESS";
             notificationBox2.TabIndex = 6;
             notificationBox2.Text = "notificationBox2";
+            notificationBox2.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            notificationBox2.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox2.WarningBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox2.WarningForeColor = System.Drawing.Color.White;
+            notificationBox2.WarningTitleText = "WARNING";
             // 
             // notificationBox1
             // 
             notificationBox1.BorderCurve = 8;
+            notificationBox1.CloseForeColor = System.Drawing.Color.Black;
+            notificationBox1.ErrorBackColor = System.Drawing.Color.Crimson;
+            notificationBox1.ErrorBorderColor = System.Drawing.Color.Crimson;
+            notificationBox1.ErrorForeColor = System.Drawing.Color.White;
+            notificationBox1.ErrorTitleText = "ERROR";
             notificationBox1.Font = new System.Drawing.Font("Tahoma", 9F);
             notificationBox1.Image = null;
             notificationBox1.Location = new System.Drawing.Point(12, 136);
             notificationBox1.MinimumSize = new System.Drawing.Size(100, 40);
             notificationBox1.Name = "notificationBox1";
+            notificationBox1.NoticeBackColor = System.Drawing.Color.Gray;
+            notificationBox1.NoticeBorderColor = System.Drawing.Color.Gray;
+            notificationBox1.NoticeForeColor = System.Drawing.Color.White;
+            notificationBox1.NoticeTitleText = "NOTICE";
             notificationBox1.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
             notificationBox1.RoundCorners = false;
             notificationBox1.ShowCloseButton = false;
             notificationBox1.Size = new System.Drawing.Size(145, 40);
+            notificationBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            notificationBox1.SuccessBackColor = System.Drawing.Color.SeaGreen;
+            notificationBox1.SuccessBorderColor = System.Drawing.Color.SeaGreen;
+            notificationBox1.SuccessForeColor = System.Drawing.Color.White;
+            notificationBox1.SuccessTitleText = "SUCCESS";
             notificationBox1.TabIndex = 5;
             notificationBox1.Text = "notificationBox1";
+            notificationBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            notificationBox1.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox1.WarningBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            notificationBox1.WarningForeColor = System.Drawing.Color.White;
+            notificationBox1.WarningTitleText = "WARNING";
             // 
             // linkEdit1
             // 

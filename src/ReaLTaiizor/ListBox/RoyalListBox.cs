@@ -36,7 +36,7 @@ namespace ReaLTaiizor
         public bool MultiSelection
         {
             get { return multiSelection; }
-            set { multiSelection = value; }
+            set { multiSelection = value; Invalidate(); }
         }
 
         bool multiSelectKeyDown = false;
@@ -45,28 +45,28 @@ namespace ReaLTaiizor
         public int ItemHeight
         {
             get { return itemHeight; }
-            set { itemHeight = value; }
+            set { itemHeight = value; Invalidate(); }
         }
 
         Color hotLightColor;
         public Color HotLightColor
         {
             get { return hotLightColor; }
-            set { hotLightColor = value; }
+            set { hotLightColor = value; Invalidate(); }
         }
 
         Color selectedColor;
         public Color SelectedColor
         {
             get { return selectedColor; }
-            set { selectedColor = value; }
+            set { selectedColor = value; Invalidate(); }
         }
 
         int selectedIndex;
         public int SelectedIndex
         {
             get { return selectedIndex; }
-            set { selectedIndex = value; }
+            set { selectedIndex = value; Invalidate(); }
         }
 
         public object SelectedValue
@@ -78,7 +78,7 @@ namespace ReaLTaiizor
         public int HotLightedIndex
         {
             get { return hotLightedIndex; }
-            set { hotLightedIndex = value; }
+            set { hotLightedIndex = value; Invalidate(); }
         }
 
         public object HotLightedItem

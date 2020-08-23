@@ -5,14 +5,12 @@ using System.Windows.Forms;
 
 #endregion
 
-
 namespace ReaLTaiizor
 {
     #region BigLabel
 
     public class BigLabel : Label
     {
-
         public BigLabel()
         {
             Font = new Font("Segoe UI", 25, FontStyle.Regular);

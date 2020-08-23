@@ -4,7 +4,7 @@
     <TargetFramework>net48</TargetFramework>
     <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>-->
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-    <Version>3.7.7.5</Version>
+    <Version>3.7.7.6</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
@@ -34,6 +34,15 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </PropertyGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Material\Roboto-Black.ttf" />
+    <Resource Include="Resources\Material\Roboto-Bold.ttf" />
+    <Resource Include="Resources\Material\Roboto-Light.ttf" />
+    <Resource Include="Resources\Material\Roboto-Medium.ttf" />
+    <Resource Include="Resources\Material\Roboto-Regular.ttf" />
+    <Resource Include="Resources\Material\Roboto-Thin.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
       <Version>1.1.0-beta-20204-02</Version>
       <PrivateAssets>All</PrivateAssets>
@@ -41,18 +50,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Google.png" />
-    <None Remove="Resources\Royal\Check.png" />
-    <None Remove="Resources\Royal\Close.png" />
-    <None Remove="Resources\Royal\Maximize.png" />
-    <None Remove="Resources\Royal\MessageBox\Error.png" />
-    <None Remove="Resources\Royal\MessageBox\Information.png" />
-    <None Remove="Resources\Royal\MessageBox\Question.png" />
-    <None Remove="Resources\Royal\MessageBox\Warning.png" />
-    <None Remove="Resources\Royal\Minimize.png" />
-    <None Remove="Resources\Taiizor.ico" />
-    <None Remove="Resources\Taiizor.png" />
-    <None Remove="Resources\Twitter.png" />
     <None Include="Resources\Taiizor.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -78,6 +75,12 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Taiizor.ico" />
     <Resource Include="Resources\Taiizor.png" />
     <Resource Include="Resources\Twitter.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Drawer\MaterialDrawer.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

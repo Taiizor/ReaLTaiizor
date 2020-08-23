@@ -15,14 +15,14 @@ namespace ReaLTaiizor
         public Color HotTrackColor
         {
             get { return hotTrackColor; }
-            set { hotTrackColor = value; }
+            set { hotTrackColor = value; Invalidate(); }
         }
 
         Color selectedColor;
         public Color SelectedColor
         {
             get { return selectedColor; }
-            set { selectedColor = value; }
+            set { selectedColor = value; Invalidate(); }
         }
 
         public RoyalMenuStrip()

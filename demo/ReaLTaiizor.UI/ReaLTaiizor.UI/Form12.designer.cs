@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form12));
-            foxTextBox1 = new ReaLTaiizor.FoxTextbox();
+            foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             foxLabel1 = new ReaLTaiizor.FoxLabel();
             foxNumeric1 = new ReaLTaiizor.FoxNumeric();
             foxBigLabel1 = new ReaLTaiizor.FoxBigLabel();
@@ -427,7 +427,7 @@
         private ReaLTaiizor.FoxBigLabel foxBigLabel1;
         private ReaLTaiizor.FoxNumeric foxNumeric1;
         private ReaLTaiizor.FoxLabel foxLabel1;
-        private ReaLTaiizor.FoxTextbox foxTextBox1;
+        private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.FoxLinkLabel foxLinkLabel1;
     }
 }

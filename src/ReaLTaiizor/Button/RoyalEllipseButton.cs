@@ -2,6 +2,7 @@
 
 using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 #endregion
 
@@ -11,6 +12,17 @@ namespace ReaLTaiizor
 
     public class RoyalEllipseButton : RoyalButton
     {
+        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
         public RoyalEllipseButton() : base()
         {
             Size = new Size(120, 120);
@@ -37,7 +49,7 @@ namespace ReaLTaiizor
             if (DrawBorder)
                 borderColor = BorderColor;
 
-            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            e.Graphics.SmoothingMode = SmoothingType;
             e.Graphics.FillEllipse(new SolidBrush(backColor), new Rectangle(2, 2, Width - (BorderThickness + 1), Height - (BorderThickness + 1)));
             e.Graphics.DrawEllipse(new Pen(BorderColor, BorderThickness), new Rectangle(1, 1, Width - BorderThickness, Height - BorderThickness));
 

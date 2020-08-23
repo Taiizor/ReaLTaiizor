@@ -87,13 +87,15 @@ Step 2：Disfruta diseñando
 
 ![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)
 
-### Traducir
-
-![TranslateSample](https://www.photo.herominyum.com/resimler/2020/08/08/1UWO.png)
-
 ### Instagram
 
 ![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/182n.png)
+
+## Preparado
+
+### Traducir
+
+![TranslateReady](https://www.photo.herominyum.com/resimler/2020/08/08/1UWO.png)
 
 ## Visión General
 

@@ -31,56 +31,56 @@ namespace ReaLTaiizor
         public bool DrawBorder
         {
             get { return drawBorder; }
-            set { drawBorder = value; }
+            set { drawBorder = value; Invalidate(); }
         }
 
         Color hotTrackColor;
         public Color HotTrackColor
         {
             get { return hotTrackColor; }
-            set { hotTrackColor = value; }
+            set { hotTrackColor = value; Invalidate(); }
         }
 
         Color pressedColor;
         public Color PressedColor
         {
             get { return pressedColor; }
-            set { pressedColor = value; }
+            set { pressedColor = value; Invalidate(); }
         }
 
         Color pressedForeColor;
         public Color PressedForeColor
         {
             get { return pressedForeColor; }
-            set { pressedForeColor = value; }
+            set { pressedForeColor = value; Invalidate(); }
         }
 
         Color borderColor;
         public Color BorderColor
         {
             get { return borderColor; }
-            set { borderColor = value; }
+            set { borderColor = value; Invalidate(); }
         }
 
         int borderThickness;
         public int BorderThickness
         {
             get { return borderThickness; }
-            set { borderThickness = value; }
+            set { borderThickness = value; Invalidate(); }
         }
 
         Image image;
         public Image Image
         {
             get { return image; }
-            set { image = value; }
+            set { image = value; Invalidate(); }
         }
 
         RoyalLayoutFlags layoutFlags;
         public RoyalLayoutFlags LayoutFlags
         {
             get { return layoutFlags; }
-            set { layoutFlags = value; }
+            set { layoutFlags = value; Invalidate(); }
         }
 
         public RoyalButton()
