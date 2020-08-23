@@ -227,7 +227,8 @@ namespace ReaLTaiizor
             de,
             es,
             it,
-            tr
+            tr,
+            zh
         };
 
         private static readonly String[] BUTTON_TEXTS_ENGLISH_EN = { "Ok", "Cancel", "Yes", "No", "Abort", "Retry", "Ignore" };//Note: This is also the fallback language
@@ -239,6 +240,8 @@ namespace ReaLTaiizor
         private static readonly String[] BUTTON_TEXTS_ITALIAN_IT = { "Ok", "Annulla", "Sì", "No", "Interrompi", "Riprova", "Ignora" };
 
         private static readonly String[] BUTTON_TEXTS_TURKISH_TR = { "Tamam", "İptal", "Evet", "Hayır", "Durdur", "Yeniden Dene", "Yoksay" };
+
+        private static readonly String[] BUTTON_TEXTS_CHINA_ZH = { "确定", "取消", "是", "否", "终止", "重试", "忽略" };
 
         private MessageBoxDefaultButton defaultButton;
 
@@ -280,6 +283,7 @@ namespace ReaLTaiizor
                 case TwoLetterISOLanguageID.es: return BUTTON_TEXTS_SPANISH_ES[buttonTextArrayIndex];
                 case TwoLetterISOLanguageID.it: return BUTTON_TEXTS_ITALIAN_IT[buttonTextArrayIndex];
                 case TwoLetterISOLanguageID.tr: return BUTTON_TEXTS_TURKISH_TR[buttonTextArrayIndex];
+                case TwoLetterISOLanguageID.zh: return BUTTON_TEXTS_CHINA_ZH[buttonTextArrayIndex];
 
                 default: return BUTTON_TEXTS_ENGLISH_EN[buttonTextArrayIndex];
             }

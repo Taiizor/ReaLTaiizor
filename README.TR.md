@@ -58,6 +58,17 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 		<br/>
 		<a href="https://github.com/Soferity" target="_blank" title="İçerik">🖋</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/leocb">
+			<img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb"/>
+			<br/>
+			<sub>
+				<b>leocb</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/leocb" target="_blank" title="Kodlama">💻</a>
+	</td>
   </tr>
 </table>
 

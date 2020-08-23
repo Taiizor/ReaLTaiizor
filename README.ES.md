@@ -58,6 +58,17 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<br/>
 		<a href="https://github.com/Soferity" target="_blank" title="Contenido">🖋</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/leocb">
+			<img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb"/>
+			<br/>
+			<sub>
+				<b>leocb</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/leocb" target="_blank" title="Código">💻</a>
+	</td>
   </tr>
 </table>
 

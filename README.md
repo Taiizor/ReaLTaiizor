@@ -58,6 +58,17 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		<br/>
 		<a href="https://github.com/Soferity" target="_blank" title="Content">🖋</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/leocb">
+			<img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb"/>
+			<br/>
+			<sub>
+				<b>leocb</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/leocb" target="_blank" title="Code">💻</a>
+	</td>
   </tr>
 </table>
 
