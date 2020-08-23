@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
 using static ReaLTaiizor.MaterialDrawHelper;
-using static ReaLTaiizor.MaterialDrawHelper.MaterialSkinAnimations;
+using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 

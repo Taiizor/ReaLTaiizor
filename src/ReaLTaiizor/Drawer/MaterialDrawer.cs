@@ -9,7 +9,7 @@ using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using static ReaLTaiizor.MaterialDrawHelper;
-using static ReaLTaiizor.MaterialDrawHelper.MaterialSkinAnimations;
+using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 
