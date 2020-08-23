@@ -36,6 +36,39 @@ namespace ReaLTaiizor
             AutoScroll = true;
         }
 
+        /*
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                base.OnPaint(e);
+                MessageBox.Show("Start!");
+
+                foreach (Control CTRL in FindForm().Controls)
+                {
+                    try
+                    {
+                        if (CTRL is MaterialCheckedListBox)
+                        {
+                            MessageBox.Show("OK - " + CTRL.Name);
+                            MaterialCheckedListBox MCLB = CTRL as MaterialCheckedListBox;
+                            MessageBox.Show("YES - " + MCLB.Name + " - " + MCLB.Items.Count);
+                            foreach (var Item in MCLB.Items)
+                            {
+                                if (!MCLB.Controls.Contains(Item))
+                                {
+                                    MessageBox.Show("I - " + Item.Text);
+                                    Items.Add(Item.Text, Item.Checked);
+                                }
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
+            }
+        */
+
         protected override void OnCreateControl()
         {
             base.OnCreateControl();

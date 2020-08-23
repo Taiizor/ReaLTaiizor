@@ -69,11 +69,6 @@
             this.hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.RoyalScrollBar();
             this.skyButton1 = new ReaLTaiizor.SkyButton();
-            this.extendedPanel1 = new ReaLTaiizor.ExtendedPanel();
-            this.materialCheckedListBox1 = new ReaLTaiizor.MaterialCheckedListBox();
-            this.materialCheckBox2 = new ReaLTaiizor.MaterialCheckBox();
-            this.materialCheckBox3 = new ReaLTaiizor.MaterialCheckBox();
-            this.materialCheckBox4 = new ReaLTaiizor.MaterialCheckBox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -397,87 +392,18 @@
             this.skyButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.skyButton1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
             this.skyButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyButton1.Location = new System.Drawing.Point(716, 361);
+            this.skyButton1.Location = new System.Drawing.Point(716, 289);
             this.skyButton1.Name = "skyButton1";
             this.skyButton1.Size = new System.Drawing.Size(75, 23);
             this.skyButton1.TabIndex = 18;
             this.skyButton1.Text = "skyButton1";
-            // 
-            // extendedPanel1
-            // 
-            this.extendedPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.extendedPanel1.DrawMode = ReaLTaiizor.ExtendedPanel.Drawer.Image;
-            this.extendedPanel1.Location = new System.Drawing.Point(5, 318);
-            this.extendedPanel1.MostInterval = 100;
-            this.extendedPanel1.Name = "extendedPanel1";
-            this.extendedPanel1.Opacity = 50;
-            this.extendedPanel1.Size = new System.Drawing.Size(388, 66);
-            this.extendedPanel1.TabIndex = 19;
-            this.extendedPanel1.TopMost = false;
-            // 
-            // materialCheckedListBox1
-            // 
-            this.materialCheckedListBox1.AutoScroll = true;
-            this.materialCheckedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.materialCheckedListBox1.Depth = 0;
-            this.materialCheckedListBox1.Location = new System.Drawing.Point(399, 39);
-            this.materialCheckedListBox1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCheckedListBox1.Name = "materialCheckedListBox1";
-            this.materialCheckedListBox1.Size = new System.Drawing.Size(392, 76);
-            this.materialCheckedListBox1.Striped = false;
-            this.materialCheckedListBox1.StripeDarkColor = System.Drawing.Color.Empty;
-            this.materialCheckedListBox1.TabIndex = 21;
-            // 
-            // materialCheckBox2
-            // 
-            this.materialCheckBox2.Depth = 0;
-            this.materialCheckBox2.Location = new System.Drawing.Point(0, 0);
-            this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox2.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCheckBox2.Name = "materialCheckBox2";
-            this.materialCheckBox2.Ripple = true;
-            this.materialCheckBox2.Size = new System.Drawing.Size(104, 37);
-            this.materialCheckBox2.TabIndex = 0;
-            this.materialCheckBox2.Text = "materialCheckBox2";
-            this.materialCheckBox2.UseVisualStyleBackColor = true;
-            // 
-            // materialCheckBox3
-            // 
-            this.materialCheckBox3.Depth = 0;
-            this.materialCheckBox3.Location = new System.Drawing.Point(0, 0);
-            this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox3.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCheckBox3.Name = "materialCheckBox3";
-            this.materialCheckBox3.Ripple = true;
-            this.materialCheckBox3.Size = new System.Drawing.Size(104, 37);
-            this.materialCheckBox3.TabIndex = 0;
-            this.materialCheckBox3.Text = "materialCheckBox3";
-            this.materialCheckBox3.UseVisualStyleBackColor = true;
-            // 
-            // materialCheckBox4
-            // 
-            this.materialCheckBox4.Depth = 0;
-            this.materialCheckBox4.Location = new System.Drawing.Point(0, 0);
-            this.materialCheckBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox4.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox4.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCheckBox4.Name = "materialCheckBox4";
-            this.materialCheckBox4.Ripple = true;
-            this.materialCheckBox4.Size = new System.Drawing.Size(104, 37);
-            this.materialCheckBox4.TabIndex = 0;
-            this.materialCheckBox4.Text = "materialCheckBox4";
-            this.materialCheckBox4.UseVisualStyleBackColor = true;
             // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(796, 392);
-            this.Controls.Add(this.extendedPanel1);
-            this.Controls.Add(this.materialCheckedListBox1);
+            this.ClientSize = new System.Drawing.Size(796, 320);
             this.Controls.Add(this.skyButton1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
@@ -529,10 +455,5 @@
         private ReaLTaiizor.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.RoyalScrollBar royalScrollBar1;
         private ReaLTaiizor.SkyButton skyButton1;
-        private ReaLTaiizor.ExtendedPanel extendedPanel1;
-        private ReaLTaiizor.MaterialCheckedListBox materialCheckedListBox1;
-        private ReaLTaiizor.MaterialCheckBox materialCheckBox2;
-        private ReaLTaiizor.MaterialCheckBox materialCheckBox3;
-        private ReaLTaiizor.MaterialCheckBox materialCheckBox4;
     }
 }

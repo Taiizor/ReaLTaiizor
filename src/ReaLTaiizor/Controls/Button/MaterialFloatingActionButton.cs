@@ -246,6 +246,12 @@ namespace ReaLTaiizor
                 Visible = true;
             }
         }
+
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+            Mini = _mini;
+        }
     }
 
     #endregion
