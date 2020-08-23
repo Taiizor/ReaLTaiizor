@@ -34,6 +34,24 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Material\Roboto-Black.ttf" />
+    <None Remove="Resources\Material\Roboto-Bold.ttf" />
+    <None Remove="Resources\Material\Roboto-Light.ttf" />
+    <None Remove="Resources\Material\Roboto-Medium.ttf" />
+    <None Remove="Resources\Material\Roboto-Regular.ttf" />
+    <None Remove="Resources\Material\Roboto-Thin.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Material\Roboto-Black.ttf" />
+    <EmbeddedResource Include="Resources\Material\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Material\Roboto-Light.ttf" />
+    <EmbeddedResource Include="Resources\Material\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Material\Roboto-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Material\Roboto-Thin.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
       <Version>1.1.0-beta-20204-02</Version>
       <PrivateAssets>All</PrivateAssets>
@@ -66,6 +84,12 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Taiizor.ico" />
     <Resource Include="Resources\Taiizor.png" />
     <Resource Include="Resources\Twitter.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Drawer\MaterialDrawer.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
