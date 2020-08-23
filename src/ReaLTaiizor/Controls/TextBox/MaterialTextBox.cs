@@ -149,12 +149,12 @@ namespace ReaLTaiizor
             };
             HScroll += (sender, args) =>
             {
-                SendMessage(this.Handle, EM_GETSCROLLPOS, 0, ref scrollPos);
+                SendMessage(Handle, EM_GETSCROLLPOS, 0, ref scrollPos);
                 Invalidate();
             };
             KeyDown += (sender, args) =>
             {
-                SendMessage(this.Handle, EM_GETSCROLLPOS, 0, ref scrollPos);
+                SendMessage(Handle, EM_GETSCROLLPOS, 0, ref scrollPos);
             };
         }
 

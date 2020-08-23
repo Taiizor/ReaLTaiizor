@@ -77,4 +77,9 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Twitter.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Controls\ComboBox\MaterialComboBox.cs" />
+    <Compile Update="Controls\Label\MaterialLabel.cs" />
+  </ItemGroup>
+
 </Project>
