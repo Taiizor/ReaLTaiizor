@@ -82,6 +82,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Compile Update="Controls\Form\MaterialFlexibleForm.cs" />
     <Compile Update="Controls\Label\MaterialLabel.cs" />
     <Compile Update="Controls\MessageBox\MaterialMessageBox.cs" />
+    <Compile Update="Controls\RadioButton\MaterialRadioButton.cs" />
   </ItemGroup>
 
   <ItemGroup>
