@@ -11174,14 +11174,14 @@ namespace ReaLTaiizor
             else if (controlToUpdate is MaterialDivider)
                 controlToUpdate.BackColor = DividersColor;
 
-            // Other Material Skin control
+            // Other Material control
             else if (controlToUpdate.IsMaterialControl())
             {
                 controlToUpdate.BackColor = newBackColor;
                 controlToUpdate.ForeColor = TextHighEmphasisColor;
             }
 
-            // Other Generic control not part of material skin
+            // Other Generic control not part of Material
             else if (EnforceBackcolorOnAllComponents && controlToUpdate.HasProperty("BackColor") && !controlToUpdate.IsMaterialControl() && controlToUpdate.Parent != null)
             {
                 controlToUpdate.BackColor = controlToUpdate.Parent.BackColor;
