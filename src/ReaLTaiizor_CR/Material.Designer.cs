@@ -37,7 +37,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.materialTabControl1 = new ReaLTaiizor.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialTabSelector1 = new ReaLTaiizor.MaterialTabSelector();
             this.materialTabControl1.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +120,6 @@
             // materialTabControl1
             // 
             this.materialTabControl1.Controls.Add(this.tabPage1);
-            this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Location = new System.Drawing.Point(277, 116);
             this.materialTabControl1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -141,16 +139,6 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(439, 214);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // materialTabSelector1
             // 
             this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
@@ -160,7 +148,7 @@
             this.materialTabSelector1.Location = new System.Drawing.Point(277, 85);
             this.materialTabSelector1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(447, 25);
+            this.materialTabSelector1.Size = new System.Drawing.Size(443, 25);
             this.materialTabSelector1.TabIndex = 9;
             this.materialTabSelector1.Text = "materialTabSelector1";
             this.materialTabSelector1.TitleTextState = ReaLTaiizor.MaterialTabSelector.TextState.Normal;
@@ -200,7 +188,6 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private ReaLTaiizor.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private ReaLTaiizor.MaterialTabSelector materialTabSelector1;
     }
 }
