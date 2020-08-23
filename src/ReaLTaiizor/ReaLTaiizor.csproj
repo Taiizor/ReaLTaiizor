@@ -85,7 +85,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Compile Update="Controls\ListView\MaterialListView.cs" />
     <Compile Update="Controls\MessageBox\MaterialMessageBox.cs" />
     <Compile Update="Controls\RadioButton\MaterialRadioButton.cs" />
-    <Compile Update="Controls\Strip\MaterialMenuStrip.cs" />
     <Compile Update="Controls\TabSelector\MaterialTabSelector.cs" />
   </ItemGroup>
 
