@@ -36,9 +36,9 @@
             // 
             this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 12F);
+            this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.materialTextBox1.Hint = "53X";
-            this.materialTextBox1.Location = new System.Drawing.Point(12, 80);
+            this.materialTextBox1.Location = new System.Drawing.Point(42, 87);
             this.materialTextBox1.MaxLength = 50;
             this.materialTextBox1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialTextBox1.Multiline = false;
@@ -53,7 +53,7 @@
             this.materialTextBox2.Depth = 0;
             this.materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.materialTextBox2.Hint = "53X";
-            this.materialTextBox2.Location = new System.Drawing.Point(12, 136);
+            this.materialTextBox2.Location = new System.Drawing.Point(42, 143);
             this.materialTextBox2.MaxLength = 50;
             this.materialTextBox2.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialTextBox2.Multiline = false;
@@ -67,10 +67,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 223);
+            this.ClientSize = new System.Drawing.Size(340, 215);
             this.Controls.Add(this.materialTextBox2);
             this.Controls.Add(this.materialTextBox1);
+            this.MaximizeBox = false;
             this.Name = "Material";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Material";
             this.ResumeLayout(false);
 

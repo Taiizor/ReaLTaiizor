@@ -34,6 +34,15 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Material\Roboto-Black.ttf" />
+    <None Remove="Resources\Material\Roboto-Bold.ttf" />
+    <None Remove="Resources\Material\Roboto-Light.ttf" />
+    <None Remove="Resources\Material\Roboto-Medium.ttf" />
+    <None Remove="Resources\Material\Roboto-Regular.ttf" />
+    <None Remove="Resources\Material\Roboto-Thin.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\Material\Roboto-Black.ttf" />
     <Resource Include="Resources\Material\Roboto-Bold.ttf" />
     <Resource Include="Resources\Material\Roboto-Light.ttf" />
@@ -75,23 +84,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Taiizor.ico" />
     <Resource Include="Resources\Taiizor.png" />
     <Resource Include="Resources\Twitter.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Controls\Button\MaterialFloatingActionButton.cs" />
-    <Compile Update="Controls\ComboBox\MaterialComboBox.cs" />
-    <Compile Update="Controls\Form\MaterialFlexibleForm.cs" />
-    <Compile Update="Controls\Label\MaterialLabel.cs" />
-    <Compile Update="Controls\ListView\MaterialListView.cs" />
-    <Compile Update="Controls\MessageBox\MaterialMessageBox.cs" />
-    <Compile Update="Controls\RadioButton\MaterialRadioButton.cs" />
-    <Compile Update="Controls\TabSelector\MaterialTabSelector.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Controls\Form\MaterialForm - Kopyala.resx">
-      <DependentUpon>MaterialForm.resx</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
