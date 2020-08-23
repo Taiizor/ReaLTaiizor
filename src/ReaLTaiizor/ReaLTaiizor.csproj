@@ -79,7 +79,15 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
 
   <ItemGroup>
     <Compile Update="Controls\ComboBox\MaterialComboBox.cs" />
+    <Compile Update="Controls\Form\MaterialFlexibleForm.cs" />
     <Compile Update="Controls\Label\MaterialLabel.cs" />
+    <Compile Update="Controls\MessageBox\MaterialMessageBox.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\Form\MaterialForm - Kopyala.resx">
+      <DependentUpon>MaterialForm.resx</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
