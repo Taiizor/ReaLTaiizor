@@ -41,18 +41,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Google.png" />
-    <None Remove="Resources\Royal\Check.png" />
-    <None Remove="Resources\Royal\Close.png" />
-    <None Remove="Resources\Royal\Maximize.png" />
-    <None Remove="Resources\Royal\MessageBox\Error.png" />
-    <None Remove="Resources\Royal\MessageBox\Information.png" />
-    <None Remove="Resources\Royal\MessageBox\Question.png" />
-    <None Remove="Resources\Royal\MessageBox\Warning.png" />
-    <None Remove="Resources\Royal\Minimize.png" />
-    <None Remove="Resources\Taiizor.ico" />
-    <None Remove="Resources\Taiizor.png" />
-    <None Remove="Resources\Twitter.png" />
     <None Include="Resources\Taiizor.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

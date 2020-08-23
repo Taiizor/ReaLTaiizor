@@ -142,6 +142,24 @@
   <data name="Question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Royal\MessageBox\Question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Roboto-Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Material\Roboto-Black.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto-Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Material\Roboto-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto-Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Material\Roboto-Light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto-Medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Material\Roboto-Medium.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto-Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Material\Roboto-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto-Thin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Material\Roboto-Thin.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Taiizor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Taiizor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
