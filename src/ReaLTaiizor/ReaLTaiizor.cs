@@ -10854,9 +10854,7 @@ namespace ReaLTaiizor
             {
                 // RemoveFontMemResourceEx
                 foreach (IntPtr handle in logicalFonts.Values)
-                {
                     MaterialNativeTextRenderer.DeleteObject(handle);
-                }
             }
 
             private Themes _theme;
