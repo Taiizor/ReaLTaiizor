@@ -231,12 +231,18 @@ namespace ReaLTaiizor
             {
                 using (var g = Graphics.FromImage(b))
                 {
+                    int TitleLenght = 0;
+                    foreach (System.Windows.Forms.TabPage TP in _baseTabControl.TabPages)
+                        TitleLenght += (int)g.MeasureString(TP.Text, Font).Width;
+
                     switch (HeadAlignment)
                     {
                         case Alignment.Center:
                             break;
                         case Alignment.Right:
-                            _tabRects.Add(new Rectangle(Width - SkinManager.FORM_PADDING - (TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[_baseTabControl.TabPages.Count - 1].Text, Font).Width), 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[_baseTabControl.TabPages.Count - 1].Text, Font).Width, Height));
+                            _tabRects.Add(new Rectangle(Width - SkinManager.FORM_PADDING - (TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[_baseTabControl.TabPages.Count - 1].Text, Font).Width) - TitleLenght, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[_baseTabControl.TabPages.Count - 1].Text, Font).Width, Height));
+                            for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
+                                _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
                             break;
                         default:
                             _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
