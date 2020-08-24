@@ -36,7 +36,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.materialRichTextBox1 = new ReaLTaiizor.MaterialRichTextBox();
+            this.materialRichTextBox1 = new ReaLTaiizor.Controls.RichTextBox.MaterialRichTextBox();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -164,6 +164,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private ReaLTaiizor.MaterialRichTextBox materialRichTextBox1;
+        private ReaLTaiizor.Controls.RichTextBox.MaterialRichTextBox materialRichTextBox1;
     }
 }

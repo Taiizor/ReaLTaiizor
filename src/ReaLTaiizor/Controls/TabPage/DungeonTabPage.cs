@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TabPage
 {
     #region DungeonTabPage
 
-    public class DungeonTabPage : TabControl
+    public class DungeonTabPage : System.Windows.Forms.TabControl
     {
         private Color _BaseColor = Color.Transparent;
         public Color BaseColor

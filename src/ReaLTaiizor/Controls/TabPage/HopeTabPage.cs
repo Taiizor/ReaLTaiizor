@@ -8,11 +8,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TabPage
 {
     #region HopeTabPage
 
-    public class HopeTabPage : TabControl
+    public class HopeTabPage : System.Windows.Forms.TabControl
     {
         #region Variables
         int enterIndex;

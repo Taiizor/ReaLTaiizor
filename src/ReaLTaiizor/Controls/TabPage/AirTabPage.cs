@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TabPage
 {
     #region AirTabPage
 
-    public class AirTabPage : TabControl
+    public class AirTabPage : System.Windows.Forms.TabControl
     {
 
         public AirTabPage()

@@ -67,7 +67,7 @@
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             foxTextBox1 = new ReaLTaiizor.FoxTextBox();
             hopeComboBox1 = new ReaLTaiizor.Controls.ComboBox.HopeComboBox();
-            royalScrollBar1 = new ReaLTaiizor.RoyalScrollBar();
+            royalScrollBar1 = new ReaLTaiizor.Controls.ScrollBar.RoyalScrollBar();
             skyButton1 = new ReaLTaiizor.Controls.Button.SkyButton();
             SuspendLayout();
             // 
@@ -453,7 +453,7 @@
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.ComboBox.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.RoyalScrollBar royalScrollBar1;
+        private ReaLTaiizor.Controls.ScrollBar.RoyalScrollBar royalScrollBar1;
         private ReaLTaiizor.Controls.Button.SkyButton skyButton1;
     }
 }

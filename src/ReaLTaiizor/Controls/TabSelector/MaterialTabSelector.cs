@@ -5,12 +5,13 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
+using ReaLTaiizor.Controls.TabControl;
 using static ReaLTaiizor.MaterialDrawHelper;
 using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TabSelector
 {
     #region MaterialTabSelector
 

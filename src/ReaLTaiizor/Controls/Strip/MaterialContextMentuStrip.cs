@@ -10,7 +10,7 @@ using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Strip
 {
     #region MaterialContextMenuStrip
 

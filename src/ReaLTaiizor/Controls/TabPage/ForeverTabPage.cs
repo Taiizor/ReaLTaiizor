@@ -9,11 +9,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TabPage
 {
 	#region ForeverTabPage
 
-	public class ForeverTabPage : TabControl
+	public class ForeverTabPage : System.Windows.Forms.TabControl
 	{
 		private int W;
 		private int H;

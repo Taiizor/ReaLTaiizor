@@ -7,11 +7,11 @@ using static ReaLTaiizor.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TabControl
 {
     #region MaterialTabControl
 
-    public class MaterialTabControl : TabControl, MaterialControlI
+    public class MaterialTabControl : System.Windows.Forms.TabControl, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }

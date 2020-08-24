@@ -11170,8 +11170,8 @@ namespace ReaLTaiizor
             foreach (ToolStripItem control in toolStrip.Items)
             {
                 control.BackColor = newBackColor;
-                if (control is MaterialToolStripMenuItem && (control as MaterialToolStripMenuItem).HasDropDown)
-                    UpdateToolStrip((control as MaterialToolStripMenuItem).DropDown, newBackColor);
+                if (control is Controls.Strip.MaterialToolStripMenuItem && (control as Controls.Strip.MaterialToolStripMenuItem).HasDropDown)
+                    UpdateToolStrip((control as Controls.Strip.MaterialToolStripMenuItem).DropDown, newBackColor);
             }
         }
     }

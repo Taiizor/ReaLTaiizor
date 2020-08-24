@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TabPage
 {
     #region TabPage
 
-    public class TabPage : TabControl
+    public class TabPage : System.Windows.Forms.TabControl
     {
 
         public TabPage()

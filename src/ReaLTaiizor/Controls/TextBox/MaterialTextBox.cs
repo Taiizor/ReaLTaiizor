@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
+using ReaLTaiizor.Controls.Strip;
 using System.Runtime.InteropServices;
 using static ReaLTaiizor.MaterialDrawHelper;
 using static ReaLTaiizor.MaterialSkinAnimations;

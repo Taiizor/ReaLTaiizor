@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using ReaLTaiizor.Controls.TabControl;
 using static ReaLTaiizor.MaterialDrawHelper;
 using static ReaLTaiizor.MaterialSkinAnimations;
 
