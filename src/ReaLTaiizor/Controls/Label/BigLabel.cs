@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Label
 {
     #region BigLabel
 
-    public class BigLabel : Label
+    public class BigLabel : System.Windows.Forms.Label
     {
         public BigLabel()
         {

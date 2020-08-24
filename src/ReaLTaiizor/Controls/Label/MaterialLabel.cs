@@ -7,11 +7,11 @@ using static ReaLTaiizor.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Label
 {
     #region MaterialLabel
 
-    public class MaterialLabel : Label, MaterialControlI
+    public class MaterialLabel : System.Windows.Forms.Label, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }

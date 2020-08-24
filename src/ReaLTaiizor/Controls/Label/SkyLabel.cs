@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Label
 {
     #region SkyLabel
 
-    public class SkyLabel : Label
+    public class SkyLabel : System.Windows.Forms.Label
     {
         public SkyLabel() : base()
         {

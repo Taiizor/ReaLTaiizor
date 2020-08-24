@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Label
 {
 	#region ForeverLabel
 
-	public class ForeverLabel : Label
+	public class ForeverLabel : System.Windows.Forms.Label
 	{
 		protected override void OnTextChanged(EventArgs e)
 		{

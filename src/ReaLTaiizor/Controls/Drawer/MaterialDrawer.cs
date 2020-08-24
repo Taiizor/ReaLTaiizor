@@ -13,7 +13,7 @@ using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Drawer
 {
     #region MaterialDrawer
 

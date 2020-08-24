@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Label
 {
-    #region Label Edit
+    #region LabelEdit
 
-    public class LabelEdit : Label
+    public class LabelEdit : System.Windows.Forms.Label
     {
         public LabelEdit()
         {

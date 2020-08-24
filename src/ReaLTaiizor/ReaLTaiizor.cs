@@ -11138,7 +11138,7 @@ namespace ReaLTaiizor
                 ((TabPage)controlToUpdate).BackColor = newBackColor;
 
             // Material Divider
-            else if (controlToUpdate is MaterialDivider)
+            else if (controlToUpdate is Controls.Divider.MaterialDivider)
                 controlToUpdate.BackColor = DividersColor;
 
             // Other Material control

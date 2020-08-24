@@ -5,13 +5,13 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.LinkLabelEdit
 {
-    #region LinkEdit
+    #region LinkLabelEdit
 
-    public class LinkEdit : LinkLabel
+    public class LinkLabelEdit : System.Windows.Forms.LinkLabel
     {
-        public LinkEdit()
+        public LinkLabelEdit()
         {
             Font = new Font("Microsoft Sans Serif", 9, FontStyle.Regular);
             BackColor = Color.Transparent;

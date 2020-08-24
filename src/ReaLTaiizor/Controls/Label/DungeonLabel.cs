@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Label
 {
     #region DungeonLabel
 
-    public class DungeonLabel : Label
+    public class DungeonLabel : System.Windows.Forms.Label
     {
 
         public DungeonLabel()

@@ -325,7 +325,7 @@ namespace ReaLTaiizor
             }
         }
 
-        private MaterialDrawer drawerControl = new MaterialDrawer();
+        private Controls.Drawer.MaterialDrawer drawerControl = new Controls.Drawer.MaterialDrawer();
 
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.DatePicker
 {
     #region HopeDatePicker
 

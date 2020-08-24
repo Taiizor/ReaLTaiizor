@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.LinkLabel
 {
     #region DungeonLinkLabel
 
-    public class DungeonLinkLabel : LinkLabel
+    public class DungeonLinkLabel : System.Windows.Forms.LinkLabel
     {
         public DungeonLinkLabel()
         {

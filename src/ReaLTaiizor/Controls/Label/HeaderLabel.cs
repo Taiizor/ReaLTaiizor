@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Label
 {
     #region HeaderLabel
 
-    public class HeaderLabel : Label
+    public class HeaderLabel : System.Windows.Forms.Label
     {
         public HeaderLabel()
         {

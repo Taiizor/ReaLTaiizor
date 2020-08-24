@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Label
 {
     #region MoonLabel
 
-    public class MoonLabel : Label
+    public class MoonLabel : System.Windows.Forms.Label
     {
 
         public MoonLabel()
