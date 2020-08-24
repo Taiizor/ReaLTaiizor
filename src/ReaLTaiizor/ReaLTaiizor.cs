@@ -10,6 +10,7 @@ using System.Drawing.Text;
 using System.Globalization;
 using System.Windows.Forms;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Drawing.Imaging;
 using ReaLTaiizor.Properties;
 using System.Drawing.Drawing2D;
@@ -24,7 +25,7 @@ using System.Runtime.InteropServices;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 15.May.2019
-//     Changed: 24.Aug.2020
+//     Changed: 25.Aug.2020
 //     Version: 3.7.7.7
 //
 // |---------DO-NOT-REMOVE---------|
@@ -1108,9 +1109,7 @@ namespace ReaLTaiizor
                 if (_Movable && Frame.Contains(e.Location))
                 {
                     if (!new Rectangle(Width - 22, 5, 15, 15).Contains(e.Location))
-                    {
                         Capture = false;
-                    }
                     WM_LMBUTTONDOWN = true;
                     DefWndProc(ref Messages[0]);
                 }
@@ -1139,13 +1138,9 @@ namespace ReaLTaiizor
                     return;
 
                 if (IsParentMdi)
-                {
                     CorrectBounds(new Rectangle(Point.Empty, Parent.Parent.Size));
-                }
                 else
-                {
                     CorrectBounds(Screen.FromControl(Parent).WorkingArea);
-                }
             }
         }
 
@@ -1219,9 +1214,7 @@ namespace ReaLTaiizor
         {
             Messages[0] = Message.Create(Parent.Handle, 161, new IntPtr(2), IntPtr.Zero);
             for (int I = 1; I <= 8; I++)
-            {
                 Messages[I] = Message.Create(Parent.Handle, 161, new IntPtr(I + 9), IntPtr.Zero);
-            }
         }
 
         private void CorrectBounds(Rectangle bounds)
@@ -1522,9 +1515,7 @@ namespace ReaLTaiizor
                 {
                     Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
-                    {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
-                    }
                 }
                 catch
                 {
@@ -2532,9 +2523,7 @@ namespace ReaLTaiizor
                 {
                     Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
-                    {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
-                    }
                 }
                 catch
                 {
@@ -3153,9 +3142,7 @@ namespace ReaLTaiizor
             lock (Callbacks)
             {
                 for (int I = 0; I <= Callbacks.Count - 1; I++)
-                {
                     Callbacks[I].Invoke(Invalidate);
-                }
             }
 
             Frames += Rate;
@@ -3692,9 +3679,7 @@ namespace ReaLTaiizor
         {
             Messages[0] = Message.Create(Parent.Handle, 161, new IntPtr(2), IntPtr.Zero);
             for (int I = 1; I <= 8; I++)
-            {
                 Messages[I] = Message.Create(Parent.Handle, 161, new IntPtr(I + 9), IntPtr.Zero);
-            }
         }
 
         private void CorrectBounds(Rectangle bounds)
@@ -3995,9 +3980,7 @@ namespace ReaLTaiizor
                 {
                     Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
-                    {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
-                    }
                 }
                 catch
                 {
@@ -5000,9 +4983,7 @@ namespace ReaLTaiizor
                 {
                     Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
-                    {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
-                    }
                 }
                 catch
                 {
@@ -5619,9 +5600,7 @@ namespace ReaLTaiizor
             lock (Callbacks)
             {
                 for (int I = 0; I <= Callbacks.Count - 1; I++)
-                {
                     Callbacks[I].Invoke(Invalidate);
-                }
             }
 
             Frames += Rate;
@@ -5630,13 +5609,9 @@ namespace ReaLTaiizor
         private static void InvalidateThemeTimer()
         {
             if (Callbacks.Count == 0)
-            {
                 ThemeTimer.Delete();
-            }
             else
-            {
                 ThemeTimer.Create(0, Rate, HandleCallbacks);
-            }
         }
 
         public static void AddAnimationCallback(AnimationDelegate callback)
@@ -6175,9 +6150,7 @@ namespace ReaLTaiizor
         {
             Messages[0] = Message.Create(Parent.Handle, 161, new IntPtr(2), IntPtr.Zero);
             for (int I = 1; I <= 8; I++)
-            {
                 Messages[I] = Message.Create(Parent.Handle, 161, new IntPtr(I + 9), IntPtr.Zero);
-            }
         }
 
         private void CorrectBounds(Rectangle bounds)
@@ -6478,9 +6451,7 @@ namespace ReaLTaiizor
                 {
                     Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
-                    {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
-                    }
                 }
                 catch
                 {
@@ -7485,9 +7456,7 @@ namespace ReaLTaiizor
                 {
                     Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
-                    {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
-                    }
                 }
                 catch
                 {
@@ -8099,9 +8068,7 @@ namespace ReaLTaiizor
             lock (Callbacks)
             {
                 for (int I = 0; I <= Callbacks.Count - 1; I++)
-                {
                     Callbacks[I].Invoke(Invalidate);
-                }
             }
 
             Frames += Rate;
@@ -11684,8 +11651,8 @@ namespace ReaLTaiizor
         internal enum AnimationType
         {
             Linear,
-            EaseInOut,
             EaseOut,
+            EaseInOut,
             CustomQuadratic
         }
 
@@ -11775,7 +11742,7 @@ namespace ReaLTaiizor
 
             private readonly System.Windows.Forms.Timer _animationTimer = new System.Windows.Forms.Timer
             {
-                Interval = 5,
+                Interval = 10,
                 Enabled = false
             };
 
@@ -11799,12 +11766,16 @@ namespace ReaLTaiizor
                     _animationDirections.Add(AnimationDirection.In);
                 }
 
-                _animationTimer.Tick += AnimationTimerOnTick;
+                _animationTimer.Tick += delegate (object _s, EventArgs _e)
+                {
+                    AnimationTimerOnTick(_s, _e);
+                };
+                //_animationTimer.Tick += AnimationTimerOnTick;
             }
 
             private void AnimationTimerOnTick(object sender, EventArgs eventArgs)
             {
-                for (var i = 0; i < _animationProgresses.Count; i++)
+                Parallel.For(0, _animationProgresses.Count, i =>
                 {
                     UpdateProgress(i);
 
@@ -11833,7 +11804,38 @@ namespace ReaLTaiizor
                         else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
                             _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
                     }
-                }
+                });
+
+                //for (var i = 0; i < _animationProgresses.Count; i++)
+                //{
+                //    UpdateProgress(i);
+
+                //    if (!Singular)
+                //    {
+                //        if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                //            _animationDirections[i] = AnimationDirection.InOutOut;
+                //        else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE))
+                //            _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                //        else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                //            _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                //        else if ((_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] == MAX_VALUE) || (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] == MIN_VALUE) || (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] == MIN_VALUE))
+                //        {
+                //            _animationProgresses.RemoveAt(i);
+                //            _animationSources.RemoveAt(i);
+                //            _animationDirections.RemoveAt(i);
+                //            _animationDatas.RemoveAt(i);
+                //        }
+                //    }
+                //    else
+                //    {
+                //        if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                //            _animationDirections[i] = AnimationDirection.InOutOut;
+                //        else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE))
+                //            _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                //        else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                //            _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                //    }
+                //}
 
                 OnAnimationProgress?.Invoke(this);
             }
@@ -11916,7 +11918,7 @@ namespace ReaLTaiizor
                 {
                     _animationProgresses[index] = MAX_VALUE;
 
-                    for (int i = 0; i < GetAnimationCount(); i++)
+                    Parallel.For(0, GetAnimationCount(), i =>
                     {
                         if (_animationDirections[i] == AnimationDirection.InOutIn)
                             return;
@@ -11932,7 +11934,25 @@ namespace ReaLTaiizor
 
                         if (_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] != MAX_VALUE)
                             return;
-                    }
+                    });
+
+                    //for (int i = 0; i < GetAnimationCount(); i++)
+                    //{
+                    //    if (_animationDirections[i] == AnimationDirection.InOutIn)
+                    //        return;
+
+                    //    if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                    //        return;
+
+                    //    if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                    //        return;
+
+                    //    if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MAX_VALUE)
+                    //        return;
+
+                    //    if (_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] != MAX_VALUE)
+                    //        return;
+                    //}
 
                     _animationTimer.Stop();
                     OnAnimationFinished?.Invoke(this);
@@ -11946,7 +11966,7 @@ namespace ReaLTaiizor
                 {
                     _animationProgresses[index] = MIN_VALUE;
 
-                    for (var i = 0; i < GetAnimationCount(); i++)
+                    Parallel.For(0, GetAnimationCount(), i =>
                     {
                         if (_animationDirections[i] == AnimationDirection.InOutIn)
                             return;
@@ -11962,7 +11982,25 @@ namespace ReaLTaiizor
 
                         if (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] != MIN_VALUE)
                             return;
-                    }
+                    });
+
+                    //for (var i = 0; i < GetAnimationCount(); i++)
+                    //{
+                    //    if (_animationDirections[i] == AnimationDirection.InOutIn)
+                    //        return;
+
+                    //    if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                    //        return;
+
+                    //    if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                    //        return;
+
+                    //    if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MIN_VALUE)
+                    //        return;
+
+                    //    if (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] != MIN_VALUE)
+                    //        return;
+                    //}
 
                     _animationTimer.Stop();
                     OnAnimationFinished?.Invoke(this);

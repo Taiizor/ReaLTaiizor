@@ -24,7 +24,7 @@ namespace ReaLTaiizor
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
 
         private const int EM_SETCUEBANNER = 0x1501;

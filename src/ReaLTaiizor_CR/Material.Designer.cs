@@ -29,132 +29,145 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Material));
-            materialTextBox1 = new ReaLTaiizor.MaterialTextBox();
-            materialTextBox2 = new ReaLTaiizor.MaterialTextBox();
-            textBox1 = new System.Windows.Forms.TextBox();
-            textBox2 = new System.Windows.Forms.TextBox();
-            textBox3 = new System.Windows.Forms.TextBox();
-            textBox4 = new System.Windows.Forms.TextBox();
-            richTextBox1 = new System.Windows.Forms.RichTextBox();
-            SuspendLayout();
+            this.materialTextBox1 = new ReaLTaiizor.MaterialTextBox();
+            this.materialTextBox2 = new ReaLTaiizor.MaterialTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.materialRichTextBox1 = new ReaLTaiizor.MaterialRichTextBox();
+            this.airButton1 = new ReaLTaiizor.AirButton();
+            this.SuspendLayout();
             // 
             // materialTextBox1
             // 
-            materialTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            materialTextBox1.Depth = 0;
-            materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            materialTextBox1.Hint = "53X";
-            materialTextBox1.Location = new System.Drawing.Point(12, 85);
-            materialTextBox1.MaxLength = 50;
-            materialTextBox1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialTextBox1.Multiline = false;
-            materialTextBox1.Name = "materialTextBox1";
-            materialTextBox1.Size = new System.Drawing.Size(483, 50);
-            materialTextBox1.TabIndex = 0;
-            materialTextBox1.Text = "deneme";
+            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox1.Depth = 0;
+            this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox1.Hint = "53X";
+            this.materialTextBox1.Location = new System.Drawing.Point(12, 85);
+            this.materialTextBox1.MaxLength = 50;
+            this.materialTextBox1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialTextBox1.Multiline = false;
+            this.materialTextBox1.Name = "materialTextBox1";
+            this.materialTextBox1.Size = new System.Drawing.Size(291, 50);
+            this.materialTextBox1.TabIndex = 0;
+            this.materialTextBox1.Text = "deneme";
             // 
             // materialTextBox2
             // 
-            materialTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            materialTextBox2.Depth = 0;
-            materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            materialTextBox2.Hint = "53X";
-            materialTextBox2.Location = new System.Drawing.Point(12, 141);
-            materialTextBox2.MaxLength = 50;
-            materialTextBox2.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialTextBox2.Multiline = false;
-            materialTextBox2.Name = "materialTextBox2";
-            materialTextBox2.Password = true;
-            materialTextBox2.Size = new System.Drawing.Size(483, 50);
-            materialTextBox2.TabIndex = 1;
-            materialTextBox2.Text = "deneme";
+            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox2.Depth = 0;
+            this.materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox2.Hint = "53X";
+            this.materialTextBox2.Location = new System.Drawing.Point(12, 141);
+            this.materialTextBox2.MaxLength = 50;
+            this.materialTextBox2.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialTextBox2.Multiline = false;
+            this.materialTextBox2.Name = "materialTextBox2";
+            this.materialTextBox2.Password = true;
+            this.materialTextBox2.Size = new System.Drawing.Size(291, 50);
+            this.materialTextBox2.TabIndex = 1;
+            this.materialTextBox2.Text = "deneme";
             // 
             // textBox1
             // 
-            textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            textBox1.Location = new System.Drawing.Point(12, 197);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(483, 20);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "deneme";
+            this.textBox1.Location = new System.Drawing.Point(12, 197);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(291, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "deneme";
             // 
             // textBox2
             // 
-            textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            textBox2.Location = new System.Drawing.Point(12, 223);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(483, 20);
-            textBox2.TabIndex = 3;
-            textBox2.Text = "deneme";
+            this.textBox2.Location = new System.Drawing.Point(12, 223);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(291, 20);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.Text = "deneme";
             // 
             // textBox3
             // 
-            textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            textBox3.Location = new System.Drawing.Point(12, 249);
-            textBox3.Name = "textBox3";
-            textBox3.PasswordChar = '●';
-            textBox3.Size = new System.Drawing.Size(483, 20);
-            textBox3.TabIndex = 4;
-            textBox3.Text = "deneme";
+            this.textBox3.Location = new System.Drawing.Point(12, 249);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '●';
+            this.textBox3.Size = new System.Drawing.Size(291, 20);
+            this.textBox3.TabIndex = 4;
+            this.textBox3.Text = "deneme";
             // 
             // textBox4
             // 
-            textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            textBox4.Location = new System.Drawing.Point(12, 275);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.PasswordChar = '●';
-            textBox4.Size = new System.Drawing.Size(483, 20);
-            textBox4.TabIndex = 5;
-            textBox4.Text = "deneme";
+            this.textBox4.Location = new System.Drawing.Point(12, 275);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.PasswordChar = '●';
+            this.textBox4.Size = new System.Drawing.Size(291, 20);
+            this.textBox4.TabIndex = 5;
+            this.textBox4.Text = "deneme";
             // 
             // richTextBox1
             // 
-            richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            richTextBox1.Location = new System.Drawing.Point(12, 301);
-            richTextBox1.Multiline = false;
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new System.Drawing.Size(483, 55);
-            richTextBox1.TabIndex = 7;
-            richTextBox1.Text = "deneme";
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(12, 301);
+            this.richTextBox1.Multiline = false;
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(291, 55);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "deneme";
+            // 
+            // materialRichTextBox1
+            // 
+            this.materialRichTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialRichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialRichTextBox1.Depth = 0;
+            this.materialRichTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialRichTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialRichTextBox1.Hint = "";
+            this.materialRichTextBox1.Location = new System.Drawing.Point(309, 88);
+            this.materialRichTextBox1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialRichTextBox1.Name = "materialRichTextBox1";
+            this.materialRichTextBox1.Size = new System.Drawing.Size(291, 106);
+            this.materialRichTextBox1.TabIndex = 8;
+            this.materialRichTextBox1.Text = "This is a test message!";
+            // 
+            // airButton1
+            // 
+            this.airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.airButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            this.airButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airButton1.Image = null;
+            this.airButton1.Location = new System.Drawing.Point(391, 223);
+            this.airButton1.Name = "airButton1";
+            this.airButton1.NoRounding = false;
+            this.airButton1.Size = new System.Drawing.Size(100, 45);
+            this.airButton1.TabIndex = 9;
+            this.airButton1.Text = "airButton1";
+            this.airButton1.Transparent = false;
             // 
             // Material
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(509, 376);
-            Controls.Add(richTextBox1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(materialTextBox2);
-            Controls.Add(materialTextBox1);
-            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
-            MaximizeBox = false;
-            Name = "Material";
-            Sizable = false;
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Material";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(612, 376);
+            this.Controls.Add(this.airButton1);
+            this.Controls.Add(this.materialRichTextBox1);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.materialTextBox2);
+            this.Controls.Add(this.materialTextBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "Material";
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Material";
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -167,5 +180,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private ReaLTaiizor.MaterialRichTextBox materialRichTextBox1;
+        private ReaLTaiizor.AirButton airButton1;
     }
 }
