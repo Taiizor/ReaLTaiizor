@@ -37,10 +37,11 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.materialTabControl1 = new ReaLTaiizor.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialTabSelector1 = new ReaLTaiizor.MaterialTabSelector();
             this.materialTabSelector2 = new ReaLTaiizor.MaterialTabSelector();
             this.materialTabSelector3 = new ReaLTaiizor.MaterialTabSelector();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.materialTabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,6 +125,7 @@
             // 
             this.materialTabControl1.Controls.Add(this.tabPage1);
             this.materialTabControl1.Controls.Add(this.tabPage2);
+            this.materialTabControl1.Controls.Add(this.tabPage3);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Location = new System.Drawing.Point(277, 178);
             this.materialTabControl1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -142,16 +144,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(439, 214);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // materialTabSelector1
             // 
@@ -201,6 +193,26 @@
             this.materialTabSelector3.Text = "materialTabSelector3";
             this.materialTabSelector3.TitleTextState = ReaLTaiizor.MaterialTabSelector.TextState.Normal;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(439, 152);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(439, 152);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,10 +249,11 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private ReaLTaiizor.MaterialTabControl materialTabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private ReaLTaiizor.MaterialTabSelector materialTabSelector1;
-        private System.Windows.Forms.TabPage tabPage2;
         private ReaLTaiizor.MaterialTabSelector materialTabSelector2;
         private ReaLTaiizor.MaterialTabSelector materialTabSelector3;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
