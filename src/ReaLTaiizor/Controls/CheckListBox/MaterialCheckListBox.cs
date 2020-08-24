@@ -9,11 +9,11 @@ using static ReaLTaiizor.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.CheckListBox
 {
-    #region MaterialCheckedListBox
+    #region MaterialCheckListBox
 
-    public class MaterialCheckedListBox : System.Windows.Forms.Panel, MaterialControlI
+    public class MaterialCheckListBox : System.Windows.Forms.Panel, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }
@@ -30,7 +30,7 @@ namespace ReaLTaiizor
 
         public ItemsList Items { get; set; }
 
-        public MaterialCheckedListBox() : base()
+        public MaterialCheckListBox() : base()
         {
             DoubleBuffered = true;
             Items = new ItemsList(this);

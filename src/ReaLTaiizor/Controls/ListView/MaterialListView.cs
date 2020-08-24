@@ -9,11 +9,11 @@ using static ReaLTaiizor.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ListView
 {
     #region MaterialListView
 
-    public class MaterialListView : ListView, MaterialControlI
+    public class MaterialListView : System.Windows.Forms.ListView, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }

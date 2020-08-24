@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ListBox
 {
     #region DungeonListBox
 
-    public class DungeonListBox : ListBox
+    public class DungeonListBox : System.Windows.Forms.ListBox
     {
 
         public DungeonListBox()

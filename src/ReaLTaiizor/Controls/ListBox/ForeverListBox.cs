@@ -8,14 +8,14 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ListBox
 {
 	#region ForeverListBox
 
 	public class ForeverListBox : Control
 	{
-		private ListBox withEventsField_ListBx = new ListBox();
-		private ListBox ListBx
+		private System.Windows.Forms.ListBox withEventsField_ListBx = new System.Windows.Forms.ListBox();
+		private System.Windows.Forms.ListBox ListBx
 		{
 			get { return withEventsField_ListBx; }
 			set

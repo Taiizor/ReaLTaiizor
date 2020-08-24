@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Notify
 {
     #region NotificationBox
 
@@ -398,7 +398,7 @@ namespace ReaLTaiizor
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + Environment.NewLine + Environment.NewLine + "Value must be either \'1\' or higher", "Invalid Integer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                System.Windows.Forms.MessageBox.Show(ex.Message + Environment.NewLine + Environment.NewLine + "Value must be either \'1\' or higher", "Invalid Integer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 // Return to the default border curve if the parameter is less than "1"
                 _BorderCurve = 8;
                 BorderCurve = 8;

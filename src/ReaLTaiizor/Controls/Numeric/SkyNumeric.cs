@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Numeric
 {
     #region SkyNumeric
 

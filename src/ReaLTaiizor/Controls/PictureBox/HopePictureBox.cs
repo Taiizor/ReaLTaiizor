@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.PictureBox
 {
     #region HopePictureBox
 
-    public class HopePictureBox : PictureBox
+    public class HopePictureBox : System.Windows.Forms.PictureBox
     {
         protected override void OnPaint(PaintEventArgs pe)
         {

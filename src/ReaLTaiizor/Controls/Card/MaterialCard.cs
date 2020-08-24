@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls.Card
 {
     #region MaterialCard
 
-    public class MaterialCard : Panel, MaterialControlI
+    public class MaterialCard : System.Windows.Forms.Panel, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }

@@ -7,7 +7,7 @@ using ReaLTaiizor.Controls.Button;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.MessageBox
 {
     #region RoyalMessageBox
 

@@ -7,9 +7,9 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Progress
 {
-    #region Circle ProgressBar
+    #region CircleProgressBar
 
     public class CircleProgressBar : Control
     {

@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Progress
 {
     #region AloneProgressBar
 
