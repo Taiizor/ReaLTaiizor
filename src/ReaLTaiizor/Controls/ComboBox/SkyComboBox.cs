@@ -7,11 +7,11 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ComboBox
 {
     #region SkyComboBox
 
-    public class SkyComboBox : ComboBox
+    public class SkyComboBox : System.Windows.Forms.ComboBox
     {
         #region " Control Help - Properties & Flicker Control "
 

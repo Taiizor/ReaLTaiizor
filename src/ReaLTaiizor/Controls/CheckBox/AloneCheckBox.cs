@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.CheckBox
 {
     #region AloneCheckBox
 

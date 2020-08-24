@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.CheckBox
 {
     #region MoonCheckBox
 

@@ -52,13 +52,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catcher));
             aloneTextBox1 = new ReaLTaiizor.AloneTextBox();
             bigTextBox1 = new ReaLTaiizor.BigTextBox();
-            comboBoxEdit1 = new ReaLTaiizor.ComboBoxEdit();
+            comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit.ComboBoxEdit();
             dreamProgressBar1 = new ReaLTaiizor.DreamProgressBar();
             dreamTextBox1 = new ReaLTaiizor.DreamTextBox();
             foreverListBox1 = new ReaLTaiizor.ForeverListBox();
-            aloneButton1 = new ReaLTaiizor.AloneButton();
-            aloneCheckBox1 = new ReaLTaiizor.AloneCheckBox();
-            aloneCombobox1 = new ReaLTaiizor.AloneCombobox();
+            aloneButton1 = new ReaLTaiizor.Controls.Button.AloneButton();
+            aloneCheckBox1 = new ReaLTaiizor.Controls.CheckBox.AloneCheckBox();
+            aloneComboBox1 = new ReaLTaiizor.Controls.ComboBox.AloneComboBox();
             aloneNotice1 = new ReaLTaiizor.AloneNotice();
             aloneProgressBar1 = new ReaLTaiizor.AloneProgressBar();
             aloneRadioButton1 = new ReaLTaiizor.AloneRadioButton();
@@ -66,9 +66,9 @@
             foreverProgressBar1 = new ReaLTaiizor.ForeverProgressBar();
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
             foxTextBox1 = new ReaLTaiizor.FoxTextBox();
-            hopeComboBox1 = new ReaLTaiizor.HopeComboBox();
+            hopeComboBox1 = new ReaLTaiizor.Controls.ComboBox.HopeComboBox();
             royalScrollBar1 = new ReaLTaiizor.RoyalScrollBar();
-            skyButton1 = new ReaLTaiizor.SkyButton();
+            skyButton1 = new ReaLTaiizor.Controls.Button.SkyButton();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -201,20 +201,20 @@
             // 
             // aloneCombobox1
             // 
-            aloneCombobox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            aloneCombobox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            aloneCombobox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            aloneCombobox1.EnabledCalc = true;
-            aloneCombobox1.FormattingEnabled = true;
-            aloneCombobox1.ItemHeight = 20;
-            aloneCombobox1.Items.AddRange(new object[] {
+            aloneComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            aloneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            aloneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            aloneComboBox1.EnabledCalc = true;
+            aloneComboBox1.FormattingEnabled = true;
+            aloneComboBox1.ItemHeight = 20;
+            aloneComboBox1.Items.AddRange(new object[] {
             "Item 1",
             "Item 2",
             "Item 3"});
-            aloneCombobox1.Location = new System.Drawing.Point(255, 121);
-            aloneCombobox1.Name = "aloneCombobox1";
-            aloneCombobox1.Size = new System.Drawing.Size(138, 26);
-            aloneCombobox1.TabIndex = 8;
+            aloneComboBox1.Location = new System.Drawing.Point(255, 121);
+            aloneComboBox1.Name = "aloneComboBox1";
+            aloneComboBox1.Size = new System.Drawing.Size(138, 26);
+            aloneComboBox1.TabIndex = 8;
             // 
             // aloneNotice1
             // 
@@ -414,7 +414,7 @@
             Controls.Add(aloneRadioButton1);
             Controls.Add(aloneProgressBar1);
             Controls.Add(aloneNotice1);
-            Controls.Add(aloneCombobox1);
+            Controls.Add(aloneComboBox1);
             Controls.Add(aloneCheckBox1);
             Controls.Add(aloneButton1);
             Controls.Add(foreverListBox1);
@@ -438,13 +438,13 @@
 
         private ReaLTaiizor.AloneTextBox aloneTextBox1;
         private ReaLTaiizor.BigTextBox bigTextBox1;
-        private ReaLTaiizor.ComboBoxEdit comboBoxEdit1;
+        private ReaLTaiizor.Controls.ComboBoxEdit.ComboBoxEdit comboBoxEdit1;
         private ReaLTaiizor.DreamProgressBar dreamProgressBar1;
         private ReaLTaiizor.DreamTextBox dreamTextBox1;
         private ReaLTaiizor.ForeverListBox foreverListBox1;
-        private ReaLTaiizor.AloneButton aloneButton1;
-        private ReaLTaiizor.AloneCheckBox aloneCheckBox1;
-        private ReaLTaiizor.AloneCombobox aloneCombobox1;
+        private ReaLTaiizor.Controls.Button.AloneButton aloneButton1;
+        private ReaLTaiizor.Controls.CheckBox.AloneCheckBox aloneCheckBox1;
+        private ReaLTaiizor.Controls.ComboBox.AloneComboBox aloneComboBox1;
         private ReaLTaiizor.AloneNotice aloneNotice1;
         private ReaLTaiizor.AloneProgressBar aloneProgressBar1;
         private ReaLTaiizor.AloneRadioButton aloneRadioButton1;
@@ -452,8 +452,8 @@
         private ReaLTaiizor.ForeverProgressBar foreverProgressBar1;
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.FoxTextBox foxTextBox1;
-        private ReaLTaiizor.HopeComboBox hopeComboBox1;
+        private ReaLTaiizor.Controls.ComboBox.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.RoyalScrollBar royalScrollBar1;
-        private ReaLTaiizor.SkyButton skyButton1;
+        private ReaLTaiizor.Controls.Button.SkyButton skyButton1;
     }
 }

@@ -10,12 +10,12 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.CheckBoxEdit
 {
-	#region FoxCheckEdit
+	#region FoxCheckBoxEdit
 
 	[DefaultEvent("CheckedChanged")]
-	public class FoxCheckEdit : FoxBase.CheckControlEdit
+	public class FoxCheckBoxEdit : FoxBase.CheckControlEdit
 	{
 		private Graphics G;
 
@@ -50,7 +50,7 @@ namespace ReaLTaiizor
 			set { _DisabledTextColor = value; }
 		}
 
-		public FoxCheckEdit() : base()
+		public FoxCheckBoxEdit() : base()
         {
 			Font = new Font("Segoe UI", 10);
         }

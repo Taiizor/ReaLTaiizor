@@ -11742,7 +11742,7 @@ namespace ReaLTaiizor
 
             private readonly System.Windows.Forms.Timer _animationTimer = new System.Windows.Forms.Timer
             {
-                Interval = 10,
+                Interval = 1,
                 Enabled = false
             };
 

@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ComboBoxEdit
 {
     #region ComboBoxEdit
 
-    public class ComboBoxEdit : ComboBox
+    public class ComboBoxEdit : System.Windows.Forms.ComboBox
     {
 
         #region Variables

@@ -9,11 +9,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ComboBox
 {
 	#region ForeverComboBox
 
-	public class ForeverComboBox : ComboBox
+	public class ForeverComboBox : System.Windows.Forms.ComboBox
 	{
 		private int W;
 		private int H;

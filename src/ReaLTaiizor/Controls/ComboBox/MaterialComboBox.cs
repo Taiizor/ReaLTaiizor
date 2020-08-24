@@ -11,11 +11,11 @@ using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ComboBox
 {
     #region MaterialComboBox
 
-    public class MaterialComboBox : ComboBox, MaterialControlI
+    public class MaterialComboBox : System.Windows.Forms.ComboBox, MaterialControlI
     {
         // For some reason, even when overriding the AutoSize property, it doesn't appear on the properties panel, so we have to create a new one.
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Category("Layout")]

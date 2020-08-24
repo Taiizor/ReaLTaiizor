@@ -37,7 +37,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.materialRichTextBox1 = new ReaLTaiizor.MaterialRichTextBox();
-            this.airButton1 = new ReaLTaiizor.AirButton();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -132,26 +131,11 @@
             this.materialRichTextBox1.TabIndex = 8;
             this.materialRichTextBox1.Text = "This is a test message!";
             // 
-            // airButton1
-            // 
-            this.airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.airButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
-            this.airButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.airButton1.Image = null;
-            this.airButton1.Location = new System.Drawing.Point(391, 223);
-            this.airButton1.Name = "airButton1";
-            this.airButton1.NoRounding = false;
-            this.airButton1.Size = new System.Drawing.Size(100, 45);
-            this.airButton1.TabIndex = 9;
-            this.airButton1.Text = "airButton1";
-            this.airButton1.Transparent = false;
-            // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 376);
-            this.Controls.Add(this.airButton1);
             this.Controls.Add(this.materialRichTextBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox4);
@@ -181,6 +165,5 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private ReaLTaiizor.MaterialRichTextBox materialRichTextBox1;
-        private ReaLTaiizor.AirButton airButton1;
     }
 }

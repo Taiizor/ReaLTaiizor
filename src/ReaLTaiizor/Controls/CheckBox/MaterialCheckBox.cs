@@ -11,7 +11,7 @@ using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.CheckBox
 {
     #region MaterialCheckBox
 

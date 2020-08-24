@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
+using ReaLTaiizor.Controls.CheckBox;
 using static ReaLTaiizor.MaterialDrawHelper;
 
 #endregion

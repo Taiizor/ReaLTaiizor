@@ -8,11 +8,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ComboBox
 {
     #region HopeComboBox
 
-    public class HopeComboBox : ComboBox
+    public class HopeComboBox : System.Windows.Forms.ComboBox
     {
         public HopeComboBox()
         {

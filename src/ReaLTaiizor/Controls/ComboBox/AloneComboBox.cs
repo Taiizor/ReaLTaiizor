@@ -12,11 +12,11 @@ using Microsoft.VisualBasic.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.ComboBox
 {
     #region AloneComboBox
 
-    public class AloneCombobox : ComboBox
+    public class AloneComboBox : System.Windows.Forms.ComboBox
     {
         private Graphics G;
 
@@ -52,7 +52,7 @@ namespace ReaLTaiizor
             }
         }
 
-        public AloneCombobox()
+        public AloneComboBox()
         {
             DoubleBuffered = true;
             base.DropDownStyle = ComboBoxStyle.DropDownList;

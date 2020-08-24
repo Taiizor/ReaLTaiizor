@@ -7,9 +7,9 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Button
 {
-    #region Social Button
+    #region SocialButton
 
     public class SocialButton : Control
     {
