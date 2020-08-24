@@ -8,11 +8,11 @@ using static ReaLTaiizor.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.RichTextBox
 {
     #region MaterialRichTextBox
 
-    public class MaterialRichTextBox : RichTextBox, MaterialControlI
+    public class MaterialRichTextBox : System.Windows.Forms.RichTextBox, MaterialControlI
     {
         //Properties for managing the material design properties
         [Browsable(false)]

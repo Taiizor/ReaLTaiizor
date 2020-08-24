@@ -4,7 +4,7 @@ using System.Drawing;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Separator
 {
     #region AirSeparator
 

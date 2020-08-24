@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.RichTextEdit
 {
     #region RichTextEdit
 
@@ -18,7 +18,7 @@ namespace ReaLTaiizor
 
         #region Variables
 
-        public RichTextBox RT_RTB = new RichTextBox();
+        public System.Windows.Forms.RichTextBox RT_RTB = new System.Windows.Forms.RichTextBox();
         private bool _ReadOnly;
         private bool _WordWrap;
         private bool _AutoWordSelection;

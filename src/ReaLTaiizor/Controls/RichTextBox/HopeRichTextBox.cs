@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.RichTextBox
 {
     #region HopeRichTextBox
 

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.ComponentModel;
 using ReaLTaiizor.Controls.Button;
+using ReaLTaiizor.Controls.RichTextBox;
 using static ReaLTaiizor.MaterialDrawHelper;
 
 #endregion

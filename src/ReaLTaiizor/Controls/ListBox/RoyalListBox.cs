@@ -3,6 +3,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ReaLTaiizor.Controls.ScrollBar;
 
 #endregion
 

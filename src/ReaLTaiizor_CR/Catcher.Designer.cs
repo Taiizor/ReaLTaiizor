@@ -61,7 +61,7 @@
             aloneComboBox1 = new ReaLTaiizor.Controls.ComboBox.AloneComboBox();
             aloneNotice1 = new ReaLTaiizor.Controls.Notify.AloneNotice();
             aloneProgressBar1 = new ReaLTaiizor.Controls.Progress.AloneProgressBar();
-            aloneRadioButton1 = new ReaLTaiizor.AloneRadioButton();
+            aloneRadioButton1 = new ReaLTaiizor.Controls.RadioButton.AloneRadioButton();
             aloneTextBox2 = new ReaLTaiizor.AloneTextBox();
             foreverProgressBar1 = new ReaLTaiizor.Controls.Progress.ForeverProgressBar();
             foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
@@ -447,7 +447,7 @@
         private ReaLTaiizor.Controls.ComboBox.AloneComboBox aloneComboBox1;
         private ReaLTaiizor.Controls.Notify.AloneNotice aloneNotice1;
         private ReaLTaiizor.Controls.Progress.AloneProgressBar aloneProgressBar1;
-        private ReaLTaiizor.AloneRadioButton aloneRadioButton1;
+        private ReaLTaiizor.Controls.RadioButton.AloneRadioButton aloneRadioButton1;
         private ReaLTaiizor.AloneTextBox aloneTextBox2;
         private ReaLTaiizor.Controls.Progress.ForeverProgressBar foreverProgressBar1;
         private ReaLTaiizor.ForeverTreeView foreverTreeView1;
