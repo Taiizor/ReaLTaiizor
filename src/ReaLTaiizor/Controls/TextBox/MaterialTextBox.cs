@@ -109,7 +109,8 @@ namespace ReaLTaiizor
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            base.Font = new Font(SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1).FontFamily, 12f, FontStyle.Regular);
+            base.Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1);
+            Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1);
             base.AutoSize = false;
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
@@ -153,6 +154,11 @@ namespace ReaLTaiizor
                 Invalidate();
             };
             KeyDown += (sender, args) =>
+            {
+                SendMessage(Handle, EM_GETSCROLLPOS, 0, ref scrollPos);
+                Invalidate();
+            };
+            TextChanged += (sender, args) =>
             {
                 SendMessage(Handle, EM_GETSCROLLPOS, 0, ref scrollPos);
                 Invalidate();
@@ -431,8 +437,8 @@ namespace ReaLTaiizor
                     Copy,
                     Paste,
                     Delete,
-                    Separator2,
-                    SelectAll
+                    SelectAll,
+                    Separator2
                 }
             );
         }
