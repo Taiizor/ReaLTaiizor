@@ -174,3 +174,7 @@ Step 2：Tasarlamanın tadını çıkarın
 ### Kraliyet
 
 ![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
+
+### Malzeme
+
+![MaterialTheme](https://www.photo.herominyum.com/resimler/2020/08/24/A6kS.gif)

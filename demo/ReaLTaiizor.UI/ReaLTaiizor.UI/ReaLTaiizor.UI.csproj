@@ -214,6 +214,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -230,7 +231,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\baseline_thumb_up_black_24dp.png" />
+    <Content Include="Resources\baseline_bluetooth_black_24dp.png" />
+    <Content Include="Resources\baseline_build_black_24dp.png" />
+    <Content Include="Resources\baseline_favorite_border_black_24dp.png" />
+    <Content Include="Resources\baseline_fingerprint_black_24dp.png" />
     <Content Include="Resources\Google.png" />
+    <Content Include="Resources\minus.png" />
+    <Content Include="Resources\plus.png" />
+    <Content Include="Resources\round_assessment_white_24dp.png" />
+    <Content Include="Resources\round_backup_white_24dp.png" />
+    <Content Include="Resources\round_bluetooth_white_24dp.png" />
+    <Content Include="Resources\round_bookmark_white_24dp.png" />
+    <Content Include="Resources\round_build_white_24dp.png" />
+    <Content Include="Resources\round_gps_fixed_white_24dp.png" />
+    <Content Include="Resources\round_http_white_24dp.png" />
+    <Content Include="Resources\round_report_problem_white_24dp.png" />
+    <Content Include="Resources\round_swap_vert_white_24dp.png" />
     <Content Include="Resources\Taiizor.ico" />
     <Content Include="Resources\Twitter.png" />
   </ItemGroup>

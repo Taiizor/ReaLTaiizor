@@ -174,3 +174,7 @@ Step 2：Enjoy designing
 ### Royal
 
 ![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
+
+### Material
+
+![MaterialTheme](https://www.photo.herominyum.com/resimler/2020/08/24/A6kS.gif)
