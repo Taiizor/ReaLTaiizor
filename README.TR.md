@@ -121,13 +121,15 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ## Genel Bakış
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
+![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/24/A6kS.gif)
 
-![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
+![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
-![Overview-3](https://www.photo.herominyum.com/resimler/2020/05/20/OERe.png)
+![Overview-3](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
 
-![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
+![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OERe.png)
+
+![Overview-5](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
 
 ## Son Tema Örnekleri
 
@@ -174,7 +176,3 @@ Step 2：Tasarlamanın tadını çıkarın
 ### Kraliyet
 
 ![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
-
-### Malzeme
-
-![MaterialTheme](https://www.photo.herominyum.com/resimler/2020/08/24/A6kS.gif)
