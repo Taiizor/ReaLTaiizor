@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Material));
             this.materialTextBox1 = new ReaLTaiizor.MaterialTextBox();
             this.materialTextBox2 = new ReaLTaiizor.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -125,8 +126,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialTextBox2);
             this.Controls.Add(this.materialTextBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Material";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Material";
             this.ResumeLayout(false);
