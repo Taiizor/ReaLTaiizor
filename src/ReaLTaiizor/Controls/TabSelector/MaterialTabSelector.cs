@@ -238,7 +238,8 @@ namespace ReaLTaiizor
                     switch (HeadAlignment)
                     {
                         case Alignment.Center:
-                            _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                            int CenterLocation = (Width / 2) - (TitleLenght / 2);
+                            _tabRects.Add(new Rectangle(CenterLocation, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
                             for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
                                 _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
                             break;
