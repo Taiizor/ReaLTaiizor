@@ -155,6 +155,7 @@ namespace ReaLTaiizor
             KeyDown += (sender, args) =>
             {
                 SendMessage(Handle, EM_GETSCROLLPOS, 0, ref scrollPos);
+                Invalidate();
             };
         }
 

@@ -29,7 +29,7 @@ Gracias a estas personas maravillosas ([emoji clave](https://allcontributors.org
 	</td>
     <td align="center">
 		<a href="https://github.com/JTOne123">
-			<img src="https://avatars2.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123"/>
+			<img src="https://avatars3.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123"/>
 			<br/>
 			<sub>
 				<b>JTOne123</b>
