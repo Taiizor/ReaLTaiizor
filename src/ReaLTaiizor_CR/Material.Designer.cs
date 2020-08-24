@@ -35,14 +35,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.materialTabControl1 = new ReaLTaiizor.MaterialTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.materialTabSelector1 = new ReaLTaiizor.MaterialTabSelector();
-            this.materialTabSelector2 = new ReaLTaiizor.MaterialTabSelector();
-            this.materialTabSelector3 = new ReaLTaiizor.MaterialTabSelector();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.materialTabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -121,107 +113,11 @@
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "deneme";
             // 
-            // materialTabControl1
-            // 
-            this.materialTabControl1.Controls.Add(this.tabPage1);
-            this.materialTabControl1.Controls.Add(this.tabPage2);
-            this.materialTabControl1.Controls.Add(this.tabPage3);
-            this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Location = new System.Drawing.Point(277, 178);
-            this.materialTabControl1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialTabControl1.Name = "materialTabControl1";
-            this.materialTabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(447, 178);
-            this.materialTabControl1.TabIndex = 8;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(439, 152);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // materialTabSelector1
-            // 
-            this.materialTabSelector1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
-            this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTabSelector1.HeadAlignment = ReaLTaiizor.MaterialTabSelector.Alignment.Right;
-            this.materialTabSelector1.Location = new System.Drawing.Point(277, 147);
-            this.materialTabSelector1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(443, 25);
-            this.materialTabSelector1.TabIndex = 9;
-            this.materialTabSelector1.Text = "materialTabSelector1";
-            this.materialTabSelector1.TitleTextState = ReaLTaiizor.MaterialTabSelector.TextState.Normal;
-            // 
-            // materialTabSelector2
-            // 
-            this.materialTabSelector2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabSelector2.BaseTabControl = this.materialTabControl1;
-            this.materialTabSelector2.Depth = 0;
-            this.materialTabSelector2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTabSelector2.HeadAlignment = ReaLTaiizor.MaterialTabSelector.Alignment.Left;
-            this.materialTabSelector2.Location = new System.Drawing.Point(277, 85);
-            this.materialTabSelector2.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialTabSelector2.Name = "materialTabSelector2";
-            this.materialTabSelector2.Size = new System.Drawing.Size(443, 25);
-            this.materialTabSelector2.TabIndex = 10;
-            this.materialTabSelector2.Text = "materialTabSelector2";
-            this.materialTabSelector2.TitleTextState = ReaLTaiizor.MaterialTabSelector.TextState.Normal;
-            // 
-            // materialTabSelector3
-            // 
-            this.materialTabSelector3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabSelector3.BaseTabControl = this.materialTabControl1;
-            this.materialTabSelector3.Depth = 0;
-            this.materialTabSelector3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTabSelector3.HeadAlignment = ReaLTaiizor.MaterialTabSelector.Alignment.Center;
-            this.materialTabSelector3.Location = new System.Drawing.Point(277, 116);
-            this.materialTabSelector3.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialTabSelector3.Name = "materialTabSelector3";
-            this.materialTabSelector3.Size = new System.Drawing.Size(443, 25);
-            this.materialTabSelector3.TabIndex = 11;
-            this.materialTabSelector3.Text = "materialTabSelector3";
-            this.materialTabSelector3.TitleTextState = ReaLTaiizor.MaterialTabSelector.TextState.Normal;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(439, 152);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(439, 152);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 376);
-            this.Controls.Add(this.materialTabSelector3);
-            this.Controls.Add(this.materialTabSelector2);
-            this.Controls.Add(this.materialTabSelector1);
-            this.Controls.Add(this.materialTabControl1);
+            this.ClientSize = new System.Drawing.Size(285, 376);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -233,7 +129,6 @@
             this.Name = "Material";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Material";
-            this.materialTabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,12 +143,5 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private ReaLTaiizor.MaterialTabControl materialTabControl1;
-        private ReaLTaiizor.MaterialTabSelector materialTabSelector1;
-        private ReaLTaiizor.MaterialTabSelector materialTabSelector2;
-        private ReaLTaiizor.MaterialTabSelector materialTabSelector3;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
     }
 }
