@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,7 +40,7 @@
     <ApplicationIcon>Resources\Fork1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ReaLTaiizor, Version=3.7.7.5, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ReaLTaiizor, Version=3.7.7.6, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
