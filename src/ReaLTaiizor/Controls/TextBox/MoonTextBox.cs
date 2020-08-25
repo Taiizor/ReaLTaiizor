@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
     #region MoonTextBox
 
-    public class MoonTextBox : TextBox
+    public class MoonTextBox : System.Windows.Forms.TextBox
     {
         private Color _BorderColor = Color.LightGray;
         public Color BorderColor

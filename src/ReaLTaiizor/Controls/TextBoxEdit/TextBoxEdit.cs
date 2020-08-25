@@ -8,16 +8,16 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBoxEdit
 {
-    #region TextEdit
+    #region TextBoxEdit
 
     [DefaultEvent("TextChanged")]
-    public class TextEdit : Control
+    public class TextBoxEdit : Control
     {
         #region Variables
 
-        public TextBox ReaLTaiizorTB = new TextBox();
+        public System.Windows.Forms.TextBox ReaLTaiizorTB = new System.Windows.Forms.TextBox();
         private int _maxchars = 32767;
         private bool _ReadOnly;
         private bool _Multiline;
@@ -247,7 +247,7 @@ namespace ReaLTaiizor
             ReaLTaiizorTB.TextChanged += OnBaseTextChanged;
         }
 
-        public TextEdit()
+        public TextBoxEdit()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);

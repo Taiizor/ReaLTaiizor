@@ -9,16 +9,16 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
 	#region FoxTextBox
 
 	[DefaultEvent("TextChanged")]
 	public class FoxTextBox : Control
 	{
-		private TextBox withEventsField_TB = new TextBox();
+		private System.Windows.Forms.TextBox withEventsField_TB = new System.Windows.Forms.TextBox();
 
-		private TextBox TB
+		private System.Windows.Forms.TextBox TB
 		{
 			get { return withEventsField_TB; }
 			set

@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
     #region SkyTextBox
 
     public class SkyTextBox : Control
     {
-        TextBox txtbox = new TextBox();
+        System.Windows.Forms.TextBox txtbox = new System.Windows.Forms.TextBox();
 
         #region " Control Help - Properties & Flicker Control "
 

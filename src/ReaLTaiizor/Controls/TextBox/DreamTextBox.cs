@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
     #region DreamTextBox
 
-    public class DreamTextBox : TextBox
+    public class DreamTextBox : System.Windows.Forms.TextBox
     {
         public DreamTextBox()
         {

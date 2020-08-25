@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
     #region SmallTextBox
 
@@ -17,7 +17,7 @@ namespace ReaLTaiizor
     {
         #region Variables
 
-        public TextBox RT_TB = new TextBox();
+        public System.Windows.Forms.TextBox RT_TB = new System.Windows.Forms.TextBox();
         private GraphicsPath Shape;
         private int _maxchars = 32767;
         private bool _ReadOnly;

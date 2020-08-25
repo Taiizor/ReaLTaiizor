@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
     #region AloneTextBox
 
@@ -26,7 +26,7 @@ namespace ReaLTaiizor
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), AccessedThroughProperty("TB"), CompilerGenerated]
-        private TextBox _TB;
+        private System.Windows.Forms.TextBox _TB;
 
         private Graphics G;
 
@@ -46,7 +46,7 @@ namespace ReaLTaiizor
 
         private bool _readOnly;
 
-        public virtual TextBox TB
+        public virtual System.Windows.Forms.TextBox TB
         {
             [CompilerGenerated]
             get
@@ -61,7 +61,7 @@ namespace ReaLTaiizor
                 {
                     TextChangeTb();
                 };
-                TextBox tB = _TB;
+                System.Windows.Forms.TextBox tB = _TB;
                 if (tB != null)
                     tB.TextChanged -= value2;
                 _TB = value;
@@ -213,7 +213,7 @@ namespace ReaLTaiizor
 
         public void NewTextBox()
         {
-            TextBox tB = TB;
+            System.Windows.Forms.TextBox tB = TB;
             tB.Text = string.Empty;
             tB.BackColor = BackColor;
             tB.ForeColor = ForeColor;
@@ -231,7 +231,7 @@ namespace ReaLTaiizor
             {
                 TextChng();
             };
-            TB = new TextBox();
+            TB = new System.Windows.Forms.TextBox();
             _allowpassword = false;
             _maxChars = 32767;
             _multiLine = false;

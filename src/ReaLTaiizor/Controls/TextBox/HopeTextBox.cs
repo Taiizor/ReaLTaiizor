@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
     #region HopeTextBox
 
@@ -161,7 +161,7 @@ namespace ReaLTaiizor
         {
             if (e.KeyChar == '\x1')
             {
-                ((TextBox)sender).SelectAll();
+                ((System.Windows.Forms.TextBox)sender).SelectAll();
                 e.Handled = true;
             }
         }
@@ -1068,7 +1068,7 @@ namespace ReaLTaiizor
         }
         #endregion
 
-        private class TextBoxHopeBase : TextBox
+        private class TextBoxHopeBase : System.Windows.Forms.TextBox
         {
             [DllImport("user32.dll", CharSet = CharSet.Unicode)]
             private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);

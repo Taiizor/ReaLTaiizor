@@ -11,11 +11,11 @@ using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
     #region MaterialTextBox
 
-    public class MaterialTextBox : RichTextBox, MaterialControlI
+    public class MaterialTextBox : System.Windows.Forms.RichTextBox, MaterialControlI
     {
         //Properties for managing the material design properties
         [Browsable(false)]

@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls.RichTextBox
         {
             if (e.KeyChar == '\x1')
             {
-                ((TextBox)sender).SelectAll();
+                ((System.Windows.Forms.TextBox)sender).SelectAll();
                 e.Handled = true;
             }
         }
@@ -1082,7 +1082,7 @@ namespace ReaLTaiizor.Controls.RichTextBox
         }
         #endregion
 
-        private class BaseTextBox : TextBox
+        private class BaseTextBox : System.Windows.Forms.TextBox
         {
             [DllImport("user32.dll", CharSet = CharSet.Unicode)]
             private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);

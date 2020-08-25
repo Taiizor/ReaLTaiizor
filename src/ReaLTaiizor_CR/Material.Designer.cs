@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Material));
-            this.materialTextBox1 = new ReaLTaiizor.MaterialTextBox();
-            this.materialTextBox2 = new ReaLTaiizor.MaterialTextBox();
+            this.materialTextBox1 = new ReaLTaiizor.Controls.TextBox.MaterialTextBox();
+            this.materialTextBox2 = new ReaLTaiizor.Controls.TextBox.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -157,8 +157,8 @@
 
         #endregion
 
-        private ReaLTaiizor.MaterialTextBox materialTextBox1;
-        private ReaLTaiizor.MaterialTextBox materialTextBox2;
+        private ReaLTaiizor.Controls.TextBox.MaterialTextBox materialTextBox1;
+        private ReaLTaiizor.Controls.TextBox.MaterialTextBox materialTextBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;

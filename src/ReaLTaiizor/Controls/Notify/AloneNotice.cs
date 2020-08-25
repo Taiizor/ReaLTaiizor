@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls.Notify
 {
     #region AloneNotice
 
-    public class AloneNotice : TextBox
+    public class AloneNotice : System.Windows.Forms.TextBox
     {
         private Graphics G;
 

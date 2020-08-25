@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TextBox
 {
 	#region ForeverTextBox
 
@@ -19,7 +19,7 @@ namespace ReaLTaiizor
 		private int W;
 		private int H;
 		private MouseStateForever State = MouseStateForever.None;
-		private TextBox TB;
+		private System.Windows.Forms.TextBox TB;
 
 		private HorizontalAlignment _TextAlign = HorizontalAlignment.Left;
 
@@ -226,7 +226,7 @@ namespace ReaLTaiizor
 
 			ForeColor = Color.FromArgb(192, 192, 192);
 
-			TB = new TextBox();
+			TB = new System.Windows.Forms.TextBox();
 			TB.Font = new Font("Segoe UI", 10);
 			TB.Text = Text;
 			TB.BackColor = _BaseColor;

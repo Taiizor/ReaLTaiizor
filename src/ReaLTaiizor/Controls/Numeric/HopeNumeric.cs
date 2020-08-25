@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls.Numeric
 
         #region Variables
         private bool enterFlag = false;
-        private TextBox textBox = new TextBox();
+        private System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
         private RectangleF upRectangleF = new RectangleF();
         private RectangleF downRectangleF = new RectangleF();
         private Point mousePoint = new Point();
