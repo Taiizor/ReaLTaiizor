@@ -6,8 +6,8 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
-using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 using static ReaLTaiizor.Utils.MaterialAnimations;
+using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 

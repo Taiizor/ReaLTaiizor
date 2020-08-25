@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 using static ReaLTaiizor.Utils.MaterialAnimations;
+using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
