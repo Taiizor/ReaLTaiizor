@@ -14,7 +14,7 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.RadioButton
+namespace ReaLTaiizor.Controls
 {
     #region AloneRadioButton
 

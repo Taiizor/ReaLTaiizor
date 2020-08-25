@@ -10,7 +10,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.TabPage
+namespace ReaLTaiizor.Controls
 {
     #region HopeTabPage
 

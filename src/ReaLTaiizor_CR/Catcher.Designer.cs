@@ -50,25 +50,25 @@
             treeNode10,
             treeNode11});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catcher));
-            aloneTextBox1 = new ReaLTaiizor.Controls.TextBox.AloneTextBox();
-            bigTextBox1 = new ReaLTaiizor.Controls.TextBox.BigTextBox();
-            comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit.ComboBoxEdit();
-            dreamProgressBar1 = new ReaLTaiizor.Controls.Progress.DreamProgressBar();
-            dreamTextBox1 = new ReaLTaiizor.Controls.TextBox.DreamTextBox();
-            foreverListBox1 = new ReaLTaiizor.Controls.ListBox.ForeverListBox();
-            aloneButton1 = new ReaLTaiizor.Controls.Button.AloneButton();
-            aloneCheckBox1 = new ReaLTaiizor.Controls.CheckBox.AloneCheckBox();
-            aloneComboBox1 = new ReaLTaiizor.Controls.ComboBox.AloneComboBox();
-            aloneNotice1 = new ReaLTaiizor.Controls.Notify.AloneNotice();
-            aloneProgressBar1 = new ReaLTaiizor.Controls.Progress.AloneProgressBar();
-            aloneRadioButton1 = new ReaLTaiizor.Controls.RadioButton.AloneRadioButton();
-            aloneTextBox2 = new ReaLTaiizor.Controls.TextBox.AloneTextBox();
-            foreverProgressBar1 = new ReaLTaiizor.Controls.Progress.ForeverProgressBar();
-            foreverTreeView1 = new ReaLTaiizor.Controls.TreeView.ForeverTreeView();
-            foxTextBox1 = new ReaLTaiizor.Controls.TextBox.FoxTextBox();
-            hopeComboBox1 = new ReaLTaiizor.Controls.ComboBox.HopeComboBox();
-            royalScrollBar1 = new ReaLTaiizor.Controls.ScrollBar.RoyalScrollBar();
-            skyButton1 = new ReaLTaiizor.Controls.Button.SkyButton();
+            aloneTextBox1 = new ReaLTaiizor.Controls.AloneTextBox();
+            bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
+            comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit();
+            dreamProgressBar1 = new ReaLTaiizor.Controls.DreamProgressBar();
+            dreamTextBox1 = new ReaLTaiizor.Controls.DreamTextBox();
+            foreverListBox1 = new ReaLTaiizor.Controls.ForeverListBox();
+            aloneButton1 = new ReaLTaiizor.Controls.AloneButton();
+            aloneCheckBox1 = new ReaLTaiizor.Controls.AloneCheckBox();
+            aloneComboBox1 = new ReaLTaiizor.Controls.AloneComboBox();
+            aloneNotice1 = new ReaLTaiizor.Controls.AloneNotice();
+            aloneProgressBar1 = new ReaLTaiizor.Controls.AloneProgressBar();
+            aloneRadioButton1 = new ReaLTaiizor.Controls.AloneRadioButton();
+            aloneTextBox2 = new ReaLTaiizor.Controls.AloneTextBox();
+            foreverProgressBar1 = new ReaLTaiizor.Controls.ForeverProgressBar();
+            foreverTreeView1 = new ReaLTaiizor.Controls.ForeverTreeView();
+            foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
+            hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
+            royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
+            skyButton1 = new ReaLTaiizor.Controls.SkyButton();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -436,24 +436,24 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.TextBox.AloneTextBox aloneTextBox1;
-        private ReaLTaiizor.Controls.TextBox.BigTextBox bigTextBox1;
-        private ReaLTaiizor.Controls.ComboBoxEdit.ComboBoxEdit comboBoxEdit1;
-        private ReaLTaiizor.Controls.Progress.DreamProgressBar dreamProgressBar1;
-        private ReaLTaiizor.Controls.TextBox.DreamTextBox dreamTextBox1;
-        private ReaLTaiizor.Controls.ListBox.ForeverListBox foreverListBox1;
-        private ReaLTaiizor.Controls.Button.AloneButton aloneButton1;
-        private ReaLTaiizor.Controls.CheckBox.AloneCheckBox aloneCheckBox1;
-        private ReaLTaiizor.Controls.ComboBox.AloneComboBox aloneComboBox1;
-        private ReaLTaiizor.Controls.Notify.AloneNotice aloneNotice1;
-        private ReaLTaiizor.Controls.Progress.AloneProgressBar aloneProgressBar1;
-        private ReaLTaiizor.Controls.RadioButton.AloneRadioButton aloneRadioButton1;
-        private ReaLTaiizor.Controls.TextBox.AloneTextBox aloneTextBox2;
-        private ReaLTaiizor.Controls.Progress.ForeverProgressBar foreverProgressBar1;
-        private ReaLTaiizor.Controls.TreeView.ForeverTreeView foreverTreeView1;
-        private ReaLTaiizor.Controls.TextBox.FoxTextBox foxTextBox1;
-        private ReaLTaiizor.Controls.ComboBox.HopeComboBox hopeComboBox1;
-        private ReaLTaiizor.Controls.ScrollBar.RoyalScrollBar royalScrollBar1;
-        private ReaLTaiizor.Controls.Button.SkyButton skyButton1;
+        private ReaLTaiizor.Controls.AloneTextBox aloneTextBox1;
+        private ReaLTaiizor.Controls.BigTextBox bigTextBox1;
+        private ReaLTaiizor.Controls.ComboBoxEdit comboBoxEdit1;
+        private ReaLTaiizor.Controls.DreamProgressBar dreamProgressBar1;
+        private ReaLTaiizor.Controls.DreamTextBox dreamTextBox1;
+        private ReaLTaiizor.Controls.ForeverListBox foreverListBox1;
+        private ReaLTaiizor.Controls.AloneButton aloneButton1;
+        private ReaLTaiizor.Controls.AloneCheckBox aloneCheckBox1;
+        private ReaLTaiizor.Controls.AloneComboBox aloneComboBox1;
+        private ReaLTaiizor.Controls.AloneNotice aloneNotice1;
+        private ReaLTaiizor.Controls.AloneProgressBar aloneProgressBar1;
+        private ReaLTaiizor.Controls.AloneRadioButton aloneRadioButton1;
+        private ReaLTaiizor.Controls.AloneTextBox aloneTextBox2;
+        private ReaLTaiizor.Controls.ForeverProgressBar foreverProgressBar1;
+        private ReaLTaiizor.Controls.ForeverTreeView foreverTreeView1;
+        private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
+        private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
+        private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
+        private ReaLTaiizor.Controls.SkyButton skyButton1;
     }
 }

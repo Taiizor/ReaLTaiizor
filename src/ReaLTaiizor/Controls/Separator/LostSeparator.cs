@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Separator
+namespace ReaLTaiizor.Controls
 {
     #region LostSeparator
 

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Drawing;
 using ReaLTaiizor.Utils;
 using System.Drawing.Text;
+using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using ReaLTaiizor.Controls.TabControl;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
@@ -327,7 +327,7 @@ namespace ReaLTaiizor.Forms.Form
             }
         }
 
-        private Controls.Drawer.MaterialDrawer drawerControl = new Controls.Drawer.MaterialDrawer();
+        private MaterialDrawer drawerControl = new MaterialDrawer();
 
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }

@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.TextBox
+namespace ReaLTaiizor.Controls
 {
     #region AloneTextBox
 

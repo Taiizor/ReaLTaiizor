@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.ControlBox
+namespace ReaLTaiizor.Controls
 {
     #region ControlBox
 

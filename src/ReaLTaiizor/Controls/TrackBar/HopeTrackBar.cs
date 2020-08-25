@@ -10,7 +10,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.TrackBar
+namespace ReaLTaiizor.Controls
 {
     #region HopeTrackBar
 

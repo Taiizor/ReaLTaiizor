@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Bubble
+namespace ReaLTaiizor.Controls
 {
     #region ChatBubbleLeft
 

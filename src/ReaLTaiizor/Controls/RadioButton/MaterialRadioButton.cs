@@ -13,7 +13,7 @@ using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.RadioButton
+namespace ReaLTaiizor.Controls
 {
     #region MaterialRadioButton
 

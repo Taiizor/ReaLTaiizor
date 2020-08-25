@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Forms.Form
+namespace ReaLTaiizor.Forms
 {
-    #region Dream
+    #region DreamForm
 
-    public class Dream : GroupBox
+    public class DreamForm : GroupBox
     {
         private int _TitleHeight = 25;
         public int TitleHeight

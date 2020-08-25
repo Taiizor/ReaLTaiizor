@@ -7,7 +7,7 @@ using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Progress
+namespace ReaLTaiizor.Controls
 {
     #region MaterialProgressBar
 

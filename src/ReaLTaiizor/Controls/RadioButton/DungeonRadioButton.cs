@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.RadioButton
+namespace ReaLTaiizor.Controls
 {
     #region DungeonRadioButton
 

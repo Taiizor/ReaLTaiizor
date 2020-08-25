@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.ControlBoxEdit
+namespace ReaLTaiizor.Controls
 {
     #region ControlBoxEdit
 

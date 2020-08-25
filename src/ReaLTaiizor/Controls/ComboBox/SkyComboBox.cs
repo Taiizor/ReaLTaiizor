@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.ComboBox
+namespace ReaLTaiizor.Controls
 {
     #region SkyComboBox
 

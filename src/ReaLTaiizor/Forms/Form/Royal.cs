@@ -4,8 +4,8 @@ using System;
 using System.Drawing;
 using ReaLTaiizor.Utils;
 using ReaLTaiizor.Colors;
+using ReaLTaiizor.Controls;
 using System.Windows.Forms;
-using ReaLTaiizor.Controls.Button;
 
 #endregion
 

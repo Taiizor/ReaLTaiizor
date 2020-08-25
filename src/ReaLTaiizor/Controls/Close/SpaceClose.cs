@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Close
+namespace ReaLTaiizor.Controls
 {
     #region SpaceClose
 

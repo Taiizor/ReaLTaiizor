@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Numeric
+namespace ReaLTaiizor.Controls
 {
     #region DungeonNumeric
 

@@ -13,7 +13,7 @@ using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.CheckBox
+namespace ReaLTaiizor.Controls
 {
     #region MaterialCheckBox
 

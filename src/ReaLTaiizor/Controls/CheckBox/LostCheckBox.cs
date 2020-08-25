@@ -8,7 +8,7 @@ using ReaLTaiizor.Extensions;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.CheckBox
+namespace ReaLTaiizor.Controls
 {
     #region LostCheckBox
 

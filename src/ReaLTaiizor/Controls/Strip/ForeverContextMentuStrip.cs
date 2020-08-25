@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Strip
+namespace ReaLTaiizor.Controls
 {
 	#region ForeverContextMenuStrip
 

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Strip
+namespace ReaLTaiizor.Controls
 {
     #region RoyalMenuStrip
 

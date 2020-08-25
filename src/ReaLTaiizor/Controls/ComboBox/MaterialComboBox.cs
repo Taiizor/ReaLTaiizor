@@ -12,7 +12,7 @@ using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.ComboBox
+namespace ReaLTaiizor.Controls
 {
     #region MaterialComboBox
 

@@ -5,11 +5,10 @@ using System.Drawing;
 using ReaLTaiizor.Utils;
 using ReaLTaiizor.Colors;
 using System.Windows.Forms;
-using ReaLTaiizor.Controls.ScrollBar;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.ListBox
+namespace ReaLTaiizor.Controls
 {
     #region RoyalListBox
 

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Separator
+namespace ReaLTaiizor.Controls
 {
     #region SpaceSeparatorVertical
 

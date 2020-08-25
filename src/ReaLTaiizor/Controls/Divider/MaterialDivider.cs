@@ -7,7 +7,7 @@ using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Divider
+namespace ReaLTaiizor.Controls
 {
     #region MaterialDivider
 

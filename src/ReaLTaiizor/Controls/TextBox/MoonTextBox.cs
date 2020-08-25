@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.TextBox
+namespace ReaLTaiizor.Controls
 {
     #region MoonTextBox
 

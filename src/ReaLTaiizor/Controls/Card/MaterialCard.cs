@@ -10,7 +10,7 @@ using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Card
+namespace ReaLTaiizor.Controls
 {
     #region MaterialCard
 

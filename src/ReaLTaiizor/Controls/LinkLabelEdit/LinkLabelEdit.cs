@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.LinkLabelEdit
+namespace ReaLTaiizor.Controls
 {
     #region LinkLabelEdit
 

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.DatePicker
+namespace ReaLTaiizor.Controls
 {
     #region HopeDatePicker
 

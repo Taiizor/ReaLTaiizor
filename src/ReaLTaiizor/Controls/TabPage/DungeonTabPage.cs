@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.TabPage
+namespace ReaLTaiizor.Controls
 {
     #region DungeonTabPage
 

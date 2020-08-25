@@ -5,11 +5,10 @@ using System.Linq;
 using System.Drawing;
 using ReaLTaiizor.Utils;
 using System.Diagnostics;
+using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 using System.Globalization;
 using System.ComponentModel;
-using ReaLTaiizor.Controls.Button;
-using ReaLTaiizor.Controls.RichTextBox;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion

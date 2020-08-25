@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Progress
+namespace ReaLTaiizor.Controls
 {
     #region ProgressIndicator
 

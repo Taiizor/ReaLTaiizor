@@ -8,7 +8,7 @@ using System.ComponentModel.Design;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Panel
+namespace ReaLTaiizor.Controls
 {
     #region LostBorderPanel
 

@@ -11,7 +11,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.CheckBox
+namespace ReaLTaiizor.Controls
 {
 	#region ForeverCheckBox
 

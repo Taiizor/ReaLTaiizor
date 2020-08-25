@@ -8,7 +8,7 @@ using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Label
+namespace ReaLTaiizor.Controls
 {
     #region MaterialLabel
 

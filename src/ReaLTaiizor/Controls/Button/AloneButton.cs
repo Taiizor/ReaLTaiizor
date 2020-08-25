@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Button
+namespace ReaLTaiizor.Controls
 {
     #region AloneButton
 

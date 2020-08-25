@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Label
+namespace ReaLTaiizor.Controls
 {
     #region SpaceBorderLabel
 

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.LinkLabel
+namespace ReaLTaiizor.Controls
 {
     #region DungeonLinkLabel
 

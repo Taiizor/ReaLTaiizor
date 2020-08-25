@@ -10,7 +10,7 @@ using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.ListView
+namespace ReaLTaiizor.Controls
 {
     #region MaterialListView
 

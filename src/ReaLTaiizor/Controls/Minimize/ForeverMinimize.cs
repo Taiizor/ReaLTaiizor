@@ -10,7 +10,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Minimize
+namespace ReaLTaiizor.Controls
 {
 	#region ForeverMinimize
 

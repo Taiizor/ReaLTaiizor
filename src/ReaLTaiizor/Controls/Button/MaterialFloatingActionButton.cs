@@ -11,7 +11,7 @@ using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Button
+namespace ReaLTaiizor.Controls
 {
     #region MaterialFloatingActionButton
 

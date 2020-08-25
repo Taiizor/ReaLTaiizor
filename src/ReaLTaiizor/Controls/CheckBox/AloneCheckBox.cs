@@ -14,7 +14,7 @@ using System.Runtime.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.CheckBox
+namespace ReaLTaiizor.Controls
 {
     #region AloneCheckBox
 

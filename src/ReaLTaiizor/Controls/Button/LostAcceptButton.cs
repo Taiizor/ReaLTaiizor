@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Button
+namespace ReaLTaiizor.Controls
 {
     #region LostAcceptButton
 

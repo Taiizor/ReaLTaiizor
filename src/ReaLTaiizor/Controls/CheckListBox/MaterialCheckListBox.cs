@@ -5,12 +5,11 @@ using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
-using ReaLTaiizor.Controls.CheckBox;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.CheckListBox
+namespace ReaLTaiizor.Controls
 {
     #region MaterialCheckListBox
 

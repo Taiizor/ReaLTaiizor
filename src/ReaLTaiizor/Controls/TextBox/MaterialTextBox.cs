@@ -6,14 +6,13 @@ using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Extensions;
-using ReaLTaiizor.Controls.Strip;
 using System.Runtime.InteropServices;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.TextBox
+namespace ReaLTaiizor.Controls
 {
     #region MaterialTextBox
 

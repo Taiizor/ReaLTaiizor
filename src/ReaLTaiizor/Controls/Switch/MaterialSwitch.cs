@@ -13,7 +13,7 @@ using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Switch
+namespace ReaLTaiizor.Controls
 {
     #region MaterialSwitch
 

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.TextBox
+namespace ReaLTaiizor.Controls
 {
     #region HopeTextBox
 

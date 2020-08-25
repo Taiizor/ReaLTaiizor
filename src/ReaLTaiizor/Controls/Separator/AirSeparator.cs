@@ -5,7 +5,7 @@ using ReaLTaiizor.Utils;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Separator
+namespace ReaLTaiizor.Controls
 {
     #region AirSeparator
 

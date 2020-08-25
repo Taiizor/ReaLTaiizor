@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.ScrollBar
+namespace ReaLTaiizor.Controls
 {
     #region RoyalScrollBar
 

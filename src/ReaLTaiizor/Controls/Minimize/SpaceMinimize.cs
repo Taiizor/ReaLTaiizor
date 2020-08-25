@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Minimize
+namespace ReaLTaiizor.Controls
 {
     #region SpaceMinimize
 

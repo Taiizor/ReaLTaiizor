@@ -8,7 +8,7 @@ using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.TabControl
+namespace ReaLTaiizor.Controls
 {
     #region MaterialTabControl
 

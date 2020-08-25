@@ -9,7 +9,7 @@ using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.RichTextBox
+namespace ReaLTaiizor.Controls
 {
     #region MaterialRichTextBox
 

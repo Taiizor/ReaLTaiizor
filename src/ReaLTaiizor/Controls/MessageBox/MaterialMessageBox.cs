@@ -9,7 +9,7 @@ using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.MessageBox
+namespace ReaLTaiizor.Controls
 {
     #region MaterialMessageBox
 

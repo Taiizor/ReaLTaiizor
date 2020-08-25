@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Panel
+namespace ReaLTaiizor.Controls
 {
     #region ExtendedPanel
 

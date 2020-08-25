@@ -5,6 +5,7 @@ using System.Linq;
 using System.Drawing;
 using ReaLTaiizor.Colors;
 using System.Drawing.Text;
+using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 using ReaLTaiizor.Extensions;
 using System.Threading.Tasks;
@@ -387,11 +388,11 @@ namespace ReaLTaiizor.Utils
             if (controlToUpdate.ContextMenuStrip != null) UpdateToolStrip(controlToUpdate.ContextMenuStrip, newBackColor);
 
             // Material Tabcontrol pages
-            if (controlToUpdate is TabPage)
-                ((TabPage)controlToUpdate).BackColor = newBackColor;
+            if (controlToUpdate is System.Windows.Forms.TabPage)
+                ((System.Windows.Forms.TabPage)controlToUpdate).BackColor = newBackColor;
 
             // Material Divider
-            else if (controlToUpdate is Controls.Divider.MaterialDivider)
+            else if (controlToUpdate is MaterialDivider)
                 controlToUpdate.BackColor = DividersColor;
 
             // Other Material control
@@ -423,8 +424,8 @@ namespace ReaLTaiizor.Utils
             foreach (ToolStripItem control in toolStrip.Items)
             {
                 control.BackColor = newBackColor;
-                if (control is Controls.Strip.MaterialToolStripMenuItem && (control as Controls.Strip.MaterialToolStripMenuItem).HasDropDown)
-                    UpdateToolStrip((control as Controls.Strip.MaterialToolStripMenuItem).DropDown, newBackColor);
+                if (control is MaterialToolStripMenuItem && (control as MaterialToolStripMenuItem).HasDropDown)
+                    UpdateToolStrip((control as MaterialToolStripMenuItem).DropDown, newBackColor);
             }
         }
     }

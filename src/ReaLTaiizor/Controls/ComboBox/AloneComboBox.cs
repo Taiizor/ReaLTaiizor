@@ -13,7 +13,7 @@ using Microsoft.VisualBasic.CompilerServices;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.ComboBox
+namespace ReaLTaiizor.Controls
 {
     #region AloneComboBox
 

@@ -99,12 +99,12 @@ namespace ReaLTaiizor.Utils
 
             ForeverColors colors = new ForeverColors();
 
-            while (control != null && (control.GetType() != typeof(Forms.Form.Forever)))
+            while (control != null && (control.GetType() != typeof(Forms.ForeverForm)))
                 control = control.Parent;
 
             if (control != null)
             {
-                Forms.Form.Forever skin = (Forms.Form.Forever)control;
+                Forms.ForeverForm skin = (Forms.ForeverForm)control;
                 colors.Forever = skin.ForeverColor;
             }
 

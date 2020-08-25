@@ -10,13 +10,12 @@ using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
-using ReaLTaiizor.Controls.TabControl;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Drawer
+namespace ReaLTaiizor.Controls
 {
     #region MaterialDrawer
 

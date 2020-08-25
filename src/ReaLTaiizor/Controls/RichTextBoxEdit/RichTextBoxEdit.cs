@@ -8,12 +8,12 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.RichTextEdit
+namespace ReaLTaiizor.Controls
 {
-    #region RichTextEdit
+    #region RichTextBoxEdit
 
     [DefaultEvent("TextChanged")]
-    public class RichTextEdit : Control
+    public class RichTextBoxEdit : Control
     {
 
         #region Variables
@@ -211,7 +211,7 @@ namespace ReaLTaiizor.Controls.RichTextEdit
             _RTB.Multiline = true;
         }
 
-        public RichTextEdit() : base()
+        public RichTextBoxEdit() : base()
         {
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);

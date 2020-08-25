@@ -9,7 +9,7 @@ using ReaLTaiizor.Extensions;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Progress
+namespace ReaLTaiizor.Controls
 {
     #region LostProgressBar
 

@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Icon
+namespace ReaLTaiizor.Controls
 {
     #region InfoIcon
 

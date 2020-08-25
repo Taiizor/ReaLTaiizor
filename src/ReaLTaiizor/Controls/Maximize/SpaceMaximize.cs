@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Maximize
+namespace ReaLTaiizor.Controls
 {
     #region SpaceMaximize
 

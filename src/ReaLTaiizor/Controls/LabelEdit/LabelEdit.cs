@@ -4,7 +4,7 @@ using System.Drawing;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.LabelEdit
+namespace ReaLTaiizor.Controls
 {
     #region LabelEdit
 
