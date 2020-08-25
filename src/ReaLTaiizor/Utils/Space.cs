@@ -12,882 +12,18 @@ using System.Runtime.InteropServices;
 
 #endregion
 
-// |---------DO-NOT-REMOVE---------|
-//
-//     Creator: Taiizor
-//     Site   : www.Taiizor.com
-//     Created: 15.May.2019
-//     Changed: 25.Aug.2020
-//     Version: 3.7.7.7
-//
-// |---------DO-NOT-REMOVE---------|
-
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Utils
 {
-    #region RoundRectangle
+    #region SpaceLibrary
 
-    public sealed class RoundRectangle
+    public abstract class SpaceLibrary : ContainerControl
     {
-        public static GraphicsPath RoundRect(Rectangle Rectangle, int Curve)
-        {
-            GraphicsPath P = new GraphicsPath();
-            int ArcRectangleWidth = Curve * 2;
-            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -180, 90);
-            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
-            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 0, 90);
-            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 90, 90);
-            P.AddLine(new Point(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
-            return P;
-        }
-
-        public static GraphicsPath RoundRect(int X, int Y, int Width, int Height, int Curve)
-        {
-            Rectangle Rectangle = new Rectangle(X, Y, Width, Height);
-            GraphicsPath GP = new GraphicsPath();
-            int EndArcWidth = Curve * 2;
-            GP.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, EndArcWidth, EndArcWidth), -180, 90);
-            GP.AddArc(new Rectangle(Rectangle.Width - EndArcWidth + Rectangle.X, Rectangle.Y, EndArcWidth, EndArcWidth), -90, 90);
-            GP.AddArc(new Rectangle(Rectangle.Width - EndArcWidth + Rectangle.X, Rectangle.Height - EndArcWidth + Rectangle.Y, EndArcWidth, EndArcWidth), 0, 90);
-            GP.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - EndArcWidth + Rectangle.Y, EndArcWidth, EndArcWidth), 90, 90);
-            GP.AddLine(new Point(Rectangle.X, Rectangle.Height - EndArcWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
-            return GP;
-        }
-
-        public static GraphicsPath RoundedTopRect(Rectangle Rectangle, int Curve)
-        {
-            GraphicsPath P = new GraphicsPath();
-            int ArcRectangleWidth = Curve * 2;
-            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -180, 90);
-            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
-            P.AddLine(new Point(Rectangle.X + Rectangle.Width, Rectangle.Y + ArcRectangleWidth), new Point(Rectangle.X + Rectangle.Width, Rectangle.Y + Rectangle.Height - 1));
-            P.AddLine(new Point(Rectangle.X, Rectangle.Height - 1 + Rectangle.Y), new Point(Rectangle.X, Rectangle.Y + Curve));
-            return P;
-        }
-
-        public static GraphicsPath CreateRoundRect(float x, float y, float width, float height, float radius)
-        {
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddLine(x + radius, y, x + width - (radius * 2), y);
-            gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
-
-            gp.AddLine(x + width, y + radius, x + width, y + height - (radius * 2));
-            gp.AddArc(x + width - (radius * 2), y + height - (radius * 2), radius * 2, radius * 2, 0, 90);
-
-            gp.AddLine(x + width - (radius * 2), y + height, x + radius, y + height);
-            gp.AddArc(x, y + height - (radius * 2), radius * 2, radius * 2, 90, 90);
-
-            gp.AddLine(x, y + height - (radius * 2), x, y + radius);
-            gp.AddArc(x, y, radius * 2, radius * 2, 180, 90);
-
-            gp.CloseFigure();
-            return gp;
-        }
-
-        public static GraphicsPath CreateUpRoundRect(float x, float y, float width, float height, float radius)
-        {
-            GraphicsPath gp = new GraphicsPath();
-
-            gp.AddLine(x + radius, y, x + width - (radius * 2), y);
-            gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
-
-            gp.AddLine(x + width, y + radius, x + width, y + height - (radius * 2) + 1);
-            gp.AddArc(x + width - (radius * 2), y + height - (radius * 2), radius * 2, 2, 0, 90);
-
-            gp.AddLine(x + width, y + height, x + radius, y + height);
-            gp.AddArc(x, y + height - (radius * 2) + 1, radius * 2, 1, 90, 90);
-
-            gp.AddLine(x, y + height, x, y + radius);
-            gp.AddArc(x, y, radius * 2, radius * 2, 180, 90);
-
-            gp.CloseFigure();
-            return gp;
-        }
-        
-        public static GraphicsPath CreateLeftRoundRect(float x, float y, float width, float height, float radius)
-        {
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddLine(x + radius, y, x + width - (radius * 2), y);
-            gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
-
-            gp.AddLine(x + width, y + 0, x + width, y + height);
-            gp.AddArc(x + width - (radius * 2), y + height - (1), radius * 2, 1, 0, 90);
-
-            gp.AddLine(x + width - (radius * 2), y + height, x + radius, y + height);
-            gp.AddArc(x, y + height - (radius * 2), radius * 2, radius * 2, 90, 90);
-
-            gp.AddLine(x, y + height - (radius * 2), x, y + radius);
-            gp.AddArc(x, y, radius * 2, radius * 2, 180, 90);
-
-            gp.CloseFigure();
-            return gp;
-        }
-
-        public static Color BlendColor(Color backgroundColor, Color frontColor)
-        {
-            double ratio = 0 / 255d;
-            double invRatio = 1d - ratio;
-            int r = (int)((backgroundColor.R * invRatio) + (frontColor.R * ratio));
-            int g = (int)((backgroundColor.G * invRatio) + (frontColor.G * ratio));
-            int b = (int)((backgroundColor.B * invRatio) + (frontColor.B * ratio));
-            return Color.FromArgb(r, g, b);
-        }
-
-        public static Color BackColor = ColorTranslator.FromHtml("#dadcdf"); //bcbfc4
-        public static Color DarkBackColor = ColorTranslator.FromHtml("#90949a");
-        public static Color LightBackColor = ColorTranslator.FromHtml("#F5F5F5");
-    }
-
-    #endregion
-
-    #region ControlRenderer
-
-    #region Color Table
-
-    public abstract class xColorTable
-    {
-        public abstract Color TextColor { get; }
-        public abstract Color Background { get; }
-        public abstract Color SelectionBorder { get; }
-        public abstract Color SelectionTopGradient { get; }
-        public abstract Color SelectionMidGradient { get; }
-        public abstract Color SelectionBottomGradient { get; }
-        public abstract Color PressedBackground { get; }
-        public abstract Color CheckedBackground { get; }
-        public abstract Color CheckedSelectedBackground { get; }
-        public abstract Color DropdownBorder { get; }
-        public abstract Color Arrow { get; }
-        public abstract Color OverflowBackground { get; }
-    }
-
-    public abstract class ColorTable
-    {
-        public abstract xColorTable CommonColorTable { get; }
-        public abstract Color BackgroundTopGradient { get; }
-        public abstract Color BackgroundBottomGradient { get; }
-        public abstract Color DroppedDownItemBackground { get; }
-        public abstract Color DropdownTopGradient { get; }
-        public abstract Color DropdownBottomGradient { get; }
-        public abstract Color Separator { get; }
-        public abstract Color ImageMargin { get; }
-    }
-
-    public class MSColorTable : ColorTable
-    {
-
-        private xColorTable _CommonColorTable;
-
-        public MSColorTable()
-        {
-            _CommonColorTable = new DefaultCColorTable();
-        }
-
-        public override xColorTable CommonColorTable
-        {
-            get
-            {
-                return _CommonColorTable;
-            }
-        }
-
-        public override System.Drawing.Color BackgroundTopGradient
-        {
-            get
-            {
-                return Color.FromArgb(246, 246, 246);
-            }
-        }
-
-        public override System.Drawing.Color BackgroundBottomGradient
-        {
-            get
-            {
-                return Color.FromArgb(226, 226, 226);
-            }
-        }
-
-        public override System.Drawing.Color DropdownTopGradient
-        {
-            get
-            {
-                return Color.FromArgb(246, 246, 246);
-            }
-        }
-
-        public override System.Drawing.Color DropdownBottomGradient
-        {
-            get
-            {
-                return Color.FromArgb(246, 246, 246);
-            }
-        }
-
-        public override System.Drawing.Color DroppedDownItemBackground
-        {
-            get
-            {
-                return Color.FromArgb(240, 240, 240);
-            }
-        }
-
-        public override System.Drawing.Color Separator
-        {
-            get
-            {
-                return Color.FromArgb(190, 195, 203);
-            }
-        }
-
-        public override System.Drawing.Color ImageMargin
-        {
-            get
-            {
-                return Color.FromArgb(240, 240, 240);
-            }
-        }
-    }
-
-    public class DefaultCColorTable : xColorTable
-    {
-
-        public override System.Drawing.Color CheckedBackground
-        {
-            get
-            {
-                return Color.FromArgb(230, 230, 230);
-            }
-        }
-
-        public override System.Drawing.Color CheckedSelectedBackground
-        {
-            get
-            {
-                return Color.FromArgb(230, 230, 230);
-            }
-        }
-
-        public override System.Drawing.Color SelectionBorder
-        {
-            get
-            {
-                return Color.FromArgb(180, 180, 180);
-            }
-        }
-
-        public override System.Drawing.Color SelectionTopGradient
-        {
-            get
-            {
-                return Color.FromArgb(240, 240, 240);
-            }
-        }
-
-        public override System.Drawing.Color SelectionMidGradient
-        {
-            get
-            {
-                return Color.FromArgb(235, 235, 235);
-            }
-        }
-
-        public override System.Drawing.Color SelectionBottomGradient
-        {
-            get
-            {
-                return Color.FromArgb(230, 230, 230);
-            }
-        }
-
-        public override System.Drawing.Color PressedBackground
-        {
-            get
-            {
-                return Color.FromArgb(232, 232, 232);
-            }
-        }
-
-        public override System.Drawing.Color TextColor
-        {
-            get
-            {
-                return Color.FromArgb(80, 80, 80);
-            }
-        }
-
-        public override System.Drawing.Color Background
-        {
-            get
-            {
-                return Color.FromArgb(188, 199, 216);
-            }
-        }
-
-        public override System.Drawing.Color DropdownBorder
-        {
-            get
-            {
-                return Color.LightGray;
-            }
-        }
-
-        public override System.Drawing.Color Arrow
-        {
-            get
-            {
-                return Color.Black;
-            }
-        }
-
-        public override System.Drawing.Color OverflowBackground
-        {
-            get
-            {
-                return Color.FromArgb(213, 220, 232);
-            }
-        }
-    }
-
-    #endregion
-    #region Renderer
-
-    public class ControlRenderer : ToolStripProfessionalRenderer
-    {
-
-        public ControlRenderer()
-            : this(new MSColorTable())
-        {
-        }
-
-        public ControlRenderer(ColorTable ColorTable)
-        {
-            ColorTable = ColorTable;
-        }
-
-        private ColorTable _ColorTable;
-        public new ColorTable ColorTable
-        {
-            get
-            {
-                if (_ColorTable == null)
-                {
-                    _ColorTable = new MSColorTable();
-                }
-                return _ColorTable;
-            }
-            set
-            {
-                _ColorTable = value;
-            }
-        }
-
-        protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
-        {
-            base.OnRenderToolStripBackground(e);
-
-            // Menu strip bar gradient
-            using (LinearGradientBrush LGB = new LinearGradientBrush(e.AffectedBounds, ColorTable.BackgroundTopGradient, ColorTable.BackgroundBottomGradient, LinearGradientMode.Vertical))
-            {
-                e.Graphics.FillRectangle(LGB, e.AffectedBounds);
-            }
-
-        }
-
-        protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
-        {
-            if (e.ToolStrip.Parent == null)
-            {
-                // Draw border around the menu drop-down
-                Rectangle Rect = new Rectangle(0, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
-                using (Pen P1 = new Pen(ColorTable.CommonColorTable.DropdownBorder))
-                {
-                    e.Graphics.DrawRectangle(P1, Rect);
-                }
-
-
-                // Fill the gap between menu drop-down and owner item
-                using (SolidBrush B1 = new SolidBrush(ColorTable.DroppedDownItemBackground))
-                {
-                    e.Graphics.FillRectangle(B1, e.ConnectedArea);
-                }
-
-            }
-        }
-
-        protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
-        {
-            if (e.Item.Enabled)
-            {
-                if (e.Item.Selected)
-                {
-                    if (!e.Item.IsOnDropDown)
-                    {
-                        Rectangle SelRect = new Rectangle(0, 0, e.Item.Width - 1, e.Item.Height - 1);
-                        RectDrawing.DrawSelection(e.Graphics, ColorTable.CommonColorTable, SelRect);
-                    }
-                    else
-                    {
-                        Rectangle SelRect = new Rectangle(2, 0, e.Item.Width - 4, e.Item.Height - 1);
-                        RectDrawing.DrawSelection(e.Graphics, ColorTable.CommonColorTable, SelRect);
-                    }
-                }
-
-                if (((ToolStripMenuItem)e.Item).DropDown.Visible && !e.Item.IsOnDropDown)
-                {
-                    Rectangle BorderRect = new Rectangle(0, 0, e.Item.Width - 1, e.Item.Height);
-                    // Fill the background
-                    Rectangle BackgroundRect = new Rectangle(1, 1, e.Item.Width - 2, e.Item.Height + 2);
-                    using (SolidBrush B1 = new SolidBrush(ColorTable.DroppedDownItemBackground))
-                    {
-                        e.Graphics.FillRectangle(B1, BackgroundRect);
-                    }
-
-
-                    // Draw border
-                    using (Pen P1 = new Pen(ColorTable.CommonColorTable.DropdownBorder))
-                    {
-                        RectDrawing.DrawRoundedRectangle(e.Graphics, P1, System.Convert.ToSingle(BorderRect.X), System.Convert.ToSingle(BorderRect.Y), System.Convert.ToSingle(BorderRect.Width), System.Convert.ToSingle(BorderRect.Height), 2);
-                    }
-
-                }
-                e.Item.ForeColor = ColorTable.CommonColorTable.TextColor;
-            }
-        }
-
-        protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
-        {
-            e.TextColor = ColorTable.CommonColorTable.TextColor;
-            base.OnRenderItemText(e);
-        }
-
-        protected override void OnRenderItemCheck(ToolStripItemImageRenderEventArgs e)
-        {
-            base.OnRenderItemCheck(e);
-
-            Rectangle rect = new Rectangle(3, 1, e.Item.Height - 3, e.Item.Height - 3);
-            Color c = default(Color);
-
-            if (e.Item.Selected)
-            {
-                c = ColorTable.CommonColorTable.CheckedSelectedBackground;
-            }
-            else
-            {
-                c = ColorTable.CommonColorTable.CheckedBackground;
-            }
-
-            using (SolidBrush b = new SolidBrush(c))
-            {
-                e.Graphics.FillRectangle(b, rect);
-            }
-
-
-            using (Pen p = new Pen(ColorTable.CommonColorTable.SelectionBorder))
-            {
-                e.Graphics.DrawRectangle(p, rect);
-            }
-
-
-            e.Graphics.DrawString("ü", new Font("Wingdings", 13, FontStyle.Regular), Brushes.Black, new Point(4, 2));
-        }
-
-        protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
-        {
-            base.OnRenderSeparator(e);
-            int PT1 = 28;
-            int PT2 = System.Convert.ToInt32(e.Item.Width);
-            int Y = 3;
-            using (Pen P1 = new Pen(ColorTable.Separator))
-            {
-                e.Graphics.DrawLine(P1, PT1, Y, PT2, Y);
-            }
-
-        }
-
-        protected override void OnRenderImageMargin(ToolStripRenderEventArgs e)
-        {
-            base.OnRenderImageMargin(e);
-
-            Rectangle BackgroundRect = new Rectangle(0, -1, e.ToolStrip.Width, e.ToolStrip.Height + 1);
-            using (LinearGradientBrush LGB = new LinearGradientBrush(BackgroundRect,
-                    ColorTable.DropdownTopGradient,
-                    ColorTable.DropdownBottomGradient,
-                    LinearGradientMode.Vertical))
-            {
-                e.Graphics.FillRectangle(LGB, BackgroundRect);
-            }
-
-
-            using (SolidBrush B1 = new SolidBrush(ColorTable.ImageMargin))
-            {
-                e.Graphics.FillRectangle(B1, e.AffectedBounds);
-            }
-
-        }
-
-        protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
-        {
-            Rectangle rect = new Rectangle(0, 0, e.Item.Width - 1, e.Item.Height - 1);
-            bool @checked = System.Convert.ToBoolean(((ToolStripButton)e.Item).Checked);
-            bool drawBorder = false;
-
-            if (@checked)
-            {
-                drawBorder = true;
-
-                if (e.Item.Selected && !e.Item.Pressed)
-                {
-                    using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.CheckedSelectedBackground))
-                    {
-                        e.Graphics.FillRectangle(b, rect);
-                    }
-
-                }
-                else
-                {
-                    using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.CheckedBackground))
-                    {
-                        e.Graphics.FillRectangle(b, rect);
-                    }
-
-                }
-
-            }
-            else
-            {
-
-                if (e.Item.Pressed)
-                {
-                    drawBorder = true;
-                    using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.PressedBackground))
-                    {
-                        e.Graphics.FillRectangle(b, rect);
-                    }
-
-                }
-                else if (e.Item.Selected)
-                {
-                    drawBorder = true;
-                    RectDrawing.DrawSelection(e.Graphics, ColorTable.CommonColorTable, rect);
-                }
-
-            }
-
-            if (drawBorder)
-            {
-                using (Pen p = new Pen(ColorTable.CommonColorTable.SelectionBorder))
-                {
-                    e.Graphics.DrawRectangle(p, rect);
-                }
-
-            }
-        }
-
-        protected override void OnRenderDropDownButtonBackground(ToolStripItemRenderEventArgs e)
-        {
-            Rectangle rect = new Rectangle(0, 0, e.Item.Width - 1, e.Item.Height - 1);
-            bool drawBorder = false;
-
-            if (e.Item.Pressed)
-            {
-                drawBorder = true;
-                using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.PressedBackground))
-                {
-                    e.Graphics.FillRectangle(b, rect);
-                }
-
-            }
-            else if (e.Item.Selected)
-            {
-                drawBorder = true;
-                RectDrawing.DrawSelection(e.Graphics, ColorTable.CommonColorTable, rect);
-            }
-
-            if (drawBorder)
-            {
-                using (Pen p = new Pen(ColorTable.CommonColorTable.SelectionBorder))
-                {
-                    e.Graphics.DrawRectangle(p, rect);
-                }
-
-            }
-        }
-
-        protected override void OnRenderSplitButtonBackground(ToolStripItemRenderEventArgs e)
-        {
-            base.OnRenderSplitButtonBackground(e);
-            bool drawBorder = false;
-            bool drawSeparator = true;
-            ToolStripSplitButton item = (ToolStripSplitButton)e.Item;
-            checked
-            {
-                Rectangle btnRect = new Rectangle(0, 0, item.ButtonBounds.Width - 1, item.ButtonBounds.Height - 1);
-                Rectangle borderRect = new Rectangle(0, 0, item.Bounds.Width - 1, item.Bounds.Height - 1);
-                bool flag = item.DropDownButtonPressed;
-                if (flag)
-                {
-                    drawBorder = true;
-                    drawSeparator = false;
-                    SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.PressedBackground);
-                    try
-                    {
-                        e.Graphics.FillRectangle(b, borderRect);
-                    }
-                    finally
-                    {
-                        flag = (b != null);
-                        if (flag)
-                        {
-                            ((IDisposable)b).Dispose();
-                        }
-                    }
-                }
-                else
-                {
-                    flag = item.DropDownButtonSelected;
-                    if (flag)
-                    {
-                        drawBorder = true;
-                        RectDrawing.DrawSelection(e.Graphics, ColorTable.CommonColorTable, borderRect);
-                    }
-                }
-                flag = item.ButtonPressed;
-                if (flag)
-                {
-                    SolidBrush b2 = new SolidBrush(ColorTable.CommonColorTable.PressedBackground);
-                    try
-                    {
-                        e.Graphics.FillRectangle(b2, btnRect);
-                    }
-                    finally
-                    {
-                        flag = (b2 != null);
-                        if (flag)
-                        {
-                            ((IDisposable)b2).Dispose();
-                        }
-                    }
-                }
-                flag = drawBorder;
-                if (flag)
-                {
-                    Pen p = new Pen(ColorTable.CommonColorTable.SelectionBorder);
-                    try
-                    {
-                        e.Graphics.DrawRectangle(p, borderRect);
-                        flag = drawSeparator;
-                        if (flag)
-                        {
-                            e.Graphics.DrawRectangle(p, btnRect);
-                        }
-                    }
-                    finally
-                    {
-                        flag = (p != null);
-                        if (flag)
-                        {
-                            ((IDisposable)p).Dispose();
-                        }
-                    }
-                    DrawCustomArrow(e.Graphics, item);
-                }
-            }
-        }
-
-
-        private void DrawCustomArrow(Graphics g, ToolStripSplitButton item)
-        {
-            int dropWidth = System.Convert.ToInt32(item.DropDownButtonBounds.Width - 1);
-            int dropHeight = System.Convert.ToInt32(item.DropDownButtonBounds.Height - 1);
-            float triangleWidth = dropWidth / 2.0F + 1;
-            float triangleLeft = System.Convert.ToSingle(item.DropDownButtonBounds.Left + (dropWidth - triangleWidth) / 2.0F);
-            float triangleHeight = triangleWidth / 2.0F;
-            float triangleTop = System.Convert.ToSingle(item.DropDownButtonBounds.Top + (dropHeight - triangleHeight) / 2.0F + 1);
-            RectangleF arrowRect = new RectangleF(triangleLeft, triangleTop, triangleWidth, triangleHeight);
-
-            DrawCustomArrow(g, item, Rectangle.Round(arrowRect));
-        }
-
-        private void DrawCustomArrow(Graphics g, ToolStripItem item, Rectangle rect)
-        {
-            ToolStripArrowRenderEventArgs arrowEventArgs = new ToolStripArrowRenderEventArgs(g, item, rect, ColorTable.CommonColorTable.Arrow, ArrowDirection.Down);
-            base.OnRenderArrow(arrowEventArgs);
-        }
-
-        protected override void OnRenderOverflowButtonBackground(ToolStripItemRenderEventArgs e)
-        {
-            Rectangle rect = default(Rectangle);
-            Rectangle rectEnd = default(Rectangle);
-            rect = new Rectangle(0, 0, e.Item.Width - 1, e.Item.Height - 2);
-            rectEnd = new Rectangle(rect.X - 5, rect.Y, rect.Width - 5, rect.Height);
-
-            if (e.Item.Pressed)
-            {
-                using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.PressedBackground))
-                {
-                    e.Graphics.FillRectangle(b, rect);
-                }
-
-            }
-            else if (e.Item.Selected)
-            {
-                RectDrawing.DrawSelection(e.Graphics, ColorTable.CommonColorTable, rect);
-            }
-            else
-            {
-                using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.OverflowBackground))
-                {
-                    e.Graphics.FillRectangle(b, rect);
-                }
-
-            }
-
-            using (Pen P1 = new Pen(ColorTable.CommonColorTable.Background))
-            {
-                RectDrawing.DrawRoundedRectangle(e.Graphics, P1, System.Convert.ToSingle(rectEnd.X), System.Convert.ToSingle(rectEnd.Y), System.Convert.ToSingle(rectEnd.Width), System.Convert.ToSingle(rectEnd.Height), 3);
-            }
-
-
-            // Icon
-            int w = System.Convert.ToInt32(rect.Width - 1);
-            int h = System.Convert.ToInt32(rect.Height - 1);
-            float triangleWidth = w / 2.0F + 1;
-            float triangleLeft = System.Convert.ToSingle(rect.Left + (w - triangleWidth) / 2.0F + 3);
-            float triangleHeight = triangleWidth / 2.0F;
-            float triangleTop = System.Convert.ToSingle(rect.Top + (h - triangleHeight) / 2.0F + 7);
-            RectangleF arrowRect = new RectangleF(triangleLeft, triangleTop, triangleWidth, triangleHeight);
-            DrawCustomArrow(e.Graphics, e.Item, Rectangle.Round(arrowRect));
-
-            using (Pen p = new Pen(ColorTable.CommonColorTable.Arrow))
-            {
-                e.Graphics.DrawLine(p, triangleLeft + 2, triangleTop - 2, triangleLeft + triangleWidth - 2, triangleTop - 2);
-            }
-
-        }
-    }
-
-    #endregion
-    #region Drawing
-
-    public class RectDrawing
-    {
-
-        public static void DrawSelection(Graphics G, xColorTable ColorTable, Rectangle Rect)
-        {
-            Rectangle TopRect = default(Rectangle);
-            Rectangle BottomRect = default(Rectangle);
-            Rectangle FillRect = new Rectangle(Rect.X + 1, Rect.Y + 1, Rect.Width - 1, Rect.Height - 1);
-
-            TopRect = FillRect;
-            TopRect.Height -= System.Convert.ToInt32(TopRect.Height / 2);
-            BottomRect = new Rectangle(TopRect.X, TopRect.Bottom, TopRect.Width, FillRect.Height - TopRect.Height);
-
-            // Top gradient
-            using (LinearGradientBrush LGB = new LinearGradientBrush(TopRect, ColorTable.SelectionTopGradient, ColorTable.SelectionMidGradient, LinearGradientMode.Vertical))
-            {
-                G.FillRectangle(LGB, TopRect);
-            }
-
-
-            // Bottom
-            using (SolidBrush B1 = new SolidBrush(ColorTable.SelectionBottomGradient))
-            {
-                G.FillRectangle(B1, BottomRect);
-            }
-
-
-            // Border
-            using (Pen P1 = new Pen(ColorTable.SelectionBorder))
-            {
-                RectDrawing.DrawRoundedRectangle(G, P1, System.Convert.ToSingle(Rect.X), System.Convert.ToSingle(Rect.Y), System.Convert.ToSingle(Rect.Width), System.Convert.ToSingle(Rect.Height), 2);
-            }
-
-        }
-
-        public static void DrawRoundedRectangle(Graphics G, Pen P, float X, float Y, float W, float H, float Rad)
-        {
-
-            using (GraphicsPath gp = new GraphicsPath())
-            {
-                gp.AddLine(X + Rad, Y, X + W - (Rad * 2), Y);
-                gp.AddArc(X + W - (Rad * 2), Y, Rad * 2, Rad * 2, 270, 90);
-                gp.AddLine(X + W, Y + Rad, X + W, Y + H - (Rad * 2));
-                gp.AddArc(X + W - (Rad * 2), Y + H - (Rad * 2), Rad * 2, Rad * 2, 0, 90);
-                gp.AddLine(X + W - (Rad * 2), Y + H, X + Rad, Y + H);
-                gp.AddArc(X, Y + H - (Rad * 2), Rad * 2, Rad * 2, 90, 90);
-                gp.AddLine(X, Y + H - (Rad * 2), X, Y + Rad);
-                gp.AddArc(X, Y, Rad * 2, Rad * 2, 180, 90);
-                gp.CloseFigure();
-
-                G.SmoothingMode = SmoothingMode.AntiAlias;
-                G.DrawPath(P, gp);
-                G.SmoothingMode = SmoothingMode.Default;
-            }
-
-        }
-    }
-
-    #endregion
-
-    #endregion
-
-    #region PaintHelper
-
-    public abstract class PaintHelperA
-    {
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
-
-        private const int WM_SETREDRAW = 11;
-
-        public static void Suspend(Control Parent)
-        {
-            SendMessage(Parent.Handle, WM_SETREDRAW, false, 0);
-        }
-
-        public static void Resume(Control Parent)
-        {
-            SendMessage(Parent.Handle, WM_SETREDRAW, true, 0);
-            Parent.Refresh();
-        }
-    }
-
-    public abstract class PaintHelperB
-    {
-        private const int WM_SETREDRAW = 0x000B;
-
-        public static void Suspend(Control Parent)
-        {
-            Message msgSuspendUpdate = Message.Create(Parent.Handle, WM_SETREDRAW, IntPtr.Zero, IntPtr.Zero);
-
-            NativeWindow window = NativeWindow.FromHandle(Parent.Handle);
-            window.DefWndProc(ref msgSuspendUpdate);
-        }
-
-        public static void Resume(Control Parent)
-        {
-            // Create a C "true" boolean as an IntPtr
-            IntPtr wparam = new IntPtr(1);
-            Message msgResumeUpdate = Message.Create(Parent.Handle, WM_SETREDRAW, wparam, IntPtr.Zero);
-
-            NativeWindow window = NativeWindow.FromHandle(Parent.Handle);
-            window.DefWndProc(ref msgResumeUpdate);
-
-            Parent.Invalidate();
-        }
-    }
-
-    #endregion
-
-    #region AirLibrary
-
-    public abstract class AirLibrary : ContainerControl
-    {
-
         #region " Initialization "
 
         protected Graphics G;
 
         protected Bitmap B;
-        public AirLibrary()
+        public SpaceLibrary()
         {
             SetStyle((ControlStyles)139270, true);
 
@@ -960,7 +96,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        private void DoAnimationAir(bool i)
+        private void DoAnimation(bool i)
         {
             OnAnimation();
             if (i)
@@ -986,7 +122,7 @@ namespace ReaLTaiizor
 
         protected override void OnHandleDestroyed(EventArgs e)
         {
-            ThemeShareAir.RemoveAnimationCallback(DoAnimationAir);
+            ThemeShareSpace.RemoveAnimationCallback(DoAnimation);
             base.OnHandleDestroyed(e);
         }
 
@@ -1005,7 +141,6 @@ namespace ReaLTaiizor
 
             HasShown = true;
         }
-
 
         #region " Size Handling "
 
@@ -1036,8 +171,8 @@ namespace ReaLTaiizor
 
         #region " State Handling "
 
-        protected MouseStateAir State;
-        private void SetState(MouseStateAir current)
+        protected MouseStateSpace State;
+        private void SetState(MouseStateSpace current)
         {
             State = current;
             Invalidate();
@@ -1057,27 +192,27 @@ namespace ReaLTaiizor
         protected override void OnEnabledChanged(EventArgs e)
         {
             if (Enabled)
-                SetState(MouseStateAir.None);
+                SetState(MouseStateSpace.None);
             else
-                SetState(MouseStateAir.Block);
+                SetState(MouseStateSpace.Block);
             base.OnEnabledChanged(e);
         }
 
         protected override void OnMouseEnter(EventArgs e)
         {
-            SetState(MouseStateAir.Over);
+            SetState(MouseStateSpace.Over);
             base.OnMouseEnter(e);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            SetState(MouseStateAir.Over);
+            SetState(MouseStateSpace.Over);
             base.OnMouseUp(e);
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
-            SetState(MouseStateAir.None);
+            SetState(MouseStateSpace.None);
 
             if (GetChildAtPoint(PointToClient(MousePosition)) != null)
             {
@@ -1094,14 +229,13 @@ namespace ReaLTaiizor
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                SetState(MouseStateAir.Down);
+                SetState(MouseStateSpace.Down);
 
             if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
             {
                 if (_Movable && Frame.Contains(e.Location))
                 {
-                    if (!new Rectangle(Width - 22, 5, 15, 15).Contains(e.Location))
-                        Capture = false;
+                    Capture = false;
                     WM_LMBUTTONDOWN = true;
                     DefWndProc(ref Messages[0]);
                 }
@@ -1125,14 +259,18 @@ namespace ReaLTaiizor
             {
                 WM_LMBUTTONDOWN = false;
 
-                SetState(MouseStateAir.Over);
+                SetState(MouseStateSpace.Over);
                 if (!_SmartBounds)
                     return;
 
                 if (IsParentMdi)
+                {
                     CorrectBounds(new Rectangle(Point.Empty, Parent.Parent.Size));
+                }
                 else
+                {
                     CorrectBounds(Screen.FromControl(Parent).WorkingArea);
+                }
             }
         }
 
@@ -1236,7 +374,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
 
         #region " Base Properties "
 
@@ -1463,23 +600,23 @@ namespace ReaLTaiizor
         }
 
         private Dictionary<string, Color> Items = new Dictionary<string, Color>();
-        public BloomAir[] Colors
+        public BloomSpace[] Colors
         {
             get
             {
-                List<BloomAir> T = new List<BloomAir>();
+                List<BloomSpace> T = new List<BloomSpace>();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
                 {
-                    T.Add(new BloomAir(E.Current.Key, E.Current.Value));
+                    T.Add(new BloomSpace(E.Current.Key, E.Current.Value));
                 }
 
                 return T.ToArray();
             }
             set
             {
-                foreach (BloomAir B in value)
+                foreach (BloomSpace B in value)
                 {
                     if (Items.ContainsKey(B.Name))
                         Items[B.Name] = B.Value;
@@ -1501,7 +638,7 @@ namespace ReaLTaiizor
                     return;
 
                 byte[] Data = null;
-                BloomAir[] Items = Colors;
+                BloomSpace[] Items = Colors;
 
                 try
                 {
@@ -1641,7 +778,6 @@ namespace ReaLTaiizor
 
         #endregion
 
-
         #region " Property Helpers "
 
         protected Pen GetPen(string name)
@@ -1703,7 +839,7 @@ namespace ReaLTaiizor
         {
             MemoryStream M = new MemoryStream(Items.Count * 4);
 
-            foreach (BloomAir B in Colors)
+            foreach (BloomSpace B in Colors)
             {
                 M.Write(BitConverter.GetBytes(B.Value.ToArgb()), 0, 4);
             }
@@ -1719,16 +855,15 @@ namespace ReaLTaiizor
 
             if (_IsAnimated)
             {
-                ThemeShareAir.AddAnimationCallback(DoAnimationAir);
+                ThemeShareSpace.AddAnimationCallback(DoAnimation);
             }
             else
             {
-                ThemeShareAir.RemoveAnimationCallback(DoAnimationAir);
+                ThemeShareSpace.RemoveAnimationCallback(DoAnimation);
             }
         }
 
         #endregion
-
 
         #region " User Hooks "
 
@@ -1744,7 +879,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
 
         #region " Offset "
 
@@ -1834,17 +968,13 @@ namespace ReaLTaiizor
 
         #endregion
 
-
         #region " DrawPixel "
-
 
         private SolidBrush DrawPixelBrush;
         protected void DrawPixel(Color c1, int x, int y)
         {
             if (_Transparent)
-            {
                 B.SetPixel(x, y, c1);
-            }
             else
             {
                 DrawPixelBrush = new SolidBrush(c1);
@@ -1855,7 +985,6 @@ namespace ReaLTaiizor
         #endregion
 
         #region " DrawCorners "
-
 
         private SolidBrush DrawCornersBrush;
         protected void DrawCorners(Color c1, int offset)
@@ -1981,7 +1110,6 @@ namespace ReaLTaiizor
 
         #region " DrawImage "
 
-
         private Point DrawImagePoint;
         protected void DrawImage(HorizontalAlignment a, int x, int y)
         {
@@ -2047,18 +1175,14 @@ namespace ReaLTaiizor
 
         protected void DrawGradient(ColorBlend blend, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f)
-            {
-                InterpolationColors = blend
-            };
+            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f);
+            DrawGradientBrush.InterpolationColors = blend;
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawGradient(ColorBlend blend, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle)
-            {
-                InterpolationColors = blend
-            };
+            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle);
+            DrawGradientBrush.InterpolationColors = blend;
             G.FillRectangle(DrawGradientBrush, r);
         }
 
@@ -2123,11 +1247,9 @@ namespace ReaLTaiizor
             DrawRadialPath.Reset();
             DrawRadialPath.AddEllipse(r.X, r.Y, r.Width - 1, r.Height - 1);
 
-            DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath)
-            {
-                CenterPoint = new Point(r.X + cx, r.Y + cy),
-                InterpolationColors = blend
-            };
+            DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath);
+            DrawRadialBrush1.CenterPoint = new Point(r.X + cx, r.Y + cy);
+            DrawRadialBrush1.InterpolationColors = blend;
 
             if (G.SmoothingMode == SmoothingMode.AntiAlias)
             {
@@ -2187,18 +1309,16 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
     }
 
-    public abstract class AirControl : Control
+    public abstract class SpaceControl : Control
     {
-
         #region " Initialization "
 
         protected Graphics G;
 
         protected Bitmap B;
-        public AirControl()
+        public SpaceControl()
         {
             SetStyle((ControlStyles)139270, true);
 
@@ -2246,7 +1366,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        private void DoAnimationAir(bool i)
+        private void DoAnimation(bool i)
         {
             OnAnimation();
             if (i)
@@ -2272,7 +1392,7 @@ namespace ReaLTaiizor
 
         protected override void OnHandleDestroyed(EventArgs e)
         {
-            ThemeShareAir.RemoveAnimationCallback(DoAnimationAir);
+            ThemeShareSpace.RemoveAnimationCallback(DoAnimation);
             base.OnHandleDestroyed(e);
         }
 
@@ -2281,9 +1401,7 @@ namespace ReaLTaiizor
         protected override sealed void OnSizeChanged(EventArgs e)
         {
             if (_Transparent)
-            {
                 InvalidateBitmap();
-            }
 
             Invalidate();
             base.OnSizeChanged(e);
@@ -2306,49 +1424,48 @@ namespace ReaLTaiizor
         protected override void OnMouseEnter(EventArgs e)
         {
             InPosition = true;
-            SetState(MouseStateAir.Over);
+            SetState(MouseStateSpace.Over);
             base.OnMouseEnter(e);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
             if (InPosition)
-                SetState(MouseStateAir.Over);
+                SetState(MouseStateSpace.Over);
             base.OnMouseUp(e);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                SetState(MouseStateAir.Down);
+                SetState(MouseStateSpace.Down);
             base.OnMouseDown(e);
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             InPosition = false;
-            SetState(MouseStateAir.None);
+            SetState(MouseStateSpace.None);
             base.OnMouseLeave(e);
         }
 
         protected override void OnEnabledChanged(EventArgs e)
         {
             if (Enabled)
-                SetState(MouseStateAir.None);
+                SetState(MouseStateSpace.None);
             else
-                SetState(MouseStateAir.Block);
+                SetState(MouseStateSpace.Block);
             base.OnEnabledChanged(e);
         }
 
-        protected MouseStateAir State;
-        private void SetState(MouseStateAir current)
+        protected MouseStateSpace State;
+        private void SetState(MouseStateSpace current)
         {
             State = current;
             Invalidate();
         }
 
         #endregion
-
 
         #region " Base Properties "
 
@@ -2471,23 +1588,23 @@ namespace ReaLTaiizor
         }
 
         private Dictionary<string, Color> Items = new Dictionary<string, Color>();
-        public BloomAir[] Colors
+        public BloomSpace[] Colors
         {
             get
             {
-                List<BloomAir> T = new List<BloomAir>();
+                List<BloomSpace> T = new List<BloomSpace>();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
                 {
-                    T.Add(new BloomAir(E.Current.Key, E.Current.Value));
+                    T.Add(new BloomSpace(E.Current.Key, E.Current.Value));
                 }
 
                 return T.ToArray();
             }
             set
             {
-                foreach (BloomAir B in value)
+                foreach (BloomSpace B in value)
                 {
                     if (Items.ContainsKey(B.Name))
                         Items[B.Name] = B.Value;
@@ -2509,7 +1626,7 @@ namespace ReaLTaiizor
                     return;
 
                 byte[] Data = null;
-                BloomAir[] Items = Colors;
+                BloomSpace[] Items = Colors;
 
                 try
                 {
@@ -2577,7 +1694,6 @@ namespace ReaLTaiizor
 
         #endregion
 
-
         #region " Property Helpers "
 
         protected Pen GetPen(string name)
@@ -2631,7 +1747,7 @@ namespace ReaLTaiizor
         {
             MemoryStream M = new MemoryStream(Items.Count * 4);
 
-            foreach (BloomAir B in Colors)
+            foreach (BloomSpace B in Colors)
             {
                 M.Write(BitConverter.GetBytes(B.Value.ToArgb()), 0, 4);
             }
@@ -2647,15 +1763,14 @@ namespace ReaLTaiizor
 
             if (_IsAnimated)
             {
-                ThemeShareAir.AddAnimationCallback(DoAnimationAir);
+                ThemeShareSpace.AddAnimationCallback(DoAnimation);
             }
             else
             {
-                ThemeShareAir.RemoveAnimationCallback(DoAnimationAir);
+                ThemeShareSpace.RemoveAnimationCallback(DoAnimation);
             }
         }
         #endregion
-
 
         #region " User Hooks "
 
@@ -2671,7 +1786,6 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
 
         #region " Offset "
 
@@ -2756,7 +1870,6 @@ namespace ReaLTaiizor
 
         #endregion
 
-
         #region " DrawPixel "
 
 
@@ -2777,7 +1890,6 @@ namespace ReaLTaiizor
         #endregion
 
         #region " DrawCorners "
-
 
         private SolidBrush DrawCornersBrush;
         protected void DrawCorners(Color c1, int offset)
@@ -2969,18 +2081,14 @@ namespace ReaLTaiizor
 
         protected void DrawGradient(ColorBlend blend, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f)
-            {
-                InterpolationColors = blend
-            };
+            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f);
+            DrawGradientBrush.InterpolationColors = blend;
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawGradient(ColorBlend blend, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle)
-            {
-                InterpolationColors = blend
-            };
+            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle);
+            DrawGradientBrush.InterpolationColors = blend;
             G.FillRectangle(DrawGradientBrush, r);
         }
 
@@ -3045,16 +2153,18 @@ namespace ReaLTaiizor
             DrawRadialPath.Reset();
             DrawRadialPath.AddEllipse(r.X, r.Y, r.Width - 1, r.Height - 1);
 
-            DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath)
-            {
-                CenterPoint = new Point(r.X + cx, r.Y + cy),
-                InterpolationColors = blend
-            };
+            DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath);
+            DrawRadialBrush1.CenterPoint = new Point(r.X + cx, r.Y + cy);
+            DrawRadialBrush1.InterpolationColors = blend;
 
             if (G.SmoothingMode == SmoothingMode.AntiAlias)
+            {
                 G.FillEllipse(DrawRadialBrush1, r.X + 1, r.Y + 1, r.Width - 3, r.Height - 3);
+            }
             else
+            {
                 G.FillEllipse(DrawRadialBrush1, r);
+            }
         }
 
 
@@ -3105,10 +2215,9 @@ namespace ReaLTaiizor
         }
 
         #endregion
-
     }
 
-    public static class ThemeShareAir
+    public static class ThemeShareSpace
     {
 
         #region " Animation "
@@ -3116,16 +2225,16 @@ namespace ReaLTaiizor
         private static int Frames;
         private static bool Invalidate;
 
-        public static PrecisionTimerAir ThemeTimer = new PrecisionTimerAir();
+        public static PrecisionTimerSpace ThemeTimer = new PrecisionTimerSpace();
         //1000 / 50 = 20 FPS
         private const int FPS = 50;
 
         private const int Rate = 10;
+
         public delegate void AnimationDelegate(bool invalidate);
-
-
         private static List<AnimationDelegate> Callbacks = new List<AnimationDelegate>();
-        private static void HandleCallbacksAir(IntPtr state, bool reserve)
+
+        private static void HandleCallbacks(IntPtr state, bool reserve)
         {
             Invalidate = (Frames >= FPS);
             if (Invalidate)
@@ -3143,13 +2252,9 @@ namespace ReaLTaiizor
         private static void InvalidateThemeTimer()
         {
             if (Callbacks.Count == 0)
-            {
                 ThemeTimer.Delete();
-            }
             else
-            {
-                ThemeTimer.Create(0, Rate, HandleCallbacksAir);
-            }
+                ThemeTimer.Create(0, Rate, HandleCallbacks);
         }
 
         public static void AddAnimationCallback(AnimationDelegate callback)
@@ -3180,7 +2285,7 @@ namespace ReaLTaiizor
 
     }
 
-    public enum MouseStateAir : byte
+    public enum MouseStateSpace : byte
     {
         None = 0,
         Over = 1,
@@ -3188,7 +2293,7 @@ namespace ReaLTaiizor
         Block = 3
     }
 
-    public struct BloomAir
+    public struct BloomSpace
     {
 
         public string _Name;
@@ -3221,14 +2326,14 @@ namespace ReaLTaiizor
         }
 
 
-        public BloomAir(string name, Color value)
+        public BloomSpace(string name, Color value)
         {
             _Name = name;
             _Value = value;
         }
     }
 
-    public class PrecisionTimerAir : IDisposable
+    public class PrecisionTimerSpace : IDisposable
     {
 
         private bool _Enabled;
@@ -3281,59 +2386,6 @@ namespace ReaLTaiizor
         public void Dispose()
         {
             Delete();
-        }
-    }
-
-    #endregion
-
-    #region RibbonLibrary
-
-    public enum MouseStateRibbon : byte
-    {
-        None = 0,
-        Over = 1,
-        Down = 2,
-        Block = 3
-    }
-
-    public static class DrawRibbon
-    {
-        public static GraphicsPath RoundRect(Rectangle Rectangle, int Curve)
-        {
-            GraphicsPath P = new GraphicsPath();
-            int ArcRectangleWidth = Curve * 2;
-            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -180, 90);
-            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
-            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 0, 90);
-            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 90, 90);
-            P.AddLine(new Point(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
-            return P;
-        }
-        public static GraphicsPath RoundRect(int X, int Y, int Width, int Height, int Curve)
-        {
-            Rectangle Rectangle = new Rectangle(X, Y, Width, Height);
-            GraphicsPath P = new GraphicsPath();
-            int ArcRectangleWidth = Curve * 2;
-            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -180, 90);
-            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
-            P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 0, 90);
-            P.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 90, 90);
-            P.AddLine(new Point(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
-            return P;
-        }
-
-    }
-
-    public class ImageToCodeClassRibbon
-    {
-        public string ImageToCode(Bitmap Img)
-        {
-            return Convert.ToBase64String((byte[])TypeDescriptor.GetConverter(Img).ConvertTo(Img, typeof(byte[])));
-        }
-
-        public Image CodeToImage(string Code)
-        {
-            return Image.FromStream(new MemoryStream(Convert.FromBase64String(Code)));
         }
     }
 
