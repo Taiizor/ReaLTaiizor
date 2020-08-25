@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>-->
+    <!--<TargetFramework>net48</TargetFramework>-->
+    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
     <Version>3.7.7.7</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
-    <PackageId>$(Title)</PackageId>
+    <PackageId>ReaLTaiizor</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
     <Description>C# WinForm UI/UX Library - $(Title)</Description>
@@ -29,6 +29,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
