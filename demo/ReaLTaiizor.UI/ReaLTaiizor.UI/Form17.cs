@@ -61,64 +61,71 @@ namespace ReaLTaiizor.UI
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            materialSkinManager.Theme = materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
-            updateColor();
+            try
+            {
+                materialSkinManager.Theme = materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
+                updateColor();
+            }
+            catch
+            {
+                //
+            }
         }
 
         private int colorSchemeIndex;
 
         private void MaterialButton1_Click(object sender, EventArgs e)
         {
-            colorSchemeIndex++;
-            if (colorSchemeIndex > 2)
-                colorSchemeIndex = 0;
-            updateColor();
+            try
+            {
+                colorSchemeIndex++;
+                if (colorSchemeIndex > 2)
+                    colorSchemeIndex = 0;
+                updateColor();
+            }
+            catch
+            {
+                //
+            }
         }
 
         private void updateColor()
         {
-            //These are just example color schemes
-            switch (colorSchemeIndex)
+            try
             {
-                case 0:
-                    materialSkinManager.ColorScheme = new MaterialColorScheme(
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
-                        MaterialAccent.Pink200,
-                        MaterialTextShade.WHITE);
-                    break;
-                case 1:
-                    materialSkinManager.ColorScheme = new MaterialColorScheme(
-                        MaterialPrimary.Green600,
-                        MaterialPrimary.Green700,
-                        MaterialPrimary.Green200,
-                        MaterialAccent.Red100,
-                        MaterialTextShade.WHITE);
-                    break;
-                case 2:
-                    materialSkinManager.ColorScheme = new MaterialColorScheme(
-                        MaterialPrimary.BlueGrey800,
-                        MaterialPrimary.BlueGrey900,
-                        MaterialPrimary.BlueGrey500,
-                        MaterialAccent.LightBlue200,
-                        MaterialTextShade.WHITE);
-                    break;
+                //These are just example color schemes
+                switch (colorSchemeIndex)
+                {
+                    case 0:
+                        materialSkinManager.ColorScheme = new MaterialColorScheme(
+                            materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
+                            materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
+                            materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
+                            MaterialAccent.Pink200,
+                            MaterialTextShade.WHITE);
+                        break;
+                    case 1:
+                        materialSkinManager.ColorScheme = new MaterialColorScheme(
+                            MaterialPrimary.Green600,
+                            MaterialPrimary.Green700,
+                            MaterialPrimary.Green200,
+                            MaterialAccent.Red100,
+                            MaterialTextShade.WHITE);
+                        break;
+                    case 2:
+                        materialSkinManager.ColorScheme = new MaterialColorScheme(
+                            MaterialPrimary.BlueGrey800,
+                            MaterialPrimary.BlueGrey900,
+                            MaterialPrimary.BlueGrey500,
+                            MaterialAccent.LightBlue200,
+                            MaterialTextShade.WHITE);
+                        break;
+                }
+                Invalidate();
             }
-            Invalidate();
-            foreach (System.Windows.Forms.TabPage TP in materialTabControl1.TabPages)
+            catch
             {
-                if (materialSkinManager.Theme == MaterialSkinManager.Themes.DARK)
-                    TP.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-                else
-                    TP.BackColor = System.Drawing.Color.FromArgb(242, 242, 242);
-            }
-            foreach (System.Windows.Forms.TabPage TP in materialTabControl2.TabPages)
-            {
-                if (materialSkinManager.Theme == MaterialSkinManager.Themes.DARK)
-                    TP.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-                else
-                    TP.BackColor = System.Drawing.Color.FromArgb(242, 242, 242);
+                //
             }
         }
 
