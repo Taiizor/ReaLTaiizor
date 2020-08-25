@@ -8,7 +8,7 @@ using System.ComponentModel;
 using ReaLTaiizor.Extensions;
 using System.Runtime.InteropServices;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
-using static ReaLTaiizor.Utils.MaterialSkinAnimations;
+using static ReaLTaiizor.Utils.MaterialAnimations;
 
 #endregion
 
