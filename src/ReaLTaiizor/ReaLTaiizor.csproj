@@ -8,7 +8,7 @@
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
-    <PackageId>ReaLTaiizor</PackageId>
+    <PackageId>$(Title)</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
     <Description>C# WinForm UI/UX Library - $(Title)</Description>
