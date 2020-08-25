@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region ThunderForm
+    #region Thunder
 
-    public class ThunderTheme : ContainerControl
+    public class Thunder : ContainerControl
     {
         private Image _Image = Properties.Resources.Taiizor;
         public Image Image
@@ -54,7 +54,7 @@ namespace ReaLTaiizor
             set { _BodyColorD = value; }
         }
 
-        public ThunderTheme()
+        public Thunder()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);

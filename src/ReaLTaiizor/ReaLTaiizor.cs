@@ -9049,12 +9049,12 @@ namespace ReaLTaiizor
 
             ForeverColors colors = new ForeverColors();
 
-            while (control != null && (control.GetType() != typeof(ForeverForm)))
+            while (control != null && (control.GetType() != typeof(Forms.Form.Forever)))
                 control = control.Parent;
 
             if (control != null)
             {
-                ForeverForm skin = (ForeverForm)control;
+                Forms.Form.Forever skin = (Forms.Form.Forever)control;
                 colors.Forever = skin.ForeverColor;
             }
 
@@ -10775,7 +10775,7 @@ namespace ReaLTaiizor
     {
         private static MaterialSkinManager _instance;
 
-        private readonly List<MaterialForm> _formsToManage = new List<MaterialForm>();
+        private readonly List<Forms.Form.Material> _formsToManage = new List<Forms.Form.Material>();
 
         public delegate void SkinManagerEventHandler(object sender);
 
@@ -11104,13 +11104,13 @@ namespace ReaLTaiizor
         }
 
         // Dyanmic Themes
-        public void AddFormToManage(MaterialForm materialForm)
+        public void AddFormToManage(Forms.Form.Material materialForm)
         {
             _formsToManage.Add(materialForm);
             UpdateBackgrounds();
         }
 
-        public void RemoveFormToManage(MaterialForm materialForm)
+        public void RemoveFormToManage(Forms.Form.Material materialForm)
         {
             _formsToManage.Remove(materialForm);
         }

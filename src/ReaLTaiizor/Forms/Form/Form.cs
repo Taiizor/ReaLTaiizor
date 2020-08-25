@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region FormTheme
+    #region Form
 
-    public class FormTheme : ContainerControl
+    public class Form : ContainerControl
     {
 
         #region Variables
@@ -126,7 +126,7 @@ namespace ReaLTaiizor
 
             if (Parent == null)
                 return;
-            _IsParentForm = Parent is Form;
+            _IsParentForm = Parent is System.Windows.Forms.Form;
 
             if (!_ControlMode)
             {
@@ -365,7 +365,7 @@ namespace ReaLTaiizor
             base.CreateHandle();
         }
 
-        public FormTheme()
+        public Form()
         {
             MoveHeight = 25;
             Dock = DockStyle.Fill;

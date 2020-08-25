@@ -9,11 +9,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region HopeForm
+    #region Hope
 
-    public class HopeForm : ContainerControl
+    public class Hope : ContainerControl
     {
 
         #region Variables
@@ -333,7 +333,7 @@ namespace ReaLTaiizor
             bitmap.Dispose();
         }
 
-        public HopeForm()
+        public Hope()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;

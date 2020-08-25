@@ -9,11 +9,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-	#region ForeverForm
+	#region Forever
 
-	public class ForeverForm : ContainerControl
+	public class Forever : ContainerControl
 	{
 		private int W;
 		private int H;
@@ -253,7 +253,7 @@ namespace ReaLTaiizor
 		private Color _BaseLight = Color.FromArgb(196, 199, 200);
 		public Color _TextLight = Color.SeaGreen;
 
-		public ForeverForm()
+		public Forever()
 		{
 			MouseDoubleClick += ForeverForm_MouseDoubleClick;
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);

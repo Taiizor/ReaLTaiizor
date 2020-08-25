@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region SpaceForm
+    #region Space
 
-    public class SpaceForm : SpaceLibrary
+    public class Space : SpaceLibrary
     {
 
-        public SpaceForm()
+        public Space()
         {
             BackColor = Color.FromArgb(42, 42, 42); // Background Color
             TransparencyKey = Color.Purple; // The Color used for Transparent

@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region DreamForm
+    #region Dream
 
-    public class DreamForm : System.Windows.Forms.GroupBox
+    public class Dream : GroupBox
     {
         private int _TitleHeight = 25;
         public int TitleHeight
@@ -48,7 +48,7 @@ namespace ReaLTaiizor
         protected override void OnHandleCreated(EventArgs e)
         {
             Dock = (DockStyle)5;
-            if (Parent.GetType() == typeof(Form))
+            if (Parent.GetType() == typeof(System.Windows.Forms.Form))
             {//.FormBorderStyle = 0;
              //(ParentForm)Parent;
                 FindForm().FormBorderStyle = 0;

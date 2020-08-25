@@ -6,13 +6,13 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region AirForm
+    #region Air
 
-    public class AirForm : AirLibrary
+    public class Air : AirLibrary
     {
-        public AirForm()
+        public Air()
         {
             TransparencyKey = Color.Fuchsia;
             StartPosition = FormStartPosition.CenterScreen;

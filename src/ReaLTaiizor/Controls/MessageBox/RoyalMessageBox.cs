@@ -11,7 +11,7 @@ namespace ReaLTaiizor.Controls.MessageBox
 {
     #region RoyalMessageBox
 
-    public class RoyalMessageBox : RoyalForm
+    public class RoyalMessageBox : Forms.Form.Royal
     {
         RoyalButton okButton = new RoyalButton();
         RoyalButton yesButton = new RoyalButton();

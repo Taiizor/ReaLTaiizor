@@ -13,11 +13,11 @@ using static ReaLTaiizor.MaterialDrawHelper;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region MaterialFlexibleForm
+    #region MaterialFlexible
 
-    public class MaterialFlexibleForm : MaterialForm, MaterialControlI
+    public class MaterialFlexible : Material, MaterialControlI
     {
         private readonly MaterialSkinManager materialSkinManager;
 
@@ -251,7 +251,7 @@ namespace ReaLTaiizor
 
         private TwoLetterISOLanguageID languageID = TwoLetterISOLanguageID.en;
 
-        private MaterialFlexibleForm()
+        private MaterialFlexible()
         {
             InitializeComponent();
 
@@ -305,7 +305,7 @@ namespace ReaLTaiizor
             return workingAreaFactor;
         }
 
-        private static void SetDialogStartPosition(MaterialFlexibleForm MaterialFlexibleForm, IWin32Window owner)
+        private static void SetDialogStartPosition(MaterialFlexible MaterialFlexibleForm, IWin32Window owner)
         {
             //If no owner given: Center on current screen
             if (owner == null)
@@ -317,7 +317,7 @@ namespace ReaLTaiizor
             }
         }
 
-        private static void SetDialogSizes(MaterialFlexibleForm MaterialFlexibleForm, string text, string caption)
+        private static void SetDialogSizes(MaterialFlexible MaterialFlexibleForm, string text, string caption)
         {
             //First set the bounds for the maximum dialog size
             MaterialFlexibleForm.MaximumSize = new Size(Convert.ToInt32(SystemInformation.WorkingArea.Width * GetCorrectedWorkingAreaFactor(MAX_WIDTH_FACTOR)), Convert.ToInt32(SystemInformation.WorkingArea.Height * GetCorrectedWorkingAreaFactor(MAX_HEIGHT_FACTOR)));
@@ -344,7 +344,7 @@ namespace ReaLTaiizor
             MaterialFlexibleForm.Size = new Size(textWidth + marginWidth, textHeight + marginHeight);
         }
 
-        private static void SetDialogIcon(MaterialFlexibleForm MaterialFlexibleForm, MessageBoxIcon icon)
+        private static void SetDialogIcon(MaterialFlexible MaterialFlexibleForm, MessageBoxIcon icon)
         {
             switch (icon)
             {
@@ -369,7 +369,7 @@ namespace ReaLTaiizor
             }
         }
 
-        private static void SetDialogButtons(MaterialFlexibleForm MaterialFlexibleForm, MessageBoxButtons buttons, MessageBoxDefaultButton defaultButton)
+        private static void SetDialogButtons(MaterialFlexible MaterialFlexibleForm, MessageBoxButtons buttons, MessageBoxDefaultButton defaultButton)
         {
             //Set the buttons visibilities and texts
             switch (buttons)
@@ -543,7 +543,7 @@ namespace ReaLTaiizor
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton)
         {
             //Create a new instance of the FlexibleMessageBox form
-            var MaterialFlexibleForm = new MaterialFlexibleForm();
+            var MaterialFlexibleForm = new MaterialFlexible();
             MaterialFlexibleForm.ShowInTaskbar = false;
 
             //Bind the caption and the message text

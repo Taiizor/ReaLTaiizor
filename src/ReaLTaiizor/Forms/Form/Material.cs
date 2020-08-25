@@ -14,11 +14,11 @@ using static ReaLTaiizor.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region MaterialForm
+    #region Material
 
-    public class MaterialForm : Form, MaterialControlI
+    public class Material : System.Windows.Forms.Form, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }
@@ -182,7 +182,7 @@ namespace ReaLTaiizor
 
         private Padding originalPadding;
 
-        public MaterialForm()
+        public Material()
         {
             DrawerWidth = 200;
             DrawerIsOpen = false;
@@ -335,8 +335,8 @@ namespace ReaLTaiizor
 
         protected void AddDrawerOverlayForm()
         {
-            Form drawerOverlay = new Form();
-            Form drawerForm = new Form();
+            System.Windows.Forms.Form drawerOverlay = new System.Windows.Forms.Form();
+            System.Windows.Forms.Form drawerForm = new System.Windows.Forms.Form();
 
             if (DrawerTabControl == null)
                 return;

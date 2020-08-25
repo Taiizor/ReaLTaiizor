@@ -7,11 +7,11 @@ using ReaLTaiizor.Controls.Button;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Forms.Form
 {
-    #region RoyalForm
+    #region Royal
 
-    public class RoyalForm : Form
+    public class Royal : System.Windows.Forms.Form
     {
         private RoyalButton maximizeButton;
         private RoyalButton minimizeButton;
@@ -58,7 +58,7 @@ namespace ReaLTaiizor
             set { sizable = value; }
         }
 
-        public RoyalForm()
+        public Royal()
         {
             InitializeComponent();
 
