@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls.RadioButton
     #region MoonRadioButton
 
     [DefaultEvent("CheckedChanged")]
-    public class MoonRadiobutton : MoonControl
+    public class MoonRadioButton : MoonControl
     {
 
         Color BG;
@@ -119,8 +119,8 @@ namespace ReaLTaiizor.Controls.RadioButton
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is MoonRadiobutton)
-                    ((MoonRadiobutton)C).Checked = false;
+                if (!object.ReferenceEquals(C, this) && C is MoonRadioButton)
+                    ((MoonRadioButton)C).Checked = false;
             }
         }
 
@@ -131,7 +131,7 @@ namespace ReaLTaiizor.Controls.RadioButton
             base.OnMouseDown(e);
         }
 
-        public MoonRadiobutton()
+        public MoonRadioButton()
         {
             LockHeight = 22;
             Width = 130;

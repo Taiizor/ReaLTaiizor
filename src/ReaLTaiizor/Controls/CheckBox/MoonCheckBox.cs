@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Controls.CheckBox
     #region MoonCheckBox
 
     [DefaultEvent("CheckedChanged")]
-    public class MoonCheckbox : MoonControl
+    public class MoonCheckBox : MoonControl
     {
         Color BG;
         Color FC;
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls.CheckBox
             _Checked = !_Checked;
         }
 
-        public MoonCheckbox()
+        public MoonCheckBox()
         {
             LockHeight = 22;
             SetColor("G1", Color.White);

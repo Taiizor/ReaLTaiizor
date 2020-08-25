@@ -14,10 +14,10 @@ namespace ReaLTaiizor.Controls.CheckBox
     #region AirCheckBox
 
     [DefaultEventAttribute("CheckedChanged")]
-    public class AirCheckbox : AirControl
+    public class AirCheckBox : AirControl
     {
 
-        public AirCheckbox()
+        public AirCheckBox()
         {
             LockHeight = 17;
             Font = new Font("Segoe UI", 9);
