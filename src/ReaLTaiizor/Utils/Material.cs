@@ -25,9 +25,9 @@ namespace ReaLTaiizor.Utils
         BLACK = 0x212121
     }
 
-    public class MaterialSkinManager
+    public class MaterialManager
     {
-        private static MaterialSkinManager _instance;
+        private static MaterialManager _instance;
 
         private readonly List<Forms.MaterialForm> _formsToManage = new List<Forms.MaterialForm>();
 
@@ -39,12 +39,12 @@ namespace ReaLTaiizor.Utils
 
         public bool EnforceBackcolorOnAllComponents = true;
 
-        public static MaterialSkinManager Instance => _instance ?? (_instance = new MaterialSkinManager());
+        public static MaterialManager Instance => _instance ?? (_instance = new MaterialManager());
 
         public int FORM_PADDING = 14;
 
         // Constructor
-        private MaterialSkinManager()
+        private MaterialManager()
         {
             Theme = Themes.LIGHT;
             ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Utils
         }
 
         // Destructor
-        ~MaterialSkinManager()
+        ~MaterialManager()
         {
             // RemoveFontMemResourceEx
             foreach (IntPtr handle in logicalFonts.Values)

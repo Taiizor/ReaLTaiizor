@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Text = value;
-                _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.getFontByType(MaterialSkinManager.fontType.Button));
+                _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.getFontByType(MaterialManager.fontType.Button));
                 if (AutoSize)
                     Refresh();
 
@@ -278,7 +278,7 @@ namespace ReaLTaiizor.Controls
                             SkinManager.ColorScheme.AccentColor.Lighten(0.5f) : // Emphasis with accent
                             SkinManager.ColorScheme.LightPrimaryColor) : // Emphasis
                             (UseAccentColor ? SkinManager.ColorScheme.AccentColor : // Normal with accent
-                            SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor))))) // Normal
+                            SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor))))) // Normal
                     {
                         var rippleSize = (int)(animationValue * Width * 2);
                         g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
@@ -316,7 +316,7 @@ namespace ReaLTaiizor.Controls
 
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
             {
-                NativeText.DrawTransparentText(Text.ToUpper(), SkinManager.getLogFontByType(MaterialSkinManager.fontType.Button),
+                NativeText.DrawTransparentText(Text.ToUpper(), SkinManager.getLogFontByType(MaterialManager.fontType.Button),
                     textColor,
                     textRect.Location,
                     textRect.Size,

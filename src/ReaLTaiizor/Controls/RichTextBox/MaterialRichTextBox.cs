@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
             Multiline = true;
 
             BorderStyle = BorderStyle.None;
-            Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+            Font = SkinManager.getFontByType(MaterialManager.fontType.Body1);
             BackColor = SkinManager.BackgroundColor;
             ForeColor = SkinManager.TextHighEmphasisColor;
             BackColorChanged += (sender, args) => BackColor = SkinManager.BackgroundColor;

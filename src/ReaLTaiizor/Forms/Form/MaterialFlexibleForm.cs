@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Forms
 
     public class MaterialFlexibleForm : MaterialForm, MaterialControlI
     {
-        private readonly MaterialSkinManager materialSkinManager;
+        private readonly MaterialManager MaterialManager;
 
         public static Font FONT;
 
@@ -261,9 +261,9 @@ namespace ReaLTaiizor.Forms
             KeyPreview = true;
             KeyUp += MaterialFlexibleForm_KeyUp;
 
-            materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            FONT = materialSkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+            MaterialManager = MaterialManager.Instance;
+            MaterialManager.AddFormToManage(this);
+            FONT = MaterialManager.getFontByType(MaterialManager.fontType.Body1);
         }
 
         private static string[] GetStringRows(string message)

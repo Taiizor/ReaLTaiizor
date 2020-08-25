@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }

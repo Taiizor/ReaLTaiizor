@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -112,7 +112,7 @@ namespace ReaLTaiizor.Controls
         //Properties for managing the material design properties
         public int Depth { get; set; }
 
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         public MaterialMouseState MouseState { get; set; }
 
@@ -126,7 +126,7 @@ namespace ReaLTaiizor.Controls
 
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
             {
-                NativeText.DrawTransparentText(e.Text, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Body2),
+                NativeText.DrawTransparentText(e.Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body2),
                     e.Item.Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textRect.Location,
                     textRect.Size,
