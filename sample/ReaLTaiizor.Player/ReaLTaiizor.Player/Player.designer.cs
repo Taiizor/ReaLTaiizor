@@ -44,8 +44,8 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.foreverMinimize1 = new ReaLTaiizor.ForeverMinimize();
-            this.foreverClose1 = new ReaLTaiizor.ForeverClose();
+            this.foreverMinimize1 = new ReaLTaiizor.Controls.Minimize.ForeverMinimize();
+            this.foreverClose1 = new ReaLTaiizor.Controls.Close.ForeverClose();
             this.panel2 = new ReaLTaiizor.Controls.Panel.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -366,8 +366,8 @@
         #endregion
 
         private ReaLTaiizor.Forms.Form.Dream dreamForm1;
-        private ForeverClose foreverClose1;
-        private ForeverMinimize foreverMinimize1;
+        private ReaLTaiizor.Controls.Close.ForeverClose foreverClose1;
+        private ReaLTaiizor.Controls.Minimize.ForeverMinimize foreverMinimize1;
         private ReaLTaiizor.Controls.LabelEdit.LabelEdit labelEdit1;
         private ReaLTaiizor.Controls.LabelEdit.LabelEdit labelEdit2;
         private System.Windows.Forms.PictureBox pictureBox1;
