@@ -100,4 +100,8 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Twitter.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Utils\Lost.cs" />
+  </ItemGroup>
+
 </Project>
