@@ -8,11 +8,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TreeView
 {
 	#region ForeverTreeView
 
-	public class ForeverTreeView : TreeView
+	public class ForeverTreeView : System.Windows.Forms.TreeView
 	{
 		private TreeNodeStates State;
 
@@ -44,7 +44,7 @@ namespace ReaLTaiizor
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message);
+				System.Windows.Forms.MessageBox.Show(ex.Message);
 			}
 
 			base.OnDrawNode(e);

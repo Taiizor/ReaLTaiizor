@@ -8,12 +8,12 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.TrackBarEdit
 {
-    #region TrackEdit
+    #region TrackBarEdit
 
     [DefaultEvent("ValueChanged")]
-    public class TrackEdit : Control
+    public class TrackBarEdit : Control
     {
 
         #region Enums
@@ -224,7 +224,7 @@ namespace ReaLTaiizor
 
         #endregion
 
-        public TrackEdit()
+        public TrackBarEdit()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer, true);
 

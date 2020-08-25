@@ -64,7 +64,7 @@
             aloneRadioButton1 = new ReaLTaiizor.Controls.RadioButton.AloneRadioButton();
             aloneTextBox2 = new ReaLTaiizor.Controls.TextBox.AloneTextBox();
             foreverProgressBar1 = new ReaLTaiizor.Controls.Progress.ForeverProgressBar();
-            foreverTreeView1 = new ReaLTaiizor.ForeverTreeView();
+            foreverTreeView1 = new ReaLTaiizor.Controls.TreeView.ForeverTreeView();
             foxTextBox1 = new ReaLTaiizor.Controls.TextBox.FoxTextBox();
             hopeComboBox1 = new ReaLTaiizor.Controls.ComboBox.HopeComboBox();
             royalScrollBar1 = new ReaLTaiizor.Controls.ScrollBar.RoyalScrollBar();
@@ -450,7 +450,7 @@
         private ReaLTaiizor.Controls.RadioButton.AloneRadioButton aloneRadioButton1;
         private ReaLTaiizor.Controls.TextBox.AloneTextBox aloneTextBox2;
         private ReaLTaiizor.Controls.Progress.ForeverProgressBar foreverProgressBar1;
-        private ReaLTaiizor.ForeverTreeView foreverTreeView1;
+        private ReaLTaiizor.Controls.TreeView.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.Controls.TextBox.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.ComboBox.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.ScrollBar.RoyalScrollBar royalScrollBar1;
