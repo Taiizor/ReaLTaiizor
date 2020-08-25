@@ -22,6 +22,7 @@ namespace ReaLTaiizor.Controls.Badge
         private Color _BGColorB = Color.FromArgb(176, 52, 52);
 
         #endregion
+
         #region Properties
 
         public int Value
@@ -59,19 +60,19 @@ namespace ReaLTaiizor.Controls.Badge
         public Color BorderColor
         {
             get { return _BorderColor; }
-            set { _BorderColor = value; }
+            set { _BorderColor = value; Invalidate(); }
         }
 
         public Color BGColorA
         {
             get { return _BGColorA; }
-            set { _BGColorA = value; }
+            set { _BGColorA = value; Invalidate(); }
         }
 
         public Color BGColorB
         {
             get { return _BGColorB; }
-            set { _BGColorB = value; }
+            set { _BGColorB = value; Invalidate(); }
         }
 
         #endregion

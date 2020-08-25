@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Controls.Bubble
 
     public class ChatBubbleLeft : Control
     {
-
         #region Variables
 
         private GraphicsPath Shape;
@@ -24,6 +23,7 @@ namespace ReaLTaiizor.Controls.Bubble
         private bool _SizeAutoH = true;
 
         #endregion
+
         #region Properties
 
         public override Color ForeColor
