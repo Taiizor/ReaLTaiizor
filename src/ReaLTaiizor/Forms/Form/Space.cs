@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Forms.Form
         private SolidBrush B1;
 
         protected override void ColorHook()
-        { // Function by Aeonhack
+        {
             C1 = GetColor("Background"); // Get the Background Color
             C2 = GetColor("DarkGradient"); // Get the Dark Gradient
             C3 = GetColor("BackgroundGradient"); // The Light Gradient
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Forms.Form
         }
 
         protected override void PaintHook()
-        { // Actually Create the Form, by Aeonhack
+        {
             G.Clear(C1); // Clear the Form with the Basic Color
             DrawGradient(C3, C2, 0, 0, Width, 25); // Draw the Background  Gradient
             G.DrawLine(P1, 0, 25, Width, 25); // Draw the Separtor for the Bar

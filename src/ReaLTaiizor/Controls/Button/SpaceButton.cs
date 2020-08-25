@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Controls.Button
         private Pen P2;
 
         protected override void ColorHook()
-        { // Basic Function by Aeonhack
+        {
             C1 = GetColor("DownGradient1"); // Get the Colors for the Button Shading
             C2 = GetColor("DownGradient2");
             C3 = GetColor("NoneGradient1");
@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Controls.Button
         }
 
         protected override void PaintHook()
-        { // Basic Function by Aeonhack
+        {
             if (State == MouseStateSpace.Over)
                 DrawGradient(C1, C2, ClientRectangle, 90f); // if button is hovered over
             else if (State == MouseStateSpace.Down)

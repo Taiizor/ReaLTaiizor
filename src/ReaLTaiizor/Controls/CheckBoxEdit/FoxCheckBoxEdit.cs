@@ -3,6 +3,7 @@
 using System;
 using System.IO;
 using System.Drawing;
+using ReaLTaiizor.Utils;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace ReaLTaiizor.Controls.CheckBoxEdit
 	#region FoxCheckBoxEdit
 
 	[DefaultEvent("CheckedChanged")]
-	public class FoxCheckBoxEdit : FoxBase.CheckControlEdit
+	public class FoxCheckBoxEdit : Utils.FoxBase.CheckControlEdit
 	{
 		private Graphics G;
 

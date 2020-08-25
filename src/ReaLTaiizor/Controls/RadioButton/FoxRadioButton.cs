@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using System.Drawing;
+using ReaLTaiizor.Utils;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace ReaLTaiizor.Controls.RadioButton
 	#region FoxRadioButton
 
 	[DefaultEvent("CheckedChanged")]
-	public class FoxRadioButton : FoxBase.FoxBaseRadioButton
+	public class FoxRadioButton : Utils.FoxBase.FoxBaseRadioButton
 	{
 		private Graphics G;
 

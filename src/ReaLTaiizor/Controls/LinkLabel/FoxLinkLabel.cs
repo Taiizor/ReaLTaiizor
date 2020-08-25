@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using System.Drawing;
+using ReaLTaiizor.Utils;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
@@ -11,7 +12,7 @@ namespace ReaLTaiizor.Controls.LinkLabel
 {
 	#region FoxLinkLabel
 
-	public class FoxLinkLabel : FoxBase.ButtonFoxBase
+	public class FoxLinkLabel : Utils.FoxBase.ButtonFoxBase
 	{
 		private Graphics G;
 
