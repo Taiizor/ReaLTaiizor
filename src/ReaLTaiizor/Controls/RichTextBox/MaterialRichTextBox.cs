@@ -1,10 +1,11 @@
 ﻿#region Imports
 
 using System;
+using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
-using static ReaLTaiizor.MaterialDrawHelper;
+using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 

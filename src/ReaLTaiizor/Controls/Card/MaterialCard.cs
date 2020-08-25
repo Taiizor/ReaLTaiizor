@@ -2,10 +2,11 @@
 
 using System;
 using System.Drawing;
+using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
-using static ReaLTaiizor.MaterialDrawHelper;
+using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 
@@ -46,7 +47,7 @@ namespace ReaLTaiizor.Controls.Card
             Graphics gp = e.Graphics;
             Rectangle rect = new Rectangle(Location, ClientRectangle.Size);
             gp.SmoothingMode = SmoothingMode.AntiAlias;
-            MaterialDrawHelper.DrawSquareShadow(gp, rect);
+            DrawSquareShadow(gp, rect);
         }
 
         protected override void InitLayout()
@@ -110,10 +111,10 @@ namespace ReaLTaiizor.Controls.Card
             RectangleF cardRectF = new RectangleF(ClientRectangle.Location, ClientRectangle.Size);
             cardRectF.X -= 0.5f;
             cardRectF.Y -= 0.5f;
-            GraphicsPath cardPath = MaterialDrawHelper.CreateRoundRect(cardRectF, 4);
+            GraphicsPath cardPath = CreateRoundRect(cardRectF, 4);
 
             // button shadow (blend with form shadow)
-            MaterialDrawHelper.DrawSquareShadow(g, ClientRectangle);
+            DrawSquareShadow(g, ClientRectangle);
 
             // Draw card
             using (SolidBrush normalBrush = new SolidBrush(BackColor))

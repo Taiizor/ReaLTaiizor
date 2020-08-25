@@ -1,5 +1,5 @@
-﻿using ReaLTaiizor;
-using ReaLTaiizor.Forms.Form;
+﻿using ReaLTaiizor.Utils;
+using ReaLTaiizor.Colors;
 
 namespace ReaLTaiizor_CR
 {

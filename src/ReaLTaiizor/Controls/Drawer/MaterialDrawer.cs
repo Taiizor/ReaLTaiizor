@@ -2,15 +2,17 @@
 
 using System;
 using System.Drawing;
+using ReaLTaiizor.Utils;
 using System.Drawing.Text;
+using ReaLTaiizor.Helpers;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
 using ReaLTaiizor.Controls.TabControl;
-using static ReaLTaiizor.MaterialDrawHelper;
-using static ReaLTaiizor.MaterialSkinAnimations;
+using static ReaLTaiizor.Helpers.MaterialDrawHelper;
+using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 

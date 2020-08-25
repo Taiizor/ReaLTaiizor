@@ -47,7 +47,7 @@
             this.materialTextBox1.Hint = "53X";
             this.materialTextBox1.Location = new System.Drawing.Point(12, 85);
             this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialTextBox1.Multiline = false;
             this.materialTextBox1.Name = "materialTextBox1";
             this.materialTextBox1.Size = new System.Drawing.Size(291, 50);
@@ -62,7 +62,7 @@
             this.materialTextBox2.Hint = "53X";
             this.materialTextBox2.Location = new System.Drawing.Point(12, 141);
             this.materialTextBox2.MaxLength = 50;
-            this.materialTextBox2.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialTextBox2.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialTextBox2.Multiline = false;
             this.materialTextBox2.Name = "materialTextBox2";
             this.materialTextBox2.Password = true;
@@ -125,7 +125,7 @@
             this.materialRichTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialRichTextBox1.Hint = "";
             this.materialRichTextBox1.Location = new System.Drawing.Point(309, 88);
-            this.materialRichTextBox1.MouseState = ReaLTaiizor.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialRichTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialRichTextBox1.Name = "materialRichTextBox1";
             this.materialRichTextBox1.Size = new System.Drawing.Size(291, 106);
             this.materialRichTextBox1.TabIndex = 8;

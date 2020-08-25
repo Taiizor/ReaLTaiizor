@@ -1,8 +1,9 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
-using static ReaLTaiizor.MaterialDrawHelper;
+using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
 

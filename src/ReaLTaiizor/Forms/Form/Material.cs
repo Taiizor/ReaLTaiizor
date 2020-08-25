@@ -3,14 +3,15 @@
 using System;
 using System.Linq;
 using System.Drawing;
+using ReaLTaiizor.Utils;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using ReaLTaiizor.Controls.TabControl;
-using static ReaLTaiizor.MaterialDrawHelper;
-using static ReaLTaiizor.MaterialSkinAnimations;
+using static ReaLTaiizor.Helpers.MaterialDrawHelper;
+using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
