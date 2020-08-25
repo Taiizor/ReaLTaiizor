@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Specialized;
+using ReaLTaiizor.Controls.RadioButton;
 
 namespace ReaLTaiizor.Translate
 {
