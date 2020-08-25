@@ -51,7 +51,7 @@
             dungeonRadioButton1 = new ReaLTaiizor.DungeonRadioButton();
             dungeonButtonRight1 = new ReaLTaiizor.DungeonButtonRight();
             dungeonButtonLeft1 = new ReaLTaiizor.DungeonButtonLeft();
-            dungeonControlBox1 = new ReaLTaiizor.DungeonControlBox();
+            dungeonControlBox1 = new ReaLTaiizor.Controls.ControlBox.DungeonControlBox();
             dungeonToggleButton1 = new ReaLTaiizor.DungeonToggleButton();
             dungeonForm1.SuspendLayout();
             dungeonTabPage1.SuspendLayout();
@@ -595,7 +595,7 @@
         #endregion
 
         private ReaLTaiizor.DungeonForm dungeonForm1;
-        private ReaLTaiizor.DungeonControlBox dungeonControlBox1;
+        private ReaLTaiizor.Controls.ControlBox.DungeonControlBox dungeonControlBox1;
         private ReaLTaiizor.DungeonButtonRight dungeonButtonRight1;
         private ReaLTaiizor.DungeonButtonLeft dungeonButtonLeft1;
         private ReaLTaiizor.DungeonCheckBox dungeonCheckBox1;

@@ -1,10 +1,11 @@
 ﻿using System;
-using ReaLTaiizor;
 using System.Windows.Forms;
+using ReaLTaiizor.Forms.Form;
+using ReaLTaiizor.Controls.MessageBox;
 
 namespace ReaLTaiizor.UI
 {
-    public partial class Form16 : RoyalForm //Summon RoyalForm
+    public partial class Form16 : Royal //Summon RoyalForm
     {
         public Form16()
         {

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             formTheme1 = new ReaLTaiizor.FormTheme();
-            controlBoxEdit1 = new ReaLTaiizor.ControlBoxEdit();
+            controlBoxEdit1 = new ReaLTaiizor.Controls.ControlBox.ControlBoxEdit();
             formTheme1.SuspendLayout();
             SuspendLayout();
             // 
@@ -84,6 +84,6 @@
         #endregion
 
         private ReaLTaiizor.FormTheme formTheme1;
-        private ReaLTaiizor.ControlBoxEdit controlBoxEdit1;
+        private ReaLTaiizor.Controls.ControlBox.ControlBoxEdit controlBoxEdit1;
     }
 }

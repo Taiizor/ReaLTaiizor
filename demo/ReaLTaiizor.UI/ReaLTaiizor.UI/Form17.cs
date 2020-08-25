@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Text;
+using ReaLTaiizor.Utils;
+using ReaLTaiizor.Colors;
 using System.Windows.Forms;
+using ReaLTaiizor.Forms.Form;
+using ReaLTaiizor.Controls.MessageBox;
 
 namespace ReaLTaiizor.UI
 {
-    public partial class Form17 : MaterialForm
+    public partial class Form17 : Material
     {
         private readonly MaterialSkinManager materialSkinManager;
 

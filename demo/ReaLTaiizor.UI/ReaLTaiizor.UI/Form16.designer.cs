@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form16));
-            labelEdit1 = new ReaLTaiizor.LabelEdit();
+            labelEdit1 = new ReaLTaiizor.Controls.LabelEdit.LabelEdit();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             royalButton1 = new ReaLTaiizor.RoyalButton();
             royalButton2 = new ReaLTaiizor.RoyalButton();
@@ -513,7 +513,7 @@
 
         #endregion
 
-        private ReaLTaiizor.LabelEdit labelEdit1;
+        private ReaLTaiizor.Controls.LabelEdit.LabelEdit labelEdit1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ReaLTaiizor.RoyalButton royalButton1;
         private ReaLTaiizor.RoyalButton royalButton2;
