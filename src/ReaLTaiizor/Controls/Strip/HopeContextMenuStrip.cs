@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls.Strip
     {
         public HopeContextMenuStrip()
         {
-            Renderer = new HopeBase.ToolStripRender();
+            Renderer = new Utils.HopeBase.ToolStripRender();
 
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;

@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using System.Drawing;
+using ReaLTaiizor.Colors;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
