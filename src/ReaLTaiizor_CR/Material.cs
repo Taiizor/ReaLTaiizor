@@ -1,9 +1,10 @@
 ﻿using ReaLTaiizor.Utils;
+using ReaLTaiizor.Forms;
 using ReaLTaiizor.Colors;
 
 namespace ReaLTaiizor_CR
 {
-    public partial class Material : ReaLTaiizor.Forms.Form.Material
+    public partial class Material : MaterialForm
     {
         public Material()
         {

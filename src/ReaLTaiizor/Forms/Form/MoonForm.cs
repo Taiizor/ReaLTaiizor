@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Forms.Form
+namespace ReaLTaiizor.Forms
 {
-    #region Moon
+    #region MoonForm
 
-    public class Moon : MoonLibrary
+    public class MoonForm : MoonLibrary
     {
         Color G1;
         Color G2;
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Forms.Form
             }
         }
 
-        public Moon()
+        public MoonForm()
         {
             TransparencyKey = Color.Fuchsia;
             SetColor("G1", Color.White);

@@ -7,11 +7,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor.Forms.Form
+namespace ReaLTaiizor.Forms
 {
-    #region Ribbon
+    #region RibbonForm
 
-    public class Ribbon : ContainerControl
+    public class RibbonForm : ContainerControl
     {
         private Color _BaseColor = Color.Fuchsia;
         public Color BaseColor
@@ -178,7 +178,7 @@ namespace ReaLTaiizor.Forms.Form
             }
         }
 
-        public Ribbon()
+        public RibbonForm()
         {
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.FromArgb(25, 25, 25);

@@ -15,11 +15,11 @@ using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
-namespace ReaLTaiizor.Forms.Form
+namespace ReaLTaiizor.Forms
 {
-    #region Material
+    #region MaterialForm
 
-    public class Material : System.Windows.Forms.Form, MaterialControlI
+    public class MaterialForm : System.Windows.Forms.Form, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }
@@ -183,7 +183,7 @@ namespace ReaLTaiizor.Forms.Form
 
         private Padding originalPadding;
 
-        public Material()
+        public MaterialForm()
         {
             DrawerWidth = 200;
             DrawerIsOpen = false;

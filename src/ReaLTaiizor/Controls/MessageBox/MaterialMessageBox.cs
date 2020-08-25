@@ -1,10 +1,10 @@
 ﻿#region Imports
 
 using System.Drawing;
+using ReaLTaiizor.Forms;
 using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
-using ReaLTaiizor.Forms.Form;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
 
 #endregion
@@ -29,52 +29,52 @@ namespace ReaLTaiizor.Controls
 
         public static DialogResult Show(string text)
         {
-            return MaterialFlexible.Show(null, text, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+            return MaterialFlexibleForm.Show(null, text, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Show(IWin32Window owner, string text)
         {
-            return MaterialFlexible.Show(owner, text, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+            return MaterialFlexibleForm.Show(owner, text, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Show(string text, string caption)
         {
-            return MaterialFlexible.Show(null, text, caption, MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+            return MaterialFlexibleForm.Show(null, text, caption, MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption)
         {
-            return MaterialFlexible.Show(owner, text, caption, MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+            return MaterialFlexibleForm.Show(owner, text, caption, MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Show(string text, string caption, MessageBoxButtons buttons)
         {
-            return MaterialFlexible.Show(null, text, caption, buttons, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+            return MaterialFlexibleForm.Show(null, text, caption, buttons, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons)
         {
-            return MaterialFlexible.Show(owner, text, caption, buttons, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+            return MaterialFlexibleForm.Show(owner, text, caption, buttons, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Show(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
-            return MaterialFlexible.Show(null, text, caption, buttons, icon, MessageBoxDefaultButton.Button1);
+            return MaterialFlexibleForm.Show(null, text, caption, buttons, icon, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
-            return MaterialFlexible.Show(owner, text, caption, buttons, icon, MessageBoxDefaultButton.Button1);
+            return MaterialFlexibleForm.Show(owner, text, caption, buttons, icon, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Show(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton)
         {
-            return MaterialFlexible.Show(null, text, caption, buttons, icon, defaultButton);
+            return MaterialFlexibleForm.Show(null, text, caption, buttons, icon, defaultButton);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton)
         {
-            return MaterialFlexible.Show(owner, text, caption, buttons, icon, defaultButton);
+            return MaterialFlexibleForm.Show(owner, text, caption, buttons, icon, defaultButton);
         }
     }
 

@@ -1,8 +1,8 @@
-﻿using ReaLTaiizor.Forms.Form;
+﻿using ReaLTaiizor.Forms;
 
 namespace ReaLTaiizor_CR
 {
-    public partial class Catcher : Lost
+    public partial class Catcher : LostForm
     {
         public Catcher()
         {

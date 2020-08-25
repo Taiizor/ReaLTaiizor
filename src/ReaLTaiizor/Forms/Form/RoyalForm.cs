@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Forms.Form
+namespace ReaLTaiizor.Forms
 {
-    #region Royal
+    #region RoyalForm
 
-    public class Royal : System.Windows.Forms.Form
+    public class RoyalForm : System.Windows.Forms.Form
     {
         private RoyalButton maximizeButton;
         private RoyalButton minimizeButton;
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Forms.Form
             set { sizable = value; }
         }
 
-        public Royal()
+        public RoyalForm()
         {
             InitializeComponent();
 

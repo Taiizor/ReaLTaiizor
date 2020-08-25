@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Forms.Form
+namespace ReaLTaiizor.Forms
 {
-    #region Theme
+    #region ThemeForm
 
-    public class Theme : ContainerControl
+    public class ThemeForm : ContainerControl
     {
 
         #region Enums
@@ -398,7 +398,7 @@ namespace ReaLTaiizor.Forms.Form
             base.CreateHandle();
         }
 
-        public Theme()
+        public ThemeForm()
         {
             SetStyle((ControlStyles)(139270), true);
             BackColor = Color.FromArgb(32, 41, 50);

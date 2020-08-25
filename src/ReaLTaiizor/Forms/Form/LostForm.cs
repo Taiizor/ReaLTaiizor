@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 
 #endregion
 
-namespace ReaLTaiizor.Forms.Form
+namespace ReaLTaiizor.Forms
 {
-    #region Lost
+    #region LostForm
 
-    public class Lost : FormLostBase
+    public class LostForm : FormLostBase
     {
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -88,7 +88,7 @@ namespace ReaLTaiizor.Forms.Form
             set { _TitleColor = value; Invalidate(); }
         }
 
-        public Lost()
+        public LostForm()
         {
             //FormBorderStyle = FormBorderStyle.Sizable;
             Padding = new Padding(2, 36, 2, 2);

@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Utils
     {
         private static MaterialSkinManager _instance;
 
-        private readonly List<Forms.Form.Material> _formsToManage = new List<Forms.Form.Material>();
+        private readonly List<Forms.MaterialForm> _formsToManage = new List<Forms.MaterialForm>();
 
         public delegate void SkinManagerEventHandler(object sender);
 
@@ -358,13 +358,13 @@ namespace ReaLTaiizor.Utils
         }
 
         // Dyanmic Themes
-        public void AddFormToManage(Forms.Form.Material materialForm)
+        public void AddFormToManage(Forms.MaterialForm materialForm)
         {
             _formsToManage.Add(materialForm);
             UpdateBackgrounds();
         }
 
-        public void RemoveFormToManage(Forms.Form.Material materialForm)
+        public void RemoveFormToManage(Forms.MaterialForm materialForm)
         {
             _formsToManage.Remove(materialForm);
         }
