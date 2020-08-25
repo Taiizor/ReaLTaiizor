@@ -44,11 +44,11 @@ namespace ReaLTaiizor.UI
             //Define
             var data = new[]
             {
-                new []{"Lollipop", "392", "0.2", "0"},
-                new []{"KitKat", "518", "26.0", "7"},
-                new []{"Ice cream sandwich", "237", "9.0", "4.3"},
-                new []{"Jelly Bean", "375", "0.0", "0.0"},
-                new []{"Honeycomb", "408", "3.2", "6.5"}
+                new [] {"Lollipop", "392", "0.2", "0"},
+                new [] {"KitKat", "518", "26.0", "7"},
+                new [] {"Ice cream sandwich", "237", "9.0", "4.3"},
+                new [] {"Jelly Bean", "375", "0.0", "0.0"},
+                new [] {"Honeycomb", "408", "3.2", "6.5"}
             };
 
             //Add
@@ -61,72 +61,51 @@ namespace ReaLTaiizor.UI
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                materialSkinManager.Theme = materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
-                updateColor();
-            }
-            catch
-            {
-                //
-            }
+            materialSkinManager.Theme = materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
+            updateColor();
         }
 
         private int colorSchemeIndex;
 
         private void MaterialButton1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                colorSchemeIndex++;
-                if (colorSchemeIndex > 2)
-                    colorSchemeIndex = 0;
-                updateColor();
-            }
-            catch
-            {
-                //
-            }
+            colorSchemeIndex++;
+            if (colorSchemeIndex > 2)
+                colorSchemeIndex = 0;
+            updateColor();
         }
 
         private void updateColor()
         {
-            try
+            //These are just example color schemes
+            switch (colorSchemeIndex)
             {
-                //These are just example color schemes
-                switch (colorSchemeIndex)
-                {
-                    case 0:
-                        materialSkinManager.ColorScheme = new MaterialColorScheme(
-                            materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
-                            materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
-                            materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
-                            MaterialAccent.Pink200,
-                            MaterialTextShade.WHITE);
-                        break;
-                    case 1:
-                        materialSkinManager.ColorScheme = new MaterialColorScheme(
-                            MaterialPrimary.Green600,
-                            MaterialPrimary.Green700,
-                            MaterialPrimary.Green200,
-                            MaterialAccent.Red100,
-                            MaterialTextShade.WHITE);
-                        break;
-                    case 2:
-                        materialSkinManager.ColorScheme = new MaterialColorScheme(
-                            MaterialPrimary.BlueGrey800,
-                            MaterialPrimary.BlueGrey900,
-                            MaterialPrimary.BlueGrey500,
-                            MaterialAccent.LightBlue200,
-                            MaterialTextShade.WHITE);
-                        break;
-                }
-                Invalidate();
+                case 0:
+                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
+                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
+                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
+                        MaterialAccent.Pink200,
+                        MaterialTextShade.WHITE);
+                    break;
+                case 1:
+                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                        MaterialPrimary.Green600,
+                        MaterialPrimary.Green700,
+                        MaterialPrimary.Green200,
+                        MaterialAccent.Red100,
+                        MaterialTextShade.WHITE);
+                    break;
+                case 2:
+                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                        MaterialPrimary.BlueGrey800,
+                        MaterialPrimary.BlueGrey900,
+                        MaterialPrimary.BlueGrey500,
+                        MaterialAccent.LightBlue200,
+                        MaterialTextShade.WHITE);
+                    break;
             }
-            catch
-            {
-                //
-            }
+            Invalidate();
         }
 
         private void MaterialButton2_Click(object sender, EventArgs e)
@@ -170,13 +149,9 @@ namespace ReaLTaiizor.UI
                 result = random.Next(1000);
 
                 if (result < 950)
-                {
                     builder.AppendFormat(" - Task {0}: Operation completed sucessfully.\n", i);
-                }
                 else
-                {
                     builder.AppendFormat(" - Task {0}: Operation failed! A very very very very very very very very very very very very serious error has occured during this sub-operation. The errorcode is: {1}).\n", i, result);
-                }
             }
 
             var batchOperationResults = builder.ToString();
