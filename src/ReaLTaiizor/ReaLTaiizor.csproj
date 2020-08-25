@@ -7,11 +7,11 @@
     <Version>3.7.7.7</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Title>ReaLTaiizor</Title>
-    <PackageId>$(Title)</PackageId>
+    <Title>$(PackageId)</Title>
+    <PackageId>ReaLTaiizor</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Description>C# WinForm UI/UX Library - $(Title)</Description>
+    <Description>C# WinForm UI/UX Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Component customizations have been replicated.
