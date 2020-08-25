@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form12));
-            foxTextBox1 = new ReaLTaiizor.Controls.TextBox.FoxTextBox();
-            foxLabel1 = new ReaLTaiizor.Controls.Label.FoxLabel();
-            foxNumeric1 = new ReaLTaiizor.Controls.Numeric.FoxNumeric();
-            foxBigLabel1 = new ReaLTaiizor.Controls.Label.FoxBigLabel();
-            foxNotification4 = new ReaLTaiizor.Controls.Notify.FoxNotification();
-            foxNotification3 = new ReaLTaiizor.Controls.Notify.FoxNotification();
-            foxNotification2 = new ReaLTaiizor.Controls.Notify.FoxNotification();
-            foxNotification1 = new ReaLTaiizor.Controls.Notify.FoxNotification();
-            foxRadioButton3 = new ReaLTaiizor.Controls.RadioButton.FoxRadioButton();
-            foxRadioButton2 = new ReaLTaiizor.Controls.RadioButton.FoxRadioButton();
-            foxRadioButton1 = new ReaLTaiizor.Controls.RadioButton.FoxRadioButton();
-            foxCheckEdit2 = new ReaLTaiizor.Controls.CheckBoxEdit.FoxCheckBoxEdit();
-            foxCheckEdit1 = new ReaLTaiizor.Controls.CheckBoxEdit.FoxCheckBoxEdit();
-            foxCheckBox2 = new ReaLTaiizor.Controls.CheckBox.FoxCheckBox();
-            foxCheckBox1 = new ReaLTaiizor.Controls.CheckBox.FoxCheckBox();
-            foxButton1 = new ReaLTaiizor.Controls.Button.FoxButton();
-            foxLinkLabel1 = new ReaLTaiizor.Controls.LinkLabel.FoxLinkLabel();
+            foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
+            foxLabel1 = new ReaLTaiizor.Controls.FoxLabel();
+            foxNumeric1 = new ReaLTaiizor.Controls.FoxNumeric();
+            foxBigLabel1 = new ReaLTaiizor.Controls.FoxBigLabel();
+            foxNotification4 = new ReaLTaiizor.Controls.FoxNotification();
+            foxNotification3 = new ReaLTaiizor.Controls.FoxNotification();
+            foxNotification2 = new ReaLTaiizor.Controls.FoxNotification();
+            foxNotification1 = new ReaLTaiizor.Controls.FoxNotification();
+            foxRadioButton3 = new ReaLTaiizor.Controls.FoxRadioButton();
+            foxRadioButton2 = new ReaLTaiizor.Controls.FoxRadioButton();
+            foxRadioButton1 = new ReaLTaiizor.Controls.FoxRadioButton();
+            foxCheckEdit2 = new ReaLTaiizor.Controls.FoxCheckBoxEdit();
+            foxCheckEdit1 = new ReaLTaiizor.Controls.FoxCheckBoxEdit();
+            foxCheckBox2 = new ReaLTaiizor.Controls.FoxCheckBox();
+            foxCheckBox1 = new ReaLTaiizor.Controls.FoxCheckBox();
+            foxButton1 = new ReaLTaiizor.Controls.FoxButton();
+            foxLinkLabel1 = new ReaLTaiizor.Controls.FoxLinkLabel();
             SuspendLayout();
             // 
             // foxTextBox1
@@ -99,7 +99,7 @@
             // 
             foxBigLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F);
             foxBigLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(88)))), ((int)(((byte)(100)))));
-            foxBigLabel1.Line = ReaLTaiizor.Controls.Label.FoxBigLabel.Direction.Bottom;
+            foxBigLabel1.Line = ReaLTaiizor.Controls.FoxBigLabel.Direction.Bottom;
             foxBigLabel1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             foxBigLabel1.Location = new System.Drawing.Point(12, 133);
             foxBigLabel1.Name = "foxBigLabel1";
@@ -125,7 +125,7 @@
             foxNotification4.RedBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(204)))), ((int)(((byte)(209)))));
             foxNotification4.RedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(99)))), ((int)(((byte)(94)))));
             foxNotification4.Size = new System.Drawing.Size(120, 40);
-            foxNotification4.Style = ReaLTaiizor.Controls.Notify.FoxNotification.Styles.Red;
+            foxNotification4.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Red;
             foxNotification4.TabIndex = 11;
             foxNotification4.Text = "foxNotification4";
             foxNotification4.YellowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
@@ -150,7 +150,7 @@
             foxNotification3.RedBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(204)))), ((int)(((byte)(209)))));
             foxNotification3.RedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(99)))), ((int)(((byte)(94)))));
             foxNotification3.Size = new System.Drawing.Size(120, 40);
-            foxNotification3.Style = ReaLTaiizor.Controls.Notify.FoxNotification.Styles.Yellow;
+            foxNotification3.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Yellow;
             foxNotification3.TabIndex = 10;
             foxNotification3.Text = "foxNotification3";
             foxNotification3.YellowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
@@ -175,7 +175,7 @@
             foxNotification2.RedBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(204)))), ((int)(((byte)(209)))));
             foxNotification2.RedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(99)))), ((int)(((byte)(94)))));
             foxNotification2.Size = new System.Drawing.Size(120, 40);
-            foxNotification2.Style = ReaLTaiizor.Controls.Notify.FoxNotification.Styles.Blue;
+            foxNotification2.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Blue;
             foxNotification2.TabIndex = 9;
             foxNotification2.Text = "foxNotification2";
             foxNotification2.YellowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
@@ -200,7 +200,7 @@
             foxNotification1.RedBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(204)))), ((int)(((byte)(209)))));
             foxNotification1.RedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(99)))), ((int)(((byte)(94)))));
             foxNotification1.Size = new System.Drawing.Size(120, 40);
-            foxNotification1.Style = ReaLTaiizor.Controls.Notify.FoxNotification.Styles.Green;
+            foxNotification1.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Green;
             foxNotification1.TabIndex = 8;
             foxNotification1.Text = "foxNotification1";
             foxNotification1.YellowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
@@ -412,22 +412,22 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.Button.FoxButton foxButton1;
-        private ReaLTaiizor.Controls.CheckBox.FoxCheckBox foxCheckBox1;
-        private ReaLTaiizor.Controls.CheckBox.FoxCheckBox foxCheckBox2;
-        private ReaLTaiizor.Controls.CheckBoxEdit.FoxCheckBoxEdit foxCheckEdit1;
-        private ReaLTaiizor.Controls.CheckBoxEdit.FoxCheckBoxEdit foxCheckEdit2;
-        private ReaLTaiizor.Controls.RadioButton.FoxRadioButton foxRadioButton1;
-        private ReaLTaiizor.Controls.RadioButton.FoxRadioButton foxRadioButton2;
-        private ReaLTaiizor.Controls.RadioButton.FoxRadioButton foxRadioButton3;
-        private ReaLTaiizor.Controls.Notify.FoxNotification foxNotification1;
-        private ReaLTaiizor.Controls.Notify.FoxNotification foxNotification2;
-        private ReaLTaiizor.Controls.Notify.FoxNotification foxNotification3;
-        private ReaLTaiizor.Controls.Notify.FoxNotification foxNotification4;
-        private ReaLTaiizor.Controls.Label.FoxBigLabel foxBigLabel1;
-        private ReaLTaiizor.Controls.Numeric.FoxNumeric foxNumeric1;
-        private ReaLTaiizor.Controls.Label.FoxLabel foxLabel1;
-        private ReaLTaiizor.Controls.TextBox.FoxTextBox foxTextBox1;
-        private ReaLTaiizor.Controls.LinkLabel.FoxLinkLabel foxLinkLabel1;
+        private ReaLTaiizor.Controls.FoxButton foxButton1;
+        private ReaLTaiizor.Controls.FoxCheckBox foxCheckBox1;
+        private ReaLTaiizor.Controls.FoxCheckBox foxCheckBox2;
+        private ReaLTaiizor.Controls.FoxCheckBoxEdit foxCheckEdit1;
+        private ReaLTaiizor.Controls.FoxCheckBoxEdit foxCheckEdit2;
+        private ReaLTaiizor.Controls.FoxRadioButton foxRadioButton1;
+        private ReaLTaiizor.Controls.FoxRadioButton foxRadioButton2;
+        private ReaLTaiizor.Controls.FoxRadioButton foxRadioButton3;
+        private ReaLTaiizor.Controls.FoxNotification foxNotification1;
+        private ReaLTaiizor.Controls.FoxNotification foxNotification2;
+        private ReaLTaiizor.Controls.FoxNotification foxNotification3;
+        private ReaLTaiizor.Controls.FoxNotification foxNotification4;
+        private ReaLTaiizor.Controls.FoxBigLabel foxBigLabel1;
+        private ReaLTaiizor.Controls.FoxNumeric foxNumeric1;
+        private ReaLTaiizor.Controls.FoxLabel foxLabel1;
+        private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
+        private ReaLTaiizor.Controls.FoxLinkLabel foxLinkLabel1;
     }
 }

@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form16));
-            labelEdit1 = new ReaLTaiizor.Controls.LabelEdit.LabelEdit();
+            labelEdit1 = new ReaLTaiizor.Controls.LabelEdit();
             pictureBox1 = new System.Windows.Forms.PictureBox();
-            royalButton1 = new ReaLTaiizor.Controls.Button.RoyalButton();
-            royalButton2 = new ReaLTaiizor.Controls.Button.RoyalButton();
-            royalButton3 = new ReaLTaiizor.Controls.Button.RoyalButton();
-            royalEllipseButton1 = new ReaLTaiizor.Controls.Button.RoyalEllipseButton();
-            royalEllipseButton2 = new ReaLTaiizor.Controls.Button.RoyalEllipseButton();
-            royalEllipseButton3 = new ReaLTaiizor.Controls.Button.RoyalEllipseButton();
-            royalListBox1 = new ReaLTaiizor.Controls.ListBox.RoyalListBox();
-            royalMenuStrip1 = new ReaLTaiizor.Controls.Strip.RoyalMenuStrip();
+            royalButton1 = new ReaLTaiizor.Controls.RoyalButton();
+            royalButton2 = new ReaLTaiizor.Controls.RoyalButton();
+            royalButton3 = new ReaLTaiizor.Controls.RoyalButton();
+            royalEllipseButton1 = new ReaLTaiizor.Controls.RoyalEllipseButton();
+            royalEllipseButton2 = new ReaLTaiizor.Controls.RoyalEllipseButton();
+            royalEllipseButton3 = new ReaLTaiizor.Controls.RoyalEllipseButton();
+            royalListBox1 = new ReaLTaiizor.Controls.RoyalListBox();
+            royalMenuStrip1 = new ReaLTaiizor.Controls.RoyalMenuStrip();
             dosyaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             yeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             açToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -513,16 +513,16 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.LabelEdit.LabelEdit labelEdit1;
+        private ReaLTaiizor.Controls.LabelEdit labelEdit1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private ReaLTaiizor.Controls.Button.RoyalButton royalButton1;
-        private ReaLTaiizor.Controls.Button.RoyalButton royalButton2;
-        private ReaLTaiizor.Controls.Button.RoyalButton royalButton3;
-        private ReaLTaiizor.Controls.Button.RoyalEllipseButton royalEllipseButton1;
-        private ReaLTaiizor.Controls.Button.RoyalEllipseButton royalEllipseButton2;
-        private ReaLTaiizor.Controls.Button.RoyalEllipseButton royalEllipseButton3;
-        private ReaLTaiizor.Controls.ListBox.RoyalListBox royalListBox1;
-        private ReaLTaiizor.Controls.Strip.RoyalMenuStrip royalMenuStrip1;
+        private ReaLTaiizor.Controls.RoyalButton royalButton1;
+        private ReaLTaiizor.Controls.RoyalButton royalButton2;
+        private ReaLTaiizor.Controls.RoyalButton royalButton3;
+        private ReaLTaiizor.Controls.RoyalEllipseButton royalEllipseButton1;
+        private ReaLTaiizor.Controls.RoyalEllipseButton royalEllipseButton2;
+        private ReaLTaiizor.Controls.RoyalEllipseButton royalEllipseButton3;
+        private ReaLTaiizor.Controls.RoyalListBox royalListBox1;
+        private ReaLTaiizor.Controls.RoyalMenuStrip royalMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dosyaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem yeniToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem açToolStripMenuItem;

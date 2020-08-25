@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
-            dreamForm1 = new ReaLTaiizor.Forms.Form.Dream();
-            dungeonControlBox1 = new ReaLTaiizor.Controls.ControlBox.DungeonControlBox();
-            dreamProgressBar1 = new ReaLTaiizor.Controls.Progress.DreamProgressBar();
-            dreamTextBox1 = new ReaLTaiizor.Controls.TextBox.DreamTextBox();
-            dreamButton1 = new ReaLTaiizor.Controls.Button.DreamButton();
+            dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            dungeonControlBox1 = new ReaLTaiizor.Controls.DungeonControlBox();
+            dreamProgressBar1 = new ReaLTaiizor.Controls.DreamProgressBar();
+            dreamTextBox1 = new ReaLTaiizor.Controls.DreamTextBox();
+            dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             dreamForm1.SuspendLayout();
             SuspendLayout();
             // 
@@ -147,10 +147,10 @@
 
         #endregion
 
-        private ReaLTaiizor.Forms.Form.Dream dreamForm1;
-        private ReaLTaiizor.Controls.TextBox.DreamTextBox dreamTextBox1;
-        private ReaLTaiizor.Controls.Button.DreamButton dreamButton1;
-        private ReaLTaiizor.Controls.Progress.DreamProgressBar dreamProgressBar1;
-        private ReaLTaiizor.Controls.ControlBox.DungeonControlBox dungeonControlBox1;
+        private ReaLTaiizor.Forms.DreamForm dreamForm1;
+        private ReaLTaiizor.Controls.DreamTextBox dreamTextBox1;
+        private ReaLTaiizor.Controls.DreamButton dreamButton1;
+        private ReaLTaiizor.Controls.DreamProgressBar dreamProgressBar1;
+        private ReaLTaiizor.Controls.DungeonControlBox dungeonControlBox1;
     }
 }

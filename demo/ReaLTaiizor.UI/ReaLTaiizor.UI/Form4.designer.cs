@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
-            dungeonForm1 = new ReaLTaiizor.Forms.Form.Dungeon();
-            dungeonTextBox1 = new ReaLTaiizor.Controls.TextBox.DungeonTextBox();
-            dungeonTrackBar1 = new ReaLTaiizor.Controls.TrackBar.DungeonTrackBar();
-            dungeonToggleButton4 = new ReaLTaiizor.Controls.Toggle.DungeonToggleButton();
-            dungeonToggleButton3 = new ReaLTaiizor.Controls.Toggle.DungeonToggleButton();
-            dungeonToggleButton2 = new ReaLTaiizor.Controls.Toggle.DungeonToggleButton();
-            dungeonTabPage1 = new ReaLTaiizor.Controls.TabPage.DungeonTabPage();
+            dungeonForm1 = new ReaLTaiizor.Forms.DungeonForm();
+            dungeonTextBox1 = new ReaLTaiizor.Controls.DungeonTextBox();
+            dungeonTrackBar1 = new ReaLTaiizor.Controls.DungeonTrackBar();
+            dungeonToggleButton4 = new ReaLTaiizor.Controls.DungeonToggleButton();
+            dungeonToggleButton3 = new ReaLTaiizor.Controls.DungeonToggleButton();
+            dungeonToggleButton2 = new ReaLTaiizor.Controls.DungeonToggleButton();
+            dungeonTabPage1 = new ReaLTaiizor.Controls.DungeonTabPage();
             tabPage1 = new System.Windows.Forms.TabPage();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             tabPage2 = new System.Windows.Forms.TabPage();
             pictureBox2 = new System.Windows.Forms.PictureBox();
-            dungeonProgressBar4 = new ReaLTaiizor.Controls.Progress.DungeonProgressBar();
-            dungeonProgressBar3 = new ReaLTaiizor.Controls.Progress.DungeonProgressBar();
-            dungeonProgressBar2 = new ReaLTaiizor.Controls.Progress.DungeonProgressBar();
-            dungeonProgressBar1 = new ReaLTaiizor.Controls.Progress.DungeonProgressBar();
-            dungeonNumeric1 = new ReaLTaiizor.Controls.Numeric.DungeonNumeric();
-            dungeonComboBox1 = new ReaLTaiizor.Controls.ComboBox.DungeonComboBox();
-            dungeonRadioButton2 = new ReaLTaiizor.Controls.RadioButton.DungeonRadioButton();
-            dungeonCheckBox1 = new ReaLTaiizor.Controls.CheckBox.DungeonCheckBox();
-            dungeonRadioButton1 = new ReaLTaiizor.Controls.RadioButton.DungeonRadioButton();
-            dungeonButtonRight1 = new ReaLTaiizor.Controls.Button.DungeonButtonRight();
-            dungeonButtonLeft1 = new ReaLTaiizor.Controls.Button.DungeonButtonLeft();
-            dungeonControlBox1 = new ReaLTaiizor.Controls.ControlBox.DungeonControlBox();
-            dungeonToggleButton1 = new ReaLTaiizor.Controls.Toggle.DungeonToggleButton();
+            dungeonProgressBar4 = new ReaLTaiizor.Controls.DungeonProgressBar();
+            dungeonProgressBar3 = new ReaLTaiizor.Controls.DungeonProgressBar();
+            dungeonProgressBar2 = new ReaLTaiizor.Controls.DungeonProgressBar();
+            dungeonProgressBar1 = new ReaLTaiizor.Controls.DungeonProgressBar();
+            dungeonNumeric1 = new ReaLTaiizor.Controls.DungeonNumeric();
+            dungeonComboBox1 = new ReaLTaiizor.Controls.DungeonComboBox();
+            dungeonRadioButton2 = new ReaLTaiizor.Controls.DungeonRadioButton();
+            dungeonCheckBox1 = new ReaLTaiizor.Controls.DungeonCheckBox();
+            dungeonRadioButton1 = new ReaLTaiizor.Controls.DungeonRadioButton();
+            dungeonButtonRight1 = new ReaLTaiizor.Controls.DungeonButtonRight();
+            dungeonButtonLeft1 = new ReaLTaiizor.Controls.DungeonButtonLeft();
+            dungeonControlBox1 = new ReaLTaiizor.Controls.DungeonControlBox();
+            dungeonToggleButton1 = new ReaLTaiizor.Controls.DungeonToggleButton();
             dungeonForm1.SuspendLayout();
             dungeonTabPage1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -142,7 +142,7 @@
             dungeonTrackBar1.ThumbBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             dungeonTrackBar1.ThumbBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             dungeonTrackBar1.Value = 50;
-            dungeonTrackBar1.ValueDivison = ReaLTaiizor.Controls.TrackBar.DungeonTrackBar.ValueDivisor.By10;
+            dungeonTrackBar1.ValueDivison = ReaLTaiizor.Controls.DungeonTrackBar.ValueDivisor.By10;
             dungeonTrackBar1.ValueToSet = 5F;
             // 
             // dungeonToggleButton4
@@ -170,7 +170,7 @@
             dungeonToggleButton4.ToggledOnOffColorB = System.Drawing.Color.DimGray;
             dungeonToggleButton4.ToggledYesNoColorA = System.Drawing.Color.WhiteSmoke;
             dungeonToggleButton4.ToggledYesNoColorB = System.Drawing.Color.DimGray;
-            dungeonToggleButton4.Type = ReaLTaiizor.Controls.Toggle.DungeonToggleButton._Type.IO;
+            dungeonToggleButton4.Type = ReaLTaiizor.Controls.DungeonToggleButton._Type.IO;
             // 
             // dungeonToggleButton3
             // 
@@ -197,7 +197,7 @@
             dungeonToggleButton3.ToggledOnOffColorB = System.Drawing.Color.DimGray;
             dungeonToggleButton3.ToggledYesNoColorA = System.Drawing.Color.WhiteSmoke;
             dungeonToggleButton3.ToggledYesNoColorB = System.Drawing.Color.DimGray;
-            dungeonToggleButton3.Type = ReaLTaiizor.Controls.Toggle.DungeonToggleButton._Type.YesNo;
+            dungeonToggleButton3.Type = ReaLTaiizor.Controls.DungeonToggleButton._Type.YesNo;
             // 
             // dungeonToggleButton2
             // 
@@ -224,7 +224,7 @@
             dungeonToggleButton2.ToggledOnOffColorB = System.Drawing.Color.DimGray;
             dungeonToggleButton2.ToggledYesNoColorA = System.Drawing.Color.WhiteSmoke;
             dungeonToggleButton2.ToggledYesNoColorB = System.Drawing.Color.DimGray;
-            dungeonToggleButton2.Type = ReaLTaiizor.Controls.Toggle.DungeonToggleButton._Type.OnOff;
+            dungeonToggleButton2.Type = ReaLTaiizor.Controls.DungeonToggleButton._Type.OnOff;
             // 
             // dungeonTabPage1
             // 
@@ -308,7 +308,7 @@
             dungeonProgressBar4.TabIndex = 14;
             dungeonProgressBar4.Text = "dungeonProgressBar4";
             dungeonProgressBar4.Value = 25;
-            dungeonProgressBar4.ValueAlignment = ReaLTaiizor.Controls.Progress.DungeonProgressBar.Alignment.Center;
+            dungeonProgressBar4.ValueAlignment = ReaLTaiizor.Controls.DungeonProgressBar.Alignment.Center;
             // 
             // dungeonProgressBar3
             // 
@@ -331,7 +331,7 @@
             dungeonProgressBar3.TabIndex = 13;
             dungeonProgressBar3.Text = "dungeonProgressBar3";
             dungeonProgressBar3.Value = 25;
-            dungeonProgressBar3.ValueAlignment = ReaLTaiizor.Controls.Progress.DungeonProgressBar.Alignment.Center;
+            dungeonProgressBar3.ValueAlignment = ReaLTaiizor.Controls.DungeonProgressBar.Alignment.Center;
             // 
             // dungeonProgressBar2
             // 
@@ -354,7 +354,7 @@
             dungeonProgressBar2.TabIndex = 12;
             dungeonProgressBar2.Text = "dungeonProgressBar2";
             dungeonProgressBar2.Value = 50;
-            dungeonProgressBar2.ValueAlignment = ReaLTaiizor.Controls.Progress.DungeonProgressBar.Alignment.Right;
+            dungeonProgressBar2.ValueAlignment = ReaLTaiizor.Controls.DungeonProgressBar.Alignment.Right;
             // 
             // dungeonProgressBar1
             // 
@@ -377,7 +377,7 @@
             dungeonProgressBar1.TabIndex = 11;
             dungeonProgressBar1.Text = "dungeonProgressBar1";
             dungeonProgressBar1.Value = 50;
-            dungeonProgressBar1.ValueAlignment = ReaLTaiizor.Controls.Progress.DungeonProgressBar.Alignment.Right;
+            dungeonProgressBar1.ValueAlignment = ReaLTaiizor.Controls.DungeonProgressBar.Alignment.Right;
             // 
             // dungeonNumeric1
             // 
@@ -397,7 +397,7 @@
             dungeonNumeric1.Size = new System.Drawing.Size(100, 28);
             dungeonNumeric1.TabIndex = 10;
             dungeonNumeric1.Text = "dungeonNumeric1";
-            dungeonNumeric1.TextAlignment = ReaLTaiizor.Controls.Numeric.DungeonNumeric._TextAlignment.Far;
+            dungeonNumeric1.TextAlignment = ReaLTaiizor.Controls.DungeonNumeric._TextAlignment.Far;
             dungeonNumeric1.Value = ((long)(50));
             // 
             // dungeonComboBox1
@@ -567,7 +567,7 @@
             dungeonToggleButton1.ToggledOnOffColorB = System.Drawing.Color.DimGray;
             dungeonToggleButton1.ToggledYesNoColorA = System.Drawing.Color.WhiteSmoke;
             dungeonToggleButton1.ToggledYesNoColorB = System.Drawing.Color.DimGray;
-            dungeonToggleButton1.Type = ReaLTaiizor.Controls.Toggle.DungeonToggleButton._Type.OnOff;
+            dungeonToggleButton1.Type = ReaLTaiizor.Controls.DungeonToggleButton._Type.OnOff;
             // 
             // Form4
             // 
@@ -594,29 +594,29 @@
 
         #endregion
 
-        private ReaLTaiizor.Forms.Form.Dungeon dungeonForm1;
-        private ReaLTaiizor.Controls.ControlBox.DungeonControlBox dungeonControlBox1;
-        private ReaLTaiizor.Controls.Button.DungeonButtonRight dungeonButtonRight1;
-        private ReaLTaiizor.Controls.Button.DungeonButtonLeft dungeonButtonLeft1;
-        private ReaLTaiizor.Controls.CheckBox.DungeonCheckBox dungeonCheckBox1;
-        private ReaLTaiizor.Controls.RadioButton.DungeonRadioButton dungeonRadioButton1;
-        private ReaLTaiizor.Controls.RadioButton.DungeonRadioButton dungeonRadioButton2;
-        private ReaLTaiizor.Controls.ComboBox.DungeonComboBox dungeonComboBox1;
-        private ReaLTaiizor.Controls.Numeric.DungeonNumeric dungeonNumeric1;
-        private ReaLTaiizor.Controls.Progress.DungeonProgressBar dungeonProgressBar1;
-        private ReaLTaiizor.Controls.Progress.DungeonProgressBar dungeonProgressBar4;
-        private ReaLTaiizor.Controls.Progress.DungeonProgressBar dungeonProgressBar3;
-        private ReaLTaiizor.Controls.Progress.DungeonProgressBar dungeonProgressBar2;
-        private ReaLTaiizor.Controls.TabPage.DungeonTabPage dungeonTabPage1;
+        private ReaLTaiizor.Forms.DungeonForm dungeonForm1;
+        private ReaLTaiizor.Controls.DungeonControlBox dungeonControlBox1;
+        private ReaLTaiizor.Controls.DungeonButtonRight dungeonButtonRight1;
+        private ReaLTaiizor.Controls.DungeonButtonLeft dungeonButtonLeft1;
+        private ReaLTaiizor.Controls.DungeonCheckBox dungeonCheckBox1;
+        private ReaLTaiizor.Controls.DungeonRadioButton dungeonRadioButton1;
+        private ReaLTaiizor.Controls.DungeonRadioButton dungeonRadioButton2;
+        private ReaLTaiizor.Controls.DungeonComboBox dungeonComboBox1;
+        private ReaLTaiizor.Controls.DungeonNumeric dungeonNumeric1;
+        private ReaLTaiizor.Controls.DungeonProgressBar dungeonProgressBar1;
+        private ReaLTaiizor.Controls.DungeonProgressBar dungeonProgressBar4;
+        private ReaLTaiizor.Controls.DungeonProgressBar dungeonProgressBar3;
+        private ReaLTaiizor.Controls.DungeonProgressBar dungeonProgressBar2;
+        private ReaLTaiizor.Controls.DungeonTabPage dungeonTabPage1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private ReaLTaiizor.Controls.Toggle.DungeonToggleButton dungeonToggleButton4;
-        private ReaLTaiizor.Controls.Toggle.DungeonToggleButton dungeonToggleButton3;
-        private ReaLTaiizor.Controls.Toggle.DungeonToggleButton dungeonToggleButton2;
-        private ReaLTaiizor.Controls.Toggle.DungeonToggleButton dungeonToggleButton1;
+        private ReaLTaiizor.Controls.DungeonToggleButton dungeonToggleButton4;
+        private ReaLTaiizor.Controls.DungeonToggleButton dungeonToggleButton3;
+        private ReaLTaiizor.Controls.DungeonToggleButton dungeonToggleButton2;
+        private ReaLTaiizor.Controls.DungeonToggleButton dungeonToggleButton1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ReaLTaiizor.Controls.TrackBar.DungeonTrackBar dungeonTrackBar1;
-        private ReaLTaiizor.Controls.TextBox.DungeonTextBox dungeonTextBox1;
+        private ReaLTaiizor.Controls.DungeonTrackBar dungeonTrackBar1;
+        private ReaLTaiizor.Controls.DungeonTextBox dungeonTextBox1;
     }
 }

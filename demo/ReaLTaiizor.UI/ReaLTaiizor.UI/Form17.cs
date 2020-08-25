@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Text;
+using ReaLTaiizor.Forms;
 using ReaLTaiizor.Utils;
 using ReaLTaiizor.Colors;
 using System.Windows.Forms;
-using ReaLTaiizor.Forms.Form;
-using ReaLTaiizor.Controls.MessageBox;
+using ReaLTaiizor.Controls;
 
 namespace ReaLTaiizor.UI
 {
-    public partial class Form17 : Material
+    public partial class Form17 : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
 
@@ -30,11 +30,11 @@ namespace ReaLTaiizor.UI
 
             // Add dummy data to the listview
             seedListView();
-            materialCheckedListBox1.Items.Add("Item1", false);
-            materialCheckedListBox1.Items.Add("Item2", true);
-            materialCheckedListBox1.Items.Add("Item3", true);
-            materialCheckedListBox1.Items.Add("Item4", false);
-            materialCheckedListBox1.Items.Add("Item5", true);
+            materialCheckListBox11.Items.Add("Item1", false);
+            materialCheckListBox11.Items.Add("Item2", true);
+            materialCheckListBox11.Items.Add("Item3", true);
+            materialCheckListBox11.Items.Add("Item4", false);
+            materialCheckListBox11.Items.Add("Item5", true);
 
             materialComboBox6.SelectedIndex = 0;
         }

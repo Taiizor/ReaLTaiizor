@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form15));
-            lostButton1 = new ReaLTaiizor.Controls.Button.LostButton();
-            lostCancelButton1 = new ReaLTaiizor.Controls.Button.LostCancelButton();
-            lostAcceptButton1 = new ReaLTaiizor.Controls.Button.LostAcceptButton();
-            lostSeparator1 = new ReaLTaiizor.Controls.Separator.LostSeparator();
-            lostProgressBar1 = new ReaLTaiizor.Controls.Progress.LostProgressBar();
-            lostSeparator2 = new ReaLTaiizor.Controls.Separator.LostSeparator();
-            lostCheckBox1 = new ReaLTaiizor.Controls.CheckBox.LostCheckBox();
-            lostCheckBox2 = new ReaLTaiizor.Controls.CheckBox.LostCheckBox();
-            lostCheckBox3 = new ReaLTaiizor.Controls.CheckBox.LostCheckBox();
-            lostSeparator3 = new ReaLTaiizor.Controls.Separator.LostSeparator();
-            lostBorderPanel1 = new ReaLTaiizor.Controls.Panel.LostBorderPanel();
+            lostButton1 = new ReaLTaiizor.Controls.LostButton();
+            lostCancelButton1 = new ReaLTaiizor.Controls.LostCancelButton();
+            lostAcceptButton1 = new ReaLTaiizor.Controls.LostAcceptButton();
+            lostSeparator1 = new ReaLTaiizor.Controls.LostSeparator();
+            lostProgressBar1 = new ReaLTaiizor.Controls.LostProgressBar();
+            lostSeparator2 = new ReaLTaiizor.Controls.LostSeparator();
+            lostCheckBox1 = new ReaLTaiizor.Controls.LostCheckBox();
+            lostCheckBox2 = new ReaLTaiizor.Controls.LostCheckBox();
+            lostCheckBox3 = new ReaLTaiizor.Controls.LostCheckBox();
+            lostSeparator3 = new ReaLTaiizor.Controls.LostSeparator();
+            lostBorderPanel1 = new ReaLTaiizor.Controls.LostBorderPanel();
             SuspendLayout();
             // 
             // lostButton1
@@ -217,16 +217,16 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.Button.LostButton lostButton1;
-        private ReaLTaiizor.Controls.Button.LostCancelButton lostCancelButton1;
-        private ReaLTaiizor.Controls.Button.LostAcceptButton lostAcceptButton1;
-        private ReaLTaiizor.Controls.Separator.LostSeparator lostSeparator1;
-        private ReaLTaiizor.Controls.Progress.LostProgressBar lostProgressBar1;
-        private ReaLTaiizor.Controls.Separator.LostSeparator lostSeparator2;
-        private ReaLTaiizor.Controls.CheckBox.LostCheckBox lostCheckBox1;
-        private ReaLTaiizor.Controls.CheckBox.LostCheckBox lostCheckBox2;
-        private ReaLTaiizor.Controls.CheckBox.LostCheckBox lostCheckBox3;
-        private ReaLTaiizor.Controls.Separator.LostSeparator lostSeparator3;
-        private ReaLTaiizor.Controls.Panel.LostBorderPanel lostBorderPanel1;
+        private ReaLTaiizor.Controls.LostButton lostButton1;
+        private ReaLTaiizor.Controls.LostCancelButton lostCancelButton1;
+        private ReaLTaiizor.Controls.LostAcceptButton lostAcceptButton1;
+        private ReaLTaiizor.Controls.LostSeparator lostSeparator1;
+        private ReaLTaiizor.Controls.LostProgressBar lostProgressBar1;
+        private ReaLTaiizor.Controls.LostSeparator lostSeparator2;
+        private ReaLTaiizor.Controls.LostCheckBox lostCheckBox1;
+        private ReaLTaiizor.Controls.LostCheckBox lostCheckBox2;
+        private ReaLTaiizor.Controls.LostCheckBox lostCheckBox3;
+        private ReaLTaiizor.Controls.LostSeparator lostSeparator3;
+        private ReaLTaiizor.Controls.LostBorderPanel lostBorderPanel1;
     }
 }

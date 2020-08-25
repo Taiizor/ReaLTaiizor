@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form10));
-            moonForm1 = new ReaLTaiizor.Forms.Form.Moon();
-            moonCheckbox2 = new ReaLTaiizor.Controls.CheckBox.MoonCheckbox();
-            moonCheckbox1 = new ReaLTaiizor.Controls.CheckBox.MoonCheckbox();
-            moonRadiobutton2 = new ReaLTaiizor.Controls.RadioButton.MoonRadiobutton();
-            moonRadiobutton1 = new ReaLTaiizor.Controls.RadioButton.MoonRadiobutton();
-            moonTextBox1 = new ReaLTaiizor.Controls.TextBox.MoonTextBox();
-            moonLabel1 = new ReaLTaiizor.Controls.Label.MoonLabel();
-            moonProgressBar1 = new ReaLTaiizor.Controls.Progress.MoonProgressBar();
-            dungeonControlBox1 = new ReaLTaiizor.Controls.ControlBox.DungeonControlBox();
-            moonButton1 = new ReaLTaiizor.Controls.Button.MoonButton();
+            moonForm1 = new ReaLTaiizor.Forms.MoonForm();
+            moonCheckbox2 = new ReaLTaiizor.Controls.MoonCheckBox();
+            moonCheckbox1 = new ReaLTaiizor.Controls.MoonCheckBox();
+            moonRadiobutton2 = new ReaLTaiizor.Controls.MoonRadioButton();
+            moonRadiobutton1 = new ReaLTaiizor.Controls.MoonRadioButton();
+            moonTextBox1 = new ReaLTaiizor.Controls.MoonTextBox();
+            moonLabel1 = new ReaLTaiizor.Controls.MoonLabel();
+            moonProgressBar1 = new ReaLTaiizor.Controls.MoonProgressBar();
+            dungeonControlBox1 = new ReaLTaiizor.Controls.DungeonControlBox();
+            moonButton1 = new ReaLTaiizor.Controls.MoonButton();
             moonForm1.SuspendLayout();
             SuspendLayout();
             // 
@@ -249,15 +249,15 @@
 
         #endregion
 
-        private ReaLTaiizor.Forms.Form.Moon moonForm1;
-        private ReaLTaiizor.Controls.Button.MoonButton moonButton1;
-        private ReaLTaiizor.Controls.ControlBox.DungeonControlBox dungeonControlBox1;
-        private ReaLTaiizor.Controls.Progress.MoonProgressBar moonProgressBar1;
-        private ReaLTaiizor.Controls.Label.MoonLabel moonLabel1;
-        private ReaLTaiizor.Controls.TextBox.MoonTextBox moonTextBox1;
-        private ReaLTaiizor.Controls.RadioButton.MoonRadiobutton moonRadiobutton1;
-        private ReaLTaiizor.Controls.RadioButton.MoonRadiobutton moonRadiobutton2;
-        private ReaLTaiizor.Controls.CheckBox.MoonCheckbox moonCheckbox1;
-        private ReaLTaiizor.Controls.CheckBox.MoonCheckbox moonCheckbox2;
+        private ReaLTaiizor.Forms.MoonForm moonForm1;
+        private ReaLTaiizor.Controls.MoonButton moonButton1;
+        private ReaLTaiizor.Controls.DungeonControlBox dungeonControlBox1;
+        private ReaLTaiizor.Controls.MoonProgressBar moonProgressBar1;
+        private ReaLTaiizor.Controls.MoonLabel moonLabel1;
+        private ReaLTaiizor.Controls.MoonTextBox moonTextBox1;
+        private ReaLTaiizor.Controls.MoonRadioButton moonRadiobutton1;
+        private ReaLTaiizor.Controls.MoonRadioButton moonRadiobutton2;
+        private ReaLTaiizor.Controls.MoonCheckBox moonCheckbox1;
+        private ReaLTaiizor.Controls.MoonCheckBox moonCheckbox2;
     }
 }

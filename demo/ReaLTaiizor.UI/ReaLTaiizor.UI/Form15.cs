@@ -1,11 +1,11 @@
 ﻿using System;
+using ReaLTaiizor.Forms;
 using ReaLTaiizor.Utils;
 using System.Windows.Forms;
-using ReaLTaiizor.Forms.Form;
 
 namespace ReaLTaiizor.UI
 {
-    public partial class Form15 : Lost //Summon LostForm
+    public partial class Form15 : LostForm //Summon LostForm
     {
         public Form15()
         {

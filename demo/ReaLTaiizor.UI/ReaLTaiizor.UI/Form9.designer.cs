@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form9));
-            skyStatusBar1 = new ReaLTaiizor.Controls.StatusBar.SkyStatusBar();
-            skyNumeric1 = new ReaLTaiizor.Controls.Numeric.SkyNumeric();
-            skyLabel1 = new ReaLTaiizor.Controls.Label.SkyLabel();
-            skyTextBox1 = new ReaLTaiizor.Controls.TextBox.SkyTextBox();
-            skyComboBox1 = new ReaLTaiizor.Controls.ComboBox.SkyComboBox();
-            skyCheckBox1 = new ReaLTaiizor.Controls.CheckBox.SkyCheckBox();
-            skyRadioButton2 = new ReaLTaiizor.Controls.RadioButton.SkyRadioButton();
-            skyRadioButton1 = new ReaLTaiizor.Controls.RadioButton.SkyRadioButton();
-            skyButton1 = new ReaLTaiizor.Controls.Button.SkyButton();
+            skyStatusBar1 = new ReaLTaiizor.Controls.SkyStatusBar();
+            skyNumeric1 = new ReaLTaiizor.Controls.SkyNumeric();
+            skyLabel1 = new ReaLTaiizor.Controls.SkyLabel();
+            skyTextBox1 = new ReaLTaiizor.Controls.SkyTextBox();
+            skyComboBox1 = new ReaLTaiizor.Controls.SkyComboBox();
+            skyCheckBox1 = new ReaLTaiizor.Controls.SkyCheckBox();
+            skyRadioButton2 = new ReaLTaiizor.Controls.SkyRadioButton();
+            skyRadioButton1 = new ReaLTaiizor.Controls.SkyRadioButton();
+            skyButton1 = new ReaLTaiizor.Controls.SkyButton();
             SuspendLayout();
             // 
             // skyStatusBar1
@@ -194,14 +194,14 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.Button.SkyButton skyButton1;
-        private ReaLTaiizor.Controls.RadioButton.SkyRadioButton skyRadioButton1;
-        private ReaLTaiizor.Controls.RadioButton.SkyRadioButton skyRadioButton2;
-        private ReaLTaiizor.Controls.CheckBox.SkyCheckBox skyCheckBox1;
-        private ReaLTaiizor.Controls.ComboBox.SkyComboBox skyComboBox1;
-        private ReaLTaiizor.Controls.TextBox.SkyTextBox skyTextBox1;
-        private ReaLTaiizor.Controls.Label.SkyLabel skyLabel1;
-        private ReaLTaiizor.Controls.Numeric.SkyNumeric skyNumeric1;
-        private ReaLTaiizor.Controls.StatusBar.SkyStatusBar skyStatusBar1;
+        private ReaLTaiizor.Controls.SkyButton skyButton1;
+        private ReaLTaiizor.Controls.SkyRadioButton skyRadioButton1;
+        private ReaLTaiizor.Controls.SkyRadioButton skyRadioButton2;
+        private ReaLTaiizor.Controls.SkyCheckBox skyCheckBox1;
+        private ReaLTaiizor.Controls.SkyComboBox skyComboBox1;
+        private ReaLTaiizor.Controls.SkyTextBox skyTextBox1;
+        private ReaLTaiizor.Controls.SkyLabel skyLabel1;
+        private ReaLTaiizor.Controls.SkyNumeric skyNumeric1;
+        private ReaLTaiizor.Controls.SkyStatusBar skyStatusBar1;
     }
 }

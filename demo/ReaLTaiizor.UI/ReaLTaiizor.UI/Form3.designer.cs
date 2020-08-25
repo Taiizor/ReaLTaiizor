@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            airForm1 = new ReaLTaiizor.Forms.Form.Air();
-            airButton2 = new ReaLTaiizor.Controls.Button.AirButton();
-            airSeparator2 = new ReaLTaiizor.Controls.Separator.AirSeparator();
-            airTabPage1 = new ReaLTaiizor.Controls.TabPage.AirTabPage();
+            airForm1 = new ReaLTaiizor.Forms.AirForm();
+            airButton2 = new ReaLTaiizor.Controls.AirButton();
+            airSeparator2 = new ReaLTaiizor.Controls.AirSeparator();
+            airTabPage1 = new ReaLTaiizor.Controls.AirTabPage();
             tabPage1 = new System.Windows.Forms.TabPage();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             tabPage2 = new System.Windows.Forms.TabPage();
             pictureBox2 = new System.Windows.Forms.PictureBox();
-            airSeparator1 = new ReaLTaiizor.Controls.Separator.AirSeparator();
-            airRadioButton1 = new ReaLTaiizor.Controls.RadioButton.AirRadioButton();
-            airButton1 = new ReaLTaiizor.Controls.Button.AirButton();
-            airCheckbox1 = new ReaLTaiizor.Controls.CheckBox.AirCheckbox();
-            airRadioButton2 = new ReaLTaiizor.Controls.RadioButton.AirRadioButton();
+            airSeparator1 = new ReaLTaiizor.Controls.AirSeparator();
+            airRadioButton1 = new ReaLTaiizor.Controls.AirRadioButton();
+            airButton1 = new ReaLTaiizor.Controls.AirButton();
+            airCheckbox1 = new ReaLTaiizor.Controls.AirCheckBox();
+            airRadioButton2 = new ReaLTaiizor.Controls.AirRadioButton();
             airForm1.SuspendLayout();
             airTabPage1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -270,18 +270,18 @@
 
         #endregion
 
-        private ReaLTaiizor.Forms.Form.Air airForm1;
-        private ReaLTaiizor.Controls.Button.AirButton airButton1;
-        private ReaLTaiizor.Controls.CheckBox.AirCheckbox airCheckbox1;
-        private ReaLTaiizor.Controls.RadioButton.AirRadioButton airRadioButton1;
-        private ReaLTaiizor.Controls.Separator.AirSeparator airSeparator1;
-        private ReaLTaiizor.Controls.Separator.AirSeparator airSeparator2;
-        private ReaLTaiizor.Controls.TabPage.AirTabPage airTabPage1;
+        private ReaLTaiizor.Forms.AirForm airForm1;
+        private ReaLTaiizor.Controls.AirButton airButton1;
+        private ReaLTaiizor.Controls.AirCheckBox airCheckbox1;
+        private ReaLTaiizor.Controls.AirRadioButton airRadioButton1;
+        private ReaLTaiizor.Controls.AirSeparator airSeparator1;
+        private ReaLTaiizor.Controls.AirSeparator airSeparator2;
+        private ReaLTaiizor.Controls.AirTabPage airTabPage1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ReaLTaiizor.Controls.RadioButton.AirRadioButton airRadioButton2;
-        private ReaLTaiizor.Controls.Button.AirButton airButton2;
+        private ReaLTaiizor.Controls.AirRadioButton airRadioButton2;
+        private ReaLTaiizor.Controls.AirButton airButton2;
     }
 }
