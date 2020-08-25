@@ -29,7 +29,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 	</td>
     <td align="center">
 		<a href="https://github.com/JTOne123">
-			<img src="https://avatars2.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123"/>
+			<img src="https://avatars3.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123"/>
 			<br/>
 			<sub>
 				<b>JTOne123</b>
@@ -57,6 +57,28 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/Soferity" target="_blank" title="Content">🖋</a>
+	</td>
+	<td align="center">
+		<a href="https://github.com/donaldsteele">
+			<img src="https://avatars3.githubusercontent.com/u/8108109?s=200&v=4" width="80px;" alt="donaldsteele"/>
+			<br/>
+			<sub>
+				<b>donaldsteele</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/donaldsteele" target="_blank" title="Code">💻</a>
+	</td>
+	<td align="center">
+		<a href="https://github.com/leocb">
+			<img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb"/>
+			<br/>
+			<sub>
+				<b>leocb</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/leocb" target="_blank" title="Code">💻</a>
 	</td>
   </tr>
 </table>
@@ -99,13 +121,15 @@ Step 2：Enjoy designing
 
 ## Overview
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
+![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/24/A6kS.gif)
 
-![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
+![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
-![Overview-3](https://www.photo.herominyum.com/resimler/2020/05/20/OERe.png)
+![Overview-3](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
 
-![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
+![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OERe.png)
+
+![Overview-5](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
 
 ## Latest Theme Examples
 

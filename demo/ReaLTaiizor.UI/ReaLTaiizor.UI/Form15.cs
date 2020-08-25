@@ -1,5 +1,6 @@
 ﻿using System;
-using ReaLTaiizor;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI

@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
-            ribbonForm1 = new ReaLTaiizor.RibbonForm();
-            ribbonGroupBox1 = new ReaLTaiizor.RibbonGroupBox();
-            ribbonProgressBarLeft2 = new ReaLTaiizor.RibbonProgressBarLeft();
-            ribbonProgressBarLeft1 = new ReaLTaiizor.RibbonProgressBarLeft();
-            ribbonProgressBarCenter2 = new ReaLTaiizor.RibbonProgressBarCenter();
-            ribbonProgressBarCenter1 = new ReaLTaiizor.RibbonProgressBarCenter();
-            ribbonProgressBarRight2 = new ReaLTaiizor.RibbonProgressBarRight();
-            ribbonProgressBarRight1 = new ReaLTaiizor.RibbonProgressBarRight();
-            ribbonRadioButton2 = new ReaLTaiizor.RibbonRadioButton();
-            ribbonRadioButton1 = new ReaLTaiizor.RibbonRadioButton();
-            ribbonCheckBox1 = new ReaLTaiizor.RibbonCheckBox();
-            ribbonButtonRight1 = new ReaLTaiizor.RibbonButtonRight();
-            ribbonButtonLeft1 = new ReaLTaiizor.RibbonButtonLeft();
-            ribbonButtonCenter1 = new ReaLTaiizor.RibbonButtonCenter();
+            ribbonForm1 = new ReaLTaiizor.Forms.RibbonForm();
+            ribbonGroupBox1 = new ReaLTaiizor.Controls.RibbonGroupBox();
+            ribbonProgressBarLeft2 = new ReaLTaiizor.Controls.RibbonProgressBarLeft();
+            ribbonProgressBarLeft1 = new ReaLTaiizor.Controls.RibbonProgressBarLeft();
+            ribbonProgressBarCenter2 = new ReaLTaiizor.Controls.RibbonProgressBarCenter();
+            ribbonProgressBarCenter1 = new ReaLTaiizor.Controls.RibbonProgressBarCenter();
+            ribbonProgressBarRight2 = new ReaLTaiizor.Controls.RibbonProgressBarRight();
+            ribbonProgressBarRight1 = new ReaLTaiizor.Controls.RibbonProgressBarRight();
+            ribbonRadioButton2 = new ReaLTaiizor.Controls.RibbonRadioButton();
+            ribbonRadioButton1 = new ReaLTaiizor.Controls.RibbonRadioButton();
+            ribbonCheckBox1 = new ReaLTaiizor.Controls.RibbonCheckBox();
+            ribbonButtonRight1 = new ReaLTaiizor.Controls.RibbonButtonRight();
+            ribbonButtonLeft1 = new ReaLTaiizor.Controls.RibbonButtonLeft();
+            ribbonButtonCenter1 = new ReaLTaiizor.Controls.RibbonButtonCenter();
             ribbonForm1.SuspendLayout();
             ribbonGroupBox1.SuspendLayout();
             SuspendLayout();
@@ -434,19 +434,19 @@
 
         #endregion
 
-        private ReaLTaiizor.RibbonForm ribbonForm1;
-        private ReaLTaiizor.RibbonButtonRight ribbonButtonRight1;
-        private ReaLTaiizor.RibbonButtonLeft ribbonButtonLeft1;
-        private ReaLTaiizor.RibbonButtonCenter ribbonButtonCenter1;
-        private ReaLTaiizor.RibbonCheckBox ribbonCheckBox1;
-        private ReaLTaiizor.RibbonRadioButton ribbonRadioButton1;
-        private ReaLTaiizor.RibbonRadioButton ribbonRadioButton2;
-        private ReaLTaiizor.RibbonGroupBox ribbonGroupBox1;
-        private ReaLTaiizor.RibbonProgressBarCenter ribbonProgressBarCenter2;
-        private ReaLTaiizor.RibbonProgressBarCenter ribbonProgressBarCenter1;
-        private ReaLTaiizor.RibbonProgressBarRight ribbonProgressBarRight2;
-        private ReaLTaiizor.RibbonProgressBarRight ribbonProgressBarRight1;
-        private ReaLTaiizor.RibbonProgressBarLeft ribbonProgressBarLeft2;
-        private ReaLTaiizor.RibbonProgressBarLeft ribbonProgressBarLeft1;
+        private ReaLTaiizor.Forms.RibbonForm ribbonForm1;
+        private ReaLTaiizor.Controls.RibbonButtonRight ribbonButtonRight1;
+        private ReaLTaiizor.Controls.RibbonButtonLeft ribbonButtonLeft1;
+        private ReaLTaiizor.Controls.RibbonButtonCenter ribbonButtonCenter1;
+        private ReaLTaiizor.Controls.RibbonCheckBox ribbonCheckBox1;
+        private ReaLTaiizor.Controls.RibbonRadioButton ribbonRadioButton1;
+        private ReaLTaiizor.Controls.RibbonRadioButton ribbonRadioButton2;
+        private ReaLTaiizor.Controls.RibbonGroupBox ribbonGroupBox1;
+        private ReaLTaiizor.Controls.RibbonProgressBarCenter ribbonProgressBarCenter2;
+        private ReaLTaiizor.Controls.RibbonProgressBarCenter ribbonProgressBarCenter1;
+        private ReaLTaiizor.Controls.RibbonProgressBarRight ribbonProgressBarRight2;
+        private ReaLTaiizor.Controls.RibbonProgressBarRight ribbonProgressBarRight1;
+        private ReaLTaiizor.Controls.RibbonProgressBarLeft ribbonProgressBarLeft2;
+        private ReaLTaiizor.Controls.RibbonProgressBarLeft ribbonProgressBarLeft1;
     }
 }

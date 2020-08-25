@@ -40,12 +40,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="ReaLTaiizor, Version=3.7.7.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReaLTaiizor.3.7.7.5\lib\net48\ReaLTaiizor.dll</HintPath>
+    <Reference Include="ReaLTaiizor, Version=3.7.7.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
@@ -97,6 +99,12 @@
     </Compile>
     <Compile Include="Form16.designer.cs">
       <DependentUpon>Form16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form17.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form17.Designer.cs">
+      <DependentUpon>Form17.cs</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -172,6 +180,9 @@
     <EmbeddedResource Include="Form16.resx">
       <DependentUpon>Form16.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form17.resx">
+      <DependentUpon>Form17.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,8 +215,8 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -220,7 +231,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\baseline_thumb_up_black_24dp.png" />
+    <Content Include="Resources\baseline_bluetooth_black_24dp.png" />
+    <Content Include="Resources\baseline_build_black_24dp.png" />
+    <Content Include="Resources\baseline_favorite_border_black_24dp.png" />
+    <Content Include="Resources\baseline_fingerprint_black_24dp.png" />
     <Content Include="Resources\Google.png" />
+    <Content Include="Resources\minus.png" />
+    <Content Include="Resources\plus.png" />
+    <Content Include="Resources\round_assessment_white_24dp.png" />
+    <Content Include="Resources\round_backup_white_24dp.png" />
+    <Content Include="Resources\round_bluetooth_white_24dp.png" />
+    <Content Include="Resources\round_bookmark_white_24dp.png" />
+    <Content Include="Resources\round_build_white_24dp.png" />
+    <Content Include="Resources\round_gps_fixed_white_24dp.png" />
+    <Content Include="Resources\round_http_white_24dp.png" />
+    <Content Include="Resources\round_report_problem_white_24dp.png" />
+    <Content Include="Resources\round_swap_vert_white_24dp.png" />
     <Content Include="Resources\Taiizor.ico" />
     <Content Include="Resources\Twitter.png" />
   </ItemGroup>

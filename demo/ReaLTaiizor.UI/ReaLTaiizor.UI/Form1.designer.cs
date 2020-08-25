@@ -29,59 +29,59 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            themeForm1 = new ReaLTaiizor.ThemeForm();
-            socialButton2 = new ReaLTaiizor.SocialButton();
-            tabPage1 = new ReaLTaiizor.TabPage();
+            themeForm1 = new ReaLTaiizor.Forms.ThemeForm();
+            socialButton2 = new ReaLTaiizor.Controls.SocialButton();
+            tabPage1 = new ReaLTaiizor.Controls.TabPage();
             tabPage2 = new System.Windows.Forms.TabPage();
-            progressIndicator1 = new ReaLTaiizor.ProgressIndicator();
-            circleProgressBar1 = new ReaLTaiizor.CircleProgressBar();
+            progressIndicator1 = new ReaLTaiizor.Controls.ProgressIndicator();
+            circleProgressBar1 = new ReaLTaiizor.Controls.CircleProgressBar();
             tabPage3 = new System.Windows.Forms.TabPage();
-            groupBox1 = new ReaLTaiizor.GroupBox();
-            badge13 = new ReaLTaiizor.Badge();
-            badge11 = new ReaLTaiizor.Badge();
-            headerLabel1 = new ReaLTaiizor.HeaderLabel();
-            badge10 = new ReaLTaiizor.Badge();
-            badge9 = new ReaLTaiizor.Badge();
-            badge8 = new ReaLTaiizor.Badge();
-            badge7 = new ReaLTaiizor.Badge();
-            badge6 = new ReaLTaiizor.Badge();
-            badge5 = new ReaLTaiizor.Badge();
-            badge4 = new ReaLTaiizor.Badge();
-            badge3 = new ReaLTaiizor.Badge();
-            badge2 = new ReaLTaiizor.Badge();
-            badge1 = new ReaLTaiizor.Badge();
-            radioButton1 = new ReaLTaiizor.RadioButton();
-            radioButton2 = new ReaLTaiizor.RadioButton();
-            comboBoxEdit2 = new ReaLTaiizor.ComboBoxEdit();
-            chatButtonRight1 = new ReaLTaiizor.ChatButtonRight();
-            chatButtonLeft1 = new ReaLTaiizor.ChatButtonLeft();
-            trackEdit1 = new ReaLTaiizor.TrackEdit();
-            chatBubbleRight1 = new ReaLTaiizor.ChatBubbleRight();
-            chatBubbleLeft1 = new ReaLTaiizor.ChatBubbleLeft();
-            separator4 = new ReaLTaiizor.Separator();
-            notificationBox8 = new ReaLTaiizor.NotificationBox();
-            notificationBox7 = new ReaLTaiizor.NotificationBox();
-            notificationBox6 = new ReaLTaiizor.NotificationBox();
-            notificationBox5 = new ReaLTaiizor.NotificationBox();
-            separator3 = new ReaLTaiizor.Separator();
-            separator2 = new ReaLTaiizor.Separator();
-            trackBar1 = new ReaLTaiizor.TrackBar();
-            toggleButton4 = new ReaLTaiizor.ToggleButton();
-            toggleButton3 = new ReaLTaiizor.ToggleButton();
-            toggleButton2 = new ReaLTaiizor.ToggleButton();
-            toggleButton1 = new ReaLTaiizor.ToggleButton();
-            textEdit1 = new ReaLTaiizor.TextEdit();
-            socialButton1 = new ReaLTaiizor.SocialButton();
-            separator1 = new ReaLTaiizor.Separator();
-            notificationBox4 = new ReaLTaiizor.NotificationBox();
-            notificationBox3 = new ReaLTaiizor.NotificationBox();
-            notificationBox2 = new ReaLTaiizor.NotificationBox();
-            notificationBox1 = new ReaLTaiizor.NotificationBox();
-            linkEdit1 = new ReaLTaiizor.LinkEdit();
-            labelEdit1 = new ReaLTaiizor.LabelEdit();
-            checkBox1 = new ReaLTaiizor.CheckBox();
-            button1 = new ReaLTaiizor.Button();
-            controlBox1 = new ReaLTaiizor.ControlBox();
+            groupBox1 = new ReaLTaiizor.Controls.GroupBox();
+            badge13 = new ReaLTaiizor.Controls.Badge();
+            badge11 = new ReaLTaiizor.Controls.Badge();
+            headerLabel1 = new ReaLTaiizor.Controls.HeaderLabel();
+            badge10 = new ReaLTaiizor.Controls.Badge();
+            badge9 = new ReaLTaiizor.Controls.Badge();
+            badge8 = new ReaLTaiizor.Controls.Badge();
+            badge7 = new ReaLTaiizor.Controls.Badge();
+            badge6 = new ReaLTaiizor.Controls.Badge();
+            badge5 = new ReaLTaiizor.Controls.Badge();
+            badge4 = new ReaLTaiizor.Controls.Badge();
+            badge3 = new ReaLTaiizor.Controls.Badge();
+            badge2 = new ReaLTaiizor.Controls.Badge();
+            badge1 = new ReaLTaiizor.Controls.Badge();
+            radioButton1 = new ReaLTaiizor.Controls.RadioButton();
+            radioButton2 = new ReaLTaiizor.Controls.RadioButton();
+            comboBoxEdit2 = new ReaLTaiizor.Controls.ComboBoxEdit();
+            chatButtonRight1 = new ReaLTaiizor.Controls.ChatButtonRight();
+            chatButtonLeft1 = new ReaLTaiizor.Controls.ChatButtonLeft();
+            trackBarEdit1 = new ReaLTaiizor.Controls.TrackBarEdit();
+            chatBubbleRight1 = new ReaLTaiizor.Controls.ChatBubbleRight();
+            chatBubbleLeft1 = new ReaLTaiizor.Controls.ChatBubbleLeft();
+            separator4 = new ReaLTaiizor.Controls.Separator();
+            notificationBox8 = new ReaLTaiizor.Controls.NotificationBox();
+            notificationBox7 = new ReaLTaiizor.Controls.NotificationBox();
+            notificationBox6 = new ReaLTaiizor.Controls.NotificationBox();
+            notificationBox5 = new ReaLTaiizor.Controls.NotificationBox();
+            separator3 = new ReaLTaiizor.Controls.Separator();
+            separator2 = new ReaLTaiizor.Controls.Separator();
+            trackBar1 = new ReaLTaiizor.Controls.TrackBar();
+            toggleButton4 = new ReaLTaiizor.Controls.ToggleButton();
+            toggleButton3 = new ReaLTaiizor.Controls.ToggleButton();
+            toggleButton2 = new ReaLTaiizor.Controls.ToggleButton();
+            toggleButton1 = new ReaLTaiizor.Controls.ToggleButton();
+            textBoxEdit1 = new ReaLTaiizor.Controls.TextBoxEdit();
+            socialButton1 = new ReaLTaiizor.Controls.SocialButton();
+            separator1 = new ReaLTaiizor.Controls.Separator();
+            notificationBox4 = new ReaLTaiizor.Controls.NotificationBox();
+            notificationBox3 = new ReaLTaiizor.Controls.NotificationBox();
+            notificationBox2 = new ReaLTaiizor.Controls.NotificationBox();
+            notificationBox1 = new ReaLTaiizor.Controls.NotificationBox();
+            linkEdit1 = new ReaLTaiizor.Controls.LinkLabelEdit();
+            labelEdit1 = new ReaLTaiizor.Controls.LabelEdit();
+            checkBox1 = new ReaLTaiizor.Controls.CheckBox();
+            button1 = new ReaLTaiizor.Controls.Button();
+            controlBox1 = new ReaLTaiizor.Controls.ControlBox();
             themeForm1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -111,7 +111,7 @@
             themeForm1.Controls.Add(comboBoxEdit2);
             themeForm1.Controls.Add(chatButtonRight1);
             themeForm1.Controls.Add(chatButtonLeft1);
-            themeForm1.Controls.Add(trackEdit1);
+            themeForm1.Controls.Add(trackBarEdit1);
             themeForm1.Controls.Add(chatBubbleRight1);
             themeForm1.Controls.Add(chatBubbleLeft1);
             themeForm1.Controls.Add(separator4);
@@ -126,7 +126,7 @@
             themeForm1.Controls.Add(toggleButton3);
             themeForm1.Controls.Add(toggleButton2);
             themeForm1.Controls.Add(toggleButton1);
-            themeForm1.Controls.Add(textEdit1);
+            themeForm1.Controls.Add(textBoxEdit1);
             themeForm1.Controls.Add(socialButton1);
             themeForm1.Controls.Add(separator1);
             themeForm1.Controls.Add(notificationBox4);
@@ -212,7 +212,7 @@
             circleProgressBar1.PercentColor = System.Drawing.Color.White;
             circleProgressBar1.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             circleProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
-            circleProgressBar1.ProgressShape = ReaLTaiizor.CircleProgressBar._ProgressShape.Round;
+            circleProgressBar1.ProgressShape = ReaLTaiizor.Controls.CircleProgressBar._ProgressShape.Round;
             circleProgressBar1.Size = new System.Drawing.Size(161, 161);
             circleProgressBar1.TabIndex = 1;
             circleProgressBar1.Text = "circleProgressBar1";
@@ -534,24 +534,24 @@
             chatButtonLeft1.Text = "chatButtonLeft1";
             chatButtonLeft1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // trackEdit1
+            // trackBarEdit1
             // 
-            trackEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
-            trackEdit1.DrawHatch = true;
-            trackEdit1.DrawValueString = false;
-            trackEdit1.JumpToMouse = true;
-            trackEdit1.Location = new System.Drawing.Point(314, 320);
-            trackEdit1.Maximum = 100;
-            trackEdit1.Minimum = 0;
-            trackEdit1.MinimumSize = new System.Drawing.Size(37, 22);
-            trackEdit1.Name = "trackEdit1";
-            trackEdit1.Size = new System.Drawing.Size(296, 22);
-            trackEdit1.TabIndex = 29;
-            trackEdit1.Text = "trackEdit1";
-            trackEdit1.Value = 50;
-            trackEdit1.ValueColour = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            trackEdit1.ValueDivison = ReaLTaiizor.TrackEdit.ValueDivisor.By1;
-            trackEdit1.ValueToSet = 50F;
+            trackBarEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
+            trackBarEdit1.DrawHatch = true;
+            trackBarEdit1.DrawValueString = false;
+            trackBarEdit1.JumpToMouse = true;
+            trackBarEdit1.Location = new System.Drawing.Point(314, 320);
+            trackBarEdit1.Maximum = 100;
+            trackBarEdit1.Minimum = 0;
+            trackBarEdit1.MinimumSize = new System.Drawing.Size(37, 22);
+            trackBarEdit1.Name = "trackBarEdit1";
+            trackBarEdit1.Size = new System.Drawing.Size(296, 22);
+            trackBarEdit1.TabIndex = 29;
+            trackBarEdit1.Text = "trackBarEdit1";
+            trackBarEdit1.Value = 50;
+            trackBarEdit1.ValueColour = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            trackBarEdit1.ValueDivison = ReaLTaiizor.Controls.TrackBarEdit.ValueDivisor.By1;
+            trackBarEdit1.ValueToSet = 50F;
             // 
             // chatBubbleRight1
             // 
@@ -611,7 +611,7 @@
             notificationBox8.NoticeBorderColor = System.Drawing.Color.Gray;
             notificationBox8.NoticeForeColor = System.Drawing.Color.White;
             notificationBox8.NoticeTitleText = "NOTICE";
-            notificationBox8.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
+            notificationBox8.NotificationType = ReaLTaiizor.Controls.NotificationBox.Type.Notice;
             notificationBox8.RoundCorners = true;
             notificationBox8.ShowCloseButton = false;
             notificationBox8.Size = new System.Drawing.Size(145, 40);
@@ -645,7 +645,7 @@
             notificationBox7.NoticeBorderColor = System.Drawing.Color.Gray;
             notificationBox7.NoticeForeColor = System.Drawing.Color.White;
             notificationBox7.NoticeTitleText = "NOTICE";
-            notificationBox7.NotificationType = ReaLTaiizor.NotificationBox.Type.Warning;
+            notificationBox7.NotificationType = ReaLTaiizor.Controls.NotificationBox.Type.Warning;
             notificationBox7.RoundCorners = true;
             notificationBox7.ShowCloseButton = true;
             notificationBox7.Size = new System.Drawing.Size(145, 40);
@@ -679,7 +679,7 @@
             notificationBox6.NoticeBorderColor = System.Drawing.Color.Gray;
             notificationBox6.NoticeForeColor = System.Drawing.Color.White;
             notificationBox6.NoticeTitleText = "NOTICE";
-            notificationBox6.NotificationType = ReaLTaiizor.NotificationBox.Type.Error;
+            notificationBox6.NotificationType = ReaLTaiizor.Controls.NotificationBox.Type.Error;
             notificationBox6.RoundCorners = true;
             notificationBox6.ShowCloseButton = false;
             notificationBox6.Size = new System.Drawing.Size(145, 40);
@@ -713,7 +713,7 @@
             notificationBox5.NoticeBorderColor = System.Drawing.Color.Gray;
             notificationBox5.NoticeForeColor = System.Drawing.Color.White;
             notificationBox5.NoticeTitleText = "NOTICE";
-            notificationBox5.NotificationType = ReaLTaiizor.NotificationBox.Type.Success;
+            notificationBox5.NotificationType = ReaLTaiizor.Controls.NotificationBox.Type.Success;
             notificationBox5.RoundCorners = true;
             notificationBox5.ShowCloseButton = true;
             notificationBox5.Size = new System.Drawing.Size(145, 40);
@@ -766,7 +766,7 @@
             trackBar1.TabIndex = 17;
             trackBar1.Text = "trackBar1";
             trackBar1.Value = 0;
-            trackBar1.ValueDivison = ReaLTaiizor.TrackBar.ValueDivisor.By100;
+            trackBar1.ValueDivison = ReaLTaiizor.Controls.TrackBar.ValueDivisor.By100;
             trackBar1.ValueToSet = 0F;
             // 
             // toggleButton4
@@ -778,7 +778,7 @@
             toggleButton4.TabIndex = 16;
             toggleButton4.Text = "toggleButton4";
             toggleButton4.Toggled = false;
-            toggleButton4.Type = ReaLTaiizor.ToggleButton._Type.IO;
+            toggleButton4.Type = ReaLTaiizor.Controls.ToggleButton._Type.IO;
             // 
             // toggleButton3
             // 
@@ -789,7 +789,7 @@
             toggleButton3.TabIndex = 15;
             toggleButton3.Text = "toggleButton3";
             toggleButton3.Toggled = false;
-            toggleButton3.Type = ReaLTaiizor.ToggleButton._Type.YesNo;
+            toggleButton3.Type = ReaLTaiizor.Controls.ToggleButton._Type.YesNo;
             // 
             // toggleButton2
             // 
@@ -800,7 +800,7 @@
             toggleButton2.TabIndex = 14;
             toggleButton2.Text = "toggleButton2";
             toggleButton2.Toggled = false;
-            toggleButton2.Type = ReaLTaiizor.ToggleButton._Type.OnOff;
+            toggleButton2.Type = ReaLTaiizor.Controls.ToggleButton._Type.OnOff;
             // 
             // toggleButton1
             // 
@@ -812,24 +812,24 @@
             toggleButton1.TabIndex = 13;
             toggleButton1.Text = "toggleButton1";
             toggleButton1.Toggled = false;
-            toggleButton1.Type = ReaLTaiizor.ToggleButton._Type.CheckMark;
+            toggleButton1.Type = ReaLTaiizor.Controls.ToggleButton._Type.CheckMark;
             // 
-            // textEdit1
+            // textBoxEdit1
             // 
-            textEdit1.BackColor = System.Drawing.Color.Transparent;
-            textEdit1.Font = new System.Drawing.Font("Tahoma", 11F);
-            textEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
-            textEdit1.Image = global::ReaLTaiizor.UI.Properties.Resources.Google;
-            textEdit1.Location = new System.Drawing.Point(131, 250);
-            textEdit1.MaxLength = 32767;
-            textEdit1.Multiline = false;
-            textEdit1.Name = "textEdit1";
-            textEdit1.ReadOnly = false;
-            textEdit1.Size = new System.Drawing.Size(144, 41);
-            textEdit1.TabIndex = 12;
-            textEdit1.Text = "textEdit1";
-            textEdit1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            textEdit1.UseSystemPasswordChar = false;
+            textBoxEdit1.BackColor = System.Drawing.Color.Transparent;
+            textBoxEdit1.Font = new System.Drawing.Font("Tahoma", 11F);
+            textBoxEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(183)))), ((int)(((byte)(191)))));
+            textBoxEdit1.Image = global::ReaLTaiizor.UI.Properties.Resources.Google;
+            textBoxEdit1.Location = new System.Drawing.Point(131, 250);
+            textBoxEdit1.MaxLength = 32767;
+            textBoxEdit1.Multiline = false;
+            textBoxEdit1.Name = "textBoxEdit1";
+            textBoxEdit1.ReadOnly = false;
+            textBoxEdit1.Size = new System.Drawing.Size(144, 41);
+            textBoxEdit1.TabIndex = 12;
+            textBoxEdit1.Text = "textBoxEdit1";
+            textBoxEdit1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            textBoxEdit1.UseSystemPasswordChar = false;
             // 
             // socialButton1
             // 
@@ -869,7 +869,7 @@
             notificationBox4.NoticeBorderColor = System.Drawing.Color.Gray;
             notificationBox4.NoticeForeColor = System.Drawing.Color.White;
             notificationBox4.NoticeTitleText = "NOTICE";
-            notificationBox4.NotificationType = ReaLTaiizor.NotificationBox.Type.Success;
+            notificationBox4.NotificationType = ReaLTaiizor.Controls.NotificationBox.Type.Success;
             notificationBox4.RoundCorners = false;
             notificationBox4.ShowCloseButton = true;
             notificationBox4.Size = new System.Drawing.Size(145, 40);
@@ -903,7 +903,7 @@
             notificationBox3.NoticeBorderColor = System.Drawing.Color.Gray;
             notificationBox3.NoticeForeColor = System.Drawing.Color.White;
             notificationBox3.NoticeTitleText = "NOTICE";
-            notificationBox3.NotificationType = ReaLTaiizor.NotificationBox.Type.Error;
+            notificationBox3.NotificationType = ReaLTaiizor.Controls.NotificationBox.Type.Error;
             notificationBox3.RoundCorners = false;
             notificationBox3.ShowCloseButton = false;
             notificationBox3.Size = new System.Drawing.Size(145, 40);
@@ -937,7 +937,7 @@
             notificationBox2.NoticeBorderColor = System.Drawing.Color.Gray;
             notificationBox2.NoticeForeColor = System.Drawing.Color.White;
             notificationBox2.NoticeTitleText = "NOTICE";
-            notificationBox2.NotificationType = ReaLTaiizor.NotificationBox.Type.Warning;
+            notificationBox2.NotificationType = ReaLTaiizor.Controls.NotificationBox.Type.Warning;
             notificationBox2.RoundCorners = false;
             notificationBox2.ShowCloseButton = true;
             notificationBox2.Size = new System.Drawing.Size(145, 40);
@@ -971,7 +971,7 @@
             notificationBox1.NoticeBorderColor = System.Drawing.Color.Gray;
             notificationBox1.NoticeForeColor = System.Drawing.Color.White;
             notificationBox1.NoticeTitleText = "NOTICE";
-            notificationBox1.NotificationType = ReaLTaiizor.NotificationBox.Type.Notice;
+            notificationBox1.NotificationType = ReaLTaiizor.Controls.NotificationBox.Type.Notice;
             notificationBox1.RoundCorners = false;
             notificationBox1.ShowCloseButton = false;
             notificationBox1.Size = new System.Drawing.Size(145, 40);
@@ -1096,58 +1096,58 @@
 
         #endregion
 
-        private ReaLTaiizor.ThemeForm themeForm1;
-        private ReaLTaiizor.ControlBox controlBox1;
-        private ReaLTaiizor.Separator separator1;
-        private ReaLTaiizor.NotificationBox notificationBox4;
-        private ReaLTaiizor.NotificationBox notificationBox3;
-        private ReaLTaiizor.NotificationBox notificationBox2;
-        private ReaLTaiizor.NotificationBox notificationBox1;
-        private ReaLTaiizor.LabelEdit labelEdit1;
-        private ReaLTaiizor.CheckBox checkBox1;
-        private ReaLTaiizor.Button button1;
-        private ReaLTaiizor.SocialButton socialButton1;
-        private ReaLTaiizor.TextEdit textEdit1;
-        private ReaLTaiizor.Separator separator3;
-        private ReaLTaiizor.Separator separator2;
-        private ReaLTaiizor.TrackBar trackBar1;
-        private ReaLTaiizor.ToggleButton toggleButton4;
-        private ReaLTaiizor.ToggleButton toggleButton3;
-        private ReaLTaiizor.ToggleButton toggleButton2;
-        private ReaLTaiizor.ToggleButton toggleButton1;
-        private ReaLTaiizor.LinkEdit linkEdit1;
-        private ReaLTaiizor.Separator separator4;
-        private ReaLTaiizor.NotificationBox notificationBox8;
-        private ReaLTaiizor.NotificationBox notificationBox7;
-        private ReaLTaiizor.NotificationBox notificationBox6;
-        private ReaLTaiizor.NotificationBox notificationBox5;
-        private ReaLTaiizor.ChatBubbleRight chatBubbleRight1;
-        private ReaLTaiizor.ChatBubbleLeft chatBubbleLeft1;
-        private ReaLTaiizor.TrackEdit trackEdit1;
-        private ReaLTaiizor.ChatButtonLeft chatButtonLeft1;
-        private ReaLTaiizor.ChatButtonRight chatButtonRight1;
-        private ReaLTaiizor.CircleProgressBar circleProgressBar1;
-        private ReaLTaiizor.RadioButton radioButton1;
-        private ReaLTaiizor.RadioButton radioButton2;
-        private ReaLTaiizor.ComboBoxEdit comboBoxEdit2;
-        private ReaLTaiizor.Badge badge10;
-        private ReaLTaiizor.Badge badge9;
-        private ReaLTaiizor.Badge badge8;
-        private ReaLTaiizor.Badge badge7;
-        private ReaLTaiizor.Badge badge6;
-        private ReaLTaiizor.Badge badge5;
-        private ReaLTaiizor.Badge badge4;
-        private ReaLTaiizor.Badge badge3;
-        private ReaLTaiizor.Badge badge2;
-        private ReaLTaiizor.Badge badge1;
-        private ReaLTaiizor.Badge badge13;
-        private ReaLTaiizor.Badge badge11;
-        private ReaLTaiizor.HeaderLabel headerLabel1;
-        private ReaLTaiizor.TabPage tabPage1;
+        private ReaLTaiizor.Forms.ThemeForm themeForm1;
+        private ReaLTaiizor.Controls.ControlBox controlBox1;
+        private ReaLTaiizor.Controls.Separator separator1;
+        private ReaLTaiizor.Controls.NotificationBox notificationBox4;
+        private ReaLTaiizor.Controls.NotificationBox notificationBox3;
+        private ReaLTaiizor.Controls.NotificationBox notificationBox2;
+        private ReaLTaiizor.Controls.NotificationBox notificationBox1;
+        private ReaLTaiizor.Controls.LabelEdit labelEdit1;
+        private ReaLTaiizor.Controls.CheckBox checkBox1;
+        private ReaLTaiizor.Controls.Button button1;
+        private ReaLTaiizor.Controls.SocialButton socialButton1;
+        private ReaLTaiizor.Controls.TextBoxEdit textBoxEdit1;
+        private ReaLTaiizor.Controls.Separator separator3;
+        private ReaLTaiizor.Controls.Separator separator2;
+        private ReaLTaiizor.Controls.TrackBar trackBar1;
+        private ReaLTaiizor.Controls.ToggleButton toggleButton4;
+        private ReaLTaiizor.Controls.ToggleButton toggleButton3;
+        private ReaLTaiizor.Controls.ToggleButton toggleButton2;
+        private ReaLTaiizor.Controls.ToggleButton toggleButton1;
+        private ReaLTaiizor.Controls.LinkLabelEdit linkEdit1;
+        private ReaLTaiizor.Controls.Separator separator4;
+        private ReaLTaiizor.Controls.NotificationBox notificationBox8;
+        private ReaLTaiizor.Controls.NotificationBox notificationBox7;
+        private ReaLTaiizor.Controls.NotificationBox notificationBox6;
+        private ReaLTaiizor.Controls.NotificationBox notificationBox5;
+        private ReaLTaiizor.Controls.ChatBubbleRight chatBubbleRight1;
+        private ReaLTaiizor.Controls.ChatBubbleLeft chatBubbleLeft1;
+        private ReaLTaiizor.Controls.TrackBarEdit trackBarEdit1;
+        private ReaLTaiizor.Controls.ChatButtonLeft chatButtonLeft1;
+        private ReaLTaiizor.Controls.ChatButtonRight chatButtonRight1;
+        private ReaLTaiizor.Controls.CircleProgressBar circleProgressBar1;
+        private ReaLTaiizor.Controls.RadioButton radioButton1;
+        private ReaLTaiizor.Controls.RadioButton radioButton2;
+        private ReaLTaiizor.Controls.ComboBoxEdit comboBoxEdit2;
+        private ReaLTaiizor.Controls.Badge badge10;
+        private ReaLTaiizor.Controls.Badge badge9;
+        private ReaLTaiizor.Controls.Badge badge8;
+        private ReaLTaiizor.Controls.Badge badge7;
+        private ReaLTaiizor.Controls.Badge badge6;
+        private ReaLTaiizor.Controls.Badge badge5;
+        private ReaLTaiizor.Controls.Badge badge4;
+        private ReaLTaiizor.Controls.Badge badge3;
+        private ReaLTaiizor.Controls.Badge badge2;
+        private ReaLTaiizor.Controls.Badge badge1;
+        private ReaLTaiizor.Controls.Badge badge13;
+        private ReaLTaiizor.Controls.Badge badge11;
+        private ReaLTaiizor.Controls.HeaderLabel headerLabel1;
+        private ReaLTaiizor.Controls.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private ReaLTaiizor.ProgressIndicator progressIndicator1;
-        private ReaLTaiizor.GroupBox groupBox1;
-        private ReaLTaiizor.SocialButton socialButton2;
+        private ReaLTaiizor.Controls.ProgressIndicator progressIndicator1;
+        private ReaLTaiizor.Controls.GroupBox groupBox1;
+        private ReaLTaiizor.Controls.SocialButton socialButton2;
     }
 }

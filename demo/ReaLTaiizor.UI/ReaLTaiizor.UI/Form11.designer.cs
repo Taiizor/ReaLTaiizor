@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form11));
-            aloneProgressBar2 = new ReaLTaiizor.AloneProgressBar();
-            aloneNotice1 = new ReaLTaiizor.AloneNotice();
-            aloneTextBox1 = new ReaLTaiizor.AloneTextBox();
-            aloneButton1 = new ReaLTaiizor.AloneButton();
-            aloneCombobox1 = new ReaLTaiizor.AloneCombobox();
-            aloneRadioButton2 = new ReaLTaiizor.AloneRadioButton();
-            aloneRadioButton1 = new ReaLTaiizor.AloneRadioButton();
-            aloneCheckBox1 = new ReaLTaiizor.AloneCheckBox();
-            aloneProgressBar1 = new ReaLTaiizor.AloneProgressBar();
+            aloneProgressBar2 = new ReaLTaiizor.Controls.AloneProgressBar();
+            aloneNotice1 = new ReaLTaiizor.Controls.AloneNotice();
+            aloneTextBox1 = new ReaLTaiizor.Controls.AloneTextBox();
+            aloneButton1 = new ReaLTaiizor.Controls.AloneButton();
+            aloneCombobox1 = new ReaLTaiizor.Controls.AloneComboBox();
+            aloneRadioButton2 = new ReaLTaiizor.Controls.AloneRadioButton();
+            aloneRadioButton1 = new ReaLTaiizor.Controls.AloneRadioButton();
+            aloneCheckBox1 = new ReaLTaiizor.Controls.AloneCheckBox();
+            aloneProgressBar1 = new ReaLTaiizor.Controls.AloneProgressBar();
             SuspendLayout();
             // 
             // aloneProgressBar2
@@ -203,14 +203,14 @@
 
         #endregion
 
-        private ReaLTaiizor.AloneProgressBar aloneProgressBar1;
-        private ReaLTaiizor.AloneCheckBox aloneCheckBox1;
-        private ReaLTaiizor.AloneRadioButton aloneRadioButton1;
-        private ReaLTaiizor.AloneRadioButton aloneRadioButton2;
-        private ReaLTaiizor.AloneCombobox aloneCombobox1;
-        private ReaLTaiizor.AloneButton aloneButton1;
-        private ReaLTaiizor.AloneTextBox aloneTextBox1;
-        private ReaLTaiizor.AloneNotice aloneNotice1;
-        private ReaLTaiizor.AloneProgressBar aloneProgressBar2;
+        private ReaLTaiizor.Controls.AloneProgressBar aloneProgressBar1;
+        private ReaLTaiizor.Controls.AloneCheckBox aloneCheckBox1;
+        private ReaLTaiizor.Controls.AloneRadioButton aloneRadioButton1;
+        private ReaLTaiizor.Controls.AloneRadioButton aloneRadioButton2;
+        private ReaLTaiizor.Controls.AloneComboBox aloneCombobox1;
+        private ReaLTaiizor.Controls.AloneButton aloneButton1;
+        private ReaLTaiizor.Controls.AloneTextBox aloneTextBox1;
+        private ReaLTaiizor.Controls.AloneNotice aloneNotice1;
+        private ReaLTaiizor.Controls.AloneProgressBar aloneProgressBar2;
     }
 }

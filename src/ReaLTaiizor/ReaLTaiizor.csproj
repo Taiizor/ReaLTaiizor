@@ -4,14 +4,15 @@
     <TargetFramework>net48</TargetFramework>
     <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>-->
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-    <Version>3.7.7.6</Version>
+    <Version>3.7.7.8</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Title>ReaLTaiizor</Title>
-    <PackageId>$(Title)</PackageId>
+    <Title>$(PackageId)</Title>
+    <PackageId>ReaLTaiizor</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Description>C# WinForm UI/UX Library - $(Title)</Description>
+    <Description>Best with more than 200 WinForm components.
+C# WinForm UI/UX Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Component customizations have been replicated.
@@ -29,9 +30,39 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub">
+      <Version>1.1.0-beta-20204-02</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Taiizor.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Material\Roboto-Black.ttf" />
+    <None Remove="Resources\Material\Roboto-Bold.ttf" />
+    <None Remove="Resources\Material\Roboto-Light.ttf" />
+    <None Remove="Resources\Material\Roboto-Medium.ttf" />
+    <None Remove="Resources\Material\Roboto-Regular.ttf" />
+    <None Remove="Resources\Material\Roboto-Thin.ttf" />
+  </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\Material\Roboto-Black.ttf" />
@@ -43,23 +74,17 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub">
-      <Version>1.1.0-beta-20204-02</Version>
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Resources\Taiizor.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="System.Windows.Forms" />
+    <None Remove="Resources\Google.png" />
+    <None Remove="Resources\Royal\Check.png" />
+    <None Remove="Resources\Royal\Close.png" />
+    <None Remove="Resources\Royal\Maximize.png" />
+    <None Remove="Resources\Royal\MessageBox\Error.png" />
+    <None Remove="Resources\Royal\MessageBox\Information.png" />
+    <None Remove="Resources\Royal\MessageBox\Question.png" />
+    <None Remove="Resources\Royal\MessageBox\Warning.png" />
+    <None Remove="Resources\Royal\Minimize.png" />
+    <None Remove="Resources\Taiizor.ico" />
+    <None Remove="Resources\Twitter.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,9 +103,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Drawer\MaterialDrawer.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="Utils\Lost.cs" />
   </ItemGroup>
 
 </Project>

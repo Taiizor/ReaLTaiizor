@@ -1,6 +1,7 @@
 ﻿using System;
-using ReaLTaiizor;
+using ReaLTaiizor.Forms;
 using System.Windows.Forms;
+using ReaLTaiizor.Controls;
 
 namespace ReaLTaiizor.UI
 {

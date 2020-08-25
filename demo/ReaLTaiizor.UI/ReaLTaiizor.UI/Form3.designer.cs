@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            airForm1 = new ReaLTaiizor.AirForm();
-            airButton2 = new ReaLTaiizor.AirButton();
-            airSeparator2 = new ReaLTaiizor.AirSeparator();
-            airTabPage1 = new ReaLTaiizor.AirTabPage();
+            airForm1 = new ReaLTaiizor.Forms.AirForm();
+            airButton2 = new ReaLTaiizor.Controls.AirButton();
+            airSeparator2 = new ReaLTaiizor.Controls.AirSeparator();
+            airTabPage1 = new ReaLTaiizor.Controls.AirTabPage();
             tabPage1 = new System.Windows.Forms.TabPage();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             tabPage2 = new System.Windows.Forms.TabPage();
             pictureBox2 = new System.Windows.Forms.PictureBox();
-            airSeparator1 = new ReaLTaiizor.AirSeparator();
-            airRadioButton1 = new ReaLTaiizor.AirRadioButton();
-            airButton1 = new ReaLTaiizor.AirButton();
-            airCheckbox1 = new ReaLTaiizor.AirCheckbox();
-            airRadioButton2 = new ReaLTaiizor.AirRadioButton();
+            airSeparator1 = new ReaLTaiizor.Controls.AirSeparator();
+            airRadioButton1 = new ReaLTaiizor.Controls.AirRadioButton();
+            airButton1 = new ReaLTaiizor.Controls.AirButton();
+            airCheckbox1 = new ReaLTaiizor.Controls.AirCheckBox();
+            airRadioButton2 = new ReaLTaiizor.Controls.AirRadioButton();
             airForm1.SuspendLayout();
             airTabPage1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -97,7 +97,7 @@
             // airSeparator2
             // 
             airSeparator2.BackColor = System.Drawing.Color.Black;
-            airSeparator2.Colors = new ReaLTaiizor.BloomAir[0];
+            airSeparator2.Colors = new ReaLTaiizor.Utils.BloomAir[0];
             airSeparator2.Customization = "";
             airSeparator2.Font = new System.Drawing.Font("Verdana", 8F);
             airSeparator2.Image = null;
@@ -170,7 +170,7 @@
             // airSeparator1
             // 
             airSeparator1.BackColor = System.Drawing.Color.Black;
-            airSeparator1.Colors = new ReaLTaiizor.BloomAir[0];
+            airSeparator1.Colors = new ReaLTaiizor.Utils.BloomAir[0];
             airSeparator1.Customization = "";
             airSeparator1.Font = new System.Drawing.Font("Verdana", 8F);
             airSeparator1.Image = null;
@@ -270,18 +270,18 @@
 
         #endregion
 
-        private ReaLTaiizor.AirForm airForm1;
-        private ReaLTaiizor.AirButton airButton1;
-        private ReaLTaiizor.AirCheckbox airCheckbox1;
-        private ReaLTaiizor.AirRadioButton airRadioButton1;
-        private ReaLTaiizor.AirSeparator airSeparator1;
-        private ReaLTaiizor.AirSeparator airSeparator2;
-        private ReaLTaiizor.AirTabPage airTabPage1;
+        private ReaLTaiizor.Forms.AirForm airForm1;
+        private ReaLTaiizor.Controls.AirButton airButton1;
+        private ReaLTaiizor.Controls.AirCheckBox airCheckbox1;
+        private ReaLTaiizor.Controls.AirRadioButton airRadioButton1;
+        private ReaLTaiizor.Controls.AirSeparator airSeparator1;
+        private ReaLTaiizor.Controls.AirSeparator airSeparator2;
+        private ReaLTaiizor.Controls.AirTabPage airTabPage1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ReaLTaiizor.AirRadioButton airRadioButton2;
-        private ReaLTaiizor.AirButton airButton2;
+        private ReaLTaiizor.Controls.AirRadioButton airRadioButton2;
+        private ReaLTaiizor.Controls.AirButton airButton2;
     }
 }

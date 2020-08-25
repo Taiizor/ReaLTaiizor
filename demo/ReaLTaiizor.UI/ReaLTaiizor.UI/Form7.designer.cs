@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form7));
-            spaceForm1 = new ReaLTaiizor.SpaceForm();
-            spaceQuest1 = new ReaLTaiizor.SpaceQuest();
-            spaceMinimize1 = new ReaLTaiizor.SpaceMinimize();
-            spaceMaximize1 = new ReaLTaiizor.SpaceMaximize();
-            spaceClose1 = new ReaLTaiizor.SpaceClose();
-            spaceCheckBox2 = new ReaLTaiizor.SpaceCheckBox();
-            spaceCheckBox1 = new ReaLTaiizor.SpaceCheckBox();
-            spaceBorderLabel1 = new ReaLTaiizor.SpaceBorderLabel();
-            spaceLabel1 = new ReaLTaiizor.SpaceLabel();
-            spaceButton1 = new ReaLTaiizor.SpaceButton();
+            spaceForm1 = new ReaLTaiizor.Forms.SpaceForm();
+            spaceQuest1 = new ReaLTaiizor.Controls.SpaceQuest();
+            spaceMinimize1 = new ReaLTaiizor.Controls.SpaceMinimize();
+            spaceMaximize1 = new ReaLTaiizor.Controls.SpaceMaximize();
+            spaceClose1 = new ReaLTaiizor.Controls.SpaceClose();
+            spaceCheckBox2 = new ReaLTaiizor.Controls.SpaceCheckBox();
+            spaceCheckBox1 = new ReaLTaiizor.Controls.SpaceCheckBox();
+            spaceBorderLabel1 = new ReaLTaiizor.Controls.SpaceBorderLabel();
+            spaceLabel1 = new ReaLTaiizor.Controls.SpaceLabel();
+            spaceButton1 = new ReaLTaiizor.Controls.SpaceButton();
             spaceForm1.SuspendLayout();
             SuspendLayout();
             // 
@@ -230,15 +230,15 @@
 
         #endregion
 
-        private ReaLTaiizor.SpaceForm spaceForm1;
-        private ReaLTaiizor.SpaceButton spaceButton1;
-        private ReaLTaiizor.SpaceBorderLabel spaceBorderLabel1;
-        private ReaLTaiizor.SpaceLabel spaceLabel1;
-        private ReaLTaiizor.SpaceCheckBox spaceCheckBox2;
-        private ReaLTaiizor.SpaceCheckBox spaceCheckBox1;
-        private ReaLTaiizor.SpaceClose spaceClose1;
-        private ReaLTaiizor.SpaceMaximize spaceMaximize1;
-        private ReaLTaiizor.SpaceMinimize spaceMinimize1;
-        private ReaLTaiizor.SpaceQuest spaceQuest1;
+        private ReaLTaiizor.Forms.SpaceForm spaceForm1;
+        private ReaLTaiizor.Controls.SpaceButton spaceButton1;
+        private ReaLTaiizor.Controls.SpaceBorderLabel spaceBorderLabel1;
+        private ReaLTaiizor.Controls.SpaceLabel spaceLabel1;
+        private ReaLTaiizor.Controls.SpaceCheckBox spaceCheckBox2;
+        private ReaLTaiizor.Controls.SpaceCheckBox spaceCheckBox1;
+        private ReaLTaiizor.Controls.SpaceClose spaceClose1;
+        private ReaLTaiizor.Controls.SpaceMaximize spaceMaximize1;
+        private ReaLTaiizor.Controls.SpaceMinimize spaceMinimize1;
+        private ReaLTaiizor.Controls.SpaceQuest spaceQuest1;
     }
 }

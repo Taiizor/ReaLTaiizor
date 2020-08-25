@@ -1,10 +1,10 @@
 ﻿using System;
-using ReaLTaiizor;
 using System.Drawing;
+using ReaLTaiizor.Forms.Form;
 
 namespace ReaLTaiizor.Defender
 {
-    public partial class Defender : LostForm
+    public partial class Defender : Lost
     {
         public Defender()
         {

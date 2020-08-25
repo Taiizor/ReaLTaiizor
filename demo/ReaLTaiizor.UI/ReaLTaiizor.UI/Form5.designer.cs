@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
-            dreamForm1 = new ReaLTaiizor.DreamForm();
-            dungeonControlBox1 = new ReaLTaiizor.DungeonControlBox();
-            dreamProgressBar1 = new ReaLTaiizor.DreamProgressBar();
-            dreamTextBox1 = new ReaLTaiizor.DreamTextBox();
-            dreamButton1 = new ReaLTaiizor.DreamButton();
+            dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            dungeonControlBox1 = new ReaLTaiizor.Controls.DungeonControlBox();
+            dreamProgressBar1 = new ReaLTaiizor.Controls.DreamProgressBar();
+            dreamTextBox1 = new ReaLTaiizor.Controls.DreamTextBox();
+            dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             dreamForm1.SuspendLayout();
             SuspendLayout();
             // 
@@ -147,10 +147,10 @@
 
         #endregion
 
-        private ReaLTaiizor.DreamForm dreamForm1;
-        private ReaLTaiizor.DreamTextBox dreamTextBox1;
-        private ReaLTaiizor.DreamButton dreamButton1;
-        private ReaLTaiizor.DreamProgressBar dreamProgressBar1;
-        private ReaLTaiizor.DungeonControlBox dungeonControlBox1;
+        private ReaLTaiizor.Forms.DreamForm dreamForm1;
+        private ReaLTaiizor.Controls.DreamTextBox dreamTextBox1;
+        private ReaLTaiizor.Controls.DreamButton dreamButton1;
+        private ReaLTaiizor.Controls.DreamProgressBar dreamProgressBar1;
+        private ReaLTaiizor.Controls.DungeonControlBox dungeonControlBox1;
     }
 }

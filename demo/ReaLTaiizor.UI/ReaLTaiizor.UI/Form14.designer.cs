@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form14));
-            hopeNumeric1 = new ReaLTaiizor.HopeNumeric();
-            hopeToggle1 = new ReaLTaiizor.HopeToggle();
-            hopeSwitch1 = new ReaLTaiizor.HopeSwitch();
-            hopeGroupBox1 = new ReaLTaiizor.HopeGroupBox();
-            hopeDatePicker1 = new ReaLTaiizor.HopeDatePicker();
-            hopeTrackBar1 = new ReaLTaiizor.HopeTrackBar();
-            hopeRoundProgressBar1 = new ReaLTaiizor.HopeRoundProgressBar();
-            hopeProgressBar2 = new ReaLTaiizor.HopeProgressBar();
-            hopeProgressBar1 = new ReaLTaiizor.HopeProgressBar();
-            hopeForm1 = new ReaLTaiizor.HopeForm();
-            hopeButton1 = new ReaLTaiizor.HopeButton();
-            hopeSimpleButton1 = new ReaLTaiizor.HopeSimpleButton();
-            hopeRadioButton1 = new ReaLTaiizor.HopeRadioButton();
-            hopeRadioButton2 = new ReaLTaiizor.HopeRadioButton();
-            hopeCheckBox1 = new ReaLTaiizor.HopeCheckBox();
-            hopeCheckBox2 = new ReaLTaiizor.HopeCheckBox();
-            hopeContextMenuStrip1 = new ReaLTaiizor.HopeContextMenuStrip();
+            hopeNumeric1 = new ReaLTaiizor.Controls.HopeNumeric();
+            hopeToggle1 = new ReaLTaiizor.Controls.HopeToggle();
+            hopeSwitch1 = new ReaLTaiizor.Controls.HopeSwitch();
+            hopeGroupBox1 = new ReaLTaiizor.Controls.HopeGroupBox();
+            hopeDatePicker1 = new ReaLTaiizor.Controls.HopeDatePicker();
+            hopeTrackBar1 = new ReaLTaiizor.Controls.HopeTrackBar();
+            hopeRoundProgressBar1 = new ReaLTaiizor.Controls.HopeRoundProgressBar();
+            hopeProgressBar2 = new ReaLTaiizor.Controls.HopeProgressBar();
+            hopeProgressBar1 = new ReaLTaiizor.Controls.HopeProgressBar();
+            hopeForm1 = new ReaLTaiizor.Forms.HopeForm();
+            hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
+            hopeSimpleButton1 = new ReaLTaiizor.Controls.HopeSimpleButton();
+            hopeRadioButton1 = new ReaLTaiizor.Controls.HopeRadioButton();
+            hopeRadioButton2 = new ReaLTaiizor.Controls.HopeRadioButton();
+            hopeCheckBox1 = new ReaLTaiizor.Controls.HopeCheckBox();
+            hopeCheckBox2 = new ReaLTaiizor.Controls.HopeCheckBox();
+            hopeContextMenuStrip1 = new ReaLTaiizor.Controls.HopeContextMenuStrip();
             toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,10 +55,10 @@
             bToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ıtem3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             aToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            hopeTextBox1 = new ReaLTaiizor.HopeTextBox();
-            hopeNotify1 = new ReaLTaiizor.HopeNotify();
-            hopeNotify2 = new ReaLTaiizor.HopeNotify();
-            hopeRoundButton1 = new ReaLTaiizor.HopeRoundButton();
+            hopeTextBox1 = new ReaLTaiizor.Controls.HopeTextBox();
+            hopeNotify1 = new ReaLTaiizor.Controls.HopeNotify();
+            hopeNotify2 = new ReaLTaiizor.Controls.HopeNotify();
+            hopeRoundButton1 = new ReaLTaiizor.Controls.HopeRoundButton();
             hopeGroupBox1.SuspendLayout();
             hopeContextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -84,7 +84,7 @@
             hopeNumeric1.Precision = 0;
             hopeNumeric1.Size = new System.Drawing.Size(120, 32);
             hopeNumeric1.Step = 1F;
-            hopeNumeric1.Style = ReaLTaiizor.HopeNumeric.NumericStyle.LeftRight;
+            hopeNumeric1.Style = ReaLTaiizor.Controls.HopeNumeric.NumericStyle.LeftRight;
             hopeNumeric1.TabIndex = 15;
             hopeNumeric1.Text = "hopeNumeric1";
             hopeNumeric1.ValueNumber = 5F;
@@ -235,7 +235,7 @@
             hopeProgressBar2.IsError = true;
             hopeProgressBar2.Location = new System.Drawing.Point(12, 96);
             hopeProgressBar2.Name = "hopeProgressBar2";
-            hopeProgressBar2.ProgressBarStyle = ReaLTaiizor.HopeProgressBar.Style.ToolTip;
+            hopeProgressBar2.ProgressBarStyle = ReaLTaiizor.Controls.HopeProgressBar.Style.ToolTip;
             hopeProgressBar2.Size = new System.Drawing.Size(232, 32);
             hopeProgressBar2.TabIndex = 1;
             hopeProgressBar2.Text = "Ok!";
@@ -254,7 +254,7 @@
             hopeProgressBar1.IsError = false;
             hopeProgressBar1.Location = new System.Drawing.Point(12, 58);
             hopeProgressBar1.Name = "hopeProgressBar1";
-            hopeProgressBar1.ProgressBarStyle = ReaLTaiizor.HopeProgressBar.Style.ToolTip;
+            hopeProgressBar1.ProgressBarStyle = ReaLTaiizor.Controls.HopeProgressBar.Style.ToolTip;
             hopeProgressBar1.Size = new System.Drawing.Size(232, 32);
             hopeProgressBar1.TabIndex = 0;
             hopeProgressBar1.Text = "Ok!";
@@ -281,7 +281,7 @@
             // hopeButton1
             // 
             hopeButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            hopeButton1.ButtonType = ReaLTaiizor.HopeButtonType.Warning;
+            hopeButton1.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Warning;
             hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -301,7 +301,7 @@
             // hopeSimpleButton1
             // 
             hopeSimpleButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            hopeSimpleButton1.ButtonType = ReaLTaiizor.HopeButtonType.Primary;
+            hopeSimpleButton1.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
             hopeSimpleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeSimpleButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeSimpleButton1.DefaultClickColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
@@ -512,7 +512,7 @@
             hopeNotify1.SuccessTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeNotify1.TabIndex = 23;
             hopeNotify1.Text = "hopeNotify1";
-            hopeNotify1.Type = ReaLTaiizor.HopeNotify.AlertType.Warning;
+            hopeNotify1.Type = ReaLTaiizor.Controls.HopeNotify.AlertType.Warning;
             hopeNotify1.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             hopeNotify1.WarningTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
@@ -533,14 +533,14 @@
             hopeNotify2.SuccessTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             hopeNotify2.TabIndex = 24;
             hopeNotify2.Text = "hopeNotify2";
-            hopeNotify2.Type = ReaLTaiizor.HopeNotify.AlertType.Error;
+            hopeNotify2.Type = ReaLTaiizor.Controls.HopeNotify.AlertType.Error;
             hopeNotify2.WarningBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             hopeNotify2.WarningTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             // 
             // hopeRoundButton1
             // 
             hopeRoundButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            hopeRoundButton1.ButtonType = ReaLTaiizor.HopeButtonType.Success;
+            hopeRoundButton1.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Success;
             hopeRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeRoundButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeRoundButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -600,23 +600,23 @@
 
         #endregion
 
-        private ReaLTaiizor.HopeForm hopeForm1;
-        private ReaLTaiizor.HopeProgressBar hopeProgressBar1;
-        private ReaLTaiizor.HopeProgressBar hopeProgressBar2;
-        private ReaLTaiizor.HopeDatePicker hopeDatePicker1;
-        private ReaLTaiizor.HopeRoundProgressBar hopeRoundProgressBar1;
-        private ReaLTaiizor.HopeTrackBar hopeTrackBar1;
-        private ReaLTaiizor.HopeGroupBox hopeGroupBox1;
-        private ReaLTaiizor.HopeSwitch hopeSwitch1;
-        private ReaLTaiizor.HopeToggle hopeToggle1;
-        private ReaLTaiizor.HopeNumeric hopeNumeric1;
-        private ReaLTaiizor.HopeButton hopeButton1;
-        private ReaLTaiizor.HopeSimpleButton hopeSimpleButton1;
-        private ReaLTaiizor.HopeRadioButton hopeRadioButton1;
-        private ReaLTaiizor.HopeRadioButton hopeRadioButton2;
-        private ReaLTaiizor.HopeCheckBox hopeCheckBox1;
-        private ReaLTaiizor.HopeCheckBox hopeCheckBox2;
-        private ReaLTaiizor.HopeContextMenuStrip hopeContextMenuStrip1;
+        private ReaLTaiizor.Forms.HopeForm hopeForm1;
+        private ReaLTaiizor.Controls.HopeProgressBar hopeProgressBar1;
+        private ReaLTaiizor.Controls.HopeProgressBar hopeProgressBar2;
+        private ReaLTaiizor.Controls.HopeDatePicker hopeDatePicker1;
+        private ReaLTaiizor.Controls.HopeRoundProgressBar hopeRoundProgressBar1;
+        private ReaLTaiizor.Controls.HopeTrackBar hopeTrackBar1;
+        private ReaLTaiizor.Controls.HopeGroupBox hopeGroupBox1;
+        private ReaLTaiizor.Controls.HopeSwitch hopeSwitch1;
+        private ReaLTaiizor.Controls.HopeToggle hopeToggle1;
+        private ReaLTaiizor.Controls.HopeNumeric hopeNumeric1;
+        private ReaLTaiizor.Controls.HopeButton hopeButton1;
+        private ReaLTaiizor.Controls.HopeSimpleButton hopeSimpleButton1;
+        private ReaLTaiizor.Controls.HopeRadioButton hopeRadioButton1;
+        private ReaLTaiizor.Controls.HopeRadioButton hopeRadioButton2;
+        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox1;
+        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox2;
+        private ReaLTaiizor.Controls.HopeContextMenuStrip hopeContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bToolStripMenuItem;
@@ -626,9 +626,9 @@
         private System.Windows.Forms.ToolStripMenuItem bToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ıtem3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem2;
-        private ReaLTaiizor.HopeTextBox hopeTextBox1;
-        private ReaLTaiizor.HopeNotify hopeNotify1;
-        private ReaLTaiizor.HopeNotify hopeNotify2;
-        private ReaLTaiizor.HopeRoundButton hopeRoundButton1;
+        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox1;
+        private ReaLTaiizor.Controls.HopeNotify hopeNotify1;
+        private ReaLTaiizor.Controls.HopeNotify hopeNotify2;
+        private ReaLTaiizor.Controls.HopeRoundButton hopeRoundButton1;
     }
 }

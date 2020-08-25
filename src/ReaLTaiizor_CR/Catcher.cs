@@ -1,4 +1,4 @@
-﻿using ReaLTaiizor;
+﻿using ReaLTaiizor.Forms;
 
 namespace ReaLTaiizor_CR
 {

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form8));
-            thunderTheme1 = new ReaLTaiizor.ThunderTheme();
-            thunderControlBox1 = new ReaLTaiizor.ThunderControlBox();
-            thunderGroupBox1 = new ReaLTaiizor.ThunderGroupBox();
-            thunderRadioButton1 = new ReaLTaiizor.ThunderRadioButton();
-            thunderLabel1 = new ReaLTaiizor.ThunderLabel();
-            thunderCheckBox1 = new ReaLTaiizor.ThunderCheckBox();
-            thunderProgressBar2 = new ReaLTaiizor.ThunderProgressBar();
-            thunderProgressBar1 = new ReaLTaiizor.ThunderProgressBar();
-            thunderButton1 = new ReaLTaiizor.ThunderButton();
+            thunderTheme1 = new ReaLTaiizor.Forms.ThunderForm();
+            thunderControlBox1 = new ReaLTaiizor.Controls.ThunderControlBox();
+            thunderGroupBox1 = new ReaLTaiizor.Controls.ThunderGroupBox();
+            thunderRadioButton1 = new ReaLTaiizor.Controls.ThunderRadioButton();
+            thunderLabel1 = new ReaLTaiizor.Controls.ThunderLabel();
+            thunderCheckBox1 = new ReaLTaiizor.Controls.ThunderCheckBox();
+            thunderProgressBar2 = new ReaLTaiizor.Controls.ThunderProgressBar();
+            thunderProgressBar1 = new ReaLTaiizor.Controls.ThunderProgressBar();
+            thunderButton1 = new ReaLTaiizor.Controls.ThunderButton();
             thunderTheme1.SuspendLayout();
             thunderGroupBox1.SuspendLayout();
             SuspendLayout();
@@ -189,14 +189,14 @@
 
         #endregion
 
-        private ReaLTaiizor.ThunderTheme thunderTheme1;
-        private ReaLTaiizor.ThunderGroupBox thunderGroupBox1;
-        private ReaLTaiizor.ThunderControlBox thunderControlBox1;
-        private ReaLTaiizor.ThunderButton thunderButton1;
-        private ReaLTaiizor.ThunderProgressBar thunderProgressBar2;
-        private ReaLTaiizor.ThunderProgressBar thunderProgressBar1;
-        private ReaLTaiizor.ThunderCheckBox thunderCheckBox1;
-        private ReaLTaiizor.ThunderLabel thunderLabel1;
-        private ReaLTaiizor.ThunderRadioButton thunderRadioButton1;
+        private ReaLTaiizor.Forms.ThunderForm thunderTheme1;
+        private ReaLTaiizor.Controls.ThunderGroupBox thunderGroupBox1;
+        private ReaLTaiizor.Controls.ThunderControlBox thunderControlBox1;
+        private ReaLTaiizor.Controls.ThunderButton thunderButton1;
+        private ReaLTaiizor.Controls.ThunderProgressBar thunderProgressBar2;
+        private ReaLTaiizor.Controls.ThunderProgressBar thunderProgressBar1;
+        private ReaLTaiizor.Controls.ThunderCheckBox thunderCheckBox1;
+        private ReaLTaiizor.Controls.ThunderLabel thunderLabel1;
+        private ReaLTaiizor.Controls.ThunderRadioButton thunderRadioButton1;
     }
 }
