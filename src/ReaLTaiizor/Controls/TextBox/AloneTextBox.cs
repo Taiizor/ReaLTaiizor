@@ -2,6 +2,7 @@
 
 using System;
 using System.Drawing;
+using ReaLTaiizor.Utils;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows.Forms;
