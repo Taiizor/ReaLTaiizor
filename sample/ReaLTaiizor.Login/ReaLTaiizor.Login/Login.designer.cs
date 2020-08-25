@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            hopePictureBox1 = new ReaLTaiizor.Controls.PictureBox.HopePictureBox();
-            hopeForm1 = new ReaLTaiizor.Forms.Form.Hope();
-            hopeTextBox2 = new ReaLTaiizor.Controls.TextBox.HopeTextBox();
-            hopeTextBox1 = new ReaLTaiizor.Controls.TextBox.HopeTextBox();
-            hopeButton1 = new ReaLTaiizor.Controls.Button.HopeButton();
-            hopePictureBox2 = new ReaLTaiizor.Controls.PictureBox.HopePictureBox();
-            hopePictureBox3 = new ReaLTaiizor.Controls.PictureBox.HopePictureBox();
-            hopePictureBox4 = new ReaLTaiizor.Controls.PictureBox.HopePictureBox();
-            hopePictureBox5 = new ReaLTaiizor.Controls.PictureBox.HopePictureBox();
-            foreverToggle1 = new ReaLTaiizor.Controls.Toggle.ForeverToggle();
-            labelEdit2 = new ReaLTaiizor.Controls.LabelEdit.LabelEdit();
-            hopePictureBox6 = new ReaLTaiizor.Controls.PictureBox.HopePictureBox();
+            hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
+            hopeForm1 = new ReaLTaiizor.Forms.HopeForm();
+            hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
+            hopeTextBox1 = new ReaLTaiizor.Controls.HopeTextBox();
+            hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
+            hopePictureBox2 = new ReaLTaiizor.Controls.HopePictureBox();
+            hopePictureBox3 = new ReaLTaiizor.Controls.HopePictureBox();
+            hopePictureBox4 = new ReaLTaiizor.Controls.HopePictureBox();
+            hopePictureBox5 = new ReaLTaiizor.Controls.HopePictureBox();
+            foreverToggle1 = new ReaLTaiizor.Controls.ForeverToggle();
+            labelEdit2 = new ReaLTaiizor.Controls.LabelEdit();
+            hopePictureBox6 = new ReaLTaiizor.Controls.HopePictureBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -218,7 +218,7 @@
             foreverToggle1.Font = new System.Drawing.Font("Segoe UI", 10F);
             foreverToggle1.Location = new System.Drawing.Point(231, 245);
             foreverToggle1.Name = "foreverToggle1";
-            foreverToggle1.Options = ReaLTaiizor.Controls.Toggle.ForeverToggle._Options.Style3;
+            foreverToggle1.Options = ReaLTaiizor.Controls.ForeverToggle._Options.Style3;
             foreverToggle1.Size = new System.Drawing.Size(76, 33);
             foreverToggle1.TabIndex = 23;
             foreverToggle1.Text = "foreverToggle1";
@@ -341,18 +341,18 @@
 
         #endregion
 
-        private ReaLTaiizor.Forms.Form.Hope hopeForm1;
-        private ReaLTaiizor.Controls.PictureBox.HopePictureBox hopePictureBox1;
-        private ReaLTaiizor.Controls.TextBox.HopeTextBox hopeTextBox2;
-        private ReaLTaiizor.Controls.TextBox.HopeTextBox hopeTextBox1;
-        private ReaLTaiizor.Controls.Button.HopeButton hopeButton1;
-        private ReaLTaiizor.Controls.PictureBox.HopePictureBox hopePictureBox2;
-        private ReaLTaiizor.Controls.PictureBox.HopePictureBox hopePictureBox3;
-        private ReaLTaiizor.Controls.PictureBox.HopePictureBox hopePictureBox4;
-        private ReaLTaiizor.Controls.PictureBox.HopePictureBox hopePictureBox5;
-        private ReaLTaiizor.Controls.Toggle.ForeverToggle foreverToggle1;
-        private ReaLTaiizor.Controls.LabelEdit.LabelEdit labelEdit2;
-        private ReaLTaiizor.Controls.PictureBox.HopePictureBox hopePictureBox6;
+        private ReaLTaiizor.Forms.HopeForm hopeForm1;
+        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox1;
+        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox2;
+        private ReaLTaiizor.Controls.HopeTextBox hopeTextBox1;
+        private ReaLTaiizor.Controls.HopeButton hopeButton1;
+        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox2;
+        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox3;
+        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox4;
+        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox5;
+        private ReaLTaiizor.Controls.ForeverToggle foreverToggle1;
+        private ReaLTaiizor.Controls.LabelEdit labelEdit2;
+        private ReaLTaiizor.Controls.HopePictureBox hopePictureBox6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;

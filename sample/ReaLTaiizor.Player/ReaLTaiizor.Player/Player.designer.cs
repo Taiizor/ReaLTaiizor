@@ -30,23 +30,23 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Player));
-            dreamForm1 = new ReaLTaiizor.Forms.Form.Dream();
-            labelEdit2 = new ReaLTaiizor.Controls.LabelEdit.LabelEdit();
-            panel3 = new ReaLTaiizor.Controls.Panel.Panel();
+            dreamForm1 = new ReaLTaiizor.Forms.DreamForm();
+            labelEdit2 = new ReaLTaiizor.Controls.LabelEdit();
+            panel3 = new ReaLTaiizor.Controls.Panel();
             pictureBox9 = new System.Windows.Forms.PictureBox();
             pictureBox8 = new System.Windows.Forms.PictureBox();
             pictureBox7 = new System.Windows.Forms.PictureBox();
-            labelEdit1 = new ReaLTaiizor.Controls.LabelEdit.LabelEdit();
-            panel1 = new ReaLTaiizor.Controls.Panel.Panel();
-            hopeTrackBar1 = new ReaLTaiizor.Controls.TrackBar.HopeTrackBar();
+            labelEdit1 = new ReaLTaiizor.Controls.LabelEdit();
+            panel1 = new ReaLTaiizor.Controls.Panel();
+            hopeTrackBar1 = new ReaLTaiizor.Controls.HopeTrackBar();
             pictureBox6 = new System.Windows.Forms.PictureBox();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             pictureBox5 = new System.Windows.Forms.PictureBox();
             pictureBox3 = new System.Windows.Forms.PictureBox();
             pictureBox4 = new System.Windows.Forms.PictureBox();
-            foreverMinimize1 = new ReaLTaiizor.Controls.Minimize.ForeverMinimize();
-            foreverClose1 = new ReaLTaiizor.Controls.Close.ForeverClose();
-            panel2 = new ReaLTaiizor.Controls.Panel.Panel();
+            foreverMinimize1 = new ReaLTaiizor.Controls.ForeverMinimize();
+            foreverClose1 = new ReaLTaiizor.Controls.ForeverClose();
+            panel2 = new ReaLTaiizor.Controls.Panel();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
             dreamForm1.SuspendLayout();
@@ -365,22 +365,22 @@
 
         #endregion
 
-        private ReaLTaiizor.Forms.Form.Dream dreamForm1;
-        private ReaLTaiizor.Controls.Close.ForeverClose foreverClose1;
-        private ReaLTaiizor.Controls.Minimize.ForeverMinimize foreverMinimize1;
-        private ReaLTaiizor.Controls.LabelEdit.LabelEdit labelEdit1;
-        private ReaLTaiizor.Controls.LabelEdit.LabelEdit labelEdit2;
+        private ReaLTaiizor.Forms.DreamForm dreamForm1;
+        private ReaLTaiizor.Controls.ForeverClose foreverClose1;
+        private ReaLTaiizor.Controls.ForeverMinimize foreverMinimize1;
+        private ReaLTaiizor.Controls.LabelEdit labelEdit1;
+        private ReaLTaiizor.Controls.LabelEdit labelEdit2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private ReaLTaiizor.Controls.TrackBar.HopeTrackBar hopeTrackBar1;
+        private ReaLTaiizor.Controls.HopeTrackBar hopeTrackBar1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ReaLTaiizor.Controls.Panel.Panel panel1;
+        private ReaLTaiizor.Controls.Panel panel1;
         private System.Windows.Forms.Timer timer1;
-        private ReaLTaiizor.Controls.Panel.Panel panel2;
-        private ReaLTaiizor.Controls.Panel.Panel panel3;
+        private ReaLTaiizor.Controls.Panel panel2;
+        private ReaLTaiizor.Controls.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
