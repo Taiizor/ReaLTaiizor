@@ -10,11 +10,11 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace ReaLTaiizor
+namespace ReaLTaiizor.Controls.Maximize
 {
-	#region ForeverClose
+	#region ForeverMaximize
 
-	public class ForeverClose : Control
+	public class ForeverMaximize : Control
 	{
 		private MouseStateForever State = MouseStateForever.None;
 		private int x;
@@ -40,7 +40,7 @@ namespace ReaLTaiizor
 			try
 			{
 				if (DefaultLocation)
-					Location = new Point(Parent.Width - Width - 12, 16);
+					Location = new Point(Parent.Width - Width - 36, 16);
 			}
 			catch (Exception)
 			{
@@ -86,13 +86,15 @@ namespace ReaLTaiizor
 		protected override void OnClick(EventArgs e)
 		{
 			base.OnClick(e);
-			Parent.FindForm().Close();
-		}
-
-		protected override void OnResize(EventArgs e)
-		{
-			base.OnResize(e);
-			Size = new Size(18, 18);
+			switch (FindForm().WindowState)
+			{
+				case FormWindowState.Maximized:
+					FindForm().WindowState = FormWindowState.Normal;
+					break;
+				case FormWindowState.Normal:
+					FindForm().WindowState = FormWindowState.Maximized;
+					break;
+			}
 		}
 
 		[Category("Colors")]
@@ -123,19 +125,25 @@ namespace ReaLTaiizor
 			set { _TextColor = value; }
 		}
 
+		protected override void OnResize(EventArgs e)
+		{
+			base.OnResize(e);
+			Size = new Size(18, 18);
+		}
+
 		private Color _BaseColor = Color.FromArgb(45, 47, 49);
 		private Color _OverColor = Color.FromArgb(30, 255, 255, 255);
 		private Color _DownColor = Color.FromArgb(30, 0, 0, 0);
 		private Color _TextColor = Color.FromArgb(243, 243, 243);
 
-		public ForeverClose()
+		public ForeverMaximize()
 		{
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
 			DoubleBuffered = true;
 			BackColor = Color.White;
 			Size = new Size(18, 18);
 			Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			Font = new Font("Marlett", 10);
+			Font = new Font("Marlett", 12);
 			Cursor = Cursors.Hand;
 		}
 
@@ -146,26 +154,29 @@ namespace ReaLTaiizor
 
 			Rectangle Base = new Rectangle(0, 0, Width, Height);
 
-			var _with3 = G;
-			_with3.SmoothingMode = SmoothingMode.HighQuality;
-			_with3.PixelOffsetMode = PixelOffsetMode.HighQuality;
-			_with3.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-			_with3.Clear(BackColor);
+			var _with4 = G;
+			_with4.SmoothingMode = SmoothingMode.HighQuality;
+			_with4.PixelOffsetMode = PixelOffsetMode.HighQuality;
+			_with4.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+			_with4.Clear(BackColor);
 
 			//-- Base
-			_with3.FillRectangle(new SolidBrush(_BaseColor), Base);
+			_with4.FillRectangle(new SolidBrush(_BaseColor), Base);
 
-			//-- X
-			_with3.DrawString("r", Font, new SolidBrush(TextColor), new Rectangle(0, 0, Width, Height), ForeverLibrary.CenterSF);
+			//-- Maximize
+			if (FindForm().WindowState == FormWindowState.Maximized)
+				_with4.DrawString("2", Font, new SolidBrush(TextColor), new Rectangle(1, 1, Width, Height), ForeverLibrary.CenterSF);
+			else if (FindForm().WindowState == FormWindowState.Normal)
+				_with4.DrawString("1", Font, new SolidBrush(TextColor), new Rectangle(1, 1, Width, Height), ForeverLibrary.CenterSF);
 
 			//-- Hover/down
 			switch (State)
 			{
 				case MouseStateForever.Over:
-					_with3.FillRectangle(new SolidBrush(_OverColor), Base);
+					_with4.FillRectangle(new SolidBrush(_OverColor), Base);
 					break;
 				case MouseStateForever.Down:
-					_with3.FillRectangle(new SolidBrush(_DownColor), Base);
+					_with4.FillRectangle(new SolidBrush(_DownColor), Base);
 					break;
 			}
 
