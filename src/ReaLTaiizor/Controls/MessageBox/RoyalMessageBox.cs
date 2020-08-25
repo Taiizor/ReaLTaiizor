@@ -2,6 +2,7 @@
 
 using System;
 using System.Drawing;
+using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls.Button;
 

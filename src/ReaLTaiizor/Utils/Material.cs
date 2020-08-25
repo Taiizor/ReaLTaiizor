@@ -3,16 +3,14 @@
 using System;
 using System.Linq;
 using System.Drawing;
-using System.Reflection;
 using ReaLTaiizor.Colors;
-using ReaLTaiizor.Helpers;
 using System.Drawing.Text;
 using System.Windows.Forms;
+using ReaLTaiizor.Extensions;
 using System.Threading.Tasks;
 using ReaLTaiizor.Properties;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using ReaLTaiizor.Extensions;
 
 #endregion
 
