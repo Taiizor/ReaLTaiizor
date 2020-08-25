@@ -1,11 +1,10 @@
 ﻿#region Imports
 
 using System.Drawing;
-using System.Windows.Forms;
 
 #endregion
 
-namespace ReaLTaiizor.Controls.Label
+namespace ReaLTaiizor.Controls.LabelEdit
 {
     #region LabelEdit
 

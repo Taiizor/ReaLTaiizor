@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
-            this.airForm1 = new ReaLTaiizor.AirForm();
-            this.hopeProgressBar1 = new ReaLTaiizor.HopeProgressBar();
-            this.lostBorderPanel2 = new ReaLTaiizor.LostBorderPanel();
-            this.lostPanel2 = new ReaLTaiizor.LostPanel();
-            this.bigLabel2 = new ReaLTaiizor.BigLabel();
-            this.hopeButton2 = new ReaLTaiizor.HopeButton();
-            this.hopeButton1 = new ReaLTaiizor.HopeButton();
-            this.foreverLabel5 = new ReaLTaiizor.ForeverLabel();
-            this.foreverComboBox2 = new ReaLTaiizor.ForeverComboBox();
-            this.foreverComboBox1 = new ReaLTaiizor.ForeverComboBox();
-            this.foreverLabel4 = new ReaLTaiizor.ForeverLabel();
-            this.foreverTextBox3 = new ReaLTaiizor.ForeverTextBox();
-            this.foreverLabel2 = new ReaLTaiizor.ForeverLabel();
-            this.foreverTextBox2 = new ReaLTaiizor.ForeverTextBox();
-            this.foreverLabel1 = new ReaLTaiizor.ForeverLabel();
-            this.foreverTextBox1 = new ReaLTaiizor.ForeverTextBox();
-            this.lostBorderPanel1 = new ReaLTaiizor.LostBorderPanel();
-            this.lostPanel1 = new ReaLTaiizor.LostPanel();
-            this.panel1 = new ReaLTaiizor.Panel();
+            this.airForm1 = new ReaLTaiizor.Forms.Form.Air();
+            this.hopeProgressBar1 = new ReaLTaiizor.Controls.Progress.HopeProgressBar();
+            this.lostBorderPanel2 = new ReaLTaiizor.Controls.Panel.LostBorderPanel();
+            this.lostPanel2 = new ReaLTaiizor.Controls.Panel.LostPanel();
+            this.bigLabel2 = new ReaLTaiizor.Controls.Label.BigLabel();
+            this.hopeButton2 = new ReaLTaiizor.Controls.Button.HopeButton();
+            this.hopeButton1 = new ReaLTaiizor.Controls.Button.HopeButton();
+            this.foreverLabel5 = new ReaLTaiizor.Controls.Label.ForeverLabel();
+            this.foreverComboBox2 = new ReaLTaiizor.Controls.ComboBox.ForeverComboBox();
+            this.foreverComboBox1 = new ReaLTaiizor.Controls.ComboBox.ForeverComboBox();
+            this.foreverLabel4 = new ReaLTaiizor.Controls.Label.ForeverLabel();
+            this.foreverTextBox3 = new ReaLTaiizor.Controls.TextBox.ForeverTextBox();
+            this.foreverLabel2 = new ReaLTaiizor.Controls.Label.ForeverLabel();
+            this.foreverTextBox2 = new ReaLTaiizor.Controls.TextBox.ForeverTextBox();
+            this.foreverLabel1 = new ReaLTaiizor.Controls.Label.ForeverLabel();
+            this.foreverTextBox1 = new ReaLTaiizor.Controls.TextBox.ForeverTextBox();
+            this.lostBorderPanel1 = new ReaLTaiizor.Controls.Panel.LostBorderPanel();
+            this.lostPanel1 = new ReaLTaiizor.Controls.Panel.LostPanel();
+            this.panel1 = new ReaLTaiizor.Controls.Panel.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bigLabel1 = new ReaLTaiizor.BigLabel();
+            this.bigLabel1 = new ReaLTaiizor.Controls.Label.BigLabel();
             this.airForm1.SuspendLayout();
             this.lostBorderPanel2.SuspendLayout();
             this.lostPanel2.SuspendLayout();
@@ -99,7 +99,7 @@
             this.hopeProgressBar1.IsError = false;
             this.hopeProgressBar1.Location = new System.Drawing.Point(286, 35);
             this.hopeProgressBar1.Name = "hopeProgressBar1";
-            this.hopeProgressBar1.ProgressBarStyle = ReaLTaiizor.HopeProgressBar.Style.ToolTip;
+            this.hopeProgressBar1.ProgressBarStyle = ReaLTaiizor.Controls.Progress.HopeProgressBar.Style.ToolTip;
             this.hopeProgressBar1.Size = new System.Drawing.Size(465, 32);
             this.hopeProgressBar1.TabIndex = 6;
             this.hopeProgressBar1.Text = "hopeProgressBar1";
@@ -161,7 +161,7 @@
             // hopeButton2
             // 
             this.hopeButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.hopeButton2.ButtonType = ReaLTaiizor.HopeButtonType.Warning;
+            this.hopeButton2.ButtonType = Utils.HopeButtonType.Warning;
             this.hopeButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hopeButton2.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.hopeButton2.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -181,7 +181,7 @@
             // hopeButton1
             // 
             this.hopeButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.hopeButton1.ButtonType = ReaLTaiizor.HopeButtonType.Danger;
+            this.hopeButton1.ButtonType = Utils.HopeButtonType.Danger;
             this.hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hopeButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.hopeButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -485,28 +485,28 @@
 
         #endregion
 
-        private AirForm airForm1;
-        private LostBorderPanel lostBorderPanel1;
-        private LostPanel lostPanel1;
-        private BigLabel bigLabel1;
-        private Panel panel1;
+        private ReaLTaiizor.Forms.Form.Air airForm1;
+        private ReaLTaiizor.Controls.Panel.LostBorderPanel lostBorderPanel1;
+        private ReaLTaiizor.Controls.Panel.LostPanel lostPanel1;
+        private ReaLTaiizor.Controls.Label.BigLabel bigLabel1;
+        private ReaLTaiizor.Controls.Panel.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private LostBorderPanel lostBorderPanel2;
-        private LostPanel lostPanel2;
-        private ForeverTextBox foreverTextBox1;
-        private HopeProgressBar hopeProgressBar1;
-        private ForeverComboBox foreverComboBox1;
-        private ForeverLabel foreverLabel4;
-        private ForeverTextBox foreverTextBox3;
-        private ForeverLabel foreverLabel2;
-        private ForeverTextBox foreverTextBox2;
-        private ForeverLabel foreverLabel1;
-        private ForeverComboBox foreverComboBox2;
-        private ForeverLabel foreverLabel5;
-        private BigLabel bigLabel2;
-        private HopeButton hopeButton2;
-        private HopeButton hopeButton1;
+        private ReaLTaiizor.Controls.Panel.LostBorderPanel lostBorderPanel2;
+        private ReaLTaiizor.Controls.Panel.LostPanel lostPanel2;
+        private ReaLTaiizor.Controls.TextBox.ForeverTextBox foreverTextBox1;
+        private ReaLTaiizor.Controls.Progress.HopeProgressBar hopeProgressBar1;
+        private ReaLTaiizor.Controls.ComboBox.ForeverComboBox foreverComboBox1;
+        private ReaLTaiizor.Controls.Label.ForeverLabel foreverLabel4;
+        private ReaLTaiizor.Controls.TextBox.ForeverTextBox foreverTextBox3;
+        private ReaLTaiizor.Controls.Label.ForeverLabel foreverLabel2;
+        private ReaLTaiizor.Controls.TextBox.ForeverTextBox foreverTextBox2;
+        private ReaLTaiizor.Controls.Label.ForeverLabel foreverLabel1;
+        private ReaLTaiizor.Controls.ComboBox.ForeverComboBox foreverComboBox2;
+        private ReaLTaiizor.Controls.Label.ForeverLabel foreverLabel5;
+        private ReaLTaiizor.Controls.Label.BigLabel bigLabel2;
+        private ReaLTaiizor.Controls.Button.HopeButton hopeButton2;
+        private ReaLTaiizor.Controls.Button.HopeButton hopeButton1;
     }
 }
