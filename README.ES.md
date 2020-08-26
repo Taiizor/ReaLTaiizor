@@ -121,7 +121,7 @@ Step 2：Disfruta diseñando
 
 ## Visión General
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/24/A6kS.gif)
+![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/26/AuYn.gif)
 
 ![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
