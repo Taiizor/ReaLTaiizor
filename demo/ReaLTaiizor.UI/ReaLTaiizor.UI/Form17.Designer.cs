@@ -36,6 +36,8 @@ namespace ReaLTaiizor.UI
             materialCheckbox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
             materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
             tabPage1 = new System.Windows.Forms.TabPage();
+            materialButton25 = new ReaLTaiizor.Controls.MaterialButton();
+            materialButton6 = new ReaLTaiizor.Controls.MaterialButton();
             MaterialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             materialSwitch8 = new ReaLTaiizor.Controls.MaterialSwitch();
             materialLabel24 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -235,6 +237,8 @@ namespace ReaLTaiizor.UI
             // tabPage1
             // 
             tabPage1.BackColor = System.Drawing.Color.White;
+            tabPage1.Controls.Add(materialButton25);
+            tabPage1.Controls.Add(materialButton6);
             tabPage1.Controls.Add(MaterialButton3);
             tabPage1.Controls.Add(materialSwitch8);
             tabPage1.Controls.Add(materialLabel24);
@@ -251,6 +255,46 @@ namespace ReaLTaiizor.UI
             tabPage1.Size = new System.Drawing.Size(1015, 520);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
+            // 
+            // materialButton25
+            // 
+            materialButton25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            materialButton25.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            materialButton25.Depth = 0;
+            materialButton25.DrawShadows = true;
+            materialButton25.HighEmphasis = true;
+            materialButton25.Icon = null;
+            materialButton25.Location = new System.Drawing.Point(696, 478);
+            materialButton25.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            materialButton25.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton25.Name = "materialButton25";
+            materialButton25.Size = new System.Drawing.Size(166, 36);
+            materialButton25.TabIndex = 39;
+            materialButton25.Text = "NORMAL ANIMATION";
+            materialButton25.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            materialButton25.UseAccentColor = false;
+            materialButton25.UseVisualStyleBackColor = true;
+            materialButton25.Click += new System.EventHandler(MaterialButton25_Click);
+            // 
+            // materialButton6
+            // 
+            materialButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            materialButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            materialButton6.Depth = 0;
+            materialButton6.DrawShadows = true;
+            materialButton6.HighEmphasis = true;
+            materialButton6.Icon = null;
+            materialButton6.Location = new System.Drawing.Point(870, 478);
+            materialButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            materialButton6.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton6.Name = "materialButton6";
+            materialButton6.Size = new System.Drawing.Size(141, 36);
+            materialButton6.TabIndex = 38;
+            materialButton6.Text = "FAST ANIMATION";
+            materialButton6.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            materialButton6.UseAccentColor = false;
+            materialButton6.UseVisualStyleBackColor = true;
+            materialButton6.Click += new System.EventHandler(MaterialButton6_Click);
             // 
             // MaterialButton3
             // 
@@ -295,7 +339,7 @@ namespace ReaLTaiizor.UI
             materialLabel24.AutoSize = true;
             materialLabel24.Depth = 0;
             materialLabel24.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel24.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel24.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel24.Location = new System.Drawing.Point(21, 17);
             materialLabel24.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel24.Name = "materialLabel24";
@@ -553,7 +597,7 @@ namespace ReaLTaiizor.UI
             materialLabel25.AutoSize = true;
             materialLabel25.Depth = 0;
             materialLabel25.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel25.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel25.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel25.Location = new System.Drawing.Point(22, 13);
             materialLabel25.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel25.Name = "materialLabel25";
@@ -1358,7 +1402,7 @@ namespace ReaLTaiizor.UI
             materialLabel26.AutoSize = true;
             materialLabel26.Depth = 0;
             materialLabel26.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel26.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel26.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel26.Location = new System.Drawing.Point(21, 12);
             materialLabel26.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel26.Name = "materialLabel26";
@@ -1622,7 +1666,7 @@ namespace ReaLTaiizor.UI
             materialLabel42.Depth = 0;
             materialLabel42.Enabled = false;
             materialLabel42.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel42.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Subtitle2;
+            materialLabel42.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Subtitle2;
             materialLabel42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel42.Location = new System.Drawing.Point(629, 468);
             materialLabel42.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1636,7 +1680,7 @@ namespace ReaLTaiizor.UI
             materialLabel41.AutoSize = true;
             materialLabel41.Depth = 0;
             materialLabel41.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel41.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Subtitle2;
+            materialLabel41.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Subtitle2;
             materialLabel41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel41.HighEmphasis = true;
             materialLabel41.Location = new System.Drawing.Point(629, 441);
@@ -1652,7 +1696,7 @@ namespace ReaLTaiizor.UI
             materialLabel40.AutoSize = true;
             materialLabel40.Depth = 0;
             materialLabel40.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel40.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Subtitle2;
+            materialLabel40.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Subtitle2;
             materialLabel40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel40.HighEmphasis = true;
             materialLabel40.Location = new System.Drawing.Point(629, 415);
@@ -1667,7 +1711,7 @@ namespace ReaLTaiizor.UI
             materialLabel27.AutoSize = true;
             materialLabel27.Depth = 0;
             materialLabel27.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel27.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel27.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel27.Location = new System.Drawing.Point(28, 18);
             materialLabel27.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel27.Name = "materialLabel27";
@@ -1744,7 +1788,7 @@ namespace ReaLTaiizor.UI
             materialLabel22.AutoSize = true;
             materialLabel22.Depth = 0;
             materialLabel22.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel22.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Overline;
+            materialLabel22.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Overline;
             materialLabel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel22.Location = new System.Drawing.Point(478, 468);
             materialLabel22.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1758,7 +1802,7 @@ namespace ReaLTaiizor.UI
             materialLabel21.AutoSize = true;
             materialLabel21.Depth = 0;
             materialLabel21.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel21.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Caption;
+            materialLabel21.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Caption;
             materialLabel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel21.Location = new System.Drawing.Point(478, 448);
             materialLabel21.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1772,7 +1816,7 @@ namespace ReaLTaiizor.UI
             materialLabel20.AutoSize = true;
             materialLabel20.Depth = 0;
             materialLabel20.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel20.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Button;
+            materialLabel20.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Button;
             materialLabel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel20.Location = new System.Drawing.Point(478, 428);
             materialLabel20.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1786,7 +1830,7 @@ namespace ReaLTaiizor.UI
             materialLabel19.AutoSize = true;
             materialLabel19.Depth = 0;
             materialLabel19.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel19.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Body2;
+            materialLabel19.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Body2;
             materialLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel19.Location = new System.Drawing.Point(478, 407);
             materialLabel19.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1813,7 +1857,7 @@ namespace ReaLTaiizor.UI
             materialLabel17.AutoSize = true;
             materialLabel17.Depth = 0;
             materialLabel17.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel17.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Subtitle2;
+            materialLabel17.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Subtitle2;
             materialLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel17.Location = new System.Drawing.Point(478, 365);
             materialLabel17.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1827,7 +1871,7 @@ namespace ReaLTaiizor.UI
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel1.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.Subtitle1;
+            materialLabel1.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.Subtitle1;
             materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel1.Location = new System.Drawing.Point(477, 342);
             materialLabel1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1841,7 +1885,7 @@ namespace ReaLTaiizor.UI
             materialLabel16.AutoSize = true;
             materialLabel16.Depth = 0;
             materialLabel16.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel16.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H6;
+            materialLabel16.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H6;
             materialLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel16.Location = new System.Drawing.Point(477, 314);
             materialLabel16.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1855,7 +1899,7 @@ namespace ReaLTaiizor.UI
             materialLabel15.AutoSize = true;
             materialLabel15.Depth = 0;
             materialLabel15.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel15.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H5;
+            materialLabel15.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H5;
             materialLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel15.Location = new System.Drawing.Point(476, 283);
             materialLabel15.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1869,7 +1913,7 @@ namespace ReaLTaiizor.UI
             materialLabel14.AutoSize = true;
             materialLabel14.Depth = 0;
             materialLabel14.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel14.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H4;
+            materialLabel14.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H4;
             materialLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel14.Location = new System.Drawing.Point(474, 242);
             materialLabel14.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1883,7 +1927,7 @@ namespace ReaLTaiizor.UI
             materialLabel13.AutoSize = true;
             materialLabel13.Depth = 0;
             materialLabel13.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel13.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel13.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel13.Location = new System.Drawing.Point(471, 185);
             materialLabel13.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1897,7 +1941,7 @@ namespace ReaLTaiizor.UI
             materialLabel12.AutoSize = true;
             materialLabel12.Depth = 0;
             materialLabel12.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel12.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H2;
+            materialLabel12.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H2;
             materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel12.Location = new System.Drawing.Point(468, 114);
             materialLabel12.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1911,7 +1955,7 @@ namespace ReaLTaiizor.UI
             materialLabel11.AutoSize = true;
             materialLabel11.Depth = 0;
             materialLabel11.Font = new System.Drawing.Font("Roboto Light", 96F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel11.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H1;
+            materialLabel11.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H1;
             materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel11.Location = new System.Drawing.Point(461, 18);
             materialLabel11.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1952,7 +1996,7 @@ namespace ReaLTaiizor.UI
             materialLabel28.AutoSize = true;
             materialLabel28.Depth = 0;
             materialLabel28.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel28.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel28.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel28.Location = new System.Drawing.Point(28, 18);
             materialLabel28.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel28.Name = "materialLabel28";
@@ -2094,7 +2138,7 @@ namespace ReaLTaiizor.UI
             materialLabel29.AutoSize = true;
             materialLabel29.Depth = 0;
             materialLabel29.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel29.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel29.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel29.Location = new System.Drawing.Point(32, 14);
             materialLabel29.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel29.Name = "materialLabel29";
@@ -2159,7 +2203,7 @@ namespace ReaLTaiizor.UI
             materialLabel7.AutoSize = true;
             materialLabel7.Depth = 0;
             materialLabel7.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel7.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel7.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel7.Location = new System.Drawing.Point(34, 16);
             materialLabel7.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel7.Name = "materialLabel7";
@@ -2207,7 +2251,7 @@ namespace ReaLTaiizor.UI
             materialLabel4.AutoSize = true;
             materialLabel4.Depth = 0;
             materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel4.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H6;
+            materialLabel4.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H6;
             materialLabel4.HighEmphasis = true;
             materialLabel4.Location = new System.Drawing.Point(17, 14);
             materialLabel4.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -2260,7 +2304,7 @@ namespace ReaLTaiizor.UI
             materialLabel45.AutoSize = true;
             materialLabel45.Depth = 0;
             materialLabel45.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel45.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H6;
+            materialLabel45.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H6;
             materialLabel45.HighEmphasis = true;
             materialLabel45.Location = new System.Drawing.Point(15, 14);
             materialLabel45.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -2300,7 +2344,7 @@ namespace ReaLTaiizor.UI
             materialLabel10.AutoSize = true;
             materialLabel10.Depth = 0;
             materialLabel10.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel10.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel10.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialLabel10.HighEmphasis = true;
             materialLabel10.Location = new System.Drawing.Point(6, 7);
@@ -2331,7 +2375,7 @@ namespace ReaLTaiizor.UI
             materialLabel30.AutoSize = true;
             materialLabel30.Depth = 0;
             materialLabel30.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            materialLabel30.FontType = ReaLTaiizor.Utils.MaterialSkinManager.fontType.H3;
+            materialLabel30.FontType = ReaLTaiizor.Utils.MaterialManager.fontType.H3;
             materialLabel30.Location = new System.Drawing.Point(562, 16);
             materialLabel30.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel30.Name = "materialLabel30";
@@ -2596,5 +2640,7 @@ namespace ReaLTaiizor.UI
         private ReaLTaiizor.Controls.MaterialLabel materialLabel38;
         private ReaLTaiizor.Controls.MaterialDivider materialDivider3;
         private ReaLTaiizor.Controls.MaterialDivider materialDivider2;
+        private Controls.MaterialButton materialButton25;
+        private Controls.MaterialButton materialButton6;
     }
 }

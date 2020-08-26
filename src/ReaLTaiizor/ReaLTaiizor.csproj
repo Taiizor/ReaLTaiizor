@@ -15,7 +15,7 @@
 C# WinForm UI/UX Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Component customizations have been replicated.
+    <PackageReleaseNotes>The class names of the components have been revised.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
     <PackageTags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
@@ -100,10 +100,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Taiizor.ico" />
     <Resource Include="Resources\Taiizor.png" />
     <Resource Include="Resources\Twitter.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Utils\Lost.cs" />
   </ItemGroup>
 
 </Project>
