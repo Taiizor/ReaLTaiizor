@@ -1,10 +1,10 @@
-![logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
+![Logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
 
-![dotnetframework-version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
-![csharp-version](https://img.shields.io/badge/C%23-9.0-blue.svg)
-![ide-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
-[![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
-[![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
+![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
+![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
+![IDE-Version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
+[![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
+[![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # Bienvenido a ReaLTaiizor
 ReaLTaiizor es una biblioteca de interfaz de UI/UX. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
