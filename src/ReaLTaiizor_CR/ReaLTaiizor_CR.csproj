@@ -37,7 +37,7 @@
     <StartupObject>ReaLTaiizor_CR.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Fork1.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ReaLTaiizor, Version=3.7.7.6, Culture=neutral, processorArchitecture=MSIL">
@@ -95,10 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Fork1.ico" />
+    <None Include="Resources\FORK.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Fork2.png" />
+    <None Include="Resources\ICO.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
