@@ -12,7 +12,7 @@
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
     <Description>Best with more than 200 WinForm components.
-C# WinForm UI/UX Library - $(PackageId)</Description>
+C# WinForm UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Component customizations have been replicated.

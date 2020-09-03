@@ -7,7 +7,7 @@
 [![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # Bienvenido a ReaLTaiizor
-ReaLTaiizor es una biblioteca de interfaz de UI/UX. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
+ReaLTaiizor es una biblioteca de componente interfaz de UI/UX. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
 
 ## Colaboradores
 
