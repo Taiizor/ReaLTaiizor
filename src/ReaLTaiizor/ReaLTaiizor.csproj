@@ -105,6 +105,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
 
   <ItemGroup>
     <Compile Update="Controls\Button\NightButton.cs" />
+    <Compile Update="Controls\Label\NightHeaderLabel.cs" />
     <Compile Update="Controls\Label\NightLabel.cs" />
     <Compile Update="Controls\LinkLabel\NightLinkLabel.cs" />
     <Compile Update="Controls\Panel\NightPanel.cs" />
