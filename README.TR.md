@@ -176,3 +176,7 @@ Adım 2：Tasarlamanın tadını çıkarın
 ### Kraliyet
 
 ![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
+
+### Gece
+
+![NightTheme](https://www.photo.herominyum.com/resimler/2020/09/06/E1NV.png)
