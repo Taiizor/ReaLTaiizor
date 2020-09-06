@@ -29,231 +29,231 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Material));
-            this.materialTextBox1 = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.materialTextBox2 = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.materialRichTextBox1 = new ReaLTaiizor.Controls.MaterialRichTextBox();
-            this.materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialTextBox3 = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
-            this.SuspendLayout();
+            materialTextBox1 = new ReaLTaiizor.Controls.MaterialTextBox();
+            materialTextBox2 = new ReaLTaiizor.Controls.MaterialTextBox();
+            textBox1 = new System.Windows.Forms.TextBox();
+            textBox2 = new System.Windows.Forms.TextBox();
+            textBox3 = new System.Windows.Forms.TextBox();
+            textBox4 = new System.Windows.Forms.TextBox();
+            richTextBox1 = new System.Windows.Forms.RichTextBox();
+            materialRichTextBox1 = new ReaLTaiizor.Controls.MaterialRichTextBox();
+            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
+            materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
+            materialTextBox3 = new ReaLTaiizor.Controls.MaterialTextBox();
+            materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
+            materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
+            SuspendLayout();
             // 
             // materialTextBox1
             // 
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.materialTextBox1.Hint = "53X";
-            this.materialTextBox1.Location = new System.Drawing.Point(12, 85);
-            this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.materialTextBox1.Multiline = false;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(291, 50);
-            this.materialTextBox1.TabIndex = 0;
-            this.materialTextBox1.Text = "deneme";
+            materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            materialTextBox1.Depth = 0;
+            materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            materialTextBox1.Hint = "53X";
+            materialTextBox1.Location = new System.Drawing.Point(12, 85);
+            materialTextBox1.MaxLength = 50;
+            materialTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBox1.Multiline = false;
+            materialTextBox1.Name = "materialTextBox1";
+            materialTextBox1.Size = new System.Drawing.Size(291, 50);
+            materialTextBox1.TabIndex = 0;
+            materialTextBox1.Text = "deneme";
             // 
             // materialTextBox2
             // 
-            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox2.Depth = 0;
-            this.materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.materialTextBox2.Hint = "53X";
-            this.materialTextBox2.Location = new System.Drawing.Point(12, 141);
-            this.materialTextBox2.MaxLength = 50;
-            this.materialTextBox2.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.materialTextBox2.Multiline = false;
-            this.materialTextBox2.Name = "materialTextBox2";
-            this.materialTextBox2.Password = true;
-            this.materialTextBox2.Size = new System.Drawing.Size(291, 50);
-            this.materialTextBox2.TabIndex = 1;
-            this.materialTextBox2.Text = "deneme";
+            materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            materialTextBox2.Depth = 0;
+            materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            materialTextBox2.Hint = "53X";
+            materialTextBox2.Location = new System.Drawing.Point(12, 141);
+            materialTextBox2.MaxLength = 50;
+            materialTextBox2.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBox2.Multiline = false;
+            materialTextBox2.Name = "materialTextBox2";
+            materialTextBox2.Password = true;
+            materialTextBox2.Size = new System.Drawing.Size(291, 50);
+            materialTextBox2.TabIndex = 1;
+            materialTextBox2.Text = "deneme";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 197);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "deneme";
+            textBox1.Location = new System.Drawing.Point(12, 197);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(291, 20);
+            textBox1.TabIndex = 2;
+            textBox1.Text = "deneme";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 223);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "deneme";
+            textBox2.Location = new System.Drawing.Point(12, 223);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new System.Drawing.Size(291, 20);
+            textBox2.TabIndex = 3;
+            textBox2.Text = "deneme";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 249);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '●';
-            this.textBox3.Size = new System.Drawing.Size(291, 20);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "deneme";
+            textBox3.Location = new System.Drawing.Point(12, 249);
+            textBox3.Name = "textBox3";
+            textBox3.PasswordChar = '●';
+            textBox3.Size = new System.Drawing.Size(291, 20);
+            textBox3.TabIndex = 4;
+            textBox3.Text = "deneme";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 275);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PasswordChar = '●';
-            this.textBox4.Size = new System.Drawing.Size(291, 20);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "deneme";
+            textBox4.Location = new System.Drawing.Point(12, 275);
+            textBox4.Multiline = true;
+            textBox4.Name = "textBox4";
+            textBox4.PasswordChar = '●';
+            textBox4.Size = new System.Drawing.Size(291, 20);
+            textBox4.TabIndex = 5;
+            textBox4.Text = "deneme";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(12, 301);
-            this.richTextBox1.Multiline = false;
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(291, 55);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "deneme";
+            richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            richTextBox1.Location = new System.Drawing.Point(12, 301);
+            richTextBox1.Multiline = false;
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new System.Drawing.Size(291, 55);
+            richTextBox1.TabIndex = 7;
+            richTextBox1.Text = "deneme";
             // 
             // materialRichTextBox1
             // 
-            this.materialRichTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialRichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialRichTextBox1.Depth = 0;
-            this.materialRichTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialRichTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialRichTextBox1.Hint = "";
-            this.materialRichTextBox1.Location = new System.Drawing.Point(322, 85);
-            this.materialRichTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialRichTextBox1.Name = "materialRichTextBox1";
-            this.materialRichTextBox1.Size = new System.Drawing.Size(291, 106);
-            this.materialRichTextBox1.TabIndex = 8;
-            this.materialRichTextBox1.Text = "This is a test message!";
+            materialRichTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            materialRichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            materialRichTextBox1.Depth = 0;
+            materialRichTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            materialRichTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            materialRichTextBox1.Hint = "";
+            materialRichTextBox1.Location = new System.Drawing.Point(322, 85);
+            materialRichTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialRichTextBox1.Name = "materialRichTextBox1";
+            materialRichTextBox1.Size = new System.Drawing.Size(291, 106);
+            materialRichTextBox1.TabIndex = 8;
+            materialRichTextBox1.Text = "This is a test message!";
             // 
             // materialButton1
             // 
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.DrawShadows = true;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(310, 320);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.Size = new System.Drawing.Size(136, 36);
-            this.materialButton1.TabIndex = 9;
-            this.materialButton1.Text = "FAST ANIMATION";
-            this.materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.MaterialButton1_Click);
+            materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            materialButton1.Depth = 0;
+            materialButton1.DrawShadows = true;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.Location = new System.Drawing.Point(310, 320);
+            materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            materialButton1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.Size = new System.Drawing.Size(136, 36);
+            materialButton1.TabIndex = 9;
+            materialButton1.Text = "FAST ANIMATION";
+            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Click += new System.EventHandler(MaterialButton1_Click);
             // 
             // materialButton2
             // 
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.DrawShadows = true;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(459, 320);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.Size = new System.Drawing.Size(160, 36);
-            this.materialButton2.TabIndex = 10;
-            this.materialButton2.Text = "NORMAL ANIMATION";
-            this.materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
-            this.materialButton2.Click += new System.EventHandler(this.materialButton2_Click);
+            materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            materialButton2.Depth = 0;
+            materialButton2.DrawShadows = true;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = null;
+            materialButton2.Location = new System.Drawing.Point(459, 320);
+            materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            materialButton2.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.Size = new System.Drawing.Size(160, 36);
+            materialButton2.TabIndex = 10;
+            materialButton2.Text = "NORMAL ANIMATION";
+            materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton2.UseAccentColor = false;
+            materialButton2.UseVisualStyleBackColor = true;
+            materialButton2.Click += new System.EventHandler(materialButton2_Click);
             // 
             // materialTextBox3
             // 
-            this.materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox3.Depth = 0;
-            this.materialTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.materialTextBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.materialTextBox3.Hint = "53X";
-            this.materialTextBox3.Location = new System.Drawing.Point(322, 205);
-            this.materialTextBox3.MaxLength = 50;
-            this.materialTextBox3.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.materialTextBox3.Multiline = false;
-            this.materialTextBox3.Name = "materialTextBox3";
-            this.materialTextBox3.Size = new System.Drawing.Size(291, 36);
-            this.materialTextBox3.TabIndex = 11;
-            this.materialTextBox3.Text = "deneme";
-            this.materialTextBox3.UseTallSize = false;
+            materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            materialTextBox3.Depth = 0;
+            materialTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            materialTextBox3.ForeColor = System.Drawing.SystemColors.WindowText;
+            materialTextBox3.Hint = "53X";
+            materialTextBox3.Location = new System.Drawing.Point(322, 205);
+            materialTextBox3.MaxLength = 50;
+            materialTextBox3.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBox3.Multiline = false;
+            materialTextBox3.Name = "materialTextBox3";
+            materialTextBox3.Size = new System.Drawing.Size(291, 36);
+            materialTextBox3.TabIndex = 11;
+            materialTextBox3.Text = "deneme";
+            materialTextBox3.UseTallSize = false;
             // 
             // materialButton3
             // 
-            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton3.Depth = 0;
-            this.materialButton3.DrawShadows = true;
-            this.materialButton3.HighEmphasis = true;
-            this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(395, 283);
-            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton3.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton3.Name = "materialButton3";
-            this.materialButton3.Size = new System.Drawing.Size(139, 36);
-            this.materialButton3.TabIndex = 13;
-            this.materialButton3.Text = "CHANGE SCHEMA";
-            this.materialButton3.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton3.UseAccentColor = false;
-            this.materialButton3.UseVisualStyleBackColor = true;
-            this.materialButton3.Click += new System.EventHandler(this.MaterialButton3_Click);
+            materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            materialButton3.Depth = 0;
+            materialButton3.DrawShadows = true;
+            materialButton3.HighEmphasis = true;
+            materialButton3.Icon = null;
+            materialButton3.Location = new System.Drawing.Point(395, 283);
+            materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            materialButton3.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton3.Name = "materialButton3";
+            materialButton3.Size = new System.Drawing.Size(139, 36);
+            materialButton3.TabIndex = 13;
+            materialButton3.Text = "CHANGE SCHEMA";
+            materialButton3.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton3.UseAccentColor = false;
+            materialButton3.UseVisualStyleBackColor = true;
+            materialButton3.Click += new System.EventHandler(MaterialButton3_Click);
             // 
             // materialSingleTextBox1
             // 
-            this.materialSingleTextBox1.Depth = 0;
-            this.materialSingleTextBox1.Hint = "";
-            this.materialSingleTextBox1.Location = new System.Drawing.Point(322, 247);
-            this.materialSingleTextBox1.MaxLength = 32767;
-            this.materialSingleTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialSingleTextBox1.Name = "materialSingleTextBox1";
-            this.materialSingleTextBox1.PasswordChar = '\0';
-            this.materialSingleTextBox1.SelectedText = "";
-            this.materialSingleTextBox1.SelectionLength = 0;
-            this.materialSingleTextBox1.SelectionStart = 0;
-            this.materialSingleTextBox1.Size = new System.Drawing.Size(291, 25);
-            this.materialSingleTextBox1.TabIndex = 14;
-            this.materialSingleTextBox1.TabStop = false;
-            this.materialSingleTextBox1.Text = "materialSingleTextBox1";
-            this.materialSingleTextBox1.UseSystemPasswordChar = false;
+            materialSingleTextBox1.Depth = 0;
+            materialSingleTextBox1.Hint = "";
+            materialSingleTextBox1.Location = new System.Drawing.Point(322, 247);
+            materialSingleTextBox1.MaxLength = 32767;
+            materialSingleTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialSingleTextBox1.Name = "materialSingleTextBox1";
+            materialSingleTextBox1.PasswordChar = '\0';
+            materialSingleTextBox1.SelectedText = "";
+            materialSingleTextBox1.SelectionLength = 0;
+            materialSingleTextBox1.SelectionStart = 0;
+            materialSingleTextBox1.Size = new System.Drawing.Size(291, 25);
+            materialSingleTextBox1.TabIndex = 14;
+            materialSingleTextBox1.TabStop = false;
+            materialSingleTextBox1.Text = "materialSingleTextBox1";
+            materialSingleTextBox1.UseSystemPasswordChar = false;
             // 
             // Material
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 376);
-            this.Controls.Add(this.materialSingleTextBox1);
-            this.Controls.Add(this.materialButton3);
-            this.Controls.Add(this.materialTextBox3);
-            this.Controls.Add(this.materialButton2);
-            this.Controls.Add(this.materialButton1);
-            this.Controls.Add(this.materialRichTextBox1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.materialTextBox2);
-            this.Controls.Add(this.materialTextBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.Name = "Material";
-            this.Sizable = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Material";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(639, 376);
+            Controls.Add(materialSingleTextBox1);
+            Controls.Add(materialButton3);
+            Controls.Add(materialTextBox3);
+            Controls.Add(materialButton2);
+            Controls.Add(materialButton1);
+            Controls.Add(materialRichTextBox1);
+            Controls.Add(richTextBox1);
+            Controls.Add(textBox4);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(materialTextBox2);
+            Controls.Add(materialTextBox1);
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            MaximizeBox = false;
+            Name = "Material";
+            Sizable = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Material";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

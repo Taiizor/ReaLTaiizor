@@ -985,7 +985,7 @@ namespace ReaLTaiizor.Controls
 
             //Fix for tabstop
             _baseTextBox.TabStop = true;
-            this.TabStop = false;
+            TabStop = false;
         }
 
         protected override void OnPaint(PaintEventArgs pevent)
