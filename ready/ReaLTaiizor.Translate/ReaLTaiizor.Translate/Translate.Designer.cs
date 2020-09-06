@@ -32,7 +32,7 @@
             hopeForm1 = new ReaLTaiizor.Forms.HopeForm();
             foreverTextBox1 = new ReaLTaiizor.Controls.ForeverTextBox();
             lostBorderPanel1 = new ReaLTaiizor.Controls.LostBorderPanel();
-            foreverLabel1 = new ReaLTaiizor.Controls.ForeverLabel();
+            foreverTextBox2 = new ReaLTaiizor.Controls.ForeverTextBox();
             foreverToggle1 = new ReaLTaiizor.Controls.ForeverToggle();
             foreverRadioButton13 = new ReaLTaiizor.Controls.ForeverRadioButton();
             foreverRadioButton12 = new ReaLTaiizor.Controls.ForeverRadioButton();
@@ -48,7 +48,6 @@
             foreverRadioButton2 = new ReaLTaiizor.Controls.ForeverRadioButton();
             foreverRadioButton1 = new ReaLTaiizor.Controls.ForeverRadioButton();
             foreverButton1 = new ReaLTaiizor.Controls.ForeverButton();
-            foreverTextBox2 = new ReaLTaiizor.Controls.ForeverTextBox();
             lostBorderPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -94,7 +93,6 @@
             lostBorderPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             lostBorderPanel1.BorderColor = System.Drawing.Color.Gray;
             lostBorderPanel1.Controls.Add(foreverTextBox2);
-            lostBorderPanel1.Controls.Add(foreverLabel1);
             lostBorderPanel1.Controls.Add(foreverToggle1);
             lostBorderPanel1.Controls.Add(foreverRadioButton13);
             lostBorderPanel1.Controls.Add(foreverRadioButton12);
@@ -121,17 +119,23 @@
             lostBorderPanel1.TabIndex = 2;
             lostBorderPanel1.Text = "lostBorderPanel1";
             // 
-            // foreverLabel1
+            // foreverTextBox2
             // 
-            foreverLabel1.AutoSize = true;
-            foreverLabel1.BackColor = System.Drawing.Color.Transparent;
-            foreverLabel1.Font = new System.Drawing.Font("Segoe UI", 15F);
-            foreverLabel1.ForeColor = System.Drawing.Color.LightGray;
-            foreverLabel1.Location = new System.Drawing.Point(169, 208);
-            foreverLabel1.Name = "foreverLabel1";
-            foreverLabel1.Size = new System.Drawing.Size(55, 28);
-            foreverLabel1.TabIndex = 22;
-            foreverLabel1.Text = "Auto";
+            foreverTextBox2.BackColor = System.Drawing.Color.Transparent;
+            foreverTextBox2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            foreverTextBox2.BorderColor = System.Drawing.Color.Crimson;
+            foreverTextBox2.FocusOnHover = true;
+            foreverTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            foreverTextBox2.Location = new System.Drawing.Point(334, 12);
+            foreverTextBox2.MaxLength = 999999;
+            foreverTextBox2.Multiline = true;
+            foreverTextBox2.Name = "foreverTextBox2";
+            foreverTextBox2.ReadOnly = true;
+            foreverTextBox2.Size = new System.Drawing.Size(260, 184);
+            foreverTextBox2.TabIndex = 23;
+            foreverTextBox2.Text = "Result";
+            foreverTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            foreverTextBox2.UseSystemPasswordChar = false;
             // 
             // foreverToggle1
             // 
@@ -142,7 +146,7 @@
             foreverToggle1.Checked = false;
             foreverToggle1.Cursor = System.Windows.Forms.Cursors.Hand;
             foreverToggle1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            foreverToggle1.Location = new System.Drawing.Point(230, 206);
+            foreverToggle1.Location = new System.Drawing.Point(196, 206);
             foreverToggle1.Name = "foreverToggle1";
             foreverToggle1.Options = ReaLTaiizor.Controls.ForeverToggle._Options.Style3;
             foreverToggle1.Size = new System.Drawing.Size(76, 33);
@@ -388,24 +392,6 @@
             foreverButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             foreverButton1.Click += new System.EventHandler(ForeverButton1_Click);
             // 
-            // foreverTextBox2
-            // 
-            foreverTextBox2.BackColor = System.Drawing.Color.Transparent;
-            foreverTextBox2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            foreverTextBox2.BorderColor = System.Drawing.Color.Crimson;
-            foreverTextBox2.FocusOnHover = true;
-            foreverTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            foreverTextBox2.Location = new System.Drawing.Point(334, 12);
-            foreverTextBox2.MaxLength = 999999;
-            foreverTextBox2.Multiline = true;
-            foreverTextBox2.Name = "foreverTextBox2";
-            foreverTextBox2.ReadOnly = true;
-            foreverTextBox2.Size = new System.Drawing.Size(260, 184);
-            foreverTextBox2.TabIndex = 23;
-            foreverTextBox2.Text = "Result";
-            foreverTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            foreverTextBox2.UseSystemPasswordChar = false;
-            // 
             // Translate
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,7 +409,6 @@
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Translate";
             lostBorderPanel1.ResumeLayout(false);
-            lostBorderPanel1.PerformLayout();
             ResumeLayout(false);
 
         }
@@ -448,7 +433,6 @@
         private ReaLTaiizor.Controls.ForeverRadioButton foreverRadioButton12;
         private ReaLTaiizor.Controls.ForeverRadioButton foreverRadioButton11;
         private ReaLTaiizor.Controls.ForeverToggle foreverToggle1;
-        private ReaLTaiizor.Controls.ForeverLabel foreverLabel1;
         private ReaLTaiizor.Controls.ForeverTextBox foreverTextBox2;
     }
 }

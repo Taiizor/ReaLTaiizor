@@ -117,7 +117,7 @@ Step 2：Enjoy designing
 
 ### Translate
 
-![TranslateReady](https://www.photo.herominyum.com/resimler/2020/08/08/1UWO.png)
+![TranslateReady](https://www.photo.herominyum.com/resimler/2020/09/06/EdGy.png)
 
 ## Overview
 

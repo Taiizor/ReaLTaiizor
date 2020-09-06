@@ -117,7 +117,7 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ### Çeviri
 
-![TranslateReady](https://www.photo.herominyum.com/resimler/2020/08/08/1UWO.png)
+![TranslateReady](https://www.photo.herominyum.com/resimler/2020/09/06/EdGy.png)
 
 ## Genel Bakış
 
