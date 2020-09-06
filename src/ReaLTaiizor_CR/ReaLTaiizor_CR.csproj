@@ -63,12 +63,6 @@
     <Compile Include="Material.Designer.cs">
       <DependentUpon>Material.cs</DependentUpon>
     </Compile>
-    <Compile Include="Night.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Night.Designer.cs">
-      <DependentUpon>Night.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Catcher.resx">
@@ -76,9 +70,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Material.resx">
       <DependentUpon>Material.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Night.resx">
-      <DependentUpon>Night.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

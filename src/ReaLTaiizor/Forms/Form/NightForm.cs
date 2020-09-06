@@ -210,6 +210,8 @@ namespace ReaLTaiizor.Forms
             ParentForm.TransparencyKey = Color.Fuchsia; // IMPORTANT!
             ParentForm.BackColor = SystemColors.ControlDarkDark;
             ParentForm.MaximumSize = Screen.FromRectangle(ParentForm.Bounds).WorkingArea.Size;
+
+            ParentForm.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void DrawTitleBar(Graphics g)

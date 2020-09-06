@@ -110,6 +110,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Compile Update="Controls\Label\NightLabel.cs" />
     <Compile Update="Controls\LinkLabel\NightLinkLabel.cs" />
     <Compile Update="Controls\Panel\NightPanel.cs" />
+    <Compile Update="Controls\TextBox\NightTextBox.cs" />
     <Compile Update="Forms\Form\NightForm.cs" />
   </ItemGroup>
 
