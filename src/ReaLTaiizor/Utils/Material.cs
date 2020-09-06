@@ -25,9 +25,9 @@ namespace ReaLTaiizor.Utils
         BLACK = 0x212121
     }
 
-    public class MaterialSkinManager
+    public class MaterialManager
     {
-        private static MaterialSkinManager _instance;
+        private static MaterialManager _instance;
 
         private readonly List<Forms.MaterialForm> _formsToManage = new List<Forms.MaterialForm>();
 
@@ -39,12 +39,12 @@ namespace ReaLTaiizor.Utils
 
         public bool EnforceBackcolorOnAllComponents = true;
 
-        public static MaterialSkinManager Instance => _instance ?? (_instance = new MaterialSkinManager());
+        public static MaterialManager Instance => _instance ?? (_instance = new MaterialManager());
 
         public int FORM_PADDING = 14;
 
         // Constructor
-        private MaterialSkinManager()
+        private MaterialManager()
         {
             Theme = Themes.LIGHT;
             ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Utils
         }
 
         // Destructor
-        ~MaterialSkinManager()
+        ~MaterialManager()
         {
             // RemoveFontMemResourceEx
             foreach (IntPtr handle in logicalFonts.Values)
@@ -900,8 +900,14 @@ namespace ReaLTaiizor.Utils
         #endregion Private methods
     }
 
-    public class MaterialSkinAnimations
+    public class MaterialAnimations
     {
+        public enum AnimationRunType
+        {
+            Normal,
+            Fast
+        }
+
         internal enum AnimationType
         {
             Linear,
@@ -953,6 +959,13 @@ namespace ReaLTaiizor.Utils
             }
         }
 
+        private static AnimationRunType _AnimationRun = AnimationRunType.Normal;
+        public static AnimationRunType AnimationRun
+        {
+            get { return _AnimationRun; }
+            set { _AnimationRun = value; }
+        }
+
         public static class AnimationCustomQuadratic
         {
             public static double CalculateProgress(double progress)
@@ -996,7 +1009,7 @@ namespace ReaLTaiizor.Utils
 
             private readonly Timer _animationTimer = new Timer
             {
-                Interval = 1,
+                Interval = 5,
                 Enabled = false
             };
 
@@ -1040,38 +1053,41 @@ namespace ReaLTaiizor.Utils
             {
                 try
                 {
-                    Parallel.For(0, _animationProgresses.Count, i =>
+                    if (AnimationRun == AnimationRunType.Fast)
                     {
-                        UpdateProgress(i);
-
-                        if (!Singular)
+                        Parallel.For(0, _animationProgresses.Count, i =>
                         {
-                            if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
-                                _animationDirections[i] = AnimationDirection.InOutOut;
-                            else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE))
-                                _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
-                            else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
-                                _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
-                            else if ((_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] == MAX_VALUE) || (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] == MIN_VALUE) || (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] == MIN_VALUE))
+                            UpdateProgress(i);
+
+                            if (!Singular)
                             {
-                                _animationProgresses.RemoveAt(i);
-                                _animationSources.RemoveAt(i);
-                                _animationDirections.RemoveAt(i);
-                                _animationDatas.RemoveAt(i);
+                                if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                    _animationDirections[i] = AnimationDirection.InOutOut;
+                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE))
+                                    _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                    _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                                else if ((_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] == MAX_VALUE) || (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] == MIN_VALUE) || (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] == MIN_VALUE))
+                                {
+                                    _animationProgresses.RemoveAt(i);
+                                    _animationSources.RemoveAt(i);
+                                    _animationDirections.RemoveAt(i);
+                                    _animationDatas.RemoveAt(i);
+                                }
                             }
-                        }
-                        else
-                        {
-                            if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
-                                _animationDirections[i] = AnimationDirection.InOutOut;
-                            else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE))
-                                _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
-                            else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
-                                _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
-                        }
-                    });
-
-                    /*
+                            else
+                            {
+                                if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                    _animationDirections[i] = AnimationDirection.InOutOut;
+                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE))
+                                    _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                    _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                            }
+                        });
+                    }
+                    else
+                    {
                         for (var i = 0; i < _animationProgresses.Count; i++)
                         {
                             UpdateProgress(i);
@@ -1102,7 +1118,7 @@ namespace ReaLTaiizor.Utils
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
                             }
                         }
-                    */
+                    }
 
                     OnAnimationProgress?.Invoke(this);
                 }
@@ -1192,25 +1208,28 @@ namespace ReaLTaiizor.Utils
                     {
                         _animationProgresses[index] = MAX_VALUE;
 
-                        Parallel.For(0, GetAnimationCount(), i =>
+                        if (AnimationRun == AnimationRunType.Fast)
                         {
-                            if (_animationDirections[i] == AnimationDirection.InOutIn)
-                                return;
+                            Parallel.For(0, GetAnimationCount(), i =>
+                            {
+                                if (_animationDirections[i] == AnimationDirection.InOutIn)
+                                    return;
 
-                            if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
-                                return;
+                                if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                                    return;
 
-                            if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
-                                return;
+                                if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                                    return;
 
-                            if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MAX_VALUE)
-                                return;
+                                if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MAX_VALUE)
+                                    return;
 
-                            if (_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] != MAX_VALUE)
-                                return;
-                        });
-
-                        /*
+                                if (_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] != MAX_VALUE)
+                                    return;
+                            });
+                        }
+                        else
+                        {
                             for (int i = 0; i < GetAnimationCount(); i++)
                             {
                                 if (_animationDirections[i] == AnimationDirection.InOutIn)
@@ -1228,7 +1247,7 @@ namespace ReaLTaiizor.Utils
                                 if (_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] != MAX_VALUE)
                                     return;
                             }
-                        */
+                        }
 
                         _animationTimer.Stop();
                         OnAnimationFinished?.Invoke(this);
@@ -1249,25 +1268,28 @@ namespace ReaLTaiizor.Utils
                     {
                         _animationProgresses[index] = MIN_VALUE;
 
-                        Parallel.For(0, GetAnimationCount(), i =>
+                        if (AnimationRun == AnimationRunType.Fast)
                         {
-                            if (_animationDirections[i] == AnimationDirection.InOutIn)
-                                return;
+                            Parallel.For(0, GetAnimationCount(), i =>
+                            {
+                                if (_animationDirections[i] == AnimationDirection.InOutIn)
+                                    return;
 
-                            if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
-                                return;
+                                if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                                    return;
 
-                            if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
-                                return;
+                                if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                                    return;
 
-                            if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MIN_VALUE)
-                                return;
+                                if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MIN_VALUE)
+                                    return;
 
-                            if (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] != MIN_VALUE)
-                                return;
-                        });
-
-                        /*
+                                if (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] != MIN_VALUE)
+                                    return;
+                            });
+                        }
+                        else
+                        {
                             for (var i = 0; i < GetAnimationCount(); i++)
                             {
                                 if (_animationDirections[i] == AnimationDirection.InOutIn)
@@ -1285,7 +1307,7 @@ namespace ReaLTaiizor.Utils
                                 if (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] != MIN_VALUE)
                                     return;
                             }
-                        */
+                        }
 
                         _animationTimer.Stop();
                         OnAnimationFinished?.Invoke(this);

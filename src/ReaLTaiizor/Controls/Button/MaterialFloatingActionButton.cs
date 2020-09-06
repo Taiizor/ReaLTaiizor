@@ -6,8 +6,8 @@ using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
+using static ReaLTaiizor.Utils.MaterialAnimations;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
-using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }

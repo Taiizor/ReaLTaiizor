@@ -7,8 +7,8 @@ using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
+using static ReaLTaiizor.Utils.MaterialAnimations;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
-using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Controls
             UseTallSize = true;
             MaxDropDownItems = 4;
 
-            Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle2);
+            Font = SkinManager.getFontByType(MaterialManager.fontType.Subtitle2);
             BackColor = SkinManager.BackgroundColor;
             ForeColor = SkinManager.TextHighEmphasisColor;
             DrawMode = DrawMode.OwnerDrawVariable;
@@ -221,7 +221,7 @@ namespace ReaLTaiizor.Controls
                 // Draw user text
                 NativeText.DrawTransparentText(
                     Text,
-                    SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1),
+                    SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textRect.Location,
                     textRect.Size,
@@ -278,7 +278,7 @@ namespace ReaLTaiizor.Controls
             {
                 NativeText.DrawTransparentText(
                 Text,
-                SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1),
+                SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
                 SkinManager.TextHighEmphasisColor,
                 new Point(e.Bounds.Location.X + SkinManager.FORM_PADDING, e.Bounds.Location.Y),
                 new Size(e.Bounds.Size.Width - SkinManager.FORM_PADDING * 2, e.Bounds.Size.Height),
@@ -328,7 +328,7 @@ namespace ReaLTaiizor.Controls
                 var itemsList = Items.Cast<object>().Select(item => item.ToString());
                 foreach (string s in itemsList)
                 {
-                    int newWidth = NativeText.MeasureLogString(s, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1)).Width + vertScrollBarWidth + padding;
+                    int newWidth = NativeText.MeasureLogString(s, SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1)).Width + vertScrollBarWidth + padding;
                     if (w < newWidth) w = newWidth;
                 }
             }

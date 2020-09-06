@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using static ReaLTaiizor.Utils.MaterialAnimations;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
-using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Forms
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -927,7 +927,7 @@ namespace ReaLTaiizor.Forms
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
             {
                 Rectangle textLocation = new Rectangle(SkinManager.FORM_PADDING + (DrawerTabControl != null ? 24 + (int)(SkinManager.FORM_PADDING * 1.5) : 0), STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
-                NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialSkinManager.fontType.H6),
+                NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.H6),
                     SkinManager.ColorScheme.TextColor,
                     textLocation.Location,
                     textLocation.Size,

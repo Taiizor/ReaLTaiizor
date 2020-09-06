@@ -8,8 +8,8 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Extensions;
 using System.Drawing.Drawing2D;
+using static ReaLTaiizor.Utils.MaterialAnimations;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
-using static ReaLTaiizor.Utils.MaterialSkinAnimations;
 
 #endregion
 
@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -118,7 +118,7 @@ namespace ReaLTaiizor.Controls
         {
             Size strSize;
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
-                strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Body1));
+                strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
             var w = TRACK_SIZE_WIDTH + THUMB_SIZE + strSize.Width;
             return Ripple ? new Size(w, RIPPLE_DIAMETER) : new Size(w, THUMB_SIZE);
         }
@@ -165,7 +165,7 @@ namespace ReaLTaiizor.Controls
 
             Color rippleColor = Color.FromArgb(40, // color alpha
                 Checked ? SkinManager.ColorScheme.AccentColor : // On color
-                (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? Color.Black : Color.White)); // Off color
+                (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White)); // Off color
 
             if (Ripple && _rippleAM.IsAnimating())
             {
@@ -210,7 +210,7 @@ namespace ReaLTaiizor.Controls
                 Rectangle textLocation = new Rectangle(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
                 NativeText.DrawTransparentText(
                     Text,
-                    SkinManager.getLogFontByType(MaterialSkinManager.fontType.Body1),
+                    SkinManager.getLogFontByType(MaterialManager.fontType.Body1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textLocation.Location,
                     textLocation.Size,

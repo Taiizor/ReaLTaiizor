@@ -2,10 +2,10 @@
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
+using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Specialized;
-using ReaLTaiizor.Controls.RadioButton;
 
 namespace ReaLTaiizor.Translate
 {

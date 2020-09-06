@@ -10,23 +10,23 @@ namespace ReaLTaiizor.UI
 {
     public partial class Form17 : MaterialForm
     {
-        private readonly MaterialSkinManager materialSkinManager;
+        private readonly MaterialManager materialManager;
 
         public Form17()
         {
             InitializeComponent();
 
-            // Initialize MaterialSkinManager
-            materialSkinManager = MaterialSkinManager.Instance;
+            // Initialize MaterialManager
+            materialManager = MaterialManager.Instance;
 
             // Set this to false to disable backcolor enforcing on non-materialSkin components
             // This HAS to be set before the AddFormToManage()
-            materialSkinManager.EnforceBackcolorOnAllComponents = true;
+            materialManager.EnforceBackcolorOnAllComponents = true;
 
-            // MaterialSkinManager properties
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
+            // MaterialManager properties
+            materialManager.AddFormToManage(this);
+            materialManager.Theme = MaterialManager.Themes.LIGHT;
+            materialManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
 
             // Add dummy data to the listview
             seedListView();
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.UI
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            materialSkinManager.Theme = materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
+            materialManager.Theme = materialManager.Theme == MaterialManager.Themes.DARK ? MaterialManager.Themes.LIGHT : MaterialManager.Themes.DARK;
             updateColor();
         }
 
@@ -81,15 +81,15 @@ namespace ReaLTaiizor.UI
             switch (colorSchemeIndex)
             {
                 case 0:
-                    materialSkinManager.ColorScheme = new MaterialColorScheme(
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
+                    materialManager.ColorScheme = new MaterialColorScheme(
+                        materialManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
+                        materialManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
+                        materialManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
                         MaterialAccent.Pink200,
                         MaterialTextShade.WHITE);
                     break;
                 case 1:
-                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                    materialManager.ColorScheme = new MaterialColorScheme(
                         MaterialPrimary.Green600,
                         MaterialPrimary.Green700,
                         MaterialPrimary.Green200,
@@ -97,7 +97,7 @@ namespace ReaLTaiizor.UI
                         MaterialTextShade.WHITE);
                     break;
                 case 2:
-                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                    materialManager.ColorScheme = new MaterialColorScheme(
                         MaterialPrimary.BlueGrey800,
                         MaterialPrimary.BlueGrey900,
                         MaterialPrimary.BlueGrey500,
@@ -157,6 +157,16 @@ namespace ReaLTaiizor.UI
             var batchOperationResults = builder.ToString();
             var mresult = MaterialMessageBox.Show(batchOperationResults, "Batch Operation");
             materialComboBox1.Items.Add("this is a very long string");
+        }
+
+        private void MaterialButton25_Click(object sender, EventArgs e)
+        {
+            MaterialAnimations.AnimationRun = MaterialAnimations.AnimationRunType.Normal;
+        }
+
+        private void MaterialButton6_Click(object sender, EventArgs e)
+        {
+            MaterialAnimations.AnimationRun = MaterialAnimations.AnimationRunType.Fast;
         }
     }
 }

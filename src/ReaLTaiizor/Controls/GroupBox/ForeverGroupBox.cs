@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
 		}
 
 		[Category("Options")]
-		public bool ShowArror
+		public bool ShowArrow
 		{
 			get { return _ShowArrow; }
 			set { _ShowArrow = value; }

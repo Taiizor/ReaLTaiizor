@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+        public MaterialManager SkinManager => MaterialManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -48,11 +48,11 @@ namespace ReaLTaiizor.Controls
         DefaultValue(false)]
         public bool UseAccent { get; set; }
 
-        private MaterialSkinManager.fontType _fontType = MaterialSkinManager.fontType.Body1;
+        private MaterialManager.fontType _fontType = MaterialManager.fontType.Body1;
 
         [Category("Material"),
-        DefaultValue(typeof(MaterialSkinManager.fontType), "Body1")]
-        public MaterialSkinManager.fontType FontType
+        DefaultValue(typeof(MaterialManager.fontType), "Body1")]
+        public MaterialManager.fontType FontType
         {
             get
             {
@@ -68,7 +68,7 @@ namespace ReaLTaiizor.Controls
 
         public MaterialLabel()
         {
-            FontType = MaterialSkinManager.fontType.Body1;
+            FontType = MaterialManager.fontType.Body1;
             TextAlign = ContentAlignment.TopLeft;
         }
 

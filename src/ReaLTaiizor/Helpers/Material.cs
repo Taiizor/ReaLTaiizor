@@ -180,7 +180,7 @@ namespace ReaLTaiizor.Helpers
         {
             int Depth { get; set; }
 
-            MaterialSkinManager SkinManager { get; }
+            MaterialManager SkinManager { get; }
 
             MaterialMouseState MouseState { get; set; }
         }

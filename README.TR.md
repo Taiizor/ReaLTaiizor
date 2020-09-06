@@ -1,13 +1,13 @@
-![logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
+![Logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
 
-![dotnetframework-version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
-![csharp-version](https://img.shields.io/badge/C%23-9.0-blue.svg)
-![ide-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
-[![nuget-version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
-[![nuget](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
+![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
+![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
+![IDE-Version](https://img.shields.io/badge/IDE-VS2019-blue.svg)
+[![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
+[![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
 
 # ReaLTaiizor'a Hoşgeldiniz
-ReaLTaiizor bir UI/UX kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
+ReaLTaiizor bir UI/UX bileşen kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
 
 ## Katkıda Bulunanlar
 
@@ -85,11 +85,11 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 
 ## Kullanım
 
-Step 1：Referans olarak ReaLTaiizor'u ekleyin veya NuGet üzerinden ReaLTaiizor'u aratın;
+Adım 1：Referans olarak ReaLTaiizor'u ekleyin veya NuGet üzerinden ReaLTaiizor'u aratın;
 
 ```Install-Package ReaLTaiizor```
 
-Step 2：Tasarlamanın tadını çıkarın
+Adım 2：Tasarlamanın tadını çıkarın
 
 ## Örnekler
 
@@ -117,11 +117,11 @@ Step 2：Tasarlamanın tadını çıkarın
 
 ### Çeviri
 
-![TranslateReady](https://www.photo.herominyum.com/resimler/2020/08/08/1UWO.png)
+![TranslateReady](https://www.photo.herominyum.com/resimler/2020/09/06/EdGy.png)
 
 ## Genel Bakış
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/24/A6kS.gif)
+![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/26/AuYn.gif)
 
 ![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
@@ -176,3 +176,7 @@ Step 2：Tasarlamanın tadını çıkarın
 ### Kraliyet
 
 ![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
+
+### Gece
+
+![NightTheme](https://www.photo.herominyum.com/resimler/2020/09/06/E1NV.png)

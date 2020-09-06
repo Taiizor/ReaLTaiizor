@@ -199,7 +199,7 @@
             aloneCheckBox1.TabIndex = 7;
             aloneCheckBox1.Text = "aloneCheckBox1";
             // 
-            // aloneCombobox1
+            // aloneComboBox1
             // 
             aloneComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             aloneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -424,7 +424,7 @@
             Controls.Add(bigTextBox1);
             Controls.Add(aloneTextBox1);
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
-            Image = global::ReaLTaiizor_CR.Properties.Resources.Fork2;
+            Image = global::ReaLTaiizor_CR.Properties.Resources.FORK;
             MaximizeBox = false;
             Name = "Catcher";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
