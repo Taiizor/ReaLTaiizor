@@ -24,11 +24,13 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region Variables
 
         private ButtonHoverState ButtonHState = ButtonHoverState.None;
 
         #endregion
+
         #region Properties
 
         private bool _DefaultLocation = true;
@@ -97,6 +99,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region EventArgs
 
         protected override void OnResize(EventArgs e)
