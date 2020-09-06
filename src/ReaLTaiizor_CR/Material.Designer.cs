@@ -39,6 +39,7 @@
             this.materialRichTextBox1 = new ReaLTaiizor.Controls.MaterialRichTextBox();
             this.materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialTextBox3 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -171,11 +172,28 @@
             this.materialButton2.UseVisualStyleBackColor = true;
             this.materialButton2.Click += new System.EventHandler(this.materialButton2_Click);
             // 
+            // materialTextBox3
+            // 
+            this.materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox3.Depth = 0;
+            this.materialTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox3.Hint = "53X";
+            this.materialTextBox3.Location = new System.Drawing.Point(322, 221);
+            this.materialTextBox3.MaxLength = 50;
+            this.materialTextBox3.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialTextBox3.Multiline = false;
+            this.materialTextBox3.Name = "materialTextBox3";
+            this.materialTextBox3.Size = new System.Drawing.Size(291, 36);
+            this.materialTextBox3.TabIndex = 11;
+            this.materialTextBox3.Text = "deneme";
+            this.materialTextBox3.UseTallSize = false;
+            // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 376);
+            this.Controls.Add(this.materialTextBox3);
             this.Controls.Add(this.materialButton2);
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.materialRichTextBox1);
@@ -209,5 +227,6 @@
         private ReaLTaiizor.Controls.MaterialRichTextBox materialRichTextBox1;
         private ReaLTaiizor.Controls.MaterialButton materialButton1;
         private ReaLTaiizor.Controls.MaterialButton materialButton2;
+        private ReaLTaiizor.Controls.MaterialTextBox materialTextBox3;
     }
 }

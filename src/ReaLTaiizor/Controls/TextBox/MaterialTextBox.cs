@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialTextBox
 
-    public class MaterialTextBox : System.Windows.Forms.RichTextBox, MaterialControlI
+    public class MaterialTextBox : RichTextBox, MaterialControlI
     {
         //Properties for managing the material design properties
         [Browsable(false)]
@@ -433,7 +433,9 @@ namespace ReaLTaiizor.Controls
 
         public MaterialTextBoxContextMenuStrip()
         {
-            Items.AddRange(new[]
+            Items.AddRange
+            (
+                new[]
                 {
                     Cut,
                     Copy,
