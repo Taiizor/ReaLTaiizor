@@ -725,20 +725,20 @@ namespace ReaLTaiizor
 
         public static void DrawRoundedRectangle(Graphics G, Pen P, float X, float Y, float W, float H, float Rad)
         {
-            using (GraphicsPath gp = new GraphicsPath())
+            using (GraphicsPath GP = new GraphicsPath())
             {
-                gp.AddLine(X + Rad, Y, X + W - (Rad * 2), Y);
-                gp.AddArc(X + W - (Rad * 2), Y, Rad * 2, Rad * 2, 270, 90);
-                gp.AddLine(X + W, Y + Rad, X + W, Y + H - (Rad * 2));
-                gp.AddArc(X + W - (Rad * 2), Y + H - (Rad * 2), Rad * 2, Rad * 2, 0, 90);
-                gp.AddLine(X + W - (Rad * 2), Y + H, X + Rad, Y + H);
-                gp.AddArc(X, Y + H - (Rad * 2), Rad * 2, Rad * 2, 90, 90);
-                gp.AddLine(X, Y + H - (Rad * 2), X, Y + Rad);
-                gp.AddArc(X, Y, Rad * 2, Rad * 2, 180, 90);
-                gp.CloseFigure();
+                GP.AddLine(X + Rad, Y, X + W - (Rad * 2), Y);
+                GP.AddArc(X + W - (Rad * 2), Y, Rad * 2, Rad * 2, 270, 90);
+                GP.AddLine(X + W, Y + Rad, X + W, Y + H - (Rad * 2));
+                GP.AddArc(X + W - (Rad * 2), Y + H - (Rad * 2), Rad * 2, Rad * 2, 0, 90);
+                GP.AddLine(X + W - (Rad * 2), Y + H, X + Rad, Y + H);
+                GP.AddArc(X, Y + H - (Rad * 2), Rad * 2, Rad * 2, 90, 90);
+                GP.AddLine(X, Y + H - (Rad * 2), X, Y + Rad);
+                GP.AddArc(X, Y, Rad * 2, Rad * 2, 180, 90);
+                GP.CloseFigure();
 
                 G.SmoothingMode = SmoothingMode.AntiAlias;
-                G.DrawPath(P, gp);
+                G.DrawPath(P, GP);
                 G.SmoothingMode = SmoothingMode.Default;
             }
 
