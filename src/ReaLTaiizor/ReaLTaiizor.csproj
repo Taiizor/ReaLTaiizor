@@ -103,4 +103,8 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Twitter.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Controls\Button\NightButton.cs" />
+  </ItemGroup>
+
 </Project>
