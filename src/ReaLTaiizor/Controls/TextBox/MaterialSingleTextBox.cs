@@ -5,7 +5,6 @@ using System.Drawing;
 using ReaLTaiizor.Utils;
 using System.Windows.Forms;
 using System.ComponentModel;
-//using ReaLTaiizor.Extensions;
 using System.Runtime.InteropServices;
 using static ReaLTaiizor.Utils.MaterialAnimations;
 using static ReaLTaiizor.Helpers.MaterialDrawHelper;
@@ -967,7 +966,6 @@ namespace ReaLTaiizor.Controls
             {
                 BorderStyle = BorderStyle.None,
                 Font = SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
-                //ForeColor = SkinManager.GetPrimaryTextColor(),
                 Location = new Point(0, 0),
                 Width = Width,
                 Height = Height - 5
@@ -983,7 +981,6 @@ namespace ReaLTaiizor.Controls
             BackColorChanged += (sender, args) =>
             {
                 _baseTextBox.BackColor = BackColor;
-                //_baseTextBox.ForeColor = SkinManager.GetPrimaryTextColor();
             };
 
             //Fix for tabstop
@@ -1033,7 +1030,6 @@ namespace ReaLTaiizor.Controls
             base.OnCreateControl();
 
             _baseTextBox.BackColor = Parent.BackColor;
-            //_baseTextBox.ForeColor = SkinManager.GetPrimaryTextColor();
         }
 
         private class BaseTextBox : TextBox
@@ -1092,13 +1088,9 @@ namespace ReaLTaiizor.Controls
                 set
                 {
                     if (value)
-                    {
                         _useSystemPasswordChar = Application.RenderWithVisualStyles ? VisualStylePasswordChar : NonVisualStylePasswordChar;
-                    }
                     else
-                    {
                         _useSystemPasswordChar = EmptyChar;
-                    }
 
                     SetBasePasswordChar();
                 }

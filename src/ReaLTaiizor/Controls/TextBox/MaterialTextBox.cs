@@ -441,8 +441,8 @@ namespace ReaLTaiizor.Controls
                     Copy,
                     Paste,
                     Delete,
+                    Separator2,
                     SelectAll,
-                    Separator2
                 }
             );
         }
