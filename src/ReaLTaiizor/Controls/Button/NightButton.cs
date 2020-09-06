@@ -296,6 +296,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = ColorTranslator.FromHtml("#F25D59");
             Size = new Size(144, 47);
             MinimumSize = new Size(144, 47);
+            Cursor = Cursors.Hand;
 
             animationTimer = new Timer { Interval = 1 };
             animationTimer.Tick += OnAnimation;
@@ -347,11 +348,14 @@ namespace ReaLTaiizor.Controls
 
             using (var pathPen = new Pen(penColor, 2f))
             using (var stringBrush = new SolidBrush(brushColor))
-            using (var sf = new StringFormat
-            {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            })
+            using
+			(
+				var sf = new StringFormat
+				{
+					Alignment = StringAlignment.Center,
+					LineAlignment = StringAlignment.Center
+				}
+			)
             {
                 g.DrawPath(pathPen, roundRectPath);
                 g.DrawString(Text, Font, stringBrush, stringRect, sf);
