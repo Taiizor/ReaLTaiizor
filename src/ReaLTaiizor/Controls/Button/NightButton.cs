@@ -17,6 +17,8 @@ namespace ReaLTaiizor.Controls
     {
         #region Fields
 
+        private int _Radius = 20;
+
         private readonly Timer animationTimer;
         private int buttonGlow;
         private int stringGlow;
@@ -24,20 +26,25 @@ namespace ReaLTaiizor.Controls
 
         private int mouseState;
 
+        private Color _NormalBackColor = ColorTranslator.FromHtml("#F25D59");
+        private Color _PressedBackColor = Color.FromArgb(100, ColorTranslator.FromHtml("#F25D59"));
+        private Color _HoverBackColor = Color.FromArgb(50, ColorTranslator.FromHtml("#F25D59"));
+        private Color _PressedForeColor = Color.White;
+        private Color _HoverForeColor = Color.White;
+
         private float margin, width, height;
         private Rectangle stringRect;
         private RectangleF buttonRect;
         private GraphicsPath roundRectPath;
 
+        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBicubic;
+        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
+        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
+
         #endregion
 
         #region Properties
 
-        [Browsable(false)]
-        [Description("The foreground color of this component, which is used to display text.")]
-        public override Color ForeColor { get; set; }
-
-        private int _Radius = 20;
         [Browsable(true)]
         [Description("Sets the radius of curvature for the control.")]
         public int Radius
@@ -54,7 +61,6 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         public SmoothingMode SmoothingType
         {
             get { return _SmoothingType; }
@@ -64,8 +70,6 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
-
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBicubic;
         public InterpolationMode InterpolationType
         {
             get { return _InterpolationType; }
@@ -76,13 +80,77 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         public PixelOffsetMode PixelOffsetType
         {
             get { return _PixelOffsetType; }
             set
             {
                 _PixelOffsetType = value;
+                Invalidate();
+            }
+        }
+
+        public Color PressedForeColor
+        {
+            get
+            {
+                return _PressedForeColor;
+            }
+            set
+            {
+                _PressedForeColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color HoverForeColor
+        {
+            get
+            {
+                return _HoverForeColor;
+            }
+            set
+            {
+                _HoverForeColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color NormalBackColor
+        {
+            get
+            {
+                return _NormalBackColor;
+            }
+            set
+            {
+                _NormalBackColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color PressedBackColor
+        {
+            get
+            {
+                return _PressedBackColor;
+            }
+            set
+            {
+                _PressedBackColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color HoverBackColor
+        {
+            get
+            {
+                return _HoverBackColor;
+            }
+            set
+            {
+                _HoverBackColor = value;
                 Invalidate();
             }
         }
@@ -272,16 +340,37 @@ namespace ReaLTaiizor.Controls
 
             if (hoverButton)
             {
-                if (buttonGlow < 242) { buttonGlow += 15; }
-                if (stringGlow < 160) { stringGlow += 15; }
+                if (buttonGlow < 242)
+                    buttonGlow += 15;
+                if (stringGlow < 160)
+                    stringGlow += 15;
             }
             else
             {
-                if (buttonGlow >= 15) { buttonGlow -= 15; }
-                if (stringGlow >= 15) { stringGlow -= 15; }
+                if (buttonGlow >= 15)
+                    buttonGlow -= 15;
+                if (stringGlow >= 15)
+                    stringGlow -= 15;
             }
 
             Invalidate();
+        }
+
+        #endregion
+
+        #region Native Hand Cursor
+
+        protected override void WndProc(ref Message msg)
+        {
+            if (msg.Msg == NativeConstants.WM_SETCURSOR)
+            {
+                var cursor = NativeMethods.LoadCursor(IntPtr.Zero, NativeConstants.IDC_HAND);
+                NativeMethods.SetCursor(cursor);
+
+                msg.Result = IntPtr.Zero;
+                return;
+            }
+            base.WndProc(ref msg);
         }
 
         #endregion
@@ -302,23 +391,6 @@ namespace ReaLTaiizor.Controls
             animationTimer.Tick += OnAnimation;
         }
 
-        #region Native Hand Cursor
-
-        protected override void WndProc(ref Message msg)
-        {
-            if (msg.Msg == NativeConstants.WM_SETCURSOR)
-            {
-                var cursor = NativeMethods.LoadCursor(IntPtr.Zero, NativeConstants.IDC_HAND);
-                NativeMethods.SetCursor(cursor);
-
-                msg.Result = IntPtr.Zero;
-                return;
-            }
-            base.WndProc(ref msg);
-        }
-
-        #endregion
-
         private void FillButton(Graphics g)
         {
             using (var animBrush = new SolidBrush(Color.FromArgb(buttonGlow, ForeColor)))
@@ -333,24 +405,24 @@ namespace ReaLTaiizor.Controls
             switch (mouseState)
             {
                 case 0: // Inactive state
-                    penColor = ForeColor;
+                    penColor = NormalBackColor;
                     brushColor = ForeColor;
                     break;
                 case 1: // Pressed state
-                    penColor = ForeColor;
-                    brushColor = Color.White;
+                    penColor = PressedBackColor;
+                    brushColor = PressedForeColor;
                     break;
                 case 3: // Hover state
-                    penColor = ForeColor;
-                    brushColor = Color.FromArgb(80 + stringGlow, Color.White);
+                    penColor = HoverBackColor;
+                    brushColor = Color.FromArgb(80 + stringGlow, HoverForeColor);
                     break;
             }
 
-            using (var pathPen = new Pen(penColor, 2f))
-            using (var stringBrush = new SolidBrush(brushColor))
+            using (Pen pathPen = new Pen(penColor, 2f))
+            using (SolidBrush stringBrush = new SolidBrush(brushColor))
             using
 			(
-				var sf = new StringFormat
+                StringFormat sf = new StringFormat
 				{
 					Alignment = StringAlignment.Center,
 					LineAlignment = StringAlignment.Center

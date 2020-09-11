@@ -360,9 +360,7 @@ namespace ReaLTaiizor
 
     public class ControlRenderer : ToolStripProfessionalRenderer
     {
-        public ControlRenderer() : this(new MSColorTable())
-        {
-        }
+        public ControlRenderer() : this(new MSColorTable()) { }
 
         public ControlRenderer(ColorTable ColorTable)
         {
@@ -405,7 +403,6 @@ namespace ReaLTaiizor
                 // Fill the gap between menu drop-down and owner item
                 using (SolidBrush B1 = new SolidBrush(ColorTable.DroppedDownItemBackground))
                     e.Graphics.FillRectangle(B1, e.ConnectedArea);
-
             }
         }
 
@@ -435,7 +432,6 @@ namespace ReaLTaiizor
                     using (SolidBrush B1 = new SolidBrush(ColorTable.DroppedDownItemBackground))
                         e.Graphics.FillRectangle(B1, BackgroundRect);
 
-
                     // Draw border
                     using (Pen P1 = new Pen(ColorTable.CommonColorTable.DropdownBorder))
                         RectDrawing.DrawRoundedRectangle(e.Graphics, P1, Convert.ToSingle(BorderRect.X), Convert.ToSingle(BorderRect.Y), Convert.ToSingle(BorderRect.Width), Convert.ToSingle(BorderRect.Height), 2);
@@ -459,7 +455,7 @@ namespace ReaLTaiizor
 
             if (e.Item.Selected)
                 c = ColorTable.CommonColorTable.CheckedSelectedBackground;
-            else
+            //else
 
             using (SolidBrush b = new SolidBrush(c))
                 e.Graphics.FillRectangle(b, rect);
@@ -635,7 +631,6 @@ namespace ReaLTaiizor
                 }
             }
         }
-
 
         private void DrawCustomArrow(Graphics g, ToolStripSplitButton item)
         {
