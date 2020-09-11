@@ -164,6 +164,7 @@ namespace ReaLTaiizor.UI
             item2ToolStripMenuItem = new ReaLTaiizor.Controls.MaterialToolStripMenuItem();
             toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             item3ToolStripMenuItem = new ReaLTaiizor.Controls.MaterialToolStripMenuItem();
+            materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage7.SuspendLayout();
@@ -1559,6 +1560,7 @@ namespace ReaLTaiizor.UI
             // tabPage3
             // 
             tabPage3.BackColor = System.Drawing.Color.White;
+            tabPage3.Controls.Add(materialSingleTextBox1);
             tabPage3.Controls.Add(materialTextBox5);
             tabPage3.Controls.Add(materialTextBox4);
             tabPage3.Controls.Add(materialTextBox3);
@@ -2466,6 +2468,24 @@ namespace ReaLTaiizor.UI
             item3ToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
             item3ToolStripMenuItem.Text = "Item 3";
             // 
+            // materialSingleTextBox1
+            // 
+            materialSingleTextBox1.Depth = 0;
+            materialSingleTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            materialSingleTextBox1.Hint = "Type here";
+            materialSingleTextBox1.Location = new System.Drawing.Point(25, 380);
+            materialSingleTextBox1.MaxLength = 32767;
+            materialSingleTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialSingleTextBox1.Name = "materialSingleTextBox1";
+            materialSingleTextBox1.PasswordChar = '\0';
+            materialSingleTextBox1.SelectedText = "";
+            materialSingleTextBox1.SelectionLength = 0;
+            materialSingleTextBox1.SelectionStart = 0;
+            materialSingleTextBox1.Size = new System.Drawing.Size(406, 25);
+            materialSingleTextBox1.TabIndex = 70;
+            materialSingleTextBox1.TabStop = false;
+            materialSingleTextBox1.UseSystemPasswordChar = false;
+            // 
             // Form17
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2642,5 +2662,6 @@ namespace ReaLTaiizor.UI
         private ReaLTaiizor.Controls.MaterialDivider materialDivider2;
         private Controls.MaterialButton materialButton25;
         private Controls.MaterialButton materialButton6;
+        private Controls.MaterialSingleTextBox materialSingleTextBox1;
     }
 }
