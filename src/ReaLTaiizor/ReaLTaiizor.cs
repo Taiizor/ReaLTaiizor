@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 //     Creator: Taiizor
 //     Website: www.Taiizor.com
 //     Created: 15.May.2019
-//     Changed: 11.Sep.2020
+//     Changed: 12.Sep.2020
 //     Version: 3.7.8.0
 //
 // |---------DO-NOT-REMOVE---------|
