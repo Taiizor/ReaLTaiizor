@@ -81,6 +81,17 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		<br/>
 		<a href="https://github.com/leocb" target="_blank" title="Code">💻</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/N-a-r-w-i-n">
+			<img src="https://avatars3.githubusercontent.com/u/25624385?s=200&v=4" width="80px;" alt="N-a-r-w-i-n"/>
+			<br/>
+			<sub>
+				<b>N-a-r-w-i-n</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/N-a-r-w-i-n" target="_blank" title="Code">💻</a>
+	</td>
   </tr>
 </table>
 
