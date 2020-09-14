@@ -17,7 +17,7 @@ namespace ReaLTaiizor.UI
             if (styleManager1.Style == ReaLTaiizor.Enum.Metro.Style.Light)
                 styleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
             else
-                styleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+                styleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
         }
 
         private void MetroButton3_Click(object sender, EventArgs e)

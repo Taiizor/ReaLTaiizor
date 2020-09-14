@@ -2216,6 +2216,7 @@
             // 
             // Form19
             // 
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1138, 698);
