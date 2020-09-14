@@ -137,7 +137,7 @@
             MetroTabControl1.Controls.Add(MetroTabPage5);
             MetroTabControl1.Controls.Add(MetroTabPage6);
             MetroTabControl1.Controls.Add(MetroTabPage7);
-            MetroTabControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            MetroTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             MetroTabControl1.ItemSize = new System.Drawing.Size(100, 38);
             MetroTabControl1.Location = new System.Drawing.Point(12, 70);
@@ -2216,7 +2216,6 @@
             // 
             // Form19
             // 
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1138, 698);
@@ -2224,6 +2223,7 @@
             Controls.Add(MetroTabControl1);
             Name = "Form19";
             SmallRectThickness = 2;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             StyleManager = styleManager1;
             Text = "Metro";
             MetroTabControl1.ResumeLayout(false);
