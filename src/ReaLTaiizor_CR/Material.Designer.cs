@@ -42,7 +42,6 @@
             this.materialTextBox3 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
-            this.materialSwitch1 = new ReaLTaiizor.Controls.MaterialSwitch();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -230,27 +229,11 @@
             this.materialSingleTextBox1.UseAccentColor = true;
             this.materialSingleTextBox1.UseSystemPasswordChar = false;
             // 
-            // materialSwitch1
-            // 
-            this.materialSwitch1.AutoSize = true;
-            this.materialSwitch1.Depth = 0;
-            this.materialSwitch1.Location = new System.Drawing.Point(233, 27);
-            this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialSwitch1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialSwitch1.Name = "materialSwitch1";
-            this.materialSwitch1.Ripple = true;
-            this.materialSwitch1.Size = new System.Drawing.Size(173, 37);
-            this.materialSwitch1.TabIndex = 15;
-            this.materialSwitch1.Text = "materialSwitch1";
-            this.materialSwitch1.UseVisualStyleBackColor = true;
-            // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 376);
-            this.Controls.Add(this.materialSwitch1);
             this.Controls.Add(this.materialSingleTextBox1);
             this.Controls.Add(this.materialButton3);
             this.Controls.Add(this.materialTextBox3);
@@ -290,6 +273,5 @@
         private ReaLTaiizor.Controls.MaterialTextBox materialTextBox3;
         private ReaLTaiizor.Controls.MaterialButton materialButton3;
         private ReaLTaiizor.Controls.MaterialSingleTextBox materialSingleTextBox1;
-        private ReaLTaiizor.Controls.MaterialSwitch materialSwitch1;
     }
 }

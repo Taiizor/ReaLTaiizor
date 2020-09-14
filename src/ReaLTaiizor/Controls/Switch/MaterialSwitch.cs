@@ -147,7 +147,7 @@ namespace ReaLTaiizor.Controls
             // Draw Track
             Color thumbColor = BlendColor(
                         (Enabled ? SkinManager.SwitchOffThumbColor : SkinManager.SwitchOffDisabledThumbColor), // Off color
-                        (Enabled ? SkinManager.ColorScheme.AccentColor : BlendColor(SkinManager.ColorScheme.AccentColor, SkinManager.SwitchOffDisabledThumbColor, 197)), // On color
+                        (Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : BlendColor(UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, SkinManager.SwitchOffDisabledThumbColor, 197)), // On color
                         animationProgress * 255); // Blend amount
 
             using (var path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - TRACK_SIZE_HEIGHT / 2, TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
@@ -156,7 +156,7 @@ namespace ReaLTaiizor.Controls
                     Color.FromArgb(Enabled ? SkinManager.SwitchOffTrackColor.A : SkinManager.BackgroundDisabledColor.A, // Track alpha
                     BlendColor( // animate color
                         (Enabled ? SkinManager.SwitchOffTrackColor : SkinManager.BackgroundDisabledColor), // Off color
-                        SkinManager.ColorScheme.AccentColor, // On color
+                        UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, // On color
                         animationProgress * 255) // Blend amount
                         .RemoveAlpha())))
                 {
@@ -171,7 +171,7 @@ namespace ReaLTaiizor.Controls
             int rippleSize = (Height % 2 == 0) ? Height - 2 : Height - 3;
 
             Color rippleColor = Color.FromArgb(40, // color alpha
-                Checked ? SkinManager.ColorScheme.AccentColor : // On color
+                Checked ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : // On color
                 (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White)); // Off color
 
             if (Ripple && _rippleAM.IsAnimating())
