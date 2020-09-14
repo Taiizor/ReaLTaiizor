@@ -22,8 +22,10 @@ namespace ReaLTaiizor.Controls
         private bool _SizeAuto = true;
         private bool _SizeAutoW = true;
         private bool _SizeAutoH = true;
+        private bool _SizeWidthLeft = false;
 
         #endregion
+
         #region Properties
 
         public override Color ForeColor
@@ -86,6 +88,16 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        public bool SizeWidthLeft
+        {
+            get { return _SizeWidthLeft; }
+            set
+            {
+                _SizeWidthLeft = value;
+                Invalidate();
+            }
+        }
+
         #endregion
 
         public ChatBubbleRight()
@@ -119,13 +131,20 @@ namespace ReaLTaiizor.Controls
 
             if (_SizeAuto)
             {
+                int WW = Width;
                 if (_SizeAutoW && _SizeAutoH)
                 {
                     Width = TextRenderer.MeasureText(Text, Font).Width + 15;
                     Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+                    if (_SizeWidthLeft)
+                        Location = new Point(Location.X - (Width - WW), Location.Y);
                 }
                 else if (_SizeAutoW)
+                {
                     Width = TextRenderer.MeasureText(Text, Font).Width + 15;
+                    if (_SizeWidthLeft)
+                        Location = new Point(Location.X - (Width - WW), Location.Y);
+                }
                 else
                     Height = TextRenderer.MeasureText(Text, Font).Height + 15;
             }
