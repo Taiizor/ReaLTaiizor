@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using System;
 using System.Drawing;
 using ReaLTaiizor.Utils;
 using System.Drawing.Text;
@@ -136,6 +137,12 @@ namespace ReaLTaiizor.Controls
             Font = SkinManager.getFontByType(MaterialManager.fontType.Body1);
         }
 
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            Invalidate();
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             var g = e.Graphics;
@@ -180,16 +187,23 @@ namespace ReaLTaiizor.Controls
                     }
                 }
 
-                //Animate tab indicator
-                var previousSelectedTabIndexIfHasOne = _previousSelectedTabIndex == -1 ? _baseTabControl.SelectedIndex : _previousSelectedTabIndex;
-                var previousActiveTabRect = _tabRects[previousSelectedTabIndexIfHasOne];
-                var activeTabPageRect = _tabRects[_baseTabControl.SelectedIndex];
+                try
+                {
+                    //Animate tab indicator
+                    var previousSelectedTabIndexIfHasOne = _previousSelectedTabIndex == -1 ? _baseTabControl.SelectedIndex : _previousSelectedTabIndex;
+                    var previousActiveTabRect = _tabRects[previousSelectedTabIndexIfHasOne];
+                    var activeTabPageRect = _tabRects[_baseTabControl.SelectedIndex];
 
-                var y = activeTabPageRect.Bottom - 2;
-                var x = previousActiveTabRect.X + (int)((activeTabPageRect.X - previousActiveTabRect.X) * animationProgress);
-                var width = previousActiveTabRect.Width + (int)((activeTabPageRect.Width - previousActiveTabRect.Width) * animationProgress);
+                    var y = activeTabPageRect.Bottom - 2;
+                    var x = previousActiveTabRect.X + (int)((activeTabPageRect.X - previousActiveTabRect.X) * animationProgress);
+                    var width = previousActiveTabRect.Width + (int)((activeTabPageRect.Width - previousActiveTabRect.Width) * animationProgress);
 
-                g.FillRectangle(SkinManager.ColorScheme.AccentBrush, x, y, width, TAB_INDICATOR_HEIGHT);
+                    g.FillRectangle(SkinManager.ColorScheme.AccentBrush, x, y, width, TAB_INDICATOR_HEIGHT);
+                }
+                catch
+                {
+                    //
+                }
             }
         }
 
