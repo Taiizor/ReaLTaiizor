@@ -3,13 +3,13 @@
 using System;
 using System.Linq;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Diagnostics;
 using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 using System.Globalization;
 using System.ComponentModel;
-using static ReaLTaiizor.Helpers.MaterialDrawHelper;
+using static ReaLTaiizor.Helper.MaterialDrawHelper;
 
 #endregion
 
@@ -256,7 +256,7 @@ namespace ReaLTaiizor.Forms
             InitializeComponent();
 
             //Try to evaluate the language. If this fails, the fallback language English will be used
-            Enum.TryParse<TwoLetterISOLanguageID>(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, out languageID);
+            System.Enum.TryParse<TwoLetterISOLanguageID>(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, out languageID);
 
             KeyPreview = true;
             KeyUp += MaterialFlexibleForm_KeyUp;

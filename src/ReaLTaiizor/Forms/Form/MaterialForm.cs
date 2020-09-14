@@ -3,15 +3,15 @@
 using System;
 using System.Linq;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Drawing.Text;
 using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using static ReaLTaiizor.Utils.MaterialAnimations;
-using static ReaLTaiizor.Helpers.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
+using static ReaLTaiizor.Helper.MaterialDrawHelper;
 
 #endregion
 
@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Forms
 {
     #region MaterialForm
 
-    public class MaterialForm : System.Windows.Forms.Form, MaterialControlI
+    public class MaterialForm : Form, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }

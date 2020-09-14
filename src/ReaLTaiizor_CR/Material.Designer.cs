@@ -52,7 +52,7 @@
             materialTextBox1.Hint = "53X";
             materialTextBox1.Location = new System.Drawing.Point(12, 85);
             materialTextBox1.MaxLength = 50;
-            materialTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBox1.Multiline = false;
             materialTextBox1.Name = "materialTextBox1";
             materialTextBox1.Size = new System.Drawing.Size(291, 50);
@@ -67,7 +67,7 @@
             materialTextBox2.Hint = "53X";
             materialTextBox2.Location = new System.Drawing.Point(12, 141);
             materialTextBox2.MaxLength = 50;
-            materialTextBox2.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBox2.Multiline = false;
             materialTextBox2.Name = "materialTextBox2";
             materialTextBox2.Password = true;
@@ -130,7 +130,7 @@
             materialRichTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             materialRichTextBox1.Hint = "";
             materialRichTextBox1.Location = new System.Drawing.Point(322, 85);
-            materialRichTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialRichTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialRichTextBox1.Name = "materialRichTextBox1";
             materialRichTextBox1.Size = new System.Drawing.Size(291, 106);
             materialRichTextBox1.TabIndex = 8;
@@ -145,7 +145,7 @@
             materialButton1.Icon = null;
             materialButton1.Location = new System.Drawing.Point(310, 320);
             materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialButton1.Name = "materialButton1";
             materialButton1.Size = new System.Drawing.Size(141, 36);
             materialButton1.TabIndex = 9;
@@ -164,7 +164,7 @@
             materialButton2.Icon = null;
             materialButton2.Location = new System.Drawing.Point(459, 320);
             materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            materialButton2.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialButton2.Name = "materialButton2";
             materialButton2.Size = new System.Drawing.Size(166, 36);
             materialButton2.TabIndex = 10;
@@ -183,7 +183,7 @@
             materialTextBox3.Hint = "53X";
             materialTextBox3.Location = new System.Drawing.Point(322, 205);
             materialTextBox3.MaxLength = 50;
-            materialTextBox3.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBox3.Multiline = false;
             materialTextBox3.Name = "materialTextBox3";
             materialTextBox3.Size = new System.Drawing.Size(291, 36);
@@ -200,7 +200,7 @@
             materialButton3.Icon = null;
             materialButton3.Location = new System.Drawing.Point(395, 283);
             materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            materialButton3.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialButton3.Name = "materialButton3";
             materialButton3.Size = new System.Drawing.Size(144, 36);
             materialButton3.TabIndex = 13;
@@ -216,7 +216,7 @@
             materialSingleTextBox1.Hint = "";
             materialSingleTextBox1.Location = new System.Drawing.Point(322, 247);
             materialSingleTextBox1.MaxLength = 32767;
-            materialSingleTextBox1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialSingleTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialSingleTextBox1.Name = "materialSingleTextBox1";
             materialSingleTextBox1.PasswordChar = '\0';
             materialSingleTextBox1.SelectedText = "";

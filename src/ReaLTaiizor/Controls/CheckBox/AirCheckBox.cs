@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
@@ -16,7 +16,6 @@ namespace ReaLTaiizor.Controls
     [DefaultEventAttribute("CheckedChanged")]
     public class AirCheckBox : AirControl
     {
-
         public AirCheckBox()
         {
             LockHeight = 17;

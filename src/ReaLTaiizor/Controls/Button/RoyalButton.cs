@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 

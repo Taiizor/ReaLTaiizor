@@ -11,7 +11,7 @@ namespace ReaLTaiizor.Controls
 {
     #region SkyComboBox
 
-    public class SkyComboBox : System.Windows.Forms.ComboBox
+    public class SkyComboBox : ComboBox
     {
         #region " Control Help - Properties & Flicker Control "
 

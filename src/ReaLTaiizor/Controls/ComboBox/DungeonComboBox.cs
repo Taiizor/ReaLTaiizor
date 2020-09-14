@@ -11,9 +11,8 @@ namespace ReaLTaiizor.Controls
 {
     #region DungeonComboBox
 
-    public class DungeonComboBox : System.Windows.Forms.ComboBox
+    public class DungeonComboBox : ComboBox
     {
-
         #region Variables
 
         private int _StartIndex = 0;
@@ -30,6 +29,7 @@ namespace ReaLTaiizor.Controls
         private Color _ColorI = Color.FromArgb(250, 249, 249);
 
         #endregion
+
         #region Custom Properties
 
         public int StartIndex
@@ -120,6 +120,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region EventArgs
 
         protected override void OnDrawItem(DrawItemEventArgs e)

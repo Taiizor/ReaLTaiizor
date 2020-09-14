@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
             get { return dlgResult; }
             set
             {
-                if (Enum.IsDefined(typeof(DialogResult), value))
+                if (System.Enum.IsDefined(typeof(DialogResult), value))
                     dlgResult = value;
             }
         }
