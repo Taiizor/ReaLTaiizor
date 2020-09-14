@@ -25,6 +25,13 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialManager SkinManager => MaterialManager.Instance;
 
+        private bool useAccentColor;
+        public bool UseAccentColor
+        {
+            get { return useAccentColor; }
+            set { useAccentColor = value; Invalidate(); }
+        }
+
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 

@@ -28,6 +28,13 @@ namespace ReaLTaiizor.Controls
         private readonly BaseTextBox _baseTextBox;
         private readonly AnimationManager _animationManager;
 
+        private bool useAccentColor;
+        public bool UseAccentColor
+        {
+            get { return useAccentColor; }
+            set { useAccentColor = value; Invalidate(); }
+        }
+
         public override string Text { get { return _baseTextBox.Text; } set { _baseTextBox.Text = value; } }
         public new object Tag { get { return _baseTextBox.Tag; } set { _baseTextBox.Tag = value; } }
         public new int MaxLength { get { return _baseTextBox.MaxLength; } set { _baseTextBox.MaxLength = value; } }
@@ -998,7 +1005,7 @@ namespace ReaLTaiizor.Controls
             if (!_animationManager.IsAnimating())
             {
                 //No animation
-                g.FillRectangle(_baseTextBox.Focused ? SkinManager.ColorScheme.PrimaryBrush : SkinManager.DividersBrush, _baseTextBox.Location.X, lineY, _baseTextBox.Width, _baseTextBox.Focused ? 2 : 1);
+                g.FillRectangle(_baseTextBox.Focused ? UseAccentColor ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.PrimaryBrush : SkinManager.DividersBrush, _baseTextBox.Location.X, lineY, _baseTextBox.Width, _baseTextBox.Focused ? 2 : 1);
             }
             else
             {
@@ -1011,7 +1018,7 @@ namespace ReaLTaiizor.Controls
                 g.FillRectangle(SkinManager.DividersBrush, _baseTextBox.Location.X, lineY, _baseTextBox.Width, 1);
 
                 //Animated focus transition
-                g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, animationStart - halfAnimationWidth, lineY, animationWidth, 2);
+                g.FillRectangle(UseAccentColor ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.PrimaryBrush, animationStart - halfAnimationWidth, lineY, animationWidth, 2);
             }
         }
 
