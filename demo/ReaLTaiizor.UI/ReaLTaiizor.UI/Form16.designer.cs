@@ -104,7 +104,7 @@
             royalButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             royalButton1.HotTrackColor = System.Drawing.Color.Honeydew;
             royalButton1.Image = null;
-            royalButton1.LayoutFlags = ReaLTaiizor.Utils.RoyalLayoutFlags.ImageBeforeText;
+            royalButton1.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
             royalButton1.Location = new System.Drawing.Point(12, 34);
             royalButton1.Name = "royalButton1";
             royalButton1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -124,7 +124,7 @@
             royalButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             royalButton2.HotTrackColor = System.Drawing.Color.Lime;
             royalButton2.Image = null;
-            royalButton2.LayoutFlags = ReaLTaiizor.Utils.RoyalLayoutFlags.ImageBeforeText;
+            royalButton2.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
             royalButton2.Location = new System.Drawing.Point(138, 34);
             royalButton2.Name = "royalButton2";
             royalButton2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -144,7 +144,7 @@
             royalButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             royalButton3.HotTrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             royalButton3.Image = null;
-            royalButton3.LayoutFlags = ReaLTaiizor.Utils.RoyalLayoutFlags.ImageBeforeText;
+            royalButton3.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
             royalButton3.Location = new System.Drawing.Point(264, 34);
             royalButton3.Name = "royalButton3";
             royalButton3.PressedColor = System.Drawing.Color.Olive;
@@ -164,7 +164,7 @@
             royalEllipseButton1.ForeColor = System.Drawing.Color.Black;
             royalEllipseButton1.HotTrackColor = System.Drawing.Color.Honeydew;
             royalEllipseButton1.Image = null;
-            royalEllipseButton1.LayoutFlags = ReaLTaiizor.Utils.RoyalLayoutFlags.ImageBeforeText;
+            royalEllipseButton1.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
             royalEllipseButton1.Location = new System.Drawing.Point(12, 80);
             royalEllipseButton1.Name = "royalEllipseButton1";
             royalEllipseButton1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -184,7 +184,7 @@
             royalEllipseButton2.ForeColor = System.Drawing.Color.Black;
             royalEllipseButton2.HotTrackColor = System.Drawing.Color.Lime;
             royalEllipseButton2.Image = null;
-            royalEllipseButton2.LayoutFlags = ReaLTaiizor.Utils.RoyalLayoutFlags.ImageBeforeText;
+            royalEllipseButton2.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
             royalEllipseButton2.Location = new System.Drawing.Point(138, 80);
             royalEllipseButton2.Name = "royalEllipseButton2";
             royalEllipseButton2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -204,7 +204,7 @@
             royalEllipseButton3.ForeColor = System.Drawing.Color.Black;
             royalEllipseButton3.HotTrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             royalEllipseButton3.Image = null;
-            royalEllipseButton3.LayoutFlags = ReaLTaiizor.Utils.RoyalLayoutFlags.ImageBeforeText;
+            royalEllipseButton3.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
             royalEllipseButton3.Location = new System.Drawing.Point(264, 80);
             royalEllipseButton3.Name = "royalEllipseButton3";
             royalEllipseButton3.PressedColor = System.Drawing.Color.Olive;
