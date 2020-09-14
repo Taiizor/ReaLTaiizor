@@ -143,10 +143,8 @@ namespace ReaLTaiizor.Controls
 
             g.Clear(SkinManager.ColorScheme.PrimaryColor);
 
-            if (_baseTabControl.TabPages.Count > 0)
+            if (_baseTabControl != null && _baseTabControl.TabPages.Count > 0)
             {
-                if (_baseTabControl == null) return;
-
                 if (!_animationManager.IsAnimating() || _tabRects == null || _tabRects.Count != _baseTabControl.TabCount)
                     UpdateTabRects();
 
