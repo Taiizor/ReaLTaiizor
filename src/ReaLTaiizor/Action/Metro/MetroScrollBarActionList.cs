@@ -30,10 +30,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroScrollBar.ThemeName;
 
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _metroScrollBar.StyleManager;
-            set => _metroScrollBar.StyleManager = value;
+            get => _metroScrollBar.MetroStyleManager;
+            set => _metroScrollBar.MetroStyleManager = value;
         }
 
         public int Maximum
@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),

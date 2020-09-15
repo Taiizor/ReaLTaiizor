@@ -2,6 +2,7 @@
 using ReaLTaiizor.Forms;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
+using ReaLTaiizor.Enum.Metro;
 
 namespace ReaLTaiizor.UI
 {
@@ -14,10 +15,10 @@ namespace ReaLTaiizor.UI
 
         private void MetroSwitch2_SwitchedChanged(object sender)
         {
-            if (styleManager1.Style == ReaLTaiizor.Enum.Metro.Style.Light)
-                styleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+            if (metroStyleManager1.Style == Style.Light)
+                metroStyleManager1.Style = Style.Dark;
             else
-                styleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+                metroStyleManager1.Style = Style.Light;
         }
 
         private void MetroButton3_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace ReaLTaiizor.UI
 
         private void MetroDefaultButton1_Click(object sender, EventArgs e)
         {
-            styleManager1.OpenTheme();
+            metroStyleManager1.OpenTheme();
         }
     }
 }

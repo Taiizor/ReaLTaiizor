@@ -33,7 +33,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => MetroStyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -63,12 +63,12 @@ namespace ReaLTaiizor.Controls
         public string ThemeName { get; set; }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _styleManager;
+            get => _metroStyleManager;
             set
             {
-                _styleManager = value;
+                _metroStyleManager = value;
                 Invalidate();
             }
         }
@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Controls
 
         private MouseMode _state;
         private Style _style;
-        private StyleManager _styleManager;
+        private MetroStyleManager _metroStyleManager;
 
         #endregion Internal Vars
 
@@ -213,8 +213,8 @@ namespace ReaLTaiizor.Controls
                     ThemeName = "MetroDark";
                     break;
                 case Style.Custom:
-                    if (StyleManager != null)
-                        foreach (var varkey in StyleManager.EllipseDictionary)
+                    if (MetroStyleManager != null)
+                        foreach (var varkey in MetroStyleManager.EllipseDictionary)
                         {
                             if ((varkey.Key == null) || varkey.Key == null)
                                 return;

@@ -50,52 +50,30 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
     <PackageReference Include="System.Drawing.Common">
-      <Version>5.0.0-preview.8.20407.11</Version>
+      <Version>5.0.0-rc.1.20451.14</Version>
     </PackageReference>
     <PackageReference Include="System.Resources.Extensions">
-      <Version>5.0.0-preview.8.20407.11</Version>
+      <Version>5.0.0-rc.1.20451.14</Version>
     </PackageReference>
+    <PackageReference Include="System.Configuration.ConfigurationManager">
+      <Version>5.0.0-rc.1.20451.14</Version>
+    </PackageReference>
+    <Reference Include="System.Design">
+      <HintPath>Library\System.Design.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms">
       <HintPath>Library\System.Windows.Forms.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+    <Reference Include="System.Design" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.VisualBasic" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="System.Design" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Controls\Badge\MetroBadge.cs" />
-    <Compile Update="Controls\Button\MetroButton.cs" />
-    <Compile Update="Controls\CheckBox\MetroCheckBox.cs" />
-    <Compile Update="Controls\ComboBox\MetroComboBox.cs" />
-    <Compile Update="Controls\ControlBox\MetroControlBox.cs" />
-    <Compile Update="Controls\Divider\MetroDivider.cs" />
-    <Compile Update="Controls\Ellipse\MetroEllipse.cs" />
-    <Compile Update="Controls\Label\MetroLabel.cs" />
-    <Compile Update="Controls\LinkLabel\MetroLinkLabel.cs" />
-    <Compile Update="Controls\ListBox\MetroListBox.cs" />
-    <Compile Update="Controls\Numeric\MetroNumeric.cs" />
-    <Compile Update="Controls\Panel\MetroPanel.cs" />
-    <Compile Update="Controls\Progress\MetroProgressBar.cs" />
-    <Compile Update="Controls\RadioButton\MetroRadioButton.cs" />
-    <Compile Update="Controls\RichTextBox\MetroRichTextBox.cs" />
-    <Compile Update="Controls\ScrollBar\MetroScrollBar.cs" />
-    <Compile Update="Controls\Strip\MetroContextMenuStrip.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Switch\MetroSwitch.cs" />
-    <Compile Update="Controls\TabControl\MetroTabControl.cs" />
-    <Compile Update="Controls\TextBox\MetroTextBox.cs" />
-    <Compile Update="Controls\Tile\MetroTile.cs" />
-    <Compile Update="Controls\TrackBar\MetroTrackBar.cs" />
-    <Compile Update="Forms\Form\MetroForm.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>

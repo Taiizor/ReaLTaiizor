@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => MetroStyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -56,10 +56,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get => _metroStyleManager;
+            set { _metroStyleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -79,7 +79,7 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private StyleManager _styleManager;
+        private MetroStyleManager _metroStyleManager;
         private int _maxLength;
         private bool _readOnly;
         private MouseMode _state;
@@ -239,8 +239,8 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (StyleManager != null)
-                        foreach (var varkey in StyleManager.RichTextBoxDictionary)
+                    if (MetroStyleManager != null)
+                        foreach (var varkey in MetroStyleManager.RichTextBoxDictionary)
                         {
                             switch (varkey.Key)
                             {

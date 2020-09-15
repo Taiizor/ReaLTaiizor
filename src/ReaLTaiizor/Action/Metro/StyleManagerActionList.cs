@@ -15,11 +15,11 @@ namespace ReaLTaiizor.Action.Metro
 
     class StyleManagerActionList : DesignerActionList
     {
-        private readonly StyleManager _styleManger;
+        private readonly MetroStyleManager _styleManger;
 
         public StyleManagerActionList(IComponent component) : base(component)
         {
-            _styleManger = (StyleManager)component;
+            _styleManger = (MetroStyleManager)component;
         }
 
         public Style Style
@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _styleManger.ThemeName;
 
-        [Editor(typeof(StyleManager.FileNamesEditor), typeof(UITypeEditor)), Category("Metro"), Description("Gets or sets the custom theme file.")]
+        [Editor(typeof(MetroStyleManager.FileNamesEditor), typeof(UITypeEditor)), Category("Metro"), Description("Gets or sets the custom theme file.")]
         public string CustomTheme
         {
             get => _styleManger.CustomTheme;

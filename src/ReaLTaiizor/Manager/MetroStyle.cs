@@ -17,22 +17,22 @@ using ReaLTaiizor.Interface.Metro;
 
 namespace ReaLTaiizor.Manager
 {
-    #region MetroManager
+    #region MetroStyleManager
 
     [DefaultProperty("Style")]
     [Designer(typeof(StyleManagerDesigner))]
     [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(StyleManager), "Style.bmp")]
-    public class StyleManager : Component
+    [ToolboxBitmap(typeof(MetroStyleManager), "Style.bmp")]
+    public class MetroStyleManager : Component
     {
         #region Constructor
 
-        public StyleManager(Form ownerForm)
+        public MetroStyleManager(Form ownerForm)
         {
             MetroForm = ownerForm;
         }
 
-        public StyleManager()
+        public MetroStyleManager()
         {
             _style = Style.Light;
             if (_customTheme == null)
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Manager
                     form.Style = Style;
                     form.ThemeAuthor = ThemeAuthor;
                     form.ThemeName = ThemeName;
-                    form.StyleManager = this;
+                    form.MetroStyleManager = this;
                     break;
             }
 
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Manager
                     control.Style = Style;
                     control.ThemeAuthor = ThemeAuthor;
                     control.ThemeName = ThemeName;
-                    control.StyleManager = this;
+                    control.MetroStyleManager = this;
                 }
                 if (control is TabControl tabControl)
                 {
@@ -87,7 +87,7 @@ namespace ReaLTaiizor.Manager
                         if (c is iControl)
                         {
                             control.Style = Style;
-                            control.StyleManager = this;
+                            control.MetroStyleManager = this;
                             control.ThemeAuthor = ThemeAuthor;
                             control.ThemeName = ThemeName;
                         }
@@ -99,10 +99,9 @@ namespace ReaLTaiizor.Manager
                 {
                     if (!(child is iControl)) continue;
                     ((iControl)child).Style = Style;
-                    ((iControl)child).StyleManager = this;
+                    ((iControl)child).MetroStyleManager = this;
                     ((iControl)child).ThemeAuthor = ThemeAuthor;
                     ((iControl)child).ThemeName = ThemeName;
-
                 }
             }
         }
@@ -114,7 +113,7 @@ namespace ReaLTaiizor.Manager
                 control.Style = Style;
                 control.ThemeAuthor = ThemeAuthor;
                 control.ThemeName = ThemeName;
-                control.StyleManager = this;
+                control.MetroStyleManager = this;
             }
             else
                 UpdateForm();
@@ -179,12 +178,15 @@ namespace ReaLTaiizor.Manager
             get => _customTheme;
             set
             {
-                if (Style == Style.Custom)
+                if (!string.IsNullOrEmpty(value))
                 {
+                    Style = Style.Custom;
                     Properties.Settings.Default.ThemeFile = value;
                     Properties.Settings.Default.Save();
                     ControlProperties(value);
                 }
+                else
+                    Style = Style.Light;
                 _customTheme = value;
             }
         }

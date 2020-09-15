@@ -31,10 +31,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroControlBox.ThemeName;
 
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _metroControlBox.StyleManager;
-            set => _metroControlBox.StyleManager = value;
+            get => _metroControlBox.MetroStyleManager;
+            set => _metroControlBox.MetroStyleManager = value;
         }
 
         public bool MaximizeBox
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),

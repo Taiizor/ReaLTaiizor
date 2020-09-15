@@ -354,7 +354,7 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the style associated with the control."), DefaultValue(Style.Light)]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => MetroStyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -377,12 +377,12 @@ namespace ReaLTaiizor.Forms
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _styleManager;
+            get => _metroStyleManager;
             set
             {
-                _styleManager = value;
+                _metroStyleManager = value;
                 Invalidate();
             }
         }
@@ -409,7 +409,7 @@ namespace ReaLTaiizor.Forms
         #region Internal Vars
 
         private Style _style;
-        private StyleManager _styleManager;
+        private MetroStyleManager _metroStyleManager;
         private bool _showLeftRect;
         private bool _showHeader;
         private float _backgorundImageTrasparency;
@@ -447,8 +447,8 @@ namespace ReaLTaiizor.Forms
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (StyleManager != null)
-                        foreach (var varkey in StyleManager.FormDictionary)
+                    if (MetroStyleManager != null)
+                        foreach (var varkey in MetroStyleManager.FormDictionary)
                         {
                             if (!string.Equals(varkey.Key, null, StringComparison.Ordinal) && varkey.Key != null)
                             {

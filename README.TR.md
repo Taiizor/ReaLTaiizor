@@ -135,7 +135,7 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/26/AuYn.gif)
 
-![Overview-2](https://www.photo.herominyum.com/resimler/2020/09/15/ESwU.gif)
+![Overview-2](https://www.photo.herominyum.com/resimler/2020/09/15/EYlY.gif)
 
 ![Overview-3](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 

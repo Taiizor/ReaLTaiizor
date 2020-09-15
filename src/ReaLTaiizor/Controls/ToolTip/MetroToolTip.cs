@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => MetroStyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -51,10 +51,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _styleManager;
-            set => _styleManager = value;
+            get => _metroStyleManager;
+            set => _metroStyleManager = value;
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -74,7 +74,7 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private StyleManager _styleManager;
+        private MetroStyleManager _metroStyleManager;
         private Style _style;
 
         #endregion Internal Vars
@@ -138,8 +138,8 @@ namespace ReaLTaiizor.Controls
                     ThemeName = "MetroDark";
                     break;
                 case Style.Custom:
-                    if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ToolTipDictionary)
+                    if (MetroStyleManager != null)
+                        foreach (var varkey in MetroStyleManager.ToolTipDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -218,14 +218,14 @@ namespace ReaLTaiizor.Controls
                 Style = iControl.Style;
                 ThemeAuthor = iControl.ThemeAuthor;
                 ThemeName = iControl.ThemeName;
-                StyleManager = iControl.StyleManager;
+                MetroStyleManager = iControl.MetroStyleManager;
             }
             else if (control is iForm)
             {
                 Style = ((iForm)control).Style;
                 ThemeAuthor = ((iForm)control).ThemeAuthor;
                 ThemeName = ((iForm)control).ThemeName;
-                StyleManager = ((iForm)control).StyleManager;
+                MetroStyleManager = ((iForm)control).MetroStyleManager;
             }
             e.ToolTipSize = new Size(e.ToolTipSize.Width + 30, e.ToolTipSize.Height + 6);
         }

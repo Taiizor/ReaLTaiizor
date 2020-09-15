@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => MetroStyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -61,12 +61,12 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _styleManager;
+            get => _metroStyleManager;
             set
             {
-                _styleManager = value;
+                _metroStyleManager = value;
                 Invalidate();
             }
         }
@@ -88,7 +88,7 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private StyleManager _styleManager;
+        private MetroStyleManager _metroStyleManager;
         private MetroItemCollection _items;
         private List<object> _selectedItems;
         private List<object> _indicates;
@@ -190,8 +190,8 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ListBoxDictionary)
+                    if (MetroStyleManager != null)
+                        foreach (var varkey in MetroStyleManager.ListBoxDictionary)
                         {
                             switch (varkey.Key)
                             {

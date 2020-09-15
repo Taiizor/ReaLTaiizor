@@ -33,10 +33,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroRichTextBox.ThemeName;
 
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _metroRichTextBox.StyleManager;
-            set => _metroRichTextBox.StyleManager = value;
+            get => _metroRichTextBox.MetroStyleManager;
+            set => _metroRichTextBox.MetroStyleManager = value;
         }
 
         public string Text
@@ -68,7 +68,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),

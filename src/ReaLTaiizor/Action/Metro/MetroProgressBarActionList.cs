@@ -31,10 +31,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroProgressBar.ThemeName;
 
-        public StyleManager StyleManager
+        public MetroStyleManager MetroStyleManager
         {
-            get => _metroProgressBar.StyleManager;
-            set => _metroProgressBar.StyleManager = value;
+            get => _metroProgressBar.MetroStyleManager;
+            set => _metroProgressBar.MetroStyleManager = value;
         }
 
         public int Value
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
