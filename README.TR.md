@@ -1,4 +1,4 @@
-![Logo](https://i.hizliresim.com/h13v8O.png)
+![Logo](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.images/Logo.png)
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
 ![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D5.0-blue)
@@ -107,90 +107,90 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ### Windows Defender
 
-![WindowsDefenderSample](https://i.hizliresim.com/X8qMlQ.png)
+![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)
 
 ### MP3 Oynatıcı
 
-![MP3PlayerSample](https://i.hizliresim.com/sbYpJ2.png)
+![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)
 
 ### Ödeme
 
-![PaymentSample](https://i.hizliresim.com/3uHmep.png)
+![PaymentSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Payment.png)
 
 ### Oturum Aç
 
-![LoginSample](https://i.hizliresim.com/02kFx9.png)
+![LoginSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Login.png)
 
 ### Instagram
 
-![InstagramSample](https://i.hizliresim.com/kkJnKu.png)
+![InstagramSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Instagram.png)
 
 ## Hazırlanmış
 
 ### Çeviri
 
-![TranslateReady](https://i.hizliresim.com/LZhIpw.png)
+![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)
 
 ## Genel Bakış
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/26/AuYn.gif)
+![Overview-1](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Material.gif)
 
-![Overview-2](https://i.hizliresim.com/8Qh82G.gif)
+![Overview-2](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Metro.gif)
 
-![Overview-3](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
+![Overview-3](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form1.png)
 
-![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
+![Overview-4](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form2.png)
 
-![Overview-5](https://www.photo.herominyum.com/resimler/2020/05/20/OERe.png)
+![Overview-5](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Sky.png)
 
-![Overview-6](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
+![Overview-6](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Alone.png)
 
 ## Son Tema Örnekleri
 
 ### Hava
 
-![AirTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OaZy.png)
+![AirTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Air.png)
 
 ### Zindan
 
-![DungeonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OqyV.png)
+![DungeonTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Dungeon.png)
 
 ### Rüya
 
-![DreamTheme](https://www.photo.herominyum.com/resimler/2020/05/20/Ot33.png)
+![DreamTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Dream.png)
 
 ### Kurdele
 
-![RibbonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O4sN.png)
+![RibbonTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Ribbon.png)
 
 ### Uzay
 
-![SpaceTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O7EW.png)
+![SpaceTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Space.png)
 
 ### Gök Gürültüsü
 
-![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/25/dMLF.png)
+![ThunderTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Thunder.png)
 
 ### Ay
 
-![MoonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O6k1.png)
+![MoonTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Moon.png)
 
 ### Sonsuza Kadar
 
-![ForeverTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OveM.png)
+![ForeverTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Forever.png)
 
 ### Umut
 
-![HopeTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png)
+![HopeTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hope.png)
 
 ### Kayıp
 
-![LostTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png)
+![LostTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Lost.png)
 
 ### Kraliyet
 
-![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
+![RoyalTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Royal.png)
 
 ### Gece
 
-![NightTheme](https://www.photo.herominyum.com/resimler/2020/09/06/E1NV.png)
+![NightTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Night.png)
