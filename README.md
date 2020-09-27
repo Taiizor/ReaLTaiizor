@@ -135,7 +135,7 @@ Step 2：Enjoy designing
 
 ![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/26/AuYn.gif)
 
-![Overview-2](https://www.photo.herominyum.com/resimler/2020/09/15/EYlY.gif)
+![Overview-2](https://i.hizliresim.com/8Qh82G.gif)
 
 ![Overview-3](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
 
