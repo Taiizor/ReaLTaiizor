@@ -1,4 +1,4 @@
-![Logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
+![Logo](https://i.hizliresim.com/h13v8O.png)
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
 ![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D5.0-blue)
@@ -107,29 +107,29 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ### Windows Defender
 
-![WindowsDefenderSample](https://www.photo.herominyum.com/resimler/2020/07/26/1gv2.png)
+![WindowsDefenderSample](https://i.hizliresim.com/X8qMlQ.png)
 
 ### MP3 Oynatıcı
 
-![MP3PlayerSample](https://www.photo.herominyum.com/resimler/2020/07/26/1LqV.png)
+![MP3PlayerSample](https://i.hizliresim.com/sbYpJ2.png)
 
 ### Ödeme
 
-![PaymentSample](https://www.photo.herominyum.com/resimler/2020/07/26/1155.png)
+![PaymentSample](https://i.hizliresim.com/3uHmep.png)
 
 ### Oturum Aç
 
-![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)
+![LoginSample](https://i.hizliresim.com/02kFx9.png)
 
 ### Instagram
 
-![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/182n.png)
+![InstagramSample](https://i.hizliresim.com/kkJnKu.png)
 
 ## Hazırlanmış
 
 ### Çeviri
 
-![TranslateReady](https://www.photo.herominyum.com/resimler/2020/09/06/EdGy.png)
+![TranslateReady](https://i.hizliresim.com/LZhIpw.png)
 
 ## Genel Bakış
 
