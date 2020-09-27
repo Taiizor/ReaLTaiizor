@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>-->
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
     <Version>3.7.8.0</Version>
@@ -35,11 +35,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Design\Metro\Style.cs" />
-    <Compile Remove="Design\Metro\TextAlign.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
@@ -205,6 +200,11 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Taiizor.ico" />
     <Resource Include="Resources\Taiizor.png" />
     <Resource Include="Resources\Twitter.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Design\Metro\Style.cs" />
+    <Compile Remove="Design\Metro\TextAlign.cs" />
   </ItemGroup>
 
 </Project>
