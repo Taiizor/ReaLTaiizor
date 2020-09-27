@@ -276,8 +276,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Enabled = value;
-                if (!value)
-                    _state = MouseMode.Disabled;
+                _state = value ? MouseMode.Normal : MouseMode.Disabled;
                 Invalidate();
             }
         }
