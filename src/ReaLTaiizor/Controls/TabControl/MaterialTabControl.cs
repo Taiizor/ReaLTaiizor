@@ -28,6 +28,11 @@ namespace ReaLTaiizor.Controls
             if (m.Msg == 0x1328 && !DesignMode) m.Result = (IntPtr)1;
             else base.WndProc(ref m);
         }
+
+        public MaterialTabControl()
+        {
+            Multiline = true;
+        }
     }
 
     #endregion

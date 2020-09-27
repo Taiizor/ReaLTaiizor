@@ -362,6 +362,12 @@ namespace ReaLTaiizor.Util
         {
             _formsToManage.Add(materialForm);
             UpdateBackgrounds();
+
+            // Set background on newly added controls
+            materialForm.ControlAdded += (sender, e) =>
+            {
+                UpdateControlBackColor(e.Control, BackdropColor);
+            };
         }
 
         public void RemoveFormToManage(Forms.MaterialForm materialForm)
@@ -576,7 +582,8 @@ namespace ReaLTaiizor.Util
 
                     // Draw Text for multiline format
                     Rect region = new Rect(new Rectangle(pos, size));
-                    DrawText(memoryHdc, str, str.Length, ref region, fmtFlags);
+                    //DrawText(memoryHdc, str, str.Length, ref region, fmtFlags);
+                    DrawText(memoryHdc, str, -1, ref region, fmtFlags);
                 }
                 else
                 {
@@ -654,7 +661,7 @@ namespace ReaLTaiizor.Util
             SetTextColor(_hdc, rgb);
         }
 
-        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern int DrawText(IntPtr hdc, string lpchText, int cchText, ref Rect lprc, TextFormatFlags dwDTFormat);
 
         [DllImport("gdi32.dll")]
