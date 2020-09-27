@@ -3,6 +3,7 @@
 using System;
 using System.Drawing;
 using ReaLTaiizor.Forms;
+using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Extension.Metro;
@@ -15,7 +16,7 @@ namespace ReaLTaiizor.Controls
 
     public class MetroMessageBox : MetroForm
     {
-        #region Internal vars
+        #region Internal Vars
 
         private Size _buttonSize;
         private MetroDefaultButton _okButton;
@@ -244,7 +245,7 @@ namespace ReaLTaiizor.Controls
             {
                 BackgroundColor = Color.FromArgb(210, 50, 45);
                 BorderColor = Color.FromArgb(210, 50, 45);
-                ForegroundColor = Color.Black;
+                ForegroundColor = Color.White;
             }
 
             else if (icon == MessageBoxIcon.Information)
@@ -258,14 +259,14 @@ namespace ReaLTaiizor.Controls
             {
                 BackgroundColor = Color.FromArgb(70, 165, 70);
                 BorderColor = Color.FromArgb(70, 165, 70);
-                ForegroundColor = Color.Black;
+                ForegroundColor = Color.White;
             }
 
             else if (icon == MessageBoxIcon.Exclamation || icon == MessageBoxIcon.Warning)
             {
                 BackgroundColor = Color.FromArgb(237, 156, 40);
                 BorderColor = Color.FromArgb(237, 156, 40);
-                ForegroundColor = Color.Black;
+                ForegroundColor = Color.White;
             }
 
             else if (icon == MessageBoxIcon.None || icon == MessageBoxIcon.Asterisk || icon == MessageBoxIcon.Hand)
@@ -338,7 +339,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             var G = e.Graphics;
-            G.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             var rect = new Rectangle(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
 

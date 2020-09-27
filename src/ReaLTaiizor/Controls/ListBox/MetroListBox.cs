@@ -5,7 +5,6 @@ using System.Drawing;
 using ReaLTaiizor.Native;
 using ReaLTaiizor.Manager;
 using System.Drawing.Text;
-using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Metro;
@@ -94,7 +93,8 @@ namespace ReaLTaiizor.Controls
         private List<object> _indicates;
         private bool _multiSelect;
         private int _selectedIndex;
-        private string _selectedItem;
+        private object _selectedItem;
+        private string _selectedText;
         private bool _showScrollBar;
         private bool _multiKeyDown;
         private int _hoveredItem;
@@ -330,12 +330,23 @@ namespace ReaLTaiizor.Controls
         public int ItemHeight { get; set; }
 
         [Browsable(false), Category("Metro"), Description("Gets or sets the currently selected item in the ListBox.")]
-        public string SelectedItem
+        public object SelectedItem
         {
             get => _selectedItem;
             set
             {
                 _selectedItem = value;
+                Invalidate();
+            }
+        }
+
+        [Browsable(false), Category("Metro"), Description("Gets or sets the currently selected Text in the ListBox.")]
+        public string SelectedText
+        {
+            get => _selectedText;
+            set
+            {
+                _selectedText = value;
                 Invalidate();
             }
         }
@@ -387,7 +398,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _showScrollBar = value;
-                _svs.Visible = value ? true : false;
+                _svs.Visible = value;
                 Invalidate();
             }
         }
@@ -504,7 +515,6 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Left)
             {
                 var index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
-
                 if (index >= 0 && index < _items.Count)
                 {
                     if (MultiSelect && _multiKeyDown)
@@ -516,10 +526,12 @@ namespace ReaLTaiizor.Controls
                     {
                         _indicates.Clear();
                         _selectedItems.Clear();
-                        SelectedIndex = index;
+                        _selectedItem = Items[index];
+                        _selectedIndex = index;
+                        _selectedValue = Items[index];
+                        _selectedText = Items[index].ToString();
                         SelectedIndexChanged?.Invoke(this);
                         SelectedValueChanged?.Invoke(this);
-
                     }
                 }
                 Invalidate();
@@ -567,9 +579,11 @@ namespace ReaLTaiizor.Controls
                         SelectedIndex += 1;
                         _selectedItems.Add(_items[SelectedIndex]);
                     }
-                    catch { }
+                    catch
+                    {
+                        //
+                    }
                     break;
-
                 case Keys.Up:
                     try
                     {
@@ -577,7 +591,10 @@ namespace ReaLTaiizor.Controls
                         SelectedIndex -= 1;
                         _selectedItems.Add(_items[SelectedIndex]);
                     }
-                    catch { }
+                    catch
+                    {
+                        //
+                    }
                     break;
             }
             Invalidate();
