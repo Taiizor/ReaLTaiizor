@@ -1133,6 +1133,11 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
+            #if NET5_0
+            //public EventHandler ContextMenuChanged { get; internal set; }
+            public event EventHandler ContextMenuChanged;
+            #endif
+
             private void SetBasePasswordChar()
             {
                 base.PasswordChar = UseSystemPasswordChar ? _useSystemPasswordChar : _passwordChar;
