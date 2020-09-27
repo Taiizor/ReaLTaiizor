@@ -136,6 +136,9 @@
   <data name="Maximize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Royal\Maximize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Metro Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Metro\Metro Theme.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Royal\Minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,6 +162,21 @@
   </data>
   <data name="Roboto_Thin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Material\Roboto-Thin.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SegoeWP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Metro\SegoeWP.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SegoeWP_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Metro\SegoeWP-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SegoeWP_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Metro\SegoeWP-Light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SegoeWP_Semibold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Metro\SegoeWP-Semibold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SegoeWP_Semilight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Metro\SegoeWP-Semilight.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Taiizor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Taiizor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

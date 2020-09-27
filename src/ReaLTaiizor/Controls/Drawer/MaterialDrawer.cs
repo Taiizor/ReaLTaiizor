@@ -2,16 +2,16 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
+using ReaLTaiizor.Helper;
 using System.Drawing.Text;
-using ReaLTaiizor.Helpers;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Collections.Generic;
-using static ReaLTaiizor.Utils.MaterialAnimations;
-using static ReaLTaiizor.Helpers.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
+using static ReaLTaiizor.Helper.MaterialDrawHelper;
 
 #endregion
 

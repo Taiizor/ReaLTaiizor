@@ -251,5 +251,65 @@ namespace ReaLTaiizor.Properties {
                 return ((byte[])(obj));
             }
         }
+
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static byte[] SegoeWP_Semilight
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SegoeWP_Semilight", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static byte[] SegoeWP_Light
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SegoeWP_Light", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static byte[] SegoeWP_Semibold
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SegoeWP_Semibold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static byte[] SegoeWP_Bold
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SegoeWP_Bold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static byte[] SegoeWP
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("SegoeWP", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

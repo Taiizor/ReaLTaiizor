@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
 {
 	#region FoxNotification
 
-	public class FoxNotification : Utils.FoxBase.NotifyFoxBase
+	public class FoxNotification : Util.FoxBase.NotifyFoxBase
 	{
 		public FoxNotification() : base()
 		{

@@ -2,9 +2,9 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Windows.Forms;
-using ReaLTaiizor.Extensions;
+using ReaLTaiizor.Extension;
 
 #endregion
 

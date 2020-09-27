@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -27,7 +27,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), AccessedThroughProperty("TB"), CompilerGenerated]
-        private System.Windows.Forms.TextBox _TB;
+        private TextBox _TB;
 
         private Graphics G;
 

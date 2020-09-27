@@ -281,7 +281,7 @@
             // hopeButton1
             // 
             hopeButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            hopeButton1.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Warning;
+            hopeButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Warning;
             hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -301,7 +301,7 @@
             // hopeSimpleButton1
             // 
             hopeSimpleButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            hopeSimpleButton1.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            hopeSimpleButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             hopeSimpleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeSimpleButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeSimpleButton1.DefaultClickColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
@@ -540,7 +540,7 @@
             // hopeRoundButton1
             // 
             hopeRoundButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            hopeRoundButton1.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Success;
+            hopeRoundButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Success;
             hopeRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeRoundButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeRoundButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));

@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using ReaLTaiizor.Colors;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Controls
         private RectangleF TopDateRect;
         private RectangleF WeekRect;
 
-        private List<List<Utils.HopeBase.DateRectHopeBase>> DateRectangles;
+        private List<List<Util.HopeBase.DateRectHopeBase>> DateRectangles;
 
         private RectangleF PreviousMonthRect;
         private RectangleF NextMonthRect;
@@ -328,12 +328,12 @@ namespace ReaLTaiizor.Controls
 
         private void CalculateRectangles()
         {
-            DateRectangles = new List<List<Utils.HopeBase.DateRectHopeBase>>();
+            DateRectangles = new List<List<Util.HopeBase.DateRectHopeBase>>();
             for (int i = 0; i < 7; i++)
             {
-                DateRectangles.Add(new List<Utils.HopeBase.DateRectHopeBase>());
+                DateRectangles.Add(new List<Util.HopeBase.DateRectHopeBase>());
                 for (int j = 0; j < 7; j++)
-                    DateRectangles[i].Add(new Utils.HopeBase.DateRectHopeBase(new RectangleF(10 + (j * (Width - 20) / 7), WeekRect.Y + WeekRect.Height + (i * DateRectDefaultSize), DateRectDefaultSize, DateRectDefaultSize)));
+                    DateRectangles[i].Add(new Util.HopeBase.DateRectHopeBase(new RectangleF(10 + (j * (Width - 20) / 7), WeekRect.Y + WeekRect.Height + (i * DateRectDefaultSize), DateRectDefaultSize, DateRectDefaultSize)));
             }
             DateTime FirstDay = FirstDayOfMonth(CurrentDate);
             var temp = 0;

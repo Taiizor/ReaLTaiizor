@@ -1,7 +1,7 @@
 ﻿#region Imports
 
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.ComponentModel.Design;

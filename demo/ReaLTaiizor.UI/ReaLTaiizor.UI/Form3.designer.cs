@@ -97,7 +97,7 @@
             // airSeparator2
             // 
             airSeparator2.BackColor = System.Drawing.Color.Black;
-            airSeparator2.Colors = new ReaLTaiizor.Utils.BloomAir[0];
+            airSeparator2.Colors = new ReaLTaiizor.Util.BloomAir[0];
             airSeparator2.Customization = "";
             airSeparator2.Font = new System.Drawing.Font("Verdana", 8F);
             airSeparator2.Image = null;
@@ -170,7 +170,7 @@
             // airSeparator1
             // 
             airSeparator1.BackColor = System.Drawing.Color.Black;
-            airSeparator1.Colors = new ReaLTaiizor.Utils.BloomAir[0];
+            airSeparator1.Colors = new ReaLTaiizor.Util.BloomAir[0];
             airSeparator1.Customization = "";
             airSeparator1.Font = new System.Drawing.Font("Verdana", 8F);
             airSeparator1.Image = null;

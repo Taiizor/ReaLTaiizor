@@ -1,10 +1,10 @@
 ﻿#region Imports
 
 using System;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Windows.Forms;
 using System.ComponentModel;
-using static ReaLTaiizor.Helpers.MaterialDrawHelper;
+using static ReaLTaiizor.Helper.MaterialDrawHelper;
 
 #endregion
 
@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialTabControl
 
-    public class MaterialTabControl : System.Windows.Forms.TabControl, MaterialControlI
+    public class MaterialTabControl : TabControl, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }
@@ -27,6 +27,11 @@ namespace ReaLTaiizor.Controls
         {
             if (m.Msg == 0x1328 && !DesignMode) m.Result = (IntPtr)1;
             else base.WndProc(ref m);
+        }
+
+        public MaterialTabControl()
+        {
+            Multiline = true;
         }
     }
 

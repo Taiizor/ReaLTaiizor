@@ -2,11 +2,12 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using ReaLTaiizor.Colors;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
 
 #endregion
 
@@ -14,7 +15,7 @@ namespace ReaLTaiizor.Controls
 {
     #region HopeComboBox
 
-    public class HopeComboBox : System.Windows.Forms.ComboBox
+    public class HopeComboBox : ComboBox
     {
         public HopeComboBox()
         {
@@ -30,10 +31,10 @@ namespace ReaLTaiizor.Controls
             ItemHeight = 30;
         }
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        [DllImport("user32.dll")]
         static extern IntPtr GetWindowDC(IntPtr hWnd);
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        [DllImport("user32.dll")]
         static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
         protected override void WndProc(ref Message m)

@@ -2,15 +2,15 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Drawing.Text;
-using ReaLTaiizor.Helpers;
+using ReaLTaiizor.Helper;
 using System.Windows.Forms;
 using System.ComponentModel;
-using ReaLTaiizor.Extensions;
+using ReaLTaiizor.Extension;
 using System.Drawing.Drawing2D;
-using static ReaLTaiizor.Utils.MaterialAnimations;
-using static ReaLTaiizor.Helpers.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
+using static ReaLTaiizor.Helper.MaterialDrawHelper;
 
 #endregion
 

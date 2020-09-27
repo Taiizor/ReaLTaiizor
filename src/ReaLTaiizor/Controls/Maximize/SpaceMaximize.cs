@@ -2,7 +2,7 @@
 
 using System.Drawing;
 using System.Threading;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Windows.Forms;
 
 #endregion

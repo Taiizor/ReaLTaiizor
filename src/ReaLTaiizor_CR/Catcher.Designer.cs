@@ -403,7 +403,7 @@
             AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            ClientSize = new System.Drawing.Size(796, 320);
+            ClientSize = new System.Drawing.Size(796, 318);
             Controls.Add(skyButton1);
             Controls.Add(royalScrollBar1);
             Controls.Add(hopeComboBox1);

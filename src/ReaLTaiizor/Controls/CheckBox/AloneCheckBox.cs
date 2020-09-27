@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Drawing;
 using System.Threading;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows.Forms;

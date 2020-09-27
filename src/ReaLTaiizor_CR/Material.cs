@@ -1,5 +1,5 @@
 ﻿using System;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Colors;
 

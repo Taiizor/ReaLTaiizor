@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Controls
 {
 	#region ForeverComboBox
 
-	public class ForeverComboBox : System.Windows.Forms.ComboBox
+	public class ForeverComboBox : ComboBox
 	{
 		private int W;
 		private int H;
@@ -119,6 +119,7 @@ namespace ReaLTaiizor.Controls
 				}
 				catch
 				{
+					//
 				}
 				Invalidate();
 			}

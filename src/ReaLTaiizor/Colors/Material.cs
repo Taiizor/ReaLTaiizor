@@ -1,8 +1,8 @@
 ﻿#region Imports
 
 using System.Drawing;
-using ReaLTaiizor.Utils;
-using ReaLTaiizor.Extensions;
+using ReaLTaiizor.Util;
+using ReaLTaiizor.Extension;
 
 #endregion
 

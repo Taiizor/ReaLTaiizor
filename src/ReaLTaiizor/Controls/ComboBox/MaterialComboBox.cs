@@ -3,12 +3,12 @@
 using System;
 using System.Linq;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
-using static ReaLTaiizor.Utils.MaterialAnimations;
-using static ReaLTaiizor.Helpers.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
+using static ReaLTaiizor.Helper.MaterialDrawHelper;
 
 #endregion
 
@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialComboBox
 
-    public class MaterialComboBox : System.Windows.Forms.ComboBox, MaterialControlI
+    public class MaterialComboBox : ComboBox, MaterialControlI
     {
         // For some reason, even when overriding the AutoSize property, it doesn't appear on the properties panel, so we have to create a new one.
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Category("Layout")]

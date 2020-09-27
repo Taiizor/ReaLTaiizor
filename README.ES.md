@@ -1,6 +1,7 @@
-![Logo](https://www.photo.herominyum.com/resimler/2020/05/18/O23O.png)
+![Logo](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.images/Logo.png)
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
+![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D5.0-blue)
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2019-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
@@ -80,6 +81,17 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<br/>
 		<a href="https://github.com/leocb" target="_blank" title="Código">💻</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/N-a-r-w-i-n">
+			<img src="https://avatars3.githubusercontent.com/u/25624385?s=200&v=4" width="80px;" alt="N-a-r-w-i-n"/>
+			<br/>
+			<sub>
+				<b>N-a-r-w-i-n</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/N-a-r-w-i-n" target="_blank" title="Código">💻</a>
+	</td>
   </tr>
 </table>
 
@@ -95,88 +107,90 @@ Paso 2：Disfruta diseñando
 
 ### Windows Defender
 
-![WindowsDefenderSample](https://www.photo.herominyum.com/resimler/2020/07/26/1gv2.png)
+![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)
 
 ### Reproductor de MP3
 
-![MP3PlayerSample](https://www.photo.herominyum.com/resimler/2020/07/26/1LqV.png)
+![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)
 
 ### Pago
 
-![PaymentSample](https://www.photo.herominyum.com/resimler/2020/07/26/1155.png)
+![PaymentSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Payment.png)
 
 ### Iniciar Sesión
 
-![LoginSample](https://www.photo.herominyum.com/resimler/2020/07/26/12dS.png)
+![LoginSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Login.png)
 
 ### Instagram
 
-![InstagramSample](https://www.photo.herominyum.com/resimler/2020/07/28/182n.png)
+![InstagramSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Instagram.png)
 
 ## Preparado
 
 ### Traducir
 
-![TranslateReady](https://www.photo.herominyum.com/resimler/2020/09/06/EdGy.png)
+![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)
 
 ## Visión General
 
-![Overview-1](https://www.photo.herominyum.com/resimler/2020/08/26/AuYn.gif)
+![Overview-1](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Material.gif)
 
-![Overview-2](https://www.photo.herominyum.com/resimler/2020/05/25/dhHS.png)
+![Overview-2](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Metro.gif)
 
-![Overview-3](https://www.photo.herominyum.com/resimler/2020/05/20/OAgj.png)
+![Overview-3](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form1.png)
 
-![Overview-4](https://www.photo.herominyum.com/resimler/2020/05/20/OERe.png)
+![Overview-4](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form2.png)
 
-![Overview-5](https://www.photo.herominyum.com/resimler/2020/05/20/OLU5.png)
+![Overview-5](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Sky.png)
+
+![Overview-6](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Alone.png)
 
 ## Últimos Ejemplos de Temas
 
 ### Aire
 
-![AirTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OaZy.png)
+![AirTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Air.png)
 
 ### Calabozo
 
-![DungeonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/OqyV.png)
+![DungeonTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Dungeon.png)
 
 ### Sueño
 
-![DreamTheme](https://www.photo.herominyum.com/resimler/2020/05/20/Ot33.png)
+![DreamTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Dream.png)
 
 ### Cinta
 
-![RibbonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O4sN.png)
+![RibbonTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Ribbon.png)
 
 ### Espacio
 
-![SpaceTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O7EW.png)
+![SpaceTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Space.png)
 
 ### Trueno
 
-![ThunderTheme](https://www.photo.herominyum.com/resimler/2020/05/25/dMLF.png)
+![ThunderTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Thunder.png)
 
 ### Luna
 
-![MoonTheme](https://www.photo.herominyum.com/resimler/2020/05/20/O6k1.png)
+![MoonTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Moon.png)
 
 ### Siempre
 
-![ForeverTheme](https://www.photo.herominyum.com/resimler/2020/05/21/OveM.png)
+![ForeverTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Forever.png)
 
 ### Esperanza
 
-![HopeTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OXg9.png)
+![HopeTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hope.png)
 
 ### Perdió
 
-![LostTheme](https://www.photo.herominyum.com/resimler/2020/05/17/OZ6c.png)
+![LostTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Lost.png)
 
 ### Royal
 
-![RoyalTheme](https://www.photo.herominyum.com/resimler/2020/05/18/OlZC.png)
+![RoyalTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Royal.png)
 
 ### Noche
 
-![NightTheme](https://www.photo.herominyum.com/resimler/2020/09/06/E1NV.png)
+![NightTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Night.png)

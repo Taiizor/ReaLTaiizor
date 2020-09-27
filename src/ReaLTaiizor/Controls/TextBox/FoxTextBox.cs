@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -17,9 +17,9 @@ namespace ReaLTaiizor.Controls
 	[DefaultEvent("TextChanged")]
 	public class FoxTextBox : Control
 	{
-		private System.Windows.Forms.TextBox withEventsField_TB = new System.Windows.Forms.TextBox();
+		private TextBox withEventsField_TB = new TextBox();
 
-		private System.Windows.Forms.TextBox TB
+		private TextBox TB
 		{
 			get { return withEventsField_TB; }
 			set

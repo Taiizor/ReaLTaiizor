@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>-->
+    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>-->
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
     <Version>3.7.8.0</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
@@ -37,16 +37,55 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Design\Metro\Style.cs" />
+    <Compile Remove="Design\Metro\TextAlign.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
       <Version>1.1.0-beta-20204-02</Version>
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="System.Drawing.Common">
+      <Version>5.0.0-rc.1.20451.14</Version>
+    </PackageReference>
+    <PackageReference Include="System.Resources.Extensions">
+      <Version>5.0.0-rc.1.20451.14</Version>
+    </PackageReference>
+    <PackageReference Include="System.Configuration.ConfigurationManager">
+      <Version>5.0.0-rc.1.20451.14</Version>
+    </PackageReference>
+    <Reference Include="System.Design">
+      <HintPath>Library\System.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>Library\System.Windows.Forms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+    <Reference Include="System.Design" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -55,14 +94,48 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Resources\Metro\Metro Theme.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Bitmaps\Button.bmp" />
+    <None Remove="Bitmaps\CheckBox.bmp" />
+    <None Remove="Bitmaps\ComoBox.bmp" />
+    <None Remove="Bitmaps\ContextMenu.bmp" />
+    <None Remove="Bitmaps\ControlButton.bmp" />
+    <None Remove="Bitmaps\Divider.png" />
+    <None Remove="Bitmaps\Ellipse.bmp" />
+    <None Remove="Bitmaps\Form.bmp" />
+    <None Remove="Bitmaps\Label.bmp" />
+    <None Remove="Bitmaps\LinkLabel.bmp" />
+    <None Remove="Bitmaps\ListBox.bmp" />
+    <None Remove="Bitmaps\Numeric.bmp" />
+    <None Remove="Bitmaps\Panel.bmp" />
+    <None Remove="Bitmaps\Progress.bmp" />
+    <None Remove="Bitmaps\RadioButton.bmp" />
+    <None Remove="Bitmaps\RichTextBox.bmp" />
+    <None Remove="Bitmaps\ScrollBar.bmp" />
+    <None Remove="Bitmaps\Slider.bmp" />
+    <None Remove="Bitmaps\Style.bmp" />
+    <None Remove="Bitmaps\Switch.bmp" />
+    <None Remove="Bitmaps\TabControl.bmp" />
+    <None Remove="Bitmaps\TextBox.bmp" />
+    <None Remove="Bitmaps\ToolTip.bmp" />
     <None Remove="Resources\Material\Roboto-Black.ttf" />
     <None Remove="Resources\Material\Roboto-Bold.ttf" />
     <None Remove="Resources\Material\Roboto-Light.ttf" />
     <None Remove="Resources\Material\Roboto-Medium.ttf" />
     <None Remove="Resources\Material\Roboto-Regular.ttf" />
     <None Remove="Resources\Material\Roboto-Thin.ttf" />
+    <None Remove="Resources\Metro\SegoeWP.ttf" />
+    <None Remove="Resources\Metro\SegoeWP-Bold.ttf" />
+    <None Remove="Resources\Metro\SegoeWP-Light.ttf" />
+    <None Remove="Resources\Metro\SegoeWP-Semibold.ttf" />
+    <None Remove="Resources\Metro\SegoeWP-Semilight.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,6 +145,11 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Material\Roboto-Medium.ttf" />
     <Resource Include="Resources\Material\Roboto-Regular.ttf" />
     <Resource Include="Resources\Material\Roboto-Thin.ttf" />
+    <Resource Include="Resources\Metro\SegoeWP.ttf" />
+    <Resource Include="Resources\Metro\SegoeWP-Bold.ttf" />
+    <Resource Include="Resources\Metro\SegoeWP-Light.ttf" />
+    <Resource Include="Resources\Metro\SegoeWP-Semibold.ttf" />
+    <Resource Include="Resources\Metro\SegoeWP-Semilight.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -86,6 +164,32 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <None Remove="Resources\Royal\Minimize.png" />
     <None Remove="Resources\Taiizor.ico" />
     <None Remove="Resources\Twitter.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Bitmaps\Button.bmp" />
+    <EmbeddedResource Include="Bitmaps\CheckBox.bmp" />
+    <EmbeddedResource Include="Bitmaps\ComoBox.bmp" />
+    <EmbeddedResource Include="Bitmaps\ContextMenu.bmp" />
+    <EmbeddedResource Include="Bitmaps\ControlButton.bmp" />
+    <EmbeddedResource Include="Bitmaps\Divider.png" />
+    <EmbeddedResource Include="Bitmaps\Ellipse.bmp" />
+    <EmbeddedResource Include="Bitmaps\Form.bmp" />
+    <EmbeddedResource Include="Bitmaps\Label.bmp" />
+    <EmbeddedResource Include="Bitmaps\LinkLabel.bmp" />
+    <EmbeddedResource Include="Bitmaps\ListBox.bmp" />
+    <EmbeddedResource Include="Bitmaps\Numeric.bmp" />
+    <EmbeddedResource Include="Bitmaps\Panel.bmp" />
+    <EmbeddedResource Include="Bitmaps\Progress.bmp" />
+    <EmbeddedResource Include="Bitmaps\RadioButton.bmp" />
+    <EmbeddedResource Include="Bitmaps\RichTextBox.bmp" />
+    <EmbeddedResource Include="Bitmaps\ScrollBar.bmp" />
+    <EmbeddedResource Include="Bitmaps\Slider.bmp" />
+    <EmbeddedResource Include="Bitmaps\Style.bmp" />
+    <EmbeddedResource Include="Bitmaps\Switch.bmp" />
+    <EmbeddedResource Include="Bitmaps\TabControl.bmp" />
+    <EmbeddedResource Include="Bitmaps\TextBox.bmp" />
+    <EmbeddedResource Include="Bitmaps\ToolTip.bmp" />
   </ItemGroup>
 
   <ItemGroup>

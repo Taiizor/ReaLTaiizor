@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Utils;
+using ReaLTaiizor.Util;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
 {
     #region AloneComboBox
 
-    public class AloneComboBox : System.Windows.Forms.ComboBox
+    public class AloneComboBox : ComboBox
     {
         private Graphics G;
 

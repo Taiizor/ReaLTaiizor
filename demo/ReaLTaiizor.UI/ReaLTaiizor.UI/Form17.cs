@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
+using ReaLTaiizor.Util;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Utils;
 using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
