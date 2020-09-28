@@ -138,7 +138,7 @@
             // hopeButton1
             // 
             hopeButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            hopeButton1.ButtonType = Utils.HopeButtonType.Success;
+            hopeButton1.ButtonType = Util.HopeButtonType.Success;
             hopeButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             hopeButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             hopeButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));

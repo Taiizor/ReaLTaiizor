@@ -903,6 +903,7 @@
             MetroListBox2.SelectedItem = null;
             MetroListBox2.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroListBox2.SelectedItemColor = System.Drawing.Color.White;
+            MetroListBox2.SelectedText = null;
             MetroListBox2.SelectedValue = null;
             MetroListBox2.ShowBorder = false;
             MetroListBox2.ShowScrollBar = true;
@@ -2185,8 +2186,9 @@
             MetroControlBox1.CloseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             MetroControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
             MetroControlBox1.CloseNormalForeColor = System.Drawing.Color.Gray;
+            MetroControlBox1.DefaultLocation = ReaLTaiizor.Controls.MetroControlBox.LocationType.Space;
             MetroControlBox1.DisabledForeColor = System.Drawing.Color.DimGray;
-            MetroControlBox1.Location = new System.Drawing.Point(1026, 13);
+            MetroControlBox1.Location = new System.Drawing.Point(1038, 0);
             MetroControlBox1.MaximizeBox = true;
             MetroControlBox1.MaximizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroControlBox1.MaximizeHoverForeColor = System.Drawing.Color.Gray;
@@ -2206,9 +2208,9 @@
             // 
             // MetroToolTip1
             // 
-            MetroToolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            MetroToolTip1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            MetroToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            MetroToolTip1.BackColor = System.Drawing.Color.White;
+            MetroToolTip1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            MetroToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             MetroToolTip1.MetroStyleManager = metroStyleManager1;
             MetroToolTip1.OwnerDraw = true;
             MetroToolTip1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
