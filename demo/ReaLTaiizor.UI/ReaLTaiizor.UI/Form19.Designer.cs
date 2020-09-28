@@ -2186,9 +2186,9 @@
             MetroControlBox1.CloseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             MetroControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
             MetroControlBox1.CloseNormalForeColor = System.Drawing.Color.Gray;
-            MetroControlBox1.DefaultLocation = ReaLTaiizor.Controls.MetroControlBox.LocationType.Space;
+            MetroControlBox1.DefaultLocation = Enum.Metro.LocationType.Space;
             MetroControlBox1.DisabledForeColor = System.Drawing.Color.DimGray;
-            MetroControlBox1.Location = new System.Drawing.Point(1038, 0);
+            MetroControlBox1.Location = new System.Drawing.Point(1026, 0);
             MetroControlBox1.MaximizeBox = true;
             MetroControlBox1.MaximizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroControlBox1.MaximizeHoverForeColor = System.Drawing.Color.Gray;

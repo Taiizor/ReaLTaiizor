@@ -86,20 +86,13 @@ namespace ReaLTaiizor.Controls
 
         private readonly Utilites _utl;
 
-        public enum LocationType
-        {
-            Normal,
-            Space,
-            Edge
-        }
-
         #endregion Global Vars
 
         #region Internal Vars
 
         private Style _style;
         private MetroStyleManager _metroStyleManager;
-        private LocationType _DefaultLocation = LocationType.Edge;
+        private LocationType _DefaultLocation = LocationType.Normal;
 
         #endregion Internal Vars
 
@@ -328,7 +321,7 @@ namespace ReaLTaiizor.Controls
                 switch (DefaultLocation)
                 {
                     case LocationType.Space:
-                        Location = new Point(Parent.Width - Width - 12, 13);
+                        Location = new Point((Parent.Width - Width) - 12, 13);
                         break;
                     case LocationType.Edge:
                         Location = new Point(Parent.Width - Width, 0);
