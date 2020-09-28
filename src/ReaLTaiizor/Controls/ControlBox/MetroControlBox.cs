@@ -61,6 +61,19 @@ namespace ReaLTaiizor.Controls
             set { _metroStyleManager = value; Invalidate(); }
         }
 
+        [Category("Metro"), Description("Gets or sets the Default Location associated with the control.")]
+        public LocationType DefaultLocation
+        {
+            get
+            {
+                return _DefaultLocation;
+            }
+            set
+            {
+                _DefaultLocation = value;
+            }
+        }
+
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
         public string ThemeAuthor { get; set; }
 
@@ -73,12 +86,20 @@ namespace ReaLTaiizor.Controls
 
         private readonly Utilites _utl;
 
+        public enum LocationType
+        {
+            Normal,
+            Space,
+            Edge
+        }
+
         #endregion Global Vars
 
         #region Internal Vars
 
         private Style _style;
         private MetroStyleManager _metroStyleManager;
+        private LocationType _DefaultLocation = LocationType.Edge;
 
         #endregion Internal Vars
 
@@ -298,6 +319,29 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region Events
+
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+            try
+            {
+                switch (DefaultLocation)
+                {
+                    case LocationType.Space:
+                        Location = new Point(Parent.Width - Width - 12, 13);
+                        break;
+                    case LocationType.Edge:
+                        Location = new Point(Parent.Width - Width, 0);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                //
+            }
+        }
 
         protected override void OnResize(EventArgs e)
         {

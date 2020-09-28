@@ -11,7 +11,7 @@ namespace ReaLTaiizor.Controls
 {
     #region TabPage
 
-    public class TabPage : System.Windows.Forms.TabControl
+    public class TabPage : TabControl
     {
 
         public TabPage()
@@ -34,20 +34,19 @@ namespace ReaLTaiizor.Controls
             Alignment = TabAlignment.Left;
         }
 
-
         protected override void OnControlAdded(ControlEventArgs e)
         {
             base.OnControlAdded(e);
             if (e.Control is TabPage)
             {
-                IEnumerator enumerator;
+                IEnumerator Enumerator;
                 try
                 {
-                    enumerator = Controls.GetEnumerator();
-                    while (enumerator.MoveNext())
+                    Enumerator = Controls.GetEnumerator();
+                    while (Enumerator.MoveNext())
                     {
-                        TabPage current = (TabPage)enumerator.Current;
-                        current = new TabPage();
+                        TabPage Current = (TabPage)Enumerator.Current;
+                        Current = new TabPage();
                     }
                 }
                 finally

@@ -40,9 +40,9 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ReaLTaiizor, Version=3.7.7.6, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ReaLTaiizor, Version=3.7.8.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.dll</HintPath>
+      <HintPath>..\ReaLTaiizor\bin\Release\net4.8\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

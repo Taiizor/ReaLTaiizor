@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Controls
 
     public class ControlBox : Control
     {
-
         #region Enums
 
         public enum ButtonHoverState
