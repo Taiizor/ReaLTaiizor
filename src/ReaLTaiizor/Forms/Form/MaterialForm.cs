@@ -336,8 +336,8 @@ namespace ReaLTaiizor.Forms
 
         protected void AddDrawerOverlayForm()
         {
-            System.Windows.Forms.Form drawerOverlay = new System.Windows.Forms.Form();
-            System.Windows.Forms.Form drawerForm = new System.Windows.Forms.Form();
+            Form drawerOverlay = new Form();
+            Form drawerForm = new Form();
 
             if (DrawerTabControl == null)
                 return;
@@ -469,7 +469,8 @@ namespace ReaLTaiizor.Forms
 
         private void TerminateOnClose(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            Close();
         }
 
         private void FixFormPadding(object sender)
@@ -492,7 +493,7 @@ namespace ReaLTaiizor.Forms
                 drawerControl.Toggle();
                 _clickAnimManager.SetProgress(0);
                 _clickAnimManager.StartNewAnimation(AnimationDirection.In);
-                _animationSource = (PointToClient(Cursor.Position));
+                _animationSource = PointToClient(Cursor.Position);
             }
             // Double click to maximize
             else if (m.Msg == WM_LBUTTONDBLCLK)
@@ -761,19 +762,15 @@ namespace ReaLTaiizor.Forms
                 case ResizeDirection.BottomLeft:
                     dir = HTBOTTOMLEFT;
                     break;
-
                 case ResizeDirection.Left:
                     dir = HTLEFT;
                     break;
-
                 case ResizeDirection.Right:
                     dir = HTRIGHT;
                     break;
-
                 case ResizeDirection.BottomRight:
                     dir = HTBOTTOMRIGHT;
                     break;
-
                 case ResizeDirection.Bottom:
                     dir = HTBOTTOM;
                     break;

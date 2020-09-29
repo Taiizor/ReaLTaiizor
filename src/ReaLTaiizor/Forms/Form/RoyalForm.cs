@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Forms
 {
     #region RoyalForm
 
-    public class RoyalForm : System.Windows.Forms.Form
+    public class RoyalForm : Form
     {
         private RoyalButton maximizeButton;
         private RoyalButton minimizeButton;

@@ -110,6 +110,7 @@ namespace ReaLTaiizor.Controls
             UpdateStyles();
             _utl = new Utilites();
             Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Cursor = Cursors.Hand;
             ApplyTheme();
         }
 
@@ -349,28 +350,24 @@ namespace ReaLTaiizor.Controls
             {
                 if (e.Location.X > 0 && e.Location.X < 34)
                 {
-                    Cursor = Cursors.Hand;
                     MinimizeHovered = true;
                     MaximizeHovered = false;
                     CloseHovered = false;
                 }
                 else if (e.Location.X > 33 && e.Location.X < 65)
                 {
-                    Cursor = Cursors.Hand;
                     MinimizeHovered = false;
                     MaximizeHovered = true;
                     CloseHovered = false;
                 }
                 else if (e.Location.X > 64 && e.Location.X < Width)
                 {
-                    Cursor = Cursors.Hand;
                     MinimizeHovered = false;
                     MaximizeHovered = false;
                     CloseHovered = true;
                 }
                 else
                 {
-                    Cursor = Cursors.Arrow;
                     MinimizeHovered = false;
                     MaximizeHovered = false;
                     CloseHovered = false;
