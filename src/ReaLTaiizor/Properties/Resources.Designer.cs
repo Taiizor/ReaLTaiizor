@@ -181,6 +181,18 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
+        ///   System.String türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static string Metro_Theme
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Metro_Theme", resourceCulture);
+                return ((string)(obj));
+            }
+        }
+		
+        /// <summary>
         ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static byte[] Roboto_Black

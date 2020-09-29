@@ -37,8 +37,17 @@ namespace ReaLTaiizor.Manager
             _style = Style.Light;
             if (_customTheme == null)
             {
-                var themeFile = Properties.Settings.Default.ThemeFile;
-                _customTheme = File.Exists(themeFile) ? themeFile : ThemeFilePath(themeFile);
+                var themePath = Properties.Settings.Default.ThemeFile;
+                if (File.Exists(themePath))
+                {
+                    FileInfo FI = new FileInfo(themePath);
+                    if (FI.Length > 0)
+                        _customTheme = themePath;
+                    else
+                        _customTheme = ThemeFilePath(Properties.Resources.Metro_Theme);
+                }
+                else
+                    _customTheme = ThemeFilePath(Properties.Resources.Metro_Theme);
             }
             EvaluateDicts();
         }
@@ -167,6 +176,16 @@ namespace ReaLTaiizor.Manager
                         ThemeAuthor = "Taiizor";
                         ThemeName = "MetroDark";
                         break;
+                    case Style.Custom:
+                        if (!string.IsNullOrEmpty(_customTheme))
+                        {
+                            Properties.Settings.Default.ThemeFile = _customTheme;
+                            Properties.Settings.Default.Save();
+                            ControlProperties(_customTheme);
+                        }
+                        else
+                            Style = Style.Light;
+                        break;
                 }
                 UpdateForm();
             }
@@ -180,10 +199,10 @@ namespace ReaLTaiizor.Manager
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    Style = Style.Custom;
                     Properties.Settings.Default.ThemeFile = value;
                     Properties.Settings.Default.Save();
                     ControlProperties(value);
+                    Style = Style.Custom;
                 }
                 else
                     Style = Style.Light;
