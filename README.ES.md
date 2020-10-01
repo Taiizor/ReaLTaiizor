@@ -5,7 +5,7 @@
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2019-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
-[![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
+[![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
 # Bienvenido a ReaLTaiizor
 ReaLTaiizor es una biblioteca de componente interfaz de UI/UX. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
