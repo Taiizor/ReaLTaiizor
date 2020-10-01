@@ -396,7 +396,6 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            Cursor = Cursors.Default;
             MinimizeHovered = false;
             MaximizeHovered = false;
             CloseHovered = false;

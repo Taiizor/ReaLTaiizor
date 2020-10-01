@@ -30,60 +30,61 @@ namespace ReaLTaiizor_CR
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Metro));
-            metroControlBox1 = new ReaLTaiizor.Controls.MetroControlBox();
-            metroStyleManager1 = new ReaLTaiizor.Manager.MetroStyleManager();
-            SuspendLayout();
+            this.metroControlBox1 = new ReaLTaiizor.Controls.MetroControlBox();
+            this.metroStyleManager1 = new ReaLTaiizor.Manager.MetroStyleManager();
+            this.SuspendLayout();
             // 
             // metroControlBox1
             // 
-            metroControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            metroControlBox1.CloseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            metroControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
-            metroControlBox1.CloseNormalForeColor = System.Drawing.Color.Gray;
-            metroControlBox1.DefaultLocation = ReaLTaiizor.Enum.Metro.LocationType.Space;
-            metroControlBox1.DisabledForeColor = System.Drawing.Color.Silver;
-            metroControlBox1.Location = new System.Drawing.Point(688, 13);
-            metroControlBox1.MaximizeBox = true;
-            metroControlBox1.MaximizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            metroControlBox1.MaximizeHoverForeColor = System.Drawing.Color.Gray;
-            metroControlBox1.MaximizeNormalForeColor = System.Drawing.Color.Gray;
-            metroControlBox1.MetroStyleManager = metroStyleManager1;
-            metroControlBox1.MinimizeBox = true;
-            metroControlBox1.MinimizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            metroControlBox1.MinimizeHoverForeColor = System.Drawing.Color.Gray;
-            metroControlBox1.MinimizeNormalForeColor = System.Drawing.Color.Gray;
-            metroControlBox1.Name = "metroControlBox1";
-            metroControlBox1.Size = new System.Drawing.Size(100, 25);
-            metroControlBox1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            metroControlBox1.TabIndex = 0;
-            metroControlBox1.Text = "metroControlBox1";
-            metroControlBox1.ThemeAuthor = "Taiizor";
-            metroControlBox1.ThemeName = "MetroDark";
+            this.metroControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroControlBox1.CloseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.metroControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
+            this.metroControlBox1.CloseNormalForeColor = System.Drawing.Color.Gray;
+            this.metroControlBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.metroControlBox1.DefaultLocation = ReaLTaiizor.Enum.Metro.LocationType.Space;
+            this.metroControlBox1.DisabledForeColor = System.Drawing.Color.Silver;
+            this.metroControlBox1.Location = new System.Drawing.Point(688, 13);
+            this.metroControlBox1.MaximizeBox = true;
+            this.metroControlBox1.MaximizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.metroControlBox1.MaximizeHoverForeColor = System.Drawing.Color.Gray;
+            this.metroControlBox1.MaximizeNormalForeColor = System.Drawing.Color.Gray;
+            this.metroControlBox1.MetroStyleManager = this.metroStyleManager1;
+            this.metroControlBox1.MinimizeBox = true;
+            this.metroControlBox1.MinimizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.metroControlBox1.MinimizeHoverForeColor = System.Drawing.Color.Gray;
+            this.metroControlBox1.MinimizeNormalForeColor = System.Drawing.Color.Gray;
+            this.metroControlBox1.Name = "metroControlBox1";
+            this.metroControlBox1.Size = new System.Drawing.Size(100, 25);
+            this.metroControlBox1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+            this.metroControlBox1.TabIndex = 0;
+            this.metroControlBox1.Text = "metroControlBox1";
+            this.metroControlBox1.ThemeAuthor = "Taiizor";
+            this.metroControlBox1.ThemeName = "MetroDark";
             // 
             // metroStyleManager1
             // 
-            metroStyleManager1.CustomTheme = "C:\\Users\\Taiizor\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
-            metroStyleManager1.MetroForm = this;
-            metroStyleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            metroStyleManager1.ThemeAuthor = "Taiizor";
-            metroStyleManager1.ThemeName = "MetroDark";
+            this.metroStyleManager1.CustomTheme = "C:\\Users\\Taiizor\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
+            this.metroStyleManager1.MetroForm = this;
+            this.metroStyleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+            this.metroStyleManager1.ThemeAuthor = "Taiizor";
+            this.metroStyleManager1.ThemeName = "MetroDark";
             // 
             // Metro
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            ClientSize = new System.Drawing.Size(800, 450);
-            Controls.Add(metroControlBox1);
-            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
-            MetroStyleManager = metroStyleManager1;
-            Name = "Metro";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            Text = "Metro";
-            TextColor = System.Drawing.Color.White;
-            ThemeName = "MetroDark";
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroControlBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MetroStyleManager = this.metroStyleManager1;
+            this.Name = "Metro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+            this.Text = "Metro";
+            this.TextColor = System.Drawing.Color.White;
+            this.ThemeName = "MetroDark";
+            this.ResumeLayout(false);
 
         }
 

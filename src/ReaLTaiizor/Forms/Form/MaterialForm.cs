@@ -470,6 +470,7 @@ namespace ReaLTaiizor.Forms
         private void TerminateOnClose(object sender, FormClosedEventArgs e)
         {
             //Application.Exit();
+            //FindForm().Close();
             Close();
         }
 
