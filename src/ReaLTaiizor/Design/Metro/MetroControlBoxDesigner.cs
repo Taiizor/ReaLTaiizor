@@ -10,7 +10,7 @@ namespace ReaLTaiizor.Design.Metro
 {
     #region MetroControlBoxDesignerDesign
 
-    internal class MetroControBoxDesigner : ControlDesigner
+    internal class MetroControlBoxDesigner : ControlDesigner
     {
         private DesignerActionListCollection _actionListCollection;
 
