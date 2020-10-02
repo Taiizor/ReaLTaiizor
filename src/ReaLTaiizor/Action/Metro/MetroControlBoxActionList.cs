@@ -10,65 +10,64 @@ using System.ComponentModel.Design;
 
 namespace ReaLTaiizor.Action.Metro
 {
-    #region MetroControlBoxActionListAction
+	#region MetroControlBoxActionListAction
 
-    internal class MetroControlBoxActionList : DesignerActionList
-    {
-        private readonly MetroControlBox _metroControlBox;
+	internal class MetroControlBoxActionList : DesignerActionList
+	{
+		private readonly MetroControlBox _metroControBox;
 
-        public MetroControlBoxActionList(IComponent component) : base(component)
-        {
-            _metroControlBox = (MetroControlBox)component;
-        }
+		public MetroControlBoxActionList(IComponent component) : base(component)
+		{
+			_metroControBox = (MetroControlBox)component;
+		}
 
-        public Style Style
-        {
-            get => _metroControlBox.Style;
-            set => _metroControlBox.Style = value;
-        }
+		public Style Style
+		{
+			get => _metroControBox.Style;
+			set => _metroControBox.Style = value;
+		}
 
-        public string ThemeAuthor => _metroControlBox.ThemeAuthor;
+		public string ThemeAuthor => _metroControBox.ThemeAuthor;
 
-        public string ThemeName => _metroControlBox.ThemeName;
+		public string ThemeName => _metroControBox.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
-        {
-            get => _metroControlBox.MetroStyleManager;
-            set => _metroControlBox.MetroStyleManager = value;
-        }
+		public MetroStyleManager StyleManager
+		{
+			get => _metroControBox.MetroStyleManager;
+			set => _metroControBox.MetroStyleManager = value;
+		}
 
-        public bool MaximizeBox
-        {
-            get => _metroControlBox.MaximizeBox;
-            set => _metroControlBox.MaximizeBox = value;
-        }
+		public bool MaximizeBox
+		{
+			get => _metroControBox.MaximizeBox;
+			set => _metroControBox.MaximizeBox = value;
+		}
 
-        public bool MinimizeBox
-        {
-            get => _metroControlBox.MinimizeBox;
-            set => _metroControlBox.MinimizeBox = value;
-        }
+		public bool MinimizeBox
+		{
+			get => _metroControBox.MinimizeBox;
+			set => _metroControBox.MinimizeBox = value;
+		}
 
-        public override DesignerActionItemCollection GetSortedActionItems()
-        {
-            DesignerActionItemCollection items = new DesignerActionItemCollection
-            {
-                new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
-                new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
+		public override DesignerActionItemCollection GetSortedActionItems()
+		{
+			DesignerActionItemCollection items = new DesignerActionItemCollection
+			{
+				new DesignerActionHeaderItem("Metro"),
+				new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+				new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
-                new DesignerActionHeaderItem("Informations"),
-                new DesignerActionPropertyItem("ThemeName", "ThemeName", "Informations", "Gets or sets the The Theme name associated with the theme."),
-                new DesignerActionPropertyItem("ThemeAuthor", "ThemeAuthor", "Informations", "Gets or sets the The Author name associated with the theme."),
+				new DesignerActionHeaderItem("Informations"),
+				new DesignerActionPropertyItem("ThemeName", "ThemeName", "Informations", "Gets or sets the The Theme name associated with the theme."),
+				new DesignerActionPropertyItem("ThemeAuthor", "ThemeAuthor", "Informations", "Gets or sets the The Author name associated with the theme."),
 
-                new DesignerActionHeaderItem("Appearance"),
-                new DesignerActionPropertyItem("MaximizeBox", "Enable MaximizeBox", "Appearance", "Gets or sets a value indicating whether the Maximize button is Enabled in the caption bar of the form."),
-                new DesignerActionPropertyItem("MinimizeBox", "Enable MinimizeBox", "Appearance", "Gets or sets a value indicating whether the Minimize button is Enabled in the caption bar of the form.")
-            };
+				new DesignerActionHeaderItem("Appearance"),
+				new DesignerActionPropertyItem("MaximizeBox", "Enable MaximizeBox", "Appearance", "Gets or sets a value indicating whether the Maximize button is Enabled in the caption bar of the form."),
+				new DesignerActionPropertyItem("MinimizeBox", "Enable MinimizeBox", "Appearance", "Gets or sets a value indicating whether the Minimize button is Enabled in the caption bar of the form.")
+			};
+			return items;
+		}
+	}
 
-            return items;
-        }
-    }
-
-    #endregion
+	#endregion
 }

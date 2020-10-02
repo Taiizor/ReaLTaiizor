@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Manager
     #region MetroStyleManager
 
     [DefaultProperty("Style")]
-    [Designer(typeof(StyleManagerDesigner))]
+    [Designer(typeof(MetroStyleManagerDesigner))]
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(MetroStyleManager), "Style.bmp")]
     public class MetroStyleManager : Component

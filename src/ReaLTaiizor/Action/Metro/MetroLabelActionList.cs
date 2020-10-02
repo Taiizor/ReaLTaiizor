@@ -11,65 +11,64 @@ using System.ComponentModel.Design;
 
 namespace ReaLTaiizor.Action.Metro
 {
-    #region MetroLabelActionListAction
+	#region MetroLabelActionListAction
 
-    class MetroLabelActionList : DesignerActionList
-    {
-        private readonly MetroLabel _metroLabel;
+	class MetroLabelActionList : DesignerActionList
+	{
+		private readonly MetroLabel _metroLabel;
 
-        public MetroLabelActionList(IComponent component) : base(component)
-        {
-            _metroLabel = (MetroLabel)component;
-        }
+		public MetroLabelActionList(IComponent component) : base(component)
+		{
+			_metroLabel = (MetroLabel)component;
+		}
 
-        public Style Style
-        {
-            get => _metroLabel.Style;
-            set => _metroLabel.Style = value;
-        }
+		public Style Style
+		{
+			get => _metroLabel.Style;
+			set => _metroLabel.Style = value;
+		}
 
-        public string ThemeAuthor => _metroLabel.ThemeAuthor;
+		public string ThemeAuthor => _metroLabel.ThemeAuthor;
 
-        public string ThemeName => _metroLabel.ThemeName;
+		public string ThemeName => _metroLabel.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
-        {
-            get => _metroLabel.MetroStyleManager;
-            set => _metroLabel.MetroStyleManager = value;
-        }
+		public MetroStyleManager StyleManager
+		{
+			get => _metroLabel.MetroStyleManager;
+			set => _metroLabel.MetroStyleManager = value;
+		}
 
-        public string Text
-        {
-            get => _metroLabel.Text;
-            set => _metroLabel.Text = value;
-        }
+		public string Text
+		{
+			get => _metroLabel.Text;
+			set => _metroLabel.Text = value;
+		}
 
-        public Font Font
-        {
-            get => _metroLabel.Font;
-            set => _metroLabel.Font = value;
-        }
+		public Font Font
+		{
+			get => _metroLabel.Font;
+			set => _metroLabel.Font = value;
+		}
 
-        public override DesignerActionItemCollection GetSortedActionItems()
-        {
-            DesignerActionItemCollection items = new DesignerActionItemCollection
-            {
-                new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
-                new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
+		public override DesignerActionItemCollection GetSortedActionItems()
+		{
+			DesignerActionItemCollection items = new DesignerActionItemCollection
+			{
+				new DesignerActionHeaderItem("Metro"),
+				new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+				new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
-                new DesignerActionHeaderItem("Informations"),
-                new DesignerActionPropertyItem("ThemeName", "ThemeName", "Informations", "Gets or sets the The Theme name associated with the theme."),
-                new DesignerActionPropertyItem("ThemeAuthor", "ThemeAuthor", "Informations", "Gets or sets the The Author name associated with the theme."),
+				new DesignerActionHeaderItem("Informations"),
+				new DesignerActionPropertyItem("ThemeName", "ThemeName", "Informations", "Gets or sets the The Theme name associated with the theme."),
+				new DesignerActionPropertyItem("ThemeAuthor", "ThemeAuthor", "Informations", "Gets or sets the The Author name associated with the theme."),
 
-                new DesignerActionHeaderItem("Appearance"),
-                new DesignerActionPropertyItem("Text", "Text", "Appearance", "Gets or sets the The text associated with the control."),
-                new DesignerActionPropertyItem("Font", "Font", "Appearance", "Gets or sets the The font associated with the control.")
-            };
+				new DesignerActionHeaderItem("Appearance"),
+				new DesignerActionPropertyItem("Text", "Text", "Appearance", "Gets or sets the The text associated with the control."),
+				new DesignerActionPropertyItem("Font", "Font", "Appearance", "Gets or sets the The font associated with the control.")
+			};
+			return items;
+		}
+	}
 
-            return items;
-        }
-    }
-
-    #endregion
+	#endregion
 }
