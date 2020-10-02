@@ -9,408 +9,471 @@ using ReaLTaiizor.Enum.Metro;
 using ReaLTaiizor.Design.Metro;
 using ReaLTaiizor.Interface.Metro;
 using ReaLTaiizor.Extension.Metro;
-using System.Runtime.InteropServices;
 
 #endregion
 
 namespace ReaLTaiizor.Controls
 {
-    #region MetroScrollBar
+	#region MetroScrollBar
 
-    [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(MetroScrollBar), "Bitmaps.ScrollBar.bmp")]
-    [Designer(typeof(MetroScrollBarDesigner))]
-    [DefaultEvent("Scroll")]
-    [DefaultProperty("Value")]
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroScrollBar : Control, iControl
-    {
-        #region Interfaces
+	[ToolboxItem(true)]
+	[ToolboxBitmap(typeof(MetroScrollBar), "Bitmaps.ScrollBar.bmp")]
+	[Designer(typeof(MetroScrollBarDesigner))]
+	[DefaultEvent("Scroll")]
+	[DefaultProperty("Value")]
+	public class MetroScrollBar : Control, IMetroControl
+	{
+		#region Interfaces
 
-        [Category("Metro"), Description("Gets or sets the style associated with the control.")]
-        public Style Style
-        {
-            get => MetroStyleManager?.Style ?? _style;
-            set
-            {
-                _style = value;
-                switch (value)
-                {
-                    case Style.Light:
-                        ApplyTheme();
-                        break;
-                    case Style.Dark:
-                        ApplyTheme(Style.Dark);
-                        break;
-                    case Style.Custom:
-                        ApplyTheme(Style.Custom);
-                        break;
-                    default:
-                        ApplyTheme();
-                        break;
-                }
-                Invalidate();
-            }
-        }
+		[Category("Metro"), Description("Gets or sets the style associated with the control.")]
+		public Style Style
+		{
+			get => StyleManager?.Style ?? _style;
+			set
+			{
+				_style = value;
+				switch (value)
+				{
+					case Style.Light:
+						ApplyTheme();
+						break;
+					case Style.Dark:
+						ApplyTheme(Style.Dark);
+						break;
+					case Style.Custom:
+						ApplyTheme(Style.Custom);
+						break;
+					default:
+						ApplyTheme();
+						break;
+				}
+				Invalidate();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
-        {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
-        }
+		[Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
+		public MetroStyleManager StyleManager
+		{
+			get => _styleManager;
+			set { _styleManager = value; Invalidate(); }
+		}
 
-        [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
-        public string ThemeAuthor { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
+		public string ThemeAuthor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
-        public string ThemeName { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
+		public string ThemeName { get; set; }
 
-        #endregion Interfaces
+		#endregion Interfaces
 
-        #region Global Vars
+		#region Global Vars
 
-        private readonly Utilites _utl;
+		private readonly Utilites _utl;
 
-        #endregion Global Vars
+		#endregion Global Vars
 
-        #region Internal Vars
+		#region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _metroStyleManager;
-        private int _minimum;
-        private int _maximum;
-        private int _value;
-        private int _val;
-        private Rectangle _bar;
-        private Rectangle _thumb;
-        private bool _showThumb;
-        private int _thumbSize;
-        private MouseMode _thumbState;
+		private Style _style;
+		private MetroStyleManager _styleManager;
+		private int _minimum;
+		private int _maximum;
+		private int _value;
+		private int _val;
+		private Rectangle _bar;
+		private Rectangle _thumb;
+		private bool _showThumb;
+		private int _thumbSize;
+		private MouseMode _thumbState;
 
-        #endregion Internal Vars
+		private bool _isDerivedStyle = true;
+		private int _smallChange;
+		private int _largeChange;
+		private ScrollOrientate _orientation;
+		private Color _disabledForeColor;
+		private Color _disabledBackColor;
 
-        #region Constructors
+		#endregion Internal Vars
 
-        public MetroScrollBar()
-        {
-            SetStyle
-            (
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.ResizeRedraw |
-                ControlStyles.UserPaint |
-                ControlStyles.Selectable |
-                ControlStyles.SupportsTransparentBackColor,
-                    true
-            );
-            UpdateStyles();
-            SetDefaults();
-            _utl = new Utilites();
-            ApplyTheme();
+		#region Constructors
 
-        }
+		public MetroScrollBar()
+		{
+			SetStyle
+			(
+				ControlStyles.OptimizedDoubleBuffer |
+				ControlStyles.AllPaintingInWmPaint |
+				ControlStyles.ResizeRedraw |
+				ControlStyles.UserPaint |
+				ControlStyles.Selectable |
+				ControlStyles.SupportsTransparentBackColor,
+					true
+			);
+			UpdateStyles();
+			SetDefaults();
+			_utl = new Utilites();
+			ApplyTheme();
+		}
 
-        void SetDefaults()
-        {
-            _minimum = 0;
-            _maximum = 100;
-            _value = 0;
-            _thumbSize = 20;
-        }
+		void SetDefaults()
+		{
+			_minimum = 0;
+			_maximum = 100;
+			_value = 0;
+			_thumbSize = 20;
+		}
 
-        #endregion Constructors
+		#endregion Constructors
 
-        #region ApplyTheme
+		#region ApplyTheme
 
-        private void ApplyTheme(Style style = Style.Light)
-        {
-            switch (style)
-            {
-                case Style.Light:
-                    ForeColor = Color.FromArgb(65, 177, 225);
-                    BackColor = Color.White;
-                    DisabledBackColor = Color.FromArgb(204, 204, 204);
-                    DisabledForeColor = Color.FromArgb(136, 136, 136);
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
-                    UpdateProperties();
-                    break;
-                case Style.Dark:
-                    ForeColor = Color.FromArgb(65, 177, 225);
-                    BackColor = Color.FromArgb(30, 30, 30);
-                    DisabledBackColor = Color.FromArgb(80, 80, 80);
-                    DisabledForeColor = Color.FromArgb(109, 109, 109);
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroDark";
-                    UpdateProperties();
-                    break;
-                case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.ScrollBarDictionary)
-                        {
-                            switch (varkey.Key)
-                            {
-                                case "ForeColor":
-                                    ForeColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "BackColor":
-                                    BackColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "DisabledBackColor":
-                                    DisabledBackColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "DisabledForeColor":
-                                    DisabledForeColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                default:
-                                    return;
-                            }
-                        }
-                    UpdateProperties();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(style), style, null);
-            }
-        }
+		private void ApplyTheme(Style style = Style.Light)
+		{
+			if (!IsDerivedStyle)
+				return;
 
-        public void UpdateProperties()
-        {
-            Invalidate();
-        }
+			switch (style)
+			{
+				case Style.Light:
+					ForeColor = Color.FromArgb(65, 177, 225);
+					BackColor = Color.White;
+					DisabledBackColor = Color.FromArgb(204, 204, 204);
+					DisabledForeColor = Color.FromArgb(136, 136, 136);
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroLite";
+					UpdateProperties();
+					break;
+				case Style.Dark:
+					ForeColor = Color.FromArgb(65, 177, 225);
+					BackColor = Color.FromArgb(30, 30, 30);
+					DisabledBackColor = Color.FromArgb(80, 80, 80);
+					DisabledForeColor = Color.FromArgb(109, 109, 109);
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroDark";
+					UpdateProperties();
+					break;
+				case Style.Custom:
+					if (StyleManager != null)
+						foreach (var varkey in StyleManager.ScrollBarDictionary)
+						{
+							switch (varkey.Key)
+							{
+								case "ForeColor":
+									ForeColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "BackColor":
+									BackColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "DisabledBackColor":
+									DisabledBackColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "DisabledForeColor":
+									DisabledForeColor = _utl.HexColor((string)varkey.Value);
+									break;
+								default:
+									return;
+							}
+						}
+					UpdateProperties();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(style), style, null);
+			}
+		}
 
-        #endregion Theme Changing
+		public void UpdateProperties()
+		{
+			Invalidate();
+		}
 
-        #region Draw Control
+		#endregion Theme Changing
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            var G = e.Graphics;
+		#region Draw Control
 
-            var r = new Rectangle(0, 0, Width, Height);
+		protected override void OnPaint(PaintEventArgs e)
+		{
+			var g = e.Graphics;
 
-            using (var bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
-            {
-                using (var thumbBrush = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
-                {
-                    G.FillRectangle(bg, r);
-                    G.FillRectangle(thumbBrush, _thumb);
-                }
-            }
-        }
+			var r = new Rectangle(0, 0, Width, Height);
 
-        #endregion
+			using (var bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+			{
+				using (var thumbBrush = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+				{
+					g.FillRectangle(bg, r);
+					g.FillRectangle(thumbBrush, _thumb);
+				}
+			}
+		}
 
-        #region Properties
+		#endregion
 
-        [Category("Metro"), Description("Gets or sets the lower limit of the scrollable range.")]
-        public int Minimum
-        {
-            get => _minimum;
-            set
-            {
-                _minimum = value;
-                if (value > _value)
-                    _value = value;
-                else if (value > _maximum)
-                    _maximum = value;
-                InvalidateLayout();
-            }
-        }
+		#region Properties
 
-        [Category("Metro"), Description("Gets or sets the upper limit of the scrollable range.")]
-        public int Maximum
-        {
-            get => _maximum;
-            set
-            {
-                if (value < _value)
-                    _value = value;
-                else if (value > _minimum)
-                    _maximum = value;
+		[Category("Metro"), Description("Gets or sets the lower limit of the scrollable range.")]
+		public int Minimum
+		{
+			get => _minimum;
+			set
+			{
+				_minimum = value;
+				if (value > _value)
+					_value = value;
+				else if (value > _maximum)
+					_maximum = value;
+				InvalidateLayout();
+			}
+		}
 
-                if (Orientation != ScrollOrientate.Vertical)
-                {
-                    if (Orientation == ScrollOrientate.Horizontal)
-                        _thumbSize = value > Width ? Convert.ToInt32(Width * (Width / (double)_maximum)) : 0;
-                }
-                else
-                    _thumbSize = value > Height ? Convert.ToInt32(Height * (Height / (double)_maximum)) : 0;
+		[Category("Metro"), Description("Gets or sets the upper limit of the scrollable range.")]
+		public int Maximum
+		{
+			get => _maximum;
+			set
+			{
+				if (value < _value)
+					_value = value;
+				else if (value > _minimum)
+					_maximum = value;
 
-                InvalidateLayout();
-            }
-        }
+				if (Orientation != ScrollOrientate.Vertical)
+				{
+					if (Orientation == ScrollOrientate.Horizontal)
+						_thumbSize = value > Width ? Convert.ToInt32(Width * (Width / (double)_maximum)) : 0;
+				}
+				else
+					_thumbSize = value > Height ? Convert.ToInt32(Height * (Height / (double)_maximum)) : 0;
 
-        [Category("Metro"), Description("Gets or sets a numeric value that represents the current position of the scroll bar box.")]
-        public int Value
-        {
-            get => _value;
-            set
-            {
-                if (value > Maximum)
-                    _value = Maximum;
-                else if (value < Minimum)
-                    _value = Minimum;
-                else
-                    _value = value;
-                InvalidatePosition();
-                Scroll?.Invoke(this);
-            }
-        }
+				InvalidateLayout();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the distance to move a scroll bar in response to a small scroll command.")]
-        public int SmallChange { get; set; } = 1;
+		[Category("Metro"), Description("Gets or sets a numeric value that represents the current position of the scroll bar box.")]
+		public int Value
+		{
+			get => _value;
+			set
+			{
+				if (value > Maximum)
+					_value = Maximum;
+				else if (value < Minimum)
+					_value = Minimum;
+				else
+					_value = value;
+				InvalidatePosition();
+				Scroll?.Invoke(this);
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the distance to move a scroll bar in response to a large scroll command.")]
-        public int LargeChange { get; set; } = 10;
+		[Category("Metro"), Description("Gets or sets the distance to move a scroll bar in response to a small scroll command.")]
+		[DefaultValue(1)]
+		public int SmallChange
+		{
+			get { return _smallChange; }
+			set
+			{
+				_smallChange = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the scroll bar orientation.")]
-        public ScrollOrientate Orientation { get; set; } = ScrollOrientate.Horizontal;
+		[Category("Metro"), Description("Gets or sets the distance to move a scroll bar in response to a large scroll command.")]
+		[DefaultValue(10)]
+		public int LargeChange
+		{
+			get { return _largeChange; }
+			set
+			{
+				_largeChange = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the scroll bar orientation.")]
-        public override Color ForeColor { get; set; }
+		[Category("Metro"), Description("Gets or sets the scroll bar orientation.")]
+		[DefaultValue(ScrollOrientate.Horizontal)]
+		public ScrollOrientate Orientation
+		{
+			get { return _orientation; }
+			set
+			{
+				_orientation = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets backcolor used by the control.")]
-        public override Color BackColor { get; set; }
+		[Category("Metro"), Description("Gets or sets the scroll bar forecolor.")]
+		public override Color ForeColor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets disabled forecolor used by the control.")]
-        public Color DisabledForeColor { get; set; }
+		[Category("Metro"), Description("Gets or sets backcolor used by the control.")]
+		public override Color BackColor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
-        public Color DisabledBackColor { get; set; }
+		[Category("Metro"), Description("Gets or sets disabled forecolor used by the control.")]
+		public Color DisabledForeColor
+		{
+			get { return _disabledForeColor; }
+			set
+			{
+				_disabledForeColor = value;
+				Refresh();
+			}
+		}
 
-        #endregion
+		[Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
+		public Color DisabledBackColor
+		{
+			get { return _disabledBackColor; }
+			set
+			{
+				_disabledBackColor = value;
+				Refresh();
+			}
+		}
 
-        #region Events
+		[Category("Metro")]
+		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+					 "Set it to false if you want the style of this control be independent. ")]
+		public bool IsDerivedStyle
+		{
+			get { return _isDerivedStyle; }
+			set
+			{
+				_isDerivedStyle = value;
+				Refresh();
+			}
+		}
 
-        protected override void OnSizeChanged(EventArgs e)
-        {
-            InvalidateLayout();
-        }
+		#endregion
 
-        private void InvalidateLayout()
-        {
-            _bar = new Rectangle(0, 0, Width, Height);
-            _showThumb = Maximum - Minimum > 0;
-            switch (Orientation)
-            {
-                case ScrollOrientate.Vertical:
-                    if (_showThumb)
-                        _thumb = new Rectangle(0, 0, Width, _thumbSize);
-                    break;
-                case ScrollOrientate.Horizontal:
-                    if (_showThumb)
-                        _thumb = new Rectangle(0, 0, Width, _thumbSize);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+		#region Events
 
-            Scroll?.Invoke(this);
-            InvalidatePosition();
-        }
+		protected override void OnSizeChanged(EventArgs e)
+		{
+			InvalidateLayout();
+		}
 
-        public event ScrollEventHandler Scroll;
-        public delegate void ScrollEventHandler(object sender);
+		private void InvalidateLayout()
+		{
+			_bar = new Rectangle(0, 0, Width, Height);
+			_showThumb = Maximum - Minimum > 0;
+			switch (Orientation)
+			{
+				case ScrollOrientate.Vertical:
+					if (_showThumb)
+						_thumb = new Rectangle(0, 0, Width, _thumbSize);
+					break;
+				case ScrollOrientate.Horizontal:
+					if (_showThumb)
+						_thumb = new Rectangle(0, 0, Width, _thumbSize);
+					break;
+			}
 
-        private void InvalidatePosition()
-        {
-            switch (Orientation)
-            {
-                case ScrollOrientate.Vertical:
-                    _thumb.Y = Convert.ToInt32(CurrentValue() * (_bar.Height - _thumbSize));
-                    break;
-                case ScrollOrientate.Horizontal:
-                    _thumb.X = Convert.ToInt32(CurrentValue() * (_bar.Width - _thumbSize));
-                    break;
-            }
+			Scroll?.Invoke(this);
+			InvalidatePosition();
+		}
 
-            Invalidate();
-        }
+		public event ScrollEventHandler Scroll;
 
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            base.OnMouseDown(e);
-            if (e.Button != MouseButtons.Left || !_showThumb) return;
-            if (_thumb.Contains(e.Location))
-            {
-                _thumbState = MouseMode.Pushed;
-                Invalidate();
-                return;
-            }
-            switch (Orientation)
-            {
-                case ScrollOrientate.Vertical:
-                    _val = e.Y < _thumb.Y ? Value - LargeChange : Value + LargeChange;
-                    break;
-                case ScrollOrientate.Horizontal:
-                    _val = e.X < _thumb.X ? Value - LargeChange : Value + LargeChange;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+		public delegate void ScrollEventHandler(object sender);
 
-            Value = Math.Min(Math.Max(_val, Minimum), Maximum);
-            InvalidatePosition();
-        }
+		private void InvalidatePosition()
+		{
+			switch (Orientation)
+			{
+				case ScrollOrientate.Vertical:
+					_thumb.Y = Convert.ToInt32(CurrentValue() * (_bar.Height - _thumbSize));
+					break;
+				case ScrollOrientate.Horizontal:
+					_thumb.X = Convert.ToInt32(CurrentValue() * (_bar.Width - _thumbSize));
+					break;
+			}
 
-        protected override void OnMouseMove(MouseEventArgs e)
-        {
-            if (!(_thumbState == MouseMode.Pushed | !_showThumb)) return;
-            int thumbPosition;
-            int thumbBounds;
-            switch (Orientation)
-            {
-                case ScrollOrientate.Vertical:
-                    thumbPosition = e.Y - _thumbSize / 2;
-                    thumbBounds = _bar.Height - _thumbSize;
-                    _val = Convert.ToInt32((double)thumbPosition / thumbBounds * (Maximum - Minimum)) - Minimum;
-                    break;
-                case ScrollOrientate.Horizontal:
-                    thumbPosition = e.X - _thumbSize / 2;
-                    thumbBounds = _bar.Width - _thumbSize;
-                    _val = Convert.ToInt32((double)thumbPosition / thumbBounds * (Maximum - Minimum)) - Minimum;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+			Invalidate();
+		}
 
-            Value = Math.Min(Math.Max(_val, Minimum), Maximum);
-            InvalidatePosition();
+		protected override void OnMouseDown(MouseEventArgs e)
+		{
+			base.OnMouseDown(e);
+			if (e.Button != MouseButtons.Left || !_showThumb)
+				return;
+			if (_thumb.Contains(e.Location))
+			{
+				_thumbState = MouseMode.Pushed;
+				Invalidate();
+				return;
+			}
+			switch (Orientation)
+			{
+				case ScrollOrientate.Vertical:
+					_val = e.Y < _thumb.Y ? Value - LargeChange : Value + LargeChange;
+					break;
+				case ScrollOrientate.Horizontal:
+					_val = e.X < _thumb.X ? Value - LargeChange : Value + LargeChange;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
 
-        }
+			Value = Math.Min(Math.Max(_val, Minimum), Maximum);
+			InvalidatePosition();
+		}
 
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            _thumbState = _thumb.Contains(e.Location) ? MouseMode.Hovered : MouseMode.Normal;
-            switch (Orientation)
-            {
-                case ScrollOrientate.Vertical:
-                    _thumbState = (e.Location.Y < 16) | (e.Location.Y > Width - 16) ? MouseMode.Hovered : MouseMode.Normal;
-                    break;
-                case ScrollOrientate.Horizontal:
-                    _thumbState = e.Location.X < 16 | e.Location.X > Width - 16 ? MouseMode.Hovered : MouseMode.Normal;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-            Invalidate();
-        }
+		protected override void OnMouseMove(MouseEventArgs e)
+		{
+			if (!(_thumbState == MouseMode.Pushed | !_showThumb))
+				return;
+			int thumbPosition;
+			int thumbBounds;
+			switch (Orientation)
+			{
+				case ScrollOrientate.Vertical:
+					thumbPosition = e.Y - _thumbSize / 2;
+					thumbBounds = _bar.Height - _thumbSize;
+					_val = Convert.ToInt32((double)thumbPosition / thumbBounds * (Maximum - Minimum)) - Minimum;
+					break;
+				case ScrollOrientate.Horizontal:
+					thumbPosition = e.X - _thumbSize / 2;
+					thumbBounds = _bar.Width - _thumbSize;
+					_val = Convert.ToInt32((double)thumbPosition / thumbBounds * (Maximum - Minimum)) - Minimum;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
 
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            _thumbState = MouseMode.Normal;
-            Invalidate();
-        }
+			Value = Math.Min(Math.Max(_val, Minimum), Maximum);
+			InvalidatePosition();
 
-        private double CurrentValue()
-        {
-            return (double)(Value - Minimum) / (Maximum - Minimum);
-        }
+		}
 
-        #endregion
-    }
+		protected override void OnMouseUp(MouseEventArgs e)
+		{
+			_thumbState = _thumb.Contains(e.Location) ? MouseMode.Hovered : MouseMode.Normal;
+			switch (Orientation)
+			{
+				case ScrollOrientate.Vertical:
+					_thumbState = (e.Location.Y < 16) | (e.Location.Y > Width - 16) ? MouseMode.Hovered : MouseMode.Normal;
+					break;
+				case ScrollOrientate.Horizontal:
+					_thumbState = e.Location.X < 16 | e.Location.X > Width - 16 ? MouseMode.Hovered : MouseMode.Normal;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+			Invalidate();
+		}
 
-    #endregion
+		protected override void OnMouseLeave(EventArgs e)
+		{
+			_thumbState = MouseMode.Normal;
+			Invalidate();
+		}
+
+		private double CurrentValue()
+		{
+			return (double)(Value - Minimum) / (Maximum - Minimum);
+		}
+
+		#endregion
+	}
+
+	#endregion
 }
