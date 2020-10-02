@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Extension.Metro
 
     public class GraphicsQuality
     {
-        public void SetQuality(Graphics e, SmoothingMode smoothingMode = SmoothingMode.Default, TextRenderingHint textRenderingHint = TextRenderingHint.ClearTypeGridFit, PixelOffsetMode pixelOffsetMode = PixelOffsetMode.Default, InterpolationMode interpolationMode = InterpolationMode.Default,  CompositingQuality compositingQuality = CompositingQuality.Default)
+        public void SetQuality(Graphics e, SmoothingMode smoothingMode = SmoothingMode.Default, TextRenderingHint textRenderingHint = TextRenderingHint.ClearTypeGridFit, PixelOffsetMode pixelOffsetMode = PixelOffsetMode.Default, InterpolationMode interpolationMode = InterpolationMode.Default, CompositingQuality compositingQuality = CompositingQuality.Default)
         {
             try
             {
@@ -29,6 +29,7 @@ namespace ReaLTaiizor.Extension.Metro
                 MessageBox.Show(Ex.StackTrace);
             }
         }
+
     }
 
     #endregion

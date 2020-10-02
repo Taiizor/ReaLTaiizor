@@ -8,21 +8,18 @@ using System.ComponentModel.Design;
 
 namespace ReaLTaiizor.Child.Metro
 {
-    #region MetroTabPageCollectionEditorChild
+	#region MetroTabPageCollectionEditorChild
 
-    internal class MetroTabPageCollectionEditor : CollectionEditor
-    {
-        public MetroTabPageCollectionEditor(Type type) : base(type)
-        { }
+	internal class MetroTabPageCollectionEditor : CollectionEditor
+	{
+		public MetroTabPageCollectionEditor(Type type) : base(type)
+		{ }
 
-        protected override Type[] CreateNewItemTypes()
-        {
-            return new[]
-            {
-                typeof(TabPage), typeof(MetroTabPage)
-            };
-        }
-    }
+		protected override Type[] CreateNewItemTypes()
+		{
+			return new[] { typeof(TabPage), typeof(MetroTabPage) };
+		}
+	}
 
-    #endregion
+	#endregion
 }

@@ -8,9 +8,9 @@ using System.ComponentModel.Design;
 
 namespace ReaLTaiizor.Design.Metro
 {
-    #region MetroLinkDesignerDesign
+    #region MetroLinkLabelDesignerDesign
 
-    internal class MetroLinkDesigner : ControlDesigner
+    internal class MetroLinkLabelDesigner : ControlDesigner
     {
         private DesignerActionListCollection _actionListCollection;
 

@@ -7,13 +7,13 @@ using ReaLTaiizor.Enum.Metro;
 
 namespace ReaLTaiizor.Interface.Metro
 {
-    #region iControlInterface
+    #region IMetroFormInterface
 
-    public interface iControl
+    public interface IMetroForm
     {
         Style Style { get; set; }
 
-        MetroStyleManager MetroStyleManager { get; set; }
+        MetroStyleManager StyleManager { get; set; }
 
         string ThemeAuthor { get; set; }
 

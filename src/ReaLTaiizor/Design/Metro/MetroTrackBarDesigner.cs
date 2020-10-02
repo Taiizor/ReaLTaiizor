@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using System.Collections;
 using ReaLTaiizor.Action.Metro;
 using System.Windows.Forms.Design;
 using System.ComponentModel.Design;
@@ -18,8 +19,7 @@ namespace ReaLTaiizor.Design.Metro
             "RightToLeft","ImeMode"
         };
 
-
-        protected override void PostFilterProperties(System.Collections.IDictionary properties)
+        protected override void PostFilterProperties(IDictionary properties)
         {
             foreach (var property in _propertiesToRemove)
                 properties.Remove(property);

@@ -13,152 +13,167 @@ using ReaLTaiizor.Interface.Metro;
 
 namespace ReaLTaiizor.Child.Metro
 {
-    #region MetroTabPageChild
+	#region MetroTabPageChild
 
-    [Designer(typeof(MetroTabPageDesigner))]
-    public class MetroTabPage : TabPage, iControl
-    {
-        #region Interfaces
+	[Designer(typeof(MetroTabPageDesigner))]
+	public class MetroTabPage : TabPage, IMetroControl
+	{
+		#region Interfaces
 
-        [Browsable(false)]
-        [Category("Metro"), Description("Gets or sets the style associated with the control.")]
-        public Style Style
-        {
-            get => MetroStyleManager?.Style ?? _style;
-            set
-            {
-                _style = value;
-                switch (value)
-                {
-                    case Style.Light:
-                        ApplyTheme();
-                        break;
-                    case Style.Dark:
-                        ApplyTheme(Style.Dark);
-                        break;
-                    case Style.Custom:
-                        ApplyTheme(Style.Custom);
-                        break;
-                    default:
-                        ApplyTheme();
-                        break;
-                }
-                Invalidate();
-            }
-        }
+		[Browsable(false)]
+		[Category("Metro"), Description("Gets or sets the style associated with the control.")]
+		public Style Style
+		{
+			get => StyleManager?.Style ?? _style;
+			set
+			{
+				_style = value;
+				switch (value)
+				{
+					case Style.Light:
+						ApplyTheme();
+						break;
+					case Style.Dark:
+						ApplyTheme(Style.Dark);
+						break;
+					case Style.Custom:
+						ApplyTheme(Style.Custom);
+						break;
+					default:
+						ApplyTheme();
+						break;
+				}
+				Invalidate();
+			}
+		}
 
-        [Browsable(false)]
-        [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
-        {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
-        }
+		[Browsable(false)]
+		[Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
+		public MetroStyleManager StyleManager
+		{
+			get => _styleManager;
+			set { _styleManager = value; Invalidate(); }
+		}
 
-        [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
-        public string ThemeAuthor { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
+		public string ThemeAuthor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
-        public string ThemeName { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
+		public string ThemeName { get; set; }
 
-        #endregion Interfaces
+		#endregion Interfaces
 
-        #region Internal Vars
+		#region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _metroStyleManager;
+		private Style _style;
+		private MetroStyleManager _styleManager;
 
-        #endregion Internal Vars
+		#endregion Internal Vars
 
-        #region Constructors
+		#region Constructors
 
-        public MetroTabPage()
-        {
-            SetStyle
-            (
-                ControlStyles.UserPaint |
-                ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.ResizeRedraw |
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.SupportsTransparentBackColor,
-                    true
-            );
-            UpdateStyles();
-            Font = MetroFonts.Light(10);
-            ApplyTheme();
-        }
+		public MetroTabPage()
+		{
+			SetStyle
+			(
+				ControlStyles.UserPaint |
+				ControlStyles.AllPaintingInWmPaint |
+				ControlStyles.ResizeRedraw |
+				ControlStyles.OptimizedDoubleBuffer |
+				ControlStyles.SupportsTransparentBackColor,
+					true
+			);
+			base.Font = MetroFonts.Light(10);
+			UpdateStyles();
+			ApplyTheme();
+		}
 
-        #endregion Constructors
+		#endregion Constructors
 
-        #region ApplyTheme
+		#region ApplyTheme
 
-        private void ApplyTheme(Style style = Style.Light)
-        {
-            switch (style)
-            {
-                case Style.Light:
-                    BaseColor = Color.White;
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
-                    UpdateProperties();
-                    break;
-                case Style.Dark:
-                    BaseColor = Color.FromArgb(32, 32, 32);
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroDark";
-                    UpdateProperties();
-                    break;
-            }
-        }
+		private void ApplyTheme(Style style = Style.Light)
+		{
+			if (!IsDerivedStyle)
+				return;
 
-        public void UpdateProperties()
-        {
-            Invalidate();
-        }
+			switch (style)
+			{
+				case Style.Light:
+					BaseColor = Color.White;
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroLite";
+					UpdateProperties();
+					break;
+				case Style.Dark:
+					BaseColor = Color.FromArgb(32, 32, 32);
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroDark";
+					UpdateProperties();
+					break;
+			}
+		}
 
-        #endregion ApplyTheme
+		public void UpdateProperties()
+		{
+			Invalidate();
+		}
 
-        #region Properties
+		#endregion ApplyTheme
 
-        [Browsable(false)]
-        public new Color BackColor { get; set; } = Color.Transparent;
+		#region Properties
 
-        // I dont' want to recreate the following properties for specific reason but for helping
-        // user to find usage properties easily under Metro category in propertygrid.
+		[Browsable(false)]
+		public new Color BackColor { get; set; } = Color.Transparent;
 
-        [Category("Metro")]
-        public override string Text { get; set; }
+		[Category("Metro")]
+		public override string Text { get; set; }
 
-        [Category("Metro")]
-        public override Font Font { get; set; }
+		[Category("Metro")]
+		public new Font Font { get; set; }
 
-        [Category("Metro")]
-        public new int ImageIndex { get; set; }
+		[Category("Metro")]
+		public new int ImageIndex { get; set; }
 
-        [Category("Metro")]
-        public new string ImageKey { get; set; }
+		[Category("Metro")]
+		public new string ImageKey { get; set; }
 
-        [Category("Metro")]
-        public new string ToolTipText { get; set; }
+		[Category("Metro")]
+		public new string ToolTipText { get; set; }
 
-        [Category("Metro")]
-        [Bindable(false)]
-        public Color BaseColor { get; set; }
+		[Category("Metro")]
+		[Bindable(false)]
+		public Color BaseColor { get; set; }
 
-        #endregion Properties
+		private bool _isDerivedStyle = true;
 
-        #region DrawControl
+		[Category("Metro")]
+		[Description("Gets or sets the whether this control reflect to parent form style. \n " +
+					 "Set it to false if you want the style of this control be independent. ")]
+		public bool IsDerivedStyle
+		{
+			get { return _isDerivedStyle; }
+			set
+			{
+				_isDerivedStyle = value;
+				Refresh();
+			}
+		}
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            Graphics G = e.Graphics;
-            G.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            using (var bg = new SolidBrush(BaseColor))
-                G.FillRectangle(bg, ClientRectangle);
-        }
+		#endregion Properties
 
-        #endregion
-    }
+		#region DrawControl
 
-    #endregion
+		protected override void OnPaint(PaintEventArgs e)
+		{
+			Graphics g = e.Graphics;
+			g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+			using (var bg = new SolidBrush(BaseColor))
+				g.FillRectangle(bg, ClientRectangle);
+		}
+
+		#endregion
+	}
+
+	#endregion
 }

@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
     [DefaultProperty("Text")]
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroLabel : Label, iControl
+    public class MetroLabel : Label, MetroControl
     {
         #region Interfaces
 

@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using System.Collections;
 using System.Windows.Forms.Design;
 
 #endregion
@@ -13,10 +14,10 @@ namespace ReaLTaiizor.Design.Metro
         private readonly string[] _propertiesToRemove =
         {
             "BackgroundImage", "BackgroundImageLayout", "ForeColor",
-            "RightToLeft","ImeMode","BorderStyle","Margin","Padding","Enabled","UseVisualStyleBackColor"
+            "RightToLeft", "ImeMode", "BorderStyle", "Margin", "Padding", "Enabled", "UseVisualStyleBackColor"
         };
 
-        protected override void PostFilterProperties(System.Collections.IDictionary properties)
+        protected override void PostFilterProperties(IDictionary properties)
         {
             foreach (var property in _propertiesToRemove)
                 properties.Remove(property);
