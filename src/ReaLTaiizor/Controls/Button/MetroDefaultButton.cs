@@ -86,6 +86,7 @@ namespace ReaLTaiizor.Controls
 		private Style _style;
 		private MetroStyleManager _styleManager;
 
+		private bool _isDerivedStyle = true;
 		private Color _normalColor;
 		private Color _normalBorderColor;
 		private Color _normalTextColor;
@@ -436,8 +437,6 @@ namespace ReaLTaiizor.Controls
 				Refresh();
 			}
 		}
-
-		private bool _isDerivedStyle = true;
 
 		[Category("Metro")]
 		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +

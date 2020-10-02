@@ -68,6 +68,8 @@ namespace ReaLTaiizor.Child.Metro
 		private Style _style;
 		private MetroStyleManager _styleManager;
 
+		private bool _isDerivedStyle = true;
+
 		#endregion Internal Vars
 
 		#region Constructors
@@ -144,8 +146,6 @@ namespace ReaLTaiizor.Child.Metro
 		[Category("Metro")]
 		[Bindable(false)]
 		public Color BaseColor { get; set; }
-
-		private bool _isDerivedStyle = true;
 
 		[Category("Metro")]
 		[Description("Gets or sets the whether this control reflect to parent form style. \n " +

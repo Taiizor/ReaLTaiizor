@@ -78,6 +78,8 @@ namespace ReaLTaiizor.Controls
 		private MetroStyleManager _styleManager;
 		private ToolStripItemClickedEventArgs _clickedEventArgs;
 
+		private bool _isDerivedStyle = true;
+
 		#endregion Internal Vars
 
 		#region Constructors
@@ -195,8 +197,6 @@ namespace ReaLTaiizor.Controls
 		public static Color DisabledForeColor { get; set; }
 
 		public static new Font Font => MetroFonts.UIRegular(10);
-
-		private bool _isDerivedStyle = true;
 
 		[Category("Metro")]
 		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +

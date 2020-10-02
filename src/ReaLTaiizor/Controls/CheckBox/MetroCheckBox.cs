@@ -83,6 +83,7 @@ namespace ReaLTaiizor.Controls
 		private bool _checked;
 		private IntAnimate _animator;
 
+		private bool _isDerivedStyle = true;
 		private SignStyle _signStyle = SignStyle.Sign;
 		private Enum.Metro.CheckState _checkState;
 		private Color _backgroundColor;
@@ -368,8 +369,6 @@ namespace ReaLTaiizor.Controls
 			}
 		}
 
-		private bool _isDerivedStyle = true;
-
 		[Category("Metro")]
 		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
 					 "Set it to false if you want the style of this control be independent. ")]
@@ -394,7 +393,6 @@ namespace ReaLTaiizor.Controls
 		}
 
 		#endregion
-
 	}
 
 	#endregion

@@ -15,191 +15,226 @@ using System.Runtime.InteropServices;
 
 namespace ReaLTaiizor.Controls
 {
-    #region MetroDivider
+	#region MetroDivider
 
-    [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(MetroDivider), "Bitmaps.Divider.bmp")]
-    [Designer(typeof(MetroDividerDesigner))]
-    [DefaultProperty("Orientation")]
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroDivider : Control, iControl
-    {
-        #region Interfaces
+	[ToolboxItem(true)]
+	[ToolboxBitmap(typeof(MetroDivider), "Bitmaps.Divider.bmp")]
+	[Designer(typeof(MetroDividerDesigner))]
+	[DefaultProperty("Orientation")]
+	[ComVisible(true)]
+	public class MetroDivider : Control, IMetroControl
+	{
+		#region Interfaces
 
-        [Category("Metro"), Description("Gets or sets the style associated with the control.")]
-        public Style Style
-        {
-            get => MetroStyleManager?.Style ?? _style;
-            set
-            {
-                _style = value;
-                switch (value)
-                {
-                    case Style.Light:
-                        ApplyTheme();
-                        break;
-                    case Style.Dark:
-                        ApplyTheme(Style.Dark);
-                        break;
-                    case Style.Custom:
-                        ApplyTheme(Style.Custom);
-                        break;
-                    default:
-                        ApplyTheme();
-                        break;
-                }
-                Invalidate();
-            }
-        }
+		[Category("Metro"), Description("Gets or sets the style associated with the control.")]
+		public Style Style
+		{
+			get => StyleManager?.Style ?? _style;
+			set
+			{
+				_style = value;
+				switch (value)
+				{
+					case Style.Light:
+						ApplyTheme();
+						break;
+					case Style.Dark:
+						ApplyTheme(Style.Dark);
+						break;
+					case Style.Custom:
+						ApplyTheme(Style.Custom);
+						break;
+					default:
+						ApplyTheme();
+						break;
+				}
+				Invalidate();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
-        {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
-        }
+		[Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
+		public MetroStyleManager StyleManager
+		{
+			get => _styleManager;
+			set { _styleManager = value; Invalidate(); }
+		}
 
-        [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
-        public string ThemeAuthor { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
+		public string ThemeAuthor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
-        public string ThemeName { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
+		public string ThemeName { get; set; }
 
-        #endregion Interfaces
+		#endregion Interfaces
 
-        #region Global Vars
+		#region Global Vars
 
-        private Utilites utl;
+		private readonly Utilites _utl;
 
-        #endregion Global Vars
+		#endregion Global Vars
 
-        #region Internal Vars
+		#region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _metroStyleManager;
+		private Style _style;
+		private MetroStyleManager _styleManager;
 
-        #endregion Internal Vars
+		private bool _isDerivedStyle = true;
+		private DividerStyle _orientation;
+		private int _thickness;
 
-        #region Constructors
+		#endregion Internal Vars
 
-        public MetroDivider()
-        {
-            SetStyle
-            (
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.SupportsTransparentBackColor,
-                    true
-            );
-            UpdateStyles();
-            utl = new Utilites();
-            ApplyTheme();
-            Orientation = DividerStyle.Horizontal;
-        }
+		#region Constructors
 
-        #endregion Constructors
+		public MetroDivider()
+		{
+			SetStyle
+			(
+				ControlStyles.OptimizedDoubleBuffer |
+				ControlStyles.SupportsTransparentBackColor,
+					true
+			);
+			UpdateStyles();
+			_utl = new Utilites();
+			ApplyTheme();
+			Orientation = DividerStyle.Horizontal;
+		}
 
-        #region ApplyTheme
+		#endregion Constructors
 
-        private void ApplyTheme(Style style = Style.Light)
-        {
-            switch (style)
-            {
-                case Style.Light:
-                    Thickness = 1;
-                    ForeColor = Color.Black;
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
-                    UpdateProperties();
-                    break;
-                case Style.Dark:
-                    Thickness = 1;
-                    ForeColor = Color.FromArgb(170, 170, 170);
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroDark";
-                    UpdateProperties();
-                    break;
-                case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.DividerDictionary)
-                        {
-                            switch (varkey.Key)
-                            {
-                                case "Orientation":
-                                    if ((string)varkey.Value == "Horizontal")
-                                        Orientation = DividerStyle.Horizontal;
-                                    else if ((string)varkey.Value == "Vertical")
-                                        Orientation = DividerStyle.Vertical;
-                                    break;
-                                case "Thickness":
-                                    Thickness = ((int)varkey.Value);
-                                    break;
-                                case "ForeColor":
-                                    ForeColor = utl.HexColor((string)varkey.Value);
-                                    break;
-                                default:
-                                    return;
-                            }
-                        }
-                    UpdateProperties();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(style), style, null);
-            }
-        }
+		#region ApplyTheme
 
-        private void UpdateProperties()
-        {
-            Invalidate();
-        }
+		private void ApplyTheme(Style style = Style.Light)
+		{
+			if (!IsDerivedStyle)
+				return;
 
-        #endregion ApplyTheme
+			switch (style)
+			{
+				case Style.Light:
+					Thickness = 1;
+					ForeColor = Color.Black;
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroLite";
+					UpdateProperties();
+					break;
+				case Style.Dark:
+					Thickness = 1;
+					ForeColor = Color.FromArgb(170, 170, 170);
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroDark";
+					UpdateProperties();
+					break;
+				case Style.Custom:
+					if (StyleManager != null)
+						foreach (var varkey in StyleManager.DividerDictionary)
+						{
+							switch (varkey.Key)
+							{
+								case "Orientation":
+									if ((string)varkey.Value == "Horizontal")
+										Orientation = DividerStyle.Horizontal;
+									else if ((string)varkey.Value == "Vertical")
+										Orientation = DividerStyle.Vertical;
+									break;
+								case "Thickness":
+									Thickness = ((int)varkey.Value);
+									break;
+								case "ForeColor":
+									ForeColor = _utl.HexColor((string)varkey.Value);
+									break;
+								default:
+									return;
+							}
+						}
+					UpdateProperties();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(style), style, null);
+			}
+		}
 
-        #region Draw Control
+		private void UpdateProperties()
+		{
+			Invalidate();
+		}
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            var G = e.Graphics;
-            using (var p = new Pen(ForeColor, Thickness))
-            {
-                if (Orientation == DividerStyle.Horizontal)
-                    G.DrawLine(p, 0, Thickness, Width, Thickness);
-                else
-                    G.DrawLine(p, Thickness, 0, Thickness, Height);
-            }
-        }
+		#endregion ApplyTheme
 
-        #endregion Draw Control
+		#region Draw Control
 
-        #region Properties
+		protected override void OnPaint(PaintEventArgs e)
+		{
+			var g = e.Graphics;
+			using (var p = new Pen(ForeColor, Thickness))
+			{
+				if (Orientation == DividerStyle.Horizontal)
+					g.DrawLine(p, 0, Thickness, Width, Thickness);
+				else
+					g.DrawLine(p, Thickness, 0, Thickness, Height);
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets Orientation of the control.")]
-        public DividerStyle Orientation { get; set; }
+		#endregion Draw Control
 
-        [Category("Metro"), Description("Gets or sets the divider thickness.")]
-        public int Thickness { get; set; }
+		#region Properties
 
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public override Color BackColor => Color.Transparent;
+		[Category("Metro"), Description("Gets or sets Orientation of the control.")]
+		public DividerStyle Orientation
+		{
+			get { return _orientation; }
+			set
+			{
+				_orientation = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the form forecolor.")]
-        public override Color ForeColor { get; set; }
+		[Category("Metro"), Description("Gets or sets the divider thickness.")]
+		public int Thickness
+		{
+			get { return _thickness; }
+			set
+			{
+				_thickness = value;
+				Refresh();
+			}
+		}
 
-        #endregion Properties
+		[Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+		public override Color BackColor => Color.Transparent;
 
-        #region Events
+		[Category("Metro"), Description("Gets or sets the form forecolor.")]
+		public override Color ForeColor { get; set; }
 
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            if (Orientation == DividerStyle.Horizontal)
-                Height = Thickness + 3;
-            else
-                Width = Thickness + 3;
-        }
+		[Category("Metro")]
+		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+					 "Set it to false if you want the style of this control be independent. ")]
+		public bool IsDerivedStyle
+		{
+			get { return _isDerivedStyle; }
+			set
+			{
+				_isDerivedStyle = value;
+				Refresh();
+			}
+		}
 
-        #endregion Events
-    }
+		#endregion Properties
 
-    #endregion
+		#region Events
+
+		protected override void OnResize(EventArgs e)
+		{
+			base.OnResize(e);
+			if (Orientation == DividerStyle.Horizontal)
+				Height = Thickness + 3;
+			else
+				Width = Thickness + 3;
+		}
+
+		#endregion Events
+	}
+
+	#endregion
 }

@@ -77,6 +77,8 @@ namespace ReaLTaiizor.Controls
 		private MetroStyleManager _styleManager;
 		private Style _style;
 
+		private bool _isDerivedStyle = true;
+
 		#endregion Internal Vars
 
 		#region Constructors
@@ -195,8 +197,6 @@ namespace ReaLTaiizor.Controls
 
 		[Category("Metro"), Description("Gets or sets the border color for the ToolTip.")]
 		public Color BorderColor { get; set; }
-
-		private bool _isDerivedStyle = true;
 
 		[Category("Metro")]
 		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +

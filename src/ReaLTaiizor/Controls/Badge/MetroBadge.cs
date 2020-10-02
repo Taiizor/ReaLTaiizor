@@ -87,6 +87,7 @@ namespace ReaLTaiizor.Controls
 		private Style _style;
 		private MetroStyleManager _styleManager;
 
+		private bool _isDerivedStyle = true;
 		private BadgeAlign _badgeAlignment;
 		private string _badgeText;
 		private Color _normalColor;
@@ -386,8 +387,6 @@ namespace ReaLTaiizor.Controls
 				Refresh();
 			}
 		}
-
-		private bool _isDerivedStyle = true;
 
 		[Category("Metro")]
 		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
