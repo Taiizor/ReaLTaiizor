@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Animate.Metro
 				Interval = updateInterval,
 				Enabled = false,
 			};
-			_animateTimer.Tick += this.OnFrameUpdate;
+			_animateTimer.Tick += OnFrameUpdate;
 			_reverse = false;
 			Alpha = 0.0;
 		}

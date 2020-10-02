@@ -33,8 +33,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroDivider.MetroStyleManager;
-			set => _metroDivider.MetroStyleManager = value;
+			get => _metroDivider.StyleManager;
+			set => _metroDivider.StyleManager = value;
 		}
 
 		public DividerStyle Orientation

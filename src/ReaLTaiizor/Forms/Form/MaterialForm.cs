@@ -469,9 +469,9 @@ namespace ReaLTaiizor.Forms
 
         private void TerminateOnClose(object sender, FormClosedEventArgs e)
         {
-            //Application.Exit();
+            Application.Exit();
             //FindForm().Close();
-            Close();
+            //Close();
         }
 
         private void FixFormPadding(object sender)

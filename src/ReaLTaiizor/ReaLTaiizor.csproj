@@ -211,9 +211,4 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Twitter.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Design\Metro\Style.cs" />
-    <Compile Remove="Design\Metro\TextAlign.cs" />
-  </ItemGroup>
-
 </Project>

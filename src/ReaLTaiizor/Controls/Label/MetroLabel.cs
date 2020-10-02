@@ -116,7 +116,7 @@ namespace ReaLTaiizor.Controls
 					ForeColor = Color.Black;
 					BackColor = Color.Transparent;
 					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLite";
+					ThemeName = "MetroLight";
 					UpdateProperties();
 					break;
 				case Style.Dark:

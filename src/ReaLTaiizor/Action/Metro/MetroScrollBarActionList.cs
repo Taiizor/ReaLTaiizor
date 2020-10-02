@@ -33,8 +33,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroScrollBar.MetroStyleManager;
-			set => _metroScrollBar.MetroStyleManager = value;
+			get => _metroScrollBar.StyleManager;
+			set => _metroScrollBar.StyleManager = value;
 		}
 
 		public int Maximum

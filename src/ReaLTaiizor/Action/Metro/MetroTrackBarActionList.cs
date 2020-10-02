@@ -33,8 +33,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroTrackBar.MetroStyleManager;
-			set => _metroTrackBar.MetroStyleManager = value;
+			get => _metroTrackBar.StyleManager;
+			set => _metroTrackBar.StyleManager = value;
 		}
 
 		public int Maximum

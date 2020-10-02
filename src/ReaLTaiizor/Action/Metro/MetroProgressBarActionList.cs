@@ -33,8 +33,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroProgressBar.MetroStyleManager;
-			set => _metroProgressBar.MetroStyleManager = value;
+			get => _metroProgressBar.StyleManager;
+			set => _metroProgressBar.StyleManager = value;
 		}
 
 		public int Value

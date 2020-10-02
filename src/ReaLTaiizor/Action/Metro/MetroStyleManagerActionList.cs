@@ -15,34 +15,34 @@ namespace ReaLTaiizor.Action.Metro
 
 	class MetroStyleManagerActionList : DesignerActionList
 	{
-		private readonly MetroStyleManager _metroStyleManger;
+		private readonly MetroStyleManager _styleManger;
 
 		public MetroStyleManagerActionList(IComponent component) : base(component)
 		{
-			_metroStyleManger = (MetroStyleManager)component;
+			_styleManger = (MetroStyleManager)component;
 		}
 
 		public Style Style
 		{
-			get => _metroStyleManger.Style;
-			set => _metroStyleManger.Style = value;
+			get => _styleManger.Style;
+			set => _styleManger.Style = value;
 		}
 
-		public string ThemeAuthor => _metroStyleManger.ThemeAuthor;
+		public string ThemeAuthor => _styleManger.ThemeAuthor;
 
-		public string ThemeName => _metroStyleManger.ThemeName;
+		public string ThemeName => _styleManger.ThemeName;
 
 		[Editor(typeof(MetroStyleManager.FileNamesEditor), typeof(UITypeEditor)), Category("Metro"), Description("Gets or sets the custom theme file.")]
 		public string CustomTheme
 		{
-			get => _metroStyleManger.CustomTheme;
-			set => _metroStyleManger.CustomTheme = value;
+			get => _styleManger.CustomTheme;
+			set => _styleManger.CustomTheme = value;
 		}
 
 		public Form OwnerForm
 		{
-			get => _metroStyleManger.MetroForm;
-			set => _metroStyleManger.MetroForm = value;
+			get => _styleManger.OwnerForm;
+			set => _styleManger.OwnerForm = value;
 		}
 
 		public override DesignerActionItemCollection GetSortedActionItems()
@@ -57,11 +57,9 @@ namespace ReaLTaiizor.Action.Metro
 				new DesignerActionHeaderItem("Information"),
 				new DesignerActionPropertyItem("ThemeName", "ThemeName", "Information", "Gets or sets the The Theme name associated with the theme."),
 				new DesignerActionPropertyItem("ThemeAuthor", "ThemeAuthor", "Information", "Gets or sets the The Author name associated with the theme."),
-
 			};
 			return items;
 		}
-
 	}
 
 	#endregion

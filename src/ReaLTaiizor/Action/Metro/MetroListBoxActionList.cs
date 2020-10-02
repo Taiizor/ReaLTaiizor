@@ -34,8 +34,8 @@ namespace ReaLTaiizor.Action.Metro
 
         public MetroStyleManager StyleManager
         {
-            get => _metroListBox.MetroStyleManager;
-            set => _metroListBox.MetroStyleManager = value;
+            get => _metroListBox.StyleManager;
+            set => _metroListBox.StyleManager = value;
         }
 
         [TypeConverter(typeof(CollectionConverter))]

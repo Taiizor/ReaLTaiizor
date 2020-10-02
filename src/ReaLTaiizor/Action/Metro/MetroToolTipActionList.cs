@@ -33,8 +33,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroToolTip.MetroStyleManager;
-			set => _metroToolTip.MetroStyleManager = value;
+			get => _metroToolTip.StyleManager;
+			set => _metroToolTip.StyleManager = value;
 		}
 
 		public bool Active

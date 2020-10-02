@@ -33,8 +33,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroControBox.MetroStyleManager;
-			set => _metroControBox.MetroStyleManager = value;
+			get => _metroControBox.StyleManager;
+			set => _metroControBox.StyleManager = value;
 		}
 
 		public bool MaximizeBox

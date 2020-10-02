@@ -35,8 +35,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroRichTextBox.MetroStyleManager;
-			set => _metroRichTextBox.MetroStyleManager = value;
+			get => _metroRichTextBox.StyleManager;
+			set => _metroRichTextBox.StyleManager = value;
 		}
 
 		public string Text

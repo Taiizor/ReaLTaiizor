@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Interface.Metro
 {
     #region MetroFormInterface
 
-    public interface MetroForm
+    public interface iMetroSetForm
     {
         Style Style { get; set; }
 

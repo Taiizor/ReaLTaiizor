@@ -148,7 +148,7 @@ namespace ReaLTaiizor.Controls
 					DisabledUnCheckColor = Color.FromArgb(200, 205, 205, 205);
 					DisabledCheckColor = Color.FromArgb(100, 65, 177, 225);
 					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLite";
+					ThemeName = "MetroLight";
 					UpdateProperties();
 					break;
 				case Style.Dark:

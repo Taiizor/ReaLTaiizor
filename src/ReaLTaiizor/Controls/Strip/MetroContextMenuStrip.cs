@@ -111,7 +111,7 @@ namespace ReaLTaiizor.Controls
 					SeparatorColor = Color.LightGray;
 					DisabledForeColor = Color.Silver;
 					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLite";
+					ThemeName = "MetroLight";
 					UpdateProperties();
 					break;
 				case Style.Dark:

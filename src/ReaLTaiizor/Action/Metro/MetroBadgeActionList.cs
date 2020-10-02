@@ -34,8 +34,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroBadge.MetroStyleManager;
-			set => _metroBadge.MetroStyleManager = value;
+			get => _metroBadge.StyleManager;
+			set => _metroBadge.StyleManager = value;
 		}
 
 		public string Text

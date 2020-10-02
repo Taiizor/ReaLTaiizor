@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
 					MinimizeNormalForeColor = Color.Gray;
 					DisabledForeColor = Color.DimGray;
 					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLite";
+					ThemeName = "MetroLight";
 					break;
 				case Style.Dark:
 					CloseHoverBackColor = Color.FromArgb(183, 40, 40);
@@ -521,7 +521,6 @@ namespace ReaLTaiizor.Controls
 		protected override void OnMouseLeave(EventArgs e)
 		{
 			base.OnMouseLeave(e);
-			Cursor = Cursors.Default;
 			MinimizeHovered = false;
 			MaximizeHovered = false;
 			CloseHovered = false;

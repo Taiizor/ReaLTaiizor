@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Controls
 					DisabledBackColor = Color.FromArgb(204, 204, 204);
 					DisabledForeColor = Color.FromArgb(136, 136, 136);
 					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLite";
+					ThemeName = "MetroLight";
 					UpdateProperties();
 					break;
 				case Style.Dark:

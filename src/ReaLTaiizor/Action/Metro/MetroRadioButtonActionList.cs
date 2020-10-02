@@ -33,8 +33,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroRadioButton.MetroStyleManager;
-			set => _metroRadioButton.MetroStyleManager = value;
+			get => _metroRadioButton.StyleManager;
+			set => _metroRadioButton.StyleManager = value;
 		}
 
 		public string Text

@@ -120,7 +120,7 @@ namespace ReaLTaiizor.Controls
 					LinkColor = Color.FromArgb(65, 177, 225);
 					VisitedLinkColor = Color.FromArgb(45, 157, 205);
 					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLite";
+					ThemeName = "MetroLight";
 					UpdateProperties();
 					break;
 				case Style.Dark:

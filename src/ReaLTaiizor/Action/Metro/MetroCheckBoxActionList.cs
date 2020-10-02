@@ -33,8 +33,8 @@ namespace ReaLTaiizor.Action.Metro
 
 		public MetroStyleManager StyleManager
 		{
-			get => _metroCheckBox.MetroStyleManager;
-			set => _metroCheckBox.MetroStyleManager = value;
+			get => _metroCheckBox.StyleManager;
+			set => _metroCheckBox.StyleManager = value;
 		}
 
 		public string Text

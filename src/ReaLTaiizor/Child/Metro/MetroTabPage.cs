@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Child.Metro
 				case Style.Light:
 					BaseColor = Color.White;
 					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLite";
+					ThemeName = "MetroLight";
 					UpdateProperties();
 					break;
 				case Style.Dark:

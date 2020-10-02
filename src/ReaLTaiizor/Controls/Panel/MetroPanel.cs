@@ -116,7 +116,7 @@ namespace ReaLTaiizor.Controls
 					BorderColor = Color.FromArgb(150, 150, 150);
 					BackgroundColor = Color.White;
 					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLite";
+					ThemeName = "MetroLight";
 					UpdateProperties();
 					break;
 				case Style.Dark:
