@@ -16,353 +16,483 @@ using System.Runtime.InteropServices;
 
 namespace ReaLTaiizor.Controls
 {
-    #region MetroButton
+	#region MetroButton
 
-    [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(MetroButton), "Bitmaps.Button.bmp")]
-    [Designer(typeof(MetroButtonDesigner))]
-    [DefaultEvent("Click")]
-    [DefaultProperty("Text")]
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroButton : Control, iControl
-    {
-        #region Interfaces
+	[ToolboxItem(true)]
+	[ToolboxBitmap(typeof(MetroButton), "Bitmaps.Button.bmp")]
+	[Designer(typeof(MetroButtonDesigner))]
+	[DefaultEvent("Click")]
+	[DefaultProperty("Text")]
+	public class MetroButton : Control, IMetroControl
+	{
+		#region Interfaces
 
-        [Category("Metro"), Description("Gets or sets the style associated with the control.")]
-        public Style Style
-        {
-            get => MetroStyleManager?.Style ?? _style;
-            set
-            {
-                _style = value;
-                switch (value)
-                {
-                    case Style.Light:
-                        ApplyTheme();
-                        break;
-                    case Style.Dark:
-                        ApplyTheme(Style.Dark);
-                        break;
-                    case Style.Custom:
-                        ApplyTheme(Style.Custom);
-                        break;
-                    default:
-                        ApplyTheme();
-                        break;
-                }
-                Invalidate();
-            }
-        }
+		[Category("Metro"), Description("Gets or sets the style associated with the control.")]
+		public Style Style
+		{
+			get => StyleManager?.Style ?? _style;
+			set
+			{
+				_style = value;
+				switch (value)
+				{
+					case Style.Light:
+						ApplyTheme();
+						break;
+					case Style.Dark:
+						ApplyTheme(Style.Dark);
+						break;
+					case Style.Custom:
+						ApplyTheme(Style.Custom);
+						break;
+					default:
+						ApplyTheme();
+						break;
+				}
 
-        [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
-        public string ThemeAuthor { get; set; }
+				Invalidate();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
-        public string ThemeName { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
+		public string ThemeAuthor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
-        {
-            get => _metroStyleManager;
-            set
-            {
-                _metroStyleManager = value;
-                Invalidate();
-            }
-        }
+		[Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
+		public string ThemeName { get; set; }
 
-        #endregion Interfaces
+		[Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
+		public MetroStyleManager StyleManager
+		{
+			get => _styleManager;
+			set
+			{
+				_styleManager = value;
+				Invalidate();
+			}
+		}
 
-        #region Global Vars
+		#endregion Interfaces
 
-        private readonly Methods _mth;
-        private readonly Utilites _utl;
+		#region Global Vars
 
-        #endregion Global Vars
+		private readonly Methods _mth;
+		private readonly Utilites _utl;
 
-        #region Internal Vars
+		#endregion Global Vars
 
-        private MouseMode _state;
-        private Style _style;
-        private MetroStyleManager _metroStyleManager;
+		#region Internal Vars
 
-        #endregion Internal Vars
+		private MouseMode _state;
+		private Style _style;
+		private MetroStyleManager _styleManager;
 
-        #region Constructors
+		private Color _normalColor;
+		private Color _normalBorderColor;
+		private Color _normalTextColor;
+		private Color _hoverColor;
+		private Color _hoverBorderColor;
+		private Color _hoverTextColor;
+		private Color _pressColor;
+		private Color _pressBorderColor;
+		private Color _pressTextColor;
+		private Color _disabledBackColor;
+		private Color _disabledForeColor;
+		private Color _disabledBorderColor;
 
-        public MetroButton()
-        {
-            SetStyle
-            (
-                ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.ResizeRedraw |
-                ControlStyles.UserPaint |
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.SupportsTransparentBackColor,
-                    true
-            );
-            UpdateStyles();
-            Font = MetroFonts.Light(10);
-            _utl = new Utilites();
-            _mth = new Methods();
+		#endregion Internal Vars
 
-            ApplyTheme();
-        }
+		#region Constructors
 
-        #endregion Constructors
+		public MetroButton()
+		{
+			SetStyle
+			(
+				ControlStyles.AllPaintingInWmPaint |
+				ControlStyles.ResizeRedraw | ControlStyles.UserPaint |
+				ControlStyles.OptimizedDoubleBuffer |
+				ControlStyles.SupportsTransparentBackColor,
+					true
+			);
+			UpdateStyles();
+			base.Font = MetroFonts.Light(10);
+			_utl = new Utilites();
+			_mth = new Methods();
 
-        #region Draw Control
+			ApplyTheme();
+		}
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            var G = e.Graphics;
-            var r = new Rectangle(0, 0, Width - 1, Height - 1);
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+		#endregion Constructors
 
-            switch (_state)
-            {
-                case MouseMode.Normal:
-                    using (var bg = new SolidBrush(NormalColor))
-                    using (var p = new Pen(NormalBorderColor))
-                    using (var tb = new SolidBrush(NormalTextColor))
-                    {
-                        G.FillRectangle(bg, r);
-                        G.DrawRectangle(p, r);
-                        G.DrawString(Text, Font, tb, r, _mth.SetPosition());
-                    }
-                    break;
-                case MouseMode.Hovered:
-                    Cursor = Cursors.Hand;
-                    using (var bg = new SolidBrush(HoverColor))
-                    using (var p = new Pen(HoverBorderColor))
-                    using (var tb = new SolidBrush(HoverTextColor))
-                    {
-                        G.FillRectangle(bg, r);
-                        G.DrawRectangle(p, r);
-                        G.DrawString(Text, Font, tb, r, _mth.SetPosition());
-                    }
-                    break;
-                case MouseMode.Pushed:
-                    using (var bg = new SolidBrush(PressColor))
-                    using (var p = new Pen(PressBorderColor))
-                    using (var tb = new SolidBrush(PressTextColor))
-                    {
-                        G.FillRectangle(bg, r);
-                        G.DrawRectangle(p, r);
-                        G.DrawString(Text, Font, tb, r, _mth.SetPosition());
-                    }
-                    break;
-                case MouseMode.Disabled:
-                    using (var bg = new SolidBrush(DisabledBackColor))
-                    using (var p = new Pen(DisabledBorderColor))
-                    using (var tb = new SolidBrush(DisabledForeColor))
-                    {
-                        G.FillRectangle(bg, r);
-                        G.DrawRectangle(p, r);
-                        G.DrawString(Text, Font, tb, r, _mth.SetPosition());
-                    }
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
+		#region Draw Control
 
-        #endregion Draw Control
+		protected override void OnPaint(PaintEventArgs e)
+		{
+			var g = e.Graphics;
+			var r = new Rectangle(0, 0, Width - 1, Height - 1);
+			g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-        #region ApplyTheme
+			switch (_state)
+			{
+				case MouseMode.Normal:
 
-        private void ApplyTheme(Style style = Style.Light)
-        {
-            switch (style)
-            {
-                case Style.Light:
-                    NormalColor = Color.FromArgb(65, 177, 225);
-                    NormalBorderColor = Color.FromArgb(65, 177, 225);
-                    NormalTextColor = Color.White;
-                    HoverColor = Color.FromArgb(95, 207, 255);
-                    HoverBorderColor = Color.FromArgb(95, 207, 255);
-                    HoverTextColor = Color.White;
-                    PressColor = Color.FromArgb(35, 147, 195);
-                    PressBorderColor = Color.FromArgb(35, 147, 195);
-                    PressTextColor = Color.White;
-                    DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
-                    DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
-                    DisabledForeColor = Color.Gray;
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
-                    break;
-                case Style.Dark:
-                    NormalColor = Color.FromArgb(65, 177, 225);
-                    NormalBorderColor = Color.FromArgb(65, 177, 225);
-                    NormalTextColor = Color.White;
-                    HoverColor = Color.FromArgb(95, 207, 255);
-                    HoverBorderColor = Color.FromArgb(95, 207, 255);
-                    HoverTextColor = Color.White;
-                    PressColor = Color.FromArgb(35, 147, 195);
-                    PressBorderColor = Color.FromArgb(35, 147, 195);
-                    PressTextColor = Color.White;
-                    DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
-                    DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
-                    DisabledForeColor = Color.Gray;
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroDark";
-                    break;
-                case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.ButtonDictionary)
-                        {
-                            if ((varkey.Key == null) || varkey.Key == null)
-                                return;
+					using (var bg = new SolidBrush(NormalColor))
+					using (var p = new Pen(NormalBorderColor))
+					using (var tb = new SolidBrush(NormalTextColor))
+					{
+						g.FillRectangle(bg, r);
+						g.DrawRectangle(p, r);
+						g.DrawString(Text, Font, tb, r, _mth.SetPosition());
+					}
+					break;
+				case MouseMode.Hovered:
+					Cursor = Cursors.Hand;
+					using (var bg = new SolidBrush(HoverColor))
+					using (var p = new Pen(HoverBorderColor))
+					using (var tb = new SolidBrush(HoverTextColor))
+					{
+						g.FillRectangle(bg, r);
+						g.DrawRectangle(p, r);
+						g.DrawString(Text, Font, tb, r, _mth.SetPosition());
+					}
+					break;
+				case MouseMode.Pushed:
+					using (var bg = new SolidBrush(PressColor))
+					using (var p = new Pen(PressBorderColor))
+					using (var tb = new SolidBrush(PressTextColor))
+					{
+						g.FillRectangle(bg, r);
+						g.DrawRectangle(p, r);
+						g.DrawString(Text, Font, tb, r, _mth.SetPosition());
+					}
+					break;
+				case MouseMode.Disabled:
+					using (var bg = new SolidBrush(DisabledBackColor))
+					using (var p = new Pen(DisabledBorderColor))
+					using (var tb = new SolidBrush(DisabledForeColor))
+					{
+						g.FillRectangle(bg, r);
+						g.DrawRectangle(p, r);
+						g.DrawString(Text, Font, tb, r, _mth.SetPosition());
+					}
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+		}
 
-                            switch (varkey.Key)
-                            {
-                                case "NormalColor":
-                                    NormalColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "NormalBorderColor":
-                                    NormalBorderColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "NormalTextColor":
-                                    NormalTextColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "HoverColor":
-                                    HoverColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "HoverBorderColor":
-                                    HoverBorderColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "HoverTextColor":
-                                    HoverTextColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "PressColor":
-                                    PressColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "PressBorderColor":
-                                    PressBorderColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "PressTextColor":
-                                    PressTextColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "DisabledBackColor":
-                                    DisabledBackColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "DisabledBorderColor":
-                                    DisabledBorderColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "DisabledForeColor":
-                                    DisabledForeColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                            }
-                        }
-                    Invalidate();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(style), style, null);
-            }
-        }
+		#endregion Draw Control
 
-        #endregion Theme Changing
+		#region ApplyTheme
 
-        #region Properties
+		/// <summary>
+		/// Gets or sets the style provided by the user.
+		/// </summary>
+		/// <param name="style">The Style.</param>
+		private void ApplyTheme(Style style = Style.Light)
+		{
+			if (!IsDerivedStyle)
+				return;
 
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public override Color BackColor => Color.Transparent;
+			switch (style)
+			{
+				case Style.Light:
+					NormalColor = Color.FromArgb(65, 177, 225);
+					NormalBorderColor = Color.FromArgb(65, 177, 225);
+					NormalTextColor = Color.White;
+					HoverColor = Color.FromArgb(95, 207, 255);
+					HoverBorderColor = Color.FromArgb(95, 207, 255);
+					HoverTextColor = Color.White;
+					PressColor = Color.FromArgb(35, 147, 195);
+					PressBorderColor = Color.FromArgb(35, 147, 195);
+					PressTextColor = Color.White;
+					DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
+					DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
+					DisabledForeColor = Color.Gray;
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroLite";
+					break;
+				case Style.Dark:
+					NormalColor = Color.FromArgb(65, 177, 225);
+					NormalBorderColor = Color.FromArgb(65, 177, 225);
+					NormalTextColor = Color.White;
+					HoverColor = Color.FromArgb(95, 207, 255);
+					HoverBorderColor = Color.FromArgb(95, 207, 255);
+					HoverTextColor = Color.White;
+					PressColor = Color.FromArgb(35, 147, 195);
+					PressBorderColor = Color.FromArgb(35, 147, 195);
+					PressTextColor = Color.White;
+					DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
+					DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
+					DisabledForeColor = Color.Gray;
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroDark";
+					break;
+				case Style.Custom:
+					if (StyleManager != null)
+						foreach (var varkey in StyleManager.ButtonDictionary)
+						{
+							if ((varkey.Key == null) || varkey.Key == null)
+								return;
 
-        [Category("Metro")]
-        public new bool Enabled
-        {
-            get => base.Enabled;
-            set
-            {
-                base.Enabled = value;
-                _state = value ? MouseMode.Normal : MouseMode.Disabled;
-                Invalidate();
-            }
-        }
+							switch (varkey.Key)
+							{
+								case "NormalColor":
+									NormalColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "NormalBorderColor":
+									NormalBorderColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "NormalTextColor":
+									NormalTextColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "HoverColor":
+									HoverColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "HoverBorderColor":
+									HoverBorderColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "HoverTextColor":
+									HoverTextColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "PressColor":
+									PressColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "PressBorderColor":
+									PressBorderColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "PressTextColor":
+									PressTextColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "DisabledBackColor":
+									DisabledBackColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "DisabledBorderColor":
+									DisabledBorderColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "DisabledForeColor":
+									DisabledForeColor = _utl.HexColor((string)varkey.Value);
+									break;
+							}
+						}
+					Invalidate();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(style), style, null);
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets the button background color in normal mouse sate.")]
-        public Color NormalColor { get; set; }
+		#endregion Theme Changing
 
-        [Category("Metro")]
-        [Description("Gets or sets the button border color in normal mouse sate.")]
-        public Color NormalBorderColor { get; set; }
+		#region Properties
 
-        [Category("Metro")]
-        [Description("Gets or sets the button Text color in normal mouse sate.")]
-        public Color NormalTextColor { get; set; }
+		[Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+		public override Color BackColor => Color.Transparent;
 
-        [Category("Metro")]
-        [Description("Gets or sets the button background color in hover mouse sate.")]
-        public Color HoverColor { get; set; }
+		[Category("Metro")]
+		public new bool Enabled
+		{
+			get => base.Enabled;
+			set
+			{
+				base.Enabled = value;
+				_state = value ? MouseMode.Normal : MouseMode.Disabled;
+				Invalidate();
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets the button border color in hover mouse sate.")]
-        public Color HoverBorderColor { get; set; }
+		[Category("Metro")]
+		[Description("Gets or sets the button background color in normal mouse sate.")]
+		public Color NormalColor
+		{
+			get { return _normalColor; }
+			set
+			{
+				_normalColor = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets the button Text color in hover mouse sate.")]
-        public Color HoverTextColor { get; set; }
+		[Category("Metro")]
+		[Description("Gets or sets the button border color in normal mouse sate.")]
+		public Color NormalBorderColor
+		{
+			get { return _normalBorderColor; }
+			set
+			{
+				_normalBorderColor = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets the button background color in pushed mouse sate.")]
-        public Color PressColor { get; set; }
+		[Category("Metro")]
+		[Description("Gets or sets the button Text color in normal mouse sate.")]
+		public Color NormalTextColor
+		{
+			get { return _normalTextColor; }
+			set
+			{
+				_normalTextColor = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets the button border color in pushed mouse sate.")]
-        public Color PressBorderColor { get; set; }
+		[Category("Metro")]
+		[Description("Gets or sets the button background color in hover mouse sate.")]
+		public Color HoverColor
+		{
+			get { return _hoverColor; }
+			set
+			{
+				_hoverColor = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets the button Text color in pushed mouse sate.")]
-        public Color PressTextColor { get; set; }
+		[Category("Metro")]
+		[Description("Gets or sets the button border color in hover mouse sate.")]
+		public Color HoverBorderColor
+		{
+			get { return _hoverBorderColor; }
+			set
+			{
+				_hoverBorderColor = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets backcolor used by the control while disabled.")]
-        public Color DisabledBackColor { get; set; }
+		[Category("Metro")]
+		[Description("Gets or sets the button Text color in hover mouse sate.")]
+		public Color HoverTextColor
+		{
+			get { return _hoverTextColor; }
+			set
+			{
+				_hoverTextColor = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets the forecolor of the control whenever while disabled.")]
-        public Color DisabledForeColor { get; set; }
+		[Category("Metro")]
+		[Description("Gets or sets the button background color in pushed mouse sate.")]
+		public Color PressColor
+		{
+			get { return _pressColor; }
+			set
+			{
+				_pressColor = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro")]
-        [Description("Gets or sets the border color of the control while disabled.")]
-        public Color DisabledBorderColor { get; set; }
+		[Category("Metro")]
+		[Description("Gets or sets the button border color in pushed mouse sate.")]
+		public Color PressBorderColor
+		{
+			get { return _pressBorderColor; }
+			set
+			{
+				_pressBorderColor = value;
+				Refresh();
+			}
+		}
 
-        #endregion
+		[Category("Metro")]
+		[Description("Gets or sets the button Text color in pushed mouse sate.")]
+		public Color PressTextColor
+		{
+			get { return _pressTextColor; }
+			set
+			{
+				_pressTextColor = value;
+				Refresh();
+			}
+		}
 
-        #region Events
+		[Category("Metro")]
+		[Description("Gets or sets backcolor used by the control while disabled.")]
+		public Color DisabledBackColor
+		{
+			get { return _disabledBackColor; }
+			set
+			{
+				_disabledBackColor = value;
+				Refresh();
+			}
+		}
 
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            base.OnMouseUp(e);
-            _state = MouseMode.Hovered;
-            Invalidate();
-        }
+		[Category("Metro")]
+		[Description("Gets or sets the forecolor of the control whenever while disabled.")]
+		public Color DisabledForeColor
+		{
+			get { return _disabledForeColor; }
+			set
+			{
+				_disabledForeColor = value;
+				Refresh();
+			}
+		}
 
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            base.OnMouseUp(e);
-            _state = MouseMode.Pushed;
-            Invalidate();
-        }
+		[Category("Metro")]
+		[Description("Gets or sets the border color of the control while disabled.")]
+		public Color DisabledBorderColor
+		{
+			get { return _disabledBorderColor; }
+			set
+			{
+				_disabledBorderColor = value;
+				Refresh();
+			}
+		}
 
-        protected override void OnMouseEnter(EventArgs e)
-        {
-            base.OnMouseEnter(e);
-            _state = MouseMode.Hovered;
-            Invalidate();
-        }
+		private bool _isDerivedStyle = true;
 
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            base.OnMouseEnter(e);
-            _state = MouseMode.Normal;
-            Invalidate();
-        }
+		[Category("Metro")]
+		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+					 "Set it to false if you want the style of this control be independent. ")]
+		public bool IsDerivedStyle
+		{
+			get { return _isDerivedStyle; }
+			set
+			{
+				_isDerivedStyle = value;
+				Refresh();
+			}
+		}
 
-        #endregion Events
-    }
+		#endregion
 
-    #endregion
+		#region Events
+
+		protected override void OnMouseUp(MouseEventArgs e)
+		{
+			base.OnMouseUp(e);
+			_state = MouseMode.Hovered;
+			Invalidate();
+		}
+
+		protected override void OnMouseDown(MouseEventArgs e)
+		{
+			base.OnMouseUp(e);
+			_state = MouseMode.Pushed;
+			Invalidate();
+		}
+
+		protected override void OnMouseEnter(EventArgs e)
+		{
+			base.OnMouseEnter(e);
+			_state = MouseMode.Hovered;
+			Invalidate();
+		}
+
+		protected override void OnMouseLeave(EventArgs e)
+		{
+			base.OnMouseEnter(e);
+			_state = MouseMode.Normal;
+			Invalidate();
+		}
+
+		#endregion Events
+	}
+
+	#endregion
 }

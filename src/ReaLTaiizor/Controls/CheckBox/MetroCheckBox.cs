@@ -13,325 +13,389 @@ using ReaLTaiizor.Design.Metro;
 using ReaLTaiizor.Animate.Metro;
 using ReaLTaiizor.Extension.Metro;
 using ReaLTaiizor.Interface.Metro;
-using System.Runtime.InteropServices;
 
 #endregion
 
 namespace ReaLTaiizor.Controls
 {
-    #region MetroCheckBox
+	#region MetroCheckBox
 
-    [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(MetroCheckBox), "Bitmaps.CheckBox.bmp")]
-    [Designer(typeof(MetroCheckBoxDesigner))]
-    [DefaultEvent("CheckedChanged")]
-    [DefaultProperty("Checked")]
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroCheckBox : Control, iControl, IDisposable
-    {
-        #region Interfaces
+	[ToolboxItem(true)]
+	[ToolboxBitmap(typeof(MetroCheckBox), "Bitmaps.CheckBox.bmp")]
+	[Designer(typeof(MetroCheckBoxDesigner))]
+	[DefaultEvent("CheckedChanged")]
+	[DefaultProperty("Checked")]
+	public class MetroCheckBox : Control, IMetroControl, IDisposable
+	{
+		#region Interfaces
 
-        [Category("Metro"), Description("Gets or sets the style associated with the control.")]
-        public Style Style
-        {
-            get => MetroStyleManager?.Style ?? _style;
-            set
-            {
-                _style = value;
-                switch (value)
-                {
-                    case Style.Light:
-                        ApplyTheme();
-                        break;
-                    case Style.Dark:
-                        ApplyTheme(Style.Dark);
-                        break;
-                    case Style.Custom:
-                        ApplyTheme(Style.Custom);
-                        break;
-                    default:
-                        ApplyTheme();
-                        break;
-                }
-                Invalidate();
-            }
-        }
+		[Category("Metro"), Description("Gets or sets the style associated with the control.")]
+		public Style Style
+		{
+			get => StyleManager?.Style ?? _style;
+			set
+			{
+				_style = value;
+				switch (value)
+				{
+					case Style.Light:
+						ApplyTheme();
+						break;
+					case Style.Dark:
+						ApplyTheme(Style.Dark);
+						break;
+					case Style.Custom:
+						ApplyTheme(Style.Custom);
+						break;
+					default:
+						ApplyTheme();
+						break;
+				}
+				Invalidate();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
-        {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
-        }
+		[Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
+		public MetroStyleManager StyleManager
+		{
+			get => _styleManager;
+			set { _styleManager = value; Invalidate(); }
+		}
 
-        [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
-        public string ThemeAuthor { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
+		public string ThemeAuthor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
-        public string ThemeName { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
+		public string ThemeName { get; set; }
 
-        #endregion Interfaces
+		#endregion Interfaces
 
-        #region Global Vars
+		#region Global Vars
 
-        private readonly Utilites _utl;
+		private readonly Utilites _utl;
 
-        #endregion Global Vars
+		#endregion Global Vars
 
-        #region Internal Vars
+		#region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _metroStyleManager;
-        private bool _checked;
-        private IntAnimate _animator;
+		private Style _style;
+		private MetroStyleManager _styleManager;
+		private bool _checked;
+		private IntAnimate _animator;
 
-        #endregion Internal Vars
+		private SignStyle _signStyle = SignStyle.Sign;
+		private Enum.Metro.CheckState _checkState;
+		private Color _backgroundColor;
+		private Color _borderColor;
+		private Color _disabledBorderColor;
+		private Color _checkSignColor;
 
-        #region Constructors
+		#endregion Internal Vars
 
-        public MetroCheckBox()
-        {
-            SetStyle
-            (
-                ControlStyles.ResizeRedraw |
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.SupportsTransparentBackColor,
-                    true
-            );
-            UpdateStyles();
-            Font = MetroFonts.SemiBold(10);
-            Cursor = Cursors.Hand;
-            BackColor = Color.Transparent;
-            _utl = new Utilites();
-            _animator = new IntAnimate();
-            _animator.Setting(100, 0, 255, EasingType.Linear);
-            _animator.Update = (alpha) => Invalidate();
-            ApplyTheme();
-        }
+		#region Constructors
 
-        #endregion Constructors
+		public MetroCheckBox()
+		{
+			SetStyle
+			(
+				ControlStyles.ResizeRedraw |
+				ControlStyles.OptimizedDoubleBuffer |
+				ControlStyles.SupportsTransparentBackColor,
+					true
+			);
+			UpdateStyles();
+			base.Font = MetroFonts.Light(10);
+			base.Cursor = Cursors.Hand;
+			base.BackColor = Color.Transparent;
+			_utl = new Utilites();
+			_animator = new IntAnimate();
+			_animator.Setting(100, 0, 255);
+			_animator.Update = (alpha) => Invalidate();
+			ApplyTheme();
+		}
 
-        #region ApplyTheme
+		#endregion Constructors
 
-        private void ApplyTheme(Style style = Style.Light)
-        {
-            switch (style)
-            {
-                case Style.Light:
-                    ForeColor = Color.Black;
-                    BackgroundColor = Color.White;
-                    BorderColor = Color.FromArgb(155, 155, 155);
-                    DisabledBorderColor = Color.FromArgb(205, 205, 205);
-                    CheckSignColor = Color.FromArgb(65, 177, 225);
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
-                    UpdateProperties();
-                    break;
-                case Style.Dark:
-                    ForeColor = Color.FromArgb(170, 170, 170);
-                    BackgroundColor = Color.FromArgb(30, 30, 30);
-                    BorderColor = Color.FromArgb(155, 155, 155);
-                    DisabledBorderColor = Color.FromArgb(85, 85, 85);
-                    CheckSignColor = Color.FromArgb(65, 177, 225);
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroDark";
-                    UpdateProperties();
-                    break;
-                case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.CheckBoxDictionary)
-                        {
-                            switch (varkey.Key)
-                            {
-                                case "ForeColor":
-                                    ForeColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "BackColor":
-                                    BackgroundColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "BorderColor":
-                                    BorderColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "DisabledBorderColor":
-                                    DisabledBorderColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "CheckColor":
-                                    CheckSignColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "CheckedStyle":
-                                    if ((string)varkey.Value == "Sign")
-                                        SignStyle = SignStyle.Sign;
-                                    else if ((string)varkey.Value == "Shape")
-                                        SignStyle = SignStyle.Shape;
-                                    break;
-                                default:
-                                    return;
-                            }
-                        }
-                    UpdateProperties();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(style), style, null);
-            }
-        }
+		#region ApplyTheme
 
-        private void UpdateProperties()
-        {
-            Invalidate();
-        }
+		private void ApplyTheme(Style style = Style.Light)
+		{
+			if (!IsDerivedStyle)
+				return;
 
-        #endregion Theme Changing
+			switch (style)
+			{
+				case Style.Light:
+					ForeColor = Color.Black;
+					BackgroundColor = Color.White;
+					BorderColor = Color.FromArgb(155, 155, 155);
+					DisabledBorderColor = Color.FromArgb(205, 205, 205);
+					CheckSignColor = Color.FromArgb(65, 177, 225);
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroLite";
+					UpdateProperties();
+					break;
+				case Style.Dark:
+					ForeColor = Color.FromArgb(170, 170, 170);
+					BackgroundColor = Color.FromArgb(30, 30, 30);
+					BorderColor = Color.FromArgb(155, 155, 155);
+					DisabledBorderColor = Color.FromArgb(85, 85, 85);
+					CheckSignColor = Color.FromArgb(65, 177, 225);
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroDark";
+					UpdateProperties();
+					break;
+				case Style.Custom:
+					if (StyleManager != null)
+						foreach (var varkey in StyleManager.CheckBoxDictionary)
+						{
+							switch (varkey.Key)
+							{
+								case "ForeColor":
+									ForeColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "BackColor":
+									BackgroundColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "BorderColor":
+									BorderColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "DisabledBorderColor":
+									DisabledBorderColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "CheckColor":
+									CheckSignColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "CheckedStyle":
+									if ((string)varkey.Value == "Sign")
+										SignStyle = SignStyle.Sign;
+									else if ((string)varkey.Value == "Shape")
+										SignStyle = SignStyle.Shape;
+									break;
+								default:
+									return;
+							}
+						}
+					UpdateProperties();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(style), style, null);
+			}
+		}
 
-        #region Draw Control
+		private void UpdateProperties()
+		{
+			Invalidate();
+		}
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            var G = e.Graphics;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+		#endregion Theme Changing
 
-            var rect = new Rectangle(0, 0, 16, 15);
-            var alpha = _animator.Value;
+		#region Draw Control
 
-            using (var backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
-            {
-                using (var checkMarkPen = new Pen(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Color.FromArgb(alpha, DisabledBorderColor), 2))
-                {
-                    using (var checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : DisabledBorderColor))
-                    {
-                        using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
-                        {
-                            using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
-                            {
-                                using (var tb = new SolidBrush(ForeColor))
-                                {
-                                    G.FillRectangle(backBrush, rect);
-                                    G.DrawRectangle(Enabled ? p : checkMarkPen, rect);
-                                    DrawSymbol(G, checkMarkPen, checkMarkBrush);
-                                    G.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+		protected override void OnPaint(PaintEventArgs e)
+		{
+			var g = e.Graphics;
+			g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-        private void DrawSymbol(Graphics g, Pen pen, SolidBrush solidBrush)
-        {
-            if (solidBrush == null) throw new ArgumentNullException(nameof(solidBrush));
-            if (SignStyle == SignStyle.Sign)
-            {
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                g.DrawLines(pen, new[]
-                {
-                    new Point(3, 7),
-                    new Point(7, 10),
-                    new Point(13, 3)
-                });
-                g.SmoothingMode = SmoothingMode.None;
-            }
-            else
-            {
-                g.FillRectangle(solidBrush, new Rectangle(3, 3, 11, 10));
-            }
-        }
+			var rect = new Rectangle(0, 0, 16, 15);
+			var alpha = _animator.Value;
 
-        #endregion Draw Control
+			using (var backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
+			{
+				using (var checkMarkPen = new Pen(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Color.FromArgb(alpha, DisabledBorderColor), 2))
+				{
+					using (var checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : DisabledBorderColor))
+					{
+						using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+						{
+							using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
+							{
+								using (var tb = new SolidBrush(ForeColor))
+								{
+									g.FillRectangle(backBrush, rect);
+									g.DrawRectangle(Enabled ? p : checkMarkPen, rect);
+									DrawSymbol(g, checkMarkPen, checkMarkBrush);
+									g.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 
-        #region Events
+		private void DrawSymbol(Graphics g, Pen pen, SolidBrush solidBrush)
+		{
+			if (solidBrush == null)
+				throw new ArgumentNullException(nameof(solidBrush));
+			if (SignStyle == SignStyle.Sign)
+			{
+				g.SmoothingMode = SmoothingMode.AntiAlias;
+				g.DrawLines(pen, new[]
+				{
+					new Point(3, 7),
+					new Point(7, 10),
+					new Point(13, 3)
+				});
+				g.SmoothingMode = SmoothingMode.None;
+			}
+			else
+				g.FillRectangle(solidBrush, new Rectangle(3, 3, 11, 10));
+		}
 
-        public event CheckedChangedEventHandler CheckedChanged;
+		#endregion Draw Control
 
-        public delegate void CheckedChangedEventHandler(object sender);
+		#region Events
 
-        protected override void OnClick(EventArgs e)
-        {
-            base.OnClick(e);
-            Checked = !Checked;
-            Invalidate();
-        }
+		public event CheckedChangedEventHandler CheckedChanged;
 
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            Height = 16;
-            Invalidate();
-        }
+		public delegate void CheckedChangedEventHandler(object sender);
 
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == User32.WM_SETCURSOR)
-            {
-                User32.SetCursor(User32.LoadCursor(IntPtr.Zero, User32.IDC_HAND));
-                m.Result = IntPtr.Zero;
-                return;
-            }
+		protected override void OnClick(EventArgs e)
+		{
+			base.OnClick(e);
+			Checked = !Checked;
+			Invalidate();
+		}
 
-            base.WndProc(ref m);
-        }
+		protected override void OnResize(EventArgs e)
+		{
+			base.OnResize(e);
+			Height = 16;
+			Invalidate();
+		}
 
-        #endregion Events
+		protected override void WndProc(ref Message m)
+		{
+			if (m.Msg == User32.WM_SETCURSOR)
+			{
+				User32.SetCursor(User32.LoadCursor(IntPtr.Zero, User32.IDC_HAND));
+				m.Result = IntPtr.Zero;
+				return;
+			}
 
-        #region Properties
+			base.WndProc(ref m);
+		}
 
-        [Category("Metro"), Description("Gets or sets a value indicating whether the control is checked.")]
-        public bool Checked
-        {
-            get => _checked;
-            set
-            {
-                _checked = value;
-                CheckedChanged?.Invoke(this);
-                _animator.Reverse(!value);
-                CheckState = value ? Enum.Metro.CheckState.Checked : Enum.Metro.CheckState.Unchecked;
-                Invalidate();
-            }
-        }
+		#endregion Events
 
-        [Category("Metro"), Description("Gets or sets the the sign style of check.")]
-        public SignStyle SignStyle { get; set; } = SignStyle.Sign;
+		#region Properties
 
-        [Browsable(false)]
-        public Enum.Metro.CheckState CheckState { get; set; }
+		[Category("Metro"), Description("Gets or sets a value indicating whether the control is checked.")]
+		public bool Checked
+		{
+			get => _checked;
+			set
+			{
+				_checked = value;
+				CheckedChanged?.Invoke(this);
+				_animator.Reverse(!value);
+				CheckState = value ? Enum.Metro.CheckState.Checked : Enum.Metro.CheckState.Unchecked;
+				Invalidate();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the form forecolor.")]
-        public override Color ForeColor { get; set; }
+		[Category("Metro"), Description("Gets or sets the the sign style of check.")]
+		public SignStyle SignStyle
+		{
+			get { return _signStyle; }
+			set
+			{
+				_signStyle = value;
+				Refresh();
+			}
+		}
 
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public override Color BackColor => Color.Transparent;
+		[Browsable(false)]
+		public Enum.Metro.CheckState CheckState
+		{
+			get { return _checkState; }
+			set
+			{
+				_checkState = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the form backcolor.")]
-        [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+		[Category("Metro"), Description("Gets or sets the form forecolor.")]
+		public override Color ForeColor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets the border color.")]
-        public Color BorderColor { get; set; }
+		[Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+		public override Color BackColor => Color.Transparent;
 
-        [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
-        public Color DisabledBorderColor { get; set; }
+		[Category("Metro"), Description("Gets or sets the form backcolor.")]
+		[DisplayName("BackColor")]
+		public Color BackgroundColor
+		{
+			get { return _backgroundColor; }
+			set
+			{
+				_backgroundColor = value;
+				Refresh();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the color of the check symbol.")]
-        public Color CheckSignColor { get; set; }
+		[Category("Metro"), Description("Gets or sets the border color.")]
+		public Color BorderColor
+		{
+			get { return _borderColor; }
+			set
+			{
+				_borderColor = value;
+				Refresh();
+			}
+		}
 
-        #endregion Properties
+		[Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
+		public Color DisabledBorderColor
+		{
+			get { return _disabledBorderColor; }
+			set
+			{
+				_disabledBorderColor = value;
+				Refresh();
+			}
+		}
 
-        #region Disposing
+		[Category("Metro"), Description("Gets or sets the color of the check symbol.")]
+		public Color CheckSignColor
+		{
+			get { return _checkSignColor; }
+			set
+			{
+				_checkSignColor = value;
+				Refresh();
+			}
+		}
 
-        public new void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+		private bool _isDerivedStyle = true;
 
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-        }
+		[Category("Metro")]
+		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+					 "Set it to false if you want the style of this control be independent. ")]
+		public bool IsDerivedStyle
+		{
+			get { return _isDerivedStyle; }
+			set
+			{
+				_isDerivedStyle = value;
+				Refresh();
+			}
+		}
 
-        #endregion
+		#endregion Properties
 
-    }
+		#region Disposing
 
-    #endregion
+		public new void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		#endregion
+
+	}
+
+	#endregion
 }
