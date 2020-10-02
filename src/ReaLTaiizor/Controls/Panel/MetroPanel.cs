@@ -14,184 +14,228 @@ using System.Runtime.InteropServices;
 
 namespace ReaLTaiizor.Controls
 {
-    #region MetroPanel
+	#region MetroPanel
 
-    [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(MetroPanel), "Bitmaps.Panel.bmp")]
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroPanel : System.Windows.Forms.Panel, iControl
-    {
-        #region Interfaces
+	[ToolboxItem(true)]
+	[ToolboxBitmap(typeof(MetroPanel), "Bitmaps.Panel.bmp")]
+	[ComVisible(true)]
+	public class MetroPanel : Panel, IMetroControl
+	{
+		#region Interfaces
 
-        [Category("Metro"), Description("Gets or sets the style associated with the control.")]
-        public Style Style
-        {
-            get => MetroStyleManager?.Style ?? _style;
-            set
-            {
-                _style = value;
-                switch (value)
-                {
-                    case Style.Light:
-                        ApplyTheme();
-                        break;
-                    case Style.Dark:
-                        ApplyTheme(Style.Dark);
-                        break;
-                    case Style.Custom:
-                        ApplyTheme(Style.Custom);
-                        break;
-                    default:
-                        ApplyTheme();
-                        break;
-                }
-                Invalidate();
-            }
-        }
+		[Category("Metro"), Description("Gets or sets the style associated with the control.")]
+		public Style Style
+		{
+			get => StyleManager?.Style ?? _style;
+			set
+			{
+				_style = value;
+				switch (value)
+				{
+					case Style.Light:
+						ApplyTheme();
+						break;
+					case Style.Dark:
+						ApplyTheme(Style.Dark);
+						break;
+					case Style.Custom:
+						ApplyTheme(Style.Custom);
+						break;
+					default:
+						ApplyTheme();
+						break;
+				}
+				Invalidate();
+			}
+		}
 
-        [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
-        {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
-        }
+		[Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
+		public MetroStyleManager StyleManager
+		{
+			get => _styleManager;
+			set { _styleManager = value; Invalidate(); }
+		}
 
-        [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
-        public string ThemeAuthor { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
+		public string ThemeAuthor { get; set; }
 
-        [Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
-        public string ThemeName { get; set; }
+		[Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
+		public string ThemeName { get; set; }
 
-        #endregion Interfaces
+		#endregion Interfaces
 
-        #region Global Vars
+		#region Global Vars
 
-        private readonly Utilites _utl;
+		private readonly Utilites _utl;
 
-        #endregion Global Vars
+		#endregion Global Vars
 
-        #region Internal Vars
+		#region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _metroStyleManager;
+		private Style _style;
+		private MetroStyleManager _styleManager;
 
-        #endregion Internal Vars
+		private bool _isDerivedStyle = true;
+		private int _borderThickness = 1;
+		private Color _borderColor;
+		private Color _backgroundColor;
 
-        #region Constructors 
+		#endregion Internal Vars
 
-        public MetroPanel()
-        {
-            SetStyle
-            (
-                ControlStyles.UserPaint |
-                ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.ResizeRedraw |
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.SupportsTransparentBackColor,
-                    true
-            );
-            BorderStyle = BorderStyle.None;
-            UpdateStyles();
-            _utl = new Utilites();
-            ApplyTheme();
-        }
+		#region Constructors 
 
-        #endregion Constructors
+		public MetroPanel()
+		{
+			SetStyle
+			(
+				ControlStyles.UserPaint |
+				ControlStyles.AllPaintingInWmPaint |
+				ControlStyles.ResizeRedraw |
+				ControlStyles.OptimizedDoubleBuffer |
+				ControlStyles.SupportsTransparentBackColor,
+					true
+			);
+			BorderStyle = BorderStyle.None;
+			UpdateStyles();
+			_utl = new Utilites();
+			ApplyTheme();
+		}
 
-        #region ApplyTheme
+		#endregion Constructors
 
-        private void ApplyTheme(Style style = Style.Light)
-        {
-            switch (style)
-            {
-                case Style.Light:
-                    BorderColor = Color.FromArgb(150, 150, 150);
-                    BackgroundColor = Color.White;
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
-                    UpdateProperties();
-                    break;
-                case Style.Dark:
-                    BorderColor = Color.FromArgb(110, 110, 110);
-                    BackgroundColor = Color.FromArgb(30, 30, 30);
-                    ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroDark";
-                    UpdateProperties();
-                    break;
-                case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.LabelDictionary)
-                        {
-                            switch (varkey.Key)
-                            {
-                                case "BorderColor":
-                                    BorderColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                case "BackColor":
-                                    BackgroundColor = _utl.HexColor((string)varkey.Value);
-                                    break;
-                                default:
-                                    return;
-                            }
-                        }
-                    UpdateProperties();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(style), style, null);
-            }
-        }
+		#region ApplyTheme
 
-        private void UpdateProperties()
-        {
-            Invalidate();
-        }
+		private void ApplyTheme(Style style = Style.Light)
+		{
+			if (!IsDerivedStyle)
+				return;
 
-        #endregion Theme Changing
+			switch (style)
+			{
+				case Style.Light:
+					BorderColor = Color.FromArgb(150, 150, 150);
+					BackgroundColor = Color.White;
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroLite";
+					UpdateProperties();
+					break;
+				case Style.Dark:
+					BorderColor = Color.FromArgb(110, 110, 110);
+					BackgroundColor = Color.FromArgb(30, 30, 30);
+					ThemeAuthor = "Taiizor";
+					ThemeName = "MetroDark";
+					UpdateProperties();
+					break;
+				case Style.Custom:
+					if (StyleManager != null)
+						foreach (var varkey in StyleManager.LabelDictionary)
+						{
+							switch (varkey.Key)
+							{
+								case "BorderColor":
+									BorderColor = _utl.HexColor((string)varkey.Value);
+									break;
+								case "BackColor":
+									BackgroundColor = _utl.HexColor((string)varkey.Value);
+									break;
+								default:
+									return;
+							}
+						}
+					UpdateProperties();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(style), style, null);
+			}
+		}
 
-        #region Draw Control
+		private void UpdateProperties()
+		{
+			Invalidate();
+		}
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            var G = e.Graphics;
-            var r = new Rectangle(BorderThickness, BorderThickness, Width - (BorderThickness * 2 + 1), Height - ((BorderThickness * 2) + 1));
+		#endregion Theme Changing
 
-            using (var bg = new SolidBrush(BackgroundColor))
-            {
-                using (var p = new Pen(BorderColor, BorderThickness))
-                {
-                    G.FillRectangle(bg, r);
-                    G.DrawRectangle(p, r);
-                }
-            }
+		#region Draw Control
 
-        }
+		protected override void OnPaint(PaintEventArgs e)
+		{
+			var g = e.Graphics;
+			var r = new Rectangle(BorderThickness, BorderThickness, Width - (BorderThickness * 2 + 1), Height - ((BorderThickness * 2) + 1));
 
-        #endregion
+			using (var bg = new SolidBrush(BackgroundColor))
+			{
+				using (var p = new Pen(BorderColor, BorderThickness))
+				{
+					g.FillRectangle(bg, r);
+					g.DrawRectangle(p, r);
+				}
+			}
 
-        #region Properties
+		}
 
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public override Color BackColor => Color.Transparent;
+		#endregion
 
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public override Color ForeColor => Color.Transparent;
+		#region Properties
 
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public new BorderStyle BorderStyle = BorderStyle.None;
+		[Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+		public override Color BackColor => Color.Transparent;
 
-        [Category("Metro"), Description("Gets or sets the border thickness the control.")]
-        public int BorderThickness { get; set; } = 1;
+		[Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+		public override Color ForeColor => Color.Transparent;
 
-        [Category("Metro"), Description("Gets or sets bordercolor used by the control.")]
-        public Color BorderColor { get; set; }
+		[Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+		public new BorderStyle BorderStyle;
 
-        [Category("Metro"), Description("Gets or sets backcolor used by the control.")]
-        [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+		[Category("Metro"), Description("Gets or sets the border thickness the control.")]
+		public int BorderThickness
+		{
+			get { return _borderThickness; }
+			set
+			{
+				_borderThickness = value;
+				Refresh();
+			}
+		}
 
-        #endregion
-    }
+		[Category("Metro"), Description("Gets or sets bordercolor used by the control.")]
+		public Color BorderColor
+		{
+			get { return _borderColor; }
+			set
+			{
+				_borderColor = value;
+				Refresh();
+			}
+		}
 
-    #endregion
+		[Category("Metro"), Description("Gets or sets backcolor used by the control.")]
+		[DisplayName("BackColor")]
+		public Color BackgroundColor
+		{
+			get { return _backgroundColor; }
+			set
+			{
+				_backgroundColor = value;
+				Refresh();
+			}
+		}
+
+		[Category("Metro")]
+		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+					 "Set it to false if you want the style of this control be independent. ")]
+		public bool IsDerivedStyle
+		{
+			get { return _isDerivedStyle; }
+			set
+			{
+				_isDerivedStyle = value;
+				Refresh();
+			}
+		}
+
+		#endregion
+	}
+
+	#endregion
 }
