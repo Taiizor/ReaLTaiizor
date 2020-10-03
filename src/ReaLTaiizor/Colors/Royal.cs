@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace ReaLTaiizor.Colors
 {
-    #region RoyalLibrary
+    #region RoyalColors
 
     public static class RoyalColors
     {

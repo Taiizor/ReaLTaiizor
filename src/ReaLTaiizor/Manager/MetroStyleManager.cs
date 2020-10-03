@@ -17,7 +17,7 @@ using ReaLTaiizor.Interface.Metro;
 
 namespace ReaLTaiizor.Manager
 {
-    #region MetroStyleManager
+    #region MetroStyleManagerManager
 
     [DefaultProperty("Style")]
     [Designer(typeof(MetroStyleManagerDesigner))]

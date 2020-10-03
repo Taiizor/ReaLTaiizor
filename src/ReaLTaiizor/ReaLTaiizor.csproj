@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net48;net5.0</TargetFrameworks>
+    <TargetFramework>net48</TargetFramework>
+    <!--<TargetFrameworks>net48;net5.0</TargetFrameworks>-->
     <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>-->
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
@@ -78,6 +79,9 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\Extender\PoisonStyleExtender.cs" />
+    <Compile Update="Controls\ToolTip\PoisonToolTip.cs" />
+    <Compile Update="Manager\PoisonStyleManager.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -140,6 +144,9 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <None Remove="Resources\Metro\SegoeWP-Light.ttf" />
     <None Remove="Resources\Metro\SegoeWP-Semibold.ttf" />
     <None Remove="Resources\Metro\SegoeWP-Semilight.ttf" />
+    <None Remove="Resources\Poison\Open-Sans.ttf" />
+    <None Remove="Resources\Poison\Open-Sans-Bold.ttf" />
+    <None Remove="Resources\Poison\Open-Sans-Light.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -154,6 +161,9 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Metro\SegoeWP-Light.ttf" />
     <Resource Include="Resources\Metro\SegoeWP-Semibold.ttf" />
     <Resource Include="Resources\Metro\SegoeWP-Semilight.ttf" />
+    <Resource Include="Resources\Poison\Open-Sans.ttf" />
+    <Resource Include="Resources\Poison\Open-Sans-Bold.ttf" />
+    <Resource Include="Resources\Poison\Open-Sans-Light.ttf" />
   </ItemGroup>
 
   <ItemGroup>

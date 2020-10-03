@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace ReaLTaiizor.Colors
 {
-    #region HopeLibrary
+    #region HopeColors
 
     public static class HopeColors
     {

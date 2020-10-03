@@ -323,5 +323,41 @@ namespace ReaLTaiizor.Properties {
                 return ((byte[])(obj));
             }
         }
+
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static byte[] Open_Sans
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Open_Sans", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static byte[] Open_Sans_Bold
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Open_Sans_Bold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        public static byte[] Open_Sans_Light
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Open_Sans_Light", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
