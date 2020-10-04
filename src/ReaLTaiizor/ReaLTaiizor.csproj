@@ -87,13 +87,8 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\Button\PoisonButton.cs" />
-    <Compile Update="Controls\CheckBox\PoisonCheckBox.cs" />
-    <Compile Update="Controls\ComboBox\PoisonComboBox.cs" />
-    <Compile Update="Controls\LinkLabel\PoisonLinkLabel.cs" />
-    <Compile Update="Controls\TextBox\PoisonTextBox.cs" />
-    <Compile Update="Controls\UserControl\PoisonUserControl.cs" />
-    <Compile Update="Controls\Window\PoisonTaskWindow.cs" />
+    <Compile Update="Controls\Button\PoisonDropDownButton.cs" />
+    <Compile Update="Controls\TrackBar\PoisonTrackBar.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>

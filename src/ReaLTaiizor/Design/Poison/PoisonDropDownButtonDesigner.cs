@@ -7,9 +7,9 @@ using System.Windows.Forms.Design;
 
 namespace ReaLTaiizor.Design.Poison
 {
-    #region PoisonDropDownDesignerDesign
+    #region PoisonDropDownButtonDesignerDesign
 
-    internal class PoisonDropDownDesigner : ControlDesigner
+    internal class PoisonDropDownButtonDesigner : ControlDesigner
     {
         public override SelectionRules SelectionRules
         {
