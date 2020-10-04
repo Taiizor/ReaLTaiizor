@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Controls;
 using System.ComponentModel;
 using System.Windows.Forms.Design;
 

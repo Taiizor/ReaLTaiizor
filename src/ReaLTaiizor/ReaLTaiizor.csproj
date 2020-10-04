@@ -81,12 +81,15 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   <ItemGroup>
     <Compile Update="Controls\Extender\PoisonStyleExtender.cs" />
     <Compile Update="Controls\Label\PoisonLabel.cs" />
+    <Compile Update="Controls\Panel\PoisonPanel.cs" />
+    <Compile Update="Controls\Progress\PoisonProgressSpinner.cs" />
     <Compile Update="Controls\ScrollBar\PoisonScrollBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Strip\PoisonContextMenuStrip.cs" />
     <Compile Update="Controls\TabControl\PoisonTabControl.cs" />
     <Compile Update="Controls\TabPage\PoisonTabPage.cs" />
+    <Compile Update="Controls\Tile\PoisonTile.cs" />
     <Compile Update="Controls\ToolTip\PoisonToolTip.cs" />
     <Compile Update="Manager\PoisonStyleManager.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
