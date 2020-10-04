@@ -5,6 +5,7 @@ using ReaLTaiizor.Util;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using ReaLTaiizor.Util.FoxBase;
 
 #endregion
 
@@ -12,7 +13,7 @@ namespace ReaLTaiizor.Controls
 {
 	#region FoxLinkLabel
 
-	public class FoxLinkLabel : Util.FoxBase.ButtonFoxBase
+	public class FoxLinkLabel : ButtonFoxBase
 	{
 		private Graphics G;
 
