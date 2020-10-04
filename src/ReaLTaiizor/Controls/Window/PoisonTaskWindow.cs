@@ -87,8 +87,8 @@ namespace ReaLTaiizor.Controls
         private bool cancelTimer = false;
         public bool CancelTimer
         {
-            get { return cancelTimer; }
-            set { cancelTimer = value; }
+            get => cancelTimer;
+            set => cancelTimer = value;
         }
 
         private readonly int closeTime = 0;

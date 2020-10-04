@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Toggled
         {
-            get { return _Toggled; }
+            get => _Toggled;
             set
             {
                 _Toggled = value;
@@ -87,7 +87,7 @@ namespace ReaLTaiizor.Controls
 
         public _Type Type
         {
-            get { return ToggleType; }
+            get => ToggleType;
             set
             {
                 ToggleType = value;
@@ -125,7 +125,7 @@ namespace ReaLTaiizor.Controls
             AnimationTimer.Start();
         }
 
-        void AnimationTimer_Tick(object sender, EventArgs e)
+        private void AnimationTimer_Tick(object sender, EventArgs e)
         {
             //  Create a slide animation when toggled on/off
             if ((_Toggled == true))

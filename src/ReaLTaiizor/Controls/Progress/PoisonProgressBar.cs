@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -93,8 +93,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -102,8 +102,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -113,8 +113,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = true;
@@ -124,8 +124,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -133,8 +133,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         #endregion
@@ -146,8 +146,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonProgressBarSize FontSize
         {
-            get { return poisonLabelSize; }
-            set { poisonLabelSize = value; }
+            get => poisonLabelSize;
+            set => poisonLabelSize = value;
         }
 
         private PoisonProgressBarWeight poisonLabelWeight = PoisonProgressBarWeight.Light;
@@ -155,8 +155,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonProgressBarWeight FontWeight
         {
-            get { return poisonLabelWeight; }
-            set { poisonLabelWeight = value; }
+            get => poisonLabelWeight;
+            set => poisonLabelWeight = value;
         }
 
         private ContentAlignment textAlign = ContentAlignment.MiddleRight;
@@ -164,8 +164,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ContentAlignment TextAlign
         {
-            get { return textAlign; }
-            set { textAlign = value; }
+            get => textAlign;
+            set => textAlign = value;
         }
 
         private bool hideProgressText = true;
@@ -173,8 +173,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool HideProgressText
         {
-            get { return hideProgressText; }
-            set { hideProgressText = value; }
+            get => hideProgressText;
+            set => hideProgressText = value;
         }
 
         private ProgressBarStyle progressBarStyle = ProgressBarStyle.Continuous;
@@ -182,43 +182,28 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ProgressBarStyle ProgressBarStyle
         {
-            get { return progressBarStyle; }
-            set { progressBarStyle = value; }
+            get => progressBarStyle;
+            set => progressBarStyle = value;
         }
 
         public new int Value
         {
-            get { return base.Value; }
+            get => base.Value;
             set { if (value > Maximum) return; base.Value = value; Invalidate(); }
         }
 
         [Browsable(false)]
-        public double ProgressTotalPercent
-        {
-            get { return ((1 - (double)(Maximum - Value) / Maximum) * 100); }
-        }
+        public double ProgressTotalPercent => ((1 - (double)(Maximum - Value) / Maximum) * 100);
 
         [Browsable(false)]
-        public double ProgressTotalValue
-        {
-            get { return (1 - (double)(Maximum - Value) / Maximum); }
-        }
+        public double ProgressTotalValue => (1 - (double)(Maximum - Value) / Maximum);
 
         [Browsable(false)]
-        public string ProgressPercentText
-        {
-            get { return (string.Format("{0}%", Math.Round(ProgressTotalPercent))); }
-        }
+        public string ProgressPercentText => (string.Format("{0}%", Math.Round(ProgressTotalPercent)));
 
-        private double ProgressBarWidth
-        {
-            get { return (((double)Value / Maximum) * ClientRectangle.Width); }
-        }
+        private double ProgressBarWidth => (((double)Value / Maximum) * ClientRectangle.Width);
 
-        private int ProgressBarMarqueeWidth
-        {
-            get { return (ClientRectangle.Width / 3); }
-        }
+        private int ProgressBarMarqueeWidth => (ClientRectangle.Width / 3);
 
         #endregion
 
@@ -374,13 +359,7 @@ namespace ReaLTaiizor.Controls
         #region Private Methods
 
         private Timer marqueeTimer;
-        private bool marqueeTimerEnabled
-        {
-            get
-            {
-                return marqueeTimer != null && marqueeTimer.Enabled;
-            }
-        }
+        private bool marqueeTimerEnabled => marqueeTimer != null && marqueeTimer.Enabled;
 
         private void StartTimer()
         {

@@ -59,40 +59,37 @@ namespace ReaLTaiizor.Controls
 
         public Color EmptyBackColor
         {
-            get { return _EmptyBackColor; }
-            set { _EmptyBackColor = value; }
+            get => _EmptyBackColor;
+            set => _EmptyBackColor = value;
         }
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color FillBackColor
         {
-            get { return _FillBackColor; }
-            set { _FillBackColor = value; }
+            get => _FillBackColor;
+            set => _FillBackColor = value;
         }
 
         public Color ThumbBackColor
         {
-            get { return _ThumbBackColor; }
-            set { _ThumbBackColor = value; }
+            get => _ThumbBackColor;
+            set => _ThumbBackColor = value;
         }
 
         public Color ThumbBorderColor
         {
-            get { return _ThumbBorderColor; }
-            set { _ThumbBorderColor = value; }
+            get => _ThumbBorderColor;
+            set => _ThumbBorderColor = value;
         }
 
         public int Minimum
         {
-            get
-            {
-                return _Minimum;
-            }
+            get => _Minimum;
             set
             {
 
@@ -108,10 +105,7 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get
-            {
-                return _Maximum;
-            }
+            get => _Maximum;
             set
             {
 
@@ -142,10 +136,7 @@ namespace ReaLTaiizor.Controls
 
         public int Value
         {
-            get
-            {
-                return _Value;
-            }
+            get => _Value;
             set
             {
                 if (_Value != value)
@@ -167,10 +158,7 @@ namespace ReaLTaiizor.Controls
 
         public ValueDivisor ValueDivison
         {
-            get
-            {
-                return DividedValue;
-            }
+            get => DividedValue;
             set
             {
                 DividedValue = value;
@@ -181,22 +169,13 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public float ValueToSet
         {
-            get
-            {
-                return _Value / (int)DividedValue;
-            }
-            set
-            {
-                Value = (int)(value * (int)DividedValue);
-            }
+            get => _Value / (int)DividedValue;
+            set => Value = (int)(value * (int)DividedValue);
         }
 
         public bool JumpToMouse
         {
-            get
-            {
-                return _JumpToMouse;
-            }
+            get => _JumpToMouse;
             set
             {
                 _JumpToMouse = value;
@@ -206,10 +185,7 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawValueString
         {
-            get
-            {
-                return _DrawValueString;
-            }
+            get => _DrawValueString;
             set
             {
                 _DrawValueString = value;

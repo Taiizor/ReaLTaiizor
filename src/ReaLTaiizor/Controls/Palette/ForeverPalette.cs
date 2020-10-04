@@ -29,78 +29,78 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color Red
         {
-            get { return _Red; }
-            set { _Red = value; }
+            get => _Red;
+            set => _Red = value;
         }
 
         [Category("Colors")]
         public Color Cyan
         {
-            get { return _Cyan; }
-            set { _Cyan = value; }
+            get => _Cyan;
+            set => _Cyan = value;
         }
 
         [Category("Colors")]
         public Color Blue
         {
-            get { return _Blue; }
-            set { _Blue = value; }
+            get => _Blue;
+            set => _Blue = value;
         }
 
         [Category("Colors")]
         public Color LimeGreen
         {
-            get { return _LimeGreen; }
-            set { _LimeGreen = value; }
+            get => _LimeGreen;
+            set => _LimeGreen = value;
         }
 
         [Category("Colors")]
         public Color Orange
         {
-            get { return _Orange; }
-            set { _Orange = value; }
+            get => _Orange;
+            set => _Orange = value;
         }
 
         [Category("Colors")]
         public Color Purple
         {
-            get { return _Purple; }
-            set { _Purple = value; }
+            get => _Purple;
+            set => _Purple = value;
         }
 
         [Category("Colors")]
         public Color Black
         {
-            get { return _Black; }
-            set { _Black = value; }
+            get => _Black;
+            set => _Black = value;
         }
 
         [Category("Colors")]
         public Color Gray
         {
-            get { return _Gray; }
-            set { _Gray = value; }
+            get => _Gray;
+            set => _Gray = value;
         }
 
         [Category("Colors")]
         public Color White
         {
-            get { return _White; }
-            set { _White = value; }
+            get => _White;
+            set => _White = value;
         }
 
         [Category("Options")]
         public string String
         {
-            get { return _String; }
-            set { _String = value; }
+            get => _String;
+            set => _String = value;
         }
 
         [Category("Colors")]
         public Color StringColor
         {
-            get { return _StringColor; }
-            set { _StringColor = value; }
+            get => _StringColor;
+            set => _StringColor = value;
         }
 
         private Color _Red = Color.FromArgb(220, 85, 96);

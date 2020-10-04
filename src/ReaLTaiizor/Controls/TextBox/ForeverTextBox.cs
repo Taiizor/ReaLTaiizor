@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public HorizontalAlignment TextAlign
         {
-            get { return _TextAlign; }
+            get => _TextAlign;
             set
             {
                 _TextAlign = value;
@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public int MaxLength
         {
-            get { return _MaxLength; }
+            get => _MaxLength;
             set
             {
                 _MaxLength = value;
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public bool ReadOnly
         {
-            get { return _ReadOnly; }
+            get => _ReadOnly;
             set
             {
                 _ReadOnly = value;
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public bool UseSystemPasswordChar
         {
-            get { return _UseSystemPasswordChar; }
+            get => _UseSystemPasswordChar;
             set
             {
                 _UseSystemPasswordChar = value;
@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public bool Multiline
         {
-            get { return _Multiline; }
+            get => _Multiline;
             set
             {
                 _Multiline = value;
@@ -100,14 +100,14 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public bool FocusOnHover
         {
-            get { return _FocusOnHover; }
-            set { _FocusOnHover = value; }
+            get => _FocusOnHover;
+            set => _FocusOnHover = value;
         }
 
         [Category("Options")]
         public override string Text
         {
-            get { return base.Text; }
+            get => base.Text;
             set
             {
                 base.Text = value;
@@ -119,7 +119,7 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public override Font Font
         {
-            get { return base.Font; }
+            get => base.Font;
             set
             {
                 base.Font = value;
@@ -178,16 +178,16 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         private Color _BaseColor = Color.FromArgb(45, 47, 49);
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)

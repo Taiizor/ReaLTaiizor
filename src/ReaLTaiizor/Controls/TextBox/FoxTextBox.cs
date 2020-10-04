@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
 
         private TextBox TB
         {
-            get { return withEventsField_TB; }
+            get => withEventsField_TB;
             set
             {
                 if (withEventsField_TB != null)
@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
         private bool IsEnabled;
         public new bool Enabled
         {
-            get { return EnabledCalc; }
+            get => EnabledCalc;
             set
             {
                 IsEnabled = value;
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("Enabled")]
         public bool EnabledCalc
         {
-            get { return IsEnabled; }
+            get => IsEnabled;
             set
             {
                 Enabled = value;
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool UseSystemPasswordChar
         {
-            get { return _allowpassword; }
+            get => _allowpassword;
             set
             {
                 TB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -82,7 +82,7 @@ namespace ReaLTaiizor.Controls
 
         public new int MaxLength
         {
-            get { return _maxChars; }
+            get => _maxChars;
             set
             {
                 _maxChars = value;
@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Controls
 
         public new HorizontalAlignment TextAlign
         {
-            get { return _textAlignment; }
+            get => _textAlignment;
             set
             {
                 _textAlignment = value;
@@ -103,7 +103,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool MultiLine
         {
-            get { return _multiLine; }
+            get => _multiLine;
             set
             {
                 _multiLine = value;
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool ReadOnly
         {
-            get { return _readOnly; }
+            get => _readOnly;
             set
             {
                 _readOnly = value;
@@ -189,7 +189,7 @@ namespace ReaLTaiizor.Controls
             Enabled = true;
         }
 
-        void FoxTextbox_TextChanged(object sender, EventArgs e)
+        private void FoxTextbox_TextChanged(object sender, EventArgs e)
         {
             TB.Text = Text;
         }

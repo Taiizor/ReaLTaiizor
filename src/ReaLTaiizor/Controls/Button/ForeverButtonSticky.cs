@@ -69,30 +69,27 @@ namespace ReaLTaiizor.Controls
             return Bool;
         }
 
-        private Rectangle Rect
-        {
-            get { return new Rectangle(Left, Top, Width, Height); }
-        }
+        private Rectangle Rect => new Rectangle(Left, Top, Width, Height);
 
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Colors")]
         public Color TextColor
         {
-            get { return _TextColor; }
-            set { _TextColor = value; }
+            get => _TextColor;
+            set => _TextColor = value;
         }
 
         [Category("Options")]
         public bool Rounded
         {
-            get { return _Rounded; }
-            set { _Rounded = value; }
+            get => _Rounded;
+            set => _Rounded = value;
         }
 
         protected override void OnResize(EventArgs e)

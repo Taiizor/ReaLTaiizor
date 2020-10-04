@@ -12,17 +12,17 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalMenuStrip : MenuStrip
     {
-        Color hotTrackColor;
+        private Color hotTrackColor;
         public Color HotTrackColor
         {
-            get { return hotTrackColor; }
+            get => hotTrackColor;
             set { hotTrackColor = value; Invalidate(); }
         }
 
-        Color selectedColor;
+        private Color selectedColor;
         public Color SelectedColor
         {
-            get { return selectedColor; }
+            get => selectedColor;
             set { selectedColor = value; Invalidate(); }
         }
 

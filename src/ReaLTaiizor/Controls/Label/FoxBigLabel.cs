@@ -21,14 +21,14 @@ namespace ReaLTaiizor.Controls
 
         public Color LineColor
         {
-            get { return _LineColor; }
-            set { _LineColor = value; }
+            get => _LineColor;
+            set => _LineColor = value;
         }
 
         public Direction Line
         {
-            get { return _Line; }
-            set { _Line = value; }
+            get => _Line;
+            set => _Line = value;
         }
 
         public enum Direction

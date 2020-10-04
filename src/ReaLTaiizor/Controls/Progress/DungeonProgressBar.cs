@@ -54,43 +54,43 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color BackColorA
         {
-            get { return _BackColorA; }
-            set { _BackColorA = value; }
+            get => _BackColorA;
+            set => _BackColorA = value;
         }
 
         public Color BackColorB
         {
-            get { return _BackColorB; }
-            set { _BackColorB = value; }
+            get => _BackColorB;
+            set => _BackColorB = value;
         }
 
         public Color ProgressColorA
         {
-            get { return _ProgressColorA; }
-            set { _ProgressColorA = value; }
+            get => _ProgressColorA;
+            set => _ProgressColorA = value;
         }
 
         public Color ProgressColorB
         {
-            get { return _ProgressColorB; }
-            set { _ProgressColorB = value; }
+            get => _ProgressColorB;
+            set => _ProgressColorB = value;
         }
 
         public Color ProgressHatchColor
         {
-            get { return _ProgressHatchColor; }
-            set { _ProgressHatchColor = value; }
+            get => _ProgressHatchColor;
+            set => _ProgressHatchColor = value;
         }
 
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 if (value < 1)
@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
 
         public int Minimum
         {
-            get { return _Minimum; }
+            get => _Minimum;
             set
             {
                 _Minimum = value;
@@ -120,7 +120,7 @@ namespace ReaLTaiizor.Controls
 
         public int Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value > _Maximum)
@@ -132,7 +132,7 @@ namespace ReaLTaiizor.Controls
 
         public Alignment ValueAlignment
         {
-            get { return ALN; }
+            get => ALN;
             set
             {
                 ALN = value;
@@ -142,7 +142,7 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawHatch
         {
-            get { return _DrawHatch; }
+            get => _DrawHatch;
             set
             {
                 _DrawHatch = value;
@@ -152,7 +152,7 @@ namespace ReaLTaiizor.Controls
 
         public bool ShowPercentage
         {
-            get { return _ShowPercentage; }
+            get => _ShowPercentage;
             set
             {
                 _ShowPercentage = value;

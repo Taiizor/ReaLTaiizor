@@ -192,169 +192,49 @@ namespace ReaLTaiizor
             _CommonColorTable = new DefaultCColorTable();
         }
 
-        public override xColorTable CommonColorTable
-        {
-            get
-            {
-                return _CommonColorTable;
-            }
-        }
+        public override xColorTable CommonColorTable => _CommonColorTable;
 
-        public override Color BackgroundTopGradient
-        {
-            get
-            {
-                return Color.FromArgb(246, 246, 246);
-            }
-        }
+        public override Color BackgroundTopGradient => Color.FromArgb(246, 246, 246);
 
-        public override Color BackgroundBottomGradient
-        {
-            get
-            {
-                return Color.FromArgb(226, 226, 226);
-            }
-        }
+        public override Color BackgroundBottomGradient => Color.FromArgb(226, 226, 226);
 
-        public override Color DropdownTopGradient
-        {
-            get
-            {
-                return Color.FromArgb(246, 246, 246);
-            }
-        }
+        public override Color DropdownTopGradient => Color.FromArgb(246, 246, 246);
 
-        public override Color DropdownBottomGradient
-        {
-            get
-            {
-                return Color.FromArgb(246, 246, 246);
-            }
-        }
+        public override Color DropdownBottomGradient => Color.FromArgb(246, 246, 246);
 
-        public override Color DroppedDownItemBackground
-        {
-            get
-            {
-                return Color.FromArgb(240, 240, 240);
-            }
-        }
+        public override Color DroppedDownItemBackground => Color.FromArgb(240, 240, 240);
 
-        public override Color Separator
-        {
-            get
-            {
-                return Color.FromArgb(190, 195, 203);
-            }
-        }
+        public override Color Separator => Color.FromArgb(190, 195, 203);
 
-        public override Color ImageMargin
-        {
-            get
-            {
-                return Color.FromArgb(240, 240, 240);
-            }
-        }
+        public override Color ImageMargin => Color.FromArgb(240, 240, 240);
     }
 
     public class DefaultCColorTable : xColorTable
     {
 
-        public override Color CheckedBackground
-        {
-            get
-            {
-                return Color.FromArgb(230, 230, 230);
-            }
-        }
+        public override Color CheckedBackground => Color.FromArgb(230, 230, 230);
 
-        public override Color CheckedSelectedBackground
-        {
-            get
-            {
-                return Color.FromArgb(230, 230, 230);
-            }
-        }
+        public override Color CheckedSelectedBackground => Color.FromArgb(230, 230, 230);
 
-        public override Color SelectionBorder
-        {
-            get
-            {
-                return Color.FromArgb(180, 180, 180);
-            }
-        }
+        public override Color SelectionBorder => Color.FromArgb(180, 180, 180);
 
-        public override Color SelectionTopGradient
-        {
-            get
-            {
-                return Color.FromArgb(240, 240, 240);
-            }
-        }
+        public override Color SelectionTopGradient => Color.FromArgb(240, 240, 240);
 
-        public override Color SelectionMidGradient
-        {
-            get
-            {
-                return Color.FromArgb(235, 235, 235);
-            }
-        }
+        public override Color SelectionMidGradient => Color.FromArgb(235, 235, 235);
 
-        public override Color SelectionBottomGradient
-        {
-            get
-            {
-                return Color.FromArgb(230, 230, 230);
-            }
-        }
+        public override Color SelectionBottomGradient => Color.FromArgb(230, 230, 230);
 
-        public override Color PressedBackground
-        {
-            get
-            {
-                return Color.FromArgb(232, 232, 232);
-            }
-        }
+        public override Color PressedBackground => Color.FromArgb(232, 232, 232);
 
-        public override Color TextColor
-        {
-            get
-            {
-                return Color.FromArgb(80, 80, 80);
-            }
-        }
+        public override Color TextColor => Color.FromArgb(80, 80, 80);
 
-        public override Color Background
-        {
-            get
-            {
-                return Color.FromArgb(188, 199, 216);
-            }
-        }
+        public override Color Background => Color.FromArgb(188, 199, 216);
 
-        public override Color DropdownBorder
-        {
-            get
-            {
-                return Color.LightGray;
-            }
-        }
+        public override Color DropdownBorder => Color.LightGray;
 
-        public override Color Arrow
-        {
-            get
-            {
-                return Color.Black;
-            }
-        }
+        public override Color Arrow => Color.Black;
 
-        public override Color OverflowBackground
-        {
-            get
-            {
-                return Color.FromArgb(213, 220, 232);
-            }
-        }
+        public override Color OverflowBackground => Color.FromArgb(213, 220, 232);
     }
 
     #endregion
@@ -379,10 +259,7 @@ namespace ReaLTaiizor
                     _ColorTable = new MSColorTable();
                 return _ColorTable;
             }
-            set
-            {
-                _ColorTable = value;
-            }
+            set => _ColorTable = value;
         }
 
         protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)

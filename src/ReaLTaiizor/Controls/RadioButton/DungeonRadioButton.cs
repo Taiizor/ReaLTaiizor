@@ -42,31 +42,31 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color CheckedBackColorA
         {
-            get { return _CheckedBackColorA; }
-            set { _CheckedBackColorA = value; }
+            get => _CheckedBackColorA;
+            set => _CheckedBackColorA = value;
         }
 
         public Color CheckedBackColorB
         {
-            get { return _CheckedBackColorB; }
-            set { _CheckedBackColorB = value; }
+            get => _CheckedBackColorB;
+            set => _CheckedBackColorB = value;
         }
 
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
-            set { _CheckedColor = value; }
+            get => _CheckedColor;
+            set => _CheckedColor = value;
         }
 
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;

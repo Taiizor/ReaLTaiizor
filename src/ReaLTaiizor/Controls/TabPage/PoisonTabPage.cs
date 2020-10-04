@@ -68,10 +68,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set
-            {
-                poisonStyle = value;
-            }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -91,10 +88,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set
-            {
-                poisonTheme = value;
-            }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager PoisonStyleManager = null;
@@ -102,8 +96,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return PoisonStyleManager; }
-            set { PoisonStyleManager = value; }
+            get => PoisonStyleManager;
+            set => PoisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -111,8 +105,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -120,8 +114,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -129,8 +123,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -138,8 +132,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         #endregion
@@ -154,29 +148,29 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool HorizontalScrollbar
         {
-            get { return showHorizontalScrollbar; }
-            set { showHorizontalScrollbar = value; }
+            get => showHorizontalScrollbar;
+            set => showHorizontalScrollbar = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int HorizontalScrollbarSize
         {
-            get { return horizontalScrollbar.ScrollbarSize; }
-            set { horizontalScrollbar.ScrollbarSize = value; }
+            get => horizontalScrollbar.ScrollbarSize;
+            set => horizontalScrollbar.ScrollbarSize = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool HorizontalScrollbarBarColor
         {
-            get { return horizontalScrollbar.UseBarColor; }
-            set { horizontalScrollbar.UseBarColor = value; }
+            get => horizontalScrollbar.UseBarColor;
+            set => horizontalScrollbar.UseBarColor = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool HorizontalScrollbarHighlightOnWheel
         {
-            get { return horizontalScrollbar.HighlightOnWheel; }
-            set { horizontalScrollbar.HighlightOnWheel = value; }
+            get => horizontalScrollbar.HighlightOnWheel;
+            set => horizontalScrollbar.HighlightOnWheel = value;
         }
 
         private bool showVerticalScrollbar = false;
@@ -184,38 +178,35 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool VerticalScrollbar
         {
-            get { return showVerticalScrollbar; }
-            set { showVerticalScrollbar = value; }
+            get => showVerticalScrollbar;
+            set => showVerticalScrollbar = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int VerticalScrollbarSize
         {
-            get { return verticalScrollbar.ScrollbarSize; }
-            set { verticalScrollbar.ScrollbarSize = value; }
+            get => verticalScrollbar.ScrollbarSize;
+            set => verticalScrollbar.ScrollbarSize = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool VerticalScrollbarBarColor
         {
-            get { return verticalScrollbar.UseBarColor; }
-            set { verticalScrollbar.UseBarColor = value; }
+            get => verticalScrollbar.UseBarColor;
+            set => verticalScrollbar.UseBarColor = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool VerticalScrollbarHighlightOnWheel
         {
-            get { return verticalScrollbar.HighlightOnWheel; }
-            set { verticalScrollbar.HighlightOnWheel = value; }
+            get => verticalScrollbar.HighlightOnWheel;
+            set => verticalScrollbar.HighlightOnWheel = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public new bool AutoScroll
         {
-            get
-            {
-                return base.AutoScroll;
-            }
+            get => base.AutoScroll;
             set
             {
                 if (value)

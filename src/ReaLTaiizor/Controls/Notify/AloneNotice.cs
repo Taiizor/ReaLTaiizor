@@ -23,8 +23,8 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColor = Color.White;
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public AloneNotice()

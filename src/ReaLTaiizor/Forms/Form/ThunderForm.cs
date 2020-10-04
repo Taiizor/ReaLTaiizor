@@ -17,42 +17,36 @@ namespace ReaLTaiizor.Forms
         private Image _Image = Properties.Resources.Taiizor;
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
-            set
-            {
-                _Image = value;
-            }
+            get => _Image;
+            set => _Image = value;
         }
 
         private Color _BodyColorA = Color.FromArgb(25, 25, 25);
         public Color BodyColorA
         {
-            get { return _BodyColorA; }
-            set { _BodyColorA = value; }
+            get => _BodyColorA;
+            set => _BodyColorA = value;
         }
 
         private Color _BodyColorB = Color.FromArgb(30, 35, 48);
         public Color BodyColorB
         {
-            get { return _BodyColorB; }
-            set { _BodyColorB = value; }
+            get => _BodyColorB;
+            set => _BodyColorB = value;
         }
 
         private Color _BodyColorC = Color.FromArgb(46, 46, 46);
         public Color BodyColorC
         {
-            get { return _BodyColorC; }
-            set { _BodyColorC = value; }
+            get => _BodyColorC;
+            set => _BodyColorC = value;
         }
 
         private Color _BodyColorD = Color.FromArgb(50, 55, 58);
         public Color BodyColorD
         {
-            get { return _BodyColorD; }
-            set { _BodyColorD = value; }
+            get => _BodyColorD;
+            set => _BodyColorD = value;
         }
 
         public ThunderForm()

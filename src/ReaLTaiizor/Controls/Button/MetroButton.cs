@@ -305,7 +305,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button background color in normal mouse sate.")]
         public Color NormalColor
         {
-            get { return _normalColor; }
+            get => _normalColor;
             set
             {
                 _normalColor = value;
@@ -317,7 +317,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button border color in normal mouse sate.")]
         public Color NormalBorderColor
         {
-            get { return _normalBorderColor; }
+            get => _normalBorderColor;
             set
             {
                 _normalBorderColor = value;
@@ -329,7 +329,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button Text color in normal mouse sate.")]
         public Color NormalTextColor
         {
-            get { return _normalTextColor; }
+            get => _normalTextColor;
             set
             {
                 _normalTextColor = value;
@@ -341,7 +341,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button background color in hover mouse sate.")]
         public Color HoverColor
         {
-            get { return _hoverColor; }
+            get => _hoverColor;
             set
             {
                 _hoverColor = value;
@@ -353,7 +353,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button border color in hover mouse sate.")]
         public Color HoverBorderColor
         {
-            get { return _hoverBorderColor; }
+            get => _hoverBorderColor;
             set
             {
                 _hoverBorderColor = value;
@@ -365,7 +365,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button Text color in hover mouse sate.")]
         public Color HoverTextColor
         {
-            get { return _hoverTextColor; }
+            get => _hoverTextColor;
             set
             {
                 _hoverTextColor = value;
@@ -377,7 +377,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button background color in pushed mouse sate.")]
         public Color PressColor
         {
-            get { return _pressColor; }
+            get => _pressColor;
             set
             {
                 _pressColor = value;
@@ -389,7 +389,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button border color in pushed mouse sate.")]
         public Color PressBorderColor
         {
-            get { return _pressBorderColor; }
+            get => _pressBorderColor;
             set
             {
                 _pressBorderColor = value;
@@ -401,7 +401,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the button Text color in pushed mouse sate.")]
         public Color PressTextColor
         {
-            get { return _pressTextColor; }
+            get => _pressTextColor;
             set
             {
                 _pressTextColor = value;
@@ -413,7 +413,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets backcolor used by the control while disabled.")]
         public Color DisabledBackColor
         {
-            get { return _disabledBackColor; }
+            get => _disabledBackColor;
             set
             {
                 _disabledBackColor = value;
@@ -425,7 +425,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the forecolor of the control whenever while disabled.")]
         public Color DisabledForeColor
         {
-            get { return _disabledForeColor; }
+            get => _disabledForeColor;
             set
             {
                 _disabledForeColor = value;
@@ -437,7 +437,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the border color of the control while disabled.")]
         public Color DisabledBorderColor
         {
-            get { return _disabledBorderColor; }
+            get => _disabledBorderColor;
             set
             {
                 _disabledBorderColor = value;
@@ -450,7 +450,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

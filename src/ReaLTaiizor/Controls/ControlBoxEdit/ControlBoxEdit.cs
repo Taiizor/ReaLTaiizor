@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -41,10 +41,10 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Variables
 
-        MouseState State = MouseState.None;
-        int i;
-        Rectangle CloseRect = new Rectangle(28, 0, 47, 18);
-        Rectangle MinimizeRect = new Rectangle(0, 0, 28, 18);
+        private MouseState State = MouseState.None;
+        private int i;
+        private Rectangle CloseRect = new Rectangle(28, 0, 47, 18);
+        private Rectangle MinimizeRect = new Rectangle(0, 0, 28, 18);
 
         #endregion
         #region EventArgs

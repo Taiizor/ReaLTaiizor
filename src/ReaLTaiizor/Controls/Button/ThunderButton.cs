@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Controls
 
     public class ThunderButton : Control
     {
-        MouseStateThunder State = MouseStateThunder.None;
+        private MouseStateThunder State = MouseStateThunder.None;
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);

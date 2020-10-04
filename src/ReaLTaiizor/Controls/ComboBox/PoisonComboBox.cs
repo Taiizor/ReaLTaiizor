@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -87,7 +87,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -95,8 +95,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -104,8 +104,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -113,8 +113,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -122,8 +122,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -131,8 +131,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         [Browsable(true)]
@@ -141,7 +141,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the text associated with this control.")]
         public override string Text
         {
-            get { return textBox.Text; }
+            get => textBox.Text;
             set { textBox.Text = value; base.Text = textBox.Text; OnTextChanged(EventArgs.Empty); }
         }
 
@@ -154,16 +154,16 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool DisplayFocus
         {
-            get { return displayFocusRectangle; }
-            set { displayFocusRectangle = value; }
+            get => displayFocusRectangle;
+            set => displayFocusRectangle = value;
         }
 
         [DefaultValue(DrawMode.OwnerDrawFixed)]
         [Browsable(false)]
         public new DrawMode DrawMode
         {
-            get { return DrawMode.OwnerDrawFixed; }
-            set { base.DrawMode = DrawMode.OwnerDrawFixed; }
+            get => DrawMode.OwnerDrawFixed;
+            set => base.DrawMode = DrawMode.OwnerDrawFixed;
         }
 
         private ComboBoxStyle dropDownStyle = ComboBoxStyle.DropDownList;
@@ -172,7 +172,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(true)]
         public new ComboBoxStyle DropDownStyle
         {
-            get { return dropDownStyle; }
+            get => dropDownStyle;
             set
             {
                 // we don't support the Simple style
@@ -195,8 +195,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonComboBoxSize FontSize
         {
-            get { return poisonComboBoxSize; }
-            set { poisonComboBoxSize = value; }
+            get => poisonComboBoxSize;
+            set => poisonComboBoxSize = value;
         }
 
         private PoisonComboBoxWeight poisonComboBoxWeight = PoisonComboBoxWeight.Regular;
@@ -204,8 +204,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonComboBoxWeight FontWeight
         {
-            get { return poisonComboBoxWeight; }
-            set { poisonComboBoxWeight = value; }
+            get => poisonComboBoxWeight;
+            set => poisonComboBoxWeight = value;
         }
 
         private string promptText = "";
@@ -215,7 +215,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public string PromptText
         {
-            get { return promptText; }
+            get => promptText;
             set
             {
                 promptText = value.Trim();
@@ -231,20 +231,14 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public override Font Font
         {
-            get
-            {
-                return base.Font;
-            }
-            set
-            {
-                base.Font = value;
-            }
+            get => base.Font;
+            set => base.Font = value;
         }
 
         private AutoCompleteMode autoCompleteMode = AutoCompleteMode.None;
         public new AutoCompleteMode AutoCompleteMode
         {
-            get { return autoCompleteMode; }
+            get => autoCompleteMode;
             set
             {
                 autoCompleteMode = value;
@@ -268,15 +262,15 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public new AutoCompleteSource AutoCompleteSource
         {
-            get { return base.AutoCompleteSource; }
-            set { base.AutoCompleteSource = value; }
+            get => base.AutoCompleteSource;
+            set => base.AutoCompleteSource = value;
         }
 
         [Browsable(false)]
         public new AutoCompleteStringCollection AutoCompleteCustomSource
         {
-            get { return base.AutoCompleteCustomSource; }
-            set { base.AutoCompleteCustomSource = value; }
+            get => base.AutoCompleteCustomSource;
+            set => base.AutoCompleteCustomSource = value;
         }
 
         private bool isHovered = false;

@@ -29,10 +29,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get
-            {
-                return _Checked;
-            }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -44,7 +41,7 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -54,7 +51,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CircleColor
         {
-            get { return _CircleColor; }
+            get => _CircleColor;
             set
             {
                 _CircleColor = value;
@@ -64,7 +61,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
+            get => _CheckedColor;
             set
             {
                 _CheckedColor = value;

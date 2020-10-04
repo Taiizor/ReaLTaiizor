@@ -299,7 +299,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the the sign style of check.")]
         public SignStyle SignStyle
         {
-            get { return _signStyle; }
+            get => _signStyle;
             set
             {
                 _signStyle = value;
@@ -310,7 +310,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public Enum.Metro.CheckState CheckState
         {
-            get { return _checkState; }
+            get => _checkState;
             set
             {
                 _checkState = value;
@@ -328,7 +328,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get { return _backgroundColor; }
+            get => _backgroundColor;
             set
             {
                 _backgroundColor = value;
@@ -339,7 +339,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color.")]
         public Color BorderColor
         {
-            get { return _borderColor; }
+            get => _borderColor;
             set
             {
                 _borderColor = value;
@@ -350,7 +350,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get { return _disabledBorderColor; }
+            get => _disabledBorderColor;
             set
             {
                 _disabledBorderColor = value;
@@ -361,7 +361,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the color of the check symbol.")]
         public Color CheckSignColor
         {
-            get { return _checkSignColor; }
+            get => _checkSignColor;
             set
             {
                 _checkSignColor = value;
@@ -374,7 +374,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

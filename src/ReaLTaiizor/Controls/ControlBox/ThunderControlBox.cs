@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -30,13 +30,11 @@ namespace ReaLTaiizor.Controls
 
         #endregion
 
-        MouseStateThunder State = MouseStateThunder.None;
-
-        Rectangle MinBtn = new Rectangle(0, 0, 20, 20);
-        Rectangle MaxBtn = new Rectangle(25, 0, 20, 20);
-        Rectangle ClsBtn = new Rectangle(50, 0, 20, 20);
-
-        int x = 0;
+        private MouseStateThunder State = MouseStateThunder.None;
+        private Rectangle MinBtn = new Rectangle(0, 0, 20, 20);
+        private Rectangle MaxBtn = new Rectangle(25, 0, 20, 20);
+        private Rectangle ClsBtn = new Rectangle(50, 0, 20, 20);
+        private int x = 0;
 
         protected override void OnCreateControl()
         {

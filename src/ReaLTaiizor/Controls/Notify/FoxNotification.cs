@@ -32,85 +32,85 @@ namespace ReaLTaiizor.Controls
         private Color _GreenBackColor = FoxLibrary.ColorFromHex("#DFF0D6");
         public Color GreenBackColor
         {
-            get { return _GreenBackColor; }
-            set { _GreenBackColor = value; }
+            get => _GreenBackColor;
+            set => _GreenBackColor = value;
         }
 
         private Color _GreenTextColor = FoxLibrary.ColorFromHex("#4E8C45");
         public Color GreenTextColor
         {
-            get { return _GreenTextColor; }
-            set { _GreenTextColor = value; }
+            get => _GreenTextColor;
+            set => _GreenTextColor = value;
         }
 
         private Color _GreenBarColor = FoxLibrary.ColorFromHex("#CEE5B6");
         public Color GreenBarColor
         {
-            get { return _GreenBarColor; }
-            set { _GreenBarColor = value; }
+            get => _GreenBarColor;
+            set => _GreenBarColor = value;
         }
 
         private Color _BlueBackColor = FoxLibrary.ColorFromHex("#D9EDF8");
         public Color BlueBackColor
         {
-            get { return _BlueBackColor; }
-            set { _BlueBackColor = value; }
+            get => _BlueBackColor;
+            set => _BlueBackColor = value;
         }
 
         private Color _BlueTextColor = FoxLibrary.ColorFromHex("#498FB8");
         public Color BlueTextColor
         {
-            get { return _BlueTextColor; }
-            set { _BlueTextColor = value; }
+            get => _BlueTextColor;
+            set => _BlueTextColor = value;
         }
 
         private Color _BlueBarColor = FoxLibrary.ColorFromHex("#AFD9F0");
         public Color BlueBarColor
         {
-            get { return _BlueBarColor; }
-            set { _BlueBarColor = value; }
+            get => _BlueBarColor;
+            set => _BlueBarColor = value;
         }
 
         private Color _YellowBackColor = FoxLibrary.ColorFromHex("#FCF8E1");
         public Color YellowBackColor
         {
-            get { return _YellowBackColor; }
-            set { _YellowBackColor = value; }
+            get => _YellowBackColor;
+            set => _YellowBackColor = value;
         }
 
         private Color _YellowTextColor = FoxLibrary.ColorFromHex("#908358");
         public Color YellowTextColor
         {
-            get { return _YellowTextColor; }
-            set { _YellowTextColor = value; }
+            get => _YellowTextColor;
+            set => _YellowTextColor = value;
         }
 
         private Color _YellowBarColor = FoxLibrary.ColorFromHex("#FAEBC8");
         public Color YellowBarColor
         {
-            get { return _YellowBarColor; }
-            set { _YellowBarColor = value; }
+            get => _YellowBarColor;
+            set => _YellowBarColor = value;
         }
 
         private Color _RedBackColor = FoxLibrary.ColorFromHex("#F2DEDE");
         public Color RedBackColor
         {
-            get { return _RedBackColor; }
-            set { _RedBackColor = value; }
+            get => _RedBackColor;
+            set => _RedBackColor = value;
         }
 
         private Color _RedTextColor = FoxLibrary.ColorFromHex("#C2635E");
         public Color RedTextColor
         {
-            get { return _RedTextColor; }
-            set { _RedTextColor = value; }
+            get => _RedTextColor;
+            set => _RedTextColor = value;
         }
 
         private Color _RedBarColor = FoxLibrary.ColorFromHex("#EBCCD1");
         public Color RedBarColor
         {
-            get { return _RedBarColor; }
-            set { _RedBarColor = value; }
+            get => _RedBarColor;
+            set => _RedBarColor = value;
         }
 
         public enum Styles : byte

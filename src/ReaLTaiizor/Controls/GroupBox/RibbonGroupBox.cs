@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get { return _CompositingQualityType; }
+            get => _CompositingQualityType;
             set
             {
                 _CompositingQualityType = value;
@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColor = Color.Transparent;
         public Color BaseColor
         {
-            get { return _BaseColor; }
+            get => _BaseColor;
             set
             {
                 _BaseColor = value;
@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
         private Color _LineColorA = Color.FromArgb(126, 126, 126);
         public Color LineColorA
         {
-            get { return _LineColorA; }
+            get => _LineColorA;
             set
             {
                 _LineColorA = value;
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Controls
         private Color _LineColorB = Color.FromArgb(126, 126, 126);
         public Color LineColorB
         {
-            get { return _LineColorB; }
+            get => _LineColorB;
             set
             {
                 _LineColorB = value;
@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColorA = Color.FromArgb(143, 143, 143);
         public Color BorderColorA
         {
-            get { return _BorderColorA; }
+            get => _BorderColorA;
             set
             {
                 _BorderColorA = value;
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColorB = Color.FromArgb(174, 178, 172);
         public Color BorderColorB
         {
-            get { return _BorderColorB; }
+            get => _BorderColorB;
             set
             {
                 _BorderColorB = value;
@@ -94,7 +94,7 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColorC = Color.FromArgb(194, 192, 200);
         public Color BorderColorC
         {
-            get { return _BorderColorC; }
+            get => _BorderColorC;
             set
             {
                 _BorderColorC = value;

@@ -21,43 +21,43 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedColor = FoxLibrary.ColorFromHex("#2C9CDA");
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
-            set { _CheckedColor = value; }
+            get => _CheckedColor;
+            set => _CheckedColor = value;
         }
 
         private Color _DisabledCheckedColor = FoxLibrary.ColorFromHex("#B6B4B4");
         public Color DisabledCheckedColor
         {
-            get { return _DisabledCheckedColor; }
-            set { _DisabledCheckedColor = value; }
+            get => _DisabledCheckedColor;
+            set => _DisabledCheckedColor = value;
         }
 
         private Color _BorderColor = FoxLibrary.ColorFromHex("#C8C8C8");
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         private Color _DisabledBorderColor = FoxLibrary.ColorFromHex("#E6E6E6");
         public Color DisabledBorderColor
         {
-            get { return _DisabledBorderColor; }
-            set { _DisabledBorderColor = value; }
+            get => _DisabledBorderColor;
+            set => _DisabledBorderColor = value;
         }
 
         private Color _DisabledTextColor = FoxLibrary.ColorFromHex("#A6B2BE");
         public Color DisabledTextColor
         {
-            get { return _DisabledTextColor; }
-            set { _DisabledTextColor = value; }
+            get => _DisabledTextColor;
+            set => _DisabledTextColor = value;
         }
 
         private Color _HoverBorderColor = FoxLibrary.ColorFromHex("#2C9CDA");
         public Color HoverBorderColor
         {
-            get { return _HoverBorderColor; }
-            set { _HoverBorderColor = value; }
+            get => _HoverBorderColor;
+            set => _HoverBorderColor = value;
         }
 
         public FoxRadioButton() : base()

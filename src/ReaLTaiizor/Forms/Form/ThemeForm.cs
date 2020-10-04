@@ -40,10 +40,7 @@ namespace ReaLTaiizor.Forms
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -59,36 +56,21 @@ namespace ReaLTaiizor.Forms
         private bool _Sizable = true;
         public bool Sizable
         {
-            get
-            {
-                return _Sizable;
-            }
-            set
-            {
-                _Sizable = value;
-            }
+            get => _Sizable;
+            set => _Sizable = value;
         }
 
         private bool _SmartBounds = true;
         public bool SmartBounds
         {
-            get
-            {
-                return _SmartBounds;
-            }
-            set
-            {
-                _SmartBounds = value;
-            }
+            get => _SmartBounds;
+            set => _SmartBounds = value;
         }
 
         private bool _RoundCorners = true;
         public bool RoundCorners
         {
-            get
-            {
-                return _RoundCorners;
-            }
+            get => _RoundCorners;
             set
             {
                 _RoundCorners = value;
@@ -97,13 +79,7 @@ namespace ReaLTaiizor.Forms
         }
 
         private bool _IsParentForm;
-        protected bool IsParentForm
-        {
-            get
-            {
-                return _IsParentForm;
-            }
-        }
+        protected bool IsParentForm => _IsParentForm;
 
         protected bool IsParentMdi
         {
@@ -118,10 +94,7 @@ namespace ReaLTaiizor.Forms
         private bool _ControlMode;
         protected bool ControlMode
         {
-            get
-            {
-                return _ControlMode;
-            }
+            get => _ControlMode;
             set
             {
                 _ControlMode = value;

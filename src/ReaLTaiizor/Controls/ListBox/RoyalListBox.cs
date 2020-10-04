@@ -14,79 +14,62 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalListBox : Control
     {
-        RoyalScrollBar scrollBar;
+        private RoyalScrollBar scrollBar;
+        private RoyalListBoxItemCollection items;
+        public RoyalListBoxItemCollection Items => items;
 
-        RoyalListBoxItemCollection items;
-        public RoyalListBoxItemCollection Items
-        {
-            get { return items; }
-        }
+        private RoyalListBoxSelectedItemCollection selectedItems;
+        public RoyalListBoxSelectedItemCollection SelectedItems => selectedItems;
 
-        RoyalListBoxSelectedItemCollection selectedItems;
-        public RoyalListBoxSelectedItemCollection SelectedItems
-        {
-            get { return selectedItems; }
-        }
+        private RoyalListBoxSelectedIndexCollection selectedIndicies;
+        public RoyalListBoxSelectedIndexCollection SelectedIndicies => selectedIndicies;
 
-        RoyalListBoxSelectedIndexCollection selectedIndicies;
-        public RoyalListBoxSelectedIndexCollection SelectedIndicies
-        {
-            get { return selectedIndicies; }
-        }
-
-        bool multiSelection;
+        private bool multiSelection;
         public bool MultiSelection
         {
-            get { return multiSelection; }
+            get => multiSelection;
             set { multiSelection = value; Invalidate(); }
         }
 
-        bool multiSelectKeyDown = false;
-
-        int itemHeight;
+        private bool multiSelectKeyDown = false;
+        private int itemHeight;
         public int ItemHeight
         {
-            get { return itemHeight; }
+            get => itemHeight;
             set { itemHeight = value; Invalidate(); }
         }
 
-        Color hotLightColor;
+        private Color hotLightColor;
         public Color HotLightColor
         {
-            get { return hotLightColor; }
+            get => hotLightColor;
             set { hotLightColor = value; Invalidate(); }
         }
 
-        Color selectedColor;
+        private Color selectedColor;
         public Color SelectedColor
         {
-            get { return selectedColor; }
+            get => selectedColor;
             set { selectedColor = value; Invalidate(); }
         }
 
-        int selectedIndex;
+        private int selectedIndex;
         public int SelectedIndex
         {
-            get { return selectedIndex; }
+            get => selectedIndex;
             set { selectedIndex = value; Invalidate(); }
         }
 
-        public object SelectedValue
-        {
-            get { return null; }
-        }
+        public object SelectedValue => null;
 
-        int hotLightedIndex;
+        private int hotLightedIndex;
         public int HotLightedIndex
         {
-            get { return hotLightedIndex; }
+            get => hotLightedIndex;
             set { hotLightedIndex = value; Invalidate(); }
         }
 
-        public object HotLightedItem
-        {
-            get { return null; }
-        }
+        public object HotLightedItem => null;
 
         public RoyalListBox()
         {
@@ -255,19 +238,19 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
         }
 
-        void Items_ItemAdded(object sender, EventArgs e)
+        private void Items_ItemAdded(object sender, EventArgs e)
         {
             scrollBar.Max = (Items.Count * ItemHeight);
             scrollBar.Refresh();
         }
 
-        void Items_ItemRemoved(object sender, EventArgs e)
+        private void Items_ItemRemoved(object sender, EventArgs e)
         {
             scrollBar.Max = (Items.Count * ItemHeight);
             scrollBar.Refresh();
         }
 
-        void ScrollBar_ValueChanged(object sender, EventArgs e)
+        private void ScrollBar_ValueChanged(object sender, EventArgs e)
         {
             Refresh();
         }

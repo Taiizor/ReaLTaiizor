@@ -55,10 +55,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Toggled
         {
-            get
-            {
-                return _Toggled;
-            }
+            get => _Toggled;
             set
             {
                 _Toggled = value;
@@ -69,10 +66,7 @@ namespace ReaLTaiizor.Controls
 
         public _Type Type
         {
-            get
-            {
-                return ToggleType;
-            }
+            get => ToggleType;
             set
             {
                 ToggleType = value;

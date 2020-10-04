@@ -11,13 +11,7 @@ namespace ReaLTaiizor.Design.Poison
 
     internal class PoisonProgressBarDesigner : ControlDesigner
     {
-        public override SelectionRules SelectionRules
-        {
-            get
-            {
-                return base.SelectionRules;
-            }
-        }
+        public override SelectionRules SelectionRules => base.SelectionRules;
 
         protected override void PreFilterProperties(IDictionary properties)
         {

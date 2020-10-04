@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
         private bool _ShowText = true;
         public bool ShowText
         {
-            get { return _ShowText; }
+            get => _ShowText;
             set
             {
                 _ShowText = value;

@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Action.Metro
 {
     #region MetroStyleManagerActionListAction
 
-    class MetroStyleManagerActionList : DesignerActionList
+    internal class MetroStyleManagerActionList : DesignerActionList
     {
         private readonly MetroStyleManager _styleManger;
 

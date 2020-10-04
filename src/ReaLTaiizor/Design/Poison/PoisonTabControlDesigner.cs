@@ -25,13 +25,7 @@ namespace ReaLTaiizor.Design.Poison
 
         private ISelectionService selectionService;
 
-        public override SelectionRules SelectionRules
-        {
-            get
-            {
-                return Control.Dock == DockStyle.Fill ? SelectionRules.Visible : base.SelectionRules;
-            }
-        }
+        public override SelectionRules SelectionRules => Control.Dock == DockStyle.Fill ? SelectionRules.Visible : base.SelectionRules;
         public override DesignerVerbCollection Verbs
         {
             get
@@ -45,21 +39,9 @@ namespace ReaLTaiizor.Design.Poison
             }
         }
 
-        public IDesignerHost DesignerHost
-        {
-            get
-            {
-                return designerHost ?? (designerHost = (IDesignerHost)(GetService(typeof(IDesignerHost))));
-            }
-        }
+        public IDesignerHost DesignerHost => designerHost ?? (designerHost = (IDesignerHost)(GetService(typeof(IDesignerHost))));
 
-        public ISelectionService SelectionService
-        {
-            get
-            {
-                return selectionService ?? (selectionService = (ISelectionService)(GetService(typeof(ISelectionService))));
-            }
-        }
+        public ISelectionService SelectionService => selectionService ?? (selectionService = (ISelectionService)(GetService(typeof(ISelectionService))));
 
         #endregion
 

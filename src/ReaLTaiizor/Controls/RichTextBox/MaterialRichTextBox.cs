@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
 
         public string Hint
         {
-            get { return hint; }
+            get => hint;
             set
             {
                 hint = value;

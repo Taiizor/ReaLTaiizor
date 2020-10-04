@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;

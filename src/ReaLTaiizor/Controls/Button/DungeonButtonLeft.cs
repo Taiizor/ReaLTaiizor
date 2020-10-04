@@ -122,7 +122,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get { return _Image; }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -135,14 +135,11 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        protected Size ImageSize
-        {
-            get { return _ImageSize; }
-        }
+        protected Size ImageSize => _ImageSize;
 
         public ContentAlignment ImageAlign
         {
-            get { return _ImageAlign; }
+            get => _ImageAlign;
             set
             {
                 _ImageAlign = value;
@@ -152,7 +149,7 @@ namespace ReaLTaiizor.Controls
 
         public StringAlignment TextAlignment
         {
-            get { return _TextAlignment; }
+            get => _TextAlignment;
             set
             {
                 _TextAlignment = value;
@@ -162,7 +159,7 @@ namespace ReaLTaiizor.Controls
 
         public override Color ForeColor
         {
-            get { return _TextColor; }
+            get => _TextColor;
             set
             {
                 _TextColor = value;
@@ -172,44 +169,44 @@ namespace ReaLTaiizor.Controls
 
         public Color InactiveColorA
         {
-            get { return _InactiveColorA; }
-            set { _InactiveColorA = value; }
+            get => _InactiveColorA;
+            set => _InactiveColorA = value;
         }
 
         public Color InactiveColorB
         {
-            get { return _InactiveColorB; }
-            set { _InactiveColorB = value; }
+            get => _InactiveColorB;
+            set => _InactiveColorB = value;
         }
 
         public Color PressedColorA
         {
-            get { return _PressedColorA; }
-            set { _PressedColorA = value; }
+            get => _PressedColorA;
+            set => _PressedColorA = value;
         }
 
         public Color PressedColorB
         {
-            get { return _PressedColorB; }
-            set { _PressedColorB = value; }
+            get => _PressedColorB;
+            set => _PressedColorB = value;
         }
 
         public Color PressedContourColorA
         {
-            get { return _PressedContourColorA; }
-            set { _PressedContourColorA = value; }
+            get => _PressedContourColorA;
+            set => _PressedContourColorA = value;
         }
 
         public Color PressedContourColorB
         {
-            get { return _PressedContourColorB; }
-            set { _PressedContourColorB = value; }
+            get => _PressedContourColorB;
+            set => _PressedContourColorB = value;
         }
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         #endregion

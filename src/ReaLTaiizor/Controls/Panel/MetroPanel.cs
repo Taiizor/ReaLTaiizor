@@ -190,7 +190,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border thickness the control.")]
         public int BorderThickness
         {
-            get { return _borderThickness; }
+            get => _borderThickness;
             set
             {
                 _borderThickness = value;
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets bordercolor used by the control.")]
         public Color BorderColor
         {
-            get { return _borderColor; }
+            get => _borderColor;
             set
             {
                 _borderColor = value;
@@ -213,7 +213,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get { return _backgroundColor; }
+            get => _backgroundColor;
             set
             {
                 _backgroundColor = value;
@@ -226,7 +226,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

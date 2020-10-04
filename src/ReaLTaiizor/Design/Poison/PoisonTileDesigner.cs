@@ -12,13 +12,7 @@ namespace ReaLTaiizor.Design.Poison
 
     internal class PoisonTileDesigner : ParentControlDesigner
     {
-        public override SelectionRules SelectionRules
-        {
-            get
-            {
-                return base.SelectionRules;
-            }
-        }
+        public override SelectionRules SelectionRules => base.SelectionRules;
 
         public override bool CanParent(System.Windows.Forms.Control control)
         {

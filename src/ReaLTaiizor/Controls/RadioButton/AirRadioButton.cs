@@ -101,7 +101,7 @@ namespace ReaLTaiizor.Controls
         private int _Field = 16;
         public int Field
         {
-            get { return _Field; }
+            get => _Field;
             set
             {
                 if (value < 4)
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
         private bool _Checked;
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;

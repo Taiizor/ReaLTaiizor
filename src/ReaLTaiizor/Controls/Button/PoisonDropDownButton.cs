@@ -19,24 +19,20 @@ namespace ReaLTaiizor.Controls
     public class PoisonDropDownButton : PoisonButton
     {
         #region Constants
-        const int SplitSectionWidth = 18;
+        private const int SplitSectionWidth = 18;
         #endregion
 
         #region Variables
 
-        PushButtonState _state;
-
-        static int BorderSize = SystemInformation.Border3DSize.Width * 2;
-        bool skipNextOpen;
-        Rectangle dropDownRectangle;
-        bool showSplit;
-
-        bool isSplitMenuVisible;
-
-        ContextMenuStrip m_SplitMenuStrip;
-        ContextMenu m_SplitMenu;
-
-        TextFormatFlags textFormatFlags = TextFormatFlags.Default;
+        private PushButtonState _state;
+        private static int BorderSize = SystemInformation.Border3DSize.Width * 2;
+        private bool skipNextOpen;
+        private Rectangle dropDownRectangle;
+        private bool showSplit;
+        private bool isSplitMenuVisible;
+        private ContextMenuStrip m_SplitMenuStrip;
+        private ContextMenu m_SplitMenu;
+        private TextFormatFlags textFormatFlags = TextFormatFlags.Default;
         #endregion
 
         #region Constructor
@@ -51,20 +47,14 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public override ContextMenuStrip ContextMenuStrip
         {
-            get
-            {
-                return SplitMenuStrip;
-            }
-            set
-            {
-                SplitMenuStrip = value;
-            }
+            get => SplitMenuStrip;
+            set => SplitMenuStrip = value;
         }
 
         [DefaultValue(null)]
         public ContextMenu SplitMenu
         {
-            get { return m_SplitMenu; }
+            get => m_SplitMenu;
             set
             {
                 //remove the event handlers for the old SplitMenu
@@ -87,10 +77,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(null)]
         public ContextMenuStrip SplitMenuStrip
         {
-            get
-            {
-                return m_SplitMenuStrip;
-            }
+            get => m_SplitMenuStrip;
             set
             {
                 //remove the event handlers for the old SplitMenuStrip
@@ -133,10 +120,7 @@ namespace ReaLTaiizor.Controls
 
         private PushButtonState State
         {
-            get
-            {
-                return _state;
-            }
+            get => _state;
             set
             {
                 if (!_state.Equals(value))
@@ -150,12 +134,12 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region SplitMenuStrip
-        void SplitMenuStrip_Opening(object sender, CancelEventArgs e)
+        private void SplitMenuStrip_Opening(object sender, CancelEventArgs e)
         {
             isSplitMenuVisible = true;
         }
 
-        void SplitMenuStrip_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        private void SplitMenuStrip_Closing(object sender, ToolStripDropDownClosingEventArgs e)
         {
             isSplitMenuVisible = false;
 
@@ -165,8 +149,7 @@ namespace ReaLTaiizor.Controls
                 skipNextOpen = (dropDownRectangle.Contains(PointToClient(Cursor.Position))) && MouseButtons == MouseButtons.Left;
         }
 
-
-        void SplitMenu_Popup(object sender, EventArgs e)
+        private void SplitMenu_Popup(object sender, EventArgs e)
         {
             isSplitMenuVisible = true;
         }
@@ -256,7 +239,7 @@ namespace ReaLTaiizor.Controls
                 State = PushButtonState.Normal;
         }
 
-        bool isMouseEntered;
+        private bool isMouseEntered;
 
         protected override void OnMouseEnter(EventArgs e)
         {
@@ -399,10 +382,8 @@ namespace ReaLTaiizor.Controls
         private void PaintTextandImage(Graphics g, Rectangle bounds)
         {
             // Figure out where our text and image should go
-            Rectangle text_rectangle;
-            Rectangle image_rectangle;
 
-            CalculateButtonTextAndImageLayout(ref bounds, out text_rectangle, out image_rectangle);
+            CalculateButtonTextAndImageLayout(ref bounds, out Rectangle text_rectangle, out Rectangle image_rectangle);
 
             //draw the image
             if (Image != null)

@@ -30,16 +30,16 @@ namespace ReaLTaiizor.Controls
             Cursor = Cursors.Hand;
         }
 
-        Color GTN;
-        Color GTO;
-        Color GTD;
-        Color GBN;
-        Color GBO;
-        Color GBD;
-        Color Bo;
-        Color TN;
-        Color TD;
-        Color TDO;
+        private Color GTN;
+        private Color GTO;
+        private Color GTD;
+        private Color GBN;
+        private Color GBO;
+        private Color GBD;
+        private Color Bo;
+        private Color TN;
+        private Color TD;
+        private Color TDO;
         protected override void ColorHook()
         {
             GTN = GetColor("Gradient top normal");

@@ -18,22 +18,22 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColor = Color.FromArgb(246, 246, 246);
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         private Color _CircleColor = Color.Gray;
         public Color CircleColor
         {
-            get { return _CircleColor; }
-            set { _CircleColor = value; }
+            get => _CircleColor;
+            set => _CircleColor = value;
         }
 
         private string _String = "ü";
         private string String
         {
-            get { return _String; }
-            set { _String = value; }
+            get => _String;
+            set => _String = value;
         }
 
         #endregion

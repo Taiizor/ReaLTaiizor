@@ -15,14 +15,13 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     public class MoonRadioButton : MoonControl
     {
-
-        Color BG;
-        Color FC;
+        private Color BG;
+        private Color FC;
 
         private bool _Checked;
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -35,7 +34,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedColor = Color.Gray;
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
+            get => _CheckedColor;
             set
             {
                 _CheckedColor = value;
@@ -46,7 +45,7 @@ namespace ReaLTaiizor.Controls
         private Color _HoverColor = Color.White;
         public Color HoverColor
         {
-            get { return _HoverColor; }
+            get => _HoverColor;
             set
             {
                 _HoverColor = value;
@@ -57,7 +56,7 @@ namespace ReaLTaiizor.Controls
         private Color _HoverBackColor = Color.Gray;
         public Color HoverBackColor
         {
-            get { return _HoverBackColor; }
+            get => _HoverBackColor;
             set
             {
                 _HoverBackColor = value;
@@ -68,7 +67,7 @@ namespace ReaLTaiizor.Controls
         private Color _CircleColorA = Color.White;
         public Color CircleColorA
         {
-            get { return _CircleColorA; }
+            get => _CircleColorA;
             set
             {
                 _CircleColorA = value;
@@ -79,7 +78,7 @@ namespace ReaLTaiizor.Controls
         private Color _CircleColorB = Color.LightGray;
         public Color CircleColorB
         {
-            get { return _CircleColorB; }
+            get => _CircleColorB;
             set
             {
                 _CircleColorB = value;
@@ -90,7 +89,7 @@ namespace ReaLTaiizor.Controls
         private Color _CircleColorC = Color.LightGray;
         public Color CircleColorC
         {
-            get { return _CircleColorC; }
+            get => _CircleColorC;
             set
             {
                 _CircleColorC = value;
@@ -101,7 +100,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;

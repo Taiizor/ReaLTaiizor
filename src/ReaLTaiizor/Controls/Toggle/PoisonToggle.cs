@@ -66,7 +66,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -94,8 +94,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -103,8 +103,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -112,8 +112,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -121,8 +121,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -130,8 +130,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         #endregion
@@ -143,8 +143,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool DisplayFocus
         {
-            get { return displayFocusRectangle; }
-            set { displayFocusRectangle = value; }
+            get => displayFocusRectangle;
+            set => displayFocusRectangle = value;
         }
 
         private PoisonLocalize poisonLocalize = null;
@@ -154,8 +154,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonLinkLabelSize FontSize
         {
-            get { return poisonLinkSize; }
-            set { poisonLinkSize = value; }
+            get => poisonLinkSize;
+            set => poisonLinkSize = value;
         }
 
         private PoisonLinkLabelWeight poisonLinkWeight = PoisonLinkLabelWeight.Regular;
@@ -163,8 +163,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonLinkLabelWeight FontWeight
         {
-            get { return poisonLinkWeight; }
-            set { poisonLinkWeight = value; }
+            get => poisonLinkWeight;
+            set => poisonLinkWeight = value;
         }
 
         private bool displayStatus = true;
@@ -172,34 +172,22 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool DisplayStatus
         {
-            get { return displayStatus; }
-            set { displayStatus = value; }
+            get => displayStatus;
+            set => displayStatus = value;
         }
 
         [Browsable(false)]
         public override Font Font
         {
-            get
-            {
-                return base.Font;
-            }
-            set
-            {
-                base.Font = value;
-            }
+            get => base.Font;
+            set => base.Font = value;
         }
 
         [Browsable(false)]
         public override Color ForeColor
         {
-            get
-            {
-                return base.ForeColor;
-            }
-            set
-            {
-                base.ForeColor = value;
-            }
+            get => base.ForeColor;
+            set => base.ForeColor = value;
         }
 
         [Browsable(false)]

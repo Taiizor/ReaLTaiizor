@@ -13,11 +13,10 @@ namespace ReaLTaiizor.Controls
 
     public class MoonButton : MoonControl
     {
-        Color G1;
-        Color G2;
-
-        Color BG;
-        Color FC;
+        private Color G1;
+        private Color G2;
+        private Color BG;
+        private Color FC;
 
         public MoonButton()
         {

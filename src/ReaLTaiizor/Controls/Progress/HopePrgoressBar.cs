@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
         private Style _style = Style.ToolTip;
         public Style ProgressBarStyle
         {
-            get { return _style; }
+            get => _style;
             set
             {
                 _style = value;
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
         private bool _isError = false;
         public bool IsError
         {
-            get { return _isError; }
+            get => _isError;
             set
             {
                 _isError = value;
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
         private int _valueNumber = 0;
         public int ValueNumber
         {
-            get { return _valueNumber; }
+            get => _valueNumber;
             set
             {
                 _valueNumber = value > 100 ? 100 : (value < 0 ? 0 : value);
@@ -65,43 +65,43 @@ namespace ReaLTaiizor.Controls
         private Color _DangerColor = HopeColors.Danger;
         public Color DangerColor
         {
-            get { return _DangerColor; }
-            set { _DangerColor = value; }
+            get => _DangerColor;
+            set => _DangerColor = value;
         }
 
         private Color _BaseColor = HopeColors.PrimaryColor;
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         private Color _FullBallonColor = HopeColors.Success;
         public Color FullBallonColor
         {
-            get { return _FullBallonColor; }
-            set { _FullBallonColor = value; }
+            get => _FullBallonColor;
+            set => _FullBallonColor = value;
         }
 
         private Color _FullBarColor = HopeColors.Success;
         public Color FullBarColor
         {
-            get { return _FullBarColor; }
-            set { _FullBarColor = value; }
+            get => _FullBarColor;
+            set => _FullBarColor = value;
         }
 
         private Color _BarColor = HopeColors.OneLevelBorder;
         public Color BarColor
         {
-            get { return _BarColor; }
-            set { _BarColor = value; }
+            get => _BarColor;
+            set => _BarColor = value;
         }
 
         private string _FullBallonText = "Ok!";
         public string FullBallonText
         {
-            get { return _FullBallonText; }
-            set { _FullBallonText = value; }
+            get => _FullBallonText;
+            set => _FullBallonText = value;
         }
 
         #endregion

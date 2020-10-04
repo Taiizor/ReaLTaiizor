@@ -60,36 +60,36 @@ namespace ReaLTaiizor.Controls
 
         public _Style Style
         {
-            get { return Style_; }
-            set { Style_ = value; }
+            get => Style_;
+            set => Style_ = value;
         }
 
         [Category("Colors")]
         public Color TrackColor
         {
-            get { return _TrackColor; }
-            set { _TrackColor = value; }
+            get => _TrackColor;
+            set => _TrackColor = value;
         }
 
         [Category("Colors")]
         public Color HatchColor
         {
-            get { return _HatchColor; }
-            set { _HatchColor = value; }
+            get => _HatchColor;
+            set => _HatchColor = value;
         }
 
         [Category("Colors")]
         public Color SliderColor
         {
-            get { return _SliderColor; }
-            set { _SliderColor = value; }
+            get => _SliderColor;
+            set => _SliderColor = value;
         }
 
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         public event ScrollEventHandler Scroll;
@@ -121,7 +121,7 @@ namespace ReaLTaiizor.Controls
         private int _Maximum = 10;
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 if (value < 0)
@@ -139,7 +139,7 @@ namespace ReaLTaiizor.Controls
         private int _Value;
         public int Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value == _Value)
@@ -162,8 +162,8 @@ namespace ReaLTaiizor.Controls
         private bool _ShowValue = false;
         public bool ShowValue
         {
-            get { return _ShowValue; }
-            set { _ShowValue = value; }
+            get => _ShowValue;
+            set => _ShowValue = value;
         }
 
         protected override void OnKeyDown(KeyEventArgs e)

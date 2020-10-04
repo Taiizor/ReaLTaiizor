@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
         private bool _Checked;
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -74,7 +74,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Controls
         private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get { return _CompositingQualityType; }
+            get => _CompositingQualityType;
             set
             {
                 _CompositingQualityType = value;
@@ -96,7 +96,7 @@ namespace ReaLTaiizor.Controls
         private TextRenderingHint _TextRenderingType = TextRenderingHint.AntiAliasGridFit;
         public TextRenderingHint TextRenderingType
         {
-            get { return _TextRenderingType; }
+            get => _TextRenderingType;
             set
             {
                 _TextRenderingType = value;
@@ -107,7 +107,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedColor = Color.FromArgb(40, 40, 40);
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
+            get => _CheckedColor;
             set
             {
                 _CheckedColor = value;
@@ -118,7 +118,7 @@ namespace ReaLTaiizor.Controls
         private Color _CircleBorderColor = Color.FromArgb(117, 120, 117);
         public Color CircleBorderColor
         {
-            get { return _CircleBorderColor; }
+            get => _CircleBorderColor;
             set
             {
                 _CircleBorderColor = value;
@@ -129,7 +129,7 @@ namespace ReaLTaiizor.Controls
         private Color _CircleEdgeColor = Color.WhiteSmoke;
         public Color CircleEdgeColor
         {
-            get { return _CircleEdgeColor; }
+            get => _CircleEdgeColor;
             set
             {
                 _CircleEdgeColor = value;
@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedBorderColorA = Color.FromArgb(203, 201, 205);
         public Color CheckedBorderColorA
         {
-            get { return _CheckedBorderColorA; }
+            get => _CheckedBorderColorA;
             set
             {
                 _CheckedBorderColorA = value;
@@ -151,7 +151,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedBorderColorB = Color.FromArgb(188, 186, 190);
         public Color CheckedBorderColorB
         {
-            get { return _CheckedBorderColorB; }
+            get => _CheckedBorderColorB;
             set
             {
                 _CheckedBorderColorB = value;

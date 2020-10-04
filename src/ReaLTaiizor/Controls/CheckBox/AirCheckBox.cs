@@ -33,15 +33,14 @@ namespace ReaLTaiizor.Controls
         }
 
         private int X;
-
-        Color GTN;
-        Color GTO;
-        Color GTD;
-        Color GBN;
-        Color GBO;
-        Color GBD;
-        Color Bo;
-        Color T;
+        private Color GTN;
+        private Color GTO;
+        private Color GTD;
+        private Color GBN;
+        private Color GBO;
+        private Color GBD;
+        private Color Bo;
+        private Color T;
 
         protected override void ColorHook()
         {
@@ -100,7 +99,7 @@ namespace ReaLTaiizor.Controls
         private bool _Checked;
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;

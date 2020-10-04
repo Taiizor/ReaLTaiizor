@@ -39,9 +39,9 @@ namespace ReaLTaiizor.Util
         private int _index;
         private string _tabpage;
 
-        public int index { get { return _index; } }
+        public int index => _index;
 
-        public string tabpage { get { return _tabpage; } }
+        public string tabpage => _tabpage;
     }
     #endregion HiddenTabClass
 
@@ -72,14 +72,8 @@ namespace ReaLTaiizor.Util
         private SortModifiersType mySortModifier = SortModifiersType.SortByText;
         public SortModifiersType _SortModifier
         {
-            set
-            {
-                mySortModifier = value;
-            }
-            get
-            {
-                return mySortModifier;
-            }
+            set => mySortModifier = value;
+            get => mySortModifier;
         }
 
         public ListViewColumnSorter()
@@ -100,10 +94,8 @@ namespace ReaLTaiizor.Util
             listviewX = (ListViewItem)x;
             listviewY = (ListViewItem)y;
 
-            DateTime dateX;
-            DateTime dateY;
 
-            if (DateTime.TryParse(listviewX.SubItems[ColumnToSort].Text, out dateX) && DateTime.TryParse(listviewY.SubItems[ColumnToSort].Text, out dateY))
+            if (DateTime.TryParse(listviewX.SubItems[ColumnToSort].Text, out DateTime dateX) && DateTime.TryParse(listviewY.SubItems[ColumnToSort].Text, out DateTime dateY))
                 compareResult = ObjectCompare.Compare(dateX, dateY);
             else
                 compareResult = ObjectCompare.Compare(listviewX.SubItems[ColumnToSort].Text, listviewY.SubItems[ColumnToSort].Text);
@@ -128,26 +120,14 @@ namespace ReaLTaiizor.Util
 
         public int SortColumn
         {
-            set
-            {
-                ColumnToSort = value;
-            }
-            get
-            {
-                return ColumnToSort;
-            }
+            set => ColumnToSort = value;
+            get => ColumnToSort;
         }
 
         public SortOrder Order
         {
-            set
-            {
-                OrderOfSort = value;
-            }
-            get
-            {
-                return OrderOfSort;
-            }
+            set => OrderOfSort = value;
+            get => OrderOfSort;
         }
     }
 

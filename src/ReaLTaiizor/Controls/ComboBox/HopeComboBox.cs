@@ -32,10 +32,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [DllImport("user32.dll")]
-        static extern IntPtr GetWindowDC(IntPtr hWnd);
+        private static extern IntPtr GetWindowDC(IntPtr hWnd);
 
         [DllImport("user32.dll")]
-        static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
+        private static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
         protected override void WndProc(ref Message m)
         {

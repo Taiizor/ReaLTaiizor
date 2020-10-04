@@ -38,15 +38,15 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public _Options Options
         {
-            get { return O; }
-            set { O = value; }
+            get => O;
+            set => O = value;
         }
 
         [Category("Options")]
         public bool Checked
         {
-            get { return _Checked; }
-            set { _Checked = value; }
+            get => _Checked;
+            set => _Checked = value;
         }
 
         protected override void OnTextChanged(EventArgs e)
@@ -105,36 +105,36 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Options")]
         public Color BaseColorRed
         {
-            get { return _BaseColorRed; }
-            set { _BaseColorRed = value; }
+            get => _BaseColorRed;
+            set => _BaseColorRed = value;
         }
 
         [Category("Options")]
         public Color BGColor
         {
-            get { return _BGColor; }
-            set { _BGColor = value; }
+            get => _BGColor;
+            set => _BGColor = value;
         }
 
         [Category("Options")]
         public Color ToggleColor
         {
-            get { return _ToggleColor; }
-            set { _ToggleColor = value; }
+            get => _ToggleColor;
+            set => _ToggleColor = value;
         }
 
         [Category("Options")]
         public Color TextColor
         {
-            get { return _TextColor; }
-            set { _TextColor = value; }
+            get => _TextColor;
+            set => _TextColor = value;
         }
 
         public ForeverToggle()

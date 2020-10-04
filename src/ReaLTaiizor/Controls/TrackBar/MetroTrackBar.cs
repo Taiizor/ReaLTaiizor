@@ -270,7 +270,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description(" Gets or sets the value color in normal mouse sate.")]
         public Color ValueColor
         {
-            get { return _valueColor; }
+            get => _valueColor;
             set
             {
                 _valueColor = value;
@@ -281,7 +281,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the handler color.")]
         public Color HandlerColor
         {
-            get { return _handlerColor; }
+            get => _handlerColor;
             set
             {
                 _handlerColor = value;
@@ -293,7 +293,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get { return _backgroundColor; }
+            get => _backgroundColor;
             set
             {
                 _backgroundColor = value;
@@ -304,7 +304,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the value of the control whenever while disabled.")]
         public Color DisabledValueColor
         {
-            get { return _disabledValueColor; }
+            get => _disabledValueColor;
             set
             {
                 _disabledValueColor = value;
@@ -315,7 +315,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
         public Color DisabledBackColor
         {
-            get { return _disabledBackColor; }
+            get => _disabledBackColor;
             set
             {
                 _disabledBackColor = value;
@@ -326,7 +326,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get { return _disabledBorderColor; }
+            get => _disabledBorderColor;
             set
             {
                 _disabledBorderColor = value;
@@ -337,7 +337,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the handler color while the control disabled.")]
         public Color DisabledHandlerColor
         {
-            get { return _disabledHandlerColor; }
+            get => _disabledHandlerColor;
             set
             {
                 _disabledHandlerColor = value;
@@ -350,7 +350,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

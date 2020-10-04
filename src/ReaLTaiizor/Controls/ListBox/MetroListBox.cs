@@ -342,7 +342,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the height of an item in the ListBox.")]
         public int ItemHeight
         {
-            get { return _itemHeight; }
+            get => _itemHeight;
             set
             {
                 _itemHeight = value;
@@ -428,7 +428,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets a value indicating whether the border shown or not.")]
         public bool ShowBorder
         {
-            get { return _showBorder; }
+            get => _showBorder;
             set
             {
                 _showBorder = value;
@@ -449,7 +449,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets selected item used by the control.")]
         public Color SelectedItemColor
         {
-            get { return _selectedItemColor; }
+            get => _selectedItemColor;
             set
             {
                 _selectedItemColor = value;
@@ -460,7 +460,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets selected item backcolor used by the control.")]
         public Color SelectedItemBackColor
         {
-            get { return _selectedItemBackColor; }
+            get => _selectedItemBackColor;
             set
             {
                 _selectedItemBackColor = value;
@@ -471,7 +471,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets hovered item used by the control.")]
         public Color HoveredItemColor
         {
-            get { return _hoveredItemColor; }
+            get => _hoveredItemColor;
             set
             {
                 _hoveredItemColor = value;
@@ -482,7 +482,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets hovered item backcolor used by the control.")]
         public Color HoveredItemBackColor
         {
-            get { return _hoveredItemBackColor; }
+            get => _hoveredItemBackColor;
             set
             {
                 _hoveredItemBackColor = value;
@@ -493,7 +493,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled forecolor used by the control.")]
         public Color DisabledForeColor
         {
-            get { return _disabledForeColor; }
+            get => _disabledForeColor;
             set
             {
                 _disabledForeColor = value;
@@ -504,7 +504,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
         public Color DisabledBackColor
         {
-            get { return _disabledBackColor; }
+            get => _disabledBackColor;
             set
             {
                 _disabledBackColor = value;
@@ -515,7 +515,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets border color used by the control.")]
         public Color BorderColor
         {
-            get { return _borderColor; }
+            get => _borderColor;
             set
             {
                 _borderColor = value;
@@ -528,7 +528,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

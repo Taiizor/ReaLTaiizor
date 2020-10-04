@@ -210,7 +210,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(true)]
         public bool UseAnimation
         {
-            get { return _useAnimation; }
+            get => _useAnimation;
             set
             {
                 _useAnimation = value;
@@ -239,7 +239,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(20)]
         public int Speed
         {
-            get { return _speed; }
+            get => _speed;
             set
             {
                 _speed = value;
@@ -270,7 +270,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the tabpage text while un-selected.")]
         public Color UnselectedTextColor
         {
-            get { return _unselectedTextColor; }
+            get => _unselectedTextColor;
             set
             {
                 _unselectedTextColor = value;
@@ -281,7 +281,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the tabpage text while selected.")]
         public Color SelectedTextColor
         {
-            get { return _selectedTextColor; }
+            get => _selectedTextColor;
             set
             {
                 _selectedTextColor = value;
@@ -293,7 +293,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(TabStyle.Style1)]
         public TabStyle TabStyle
         {
-            get { return _tabStyle; }
+            get => _tabStyle;
             set
             {
                 _tabStyle = value;
@@ -306,7 +306,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

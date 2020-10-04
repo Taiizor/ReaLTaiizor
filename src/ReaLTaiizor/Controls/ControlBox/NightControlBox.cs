@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         [Description("Determines whether the control should enable the use of the maximize button.")]
         public bool EnableMaximizeButton
         {
-            get { return _EnableMaximize; }
+            get => _EnableMaximize;
             set
             {
                 _EnableMaximize = value;
@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
         [Description("Determines whether the control should enable the use of the minimize button.")]
         public bool EnableMinimizeButton
         {
-            get { return _EnableMinimize; }
+            get => _EnableMinimize;
             set
             {
                 _EnableMinimize = value;
@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Controls
         [Description("ControlBox set location to default.")]
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
         [Description("Enabled is Minimize ForeColor.")]
         public Color EnableMinimizeColor
         {
-            get { return _EnableMinimizeColor; }
+            get => _EnableMinimizeColor;
             set
             {
                 _EnableMinimizeColor = value;
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
         [Description("Disabled is Minimize ForeColor.")]
         public Color DisableMinimizeColor
         {
-            get { return _DisableMinimizeColor; }
+            get => _DisableMinimizeColor;
             set
             {
                 _DisableMinimizeColor = value;
@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
         [Description("Minimize is HoverColor.")]
         public Color MinimizeHoverColor
         {
-            get { return _MinimizeHoverColor; }
+            get => _MinimizeHoverColor;
             set
             {
                 _MinimizeHoverColor = value;
@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
         [Description("Minimize is HoverForeColor.")]
         public Color MinimizeHoverForeColor
         {
-            get { return _MinimizeHoverForeColor; }
+            get => _MinimizeHoverForeColor;
             set
             {
                 _MinimizeHoverForeColor = value;
@@ -117,7 +117,7 @@ namespace ReaLTaiizor.Controls
         [Description("Enabled is Maximize ForeColor.")]
         public Color EnableMaximizeColor
         {
-            get { return _EnableMaximizeColor; }
+            get => _EnableMaximizeColor;
             set
             {
                 _EnableMaximizeColor = value;
@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Controls
         [Description("Disabled is Maximize ForeColor.")]
         public Color DisableMaximizeColor
         {
-            get { return _DisableMaximizeColor; }
+            get => _DisableMaximizeColor;
             set
             {
                 _DisableMaximizeColor = value;
@@ -143,7 +143,7 @@ namespace ReaLTaiizor.Controls
         [Description("Maximize is HoverColor.")]
         public Color MaximizeHoverColor
         {
-            get { return _MaximizeHoverColor; }
+            get => _MaximizeHoverColor;
             set
             {
                 _MaximizeHoverColor = value;
@@ -156,7 +156,7 @@ namespace ReaLTaiizor.Controls
         [Description("Maximize is HoverForeColor.")]
         public Color MaximizeHoverForeColor
         {
-            get { return _MaximizeHoverForeColor; }
+            get => _MaximizeHoverForeColor;
             set
             {
                 _MaximizeHoverForeColor = value;
@@ -169,7 +169,7 @@ namespace ReaLTaiizor.Controls
         [Description("Enabled is Close ForeColor.")]
         public Color EnableCloseColor
         {
-            get { return _EnableCloseColor; }
+            get => _EnableCloseColor;
             set
             {
                 _EnableCloseColor = value;
@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Controls
         [Description("Close is HoverColor.")]
         public Color CloseHoverColor
         {
-            get { return _CloseHoverColor; }
+            get => _CloseHoverColor;
             set
             {
                 _CloseHoverColor = value;
@@ -195,7 +195,7 @@ namespace ReaLTaiizor.Controls
         [Description("Close is HoverForeColor.")]
         public Color CloseHoverForeColor
         {
-            get { return _CloseHoverForeColor; }
+            get => _CloseHoverForeColor;
             set
             {
                 _CloseHoverForeColor = value;

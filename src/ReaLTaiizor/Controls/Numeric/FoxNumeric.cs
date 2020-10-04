@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
         private int _Value;
         public int Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value > _Max)
@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
         private int _Max = 100;
         public int Max
         {
-            get { return _Max; }
+            get => _Max;
             set
             {
                 if (value == _Min || value < _Min)
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Controls
         private int _Min = 0;
         public int Min
         {
-            get { return _Min; }
+            get => _Min;
             set
             {
                 if (value > _Max || value == _Max)
@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool Enabled
         {
-            get { return EnabledCalc; }
+            get => EnabledCalc;
             set
             {
                 IsEnabled = value;
@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("Enabled")]
         public bool EnabledCalc
         {
-            get { return IsEnabled; }
+            get => IsEnabled;
             set
             {
                 Enabled = value;
@@ -97,36 +97,36 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColor = FoxLibrary.ColorFromHex("#C8C8C8");
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         private Color _DisabledBorderColor = FoxLibrary.ColorFromHex("#E6E6E6");
         public Color DisabledBorderColor
         {
-            get { return _DisabledBorderColor; }
-            set { _DisabledBorderColor = value; }
+            get => _DisabledBorderColor;
+            set => _DisabledBorderColor = value;
         }
 
         private Color _ButtonTextColor = FoxLibrary.ColorFromHex("#56626E");
         public Color ButtonTextColor
         {
-            get { return _ButtonTextColor; }
-            set { _ButtonTextColor = value; }
+            get => _ButtonTextColor;
+            set => _ButtonTextColor = value;
         }
 
         private Color _DisabledTextColor = FoxLibrary.ColorFromHex("#A6B2BE");
         public Color DisabledTextColor
         {
-            get { return _DisabledTextColor; }
-            set { _DisabledTextColor = value; }
+            get => _DisabledTextColor;
+            set => _DisabledTextColor = value;
         }
 
         private Color _DisabledButtonTextColor = FoxLibrary.ColorFromHex("#BAC6D2");
         public Color DisabledButtonTextColor
         {
-            get { return _DisabledButtonTextColor; }
-            set { _DisabledButtonTextColor = value; }
+            get => _DisabledButtonTextColor;
+            set => _DisabledButtonTextColor = value;
         }
 
         public FoxNumeric()

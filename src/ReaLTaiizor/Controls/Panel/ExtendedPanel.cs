@@ -13,8 +13,7 @@ namespace ReaLTaiizor.Controls
     public class ExtendedPanel : System.Windows.Forms.Panel
     {
         private const int WS_EX_TRANSPARENT = 0x20;
-
-        readonly Timer Most = new Timer()
+        private readonly Timer Most = new Timer()
         {
             Interval = 100
         };
@@ -29,7 +28,7 @@ namespace ReaLTaiizor.Controls
         private Drawer _DrawMode = Drawer.Default;
         public Drawer DrawMode
         {
-            get { return _DrawMode; }
+            get => _DrawMode;
             set
             {
                 if (value == Drawer.Image)
@@ -53,7 +52,7 @@ namespace ReaLTaiizor.Controls
         private bool _TopMost = true;
         public bool TopMost
         {
-            get { return _TopMost; }
+            get => _TopMost;
             set
             {
                 _TopMost = value;
@@ -64,10 +63,7 @@ namespace ReaLTaiizor.Controls
         private int _Opacity = 50;
         public int Opacity
         {
-            get
-            {
-                return _Opacity;
-            }
+            get => _Opacity;
             set
             {
                 if (value < 0 || value > 100)
@@ -79,10 +75,7 @@ namespace ReaLTaiizor.Controls
 
         public int MostInterval
         {
-            get
-            {
-                return Most.Interval;
-            }
+            get => Most.Interval;
             set
             {
                 Most.Interval = value;

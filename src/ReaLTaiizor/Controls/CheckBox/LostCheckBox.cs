@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
         private Color _checkedcolor = ThemeLost.FontBrush.Color;
         public bool Checked
         {
-            get { return _checked; }
+            get => _checked;
             set
             {
                 _checked = value;
@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Controls
         }
         public Color CheckedColor
         {
-            get { return _checkedcolor; }
+            get => _checkedcolor;
             set
             {
                 _checkedcolor = value;

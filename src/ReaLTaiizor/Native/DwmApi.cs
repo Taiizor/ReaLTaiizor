@@ -70,20 +70,11 @@ namespace ReaLTaiizor.Native
                 return new Rectangle(left, top, right - left, bottom - top);
             }
 
-            public int Height
-            {
-                get { return (bottom - top); }
-            }
+            public int Height => (bottom - top);
 
-            public Size Size
-            {
-                get { return new Size(Width, Height); }
-            }
+            public Size Size => new Size(Width, Height);
 
-            public int Width
-            {
-                get { return (right - left); }
-            }
+            public int Width => (right - left);
             private static T InlineAssignHelper<T>(ref T target, T value)
             {
                 target = value;

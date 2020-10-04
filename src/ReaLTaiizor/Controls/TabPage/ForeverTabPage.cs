@@ -29,36 +29,36 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color BGColor
         {
-            get { return _BGColor; }
-            set { _BGColor = value; }
+            get => _BGColor;
+            set => _BGColor = value;
         }
 
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Colors")]
         public Color ActiveColor
         {
-            get { return _ActiveColor; }
-            set { _ActiveColor = value; }
+            get => _ActiveColor;
+            set => _ActiveColor = value;
         }
 
         [Category("Colors")]
         public Color ActiveFontColor
         {
-            get { return _ActiveFontColor; }
-            set { _ActiveFontColor = value; }
+            get => _ActiveFontColor;
+            set => _ActiveFontColor = value;
         }
 
         [Category("Colors")]
         public Color DeactiveFontColor
         {
-            get { return _DeactiveFontColor; }
-            set { _DeactiveFontColor = value; }
+            get => _DeactiveFontColor;
+            set => _DeactiveFontColor = value;
         }
 
         private Color _BGColor = Color.FromArgb(60, 70, 73);

@@ -36,50 +36,47 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Colors")]
         public Color TextColor
         {
-            get { return _TextColor; }
-            set { _TextColor = value; }
+            get => _TextColor;
+            set => _TextColor = value;
         }
 
         [Category("Colors")]
         public Color TimeColor
         {
-            get { return _TimeColor; }
-            set { _TimeColor = value; }
+            get => _TimeColor;
+            set => _TimeColor = value;
         }
 
         [Category("Colors")]
         public Color RectColor
         {
-            get { return _RectColor; }
-            set { _RectColor = value; }
+            get => _RectColor;
+            set => _RectColor = value;
         }
 
         [Category("Options")]
         public bool ShowTimeDate
         {
-            get { return _ShowTimeDate; }
-            set { _ShowTimeDate = value; }
+            get => _ShowTimeDate;
+            set => _ShowTimeDate = value;
         }
 
         [Category("Options")]
         public string TimeFormat
         {
-            get { return _TimeFormat; }
-            set { _TimeFormat = value; }
+            get => _TimeFormat;
+            set => _TimeFormat = value;
         }
 
         [Category("Options")]
-        public string TimeFormatDefault
-        {
-            get { return "dd.MM.yyyy - HH:mm:ss"; }
-        }
+        public string TimeFormatDefault => "dd.MM.yyyy - HH:mm:ss";
 
         public string GetTimeFormat(string TF)
         {

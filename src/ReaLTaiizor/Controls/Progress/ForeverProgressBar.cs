@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         [Category("Control")]
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 if (value < _Value)
@@ -41,10 +41,7 @@ namespace ReaLTaiizor.Controls
         [Category("Control")]
         public int Value
         {
-            get
-            {
-                return _Value;
-                /*
+            get => _Value;/*
 				switch (_Value)
 				{
 					case 0:
@@ -57,7 +54,6 @@ namespace ReaLTaiizor.Controls
 						break;
 				}
 				*/
-            }
             set
             {
                 if (value > _Maximum)
@@ -73,34 +69,34 @@ namespace ReaLTaiizor.Controls
 
         public bool Pattern
         {
-            get { return _Pattern; }
-            set { _Pattern = value; }
+            get => _Pattern;
+            set => _Pattern = value;
         }
 
         public bool ShowBalloon
         {
-            get { return _ShowBalloon; }
-            set { _ShowBalloon = value; }
+            get => _ShowBalloon;
+            set => _ShowBalloon = value;
         }
 
         public bool PercentSign
         {
-            get { return _PercentSign; }
-            set { _PercentSign = value; }
+            get => _PercentSign;
+            set => _PercentSign = value;
         }
 
         [Category("Colors")]
         public Color ProgressColor
         {
-            get { return _ProgressColor; }
-            set { _ProgressColor = value; }
+            get => _ProgressColor;
+            set => _ProgressColor = value;
         }
 
         [Category("Colors")]
         public Color DarkerProgress
         {
-            get { return _DarkerProgress; }
-            set { _DarkerProgress = value; }
+            get => _DarkerProgress;
+            set => _DarkerProgress = value;
         }
 
         protected override void OnResize(EventArgs e)

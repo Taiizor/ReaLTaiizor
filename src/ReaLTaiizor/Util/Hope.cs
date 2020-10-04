@@ -15,23 +15,23 @@ namespace ReaLTaiizor.Util
 
     public static class HopeStringAlign
     {
-        public static StringFormat TopLeft { get => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near }; }
+        public static StringFormat TopLeft => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
 
-        public static StringFormat TopCenter { get => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near }; }
+        public static StringFormat TopCenter => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near };
 
-        public static StringFormat TopRight { get => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Near }; }
+        public static StringFormat TopRight => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Near };
 
-        public static StringFormat Left { get => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center }; }
+        public static StringFormat Left => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
 
-        public static StringFormat Center { get => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center }; }
+        public static StringFormat Center => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
-        public static StringFormat Right { get => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center }; }
+        public static StringFormat Right => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center };
 
-        public static StringFormat BottomLeft { get => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Far }; }
+        public static StringFormat BottomLeft => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Far };
 
-        public static StringFormat BottomCenter { get => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far }; }
+        public static StringFormat BottomCenter => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far };
 
-        public static StringFormat BottomRight { get => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far }; }
+        public static StringFormat BottomRight => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far };
     }
 
     public enum HopeButtonType

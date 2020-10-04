@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue(true), Description("Using a larger size enables the hint to always be visible")]
         public bool UseTallSize
         {
-            get { return _UseTallSize; }
+            get => _UseTallSize;
             set
             {
                 _UseTallSize = value;
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue("")]
         public string Hint
         {
-            get { return _hint; }
+            get => _hint;
             set
             {
                 _hint = value;

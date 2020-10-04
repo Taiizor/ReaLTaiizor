@@ -30,8 +30,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool DisplayFocus
         {
-            get { return displayFocusRectangle; }
-            set { displayFocusRectangle = value; }
+            get => displayFocusRectangle;
+            set => displayFocusRectangle = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -113,8 +113,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -122,8 +122,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -131,8 +131,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
+            get => useStyleColors;
             set
             {
                 useStyleColors = value;
@@ -154,16 +154,16 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         private Image _image = null;
         [DefaultValue(null)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public virtual new Image Image
+        public new virtual Image Image
         {
-            get { return _image; }
+            get => _image;
             set
             {
                 _image = value;
@@ -177,18 +177,17 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Image NoFocusImage
         {
-            get { return _nofocus; }
-            set { _nofocus = value; }
+            get => _nofocus;
+            set => _nofocus = value;
         }
 
-
-        Int32 _imagesize = 16;
+        private Int32 _imagesize = 16;
 
         [DefaultValue(16)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Int32 ImageSize
         {
-            get { return _imagesize; }
+            get => _imagesize;
             set
             {
                 _imagesize = value;
@@ -198,10 +197,7 @@ namespace ReaLTaiizor.Controls
 
         public override string Text
         {
-            get
-            {
-                return base.Text;
-            }
+            get => base.Text;
             set
             {
                 base.Text = value;
@@ -223,7 +219,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonLinkLabelSize FontSize
         {
-            get { return poisonLinkSize; }
+            get => poisonLinkSize;
             set
             {
                 poisonLinkSize = value;
@@ -237,7 +233,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonLinkLabelWeight FontWeight
         {
-            get { return poisonLinkWeight; }
+            get => poisonLinkWeight;
             set
             {
                 poisonLinkWeight = value;
@@ -249,14 +245,8 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public override Font Font
         {
-            get
-            {
-                return base.Font;
-            }
-            set
-            {
-                base.Font = value;
-            }
+            get => base.Font;
+            set => base.Font = value;
         }
 
         private bool isHovered = false;
@@ -323,7 +313,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        Color foreColor;
+        private Color foreColor;
 
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
@@ -420,10 +410,10 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        Image _lightlightimg = null;
-        Image _darklightimg = null;
-        Image _lightimg = null;
-        Image _darkimg = null;
+        private Image _lightlightimg = null;
+        private Image _darklightimg = null;
+        private Image _lightimg = null;
+        private Image _darkimg = null;
 
         private void createimages()
         {

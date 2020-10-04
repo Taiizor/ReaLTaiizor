@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Controls
 
         public long Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value > _Maximum)
@@ -49,7 +49,7 @@ namespace ReaLTaiizor.Controls
 
         public long Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 if (value < 1)
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Controls
 
         public Color PercentColor
         {
-            get { return _PercentColor; }
+            get => _PercentColor;
             set
             {
                 _PercentColor = value;
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ProgressColor1
         {
-            get { return _ProgressColor1; }
+            get => _ProgressColor1;
             set
             {
                 _ProgressColor1 = value;
@@ -81,7 +81,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ProgressColor2
         {
-            get { return _ProgressColor2; }
+            get => _ProgressColor2;
             set
             {
                 _ProgressColor2 = value;
@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
 
         public _ProgressShape ProgressShape
         {
-            get { return ProgressShapeVal; }
+            get => ProgressShapeVal;
             set
             {
                 ProgressShapeVal = value;

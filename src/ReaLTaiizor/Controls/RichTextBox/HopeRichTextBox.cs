@@ -40,33 +40,33 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color HoverBorderColor
         {
-            get { return _HoverBorderColor; }
-            set { _HoverBorderColor = value; }
+            get => _HoverBorderColor;
+            set => _HoverBorderColor = value;
         }
 
-        public override string Text { get { return _baseTextBox.Text; } set { _baseTextBox.Text = value; } }
-        public new object Tag { get { return _baseTextBox.Tag; } set { _baseTextBox.Tag = value; } }
-        public int MaxLength { get { return _baseTextBox.MaxLength; } set { _baseTextBox.MaxLength = value; } }
+        public override string Text { get => _baseTextBox.Text; set => _baseTextBox.Text = value; }
+        public new object Tag { get => _baseTextBox.Tag; set => _baseTextBox.Tag = value; }
+        public int MaxLength { get => _baseTextBox.MaxLength; set => _baseTextBox.MaxLength = value; }
 
-        public string SelectedText { get { return _baseTextBox.SelectedText; } set { _baseTextBox.SelectedText = value; } }
-        public string Hint { get { return _baseTextBox.Hint; } set { _baseTextBox.Hint = value; } }
+        public string SelectedText { get => _baseTextBox.SelectedText; set => _baseTextBox.SelectedText = value; }
+        public string Hint { get => _baseTextBox.Hint; set => _baseTextBox.Hint = value; }
 
-        public int SelectionStart { get { return _baseTextBox.SelectionStart; } set { _baseTextBox.SelectionStart = value; } }
-        public int SelectionLength { get { return _baseTextBox.SelectionLength; } set { _baseTextBox.SelectionLength = value; } }
+        public int SelectionStart { get => _baseTextBox.SelectionStart; set => _baseTextBox.SelectionStart = value; }
+        public int SelectionLength { get => _baseTextBox.SelectionLength; set => _baseTextBox.SelectionLength = value; }
         public int TextLength => _baseTextBox.TextLength;
 
-        public bool UseSystemPasswordChar { get { return _baseTextBox.UseSystemPasswordChar; } set { _baseTextBox.UseSystemPasswordChar = value; } }
-        public char PasswordChar { get { return _baseTextBox.PasswordChar; } set { _baseTextBox.PasswordChar = value; } }
+        public bool UseSystemPasswordChar { get => _baseTextBox.UseSystemPasswordChar; set => _baseTextBox.UseSystemPasswordChar = value; }
+        public char PasswordChar { get => _baseTextBox.PasswordChar; set => _baseTextBox.PasswordChar = value; }
 
-        public bool Multiline { get { return _baseTextBox.Multiline; } set { _baseTextBox.Multiline = value; } }
+        public bool Multiline { get => _baseTextBox.Multiline; set => _baseTextBox.Multiline = value; }
 
-        public ScrollBars ScrollBars { get { return _baseTextBox.ScrollBars; } set { _baseTextBox.ScrollBars = value; } }
+        public ScrollBars ScrollBars { get => _baseTextBox.ScrollBars; set => _baseTextBox.ScrollBars = value; }
 
         public void SelectAll() { _baseTextBox.SelectAll(); }
         public void Clear() { _baseTextBox.Clear(); }
@@ -1096,7 +1096,7 @@ namespace ReaLTaiizor.Controls
             private string hint = string.Empty;
             public string Hint
             {
-                get { return hint; }
+                get => hint;
                 set
                 {
                     hint = value;
@@ -1107,7 +1107,7 @@ namespace ReaLTaiizor.Controls
             private char _passwordChar = EmptyChar;
             public new char PasswordChar
             {
-                get { return _passwordChar; }
+                get => _passwordChar;
                 set
                 {
                     _passwordChar = value;
@@ -1135,7 +1135,7 @@ namespace ReaLTaiizor.Controls
             private char _useSystemPasswordChar = EmptyChar;
             public new bool UseSystemPasswordChar
             {
-                get { return _useSystemPasswordChar != EmptyChar; }
+                get => _useSystemPasswordChar != EmptyChar;
                 set
                 {
                     if (value)

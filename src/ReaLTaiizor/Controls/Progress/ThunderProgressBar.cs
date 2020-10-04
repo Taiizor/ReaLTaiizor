@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 _Maximum = value;
@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Controls
         private bool _ShowPercentage = false;
         public bool ShowPercentage
         {
-            get { return _ShowPercentage; }
+            get => _ShowPercentage;
             set
             {
                 _ShowPercentage = value;

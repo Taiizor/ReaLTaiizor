@@ -24,10 +24,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -40,13 +37,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        protected Size ImageSize
-        {
-            get
-            {
-                return _ImageSize;
-            }
-        }
+        protected Size ImageSize => _ImageSize;
 
         #endregion
         #region EventArgs

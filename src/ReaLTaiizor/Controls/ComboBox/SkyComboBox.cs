@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
         private int _StartIndex = 0;
         public int StartIndex
         {
-            get { return _StartIndex; }
+            get => _StartIndex;
             set
             {
                 _StartIndex = value;
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
         private Color _highlightColor = Color.FromArgb(121, 176, 214);
         public Color ItemHighlightColor
         {
-            get { return _highlightColor; }
+            get => _highlightColor;
             set
             {
                 _highlightColor = value;

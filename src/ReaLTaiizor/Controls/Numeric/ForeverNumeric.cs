@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Controls
 
         public long Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value <= _Max & value >= _Min)
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
 
         public long Maximum
         {
-            get { return _Max; }
+            get => _Max;
             set
             {
                 if (value > _Min)
@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Controls
 
         public long Minimum
         {
-            get { return _Min; }
+            get => _Min;
             set
             {
                 if (value < _Max)
@@ -132,29 +132,29 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Colors")]
         public Color ButtonColorA
         {
-            get { return _ButtonColorA; }
-            set { _ButtonColorA = value; }
+            get => _ButtonColorA;
+            set => _ButtonColorA = value;
         }
 
         [Category("Colors")]
         public Color ButtonColorB
         {
-            get { return _ButtonColorB; }
-            set { _ButtonColorB = value; }
+            get => _ButtonColorB;
+            set => _ButtonColorB = value;
         }
 
         [Category("Colors")]
         public Color ButtonColorC
         {
-            get { return _ButtonColorC; }
-            set { _ButtonColorC = value; }
+            get => _ButtonColorC;
+            set => _ButtonColorC = value;
         }
 
         private Color _BaseColor = Color.FromArgb(45, 47, 49);

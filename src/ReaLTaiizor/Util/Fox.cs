@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Util
             private bool IsChecked;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
@@ -147,7 +147,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -157,7 +157,7 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get { return IsChecked; }
+                get => IsChecked;
                 set
                 {
                     IsChecked = value;
@@ -220,7 +220,7 @@ namespace ReaLTaiizor.Util
             private bool IsChecked;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
@@ -237,7 +237,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -247,7 +247,7 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get { return IsChecked; }
+                get => IsChecked;
                 set
                 {
                     IsChecked = value;
@@ -312,7 +312,7 @@ namespace ReaLTaiizor.Util
             private bool IsChecked;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
@@ -329,7 +329,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -339,7 +339,7 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get { return IsChecked; }
+                get => IsChecked;
                 set
                 {
                     IsChecked = value;
@@ -416,7 +416,7 @@ namespace ReaLTaiizor.Util
             private bool IsEnabled;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
@@ -433,7 +433,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -492,7 +492,7 @@ namespace ReaLTaiizor.Util
             private bool IsEnabled;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
@@ -509,7 +509,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -568,7 +568,7 @@ namespace ReaLTaiizor.Util
             private bool IsEnabled;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
@@ -585,7 +585,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;

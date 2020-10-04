@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Controls
 
         public long Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value <= _Max & value >= _Min)
@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
 
         public long Maximum
         {
-            get { return _Max; }
+            get => _Max;
             set
             {
                 if (value > _Min)
@@ -49,7 +49,7 @@ namespace ReaLTaiizor.Controls
 
         public long Minimum
         {
-            get { return _Min; }
+            get => _Min;
             set
             {
                 if (value < _Max)

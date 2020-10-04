@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Util
             InvalidateCustimization();
         }
 
-        protected override sealed void OnHandleCreated(EventArgs e)
+        protected sealed override void OnHandleCreated(EventArgs e)
         {
             if (DoneCreation)
                 InitializeMessages();
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Util
         }
 
         private bool DoneCreation;
-        protected override sealed void OnParentChanged(EventArgs e)
+        protected sealed override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
 
@@ -103,7 +103,7 @@ namespace ReaLTaiizor.Util
                 Invalidate();
         }
 
-        protected override sealed void OnPaint(PaintEventArgs e)
+        protected sealed override void OnPaint(PaintEventArgs e)
         {
             if (Width == 0 || Height == 0)
                 return;
@@ -145,7 +145,7 @@ namespace ReaLTaiizor.Util
         #region " Size Handling "
 
         private Rectangle Frame;
-        protected override sealed void OnSizeChanged(EventArgs e)
+        protected sealed override void OnSizeChanged(EventArgs e)
         {
             if (_Movable && !_ControlMode)
             {
@@ -379,7 +379,7 @@ namespace ReaLTaiizor.Util
 
         public override DockStyle Dock
         {
-            get { return base.Dock; }
+            get => base.Dock;
             set
             {
                 if (!_ControlMode)
@@ -392,7 +392,7 @@ namespace ReaLTaiizor.Util
         [Category("Misc")]
         public override Color BackColor
         {
-            get { return base.BackColor; }
+            get => base.BackColor;
             set
             {
                 if (value == base.BackColor)
@@ -416,7 +416,7 @@ namespace ReaLTaiizor.Util
 
         public override Size MinimumSize
         {
-            get { return base.MinimumSize; }
+            get => base.MinimumSize;
             set
             {
                 base.MinimumSize = value;
@@ -427,7 +427,7 @@ namespace ReaLTaiizor.Util
 
         public override Size MaximumSize
         {
-            get { return base.MaximumSize; }
+            get => base.MaximumSize;
             set
             {
                 base.MaximumSize = value;
@@ -438,7 +438,7 @@ namespace ReaLTaiizor.Util
 
         public override string Text
         {
-            get { return base.Text; }
+            get => base.Text;
             set
             {
                 base.Text = value;
@@ -448,7 +448,7 @@ namespace ReaLTaiizor.Util
 
         public override Font Font
         {
-            get { return base.Font; }
+            get => base.Font;
             set
             {
                 base.Font = value;
@@ -459,19 +459,19 @@ namespace ReaLTaiizor.Util
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Color ForeColor
         {
-            get { return Color.Empty; }
+            get => Color.Empty;
             set { }
         }
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Image BackgroundImage
         {
-            get { return null; }
+            get => null;
             set { }
         }
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override ImageLayout BackgroundImageLayout
         {
-            get { return ImageLayout.None; }
+            get => ImageLayout.None;
             set { }
         }
 
@@ -482,22 +482,22 @@ namespace ReaLTaiizor.Util
         private bool _SmartBounds = true;
         public bool SmartBounds
         {
-            get { return _SmartBounds; }
-            set { _SmartBounds = value; }
+            get => _SmartBounds;
+            set => _SmartBounds = value;
         }
 
         private bool _Movable = true;
         public bool Movable
         {
-            get { return _Movable; }
-            set { _Movable = value; }
+            get => _Movable;
+            set => _Movable = value;
         }
 
         private bool _Sizable = true;
         public bool Sizable
         {
-            get { return _Sizable; }
-            set { _Sizable = value; }
+            get => _Sizable;
+            set => _Sizable = value;
         }
 
         private Color _TransparencyKey;
@@ -575,7 +575,7 @@ namespace ReaLTaiizor.Util
         private bool _NoRounding;
         public bool NoRounding
         {
-            get { return _NoRounding; }
+            get => _NoRounding;
             set
             {
                 _NoRounding = value;
@@ -586,7 +586,7 @@ namespace ReaLTaiizor.Util
         private Image _Image;
         public Image Image
         {
-            get { return _Image; }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -631,7 +631,7 @@ namespace ReaLTaiizor.Util
         private string _Customization;
         public string Customization
         {
-            get { return _Customization; }
+            get => _Customization;
             set
             {
                 if (value == _Customization)
@@ -662,7 +662,7 @@ namespace ReaLTaiizor.Util
         private bool _Transparent;
         public bool Transparent
         {
-            get { return _Transparent; }
+            get => _Transparent;
             set
             {
                 _Transparent = value;
@@ -687,16 +687,10 @@ namespace ReaLTaiizor.Util
         #region " Private Properties "
 
         private Size _ImageSize;
-        protected Size ImageSize
-        {
-            get { return _ImageSize; }
-        }
+        protected Size ImageSize => _ImageSize;
 
         private bool _IsParentForm;
-        protected bool IsParentForm
-        {
-            get { return _IsParentForm; }
-        }
+        protected bool IsParentForm => _IsParentForm;
 
         protected bool IsParentMdi
         {
@@ -711,7 +705,7 @@ namespace ReaLTaiizor.Util
         private int _LockWidth;
         protected int LockWidth
         {
-            get { return _LockWidth; }
+            get => _LockWidth;
             set
             {
                 _LockWidth = value;
@@ -723,7 +717,7 @@ namespace ReaLTaiizor.Util
         private int _LockHeight;
         protected int LockHeight
         {
-            get { return _LockHeight; }
+            get => _LockHeight;
             set
             {
                 _LockHeight = value;
@@ -735,7 +729,7 @@ namespace ReaLTaiizor.Util
         private int _Header = 24;
         protected int Header
         {
-            get { return _Header; }
+            get => _Header;
             set
             {
                 _Header = value;
@@ -751,7 +745,7 @@ namespace ReaLTaiizor.Util
         private bool _ControlMode;
         protected bool ControlMode
         {
-            get { return _ControlMode; }
+            get => _ControlMode;
             set
             {
                 _ControlMode = value;
@@ -768,7 +762,7 @@ namespace ReaLTaiizor.Util
         private bool _IsAnimated;
         protected bool IsAnimated
         {
-            get { return _IsAnimated; }
+            get => _IsAnimated;
             set
             {
                 _IsAnimated = value;
@@ -1340,7 +1334,7 @@ namespace ReaLTaiizor.Util
             //Remove?
         }
 
-        protected override sealed void OnHandleCreated(EventArgs e)
+        protected sealed override void OnHandleCreated(EventArgs e)
         {
             InvalidateCustimization();
             ColorHook();
@@ -1358,7 +1352,7 @@ namespace ReaLTaiizor.Util
         }
 
         private bool DoneCreation;
-        protected override sealed void OnParentChanged(EventArgs e)
+        protected sealed override void OnParentChanged(EventArgs e)
         {
             if (Parent != null)
             {
@@ -1379,7 +1373,7 @@ namespace ReaLTaiizor.Util
                 Invalidate();
         }
 
-        protected override sealed void OnPaint(PaintEventArgs e)
+        protected sealed override void OnPaint(PaintEventArgs e)
         {
             if (Width == 0 || Height == 0)
                 return;
@@ -1404,7 +1398,7 @@ namespace ReaLTaiizor.Util
 
         #region " Size Handling "
 
-        protected override sealed void OnSizeChanged(EventArgs e)
+        protected sealed override void OnSizeChanged(EventArgs e)
         {
             if (_Transparent)
                 InvalidateBitmap();
@@ -1478,25 +1472,25 @@ namespace ReaLTaiizor.Util
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Color ForeColor
         {
-            get { return Color.Empty; }
+            get => Color.Empty;
             set { }
         }
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override Image BackgroundImage
         {
-            get { return null; }
+            get => null;
             set { }
         }
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public override ImageLayout BackgroundImageLayout
         {
-            get { return ImageLayout.None; }
+            get => ImageLayout.None;
             set { }
         }
 
         public override string Text
         {
-            get { return base.Text; }
+            get => base.Text;
             set
             {
                 base.Text = value;
@@ -1505,7 +1499,7 @@ namespace ReaLTaiizor.Util
         }
         public override Font Font
         {
-            get { return base.Font; }
+            get => base.Font;
             set
             {
                 base.Font = value;
@@ -1517,7 +1511,7 @@ namespace ReaLTaiizor.Util
         [Category("Misc")]
         public override Color BackColor
         {
-            get { return base.BackColor; }
+            get => base.BackColor;
             set
             {
                 if (!IsHandleCreated && value == Color.Transparent)
@@ -1539,7 +1533,7 @@ namespace ReaLTaiizor.Util
         private bool _NoRounding;
         public bool NoRounding
         {
-            get { return _NoRounding; }
+            get => _NoRounding;
             set
             {
                 _NoRounding = value;
@@ -1550,7 +1544,7 @@ namespace ReaLTaiizor.Util
         private Image _Image;
         public Image Image
         {
-            get { return _Image; }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -1570,7 +1564,7 @@ namespace ReaLTaiizor.Util
         private bool _Transparent;
         public bool Transparent
         {
-            get { return _Transparent; }
+            get => _Transparent;
             set
             {
                 _Transparent = value;
@@ -1625,7 +1619,7 @@ namespace ReaLTaiizor.Util
         private string _Customization;
         public string Customization
         {
-            get { return _Customization; }
+            get => _Customization;
             set
             {
                 if (value == _Customization)
@@ -1658,15 +1652,12 @@ namespace ReaLTaiizor.Util
         #region " Private Properties "
 
         private Size _ImageSize;
-        protected Size ImageSize
-        {
-            get { return _ImageSize; }
-        }
+        protected Size ImageSize => _ImageSize;
 
         private int _LockWidth;
         protected int LockWidth
         {
-            get { return _LockWidth; }
+            get => _LockWidth;
             set
             {
                 _LockWidth = value;
@@ -1678,7 +1669,7 @@ namespace ReaLTaiizor.Util
         private int _LockHeight;
         protected int LockHeight
         {
-            get { return _LockHeight; }
+            get => _LockHeight;
             set
             {
                 _LockHeight = value;
@@ -1690,7 +1681,7 @@ namespace ReaLTaiizor.Util
         private bool _IsAnimated;
         protected bool IsAnimated
         {
-            get { return _IsAnimated; }
+            get => _IsAnimated;
             set
             {
                 _IsAnimated = value;
@@ -2309,21 +2300,18 @@ namespace ReaLTaiizor.Util
     {
 
         public string _Name;
-        public string Name
-        {
-            get { return _Name; }
-        }
+        public string Name => _Name;
 
         private Color _Value;
         public Color Value
         {
-            get { return _Value; }
-            set { _Value = value; }
+            get => _Value;
+            set => _Value = value;
         }
 
         public string ValueHex
         {
-            get { return string.Concat("#", _Value.R.ToString("X2", null), _Value.G.ToString("X2", null), _Value.B.ToString("X2", null)); }
+            get => string.Concat("#", _Value.R.ToString("X2", null), _Value.G.ToString("X2", null), _Value.B.ToString("X2", null));
             set
             {
                 try
@@ -2349,10 +2337,7 @@ namespace ReaLTaiizor.Util
     {
 
         private bool _Enabled;
-        public bool Enabled
-        {
-            get { return _Enabled; }
-        }
+        public bool Enabled => _Enabled;
 
         private IntPtr Handle;
 

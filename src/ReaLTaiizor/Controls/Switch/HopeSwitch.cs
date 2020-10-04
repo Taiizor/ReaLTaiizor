@@ -18,12 +18,11 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        Timer AnimationTimer = new Timer { Interval = 1 };
-        int PointAnimationNum = 3;
-
-        Color _BaseColor = Color.White;
-        Color _BaseOnColor = HopeColors.PrimaryColor;
-        Color _BaseOffColor = HopeColors.OneLevelBorder;
+        private Timer AnimationTimer = new Timer { Interval = 1 };
+        private int PointAnimationNum = 3;
+        private Color _BaseColor = Color.White;
+        private Color _BaseOnColor = HopeColors.PrimaryColor;
+        private Color _BaseOffColor = HopeColors.OneLevelBorder;
 
         #endregion
 
@@ -31,20 +30,20 @@ namespace ReaLTaiizor.Controls
 
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         public Color BaseOnColor
         {
-            get { return _BaseOnColor; }
-            set { _BaseOnColor = value; }
+            get => _BaseOnColor;
+            set => _BaseOnColor = value;
         }
 
         public Color BaseOffColor
         {
-            get { return _BaseOffColor; }
-            set { _BaseOffColor = value; }
+            get => _BaseOffColor;
+            set => _BaseOffColor = value;
         }
 
         #endregion
@@ -92,7 +91,7 @@ namespace ReaLTaiizor.Controls
             Cursor = Cursors.Hand;
         }
 
-        void AnimationTick(object sender, EventArgs e)
+        private void AnimationTick(object sender, EventArgs e)
         {
             if (Checked)
             {

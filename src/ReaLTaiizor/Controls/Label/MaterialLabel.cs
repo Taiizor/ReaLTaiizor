@@ -28,10 +28,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(typeof(ContentAlignment), "TopLeft")]
         public override ContentAlignment TextAlign
         {
-            get
-            {
-                return _TextAlign;
-            }
+            get => _TextAlign;
             set
             {
                 _TextAlign = value;
@@ -54,10 +51,7 @@ namespace ReaLTaiizor.Controls
         DefaultValue(typeof(MaterialManager.fontType), "Body1")]
         public MaterialManager.fontType FontType
         {
-            get
-            {
-                return _fontType;
-            }
+            get => _fontType;
             set
             {
                 _fontType = value;

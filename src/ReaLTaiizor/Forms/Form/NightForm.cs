@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Forms
         private bool _ControlMode;
         protected bool ControlMode
         {
-            get { return _ControlMode; }
+            get => _ControlMode;
             set
             {
                 _ControlMode = value;
@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Forms
         [Description("Indicates how the window title should be aligned.")]
         public Alignment TextAlignment
         {
-            get { return _TextAlignment; }
+            get => _TextAlignment;
             set
             {
                 _TextAlignment = value;
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Forms
         [Description("Determines whether the icon specified in the parent form should be drawn.")]
         public bool DrawIcon
         {
-            get { return _DrawIcon; }
+            get => _DrawIcon;
             set
             {
                 _DrawIcon = value;
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Forms
         [Description("Sets the title bar title color.")]
         public Color TitleBarTextColor
         {
-            get { return _TitleBarTextColor; }
+            get => _TitleBarTextColor;
             set
             {
                 _TitleBarTextColor = value;
@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Forms
         [Description("Sets the title bar color.")]
         public Color HeadColor
         {
-            get { return _HeadColor; }
+            get => _HeadColor;
             set
             {
                 _HeadColor = value;

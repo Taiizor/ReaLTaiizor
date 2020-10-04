@@ -43,11 +43,11 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        private new static Color BackgroundColor { get; set; }
+        private static new Color BackgroundColor { get; set; }
 
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        private new static Color BorderColor { get; set; }
+        private static new Color BorderColor { get; set; }
 
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]

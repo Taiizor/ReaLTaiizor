@@ -66,10 +66,7 @@ namespace ReaLTaiizor.Controls
         // Create a NotificationType property and add the Type enum to it
         public Type NotificationType
         {
-            get
-            {
-                return _NotificationType;
-            }
+            get => _NotificationType;
             set
             {
                 _NotificationType = value;
@@ -80,10 +77,7 @@ namespace ReaLTaiizor.Controls
         // Boolean value to determine whether the control should use border radius
         public bool RoundCorners
         {
-            get
-            {
-                return _RoundedCorners;
-            }
+            get => _RoundedCorners;
             set
             {
                 _RoundedCorners = value;
@@ -94,10 +88,7 @@ namespace ReaLTaiizor.Controls
         // Boolean value to determine whether the control should draw the close button
         public bool ShowCloseButton
         {
-            get
-            {
-                return _ShowCloseButton;
-            }
+            get => _ShowCloseButton;
             set
             {
                 _ShowCloseButton = value;
@@ -108,10 +99,7 @@ namespace ReaLTaiizor.Controls
         // Integer value to determine the curve level of the borders
         public int BorderCurve
         {
-            get
-            {
-                return _BorderCurve;
-            }
+            get => _BorderCurve;
             set
             {
                 _BorderCurve = value;
@@ -122,10 +110,7 @@ namespace ReaLTaiizor.Controls
         // Image value to determine whether the control should draw an image before the header
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -138,17 +123,11 @@ namespace ReaLTaiizor.Controls
             }
         }
         // Size value - returns the image size
-        protected Size ImageSize
-        {
-            get
-            {
-                return _ImageSize;
-            }
-        }
+        protected Size ImageSize => _ImageSize;
 
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -158,7 +137,7 @@ namespace ReaLTaiizor.Controls
 
         public TextRenderingHint TextRenderingType
         {
-            get { return _TextRenderingType; }
+            get => _TextRenderingType;
             set
             {
                 _TextRenderingType = value;
@@ -168,7 +147,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CloseForeColor
         {
-            get { return _CloseForeColor; }
+            get => _CloseForeColor;
             set
             {
                 _CloseForeColor = value;
@@ -178,7 +157,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ErrorBackColor
         {
-            get { return _ErrorBackColor; }
+            get => _ErrorBackColor;
             set
             {
                 _ErrorBackColor = value;
@@ -188,7 +167,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ErrorForeColor
         {
-            get { return _ErrorForeColor; }
+            get => _ErrorForeColor;
             set
             {
                 _ErrorForeColor = value;
@@ -198,7 +177,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ErrorBorderColor
         {
-            get { return _ErrorBorderColor; }
+            get => _ErrorBorderColor;
             set
             {
                 _ErrorBorderColor = value;
@@ -208,7 +187,7 @@ namespace ReaLTaiizor.Controls
 
         public Color SuccessBackColor
         {
-            get { return _SuccessBackColor; }
+            get => _SuccessBackColor;
             set
             {
                 _SuccessBackColor = value;
@@ -218,7 +197,7 @@ namespace ReaLTaiizor.Controls
 
         public Color SuccessForeColor
         {
-            get { return _SuccessForeColor; }
+            get => _SuccessForeColor;
             set
             {
                 _SuccessForeColor = value;
@@ -228,7 +207,7 @@ namespace ReaLTaiizor.Controls
 
         public Color SuccessBorderColor
         {
-            get { return _SuccessBorderColor; }
+            get => _SuccessBorderColor;
             set
             {
                 _SuccessBorderColor = value;
@@ -238,7 +217,7 @@ namespace ReaLTaiizor.Controls
 
         public Color WarningBackColor
         {
-            get { return _WarningBackColor; }
+            get => _WarningBackColor;
             set
             {
                 _WarningBackColor = value;
@@ -248,7 +227,7 @@ namespace ReaLTaiizor.Controls
 
         public Color WarningForeColor
         {
-            get { return _WarningForeColor; }
+            get => _WarningForeColor;
             set
             {
                 _WarningForeColor = value;
@@ -258,7 +237,7 @@ namespace ReaLTaiizor.Controls
 
         public Color WarningBorderColor
         {
-            get { return _WarningBorderColor; }
+            get => _WarningBorderColor;
             set
             {
                 _WarningBorderColor = value;
@@ -268,7 +247,7 @@ namespace ReaLTaiizor.Controls
 
         public Color NoticeBackColor
         {
-            get { return _NoticeBackColor; }
+            get => _NoticeBackColor;
             set
             {
                 _NoticeBackColor = value;
@@ -278,7 +257,7 @@ namespace ReaLTaiizor.Controls
 
         public Color NoticeForeColor
         {
-            get { return _NoticeForeColor; }
+            get => _NoticeForeColor;
             set
             {
                 _NoticeForeColor = value;
@@ -288,7 +267,7 @@ namespace ReaLTaiizor.Controls
 
         public Color NoticeBorderColor
         {
-            get { return _NoticeBorderColor; }
+            get => _NoticeBorderColor;
             set
             {
                 _NoticeBorderColor = value;
@@ -298,10 +277,7 @@ namespace ReaLTaiizor.Controls
 
         public string ErrorTitleText
         {
-            get
-            {
-                return _ErrorTitleText;
-            }
+            get => _ErrorTitleText;
             set
             {
                 _ErrorTitleText = value;
@@ -311,10 +287,7 @@ namespace ReaLTaiizor.Controls
 
         public string SuccessTitleText
         {
-            get
-            {
-                return _SuccessTitleText;
-            }
+            get => _SuccessTitleText;
             set
             {
                 _SuccessTitleText = value;
@@ -324,10 +297,7 @@ namespace ReaLTaiizor.Controls
 
         public string WarningTitleText
         {
-            get
-            {
-                return _WarningTitleText;
-            }
+            get => _WarningTitleText;
             set
             {
                 _WarningTitleText = value;
@@ -337,10 +307,7 @@ namespace ReaLTaiizor.Controls
 
         public string NoticeTitleText
         {
-            get
-            {
-                return _NoticeTitleText;
-            }
+            get => _NoticeTitleText;
             set
             {
                 _NoticeTitleText = value;

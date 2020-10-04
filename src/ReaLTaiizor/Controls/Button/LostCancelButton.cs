@@ -16,28 +16,28 @@ namespace ReaLTaiizor.Controls
         private Image _image = null;
         public Image Image
         {
-            get { return _image; }
+            get => _image;
             set { _image = value; Invalidate(); }
         }
 
         private Color _hovercolor = Color.IndianRed;
         public Color HoverColor
         {
-            get { return _hovercolor; }
+            get => _hovercolor;
             set { _hovercolor = value; Invalidate(); }
         }
 
         private Color _backcolor = Color.Crimson;
         public Color BackColor
         {
-            get { return _backcolor; }
+            get => _backcolor;
             set { _backcolor = value; Invalidate(); }
         }
 
         private Color _forecolor = Color.White;
         public Color ForeColor
         {
-            get { return _forecolor; }
+            get => _forecolor;
             set { _forecolor = value; Invalidate(); }
         }
 

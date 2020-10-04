@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         private bool _Checked;
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -76,8 +76,8 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public _Options Options
         {
-            get { return O; }
-            set { O = value; }
+            get => O;
+            set => O = value;
         }
 
         protected override void OnResize(EventArgs e)
@@ -120,15 +120,15 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Options")]
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public ForeverRadioButton()

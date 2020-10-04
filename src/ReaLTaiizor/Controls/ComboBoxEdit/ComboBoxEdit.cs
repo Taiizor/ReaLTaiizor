@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Controls
 
         public int StartIndex
         {
-            get { return _StartIndex; }
+            get => _StartIndex;
             set
             {
                 _StartIndex = value;
@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Controls
 
         public Color HoverSelectionColor
         {
-            get { return _HoverSelectionColor; }
+            get => _HoverSelectionColor;
             set
             {
                 _HoverSelectionColor = value;

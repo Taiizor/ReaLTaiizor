@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -88,7 +88,7 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
+            get => poisonStyleManager;
             set
             {
                 poisonStyleManager = value;
@@ -101,8 +101,8 @@ namespace ReaLTaiizor.Controls
         [Category("Poison Appearance")]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -110,8 +110,8 @@ namespace ReaLTaiizor.Controls
         [Category("Poison Appearance")]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -119,8 +119,8 @@ namespace ReaLTaiizor.Controls
         [Category("Poison Appearance")]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -128,8 +128,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         #endregion
@@ -151,7 +151,7 @@ namespace ReaLTaiizor.Controls
 
         private class PoisonCTXRenderer : ToolStripProfessionalRenderer
         {
-            ThemeStyle _theme;
+            private ThemeStyle _theme;
             public PoisonCTXRenderer(ThemeStyle Theme, ColorStyle Style) : base(new contextcolors(Theme, Style))
             {
                 _theme = Theme;
@@ -166,8 +166,8 @@ namespace ReaLTaiizor.Controls
 
         private class contextcolors : ProfessionalColorTable
         {
-            ThemeStyle _theme = ThemeStyle.Light;
-            ColorStyle _style = ColorStyle.Blue;
+            private ThemeStyle _theme = ThemeStyle.Light;
+            private ColorStyle _style = ColorStyle.Blue;
 
             public contextcolors(ThemeStyle Theme, ColorStyle Style)
             {
@@ -175,45 +175,21 @@ namespace ReaLTaiizor.Controls
                 _style = Style;
             }
 
-            public override Color MenuItemSelected
-            {
-                get { return PoisonPaint.GetStyleColor(_style); }
-            }
+            public override Color MenuItemSelected => PoisonPaint.GetStyleColor(_style);
 
-            public override Color MenuBorder
-            {
-                get { return PoisonPaint.BackColor.Form(_theme); }
-            }
+            public override Color MenuBorder => PoisonPaint.BackColor.Form(_theme);
 
-            public override Color ToolStripBorder
-            {
-                get { return PoisonPaint.GetStyleColor(_style); }
-            }
+            public override Color ToolStripBorder => PoisonPaint.GetStyleColor(_style);
 
-            public override Color MenuItemBorder
-            {
-                get { return PoisonPaint.GetStyleColor(_style); }
-            }
+            public override Color MenuItemBorder => PoisonPaint.GetStyleColor(_style);
 
-            public override Color ToolStripDropDownBackground
-            {
-                get { return PoisonPaint.BackColor.Form(_theme); }
-            }
+            public override Color ToolStripDropDownBackground => PoisonPaint.BackColor.Form(_theme);
 
-            public override Color ImageMarginGradientBegin
-            {
-                get { return PoisonPaint.BackColor.Form(_theme); }
-            }
+            public override Color ImageMarginGradientBegin => PoisonPaint.BackColor.Form(_theme);
 
-            public override Color ImageMarginGradientMiddle
-            {
-                get { return PoisonPaint.BackColor.Form(_theme); }
-            }
+            public override Color ImageMarginGradientMiddle => PoisonPaint.BackColor.Form(_theme);
 
-            public override Color ImageMarginGradientEnd
-            {
-                get { return PoisonPaint.BackColor.Form(_theme); }
-            }
+            public override Color ImageMarginGradientEnd => PoisonPaint.BackColor.Form(_theme);
         }
 
         #endregion

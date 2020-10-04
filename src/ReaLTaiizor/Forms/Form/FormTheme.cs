@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Forms
         private bool Cap = false;
         private int MoveHeight;
         private string _TextBottom = null;
-        const int BorderCurve = 7;
+        private const int BorderCurve = 7;
         protected MouseState State;
         private bool HasShown;
         private Rectangle HeaderRect;
@@ -42,37 +42,19 @@ namespace ReaLTaiizor.Forms
         private bool _Sizable = true;
         public bool Sizable
         {
-            get
-            {
-                return _Sizable;
-            }
-            set
-            {
-                _Sizable = value;
-            }
+            get => _Sizable;
+            set => _Sizable = value;
         }
 
         private bool _SmartBounds = false;
         public bool SmartBounds
         {
-            get
-            {
-                return _SmartBounds;
-            }
-            set
-            {
-                _SmartBounds = value;
-            }
+            get => _SmartBounds;
+            set => _SmartBounds = value;
         }
 
         private bool _IsParentForm;
-        protected bool IsParentForm
-        {
-            get
-            {
-                return _IsParentForm;
-            }
-        }
+        protected bool IsParentForm => _IsParentForm;
 
         protected bool IsParentMdi
         {
@@ -87,10 +69,7 @@ namespace ReaLTaiizor.Forms
         private bool _ControlMode;
         protected bool ControlMode
         {
-            get
-            {
-                return _ControlMode;
-            }
+            get => _ControlMode;
             set
             {
                 _ControlMode = value;

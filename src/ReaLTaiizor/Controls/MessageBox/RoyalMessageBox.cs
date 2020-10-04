@@ -13,52 +13,51 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalMessageBox : Forms.RoyalForm
     {
-        RoyalButton okButton = new RoyalButton();
-        RoyalButton yesButton = new RoyalButton();
-        RoyalButton noButton = new RoyalButton();
-        RoyalButton cancelButton = new RoyalButton();
-        RoyalButton retryButton = new RoyalButton();
-
-        Form parent;
+        private RoyalButton okButton = new RoyalButton();
+        private RoyalButton yesButton = new RoyalButton();
+        private RoyalButton noButton = new RoyalButton();
+        private RoyalButton cancelButton = new RoyalButton();
+        private RoyalButton retryButton = new RoyalButton();
+        private Form parent;
         public Form FormParent
         {
-            get { return parent; }
-            set { parent = value; }
+            get => parent;
+            set => parent = value;
         }
 
-        string content;
+        private string content;
         public string Content
         {
-            get { return content; }
-            set { content = value; }
+            get => content;
+            set => content = value;
         }
 
-        string caption;
+        private string caption;
         public string Caption
         {
-            get { return caption; }
-            set { caption = value; }
+            get => caption;
+            set => caption = value;
         }
 
-        MessageBoxButtons buttons;
+        private MessageBoxButtons buttons;
         public MessageBoxButtons Buttons
         {
-            get { return buttons; }
-            set { buttons = value; }
+            get => buttons;
+            set => buttons = value;
         }
 
-        MessageBoxIcon icon;
+        private MessageBoxIcon icon;
         public MessageBoxIcon Icon
         {
-            get { return icon; }
-            set { icon = value; }
+            get => icon;
+            set => icon = value;
         }
 
-        static bool mode = true;
+        private static bool mode = true;
         public bool Mode
         {
-            get { return mode; }
-            set { mode = value; }
+            get => mode;
+            set => mode = value;
         }
 
         public RoyalMessageBox() : base()
@@ -102,27 +101,27 @@ namespace ReaLTaiizor.Controls
             retryButton.Hide();
         }
 
-        void RetryButton_Click(object sender, EventArgs e)
+        private void RetryButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Retry;
         }
 
-        void CancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
 
-        void NoButton_Click(object sender, EventArgs e)
+        private void NoButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.No;
         }
 
-        void YesButton_Click(object sender, EventArgs e)
+        private void YesButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
         }
 
-        void OkButton_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
         }

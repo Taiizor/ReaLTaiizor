@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
         [Category("Behavior")]
         public bool Ripple
         {
-            get { return ripple; }
+            get => ripple;
             set
             {
                 ripple = value;

@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -100,29 +100,29 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Colors")]
         public Color OverColor
         {
-            get { return _OverColor; }
-            set { _OverColor = value; }
+            get => _OverColor;
+            set => _OverColor = value;
         }
 
         [Category("Colors")]
         public Color DownColor
         {
-            get { return _DownColor; }
-            set { _DownColor = value; }
+            get => _DownColor;
+            set => _DownColor = value;
         }
 
         [Category("Colors")]
         public Color TextColor
         {
-            get { return _TextColor; }
-            set { _TextColor = value; }
+            get => _TextColor;
+            set => _TextColor = value;
         }
 
         protected override void OnResize(EventArgs e)

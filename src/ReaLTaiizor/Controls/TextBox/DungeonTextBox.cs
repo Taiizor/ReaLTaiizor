@@ -35,19 +35,19 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color EdgeColor
         {
-            get { return _EdgeColor; }
-            set { _EdgeColor = value; }
+            get => _EdgeColor;
+            set => _EdgeColor = value;
         }
 
         public HorizontalAlignment TextAlignment
         {
-            get { return ALNType; }
+            get => ALNType;
             set
             {
                 ALNType = value;
@@ -56,7 +56,7 @@ namespace ReaLTaiizor.Controls
         }
         public int MaxLength
         {
-            get { return _maxchars; }
+            get => _maxchars;
             set
             {
                 _maxchars = value;
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
 
         public bool UseSystemPasswordChar
         {
-            get { return isPasswordMasked; }
+            get => isPasswordMasked;
             set
             {
                 DungeonTB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
 
         public bool ReadOnly
         {
-            get { return _ReadOnly; }
+            get => _ReadOnly;
             set
             {
                 _ReadOnly = value;
@@ -89,7 +89,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Multiline
         {
-            get { return _Multiline; }
+            get => _Multiline;
             set
             {
                 _Multiline = value;

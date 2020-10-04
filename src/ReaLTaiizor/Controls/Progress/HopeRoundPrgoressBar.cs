@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
         private int _valueNumber = 0;
         public int ValueNumber
         {
-            get { return _valueNumber; }
+            get => _valueNumber;
             set
             {
                 _valueNumber = value > 100 ? 100 : (value < 0 ? 0 : value);
@@ -34,7 +34,7 @@ namespace ReaLTaiizor.Controls
         private bool _isError = false;
         public bool IsError
         {
-            get { return _isError; }
+            get => _isError;
             set
             {
                 _isError = value;
@@ -45,64 +45,64 @@ namespace ReaLTaiizor.Controls
         private string _PercentText = "%";
         public string PercentText
         {
-            get { return _PercentText; }
-            set { _PercentText = value; }
+            get => _PercentText;
+            set => _PercentText = value;
         }
 
         private Color _BorderColor = HopeColors.OneLevelBorder;
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         private Color _DangerColor = HopeColors.Danger;
         public Color DangerColor
         {
-            get { return _DangerColor; }
-            set { _DangerColor = value; }
+            get => _DangerColor;
+            set => _DangerColor = value;
         }
 
         private Color _DangerTextColorA = HopeColors.Danger;
         public Color DangerTextColorA
         {
-            get { return _DangerTextColorA; }
-            set { _DangerTextColorA = value; }
+            get => _DangerTextColorA;
+            set => _DangerTextColorA = value;
         }
 
         private Color _DangerTextColorB = HopeColors.Danger;
         public Color DangerTextColorB
         {
-            get { return _DangerTextColorB; }
-            set { _DangerTextColorB = value; }
+            get => _DangerTextColorB;
+            set => _DangerTextColorB = value;
         }
 
         private Color _FullTextColorA = HopeColors.Success;
         public Color FullTextColorA
         {
-            get { return _FullTextColorA; }
-            set { _FullTextColorA = value; }
+            get => _FullTextColorA;
+            set => _FullTextColorA = value;
         }
 
         private Color _FullTextColorB = HopeColors.Success;
         public Color FullTextColorB
         {
-            get { return _FullTextColorB; }
-            set { _FullTextColorB = value; }
+            get => _FullTextColorB;
+            set => _FullTextColorB = value;
         }
 
         private Color _BarColor = HopeColors.PrimaryColor;
         public Color BarColor
         {
-            get { return _BarColor; }
-            set { _BarColor = value; }
+            get => _BarColor;
+            set => _BarColor = value;
         }
 
         private Color _FullBarColor = HopeColors.Success;
         public Color FullBarColor
         {
-            get { return _FullBarColor; }
-            set { _FullBarColor = value; }
+            get => _FullBarColor;
+            set => _FullBarColor = value;
         }
 
         #region Events

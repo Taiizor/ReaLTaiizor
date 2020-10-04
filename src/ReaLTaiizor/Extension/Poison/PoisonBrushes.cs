@@ -24,125 +24,35 @@ namespace ReaLTaiizor.Extension.Poison
             }
         }
 
-        public static SolidBrush Black
-        {
-            get
-            {
-                return GetSaveBrush("Black", PoisonColors.Black);
-            }
-        }
+        public static SolidBrush Black => GetSaveBrush("Black", PoisonColors.Black);
 
-        public static SolidBrush White
-        {
-            get
-            {
-                return GetSaveBrush("White", PoisonColors.White);
-            }
-        }
+        public static SolidBrush White => GetSaveBrush("White", PoisonColors.White);
 
-        public static SolidBrush Silver
-        {
-            get
-            {
-                return GetSaveBrush("Silver", PoisonColors.Silver);
-            }
-        }
+        public static SolidBrush Silver => GetSaveBrush("Silver", PoisonColors.Silver);
 
-        public static SolidBrush Blue
-        {
-            get
-            {
-                return GetSaveBrush("Blue", PoisonColors.Blue);
-            }
-        }
+        public static SolidBrush Blue => GetSaveBrush("Blue", PoisonColors.Blue);
 
-        public static SolidBrush Green
-        {
-            get
-            {
-                return GetSaveBrush("Green", PoisonColors.Green);
-            }
-        }
+        public static SolidBrush Green => GetSaveBrush("Green", PoisonColors.Green);
 
-        public static SolidBrush Lime
-        {
-            get
-            {
-                return GetSaveBrush("Lime", PoisonColors.Lime);
-            }
-        }
+        public static SolidBrush Lime => GetSaveBrush("Lime", PoisonColors.Lime);
 
-        public static SolidBrush Teal
-        {
-            get
-            {
-                return GetSaveBrush("Teal", PoisonColors.Teal);
-            }
-        }
+        public static SolidBrush Teal => GetSaveBrush("Teal", PoisonColors.Teal);
 
-        public static SolidBrush Orange
-        {
-            get
-            {
-                return GetSaveBrush("Orange", PoisonColors.Orange);
-            }
-        }
+        public static SolidBrush Orange => GetSaveBrush("Orange", PoisonColors.Orange);
 
-        public static SolidBrush Brown
-        {
-            get
-            {
-                return GetSaveBrush("Brown", PoisonColors.Brown);
-            }
-        }
+        public static SolidBrush Brown => GetSaveBrush("Brown", PoisonColors.Brown);
 
-        public static SolidBrush Pink
-        {
-            get
-            {
-                return GetSaveBrush("Pink", PoisonColors.Pink);
-            }
-        }
+        public static SolidBrush Pink => GetSaveBrush("Pink", PoisonColors.Pink);
 
-        public static SolidBrush Magenta
-        {
-            get
-            {
-                return GetSaveBrush("Magenta", PoisonColors.Magenta);
-            }
-        }
+        public static SolidBrush Magenta => GetSaveBrush("Magenta", PoisonColors.Magenta);
 
-        public static SolidBrush Purple
-        {
-            get
-            {
-                return GetSaveBrush("Purple", PoisonColors.Purple);
-            }
-        }
+        public static SolidBrush Purple => GetSaveBrush("Purple", PoisonColors.Purple);
 
-        public static SolidBrush Red
-        {
-            get
-            {
-                return GetSaveBrush("Red", PoisonColors.Red);
-            }
-        }
+        public static SolidBrush Red => GetSaveBrush("Red", PoisonColors.Red);
 
-        public static SolidBrush Yellow
-        {
-            get
-            {
-                return GetSaveBrush("Yellow", PoisonColors.Yellow);
-            }
-        }
+        public static SolidBrush Yellow => GetSaveBrush("Yellow", PoisonColors.Yellow);
 
-        public static SolidBrush Custom
-        {
-            get
-            {
-                return GetSaveBrush("Custom", PoisonColors.Custom);
-            }
-        }
+        public static SolidBrush Custom => GetSaveBrush("Custom", PoisonColors.Custom);
     }
 
     #endregion

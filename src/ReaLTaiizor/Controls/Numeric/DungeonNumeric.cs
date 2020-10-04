@@ -48,40 +48,37 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color BackColorA
         {
-            get { return _BackColorA; }
-            set { _BackColorA = value; }
+            get => _BackColorA;
+            set => _BackColorA = value;
         }
 
         public Color BackColorB
         {
-            get { return _BackColorB; }
-            set { _BackColorB = value; }
+            get => _BackColorB;
+            set => _BackColorB = value;
         }
 
         public Color ButtonForeColorA
         {
-            get { return _ButtonForeColorA; }
-            set { _ButtonForeColorA = value; }
+            get => _ButtonForeColorA;
+            set => _ButtonForeColorA = value;
         }
 
         public Color ButtonForeColorB
         {
-            get { return _ButtonForeColorB; }
-            set { _ButtonForeColorB = value; }
+            get => _ButtonForeColorB;
+            set => _ButtonForeColorB = value;
         }
 
         public long Value
         {
-            get
-            {
-                return _Value;
-            }
+            get => _Value;
             set
             {
                 if (value <= _Maximum & value >= _Minimum)
@@ -92,10 +89,7 @@ namespace ReaLTaiizor.Controls
 
         public long Minimum
         {
-            get
-            {
-                return _Minimum;
-            }
+            get => _Minimum;
             set
             {
                 if (value < _Maximum)
@@ -108,10 +102,7 @@ namespace ReaLTaiizor.Controls
 
         public long Maximum
         {
-            get
-            {
-                return _Maximum;
-            }
+            get => _Maximum;
             set
             {
                 if (value > _Minimum)
@@ -124,10 +115,7 @@ namespace ReaLTaiizor.Controls
 
         public _TextAlignment TextAlignment
         {
-            get
-            {
-                return MyStringAlignment;
-            }
+            get => MyStringAlignment;
             set
             {
                 MyStringAlignment = value;

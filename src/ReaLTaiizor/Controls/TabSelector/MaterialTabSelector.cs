@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Controls
         private TextState _TitleTextState = TextState.Normal;
         public TextState TitleTextState
         {
-            get { return _TitleTextState; }
+            get => _TitleTextState;
             set
             {
                 _TitleTextState = value;
@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Controls
         private Alignment _HeadAlignment = Alignment.Left;
         public Alignment HeadAlignment
         {
-            get { return _HeadAlignment; }
+            get => _HeadAlignment;
             set
             {
                 _HeadAlignment = value;
@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
 
         public MaterialTabControl BaseTabControl
         {
-            get { return _baseTabControl; }
+            get => _baseTabControl;
             set
             {
                 _baseTabControl = value;

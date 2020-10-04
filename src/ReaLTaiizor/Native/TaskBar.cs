@@ -31,45 +31,33 @@ namespace ReaLTaiizor.Native
         private Rectangle bounds = Rectangle.Empty;
         public Rectangle Bounds
         {
-            get { return bounds; }
-            private set { bounds = value; }
+            get => bounds;
+            private set => bounds = value;
         }
 
         private TaskBarPosition position = TaskBarPosition.Unknown;
         public TaskBarPosition Position
         {
-            get { return position; }
-            private set { position = value; }
+            get => position;
+            private set => position = value;
         }
 
-        public Point Location
-        {
-            get
-            {
-                return Bounds.Location;
-            }
-        }
+        public Point Location => Bounds.Location;
 
-        public Size Size
-        {
-            get
-            {
-                return Bounds.Size;
-            }
-        }
+        public Size Size => Bounds.Size;
 
         private bool alwaysOnTop = false;
         public bool AlwaysOnTop
         {
-            get { return alwaysOnTop; }
-            private set { alwaysOnTop = value; }
+            get => alwaysOnTop;
+            private set => alwaysOnTop = value;
         }
 
         private bool autoHide = false;
         public bool AutoHide
         {
-            get { return autoHide; }
-            private set { autoHide = value; }
+            get => autoHide;
+            private set => autoHide = value;
         }
 
         [SecuritySafeCritical]

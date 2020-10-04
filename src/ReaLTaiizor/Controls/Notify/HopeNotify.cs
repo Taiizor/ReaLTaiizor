@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Controls
         private Timer _timer;
         private Timer _Timer
         {
-            get { return _timer; }
+            get => _timer;
             set
             {
                 if (_timer != null)
@@ -66,71 +66,71 @@ namespace ReaLTaiizor.Controls
         [RefreshProperties(RefreshProperties.Repaint)]
         public bool Close
         {
-            get { return _Close; }
-            set { _Close = value; }
+            get => _Close;
+            set => _Close = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color SuccessBackColor
         {
-            get { return _SuccessBackColor; }
-            set { _SuccessBackColor = value; }
+            get => _SuccessBackColor;
+            set => _SuccessBackColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color SuccessTextColor
         {
-            get { return _SuccessTextColor; }
-            set { _SuccessTextColor = value; }
+            get => _SuccessTextColor;
+            set => _SuccessTextColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color WarningBackColor
         {
-            get { return _WarningBackColor; }
-            set { _WarningBackColor = value; }
+            get => _WarningBackColor;
+            set => _WarningBackColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color WarningTextColor
         {
-            get { return _WarningTextColor; }
-            set { _WarningTextColor = value; }
+            get => _WarningTextColor;
+            set => _WarningTextColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color InfoBackColor
         {
-            get { return _InfoBackColor; }
-            set { _InfoBackColor = value; }
+            get => _InfoBackColor;
+            set => _InfoBackColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color InfoTextColor
         {
-            get { return _InfoTextColor; }
-            set { _InfoTextColor = value; }
+            get => _InfoTextColor;
+            set => _InfoTextColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color ErrorBackColor
         {
-            get { return _ErrorBackColor; }
-            set { _ErrorBackColor = value; }
+            get => _ErrorBackColor;
+            set => _ErrorBackColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color ErrorTextColor
         {
-            get { return _ErrorTextColor; }
-            set { _ErrorTextColor = value; }
+            get => _ErrorTextColor;
+            set => _ErrorTextColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color CloseColor
         {
-            get { return _CloseColor; }
-            set { _CloseColor = value; }
+            get => _CloseColor;
+            set => _CloseColor = value;
         }
 
         #endregion

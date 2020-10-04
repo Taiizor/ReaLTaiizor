@@ -31,20 +31,20 @@ namespace ReaLTaiizor.Controls
 
         public Color P_BaseColor
         {
-            get { return BaseColor.Color; }
-            set { BaseColor.Color = value; }
+            get => BaseColor.Color;
+            set => BaseColor.Color = value;
         }
 
         public Color P_AnimationColor
         {
-            get { return AnimationColor.Color; }
-            set { AnimationColor.Color = value; }
+            get => AnimationColor.Color;
+            set => AnimationColor.Color = value;
         }
 
         public int P_AnimationSpeed
         {
-            get { return AnimationSpeed.Interval; }
-            set { AnimationSpeed.Interval = value; }
+            get => AnimationSpeed.Interval;
+            set => AnimationSpeed.Interval = value;
         }
 
         #endregion

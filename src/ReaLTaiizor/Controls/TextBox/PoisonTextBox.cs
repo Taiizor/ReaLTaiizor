@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -93,8 +93,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -102,8 +102,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -111,8 +111,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -120,8 +120,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -129,8 +129,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         #endregion
@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonTextBoxSize FontSize
         {
-            get { return poisonTextBoxSize; }
+            get => poisonTextBoxSize;
             set { poisonTextBoxSize = value; UpdateBaseTextBox(); }
         }
 
@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonTextBoxWeight FontWeight
         {
-            get { return poisonTextBoxWeight; }
+            get => poisonTextBoxWeight;
             set { poisonTextBoxWeight = value; UpdateBaseTextBox(); }
         }
 
@@ -164,8 +164,8 @@ namespace ReaLTaiizor.Controls
         [Obsolete("Use watermark")]
         public string PromptText
         {
-            get { return baseTextBox.WaterMark; }
-            set { baseTextBox.WaterMark = value; }
+            get => baseTextBox.WaterMark;
+            set => baseTextBox.WaterMark = value;
         }
 
         [Browsable(true)]
@@ -174,8 +174,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public string WaterMark
         {
-            get { return baseTextBox.WaterMark; }
-            set { baseTextBox.WaterMark = value; }
+            get => baseTextBox.WaterMark;
+            set => baseTextBox.WaterMark = value;
         }
 
         private Image textBoxIcon = null;
@@ -185,7 +185,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Image Icon
         {
-            get { return textBoxIcon; }
+            get => textBoxIcon;
             set
             {
                 textBoxIcon = value;
@@ -200,7 +200,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool IconRight
         {
-            get { return textBoxIconRight; }
+            get => textBoxIconRight;
             set
             {
                 textBoxIconRight = value;
@@ -215,7 +215,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool DisplayIcon
         {
-            get { return displayIcon; }
+            get => displayIcon;
             set
             {
                 displayIcon = value;
@@ -263,7 +263,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool ShowButton
         {
-            get { return _showbutton; }
+            get => _showbutton;
             set
             {
                 _showbutton = value;
@@ -280,7 +280,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool ShowClearButton
         {
-            get { return _showclear; }
+            get => _showclear;
             set
             {
                 _showclear = value;
@@ -294,7 +294,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonTextButton CustomButton
         {
-            get { return _button; }
+            get => _button;
             set
             {
                 _button = value;
@@ -308,7 +308,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public bool WithError
         {
-            get { return _witherror; }
+            get => _witherror;
             set
             {
                 _witherror = value;
@@ -321,7 +321,7 @@ namespace ReaLTaiizor.Controls
 
         public override ContextMenu ContextMenu
         {
-            get { return baseTextBox.ContextMenu; }
+            get => baseTextBox.ContextMenu;
             set
             {
                 ContextMenu = value;
@@ -331,7 +331,7 @@ namespace ReaLTaiizor.Controls
 
         public override ContextMenuStrip ContextMenuStrip
         {
-            get { return baseTextBox.ContextMenuStrip; }
+            get => baseTextBox.ContextMenuStrip;
             set
             {
                 ContextMenuStrip = value;
@@ -342,128 +342,125 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool Multiline
         {
-            get { return baseTextBox.Multiline; }
-            set { baseTextBox.Multiline = value; }
+            get => baseTextBox.Multiline;
+            set => baseTextBox.Multiline = value;
         }
 
         public override string Text
         {
-            get { return baseTextBox.Text; }
-            set { baseTextBox.Text = value; }
+            get => baseTextBox.Text;
+            set => baseTextBox.Text = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Color WaterMarkColor
         {
-            get { return baseTextBox.WaterMarkColor; }
-            set { baseTextBox.WaterMarkColor = value; }
+            get => baseTextBox.WaterMarkColor;
+            set => baseTextBox.WaterMarkColor = value;
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Font WaterMarkFont
         {
-            get { return baseTextBox.WaterMarkFont; }
-            set { baseTextBox.WaterMarkFont = value; }
+            get => baseTextBox.WaterMarkFont;
+            set => baseTextBox.WaterMarkFont = value;
         }
 
         public string[] Lines
         {
-            get { return baseTextBox.Lines; }
-            set { baseTextBox.Lines = value; }
+            get => baseTextBox.Lines;
+            set => baseTextBox.Lines = value;
         }
 
         [Browsable(false)]
         public string SelectedText
         {
-            get { return baseTextBox.SelectedText; }
-            set { baseTextBox.Text = value; }
+            get => baseTextBox.SelectedText;
+            set => baseTextBox.Text = value;
         }
 
         [DefaultValue(false)]
         public bool ReadOnly
         {
-            get { return baseTextBox.ReadOnly; }
-            set
-            {
-                baseTextBox.ReadOnly = value;
-            }
+            get => baseTextBox.ReadOnly;
+            set => baseTextBox.ReadOnly = value;
         }
 
         public char PasswordChar
         {
-            get { return baseTextBox.PasswordChar; }
-            set { baseTextBox.PasswordChar = value; }
+            get => baseTextBox.PasswordChar;
+            set => baseTextBox.PasswordChar = value;
         }
 
         [DefaultValue(false)]
         public bool UseSystemPasswordChar
         {
-            get { return baseTextBox.UseSystemPasswordChar; }
-            set { baseTextBox.UseSystemPasswordChar = value; }
+            get => baseTextBox.UseSystemPasswordChar;
+            set => baseTextBox.UseSystemPasswordChar = value;
         }
 
         [DefaultValue(HorizontalAlignment.Left)]
         public HorizontalAlignment TextAlign
         {
-            get { return baseTextBox.TextAlign; }
-            set { baseTextBox.TextAlign = value; }
+            get => baseTextBox.TextAlign;
+            set => baseTextBox.TextAlign = value;
         }
 
         public int SelectionStart
         {
-            get { return baseTextBox.SelectionStart; }
-            set { baseTextBox.SelectionStart = value; }
+            get => baseTextBox.SelectionStart;
+            set => baseTextBox.SelectionStart = value;
         }
 
         public int SelectionLength
         {
-            get { return baseTextBox.SelectionLength; }
-            set { baseTextBox.SelectionLength = value; }
+            get => baseTextBox.SelectionLength;
+            set => baseTextBox.SelectionLength = value;
         }
 
         [DefaultValue(true)]
         public new bool TabStop
         {
-            get { return baseTextBox.TabStop; }
-            set { baseTextBox.TabStop = value; }
+            get => baseTextBox.TabStop;
+            set => baseTextBox.TabStop = value;
         }
 
         public int MaxLength
         {
-            get { return baseTextBox.MaxLength; }
-            set { baseTextBox.MaxLength = value; }
+            get => baseTextBox.MaxLength;
+            set => baseTextBox.MaxLength = value;
         }
 
         public ScrollBars ScrollBars
         {
-            get { return baseTextBox.ScrollBars; }
-            set { baseTextBox.ScrollBars = value; }
+            get => baseTextBox.ScrollBars;
+            set => baseTextBox.ScrollBars = value;
         }
 
         [DefaultValue(AutoCompleteMode.None)]
         public AutoCompleteMode AutoCompleteMode
         {
-            get { return baseTextBox.AutoCompleteMode; }
-            set { baseTextBox.AutoCompleteMode = value; }
+            get => baseTextBox.AutoCompleteMode;
+            set => baseTextBox.AutoCompleteMode = value;
         }
 
         [DefaultValue(AutoCompleteSource.None)]
         public AutoCompleteSource AutoCompleteSource
         {
-            get { return baseTextBox.AutoCompleteSource; }
-            set { baseTextBox.AutoCompleteSource = value; }
+            get => baseTextBox.AutoCompleteSource;
+            set => baseTextBox.AutoCompleteSource = value;
         }
 
         public AutoCompleteStringCollection AutoCompleteCustomSource
         {
-            get { return baseTextBox.AutoCompleteCustomSource; }
-            set { baseTextBox.AutoCompleteCustomSource = value; }
+            get => baseTextBox.AutoCompleteCustomSource;
+            set => baseTextBox.AutoCompleteCustomSource = value;
         }
 
         public bool ShortcutsEnabled
         {
-            get { return baseTextBox.ShortcutsEnabled; }
-            set { baseTextBox.ShortcutsEnabled = value; }
+            get => baseTextBox.ShortcutsEnabled;
+            set => baseTextBox.ShortcutsEnabled = value;
         }
 
         #endregion
@@ -547,8 +544,8 @@ namespace ReaLTaiizor.Controls
             base.OnKeyDown(e);
         }
 
-        bool _cleared = false;
-        bool _withtext = false;
+        private bool _cleared = false;
+        private bool _withtext = false;
 
         private void BaseTextBoxTextChanged(object sender, EventArgs e)
         {
@@ -584,7 +581,7 @@ namespace ReaLTaiizor.Controls
             baseTextBox.Clear();
         }
 
-        void PoisonTextBox_GotFocus(object sender, EventArgs e)
+        private void PoisonTextBox_GotFocus(object sender, EventArgs e)
         {
             baseTextBox.Focus();
         }
@@ -707,8 +704,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(CharacterCasing.Normal)]
         public CharacterCasing CharacterCasing
         {
-            get { return baseTextBox.CharacterCasing; }
-            set { baseTextBox.CharacterCasing = value; }
+            get => baseTextBox.CharacterCasing;
+            set => baseTextBox.CharacterCasing = value;
         }
         #endregion
 
@@ -762,24 +759,24 @@ namespace ReaLTaiizor.Controls
             base.OnCreateControl();
         }
 
-        void _button_Click(object sender, EventArgs e)
+        private void _button_Click(object sender, EventArgs e)
         {
             if (ButtonClick != null) ButtonClick(this, e);
         }
 
-        void _button_MouseLeave(object sender, EventArgs e)
+        private void _button_MouseLeave(object sender, EventArgs e)
         {
             UseStyleColors = baseTextBox.Focused;
             Invalidate();
         }
 
-        void _button_MouseEnter(object sender, EventArgs e)
+        private void _button_MouseEnter(object sender, EventArgs e)
         {
             UseStyleColors = true;
             Invalidate();
         }
 
-        void _button_TextChanged(object sender, EventArgs e)
+        private void _button_TextChanged(object sender, EventArgs e)
         {
             _button.Invalidate();
         }
@@ -807,14 +804,14 @@ namespace ReaLTaiizor.Controls
             baseTextBox.LostFocus += baseTextBox_LostFocus;
         }
 
-        void baseTextBox_LostFocus(object sender, EventArgs e)
+        private void baseTextBox_LostFocus(object sender, EventArgs e)
         {
             UseStyleColors = false;
             Invalidate();
             this.InvokeLostFocus(this, e);
         }
 
-        void baseTextBox_GotFocus(object sender, EventArgs e)
+        private void baseTextBox_GotFocus(object sender, EventArgs e)
         {
             _witherror = false;
             UseStyleColors = true;
@@ -912,7 +909,7 @@ namespace ReaLTaiizor.Controls
             [DefaultValue("")]
             public string WaterMark
             {
-                get { return promptText; }
+                get => promptText;
                 set
                 {
                     promptText = value.Trim();
@@ -923,7 +920,7 @@ namespace ReaLTaiizor.Controls
             private Color _waterMarkColor = PoisonPaint.ForeColor.Button.Disabled(ThemeStyle.Dark);
             public Color WaterMarkColor
             {
-                get { return _waterMarkColor; }
+                get => _waterMarkColor;
                 set
                 {
                     _waterMarkColor = value; Invalidate();
@@ -933,8 +930,8 @@ namespace ReaLTaiizor.Controls
             private Font _waterMarkFont = PoisonFonts.WaterMark(PoisonLabelSize.Small, PoisonWaterMarkWeight.Italic);
             public Font WaterMarkFont
             {
-                get { return _waterMarkFont; }
-                set { _waterMarkFont = value; }
+                get => _waterMarkFont;
+                set => _waterMarkFont = value;
             }
 
             public PromptedTextBox()
@@ -1054,7 +1051,7 @@ namespace ReaLTaiizor.Controls
         public delegate void LUClear();
         public event LUClear ClearClicked;
 
-        void lnkClear_Click(object sender, EventArgs e)
+        private void lnkClear_Click(object sender, EventArgs e)
         {
             this.Focus();
             this.Clear();
@@ -1110,7 +1107,7 @@ namespace ReaLTaiizor.Controls
 
                     return poisonStyle;
                 }
-                set { poisonStyle = value; }
+                set => poisonStyle = value;
             }
 
             private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -1130,10 +1127,7 @@ namespace ReaLTaiizor.Controls
 
                     return poisonTheme;
                 }
-                set
-                {
-                    poisonTheme = value;
-                }
+                set => poisonTheme = value;
             }
 
             private PoisonStyleManager poisonStyleManager = null;
@@ -1141,8 +1135,8 @@ namespace ReaLTaiizor.Controls
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
             public PoisonStyleManager StyleManager
             {
-                get { return poisonStyleManager; }
-                set { poisonStyleManager = value; }
+                get => poisonStyleManager;
+                set => poisonStyleManager = value;
             }
 
             private bool useCustomBackColor = false;
@@ -1150,8 +1144,8 @@ namespace ReaLTaiizor.Controls
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
             public bool UseCustomBackColor
             {
-                get { return useCustomBackColor; }
-                set { useCustomBackColor = value; }
+                get => useCustomBackColor;
+                set => useCustomBackColor = value;
             }
 
             private bool useCustomForeColor = false;
@@ -1159,8 +1153,8 @@ namespace ReaLTaiizor.Controls
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
             public bool UseCustomForeColor
             {
-                get { return useCustomForeColor; }
-                set { useCustomForeColor = value; }
+                get => useCustomForeColor;
+                set => useCustomForeColor = value;
             }
 
             private bool useStyleColors = false;
@@ -1168,8 +1162,8 @@ namespace ReaLTaiizor.Controls
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
             public bool UseStyleColors
             {
-                get { return useStyleColors; }
-                set { useStyleColors = value; }
+                get => useStyleColors;
+                set => useStyleColors = value;
             }
 
             [Browsable(false)]
@@ -1177,8 +1171,8 @@ namespace ReaLTaiizor.Controls
             [DefaultValue(false)]
             public bool UseSelectable
             {
-                get { return GetStyle(ControlStyles.Selectable); }
-                set { SetStyle(ControlStyles.Selectable, value); }
+                get => GetStyle(ControlStyles.Selectable);
+                set => SetStyle(ControlStyles.Selectable, value);
             }
 
             #endregion
@@ -1276,7 +1270,7 @@ namespace ReaLTaiizor.Controls
 
             public new Image Image
             {
-                get { return base.Image; }
+                get => base.Image;
                 set
                 {
                     base.Image = value;

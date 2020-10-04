@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Action.Metro
 {
     #region MetroLabelActionListAction
 
-    class MetroLabelActionList : DesignerActionList
+    internal class MetroLabelActionList : DesignerActionList
     {
         private readonly MetroLabel _metroLabel;
 

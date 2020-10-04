@@ -44,10 +44,7 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get
-            {
-                return _Maximum;
-            }
+            get => _Maximum;
             set
             {
                 if (value < _Value)
@@ -59,19 +56,19 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
+            get => _BorderColor;
             set { _BorderColor = value; Invalidate(); }
         }
 
         public Color BGColorA
         {
-            get { return _BGColorA; }
+            get => _BGColorA;
             set { _BGColorA = value; Invalidate(); }
         }
 
         public Color BGColorB
         {
-            get { return _BGColorB; }
+            get => _BGColorB;
             set { _BGColorB = value; Invalidate(); }
         }
 

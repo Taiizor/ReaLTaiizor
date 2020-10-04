@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
         private NumericStyle _style = NumericStyle.LeftRight;
         public NumericStyle Style
         {
-            get { return _style; }
+            get => _style;
             set
             {
                 _style = value;
@@ -65,27 +65,21 @@ namespace ReaLTaiizor.Controls
         private float _minNum = 0;
         public float MinNum
         {
-            get { return _minNum; }
-            set
-            {
-                _minNum = value > _maxNum ? _maxNum : value;
-            }
+            get => _minNum;
+            set => _minNum = value > _maxNum ? _maxNum : value;
         }
 
         private float _maxNum = 10;
         public float MaxNum
         {
-            get { return _maxNum; }
-            set
-            {
-                _maxNum = value < _minNum ? _minNum : value;
-            }
+            get => _maxNum;
+            set => _maxNum = value < _minNum ? _minNum : value;
         }
 
         private float _value = 0;
         public float ValueNumber
         {
-            get { return _value; }
+            get => _value;
             set
             {
                 if (value > _maxNum || value < _minNum)
@@ -101,17 +95,14 @@ namespace ReaLTaiizor.Controls
         private float _step = 1;
         public float Step
         {
-            get { return _step; }
-            set
-            {
-                _step = value;
-            }
+            get => _step;
+            set => _step = value;
         }
 
         private int _precision = 0;
         public int Precision
         {
-            get { return _precision; }
+            get => _precision;
             set
             {
                 _precision = (value < 0 || value > 6) ? 0 : value;
@@ -121,50 +112,50 @@ namespace ReaLTaiizor.Controls
 
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         public Color BorderColorA
         {
-            get { return _BorderColorA; }
-            set { _BorderColorA = value; }
+            get => _BorderColorA;
+            set => _BorderColorA = value;
         }
 
         public Color BorderHoverColorA
         {
-            get { return _BorderHoverColorA; }
-            set { _BorderHoverColorA = value; }
+            get => _BorderHoverColorA;
+            set => _BorderHoverColorA = value;
         }
 
         public Color BorderColorB
         {
-            get { return _BorderColorB; }
-            set { _BorderColorB = value; }
+            get => _BorderColorB;
+            set => _BorderColorB = value;
         }
 
         public Color HoverButtonTextColorA
         {
-            get { return _HoverButtonTextColorA; }
-            set { _HoverButtonTextColorA = value; }
+            get => _HoverButtonTextColorA;
+            set => _HoverButtonTextColorA = value;
         }
 
         public Color HoverButtonTextColorB
         {
-            get { return _HoverButtonTextColorB; }
-            set { _HoverButtonTextColorB = value; }
+            get => _HoverButtonTextColorB;
+            set => _HoverButtonTextColorB = value;
         }
 
         public Color ButtonTextColorA
         {
-            get { return _ButtonTextColorA; }
-            set { _ButtonTextColorA = value; }
+            get => _ButtonTextColorA;
+            set => _ButtonTextColorA = value;
         }
 
         public Color ButtonTextColorB
         {
-            get { return _ButtonTextColorB; }
-            set { _ButtonTextColorB = value; }
+            get => _ButtonTextColorB;
+            set => _ButtonTextColorB = value;
         }
 
         #endregion
@@ -268,8 +259,7 @@ namespace ReaLTaiizor.Controls
         {
             if (e.KeyChar == 13)
             {
-                float f;
-                if (float.TryParse(textBox.Text, out f))
+                if (float.TryParse(textBox.Text, out float f))
                     ValueNumber = f;
                 base.Focus();
             }

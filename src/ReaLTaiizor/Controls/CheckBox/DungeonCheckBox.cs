@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -46,26 +46,26 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
-            set { _CheckedColor = value; }
+            get => _CheckedColor;
+            set => _CheckedColor = value;
         }
 
         public Color CheckedBackColorA
         {
-            get { return _CheckedBackColorA; }
-            set { _CheckedBackColorA = value; }
+            get => _CheckedBackColorA;
+            set => _CheckedBackColorA = value;
         }
 
         public Color CheckedBackColorB
         {
-            get { return _CheckedBackColorB; }
-            set { _CheckedBackColorB = value; }
+            get => _CheckedBackColorB;
+            set => _CheckedBackColorB = value;
         }
 
         public Color CheckedBorderColor
         {
-            get { return _CheckedBorderColor; }
-            set { _CheckedBorderColor = value; }
+            get => _CheckedBorderColor;
+            set => _CheckedBorderColor = value;
         }
 
         #endregion

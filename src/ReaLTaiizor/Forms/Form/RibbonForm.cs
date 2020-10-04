@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Forms
         private Color _BaseColor = Color.Fuchsia;
         public Color BaseColor
         {
-            get { return _BaseColor; }
+            get => _BaseColor;
             set
             {
                 _BaseColor = value;
@@ -27,7 +27,7 @@ namespace ReaLTaiizor.Forms
         private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get { return _CompositingQualityType; }
+            get => _CompositingQualityType;
             set
             {
                 _CompositingQualityType = value;
@@ -35,10 +35,10 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        string _SubTitle;
+        private string _SubTitle;
         public string SubTitle
         {
-            get { return _SubTitle; }
+            get => _SubTitle;
             set
             {
                 _SubTitle = value;
@@ -49,7 +49,7 @@ namespace ReaLTaiizor.Forms
         private Color _SubTitleColor = Color.WhiteSmoke;
         public Color SubTitleColor
         {
-            get { return _SubTitleColor; }
+            get => _SubTitleColor;
             set
             {
                 _SubTitleColor = value;
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Forms
         private Font _SubTitleFont = new Font("Tahoma", 10, FontStyle.Bold);
         public Font SubTitleFont
         {
-            get { return _SubTitleFont; }
+            get => _SubTitleFont;
             set
             {
                 _SubTitleFont = value;
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Forms
         private Color _HeaderLineColorA = Color.FromArgb(35, 35, 35);
         public Color HeaderLineColorA
         {
-            get { return _HeaderLineColorA; }
+            get => _HeaderLineColorA;
             set
             {
                 _HeaderLineColorA = value;
@@ -82,7 +82,7 @@ namespace ReaLTaiizor.Forms
         private Color _HeaderLineColorB = Color.FromArgb(50, 50, 50);
         public Color HeaderLineColorB
         {
-            get { return _HeaderLineColorB; }
+            get => _HeaderLineColorB;
             set
             {
                 _HeaderLineColorB = value;
@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Forms
         private Color _HeaderLineColorC = Color.Black;
         public Color HeaderLineColorC
         {
-            get { return _HeaderLineColorC; }
+            get => _HeaderLineColorC;
             set
             {
                 _HeaderLineColorC = value;
@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Forms
         private Color _BottomLineColor = Color.FromArgb(99, 99, 99);
         public Color BottomLineColor
         {
-            get { return _BottomLineColor; }
+            get => _BottomLineColor;
             set
             {
                 _BottomLineColor = value;
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Forms
         private Color _RibbonEdgeColorA = Color.Black;
         public Color RibbonEdgeColorA
         {
-            get { return _RibbonEdgeColorA; }
+            get => _RibbonEdgeColorA;
             set
             {
                 _RibbonEdgeColorA = value;
@@ -126,7 +126,7 @@ namespace ReaLTaiizor.Forms
         private Color _RibbonEdgeColorB = Color.Black;
         public Color RibbonEdgeColorB
         {
-            get { return _RibbonEdgeColorB; }
+            get => _RibbonEdgeColorB;
             set
             {
                 _RibbonEdgeColorB = value;
@@ -137,7 +137,7 @@ namespace ReaLTaiizor.Forms
         private Color _RibbonEdgeColorC = Color.Black;
         public Color RibbonEdgeColorC
         {
-            get { return _RibbonEdgeColorC; }
+            get => _RibbonEdgeColorC;
             set
             {
                 _RibbonEdgeColorC = value;
@@ -148,7 +148,7 @@ namespace ReaLTaiizor.Forms
         private Color _RibbonEdgeColorD = Color.FromArgb(86, 86, 86);
         public Color RibbonEdgeColorD
         {
-            get { return _RibbonEdgeColorD; }
+            get => _RibbonEdgeColorD;
             set
             {
                 _RibbonEdgeColorD = value;
@@ -159,7 +159,7 @@ namespace ReaLTaiizor.Forms
         private Color _RibbonEdgeColorE = Color.FromArgb(51, 51, 50);
         public Color RibbonEdgeColorE
         {
-            get { return _RibbonEdgeColorE; }
+            get => _RibbonEdgeColorE;
             set
             {
                 _RibbonEdgeColorE = value;
@@ -170,7 +170,7 @@ namespace ReaLTaiizor.Forms
         private HatchStyle _HatchType = HatchStyle.SmallGrid;
         public HatchStyle HatchType
         {
-            get { return _HatchType; }
+            get => _HatchType;
             set
             {
                 _HatchType = value;

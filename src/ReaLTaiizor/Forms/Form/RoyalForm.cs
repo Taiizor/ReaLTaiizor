@@ -18,46 +18,44 @@ namespace ReaLTaiizor.Forms
         private RoyalButton maximizeButton;
         private RoyalButton minimizeButton;
         private RoyalButton closeButton;
-
-        const int WM_NCHITTEST = 0x0084;
-        const int HTCLIENT = 0x01;
-        const int HTCAPTION = 0x02;
-        const int wmNcHitTest = 0x84;
-        const int htLeft = 10;
-        const int htRight = 11;
-        const int htTop = 12;
-        const int htTopLeft = 13;
-        const int htTopRight = 14;
-        const int htBottom = 15;
-        const int htBottomLeft = 16;
-        const int htBottomRight = 17;
-
-        bool drawBorder;
+        private const int WM_NCHITTEST = 0x0084;
+        private const int HTCLIENT = 0x01;
+        private const int HTCAPTION = 0x02;
+        private const int wmNcHitTest = 0x84;
+        private const int htLeft = 10;
+        private const int htRight = 11;
+        private const int htTop = 12;
+        private const int htTopLeft = 13;
+        private const int htTopRight = 14;
+        private const int htBottom = 15;
+        private const int htBottomLeft = 16;
+        private const int htBottomRight = 17;
+        private bool drawBorder;
         public bool DrawBorder
         {
-            get { return drawBorder; }
-            set { drawBorder = value; }
+            get => drawBorder;
+            set => drawBorder = value;
         }
 
-        int borderThickness;
+        private int borderThickness;
         public int BorderThickness
         {
-            get { return borderThickness; }
-            set { borderThickness = value; }
+            get => borderThickness;
+            set => borderThickness = value;
         }
 
-        bool moveable = true;
+        private bool moveable = true;
         public bool Moveable
         {
-            get { return moveable; }
-            set { moveable = value; }
+            get => moveable;
+            set => moveable = value;
         }
 
         private bool sizable = true;
         public bool Sizable
         {
-            get { return sizable; }
-            set { sizable = value; }
+            get => sizable;
+            set => sizable = value;
         }
 
         public RoyalForm()

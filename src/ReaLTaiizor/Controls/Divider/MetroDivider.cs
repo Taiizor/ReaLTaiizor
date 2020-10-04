@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Orientation of the control.")]
         public DividerStyle Orientation
         {
-            get { return _orientation; }
+            get => _orientation;
             set
             {
                 _orientation = value;
@@ -193,7 +193,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the divider thickness.")]
         public int Thickness
         {
-            get { return _thickness; }
+            get => _thickness;
             set
             {
                 _thickness = value;
@@ -212,7 +212,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

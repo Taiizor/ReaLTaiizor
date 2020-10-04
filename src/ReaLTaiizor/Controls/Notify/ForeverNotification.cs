@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
         private Timer withEventsField_T;
         private Timer T
         {
-            get { return withEventsField_T; }
+            get => withEventsField_T;
             set
             {
                 if (withEventsField_T != null)
@@ -54,14 +54,14 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public _Kind Kind
         {
-            get { return K; }
-            set { K = value; }
+            get => K;
+            set => K = value;
         }
 
         [Category("Options")]
         public override string Text
         {
-            get { return base.Text; }
+            get => base.Text;
             set
             {
                 base.Text = value;
@@ -73,15 +73,15 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public new bool Visible
         {
-            get { return base.Visible == false; }
-            set { base.Visible = value; }
+            get => base.Visible == false;
+            set => base.Visible = value;
         }
 
         [Category("Options")]
         public bool Close
         {
-            get { return _Close; }
-            set { _Close = value; }
+            get => _Close;
+            set => _Close = value;
         }
 
         protected override void OnTextChanged(EventArgs e)

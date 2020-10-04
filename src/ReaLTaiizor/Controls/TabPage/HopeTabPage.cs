@@ -17,8 +17,8 @@ namespace ReaLTaiizor.Controls
     public class HopeTabPage : TabControl
     {
         #region Variables
-        int enterIndex;
-        bool enterFlag = false;
+        private int enterIndex;
+        private bool enterFlag = false;
         private Color _baseColor = Color.FromArgb(44, 55, 66);
         private Color _themeColorA = HopeColors.PrimaryColor;
         private Color _themeColorB = Color.FromArgb(150, HopeColors.PrimaryColor);
@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
         #region Settings
         public Color BaseColor
         {
-            get { return _baseColor; }
+            get => _baseColor;
             set
             {
                 _baseColor = value;
@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
         }
         public Color ThemeColorA
         {
-            get { return _themeColorA; }
+            get => _themeColorA;
             set
             {
                 _themeColorA = value;
@@ -48,7 +48,7 @@ namespace ReaLTaiizor.Controls
         }
         public Color ThemeColorB
         {
-            get { return _themeColorB; }
+            get => _themeColorB;
             set
             {
                 _themeColorB = value;
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
         }
         public Color ForeColorA
         {
-            get { return _foreColorA; }
+            get => _foreColorA;
             set
             {
                 _foreColorA = value;
@@ -66,7 +66,7 @@ namespace ReaLTaiizor.Controls
         }
         public Color ForeColorB
         {
-            get { return _foreColorB; }
+            get => _foreColorB;
             set
             {
                 _foreColorB = value;
@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Controls
         }
         public Color ForeColorC
         {
-            get { return _foreColorC; }
+            get => _foreColorC;
             set
             {
                 _foreColorC = value;

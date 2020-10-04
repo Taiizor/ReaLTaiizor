@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
 
                 return PoisonStyle;
             }
-            set { PoisonStyle = value; }
+            set => PoisonStyle = value;
         }
 
         private ThemeStyle PoisonTheme = ThemeStyle.Light;
@@ -46,15 +46,15 @@ namespace ReaLTaiizor.Controls
 
                 return PoisonTheme;
             }
-            set { PoisonTheme = value; }
+            set => PoisonTheme = value;
         }
 
         private PoisonStyleManager PoisonStyleManager = null;
         [Browsable(false)]
         public PoisonStyleManager StyleManager
         {
-            get { return PoisonStyleManager; }
-            set { PoisonStyleManager = value; }
+            get => PoisonStyleManager;
+            set => PoisonStyleManager = value;
         }
 
         #endregion
@@ -65,51 +65,51 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public new bool ShowAlways
         {
-            get { return base.ShowAlways; }
-            set { base.ShowAlways = true; }
+            get => base.ShowAlways;
+            set => base.ShowAlways = true;
         }
 
         [DefaultValue(true)]
         [Browsable(false)]
         public new bool OwnerDraw
         {
-            get { return base.OwnerDraw; }
-            set { base.OwnerDraw = true; }
+            get => base.OwnerDraw;
+            set => base.OwnerDraw = true;
         }
 
         [Browsable(false)]
         public new bool IsBalloon
         {
-            get { return base.IsBalloon; }
-            set { base.IsBalloon = false; }
+            get => base.IsBalloon;
+            set => base.IsBalloon = false;
         }
 
         [Browsable(false)]
         public new Color BackColor
         {
-            get { return base.BackColor; }
-            set { base.BackColor = value; }
+            get => base.BackColor;
+            set => base.BackColor = value;
         }
 
         [Browsable(false)]
         public new Color ForeColor
         {
-            get { return base.ForeColor; }
-            set { base.ForeColor = value; }
+            get => base.ForeColor;
+            set => base.ForeColor = value;
         }
 
         [Browsable(false)]
         public new string ToolTipTitle
         {
-            get { return base.ToolTipTitle; }
-            set { base.ToolTipTitle = ""; }
+            get => base.ToolTipTitle;
+            set => base.ToolTipTitle = "";
         }
 
         [Browsable(false)]
         public new ToolTipIcon ToolTipIcon
         {
-            get { return base.ToolTipIcon; }
-            set { base.ToolTipIcon = ToolTipIcon.None; }
+            get => base.ToolTipIcon;
+            set => base.ToolTipIcon = ToolTipIcon.None;
         }
 
         #endregion

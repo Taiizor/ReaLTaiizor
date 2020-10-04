@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColor = Color.LightGray;
         public Color BorderColor
         {
-            get { return _BorderColor; }
+            get => _BorderColor;
             set
             {
                 _BorderColor = value;

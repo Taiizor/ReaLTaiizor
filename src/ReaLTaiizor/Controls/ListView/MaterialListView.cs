@@ -33,10 +33,7 @@ namespace ReaLTaiizor.Controls
         [Category("Appearance"), Browsable(true)]
         public bool AutoSizeTable
         {
-            get
-            {
-                return _autoSizeTable;
-            }
+            get => _autoSizeTable;
             set
             {
                 _autoSizeTable = value;

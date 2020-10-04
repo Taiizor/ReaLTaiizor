@@ -208,15 +208,9 @@ namespace ReaLTaiizor.Extension.Poison
             return FontResolver.ResolveFont("Segoe UI", size, FontStyle.Italic, GraphicsUnit.Pixel);
         }
 
-        public static Font Title
-        {
-            get { return DefaultLight(24f); }
-        }
+        public static Font Title => DefaultLight(24f);
 
-        public static Font Subtitle
-        {
-            get { return Default(14f); }
-        }
+        public static Font Subtitle => Default(14f);
 
         public static Font Tile(PoisonTileTextSize labelSize, PoisonTileTextWeight labelWeight)
         {
@@ -251,10 +245,7 @@ namespace ReaLTaiizor.Extension.Poison
             return DefaultLight(14f);
         }
 
-        public static Font TileCount
-        {
-            get { return Default(44f); }
-        }
+        public static Font TileCount => Default(44f);
 
         public static Font LinkLabel(PoisonLinkLabelSize linkSize, PoisonLinkLabelWeight linkWeight)
         {

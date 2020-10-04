@@ -17,23 +17,23 @@ namespace ReaLTaiizor.Controls
     public class HopeCheckBox : System.Windows.Forms.CheckBox
     {
         #region Variables
-        Color _EnabledCheckedColor = HopeColors.PrimaryColor;
-        Color _EnabledUncheckedColor = ColorTranslator.FromHtml("#9c9ea1");
-        Color _DisabledColor = ColorTranslator.FromHtml("#c4c6ca");
-        Color _EnabledStringColor = ColorTranslator.FromHtml("#999999");
-        Color _DisabledStringColor = ColorTranslator.FromHtml("#babbbd");
-        Color _CheckedColor = HopeColors.PrimaryColor;
-        Timer AnimationTimer = new Timer { Interval = 15 };
-        int SizeAnimationNum = 14;
-        int PointAnimationNum = 3;
-        bool enterFlag = false;
-        bool _Enable = true;
+        private Color _EnabledCheckedColor = HopeColors.PrimaryColor;
+        private Color _EnabledUncheckedColor = ColorTranslator.FromHtml("#9c9ea1");
+        private Color _DisabledColor = ColorTranslator.FromHtml("#c4c6ca");
+        private Color _EnabledStringColor = ColorTranslator.FromHtml("#999999");
+        private Color _DisabledStringColor = ColorTranslator.FromHtml("#babbbd");
+        private Color _CheckedColor = HopeColors.PrimaryColor;
+        private Timer AnimationTimer = new Timer { Interval = 15 };
+        private int SizeAnimationNum = 14;
+        private int PointAnimationNum = 3;
+        private bool enterFlag = false;
+        private bool _Enable = true;
         #endregion
 
         #region Settings
         public bool Enable
         {
-            get { return _Enable; }
+            get => _Enable;
             set
             {
                 _Enable = value;
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
 
         public Color EnabledCheckedColor
         {
-            get { return _EnabledCheckedColor; }
+            get => _EnabledCheckedColor;
             set
             {
                 _EnabledCheckedColor = value;
@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Controls
 
         public Color EnabledUncheckedColor
         {
-            get { return _EnabledUncheckedColor; }
+            get => _EnabledUncheckedColor;
             set
             {
                 _EnabledUncheckedColor = value;
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
 
         public Color DisabledColor
         {
-            get { return _DisabledColor; }
+            get => _DisabledColor;
             set
             {
                 _DisabledColor = value;
@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
 
         public Color EnabledStringColor
         {
-            get { return _EnabledStringColor; }
+            get => _EnabledStringColor;
             set
             {
                 _EnabledStringColor = value;
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Controls
 
         public Color DisabledStringColor
         {
-            get { return _DisabledStringColor; }
+            get => _DisabledStringColor;
             set
             {
                 _DisabledStringColor = value;
@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
+            get => _CheckedColor;
             set
             {
                 _CheckedColor = value;

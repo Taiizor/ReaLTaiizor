@@ -208,14 +208,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Default Location associated with the control.")]
         public LocationType DefaultLocation
         {
-            get
-            {
-                return _DefaultLocation;
-            }
-            set
-            {
-                _DefaultLocation = value;
-            }
+            get => _DefaultLocation;
+            set => _DefaultLocation = value;
         }
 
         [Category("Metro")]
@@ -223,7 +217,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;
@@ -234,7 +228,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets a value indicating whether the Maximize button is Enabled in the caption bar of the form.")]
         public bool MaximizeBox
         {
-            get { return _maximizeBox; }
+            get => _maximizeBox;
             set
             {
                 _maximizeBox = value;
@@ -246,7 +240,7 @@ namespace ReaLTaiizor.Controls
         private bool _minimizeBox = true;
         public bool MinimizeBox
         {
-            get { return _minimizeBox; }
+            get => _minimizeBox;
             set
             {
                 _minimizeBox = value;
@@ -257,7 +251,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Close forecolor used by the control.")]
         public Color CloseNormalForeColor
         {
-            get { return _closeNormalForeColor; }
+            get => _closeNormalForeColor;
             set
             {
                 _closeNormalForeColor = value;
@@ -268,7 +262,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Close forecolor used by the control.")]
         public Color CloseHoverForeColor
         {
-            get { return _closeHoverForeColor; }
+            get => _closeHoverForeColor;
             set
             {
                 _closeHoverForeColor = value;
@@ -279,7 +273,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Close backcolor used by the control.")]
         public Color CloseHoverBackColor
         {
-            get { return _closeHoverBackColor; }
+            get => _closeHoverBackColor;
             set
             {
                 _closeHoverBackColor = value;
@@ -290,7 +284,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Maximize forecolor used by the control.")]
         public Color MaximizeHoverForeColor
         {
-            get { return _maximizeHoverForeColor; }
+            get => _maximizeHoverForeColor;
             set
             {
                 _maximizeHoverForeColor = value;
@@ -301,7 +295,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Maximize backcolor used by the control.")]
         public Color MaximizeHoverBackColor
         {
-            get { return _maximizeHoverBackColor; }
+            get => _maximizeHoverBackColor;
             set
             {
                 _maximizeHoverBackColor = value;
@@ -312,7 +306,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Maximize forecolor used by the control.")]
         public Color MaximizeNormalForeColor
         {
-            get { return _maximizeNormalForeColor; }
+            get => _maximizeNormalForeColor;
             set
             {
                 _maximizeNormalForeColor = value;
@@ -323,7 +317,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Minimize forecolor used by the control.")]
         public Color MinimizeHoverForeColor
         {
-            get { return _minimizeHoverForeColor; }
+            get => _minimizeHoverForeColor;
             set
             {
                 _minimizeHoverForeColor = value;
@@ -334,7 +328,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Minimize backcolor used by the control.")]
         public Color MinimizeHoverBackColor
         {
-            get { return _minimizeHoverBackColor; }
+            get => _minimizeHoverBackColor;
             set
             {
                 _minimizeHoverBackColor = value;
@@ -345,7 +339,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Minimize forecolor used by the control.")]
         public Color MinimizeNormalForeColor
         {
-            get { return _minimizeNormalForeColor; }
+            get => _minimizeNormalForeColor;
             set
             {
                 _minimizeNormalForeColor = value;
@@ -356,7 +350,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled forecolor used by the control.")]
         public Color DisabledForeColor
         {
-            get { return _disabledForeColor; }
+            get => _disabledForeColor;
             set
             {
                 _disabledForeColor = value;

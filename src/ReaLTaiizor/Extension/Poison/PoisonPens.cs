@@ -24,117 +24,33 @@ namespace ReaLTaiizor.Extension.Poison
             }
         }
 
-        public static Pen Black
-        {
-            get
-            {
-                return GetSavePen("Black", PoisonColors.Black);
-            }
-        }
+        public static Pen Black => GetSavePen("Black", PoisonColors.Black);
 
-        public static Pen White
-        {
-            get
-            {
-                return GetSavePen("White", PoisonColors.White);
-            }
-        }
+        public static Pen White => GetSavePen("White", PoisonColors.White);
 
-        public static Pen Silver
-        {
-            get
-            {
-                return GetSavePen("Silver", PoisonColors.Silver);
-            }
-        }
+        public static Pen Silver => GetSavePen("Silver", PoisonColors.Silver);
 
-        public static Pen Blue
-        {
-            get
-            {
-                return GetSavePen("Blue", PoisonColors.Blue);
-            }
-        }
+        public static Pen Blue => GetSavePen("Blue", PoisonColors.Blue);
 
-        public static Pen Green
-        {
-            get
-            {
-                return GetSavePen("Green", PoisonColors.Green);
-            }
-        }
+        public static Pen Green => GetSavePen("Green", PoisonColors.Green);
 
-        public static Pen Lime
-        {
-            get
-            {
-                return GetSavePen("Lime", PoisonColors.Lime);
-            }
-        }
+        public static Pen Lime => GetSavePen("Lime", PoisonColors.Lime);
 
-        public static Pen Teal
-        {
-            get
-            {
-                return GetSavePen("Teal", PoisonColors.Teal);
-            }
-        }
+        public static Pen Teal => GetSavePen("Teal", PoisonColors.Teal);
 
-        public static Pen Orange
-        {
-            get
-            {
-                return GetSavePen("Orange", PoisonColors.Orange);
-            }
-        }
+        public static Pen Orange => GetSavePen("Orange", PoisonColors.Orange);
 
-        public static Pen Brown
-        {
-            get
-            {
-                return GetSavePen("Brown", PoisonColors.Brown);
-            }
-        }
+        public static Pen Brown => GetSavePen("Brown", PoisonColors.Brown);
 
-        public static Pen Pink
-        {
-            get
-            {
-                return GetSavePen("Pink", PoisonColors.Pink);
-            }
-        }
+        public static Pen Pink => GetSavePen("Pink", PoisonColors.Pink);
 
-        public static Pen Magenta
-        {
-            get
-            {
-                return GetSavePen("Magenta", PoisonColors.Magenta);
-            }
-        }
+        public static Pen Magenta => GetSavePen("Magenta", PoisonColors.Magenta);
 
-        public static Pen Purple
-        {
-            get
-            {
-                return GetSavePen("Purple", PoisonColors.Purple);
-            }
-        }
+        public static Pen Purple => GetSavePen("Purple", PoisonColors.Purple);
 
-        public static Pen Red
-        {
-            get
-            {
-                return GetSavePen("Red", PoisonColors.Red);
-            }
-        }
+        public static Pen Red => GetSavePen("Red", PoisonColors.Red);
 
-        public static Pen Yellow
-        {
-            get
-            {
-                return GetSavePen("Yellow", PoisonColors.Yellow);
-            }
-        }
+        public static Pen Yellow => GetSavePen("Yellow", PoisonColors.Yellow);
     }
 
     #endregion

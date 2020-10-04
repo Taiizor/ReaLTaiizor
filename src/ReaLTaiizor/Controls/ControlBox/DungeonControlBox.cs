@@ -25,11 +25,11 @@ namespace ReaLTaiizor.Controls
 
         #endregion
         #region MouseStates
-        MouseState State = MouseState.None;
-        int X;
-        Rectangle CloseBtn = new Rectangle(3, 2, 17, 17);
-        Rectangle MinBtn = new Rectangle(23, 2, 17, 17);
-        Rectangle MaxBtn = new Rectangle(43, 2, 17, 17);
+        private MouseState State = MouseState.None;
+        private int X;
+        private Rectangle CloseBtn = new Rectangle(3, 2, 17, 17);
+        private Rectangle MinBtn = new Rectangle(23, 2, 17, 17);
+        private Rectangle MaxBtn = new Rectangle(43, 2, 17, 17);
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -106,7 +106,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -114,13 +114,10 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        bool _EnableMaximize = true;
+        private bool _EnableMaximize = true;
         public bool EnableMaximize
         {
-            get
-            {
-                return _EnableMaximize;
-            }
+            get => _EnableMaximize;
             set
             {
                 _EnableMaximize = value;
@@ -137,13 +134,10 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        bool _EnableMinimize = true;
+        private bool _EnableMinimize = true;
         public bool EnableMinimize
         {
-            get
-            {
-                return _EnableMinimize;
-            }
+            get => _EnableMinimize;
             set
             {
                 _EnableMinimize = value;

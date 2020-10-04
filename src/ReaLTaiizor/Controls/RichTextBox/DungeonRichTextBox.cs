@@ -33,25 +33,25 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color EdgeColor
         {
-            get { return _EdgeColor; }
-            set { _EdgeColor = value; }
+            get => _EdgeColor;
+            set => _EdgeColor = value;
         }
 
         public Color TextBackColor
         {
-            get { return _TextBackColor; }
-            set { _TextBackColor = value; }
+            get => _TextBackColor;
+            set => _TextBackColor = value;
         }
 
         public override string Text
         {
-            get { return DungeonRTB.Text; }
+            get => DungeonRTB.Text;
             set
             {
                 DungeonRTB.Text = value;
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Controls
         }
         public bool ReadOnly
         {
-            get { return _ReadOnly; }
+            get => _ReadOnly;
             set
             {
                 _ReadOnly = value;
@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Controls
         }
         public bool WordWrap
         {
-            get { return _WordWrap; }
+            get => _WordWrap;
             set
             {
                 _WordWrap = value;
@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Controls
         }
         public bool AutoWordSelection
         {
-            get { return _AutoWordSelection; }
+            get => _AutoWordSelection;
             set
             {
                 _AutoWordSelection = value;

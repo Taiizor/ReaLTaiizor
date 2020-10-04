@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Action.Metro
 {
     #region MetroScrollBarActionListAction
 
-    class MetroScrollBarActionList : DesignerActionList
+    internal class MetroScrollBarActionList : DesignerActionList
     {
         private readonly MetroScrollBar _metroScrollBar;
 

@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Extension.Poison
 {
     #region PoisonImageExtension
 
-    class PoisonImage
+    internal class PoisonImage
     {
         public static Image ResizeImage(Image imgToResize, Rectangle maxOffset)
         {

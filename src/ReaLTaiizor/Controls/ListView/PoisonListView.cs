@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Controls
     {
         private ListViewColumnSorter lvwColumnSorter;
         private Font stdFont = new Font("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
-        float _offset = 0.2F;
+        private float _offset = 0.2F;
 
         #region Interface
 
@@ -67,10 +67,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set
-            {
-                poisonStyle = value;
-            }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -90,7 +87,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -98,11 +95,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set
-            {
-                poisonStyleManager = value;
-            }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -110,8 +104,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -119,8 +113,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -128,8 +122,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -137,15 +131,15 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         #endregion
 
         #region Scrollbar
         [StructLayout(LayoutKind.Sequential)]
-        struct SCROLLINFO
+        private struct SCROLLINFO
         {
             public uint cbSize;
             public uint fMask;
@@ -261,7 +255,7 @@ namespace ReaLTaiizor.Controls
                 _disableChangeEvents--;
         }
 
-        void _vScrollbar_ValueChanged(object sender, int newValue)
+        private void _vScrollbar_ValueChanged(object sender, int newValue)
         {
             if (_disableChangeEvents > 0)
                 return;
@@ -298,8 +292,7 @@ namespace ReaLTaiizor.Controls
         {
             if (_vScrollbar != null)
             {
-                int max, min, pos, smallchange, largechange;
-                GetScrollPosition(out min, out max, out pos, out smallchange, out largechange);
+                GetScrollPosition(out int min, out int max, out int pos, out int smallchange, out int largechange);
 
                 BeginDisableChangeEvents();
                 _vScrollbar.Value = pos == 1 ? 0 : pos;
@@ -364,8 +357,7 @@ namespace ReaLTaiizor.Controls
         {
             if (m.Msg == WM_VSCROLL)
             {
-                int max, min, pos, smallchange, largechange;
-                GetScrollPosition(out min, out max, out pos, out smallchange, out largechange);
+                GetScrollPosition(out int min, out int max, out int pos, out int smallchange, out int largechange);
 
                 if (ScrollPositionChanged != null)
                     ScrollPositionChanged(this, pos);
@@ -388,8 +380,8 @@ namespace ReaLTaiizor.Controls
             base.WndProc(ref m);
         }
 
-        const int GWL_STYLE = -16;
-        const int WS_VSCROLL = 0x00200000;
+        private const int GWL_STYLE = -16;
+        private const int WS_VSCROLL = 0x00200000;
 
         public static int GetWindowLong(IntPtr hWnd, int nIndex)
         {
@@ -442,7 +434,7 @@ namespace ReaLTaiizor.Controls
             //this.DoubleBuffering(true);
         }
 
-        void PoisonListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void PoisonListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateScrollbar();
         }
@@ -452,10 +444,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
         public bool AllowSorting
         {
-            get
-            {
-                return allowSorting;
-            }
+            get => allowSorting;
             set
             {
                 allowSorting = value;
@@ -472,7 +461,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        void PoisonListView_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void PoisonListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             if (lvwColumnSorter == null) return;
             if (e.Column == lvwColumnSorter.SortColumn)
@@ -494,7 +483,7 @@ namespace ReaLTaiizor.Controls
             this.Sort();
         }
 
-        void PoisonListView_Resize(object sender, EventArgs e)
+        private void PoisonListView_Resize(object sender, EventArgs e)
         {
             if (this.Columns.Count <= 0) return;
         }
@@ -503,17 +492,11 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public override Font Font
         {
-            get
-            {
-                return base.Font;
-            }
-            set
-            {
-                base.Font = value;
-            }
+            get => base.Font;
+            set => base.Font = value;
         }
 
-        void PoisonListView_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
+        private void PoisonListView_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
         {
             Color itemForeColor = PoisonPaint.ForeColor.Button.Disabled(Theme);
             if (this.View == View.Details)
@@ -592,8 +575,7 @@ namespace ReaLTaiizor.Controls
                             break;
                     }
 
-                    double subItemValue;
-                    if (e.ColumnIndex > 0 && Double.TryParse(e.SubItem.Text, NumberStyles.Currency, NumberFormatInfo.CurrentInfo, out subItemValue))
+                    if (e.ColumnIndex > 0 && Double.TryParse(e.SubItem.Text, NumberStyles.Currency, NumberFormatInfo.CurrentInfo, out double subItemValue))
                     {
                         sf.Alignment = StringAlignment.Far;
                         flags = TextFormatFlags.Right;
@@ -609,7 +591,7 @@ namespace ReaLTaiizor.Controls
                 e.DrawDefault = true;
         }
 
-        void PoisonListView_DrawItem(object sender, DrawListViewItemEventArgs e)
+        private void PoisonListView_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
             Color itemForeColor = PoisonPaint.ForeColor.Button.Disabled(Theme);
             if (this.View == View.Details | this.View == View.List | this.View == View.SmallIcon)
@@ -744,7 +726,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        void PoisonListView_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        private void PoisonListView_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
         {
             Color _headColor = PoisonPaint.ForeColor.Button.Press(Theme);
             e.Graphics.FillRectangle(new SolidBrush(PoisonPaint.GetStyleColor(Style)), e.Bounds);

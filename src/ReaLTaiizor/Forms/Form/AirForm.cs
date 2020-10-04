@@ -25,9 +25,9 @@ namespace ReaLTaiizor.Forms
             MinimumSize = new Size(112, 35);
         }
 
-        Color TitleColor;
-        Color Xcolor;
-        Color Xellipse;
+        private Color TitleColor;
+        private Color Xcolor;
+        private Color Xellipse;
         protected override void ColorHook()
         {
             TitleColor = GetColor("Title color");
@@ -35,9 +35,8 @@ namespace ReaLTaiizor.Forms
             Xellipse = GetColor("X-ellipse");
         }
 
-        int X;
-
-        int Y;
+        private int X;
+        private int Y;
         protected override void OnMouseMove(MouseEventArgs e)
         {
             X = e.Location.X;

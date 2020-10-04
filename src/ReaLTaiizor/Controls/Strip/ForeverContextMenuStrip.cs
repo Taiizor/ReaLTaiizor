@@ -40,87 +40,51 @@ namespace ReaLTaiizor.Controls
             [Category("Colors")]
             public Color _BackColor
             {
-                get { return BackColor; }
-                set { BackColor = value; }
+                get => BackColor;
+                set => BackColor = value;
             }
 
             [Category("Colors")]
             public Color _CheckedColor
             {
-                get { return CheckedColor; }
-                set { CheckedColor = value; }
+                get => CheckedColor;
+                set => CheckedColor = value;
             }
 
             [Category("Colors")]
             public Color _BorderColor
             {
-                get { return BorderColor; }
-                set { BorderColor = value; }
+                get => BorderColor;
+                set => BorderColor = value;
             }
 
             private Color BackColor = Color.FromArgb(45, 47, 49);
             private Color CheckedColor = ForeverLibrary.ForeverColor;
             private Color BorderColor = Color.FromArgb(53, 58, 60);
 
-            public override Color ButtonSelectedBorder
-            {
-                get { return BackColor; }
-            }
+            public override Color ButtonSelectedBorder => BackColor;
 
-            public override Color CheckBackground
-            {
-                get { return CheckedColor; }
-            }
+            public override Color CheckBackground => CheckedColor;
 
-            public override Color CheckPressedBackground
-            {
-                get { return CheckedColor; }
-            }
+            public override Color CheckPressedBackground => CheckedColor;
 
-            public override Color CheckSelectedBackground
-            {
-                get { return CheckedColor; }
-            }
+            public override Color CheckSelectedBackground => CheckedColor;
 
-            public override Color ImageMarginGradientBegin
-            {
-                get { return CheckedColor; }
-            }
+            public override Color ImageMarginGradientBegin => CheckedColor;
 
-            public override Color ImageMarginGradientEnd
-            {
-                get { return CheckedColor; }
-            }
+            public override Color ImageMarginGradientEnd => CheckedColor;
 
-            public override Color ImageMarginGradientMiddle
-            {
-                get { return CheckedColor; }
-            }
+            public override Color ImageMarginGradientMiddle => CheckedColor;
 
-            public override Color MenuBorder
-            {
-                get { return BorderColor; }
-            }
+            public override Color MenuBorder => BorderColor;
 
-            public override Color MenuItemBorder
-            {
-                get { return BorderColor; }
-            }
+            public override Color MenuItemBorder => BorderColor;
 
-            public override Color MenuItemSelected
-            {
-                get { return CheckedColor; }
-            }
+            public override Color MenuItemSelected => CheckedColor;
 
-            public override Color SeparatorDark
-            {
-                get { return BorderColor; }
-            }
+            public override Color SeparatorDark => BorderColor;
 
-            public override Color ToolStripDropDownBackground
-            {
-                get { return BackColor; }
-            }
+            public override Color ToolStripDropDownBackground => BackColor;
         }
     }
 

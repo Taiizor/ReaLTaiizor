@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Manager
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ColorStyle Style
         {
-            get { return poisonStyle; }
+            get => poisonStyle;
             set
             {
                 if (value == ColorStyle.Default)
@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Manager
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ThemeStyle Theme
         {
-            get { return poisonTheme; }
+            get => poisonTheme;
             set
             {
                 if (value == ThemeStyle.Default)
@@ -62,7 +62,7 @@ namespace ReaLTaiizor.Manager
         private ContainerControl owner;
         public ContainerControl Owner
         {
-            get { return owner; }
+            get => owner;
             set
             {
                 if (owner != null)

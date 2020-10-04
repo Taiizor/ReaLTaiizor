@@ -16,24 +16,24 @@ namespace ReaLTaiizor.Controls
     {
         public event EventHandler ValueChanged;
 
-        Color gutterColor;
+        private Color gutterColor;
         public Color GutterColor
         {
-            get { return gutterColor; }
+            get => gutterColor;
             set { gutterColor = value; Invalidate(); }
         }
 
-        Color thumbColor;
+        private Color thumbColor;
         public Color ThumbColor
         {
-            get { return thumbColor; }
+            get => thumbColor;
             set { thumbColor = value; Invalidate(); }
         }
 
-        int _value;
+        private int _value;
         public int Value
         {
-            get { return _value; }
+            get => _value;
             set
             {
                 if (value < 0)
@@ -49,17 +49,17 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        int min;
+        private int min;
         public int Min
         {
-            get { return min; }
+            get => min;
             set { min = value; Invalidate(); }
         }
 
-        int max;
+        private int max;
         public int Max
         {
-            get { return max; }
+            get => max;
             set
             {
                 max = value;
@@ -84,28 +84,27 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        int smallChange;
+        private int smallChange;
         public int SmallChange
         {
-            get { return smallChange; }
+            get => smallChange;
             set { smallChange = value; Invalidate(); }
         }
 
-        int largeChange;
+        private int largeChange;
         public int LargeChange
         {
-            get { return largeChange; }
+            get => largeChange;
             set { largeChange = value; Invalidate(); }
         }
 
-        double thumbSize;
-        bool thumbSelected;
-        Point lastMousePos;
-
-        Orientation orientation;
+        private double thumbSize;
+        private bool thumbSelected;
+        private Point lastMousePos;
+        private Orientation orientation;
         public Orientation Orientation
         {
-            get { return orientation; }
+            get => orientation;
             set { orientation = value; Invalidate(); }
         }
 

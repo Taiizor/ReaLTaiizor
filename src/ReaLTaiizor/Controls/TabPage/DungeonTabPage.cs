@@ -14,57 +14,57 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColor = Color.Transparent;
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         private Color _DeactivePageTextColor = Color.FromArgb(80, 76, 76);
         public Color DeactivePageTextColor
         {
-            get { return _DeactivePageTextColor; }
-            set { _DeactivePageTextColor = value; }
+            get => _DeactivePageTextColor;
+            set => _DeactivePageTextColor = value;
         }
 
         private Color _PageEdgeColor = Color.FromArgb(247, 246, 246);
         public Color PageEdgeColor
         {
-            get { return _PageEdgeColor; }
-            set { _PageEdgeColor = value; }
+            get => _PageEdgeColor;
+            set => _PageEdgeColor = value;
         }
 
         private Color _PageEdgeBorderColor = Color.FromArgb(201, 198, 195);
         public Color PageEdgeBorderColor
         {
-            get { return _PageEdgeBorderColor; }
-            set { _PageEdgeBorderColor = value; }
+            get => _PageEdgeBorderColor;
+            set => _PageEdgeBorderColor = value;
         }
 
         private Color _ActivePageBorderColor = Color.FromArgb(201, 198, 195);
         public Color ActivePageBorderColor
         {
-            get { return _ActivePageBorderColor; }
-            set { _ActivePageBorderColor = value; }
+            get => _ActivePageBorderColor;
+            set => _ActivePageBorderColor = value;
         }
 
         private Color _ActivePageBackColor = Color.FromArgb(247, 246, 246);
         public Color ActivePageBackColor
         {
-            get { return _ActivePageBackColor; }
-            set { _ActivePageBackColor = value; }
+            get => _ActivePageBackColor;
+            set => _ActivePageBackColor = value;
         }
 
         private Color _PageBackColor = Color.FromArgb(247, 246, 246);
         public Color PageBackColor
         {
-            get { return _PageBackColor; }
-            set { _PageBackColor = value; }
+            get => _PageBackColor;
+            set => _PageBackColor = value;
         }
 
         private Color _ActivePageTextColor = Color.FromArgb(80, 76, 76);
         public Color ActivePageTextColor
         {
-            get { return _ActivePageTextColor; }
-            set { _ActivePageTextColor = value; }
+            get => _ActivePageTextColor;
+            set => _ActivePageTextColor = value;
         }
 
         public DungeonTabPage()

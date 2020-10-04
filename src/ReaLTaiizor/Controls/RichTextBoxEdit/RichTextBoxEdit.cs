@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
 
         public override string Text
         {
-            get { return RT_RTB.Text; }
+            get => RT_RTB.Text;
             set
             {
                 RT_RTB.Text = value;
@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Controls
 
         public bool ReadOnly
         {
-            get { return _ReadOnly; }
+            get => _ReadOnly;
             set
             {
                 _ReadOnly = value;
@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Controls
 
         public bool WordWrap
         {
-            get { return _WordWrap; }
+            get => _WordWrap;
             set
             {
                 _WordWrap = value;
@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Controls
 
         public bool AutoWordSelection
         {
-            get { return _AutoWordSelection; }
+            get => _AutoWordSelection;
             set
             {
                 _AutoWordSelection = value;
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -95,7 +95,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BaseColor
         {
-            get { return _BaseColor; }
+            get => _BaseColor;
             set
             {
                 _BaseColor = value;
@@ -105,7 +105,7 @@ namespace ReaLTaiizor.Controls
 
         public Color EdgeColor
         {
-            get { return _EdgeColor; }
+            get => _EdgeColor;
             set
             {
                 _EdgeColor = value;
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
+            get => _BorderColor;
             set
             {
                 _BorderColor = value;
@@ -125,7 +125,7 @@ namespace ReaLTaiizor.Controls
 
         public Color TextBackColor
         {
-            get { return _TextBackColor; }
+            get => _TextBackColor;
             set
             {
                 _TextBackColor = value;
@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
 
         public Font TextFont
         {
-            get { return _TextFont; }
+            get => _TextFont;
             set
             {
                 _TextFont = value;
@@ -145,7 +145,7 @@ namespace ReaLTaiizor.Controls
 
         public BorderStyle TextBorderStyle
         {
-            get { return _TextBorderStyle; }
+            get => _TextBorderStyle;
             set
             {
                 _TextBorderStyle = value;

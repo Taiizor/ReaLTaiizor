@@ -27,10 +27,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool Enabled
         {
-            get
-            {
-                return EnabledCalc;
-            }
+            get => EnabledCalc;
             set
             {
                 _EnabledCalc = value;
@@ -41,10 +38,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("Enabled")]
         public bool EnabledCalc
         {
-            get
-            {
-                return _EnabledCalc;
-            }
+            get => _EnabledCalc;
             set
             {
                 base.Enabled = value;

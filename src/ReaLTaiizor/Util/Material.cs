@@ -97,7 +97,7 @@ namespace ReaLTaiizor.Util
         private Themes _theme;
         public Themes Theme
         {
-            get { return _theme; }
+            get => _theme;
             set
             {
                 _theme = value;
@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Util
         private MaterialColorScheme _colorScheme;
         public MaterialColorScheme ColorScheme
         {
-            get { return _colorScheme; }
+            get => _colorScheme;
             set
             {
                 _colorScheme = value;
@@ -550,8 +550,7 @@ namespace ReaLTaiizor.Util
             info.biPlanes = 1;
             info.biBitCount = 32;
             info.biCompression = 0; // BI_RGB
-            IntPtr ppvBits;
-            IntPtr dib = CreateDIBSection(_hdc, ref info, 0, out ppvBits, IntPtr.Zero, 0);
+            IntPtr dib = CreateDIBSection(_hdc, ref info, 0, out IntPtr ppvBits, IntPtr.Zero, 0);
             SelectObject(memoryHdc, dib);
 
             try
@@ -638,11 +637,9 @@ namespace ReaLTaiizor.Util
         private static IntPtr GetCachedHFont(Font font)
         {
             IntPtr hfont = IntPtr.Zero;
-            Dictionary<float, Dictionary<FontStyle, IntPtr>> dic1;
-            if (_fontsCache.TryGetValue(font.Name, out dic1))
+            if (_fontsCache.TryGetValue(font.Name, out Dictionary<float, Dictionary<FontStyle, IntPtr>> dic1))
             {
-                Dictionary<FontStyle, IntPtr> dic2;
-                if (dic1.TryGetValue(font.Size, out dic2))
+                if (dic1.TryGetValue(font.Size, out Dictionary<FontStyle, IntPtr> dic2))
                     dic2.TryGetValue(font.Style, out hfont);
                 else
                     dic1[font.Size] = new Dictionary<FontStyle, IntPtr>();
@@ -758,13 +755,7 @@ namespace ReaLTaiizor.Util
                 _right = r.Right;
             }
 
-            public int Height
-            {
-                get
-                {
-                    return _bottom - _top;
-                }
-            }
+            public int Height => _bottom - _top;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -975,8 +966,8 @@ namespace ReaLTaiizor.Util
         private static AnimationRunType _AnimationRun = AnimationRunType.Normal;
         public static AnimationRunType AnimationRun
         {
-            get { return _AnimationRun; }
-            set { _AnimationRun = value; }
+            get => _AnimationRun;
+            set => _AnimationRun = value;
         }
 
         public static class AnimationCustomQuadratic

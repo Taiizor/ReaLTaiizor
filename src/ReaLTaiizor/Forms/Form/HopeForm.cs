@@ -37,10 +37,7 @@ namespace ReaLTaiizor.Forms
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -55,7 +52,7 @@ namespace ReaLTaiizor.Forms
 
         public Color ThemeColor
         {
-            get { return _themeColor; }
+            get => _themeColor;
             set
             {
                 _themeColor = value;
@@ -65,7 +62,7 @@ namespace ReaLTaiizor.Forms
 
         public Color ControlBoxColorN
         {
-            get { return _ControlBoxColorN; }
+            get => _ControlBoxColorN;
             set
             {
                 _ControlBoxColorN = value;
@@ -75,7 +72,7 @@ namespace ReaLTaiizor.Forms
 
         public Color ControlBoxColorH
         {
-            get { return _ControlBoxColorH; }
+            get => _ControlBoxColorH;
             set
             {
                 _ControlBoxColorH = value;
@@ -85,7 +82,7 @@ namespace ReaLTaiizor.Forms
 
         public Color ControlBoxColorHC
         {
-            get { return _ControlBoxColorHC; }
+            get => _ControlBoxColorHC;
             set
             {
                 _ControlBoxColorHC = value;

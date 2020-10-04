@@ -43,10 +43,7 @@ namespace ReaLTaiizor.Controls
 
         public int Value
         {
-            get
-            {
-                return _Val;
-            }
+            get => _Val;
             set
             {
                 _Val = value;
@@ -56,10 +53,7 @@ namespace ReaLTaiizor.Controls
 
         public int Minimum
         {
-            get
-            {
-                return _Min;
-            }
+            get => _Min;
             set
             {
                 _Min = value;
@@ -69,10 +63,7 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get
-            {
-                return _Max;
-            }
+            get => _Max;
             set
             {
                 _Max = value;
@@ -83,8 +74,8 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColor = Color.DodgerBlue;
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public AloneProgressBar()

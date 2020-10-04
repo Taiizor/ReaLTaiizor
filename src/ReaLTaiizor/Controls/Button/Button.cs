@@ -118,10 +118,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -134,20 +131,11 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        protected Size ImageSize
-        {
-            get
-            {
-                return _ImageSize;
-            }
-        }
+        protected Size ImageSize => _ImageSize;
 
         public ContentAlignment ImageAlign
         {
-            get
-            {
-                return _ImageAlign;
-            }
+            get => _ImageAlign;
             set
             {
                 _ImageAlign = value;
@@ -157,10 +145,7 @@ namespace ReaLTaiizor.Controls
 
         public StringAlignment TextAlignment
         {
-            get
-            {
-                return _TextAlignment;
-            }
+            get => _TextAlignment;
             set
             {
                 _TextAlignment = value;
@@ -170,10 +155,7 @@ namespace ReaLTaiizor.Controls
 
         public override Color ForeColor
         {
-            get
-            {
-                return _TextColor;
-            }
+            get => _TextColor;
             set
             {
                 _TextColor = value;
@@ -183,20 +165,20 @@ namespace ReaLTaiizor.Controls
 
         public Color InactiveColor
         {
-            get { return _InactiveColor; }
-            set { _InactiveColor = value; }
+            get => _InactiveColor;
+            set => _InactiveColor = value;
         }
 
         public Color PressedColor
         {
-            get { return _PressedColor; }
-            set { _PressedColor = value; }
+            get => _PressedColor;
+            set => _PressedColor = value;
         }
 
         public Color EnteredColor
         {
-            get { return _EnteredColor; }
-            set { _EnteredColor = value; }
+            get => _EnteredColor;
+            set => _EnteredColor = value;
         }
 
         #endregion

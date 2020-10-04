@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -92,7 +92,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -100,8 +100,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -109,8 +109,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -118,8 +118,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -127,8 +127,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -136,8 +136,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         #endregion
@@ -158,8 +158,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonTabControlSize FontSize
         {
-            get { return poisonLabelSize; }
-            set { poisonLabelSize = value; }
+            get => poisonLabelSize;
+            set => poisonLabelSize = value;
         }
 
         private PoisonTabControlWeight poisonLabelWeight = PoisonTabControlWeight.Light;
@@ -167,8 +167,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonTabControlWeight FontWeight
         {
-            get { return poisonLabelWeight; }
-            set { poisonLabelWeight = value; }
+            get => poisonLabelWeight;
+            set => poisonLabelWeight = value;
         }
 
         private ContentAlignment textAlign = ContentAlignment.MiddleLeft;
@@ -176,24 +176,12 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ContentAlignment TextAlign
         {
-            get
-            {
-                return textAlign;
-            }
-            set
-            {
-                textAlign = value;
-            }
+            get => textAlign;
+            set => textAlign = value;
         }
 
         [Editor(typeof(PoisonTabPageCollectionEditor), typeof(UITypeEditor))]
-        public new TabPageCollection TabPages
-        {
-            get
-            {
-                return base.TabPages;
-            }
-        }
+        public new TabPageCollection TabPages => base.TabPages;
 
 
         private bool isMirrored;
@@ -201,10 +189,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public new bool IsMirrored
         {
-            get
-            {
-                return isMirrored;
-            }
+            get => isMirrored;
             set
             {
                 if (isMirrored == value)
@@ -519,7 +504,7 @@ namespace ReaLTaiizor.Controls
             this.UpdateStyles();
         }
 
-        void PoisonTabControl_Selecting(object sender, TabControlCancelEventArgs e)
+        private void PoisonTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (tabDisable.Count > 0 && tabDisable.Contains(e.TabPage.Name))
                 e.Cancel = true;

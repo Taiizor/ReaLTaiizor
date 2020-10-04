@@ -248,7 +248,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the maximum number of the Numeric.")]
         public int Maximum
         {
-            get { return _maximum; }
+            get => _maximum;
             set
             {
                 _maximum = value;
@@ -259,7 +259,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the minimum number of the Numeric.")]
         public int Minimum
         {
-            get { return _minimum; }
+            get => _minimum;
             set
             {
                 _minimum = value;
@@ -286,7 +286,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get { return _backgroundColor; }
+            get => _backgroundColor;
             set
             {
                 _backgroundColor = value;
@@ -297,7 +297,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the forecolor of the control whenever while disabled.")]
         public Color DisabledForeColor
         {
-            get { return _disabledForeColor; }
+            get => _disabledForeColor;
             set
             {
                 _disabledForeColor = value;
@@ -308,7 +308,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
         public Color DisabledBackColor
         {
-            get { return _disabledBackColor; }
+            get => _disabledBackColor;
             set
             {
                 _disabledBackColor = value;
@@ -319,7 +319,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get { return _disabledBorderColor; }
+            get => _disabledBorderColor;
             set
             {
                 _disabledBorderColor = value;
@@ -330,7 +330,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color.")]
         public Color BorderColor
         {
-            get { return _borderColor; }
+            get => _borderColor;
             set
             {
                 _borderColor = value;
@@ -344,7 +344,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets arrow color used by the control.")]
         public Color SymbolsColor
         {
-            get { return _symbolsColor; }
+            get => _symbolsColor;
             set
             {
                 _symbolsColor = value;
@@ -357,7 +357,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

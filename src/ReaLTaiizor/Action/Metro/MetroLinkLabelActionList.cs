@@ -15,7 +15,7 @@ namespace ReaLTaiizor.Action.Metro
 {
     #region MetroLinkLabelActionListAction
 
-    class MetroLinkLabelActionList : DesignerActionList
+    internal class MetroLinkLabelActionList : DesignerActionList
     {
         private readonly MetroLinkLabel _metroLinkLabel;
 

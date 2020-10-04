@@ -88,7 +88,7 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
+            get => poisonStyleManager;
             set { poisonStyleManager = value; StyleGrid(); }
         }
 
@@ -97,8 +97,8 @@ namespace ReaLTaiizor.Controls
         [Category("Poison Appearance")]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -106,8 +106,8 @@ namespace ReaLTaiizor.Controls
         [Category("Poison Appearance")]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -115,8 +115,8 @@ namespace ReaLTaiizor.Controls
         [Category("Poison Appearance")]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -124,19 +124,19 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(true)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
         #endregion
 
         #region Properties
-        float _offset = 0.2F;
+        private float _offset = 0.2F;
         [DefaultValue(0.2F)]
-        public float HighLightPercentage { get { return _offset; } set { _offset = value; } }
+        public float HighLightPercentage { get => _offset; set => _offset = value; }
         #endregion
 
-        PoisonDataGridHelper scrollhelper = null;
-        PoisonDataGridHelper scrollhelperH = null;
+        private PoisonDataGridHelper scrollhelper = null;
+        private PoisonDataGridHelper scrollhelperH = null;
 
         public PoisonDataGridView()
         {

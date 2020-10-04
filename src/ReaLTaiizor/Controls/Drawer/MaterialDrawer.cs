@@ -28,10 +28,7 @@ namespace ReaLTaiizor.Controls
         [Category("Drawer")]
         public bool ShowIconsWhenHidden
         {
-            get
-            {
-                return _showIconsWhenHidden;
-            }
+            get => _showIconsWhenHidden;
             set
             {
                 if (_showIconsWhenHidden != value)
@@ -51,10 +48,7 @@ namespace ReaLTaiizor.Controls
         [Category("Drawer")]
         public bool IsOpen
         {
-            get
-            {
-                return _isOpen;
-            }
+            get => _isOpen;
             set
             {
                 _isOpen = value;
@@ -73,10 +67,7 @@ namespace ReaLTaiizor.Controls
 
         public bool UseColors
         {
-            get
-            {
-                return _useColors;
-            }
+            get => _useColors;
             set
             {
                 _useColors = value;
@@ -90,10 +81,7 @@ namespace ReaLTaiizor.Controls
 
         public bool HighlightWithAccent
         {
-            get
-            {
-                return _highlightWithAccent;
-            }
+            get => _highlightWithAccent;
             set
             {
                 _highlightWithAccent = value;
@@ -107,10 +95,7 @@ namespace ReaLTaiizor.Controls
 
         public bool BackgroundWithAccent
         {
-            get
-            {
-                return _backgroundWithAccent;
-            }
+            get => _backgroundWithAccent;
             set
             {
                 _backgroundWithAccent = value;
@@ -158,7 +143,7 @@ namespace ReaLTaiizor.Controls
         [Category("Behavior")]
         public MaterialTabControl BaseTabControl
         {
-            get { return _baseTabControl; }
+            get => _baseTabControl;
             set
             {
                 _baseTabControl = value;

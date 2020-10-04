@@ -24,43 +24,43 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Colors")]
         public Color TextColor
         {
-            get { return _TextColor; }
-            set { _TextColor = value; }
+            get => _TextColor;
+            set => _TextColor = value;
         }
 
         [Category("Colors")]
         public Color ArrowColorH
         {
-            get { return _ArrowColorH; }
-            set { _ArrowColorH = value; }
+            get => _ArrowColorH;
+            set => _ArrowColorH = value;
         }
 
         [Category("Colors")]
         public Color ArrowColorF
         {
-            get { return _ArrowColorF; }
-            set { _ArrowColorF = value; }
+            get => _ArrowColorF;
+            set => _ArrowColorF = value;
         }
 
         [Category("Options")]
         public bool ShowText
         {
-            get { return _ShowText; }
-            set { _ShowText = value; }
+            get => _ShowText;
+            set => _ShowText = value;
         }
 
         [Category("Options")]
         public bool ShowArrow
         {
-            get { return _ShowArrow; }
-            set { _ShowArrow = value; }
+            get => _ShowArrow;
+            set => _ShowArrow = value;
         }
 
         private Color _BaseColor = Color.FromArgb(60, 70, 73);

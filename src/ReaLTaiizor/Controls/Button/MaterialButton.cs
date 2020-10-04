@@ -38,25 +38,25 @@ namespace ReaLTaiizor.Controls
 
         public bool UseAccentColor
         {
-            get { return useAccentColor; }
+            get => useAccentColor;
             set { useAccentColor = value; Invalidate(); }
         }
 
         public bool HighEmphasis
         {
-            get { return highEmphasis; }
+            get => highEmphasis;
             set { highEmphasis = value; Invalidate(); }
         }
 
         public bool DrawShadows
         {
-            get { return drawShadows; }
+            get => drawShadows;
             set { drawShadows = value; Invalidate(); }
         }
 
         public MaterialButtonType Type
         {
-            get { return type; }
+            get => type;
             set { type = value; Invalidate(); }
         }
 
@@ -119,7 +119,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Icon
         {
-            get { return _icon; }
+            get => _icon;
             set
             {
                 _icon = value;
@@ -171,7 +171,7 @@ namespace ReaLTaiizor.Controls
         /// </summary>
         public override string Text
         {
-            get { return base.Text; }
+            get => base.Text;
             set
             {
                 base.Text = value;

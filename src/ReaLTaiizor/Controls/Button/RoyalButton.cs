@@ -17,71 +17,65 @@ namespace ReaLTaiizor.Controls
         public event EventHandler HotTrackChanged;
         public event EventHandler SelectedChanged;
 
-        bool hotTracked = false;
-        public bool HotTracked
-        {
-            get { return hotTracked; }
-        }
+        private bool hotTracked = false;
+        public bool HotTracked => hotTracked;
 
-        bool pressed = false;
-        public bool Pressed
-        {
-            get { return pressed; }
-        }
+        private bool pressed = false;
+        public bool Pressed => pressed;
 
-        bool drawBorder;
+        private bool drawBorder;
         public bool DrawBorder
         {
-            get { return drawBorder; }
+            get => drawBorder;
             set { drawBorder = value; Invalidate(); }
         }
 
-        Color hotTrackColor;
+        private Color hotTrackColor;
         public Color HotTrackColor
         {
-            get { return hotTrackColor; }
+            get => hotTrackColor;
             set { hotTrackColor = value; Invalidate(); }
         }
 
-        Color pressedColor;
+        private Color pressedColor;
         public Color PressedColor
         {
-            get { return pressedColor; }
+            get => pressedColor;
             set { pressedColor = value; Invalidate(); }
         }
 
-        Color pressedForeColor;
+        private Color pressedForeColor;
         public Color PressedForeColor
         {
-            get { return pressedForeColor; }
+            get => pressedForeColor;
             set { pressedForeColor = value; Invalidate(); }
         }
 
-        Color borderColor;
+        private Color borderColor;
         public Color BorderColor
         {
-            get { return borderColor; }
+            get => borderColor;
             set { borderColor = value; Invalidate(); }
         }
 
-        int borderThickness;
+        private int borderThickness;
         public int BorderThickness
         {
-            get { return borderThickness; }
+            get => borderThickness;
             set { borderThickness = value; Invalidate(); }
         }
 
-        Image image;
+        private Image image;
         public Image Image
         {
-            get { return image; }
+            get => image;
             set { image = value; Invalidate(); }
         }
 
-        RoyalLayoutFlags layoutFlags;
+        private RoyalLayoutFlags layoutFlags;
         public RoyalLayoutFlags LayoutFlags
         {
-            get { return layoutFlags; }
+            get => layoutFlags;
             set { layoutFlags = value; Invalidate(); }
         }
 

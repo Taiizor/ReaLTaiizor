@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -93,8 +93,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -102,8 +102,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -111,8 +111,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -120,8 +120,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -129,8 +129,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         #endregion
@@ -145,15 +145,15 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
         public bool Spinning
         {
-            get { return timer.Enabled; }
-            set { timer.Enabled = value; }
+            get => timer.Enabled;
+            set => timer.Enabled = value;
         }
 
         [DefaultValue(0)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int Value
         {
-            get { return progress; }
+            get => progress;
             set
             {
                 if (value != -1 && (value < minimum || value > maximum))
@@ -168,7 +168,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int Minimum
         {
-            get { return minimum; }
+            get => minimum;
             set
             {
                 if (value < 0)
@@ -187,7 +187,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int Maximum
         {
-            get { return maximum; }
+            get => maximum;
             set
             {
                 if (value <= minimum)
@@ -204,7 +204,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool EnsureVisible
         {
-            get { return ensureVisible; }
+            get => ensureVisible;
             set { ensureVisible = value; Refresh(); }
         }
 
@@ -213,7 +213,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
         public float Speed
         {
-            get { return speed; }
+            get => speed;
             set
             {
                 if (value <= 0 || value > 10)
@@ -228,7 +228,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
         public bool Backwards
         {
-            get { return backwards; }
+            get => backwards;
             set { backwards = value; Refresh(); }
         }
 
@@ -237,8 +237,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool CustomBackground
         {
-            get { return useCustomBackground; }
-            set { useCustomBackground = value; }
+            get => useCustomBackground;
+            set => useCustomBackground = value;
         }
 
         #endregion

@@ -32,8 +32,8 @@ namespace ReaLTaiizor.Forms
 
         public new FormBorderStyle FormBorderStyle
         {
-            get { return base.FormBorderStyle; }
-            set { base.FormBorderStyle = value; }
+            get => base.FormBorderStyle;
+            set => base.FormBorderStyle = value;
         }
 
         [Category("Layout")]
@@ -167,13 +167,7 @@ namespace ReaLTaiizor.Forms
         private Rectangle _xButtonBounds;
         private Rectangle _actionBarBounds;
 
-        public Rectangle UserArea
-        {
-            get
-            {
-                return new Rectangle(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
-            }
-        }
+        public Rectangle UserArea => new Rectangle(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
 
         private Rectangle _statusBarBounds;
         private bool _maximized;
@@ -224,7 +218,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerShowIconsWhenHidden
         {
-            get { return _drawerShowIconsWhenHidden; }
+            get => _drawerShowIconsWhenHidden;
             set
             {
                 _drawerShowIconsWhenHidden = value;
@@ -250,10 +244,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerIsOpen
         {
-            get
-            {
-                return _drawerIsOpen;
-            }
+            get => _drawerIsOpen;
             set
             {
                 _drawerIsOpen = value;
@@ -272,10 +263,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerUseColors
         {
-            get
-            {
-                return _drawerUseColors;
-            }
+            get => _drawerUseColors;
             set
             {
                 _drawerUseColors = value;
@@ -292,10 +280,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerHighlightWithAccent
         {
-            get
-            {
-                return _drawerHighlightWithAccent;
-            }
+            get => _drawerHighlightWithAccent;
             set
             {
                 _drawerHighlightWithAccent = value;
@@ -312,10 +297,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerBackgroundWithAccent
         {
-            get
-            {
-                return _backgroundWithAccent;
-            }
+            get => _backgroundWithAccent;
             set
             {
                 _backgroundWithAccent = value;

@@ -82,34 +82,34 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color HoverColor
         {
-            get { return _HoverColor; }
-            set { _HoverColor = value; }
+            get => _HoverColor;
+            set => _HoverColor = value;
         }
 
         [Category("Colors")]
         public Color HoverFontColor
         {
-            get { return _HoverFontColor; }
-            set { _HoverFontColor = value; }
+            get => _HoverFontColor;
+            set => _HoverFontColor = value;
         }
 
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Colors")]
         public Color BGColor
         {
-            get { return _BGColor; }
-            set { _BGColor = value; }
+            get => _BGColor;
+            set => _BGColor = value;
         }
 
         private int StartIndex
         {
-            get { return _StartIndex; }
+            get => _StartIndex;
             set
             {
                 _StartIndex = value;

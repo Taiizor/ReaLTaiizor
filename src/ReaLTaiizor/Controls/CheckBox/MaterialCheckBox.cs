@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
         [Category("Appearance")]
         public bool Ripple
         {
-            get { return _ripple; }
+            get => _ripple;
             set
             {
                 _ripple = value;
@@ -211,7 +211,7 @@ namespace ReaLTaiizor.Controls
 
         public override bool AutoSize
         {
-            get { return base.AutoSize; }
+            get => base.AutoSize;
             set
             {
                 base.AutoSize = value;

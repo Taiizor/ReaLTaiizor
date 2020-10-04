@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Util
         }
     }
 
-    enum MouseStateSky : byte
+    internal enum MouseStateSky : byte
     {
         None = 0,
         Over = 1,

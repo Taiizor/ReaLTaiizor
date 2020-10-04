@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ColorStyle Style
         {
-            get { throw new NotSupportedException(); }
+            get => throw new NotSupportedException();
             set { }
         }
 
@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
+            get => poisonStyleManager;
             set
             {
                 poisonStyleManager = value;

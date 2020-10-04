@@ -16,10 +16,7 @@ namespace ReaLTaiizor.Forms
         private int _TitleHeight = 25;
         public int TitleHeight
         {
-            get
-            {
-                return _TitleHeight;
-            }
+            get => _TitleHeight;
             set
             {
                 if (value > Height)
@@ -34,10 +31,7 @@ namespace ReaLTaiizor.Forms
         private HorizontalAlignment _TitleAlign = (HorizontalAlignment)2;
         public HorizontalAlignment TitleAlign
         {
-            get
-            {
-                return _TitleAlign;
-            }
+            get => _TitleAlign;
             set
             {
                 _TitleAlign = value;
@@ -71,46 +65,46 @@ namespace ReaLTaiizor.Forms
             base.OnMouseDown(e);
         }
 
-        Color _ColorA = Color.FromArgb(40, 218, 255);
+        private Color _ColorA = Color.FromArgb(40, 218, 255);
         public Color ColorA
         {
-            get { return _ColorA; }
-            set { _ColorA = value; }
+            get => _ColorA;
+            set => _ColorA = value;
         }
 
-        Color _ColorB = Color.FromArgb(63, 63, 63);
+        private Color _ColorB = Color.FromArgb(63, 63, 63);
         public Color ColorB
         {
-            get { return _ColorB; }
-            set { _ColorB = value; }
+            get => _ColorB;
+            set => _ColorB = value;
         }
 
-        Color _ColorC = Color.FromArgb(41, 41, 41); //(74, 74, 74)
+        private Color _ColorC = Color.FromArgb(41, 41, 41); //(74, 74, 74)
         public Color ColorC
         {
-            get { return _ColorC; }
-            set { _ColorC = value; }
+            get => _ColorC;
+            set => _ColorC = value;
         }
 
-        Color _ColorD = Color.FromArgb(27, 27, 27);
+        private Color _ColorD = Color.FromArgb(27, 27, 27);
         public Color ColorD
         {
-            get { return _ColorD; }
-            set { _ColorD = value; }
+            get => _ColorD;
+            set => _ColorD = value;
         }
 
-        Color _ColorE = Color.FromArgb(0, 0, 0, 0);
+        private Color _ColorE = Color.FromArgb(0, 0, 0, 0);
         public Color ColorE
         {
-            get { return _ColorE; }
-            set { _ColorE = value; }
+            get => _ColorE;
+            set => _ColorE = value;
         }
 
-        Color _ColorF = Color.FromArgb(25, 255, 255, 255);
+        private Color _ColorF = Color.FromArgb(25, 255, 255, 255);
         public Color ColorF
         {
-            get { return _ColorF; }
-            set { _ColorF = value; }
+            get => _ColorF;
+            set => _ColorF = value;
         }
 
 

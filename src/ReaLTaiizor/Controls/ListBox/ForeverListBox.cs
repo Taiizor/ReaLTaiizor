@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
         private System.Windows.Forms.ListBox withEventsField_ListBx = new System.Windows.Forms.ListBox();
         private System.Windows.Forms.ListBox ListBx
         {
-            get { return withEventsField_ListBx; }
+            get => withEventsField_ListBx;
             set
             {
                 if (withEventsField_ListBx != null)
@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
         [Category("Options")]
         public string[] items
         {
-            get { return _items; }
+            get => _items;
             set
             {
                 _items = value;
@@ -48,18 +48,13 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color SelectedColor
         {
-            get { return _SelectedColor; }
-            set { _SelectedColor = value; }
+            get => _SelectedColor;
+            set => _SelectedColor = value;
         }
 
-        public string SelectedItem
-        {
-            get
-            {
+        public string SelectedItem =>
                 //return ListBx.SelectedItem.ToString();
-                return (string)ListBx.Items[SelectedIndex];
-            }
-        }
+                (string)ListBx.Items[SelectedIndex];
 
         public int SelectedIndex
         {

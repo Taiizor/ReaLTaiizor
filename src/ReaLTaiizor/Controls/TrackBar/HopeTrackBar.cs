@@ -27,7 +27,7 @@ namespace ReaLTaiizor.Controls
         private int _minValue = 0;
         public int MinValue
         {
-            get { return _minValue; }
+            get => _minValue;
             set
             {
                 if (value > _maxValue || value > _value)
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
         private int _maxValue = 10;
         public int MaxValue
         {
-            get { return _maxValue; }
+            get => _maxValue;
             set
             {
                 if (value < _minValue || value < _value)
@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Controls
         private int _value = 0;
         public int Value
         {
-            get { return _value; }
+            get => _value;
             set
             {
                 _value = value >= _minValue && value <= _maxValue ? value : _minValue;
@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Controls
         private bool _showValue = false;
         public bool ShowValue
         {
-            get { return _showValue; }
+            get => _showValue;
             set
             {
                 _showValue = value;
@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Controls
         private bool _AlwaysValueVisible = false;
         public bool AlwaysValueVisible
         {
-            get { return _AlwaysValueVisible; }
+            get => _AlwaysValueVisible;
             set
             {
                 _AlwaysValueVisible = value;
@@ -83,15 +83,12 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private int ValueWidth
-        {
-            get { return Convert.ToInt32(_value * (Width - 30) / (_maxValue - _minValue)); }
-        }
+        private int ValueWidth => Convert.ToInt32(_value * (Width - 30) / (_maxValue - _minValue));
 
         private Color _themeColor = HopeColors.PrimaryColor;
         public Color ThemeColor
         {
-            get { return _themeColor; }
+            get => _themeColor;
             set
             {
                 _themeColor = value;
@@ -102,7 +99,7 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColor = Color.FromArgb(44, 55, 66);
         public Color BaseColor
         {
-            get { return _BaseColor; }
+            get => _BaseColor;
             set
             {
                 _BaseColor = value;
@@ -113,7 +110,7 @@ namespace ReaLTaiizor.Controls
         private Color _BarColor = RoundRectangle.BackColor;
         public Color BarColor
         {
-            get { return _BarColor; }
+            get => _BarColor;
             set
             {
                 _BarColor = value;
@@ -124,7 +121,7 @@ namespace ReaLTaiizor.Controls
         private Color _BallonColor = HopeColors.PrimaryColor;
         public Color BallonColor
         {
-            get { return _BallonColor; }
+            get => _BallonColor;
             set
             {
                 _BallonColor = value;
@@ -135,7 +132,7 @@ namespace ReaLTaiizor.Controls
         private Color _BallonArrowColor = HopeColors.PrimaryColor;
         public Color BallonArrowColor
         {
-            get { return _BallonArrowColor; }
+            get => _BallonArrowColor;
             set
             {
                 _BallonArrowColor = value;
@@ -146,7 +143,7 @@ namespace ReaLTaiizor.Controls
         private Color _FillBarColor = HopeColors.PrimaryColor;
         public Color FillBarColor
         {
-            get { return _FillBarColor; }
+            get => _FillBarColor;
             set
             {
                 _FillBarColor = value;
@@ -157,7 +154,7 @@ namespace ReaLTaiizor.Controls
         private Color _HeadBorderColor = Color.DodgerBlue;
         public Color HeadBorderColor
         {
-            get { return _HeadBorderColor; }
+            get => _HeadBorderColor;
             set
             {
                 _HeadBorderColor = value;
@@ -168,7 +165,7 @@ namespace ReaLTaiizor.Controls
         private Color _HeadColor = Color.Black;
         public Color HeadColor
         {
-            get { return _HeadColor; }
+            get => _HeadColor;
             set
             {
                 _HeadColor = value;
@@ -179,7 +176,7 @@ namespace ReaLTaiizor.Controls
         private Color _UnknownColor = Color.White;
         public Color UnknownColor
         {
-            get { return _UnknownColor; }
+            get => _UnknownColor;
             set
             {
                 _UnknownColor = value;

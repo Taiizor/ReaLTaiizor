@@ -22,21 +22,21 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public int Progress
         {
-            get { return _progress; }
+            get => _progress;
             set { _progress = value; Invalidate(); }
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color Color
         {
-            get { return _color; }
+            get => _color;
             set { _color = value; Invalidate(); }
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool Hover
         {
-            get { return _hover; }
+            get => _hover;
             set { _hover = value; Invalidate(); }
         }
 

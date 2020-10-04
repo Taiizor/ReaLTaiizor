@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Design.Poison
 
     internal class PoisonStyleManagerDesigner : ComponentDesigner
     {
-        DesignerVerbCollection designerVerbs;
+        private DesignerVerbCollection designerVerbs;
 
         public override DesignerVerbCollection Verbs
         {

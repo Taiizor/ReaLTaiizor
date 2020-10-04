@@ -50,10 +50,7 @@ namespace ReaLTaiizor.Controls
         public virtual System.Windows.Forms.TextBox TB
         {
             [CompilerGenerated]
-            get
-            {
-                return _TB;
-            }
+            get => _TB;
             [CompilerGenerated]
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
@@ -74,10 +71,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool Enabled
         {
-            get
-            {
-                return EnabledCalc;
-            }
+            get => EnabledCalc;
             set
             {
                 TB.Enabled = value;
@@ -89,10 +83,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("Enabled")]
         public bool EnabledCalc
         {
-            get
-            {
-                return _EnabledCalc;
-            }
+            get => _EnabledCalc;
             set
             {
                 Enabled = value;
@@ -102,10 +93,7 @@ namespace ReaLTaiizor.Controls
 
         public bool UseSystemPasswordChar
         {
-            get
-            {
-                return _allowpassword;
-            }
+            get => _allowpassword;
             set
             {
                 TB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -116,10 +104,7 @@ namespace ReaLTaiizor.Controls
 
         public int MaxLength
         {
-            get
-            {
-                return _maxChars;
-            }
+            get => _maxChars;
             set
             {
                 _maxChars = value;
@@ -130,10 +115,7 @@ namespace ReaLTaiizor.Controls
 
         public HorizontalAlignment TextAlign
         {
-            get
-            {
-                return _textAlignment;
-            }
+            get => _textAlignment;
             set
             {
                 _textAlignment = value;
@@ -143,10 +125,7 @@ namespace ReaLTaiizor.Controls
 
         public bool MultiLine
         {
-            get
-            {
-                return _multiLine;
-            }
+            get => _multiLine;
             set
             {
                 _multiLine = value;
@@ -158,10 +137,7 @@ namespace ReaLTaiizor.Controls
 
         public bool ReadOnly
         {
-            get
-            {
-                return _readOnly;
-            }
+            get => _readOnly;
             set
             {
                 _readOnly = value;

@@ -26,29 +26,29 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColor = FoxLibrary.ColorFromHex("#C8C8C8");
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         private Color _HoverBorderColor = FoxLibrary.ColorFromHex("#2C9CDA");
         public Color HoverBorderColor
         {
-            get { return _HoverBorderColor; }
-            set { _HoverBorderColor = value; }
+            get => _HoverBorderColor;
+            set => _HoverBorderColor = value;
         }
 
         private Color _DisabledBorderColor = FoxLibrary.ColorFromHex("#E6E6E6");
         public Color DisabledBorderColor
         {
-            get { return _DisabledBorderColor; }
-            set { _DisabledBorderColor = value; }
+            get => _DisabledBorderColor;
+            set => _DisabledBorderColor = value;
         }
 
         private Color _DisabledTextColor = FoxLibrary.ColorFromHex("#A6B2BE");
         public Color DisabledTextColor
         {
-            get { return _DisabledTextColor; }
-            set { _DisabledTextColor = value; }
+            get => _DisabledTextColor;
+            set => _DisabledTextColor = value;
         }
 
         public FoxCheckBoxEdit() : base()

@@ -25,8 +25,8 @@ namespace ReaLTaiizor.Native
 
         public bool SubClassed
         {
-            get { return IsSubClassed; }
-            set { IsSubClassed = value; }
+            get => IsSubClassed;
+            set => IsSubClassed = value;
         }
 
         protected override void WndProc(ref Message m)

@@ -47,79 +47,64 @@ namespace ReaLTaiizor.Forms
 
         public Color TitleColor
         {
-            get { return _TitleColor; }
-            set { _TitleColor = value; }
+            get => _TitleColor;
+            set => _TitleColor = value;
         }
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color HeaderEdgeColorA
         {
-            get { return _HeaderEdgeColorA; }
-            set { _HeaderEdgeColorA = value; }
+            get => _HeaderEdgeColorA;
+            set => _HeaderEdgeColorA = value;
         }
 
         public Color HeaderEdgeColorB
         {
-            get { return _HeaderEdgeColorB; }
-            set { _HeaderEdgeColorB = value; }
+            get => _HeaderEdgeColorB;
+            set => _HeaderEdgeColorB = value;
         }
 
         public Color FooterEdgeColor
         {
-            get { return _FooterEdgeColor; }
-            set { _FooterEdgeColor = value; }
+            get => _FooterEdgeColor;
+            set => _FooterEdgeColor = value;
         }
 
         public Color FillEdgeColorA
         {
-            get { return _FillEdgeColorA; }
-            set { _FillEdgeColorA = value; }
+            get => _FillEdgeColorA;
+            set => _FillEdgeColorA = value;
         }
 
         public Color FillEdgeColorB
         {
-            get { return _FillEdgeColorB; }
-            set { _FillEdgeColorB = value; }
+            get => _FillEdgeColorB;
+            set => _FillEdgeColorB = value;
         }
 
         private bool _Sizable = true;
         public bool Sizable
         {
-            get
-            {
-                return _Sizable;
-            }
-            set
-            {
-                _Sizable = value;
-            }
+            get => _Sizable;
+            set => _Sizable = value;
         }
 
         private bool _SmartBounds = true;
         public bool SmartBounds
         {
-            get
-            {
-                return _SmartBounds;
-            }
-            set
-            {
-                _SmartBounds = value;
-            }
+            get => _SmartBounds;
+            set => _SmartBounds = value;
         }
 
         private bool _RoundCorners = true;
         public bool RoundCorners
         {
-            get
-            {
-                return _RoundCorners;
-            }
+            get => _RoundCorners;
             set
             {
                 _RoundCorners = value;
@@ -128,13 +113,7 @@ namespace ReaLTaiizor.Forms
         }
 
         private bool _IsParentForm;
-        protected bool IsParentForm
-        {
-            get
-            {
-                return _IsParentForm;
-            }
-        }
+        protected bool IsParentForm => _IsParentForm;
 
         protected bool IsParentMdi
         {
@@ -151,10 +130,7 @@ namespace ReaLTaiizor.Forms
         private bool _ControlMode;
         protected bool ControlMode
         {
-            get
-            {
-                return _ControlMode;
-            }
+            get => _ControlMode;
             set
             {
                 _ControlMode = value;

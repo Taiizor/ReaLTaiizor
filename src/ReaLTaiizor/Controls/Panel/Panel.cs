@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Controls
         private Color _EdgeColor = Color.FromArgb(32, 41, 50);
         public Color EdgeColor
         {
-            get { return _EdgeColor; }
+            get => _EdgeColor;
             set
             {
                 _EdgeColor = value;

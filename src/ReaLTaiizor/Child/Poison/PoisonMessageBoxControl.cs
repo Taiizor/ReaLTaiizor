@@ -50,26 +50,17 @@ namespace ReaLTaiizor.Child.Poison
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private Color _question = Color.FromArgb(71, 164, 71);
 
-        public System.Windows.Forms.Panel Body
-        {
-            get { return panelbody; }
-        }
+        public System.Windows.Forms.Panel Body => panelbody;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private PoisonMessageBoxProperties _properties = null;
 
-        public PoisonMessageBoxProperties Properties
-        {
-            get { return _properties; }
-        }
+        public PoisonMessageBoxProperties Properties => _properties;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private DialogResult _result = DialogResult.None;
 
-        public DialogResult Result
-        {
-            get { return _result; }
-        }
+        public DialogResult Result => _result;
 
         public void ArrangeApperance()
         {

@@ -20,50 +20,50 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColor = FoxLibrary.ColorFromHex("#F9F9F9");
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         private Color _OverColor = FoxLibrary.ColorFromHex("#F2F2F2");
         public Color OverColor
         {
-            get { return _OverColor; }
-            set { _OverColor = value; }
+            get => _OverColor;
+            set => _OverColor = value;
         }
 
         private Color _DownColor = FoxLibrary.ColorFromHex("#E8E8E8");
         public Color DownColor
         {
-            get { return _DownColor; }
-            set { _DownColor = value; }
+            get => _DownColor;
+            set => _DownColor = value;
         }
 
         private Color _BorderColor = FoxLibrary.ColorFromHex("#C1C1C1");
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         private Color _DisabledBaseColor = FoxLibrary.ColorFromHex("#F9F9F9");
         public Color DisabledBaseColor
         {
-            get { return _DisabledBaseColor; }
-            set { _DisabledBaseColor = value; }
+            get => _DisabledBaseColor;
+            set => _DisabledBaseColor = value;
         }
 
         private Color _DisabledTextColor = FoxLibrary.ColorFromHex("#A6B2BE");
         public Color DisabledTextColor
         {
-            get { return _DisabledTextColor; }
-            set { _DisabledTextColor = value; }
+            get => _DisabledTextColor;
+            set => _DisabledTextColor = value;
         }
 
         private Color _DisabledBorderColor = FoxLibrary.ColorFromHex("#D1D1D1");
         public Color DisabledBorderColor
         {
-            get { return _DisabledBorderColor; }
-            set { _DisabledBorderColor = value; }
+            get => _DisabledBorderColor;
+            set => _DisabledBorderColor = value;
         }
 
         public FoxButton() : base()

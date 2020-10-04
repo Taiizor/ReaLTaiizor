@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
             ApplyTheme();
         }
 
-        void SetDefaults()
+        private void SetDefaults()
         {
             _minimum = 0;
             _maximum = 100;
@@ -269,7 +269,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(1)]
         public int SmallChange
         {
-            get { return _smallChange; }
+            get => _smallChange;
             set
             {
                 _smallChange = value;
@@ -281,7 +281,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(10)]
         public int LargeChange
         {
-            get { return _largeChange; }
+            get => _largeChange;
             set
             {
                 _largeChange = value;
@@ -293,7 +293,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(ScrollOrientate.Horizontal)]
         public ScrollOrientate Orientation
         {
-            get { return _orientation; }
+            get => _orientation;
             set
             {
                 _orientation = value;
@@ -310,7 +310,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled forecolor used by the control.")]
         public Color DisabledForeColor
         {
-            get { return _disabledForeColor; }
+            get => _disabledForeColor;
             set
             {
                 _disabledForeColor = value;
@@ -321,7 +321,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
         public Color DisabledBackColor
         {
-            get { return _disabledBackColor; }
+            get => _disabledBackColor;
             set
             {
                 _disabledBackColor = value;
@@ -334,7 +334,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

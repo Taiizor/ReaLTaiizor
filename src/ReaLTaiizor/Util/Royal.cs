@@ -16,8 +16,8 @@ namespace ReaLTaiizor.Util
 
     public abstract class ControlRoyalBase : Control
     {
-        Thread animationThread;
-        double framesPerSecond = (1000 / 15);
+        private Thread animationThread;
+        private double framesPerSecond = (1000 / 15);
 
         protected delegate void MoveControlDelegate(Point location);
         protected delegate void ResizeControlDelegate(Size size);
@@ -32,10 +32,7 @@ namespace ReaLTaiizor.Util
 
         public override Color BackColor
         {
-            get
-            {
-                return base.BackColor;
-            }
+            get => base.BackColor;
             set
             {
                 if (AnimateBackColorChange)
@@ -296,32 +293,32 @@ namespace ReaLTaiizor.Util
     {
         public Color ForeColor
         {
-            get { return RoyalColors.ForeColor; }
-            set { RoyalColors.ForeColor = value; }
+            get => RoyalColors.ForeColor;
+            set => RoyalColors.ForeColor = value;
         }
 
         public Color PressedForeColor
         {
-            get { return RoyalColors.PressedForeColor; }
-            set { RoyalColors.PressedForeColor = value; }
+            get => RoyalColors.PressedForeColor;
+            set => RoyalColors.PressedForeColor = value;
         }
 
         public Color BackColor
         {
-            get { return RoyalColors.BackColor; }
-            set { RoyalColors.BackColor = value; }
+            get => RoyalColors.BackColor;
+            set => RoyalColors.BackColor = value;
         }
 
         public Color SelectedColor
         {
-            get { return RoyalColors.HotTrackColor; }
-            set { RoyalColors.HotTrackColor = value; }
+            get => RoyalColors.HotTrackColor;
+            set => RoyalColors.HotTrackColor = value;
         }
 
         public Color PressedColor
         {
-            get { return RoyalColors.AccentColor; }
-            set { RoyalColors.AccentColor = value; }
+            get => RoyalColors.AccentColor;
+            set => RoyalColors.AccentColor = value;
         }
 
         public RoyalToolStripRenderer()

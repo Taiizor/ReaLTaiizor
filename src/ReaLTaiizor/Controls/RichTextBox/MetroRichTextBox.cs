@@ -760,7 +760,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets back color used by the control while disabled.")]
         public Color DisabledBackColor
         {
-            get { return _disabledBackColor; }
+            get => _disabledBackColor;
             set
             {
                 _disabledBackColor = value;
@@ -772,7 +772,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the fore color of the control whenever while disabled")]
         public Color DisabledForeColor
         {
-            get { return _disabledForeColor; }
+            get => _disabledForeColor;
             set
             {
                 _disabledForeColor = value;
@@ -784,7 +784,7 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the border color of the control while disabled.")]
         public Color DisabledBorderColor
         {
-            get { return _disabledBorderColor; }
+            get => _disabledBorderColor;
             set
             {
                 _disabledBorderColor = value;
@@ -797,7 +797,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

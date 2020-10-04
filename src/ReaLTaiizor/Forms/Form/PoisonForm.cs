@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Forms
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Light;
@@ -52,15 +52,15 @@ namespace ReaLTaiizor.Forms
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         #endregion
@@ -72,15 +72,12 @@ namespace ReaLTaiizor.Forms
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public FormTextAlignType TextAlign
         {
-            get { return textAlign; }
-            set { textAlign = value; }
+            get => textAlign;
+            set => textAlign = value;
         }
 
         [Browsable(false)]
-        public override Color BackColor
-        {
-            get { return PoisonPaint.BackColor.Form(Theme); }
-        }
+        public override Color BackColor => PoisonPaint.BackColor.Form(Theme);
 
         private Enum.Poison.FormBorderStyle formBorderStyle = Enum.Poison.FormBorderStyle.None;
         [DefaultValue(Enum.Poison.FormBorderStyle.None)]
@@ -88,21 +85,21 @@ namespace ReaLTaiizor.Forms
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Enum.Poison.FormBorderStyle BorderStyle
         {
-            get { return formBorderStyle; }
-            set { formBorderStyle = value; }
+            get => formBorderStyle;
+            set => formBorderStyle = value;
         }
 
         private bool isMovable = true;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool Movable
         {
-            get { return isMovable; }
-            set { isMovable = value; }
+            get => isMovable;
+            set => isMovable = value;
         }
 
         public new Padding Padding
         {
-            get { return base.Padding; }
+            get => base.Padding;
             set
             {
                 value.Top = Math.Max(value.Top, DisplayHeader ? 60 : 30);
@@ -110,17 +107,14 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        protected override Padding DefaultPadding
-        {
-            get { return new Padding(20, DisplayHeader ? 60 : 20, 20, 20); }
-        }
+        protected override Padding DefaultPadding => new Padding(20, DisplayHeader ? 60 : 20, 20, 20);
 
         private bool displayHeader = true;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(true)]
         public bool DisplayHeader
         {
-            get { return displayHeader; }
+            get => displayHeader;
             set
             {
                 if (value != displayHeader)
@@ -137,8 +131,8 @@ namespace ReaLTaiizor.Forms
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool Resizable
         {
-            get { return isResizable; }
-            set { isResizable = value; }
+            get => isResizable;
+            set => isResizable = value;
         }
 
         private FormShadowType shadowType = FormShadowType.Flat;
@@ -146,20 +140,20 @@ namespace ReaLTaiizor.Forms
         [DefaultValue(FormShadowType.Flat)]
         public FormShadowType ShadowType
         {
-            get { return IsMdiChild ? FormShadowType.None : shadowType; }
-            set { shadowType = value; }
+            get => IsMdiChild ? FormShadowType.None : shadowType;
+            set => shadowType = value;
         }
 
         [Browsable(false)]
         public new System.Windows.Forms.FormBorderStyle FormBorderStyle
         {
-            get { return base.FormBorderStyle; }
-            set { base.FormBorderStyle = value; }
+            get => base.FormBorderStyle;
+            set => base.FormBorderStyle = value;
         }
 
         public new Form MdiParent
         {
-            get { return base.MdiParent; }
+            get => base.MdiParent;
             set
             {
                 if (value != null)
@@ -180,7 +174,7 @@ namespace ReaLTaiizor.Forms
         [DefaultValue(null)]
         public Image BackImage
         {
-            get { return backImage; }
+            get => backImage;
             set
             {
                 backImage = value;
@@ -193,7 +187,7 @@ namespace ReaLTaiizor.Forms
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Padding BackImagePadding
         {
-            get { return backImagePadding; }
+            get => backImagePadding;
             set
             {
                 backImagePadding = value;
@@ -205,7 +199,7 @@ namespace ReaLTaiizor.Forms
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int BackMaxSize
         {
-            get { return backMaxSize; }
+            get => backMaxSize;
             set
             {
                 backMaxSize = value;
@@ -218,7 +212,7 @@ namespace ReaLTaiizor.Forms
         [DefaultValue(BackLocationType.TopLeft)]
         public BackLocationType BackLocation
         {
-            get { return backLocation; }
+            get => backLocation;
             set
             {
                 backLocation = value;
@@ -231,7 +225,7 @@ namespace ReaLTaiizor.Forms
         [DefaultValue(true)]
         public bool ApplyImageInvert
         {
-            get { return _imageinvert; }
+            get => _imageinvert;
             set
             {
                 _imageinvert = value;
@@ -537,8 +531,7 @@ namespace ReaLTaiizor.Forms
                 case (int)WinApi.Messages.WM_SIZE:
                     if (windowButtonList != null)
                     {
-                        PoisonFormButton btn;
-                        windowButtonList.TryGetValue(WindowButtons.Maximize, out btn);
+                        windowButtonList.TryGetValue(WindowButtons.Maximize, out PoisonFormButton btn);
                         if (btn == null) return;
                         if (WindowState == FormWindowState.Normal)
                         {
@@ -788,7 +781,7 @@ namespace ReaLTaiizor.Forms
 
                     return poisonStyle;
                 }
-                set { poisonStyle = value; }
+                set => poisonStyle = value;
             }
 
             private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -808,7 +801,7 @@ namespace ReaLTaiizor.Forms
 
                     return poisonTheme;
                 }
-                set { poisonTheme = value; }
+                set => poisonTheme = value;
             }
 
             private PoisonStyleManager poisonStyleManager = null;
@@ -816,8 +809,8 @@ namespace ReaLTaiizor.Forms
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
             public PoisonStyleManager StyleManager
             {
-                get { return poisonStyleManager; }
-                set { poisonStyleManager = value; }
+                get => poisonStyleManager;
+                set => poisonStyleManager = value;
             }
 
             private bool useCustomBackColor = false;
@@ -825,8 +818,8 @@ namespace ReaLTaiizor.Forms
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
             public bool UseCustomBackColor
             {
-                get { return useCustomBackColor; }
-                set { useCustomBackColor = value; }
+                get => useCustomBackColor;
+                set => useCustomBackColor = value;
             }
 
             private bool useCustomForeColor = false;
@@ -834,8 +827,8 @@ namespace ReaLTaiizor.Forms
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
             public bool UseCustomForeColor
             {
-                get { return useCustomForeColor; }
-                set { useCustomForeColor = value; }
+                get => useCustomForeColor;
+                set => useCustomForeColor = value;
             }
 
             private bool useStyleColors = false;
@@ -843,8 +836,8 @@ namespace ReaLTaiizor.Forms
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
             public bool UseStyleColors
             {
-                get { return useStyleColors; }
-                set { useStyleColors = value; }
+                get => useStyleColors;
+                set => useStyleColors = value;
             }
 
             [Browsable(false)]
@@ -852,8 +845,8 @@ namespace ReaLTaiizor.Forms
             [DefaultValue(false)]
             public bool UseSelectable
             {
-                get { return GetStyle(ControlStyles.Selectable); }
-                set { SetStyle(ControlStyles.Selectable, value); }
+                get => GetStyle(ControlStyles.Selectable);
+                set => SetStyle(ControlStyles.Selectable, value);
             }
 
             #endregion
@@ -973,7 +966,7 @@ namespace ReaLTaiizor.Forms
         #region Shadows
 
         private const int CS_DROPSHADOW = 0x20000;
-        const int WS_MINIMIZEBOX = 0x20000;
+        private const int WS_MINIMIZEBOX = 0x20000;
         protected override CreateParams CreateParams
         {
             get
@@ -1106,7 +1099,7 @@ namespace ReaLTaiizor.Forms
 
             private long lastResizedOn;
 
-            private bool IsResizing { get { return lastResizedOn > 0; } }
+            private bool IsResizing => lastResizedOn > 0;
 
             private void OnTargetFormResizeBegin(object sender, EventArgs e)
             {

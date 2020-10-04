@@ -26,50 +26,49 @@ namespace ReaLTaiizor.Forms
         private Image _Image; //Properties.Resources.Taiizor
         private Size _ImageSize;
         private bool _Sizable = true;
-
-        const int wmNcHitTest = 0x84;
-        const int htLeft = 10;
-        const int htRight = 11;
-        const int htTop = 12;
-        const int htTopLeft = 13;
-        const int htTopRight = 14;
-        const int htBottom = 15;
-        const int htBottomLeft = 16;
-        const int htBottomRight = 17;
+        private const int wmNcHitTest = 0x84;
+        private const int htLeft = 10;
+        private const int htRight = 11;
+        private const int htTop = 12;
+        private const int htTopLeft = 13;
+        private const int htTopRight = 14;
+        private const int htBottom = 15;
+        private const int htBottomLeft = 16;
+        private const int htBottomRight = 17;
 
         [Category("Colors")]
         public Color HeaderColor
         {
-            get { return _HeaderColor; }
-            set { _HeaderColor = value; }
+            get => _HeaderColor;
+            set => _HeaderColor = value;
         }
 
         [Category("Colors")]
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
 
         [Category("Colors")]
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         [Category("Colors")]
         public Color TextColor
         {
-            get { return _TextColor; }
-            set { _TextColor = value; }
+            get => _TextColor;
+            set => _TextColor = value;
         }
 
         [Category("Colors")]
         public Color TextLight
         {
-            get { return _TextLight; }
-            set { _TextLight = value; }
+            get => _TextLight;
+            set => _TextLight = value;
         }
 
         [Category("Colors")]
@@ -77,24 +76,21 @@ namespace ReaLTaiizor.Forms
         {
             // get { return ForeverLibrary.ForeverColor; }
             // set { ForeverLibrary.ForeverColor = value; }
-            get { return _ForeverColor; }
-            set { _ForeverColor = value; }
+            get => _ForeverColor;
+            set => _ForeverColor = value;
         }
 
         [Category("Options")]
         public bool HeaderMaximize
         {
-            get { return _HeaderMaximize; }
-            set { _HeaderMaximize = value; }
+            get => _HeaderMaximize;
+            set => _HeaderMaximize = value;
         }
 
         [Category("Options")]
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -109,15 +105,15 @@ namespace ReaLTaiizor.Forms
         [Category("Options")]
         public bool Sizable
         {
-            get { return _Sizable; }
-            set { _Sizable = value; }
+            get => _Sizable;
+            set => _Sizable = value;
         }
 
         [Category("Options")]
         public Font HeaderTextFont
         {
-            get { return _HeaderTextFont; }
-            set { _HeaderTextFont = value; }
+            get => _HeaderTextFont;
+            set => _HeaderTextFont = value;
         }
 
         protected override void WndProc(ref Message m)

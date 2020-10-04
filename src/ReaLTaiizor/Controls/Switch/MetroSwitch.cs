@@ -272,7 +272,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public Enum.Metro.CheckState CheckState
         {
-            get { return _checkState; }
+            get => _checkState;
             set
             {
                 _checkState = value;
@@ -297,7 +297,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color.")]
         public Color BorderColor
         {
-            get { return _borderColor; }
+            get => _borderColor;
             set
             {
                 _borderColor = value;
@@ -308,7 +308,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Checkd backColor.")]
         public Color CheckColor
         {
-            get { return _checkColor; }
+            get => _checkColor;
             set
             {
                 _checkColor = value;
@@ -319,7 +319,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get { return _disabledBorderColor; }
+            get => _disabledBorderColor;
             set
             {
                 _disabledBorderColor = value;
@@ -330,7 +330,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the CheckdBackColor while disabled.")]
         public Color DisabledCheckColor
         {
-            get { return _disabledCheckColor; }
+            get => _disabledCheckColor;
             set
             {
                 _disabledCheckColor = value;
@@ -341,7 +341,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Un-Checkd BackColor while disabled.")]
         public Color DisabledUnCheckColor
         {
-            get { return _disabledUnCheckColor; }
+            get => _disabledUnCheckColor;
             set
             {
                 _disabledUnCheckColor = value;
@@ -359,7 +359,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get { return _backgroundColor; }
+            get => _backgroundColor;
             set
             {
                 _backgroundColor = value;
@@ -370,7 +370,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the color of the check symbol.")]
         public Color SymbolColor
         {
-            get { return _symbolColor; }
+            get => _symbolColor;
             set
             {
                 _symbolColor = value;
@@ -381,7 +381,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Un-Checkd backColor.")]
         public Color UnCheckColor
         {
-            get { return _unCheckColor; }
+            get => _unCheckColor;
             set
             {
                 _unCheckColor = value;
@@ -394,7 +394,7 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get { return _isDerivedStyle; }
+            get => _isDerivedStyle;
             set
             {
                 _isDerivedStyle = value;

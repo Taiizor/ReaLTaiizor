@@ -16,14 +16,14 @@ namespace ReaLTaiizor.Controls
         private Image _image = null;
         public Image Image
         {
-            get { return _image; }
+            get => _image;
             set { _image = value; Invalidate(); }
         }
 
         private Color _hovercolor = ThemeLost.AccentBrush.Color;
         public Color HoverColor
         {
-            get { return _hovercolor; }
+            get => _hovercolor;
             set { _hovercolor = value; Invalidate(); }
         }
 

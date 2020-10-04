@@ -34,15 +34,15 @@ namespace ReaLTaiizor.Controls
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color LineColor
         {
-            get { return _LineColor; }
-            set { _LineColor = value; }
+            get => _LineColor;
+            set => _LineColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         #endregion

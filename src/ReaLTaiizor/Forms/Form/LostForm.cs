@@ -37,10 +37,7 @@ namespace ReaLTaiizor.Forms
         private Size _ImageSize;
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -56,35 +53,35 @@ namespace ReaLTaiizor.Forms
         private bool _sizable = true;
         public bool Sizable
         {
-            get { return _sizable; }
+            get => _sizable;
             set { _sizable = value; Invalidate(); }
         }
 
         private Color _bordercolor = ThemeLost.AccentColor;
         public Color BorderColor
         {
-            get { return _bordercolor; }
+            get => _bordercolor;
             set { _bordercolor = value; Invalidate(); }
         }
 
         private ButtonBorderStyle _borderstyle = ButtonBorderStyle.Solid;
         public ButtonBorderStyle BorderStyle
         {
-            get { return _borderstyle; }
+            get => _borderstyle;
             set { _borderstyle = value; Invalidate(); }
         }
 
         private Color _HeaderColor = ThemeLost.ForeBrush.Color;
         public Color HeaderColor
         {
-            get { return _HeaderColor; }
+            get => _HeaderColor;
             set { _HeaderColor = value; Invalidate(); }
         }
 
         private Color _TitleColor = ThemeLost.FontBrush.Color;
         public Color TitleColor
         {
-            get { return _TitleColor; }
+            get => _TitleColor;
             set { _TitleColor = value; Invalidate(); }
         }
 

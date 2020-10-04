@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
 
         public override Color ForeColor
         {
-            get { return _TextColor; }
+            get => _TextColor;
             set
             {
                 _TextColor = value;
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BubbleColor
         {
-            get { return _BubbleColor; }
+            get => _BubbleColor;
             set
             {
                 _BubbleColor = value;
@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawBubbleArrow
         {
-            get { return _DrawBubbleArrow; }
+            get => _DrawBubbleArrow;
             set
             {
                 _DrawBubbleArrow = value;
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Controls
 
         public bool SizeAuto
         {
-            get { return _SizeAuto; }
+            get => _SizeAuto;
             set
             {
                 _SizeAuto = value;
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
 
         public bool SizeAutoW
         {
-            get { return _SizeAutoW; }
+            get => _SizeAutoW;
             set
             {
                 _SizeAutoW = value;
@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
 
         public bool SizeAutoH
         {
-            get { return _SizeAutoH; }
+            get => _SizeAutoH;
             set
             {
                 _SizeAutoH = value;
@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Controls
 
         public bool SizeWidthLeft
         {
-            get { return _SizeWidthLeft; }
+            get => _SizeWidthLeft;
             set
             {
                 _SizeWidthLeft = value;

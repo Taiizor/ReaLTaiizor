@@ -20,15 +20,15 @@ namespace ReaLTaiizor.Controls
         private Color _DownColor = FoxLibrary.ColorFromHex("#FF9500");
         public Color DownColor
         {
-            get { return _DownColor; }
-            set { _DownColor = value; }
+            get => _DownColor;
+            set => _DownColor = value;
         }
 
         private Color _OverColor = FoxLibrary.ColorFromHex("#178CE5");
         public Color OverColor
         {
-            get { return _OverColor; }
-            set { _OverColor = value; }
+            get => _OverColor;
+            set => _OverColor = value;
         }
 
         public FoxLinkLabel() : base()

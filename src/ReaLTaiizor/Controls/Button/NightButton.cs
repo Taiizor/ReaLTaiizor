@@ -49,7 +49,7 @@ namespace ReaLTaiizor.Controls
         [Description("Sets the radius of curvature for the control.")]
         public int Radius
         {
-            get { return _Radius; }
+            get => _Radius;
             set
             {
                 if (!(value < 1 || value > 20))
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Controls
         }
         public InterpolationMode InterpolationType
         {
-            get { return _InterpolationType; }
+            get => _InterpolationType;
             set
             {
                 _InterpolationType = value;
@@ -82,7 +82,7 @@ namespace ReaLTaiizor.Controls
 
         public PixelOffsetMode PixelOffsetType
         {
-            get { return _PixelOffsetType; }
+            get => _PixelOffsetType;
             set
             {
                 _PixelOffsetType = value;
@@ -92,10 +92,7 @@ namespace ReaLTaiizor.Controls
 
         public Color PressedForeColor
         {
-            get
-            {
-                return _PressedForeColor;
-            }
+            get => _PressedForeColor;
             set
             {
                 _PressedForeColor = value;
@@ -105,10 +102,7 @@ namespace ReaLTaiizor.Controls
 
         public Color HoverForeColor
         {
-            get
-            {
-                return _HoverForeColor;
-            }
+            get => _HoverForeColor;
             set
             {
                 _HoverForeColor = value;
@@ -118,10 +112,7 @@ namespace ReaLTaiizor.Controls
 
         public Color NormalBackColor
         {
-            get
-            {
-                return _NormalBackColor;
-            }
+            get => _NormalBackColor;
             set
             {
                 _NormalBackColor = value;
@@ -131,10 +122,7 @@ namespace ReaLTaiizor.Controls
 
         public Color PressedBackColor
         {
-            get
-            {
-                return _PressedBackColor;
-            }
+            get => _PressedBackColor;
             set
             {
                 _PressedBackColor = value;
@@ -144,10 +132,7 @@ namespace ReaLTaiizor.Controls
 
         public Color HoverBackColor
         {
-            get
-            {
-                return _HoverBackColor;
-            }
+            get => _HoverBackColor;
             set
             {
                 _HoverBackColor = value;
@@ -163,15 +148,12 @@ namespace ReaLTaiizor.Controls
         private DialogResult dlgResult;
 
         [Browsable(false)]
-        private bool IsDefault
-        {
-            get { return _IsDefault; }
-        }
+        private bool IsDefault => _IsDefault;
 
         /// </summary>
         public DialogResult DialogResult
         {
-            get { return dlgResult; }
+            get => dlgResult;
             set
             {
                 if (System.Enum.IsDefined(typeof(DialogResult), value))

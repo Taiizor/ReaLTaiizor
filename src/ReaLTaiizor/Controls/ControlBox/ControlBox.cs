@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Controls
         private bool _EnableMaximize = true;
         public bool EnableMaximizeButton
         {
-            get { return _EnableMaximize; }
+            get => _EnableMaximize;
             set
             {
                 _EnableMaximize = value;
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
         private bool _EnableMinimize = true;
         public bool EnableMinimizeButton
         {
-            get { return _EnableMinimize; }
+            get => _EnableMinimize;
             set
             {
                 _EnableMinimize = value;
@@ -68,7 +68,7 @@ namespace ReaLTaiizor.Controls
         private bool _EnableHoverHighlight = false;
         public bool EnableHoverHighlight
         {
-            get { return _EnableHoverHighlight; }
+            get => _EnableHoverHighlight;
             set
             {
                 _EnableHoverHighlight = value;
@@ -79,22 +79,22 @@ namespace ReaLTaiizor.Controls
         private Color _MinimizeHoverColor = Color.FromArgb(63, 63, 65);
         public Color MinimizeHoverColor
         {
-            get { return _MinimizeHoverColor; }
-            set { _MinimizeHoverColor = value; }
+            get => _MinimizeHoverColor;
+            set => _MinimizeHoverColor = value;
         }
 
         private Color _MaximizeHoverColor = Color.FromArgb(74, 74, 74);
         public Color MaximizeHoverColor
         {
-            get { return _MaximizeHoverColor; }
-            set { _MaximizeHoverColor = value; }
+            get => _MaximizeHoverColor;
+            set => _MaximizeHoverColor = value;
         }
 
         private Color _CloseHoverColor = Color.FromArgb(230, 17, 35);
         public Color CloseHoverColor
         {
-            get { return _CloseHoverColor; }
-            set { _CloseHoverColor = value; }
+            get => _CloseHoverColor;
+            set => _CloseHoverColor = value;
         }
 
         #endregion

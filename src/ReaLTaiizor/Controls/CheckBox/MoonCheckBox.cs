@@ -14,10 +14,10 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     public class MoonCheckBox : MoonControl
     {
-        Color BG;
-        Color FC;
-        Color TCN;
-        Color TCH;
+        private Color BG;
+        private Color FC;
+        private Color TCN;
+        private Color TCH;
 
         private bool _Checked;
         public event CheckedChangedEventHandler CheckedChanged;
@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;

@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonStyle;
             }
-            set { poisonStyle = value; }
+            set => poisonStyle = value;
         }
 
         private ThemeStyle poisonTheme = ThemeStyle.Default;
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Controls
 
                 return poisonTheme;
             }
-            set { poisonTheme = value; }
+            set => poisonTheme = value;
         }
 
         private PoisonStyleManager poisonStyleManager = null;
@@ -93,8 +93,8 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get { return poisonStyleManager; }
-            set { poisonStyleManager = value; }
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
         }
 
         private bool useCustomBackColor = false;
@@ -102,8 +102,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomBackColor
         {
-            get { return useCustomBackColor; }
-            set { useCustomBackColor = value; }
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
         }
 
         private bool useCustomForeColor = false;
@@ -111,8 +111,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor
         {
-            get { return useCustomForeColor; }
-            set { useCustomForeColor = value; }
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
         }
 
         private bool useStyleColors = false;
@@ -120,8 +120,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get { return useStyleColors; }
-            set { useStyleColors = value; }
+            get => useStyleColors;
+            set => useStyleColors = value;
         }
 
         [Browsable(false)]
@@ -129,16 +129,16 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool UseSelectable
         {
-            get { return GetStyle(ControlStyles.Selectable); }
-            set { SetStyle(ControlStyles.Selectable, value); }
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
         }
 
         private Control activeControl = null;
         [Browsable(false)]
         public Control ActiveControl
         {
-            get { return activeControl; }
-            set { activeControl = value; }
+            get => activeControl;
+            set => activeControl = value;
         }
 
         public bool ActivateControl(Control ctrl)
@@ -162,23 +162,23 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool PaintTileCount
         {
-            get { return paintTileCount; }
-            set { paintTileCount = value; }
+            get => paintTileCount;
+            set => paintTileCount = value;
         }
 
         private int tileCount = 0;
         [DefaultValue(0)]
         public int TileCount
         {
-            get { return tileCount; }
-            set { tileCount = value; }
+            get => tileCount;
+            set => tileCount = value;
         }
 
         [DefaultValue(ContentAlignment.BottomLeft)]
         public new ContentAlignment TextAlign
         {
-            get { return base.TextAlign; }
-            set { base.TextAlign = value; }
+            get => base.TextAlign;
+            set => base.TextAlign = value;
         }
 
         private Image tileImage = null;
@@ -186,8 +186,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Image TileImage
         {
-            get { return tileImage; }
-            set { tileImage = value; }
+            get => tileImage;
+            set => tileImage = value;
         }
 
         private bool useTileImage = false;
@@ -195,8 +195,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseTileImage
         {
-            get { return useTileImage; }
-            set { useTileImage = value; }
+            get => useTileImage;
+            set => useTileImage = value;
         }
 
         private ContentAlignment tileImageAlign = ContentAlignment.TopLeft;
@@ -204,8 +204,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ContentAlignment TileImageAlign
         {
-            get { return tileImageAlign; }
-            set { tileImageAlign = value; }
+            get => tileImageAlign;
+            set => tileImageAlign = value;
         }
 
         private PoisonTileTextSize tileTextFontSize = PoisonTileTextSize.Medium;
@@ -213,7 +213,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonTileTextSize TileTextFontSize
         {
-            get { return tileTextFontSize; }
+            get => tileTextFontSize;
             set { tileTextFontSize = value; Refresh(); }
         }
 
@@ -222,7 +222,7 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonTileTextWeight TileTextFontWeight
         {
-            get { return tileTextFontWeight; }
+            get => tileTextFontWeight;
             set { tileTextFontWeight = value; Refresh(); }
         }
 
@@ -231,8 +231,8 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool DisplayFocusBorder
         {
-            get { return displayFocusBorder; }
-            set { displayFocusBorder = value; }
+            get => displayFocusBorder;
+            set => displayFocusBorder = value;
         }
 
         private bool isHovered = false;

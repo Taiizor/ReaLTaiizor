@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Mini
         {
-            get { return _mini; }
+            get => _mini;
             set
             {
                 if (Parent != null)
@@ -49,16 +49,16 @@ namespace ReaLTaiizor.Controls
 
         public bool AnimateShowHideButton
         {
-            get { return _animateShowButton; }
-            set { _animateShowButton = value; }
+            get => _animateShowButton;
+            set => _animateShowButton = value;
         }
 
         private bool _animateShowButton;
 
         public Image Icon
         {
-            get { return _icon; }
-            set { _icon = value; }
+            get => _icon;
+            set => _icon = value;
         }
 
         private Image _icon;

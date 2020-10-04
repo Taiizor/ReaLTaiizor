@@ -53,22 +53,22 @@ namespace ReaLTaiizor.Helper
             UpdateScrollbar();
         }
 
-        void _grid_Scroll(object sender, ScrollEventArgs e)
+        private void _grid_Scroll(object sender, ScrollEventArgs e)
         {
             UpdateScrollbar();
         }
 
-        void _grid_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        private void _grid_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
             UpdateScrollbar();
         }
 
-        void _grid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void _grid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             UpdateScrollbar();
         }
 
-        void _scrollbar_Scroll(object sender, ScrollEventArgs e)
+        private void _scrollbar_Scroll(object sender, ScrollEventArgs e)
         {
             if (_ignoreScrollbarChange > 0) return;
 
@@ -198,12 +198,12 @@ namespace ReaLTaiizor.Helper
 
         #region Events of interest
 
-        void _grid_Resize(object sender, EventArgs e)
+        private void _grid_Resize(object sender, EventArgs e)
         {
             UpdateScrollbar();
         }
 
-        void _grid_AfterDataRefresh(object sender, ListChangedEventArgs e)
+        private void _grid_AfterDataRefresh(object sender, ListChangedEventArgs e)
         {
             UpdateScrollbar();
         }

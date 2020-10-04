@@ -26,85 +26,85 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedBorderColorA = FoxLibrary.ColorFromHex("#C8C8C8");
         public Color CheckedBorderColorA
         {
-            get { return _CheckedBorderColorA; }
-            set { _CheckedBorderColorA = value; }
+            get => _CheckedBorderColorA;
+            set => _CheckedBorderColorA = value;
         }
 
         private Color _CheckedBorderColorB = FoxLibrary.ColorFromHex("#2A8AC1");
         public Color CheckedBorderColorB
         {
-            get { return _CheckedBorderColorB; }
-            set { _CheckedBorderColorB = value; }
+            get => _CheckedBorderColorB;
+            set => _CheckedBorderColorB = value;
         }
 
         private Color _UncheckedBorderColorA = FoxLibrary.ColorFromHex("#C8C8C8");
         public Color UncheckedBorderColorA
         {
-            get { return _UncheckedBorderColorA; }
-            set { _UncheckedBorderColorA = value; }
+            get => _UncheckedBorderColorA;
+            set => _UncheckedBorderColorA = value;
         }
 
         private Color _UncheckedBorderColorB = FoxLibrary.ColorFromHex("#DC8400");
         public Color UncheckedBorderColorB
         {
-            get { return _UncheckedBorderColorB; }
-            set { _UncheckedBorderColorB = value; }
+            get => _UncheckedBorderColorB;
+            set => _UncheckedBorderColorB = value;
         }
 
         private Color _CheckedColor = FoxLibrary.ColorFromHex("#2C9CDA");
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
-            set { _CheckedColor = value; }
+            get => _CheckedColor;
+            set => _CheckedColor = value;
         }
 
         private Color _UncheckedColor = FoxLibrary.ColorFromHex("#FF9500");
         public Color UncheckedColor
         {
-            get { return _UncheckedColor; }
-            set { _UncheckedColor = value; }
+            get => _UncheckedColor;
+            set => _UncheckedColor = value;
         }
 
         private Color _DisabledCheckedBorderColorA = FoxLibrary.ColorFromHex("#E6E6E6");
         public Color DisabledCheckedBorderColorA
         {
-            get { return _DisabledCheckedBorderColorA; }
-            set { _DisabledCheckedBorderColorA = value; }
+            get => _DisabledCheckedBorderColorA;
+            set => _DisabledCheckedBorderColorA = value;
         }
 
         private Color _DisabledCheckedBorderColorB = FoxLibrary.ColorFromHex("#7CA6BF");
         public Color DisabledCheckedBorderColorB
         {
-            get { return _DisabledCheckedBorderColorB; }
-            set { _DisabledCheckedBorderColorB = value; }
+            get => _DisabledCheckedBorderColorB;
+            set => _DisabledCheckedBorderColorB = value;
         }
 
         private Color _DisabledCheckedColor = FoxLibrary.ColorFromHex("#7DB7D8");
         public Color DisabledCheckedColor
         {
-            get { return _DisabledCheckedColor; }
-            set { _DisabledCheckedColor = value; }
+            get => _DisabledCheckedColor;
+            set => _DisabledCheckedColor = value;
         }
 
         private Color _DisabledUncheckedBorderColorA = FoxLibrary.ColorFromHex("#E6E6E6");
         public Color DisabledUncheckedBorderColorA
         {
-            get { return _DisabledUncheckedBorderColorA; }
-            set { _DisabledUncheckedBorderColorA = value; }
+            get => _DisabledUncheckedBorderColorA;
+            set => _DisabledUncheckedBorderColorA = value;
         }
 
         private Color _DisabledUncheckedBorderColorB = FoxLibrary.ColorFromHex("#E2BD85");
         public Color DisabledUncheckedBorderColorB
         {
-            get { return _DisabledUncheckedBorderColorB; }
-            set { _DisabledUncheckedBorderColorB = value; }
+            get => _DisabledUncheckedBorderColorB;
+            set => _DisabledUncheckedBorderColorB = value;
         }
 
         private Color _DisabledUncheckedColor = FoxLibrary.ColorFromHex("#FFCB7C");
         public Color DisabledUncheckedColor
         {
-            get { return _DisabledUncheckedColor; }
-            set { _DisabledUncheckedColor = value; }
+            get => _DisabledUncheckedColor;
+            set => _DisabledUncheckedColor = value;
         }
 
         protected override void OnPaint(PaintEventArgs e)

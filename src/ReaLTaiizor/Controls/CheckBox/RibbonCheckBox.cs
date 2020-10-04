@@ -27,10 +27,7 @@ namespace ReaLTaiizor.Controls
         private bool _Checked = false;
         public bool Checked
         {
-            get
-            {
-                return _Checked;
-            }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -41,7 +38,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -52,7 +49,7 @@ namespace ReaLTaiizor.Controls
         private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get { return _CompositingQualityType; }
+            get => _CompositingQualityType;
             set
             {
                 _CompositingQualityType = value;
@@ -63,7 +60,7 @@ namespace ReaLTaiizor.Controls
         private TextRenderingHint _TextRenderingType = TextRenderingHint.AntiAliasGridFit;
         public TextRenderingHint TextRenderingType
         {
-            get { return _TextRenderingType; }
+            get => _TextRenderingType;
             set
             {
                 _TextRenderingType = value;
@@ -74,7 +71,7 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColor = Color.Transparent;
         public Color BaseColor
         {
-            get { return _BaseColor; }
+            get => _BaseColor;
             set
             {
                 _BaseColor = value;
@@ -85,7 +82,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedColor = Color.Black;
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
+            get => _CheckedColor;
             set
             {
                 _CheckedColor = value;
@@ -96,7 +93,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckBorderColorA = Color.FromArgb(117, 120, 117);
         public Color CheckBorderColorA
         {
-            get { return _CheckBorderColorA; }
+            get => _CheckBorderColorA;
             set
             {
                 _CheckBorderColorA = value;
@@ -107,7 +104,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckBorderColorB = Color.WhiteSmoke;
         public Color CheckBorderColorB
         {
-            get { return _CheckBorderColorB; }
+            get => _CheckBorderColorB;
             set
             {
                 _CheckBorderColorB = value;
@@ -118,7 +115,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckBackColorA = Color.FromArgb(203, 201, 205);
         public Color CheckBackColorA
         {
-            get { return _CheckBackColorA; }
+            get => _CheckBackColorA;
             set
             {
                 _CheckBackColorA = value;
@@ -129,7 +126,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckBackColorB = Color.FromArgb(188, 186, 190);
         public Color CheckBackColorB
         {
-            get { return _CheckBackColorB; }
+            get => _CheckBackColorB;
             set
             {
                 _CheckBackColorB = value;
