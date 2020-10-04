@@ -38,8 +38,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Poison";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ShadowType = ReaLTaiizor.Enum.Poison.FormShadowType.AeroShadow;
+            this.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
             this.Text = "Poison";
+            this.TextAlign = ReaLTaiizor.Enum.Poison.FormTextAlignType.Center;
+            this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.ResumeLayout(false);
 
         }

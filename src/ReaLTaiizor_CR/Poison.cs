@@ -1,8 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using ReaLTaiizor.Forms;
 
 namespace ReaLTaiizor_CR
 {
-    public partial class Poison : Form
+    public partial class Poison : PoisonForm
     {
         public Poison()
         {
