@@ -87,6 +87,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\Button\PoisonButton.cs" />
     <Compile Update="Controls\Window\PoisonTaskWindow.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
