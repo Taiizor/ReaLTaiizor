@@ -93,6 +93,17 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<a href="https://github.com/N-a-r-w-i-n" target="_blank" title="Código">💻</a>
 	</td>
 	<td align="center">
+		<a href="https://github.com/peters">
+			<img src="https://avatars3.githubusercontent.com/u/869?s=200&v=4" width="80px;" alt="peters"/>
+			<br/>
+			<sub>
+				<b>peters</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/peters" target="_blank" title="Código">💻</a>
+	</td>
+	<td align="center">
 		<a href="https://github.com/dennismagno">
 			<img src="https://avatars3.githubusercontent.com/u/5070675?s=200&v=4" width="80px;" alt="dennismagno"/>
 			<br/>
