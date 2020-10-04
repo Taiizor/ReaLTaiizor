@@ -1000,9 +1000,9 @@ namespace ReaLTaiizor.Forms
                     return;
                 case FormShadowType.None:
                     return;
-                //default:
-                //    shadowForm = new PoisonFlatDropShadow(this);
-                //    return;
+                    //default:
+                    //    shadowForm = new PoisonFlatDropShadow(this);
+                    //    return;
             }
         }
 
@@ -1247,11 +1247,13 @@ namespace ReaLTaiizor.Forms
                     WinApi.SIZE size = new WinApi.SIZE(bitmap.Width, bitmap.Height);
                     WinApi.POINT pointSource = new WinApi.POINT(0, 0);
                     WinApi.POINT topPos = new WinApi.POINT(Left, Top);
-                    WinApi.BLENDFUNCTION blend = new WinApi.BLENDFUNCTION();
-                    blend.BlendOp = WinApi.AC_SRC_OVER;
-                    blend.BlendFlags = 0;
-                    blend.SourceConstantAlpha = opacity;
-                    blend.AlphaFormat = WinApi.AC_SRC_ALPHA;
+                    WinApi.BLENDFUNCTION blend = new WinApi.BLENDFUNCTION
+                    {
+                        BlendOp = WinApi.AC_SRC_OVER,
+                        BlendFlags = 0,
+                        SourceConstantAlpha = opacity,
+                        AlphaFormat = WinApi.AC_SRC_ALPHA
+                    };
 
                     WinApi.UpdateLayeredWindow(Handle, screenDc, ref topPos, ref size, memDc, ref pointSource, 0, ref blend, WinApi.ULW_ALPHA);
                 }

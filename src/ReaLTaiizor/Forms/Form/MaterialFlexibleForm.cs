@@ -543,12 +543,14 @@ namespace ReaLTaiizor.Forms
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton)
         {
             //Create a new instance of the FlexibleMessageBox form
-            var MaterialFlexibleForm = new MaterialFlexibleForm();
-            MaterialFlexibleForm.ShowInTaskbar = false;
+            var MaterialFlexibleForm = new MaterialFlexibleForm
+            {
+                ShowInTaskbar = false,
 
-            //Bind the caption and the message text
-            MaterialFlexibleForm.CaptionText = caption;
-            MaterialFlexibleForm.MessageText = text;
+                //Bind the caption and the message text
+                CaptionText = caption,
+                MessageText = text
+            };
             MaterialFlexibleForm.MaterialFlexibleFormBindingSource.DataSource = MaterialFlexibleForm;
 
             //Set the buttons visibilities and texts. Also set a default button.

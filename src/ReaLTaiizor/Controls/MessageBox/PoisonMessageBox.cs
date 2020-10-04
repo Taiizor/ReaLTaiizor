@@ -100,8 +100,10 @@ namespace ReaLTaiizor.Controls
                         SystemSounds.Asterisk.Play(); break;
                 }
 
-                PoisonMessageBoxControl _control = new PoisonMessageBoxControl();
-                _control.BackColor = _owner.BackColor;
+                PoisonMessageBoxControl _control = new PoisonMessageBoxControl
+                {
+                    BackColor = _owner.BackColor
+                };
                 _control.Properties.Buttons = buttons;
                 _control.Properties.DefaultButton = defaultbutton;
                 _control.Properties.Icon = icon;

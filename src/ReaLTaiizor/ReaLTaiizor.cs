@@ -35,7 +35,7 @@ namespace ReaLTaiizor
             GP.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 0, 90);
             GP.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), 90, 90);
             GP.AddLine(new Point(Rectangle.X, Rectangle.Height - ArcRectangleWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
-           
+
             return GP;
         }
 
@@ -52,7 +52,7 @@ namespace ReaLTaiizor
             GP.AddArc(new Rectangle(Rectangle.Width - EndArcWidth + Rectangle.X, Rectangle.Height - EndArcWidth + Rectangle.Y, EndArcWidth, EndArcWidth), 0, 90);
             GP.AddArc(new Rectangle(Rectangle.X, Rectangle.Height - EndArcWidth + Rectangle.Y, EndArcWidth, EndArcWidth), 90, 90);
             GP.AddLine(new Point(Rectangle.X, Rectangle.Height - EndArcWidth + Rectangle.Y), new Point(Rectangle.X, Curve + Rectangle.Y));
-            
+
             return GP;
         }
 
@@ -66,7 +66,7 @@ namespace ReaLTaiizor
             GP.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
             GP.AddLine(new Point(Rectangle.X + Rectangle.Width, Rectangle.Y + ArcRectangleWidth), new Point(Rectangle.X + Rectangle.Width, Rectangle.Y + Rectangle.Height - 1));
             GP.AddLine(new Point(Rectangle.X, Rectangle.Height - 1 + Rectangle.Y), new Point(Rectangle.X, Rectangle.Y + Curve));
-            
+
             return GP;
         }
 
@@ -86,6 +86,7 @@ namespace ReaLTaiizor
             GP.AddArc(X, Y, Radius * 2, Radius * 2, 180, 90);
 
             GP.CloseFigure();
+
             return GP;
         }
 
@@ -106,9 +107,10 @@ namespace ReaLTaiizor
             GP.AddArc(X, Y, Radius * 2, Radius * 2, 180, 90);
 
             GP.CloseFigure();
+
             return GP;
         }
-        
+
         public static GraphicsPath CreateLeftRoundRect(float X, float Y, float Width, float Height, float Radius)
         {
             GraphicsPath GP = new GraphicsPath();
@@ -125,6 +127,7 @@ namespace ReaLTaiizor
             GP.AddArc(X, Y, Radius * 2, Radius * 2, 180, 90);
 
             GP.CloseFigure();
+
             return GP;
         }
 

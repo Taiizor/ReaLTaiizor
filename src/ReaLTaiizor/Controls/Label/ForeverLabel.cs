@@ -8,25 +8,25 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor.Controls
 {
-	#region ForeverLabel
+    #region ForeverLabel
 
-	public class ForeverLabel : Label
-	{
-		protected override void OnTextChanged(EventArgs e)
-		{
-			base.OnTextChanged(e);
-			Invalidate();
-		}
+    public class ForeverLabel : Label
+    {
+        protected override void OnTextChanged(EventArgs e)
+        {
+            base.OnTextChanged(e);
+            Invalidate();
+        }
 
-		public ForeverLabel()
-		{
-			SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-			Font = new Font("Segoe UI", 8);
-			ForeColor = Color.LightGray;
-			BackColor = Color.Transparent;
-			Text = Text;
-		}
-	}
+        public ForeverLabel()
+        {
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            Font = new Font("Segoe UI", 8);
+            ForeColor = Color.LightGray;
+            BackColor = Color.Transparent;
+            Text = Text;
+        }
+    }
 
-	#endregion
+    #endregion
 }

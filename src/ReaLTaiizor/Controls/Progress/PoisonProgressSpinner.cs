@@ -247,8 +247,10 @@ namespace ReaLTaiizor.Controls
 
         public PoisonProgressSpinner()
         {
-            timer = new Timer();
-            timer.Interval = 20;
+            timer = new Timer
+            {
+                Interval = 20
+            };
             timer.Tick += timer_Tick;
             timer.Enabled = true;
 

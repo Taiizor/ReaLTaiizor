@@ -401,8 +401,10 @@ namespace ReaLTaiizor.Controls
 
                     if (autoHoverTimer == null)
                     {
-                        autoHoverTimer = new Timer();
-                        autoHoverTimer.Interval = 1000;
+                        autoHoverTimer = new Timer
+                        {
+                            Interval = 1000
+                        };
                         autoHoverTimer.Tick += new EventHandler(autoHoverTimer_Tick);
                         autoHoverTimer.Start();
                     }

@@ -225,9 +225,11 @@ namespace ReaLTaiizor.Controls
             Type = type;
             Text = text;
             Visible = true;
-            _Timer = new Timer();
-            _Timer.Interval = Interval;
-            _Timer.Enabled = true;
+            _Timer = new Timer
+            {
+                Interval = Interval,
+                Enabled = true
+            };
         }
     }
 

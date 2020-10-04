@@ -1175,14 +1175,18 @@ namespace ReaLTaiizor.Util
 
         protected void DrawGradient(ColorBlend blend, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f);
-            DrawGradientBrush.InterpolationColors = blend;
+            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f)
+            {
+                InterpolationColors = blend
+            };
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawGradient(ColorBlend blend, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle);
-            DrawGradientBrush.InterpolationColors = blend;
+            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle)
+            {
+                InterpolationColors = blend
+            };
             G.FillRectangle(DrawGradientBrush, r);
         }
 
@@ -1247,9 +1251,11 @@ namespace ReaLTaiizor.Util
             DrawRadialPath.Reset();
             DrawRadialPath.AddEllipse(r.X, r.Y, r.Width - 1, r.Height - 1);
 
-            DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath);
-            DrawRadialBrush1.CenterPoint = new Point(r.X + cx, r.Y + cy);
-            DrawRadialBrush1.InterpolationColors = blend;
+            DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath)
+            {
+                CenterPoint = new Point(r.X + cx, r.Y + cy),
+                InterpolationColors = blend
+            };
 
             if (G.SmoothingMode == SmoothingMode.AntiAlias)
             {
@@ -2081,14 +2087,18 @@ namespace ReaLTaiizor.Util
 
         protected void DrawGradient(ColorBlend blend, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f);
-            DrawGradientBrush.InterpolationColors = blend;
+            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f)
+            {
+                InterpolationColors = blend
+            };
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawGradient(ColorBlend blend, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle);
-            DrawGradientBrush.InterpolationColors = blend;
+            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle)
+            {
+                InterpolationColors = blend
+            };
             G.FillRectangle(DrawGradientBrush, r);
         }
 
@@ -2153,9 +2163,11 @@ namespace ReaLTaiizor.Util
             DrawRadialPath.Reset();
             DrawRadialPath.AddEllipse(r.X, r.Y, r.Width - 1, r.Height - 1);
 
-            DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath);
-            DrawRadialBrush1.CenterPoint = new Point(r.X + cx, r.Y + cy);
-            DrawRadialBrush1.InterpolationColors = blend;
+            DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath)
+            {
+                CenterPoint = new Point(r.X + cx, r.Y + cy),
+                InterpolationColors = blend
+            };
 
             if (G.SmoothingMode == SmoothingMode.AntiAlias)
             {

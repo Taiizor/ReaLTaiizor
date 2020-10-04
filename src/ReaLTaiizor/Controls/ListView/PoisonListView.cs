@@ -271,9 +271,11 @@ namespace ReaLTaiizor.Controls
 
         public void GetScrollPosition(out int min, out int max, out int pos, out int smallchange, out int largechange)
         {
-            SCROLLINFO scrollinfo = new SCROLLINFO();
-            scrollinfo.cbSize = (uint)Marshal.SizeOf(typeof(SCROLLINFO));
-            scrollinfo.fMask = (int)ScrollInfoMask.SIF_ALL;
+            SCROLLINFO scrollinfo = new SCROLLINFO
+            {
+                cbSize = (uint)Marshal.SizeOf(typeof(SCROLLINFO)),
+                fMask = (int)ScrollInfoMask.SIF_ALL
+            };
             if (GetScrollInfo(this.Handle, (int)SBTYPES.SB_VERT, ref scrollinfo))
             {
                 min = scrollinfo.nMin;

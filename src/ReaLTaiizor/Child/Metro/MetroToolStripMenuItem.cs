@@ -8,33 +8,33 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor.Child.Metro
 {
-	#region MetroToolStripMenuItemChild
+    #region MetroToolStripMenuItemChild
 
-	public sealed class MetroToolStripMenuItem : ToolStripMenuItem
-	{
-		#region Constructors
+    public sealed class MetroToolStripMenuItem : ToolStripMenuItem
+    {
+        #region Constructors
 
-		public MetroToolStripMenuItem()
-		{
-			AutoSize = false;
-			Size = new Size(160, 30);
-		}
+        public MetroToolStripMenuItem()
+        {
+            AutoSize = false;
+            Size = new Size(160, 30);
+        }
 
-		#endregion Constructors
+        #endregion Constructors
 
-		#region Adding DropDowns
+        #region Adding DropDowns
 
-		protected override ToolStripDropDown CreateDefaultDropDown()
-		{
-			if (DesignMode)
-				return base.CreateDefaultDropDown();
-			var dp = new MetroContextMenuStrip();
-			dp.Items.AddRange(base.CreateDefaultDropDown().Items);
-			return dp;
-		}
+        protected override ToolStripDropDown CreateDefaultDropDown()
+        {
+            if (DesignMode)
+                return base.CreateDefaultDropDown();
+            var dp = new MetroContextMenuStrip();
+            dp.Items.AddRange(base.CreateDefaultDropDown().Items);
+            return dp;
+        }
 
-		#endregion Adding DropDowns
-	}
+        #endregion Adding DropDowns
+    }
 
-	#endregion
+    #endregion
 }

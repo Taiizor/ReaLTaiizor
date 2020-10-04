@@ -91,9 +91,9 @@ namespace ReaLTaiizor.Controls
             Size = new Size(120, 30);
         }
 
-        #if NET40
+#if NET40
         public bool HasDropDown { get; internal set; }
-        #endif
+#endif
 
         protected override ToolStripDropDown CreateDefaultDropDown()
         {

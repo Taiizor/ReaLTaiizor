@@ -15,417 +15,417 @@ using System.Runtime.InteropServices;
 
 namespace ReaLTaiizor.Controls
 {
-	#region MetroTrackBar
+    #region MetroTrackBar
 
-	[ToolboxItem(true)]
-	[ToolboxBitmap(typeof(MetroTrackBar), "Bitmaps.Slider.bmp")]
-	[Designer(typeof(MetroTrackBarDesigner))]
-	[DefaultProperty("Value")]
-	[DefaultEvent("Scroll")]
-	[ComVisible(true)]
-	public class MetroTrackBar : Control, IMetroControl
-	{
-		#region Interfaces
+    [ToolboxItem(true)]
+    [ToolboxBitmap(typeof(MetroTrackBar), "Bitmaps.Slider.bmp")]
+    [Designer(typeof(MetroTrackBarDesigner))]
+    [DefaultProperty("Value")]
+    [DefaultEvent("Scroll")]
+    [ComVisible(true)]
+    public class MetroTrackBar : Control, IMetroControl
+    {
+        #region Interfaces
 
-		[Category("Metro"), Description("Gets or sets the style associated with the control.")]
-		public Style Style
-		{
-			get => StyleManager?.Style ?? _style;
-			set
-			{
-				_style = value;
-				switch (value)
-				{
-					case Style.Light:
-						ApplyTheme();
-						break;
-					case Style.Dark:
-						ApplyTheme(Style.Dark);
-						break;
-					case Style.Custom:
-						ApplyTheme(Style.Custom);
-						break;
-					default:
-						ApplyTheme();
-						break;
-				}
-				Invalidate();
-			}
-		}
+        [Category("Metro"), Description("Gets or sets the style associated with the control.")]
+        public Style Style
+        {
+            get => StyleManager?.Style ?? _style;
+            set
+            {
+                _style = value;
+                switch (value)
+                {
+                    case Style.Light:
+                        ApplyTheme();
+                        break;
+                    case Style.Dark:
+                        ApplyTheme(Style.Dark);
+                        break;
+                    case Style.Custom:
+                        ApplyTheme(Style.Custom);
+                        break;
+                    default:
+                        ApplyTheme();
+                        break;
+                }
+                Invalidate();
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-		public MetroStyleManager StyleManager
-		{
-			get => _styleManager;
-			set { _styleManager = value; Invalidate(); }
-		}
+        [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
+        public MetroStyleManager StyleManager
+        {
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
+        }
 
-		[Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
-		public string ThemeAuthor { get; set; }
+        [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
+        public string ThemeAuthor { get; set; }
 
-		[Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
-		public string ThemeName { get; set; }
+        [Category("Metro"), Description("Gets or sets the The Theme name associated with the theme.")]
+        public string ThemeName { get; set; }
 
-		#endregion Interfaces
+        #endregion Interfaces
 
-		#region Global Vars
+        #region Global Vars
 
-		private readonly Utilites _utl;
+        private readonly Utilites _utl;
 
-		#endregion Global Vars
+        #endregion Global Vars
 
-		#region Internal Vars
+        #region Internal Vars
 
-		private Style _style;
-		private MetroStyleManager _styleManager;
-		private bool _variable;
-		private Rectangle _track;
-		private int _maximum;
-		private int _minimum;
-		private int _value;
-		private int _currentValue;
+        private Style _style;
+        private MetroStyleManager _styleManager;
+        private bool _variable;
+        private Rectangle _track;
+        private int _maximum;
+        private int _minimum;
+        private int _value;
+        private int _currentValue;
 
-		private bool _isDerivedStyle = true;
-		private Color _valueColor;
-		private Color _handlerColor;
-		private Color _backgroundColor;
-		private Color _disabledValueColor;
-		private Color _disabledBackColor;
-		private Color _disabledBorderColor;
-		private Color _disabledHandlerColor;
+        private bool _isDerivedStyle = true;
+        private Color _valueColor;
+        private Color _handlerColor;
+        private Color _backgroundColor;
+        private Color _disabledValueColor;
+        private Color _disabledBackColor;
+        private Color _disabledBorderColor;
+        private Color _disabledHandlerColor;
 
-		#endregion Internal Vars
+        #endregion Internal Vars
 
-		#region Constructors
+        #region Constructors
 
-		public MetroTrackBar()
-		{
-			SetStyle
-			(
-				ControlStyles.ResizeRedraw |
-				ControlStyles.OptimizedDoubleBuffer |
-				ControlStyles.SupportsTransparentBackColor,
-					true
-			);
-			_maximum = 100;
-			_minimum = 0;
-			_value = 0;
-			_currentValue = Convert.ToInt32(Value / (double)(Maximum) - (2 * Width));
-			UpdateStyles();
-			_utl = new Utilites();
-			ApplyTheme();
-		}
+        public MetroTrackBar()
+        {
+            SetStyle
+            (
+                ControlStyles.ResizeRedraw |
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.SupportsTransparentBackColor,
+                    true
+            );
+            _maximum = 100;
+            _minimum = 0;
+            _value = 0;
+            _currentValue = Convert.ToInt32(Value / (double)(Maximum) - (2 * Width));
+            UpdateStyles();
+            _utl = new Utilites();
+            ApplyTheme();
+        }
 
-		#endregion Constructors
+        #endregion Constructors
 
-		#region ApplyTheme
+        #region ApplyTheme
 
-		private void ApplyTheme(Style style = Style.Light)
-		{
-			if (!IsDerivedStyle)
-				return;
+        private void ApplyTheme(Style style = Style.Light)
+        {
+            if (!IsDerivedStyle)
+                return;
 
-			switch (style)
-			{
-				case Style.Light:
-					HandlerColor = Color.FromArgb(180, 180, 180);
-					BackgroundColor = Color.FromArgb(205, 205, 205);
-					ValueColor = Color.FromArgb(65, 177, 225);
-					DisabledBackColor = Color.FromArgb(235, 235, 235);
-					DisabledValueColor = Color.FromArgb(205, 205, 205);
-					DisabledHandlerColor = Color.FromArgb(196, 196, 196);
-					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroLight";
-					UpdateProperties();
-					break;
-				case Style.Dark:
-					HandlerColor = Color.FromArgb(143, 143, 143);
-					BackgroundColor = Color.FromArgb(90, 90, 90);
-					ValueColor = Color.FromArgb(65, 177, 225);
-					DisabledBackColor = Color.FromArgb(80, 80, 80);
-					DisabledValueColor = Color.FromArgb(109, 109, 109);
-					DisabledHandlerColor = Color.FromArgb(90, 90, 90);
-					ThemeAuthor = "Taiizor";
-					ThemeName = "MetroDark";
-					UpdateProperties();
-					break;
-				case Style.Custom:
-					if (StyleManager != null)
-						foreach (var varkey in StyleManager.TrackBarDictionary)
-						{
-							switch (varkey.Key)
-							{
-								case "HandlerColor":
-									HandlerColor = _utl.HexColor((string)varkey.Value);
-									break;
-								case "BackColor":
-									BackgroundColor = _utl.HexColor((string)varkey.Value);
-									break;
-								case "ValueColor":
-									ValueColor = _utl.HexColor((string)varkey.Value);
-									break;
-								case "DisabledBackColor":
-									DisabledBackColor = _utl.HexColor((string)varkey.Value);
-									break;
-								case "DisabledValueColor":
-									DisabledValueColor = _utl.HexColor((string)varkey.Value);
-									break;
-								case "DisabledHandlerColor":
-									DisabledHandlerColor = _utl.HexColor((string)varkey.Value);
-									break;
-								default:
-									return;
-							}
-						}
-					UpdateProperties();
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(style), style, null);
-			}
-		}
+            switch (style)
+            {
+                case Style.Light:
+                    HandlerColor = Color.FromArgb(180, 180, 180);
+                    BackgroundColor = Color.FromArgb(205, 205, 205);
+                    ValueColor = Color.FromArgb(65, 177, 225);
+                    DisabledBackColor = Color.FromArgb(235, 235, 235);
+                    DisabledValueColor = Color.FromArgb(205, 205, 205);
+                    DisabledHandlerColor = Color.FromArgb(196, 196, 196);
+                    ThemeAuthor = "Taiizor";
+                    ThemeName = "MetroLight";
+                    UpdateProperties();
+                    break;
+                case Style.Dark:
+                    HandlerColor = Color.FromArgb(143, 143, 143);
+                    BackgroundColor = Color.FromArgb(90, 90, 90);
+                    ValueColor = Color.FromArgb(65, 177, 225);
+                    DisabledBackColor = Color.FromArgb(80, 80, 80);
+                    DisabledValueColor = Color.FromArgb(109, 109, 109);
+                    DisabledHandlerColor = Color.FromArgb(90, 90, 90);
+                    ThemeAuthor = "Taiizor";
+                    ThemeName = "MetroDark";
+                    UpdateProperties();
+                    break;
+                case Style.Custom:
+                    if (StyleManager != null)
+                        foreach (var varkey in StyleManager.TrackBarDictionary)
+                        {
+                            switch (varkey.Key)
+                            {
+                                case "HandlerColor":
+                                    HandlerColor = _utl.HexColor((string)varkey.Value);
+                                    break;
+                                case "BackColor":
+                                    BackgroundColor = _utl.HexColor((string)varkey.Value);
+                                    break;
+                                case "ValueColor":
+                                    ValueColor = _utl.HexColor((string)varkey.Value);
+                                    break;
+                                case "DisabledBackColor":
+                                    DisabledBackColor = _utl.HexColor((string)varkey.Value);
+                                    break;
+                                case "DisabledValueColor":
+                                    DisabledValueColor = _utl.HexColor((string)varkey.Value);
+                                    break;
+                                case "DisabledHandlerColor":
+                                    DisabledHandlerColor = _utl.HexColor((string)varkey.Value);
+                                    break;
+                                default:
+                                    return;
+                            }
+                        }
+                    UpdateProperties();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(style), style, null);
+            }
+        }
 
-		private void UpdateProperties()
-		{
-			Invalidate();
-		}
+        private void UpdateProperties()
+        {
+            Invalidate();
+        }
 
-		#endregion Theme Changing
+        #endregion Theme Changing
 
-		#region Draw Control
+        #region Draw Control
 
-		protected override void OnPaint(PaintEventArgs e)
-		{
-			var g = e.Graphics;
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var g = e.Graphics;
 
-			Cursor = Cursors.Hand;
+            Cursor = Cursors.Hand;
 
-			using (var bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
-			{
-				using (var v = new SolidBrush(Enabled ? ValueColor : DisabledValueColor))
-				{
-					using (var vc = new SolidBrush(Enabled ? HandlerColor : DisabledHandlerColor))
-					{
-						g.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
-						if (_currentValue != 0)
-							g.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
-						g.FillRectangle(vc, _track);
-					}
-				}
-			}
-		}
+            using (var bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            {
+                using (var v = new SolidBrush(Enabled ? ValueColor : DisabledValueColor))
+                {
+                    using (var vc = new SolidBrush(Enabled ? HandlerColor : DisabledHandlerColor))
+                    {
+                        g.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
+                        if (_currentValue != 0)
+                            g.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
+                        g.FillRectangle(vc, _track);
+                    }
+                }
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		[Category("Metro"), Description("Gets or sets the upper limit of the range this TrackBar is working with.")]
-		public int Maximum
-		{
-			get => _maximum;
-			set
-			{
-				_maximum = value;
-				RenewCurrentValue();
-				MoveTrack();
-				Invalidate();
-			}
-		}
+        [Category("Metro"), Description("Gets or sets the upper limit of the range this TrackBar is working with.")]
+        public int Maximum
+        {
+            get => _maximum;
+            set
+            {
+                _maximum = value;
+                RenewCurrentValue();
+                MoveTrack();
+                Invalidate();
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets the lower limit of the range this TrackBar is working with.")]
-		public int Minimum
-		{
-			get => _minimum;
-			set
-			{
-				if (!(value < 0))
-				{
-					_minimum = value;
-					RenewCurrentValue();
-					MoveTrack();
-					Invalidate();
-				}
-			}
-		}
+        [Category("Metro"), Description("Gets or sets the lower limit of the range this TrackBar is working with.")]
+        public int Minimum
+        {
+            get => _minimum;
+            set
+            {
+                if (!(value < 0))
+                {
+                    _minimum = value;
+                    RenewCurrentValue();
+                    MoveTrack();
+                    Invalidate();
+                }
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets a numeric value that represents the current position of the scroll box on the track bar.")]
-		public int Value
-		{
-			get => _value;
-			set
-			{
-				if (value != _value)
-				{
-					_value = value;
-					RenewCurrentValue();
-					MoveTrack();
-					Invalidate();
-					Scroll?.Invoke(this);
-				}
-			}
-		}
+        [Category("Metro"), Description("Gets or sets a numeric value that represents the current position of the scroll box on the track bar.")]
+        public int Value
+        {
+            get => _value;
+            set
+            {
+                if (value != _value)
+                {
+                    _value = value;
+                    RenewCurrentValue();
+                    MoveTrack();
+                    Invalidate();
+                    Scroll?.Invoke(this);
+                }
+            }
+        }
 
-		[Browsable(false)]
-		public override Color BackColor => Color.Transparent;
+        [Browsable(false)]
+        public override Color BackColor => Color.Transparent;
 
-		[Category("Metro"), Description(" Gets or sets the value color in normal mouse sate.")]
-		public Color ValueColor
-		{
-			get { return _valueColor; }
-			set
-			{
-				_valueColor = value;
-				Refresh();
-			}
-		}
+        [Category("Metro"), Description(" Gets or sets the value color in normal mouse sate.")]
+        public Color ValueColor
+        {
+            get { return _valueColor; }
+            set
+            {
+                _valueColor = value;
+                Refresh();
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets the handler color.")]
-		public Color HandlerColor
-		{
-			get { return _handlerColor; }
-			set
-			{
-				_handlerColor = value;
-				Refresh();
-			}
-		}
+        [Category("Metro"), Description("Gets or sets the handler color.")]
+        public Color HandlerColor
+        {
+            get { return _handlerColor; }
+            set
+            {
+                _handlerColor = value;
+                Refresh();
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets the control backcolor.")]
-		[DisplayName("BackColor")]
-		public Color BackgroundColor
-		{
-			get { return _backgroundColor; }
-			set
-			{
-				_backgroundColor = value;
-				Refresh();
-			}
-		}
+        [Category("Metro"), Description("Gets or sets the control backcolor.")]
+        [DisplayName("BackColor")]
+        public Color BackgroundColor
+        {
+            get { return _backgroundColor; }
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets the value of the control whenever while disabled.")]
-		public Color DisabledValueColor
-		{
-			get { return _disabledValueColor; }
-			set
-			{
-				_disabledValueColor = value;
-				Refresh();
-			}
-		}
+        [Category("Metro"), Description("Gets or sets the value of the control whenever while disabled.")]
+        public Color DisabledValueColor
+        {
+            get { return _disabledValueColor; }
+            set
+            {
+                _disabledValueColor = value;
+                Refresh();
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
-		public Color DisabledBackColor
-		{
-			get { return _disabledBackColor; }
-			set
-			{
-				_disabledBackColor = value;
-				Refresh();
-			}
-		}
+        [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
+        public Color DisabledBackColor
+        {
+            get { return _disabledBackColor; }
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
-		public Color DisabledBorderColor
-		{
-			get { return _disabledBorderColor; }
-			set
-			{
-				_disabledBorderColor = value;
-				Refresh();
-			}
-		}
+        [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
+        public Color DisabledBorderColor
+        {
+            get { return _disabledBorderColor; }
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
 
-		[Category("Metro"), Description("Gets or sets the handler color while the control disabled.")]
-		public Color DisabledHandlerColor
-		{
-			get { return _disabledHandlerColor; }
-			set
-			{
-				_disabledHandlerColor = value;
-				Refresh();
-			}
-		}
+        [Category("Metro"), Description("Gets or sets the handler color while the control disabled.")]
+        public Color DisabledHandlerColor
+        {
+            get { return _disabledHandlerColor; }
+            set
+            {
+                _disabledHandlerColor = value;
+                Refresh();
+            }
+        }
 
-		[Category("Metro")]
-		[Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
-					 "Set it to false if you want the style of this control be independent. ")]
-		public bool IsDerivedStyle
-		{
-			get { return _isDerivedStyle; }
-			set
-			{
-				_isDerivedStyle = value;
-				Refresh();
-			}
-		}
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get { return _isDerivedStyle; }
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region Events
+        #region Events
 
-		public event ScrollEventHandler Scroll;
-		public delegate void ScrollEventHandler(object sender);
+        public event ScrollEventHandler Scroll;
+        public delegate void ScrollEventHandler(object sender);
 
-		protected override void OnMouseMove(MouseEventArgs e)
-		{
-			if (_variable && e.X > -1 && e.X < Width + 1)
-				Value = Minimum + (int)Math.Round((double)(Maximum - Minimum) * e.X / Width);
-			base.OnMouseMove(e);
-		}
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            if (_variable && e.X > -1 && e.X < Width + 1)
+                Value = Minimum + (int)Math.Round((double)(Maximum - Minimum) * e.X / Width);
+            base.OnMouseMove(e);
+        }
 
-		protected override void OnMouseDown(MouseEventArgs e)
-		{
-			if (e.Button == MouseButtons.Left && Height > 0)
-			{
-				RenewCurrentValue();
-				_track = new Rectangle(_currentValue, 0, 6, 16);
-				_variable = new Rectangle(_currentValue, 0, 6, 16).Contains(e.Location);
-			}
-			base.OnMouseDown(e);
-		}
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && Height > 0)
+            {
+                RenewCurrentValue();
+                _track = new Rectangle(_currentValue, 0, 6, 16);
+                _variable = new Rectangle(_currentValue, 0, 6, 16).Contains(e.Location);
+            }
+            base.OnMouseDown(e);
+        }
 
-		protected override void OnMouseUp(MouseEventArgs e)
-		{
-			_variable = false;
-			base.OnMouseUp(e);
-		}
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            _variable = false;
+            base.OnMouseUp(e);
+        }
 
-		protected override void OnKeyDown(KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left)
-			{
-				if (Value != 0)
-					Value -= 1;
-			}
-			else if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Up || e.KeyCode == Keys.Right)
-			{
-				if (Value != Maximum)
-					Value += 1;
-			}
-			base.OnKeyDown(e);
-		}
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left)
+            {
+                if (Value != 0)
+                    Value -= 1;
+            }
+            else if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Up || e.KeyCode == Keys.Right)
+            {
+                if (Value != Maximum)
+                    Value += 1;
+            }
+            base.OnKeyDown(e);
+        }
 
-		protected override void OnResize(EventArgs e)
-		{
-			RenewCurrentValue();
-			MoveTrack();
-			Height = 16;
-			Invalidate();
-			base.OnResize(e);
-		}
+        protected override void OnResize(EventArgs e)
+        {
+            RenewCurrentValue();
+            MoveTrack();
+            Height = 16;
+            Invalidate();
+            base.OnResize(e);
+        }
 
-		private void MoveTrack()
-		{
-			_track = new Rectangle(_currentValue, 0, 6, 16);
-		}
+        private void MoveTrack()
+        {
+            _track = new Rectangle(_currentValue, 0, 6, 16);
+        }
 
-		public void RenewCurrentValue()
-		{
-			_currentValue = Convert.ToInt32(Math.Round((double)(Value - Minimum) / (Maximum - Minimum) * (Width - 6)));
-			Invalidate();
-		}
+        public void RenewCurrentValue()
+        {
+            _currentValue = Convert.ToInt32(Math.Round((double)(Value - Minimum) / (Maximum - Minimum) * (Width - 6)));
+            Invalidate();
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 
-	#endregion
+    #endregion
 }

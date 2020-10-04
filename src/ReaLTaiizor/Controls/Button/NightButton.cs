@@ -421,13 +421,13 @@ namespace ReaLTaiizor.Controls
             using (Pen pathPen = new Pen(penColor, 2f))
             using (SolidBrush stringBrush = new SolidBrush(brushColor))
             using
-			(
+            (
                 StringFormat sf = new StringFormat
-				{
-					Alignment = StringAlignment.Center,
-					LineAlignment = StringAlignment.Center
-				}
-			)
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center
+                }
+            )
             {
                 g.DrawPath(pathPen, roundRectPath);
                 g.DrawString(Text, Font, stringBrush, stringRect, sf);

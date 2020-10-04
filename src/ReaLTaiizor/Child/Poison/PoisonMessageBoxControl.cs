@@ -178,18 +178,18 @@ namespace ReaLTaiizor.Child.Poison
                     poisonButton3.Tag = DialogResult.Ignore;
 
                     break;
-                default : break;
+                default: break;
             }
 
             switch (_properties.Icon)
             {
-                case  MessageBoxIcon.Error:
+                case MessageBoxIcon.Error:
                     panelbody.BackColor = _errorColor; break;
                 case MessageBoxIcon.Warning:
                     panelbody.BackColor = _warningColor; break;
                 case MessageBoxIcon.Information:
-                    panelbody.BackColor = _defaultColor;                    
-                     break;
+                    panelbody.BackColor = _defaultColor;
+                    break;
                 case MessageBoxIcon.Question:
                     panelbody.BackColor = _question; break;
                 default:
@@ -222,7 +222,7 @@ namespace ReaLTaiizor.Child.Poison
                 case MessageBoxDefaultButton.Button3:
                     if (poisonButton3 != null)
                         if (poisonButton3.Enabled) poisonButton3.Focus();
-                    break;  
+                    break;
                 default:
                     break;
             }
@@ -257,7 +257,7 @@ namespace ReaLTaiizor.Child.Poison
 
             button.MouseClick -= button_MouseClick;
             button.MouseClick += button_MouseClick;
-            
+
             button.MouseEnter -= button_MouseEnter;
             button.MouseEnter += button_MouseEnter;
 
@@ -284,7 +284,7 @@ namespace ReaLTaiizor.Child.Poison
             PoisonButton button = (PoisonButton)sender;
             if (!button.Enabled) return;
             _result = (DialogResult)button.Tag;
-            Hide(); 
+            Hide();
         }
     }
 

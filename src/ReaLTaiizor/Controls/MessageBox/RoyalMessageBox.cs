@@ -152,16 +152,18 @@ namespace ReaLTaiizor.Controls
             if (form == null)
                 throw new ArgumentNullException("RoyalMessageBox requires a valid form object in the first argument.");
 
-            RoyalMessageBox msgBox = new RoyalMessageBox();
-            msgBox.parent = form;
-            msgBox.content = content;
-            msgBox.caption = caption;
-            msgBox.buttons = buttons;
-            msgBox.icon = icon;
-            msgBox.Mode = mode;
+            RoyalMessageBox msgBox = new RoyalMessageBox
+            {
+                parent = form,
+                content = content,
+                caption = caption,
+                buttons = buttons,
+                icon = icon,
+                Mode = mode,
 
-            msgBox.Size = form.Size;
-            msgBox.Location = form.Location;
+                Size = form.Size,
+                Location = form.Location
+            };
 
             return msgBox.ShowDialog();
         }
@@ -234,9 +236,11 @@ namespace ReaLTaiizor.Controls
         {
             e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(150, Color.DarkGray)), e.ClipRectangle);
 
-            Rectangle messageRect = new Rectangle();
-            messageRect.Size = new Size(Width, (Height / 3));
-            messageRect.Location = new Point(0, ((Height - (Height / 3)) / 2));
+            Rectangle messageRect = new Rectangle
+            {
+                Size = new Size(Width, (Height / 3)),
+                Location = new Point(0, ((Height - (Height / 3)) / 2))
+            };
 
             Font messageFont = new Font(Font.FontFamily, 12.75f, FontStyle.Regular);
 
@@ -261,7 +265,7 @@ namespace ReaLTaiizor.Controls
 
             if (!string.IsNullOrEmpty(caption))
                 e.Graphics.DrawString(caption, messageFont, new SolidBrush(RoyalColors.AccentColor), new PointF(messageRect.Left + 10, messageRect.Top + 10));
-            
+
             if (icon != MessageBoxIcon.None)
             {
                 if (mode)

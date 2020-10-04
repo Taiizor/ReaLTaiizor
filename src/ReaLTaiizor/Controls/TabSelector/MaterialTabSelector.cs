@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private string TitleText (string Text)
+        private string TitleText(string Text)
         {
             switch (TitleTextState)
             {

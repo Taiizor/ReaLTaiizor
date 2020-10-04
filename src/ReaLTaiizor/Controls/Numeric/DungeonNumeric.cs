@@ -176,7 +176,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                if (Xval > Width - 44 && Xval <Width - 33)
+                if (Xval > Width - 44 && Xval < Width - 33)
                 {
                     if ((Value - 1) >= _Minimum)
                         _Value--;

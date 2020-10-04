@@ -29,11 +29,13 @@ namespace ReaLTaiizor.Controls
                 singletonWindow = null;
             }
 
-            singletonWindow = new PoisonTaskWindow(secToClose, userControl);
-            singletonWindow.Text = title;
-            singletonWindow.Resizable = false;
-            singletonWindow.Movable = true;
-            singletonWindow.StartPosition = FormStartPosition.Manual;
+            singletonWindow = new PoisonTaskWindow(secToClose, userControl)
+            {
+                Text = title,
+                Resizable = false,
+                Movable = true,
+                StartPosition = FormStartPosition.Manual
+            };
 
             if (parent != null && parent is IPoisonForm)
             {

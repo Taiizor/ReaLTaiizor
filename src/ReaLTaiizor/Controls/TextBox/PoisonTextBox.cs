@@ -718,12 +718,13 @@ namespace ReaLTaiizor.Controls
         {
             if (baseTextBox != null) return;
 
-            baseTextBox = new PromptedTextBox();
-
-            baseTextBox.BorderStyle = BorderStyle.None;
-            baseTextBox.Font = PoisonFonts.TextBox(poisonTextBoxSize, poisonTextBoxWeight);
-            baseTextBox.Location = new Point(3, 3);
-            baseTextBox.Size = new Size(Width - 6, Height - 6);
+            baseTextBox = new PromptedTextBox
+            {
+                BorderStyle = BorderStyle.None,
+                Font = PoisonFonts.TextBox(poisonTextBoxSize, poisonTextBoxWeight),
+                Location = new Point(3, 3),
+                Size = new Size(Width - 6, Height - 6)
+            };
 
             Size = new Size(baseTextBox.Width + 6, baseTextBox.Height + 6);
 
@@ -734,11 +735,13 @@ namespace ReaLTaiizor.Controls
 
             if (_button != null) return;
 
-            _button = new PoisonTextButton();
-            _button.Theme = Theme;
-            _button.Style = Style;
-            _button.Location = new Point(3, 1);
-            _button.Size = new Size(Height - 4, Height - 4);
+            _button = new PoisonTextButton
+            {
+                Theme = Theme,
+                Style = Style,
+                Location = new Point(3, 1),
+                Size = new Size(Height - 4, Height - 4)
+            };
             _button.TextChanged += _button_TextChanged;
             _button.MouseEnter += _button_MouseEnter;
             _button.MouseLeave += _button_MouseLeave;

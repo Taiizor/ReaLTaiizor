@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Properties
 
         public MessageBoxIcon Icon
         {
-            get; set; 
+            get; set;
         }
 
         public string Message

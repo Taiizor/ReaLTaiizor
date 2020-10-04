@@ -58,9 +58,11 @@ namespace ReaLTaiizor.Controls
             DrawBorders(Pens.LightGray);
             DrawCorners(Color.Transparent);
 
-            StringFormat SF = new StringFormat();
-            SF.Alignment = StringAlignment.Center;
-            SF.LineAlignment = StringAlignment.Center;
+            StringFormat SF = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
             G.DrawString(Text, Font, new SolidBrush(FC), new RectangleF(2, 2, Width - 5, Height - 4), SF);
         }
     }

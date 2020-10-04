@@ -845,8 +845,10 @@ namespace ReaLTaiizor.Drawing.Poison
 
         public static StringFormat GetStringFormat(ContentAlignment textAlign)
         {
-            StringFormat stringFormat = new StringFormat();
-            stringFormat.Trimming = StringTrimming.EllipsisCharacter;
+            StringFormat stringFormat = new StringFormat
+            {
+                Trimming = StringTrimming.EllipsisCharacter
+            };
 
             switch (textAlign)
             {

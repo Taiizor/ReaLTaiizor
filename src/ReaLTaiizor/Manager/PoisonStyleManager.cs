@@ -104,9 +104,11 @@ namespace ReaLTaiizor.Manager
 
         public object Clone()
         {
-            PoisonStyleManager newStyleManager = new PoisonStyleManager();
-            newStyleManager.poisonTheme = Theme;
-            newStyleManager.poisonStyle = Style;
+            PoisonStyleManager newStyleManager = new PoisonStyleManager
+            {
+                poisonTheme = Theme,
+                poisonStyle = Style
+            };
             return newStyleManager;
         }
 

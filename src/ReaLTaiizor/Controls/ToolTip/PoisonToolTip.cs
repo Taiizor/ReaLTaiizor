@@ -14,7 +14,7 @@ using ReaLTaiizor.Extension.Poison;
 
 namespace ReaLTaiizor.Controls
 {
-	#region PoisonToolTip
+    #region PoisonToolTip
 
     [ToolboxBitmap(typeof(ToolTip))]
     public class PoisonToolTip : ToolTip, IPoisonComponent

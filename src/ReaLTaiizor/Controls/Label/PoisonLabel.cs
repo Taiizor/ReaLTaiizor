@@ -191,8 +191,10 @@ namespace ReaLTaiizor.Controls
                     true
             );
 
-            baseTextBox = new DoubleBufferedTextBox();
-            baseTextBox.Visible = false;
+            baseTextBox = new DoubleBufferedTextBox
+            {
+                Visible = false
+            };
             Controls.Add(baseTextBox);
         }
 

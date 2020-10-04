@@ -77,9 +77,11 @@ namespace ReaLTaiizor.Native
         {
             IntPtr taskbarHandle = WinApi.FindWindow(ClassName, null);
 
-            WinApi.APPBARDATA data = new WinApi.APPBARDATA();
-            data.cbSize = (uint)Marshal.SizeOf(typeof(WinApi.APPBARDATA));
-            data.hWnd = taskbarHandle;
+            WinApi.APPBARDATA data = new WinApi.APPBARDATA
+            {
+                cbSize = (uint)Marshal.SizeOf(typeof(WinApi.APPBARDATA)),
+                hWnd = taskbarHandle
+            };
             IntPtr result = WinApi.SHAppBarMessage(WinApi.ABM.GetTaskbarPos, ref data);
             if (result == IntPtr.Zero)
                 throw new InvalidOperationException();

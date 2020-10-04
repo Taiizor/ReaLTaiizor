@@ -70,8 +70,10 @@ namespace ReaLTaiizor.Controls
         protected override void CreateHandle()
         {
             base.CreateHandle();
-            Thread T = new Thread(Animate);
-            T.IsBackground = true;
+            Thread T = new Thread(Animate)
+            {
+                IsBackground = true
+            };
         }
 
         public void Animate()
@@ -271,7 +273,7 @@ namespace ReaLTaiizor.Controls
 
             if (ShowEdge)
                 G.DrawPath(new Pen(EdgeColor), DrawRibbon.RoundRect(new Rectangle(0, 1, Width - 1, Height - 3), 2));
-            
+
             G.DrawPath(new Pen(BorderColor), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
 
             G.DrawPath(new Pen(ProgressBorderColorA), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));

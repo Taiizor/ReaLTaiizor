@@ -106,12 +106,14 @@ namespace ReaLTaiizor.Controls
             SelectedIndex = -1;
             HotLightedIndex = -1;
 
-            scrollBar = new RoyalScrollBar();
-            scrollBar.GutterColor = RoyalColors.HotTrackColor;
-            scrollBar.ThumbColor = RoyalColors.AccentColor;
-            scrollBar.Location = new Point(Width - 5, 0);
-            scrollBar.Size = new Size(5, Height);
-            scrollBar.Orientation = Orientation.Vertical;
+            scrollBar = new RoyalScrollBar
+            {
+                GutterColor = RoyalColors.HotTrackColor,
+                ThumbColor = RoyalColors.AccentColor,
+                Location = new Point(Width - 5, 0),
+                Size = new Size(5, Height),
+                Orientation = Orientation.Vertical
+            };
             scrollBar.ValueChanged += new EventHandler(ScrollBar_ValueChanged);
             scrollBar.SmallChange = ItemHeight;
             scrollBar.LargeChange = ItemHeight * 3;

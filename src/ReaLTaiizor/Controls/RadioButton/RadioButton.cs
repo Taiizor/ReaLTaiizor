@@ -96,7 +96,7 @@ namespace ReaLTaiizor.Controls
             if (!_Checked)
                 @Checked = true;
             else
-                @Checked = false;    
+                @Checked = false;
             Focus();
             base.OnMouseDown(e);
         }
