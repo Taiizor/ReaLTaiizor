@@ -17,7 +17,7 @@
 C# WinForm UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Added Metro theme with NET5 support.
+    <PackageReleaseNotes>Poison theme added.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
     <PackageTags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet Component</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
