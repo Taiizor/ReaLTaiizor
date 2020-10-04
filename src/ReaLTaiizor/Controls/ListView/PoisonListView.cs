@@ -493,7 +493,7 @@ namespace ReaLTaiizor.Controls
             _vScrollbar.Dock = DockStyle.Right;
             _vScrollbar.ValueChanged += _vScrollbar_ValueChanged;
 
-            //this.DoubleBuffering(true);
+            //DoubleBuffering(true);
         }
 
         private void PoisonListView_SelectedIndexChanged(object sender, EventArgs e)

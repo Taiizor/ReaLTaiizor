@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Design.Poison
 
             if (Control is PoisonPanel)
             {
-                //this.EnableDesignMode(((PoisonPanel)this.Control).ScrollablePanel, "ScrollablePanel");
+                //EnableDesignMode(((PoisonPanel)Control).ScrollablePanel, "ScrollablePanel");
             }
         }
     }

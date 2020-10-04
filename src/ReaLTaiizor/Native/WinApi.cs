@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Native
             public int x;
             public int y;
 
-            public POINT(int x, int y) { this.x = x; this.y = y; }
+            public POINT(int xx, int yy) { x = xx; y = yy; }
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Native
             public int cx;
             public int cy;
 
-            public SIZE(int cx, int cy) { this.cx = cx; this.cy = cy; }
+            public SIZE(int cxx, int cyy) { cx = cxx; cy = cyy; }
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = 1)]

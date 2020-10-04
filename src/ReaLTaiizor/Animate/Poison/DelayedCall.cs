@@ -456,12 +456,12 @@ namespace ReaLTaiizor.Animate.Poison
             }, null);
         }
 
-        public void Reset(T data, int milliseconds)
+        public void Reset(T dataa, int milliseconds)
         {
             lock (timerLock)
             {
                 Cancel();
-                this.data = data;
+                data = dataa;
                 Milliseconds = milliseconds;
                 Start();
             }
@@ -529,13 +529,13 @@ namespace ReaLTaiizor.Animate.Poison
             }, null);
         }
 
-        public void Reset(T1 data1, T2 data2, int milliseconds)
+        public void Reset(T1 data11, T2 data22, int milliseconds)
         {
             lock (timerLock)
             {
                 Cancel();
-                this.data1 = data1;
-                this.data2 = data2;
+                data1 = data11;
+                data2 = data22;
                 Milliseconds = milliseconds;
                 Start();
             }
@@ -606,14 +606,14 @@ namespace ReaLTaiizor.Animate.Poison
             }, null);
         }
 
-        public void Reset(T1 data1, T2 data2, T3 data3, int milliseconds)
+        public void Reset(T1 data11, T2 data22, T3 data33, int milliseconds)
         {
             lock (timerLock)
             {
                 Cancel();
-                this.data1 = data1;
-                this.data2 = data2;
-                this.data3 = data3;
+                data1 = data11;
+                data2 = data22;
+                data3 = data33;
                 Milliseconds = milliseconds;
                 Start();
             }

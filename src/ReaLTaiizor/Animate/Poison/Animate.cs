@@ -72,12 +72,13 @@ namespace ReaLTaiizor.Animate.Poison
         {
             Start(control, transitionType, duration, actionHandler, null);
         }
-        protected void Start(Control control, TransitionType transitionType, int duration, AnimationAction actionHandler, AnimationFinishedEvaluator evaluatorHandler)
+
+        protected void Start(Control control, TransitionType transitionTypee, int duration, AnimationAction actionHandlerr, AnimationFinishedEvaluator evaluatorHandlerr)
         {
             targetControl = control;
-            this.transitionType = transitionType;
-            this.actionHandler = actionHandler;
-            this.evaluatorHandler = evaluatorHandler;
+            transitionType = transitionTypee;
+            actionHandler = actionHandlerr;
+            evaluatorHandler = evaluatorHandlerr;
 
             counter = 0;
             startTime = 0;

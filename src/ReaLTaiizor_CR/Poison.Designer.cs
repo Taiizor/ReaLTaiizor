@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Poison));
-            this.SuspendLayout();
+            SuspendLayout();
             // 
             // Poison
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Poison";
-            this.ShadowType = ReaLTaiizor.Enum.Poison.FormShadowType.AeroShadow;
-            this.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
-            this.Text = "Poison";
-            this.TextAlign = ReaLTaiizor.Enum.Poison.FormTextAlignType.Center;
-            this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(800, 450);
+            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
+            Name = "Poison";
+            ShadowType = ReaLTaiizor.Enum.Poison.FormShadowType.AeroShadow;
+            Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
+            Text = "Poison";
+            TextAlign = ReaLTaiizor.Enum.Poison.FormTextAlignType.Center;
+            Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            ResumeLayout(false);
 
         }
 
