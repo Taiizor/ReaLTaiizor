@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialLabel
 
-    public class MaterialLabel : System.Windows.Forms.Label, MaterialControlI
+    public class MaterialLabel : Label, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }

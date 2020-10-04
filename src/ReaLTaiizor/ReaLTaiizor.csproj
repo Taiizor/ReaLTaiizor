@@ -80,6 +80,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
 
   <ItemGroup>
     <Compile Update="Controls\Extender\PoisonStyleExtender.cs" />
+    <Compile Update="Controls\Label\PoisonLabel.cs" />
     <Compile Update="Controls\ScrollBar\PoisonScrollBar.cs">
       <SubType>Component</SubType>
     </Compile>

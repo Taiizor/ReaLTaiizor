@@ -10,7 +10,7 @@ namespace ReaLTaiizor.Controls
 {
 	#region ForeverLabel
 
-	public class ForeverLabel : System.Windows.Forms.Label
+	public class ForeverLabel : Label
 	{
 		protected override void OnTextChanged(EventArgs e)
 		{

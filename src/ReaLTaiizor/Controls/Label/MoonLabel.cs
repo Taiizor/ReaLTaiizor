@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MoonLabel
 
-    public class MoonLabel : System.Windows.Forms.Label
+    public class MoonLabel : Label
     {
 
         public MoonLabel()

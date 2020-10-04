@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region SkyLabel
 
-    public class SkyLabel : System.Windows.Forms.Label
+    public class SkyLabel : Label
     {
         public SkyLabel() : base()
         {

@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceBorderLabel : SpaceControl // A Simple Label with a Border
     {
-
         public SpaceBorderLabel()
         {
             SetColor("DownGradient1", 42, 42, 42); // Basic Gradients Used to Shade the Button
