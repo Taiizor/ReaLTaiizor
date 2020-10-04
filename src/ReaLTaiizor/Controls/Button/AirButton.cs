@@ -82,7 +82,10 @@ namespace ReaLTaiizor.Controls
             GraphicsPath buttonpath = CreateRound(Rectangle.Round(LGB.Rectangle), 3);
             G.FillPath(LGB, CreateRound(Rectangle.Round(LGB.Rectangle), 3));
             if (!Enabled)
+            {
                 G.FillPath(new SolidBrush(Color.FromArgb(50, Color.White)), CreateRound(Rectangle.Round(LGB.Rectangle), 3));
+            }
+
             G.SetClip(buttonpath);
             LGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height / 6), Color.FromArgb(80, Color.White), Color.Transparent, 90f);
             G.FillRectangle(LGB, Rectangle.Round(LGB.Rectangle));

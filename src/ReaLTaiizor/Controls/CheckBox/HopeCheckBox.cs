@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
         private Color _EnabledStringColor = ColorTranslator.FromHtml("#999999");
         private Color _DisabledStringColor = ColorTranslator.FromHtml("#babbbd");
         private Color _CheckedColor = HopeColors.PrimaryColor;
-        private Timer AnimationTimer = new Timer { Interval = 15 };
+        private readonly Timer AnimationTimer = new Timer { Interval = 15 };
         private int SizeAnimationNum = 14;
         private int PointAnimationNum = 3;
         private bool enterFlag = false;
@@ -130,9 +130,13 @@ namespace ReaLTaiizor.Controls
             enterFlag = true;
 
             if (_Enable)
+            {
                 Cursor = Cursors.Hand;
+            }
             else
+            {
                 Cursor = Cursors.Default;
+            }
 
             Invalidate();
         }
@@ -153,8 +157,8 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BackColor);
 
-            var checkmarkPath = RoundRectangle.CreateRoundRect(2, 2, 16, 16, 1);
-            var checkMarkLine = new Rectangle(3, 3, 14, 14);
+            GraphicsPath checkmarkPath = RoundRectangle.CreateRoundRect(2, 2, 16, 16, 1);
+            Rectangle checkMarkLine = new Rectangle(3, 3, 14, 14);
 
             SolidBrush BG = new SolidBrush(_Enable ? (Checked || enterFlag ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
             Pen Pen = new Pen(BG.Color);

@@ -59,8 +59,16 @@ namespace ReaLTaiizor.Controls
         protected override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
-            if (Parent != null) AddShadowPaintEvent(Parent, drawShadowOnParent);
-            if (_oldParent != null) RemoveShadowPaintEvent(_oldParent, drawShadowOnParent);
+            if (Parent != null)
+            {
+                AddShadowPaintEvent(Parent, drawShadowOnParent);
+            }
+
+            if (_oldParent != null)
+            {
+                RemoveShadowPaintEvent(_oldParent, drawShadowOnParent);
+            }
+
             _oldParent = Parent;
         }
 
@@ -69,18 +77,30 @@ namespace ReaLTaiizor.Controls
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
-            if (Parent == null) return;
+            if (Parent == null)
+            {
+                return;
+            }
+
             if (Visible)
+            {
                 AddShadowPaintEvent(Parent, drawShadowOnParent);
+            }
             else
+            {
                 RemoveShadowPaintEvent(Parent, drawShadowOnParent);
+            }
         }
 
         private bool _shadowDrawEventSubscribed = false;
 
         private void AddShadowPaintEvent(Control control, PaintEventHandler shadowPaintEvent)
         {
-            if (_shadowDrawEventSubscribed) return;
+            if (_shadowDrawEventSubscribed)
+            {
+                return;
+            }
+
             control.Paint += shadowPaintEvent;
             control.Invalidate();
             _shadowDrawEventSubscribed = true;
@@ -88,7 +108,11 @@ namespace ReaLTaiizor.Controls
 
         private void RemoveShadowPaintEvent(Control control, PaintEventHandler shadowPaintEvent)
         {
-            if (!_shadowDrawEventSubscribed) return;
+            if (!_shadowDrawEventSubscribed)
+            {
+                return;
+            }
+
             control.Paint -= shadowPaintEvent;
             control.Invalidate();
             _shadowDrawEventSubscribed = false;
@@ -100,7 +124,7 @@ namespace ReaLTaiizor.Controls
             BackColor = SkinManager.BackgroundColor;
         }
 
-        private void paintControl(Object sender, PaintEventArgs e)
+        private void paintControl(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;

@@ -22,8 +22,11 @@ namespace ReaLTaiizor.Design.Metro
 
         protected override void PostFilterProperties(IDictionary properties)
         {
-            foreach (var property in _propertiesToRemove)
+            foreach (string property in _propertiesToRemove)
+            {
                 properties.Remove(property);
+            }
+
             base.PostFilterProperties(properties);
         }
 

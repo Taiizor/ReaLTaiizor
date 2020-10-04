@@ -32,7 +32,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < _Value)
+                {
                     _Value = value;
+                }
+
                 _Maximum = value;
                 Invalidate();
             }
@@ -116,7 +119,7 @@ namespace ReaLTaiizor.Controls
             Value += Amount;
         }
 
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
+        private readonly Color _BaseColor = Color.FromArgb(45, 47, 49);
         private Color _ProgressColor = ForeverLibrary.ForeverColor;
         private Color _DarkerProgress = Color.FromArgb(23, 148, 92);
 
@@ -143,7 +146,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath GP2 = new GraphicsPath();
             GraphicsPath GP3 = new GraphicsPath();
 
-            var _with15 = G;
+            Graphics _with15 = G;
             _with15.SmoothingMode = SmoothingMode.HighQuality;
             _with15.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with15.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

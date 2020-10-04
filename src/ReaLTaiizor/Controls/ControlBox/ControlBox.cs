@@ -118,17 +118,25 @@ namespace ReaLTaiizor.Controls
                 {
                     ButtonHState = ButtonHoverState.Minimize;
                     if (_EnableMinimize == true)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.No;
+                    }
                 }
                 else if (X > 30 && X <= 60)
                 {
                     ButtonHState = ButtonHoverState.Maximize;
                     if (_EnableMaximize == true)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.No;
+                    }
                 }
                 else if (X > 60 && X < Width)
                 {
@@ -169,9 +177,13 @@ namespace ReaLTaiizor.Controls
                     if (_EnableMaximize == true)
                     {
                         if (Parent.FindForm().WindowState == FormWindowState.Normal)
+                        {
                             Parent.FindForm().WindowState = FormWindowState.Maximized;
+                        }
                         else
+                        {
                             Parent.FindForm().WindowState = FormWindowState.Normal;
+                        }
                     }
                     break;
             }
@@ -208,7 +220,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (DefaultLocation)
+                {
                     Location = new Point(Parent.Width - 100, 18);
+                }
             }
             catch (Exception)
             {
@@ -230,24 +244,37 @@ namespace ReaLTaiizor.Controls
             {
                 case FormWindowState.Maximized:
                     if (_EnableMaximize == true)
+                    {
                         G.DrawString("2", new Font("Marlett", 12), new SolidBrush(base.ForeColor), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("2", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                    }
+
                     break;
                 case FormWindowState.Normal:
                     if (_EnableMaximize == true)
+                    {
                         G.DrawString("1", new Font("Marlett", 12), new SolidBrush(base.ForeColor), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("1", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                    }
+
                     break;
             }
 
             //Minimize
             if (_EnableMinimize == true)
+            {
                 G.DrawString("0", new Font("Marlett", 12), new SolidBrush(base.ForeColor), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
+            }
             else
+            {
                 G.DrawString("0", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
-
+            }
 
             if (_EnableHoverHighlight == true)
             {
@@ -263,7 +290,10 @@ namespace ReaLTaiizor.Controls
                             G.DrawString("0", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
                         }
                         else
+                        {
                             G.DrawString("0", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
+                        }
+
                         break;
                     case ButtonHoverState.Maximize:
                         switch (Parent.FindForm().WindowState)
@@ -275,7 +305,10 @@ namespace ReaLTaiizor.Controls
                                     G.DrawString("2", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
                                 }
                                 else
+                                {
                                     G.DrawString("2", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                                }
+
                                 break;
                             case FormWindowState.Normal:
                                 if (_EnableMaximize == true)
@@ -284,7 +317,10 @@ namespace ReaLTaiizor.Controls
                                     G.DrawString("1", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
                                 }
                                 else
+                                {
                                     G.DrawString("1", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                                }
+
                                 break;
                         }
                         break;

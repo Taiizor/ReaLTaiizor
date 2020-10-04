@@ -72,7 +72,9 @@ namespace ReaLTaiizor.Native
             };
             IntPtr result = WinApi.SHAppBarMessage(WinApi.ABM.GetTaskbarPos, ref data);
             if (result == IntPtr.Zero)
+            {
                 throw new InvalidOperationException();
+            }
 
             Position = (TaskBarPosition)data.uEdge;
             Bounds = Rectangle.FromLTRB(data.rc.Left, data.rc.Top, data.rc.Right, data.rc.Bottom);

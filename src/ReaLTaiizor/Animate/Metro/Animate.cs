@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Animate.Metro
 
         #region Internal Vars
         private DateTime _lastUpdateTime;
-        private Timer _animateTimer;
+        private readonly Timer _animateTimer;
         private bool _reverse;
         #endregion
 
@@ -85,7 +85,9 @@ namespace ReaLTaiizor.Animate.Metro
             _reverse = val;
 
             if (!Active)
+            {
                 Play();
+            }
         }
 
         public void Play()
@@ -129,9 +131,13 @@ namespace ReaLTaiizor.Animate.Metro
             double elapsed;
 
             if (Duration == 0)
+            {
                 elapsed = 1.0;
+            }
             else
+            {
                 elapsed = (updateTime - _lastUpdateTime).TotalMilliseconds / Duration;
+            }
 
             _lastUpdateTime = updateTime;
             Alpha = Math.Max(0.0, Math.Min(Alpha + (_reverse ? -elapsed : elapsed), 1.0));
@@ -139,7 +145,10 @@ namespace ReaLTaiizor.Animate.Metro
             Update?.Invoke(Value);
 
             if (Alpha != 0.0 && Alpha != 1.0)
+            {
                 return;
+            }
+
             Pause();
             Complete?.Invoke();
         }

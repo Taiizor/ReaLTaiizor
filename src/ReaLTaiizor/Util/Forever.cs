@@ -48,23 +48,42 @@ namespace ReaLTaiizor.Util
             float yh = y + h;
             functionReturnValue = new GraphicsPath();
 
-            var _with1 = functionReturnValue;
+            GraphicsPath _with1 = functionReturnValue;
             if (TL)
+            {
                 _with1.AddArc(x, y, d, d, 180, 90);
+            }
             else
+            {
                 _with1.AddLine(x, y, x, y);
+            }
+
             if (TR)
+            {
                 _with1.AddArc(xw - d, y, d, d, 270, 90);
+            }
             else
+            {
                 _with1.AddLine(xw, y, xw, y);
+            }
+
             if (BR)
+            {
                 _with1.AddArc(xw - d, yh - d, d, d, 0, 90);
+            }
             else
+            {
                 _with1.AddLine(xw, yh, xw, yh);
+            }
+
             if (BL)
+            {
                 _with1.AddArc(x, yh - d, d, d, 90, 90);
+            }
             else
+            {
                 _with1.AddLine(x, yh, x, yh);
+            }
 
             _with1.CloseFigure();
             return functionReturnValue;
@@ -95,12 +114,16 @@ namespace ReaLTaiizor.Util
         public static ForeverColors GetColors(Control control)
         {
             if (control == null)
+            {
                 throw new ArgumentNullException();
+            }
 
             ForeverColors colors = new ForeverColors();
 
             while (control != null && (control.GetType() != typeof(Forms.ForeverForm)))
+            {
                 control = control.Parent;
+            }
 
             if (control != null)
             {

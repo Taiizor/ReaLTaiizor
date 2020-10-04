@@ -114,19 +114,26 @@ namespace ReaLTaiizor.Controls
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
+            {
                 return;
+            }
 
             foreach (Control C in Parent.Controls)
             {
                 if (!object.ReferenceEquals(C, this) && C is MoonRadioButton)
+                {
                     ((MoonRadioButton)C).Checked = false;
+                }
             }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (!_Checked)
+            {
                 Checked = true;
+            }
+
             base.OnMouseDown(e);
         }
 
@@ -153,13 +160,17 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingType;
 
             if (_Checked)
+            {
                 G.FillEllipse(new SolidBrush(CheckedColor), new Rectangle(new Point(7, 7), new Size(8, 8)));
+            }
 
             if (State == MouseStateMoon.Over)
             {
                 G.FillEllipse(new SolidBrush(HoverColor), new Rectangle(new Point(4, 4), new Size(14, 14)));
                 if (_Checked)
+                {
                     G.FillEllipse(new SolidBrush(HoverBackColor), new Rectangle(new Point(7, 7), new Size(8, 8)));
+                }
             }
 
             G.DrawEllipse(new Pen(new SolidBrush(CircleColorA)), new Rectangle(new Point(3, 3), new Size(16, 16)));

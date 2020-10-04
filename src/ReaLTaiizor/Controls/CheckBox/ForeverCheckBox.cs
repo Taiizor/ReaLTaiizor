@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(0, 2, Height - 5, Height - 5);
 
-            var _with11 = G;
+            Graphics _with11 = G;
             _with11.SmoothingMode = SmoothingMode.HighQuality;
             _with11.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             _with11.Clear(BackColor);
@@ -161,7 +161,9 @@ namespace ReaLTaiizor.Controls
 
                     //-- If Checked
                     if (Checked)
+                    {
                         _with11.DrawString("ü", new Font("Wingdings", 18), new SolidBrush(_BorderColor), new Rectangle(5, 7, H - 9, H - 9), ForeverLibrary.CenterSF);
+                    }
 
                     //-- If Enabled
                     if (Enabled == false)
@@ -194,7 +196,9 @@ namespace ReaLTaiizor.Controls
 
                     //-- If Checked
                     if (Checked)
+                    {
                         _with11.DrawString("ü", new Font("Wingdings", 18), new SolidBrush(_BorderColor), new Rectangle(5, 7, H - 9, H - 9), ForeverLibrary.CenterSF);
+                    }
 
                     //-- If Enabled
                     if (Enabled == false)

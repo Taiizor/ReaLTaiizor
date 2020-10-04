@@ -97,10 +97,13 @@ namespace ReaLTaiizor.Controls
 
         protected override ToolStripDropDown CreateDefaultDropDown()
         {
-            var baseDropDown = base.CreateDefaultDropDown();
-            if (DesignMode) return baseDropDown;
+            ToolStripDropDown baseDropDown = base.CreateDefaultDropDown();
+            if (DesignMode)
+            {
+                return baseDropDown;
+            }
 
-            var defaultDropDown = new MaterialContextMenuStrip();
+            MaterialContextMenuStrip defaultDropDown = new MaterialContextMenuStrip();
             defaultDropDown.Items.AddRange(baseDropDown.Items);
 
             return defaultDropDown;
@@ -118,11 +121,11 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            var itemRect = GetItemRect(e.Item);
-            var textRect = new Rectangle(24, itemRect.Y, itemRect.Width - (24 + 16), itemRect.Height);
+            Rectangle itemRect = GetItemRect(e.Item);
+            Rectangle textRect = new Rectangle(24, itemRect.Y, itemRect.Width - (24 + 16), itemRect.Height);
 
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
             {
@@ -136,26 +139,26 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.Clear(SkinManager.BackdropColor);
 
             //Draw background
-            var itemRect = GetItemRect(e.Item);
+            Rectangle itemRect = GetItemRect(e.Item);
             g.FillRectangle(e.Item.Selected && e.Item.Enabled ? SkinManager.BackgroundFocusBrush : SkinManager.BackdropBrush, itemRect);
 
             //Ripple animation
-            var toolStrip = e.ToolStrip as MaterialContextMenuStrip;
+            MaterialContextMenuStrip toolStrip = e.ToolStrip as MaterialContextMenuStrip;
             if (toolStrip != null)
             {
-                var animationManager = toolStrip.AnimationManager;
-                var animationSource = toolStrip.AnimationSource;
+                AnimationManager animationManager = toolStrip.AnimationManager;
+                Point animationSource = toolStrip.AnimationSource;
                 if (toolStrip.AnimationManager.IsAnimating() && e.Item.Bounds.Contains(animationSource))
                 {
                     for (int i = 0; i < animationManager.GetAnimationCount(); i++)
                     {
-                        var animationValue = animationManager.GetProgress(i);
-                        var rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationValue * 50)), Color.Black));
-                        var rippleSize = (int)(animationValue * itemRect.Width * 2.5);
+                        double animationValue = animationManager.GetProgress(i);
+                        SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationValue * 50)), Color.Black));
+                        int rippleSize = (int)(animationValue * itemRect.Width * 2.5);
                         g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, itemRect.Y - itemRect.Height, rippleSize, itemRect.Height * 3));
                     }
                 }
@@ -168,7 +171,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             g.FillRectangle(SkinManager.BackdropBrush, e.Item.Bounds);
             g.DrawLine(
@@ -179,7 +182,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             g.DrawRectangle(
                 new Pen(SkinManager.DividersColor),
@@ -188,12 +191,12 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             const int ARROW_SIZE = 4;
 
-            var arrowMiddle = new Point(e.ArrowRectangle.X + e.ArrowRectangle.Width / 2, e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2);
-            var arrowBrush = e.Item.Enabled ? SkinManager.TextHighEmphasisBrush : SkinManager.TextDisabledOrHintBrush;
-            using (var arrowPath = new GraphicsPath())
+            Point arrowMiddle = new Point(e.ArrowRectangle.X + e.ArrowRectangle.Width / 2, e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2);
+            Brush arrowBrush = e.Item.Enabled ? SkinManager.TextHighEmphasisBrush : SkinManager.TextDisabledOrHintBrush;
+            using (GraphicsPath arrowPath = new GraphicsPath())
             {
                 arrowPath.AddLines(
                     new[] {

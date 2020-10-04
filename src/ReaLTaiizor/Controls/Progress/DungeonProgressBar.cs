@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Controls
         private GraphicsPath GP3;
         private Rectangle R1;
         private Rectangle R2;
-        private LinearGradientBrush GB1;
+        private readonly LinearGradientBrush GB1;
         private LinearGradientBrush GB2;
         private int I1;
 
@@ -94,9 +94,15 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 1)
+                {
                     value = 1;
+                }
+
                 if (value < _Value)
+                {
                     _Value = value;
+                }
+
                 _Maximum = value;
                 Invalidate();
             }
@@ -110,9 +116,14 @@ namespace ReaLTaiizor.Controls
                 _Minimum = value;
 
                 if (value > _Maximum)
+                {
                     _Maximum = value;
+                }
+
                 if (value > _Value)
+                {
                     _Value = value;
+                }
 
                 Invalidate();
             }
@@ -124,7 +135,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > _Maximum)
+                {
                     value = Maximum;
+                }
+
                 _Value = value;
                 Invalidate();
             }
@@ -231,8 +245,10 @@ namespace ReaLTaiizor.Controls
                 // Draw diagonal lines
                 if (_DrawHatch == true)
                 {
-                    for (var i = 0; i <= (Width - 1) * _Maximum / _Value; i += 20)
+                    for (int i = 0; i <= (Width - 1) * _Maximum / _Value; i += 20)
+                    {
                         G.DrawLine(new Pen(new SolidBrush(_ProgressHatchColor), 10.0F), new Point(Convert.ToInt32(i), 0), new Point((int)(i - 10), Height));
+                    }
                 }
 
                 G.SetClip(GP3);

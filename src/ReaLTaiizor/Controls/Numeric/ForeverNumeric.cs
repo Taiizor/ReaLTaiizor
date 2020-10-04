@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
     {
         private int W;
         private int H;
-        private MouseStateForever State = MouseStateForever.None;
+        private readonly MouseStateForever State = MouseStateForever.None;
         private int x;
         private int y;
         private long _Value;
@@ -33,7 +33,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value <= _Max & value >= _Min)
+                {
                     _Value = value;
+                }
+
                 Invalidate();
             }
         }
@@ -44,9 +47,15 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > _Min)
+                {
                     _Max = value;
+                }
+
                 if (_Value > _Max)
+                {
                     _Value = _Max;
+                }
+
                 Invalidate();
             }
         }
@@ -57,9 +66,15 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < _Max)
+                {
                     _Min = value;
+                }
+
                 if (_Value < _Min)
+                {
                     _Value = Minimum;
+                }
+
                 Invalidate();
             }
         }
@@ -71,9 +86,13 @@ namespace ReaLTaiizor.Controls
             y = e.Location.Y;
             Invalidate();
             if (e.X < Width - 23)
+            {
                 Cursor = Cursors.Default;
+            }
             else
+            {
                 Cursor = Cursors.Hand;
+            }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -84,12 +103,16 @@ namespace ReaLTaiizor.Controls
                 if (y < 15)
                 {
                     if ((Value + 1) <= _Max)
+                    {
                         _Value += 1;
+                    }
                 }
                 else
                 {
                     if ((Value - 1) >= _Min)
+                    {
                         _Value -= 1;
+                    }
                 }
             }
             else
@@ -106,9 +129,15 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (Bool)
+                {
                     _Value = Convert.ToInt64(_Value.ToString() + e.KeyChar.ToString());
+                }
+
                 if (_Value > _Max)
+                {
                     _Value = _Max;
+                }
+
                 Invalidate();
             }
             catch
@@ -120,7 +149,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnKeyDown(e);
             if (e.KeyCode == Keys.Back)
+            {
                 Value = 0;
+            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -183,7 +214,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(0, 0, W, H);
 
-            var _with18 = G;
+            Graphics _with18 = G;
             _with18.SmoothingMode = SmoothingMode.HighQuality;
             _with18.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with18.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

@@ -40,7 +40,9 @@ namespace ReaLTaiizor.Controls
             int width = 1;
 
             for (int i = 0; i < Items.Count; i++)
+            {
                 width += Items[i].Width;
+            }
 
             width += 1;
 
@@ -54,7 +56,9 @@ namespace ReaLTaiizor.Controls
             int width = 1;
 
             for (int i = 0; i < Items.Count; i++)
+            {
                 width += Items[i].Width;
+            }
 
             width += 1;
 

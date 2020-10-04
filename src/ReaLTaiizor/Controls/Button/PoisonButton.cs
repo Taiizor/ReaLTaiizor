@@ -30,7 +30,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -38,7 +40,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -46,7 +50,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -57,12 +63,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -77,12 +90,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -205,15 +225,23 @@ namespace ReaLTaiizor.Controls
                 Color backColor = BackColor;
 
                 if (isHovered && !isPressed && Enabled)
+                {
                     backColor = PoisonPaint.BackColor.Button.Hover(Theme);
+                }
                 else if (isHovered && isPressed && Enabled)
+                {
                     backColor = PoisonPaint.BackColor.Button.Press(Theme);
+                }
                 else if (!Enabled)
+                {
                     backColor = PoisonPaint.BackColor.Button.Disabled(Theme);
+                }
                 else
                 {
                     if (!useCustomBackColor)
+                    {
                         backColor = PoisonPaint.BackColor.Button.Normal(Theme);
+                    }
                 }
 
                 if (backColor.A == 255 && BackgroundImage == null)
@@ -237,7 +265,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -271,11 +301,17 @@ namespace ReaLTaiizor.Controls
             {
                 borderColor = PoisonPaint.BorderColor.Button.Normal(Theme);
                 if (useCustomForeColor)
+                {
                     foreColor = ForeColor;
+                }
                 else if (useStyleColors)
+                {
                     foreColor = PoisonPaint.GetStyleColor(Style);
+                }
                 else
+                {
                     foreColor = PoisonPaint.ForeColor.Button.Normal(Theme);
+                }
             }
 
             using (Pen p = new Pen(borderColor))
@@ -300,7 +336,9 @@ namespace ReaLTaiizor.Controls
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
             if (displayFocusRectangle && isFocused)
+            {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
+            }
         }
 
         #endregion
@@ -405,7 +443,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseLeave(EventArgs e)
         {
             if (!isFocused)
+            {
                 isHovered = false;
+            }
 
             Invalidate();
 

@@ -33,7 +33,9 @@ namespace ReaLTaiizor.Forms
             get
             {
                 if (StyleManager != null)
+                {
                     return StyleManager.Style;
+                }
 
                 return poisonStyle;
             }
@@ -48,7 +50,9 @@ namespace ReaLTaiizor.Forms
             get
             {
                 if (StyleManager != null)
+                {
                     return StyleManager.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -178,7 +182,11 @@ namespace ReaLTaiizor.Forms
             set
             {
                 backImage = value;
-                if (value != null) _image = ApplyInvert(new Bitmap(value));
+                if (value != null)
+                {
+                    _image = ApplyInvert(new Bitmap(value));
+                }
+
                 Refresh();
             }
         }
@@ -256,7 +264,9 @@ namespace ReaLTaiizor.Forms
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 RemoveShadow();
+            }
 
             base.Dispose(disposing);
         }
@@ -280,9 +290,20 @@ namespace ReaLTaiizor.Forms
                     G = (byte)(255 - pixelColor.G);
                     B = (byte)(255 - pixelColor.B);
 
-                    if (R <= 0) R = 17;
-                    if (G <= 0) G = 17;
-                    if (B <= 0) B = 17;
+                    if (R <= 0)
+                    {
+                        R = 17;
+                    }
+
+                    if (G <= 0)
+                    {
+                        G = 17;
+                    }
+
+                    if (B <= 0)
+                    {
+                        B = 17;
+                    }
                     //bitmapImage.SetPixel(x, y, Color.FromArgb((int)A, (int)R, (int)G, (int)B));
                     bitmapImage.SetPixel(x, y, Color.FromArgb((int)R, (int)G, (int)B));
                 }
@@ -327,7 +348,9 @@ namespace ReaLTaiizor.Forms
             {
                 Image img = PoisonImage.ResizeImage(backImage, new Rectangle(0, 0, backMaxSize, backMaxSize));
                 if (_imageinvert)
+                {
                     img = PoisonImage.ResizeImage((Theme == ThemeStyle.Dark) ? _image : backImage, new Rectangle(0, 0, backMaxSize, backMaxSize));
+                }
 
                 switch (backLocation)
                 {
@@ -393,14 +416,19 @@ namespace ReaLTaiizor.Forms
         protected override void OnClosing(CancelEventArgs e)
         {
             if (!(this is ReaLTaiizor.Controls.PoisonTaskWindow))
+            {
                 ReaLTaiizor.Controls.PoisonTaskWindow.ForceClose();
+            }
 
             base.OnClosing(e);
         }
 
         protected override void OnClosed(EventArgs e)
         {
-            if (this.Owner != null) this.Owner = null;
+            if (Owner != null)
+            {
+                Owner = null;
+            }
 
             RemoveShadow();
 
@@ -417,7 +445,10 @@ namespace ReaLTaiizor.Forms
         {
             base.OnLoad(e);
 
-            if (DesignMode) return;
+            if (DesignMode)
+            {
+                return;
+            }
 
             switch (StartPosition)
             {
@@ -426,9 +457,14 @@ namespace ReaLTaiizor.Forms
                     break;
                 case FormStartPosition.CenterScreen:
                     if (IsMdiChild)
+                    {
                         CenterToParent();
+                    }
                     else
+                    {
                         CenterToScreen();
+                    }
+
                     break;
             }
 
@@ -439,10 +475,14 @@ namespace ReaLTaiizor.Forms
                 AddWindowButton(WindowButtons.Close);
 
                 if (MaximizeBox)
+                {
                     AddWindowButton(WindowButtons.Maximize);
+                }
 
                 if (MinimizeBox)
+                {
                     AddWindowButton(WindowButtons.Minimize);
+                }
 
                 UpdateWindowButtonPosition();
             }
@@ -457,7 +497,7 @@ namespace ReaLTaiizor.Forms
             {
                 int val = 2;
                 DwmApi.DwmSetWindowAttribute(Handle, 2, ref val, 4);
-                var m = new DwmApi.MARGINS
+                DwmApi.MARGINS m = new DwmApi.MARGINS
                 {
                     cyBottomHeight = 1,
                     cxLeftWidth = 0,
@@ -497,7 +537,11 @@ namespace ReaLTaiizor.Forms
                     switch (sc)
                     {
                         case (int)WinApi.Messages.SC_MOVE:
-                            if (!Movable) return;
+                            if (!Movable)
+                            {
+                                return;
+                            }
+
                             break;
                         case (int)WinApi.Messages.SC_MAXIMIZE:
                             break;
@@ -507,7 +551,11 @@ namespace ReaLTaiizor.Forms
                     break;
                 case (int)WinApi.Messages.WM_NCLBUTTONDBLCLK:
                 case (int)WinApi.Messages.WM_LBUTTONDBLCLK:
-                    if (!MaximizeBox) return;
+                    if (!MaximizeBox)
+                    {
+                        return;
+                    }
+
                     break;
                 case (int)WinApi.Messages.WM_NCHITTEST:
                     WinApi.HitTest ht = HitTestNCA(m.HWnd, m.WParam, m.LParam);
@@ -532,13 +580,24 @@ namespace ReaLTaiizor.Forms
                     if (windowButtonList != null)
                     {
                         windowButtonList.TryGetValue(WindowButtons.Maximize, out PoisonFormButton btn);
-                        if (btn == null) return;
+                        if (btn == null)
+                        {
+                            return;
+                        }
+
                         if (WindowState == FormWindowState.Normal)
                         {
-                            if (shadowForm != null) shadowForm.Visible = true;
+                            if (shadowForm != null)
+                            {
+                                shadowForm.Visible = true;
+                            }
+
                             btn.Text = "1";
                         }
-                        if (WindowState == FormWindowState.Maximized) btn.Text = "2";
+                        if (WindowState == FormWindowState.Maximized)
+                        {
+                            btn.Text = "2";
+                        }
                     }
                     break;
             }
@@ -552,10 +611,10 @@ namespace ReaLTaiizor.Forms
             //YOROCA MDI PARENT
             Screen s = Screen.FromHandle(hwnd);
             //if (IsMdiChild)
-            if (this.Parent != null)
+            if (Parent != null)
             {
-                pmmi->ptMaxSize.x = this.Parent.ClientRectangle.Size.Width;
-                pmmi->ptMaxSize.y = this.Parent.ClientRectangle.Size.Height;
+                pmmi->ptMaxSize.x = Parent.ClientRectangle.Size.Width;
+                pmmi->ptMaxSize.y = Parent.ClientRectangle.Size.Height;
             }
             else
             {
@@ -575,17 +634,21 @@ namespace ReaLTaiizor.Forms
         {
             //Point vPoint = PointToClient(new Point((int)lparam & 0xFFFF, (int)lparam >> 16 & 0xFFFF));
             //Point vPoint = PointToClient(new Point((Int16)lparam, (Int16)((int)lparam >> 16)));
-            Point vPoint = new Point((Int16)lparam, (Int16)((int)lparam >> 16));
+            Point vPoint = new Point((short)lparam, (short)((int)lparam >> 16));
             int vPadding = Math.Max(Padding.Right, Padding.Bottom);
 
             if (Resizable)
             {
                 if (RectangleToScreen(new Rectangle(ClientRectangle.Width - vPadding, ClientRectangle.Height - vPadding, vPadding, vPadding)).Contains(vPoint))
+                {
                     return WinApi.HitTest.HTBOTTOMRIGHT;
+                }
             }
 
             if (RectangleToScreen(new Rectangle(borderWidth, borderWidth, ClientRectangle.Width - 2 * borderWidth, 50)).Contains(vPoint))
+            {
                 return WinApi.HitTest.HTCAPTION;
+            }
 
             return WinApi.HitTest.HTCLIENT;
         }
@@ -596,9 +659,15 @@ namespace ReaLTaiizor.Forms
 
             if (e.Button == MouseButtons.Left && Movable)
             {
-                if (WindowState == FormWindowState.Maximized) return;
+                if (WindowState == FormWindowState.Maximized)
+                {
+                    return;
+                }
+
                 if (Width - borderWidth > e.Location.X && e.Location.X > borderWidth && e.Location.Y > borderWidth)
+                {
                     MoveControl();
+                }
             }
 
         }
@@ -613,7 +682,10 @@ namespace ReaLTaiizor.Forms
         [SecuritySafeCritical]
         private static bool IsAeroThemeEnabled()
         {
-            if (Environment.OSVersion.Version.Major <= 5) return false;
+            if (Environment.OSVersion.Version.Major <= 5)
+            {
+                return false;
+            }
 
             DwmApi.DwmIsCompositionEnabled(out bool aeroEnabled);
             return aeroEnabled;
@@ -640,23 +712,35 @@ namespace ReaLTaiizor.Forms
         private void AddWindowButton(WindowButtons button)
         {
             if (windowButtonList == null)
+            {
                 windowButtonList = new Dictionary<WindowButtons, PoisonFormButton>();
+            }
 
             if (windowButtonList.ContainsKey(button))
+            {
                 return;
+            }
 
             PoisonFormButton newButton = new PoisonFormButton();
 
             if (button == WindowButtons.Close)
+            {
                 newButton.Text = "r";
+            }
             else if (button == WindowButtons.Minimize)
+            {
                 newButton.Text = "0";
+            }
             else if (button == WindowButtons.Maximize)
             {
                 if (WindowState == FormWindowState.Normal)
+                {
                     newButton.Text = "1";
+                }
                 else
+                {
                     newButton.Text = "2";
+                }
             }
 
             newButton.Style = Style;
@@ -673,14 +757,18 @@ namespace ReaLTaiizor.Forms
 
         private void WindowButton_Click(object sender, EventArgs e)
         {
-            var btn = sender as PoisonFormButton;
+            PoisonFormButton btn = sender as PoisonFormButton;
             if (btn != null)
             {
-                var btnFlag = (WindowButtons)btn.Tag;
+                WindowButtons btnFlag = (WindowButtons)btn.Tag;
                 if (btnFlag == WindowButtons.Close)
+                {
                     Close();
+                }
                 else if (btnFlag == WindowButtons.Minimize)
+                {
                     WindowState = FormWindowState.Minimized;
+                }
                 else if (btnFlag == WindowButtons.Maximize)
                 {
                     if (WindowState == FormWindowState.Normal)
@@ -699,7 +787,10 @@ namespace ReaLTaiizor.Forms
 
         private void UpdateWindowButtonPosition()
         {
-            if (!ControlBox) return;
+            if (!ControlBox)
+            {
+                return;
+            }
 
             Dictionary<int, WindowButtons> priorityOrder = new Dictionary<int, WindowButtons>(3) { { 0, WindowButtons.Close }, { 1, WindowButtons.Maximize }, { 2, WindowButtons.Minimize } };
 
@@ -711,7 +802,9 @@ namespace ReaLTaiizor.Forms
             if (windowButtonList.Count == 1)
             {
                 foreach (KeyValuePair<WindowButtons, PoisonFormButton> button in windowButtonList)
+                {
                     button.Value.Location = firstButtonLocation;
+                }
             }
             else
             {
@@ -726,7 +819,10 @@ namespace ReaLTaiizor.Forms
                         continue;
                     }
 
-                    if (firstButton == null || !buttonExists) continue;
+                    if (firstButton == null || !buttonExists)
+                    {
+                        continue;
+                    }
 
                     windowButtonList[button.Value].Location = new Point(lastDrawedButtonPosition, borderWidth);
                     lastDrawedButtonPosition = lastDrawedButtonPosition - 25;
@@ -745,7 +841,9 @@ namespace ReaLTaiizor.Forms
             protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
             {
                 if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+                {
                     CustomPaintBackground(this, e);
+                }
             }
 
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -753,7 +851,9 @@ namespace ReaLTaiizor.Forms
             protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
             {
                 if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+                {
                     CustomPaint(this, e);
+                }
             }
 
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -761,7 +861,9 @@ namespace ReaLTaiizor.Forms
             protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
             {
                 if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+                {
                     CustomPaintForeground(this, e);
+                }
             }
 
             private ColorStyle poisonStyle = ColorStyle.Default;
@@ -772,12 +874,19 @@ namespace ReaLTaiizor.Forms
                 get
                 {
                     if (DesignMode || poisonStyle != ColorStyle.Default)
+                    {
                         return poisonStyle;
+                    }
 
                     if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                    {
                         return StyleManager.Style;
+                    }
+
                     if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                    {
                         return PoisonDefaults.Style;
+                    }
 
                     return poisonStyle;
                 }
@@ -792,12 +901,19 @@ namespace ReaLTaiizor.Forms
                 get
                 {
                     if (DesignMode || poisonTheme != ThemeStyle.Default)
+                    {
                         return poisonTheme;
+                    }
 
                     if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                    {
                         return StyleManager.Theme;
+                    }
+
                     if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                    {
                         return PoisonDefaults.Theme;
+                    }
 
                     return poisonTheme;
                 }
@@ -889,12 +1005,18 @@ namespace ReaLTaiizor.Forms
                         backColor = PoisonPaint.BackColor.Form(_Theme);
                     }
                     else if (Parent is IPoisonControl)
+                    {
                         backColor = PoisonPaint.GetStyleColor(Style);
+                    }
                     else
+                    {
                         backColor = Parent.BackColor;
+                    }
                 }
                 else
+                {
                     backColor = PoisonPaint.BackColor.Form(_Theme);
+                }
 
                 if (isHovered && !isPressed && Enabled)
                 {
@@ -912,7 +1034,9 @@ namespace ReaLTaiizor.Forms
                     backColor = PoisonPaint.BackColor.Button.Disabled(_Theme);
                 }
                 else
+                {
                     foreColor = PoisonPaint.ForeColor.Button.Normal(_Theme);
+                }
 
                 e.Graphics.Clear(backColor);
                 Font buttonFont = new Font("Webdings", 9.25f);
@@ -974,7 +1098,10 @@ namespace ReaLTaiizor.Forms
                 CreateParams cp = base.CreateParams;
                 cp.Style |= WS_MINIMIZEBOX;
                 if (ShadowType == FormShadowType.SystemShadow)
+                {
                     cp.ClassStyle |= CS_DROPSHADOW;
+                }
+
                 return cp;
             }
         }
@@ -1001,7 +1128,10 @@ namespace ReaLTaiizor.Forms
 
         private void RemoveShadow()
         {
-            if (shadowForm == null || shadowForm.IsDisposed) return;
+            if (shadowForm == null || shadowForm.IsDisposed)
+            {
+                return;
+            }
 
             shadowForm.Visible = false;
             Owner = shadowForm.Owner;
@@ -1035,7 +1165,9 @@ namespace ReaLTaiizor.Forms
                 TargetForm.Resize += OnTargetFormResize;
 
                 if (TargetForm.Owner != null)
+                {
                     Owner = TargetForm.Owner;
+                }
 
                 TargetForm.Owner = this;
 
@@ -1081,7 +1213,11 @@ namespace ReaLTaiizor.Forms
 
             private void OnTargetFormActivated(object sender, EventArgs e)
             {
-                if (Visible) Update();
+                if (Visible)
+                {
+                    Update();
+                }
+
                 if (isBringingToFront)
                 {
                     Visible = true;
@@ -1109,9 +1245,13 @@ namespace ReaLTaiizor.Forms
             private void OnTargetFormMove(object sender, EventArgs e)
             {
                 if (!TargetForm.Visible || TargetForm.WindowState != FormWindowState.Normal)
+                {
                     Visible = false;
+                }
                 else
+                {
                     Bounds = GetShadowBounds();
+                }
             }
 
             private void OnTargetFormResize(object sender, EventArgs e)
@@ -1124,7 +1264,9 @@ namespace ReaLTaiizor.Forms
                 Bounds = GetShadowBounds();
 
                 if (IsResizing)
+                {
                     return;
+                }
 
                 PaintShadowIfVisible();
             }
@@ -1138,7 +1280,9 @@ namespace ReaLTaiizor.Forms
             private void PaintShadowIfVisible()
             {
                 if (TargetForm.Visible && TargetForm.WindowState != FormWindowState.Minimized)
+                {
                     PaintShadow();
+                }
             }
 
             #endregion
@@ -1168,7 +1312,11 @@ namespace ReaLTaiizor.Forms
 
             protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
             {
-                if (specified == BoundsSpecified.Size) return;
+                if (specified == BoundsSpecified.Size)
+                {
+                    return;
+                }
+
                 base.SetBoundsCore(x, y, width, height, specified);
             }
 
@@ -1205,7 +1353,9 @@ namespace ReaLTaiizor.Forms
             protected override void PaintShadow()
             {
                 using (Bitmap getShadow = DrawBlurBorder())
+                {
                     SetBitmap(getShadow, 255);
+                }
             }
 
             protected override void ClearShadow()
@@ -1225,7 +1375,9 @@ namespace ReaLTaiizor.Forms
             private void SetBitmap(Bitmap bitmap, byte opacity)
             {
                 if (bitmap.PixelFormat != PixelFormat.Format32bppArgb)
+                {
                     throw new ApplicationException("The bitmap must be 32ppp with alpha-channel.");
+                }
 
                 IntPtr screenDc = WinApi.GetDC(IntPtr.Zero);
                 IntPtr memDc = WinApi.CreateCompatibleDC(screenDc);
@@ -1278,9 +1430,14 @@ namespace ReaLTaiizor.Forms
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
                 using (Brush bgBrush = new SolidBrush(Color.FromArgb(30, Color.Black)))
+                {
                     g.FillRectangle(bgBrush, rOuter);
+                }
+
                 using (Brush bgBrush = new SolidBrush(Color.FromArgb(60, Color.Black)))
+                {
                     g.FillRectangle(bgBrush, rInner);
+                }
 
                 g.Flush();
                 g.Dispose();
@@ -1316,7 +1473,9 @@ namespace ReaLTaiizor.Forms
             protected override void PaintShadow()
             {
                 using (Bitmap getShadow = DrawBlurBorder())
+                {
                     SetBitmap(getShadow, 255);
+                }
             }
 
             protected override void ClearShadow()
@@ -1336,7 +1495,9 @@ namespace ReaLTaiizor.Forms
             private void SetBitmap(Bitmap bitmap, byte opacity)
             {
                 if (bitmap.PixelFormat != PixelFormat.Format32bppArgb)
+                {
                     throw new ApplicationException("The bitmap must be 32ppp with alpha-channel.");
+                }
 
                 IntPtr screenDc = WinApi.GetDC(IntPtr.Zero);
                 IntPtr memDc = WinApi.CreateCompatibleDC(screenDc);
@@ -1394,12 +1555,12 @@ namespace ReaLTaiizor.Forms
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
-                var currentBlur = 0;
+                int currentBlur = 0;
                 do
                 {
-                    var transparency = (rOuter.Height - rInner.Height) / (double)(blur * 2 + spread * 2);
-                    var shadowColor = Color.FromArgb(((int)(200 * (transparency * transparency))), color);
-                    var rOutput = rInner;
+                    double transparency = (rOuter.Height - rInner.Height) / (double)(blur * 2 + spread * 2);
+                    Color shadowColor = Color.FromArgb(((int)(200 * (transparency * transparency))), color);
+                    Rectangle rOutput = rInner;
                     rOutput.Offset(-originalOuter.Left, -originalOuter.Top);
 
                     DrawRoundedRectangle(g, rOutput, currentBlur, Pens.Transparent, shadowColor);
@@ -1419,7 +1580,7 @@ namespace ReaLTaiizor.Forms
                 int strokeOffset = Convert.ToInt32(Math.Ceiling(drawPen.Width));
                 bounds = Rectangle.Inflate(bounds, -strokeOffset, -strokeOffset);
 
-                var gfxPath = new GraphicsPath();
+                GraphicsPath gfxPath = new GraphicsPath();
 
                 if (cornerRadius > 0)
                 {
@@ -1429,14 +1590,18 @@ namespace ReaLTaiizor.Forms
                     gfxPath.AddArc(bounds.X, bounds.Y + bounds.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
                 }
                 else
+                {
                     gfxPath.AddRectangle(bounds);
+                }
 
                 gfxPath.CloseAllFigures();
 
                 if (cornerRadius > 5)
                 {
                     using (SolidBrush b = new SolidBrush(fillColor))
+                    {
                         g.FillPath(b, gfxPath);
+                    }
                 }
                 if (drawPen != Pens.Transparent)
                 {
@@ -1461,10 +1626,16 @@ namespace ReaLTaiizor.Forms
         public void RemoveCloseButton()
         {
             IntPtr hMenu = WinApi.GetSystemMenu(Handle, false);
-            if (hMenu == IntPtr.Zero) return;
+            if (hMenu == IntPtr.Zero)
+            {
+                return;
+            }
 
             int n = WinApi.GetMenuItemCount(hMenu);
-            if (n <= 0) return;
+            if (n <= 0)
+            {
+                return;
+            }
 
             WinApi.RemoveMenu(hMenu, (uint)(n - 1), WinApi.MfByposition | WinApi.MfRemove);
             WinApi.RemoveMenu(hMenu, (uint)(n - 2), WinApi.MfByposition | WinApi.MfRemove);
@@ -1473,8 +1644,8 @@ namespace ReaLTaiizor.Forms
 
         private Rectangle MeasureText(Graphics g, Rectangle clientRectangle, Font font, string text, TextFormatFlags flags)
         {
-            var proposedSize = new Size(int.MaxValue, int.MinValue);
-            var actualSize = TextRenderer.MeasureText(g, text, font, proposedSize, flags);
+            Size proposedSize = new Size(int.MaxValue, int.MinValue);
+            Size actualSize = TextRenderer.MeasureText(g, text, font, proposedSize, flags);
             return new Rectangle(clientRectangle.X, clientRectangle.Y, actualSize.Width, actualSize.Height);
         }
 

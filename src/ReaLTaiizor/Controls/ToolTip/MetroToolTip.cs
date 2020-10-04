@@ -99,12 +99,12 @@ namespace ReaLTaiizor.Controls
 
         private void OnDraw(object sender, DrawToolTipEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            var rect = new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
-            using (var bg = new SolidBrush(BackColor))
-            using (var stroke = new Pen(BorderColor))
-            using (var tb = new SolidBrush(ForeColor))
+            Rectangle rect = new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
+            using (SolidBrush bg = new SolidBrush(BackColor))
+            using (Pen stroke = new Pen(BorderColor))
+            using (SolidBrush tb = new SolidBrush(ForeColor))
             {
                 g.FillRectangle(bg, rect);
                 g.DrawString(e.ToolTipText, MetroFonts.Light(11), tb, rect, _mth.SetPosition());
@@ -119,7 +119,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -139,7 +141,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ToolTipDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ToolTipDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -157,6 +160,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style), style, null);
@@ -212,7 +217,9 @@ namespace ReaLTaiizor.Controls
         {
             base.SetToolTip(control, caption);
             foreach (Control c in control.Controls)
+            {
                 SetToolTip(c, caption);
+            }
         }
 
         #endregion
@@ -221,7 +228,7 @@ namespace ReaLTaiizor.Controls
 
         private void ToolTip_Popup(object sender, PopupEventArgs e)
         {
-            var control = e.AssociatedControl;
+            Control control = e.AssociatedControl;
             if (control is IMetroControl iControl)
             {
                 Style = iControl.Style;

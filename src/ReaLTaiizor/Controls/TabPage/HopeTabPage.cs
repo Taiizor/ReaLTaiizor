@@ -110,9 +110,11 @@ namespace ReaLTaiizor.Controls
             enterFlag = true;
             for (int i = 0; i < TabCount; i++)
             {
-                var tempRect = GetTabRect(i);
+                Rectangle tempRect = GetTabRect(i);
                 if (tempRect.Contains(e.Location))
+                {
                     enterIndex = i;
+                }
             }
             Invalidate();
         }
@@ -126,7 +128,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var graphics = e.Graphics;
+            Graphics graphics = e.Graphics;
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
@@ -147,7 +149,9 @@ namespace ReaLTaiizor.Controls
                         graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorC), GetTabRect(i), HopeStringAlign.Center);
                     }
                     else
+                    {
                         graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorB), GetTabRect(i), HopeStringAlign.Center);
+                    }
                 }
             }
         }

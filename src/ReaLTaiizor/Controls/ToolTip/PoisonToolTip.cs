@@ -28,7 +28,9 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (StyleManager != null)
+                {
                     return StyleManager.Style;
+                }
 
                 return PoisonStyle;
             }
@@ -42,7 +44,9 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (StyleManager != null)
+                {
                     return StyleManager.Theme;
+                }
 
                 return PoisonTheme;
             }
@@ -136,7 +140,9 @@ namespace ReaLTaiizor.Controls
             if (control is IPoisonControl)
             {
                 foreach (Control c in control.Controls)
+                {
                     SetToolTip(c, caption);
+                }
             }
         }
 
@@ -167,9 +173,14 @@ namespace ReaLTaiizor.Controls
             Color foreColor = PoisonPaint.ForeColor.Label.Normal(displayTheme);
 
             using (SolidBrush b = new SolidBrush(backColor))
+            {
                 e.Graphics.FillRectangle(b, e.Bounds);
+            }
+
             using (Pen p = new Pen(borderColor))
+            {
                 e.Graphics.DrawRectangle(p, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
+            }
 
             Font f = PoisonFonts.Default(13f);
             TextRenderer.DrawText(e.Graphics, e.ToolTipText, f, e.Bounds, foreColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);

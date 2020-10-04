@@ -184,7 +184,7 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
 
             Shape = new GraphicsPath();
-            var _Shape = Shape;
+            GraphicsPath _Shape = Shape;
             _Shape.AddArc(0, 0, 10, 10, 180, 90);
             _Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             _Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Controls
 
         public void AddRichTextBox()
         {
-            var _RTB = RT_RTB;
+            RichTextBox _RTB = RT_RTB;
             _RTB.BackColor = TextBackColor;
             _RTB.Size = new Size(Width - 10, 100);
             _RTB.Location = new Point(7, 5);

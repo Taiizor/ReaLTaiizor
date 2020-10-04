@@ -43,7 +43,9 @@ namespace ReaLTaiizor.Controls
                 AutoSize = AutoSize; //Make AutoSize directly set the bounds.
 
                 if (value)
+                {
                     Margin = new Padding(0);
+                }
 
                 Invalidate();
             }
@@ -100,7 +102,9 @@ namespace ReaLTaiizor.Controls
             CheckedChanged += (sender, args) =>
             {
                 if (Ripple)
+                {
                     _checkAM.StartNewAnimation(Checked ? AnimationDirection.In : AnimationDirection.Out);
+                }
             };
 
             SizeChanged += OnSizeChanged;
@@ -120,7 +124,9 @@ namespace ReaLTaiizor.Controls
             Size strSize;
 
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+            {
                 strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
+            }
 
             int w = _boxOffset + TEXT_OFFSET + strSize.Width;
             return Ripple ? new Size(w, HEIGHT_RIPPLE) : new Size(w, HEIGHT_NO_RIPPLE);
@@ -155,7 +161,9 @@ namespace ReaLTaiizor.Controls
                 int rippleSize = (int)(rippleHeight * (0.7 + (0.3 * animationValue)));
 
                 using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * animationValue), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor)))
+                {
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
+                }
             }
 
             // draw ripple animation
@@ -167,24 +175,32 @@ namespace ReaLTaiizor.Controls
                     int rippleSize = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleHeight * (0.7 + (0.3 * animationValue))) : rippleHeight;
 
                     using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)((animationValue * 40)), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor)))
+                    {
                         g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
+                    }
                 }
             }
 
             // draw radiobutton circle
             using (Pen pen = new Pen(MaterialDrawHelper.BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
+            {
                 g.DrawEllipse(pen, new Rectangle(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE));
+            }
 
             if (Enabled)
             {
                 using (Pen pen = new Pen(RadioColor, 2))
+                {
                     g.DrawEllipse(pen, new Rectangle(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE));
+                }
             }
 
             if (Checked)
             {
                 using (SolidBrush brush = new SolidBrush(RadioColor))
+                {
                     g.FillEllipse(brush, new RectangleF(RADIOBUTTON_CENTER - animationSizeHalf, RADIOBUTTON_CENTER - animationSizeHalf, animationSize, animationSize));
+                }
             }
 
             // Text
@@ -210,7 +226,10 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
 
-            if (DesignMode) return;
+            if (DesignMode)
+            {
+                return;
+            }
 
             MouseState = MaterialMouseState.OUT;
 

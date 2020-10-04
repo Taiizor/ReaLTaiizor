@@ -158,13 +158,19 @@ namespace ReaLTaiizor.Controls
             if (_Enable)
             {
                 if (_Checked)
+                {
                     G.DrawString("a", new Font("Marlett", 16), new SolidBrush(_CheckedEnabledColor), new Point(-5, -3));
+                }
+
                 Cursor = Cursors.Hand;
             }
             else
             {
                 if (_Checked)
+                {
                     G.DrawString("a", new Font("Marlett", 16), new SolidBrush(_CheckedDisabledColor), new Point(-5, -3));
+                }
+
                 Cursor = Cursors.Default;
             }
 

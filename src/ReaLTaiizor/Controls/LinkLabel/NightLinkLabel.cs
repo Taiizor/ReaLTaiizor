@@ -43,7 +43,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
 
             if (OverrideCursor == Cursors.Hand)
+            {
                 OverrideCursor = NativeHand;
+            }
         }
 
         protected override void OnMouseLeave(EventArgs e)

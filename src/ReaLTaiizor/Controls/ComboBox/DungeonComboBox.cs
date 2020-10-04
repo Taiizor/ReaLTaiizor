@@ -158,7 +158,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             if (!Focused)
+            {
                 SelectionLength = 0;
+            }
         }
 
         #endregion

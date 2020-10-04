@@ -119,7 +119,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(0, 0, W, H);
 
-            var _with21 = G;
+            Graphics _with21 = G;
             _with21.SmoothingMode = SmoothingMode.HighQuality;
             _with21.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with21.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

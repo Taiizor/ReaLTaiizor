@@ -25,8 +25,8 @@ namespace ReaLTaiizor.Controls
         private LinearGradientBrush EnteredGB;
         private Color _EnteredColor = Color.FromArgb(32, 34, 37);
         private Rectangle R1;
-        private Pen P1;
-        private Pen P3;
+        private readonly Pen P1;
+        private readonly Pen P3;
         private Image _Image;
         private Size _ImageSize;
         private StringAlignment _TextAlignment = StringAlignment.Center;
@@ -122,9 +122,13 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
                 Invalidate();
@@ -268,7 +272,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics G = e.Graphics;
             G.SmoothingMode = SmoothingMode.HighQuality;
             PointF ipt = ImageLocation(GetStringFormat(ImageAlign), Size, ImageSize);
 

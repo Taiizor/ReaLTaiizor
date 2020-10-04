@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            var backPath = new GraphicsPath();
+            GraphicsPath backPath = new GraphicsPath();
             backPath.AddArc(new RectangleF(0.5f, 0.5f, Height - 1, Height - 1), 90, 180);
             backPath.AddArc(new RectangleF(Width - Height + 0.5f, 0.5f, Height - 1, Height - 1), 270, 180);
             backPath.CloseAllFigures();
@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                var backColor = _DefaultColor;
+                Color backColor = _DefaultColor;
                 switch (_buttonType)
                 {
                     case HopeButtonType.Primary:
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
                     default:
                         break;
                 }
-                var brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
+                SolidBrush brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
                 graphics.FillPath(brush, backPath);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : _textColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }

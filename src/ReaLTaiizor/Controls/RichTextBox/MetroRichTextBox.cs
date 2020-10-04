@@ -97,7 +97,7 @@ namespace ReaLTaiizor.Controls
 
         #region Base RichTextBox
 
-        private RichTextBox _richTextBox = new RichTextBox();
+        private readonly RichTextBox _richTextBox = new RichTextBox();
 
         #endregion Base RichTextBox
 
@@ -162,17 +162,17 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             if (Enabled)
             {
-                using (var bg = new SolidBrush(BackColor))
+                using (SolidBrush bg = new SolidBrush(BackColor))
                 {
-                    using (var p = new Pen(BorderColor))
+                    using (Pen p = new Pen(BorderColor))
                     {
-                        using (var ph = new Pen(HoverColor))
+                        using (Pen ph = new Pen(HoverColor))
                         {
                             g.FillRectangle(bg, rect);
                             switch (_state)
@@ -193,9 +193,9 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                using (var bg = new SolidBrush(DisabledBackColor))
+                using (SolidBrush bg = new SolidBrush(DisabledBackColor))
                 {
-                    using (var p = new Pen(DisabledBorderColor))
+                    using (Pen p = new Pen(DisabledBorderColor))
                     {
                         g.FillRectangle(bg, rect);
                         g.DrawRectangle(p, rect);
@@ -217,7 +217,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -247,7 +249,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.RichTextBoxDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.RichTextBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -276,6 +279,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -350,7 +355,9 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Right)
             {
                 if (ContextMenuStrip != null)
+                {
                     ContextMenuStrip.Show(_richTextBox, new Point(e.X, e.Y));
+                }
             }
             Invalidate();
         }
@@ -390,7 +397,10 @@ namespace ReaLTaiizor.Controls
         private void T_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.A)
+            {
                 e.SuppressKeyPress = true;
+            }
+
             if (e.Control && e.KeyCode == Keys.C)
             {
                 _richTextBox.Copy();
@@ -409,13 +419,17 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
             if (!Controls.Contains(_richTextBox))
+            {
                 Controls.Add(_richTextBox);
+            }
         }
 
         public void AppendText(string text)
         {
             if (_richTextBox != null)
+            {
                 _richTextBox.AppendText(text);
+            }
         }
 
         public void Undo()
@@ -423,16 +437,22 @@ namespace ReaLTaiizor.Controls
             if (_richTextBox != null)
             {
                 if (_richTextBox.CanUndo)
+                {
                     _richTextBox.Undo();
+                }
             }
         }
 
         public int GetLineFromCharIndex(int index)
         {
             if (_richTextBox != null)
+            {
                 return _richTextBox.GetLineFromCharIndex(index);
+            }
             else
+            {
                 return 0;
+            }
         }
 
         public Point GetPositionFromCharIndex(int index)
@@ -443,98 +463,140 @@ namespace ReaLTaiizor.Controls
         public int GetCharIndexFromPosition(Point pt)
         {
             if (_richTextBox == null)
+            {
                 return 0;
+            }
+
             return _richTextBox.GetCharIndexFromPosition(pt);
         }
 
         public void ClearUndo()
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.ClearUndo();
         }
 
         public void Copy()
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.Copy();
         }
 
         public void Cut()
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.Cut();
         }
 
         public void SelectAll()
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.SelectAll();
         }
 
         public void DeselectAll()
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.DeselectAll();
         }
 
         public void Select(int start, int length)
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.Select(start, length);
         }
 
         public void Paste(DataFormats.Format clipFormat)
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.Paste(clipFormat);
         }
 
         public void LoadFile(string path)
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.LoadFile(path);
         }
 
         public void LoadFile(string path, RichTextBoxStreamType fileType)
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.LoadFile(path, fileType);
         }
 
         public void LoadFile(System.IO.Stream data, RichTextBoxStreamType fileType)
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.LoadFile(data, fileType);
         }
 
         public void SaveFile(string path)
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.SaveFile(path);
         }
 
         public void SaveFile(string path, RichTextBoxStreamType fileType)
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.SaveFile(path, fileType);
         }
 
         public void SaveFile(System.IO.Stream data, RichTextBoxStreamType fileType)
         {
             if (_richTextBox == null)
+            {
                 return;
+            }
+
             _richTextBox.SaveFile(data, fileType);
         }
 
@@ -546,49 +608,70 @@ namespace ReaLTaiizor.Controls
         public int Find(char[] characterSet)
         {
             if (_richTextBox == null)
+            {
                 return 0;
+            }
+
             return _richTextBox.Find(characterSet);
         }
 
         public int Find(char[] characterSet, int start)
         {
             if (_richTextBox == null)
+            {
                 return 0;
+            }
+
             return _richTextBox.Find(characterSet, start);
         }
 
         public int Find(char[] characterSet, int start, int ends)
         {
             if (_richTextBox == null)
+            {
                 return 0;
+            }
+
             return _richTextBox.Find(characterSet, start, ends);
         }
 
         public int Find(string str)
         {
             if (_richTextBox == null)
+            {
                 return 0;
+            }
+
             return _richTextBox.Find(str);
         }
 
         public int Find(string str, int start, int ends, RichTextBoxFinds options)
         {
             if (_richTextBox == null)
+            {
                 return 0;
+            }
+
             return _richTextBox.Find(str, start, ends, options);
         }
 
         public int Find(string str, RichTextBoxFinds options)
         {
             if (_richTextBox == null)
+            {
                 return 0;
+            }
+
             return _richTextBox.Find(str, options);
         }
 
         public int Find(string str, int start, RichTextBoxFinds options)
         {
             if (_richTextBox == null)
+            {
                 return 0;
+            }
+
             return _richTextBox.Find(str, start, options);
         }
 
@@ -607,7 +690,10 @@ namespace ReaLTaiizor.Controls
             {
                 _maxLength = value;
                 if (_richTextBox != null)
+                {
                     _richTextBox.MaxLength = value;
+                }
+
                 Invalidate();
             }
         }
@@ -671,7 +757,9 @@ namespace ReaLTaiizor.Controls
             {
                 _readOnly = value;
                 if (_richTextBox != null)
+                {
                     _richTextBox.ReadOnly = value;
+                }
             }
         }
 
@@ -686,7 +774,9 @@ namespace ReaLTaiizor.Controls
             {
                 base.Text = value;
                 if (_richTextBox != null)
+                {
                     _richTextBox.Text = value;
+                }
             }
         }
 
@@ -698,7 +788,10 @@ namespace ReaLTaiizor.Controls
             {
                 base.Font = value;
                 if (_richTextBox == null)
+                {
                     return;
+                }
+
                 _richTextBox.Font = value;
                 _richTextBox.Location = new Point(5, 5);
                 _richTextBox.Width = Width - 8;
@@ -713,7 +806,9 @@ namespace ReaLTaiizor.Controls
             {
                 _wordWrap = value;
                 if (_richTextBox != null)
+                {
                     _richTextBox.WordWrap = value;
+                }
             }
         }
 
@@ -725,7 +820,9 @@ namespace ReaLTaiizor.Controls
             {
                 _autoWordSelection = value;
                 if (_richTextBox != null)
+                {
                     _richTextBox.AutoWordSelection = value;
+                }
             }
         }
 
@@ -737,7 +834,10 @@ namespace ReaLTaiizor.Controls
             {
                 _lines = value;
                 if (_richTextBox != null)
+                {
                     _richTextBox.Lines = value;
+                }
+
                 Invalidate();
             }
         }
@@ -750,7 +850,10 @@ namespace ReaLTaiizor.Controls
             {
                 base.ContextMenuStrip = value;
                 if (_richTextBox == null)
+                {
                     return;
+                }
+
                 _richTextBox.ContextMenuStrip = value;
                 Invalidate();
             }

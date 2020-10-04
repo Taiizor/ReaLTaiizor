@@ -50,7 +50,9 @@ namespace ReaLTaiizor.Controls
                 AutoSize = AutoSize; //Make AutoSize directly set the bounds.
 
                 if (value)
+                {
                     Margin = new Padding(0);
+                }
 
                 Invalidate();
             }
@@ -102,7 +104,9 @@ namespace ReaLTaiizor.Controls
             CheckedChanged += (sender, args) =>
             {
                 if (Ripple)
+                {
                     _checkAM.StartNewAnimation(Checked ? AnimationDirection.In : AnimationDirection.Out);
+                }
             };
 
             Ripple = true;
@@ -125,8 +129,11 @@ namespace ReaLTaiizor.Controls
         {
             Size strSize;
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+            {
                 strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
-            var w = TRACK_SIZE_WIDTH + THUMB_SIZE + strSize.Width;
+            }
+
+            int w = TRACK_SIZE_WIDTH + THUMB_SIZE + strSize.Width;
             return Ripple ? new Size(w, RIPPLE_DIAMETER) : new Size(w, THUMB_SIZE);
         }
 
@@ -136,13 +143,13 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            var g = pevent.Graphics;
+            Graphics g = pevent.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             g.Clear(Parent.BackColor);
 
-            var animationProgress = _checkAM.GetProgress();
+            double animationProgress = _checkAM.GetProgress();
 
             // Draw Track
             Color thumbColor = BlendColor(
@@ -150,7 +157,7 @@ namespace ReaLTaiizor.Controls
                         (Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : BlendColor(UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, SkinManager.SwitchOffDisabledThumbColor, 197)), // On color
                         animationProgress * 255); // Blend amount
 
-            using (var path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - TRACK_SIZE_HEIGHT / 2, TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
+            using (GraphicsPath path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - TRACK_SIZE_HEIGHT / 2, TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
             {
                 using (SolidBrush trackBrush = new SolidBrush(
                     Color.FromArgb(Enabled ? SkinManager.SwitchOffTrackColor.A : SkinManager.BackgroundDisabledColor.A, // Track alpha
@@ -182,7 +189,9 @@ namespace ReaLTaiizor.Controls
                     int rippleAnimatedDiameter = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress))) : rippleSize;
 
                     using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha())))
+                    {
                         g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - rippleAnimatedDiameter / 2, TRACK_CENTER_Y - rippleAnimatedDiameter / 2, rippleAnimatedDiameter, rippleAnimatedDiameter));
+                    }
                 }
             }
 
@@ -193,7 +202,9 @@ namespace ReaLTaiizor.Controls
                 int rippleAnimatedDiameter = (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress)));
 
                 using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha())))
+                {
                     g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - rippleAnimatedDiameter / 2, TRACK_CENTER_Y - rippleAnimatedDiameter / 2, rippleAnimatedDiameter, rippleAnimatedDiameter));
+                }
             }
 
             // draw Thumb Shadow
@@ -209,7 +220,9 @@ namespace ReaLTaiizor.Controls
 
             // draw Thumb
             using (SolidBrush thumbBrush = new SolidBrush(thumbColor))
+            {
                 g.FillEllipse(thumbBrush, thumbBounds);
+            }
 
             // draw text
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
@@ -227,15 +240,17 @@ namespace ReaLTaiizor.Controls
 
         private Bitmap DrawCheckMarkBitmap()
         {
-            var checkMark = new Bitmap(THUMB_SIZE, THUMB_SIZE);
-            var g = Graphics.FromImage(checkMark);
+            Bitmap checkMark = new Bitmap(THUMB_SIZE, THUMB_SIZE);
+            Graphics g = Graphics.FromImage(checkMark);
 
             // clear everything, transparent
             g.Clear(Color.Transparent);
 
             // draw the checkmark lines
-            using (var pen = new Pen(Parent.BackColor, 2))
+            using (Pen pen = new Pen(Parent.BackColor, 2))
+            {
                 g.DrawLines(pen, CheckmarkLine);
+            }
 
             return checkMark;
         }
@@ -247,7 +262,9 @@ namespace ReaLTaiizor.Controls
             {
                 base.AutoSize = value;
                 if (value)
+                {
                     Size = new Size(10, 10);
+                }
             }
         }
 
@@ -262,7 +279,10 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
 
-            if (DesignMode) return;
+            if (DesignMode)
+            {
+                return;
+            }
 
             MouseState = MaterialMouseState.OUT;
 

@@ -87,7 +87,7 @@ namespace ReaLTaiizor.Controls
             W = Width - 1;
             H = Height - 1;
 
-            var _with13 = G;
+            Graphics _with13 = G;
             _with13.SmoothingMode = SmoothingMode.HighQuality;
             _with13.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with13.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

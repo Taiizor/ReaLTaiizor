@@ -29,7 +29,10 @@ namespace ReaLTaiizor.Controls
             e.DrawBackground();
             LinearGradientBrush LGB = new LinearGradientBrush(e.Bounds, Color.FromArgb(246, 132, 85), Color.FromArgb(231, 108, 57), 90.0F);
             if (Convert.ToInt32((e.State & DrawItemState.Selected)) == (int)DrawItemState.Selected)
+            {
                 e.Graphics.FillRectangle(LGB, e.Bounds);
+            }
+
             using (SolidBrush b = new SolidBrush(e.ForeColor))
             {
                 if (base.Items.Count == 0)
@@ -58,9 +61,14 @@ namespace ReaLTaiizor.Controls
                     if (e.ClipRectangle.IntersectsWith(RegionRect))
                     {
                         if ((SelectionMode == SelectionMode.One && SelectedIndex == i) || (SelectionMode == SelectionMode.MultiSimple && SelectedIndices.Contains(i)) || (SelectionMode == SelectionMode.MultiExtended && SelectedIndices.Contains(i)))
+                        {
                             OnDrawItem(new DrawItemEventArgs(e.Graphics, Font, RegionRect, i, DrawItemState.Selected, ForeColor, BackColor));
+                        }
                         else
+                        {
                             OnDrawItem(new DrawItemEventArgs(e.Graphics, Font, RegionRect, i, DrawItemState.Default, Color.FromArgb(60, 60, 60), BackColor));
+                        }
+
                         MyRegion.Complement(RegionRect);
                     }
                 }

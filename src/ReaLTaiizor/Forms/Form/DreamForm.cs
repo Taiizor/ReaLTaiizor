@@ -20,9 +20,15 @@ namespace ReaLTaiizor.Forms
             set
             {
                 if (value > Height)
+                {
                     value = Height;
+                }
+
                 if (value < 2)
+                {
                     Height = 1;
+                }
+
                 _TitleHeight = value;
                 Invalidate();
             }
@@ -126,12 +132,20 @@ namespace ReaLTaiizor.Forms
                     SizeF S = G.MeasureString(Text + "1", Font);
                     float O = 6;
                     if (_TitleAlign == (HorizontalAlignment)2)
+                    {
                         O = Width / 2 - S.Width / 2;
+                    }
+
                     if (_TitleAlign == (HorizontalAlignment)1)
+                    {
                         O = Width - S.Width - 6;
+                    }
+
                     Rectangle R = new Rectangle((int)O, (_TitleHeight + 2) / 2 - (int)S.Height / 2, (int)S.Width, (int)S.Height);
                     using (Brush T = new LinearGradientBrush(R, _ColorA, _ColorC, LinearGradientMode.Vertical))
+                    {
                         G.DrawString(Text, Font, T, R);
+                    }
 
                     G.DrawLine(new Pen(_ColorC), 0, 1, Width, 1);
 

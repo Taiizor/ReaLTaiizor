@@ -46,9 +46,14 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.DrawRectangle(new Pen(Color.FromArgb(50, Color.Black)) { DashStyle = DashStyle.Dot }, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
                 }
                 else
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 255, 255, 255)), e.Bounds);
+                }
+
                 using (SolidBrush b = new SolidBrush(Color.Black))
+                {
                     e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), e.Font, b, new Rectangle(e.Bounds.X + 2, e.Bounds.Y, e.Bounds.Width - 4, e.Bounds.Height));
+                }
             }
             catch
             {

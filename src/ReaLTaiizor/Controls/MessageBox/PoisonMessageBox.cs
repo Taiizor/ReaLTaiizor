@@ -15,52 +15,52 @@ namespace ReaLTaiizor.Controls
 
     public static class PoisonMessageBox
     {
-        public static DialogResult Show(IWin32Window owner, String message)
+        public static DialogResult Show(IWin32Window owner, string message)
         {
             return Show(owner, message, "Notification", 211);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, int height)
+        public static DialogResult Show(IWin32Window owner, string message, int height)
         {
             return Show(owner, message, "Notification", height);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, String title)
+        public static DialogResult Show(IWin32Window owner, string message, string title)
         {
             return Show(owner, message, title, MessageBoxButtons.OK, 211);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, String title, int height)
+        public static DialogResult Show(IWin32Window owner, string message, string title, int height)
         {
             return Show(owner, message, title, MessageBoxButtons.OK, height);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, String title, MessageBoxButtons buttons)
+        public static DialogResult Show(IWin32Window owner, string message, string title, MessageBoxButtons buttons)
         {
             return Show(owner, message, title, buttons, MessageBoxIcon.None, 211);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, String title, MessageBoxButtons buttons, int height)
+        public static DialogResult Show(IWin32Window owner, string message, string title, MessageBoxButtons buttons, int height)
         {
             return Show(owner, message, title, buttons, MessageBoxIcon.None, height);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, String title, MessageBoxButtons buttons, MessageBoxIcon icon)
+        public static DialogResult Show(IWin32Window owner, string message, string title, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
             return Show(owner, message, title, buttons, icon, MessageBoxDefaultButton.Button1, 211);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, String title, MessageBoxButtons buttons, MessageBoxIcon icon, int height)
+        public static DialogResult Show(IWin32Window owner, string message, string title, MessageBoxButtons buttons, MessageBoxIcon icon, int height)
         {
             return Show(owner, message, title, buttons, icon, MessageBoxDefaultButton.Button1, height);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, String title, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultbutton)
+        public static DialogResult Show(IWin32Window owner, string message, string title, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultbutton)
         {
             return Show(owner, message, title, buttons, icon, defaultbutton, 211);
         }
 
-        public static DialogResult Show(IWin32Window owner, String message, String title, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultbutton, int height)
+        public static DialogResult Show(IWin32Window owner, string message, string title, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultbutton, int height)
         {
             DialogResult _result = DialogResult.None;
 

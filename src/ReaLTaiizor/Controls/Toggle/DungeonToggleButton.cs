@@ -243,21 +243,36 @@ namespace ReaLTaiizor.Controls
             {
                 case _Type.OnOff:
                     if (Toggled)
+                    {
                         G.DrawString("ON", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledOnOffColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("OFF", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledOnOffColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
+
                     break;
                 case _Type.YesNo:
                     if (Toggled)
+                    {
                         G.DrawString("YES", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledYesNoColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("NO", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledYesNoColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
+
                     break;
                 case _Type.IO:
                     if (Toggled)
+                    {
                         G.DrawString("I", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledIOColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("O", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledIOColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
+
                     break;
             }
 

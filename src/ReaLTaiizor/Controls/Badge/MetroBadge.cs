@@ -167,7 +167,10 @@ namespace ReaLTaiizor.Controls
             {
                 base.Enabled = value;
                 if (value == false)
+                {
                     _state = MouseMode.Disabled;
+                }
+
                 Invalidate();
             }
         }
@@ -407,7 +410,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             Rectangle r;
             Rectangle badge;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
@@ -438,11 +441,11 @@ namespace ReaLTaiizor.Controls
             {
                 case MouseMode.Normal:
 
-                    using (var bg = new SolidBrush(NormalColor))
-                    using (var p = new Pen(NormalBorderColor))
-                    using (var tb = new SolidBrush(NormalTextColor))
-                    using (var bdgBrush = new SolidBrush(NormalBadgeColor))
-                    using (var bdgtxtBrush = new SolidBrush(NormalBadgeTextColor))
+                    using (SolidBrush bg = new SolidBrush(NormalColor))
+                    using (Pen p = new Pen(NormalBorderColor))
+                    using (SolidBrush tb = new SolidBrush(NormalTextColor))
+                    using (SolidBrush bdgBrush = new SolidBrush(NormalBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new SolidBrush(NormalBadgeTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -454,11 +457,11 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (var bg = new SolidBrush(HoverColor))
-                    using (var p = new Pen(HoverBorderColor))
-                    using (var tb = new SolidBrush(HoverTextColor))
-                    using (var bdgBrush = new SolidBrush(HoverBadgeColor))
-                    using (var bdgtxtBrush = new SolidBrush(HoverBadgeTextColor))
+                    using (SolidBrush bg = new SolidBrush(HoverColor))
+                    using (Pen p = new Pen(HoverBorderColor))
+                    using (SolidBrush tb = new SolidBrush(HoverTextColor))
+                    using (SolidBrush bdgBrush = new SolidBrush(HoverBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new SolidBrush(HoverBadgeTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -470,11 +473,11 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Pushed:
 
-                    using (var bg = new SolidBrush(PressColor))
-                    using (var p = new Pen(PressBorderColor))
-                    using (var tb = new SolidBrush(PressTextColor))
-                    using (var bdgBrush = new SolidBrush(PressBadgeColor))
-                    using (var bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
+                    using (SolidBrush bg = new SolidBrush(PressColor))
+                    using (Pen p = new Pen(PressBorderColor))
+                    using (SolidBrush tb = new SolidBrush(PressTextColor))
+                    using (SolidBrush bdgBrush = new SolidBrush(PressBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -486,11 +489,11 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Disabled:
 
-                    using (var bg = new SolidBrush(DisabledBackColor))
-                    using (var p = new Pen(DisabledBorderColor))
-                    using (var tb = new SolidBrush(DisabledForeColor))
-                    using (var bdgBrush = new SolidBrush(PressBadgeColor))
-                    using (var bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
+                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
+                    using (Pen p = new Pen(DisabledBorderColor))
+                    using (SolidBrush tb = new SolidBrush(DisabledForeColor))
+                    using (SolidBrush bdgBrush = new SolidBrush(PressBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -510,7 +513,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -560,10 +565,13 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.BadgeDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.BadgeDictionary)
                         {
                             if (varkey.Key == null)
+                            {
                                 return;
+                            }
 
                             switch (varkey.Key)
                             {
@@ -623,6 +631,8 @@ namespace ReaLTaiizor.Controls
                                     break;
                             }
                         }
+                    }
+
                     Invalidate();
                     break;
                 default:

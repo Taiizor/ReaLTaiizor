@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         private Color _PressedContourColorA = Color.FromArgb(167, 167, 167);
         private Color _PressedContourColorB = Color.FromArgb(167, 167, 167);
         private Rectangle R1;
-        private Pen P1;
+        private readonly Pen P1;
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Pen P3;
         private Image _Image;
@@ -126,9 +126,13 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
                 Invalidate();
@@ -271,7 +275,7 @@ namespace ReaLTaiizor.Controls
                 P3 = new Pen(PressedContourGB);
             }
 
-            var MyDrawer = Shape;
+            GraphicsPath MyDrawer = Shape;
             MyDrawer.AddArc(0, 0, 10, 10, 180, 90);
             MyDrawer.AddArc(Width - 11, 0, 10, 10, -90, 90);
             MyDrawer.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -283,7 +287,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics G = e.Graphics;
             G.SmoothingMode = SmoothingMode.HighQuality;
             PointF ipt = ImageLocation(GetStringFormat(ImageAlign), Size, ImageSize);
 

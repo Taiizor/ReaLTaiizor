@@ -25,10 +25,15 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (withEventsField_TB != null)
+                {
                     withEventsField_TB.TextChanged -= TextChangeTb;
+                }
+
                 withEventsField_TB = value;
                 if (withEventsField_TB != null)
+                {
                     withEventsField_TB.TextChanged += TextChangeTb;
+                }
             }
         }
 
@@ -50,9 +55,13 @@ namespace ReaLTaiizor.Controls
                 IsEnabled = value;
 
                 if (Enabled)
+                {
                     Cursor = Cursors.Hand;
+                }
                 else
+                {
                     Cursor = Cursors.Default;
+                }
 
                 Invalidate();
             }
@@ -120,7 +129,9 @@ namespace ReaLTaiizor.Controls
             {
                 _readOnly = value;
                 if (TB != null)
+                {
                     TB.ReadOnly = value;
+                }
             }
         }
 
@@ -162,7 +173,7 @@ namespace ReaLTaiizor.Controls
 
         public void NewTextBox()
         {
-            var _with1 = TB;
+            TextBox _with1 = TB;
             _with1.Text = string.Empty;
             _with1.BackColor = BackColor;
             _with1.ForeColor = ForeColor;
@@ -208,18 +219,24 @@ namespace ReaLTaiizor.Controls
                 if (State == FoxLibrary.MouseState.Down)
                 {
                     using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#2C9CDA")))
+                    {
                         G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                    }
                 }
                 else
                 {
                     using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#C8C8C8")))
+                    {
                         G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                    }
                 }
             }
             else
             {
                 using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#E6E6E6")))
+                {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                }
             }
 
             TB.TextAlign = TextAlign;

@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Util
     public abstract class ControlRoyalBase : Control
     {
         private Thread animationThread;
-        private double framesPerSecond = (1000 / 15);
+        private readonly double framesPerSecond = (1000 / 15);
 
         protected delegate void MoveControlDelegate(Point location);
         protected delegate void ResizeControlDelegate(Size size);
@@ -36,9 +36,13 @@ namespace ReaLTaiizor.Util
             set
             {
                 if (AnimateBackColorChange)
+                {
                     SetBackgroundColor(value, SecondsToChange);
+                }
                 else
+                {
                     base.BackColor = value;
+                }
             }
         }
 
@@ -247,7 +251,9 @@ namespace ReaLTaiizor.Util
         public void AddRange(IEnumerable<object> items)
         {
             foreach (object item in items)
+            {
                 Items.Add(item);
+            }
         }
 
         protected override void InsertItem(int index, object item)
@@ -349,9 +355,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -364,9 +374,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -379,9 +393,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -394,9 +412,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -409,9 +431,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -436,7 +462,9 @@ namespace ReaLTaiizor.Util
             Color foreColor = RoyalColors.ForeColor;
 
             if (e.Item.Pressed)
+            {
                 foreColor = RoyalColors.PressedForeColor;
+            }
 
             TextRenderer.DrawText(e.Graphics, e.Text, e.TextFont, e.TextRectangle, foreColor,
                 Color.Transparent, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
@@ -467,9 +495,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), e.Item.Bounds);
         }
@@ -499,9 +531,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), e.Item.Bounds);
         }

@@ -227,7 +227,7 @@ namespace ReaLTaiizor.Controls
         public static DialogResult Show(MetroForm form, string content, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
             const string message = @"MetroMessageBox requires a form, use 'this' as the first parameter in the place you use MetroMessageBox.";
-            var msgBox = new MetroMessageBox
+            MetroMessageBox msgBox = new MetroMessageBox
             {
                 OwnerForm = form ?? throw new ArgumentNullException(message),
                 Content = content,
@@ -273,9 +273,9 @@ namespace ReaLTaiizor.Controls
         protected new DialogResult ShowDialog()
         {
 
-            var buttonHeight = Height - 45;
-            var firstButton = (Width - _buttonSize.Width) - 10;
-            var secondButoon = (Width - (_buttonSize.Width * 2)) - 20;
+            int buttonHeight = Height - 45;
+            int firstButton = (Width - _buttonSize.Width) - 10;
+            int secondButoon = (Width - (_buttonSize.Width * 2)) - 20;
             switch (Buttons)
             {
                 case MessageBoxButtons.OK:
@@ -330,16 +330,16 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics G = e.Graphics;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            var rect = new Rectangle(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
+            Rectangle rect = new Rectangle(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
 
-            using (var bg = new SolidBrush(BackgroundColor))
+            using (SolidBrush bg = new SolidBrush(BackgroundColor))
             {
-                using (var CTNT = new SolidBrush(ForegroundColor))
+                using (SolidBrush CTNT = new SolidBrush(ForegroundColor))
                 {
-                    using (var p = new Pen(BorderColor))
+                    using (Pen p = new Pen(BorderColor))
                     {
                         G.FillRectangle(bg, rect);
                         G.DrawString(Caption, Font, CTNT, new PointF(rect.X + 10, rect.Y + 10));

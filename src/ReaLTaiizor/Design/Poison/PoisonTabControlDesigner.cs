@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Design.Poison
             {
                 if (designerVerbs.Count == 2)
                 {
-                    var myControl = (PoisonTabControl)Control;
+                    PoisonTabControl myControl = (PoisonTabControl)Control;
                     designerVerbs[1].Enabled = myControl.TabCount != 0;
                 }
                 return designerVerbs;
@@ -49,8 +49,8 @@ namespace ReaLTaiizor.Design.Poison
 
         public PoisonTabControlDesigner()
         {
-            var verb1 = new DesignerVerb("Add Tab", OnAddPage);
-            var verb2 = new DesignerVerb("Remove Tab", OnRemovePage);
+            DesignerVerb verb1 = new DesignerVerb("Add Tab", OnAddPage);
+            DesignerVerb verb2 = new DesignerVerb("Remove Tab", OnRemovePage);
             designerVerbs.AddRange
             (
                 new[]
@@ -65,14 +65,14 @@ namespace ReaLTaiizor.Design.Poison
 
         #region Private Methods
 
-        private void OnAddPage(Object sender, EventArgs e)
+        private void OnAddPage(object sender, EventArgs e)
         {
-            var parentControl = (PoisonTabControl)Control;
-            var oldTabs = parentControl.Controls;
+            PoisonTabControl parentControl = (PoisonTabControl)Control;
+            Control.ControlCollection oldTabs = parentControl.Controls;
 
             RaiseComponentChanging(TypeDescriptor.GetProperties(parentControl)["TabPages"]);
 
-            var p = (PoisonTabPage)(DesignerHost.CreateComponent(typeof(PoisonTabPage)));
+            PoisonTabPage p = (PoisonTabPage)(DesignerHost.CreateComponent(typeof(PoisonTabPage)));
             p.Text = p.Name;
             parentControl.TabPages.Add(p);
 
@@ -82,13 +82,15 @@ namespace ReaLTaiizor.Design.Poison
             SetVerbs();
         }
 
-        private void OnRemovePage(Object sender, EventArgs e)
+        private void OnRemovePage(object sender, EventArgs e)
         {
-            var parentControl = (PoisonTabControl)Control;
-            var oldTabs = parentControl.Controls;
+            PoisonTabControl parentControl = (PoisonTabControl)Control;
+            Control.ControlCollection oldTabs = parentControl.Controls;
 
             if (parentControl.SelectedIndex < 0)
+            {
                 return;
+            }
 
             RaiseComponentChanging(TypeDescriptor.GetProperties(parentControl)["TabPages"]);
 
@@ -110,7 +112,7 @@ namespace ReaLTaiizor.Design.Poison
 
         private void SetVerbs()
         {
-            var parentControl = (PoisonTabControl)Control;
+            PoisonTabControl parentControl = (PoisonTabControl)Control;
 
             switch (parentControl.TabPages.Count)
             {
@@ -134,7 +136,10 @@ namespace ReaLTaiizor.Design.Poison
             {
                 case (int)WinApi.Messages.WM_NCHITTEST:
                     if (m.Result.ToInt32() == (int)WinApi.HitTest.HTTRANSPARENT)
+                    {
                         m.Result = (IntPtr)WinApi.HitTest.HTCLIENT;
+                    }
+
                     break;
             }
         }
@@ -143,19 +148,19 @@ namespace ReaLTaiizor.Design.Poison
         {
             if (SelectionService.PrimarySelection == Control)
             {
-                var hti = new WinApi.TCHITTESTINFO
+                WinApi.TCHITTESTINFO hti = new WinApi.TCHITTESTINFO
                 {
                     pt = Control.PointToClient(point),
                     flags = 0
                 };
 
-                var m = new Message
+                Message m = new Message
                 {
                     HWnd = Control.Handle,
                     Msg = WinApi.TCM_HITTEST
                 };
 
-                var lparam =
+                IntPtr lparam =
                     System.Runtime.InteropServices.Marshal.AllocHGlobal(System.Runtime.InteropServices.Marshal.SizeOf(hti));
                 System.Runtime.InteropServices.Marshal.StructureToPtr(hti, lparam, false);
                 m.LParam = lparam;
@@ -164,7 +169,9 @@ namespace ReaLTaiizor.Design.Poison
                 System.Runtime.InteropServices.Marshal.FreeHGlobal(lparam);
 
                 if (m.Result.ToInt32() != -1)
+                {
                     return hti.flags != (int)WinApi.TabControlHitTest.TCHT_NOWHERE;
+                }
             }
 
             return false;

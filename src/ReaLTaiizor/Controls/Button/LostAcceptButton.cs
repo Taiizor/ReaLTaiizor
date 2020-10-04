@@ -58,7 +58,9 @@ namespace ReaLTaiizor.Controls
             e.Graphics.FillRectangle(MouseOver ? new SolidBrush(_hovercolor) : new SolidBrush(_backcolor), ClientRectangle);
 
             if (BackgroundImage != null)
+            {
                 e.Graphics.DrawImage(BackgroundImage, Width / 2 - BackgroundImage.Width / 2, Height / 2 - BackgroundImage.Height / 2);
+            }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);
             e.Graphics.DrawString(Text, Font, new SolidBrush(_forecolor), Width / 2 - textSize.Width / 2, Height / 2 - textSize.Height / 2);

@@ -41,7 +41,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > _Maximum)
+                {
                     value = _Maximum;
+                }
+
                 _Value = value;
                 Invalidate();
             }
@@ -53,7 +56,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 1)
+                {
                     value = 1;
+                }
+
                 _Maximum = value;
                 Invalidate();
             }
@@ -176,7 +182,10 @@ namespace ReaLTaiizor.Controls
                         }
                     }
                     using (LinearGradientBrush brush2 = new LinearGradientBrush(ClientRectangle, Color.FromArgb(0x34, 0x34, 0x34), Color.FromArgb(0x34, 0x34, 0x34), LinearGradientMode.Vertical))
+                    {
                         graphics.FillEllipse(brush2, 0x18, 0x18, (Width - 0x30) - 1, (Height - 0x30) - 1);
+                    }
+
                     SizeF MS = graphics.MeasureString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font);
                     graphics.DrawString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font, new SolidBrush(_PercentColor), Convert.ToInt32(Width / 2 - MS.Width / 2), Convert.ToInt32(Height / 2 - MS.Height / 2));
                     e.Graphics.DrawImage(bitmap, 0, 0);

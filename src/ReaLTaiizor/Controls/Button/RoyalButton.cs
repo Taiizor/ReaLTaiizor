@@ -143,7 +143,9 @@ namespace ReaLTaiizor.Controls
             Color backColor = BackColor;
 
             if (hotTracked && !pressed)
+            {
                 backColor = hotTrackColor;
+            }
             else if (pressed)
             {
                 foreColor = pressedForeColor;
@@ -153,7 +155,9 @@ namespace ReaLTaiizor.Controls
             e.Graphics.FillRectangle(new SolidBrush(backColor), e.ClipRectangle);
 
             if (DrawBorder)
+            {
                 e.Graphics.DrawRectangle(new Pen(BorderColor, BorderThickness), new Rectangle(1, 1, Width - BorderThickness, Height - BorderThickness));
+            }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);
 
@@ -170,12 +174,19 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.DrawImage(Image, new Point(Width - Image.Width, 0));
                 }
                 else if (LayoutFlags == RoyalLayoutFlags.ImageOnly)
+                {
                     e.Graphics.DrawImage(Image, new Point((Width - Image.Width) / 2, (Height - Image.Height) / 2));
+                }
                 else if (LayoutFlags == RoyalLayoutFlags.TextOnly)
+                {
                     e.Graphics.DrawString(Text, Font, new SolidBrush(foreColor), new PointF((Width - textSize.Width) / 2, (Height - textSize.Height) / 2));
+                }
             }
             else
+            {
                 e.Graphics.DrawString(Text, Font, new SolidBrush(foreColor), new PointF((Width - textSize.Width) / 2, (Height - textSize.Height) / 2));
+            }
+
             base.OnPaint(e);
         }
     }

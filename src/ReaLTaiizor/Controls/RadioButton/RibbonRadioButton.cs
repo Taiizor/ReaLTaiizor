@@ -45,9 +45,14 @@ namespace ReaLTaiizor.Controls
         protected override void OnClick(EventArgs e)
         {
             if (!_Checked)
+            {
                 @Checked = true;
+            }
             else
+            {
                 @Checked = false;
+            }
+
             base.OnClick(e);
         }
 
@@ -62,12 +67,16 @@ namespace ReaLTaiizor.Controls
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
+            {
                 return;
+            }
 
             foreach (Control C in Parent.Controls)
             {
                 if (!object.ReferenceEquals(C, this) && C is RibbonRadioButton)
+                {
                     ((RibbonRadioButton)C).Checked = false;
+                }
             }
         }
 
@@ -191,7 +200,9 @@ namespace ReaLTaiizor.Controls
             G.DrawEllipse(new Pen(CircleEdgeColor), Inner);
 
             if (Checked)
+            {
                 G.DrawString("n", new Font("Marlett", 8, FontStyle.Bold), new SolidBrush(CheckedColor), 0, 3);
+            }
 
             G.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(18, 8), new StringFormat
             {

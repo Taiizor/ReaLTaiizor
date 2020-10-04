@@ -32,9 +32,9 @@ namespace ReaLTaiizor.Controls
 
         private Graphics G;
 
-        private string B64Enabled;
+        private readonly string B64Enabled;
 
-        private string B64Disabled;
+        private readonly string B64Disabled;
 
         public event AloneCheckBox.CheckedChangedEventHandler CheckedChanged
         {
@@ -84,9 +84,14 @@ namespace ReaLTaiizor.Controls
                 _EnabledCalc = value;
                 bool enabled = Enabled;
                 if (enabled)
+                {
                     Cursor = Cursors.Hand;
+                }
                 else
+                {
                     Cursor = Cursors.Default;
+                }
+
                 base.Invalidate();
             }
         }
@@ -142,7 +147,9 @@ namespace ReaLTaiizor.Controls
                 if (@checked)
                 {
                     using (Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Enabled))))
+                    {
                         G.DrawImage(image, new Rectangle(3, 3, 11, 11));
+                    }
                 }
             }
             else
@@ -166,7 +173,9 @@ namespace ReaLTaiizor.Controls
                 if (checked2)
                 {
                     using (Image image2 = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Disabled))))
+                    {
                         G.DrawImage(image2, new Rectangle(3, 3, 11, 11));
+                    }
                 }
             }
         }

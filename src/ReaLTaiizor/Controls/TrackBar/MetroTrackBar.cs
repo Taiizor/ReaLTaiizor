@@ -123,7 +123,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -151,7 +153,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.TrackBarDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.TrackBarDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -177,6 +180,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -195,19 +200,22 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             Cursor = Cursors.Hand;
 
-            using (var bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
             {
-                using (var v = new SolidBrush(Enabled ? ValueColor : DisabledValueColor))
+                using (SolidBrush v = new SolidBrush(Enabled ? ValueColor : DisabledValueColor))
                 {
-                    using (var vc = new SolidBrush(Enabled ? HandlerColor : DisabledHandlerColor))
+                    using (SolidBrush vc = new SolidBrush(Enabled ? HandlerColor : DisabledHandlerColor))
                     {
                         g.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
                         if (_currentValue != 0)
+                        {
                             g.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
+                        }
+
                         g.FillRectangle(vc, _track);
                     }
                 }
@@ -368,7 +376,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (_variable && e.X > -1 && e.X < Width + 1)
+            {
                 Value = Minimum + (int)Math.Round((double)(Maximum - Minimum) * e.X / Width);
+            }
+
             base.OnMouseMove(e);
         }
 
@@ -394,12 +405,16 @@ namespace ReaLTaiizor.Controls
             if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left)
             {
                 if (Value != 0)
+                {
                     Value -= 1;
+                }
             }
             else if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Up || e.KeyCode == Keys.Right)
             {
                 if (Value != Maximum)
+                {
                     Value += 1;
+                }
             }
             base.OnKeyDown(e);
         }

@@ -48,7 +48,9 @@ namespace ReaLTaiizor.Controls
             }
 
             if (DrawBorder)
+            {
                 borderColor = BorderColor;
+            }
 
             e.Graphics.SmoothingMode = SmoothingType;
             e.Graphics.FillEllipse(new SolidBrush(backColor), new Rectangle(2, 2, Width - (BorderThickness + 1), Height - (BorderThickness + 1)));
@@ -57,11 +59,15 @@ namespace ReaLTaiizor.Controls
             if (Image != null)
             {
                 if (LayoutFlags == RoyalLayoutFlags.ImageOnly)
+                {
                     e.Graphics.DrawImage(Image, new Point((Width - Image.Width) / 2, (Height - Image.Height) / 2));
+                }
             }
             else
+            {
                 TextRenderer.DrawText(e.Graphics, Text, Font, e.ClipRectangle, foreColor,
                     Color.Transparent, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+            }
 
             //base.OnPaint(e);
         }

@@ -34,7 +34,7 @@ namespace ReaLTaiizor.Animate.Poison
         }
 
         #region Compatibility code
-        private DelayedCall<object>.Callback oldCallback = null;
+        private readonly DelayedCall<object>.Callback oldCallback = null;
         private object oldData = null;
 
         [Obsolete("Use the static method DelayedCall.Create instead.")]
@@ -57,7 +57,10 @@ namespace ReaLTaiizor.Animate.Poison
         {
             PrepareDCObject(this, milliseconds, false);
             callback = cb;
-            if (milliseconds > 0) Start();
+            if (milliseconds > 0)
+            {
+                Start();
+            }
         }
 
         [Obsolete("Use the static method DelayedCall.Start instead.")]
@@ -66,7 +69,10 @@ namespace ReaLTaiizor.Animate.Poison
             PrepareDCObject(this, milliseconds, false);
             oldCallback = cb;
             oldData = data;
-            if (milliseconds > 0) Start();
+            if (milliseconds > 0)
+            {
+                Start();
+            }
         }
 
         [Obsolete("Use the method Restart of the generic class instead.")]
@@ -111,35 +117,60 @@ namespace ReaLTaiizor.Animate.Poison
         public static DelayedCall Start(Callback cb, int milliseconds)
         {
             DelayedCall dc = Create(cb, milliseconds);
-            if (milliseconds > 0) dc.Start();
-            else if (milliseconds == 0) dc.FireNow();
+            if (milliseconds > 0)
+            {
+                dc.Start();
+            }
+            else if (milliseconds == 0)
+            {
+                dc.FireNow();
+            }
+
             return dc;
         }
 
         public static DelayedCall StartAsync(Callback cb, int milliseconds)
         {
             DelayedCall dc = CreateAsync(cb, milliseconds);
-            if (milliseconds > 0) dc.Start();
-            else if (milliseconds == 0) dc.FireNow();
+            if (milliseconds > 0)
+            {
+                dc.Start();
+            }
+            else if (milliseconds == 0)
+            {
+                dc.FireNow();
+            }
+
             return dc;
         }
 
         protected static void PrepareDCObject(DelayedCall dc, int milliseconds, bool async)
         {
             if (milliseconds < 0)
+            {
                 throw new ArgumentOutOfRangeException("milliseconds", "The new timeout must be 0 or greater.");
+            }
 
             dc.context = null;
             if (!async)
             {
                 dc.context = SynchronizationContext.Current;
                 if (dc.context == null)
+                {
                     throw new InvalidOperationException("Cannot delay calls synchronously on a non-UI thread. Use the *Async methods instead.");
+                }
             }
-            if (dc.context == null) dc.context = new SynchronizationContext(); // Run asynchronously silently
+            if (dc.context == null)
+            {
+                dc.context = new SynchronizationContext(); // Run asynchronously silently
+            }
 
             dc.timer = new System.Timers.Timer();
-            if (milliseconds > 0) dc.timer.Interval = milliseconds;
+            if (milliseconds > 0)
+            {
+                dc.timer.Interval = milliseconds;
+            }
+
             dc.timer.AutoReset = false;
             dc.timer.Elapsed += dc.Timer_Elapsed;
 
@@ -151,14 +182,18 @@ namespace ReaLTaiizor.Animate.Poison
             lock (dcList)
             {
                 if (!dcList.Contains(dc))
+                {
                     dcList.Add(dc);
+                }
             }
         }
 
         protected static void Unregister(DelayedCall dc)
         {
             lock (dcList)
+            {
                 dcList.Remove(dc);
+            }
         }
 
         public static int RegisteredCount
@@ -166,7 +201,9 @@ namespace ReaLTaiizor.Animate.Poison
             get
             {
                 lock (dcList)
+                {
                     return dcList.Count;
+                }
             }
         }
 
@@ -177,7 +214,12 @@ namespace ReaLTaiizor.Animate.Poison
                 lock (dcList)
                 {
                     foreach (DelayedCall dc in dcList)
-                        if (dc.IsWaiting) return true;
+                    {
+                        if (dc.IsWaiting)
+                        {
+                            return true;
+                        }
+                    }
                 }
                 return false;
             }
@@ -188,7 +230,9 @@ namespace ReaLTaiizor.Animate.Poison
             lock (dcList)
             {
                 foreach (DelayedCall dc in dcList)
+                {
                     dc.Cancel();
+                }
             }
         }
 
@@ -197,7 +241,9 @@ namespace ReaLTaiizor.Animate.Poison
             lock (dcList)
             {
                 foreach (DelayedCall dc in dcList)
+                {
                     dc.Fire();
+                }
             }
         }
 
@@ -206,7 +252,9 @@ namespace ReaLTaiizor.Animate.Poison
             lock (dcList)
             {
                 while (dcList.Count > 0)
+                {
                     dcList[0].Dispose();
+                }
             }
         }
 
@@ -258,7 +306,10 @@ namespace ReaLTaiizor.Animate.Poison
             lock (timerLock)
             {
                 if (!IsWaiting)
+                {
                     return;
+                }
+
                 timer.Stop();
             }
             FireNow();
@@ -275,14 +326,23 @@ namespace ReaLTaiizor.Animate.Poison
             context.Post(delegate
             {
                 lock (timerLock)
-                    if (cancelled) return;
+                {
+                    if (cancelled)
+                    {
+                        return;
+                    }
+                }
 
                 if (callback != null)
+                {
                     callback();
+                }
 
                 #region Compatibility code
                 if (oldCallback != null)
+                {
                     oldCallback(oldData);
+                }
                 #endregion
             }, null);
         }
@@ -311,14 +371,18 @@ namespace ReaLTaiizor.Animate.Poison
             get
             {
                 lock (timerLock)
+                {
                     return (int)timer.Interval;
+                }
             }
             set
             {
                 lock (timerLock)
                 {
                     if (value < 0)
+                    {
                         throw new ArgumentOutOfRangeException("Milliseconds", "The new timeout must be 0 or greater.");
+                    }
                     else if (value == 0)
                     {
                         Cancel();
@@ -326,7 +390,9 @@ namespace ReaLTaiizor.Animate.Poison
                         Unregister(this);
                     }
                     else
+                    {
                         timer.Interval = value;
+                    }
                 }
             }
         }
@@ -376,9 +442,17 @@ namespace ReaLTaiizor.Animate.Poison
             context.Post(delegate
             {
                 lock (timerLock)
-                    if (cancelled) return;
+                {
+                    if (cancelled)
+                    {
+                        return;
+                    }
+                }
 
-                if (callback != null) callback(data);
+                if (callback != null)
+                {
+                    callback(data);
+                }
             }, null);
         }
 
@@ -441,9 +515,17 @@ namespace ReaLTaiizor.Animate.Poison
             context.Post(delegate
             {
                 lock (timerLock)
-                    if (cancelled) return;
+                {
+                    if (cancelled)
+                    {
+                        return;
+                    }
+                }
 
-                if (callback != null) callback(data1, data2);
+                if (callback != null)
+                {
+                    callback(data1, data2);
+                }
             }, null);
         }
 
@@ -510,9 +592,17 @@ namespace ReaLTaiizor.Animate.Poison
             context.Post(delegate
             {
                 lock (timerLock)
-                    if (cancelled) return;
+                {
+                    if (cancelled)
+                    {
+                        return;
+                    }
+                }
 
-                if (callback != null) callback(data1, data2, data3);
+                if (callback != null)
+                {
+                    callback(data1, data2, data3);
+                }
             }, null);
         }
 

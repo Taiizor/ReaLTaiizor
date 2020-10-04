@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
 
         private Style _style;
         private MetroStyleManager _styleManager;
-        private PointFAnimate _slideAnimator;
+        private readonly PointFAnimate _slideAnimator;
         private Graphics _slideGraphics;
         private Bitmap _slideBitmap;
 
@@ -122,7 +122,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -146,7 +148,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.TabControlDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.TabControlDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -166,6 +169,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
             }
@@ -320,41 +325,51 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             g.Clear(BackgroundColor);
-            var h = ItemSize.Height + 2;
+            int h = ItemSize.Height + 2;
             switch (TabStyle)
             {
                 case TabStyle.Style1:
-                    using (var sb = new Pen(ForegroundColor, 2))
-                        g.DrawLine(sb, 2, h, Width - 3, h);
-
-                    for (var i = 0; i <= TabCount - 1; i++)
+                    using (Pen sb = new Pen(ForegroundColor, 2))
                     {
-                        var r = GetTabRect(i);
+                        g.DrawLine(sb, 2, h, Width - 3, h);
+                    }
+
+                    for (int i = 0; i <= TabCount - 1; i++)
+                    {
+                        Rectangle r = GetTabRect(i);
 
                         if (i == SelectedIndex)
                         {
-                            using (var sb = new SolidBrush(ForegroundColor))
+                            using (SolidBrush sb = new SolidBrush(ForegroundColor))
+                            {
                                 g.FillRectangle(sb, r);
+                            }
                         }
-                        using (var tb = new SolidBrush(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor))
+                        using (SolidBrush tb = new SolidBrush(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor))
+                        {
                             g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
+                        }
                     }
                     break;
                 case TabStyle.Style2:
-                    for (var i = 0; i <= TabCount - 1; i++)
+                    for (int i = 0; i <= TabCount - 1; i++)
                     {
-                        var r = GetTabRect(i);
+                        Rectangle r = GetTabRect(i);
 
                         if (i == SelectedIndex)
                         {
-                            using (var sb = new Pen(ForegroundColor, 2))
+                            using (Pen sb = new Pen(ForegroundColor, 2))
+                            {
                                 g.DrawLine(sb, r.X, r.Height, r.X + r.Width, r.Height);
+                            }
                         }
-                        using (var tb = new SolidBrush(UnselectedTextColor))
+                        using (SolidBrush tb = new SolidBrush(UnselectedTextColor))
+                        {
                             g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
+                        }
                     }
                     break;
             }
@@ -367,11 +382,14 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            for (var i = 0; i <= TabCount - 1; i++)
+            for (int i = 0; i <= TabCount - 1; i++)
             {
-                var r = GetTabRect(i);
+                Rectangle r = GetTabRect(i);
                 if (!r.Contains(e.Location))
+                {
                     continue;
+                }
+
                 Cursor = Cursors.Hand;
                 Invalidate();
             }
@@ -414,7 +432,9 @@ namespace ReaLTaiizor.Controls
             }
 
             foreach (Control c in control2.Controls)
+            {
                 c.Hide();
+            }
 
             _slideAnimator.Update = (alpha) =>
             {
@@ -424,7 +444,9 @@ namespace ReaLTaiizor.Controls
             {
                 SelectedTab = control2;
                 foreach (Control c in control2.Controls)
+                {
                     c.Show();
+                }
             };
             _slideAnimator.Start
             (
@@ -438,7 +460,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnSelecting(TabControlCancelEventArgs e)
         {
             if (!UseAnimation)
+            {
                 return;
+            }
+
             if (_slideAnimator.Active)
             {
                 e.Cancel = true;
@@ -454,16 +479,18 @@ namespace ReaLTaiizor.Controls
 
         private void DoAnimationScrollRight(Control control1, Control control2)
         {
-            var g = control1.CreateGraphics();
-            var p1 = new Bitmap(control1.Width, control1.Height);
-            var p2 = new Bitmap(control2.Width, control2.Height);
+            Graphics g = control1.CreateGraphics();
+            Bitmap p1 = new Bitmap(control1.Width, control1.Height);
+            Bitmap p2 = new Bitmap(control2.Width, control2.Height);
             control1.DrawToBitmap(p1, new Rectangle(0, 0, control1.Width, control1.Height));
             control2.DrawToBitmap(p2, new Rectangle(0, 0, control2.Width, control2.Height));
 
             foreach (Control c in control1.Controls)
+            {
                 c.Hide();
+            }
 
-            var slide = control1.Width - (control1.Width % Speed);
+            int slide = control1.Width - (control1.Width % Speed);
 
             int a;
             for (a = 0; a >= -slide; a += -Speed)
@@ -478,10 +505,14 @@ namespace ReaLTaiizor.Controls
             SelectedTab = (System.Windows.Forms.TabPage)control2;
 
             foreach (Control c in control2.Controls)
+            {
                 c.Show();
+            }
 
             foreach (Control c in control1.Controls)
+            {
                 c.Show();
+            }
         }
 
         #endregion Animation

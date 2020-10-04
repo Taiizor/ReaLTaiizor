@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
 
         #region Base TextBox
 
-        private TextBox _textBox = new TextBox();
+        private readonly TextBox _textBox = new TextBox();
 
         #endregion
 
@@ -129,7 +129,9 @@ namespace ReaLTaiizor.Controls
             ApplyTheme();
             T_Defaults();
             if (!Multiline)
+            {
                 Size = new Size(135, 30);
+            }
         }
 
         private void EvaluateVars()
@@ -158,9 +160,13 @@ namespace ReaLTaiizor.Controls
             _textBox.Font = Font;
             _textBox.UseSystemPasswordChar = UseSystemPasswordChar;
             if (Multiline)
+            {
                 _textBox.Height = Height - 11;
+            }
             else
+            {
                 Height = _textBox.Height + 11;
+            }
 
             _textBox.MouseHover += T_MouseHover;
             _textBox.Leave += T_Leave;
@@ -176,32 +182,36 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             if (Enabled)
             {
-                using (var bg = new SolidBrush(BackColor))
+                using (SolidBrush bg = new SolidBrush(BackColor))
                 {
-                    using (var p = new Pen(BorderColor))
+                    using (Pen p = new Pen(BorderColor))
                     {
-                        using (var ph = new Pen(HoverColor))
+                        using (Pen ph = new Pen(HoverColor))
                         {
                             g.FillRectangle(bg, rect);
                             if (_state == MouseMode.Normal)
+                            {
                                 g.DrawRectangle(p, rect);
+                            }
                             else if (_state == MouseMode.Hovered)
+                            {
                                 g.DrawRectangle(ph, rect);
+                            }
                         }
                     }
                 }
             }
             else
             {
-                using (var bg = new SolidBrush(DisabledBackColor))
+                using (SolidBrush bg = new SolidBrush(DisabledBackColor))
                 {
-                    using (var p = new Pen(DisabledBorderColor))
+                    using (Pen p = new Pen(DisabledBorderColor))
                     {
                         g.FillRectangle(bg, rect);
                         g.DrawRectangle(p, rect);
@@ -232,7 +242,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -262,7 +274,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.TextBoxDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.TextBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -294,6 +307,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
             }
@@ -381,9 +396,15 @@ namespace ReaLTaiizor.Controls
         private void T_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.A)
+            {
                 e.SuppressKeyPress = true;
+            }
+
             if (!e.Control || e.KeyCode != Keys.C)
+            {
                 return;
+            }
+
             _textBox.Copy();
             e.SuppressKeyPress = true;
         }
@@ -399,7 +420,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
             if (!Controls.Contains(_textBox))
+            {
                 Controls.Add(_textBox);
+            }
         }
 
         public void AppendText(string text)
@@ -410,9 +433,14 @@ namespace ReaLTaiizor.Controls
         public void Undo()
         {
             if (_textBox == null)
+            {
                 return;
+            }
+
             if (_textBox.CanUndo)
+            {
                 _textBox.Undo();
+            }
         }
 
         public int GetLineFromCharIndex(int index)
@@ -479,9 +507,12 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _textAlign = value;
-                var text = _textBox;
+                TextBox text = _textBox;
                 if (text != null)
+                {
                     text.TextAlign = value;
+                }
+
                 Invalidate();
             }
         }
@@ -494,7 +525,10 @@ namespace ReaLTaiizor.Controls
             {
                 _maxLength = value;
                 if (_textBox != null)
+                {
                     _textBox.MaxLength = value;
+                }
+
                 Invalidate();
             }
         }
@@ -558,7 +592,9 @@ namespace ReaLTaiizor.Controls
             {
                 _readOnly = value;
                 if (_textBox != null)
+                {
                     _textBox.ReadOnly = value;
+                }
             }
         }
 
@@ -570,7 +606,9 @@ namespace ReaLTaiizor.Controls
             {
                 _useSystemPasswordChar = value;
                 if (_textBox != null)
+                {
                     _textBox.UseSystemPasswordChar = value;
+                }
             }
         }
 
@@ -582,12 +620,19 @@ namespace ReaLTaiizor.Controls
             {
                 _multiline = value;
                 if (_textBox == null)
+                {
                     return;
+                }
+
                 _textBox.Multiline = value;
                 if (value)
+                {
                     _textBox.Height = Height - 10;
+                }
                 else
+                {
                     Height = _textBox.Height + 10;
+                }
             }
         }
 
@@ -602,7 +647,9 @@ namespace ReaLTaiizor.Controls
             {
                 base.Text = value;
                 if (_textBox != null)
+                {
                     _textBox.Text = value;
+                }
             }
         }
 
@@ -637,7 +684,10 @@ namespace ReaLTaiizor.Controls
             {
                 _autoCompleteSource = value;
                 if (_textBox != null)
+                {
                     _textBox.AutoCompleteSource = value;
+                }
+
                 Invalidate();
             }
         }
@@ -650,7 +700,10 @@ namespace ReaLTaiizor.Controls
             {
                 _autoCompleteCustomSource = value;
                 if (_textBox != null)
+                {
                     _textBox.AutoCompleteCustomSource = value;
+                }
+
                 Invalidate();
             }
         }
@@ -663,7 +716,10 @@ namespace ReaLTaiizor.Controls
             {
                 _autoCompleteMode = value;
                 if (_textBox != null)
+                {
                     _textBox.AutoCompleteMode = value;
+                }
+
                 Invalidate();
             }
         }
@@ -676,12 +732,17 @@ namespace ReaLTaiizor.Controls
             {
                 base.Font = value;
                 if (_textBox == null)
+                {
                     return;
+                }
+
                 _textBox.Font = value;
                 _textBox.Location = new Point(5, 5);
                 _textBox.Width = Width - 8;
                 if (!Multiline)
+                {
                     Height = _textBox.Height + 11;
+                }
             }
         }
 
@@ -693,7 +754,10 @@ namespace ReaLTaiizor.Controls
             {
                 _lines = value;
                 if (_textBox != null)
+                {
                     _textBox.Lines = value;
+                }
+
                 Invalidate();
             }
         }
@@ -706,7 +770,10 @@ namespace ReaLTaiizor.Controls
             {
                 base.ContextMenuStrip = value;
                 if (_textBox == null)
+                {
                     return;
+                }
+
                 _textBox.ContextMenuStrip = value;
                 Invalidate();
             }

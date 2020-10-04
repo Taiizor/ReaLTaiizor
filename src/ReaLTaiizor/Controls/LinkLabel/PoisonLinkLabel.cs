@@ -39,7 +39,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -47,7 +49,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -55,7 +59,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -66,12 +72,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -79,7 +92,9 @@ namespace ReaLTaiizor.Controls
             {
                 poisonStyle = value;
                 if (DesignMode)
+                {
                     Invalidate();
+                }
             }
         }
 
@@ -91,12 +106,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -104,7 +126,9 @@ namespace ReaLTaiizor.Controls
             {
                 poisonTheme = value;
                 if (DesignMode)
+                {
                     Invalidate();
+                }
             }
         }
 
@@ -145,7 +169,9 @@ namespace ReaLTaiizor.Controls
             {
                 useStyleColors = value;
                 if (DesignMode)
+                {
                     Invalidate();
+                }
             }
         }
 
@@ -181,11 +207,11 @@ namespace ReaLTaiizor.Controls
             set => _nofocus = value;
         }
 
-        private Int32 _imagesize = 16;
+        private int _imagesize = 16;
 
         [DefaultValue(16)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public Int32 ImageSize
+        public int ImageSize
         {
             get => _imagesize;
             set
@@ -224,7 +250,9 @@ namespace ReaLTaiizor.Controls
             {
                 poisonLinkSize = value;
                 if (DesignMode)
+                {
                     Invalidate();
+                }
             }
         }
 
@@ -238,7 +266,9 @@ namespace ReaLTaiizor.Controls
             {
                 poisonLinkWeight = value;
                 if (DesignMode)
+                {
                     Invalidate();
+                }
             }
         }
 
@@ -279,7 +309,9 @@ namespace ReaLTaiizor.Controls
                 Color backColor = BackColor;
 
                 if (!useCustomBackColor)
+                {
                     backColor = PoisonPaint.BackColor.Form(Theme);
+                }
 
                 if (backColor.A == 255 && BackgroundImage == null)
                 {
@@ -302,7 +334,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -318,7 +352,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
             if (useCustomForeColor)
+            {
                 foreColor = ForeColor;
+            }
             else
             {
                 if (isHovered && !isPressed && Enabled)
@@ -327,21 +363,32 @@ namespace ReaLTaiizor.Controls
                     foreColor = PoisonPaint.ForeColor.Link.Normal(Theme);
                 }
                 else if (isHovered && isPressed && Enabled)
+                {
                     foreColor = PoisonPaint.ForeColor.Link.Press(Theme);
+                }
                 else if (!Enabled)
+                {
                     foreColor = PoisonPaint.ForeColor.Link.Disabled(Theme);
+                }
                 else
+                {
                     foreColor = !useStyleColors ? PoisonPaint.ForeColor.Link.Hover(Theme) : PoisonPaint.GetStyleColor(Style);
+                }
             }
 
-            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.LinkLabel(poisonLinkSize, poisonLinkWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign, !this.AutoSize));
+            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.LinkLabel(poisonLinkSize, poisonLinkWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign, !AutoSize));
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
             if (displayFocusRectangle && isFocused)
+            {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
+            }
 
-            if (_image != null) DrawIcon(e.Graphics);
+            if (_image != null)
+            {
+                DrawIcon(e.Graphics);
+            }
         }
 
         private void DrawIcon(Graphics g)
@@ -396,16 +443,24 @@ namespace ReaLTaiizor.Controls
                 if (_nofocus == null)
                 {
                     if (Theme == ThemeStyle.Dark)
+                    {
                         g.DrawImage((isHovered && !isPressed) ? _darkimg : _darklightimg, new Rectangle(iconLocation, new Size(_imgW, _imgH)));
+                    }
                     else
+                    {
                         g.DrawImage((isHovered && !isPressed) ? _lightimg : _lightlightimg, new Rectangle(iconLocation, new Size(_imgW, _imgH)));
+                    }
                 }
                 else
                 {
                     if (Theme == ThemeStyle.Dark)
+                    {
                         g.DrawImage((isHovered && !isPressed) ? _darkimg : _nofocus, new Rectangle(iconLocation, new Size(_imgW, _imgH)));
+                    }
                     else
+                    {
                         g.DrawImage((isHovered && !isPressed) ? _image : _nofocus, new Rectangle(iconLocation, new Size(_imgW, _imgH)));
+                    }
                 }
             }
         }
@@ -460,7 +515,9 @@ namespace ReaLTaiizor.Controls
 
                     A = pixelColor.A;
                     if (pixelColor.A <= 255 && pixelColor.A >= 100)
+                    {
                         A = 90;
+                    }
 
                     R = (byte)(pixelColor.R);
                     G = (byte)(pixelColor.G);
@@ -562,8 +619,15 @@ namespace ReaLTaiizor.Controls
                 isPressed = true;
                 Invalidate();
 
-                if (Name == "lnkClear" && Parent.GetType().Name == "PoisonTextBox") this.PerformClick();
-                if (Name == "lnkClear" && Parent.GetType().Name == "SearchControl") this.PerformClick();
+                if (Name == "lnkClear" && Parent.GetType().Name == "PoisonTextBox")
+                {
+                    PerformClick();
+                }
+
+                if (Name == "lnkClear" && Parent.GetType().Name == "SearchControl")
+                {
+                    PerformClick();
+                }
             }
 
             base.OnMouseDown(e);

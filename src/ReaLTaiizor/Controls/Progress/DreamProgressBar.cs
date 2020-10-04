@@ -30,7 +30,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == 0)
+                {
                     value = 1;
+                }
+
                 _Maximum = value;
                 Invalidate();
             }

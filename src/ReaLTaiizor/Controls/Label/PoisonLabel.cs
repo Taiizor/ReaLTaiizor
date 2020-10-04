@@ -30,7 +30,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -38,7 +40,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -46,7 +50,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -57,12 +63,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -77,12 +90,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -138,7 +158,7 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private DoubleBufferedTextBox baseTextBox;
+        private readonly DoubleBufferedTextBox baseTextBox;
 
         private PoisonLabelSize poisonLabelSize = PoisonLabelSize.Medium;
         [DefaultValue(PoisonLabelSize.Medium)]
@@ -212,7 +232,9 @@ namespace ReaLTaiizor.Controls
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                     if (Parent is PoisonTile)
+                    {
                         backColor = PoisonPaint.GetStyleColor(Style);
+                    }
                 }
 
                 if (backColor.A == 255 && BackgroundImage == null)
@@ -236,7 +258,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -252,7 +276,9 @@ namespace ReaLTaiizor.Controls
             Color foreColor;
 
             if (useCustomForeColor)
+            {
                 foreColor = ForeColor;
+            }
             else
             {
                 if (!Enabled)
@@ -260,33 +286,49 @@ namespace ReaLTaiizor.Controls
                     if (Parent != null)
                     {
                         if (Parent is PoisonTile)
+                        {
                             foreColor = PoisonPaint.ForeColor.Tile.Disabled(Theme);
+                        }
                         else
+                        {
                             foreColor = PoisonPaint.ForeColor.Label.Normal(Theme);
+                        }
                     }
                     else
+                    {
                         foreColor = PoisonPaint.ForeColor.Label.Disabled(Theme);
+                    }
                 }
                 else
                 {
                     if (Parent != null)
                     {
                         if (Parent is PoisonTile)
+                        {
                             foreColor = PoisonPaint.ForeColor.Tile.Normal(Theme);
+                        }
                         else
                         {
                             if (useStyleColors)
+                            {
                                 foreColor = PoisonPaint.GetStyleColor(Style);
+                            }
                             else
+                            {
                                 foreColor = PoisonPaint.ForeColor.Label.Normal(Theme);
+                            }
                         }
                     }
                     else
                     {
                         if (useStyleColors)
+                        {
                             foreColor = PoisonPaint.GetStyleColor(Style);
+                        }
                         else
+                        {
                             foreColor = PoisonPaint.ForeColor.Label.Normal(Theme);
+                        }
                     }
                 }
             }
@@ -297,7 +339,9 @@ namespace ReaLTaiizor.Controls
                 UpdateBaseTextBox();
 
                 if (!baseTextBox.Visible)
+                {
                     TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Label(poisonLabelSize, poisonLabelWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
+                }
             }
             else
             {
@@ -314,7 +358,9 @@ namespace ReaLTaiizor.Controls
         public override void Refresh()
         {
             if (LabelMode == PoisonLabelModeType.Selectable)
+            {
                 UpdateBaseTextBox();
+            }
 
             base.Refresh();
         }
@@ -324,7 +370,7 @@ namespace ReaLTaiizor.Controls
             Size preferredSize;
             base.GetPreferredSize(proposedSize);
 
-            using (var g = CreateGraphics())
+            using (Graphics g = CreateGraphics())
             {
                 proposedSize = new Size(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.Label(poisonLabelSize, poisonLabelWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
@@ -342,7 +388,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             if (LabelMode == PoisonLabelModeType.Selectable)
+            {
                 HideBaseTextBox();
+            }
 
             base.OnResize(e);
         }
@@ -352,7 +400,9 @@ namespace ReaLTaiizor.Controls
             base.OnSizeChanged(e);
 
             if (LabelMode == PoisonLabelModeType.Selectable)
+            {
                 ShowBaseTextBox();
+            }
         }
 
         #endregion
@@ -371,8 +421,15 @@ namespace ReaLTaiizor.Controls
 
         private void CreateBaseTextBox()
         {
-            if (baseTextBox.Visible && !firstInitialization) return;
-            if (!firstInitialization) return;
+            if (baseTextBox.Visible && !firstInitialization)
+            {
+                return;
+            }
+
+            if (!firstInitialization)
+            {
+                return;
+            }
 
             firstInitialization = false;
 
@@ -406,18 +463,25 @@ namespace ReaLTaiizor.Controls
         private void parentForm_ResizeEnd(object sender, EventArgs e)
         {
             if (LabelMode == PoisonLabelModeType.Selectable)
+            {
                 ShowBaseTextBox();
+            }
         }
 
         private void parentForm_ResizeBegin(object sender, EventArgs e)
         {
             if (LabelMode == PoisonLabelModeType.Selectable)
+            {
                 HideBaseTextBox();
+            }
         }
 
         private void DestroyBaseTextbox()
         {
-            if (!baseTextBox.Visible) return;
+            if (!baseTextBox.Visible)
+            {
+                return;
+            }
 
             baseTextBox.DoubleClick -= BaseTextBoxOnDoubleClick;
             baseTextBox.Click -= BaseTextBoxOnClick;
@@ -426,36 +490,53 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateBaseTextBox()
         {
-            if (!baseTextBox.Visible) return;
+            if (!baseTextBox.Visible)
+            {
+                return;
+            }
 
             SuspendLayout();
             baseTextBox.SuspendLayout();
 
             if (useCustomBackColor)
+            {
                 baseTextBox.BackColor = BackColor;
+            }
             else
+            {
                 baseTextBox.BackColor = PoisonPaint.BackColor.Form(Theme);
+            }
 
             if (!Enabled)
             {
                 if (Parent != null)
                 {
                     if (Parent is PoisonTile)
+                    {
                         baseTextBox.ForeColor = PoisonPaint.ForeColor.Tile.Disabled(Theme);
+                    }
                     else
                     {
                         if (useStyleColors)
+                        {
                             baseTextBox.ForeColor = PoisonPaint.GetStyleColor(Style);
+                        }
                         else
+                        {
                             baseTextBox.ForeColor = PoisonPaint.ForeColor.Label.Disabled(Theme);
+                        }
                     }
                 }
                 else
                 {
                     if (useStyleColors)
+                    {
                         baseTextBox.ForeColor = PoisonPaint.GetStyleColor(Style);
+                    }
                     else
+                    {
                         baseTextBox.ForeColor = PoisonPaint.ForeColor.Label.Disabled(Theme);
+                    }
                 }
             }
             else
@@ -463,21 +544,31 @@ namespace ReaLTaiizor.Controls
                 if (Parent != null)
                 {
                     if (Parent is PoisonTile)
+                    {
                         baseTextBox.ForeColor = PoisonPaint.ForeColor.Tile.Normal(Theme);
+                    }
                     else
                     {
                         if (useStyleColors)
+                        {
                             baseTextBox.ForeColor = PoisonPaint.GetStyleColor(Style);
+                        }
                         else
+                        {
                             baseTextBox.ForeColor = PoisonPaint.ForeColor.Label.Normal(Theme);
+                        }
                     }
                 }
                 else
                 {
                     if (useStyleColors)
+                    {
                         baseTextBox.ForeColor = PoisonPaint.GetStyleColor(Style);
+                    }
                     else
+                    {
                         baseTextBox.ForeColor = PoisonPaint.ForeColor.Label.Normal(Theme);
+                    }
                 }
             }
 

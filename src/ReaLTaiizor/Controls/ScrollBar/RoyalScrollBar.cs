@@ -37,9 +37,13 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 0)
+                {
                     _value = 0;
+                }
                 else if (value > Max)
+                {
                     _value = Max;
+                }
                 else
                 {
                     _value = value;
@@ -67,16 +71,24 @@ namespace ReaLTaiizor.Controls
                 if (Orientation == Orientation.Vertical)
                 {
                     if (max > Height)
+                    {
                         thumbSize = (double)Height * ((double)Height / (double)max);
+                    }
                     else
+                    {
                         thumbSize = 0;
+                    }
                 }
                 else if (Orientation == Orientation.Horizontal)
                 {
                     if (max > Width)
+                    {
                         thumbSize = (double)Width * ((double)Width / (double)max);
+                    }
                     else
+                    {
                         thumbSize = 0;
+                    }
                 }
 
                 Refresh();
@@ -133,7 +145,9 @@ namespace ReaLTaiizor.Controls
         protected void DrawGutter(PaintEventArgs e)
         {
             if (Max > Height)
+            {
                 e.Graphics.FillRectangle(new SolidBrush(GutterColor), e.ClipRectangle);
+            }
         }
 
         protected void DrawThumb(PaintEventArgs e)
@@ -170,14 +184,18 @@ namespace ReaLTaiizor.Controls
                 Value -= SmallChange;
 
                 if (Value < Min)
+                {
                     Value = Min;
+                }
             }
             else if (e.Delta < 0)
             {
                 Value += SmallChange;
 
                 if (Value > Max)
+                {
                     Value = Max;
+                }
             }
 
             Refresh();
@@ -215,22 +233,32 @@ namespace ReaLTaiizor.Controls
             if (mouseRect.IntersectsWith(gutterRect))
             {
                 if (mouseRect.IntersectsWith(thumbRect))
+                {
                     thumbSelected = true;
+                }
                 else
                 {
                     if (Orientation == Orientation.Vertical)
                     {
                         if (mouseRect.Y < thumbRect.Top)
+                        {
                             Value -= largeChange;
+                        }
                         else if (mouseRect.Y > thumbRect.Bottom)
+                        {
                             Value += largeChange;
+                        }
                     }
                     else if (Orientation == Orientation.Horizontal)
                     {
                         if (mouseRect.X < thumbRect.Left)
+                        {
                             Value -= largeChange;
+                        }
                         else if (mouseRect.X > thumbRect.Right)
+                        {
                             Value += largeChange;
+                        }
                     }
                 }
             }

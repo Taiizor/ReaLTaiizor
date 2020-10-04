@@ -36,7 +36,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -44,7 +46,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -52,7 +56,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -63,12 +69,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -83,12 +96,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -144,9 +164,9 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
         //Additional variables to be used by HideTab and ShowTab
-        private List<string> tabDisable = new List<string>();
-        private List<string> tabOrder = new List<string>();
-        private List<HiddenTabs> hidTabs = new List<HiddenTabs>();
+        private readonly List<string> tabDisable = new List<string>();
+        private readonly List<string> tabOrder = new List<string>();
+        private readonly List<HiddenTabs> hidTabs = new List<HiddenTabs>();
 
         private SubClass scUpDown = null;
         private bool bUpDown = false;
@@ -193,7 +213,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (isMirrored == value)
+                {
                     return;
+                }
+
                 isMirrored = value;
                 UpdateStyles();
             }
@@ -216,7 +239,7 @@ namespace ReaLTaiizor.Controls
             );
 
             Padding = new Point(6, 8);
-            this.Selecting += PoisonTabControl_Selecting;
+            Selecting += PoisonTabControl_Selecting;
         }
 
         #endregion
@@ -230,7 +253,9 @@ namespace ReaLTaiizor.Controls
                 Color backColor = BackColor;
 
                 if (!useCustomBackColor)
+                {
                     backColor = PoisonPaint.BackColor.Form(Theme);
+                }
 
                 if (backColor.A == 255 && BackgroundImage == null)
                 {
@@ -253,7 +278,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -266,13 +293,17 @@ namespace ReaLTaiizor.Controls
 
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
-            for (var index = 0; index < TabPages.Count; index++)
+            for (int index = 0; index < TabPages.Count; index++)
             {
                 if (index != SelectedIndex)
+                {
                     DrawTab(index, e.Graphics);
+                }
             }
             if (SelectedIndex <= -1)
+            {
                 return;
+            }
 
             DrawTabBottomBorder(SelectedIndex, e.Graphics);
             DrawTab(SelectedIndex, e.Graphics);
@@ -317,7 +348,9 @@ namespace ReaLTaiizor.Controls
             Color backColor = BackColor;
 
             if (!useCustomBackColor)
+            {
                 backColor = PoisonPaint.BackColor.Form(Theme);
+            }
 
             System.Windows.Forms.TabPage tabPage = TabPages[index];
             Rectangle tabRect = GetTabRect(index);
@@ -329,20 +362,28 @@ namespace ReaLTaiizor.Controls
             else
             {
                 if (useCustomForeColor)
+                {
                     foreColor = DefaultForeColor;
+                }
                 else
+                {
                     foreColor = !useStyleColors ? PoisonPaint.ForeColor.TabControl.Normal(Theme) : PoisonPaint.GetStyleColor(Style);
+                }
             }
 
             if (index == 0)
+            {
                 tabRect.X = DisplayRectangle.X;
+            }
 
             Rectangle bgRect = tabRect;
 
             tabRect.Width += 20;
 
             using (Brush bgBrush = new SolidBrush(backColor))
+            {
                 graphics.FillRectangle(bgBrush, bgRect);
+            }
 
             TextRenderer.DrawText(graphics, tabPage.Text, PoisonFonts.TabControl(poisonLabelSize, poisonLabelWeight), tabRect, foreColor, backColor, PoisonPaint.GetTextFormatFlags(TextAlign));
         }
@@ -407,7 +448,9 @@ namespace ReaLTaiizor.Controls
             base.WndProc(ref m);
 
             if (!DesignMode)
+            {
                 WinApi.ShowScrollBar(Handle, (int)WinApi.ScrollBar.SB_BOTH, 0);
+            }
         }
 
         protected override CreateParams CreateParams
@@ -417,9 +460,12 @@ namespace ReaLTaiizor.Controls
             {
                 const int WS_EX_LAYOUTRTL = 0x400000;
                 const int WS_EX_NOINHERITLAYOUT = 0x100000;
-                var cp = base.CreateParams;
+                CreateParams cp = base.CreateParams;
                 if (isMirrored)
+                {
                     cp.ExStyle = cp.ExStyle | WS_EX_LAYOUTRTL | WS_EX_NOINHERITLAYOUT;
+                }
+
                 return cp;
             }
         }
@@ -427,7 +473,9 @@ namespace ReaLTaiizor.Controls
         private new Rectangle GetTabRect(int index)
         {
             if (index < 0)
+            {
                 return new Rectangle();
+            }
 
             Rectangle baseRect = base.GetTabRect(index);
             return baseRect;
@@ -463,7 +511,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            this.OnFontChanged(EventArgs.Empty);
+            OnFontChanged(EventArgs.Empty);
             FindUpDown();
         }
 
@@ -499,15 +547,17 @@ namespace ReaLTaiizor.Controls
         {
             base.OnFontChanged(e);
             IntPtr hFont = PoisonFonts.TabControl(poisonLabelSize, poisonLabelWeight).ToHfont();
-            SendMessage(this.Handle, WM_SETFONT, hFont, (IntPtr)(-1));
-            SendMessage(this.Handle, WM_FONTCHANGE, IntPtr.Zero, IntPtr.Zero);
-            this.UpdateStyles();
+            SendMessage(Handle, WM_SETFONT, hFont, (IntPtr)(-1));
+            SendMessage(Handle, WM_FONTCHANGE, IntPtr.Zero, IntPtr.Zero);
+            UpdateStyles();
         }
 
         private void PoisonTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (tabDisable.Count > 0 && tabDisable.Contains(e.TabPage.Name))
+            {
                 e.Cancel = true;
+            }
         }
         #endregion
 
@@ -536,8 +586,8 @@ namespace ReaLTaiizor.Controls
 
                         if (!bUpDown)
                         {
-                            this.scUpDown = new SubClass(pWnd, true);
-                            this.scUpDown.SubClassedWndProc += new SubClass.SubClassWndProcEventHandler(scUpDown_SubClassedWndProc);
+                            scUpDown = new SubClass(pWnd, true);
+                            scUpDown.SubClassedWndProc += new SubClass.SubClassWndProcEventHandler(scUpDown_SubClassedWndProc);
 
                             bUpDown = true;
                         }
@@ -548,7 +598,9 @@ namespace ReaLTaiizor.Controls
                 }
 
                 if ((!bFound) && (bUpDown))
+                {
                     bUpDown = false;
+                }
             }
         }
 
@@ -591,12 +643,12 @@ namespace ReaLTaiizor.Controls
         #region Additional Functions
         public void HideTab(PoisonTabPage tabpage)
         {
-            if (this.TabPages.Contains(tabpage))
+            if (TabPages.Contains(tabpage))
             {
-                int _tabid = this.TabPages.IndexOf(tabpage);
+                int _tabid = TabPages.IndexOf(tabpage);
 
                 hidTabs.Add(new HiddenTabs(_tabid, tabpage.Name));
-                this.TabPages.Remove(tabpage);
+                TabPages.Remove(tabpage);
             }
         }
 
@@ -612,7 +664,7 @@ namespace ReaLTaiizor.Controls
 
             if (result != null)
             {
-                this.TabPages.Insert(result.index, tabpage);
+                TabPages.Insert(result.index, tabpage);
                 hidTabs.Remove(result);
             }
         }
@@ -621,18 +673,22 @@ namespace ReaLTaiizor.Controls
         {
             if (!tabDisable.Contains(tabpage.Name))
             {
-                if (this.SelectedTab == tabpage && this.TabCount == 1) return;
-                if (this.SelectedTab == tabpage)
+                if (SelectedTab == tabpage && TabCount == 1)
                 {
-                    if (SelectedIndex == this.TabCount - 1)
+                    return;
+                }
+
+                if (SelectedTab == tabpage)
+                {
+                    if (SelectedIndex == TabCount - 1)
                     { SelectedIndex = 0; }
                     else { SelectedIndex++; }
                 }
 
-                int _tabid = this.TabPages.IndexOf(tabpage);
+                int _tabid = TabPages.IndexOf(tabpage);
 
                 tabDisable.Add(tabpage.Name);
-                Graphics e = this.CreateGraphics();
+                Graphics e = CreateGraphics();
                 DrawTab(_tabid, e);
                 DrawTabBottomBorder(SelectedIndex, e);
                 DrawTabSelected(SelectedIndex, e);
@@ -644,9 +700,9 @@ namespace ReaLTaiizor.Controls
             if (tabDisable.Contains(tabpage.Name))
             {
                 tabDisable.Remove(tabpage.Name);
-                int _tabid = this.TabPages.IndexOf(tabpage);
+                int _tabid = TabPages.IndexOf(tabpage);
 
-                Graphics e = this.CreateGraphics();
+                Graphics e = CreateGraphics();
                 DrawTab(_tabid, e);
                 DrawTabBottomBorder(SelectedIndex, e);
                 DrawTabSelected(SelectedIndex, e);

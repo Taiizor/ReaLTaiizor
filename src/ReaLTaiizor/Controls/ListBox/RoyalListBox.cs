@@ -14,14 +14,14 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalListBox : Control
     {
-        private RoyalScrollBar scrollBar;
-        private RoyalListBoxItemCollection items;
+        private readonly RoyalScrollBar scrollBar;
+        private readonly RoyalListBoxItemCollection items;
         public RoyalListBoxItemCollection Items => items;
 
-        private RoyalListBoxSelectedItemCollection selectedItems;
+        private readonly RoyalListBoxSelectedItemCollection selectedItems;
         public RoyalListBoxSelectedItemCollection SelectedItems => selectedItems;
 
-        private RoyalListBoxSelectedIndexCollection selectedIndicies;
+        private readonly RoyalListBoxSelectedIndexCollection selectedIndicies;
         public RoyalListBoxSelectedIndexCollection SelectedIndicies => selectedIndicies;
 
         private bool multiSelection;
@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
             set { multiSelection = value; Invalidate(); }
         }
 
-        private bool multiSelectKeyDown = false;
+        private readonly bool multiSelectKeyDown = false;
         private int itemHeight;
         public int ItemHeight
         {
@@ -111,7 +111,9 @@ namespace ReaLTaiizor.Controls
             int index = (scrollBar.Value / ItemHeight) + (p.Y / ItemHeight);
 
             if (index >= Items.Count)
+            {
                 index = -1;
+            }
 
             return index;
         }
@@ -188,7 +190,9 @@ namespace ReaLTaiizor.Controls
             string text = Items[e.Index].ToString();
 
             if (e.State == DrawItemState.HotLight)
+            {
                 backColor = RoyalColors.HotTrackColor;
+            }
             else if (e.State == DrawItemState.Selected)
             {
                 foreColor = RoyalColors.PressedForeColor;
@@ -206,10 +210,14 @@ namespace ReaLTaiizor.Controls
             int lastVisibleItem = (scrollBar.Value / ItemHeight) + (Height / ItemHeight) + 1;
 
             if (firstVisibleItem < 0)
+            {
                 firstVisibleItem = 0;
+            }
 
             if (lastVisibleItem > Items.Count)
+            {
                 lastVisibleItem = Items.Count;
+            }
 
             for (int i = firstVisibleItem; i < lastVisibleItem; i++)
             {
@@ -218,16 +226,24 @@ namespace ReaLTaiizor.Controls
                 if (multiSelection && selectedIndicies.Count > 0)
                 {
                     if (i == HotLightedIndex && !selectedIndicies.Contains(i))
+                    {
                         state = DrawItemState.HotLight;
+                    }
                     else if (selectedIndicies.Contains(i))
+                    {
                         state = DrawItemState.Selected;
+                    }
                 }
                 else
                 {
                     if (i == HotLightedIndex && i != SelectedIndex)
+                    {
                         state = DrawItemState.HotLight;
+                    }
                     else if (i == SelectedIndex)
+                    {
                         state = DrawItemState.Selected;
+                    }
                 }
 
                 Rectangle rect = new Rectangle(0, ((i - firstVisibleItem) * ItemHeight), Width, ItemHeight);

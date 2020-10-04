@@ -31,7 +31,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -39,7 +41,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -47,7 +51,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -58,12 +64,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -78,12 +91,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -150,24 +170,37 @@ namespace ReaLTaiizor.Controls
             if (oldValue != newValue)
             {
                 if (ValueChanged != null)
+                {
                     ValueChanged(this, curValue);
+                }
             }
 
-            if (Scroll == null) return;
+            if (Scroll == null)
+            {
+                return;
+            }
 
             if (orientation == ScrollOrientation.HorizontalScroll)
             {
                 if (type != ScrollEventType.EndScroll && isFirstScrollEventHorizontal)
+                {
                     type = ScrollEventType.First;
+                }
                 else if (!isFirstScrollEventHorizontal && type == ScrollEventType.EndScroll)
+                {
                     isFirstScrollEventHorizontal = true;
+                }
             }
             else
             {
                 if (type != ScrollEventType.EndScroll && isFirstScrollEventVertical)
+                {
                     type = ScrollEventType.First;
+                }
                 else if (!isFirstScrollEventHorizontal && type == ScrollEventType.EndScroll)
+                {
                     isFirstScrollEventVertical = true;
+                }
             }
 
             Scroll(this, new ScrollEventArgs(type, oldValue, newValue, orientation));
@@ -209,9 +242,13 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > 0)
+                {
                     mouseWheelBarPartitions = value;
+                }
                 else
+                {
                     throw new ArgumentOutOfRangeException("value", "MouseWheelBarPartitions has to be greather than zero");
+                }
             }
         }
 
@@ -234,9 +271,13 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (Orientation == ScrollOrientationType.Vertical)
+                {
                     Width = value;
+                }
                 else
+                {
                     Height = value;
+                }
             }
         }
 
@@ -259,14 +300,20 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == poisonOrientation)
+                {
                     return;
+                }
 
                 poisonOrientation = value;
 
                 if (value == ScrollOrientationType.Vertical)
+                {
                     scrollOrientation = ScrollOrientation.VerticalScroll;
+                }
                 else
+                {
                     scrollOrientation = ScrollOrientation.HorizontalScroll;
+                }
 
                 Size = new Size(Height, Width);
                 SetupScrollBar();
@@ -285,14 +332,20 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (minimum == value || value < 0 || value >= maximum)
+                {
                     return;
+                }
 
                 minimum = value;
                 if (curValue < value)
+                {
                     curValue = value;
+                }
 
                 if (largeChange > (maximum - minimum))
+                {
                     largeChange = maximum - minimum;
+                }
 
                 SetupScrollBar();
 
@@ -315,11 +368,15 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == maximum || value < 1 || value <= minimum)
+                {
                     return;
+                }
 
                 maximum = value;
                 if (largeChange > (maximum - minimum))
+                {
                     largeChange = maximum - minimum;
+                }
 
                 SetupScrollBar();
 
@@ -343,7 +400,9 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == smallChange || value < 1 || value >= largeChange)
+                {
                     return;
+                }
 
                 smallChange = value;
                 SetupScrollBar();
@@ -357,12 +416,18 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == largeChange || value < smallChange || value < 2)
+                {
                     return;
+                }
 
                 if (value > (maximum - minimum))
+                {
                     largeChange = maximum - minimum;
+                }
                 else
+                {
                     largeChange = value;
+                }
 
                 SetupScrollBar();
             }
@@ -386,7 +451,9 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (curValue == value || value < minimum || value > maximum)
+                {
                     return;
+                }
 
                 curValue = value;
 
@@ -397,7 +464,9 @@ namespace ReaLTaiizor.Controls
                 if (!dontUpdateColor && highlightOnWheel)
                 {
                     if (!isHovered)
+                    {
                         isHovered = true;
+                    }
 
                     if (autoHoverTimer == null)
                     {
@@ -415,7 +484,9 @@ namespace ReaLTaiizor.Controls
                     }
                 }
                 else
+                {
                     dontUpdateColor = false;
+                }
 
                 Refresh();
             }
@@ -505,12 +576,18 @@ namespace ReaLTaiizor.Controls
                     if (Parent != null)
                     {
                         if (Parent is IPoisonControl)
+                        {
                             backColor = PoisonPaint.BackColor.Form(Theme);
+                        }
                         else
+                        {
                             backColor = Parent.BackColor;
+                        }
                     }
                     else
+                    {
                         backColor = PoisonPaint.BackColor.Form(Theme);
+                    }
                 }
 
                 if (backColor.A == 255)
@@ -534,7 +611,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -550,18 +629,26 @@ namespace ReaLTaiizor.Controls
             Color backColor, thumbColor, barColor;
 
             if (useCustomBackColor)
+            {
                 backColor = BackColor;
+            }
             else
             {
                 if (Parent != null)
                 {
                     if (Parent is IPoisonControl)
+                    {
                         backColor = PoisonPaint.BackColor.Form(Theme);
+                    }
                     else
+                    {
                         backColor = Parent.BackColor;
+                    }
                 }
                 else
+                {
                     backColor = PoisonPaint.BackColor.Form(Theme);
+                }
             }
 
             if (isHovered && !isPressed && Enabled)
@@ -594,18 +681,22 @@ namespace ReaLTaiizor.Controls
         {
             if (useBarColor)
             {
-                using (var b = new SolidBrush(barColor))
+                using (SolidBrush b = new SolidBrush(barColor))
+                {
                     g.FillRectangle(b, ClientRectangle);
+                }
             }
 
-            using (var b = new SolidBrush(backColor))
+            using (SolidBrush b = new SolidBrush(backColor))
             {
-                var thumbRect = new Rectangle(thumbRectangle.X - 1, thumbRectangle.Y - 1, thumbRectangle.Width + 2, thumbRectangle.Height + 2);
+                Rectangle thumbRect = new Rectangle(thumbRectangle.X - 1, thumbRectangle.Y - 1, thumbRectangle.Width + 2, thumbRectangle.Height + 2);
                 g.FillRectangle(b, thumbRect);
             }
 
-            using (var b = new SolidBrush(thumbColor))
+            using (SolidBrush b = new SolidBrush(thumbColor))
+            {
                 g.FillRectangle(b, thumbRectangle);
+            }
         }
 
         #endregion
@@ -655,9 +746,13 @@ namespace ReaLTaiizor.Controls
             int v = e.Delta / 120 * (maximum - minimum) / mouseWheelBarPartitions;
 
             if (Orientation == ScrollOrientationType.Vertical)
+            {
                 Value -= v;
+            }
             else
+            {
                 Value += v;
+            }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -674,7 +769,7 @@ namespace ReaLTaiizor.Controls
 
             if (e.Button == MouseButtons.Left)
             {
-                var mouseLocation = e.Location;
+                Point mouseLocation = e.Location;
 
                 if (thumbRectangle.Contains(mouseLocation))
                 {
@@ -688,15 +783,21 @@ namespace ReaLTaiizor.Controls
                     trackPosition = poisonOrientation == ScrollOrientationType.Vertical ? mouseLocation.Y : mouseLocation.X;
 
                     if (trackPosition < (poisonOrientation == ScrollOrientationType.Vertical ? thumbRectangle.Y : thumbRectangle.X))
+                    {
                         topBarClicked = true;
+                    }
                     else
+                    {
                         bottomBarClicked = true;
+                    }
 
                     ProgressThumb(true);
                 }
             }
             else if (e.Button == MouseButtons.Right)
+            {
                 trackPosition = poisonOrientation == ScrollOrientationType.Vertical ? e.Y : e.X;
+            }
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -790,7 +891,9 @@ namespace ReaLTaiizor.Controls
                         float perc = 0f;
 
                         if (pixelRange != 0)
+                        {
                             perc = (thumbPos) / (float)pixelRange;
+                        }
 
                         curValue = Convert.ToInt32((perc * (maximum - minimum)) + minimum);
                     }
@@ -803,13 +906,19 @@ namespace ReaLTaiizor.Controls
                 }
             }
             else if (!ClientRectangle.Contains(e.Location))
+            {
                 ResetScrollStatus();
+            }
             else if (e.Button == MouseButtons.None)
             {
                 if (thumbRectangle.Contains(e.Location))
+                {
                     Invalidate(thumbRectangle);
+                }
                 else if (ClientRectangle.Contains(e.Location))
+                {
                     Invalidate();
+                }
             }
         }
 
@@ -844,7 +953,9 @@ namespace ReaLTaiizor.Controls
             base.SetBoundsCore(x, y, width, height, specified);
 
             if (DesignMode)
+            {
                 SetupScrollBar();
+            }
         }
 
         protected override void OnSizeChanged(EventArgs e)
@@ -855,8 +966,8 @@ namespace ReaLTaiizor.Controls
 
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            var keyUp = Keys.Up;
-            var keyDown = Keys.Down;
+            Keys keyUp = Keys.Up;
+            Keys keyDown = Keys.Down;
 
             if (Orientation == ScrollOrientationType.Horizontal)
             {
@@ -888,9 +999,13 @@ namespace ReaLTaiizor.Controls
             if (keyData == Keys.PageDown)
             {
                 if (curValue + largeChange > maximum)
+                {
                     Value = maximum;
+                }
                 else
+                {
                     Value += largeChange;
+                }
 
                 return true;
             }
@@ -920,7 +1035,10 @@ namespace ReaLTaiizor.Controls
 
         private void SetupScrollBar()
         {
-            if (inUpdate) return;
+            if (inUpdate)
+            {
+                return;
+            }
 
             if (Orientation == ScrollOrientationType.Vertical)
             {
@@ -980,14 +1098,18 @@ namespace ReaLTaiizor.Controls
                 newValue = curValue - (smallIncrement ? smallChange : largeChange);
 
                 if (newValue < minimum)
+                {
                     newValue = minimum;
+                }
             }
             else
             {
                 newValue = curValue + (smallIncrement ? smallChange : largeChange);
 
                 if (newValue > maximum)
+                {
                     newValue = maximum;
+                }
             }
 
             return newValue;
@@ -1005,15 +1127,21 @@ namespace ReaLTaiizor.Controls
             int thumbSize = poisonOrientation == ScrollOrientationType.Vertical ? (thumbPosition / Height) / thumbHeight : (thumbPosition / Width) / thumbWidth;
 
             if (Orientation == ScrollOrientationType.Vertical)
+            {
                 pixelRange = Height - thumbSize;
+            }
             else
+            {
                 pixelRange = Width - thumbSize;
+            }
 
             int realRange = maximum - minimum;
             float perc = 0f;
 
             if (realRange != 0)
+            {
                 perc = (curValue - (float)minimum) / realRange;
+            }
 
             return Math.Max(thumbTopLimit, Math.Min(thumbBottomLimitTop, Convert.ToInt32((perc * pixelRange))));
         }
@@ -1025,7 +1153,9 @@ namespace ReaLTaiizor.Controls
                     Height : Width;
 
             if (maximum == 0 || largeChange == 0)
+            {
                 return trackSize;
+            }
 
             float newThumbSize = (largeChange * (float)trackSize) / maximum;
 
@@ -1040,7 +1170,9 @@ namespace ReaLTaiizor.Controls
                 progressTimer.Start();
             }
             else
+            {
                 progressTimer.Interval = 10;
+            }
         }
 
         private void StopTimer()
@@ -1051,15 +1183,19 @@ namespace ReaLTaiizor.Controls
         private void ChangeThumbPosition(int position)
         {
             if (Orientation == ScrollOrientationType.Vertical)
+            {
                 thumbRectangle.Y = position;
+            }
             else
+            {
                 thumbRectangle.X = position;
+            }
         }
 
         private void ProgressThumb(bool enableTimer)
         {
             int scrollOldValue = curValue;
-            var type = ScrollEventType.First;
+            ScrollEventType type = ScrollEventType.First;
             int thumbSize, thumbPos;
 
             if (Orientation == ScrollOrientationType.Vertical)
@@ -1086,7 +1222,9 @@ namespace ReaLTaiizor.Controls
                     type = ScrollEventType.Last;
                 }
                 else
+                {
                     ChangeThumbPosition(Math.Min(thumbBottomLimitTop, GetThumbPosition()));
+                }
             }
             else if (topBarClicked && thumbPos > trackPosition)
             {
@@ -1101,7 +1239,9 @@ namespace ReaLTaiizor.Controls
                     type = ScrollEventType.First;
                 }
                 else
+                {
                     ChangeThumbPosition(Math.Max(thumbTopLimit, GetThumbPosition()));
+                }
             }
 
             if (scrollOldValue != curValue)
@@ -1111,7 +1251,9 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
 
                 if (enableTimer)
+                {
                     EnableTimer();
+                }
             }
         }
 

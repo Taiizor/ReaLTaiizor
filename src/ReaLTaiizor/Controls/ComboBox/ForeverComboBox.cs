@@ -58,9 +58,13 @@ namespace ReaLTaiizor.Controls
             y = e.Location.Y;
             Invalidate();
             if (e.X < Width - 41)
+            {
                 Cursor = Cursors.Default; //Cursors.IBeam
+            }
             else
+            {
                 Cursor = Cursors.Hand;
+            }
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)
@@ -128,7 +132,10 @@ namespace ReaLTaiizor.Controls
         public void DrawItem_(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0)
+            {
                 return;
+            }
+
             e.DrawBackground();
             e.DrawFocusRectangle();
 
@@ -192,7 +199,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath GP = new GraphicsPath();
             GraphicsPath GP2 = new GraphicsPath();
 
-            var _with16 = G;
+            Graphics _with16 = G;
             _with16.Clear(Color.FromArgb(45, 45, 48));
             _with16.SmoothingMode = SmoothingMode.HighQuality;
             _with16.PixelOffsetMode = PixelOffsetMode.HighQuality;

@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
 
         #region " Control Help - Properties & Flicker Control "
         private int OFS = 0;
-        private int Speed = 50;
+        private readonly int Speed = 50;
 
         private int _Maximum = 100;
         public int Maximum
@@ -78,9 +78,14 @@ namespace ReaLTaiizor.Controls
             while (true)
             {
                 if (OFS <= Width)
+                {
                     OFS += 1;
+                }
                 else
+                {
                     OFS = 0;
+                }
+
                 Invalidate();
                 Thread.Sleep(Speed);
             }
@@ -269,7 +274,9 @@ namespace ReaLTaiizor.Controls
             G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
 
             if (ShowEdge)
+            {
                 G.DrawPath(new Pen(EdgeColor), DrawRibbon.RoundRect(new Rectangle(0, 1, Width - 1, Height - 3), 2));
+            }
 
             G.DrawPath(new Pen(BorderColor), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
 

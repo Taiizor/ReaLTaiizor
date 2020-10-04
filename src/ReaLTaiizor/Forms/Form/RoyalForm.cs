@@ -92,9 +92,13 @@ namespace ReaLTaiizor.Forms
             closeButton.Location = new Point(Width - 34, 1);
             maximizeButton.Location = new Point(Width - 68, 1);
             if (MaximizeBox)
+            {
                 minimizeButton.Location = new Point(Width - 102, 1);
+            }
             else
+            {
                 minimizeButton.Location = new Point(Width - 68, 1);
+            }
 
             base.OnResize(e);
         }
@@ -104,7 +108,9 @@ namespace ReaLTaiizor.Forms
             base.OnPaint(e);
 
             if (DrawBorder)
+            {
                 e.Graphics.DrawRectangle(new Pen(RoyalColors.BorderColor, BorderThickness), new Rectangle(0, 0, Width - BorderThickness, Height - BorderThickness));
+            }
         }
 
         protected override void WndProc(ref Message m)
@@ -176,7 +182,9 @@ namespace ReaLTaiizor.Forms
                 if (Moveable)
                 {
                     if ((int)m.Result == HTCLIENT)
+                    {
                         m.Result = new IntPtr(HTCAPTION);
+                    }
                 }
             }
 
@@ -191,21 +199,33 @@ namespace ReaLTaiizor.Forms
                 closeButton.Show();
 
                 if (MinimizeBox)
+                {
                     minimizeButton.Show();
+                }
 
                 if (MaximizeBox)
+                {
                     maximizeButton.Show();
+                }
             }
 
             if (Visible && !MinimizeBox && minimizeButton.Visible)
+            {
                 minimizeButton.Hide();
+            }
             else if (Visible && MinimizeBox && !minimizeButton.Visible && ControlBox)
+            {
                 minimizeButton.Show();
+            }
 
             if (Visible && !MaximizeBox && maximizeButton.Visible)
+            {
                 maximizeButton.Hide();
+            }
             else if (Visible && MaximizeBox && !maximizeButton.Visible && ControlBox)
+            {
                 maximizeButton.Show();
+            }
         }
 
         private void InitializeComponent()
@@ -296,9 +316,13 @@ namespace ReaLTaiizor.Forms
         private void MaximizeButton_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Maximized)
+            {
                 WindowState = FormWindowState.Normal;
+            }
             else
+            {
                 WindowState = FormWindowState.Maximized;
+            }
         }
 
         private void MinimizeButton_Click(object sender, EventArgs e)

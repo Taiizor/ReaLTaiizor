@@ -15,7 +15,7 @@ namespace ReaLTaiizor.Controls
 
     public class ForeverTreeView : TreeView
     {
-        private TreeNodeStates State;
+        private readonly TreeNodeStates State;
 
         protected override void OnDrawNode(DrawTreeNodeEventArgs e)
         {
@@ -51,8 +51,8 @@ namespace ReaLTaiizor.Controls
             base.OnDrawNode(e);
         }
 
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _LineColor = Color.FromArgb(25, 27, 29);
+        private readonly Color _BaseColor = Color.FromArgb(45, 47, 49);
+        private readonly Color _LineColor = Color.FromArgb(25, 27, 29);
 
         public ForeverTreeView()
         {
@@ -74,7 +74,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(0, 0, Width, Height);
 
-            var _with22 = G;
+            Graphics _with22 = G;
             _with22.SmoothingMode = SmoothingMode.HighQuality;
             _with22.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with22.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

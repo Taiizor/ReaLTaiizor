@@ -33,9 +33,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
             if (Parent.FindForm().WindowState == FormWindowState.Normal)
+            {
                 Text = "+";
+            }
             else if (Parent.FindForm().WindowState == FormWindowState.Maximized)
+            {
                 Text = "-";
+            }
         }
 
         private Color C1; // Set up Simple Colors
@@ -67,9 +71,13 @@ namespace ReaLTaiizor.Controls
             { // Used to see if button is Hovered over
                 DrawGradient(C1, C2, ClientRectangle, 90f); // if button is hovered over
                 if (Parent.FindForm().WindowState == FormWindowState.Normal)
+                {
                     Text = "+";
+                }
                 else if (Parent.FindForm().WindowState == FormWindowState.Maximized)
+                {
                     Text = "-";
+                }
             }
             else if (State == MouseStateSpace.Down)
             {
@@ -90,11 +98,19 @@ namespace ReaLTaiizor.Controls
                 }
             }
             else
+            {
                 DrawGradient(C3, C4, ClientRectangle, 90f); // else change the shading
+            }
+
             if (Parent.FindForm().WindowState == FormWindowState.Maximized)
+            {
                 DrawText(B1, HorizontalAlignment.Left, 7, 1); // Draw the Text Smack dab in the middle of the button
+            }
             else
+            {
                 DrawText(B1, HorizontalAlignment.Center, 0, 0); // Draw the Text Smack dab in the middle of the button
+            }
+
             DrawBorders(P1, 1); // Create the Inner Border
             DrawBorders(P2); // Create the Outer Border
             DrawCorners(BackColor); // Draw the Corners

@@ -97,7 +97,9 @@ namespace ReaLTaiizor.Child.Metro
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -168,8 +170,10 @@ namespace ReaLTaiizor.Child.Metro
         {
             Graphics g = e.Graphics;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            using (var bg = new SolidBrush(BaseColor))
+            using (SolidBrush bg = new SolidBrush(BaseColor))
+            {
                 g.FillRectangle(bg, ClientRectangle);
+            }
         }
 
         #endregion

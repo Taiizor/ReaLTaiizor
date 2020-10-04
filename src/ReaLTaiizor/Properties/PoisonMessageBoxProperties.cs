@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Properties
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private PoisonMessageBoxControl _owner = null;
+        private readonly PoisonMessageBoxControl _owner = null;
 
         public PoisonMessageBoxControl Owner => _owner;
 

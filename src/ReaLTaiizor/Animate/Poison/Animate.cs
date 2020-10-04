@@ -19,7 +19,9 @@ namespace ReaLTaiizor.Animate.Poison
         private void OnAnimationCompleted()
         {
             if (AnimationCompleted != null)
+            {
                 AnimationCompleted(this, EventArgs.Empty);
+            }
         }
 
         private DelayedCall timer;
@@ -38,7 +40,9 @@ namespace ReaLTaiizor.Animate.Poison
             get
             {
                 if (timer != null)
+                {
                     return !timer.IsWaiting;
+                }
 
                 return true;
             }
@@ -48,7 +52,9 @@ namespace ReaLTaiizor.Animate.Poison
             get
             {
                 if (timer != null)
+                {
                     return timer.IsWaiting;
+                }
 
                 return false;
             }
@@ -57,7 +63,9 @@ namespace ReaLTaiizor.Animate.Poison
         public void Cancel()
         {
             if (IsRunning)
+            {
                 timer.Cancel();
+            }
         }
 
         protected void Start(Control control, TransitionType transitionType, int duration, AnimationAction actionHandler)
@@ -66,14 +74,14 @@ namespace ReaLTaiizor.Animate.Poison
         }
         protected void Start(Control control, TransitionType transitionType, int duration, AnimationAction actionHandler, AnimationFinishedEvaluator evaluatorHandler)
         {
-            this.targetControl = control;
+            targetControl = control;
             this.transitionType = transitionType;
             this.actionHandler = actionHandler;
             this.evaluatorHandler = evaluatorHandler;
 
-            this.counter = 0;
-            this.startTime = 0;
-            this.targetTime = duration;
+            counter = 0;
+            startTime = 0;
+            targetTime = duration;
 
             timer = DelayedCall.Start(DoAnimation, duration);
         }
@@ -81,7 +89,9 @@ namespace ReaLTaiizor.Animate.Poison
         private void DoAnimation()
         {
             if (evaluatorHandler == null || evaluatorHandler.Invoke())
+            {
                 OnAnimationCompleted();
+            }
             else
             {
                 actionHandler.Invoke();

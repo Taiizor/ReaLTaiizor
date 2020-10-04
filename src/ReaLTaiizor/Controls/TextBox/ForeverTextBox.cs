@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
         private int W;
         private int H;
         private MouseStateForever State = MouseStateForever.None;
-        private System.Windows.Forms.TextBox TB;
+        private readonly System.Windows.Forms.TextBox TB;
 
         private HorizontalAlignment _TextAlign = HorizontalAlignment.Left;
 
@@ -33,7 +33,9 @@ namespace ReaLTaiizor.Controls
             {
                 _TextAlign = value;
                 if (TB != null)
+                {
                     TB.TextAlign = value;
+                }
             }
         }
 
@@ -46,7 +48,9 @@ namespace ReaLTaiizor.Controls
             {
                 _MaxLength = value;
                 if (TB != null)
+                {
                     TB.MaxLength = value;
+                }
             }
         }
 
@@ -59,7 +63,9 @@ namespace ReaLTaiizor.Controls
             {
                 _ReadOnly = value;
                 if (TB != null)
+                {
                     TB.ReadOnly = value;
+                }
             }
         }
 
@@ -72,7 +78,9 @@ namespace ReaLTaiizor.Controls
             {
                 _UseSystemPasswordChar = value;
                 if (TB != null)
+                {
                     TB.UseSystemPasswordChar = value;
+                }
             }
         }
 
@@ -89,9 +97,13 @@ namespace ReaLTaiizor.Controls
                     TB.Multiline = value;
 
                     if (value)
+                    {
                         TB.Height = Height - 11;
+                    }
                     else
+                    {
                         Height = TB.Height + 11;
+                    }
                 }
             }
         }
@@ -112,7 +124,9 @@ namespace ReaLTaiizor.Controls
             {
                 base.Text = value;
                 if (TB != null)
+                {
                     TB.Text = value;
+                }
             }
         }
 
@@ -130,7 +144,9 @@ namespace ReaLTaiizor.Controls
                     TB.Width = Width - 6;
 
                     if (!_Multiline)
+                    {
                         Height = TB.Height + 11;
+                    }
                 }
             }
         }
@@ -139,7 +155,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
             if (!Controls.Contains(TB))
+            {
                 Controls.Add(TB);
+            }
         }
 
         private void OnBaseTextChanged(object s, EventArgs e)
@@ -167,9 +185,13 @@ namespace ReaLTaiizor.Controls
             TB.Width = Width - 10;
 
             if (_Multiline)
+            {
                 TB.Height = Height - 11;
+            }
             else
+            {
                 Height = TB.Height + 11;
+            }
 
             base.OnResize(e);
         }
@@ -210,7 +232,10 @@ namespace ReaLTaiizor.Controls
             base.OnMouseEnter(e);
             State = MouseStateForever.Over;
             if (FocusOnHover)
+            {
                 TB.Focus();
+            }
+
             Invalidate();
         }
 
@@ -246,9 +271,14 @@ namespace ReaLTaiizor.Controls
             };
 
             if (_Multiline)
+            {
                 TB.Height = Height - 11;
+            }
             else
+            {
                 Height = TB.Height + 11;
+            }
+
             Width = 103;
 
             TB.TextChanged += OnBaseTextChanged;
@@ -268,7 +298,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(1, 1, W, H);
 
-            var _with12 = G;
+            Graphics _with12 = G;
             _with12.SmoothingMode = SmoothingMode.HighQuality;
             _with12.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with12.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

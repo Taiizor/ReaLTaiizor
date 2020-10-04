@@ -170,7 +170,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -204,7 +206,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ListBoxDictionary)
+                    {
+                        foreach (KeyValuePair<string, object> varkey in StyleManager.ListBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -239,6 +242,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -257,34 +262,34 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            var mainRect = new Rectangle(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
+            Rectangle mainRect = new Rectangle(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
 
-            using (var bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
             {
-                using (var usic = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                using (SolidBrush usic = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
                 {
-                    using (var sic = new SolidBrush(SelectedItemColor))
+                    using (SolidBrush sic = new SolidBrush(SelectedItemColor))
                     {
-                        using (var sibc = new SolidBrush(SelectedItemBackColor))
+                        using (SolidBrush sibc = new SolidBrush(SelectedItemBackColor))
                         {
-                            using (var hic = new SolidBrush(HoveredItemColor))
+                            using (SolidBrush hic = new SolidBrush(HoveredItemColor))
                             {
-                                using (var hibc = new SolidBrush(HoveredItemBackColor))
+                                using (SolidBrush hibc = new SolidBrush(HoveredItemBackColor))
                                 {
-                                    using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
+                                    using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
                                     {
-                                        var firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
-                                        var lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
+                                        int firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
+                                        int lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
 
                                         g.FillRectangle(bg, mainRect);
 
-                                        for (var i = firstItem; i < lastItem; i++)
+                                        for (int i = firstItem; i < lastItem; i++)
                                         {
-                                            var itemText = (string)Items[i];
+                                            string itemText = (string)Items[i];
 
-                                            var rect = new Rectangle(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
+                                            Rectangle rect = new Rectangle(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
                                             g.DrawString(itemText, Font, usic, rect, sf);
                                             if (MultiSelect && _indicates.Count != 0)
                                             {
@@ -315,7 +320,9 @@ namespace ReaLTaiizor.Controls
 
                                         }
                                         if (ShowBorder)
+                                        {
                                             g.DrawRectangle(Pens.LightGray, mainRect);
+                                        }
                                     }
                                 }
                             }
@@ -404,7 +411,9 @@ namespace ReaLTaiizor.Controls
                 _multiSelect = value;
 
                 if (_selectedItems.Count > 1)
+                {
                     _selectedItems.RemoveRange(1, _selectedItems.Count - 1);
+                }
 
                 Invalidate();
             }
@@ -548,8 +557,11 @@ namespace ReaLTaiizor.Controls
 
         public void AddItems(string[] newItems)
         {
-            foreach (var str in newItems)
+            foreach (string str in newItems)
+            {
                 AddItem(str);
+            }
+
             InvalidateScroll(this, null);
         }
 
@@ -577,15 +589,21 @@ namespace ReaLTaiizor.Controls
 
         public void RemoveItems(string[] itemsToRemove)
         {
-            foreach (var item in itemsToRemove)
+            foreach (string item in itemsToRemove)
+            {
                 _items.Remove(item);
+            }
+
             InvalidateScroll(this, null);
         }
 
         public void Clear()
         {
-            for (var i = _items.Count - 1; i >= 0; i += -1)
+            for (int i = _items.Count - 1; i >= 0; i += -1)
+            {
                 _items.RemoveAt(i);
+            }
+
             InvalidateScroll(this, null);
         }
 
@@ -613,7 +631,7 @@ namespace ReaLTaiizor.Controls
             Focus();
             if (e.Button == MouseButtons.Left)
             {
-                var index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
+                int index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
                 if (index >= 0 && index < _items.Count)
                 {
                     if (MultiSelect && _multiKeyDown)
@@ -705,13 +723,18 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseMove(e);
             Cursor = Cursors.Hand;
-            var index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
+            int index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
 
             if (index >= Items.Count)
+            {
                 index = -1;
+            }
 
             if (index >= 0 && index < Items.Count)
+            {
                 _hoveredItem = index;
+            }
+
             Invalidate();
         }
 

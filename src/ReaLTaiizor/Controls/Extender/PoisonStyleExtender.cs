@@ -38,12 +38,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -85,7 +92,9 @@ namespace ReaLTaiizor.Controls
         public PoisonStyleExtender(IContainer parent) : this()
         {
             if (parent != null)
+            {
                 parent.Add(this);
+            }
         }
 
         #endregion
@@ -136,17 +145,23 @@ namespace ReaLTaiizor.Controls
         public void SetApplyPoisonTheme(Control control, bool value)
         {
             if (control == null)
+            {
                 return;
+            }
 
             if (extendedControls.Contains(control))
             {
                 if (!value)
+                {
                     extendedControls.Remove(control);
+                }
             }
             else
             {
                 if (value)
+                {
                     extendedControls.Add(control);
+                }
             }
         }
 

@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         private HorizontalAlignment ALNType;
         private bool isPasswordMasked = false;
         private Pen P1;
-        private SolidBrush B1;
+        private readonly SolidBrush B1;
         private GraphicsPath Shape;
 
         #endregion
@@ -69,7 +69,9 @@ namespace ReaLTaiizor.Controls
             {
                 _ReadOnly = value;
                 if (ReaLTaiizorTB != null)
+                {
                     ReaLTaiizorTB.ReadOnly = value;
+                }
             }
         }
         public bool Multiline
@@ -83,9 +85,13 @@ namespace ReaLTaiizor.Controls
                     ReaLTaiizorTB.Multiline = value;
 
                     if (value)
+                    {
                         ReaLTaiizorTB.Height = Height - 23;
+                    }
                     else
+                    {
                         Height = ReaLTaiizorTB.Height + 23;
+                    }
                 }
             }
         }
@@ -96,16 +102,25 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
 
                 if (Image == null)
+                {
                     ReaLTaiizorTB.Location = new Point(8, 10);
+                }
                 else
+                {
                     ReaLTaiizorTB.Location = new Point(35, 11);
+                }
+
                 Invalidate();
             }
         }
@@ -175,9 +190,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             if (_Multiline)
+            {
                 ReaLTaiizorTB.Height = Height - 23;
+            }
             else
+            {
                 Height = ReaLTaiizorTB.Height + 23;
+            }
 
             Shape = new GraphicsPath();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
@@ -208,7 +227,7 @@ namespace ReaLTaiizor.Controls
         public void AddTextBox()
         {
             ReaLTaiizorTB.Location = new Point(8, 10);
-            ReaLTaiizorTB.Text = String.Empty;
+            ReaLTaiizorTB.Text = string.Empty;
             ReaLTaiizorTB.BorderStyle = BorderStyle.None;
             ReaLTaiizorTB.TextAlign = HorizontalAlignment.Left;
             ReaLTaiizorTB.Font = Font;
@@ -252,9 +271,13 @@ namespace ReaLTaiizor.Controls
 
 
             if (Image == null)
+            {
                 ReaLTaiizorTB.Width = Width - 18;
+            }
             else
+            {
                 ReaLTaiizorTB.Width = Width - 45;
+            }
 
             ReaLTaiizorTB.TextAlign = TextAlignment;
             ReaLTaiizorTB.UseSystemPasswordChar = UseSystemPasswordChar;

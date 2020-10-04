@@ -69,23 +69,27 @@ namespace ReaLTaiizor.Forms
             e.Graphics.InterpolationMode = InterpolationMode.High;
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
 
-            using (var b = new SolidBrush(BackgroundColor))
+            using (SolidBrush b = new SolidBrush(BackgroundColor))
             {
                 e.Graphics.FillRectangle(b, new Rectangle(0, 0, Width, Height));
                 if (BackgroundImage != null)
+                {
                     _mth.DrawImageWithTransparency(e.Graphics, BackgroundImageTransparency, BackgroundImage, ClientRectangle);
+                }
             }
             if (ShowBorder)
             {
-                using (var p = new Pen(BorderColor, BorderThickness))
+                using (Pen p = new Pen(BorderColor, BorderThickness))
+                {
                     e.Graphics.DrawRectangle(p, new Rectangle(0, 0, Width - 1, Height - 1));
+                }
             }
 
             if (ShowLeftRect)
             {
-                using (var b = new LinearGradientBrush(new Rectangle(0, 25, SmallRectThickness, 35), SmallLineColor1, SmallLineColor2, 90))
+                using (LinearGradientBrush b = new LinearGradientBrush(new Rectangle(0, 25, SmallRectThickness, 35), SmallLineColor1, SmallLineColor2, 90))
                 {
-                    using (var textBrush = new SolidBrush(TextColor))
+                    using (SolidBrush textBrush = new SolidBrush(TextColor))
                     {
                         e.Graphics.FillRectangle(b, new Rectangle(0, 40, SmallRectThickness, 35));
                         e.Graphics.DrawString(Text, Font, textBrush, new Point(SmallRectThickness + 10, 46));
@@ -96,26 +100,37 @@ namespace ReaLTaiizor.Forms
             {
                 if (ShowHeader)
                 {
-                    using (var b = new SolidBrush(HeaderColor))
+                    using (SolidBrush b = new SolidBrush(HeaderColor))
+                    {
                         e.Graphics.FillRectangle(b, new Rectangle(1, 1, Width - 1, HeaderHeight));
+                    }
                 }
 
-                var textBrush = new SolidBrush(TextColor);
+                SolidBrush textBrush = new SolidBrush(TextColor);
                 if (ShowTitle)
                 {
                     switch (TextAlign)
                     {
                         case TextAlign.Left:
-                            using (var stringFormat = new StringFormat() { LineAlignment = StringAlignment.Center })
+                            using (StringFormat stringFormat = new StringFormat() { LineAlignment = StringAlignment.Center })
+                            {
                                 e.Graphics.DrawString(Text, Font, textBrush, new Rectangle(20, 0, Width, HeaderHeight), stringFormat);
+                            }
+
                             break;
                         case TextAlign.Center:
-                            using (var stringFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+                            using (StringFormat stringFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+                            {
                                 e.Graphics.DrawString(Text, Font, textBrush, new Rectangle(20, 0, Width - 21, HeaderHeight), stringFormat);
+                            }
+
                             break;
                         case TextAlign.Right:
-                            using (var stringFormat = new StringFormat() { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center })
+                            using (StringFormat stringFormat = new StringFormat() { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center })
+                            {
                                 e.Graphics.DrawString(Text, Font, textBrush, new Rectangle(20, 0, Width - 26, HeaderHeight), stringFormat);
+                            }
+
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -240,7 +255,10 @@ namespace ReaLTaiizor.Forms
             set
             {
                 if (!System.Enum.IsDefined(typeof(FormBorderStyle), value))
+                {
                     throw new InvalidEnumArgumentException(nameof(value), (int)value, typeof(FormBorderStyle));
+                }
+
                 base.FormBorderStyle = FormBorderStyle.None;
             }
         }
@@ -301,7 +319,10 @@ namespace ReaLTaiizor.Forms
                     foreach (Control c in Controls)
                     {
                         if (c.GetType() != typeof(MetroControlBox))
+                        {
                             continue;
+                        }
+
                         c.BringToFront();
                         c.Location = new Point(Width - 12, 11);
                     }
@@ -366,7 +387,9 @@ namespace ReaLTaiizor.Forms
             set
             {
                 if (value > 1)
+                {
                     throw new Exception("The Value must be between 0-1.");
+                }
 
                 _backgroundImageTransparency = value;
                 Invalidate();
@@ -417,10 +440,13 @@ namespace ReaLTaiizor.Forms
         private void ResizeForm(ref Message message)
         {
             if (!AllowResize)
+            {
                 return;
-            var x = (int)(message.LParam.ToInt64() & 65535);
-            var y = (int)((message.LParam.ToInt64() & -65536) >> 0x10);
-            var point = PointToClient(new Point(x, y));
+            }
+
+            int x = (int)(message.LParam.ToInt64() & 65535);
+            int y = (int)((message.LParam.ToInt64() & -65536) >> 0x10);
+            Point point = PointToClient(new Point(x, y));
 
             #region  From Corners  
 
@@ -476,7 +502,9 @@ namespace ReaLTaiizor.Forms
             }
 
             if (point.X >= Width - 0x10)
+            {
                 message.Result = (IntPtr)0xb;
+            }
 
             #endregion
         }
@@ -599,30 +627,51 @@ namespace ReaLTaiizor.Forms
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.FormDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.FormDictionary)
                         {
                             if (!string.Equals(varkey.Key, null, StringComparison.Ordinal) && varkey.Key != null)
                             {
                                 if (varkey.Key == "ForeColor")
+                                {
                                     ForeColor = _utl.HexColor((string)varkey.Value);
+                                }
                                 else if (varkey.Key == "BackColor")
+                                {
                                     BackgroundColor = _utl.HexColor((string)varkey.Value);
+                                }
                                 else if (varkey.Key == "BorderColor")
+                                {
                                     BorderColor = _utl.HexColor((string)varkey.Value);
+                                }
                                 else if (varkey.Key == "TextColor")
+                                {
                                     TextColor = _utl.HexColor((string)varkey.Value);
+                                }
                                 else if (varkey.Key == "SmallLineColor1")
+                                {
                                     SmallLineColor1 = _utl.HexColor((string)varkey.Value);
+                                }
                                 else if (varkey.Key == "SmallLineColor2")
+                                {
                                     SmallLineColor2 = _utl.HexColor((string)varkey.Value);
+                                }
                                 else if (varkey.Key == "SmallRectThickness")
+                                {
                                     SmallRectThickness = int.Parse(varkey.Value.ToString());
+                                }
                                 else if (varkey.Key == "HeaderColor")
+                                {
                                     HeaderColor = _utl.HexColor((string)varkey.Value);
+                                }
                             }
                             else
+                            {
                                 throw new Exception("FormDictionary is empty");
+                            }
                         }
+                    }
+
                     UpdateProperties();
                     break;
             }
@@ -642,10 +691,14 @@ namespace ReaLTaiizor.Forms
             base.WndProc(ref message);
 
             if ((message.Msg != _WM_NCHITTEST) | !Moveable)
+            {
                 return;
+            }
 
             if ((int)message.Result == _HTCLIENT)
+            {
                 message.Result = new IntPtr(_HTCAPTION);
+            }
 
             ResizeForm(ref message);
         }
@@ -661,8 +714,11 @@ namespace ReaLTaiizor.Forms
             get
             {
                 if (!DropShadowEffect)
+                {
                     return base.CreateParams;
-                var cp = base.CreateParams;
+                }
+
+                CreateParams cp = base.CreateParams;
                 cp.ClassStyle |= _CS_DROPSHADOW;
                 return cp;
             }
@@ -680,7 +736,9 @@ namespace ReaLTaiizor.Forms
             base.OnClosing(e);
             // https://www.codeproject.com/Articles/30255/C-Fade-Form-Effect-With-the-AnimateWindow-API-Func
             if (e.Cancel == false)
+            {
                 AnimateWindow(Handle, 800, User32.AW_HIDE | (UseSlideAnimation ? AnimateWindowFlags.AW_HOR_NEGATIVE | AnimateWindowFlags.AW_SLIDE : AnimateWindowFlags.AW_BLEND));
+            }
         }
 
         #endregion

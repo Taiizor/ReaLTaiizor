@@ -70,7 +70,9 @@ namespace ReaLTaiizor.Controls
         public static void CancelAutoClose()
         {
             if (singletonWindow != null)
+            {
                 singletonWindow.CancelTimer = true;
+            }
         }
 
         public static void ForceClose()
@@ -111,7 +113,9 @@ namespace ReaLTaiizor.Controls
             closeTime = duration * 500;
 
             if (closeTime > 0)
+            {
                 timer = DelayedCall.Start(UpdateProgress, 5);
+            }
         }
 
 
@@ -163,7 +167,9 @@ namespace ReaLTaiizor.Controls
                 controlContainer.Refresh();
 
                 if (StyleManager != null)
+                {
                     StyleManager.Update();
+                }
 
                 isInitialized = true;
 
@@ -179,7 +185,9 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
 
             using (SolidBrush b = new SolidBrush(PoisonPaint.BackColor.Form(Theme)))
+            {
                 e.Graphics.FillRectangle(b, new Rectangle(Width - progressWidth, 0, progressWidth, 5));
+            }
         }
 
         private void UpdateProgress()
@@ -195,14 +203,18 @@ namespace ReaLTaiizor.Controls
             elapsedTime += 5;
 
             if (cancelTimer)
+            {
                 elapsedTime = 0;
+            }
 
             double perc = (double)elapsedTime / ((double)closeTime / 100);
             progressWidth = (int)((double)Width * (perc / 100));
             Invalidate(new Rectangle(0, 0, Width, 5));
 
             if (!cancelTimer)
+            {
                 timer.Reset();
+            }
         }
     }
 

@@ -33,7 +33,7 @@ namespace ReaLTaiizor.Controls
 
         private AloneTextBox.MouseState State;
 
-        private bool IsDown;
+        private readonly bool IsDown;
 
         private bool _EnabledCalc;
 
@@ -61,11 +61,16 @@ namespace ReaLTaiizor.Controls
                 };
                 System.Windows.Forms.TextBox tB = _TB;
                 if (tB != null)
+                {
                     tB.TextChanged -= value2;
+                }
+
                 _TB = value;
                 tB = _TB;
                 if (tB != null)
+                {
                     tB.TextChanged += value2;
+                }
             }
         }
 
@@ -143,7 +148,9 @@ namespace ReaLTaiizor.Controls
                 _readOnly = value;
                 bool flag = TB != null;
                 if (flag)
+                {
                     TB.ReadOnly = value;
+                }
             }
         }
 
@@ -240,19 +247,25 @@ namespace ReaLTaiizor.Controls
                 if (flag)
                 {
                     using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#78B7E6")))
+                    {
                         G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
+                    }
                 }
                 else
                 {
                     using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
+                    {
                         G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
+                    }
                 }
             }
             else
             {
                 TB.ForeColor = ForeColor;
                 using (Pen pen3 = new Pen(AloneLibrary.ColorFromHex("#E1E1E2")))
+                {
                     G.DrawPath(pen3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
+                }
             }
             TB.TextAlign = TextAlign;
             TB.UseSystemPasswordChar = UseSystemPasswordChar;

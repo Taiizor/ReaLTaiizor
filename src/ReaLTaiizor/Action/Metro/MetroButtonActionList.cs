@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            var items = new DesignerActionItemCollection
+            DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),

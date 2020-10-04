@@ -114,9 +114,13 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
                 Invalidate();
@@ -345,7 +349,9 @@ namespace ReaLTaiizor.Controls
             if (_ShowCloseButton == true)
             {
                 if (IsOverClose)
+                {
                     Dispose();
+                }
             }
         }
 
@@ -458,7 +464,9 @@ namespace ReaLTaiizor.Controls
             CloseCoordinates = new Point(Width - 26, 4);
 
             if (_ShowCloseButton)
+            {
                 GFX.DrawString("r", new Font("Marlett", 7, FontStyle.Regular), new SolidBrush(CloseForeColor), new Rectangle(Width - 20, 10, Width, Height), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near }); // Draw the close button
+            }
 
             CrvBorderPath.Dispose();
         }

@@ -37,9 +37,13 @@ namespace ReaLTaiizor.Controls
             {
                 _Side = value;
                 if (_Side == PanelSide.Left)
+                {
                     BackColor = LeftSideColor;
+                }
                 else
+                {
                     BackColor = RightSideColor;
+                }
 
                 Invalidate();
             }

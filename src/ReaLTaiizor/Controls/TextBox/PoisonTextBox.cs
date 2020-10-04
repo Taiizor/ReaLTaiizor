@@ -29,7 +29,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -37,7 +39,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -45,7 +49,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -56,12 +62,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -76,12 +89,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -251,7 +271,9 @@ namespace ReaLTaiizor.Controls
             {
                 int _butwidth = 0;
                 if (_button != null)
+                {
                     _butwidth = (_showbutton) ? _button.Width : 0;
+                }
 
                 return _butwidth;
             }
@@ -470,7 +492,7 @@ namespace ReaLTaiizor.Controls
         public PoisonTextBox()
         {
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
-            this.GotFocus += PoisonTextBox_GotFocus;
+            GotFocus += PoisonTextBox_GotFocus;
             base.TabStop = false;
 
             CreateBaseTextBox();
@@ -486,7 +508,9 @@ namespace ReaLTaiizor.Controls
         private void BaseTextBoxAcceptsTabChanged(object sender, EventArgs e)
         {
             if (AcceptsTabChanged != null)
+            {
                 AcceptsTabChanged(this, e);
+            }
         }
 
         private void BaseTextBoxSizeChanged(object sender, EventArgs e)
@@ -629,7 +653,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -643,23 +669,34 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
             if (useCustomForeColor)
+            {
                 baseTextBox.ForeColor = ForeColor;
+            }
             else
+            {
                 baseTextBox.ForeColor = PoisonPaint.ForeColor.Button.Normal(Theme);
+            }
 
             Color borderColor = PoisonPaint.BorderColor.ComboBox.Normal(Theme);
 
             if (useStyleColors)
+            {
                 borderColor = PoisonPaint.GetStyleColor(Style);
+            }
 
             if (_witherror)
             {
                 borderColor = PoisonColors.Red;
-                if (this.Style == ColorStyle.Red) borderColor = PoisonColors.Orange;
+                if (Style == ColorStyle.Red)
+                {
+                    borderColor = PoisonColors.Orange;
+                }
             }
 
             using (Pen p = new Pen(borderColor))
+            {
                 e.Graphics.DrawRectangle(p, new Rectangle(0, 0, Width - 2, Height - 1));
+            }
 
             DrawIcon(e.Graphics);
         }
@@ -670,7 +707,9 @@ namespace ReaLTaiizor.Controls
             {
                 Point iconLocation = new Point(5, 5);
                 if (textBoxIconRight)
+                {
                     iconLocation = new Point(ClientRectangle.Width - iconSize.Width - 1, 1);
+                }
 
                 g.DrawImage(textBoxIcon, new Rectangle(iconLocation, iconSize));
 
@@ -679,7 +718,10 @@ namespace ReaLTaiizor.Controls
             else
             {
                 _button.Visible = _showbutton;
-                if (_showbutton && _button != null) UpdateBaseTextBox();
+                if (_showbutton && _button != null)
+                {
+                    UpdateBaseTextBox();
+                }
             }
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, baseTextBox.ForeColor, g));
@@ -713,7 +755,10 @@ namespace ReaLTaiizor.Controls
 
         private void CreateBaseTextBox()
         {
-            if (baseTextBox != null) return;
+            if (baseTextBox != null)
+            {
+                return;
+            }
 
             baseTextBox = new PromptedTextBox
             {
@@ -730,7 +775,10 @@ namespace ReaLTaiizor.Controls
 
             Controls.Add(baseTextBox);
 
-            if (_button != null) return;
+            if (_button != null)
+            {
+                return;
+            }
 
             _button = new PoisonTextButton
             {
@@ -744,9 +792,15 @@ namespace ReaLTaiizor.Controls
             _button.MouseLeave += _button_MouseLeave;
             _button.Click += _button_Click;
 
-            if (!this.Controls.Contains(this._button)) this.Controls.Add(_button);
+            if (!Controls.Contains(_button))
+            {
+                Controls.Add(_button);
+            }
 
-            if (lnkClear != null) return;
+            if (lnkClear != null)
+            {
+                return;
+            }
 
             InitializeComponent();
         }
@@ -761,7 +815,10 @@ namespace ReaLTaiizor.Controls
 
         private void _button_Click(object sender, EventArgs e)
         {
-            if (ButtonClick != null) ButtonClick(this, e);
+            if (ButtonClick != null)
+            {
+                ButtonClick(this, e);
+            }
         }
 
         private void _button_MouseLeave(object sender, EventArgs e)
@@ -808,7 +865,7 @@ namespace ReaLTaiizor.Controls
         {
             UseStyleColors = false;
             Invalidate();
-            this.InvokeLostFocus(this, e);
+            InvokeLostFocus(this, e);
         }
 
         private void baseTextBox_GotFocus(object sender, EventArgs e)
@@ -816,7 +873,7 @@ namespace ReaLTaiizor.Controls
             _witherror = false;
             UseStyleColors = true;
             Invalidate();
-            this.InvokeGotFocus(this, e);
+            InvokeGotFocus(this, e);
         }
 
         protected override void OnMouseEnter(EventArgs e)
@@ -848,12 +905,12 @@ namespace ReaLTaiizor.Controls
                 if ((Height % 2) > 0)
                 {
                     _button.Size = new Size(Height - 2, Height - 2);
-                    _button.Location = new Point(this.Width - (_button.Width + 1), 1);
+                    _button.Location = new Point(Width - (_button.Width + 1), 1);
                 }
                 else
                 {
                     _button.Size = new Size(Height - 5, Height - 5);
-                    _button.Location = new Point((this.Width - _button.Width) - 3, 2);
+                    _button.Location = new Point((Width - _button.Width) - 3, 2);
                 }
 
                 _button.Visible = _showbutton;
@@ -863,16 +920,19 @@ namespace ReaLTaiizor.Controls
             if (lnkClear != null)
             {
                 lnkClear.Visible = false;
-                if (_showclear && this.Text != "" && !this.ReadOnly && this.Enabled)
+                if (_showclear && Text != "" && !ReadOnly && Enabled)
                 {
                     _clearloc = 16;
-                    lnkClear.Location = new Point(this.Width - (ButtonWidth + 17), (this.Height - 14) / 2);
+                    lnkClear.Location = new Point(Width - (ButtonWidth + 17), (Height - 14) / 2);
                     lnkClear.Visible = true;
                 }
             }
 
 
-            if (baseTextBox == null) return;
+            if (baseTextBox == null)
+            {
+                return;
+            }
 
             baseTextBox.Font = PoisonFonts.TextBox(poisonTextBoxSize, poisonTextBoxWeight);
 
@@ -880,7 +940,9 @@ namespace ReaLTaiizor.Controls
             {
                 Point textBoxLocation = new Point(iconSize.Width + 10, 5);
                 if (textBoxIconRight)
+                {
                     textBoxLocation = new Point(3, 3);
+                }
 
                 baseTextBox.Location = textBoxLocation;
                 baseTextBox.Size = new Size(Width - (20 + ButtonWidth + _clearloc) - iconSize.Width, Height - 6);
@@ -943,7 +1005,9 @@ namespace ReaLTaiizor.Controls
             private void DrawTextPrompt()
             {
                 using (Graphics graphics = CreateGraphics())
+                {
                     DrawTextPrompt(graphics);
+                }
             }
 
             private void DrawTextPrompt(Graphics g)
@@ -975,7 +1039,9 @@ namespace ReaLTaiizor.Controls
             {
                 base.OnPaint(e);
                 if (drawPrompt)
+                {
                     DrawTextPrompt(e.Graphics);
+                }
             }
 
             protected override void OnCreateControl()
@@ -1000,7 +1066,9 @@ namespace ReaLTaiizor.Controls
             {
                 base.WndProc(ref m);
                 if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && (drawPrompt && !GetStyle(ControlStyles.UserPaint)))
+                {
                     DrawTextPrompt();
+                }
             }
 
             protected override void OnMouseEnter(EventArgs e)
@@ -1028,24 +1096,24 @@ namespace ReaLTaiizor.Controls
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new ComponentResourceManager(typeof(PoisonTextBox));
-            this.lnkClear = new PoisonLinkLabel();
-            this.SuspendLayout();
+            lnkClear = new PoisonLinkLabel();
+            SuspendLayout();
             // 
             // lnkClear
             // 
-            this.lnkClear.FontSize = PoisonLinkLabelSize.Medium;
-            this.lnkClear.FontWeight = PoisonLinkLabelWeight.Regular;
-            this.lnkClear.Image = ((Image)(resources.GetObject("lnkClear.Image")));
-            this.lnkClear.ImageSize = 10;
-            this.lnkClear.Location = new Point(654, 96);
-            this.lnkClear.Name = "lnkClear";
-            this.lnkClear.NoFocusImage = ((Image)(resources.GetObject("lnkClear.NoFocusImage")));
-            this.lnkClear.Size = new Size(12, 12);
-            this.lnkClear.TabIndex = 2;
-            this.lnkClear.UseSelectable = true;
-            this.lnkClear.Click += new EventHandler(lnkClear_Click);
-            this.ResumeLayout(false);
-            this.Controls.Add(lnkClear);
+            lnkClear.FontSize = PoisonLinkLabelSize.Medium;
+            lnkClear.FontWeight = PoisonLinkLabelWeight.Regular;
+            lnkClear.Image = ((Image)(resources.GetObject("lnkClear.Image")));
+            lnkClear.ImageSize = 10;
+            lnkClear.Location = new Point(654, 96);
+            lnkClear.Name = "lnkClear";
+            lnkClear.NoFocusImage = ((Image)(resources.GetObject("lnkClear.NoFocusImage")));
+            lnkClear.Size = new Size(12, 12);
+            lnkClear.TabIndex = 2;
+            lnkClear.UseSelectable = true;
+            lnkClear.Click += new EventHandler(lnkClear_Click);
+            ResumeLayout(false);
+            Controls.Add(lnkClear);
         }
 
         public delegate void LUClear();
@@ -1053,11 +1121,14 @@ namespace ReaLTaiizor.Controls
 
         private void lnkClear_Click(object sender, EventArgs e)
         {
-            this.Focus();
-            this.Clear();
+            Focus();
+            Clear();
             baseTextBox.Focus();
 
-            if (ClearClicked != null) ClearClicked();
+            if (ClearClicked != null)
+            {
+                ClearClicked();
+            }
         }
 
         #region PoisonTextButton
@@ -1071,7 +1142,9 @@ namespace ReaLTaiizor.Controls
             protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
             {
                 if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+                {
                     CustomPaintBackground(this, e);
+                }
             }
 
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -1079,7 +1152,9 @@ namespace ReaLTaiizor.Controls
             protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
             {
                 if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+                {
                     CustomPaint(this, e);
+                }
             }
 
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -1087,7 +1162,9 @@ namespace ReaLTaiizor.Controls
             protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
             {
                 if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+                {
                     CustomPaintForeground(this, e);
+                }
             }
 
             private ColorStyle poisonStyle = ColorStyle.Default;
@@ -1098,12 +1175,19 @@ namespace ReaLTaiizor.Controls
                 get
                 {
                     if (DesignMode || poisonStyle != ColorStyle.Default)
+                    {
                         return poisonStyle;
+                    }
 
                     if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                    {
                         return StyleManager.Style;
+                    }
+
                     if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                    {
                         return PoisonDefaults.Style;
+                    }
 
                     return poisonStyle;
                 }
@@ -1118,12 +1202,19 @@ namespace ReaLTaiizor.Controls
                 get
                 {
                     if (DesignMode || poisonTheme != ThemeStyle.Default)
+                    {
                         return poisonTheme;
+                    }
 
                     if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                    {
                         return StyleManager.Theme;
+                    }
+
                     if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                    {
                         return PoisonDefaults.Theme;
+                    }
 
                     return poisonTheme;
                 }
@@ -1257,7 +1348,9 @@ namespace ReaLTaiizor.Controls
                     backColor = PoisonPaint.BackColor.Button.Disabled(_Theme);
                 }
                 else
+                {
                     foreColor = PoisonPaint.ForeColor.Button.Press(_Theme);
+                }
 
                 e.Graphics.Clear(backColor);
                 Font buttonFont = PoisonFonts.Button(PoisonButtonSize.Small, PoisonButtonWeight.Bold);
@@ -1274,7 +1367,11 @@ namespace ReaLTaiizor.Controls
                 set
                 {
                     base.Image = value;
-                    if (value == null) return;
+                    if (value == null)
+                    {
+                        return;
+                    }
+
                     _image = ApplyInvert(new Bitmap(value));
                 }
             }

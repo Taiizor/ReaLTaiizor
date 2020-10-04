@@ -58,7 +58,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _hint = value;
-                hasHint = !String.IsNullOrEmpty(Hint);
+                hasHint = !string.IsNullOrEmpty(Hint);
                 Invalidate();
             }
         }
@@ -117,7 +117,10 @@ namespace ReaLTaiizor.Controls
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
 
-            if (Password) SendMessage(Handle, EM_SETPASSWORDCHAR, 'T', 0);
+            if (Password)
+            {
+                SendMessage(Handle, EM_SETPASSWORDCHAR, 'T', 0);
+            }
 
             // Size and padding
             HEIGHT = UseTallSize ? 50 : 36;
@@ -125,7 +128,7 @@ namespace ReaLTaiizor.Controls
             LINE_Y = HEIGHT - BOTTOM_PADDING;
 
             // Position the "real" text field
-            var rect = new Rectangle(SkinManager.FORM_PADDING, UseTallSize ? hasHint ?
+            Rectangle rect = new Rectangle(SkinManager.FORM_PADDING, UseTallSize ? hasHint ?
                     (HINT_TEXT_SMALL_Y + HINT_TEXT_SMALL_SIZE) : // Has hint and it's tall
                     (int)(LINE_Y / 3.5) : // No hint and tall
                     Height / 5, // not tall
@@ -172,7 +175,7 @@ namespace ReaLTaiizor.Controls
         private const int WM_USER = 0x400;
 
         [DllImport("user32.dll")]
-        private static extern IntPtr SendMessage(IntPtr hWnd, Int32 wMsg, Int32 wParam, ref Point lParam);
+        private static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, ref Point lParam);
 
         public override Size GetPreferredSize(Size proposedSize)
         {
@@ -183,7 +186,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(pevent);
 
-            var g = pevent.Graphics;
+            Graphics g = pevent.Graphics;
 
             g.Clear(Parent.BackColor);
 
@@ -197,7 +200,7 @@ namespace ReaLTaiizor.Controls
                 ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, LINE_Y);
 
             // HintText
-            bool userTextPresent = !String.IsNullOrEmpty(Text);
+            bool userTextPresent = !string.IsNullOrEmpty(Text);
             Color textColor = Enabled ? Focused ?
                             UseAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : // Focused
                             SkinManager.TextHighEmphasisColor : // Inactive
@@ -220,7 +223,9 @@ namespace ReaLTaiizor.Controls
 
                 // bottom line
                 if (Focused)
+                {
                     g.FillRectangle(UseAccent ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.PrimaryBrush, 0, LINE_Y, Width, 2);
+                }
             }
             else
             {
@@ -310,7 +315,7 @@ namespace ReaLTaiizor.Controls
             g.Clip = new Region(ClientRectangle);
 
             // Draw hint text
-            if (hasHint && (UseTallSize || String.IsNullOrEmpty(Text)))
+            if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))
             {
                 using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
                 {
@@ -372,7 +377,7 @@ namespace ReaLTaiizor.Controls
 
         private void ContextMenuStripOnOpening(object sender, CancelEventArgs cancelEventArgs)
         {
-            var strip = sender as MaterialTextBoxContextMenuStrip;
+            MaterialTextBoxContextMenuStrip strip = sender as MaterialTextBoxContextMenuStrip;
             if (strip != null)
             {
                 strip.Cut.Enabled = !string.IsNullOrEmpty(SelectedText);
@@ -389,9 +394,13 @@ namespace ReaLTaiizor.Controls
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == WM_SETCURSOR)
+            {
                 Cursor.Current = Cursor;
+            }
             else
+            {
                 base.WndProc(ref m);
+            }
         }
 
         // Padding

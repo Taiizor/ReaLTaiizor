@@ -82,7 +82,9 @@ namespace ReaLTaiizor.Controls
             CheckedChanged += (sender, args) =>
             {
                 if (Ripple)
+                {
                     _checkAM.StartNewAnimation(Checked ? AnimationDirection.In : AnimationDirection.Out);
+                }
             };
             _checkAM.OnAnimationProgress += sender => Invalidate();
             _hoverAM.OnAnimationProgress += sender => Invalidate();
@@ -105,7 +107,9 @@ namespace ReaLTaiizor.Controls
             Size strSize;
 
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+            {
                 strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
+            }
 
             int w = _boxOffset + TEXT_OFFSET + strSize.Width;
             return Ripple ? new Size(w, HEIGHT_RIPPLE) : new Size(w, HEIGHT_NO_RIPPLE);
@@ -140,7 +144,9 @@ namespace ReaLTaiizor.Controls
                 int rippleSize = (int)(rippleHeight * (0.7 + (0.3 * animationValue)));
 
                 using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * animationValue), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : brush.Color))) // no animation
+                {
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
+                }
             }
 
             // draw ripple animation
@@ -152,7 +158,9 @@ namespace ReaLTaiizor.Controls
                     int rippleSize = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleHeight * (0.7 + (0.3 * animationValue))) : rippleHeight;
 
                     using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)((animationValue * 40)), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : brush.Color)))
+                    {
                         g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
+                    }
                 }
             }
 
@@ -162,7 +170,9 @@ namespace ReaLTaiizor.Controls
                 if (Enabled)
                 {
                     using (Pen pen2 = new Pen(MaterialDrawHelper.BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
+                    {
                         g.DrawPath(pen2, checkmarkPath);
+                    }
 
                     g.DrawPath(pen, checkmarkPath);
                     g.FillPath(brush, checkmarkPath);
@@ -170,9 +180,13 @@ namespace ReaLTaiizor.Controls
                 else
                 {
                     if (Checked)
+                    {
                         g.FillPath(brush, checkmarkPath);
+                    }
                     else
+                    {
                         g.DrawPath(pen, checkmarkPath);
+                    }
                 }
 
                 g.DrawImageUnscaledAndClipped(DrawCheckMarkBitmap(), checkMarkLineFill);
@@ -204,7 +218,9 @@ namespace ReaLTaiizor.Controls
 
             // draw the checkmark lines
             using (Pen pen = new Pen(Parent.BackColor, 2))
+            {
                 g.DrawLines(pen, CheckmarkLine);
+            }
 
             return checkMark;
         }
@@ -216,7 +232,9 @@ namespace ReaLTaiizor.Controls
             {
                 base.AutoSize = value;
                 if (value)
+                {
                     Size = new Size(10, 10);
+                }
             }
         }
 
@@ -231,7 +249,10 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
 
-            if (DesignMode) return;
+            if (DesignMode)
+            {
+                return;
+            }
 
             MouseState = MaterialMouseState.OUT;
 

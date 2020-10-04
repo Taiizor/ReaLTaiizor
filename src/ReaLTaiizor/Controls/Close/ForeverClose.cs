@@ -40,7 +40,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (DefaultLocation)
+                {
                     Location = new Point(Parent.Width - Width - 12, 16);
+                }
             }
             catch (Exception)
             {
@@ -146,7 +148,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(0, 0, Width, Height);
 
-            var _with3 = G;
+            Graphics _with3 = G;
             _with3.SmoothingMode = SmoothingMode.HighQuality;
             _with3.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with3.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

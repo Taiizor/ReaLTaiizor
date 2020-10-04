@@ -55,12 +55,18 @@ namespace ReaLTaiizor.Controls
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
                 e.Graphics.FillRectangle(new SolidBrush(_HoverSelectionColor), e.Bounds);
+            }
             else
+            {
                 e.Graphics.FillRectangle(Brushes.White, e.Bounds);
+            }
 
             if (!(e.Index == -1))
+            {
                 e.Graphics.DrawString(GetItemText(Items[e.Index]), e.Font, Brushes.DimGray, e.Bounds);
+            }
         }
 
         protected override void OnLostFocus(EventArgs e)

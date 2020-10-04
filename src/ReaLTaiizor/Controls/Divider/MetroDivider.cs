@@ -107,7 +107,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -127,15 +129,21 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.DividerDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.DividerDictionary)
                         {
                             switch (varkey.Key)
                             {
                                 case "Orientation":
                                     if ((string)varkey.Value == "Horizontal")
+                                    {
                                         Orientation = DividerStyle.Horizontal;
+                                    }
                                     else if ((string)varkey.Value == "Vertical")
+                                    {
                                         Orientation = DividerStyle.Vertical;
+                                    }
+
                                     break;
                                 case "Thickness":
                                     Thickness = ((int)varkey.Value);
@@ -147,6 +155,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -165,13 +175,17 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            using (var p = new Pen(ForeColor, Thickness))
+            Graphics g = e.Graphics;
+            using (Pen p = new Pen(ForeColor, Thickness))
             {
                 if (Orientation == DividerStyle.Horizontal)
+                {
                     g.DrawLine(p, 0, Thickness, Width, Thickness);
+                }
                 else
+                {
                     g.DrawLine(p, Thickness, 0, Thickness, Height);
+                }
             }
         }
 
@@ -228,9 +242,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             if (Orientation == DividerStyle.Horizontal)
+            {
                 Height = Thickness + 3;
+            }
             else
+            {
                 Width = Thickness + 3;
+            }
         }
 
         #endregion Events

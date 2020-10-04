@@ -167,7 +167,9 @@ namespace ReaLTaiizor.Controls
                 try
                 {
                     if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) || value.Length < 9)
+                    {
                         _HeaderFormat = "{0} Y - {1} M";
+                    }
                     else
                     {
                         string.Format(value, CurrentDate.Year, CurrentDate.Month);
@@ -188,15 +190,21 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value.Length == 7)
+                {
                     _DayNames = value;
+                }
                 else if (value.Length > 7)
+                {
                     _DayNames = value.Substring(0, 7);
+                }
                 else
+                {
                     _DayNames = "MTWTFSS";
+                }
             }
         }
 
-        private int DateRectDefaultSize;
+        private readonly int DateRectDefaultSize;
         private int HoverX;
         private int HoverY;
         private int SelectedX;
@@ -293,13 +301,25 @@ namespace ReaLTaiizor.Controls
             }
 
             if (PreviousYearRect.Contains(e.Location))
+            {
                 CurrentDate = FirstDayOfMonth(CurrentDate.AddYears(-1));
+            }
+
             if (PreviousMonthRect.Contains(e.Location))
+            {
                 CurrentDate = FirstDayOfMonth(CurrentDate.AddMonths(-1));
+            }
+
             if (NextMonthRect.Contains(e.Location))
+            {
                 CurrentDate = FirstDayOfMonth(CurrentDate.AddMonths(1));
+            }
+
             if (NextYearRect.Contains(e.Location))
+            {
                 CurrentDate = FirstDayOfMonth(CurrentDate.AddYears(1));
+            }
+
             CalculateRectangles();
             Invalidate();
             onDateChanged?.Invoke(CurrentDate);
@@ -327,10 +347,12 @@ namespace ReaLTaiizor.Controls
             {
                 DateRectangles.Add(new List<Util.HopeBase.DateRectHopeBase>());
                 for (int j = 0; j < 7; j++)
+                {
                     DateRectangles[i].Add(new Util.HopeBase.DateRectHopeBase(new RectangleF(10 + (j * (Width - 20) / 7), WeekRect.Y + WeekRect.Height + (i * DateRectDefaultSize), DateRectDefaultSize, DateRectDefaultSize)));
+                }
             }
             DateTime FirstDay = FirstDayOfMonth(CurrentDate);
-            var temp = 0;
+            int temp = 0;
             for (int i = FirstDay.DayOfWeek == DayOfWeek.Sunday ? 6 : (int)FirstDay.DayOfWeek - 1; i > 0; i--, temp++)
             {
                 DateRectangles[temp / 7][temp % 7].Drawn = false;
@@ -389,13 +411,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
-            var graphics = e.Graphics;
+            Graphics graphics = e.Graphics;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            var bg = RoundRectangle.CreateRoundRect(1f, 1f, Width - 2, Height - 2, 3);
+            GraphicsPath bg = RoundRectangle.CreateRoundRect(1f, 1f, Width - 2, Height - 2, 3);
             graphics.FillPath(new SolidBrush(BackColor), bg);
             graphics.DrawPath(new Pen(_BorderColor), bg);
 
@@ -408,31 +430,35 @@ namespace ReaLTaiizor.Controls
 
             string s = _DayNames;
             for (int i = 0; i < 7; i++)
+            {
                 graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(_DaysTextColor), new RectangleF(10 + i * (Width - 20) / 7, WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
+            }
 
             graphics.DrawLine(new Pen(_HeadLineColor, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);
 
             DateTime FirstDay = FirstDayOfMonth(CurrentDate);
             for (int i = 0; i < 42; i++)
             {
-                var tempDate = DateRectangles[i / 7][i % 7];
-                var brush = new SolidBrush(_DayTextColorA);
+                Util.HopeBase.DateRectHopeBase tempDate = DateRectangles[i / 7][i % 7];
+                SolidBrush brush = new SolidBrush(_DayTextColorA);
 
                 if (HoverX == i / 7 && HoverY == i % 7)
                 {
-                    var rect1 = tempDate.Rect;
-                    var bg1 = RoundRectangle.CreateRoundRect(rect1.X + 2, rect1.Y + 2, rect1.Width - 4, rect1.Width - 4, 3);
+                    RectangleF rect1 = tempDate.Rect;
+                    GraphicsPath bg1 = RoundRectangle.CreateRoundRect(rect1.X + 2, rect1.Y + 2, rect1.Width - 4, rect1.Width - 4, 3);
                     graphics.FillPath(new SolidBrush(_HoverColor), bg1);
                     //graphics.FillRectangle(new SolidBrush(HopeColors.ThreeLevelBorder), new RectangleF(rect1.X + 3, rect1.Y + 3, rect1.Width - 6, rect1.Width - 6));
                 }
 
                 if (tempDate.Date == DateTime.Today)
+                {
                     brush = new SolidBrush(_ValueTextColor);
+                }
 
                 if (tempDate.Date == Date)
                 {
-                    var rect1 = tempDate.Rect;
-                    var bg1 = RoundRectangle.CreateRoundRect(rect1.X + 2, rect1.Y + 2, rect1.Width - 4, rect1.Width - 4, 3);
+                    RectangleF rect1 = tempDate.Rect;
+                    GraphicsPath bg1 = RoundRectangle.CreateRoundRect(rect1.X + 2, rect1.Y + 2, rect1.Width - 4, rect1.Width - 4, 3);
                     graphics.FillPath(new SolidBrush(_SelectedBackColor), bg1);
 
                     //graphics.FillRectangle(new SolidBrush(HopeColors.PrimaryColor), new RectangleF(rect1.X+3,rect1.Y+3,rect1.Width-6,rect1.Width-6));

@@ -27,7 +27,9 @@ namespace ReaLTaiizor.Util
         {
             SizeF sizeF = G.MeasureString(T, F);
             using (SolidBrush solidBrush = new SolidBrush(C))
+            {
                 G.DrawString(T, F, solidBrush, checked(new Point((int)Math.Round(unchecked((double)R.Width / 2.0 - (double)(sizeF.Width / 2f))), (int)Math.Round(unchecked((double)R.Height / 2.0 - (double)(sizeF.Height / 2f))))));
+            }
         }
 
         public static Color ColorFromHex(string Hex)
@@ -39,9 +41,14 @@ namespace ReaLTaiizor.Util
         {
             Rectangle result;
             if (Subtract)
+            {
                 result = checked(new Rectangle(0, 0, S.Width - 1, S.Height - 1));
+            }
             else
+            {
                 result = new Rectangle(0, 0, S.Width, S.Height);
+            }
+
             return result;
         }
 

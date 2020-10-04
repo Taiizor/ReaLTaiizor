@@ -108,7 +108,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -128,7 +130,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.LabelDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.LabelDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -142,6 +145,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -160,12 +165,12 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var r = new Rectangle(BorderThickness, BorderThickness, Width - (BorderThickness * 2 + 1), Height - ((BorderThickness * 2) + 1));
+            Graphics g = e.Graphics;
+            Rectangle r = new Rectangle(BorderThickness, BorderThickness, Width - (BorderThickness * 2 + 1), Height - ((BorderThickness * 2) + 1));
 
-            using (var bg = new SolidBrush(BackgroundColor))
+            using (SolidBrush bg = new SolidBrush(BackgroundColor))
             {
-                using (var p = new Pen(BorderColor, BorderThickness))
+                using (Pen p = new Pen(BorderColor, BorderThickness))
                 {
                     g.FillRectangle(bg, r);
                     g.DrawRectangle(p, r);

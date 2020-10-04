@@ -25,9 +25,13 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             if (Horizontal)
+            {
                 e.Graphics.DrawLine(new Pen(ForeColor), 0, Height / 2, Width, Height / 2);
+            }
             else
+            {
                 e.Graphics.DrawLine(new Pen(ForeColor), Width / 2, 0, Width / 2, Height);
+            }
         }
 
         protected override void OnMouseEnter(EventArgs e)

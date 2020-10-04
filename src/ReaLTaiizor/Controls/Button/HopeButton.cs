@@ -136,15 +136,15 @@ namespace ReaLTaiizor.Controls
 
             if (ButtonType == HopeButtonType.Default)
             {
-                var BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
+                GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, _DefaultColor) : _DefaultColor), BG);
                 graphics.DrawPath(new Pen(clickFlag ? _DefaultColor : _BorderColor, 1), BG);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {
-                var BG = RoundRectangle.CreateRoundRect(0, 0, Width, Height, 3);
-                var backColor = _DefaultColor;
+                GraphicsPath BG = RoundRectangle.CreateRoundRect(0, 0, Width, Height, 3);
+                Color backColor = _DefaultColor;
                 switch (ButtonType)
                 {
                     case HopeButtonType.Primary:
@@ -166,10 +166,13 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                var brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
+                SolidBrush brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
                 graphics.FillPath(brush, BG);
                 if (!Enabled)
+                {
                     graphics.FillPath(new SolidBrush(Color.FromArgb(125, _BorderColor)), BG);
+                }
+
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
         }

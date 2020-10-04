@@ -19,19 +19,19 @@ namespace ReaLTaiizor.Native
         [StructLayout(LayoutKind.Sequential)]
         public struct POINT
         {
-            public Int32 x;
-            public Int32 y;
+            public int x;
+            public int y;
 
-            public POINT(Int32 x, Int32 y) { this.x = x; this.y = y; }
+            public POINT(int x, int y) { this.x = x; this.y = y; }
         }
 
         [StructLayout(LayoutKind.Sequential)]
         public struct SIZE
         {
-            public Int32 cx;
-            public Int32 cy;
+            public int cx;
+            public int cy;
 
-            public SIZE(Int32 cx, Int32 cy) { this.cx = cx; this.cy = cy; }
+            public SIZE(int cx, int cy) { this.cx = cx; this.cy = cy; }
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -431,14 +431,14 @@ namespace ReaLTaiizor.Native
         public const int Autohide = 0x0000001;
         public const int AlwaysOnTop = 0x0000002;
 
-        public const Int32 MfByposition = 0x400;
-        public const Int32 MfRemove = 0x1000;
+        public const int MfByposition = 0x400;
+        public const int MfRemove = 0x1000;
 
         public const int TCM_HITTEST = 0x1313;
 
-        public const Int32 ULW_COLORKEY = 0x00000001;
-        public const Int32 ULW_ALPHA = 0x00000002;
-        public const Int32 ULW_OPAQUE = 0x00000004;
+        public const int ULW_COLORKEY = 0x00000001;
+        public const int ULW_ALPHA = 0x00000002;
+        public const int ULW_OPAQUE = 0x00000004;
 
         public const byte AC_SRC_OVER = 0x00;
         public const byte AC_SRC_ALPHA = 0x01;
@@ -459,7 +459,7 @@ namespace ReaLTaiizor.Native
         #region API Calls
 
         [DllImport("user32.dll", ExactSpelling = true, SetLastError = true)]
-        public static extern Bool UpdateLayeredWindow(IntPtr hwnd, IntPtr hdcDst, ref POINT pptDst, ref SIZE psize, IntPtr hdcSrc, ref POINT pprSrc, Int32 crKey, ref BLENDFUNCTION pblend, Int32 dwFlags);
+        public static extern Bool UpdateLayeredWindow(IntPtr hwnd, IntPtr hdcDst, ref POINT pptDst, ref SIZE psize, IntPtr hdcSrc, ref POINT pprSrc, int crKey, ref BLENDFUNCTION pblend, int dwFlags);
 
         [DllImport("user32.dll", ExactSpelling = true, SetLastError = true)]
         public static extern IntPtr GetDC(IntPtr hWnd);
@@ -477,10 +477,10 @@ namespace ReaLTaiizor.Native
         public static extern Bool DeleteObject(IntPtr hObject);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern UInt32 GetWindowLong(IntPtr hWnd, int nIndex);
+        public static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
 
         [DllImport("user32.dll")]
-        public static extern int SetWindowLong(IntPtr hWnd, int nIndex, UInt32 dwNewLong);
+        public static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
 
         [DllImport("user32.dll")]
         public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int W, int H, uint uFlags);

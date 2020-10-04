@@ -162,7 +162,7 @@ namespace ReaLTaiizor.Controls
             Rectangle Base = new Rectangle(0, 0, W, H);
             Rectangle Toggle = new Rectangle(Convert.ToInt32(W / 2), 0, 38, H);
 
-            var _with9 = G;
+            Graphics _with9 = G;
             _with9.SmoothingMode = SmoothingMode.HighQuality;
             _with9.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with9.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

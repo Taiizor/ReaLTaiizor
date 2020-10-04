@@ -88,9 +88,13 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             mousePoint = e.Location;
             if (arrowRectangleF.Contains(mousePoint))
+            {
                 Cursor = Cursors.SizeNWSE;
+            }
             else
+            {
                 Cursor = Cursors.IBeam;
+            }
 
             if (_resizing)
             {
@@ -127,13 +131,13 @@ namespace ReaLTaiizor.Controls
             _baseTextBox.ForeColor = ForeColor;
             Height = _baseTextBox.Height + 16;
 
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
             g.SmoothingMode = SmoothingMode.HighQuality;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             g.Clear(Parent.BackColor);
 
-            var bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
+            GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(Color.White), bg);
             g.DrawPath(new Pen(_baseTextBox.Focused ? _HoverBorderColor : _BorderColor, 0.5f), bg);
 
@@ -154,7 +158,10 @@ namespace ReaLTaiizor.Controls
             ForeColor = HopeColors.MainText;
 
             if (!Controls.Contains(_baseTextBox) && !DesignMode)
+            {
                 Controls.Add(_baseTextBox);
+            }
+
             _baseTextBox.GotFocus += _baseTextBox_GotFocus;
             _baseTextBox.LostFocus += _baseTextBox_LostFocus;
             _baseTextBox.KeyPress += _baseTextBox_KeyPress;
@@ -1139,9 +1146,13 @@ namespace ReaLTaiizor.Controls
                 set
                 {
                     if (value)
+                    {
                         _useSystemPasswordChar = Application.RenderWithVisualStyles ? VisualStylePasswordChar : NonVisualStylePasswordChar;
+                    }
                     else
+                    {
                         _useSystemPasswordChar = EmptyChar;
+                    }
 
                     SetBasePasswordChar();
                 }

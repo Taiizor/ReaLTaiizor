@@ -24,7 +24,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category("Poison Appearance")]
@@ -32,7 +34,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category("Poison Appearance")]
@@ -40,7 +44,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -51,12 +57,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return ColorStyle.Blue;
+                }
 
                 return poisonStyle;
             }
@@ -71,12 +84,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return ThemeStyle.Light;
+                }
 
                 return poisonTheme;
             }
@@ -139,7 +159,9 @@ namespace ReaLTaiizor.Controls
         public PoisonContextMenuStrip(IContainer Container)
         {
             if (Container != null)
+            {
                 Container.Add(this);
+            }
         }
 
         private void settheme()
@@ -151,7 +173,7 @@ namespace ReaLTaiizor.Controls
 
         private class PoisonCTXRenderer : ToolStripProfessionalRenderer
         {
-            private ThemeStyle _theme;
+            private readonly ThemeStyle _theme;
             public PoisonCTXRenderer(ThemeStyle Theme, ColorStyle Style) : base(new contextcolors(Theme, Style))
             {
                 _theme = Theme;
@@ -166,8 +188,8 @@ namespace ReaLTaiizor.Controls
 
         private class contextcolors : ProfessionalColorTable
         {
-            private ThemeStyle _theme = ThemeStyle.Light;
-            private ColorStyle _style = ColorStyle.Blue;
+            private readonly ThemeStyle _theme = ThemeStyle.Light;
+            private readonly ColorStyle _style = ColorStyle.Blue;
 
             public contextcolors(ThemeStyle Theme, ColorStyle Style)
             {

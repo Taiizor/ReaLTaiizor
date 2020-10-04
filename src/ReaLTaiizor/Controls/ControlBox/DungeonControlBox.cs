@@ -48,7 +48,9 @@ namespace ReaLTaiizor.Controls
             else if (X > 23 && X < 40)
             {
                 if (_EnableMinimize == true)
+                {
                     FindForm().WindowState = FormWindowState.Minimized;
+                }
                 else if (_EnableMaximize == true)
                 {
                     if (FindForm().WindowState == FormWindowState.Maximized)
@@ -124,12 +126,19 @@ namespace ReaLTaiizor.Controls
                 if (_EnableMaximize == false || _EnableMinimize == false)
                 {
                     if (_EnableMaximize == false && _EnableMinimize == false)
+                    {
                         Size = new Size(24, 22);
+                    }
                     else
+                    {
                         Size = new Size(44, 22);
+                    }
                 }
                 else
+                {
                     Size = new Size(64, 22);
+                }
+
                 Invalidate();
             }
         }
@@ -144,12 +153,19 @@ namespace ReaLTaiizor.Controls
                 if (_EnableMaximize == false || _EnableMinimize == false)
                 {
                     if (_EnableMaximize == false && _EnableMinimize == false)
+                    {
                         Size = new Size(24, 22);
+                    }
                     else
+                    {
                         Size = new Size(44, 22);
+                    }
                 }
                 else
+                {
                     Size = new Size(64, 22);
+                }
+
                 Invalidate();
             }
         }
@@ -171,12 +187,18 @@ namespace ReaLTaiizor.Controls
             if (_EnableMaximize == false || _EnableMinimize == false)
             {
                 if (_EnableMaximize == false && _EnableMinimize == false)
+                {
                     Size = new Size(23, 22);
+                }
                 else
+                {
                     Size = new Size(44, 22);
+                }
             }
             else
+            {
                 Size = new Size(64, 22);
+            }
         }
 
         protected override void OnCreateControl()
@@ -184,7 +206,9 @@ namespace ReaLTaiizor.Controls
             base.OnCreateControl();
             // Auto-decide control location on the theme container
             if (DefaultLocation)
+            {
                 Location = new Point(5, 13);
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)

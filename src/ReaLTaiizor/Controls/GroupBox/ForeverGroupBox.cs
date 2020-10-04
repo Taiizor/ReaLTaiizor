@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath GP3 = new GraphicsPath();
             Rectangle Base = new Rectangle(8, 8, W - 16, H - 16);
 
-            var _with7 = G;
+            Graphics _with7 = G;
             _with7.SmoothingMode = SmoothingMode.HighQuality;
             _with7.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with7.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
@@ -112,7 +112,9 @@ namespace ReaLTaiizor.Controls
 
             //-- if ShowText
             if (ShowText)
+            {
                 _with7.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(16, 16, W, H), ForeverLibrary.NearSF);
+            }
 
             base.OnPaint(e);
             G.Dispose();

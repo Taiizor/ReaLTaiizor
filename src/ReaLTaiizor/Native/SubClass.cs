@@ -34,7 +34,9 @@ namespace ReaLTaiizor.Native
             if (IsSubClassed)
             {
                 if (OnSubClassedWndProc(ref m) != 0)
+                {
                     return;
+                }
             }
             base.WndProc(ref m);
         }
@@ -83,7 +85,9 @@ namespace ReaLTaiizor.Native
         private int OnSubClassedWndProc(ref Message m)
         {
             if (SubClassedWndProc != null)
+            {
                 return SubClassedWndProc(ref m);
+            }
 
             return 0;
         }

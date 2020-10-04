@@ -49,7 +49,9 @@ namespace ReaLTaiizor.Forms
             base.OnClick(e);
             Rectangle r = new Rectangle(Width - 22, 5, 15, 15);
             if (r.Contains(new Point(e.X, e.Y)) || r.Contains(new Point(X, Y)) && e.Button == MouseButtons.Left)
+            {
                 FindForm().Close();
+            }
         }
 
         protected override void PaintHook()
@@ -68,7 +70,9 @@ namespace ReaLTaiizor.Forms
                 G.DrawString("r", new Font("Webdings", 8), new SolidBrush(BackColor), new Point(Width - 23, 5));
             }
             else
+            {
                 G.DrawString("r", new Font("Webdings", 8), new SolidBrush(Xcolor), new Point(Width - 23, 5));
+            }
 
             DrawText(new SolidBrush(TitleColor), new Point(8, 7));
         }

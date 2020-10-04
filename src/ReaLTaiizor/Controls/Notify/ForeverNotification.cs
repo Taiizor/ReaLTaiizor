@@ -35,10 +35,15 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (withEventsField_T != null)
+                {
                     withEventsField_T.Tick -= T_Tick;
+                }
+
                 withEventsField_T = value;
                 if (withEventsField_T != null)
+                {
                     withEventsField_T.Tick += T_Tick;
+                }
             }
 
         }
@@ -66,7 +71,9 @@ namespace ReaLTaiizor.Controls
             {
                 base.Text = value;
                 if (_Text != null)
+                {
                     _Text = value;
+                }
             }
         }
 
@@ -111,7 +118,10 @@ namespace ReaLTaiizor.Controls
         private void T_Tick(object sender, EventArgs e)
         {
             if (_Close)
+            {
                 Visible = false;
+            }
+
             T.Enabled = false;
             T.Dispose();
         }
@@ -155,15 +165,17 @@ namespace ReaLTaiizor.Controls
         {
             base.OnClick(e);
             if (_Close)
+            {
                 Visible = false;
+            }
         }
 
-        private Color SuccessColor = Color.FromArgb(60, 85, 79);
-        private Color SuccessText = Color.FromArgb(35, 169, 110);
-        private Color ErrorColor = Color.FromArgb(87, 71, 71);
-        private Color ErrorText = Color.FromArgb(254, 142, 122);
-        private Color InfoColor = Color.FromArgb(70, 91, 94);
-        private Color InfoText = Color.FromArgb(97, 185, 186);
+        private readonly Color SuccessColor = Color.FromArgb(60, 85, 79);
+        private readonly Color SuccessText = Color.FromArgb(35, 169, 110);
+        private readonly Color ErrorColor = Color.FromArgb(87, 71, 71);
+        private readonly Color ErrorText = Color.FromArgb(254, 142, 122);
+        private readonly Color InfoColor = Color.FromArgb(70, 91, 94);
+        private readonly Color InfoText = Color.FromArgb(97, 185, 186);
 
         public ForeverNotification()
         {
@@ -186,7 +198,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(0, 0, W, H);
 
-            var _with14 = G;
+            Graphics _with14 = G;
             _with14.SmoothingMode = SmoothingMode.HighQuality;
             _with14.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             _with14.Clear(BackColor);

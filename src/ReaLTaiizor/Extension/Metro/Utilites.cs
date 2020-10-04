@@ -59,16 +59,24 @@ namespace ReaLTaiizor.Extension.Metro
         public void InitControlHandle(Control ctrl)
         {
             if (ctrl.IsHandleCreated)
+            {
                 return;
-            var unused = ctrl.Handle;
+            }
+
+            IntPtr unused = ctrl.Handle;
             foreach (Control child in ctrl.Controls)
+            {
                 InitControlHandle(child);
+            }
         }
 
         public void SmoothCursor(ref Message message)
         {
             if (message.Msg != User32.WM_SETCURSOR)
+            {
                 return;
+            }
+
             User32.SetCursor(User32.LoadCursor(IntPtr.Zero, User32.IDC_HAND));
             message.Result = IntPtr.Zero;
         }

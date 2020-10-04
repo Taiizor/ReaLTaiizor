@@ -25,14 +25,14 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         private PushButtonState _state;
-        private static int BorderSize = SystemInformation.Border3DSize.Width * 2;
+        private static readonly int BorderSize = SystemInformation.Border3DSize.Width * 2;
         private bool skipNextOpen;
         private Rectangle dropDownRectangle;
         private bool showSplit;
         private bool isSplitMenuVisible;
         private ContextMenuStrip m_SplitMenuStrip;
         private ContextMenu m_SplitMenu;
-        private TextFormatFlags textFormatFlags = TextFormatFlags.Default;
+        private readonly TextFormatFlags textFormatFlags = TextFormatFlags.Default;
         #endregion
 
         #region Constructor
@@ -59,7 +59,9 @@ namespace ReaLTaiizor.Controls
             {
                 //remove the event handlers for the old SplitMenu
                 if (m_SplitMenu != null)
+                {
                     m_SplitMenu.Popup -= SplitMenu_Popup;
+                }
 
                 //add the event handlers for the new SplitMenu
                 if (value != null)
@@ -68,7 +70,9 @@ namespace ReaLTaiizor.Controls
                     value.Popup += SplitMenu_Popup;
                 }
                 else
+                {
                     ShowSplit = false;
+                }
 
                 m_SplitMenu = value;
             }
@@ -95,8 +99,9 @@ namespace ReaLTaiizor.Controls
                     value.Opening += SplitMenuStrip_Opening;
                 }
                 else
+                {
                     ShowSplit = false;
-
+                }
 
                 m_SplitMenuStrip = value;
             }
@@ -113,7 +118,9 @@ namespace ReaLTaiizor.Controls
                     Invalidate();
 
                     if (Parent != null)
+                    {
                         Parent.PerformLayout();
+                    }
                 }
             }
         }
@@ -146,7 +153,9 @@ namespace ReaLTaiizor.Controls
             SetButtonDrawState();
 
             if (e.CloseReason == ToolStripDropDownCloseReason.AppClicked)
+            {
                 skipNextOpen = (dropDownRectangle.Contains(PointToClient(Cursor.Position))) && MouseButtons == MouseButtons.Left;
+            }
         }
 
         private void SplitMenu_Popup(object sender, EventArgs e)
@@ -173,7 +182,9 @@ namespace ReaLTaiizor.Controls
         protected override bool IsInputKey(Keys keyData)
         {
             if (keyData.Equals(Keys.Down) && showSplit)
+            {
                 return true;
+            }
 
             return base.IsInputKey(keyData);
         }
@@ -187,7 +198,9 @@ namespace ReaLTaiizor.Controls
             }
 
             if (!State.Equals(PushButtonState.Pressed) && !State.Equals(PushButtonState.Disabled))
+            {
                 State = PushButtonState.Default;
+            }
         }
 
         protected override void OnKeyDown(KeyEventArgs kevent)
@@ -195,10 +208,13 @@ namespace ReaLTaiizor.Controls
             if (showSplit)
             {
                 if (kevent.KeyCode.Equals(Keys.Down) && !isSplitMenuVisible)
+                {
                     ShowContextMenuStrip();
-
+                }
                 else if (kevent.KeyCode.Equals(Keys.Space) && kevent.Modifiers == Keys.None)
+                {
                     State = PushButtonState.Pressed;
+                }
             }
 
             base.OnKeyDown(kevent);
@@ -209,12 +225,16 @@ namespace ReaLTaiizor.Controls
             if (kevent.KeyCode.Equals(Keys.Space))
             {
                 if (MouseButtons == MouseButtons.None)
+                {
                     State = PushButtonState.Normal;
+                }
             }
             else if (kevent.KeyCode.Equals(Keys.Apps))
             {
                 if (MouseButtons == MouseButtons.None && !isSplitMenuVisible)
+                {
                     ShowContextMenuStrip();
+                }
             }
 
             base.OnKeyUp(kevent);
@@ -236,7 +256,9 @@ namespace ReaLTaiizor.Controls
             }
 
             if (!State.Equals(PushButtonState.Pressed) && !State.Equals(PushButtonState.Disabled))
+            {
                 State = PushButtonState.Normal;
+            }
         }
 
         private bool isMouseEntered;
@@ -252,8 +274,9 @@ namespace ReaLTaiizor.Controls
             isMouseEntered = true;
 
             if (!State.Equals(PushButtonState.Pressed) && !State.Equals(PushButtonState.Disabled))
+            {
                 State = PushButtonState.Hot;
-
+            }
         }
 
         protected override void OnMouseLeave(EventArgs e)
@@ -267,7 +290,9 @@ namespace ReaLTaiizor.Controls
             isMouseEntered = false;
 
             if (!State.Equals(PushButtonState.Pressed) && !State.Equals(PushButtonState.Disabled))
+            {
                 State = Focused ? PushButtonState.Default : PushButtonState.Normal;
+            }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -280,12 +305,18 @@ namespace ReaLTaiizor.Controls
 
             //handle ContextMenu re-clicking the drop-down region to close the menu
             if (m_SplitMenu != null && e.Button == MouseButtons.Left && !isMouseEntered)
+            {
                 skipNextOpen = true;
+            }
 
             if (dropDownRectangle.Contains(e.Location) && !isSplitMenuVisible && e.Button == MouseButtons.Left)
+            {
                 ShowContextMenuStrip();
+            }
             else
+            {
                 State = PushButtonState.Pressed;
+            }
         }
 
         protected override void OnMouseUp(MouseEventArgs mevent)
@@ -298,13 +329,17 @@ namespace ReaLTaiizor.Controls
 
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
+            {
                 ShowContextMenuStrip();
+            }
             else if (m_SplitMenuStrip == null && m_SplitMenu == null || !isSplitMenuVisible)
             {
                 SetButtonDrawState();
 
                 if (ClientRectangle.Contains(mevent.Location) && !dropDownRectangle.Contains(mevent.Location))
+                {
                     OnClick(new EventArgs());
+                }
             }
         }
 
@@ -313,7 +348,9 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(pevent);
 
             if (!showSplit)
+            {
                 return;
+            }
 
             Graphics g = pevent.Graphics;
             Rectangle bounds = ClientRectangle;
@@ -356,7 +393,9 @@ namespace ReaLTaiizor.Controls
 
             // draw the focus rectangle.
             if (State != PushButtonState.Pressed && Focused && ShowFocusCues)
+            {
                 ControlPaint.DrawFocusRectangle(g, focusRect);
+            }
         }
 
         public override Size GetPreferredSize(Size proposedSize)
@@ -367,10 +406,14 @@ namespace ReaLTaiizor.Controls
             if (showSplit)
             {
                 if (AutoSize)
+                {
                     return CalculateButtonAutoSize();
+                }
 
                 if (!string.IsNullOrEmpty(Text) && TextRenderer.MeasureText(Text, Font).Width + SplitSectionWidth > preferredSize.Width)
+                {
                     return preferredSize + new Size(SplitSectionWidth + BorderSize * 2, 0);
+                }
             }
 
             return preferredSize;
@@ -389,9 +432,13 @@ namespace ReaLTaiizor.Controls
             if (Image != null)
             {
                 if (Enabled)
+                {
                     g.DrawImage(Image, image_rectangle.X, image_rectangle.Y, Image.Width, Image.Height);
+                }
                 else
+                {
                     ControlPaint.DrawImageDisabled(g, Image, image_rectangle.X, image_rectangle.Y, BackColor);
+                }
             }
         }
 
@@ -405,9 +452,13 @@ namespace ReaLTaiizor.Controls
             Point[] arrow = new[] { new Point(middle.X - 2, middle.Y - 1), new Point(middle.X + 3, middle.Y - 1), new Point(middle.X, middle.Y + 2) };
 
             if (Enabled)
+            {
                 g.FillPolygon(SystemBrushes.ControlText, arrow);
+            }
             else
+            {
                 g.FillPolygon(SystemBrushes.ButtonShadow, arrow);
+            }
         }
         #endregion
 
@@ -429,11 +480,16 @@ namespace ReaLTaiizor.Controls
 
                     //Offset on Windows 98 style when button is pressed
                     if (_state == PushButtonState.Pressed && !Application.RenderWithVisualStyles)
+                    {
                         textRectangle.Offset(1, 1);
+                    }
 
                     // Image is dependent on ImageAlign
                     if (Image != null)
+                    {
                         imageRectangle = OverlayObjectRect(ref content_rect, ref image_size, ImageAlign);
+                    }
+
                     break;
                 case TextImageRelation.ImageAboveText:
                     content_rect.Inflate(-4, -4);
@@ -511,7 +567,9 @@ namespace ReaLTaiizor.Controls
             int total_width = textSize.Width + element_spacing + imageSize.Width;
 
             if (!textFirst)
+            {
                 element_spacing += 2;
+            }
 
             // If the text is too big, chop it down to the size we have available to it
             if (total_width > totalArea.Width)
@@ -530,13 +588,21 @@ namespace ReaLTaiizor.Controls
             HorizontalAlignment h_image = GetHorizontalAlignment(ImageAlign);
 
             if (h_image == HorizontalAlignment.Left)
+            {
                 offset = 0;
+            }
             else if (h_image == HorizontalAlignment.Right && h_text == HorizontalAlignment.Right)
+            {
                 offset = excess_width;
+            }
             else if (h_image == HorizontalAlignment.Center && (h_text == HorizontalAlignment.Left || h_text == HorizontalAlignment.Center))
+            {
                 offset += excess_width / 3;
+            }
             else
+            {
                 offset += 2 * (excess_width / 3);
+            }
 
             if (textFirst)
             {
@@ -559,10 +625,14 @@ namespace ReaLTaiizor.Controls
             int total_height = textSize.Height + element_spacing + imageSize.Height;
 
             if (textFirst)
+            {
                 element_spacing += 2;
+            }
 
             if (textSize.Width > totalArea.Width)
+            {
                 textSize.Width = totalArea.Width;
+            }
 
             // If the there isn't enough room and we're text first, cut out the image
             if (total_height > totalArea.Height && textFirst)
@@ -581,13 +651,21 @@ namespace ReaLTaiizor.Controls
             VerticalAlignment v_image = GetVerticalAlignment(ImageAlign);
 
             if (v_image == VerticalAlignment.Top)
+            {
                 offset = 0;
+            }
             else if (v_image == VerticalAlignment.Bottom && v_text == VerticalAlignment.Bottom)
+            {
                 offset = excess_height;
+            }
             else if (v_image == VerticalAlignment.Center && (v_text == VerticalAlignment.Top || v_text == VerticalAlignment.Center))
+            {
                 offset += excess_height / 3;
+            }
             else
+            {
                 offset += 2 * (excess_height / 3);
+            }
 
             if (textFirst)
             {
@@ -600,7 +678,9 @@ namespace ReaLTaiizor.Controls
                 final_text_rect = new Rectangle(AlignInRectangle(totalArea, textSize, TextAlign).Left, final_image_rect.Bottom + element_spacing, textSize.Width, textSize.Height);
 
                 if (final_text_rect.Bottom > totalArea.Bottom)
+                {
                     final_text_rect.Y = totalArea.Top;
+                }
             }
 
             textRect = final_text_rect;
@@ -655,17 +735,30 @@ namespace ReaLTaiizor.Controls
             int y = 0;
 
             if (align == System.Drawing.ContentAlignment.BottomLeft || align == System.Drawing.ContentAlignment.MiddleLeft || align == System.Drawing.ContentAlignment.TopLeft)
+            {
                 x = outer.X;
+            }
             else if (align == System.Drawing.ContentAlignment.BottomCenter || align == System.Drawing.ContentAlignment.MiddleCenter || align == System.Drawing.ContentAlignment.TopCenter)
+            {
                 x = Math.Max(outer.X + ((outer.Width - inner.Width) / 2), outer.Left);
+            }
             else if (align == System.Drawing.ContentAlignment.BottomRight || align == System.Drawing.ContentAlignment.MiddleRight || align == System.Drawing.ContentAlignment.TopRight)
+            {
                 x = outer.Right - inner.Width;
+            }
+
             if (align == System.Drawing.ContentAlignment.TopCenter || align == System.Drawing.ContentAlignment.TopLeft || align == System.Drawing.ContentAlignment.TopRight)
+            {
                 y = outer.Y;
+            }
             else if (align == System.Drawing.ContentAlignment.MiddleCenter || align == System.Drawing.ContentAlignment.MiddleLeft || align == System.Drawing.ContentAlignment.MiddleRight)
+            {
                 y = outer.Y + (outer.Height - inner.Height) / 2;
+            }
             else if (align == System.Drawing.ContentAlignment.BottomCenter || align == System.Drawing.ContentAlignment.BottomRight || align == System.Drawing.ContentAlignment.BottomLeft)
+            {
                 y = outer.Bottom - inner.Height;
+            }
 
             return new Rectangle(x, y, Math.Min(inner.Width, outer.Width), Math.Min(inner.Height, outer.Height));
         }
@@ -687,21 +780,33 @@ namespace ReaLTaiizor.Controls
             State = PushButtonState.Pressed;
 
             if (m_SplitMenu != null)
+            {
                 m_SplitMenu.Show(this, new Point(0, Height));
+            }
             else if (m_SplitMenuStrip != null)
+            {
                 m_SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);
+            }
         }
 
         private void SetButtonDrawState()
         {
             if (Bounds.Contains(Parent.PointToClient(Cursor.Position)))
+            {
                 State = PushButtonState.Hot;
+            }
             else if (Focused)
+            {
                 State = PushButtonState.Default;
+            }
             else if (!Enabled)
+            {
                 State = PushButtonState.Disabled;
+            }
             else
+            {
                 State = PushButtonState.Normal;
+            }
         }
 
         private Size CalculateButtonAutoSize()
@@ -741,7 +846,9 @@ namespace ReaLTaiizor.Controls
 
             //pad the splitButton arrow region
             if (showSplit)
+            {
                 ret_size.Width += SplitSectionWidth;
+            }
 
             return ret_size;
         }

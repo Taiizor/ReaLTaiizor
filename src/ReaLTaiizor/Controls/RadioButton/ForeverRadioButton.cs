@@ -42,14 +42,20 @@ namespace ReaLTaiizor.Controls
         protected override void OnClick(EventArgs e)
         {
             if (!_Checked)
+            {
                 Checked = true;
+            }
+
             base.OnClick(e);
         }
 
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
+            {
                 return;
+            }
+
             foreach (Control C in Parent.Controls)
             {
                 if (!object.ReferenceEquals(C, this) && C is ForeverRadioButton)
@@ -154,7 +160,7 @@ namespace ReaLTaiizor.Controls
             Rectangle Base = new Rectangle(0, 2, Height - 5, Height - 5);
             Rectangle Dot = new Rectangle(4, 6, H - 12, H - 12);
 
-            var _with10 = G;
+            Graphics _with10 = G;
             _with10.SmoothingMode = SmoothingMode.HighQuality;
             _with10.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             _with10.Clear(BackColor);

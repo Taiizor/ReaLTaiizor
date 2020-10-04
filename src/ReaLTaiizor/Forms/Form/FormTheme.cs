@@ -18,8 +18,8 @@ namespace ReaLTaiizor.Forms
 
         private Point MouseP = new Point(0, 0);
         private bool Cap = false;
-        private int MoveHeight;
-        private string _TextBottom = null;
+        private readonly int MoveHeight;
+        private readonly string _TextBottom = null;
         private const int BorderCurve = 7;
         protected MouseState State;
         private bool HasShown;
@@ -61,7 +61,10 @@ namespace ReaLTaiizor.Forms
             get
             {
                 if (Parent == null)
+                {
                     return false;
+                }
+
                 return Parent.Parent != null;
             }
         }
@@ -83,16 +86,22 @@ namespace ReaLTaiizor.Forms
             get
             {
                 if (_IsParentForm && !_ControlMode)
+                {
                     return ParentForm.StartPosition;
+                }
                 else
+                {
                     return _StartPosition;
+                }
             }
             set
             {
                 _StartPosition = value;
 
                 if (_IsParentForm && !_ControlMode)
+                {
                     ParentForm.StartPosition = value;
+                }
             }
         }
 
@@ -104,7 +113,10 @@ namespace ReaLTaiizor.Forms
             base.OnParentChanged(e);
 
             if (Parent == null)
+            {
                 return;
+            }
+
             _IsParentForm = Parent is System.Windows.Forms.Form;
 
             if (!_ControlMode)
@@ -117,7 +129,9 @@ namespace ReaLTaiizor.Forms
                     ParentForm.TransparencyKey = Color.Fuchsia;
 
                     if (!DesignMode)
+                    {
                         ParentForm.Shown += FormShown;
+                    }
                 }
                 Parent.BackColor = BackColor;
                 Parent.MinimumSize = new Size(126, 50);
@@ -128,7 +142,10 @@ namespace ReaLTaiizor.Forms
         {
             base.OnSizeChanged(e);
             if (!_ControlMode)
+            {
                 HeaderRect = new Rectangle(0, 0, Width - 14, MoveHeight - 7);
+            }
+
             Invalidate();
         }
 
@@ -136,7 +153,10 @@ namespace ReaLTaiizor.Forms
         {
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
+            {
                 SetState(MouseState.Down);
+            }
+
             if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
             {
                 if (HeaderRect.Contains(e.Location))
@@ -166,10 +186,14 @@ namespace ReaLTaiizor.Forms
             if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
                 if (_Sizable && !_ControlMode)
+                {
                     InvalidateMouse();
+                }
             }
             if (Cap)
+            {
                 Parent.Location = (Point)((object)(Convert.ToDouble(MousePosition) - Convert.ToDouble(MouseP)));
+            }
         }
 
         protected override void OnInvalidated(InvalidateEventArgs e)
@@ -192,7 +216,9 @@ namespace ReaLTaiizor.Forms
         private void FormShown(object sender, EventArgs e)
         {
             if (_ControlMode || HasShown)
+            {
                 return;
+            }
 
             if (_StartPosition == FormStartPosition.CenterParent || _StartPosition == FormStartPosition.CenterScreen)
             {
@@ -226,21 +252,45 @@ namespace ReaLTaiizor.Forms
             B4 = GetIndexPoint.Y > Height - 7;
 
             if (B1x && B3)
+            {
                 return 4;
+            }
+
             if (B1x && B4)
+            {
                 return 7;
+            }
+
             if (B2x && B3)
+            {
                 return 5;
+            }
+
             if (B2x && B4)
+            {
                 return 8;
+            }
+
             if (B1x)
+            {
                 return 1;
+            }
+
             if (B2x)
+            {
                 return 2;
+            }
+
             if (B3)
+            {
                 return 3;
+            }
+
             if (B4)
+            {
                 return 6;
+            }
+
             return 0;
         }
 
@@ -250,7 +300,9 @@ namespace ReaLTaiizor.Forms
         {
             Current = GetIndex();
             if (Current == Previous)
+            {
                 return;
+            }
 
             Previous = Current;
             switch (Previous)
@@ -276,36 +328,53 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private Message[] Messages = new Message[9];
+        private readonly Message[] Messages = new Message[9];
         private void InitializeMessages()
         {
             Messages[0] = Message.Create(Parent.Handle, 161, new IntPtr(2), IntPtr.Zero);
             for (int I = 1; I <= 8; I++)
+            {
                 Messages[I] = Message.Create(Parent.Handle, 161, new IntPtr(I + 9), IntPtr.Zero);
+            }
         }
 
         private void CorrectBounds(Rectangle bounds)
         {
             if (Parent.Width > bounds.Width)
+            {
                 Parent.Width = bounds.Width;
+            }
+
             if (Parent.Height > bounds.Height)
+            {
                 Parent.Height = bounds.Height;
+            }
 
             int X = Parent.Location.X;
             int Y = Parent.Location.Y;
 
             if (X < bounds.X)
+            {
                 X = bounds.X;
+            }
+
             if (Y < bounds.Y)
+            {
                 Y = bounds.Y;
+            }
 
             int Width = bounds.X + bounds.Width;
             int Height = bounds.Y + bounds.Height;
 
             if (X + Parent.Width > Width)
+            {
                 X = Width - Parent.Width;
+            }
+
             if (Y + Parent.Height > Height)
+            {
                 Y = Height - Parent.Height;
+            }
 
             Parent.Location = new Point(X, Y);
         }
@@ -321,12 +390,18 @@ namespace ReaLTaiizor.Forms
 
                 SetState(MouseState.Over);
                 if (!_SmartBounds)
+                {
                     return;
+                }
 
                 if (IsParentMdi)
+                {
                     CorrectBounds(new Rectangle(Point.Empty, Parent.Parent.Size));
+                }
                 else
+                {
                     CorrectBounds(Screen.FromControl(Parent).WorkingArea);
+                }
             }
         }
 

@@ -69,8 +69,8 @@ namespace ReaLTaiizor.Controls
 
         #region Global Vars
 
-        private Methods mth;
-        private Utilites utl;
+        private readonly Methods mth;
+        private readonly Utilites utl;
 
         #endregion Global Vars
 
@@ -108,7 +108,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -128,7 +130,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.LabelDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.LabelDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -142,6 +145,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:

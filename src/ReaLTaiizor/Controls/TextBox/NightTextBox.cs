@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Fields
 
-        private TextBox tbCtrl = new TextBox();
+        private readonly TextBox tbCtrl = new TextBox();
         private Color BorderColor;
         private Panel watermarkContainer;
 
@@ -73,9 +73,13 @@ namespace ReaLTaiizor.Controls
                 {
                     tbCtrl.Multiline = value;
                     if (value)
+                    {
                         tbCtrl.Height = Height - 10;
+                    }
                     else
+                    {
                         Height = tbCtrl.Height + 10;
+                    }
                 }
             }
         }
@@ -90,7 +94,9 @@ namespace ReaLTaiizor.Controls
             {
                 _ReadOnly = value;
                 if (tbCtrl != null)
+                {
                     tbCtrl.ReadOnly = value;
+                }
             }
         }
 
@@ -239,7 +245,9 @@ namespace ReaLTaiizor.Controls
         private void TextBox_Enter(object sender, EventArgs e)
         {
             if (ColorBordersOnEnter)
+            {
                 BorderColor = _ActiveBorderColor;
+            }
 
             if (tbCtrl.TextLength <= 0)
             {
@@ -253,12 +261,18 @@ namespace ReaLTaiizor.Controls
         private void TextBox_Leave(object sender, EventArgs e)
         {
             if (ColorBordersOnEnter)
+            {
                 BorderColor = _DisableBorderColor;
+            }
 
             if (tbCtrl.TextLength <= 0)
+            {
                 RemoveWatermark();
+            }
             else
+            {
                 Invalidate();
+            }
 
             Invalidate();
         }
@@ -295,9 +309,13 @@ namespace ReaLTaiizor.Controls
             Text = tbCtrl.Text;
 
             if (tbCtrl.TextLength > 0)
+            {
                 RemoveWatermark();
+            }
             else
+            {
                 DrawWatermark();
+            }
         }
 
         private void WatermarkContainer_Click(object sender, EventArgs e)
@@ -313,8 +331,10 @@ namespace ReaLTaiizor.Controls
             watermarkContainer.Width = tbCtrl.Width - 25;
             watermarkContainer.Height = tbCtrl.Height;
 
-            using (var watermark = new SolidBrush(_WatermarkColor))
+            using (SolidBrush watermark = new SolidBrush(_WatermarkColor))
+            {
                 e.Graphics.DrawString(_Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
+            }
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -348,9 +368,13 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
 
             if (_Multiline)
+            {
                 tbCtrl.Height = Height - 30;
+            }
             else
+            {
                 Height = tbCtrl.Height + 32;
+            }
         }
 
         protected override void OnTextChanged(EventArgs e)
@@ -364,7 +388,9 @@ namespace ReaLTaiizor.Controls
             base.OnInvalidated(e);
 
             if (watermarkContainer != null)
+            {
                 watermarkContainer.Invalidate();
+            }
         }
 
         #endregion
@@ -417,7 +443,9 @@ namespace ReaLTaiizor.Controls
         private void DrawWatermark()
         {
             if (watermarkContainer != null || tbCtrl.TextLength > 0)
+            {
                 return;
+            }
 
             watermarkContainer = new Panel();
             watermarkContainer.Paint += WatermarkContainer_Paint;
@@ -429,7 +457,9 @@ namespace ReaLTaiizor.Controls
         private void RemoveWatermark()
         {
             if (watermarkContainer == null)
+            {
                 return;
+            }
 
             tbCtrl.Controls.Remove(watermarkContainer);
             watermarkContainer = null;
@@ -437,7 +467,7 @@ namespace ReaLTaiizor.Controls
 
         private void DrawBorder(Graphics g)
         {
-            using (var border = new Pen(BorderColor))
+            using (Pen border = new Pen(BorderColor))
             {
                 // Top border
                 if (_ShowTopBorder)
@@ -458,7 +488,9 @@ namespace ReaLTaiizor.Controls
         private void DrawImage(Graphics g)
         {
             if (Image == null)
+            {
                 tbCtrl.Width = Width - 35;
+            }
             else
             {
                 tbCtrl.Location = new Point(48, tbCtrl.Location.Y);
@@ -470,7 +502,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             DrawWatermark();
             DrawBorder(g);

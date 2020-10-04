@@ -59,14 +59,20 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(Parent.BackColor);
             using (SolidBrush HColor = new SolidBrush(ForeColor))
+            {
                 G.DrawString(Text, Font, HColor, new Point(0, 0));
+            }
 
             using (Pen BottomLine = new Pen(_LineColor))
             {
                 if (_Line == Direction.Bottom)
+                {
                     G.DrawLine(BottomLine, new Point(0, Height - 1), new Point(Width, Height - 1));
+                }
                 else
+                {
                     G.DrawLine(BottomLine, new Point(0, 0), new Point(Width, 0));
+                }
             }
 
             base.OnPaint(e);

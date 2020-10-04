@@ -24,10 +24,10 @@ namespace ReaLTaiizor.Controls
         private int _Max;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), CompilerGenerated]
-        private Color _Stripes;
+        private readonly Color _Stripes;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), CompilerGenerated]
-        private Color _BackgroundColor;
+        private readonly Color _BackgroundColor;
 
         public Color Stripes
         {
@@ -100,12 +100,17 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
             graphics.Clear(BackColor);
             using (Pen pen = new Pen(_BorderColor))
+            {
                 graphics.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
+            }
+
             bool flag = Value != 0;
             if (flag)
             {
                 using (HatchBrush hatchBrush = new HatchBrush(HatchStyle.LightUpwardDiagonal, Stripes, BackgroundColor))
+                {
                     graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked((double)Value / (double)Maximum * (double)base.Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
+                }
             }
         }
     }

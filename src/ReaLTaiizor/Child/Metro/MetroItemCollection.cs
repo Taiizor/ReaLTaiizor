@@ -18,8 +18,10 @@ namespace ReaLTaiizor.Child.Metro
 
         public void AddRange(IEnumerable<object> items)
         {
-            foreach (var item in items)
+            foreach (object item in items)
+            {
                 Add(item);
+            }
         }
 
         protected new void Add(object item)

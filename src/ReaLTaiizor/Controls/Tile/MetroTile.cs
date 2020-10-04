@@ -126,8 +126,8 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var r = new Rectangle(1, 1, Width - 2, Height - 2);
+            Graphics g = e.Graphics;
+            Rectangle r = new Rectangle(1, 1, Width - 2, Height - 2);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             StringFormat sf;
@@ -159,14 +159,16 @@ namespace ReaLTaiizor.Controls
             switch (_state)
             {
                 case MouseMode.Normal:
-                    using (var bg = new SolidBrush(NormalColor))
+                    using (SolidBrush bg = new SolidBrush(NormalColor))
                     {
-                        using (var p = new Pen(NormalBorderColor, 2))
+                        using (Pen p = new Pen(NormalBorderColor, 2))
                         {
-                            using (var tb = new SolidBrush(NormalTextColor))
+                            using (SolidBrush tb = new SolidBrush(NormalTextColor))
                             {
                                 if (BackgroundImage != null)
+                                {
                                     g.DrawImage(BackgroundImage, r);
+                                }
                                 else
                                 {
                                     g.FillRectangle(bg, r);
@@ -179,16 +181,21 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (var bg = new SolidBrush(HoverColor))
+                    using (SolidBrush bg = new SolidBrush(HoverColor))
                     {
-                        using (var p = new Pen(HoverBorderColor, 2))
+                        using (Pen p = new Pen(HoverBorderColor, 2))
                         {
-                            using (var tb = new SolidBrush(HoverTextColor))
+                            using (SolidBrush tb = new SolidBrush(HoverTextColor))
                             {
                                 if (BackgroundImage != null)
+                                {
                                     g.DrawImage(BackgroundImage, r);
+                                }
                                 else
+                                {
                                     g.FillRectangle(bg, r);
+                                }
+
                                 g.DrawString(Text, Font, tb, r, sf);
                                 g.DrawRectangle(p, r);
                             }
@@ -196,16 +203,21 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Pushed:
-                    using (var bg = new SolidBrush(PressColor))
+                    using (SolidBrush bg = new SolidBrush(PressColor))
                     {
-                        using (var p = new Pen(PressBorderColor, 2))
+                        using (Pen p = new Pen(PressBorderColor, 2))
                         {
-                            using (var tb = new SolidBrush(PressTextColor))
+                            using (SolidBrush tb = new SolidBrush(PressTextColor))
                             {
                                 if (BackgroundImage != null)
+                                {
                                     g.DrawImage(BackgroundImage, r);
+                                }
                                 else
+                                {
                                     g.FillRectangle(bg, r);
+                                }
+
                                 g.DrawString(Text, Font, tb, r, sf);
                                 g.DrawRectangle(p, r);
 
@@ -214,11 +226,11 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Disabled:
-                    using (var bg = new SolidBrush(DisabledBackColor))
+                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
                     {
-                        using (var p = new Pen(DisabledBorderColor))
+                        using (Pen p = new Pen(DisabledBorderColor))
                         {
-                            using (var tb = new SolidBrush(DisabledForeColor))
+                            using (SolidBrush tb = new SolidBrush(DisabledForeColor))
                             {
                                 g.FillRectangle(bg, r);
                                 g.DrawString(Text, Font, tb, r, sf);
@@ -239,7 +251,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -277,36 +291,65 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.TileDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.TileDictionary)
                         {
                             if ((varkey.Key == null) || varkey.Key == null)
+                            {
                                 return;
+                            }
 
                             if (varkey.Key == "NormalColor")
+                            {
                                 NormalColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "NormalBorderColor")
+                            {
                                 NormalBorderColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "NormalTextColor")
+                            {
                                 NormalTextColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "HoverColor")
+                            {
                                 HoverColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "HoverBorderColor")
+                            {
                                 HoverBorderColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "HoverTextColor")
+                            {
                                 HoverTextColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "PressColor")
+                            {
                                 PressColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "PressBorderColor")
+                            {
                                 PressBorderColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "PressTextColor")
+                            {
                                 PressTextColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "DisabledBackColor")
+                            {
                                 DisabledBackColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "DisabledBorderColor")
+                            {
                                 DisabledBorderColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "DisabledForeColor")
+                            {
                                 DisabledForeColor = _utl.HexColor((string)varkey.Value);
+                            }
                         }
+                    }
+
                     Refresh();
                     break;
                 default:
@@ -329,7 +372,10 @@ namespace ReaLTaiizor.Controls
             {
                 base.Enabled = value;
                 if (value == false)
+                {
                     _state = MouseMode.Disabled;
+                }
+
                 Invalidate();
             }
         }

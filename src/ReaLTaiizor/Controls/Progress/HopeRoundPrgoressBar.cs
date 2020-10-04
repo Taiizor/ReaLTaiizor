@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     public class HopeRoundProgressBar : Control
     {
 
-        private int tempValue = 0;
+        private readonly int tempValue = 0;
         private int _valueNumber = 0;
         public int ValueNumber
         {
@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private float _roundWidth = 6;
+        private readonly float _roundWidth = 6;
 
         private bool _isError = false;
         public bool IsError

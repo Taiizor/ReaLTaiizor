@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Native
         [DllImport("User32.dll")]
         public static extern bool HideCaret(IntPtr hWnd);
 
-        private IntPtr controlHandle;
+        private readonly IntPtr controlHandle;
 
         public WinCaret(IntPtr ownerHandle)
         {

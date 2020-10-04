@@ -128,17 +128,17 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var r = new Rectangle(0, 0, Width - 1, Height - 1);
+            Graphics g = e.Graphics;
+            Rectangle r = new Rectangle(0, 0, Width - 1, Height - 1);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             switch (_state)
             {
                 case MouseMode.Normal:
 
-                    using (var bg = new SolidBrush(NormalColor))
-                    using (var p = new Pen(NormalBorderColor))
-                    using (var tb = new SolidBrush(NormalTextColor))
+                    using (SolidBrush bg = new SolidBrush(NormalColor))
+                    using (Pen p = new Pen(NormalBorderColor))
+                    using (SolidBrush tb = new SolidBrush(NormalTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -147,9 +147,9 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (var bg = new SolidBrush(HoverColor))
-                    using (var p = new Pen(HoverBorderColor))
-                    using (var tb = new SolidBrush(HoverTextColor))
+                    using (SolidBrush bg = new SolidBrush(HoverColor))
+                    using (Pen p = new Pen(HoverBorderColor))
+                    using (SolidBrush tb = new SolidBrush(HoverTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -157,9 +157,9 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Pushed:
-                    using (var bg = new SolidBrush(PressColor))
-                    using (var p = new Pen(PressBorderColor))
-                    using (var tb = new SolidBrush(PressTextColor))
+                    using (SolidBrush bg = new SolidBrush(PressColor))
+                    using (Pen p = new Pen(PressBorderColor))
+                    using (SolidBrush tb = new SolidBrush(PressTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -167,9 +167,9 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Disabled:
-                    using (var bg = new SolidBrush(DisabledBackColor))
-                    using (var p = new Pen(DisabledBorderColor))
-                    using (var tb = new SolidBrush(DisabledForeColor))
+                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
+                    using (Pen p = new Pen(DisabledBorderColor))
+                    using (SolidBrush tb = new SolidBrush(DisabledForeColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -192,7 +192,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -230,10 +232,13 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ButtonDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ButtonDictionary)
                         {
                             if ((varkey.Key == null) || varkey.Key == null)
+                            {
                                 return;
+                            }
 
                             switch (varkey.Key)
                             {
@@ -275,6 +280,8 @@ namespace ReaLTaiizor.Controls
                                     break;
                             }
                         }
+                    }
+
                     Invalidate();
                     break;
                 default:

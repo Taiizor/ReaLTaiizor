@@ -185,7 +185,7 @@ namespace ReaLTaiizor
     public class MSColorTable : ColorTable
     {
 
-        private xColorTable _CommonColorTable;
+        private readonly xColorTable _CommonColorTable;
 
         public MSColorTable()
         {
@@ -256,7 +256,10 @@ namespace ReaLTaiizor
             get
             {
                 if (_ColorTable == null)
+                {
                     _ColorTable = new MSColorTable();
+                }
+
                 return _ColorTable;
             }
             set => _ColorTable = value;
@@ -268,7 +271,9 @@ namespace ReaLTaiizor
 
             // Menu strip bar gradient
             using (LinearGradientBrush LGB = new LinearGradientBrush(e.AffectedBounds, ColorTable.BackgroundTopGradient, ColorTable.BackgroundBottomGradient, LinearGradientMode.Vertical))
+            {
                 e.Graphics.FillRectangle(LGB, e.AffectedBounds);
+            }
         }
 
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
@@ -278,11 +283,15 @@ namespace ReaLTaiizor
                 // Draw border around the menu drop-down
                 Rectangle Rect = new Rectangle(0, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
                 using (Pen P1 = new Pen(ColorTable.CommonColorTable.DropdownBorder))
+                {
                     e.Graphics.DrawRectangle(P1, Rect);
+                }
 
                 // Fill the gap between menu drop-down and owner item
                 using (SolidBrush B1 = new SolidBrush(ColorTable.DroppedDownItemBackground))
+                {
                     e.Graphics.FillRectangle(B1, e.ConnectedArea);
+                }
             }
         }
 
@@ -310,11 +319,15 @@ namespace ReaLTaiizor
                     // Fill the background
                     Rectangle BackgroundRect = new Rectangle(1, 1, e.Item.Width - 2, e.Item.Height + 2);
                     using (SolidBrush B1 = new SolidBrush(ColorTable.DroppedDownItemBackground))
+                    {
                         e.Graphics.FillRectangle(B1, BackgroundRect);
+                    }
 
                     // Draw border
                     using (Pen P1 = new Pen(ColorTable.CommonColorTable.DropdownBorder))
+                    {
                         RectDrawing.DrawRoundedRectangle(e.Graphics, P1, Convert.ToSingle(BorderRect.X), Convert.ToSingle(BorderRect.Y), Convert.ToSingle(BorderRect.Width), Convert.ToSingle(BorderRect.Height), 2);
+                    }
                 }
                 e.Item.ForeColor = ColorTable.CommonColorTable.TextColor;
             }
@@ -334,14 +347,20 @@ namespace ReaLTaiizor
             Color c = default(Color);
 
             if (e.Item.Selected)
+            {
                 c = ColorTable.CommonColorTable.CheckedSelectedBackground;
+            }
             //else
 
             using (SolidBrush b = new SolidBrush(c))
+            {
                 e.Graphics.FillRectangle(b, rect);
+            }
 
             using (Pen p = new Pen(ColorTable.CommonColorTable.SelectionBorder))
+            {
                 e.Graphics.DrawRectangle(p, rect);
+            }
 
             e.Graphics.DrawString("ü", new Font("Wingdings", 13, FontStyle.Regular), Brushes.Black, new Point(4, 2));
         }
@@ -353,7 +372,9 @@ namespace ReaLTaiizor
             int PT2 = Convert.ToInt32(e.Item.Width);
             int Y = 3;
             using (Pen P1 = new Pen(ColorTable.Separator))
+            {
                 e.Graphics.DrawLine(P1, PT1, Y, PT2, Y);
+            }
         }
 
         protected override void OnRenderImageMargin(ToolStripRenderEventArgs e)
@@ -362,10 +383,14 @@ namespace ReaLTaiizor
 
             Rectangle BackgroundRect = new Rectangle(0, -1, e.ToolStrip.Width, e.ToolStrip.Height + 1);
             using (LinearGradientBrush LGB = new LinearGradientBrush(BackgroundRect, ColorTable.DropdownTopGradient, ColorTable.DropdownBottomGradient, LinearGradientMode.Vertical))
+            {
                 e.Graphics.FillRectangle(LGB, BackgroundRect);
+            }
 
             using (SolidBrush B1 = new SolidBrush(ColorTable.ImageMargin))
+            {
                 e.Graphics.FillRectangle(B1, e.AffectedBounds);
+            }
         }
 
         protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
@@ -381,12 +406,16 @@ namespace ReaLTaiizor
                 if (e.Item.Selected && !e.Item.Pressed)
                 {
                     using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.CheckedSelectedBackground))
+                    {
                         e.Graphics.FillRectangle(b, rect);
+                    }
                 }
                 else
                 {
                     using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.CheckedBackground))
+                    {
                         e.Graphics.FillRectangle(b, rect);
+                    }
                 }
 
             }
@@ -397,8 +426,9 @@ namespace ReaLTaiizor
                 {
                     drawBorder = true;
                     using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.PressedBackground))
+                    {
                         e.Graphics.FillRectangle(b, rect);
-
+                    }
                 }
                 else if (e.Item.Selected)
                 {
@@ -411,7 +441,9 @@ namespace ReaLTaiizor
             if (drawBorder)
             {
                 using (Pen p = new Pen(ColorTable.CommonColorTable.SelectionBorder))
+                {
                     e.Graphics.DrawRectangle(p, rect);
+                }
             }
         }
 
@@ -424,7 +456,9 @@ namespace ReaLTaiizor
             {
                 drawBorder = true;
                 using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.PressedBackground))
+                {
                     e.Graphics.FillRectangle(b, rect);
+                }
             }
             else if (e.Item.Selected)
             {
@@ -435,7 +469,9 @@ namespace ReaLTaiizor
             if (drawBorder)
             {
                 using (Pen p = new Pen(ColorTable.CommonColorTable.SelectionBorder))
+                {
                     e.Graphics.DrawRectangle(p, rect);
+                }
             }
         }
 
@@ -463,7 +499,9 @@ namespace ReaLTaiizor
                     {
                         flag = (b != null);
                         if (flag)
+                        {
                             ((IDisposable)b).Dispose();
+                        }
                     }
                 }
                 else
@@ -487,7 +525,9 @@ namespace ReaLTaiizor
                     {
                         flag = (b2 != null);
                         if (flag)
+                        {
                             ((IDisposable)b2).Dispose();
+                        }
                     }
                 }
                 flag = drawBorder;
@@ -499,13 +539,17 @@ namespace ReaLTaiizor
                         e.Graphics.DrawRectangle(p, borderRect);
                         flag = drawSeparator;
                         if (flag)
+                        {
                             e.Graphics.DrawRectangle(p, btnRect);
+                        }
                     }
                     finally
                     {
                         flag = (p != null);
                         if (flag)
+                        {
                             ((IDisposable)p).Dispose();
+                        }
                     }
                     DrawCustomArrow(e.Graphics, item);
                 }
@@ -541,18 +585,26 @@ namespace ReaLTaiizor
             if (e.Item.Pressed)
             {
                 using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.PressedBackground))
+                {
                     e.Graphics.FillRectangle(b, rect);
+                }
             }
             else if (e.Item.Selected)
+            {
                 RectDrawing.DrawSelection(e.Graphics, ColorTable.CommonColorTable, rect);
+            }
             else
             {
                 using (SolidBrush b = new SolidBrush(ColorTable.CommonColorTable.OverflowBackground))
+                {
                     e.Graphics.FillRectangle(b, rect);
+                }
             }
 
             using (Pen P1 = new Pen(ColorTable.CommonColorTable.Background))
+            {
                 RectDrawing.DrawRoundedRectangle(e.Graphics, P1, Convert.ToSingle(rectEnd.X), Convert.ToSingle(rectEnd.Y), Convert.ToSingle(rectEnd.Width), Convert.ToSingle(rectEnd.Height), 3);
+            }
 
             // Icon
             int w = Convert.ToInt32(rect.Width - 1);
@@ -565,7 +617,9 @@ namespace ReaLTaiizor
             DrawCustomArrow(e.Graphics, e.Item, Rectangle.Round(arrowRect));
 
             using (Pen p = new Pen(ColorTable.CommonColorTable.Arrow))
+            {
                 e.Graphics.DrawLine(p, triangleLeft + 2, triangleTop - 2, triangleLeft + triangleWidth - 2, triangleTop - 2);
+            }
         }
     }
 
@@ -587,15 +641,21 @@ namespace ReaLTaiizor
 
             // Top gradient
             using (LinearGradientBrush LGB = new LinearGradientBrush(TopRect, ColorTable.SelectionTopGradient, ColorTable.SelectionMidGradient, LinearGradientMode.Vertical))
+            {
                 G.FillRectangle(LGB, TopRect);
+            }
 
             // Bottom
             using (SolidBrush B1 = new SolidBrush(ColorTable.SelectionBottomGradient))
+            {
                 G.FillRectangle(B1, BottomRect);
+            }
 
             // Border
             using (Pen P1 = new Pen(ColorTable.SelectionBorder))
+            {
                 RectDrawing.DrawRoundedRectangle(G, P1, Convert.ToSingle(Rect.X), Convert.ToSingle(Rect.Y), Convert.ToSingle(Rect.Width), Convert.ToSingle(Rect.Height), 2);
+            }
         }
 
         public static void DrawRoundedRectangle(Graphics G, Pen P, float X, float Y, float W, float H, float Rad)
@@ -629,7 +689,7 @@ namespace ReaLTaiizor
     public abstract class PaintHelperA
     {
         [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
+        public static extern int SendMessage(IntPtr hWnd, int wMsg, bool wParam, int lParam);
 
         private const int WM_SETREDRAW = 11;
 

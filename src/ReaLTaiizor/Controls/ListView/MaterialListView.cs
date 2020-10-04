@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Controls
             MouseMove += delegate (object sender, MouseEventArgs args)
             {
                 MouseLocation = args.Location;
-                var currentHoveredItem = GetItemAt(MouseLocation.X, MouseLocation.Y);
+                ListViewItem currentHoveredItem = GetItemAt(MouseLocation.X, MouseLocation.Y);
                 if (HoveredItem != currentHoveredItem)
                 {
                     HoveredItem = currentHoveredItem;
@@ -174,18 +174,29 @@ namespace ReaLTaiizor.Controls
 
         private void AutoResize()
         {
-            if (!AutoSizeTable) return;
+            if (!AutoSizeTable)
+            {
+                return;
+            }
 
             // Width
             int w = 0;
             foreach (ColumnHeader col in Columns)
+            {
                 w += col.Width;
+            }
 
             // Height
             int h = 50; //Header size
-            if (Items.Count > 0) h = TopItem.Bounds.Top;
+            if (Items.Count > 0)
+            {
+                h = TopItem.Bounds.Top;
+            }
+
             foreach (ListViewItem item in Items)
+            {
                 h += item.Bounds.Height;
+            }
 
             Size = new Size(w, h);
         }

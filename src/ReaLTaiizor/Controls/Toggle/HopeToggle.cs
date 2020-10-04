@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private Timer AnimationTimer = new Timer { Interval = 1 };
+        private readonly Timer AnimationTimer = new Timer { Interval = 1 };
         private int PointAnimationNum = 4;
 
         private Color _BaseColor = Color.FromArgb(44, 55, 66);
@@ -86,14 +86,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            var graphics = pevent.Graphics;
+            Graphics graphics = pevent.Graphics;
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BaseColor);
 
-            var roundRectangle = new GraphicsPath();
-            var radius = 9;
+            GraphicsPath roundRectangle = new GraphicsPath();
+            int radius = 9;
             roundRectangle.AddArc(11, 5, radius - 1, radius, 180, 90);
             roundRectangle.AddArc(Width - 21, 5, radius - 1, radius, -90, 90);
             roundRectangle.AddArc(Width - 21, Height - 14, radius - 1, radius, 0, 90);

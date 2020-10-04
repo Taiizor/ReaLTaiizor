@@ -133,7 +133,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -167,7 +169,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.SwitchBoxDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.SwitchBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -199,6 +202,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -212,19 +217,19 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            var rect = new Rectangle(1, 1, 56, 20);
-            var rect2 = new Rectangle(3, 3, 52, 16);
+            Rectangle rect = new Rectangle(1, 1, 56, 20);
+            Rectangle rect2 = new Rectangle(3, 3, 52, 16);
 
-            using (var backBrush = new SolidBrush(BackgroundColor))
+            using (SolidBrush backBrush = new SolidBrush(BackgroundColor))
             {
-                using (var checkback = new SolidBrush(Enabled ? Switched ? CheckColor : UnCheckColor : Switched ? DisabledCheckColor : DisabledUnCheckColor))
+                using (SolidBrush checkback = new SolidBrush(Enabled ? Switched ? CheckColor : UnCheckColor : Switched ? DisabledCheckColor : DisabledUnCheckColor))
                 {
-                    using (var checkMarkBrush = new SolidBrush(SymbolColor))
+                    using (SolidBrush checkMarkBrush = new SolidBrush(SymbolColor))
                     {
-                        using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor, 2))
+                        using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor, 2))
                         {
                             g.FillRectangle(backBrush, rect);
                             g.FillRectangle(checkback, rect2);

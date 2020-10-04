@@ -80,9 +80,14 @@ namespace ReaLTaiizor.Controls
                 _EnabledCalc = value;
                 bool enabled = Enabled;
                 if (enabled)
+                {
                     Cursor = Cursors.Hand;
+                }
                 else
+                {
                     Cursor = Cursors.Default;
+                }
+
                 base.Invalidate();
             }
         }

@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Child.Poison
     {
         protected override CollectionForm CreateCollectionForm()
         {
-            var baseForm = base.CreateCollectionForm();
+            CollectionForm baseForm = base.CreateCollectionForm();
             baseForm.Text = "PoisonTabPage Collection Editor";
             return baseForm;
         }

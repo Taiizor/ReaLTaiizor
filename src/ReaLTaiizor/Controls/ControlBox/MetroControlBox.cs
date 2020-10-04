@@ -120,7 +120,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -154,7 +156,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ControlBoxDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ControlBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -192,6 +195,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style), style, null);
@@ -379,16 +384,16 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            using (var closeBoxState = new SolidBrush(CloseHovered ? CloseHoverBackColor : Color.Transparent))
+            using (SolidBrush closeBoxState = new SolidBrush(CloseHovered ? CloseHoverBackColor : Color.Transparent))
             {
-                using (var f = new Font(@"Marlett", 12))
+                using (Font f = new Font(@"Marlett", 12))
                 {
-                    using (var tb = new SolidBrush(CloseHovered ? CloseHoverForeColor : CloseNormalForeColor))
+                    using (SolidBrush tb = new SolidBrush(CloseHovered ? CloseHoverForeColor : CloseNormalForeColor))
                     {
-                        using (var sf = new StringFormat { Alignment = StringAlignment.Center })
+                        using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Center })
                         {
                             g.FillRectangle(closeBoxState, new Rectangle(70, 5, 27, Height));
                             g.DrawString("r", f, CloseHovered ? tb : Brushes.Gray, new Point(Width - 16, 8), sf);
@@ -396,14 +401,14 @@ namespace ReaLTaiizor.Controls
                     }
                 }
             }
-            using (var maximizeBoxState = new SolidBrush(MaximizeBox ? MaximizeHovered ? MaximizeHoverBackColor : Color.Transparent : Color.Transparent))
+            using (SolidBrush maximizeBoxState = new SolidBrush(MaximizeBox ? MaximizeHovered ? MaximizeHoverBackColor : Color.Transparent : Color.Transparent))
             {
-                using (var f = new Font(@"Marlett", 12))
+                using (Font f = new Font(@"Marlett", 12))
                 {
-                    using (var tb = new SolidBrush(MaximizeBox ? MaximizeHovered ? MaximizeHoverForeColor : MaximizeNormalForeColor : DisabledForeColor))
+                    using (SolidBrush tb = new SolidBrush(MaximizeBox ? MaximizeHovered ? MaximizeHoverForeColor : MaximizeNormalForeColor : DisabledForeColor))
                     {
-                        var maxSymbol = Parent.FindForm()?.WindowState == FormWindowState.Maximized ? "2" : "1";
-                        using (var sf = new StringFormat { Alignment = StringAlignment.Center })
+                        string maxSymbol = Parent.FindForm()?.WindowState == FormWindowState.Maximized ? "2" : "1";
+                        using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Center })
                         {
                             g.FillRectangle(maximizeBoxState, new Rectangle(38, 5, 24, Height));
                             g.DrawString(maxSymbol, f, tb, new Point(51, 7), sf);
@@ -411,13 +416,13 @@ namespace ReaLTaiizor.Controls
                     }
                 }
             }
-            using (var minimizeBoxState = new SolidBrush(MinimizeBox ? MinimizeHovered ? MinimizeHoverBackColor : Color.Transparent : Color.Transparent))
+            using (SolidBrush minimizeBoxState = new SolidBrush(MinimizeBox ? MinimizeHovered ? MinimizeHoverBackColor : Color.Transparent : Color.Transparent))
             {
-                using (var f = new Font(@"Marlett", 12))
+                using (Font f = new Font(@"Marlett", 12))
                 {
-                    using (var tb = new SolidBrush(MinimizeBox ? MinimizeHovered ? MinimizeHoverForeColor : MinimizeNormalForeColor : DisabledForeColor))
+                    using (SolidBrush tb = new SolidBrush(MinimizeBox ? MinimizeHovered ? MinimizeHoverForeColor : MinimizeNormalForeColor : DisabledForeColor))
                     {
-                        using (var sf = new StringFormat { Alignment = StringAlignment.Center })
+                        using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Center })
                         {
                             g.FillRectangle(minimizeBoxState, new Rectangle(5, 5, 27, Height));
                             g.DrawString("0", f, tb, new Point(20, 7), sf);
@@ -498,17 +503,24 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseDown(e);
             if (CloseHovered)
+            {
                 Parent.FindForm()?.Close();
+            }
             else if (MinimizeHovered)
             {
                 if (!MinimizeBox)
+                {
                     return;
+                }
+
                 Parent.FindForm().WindowState = FormWindowState.Minimized;
             }
             else if (MaximizeHovered)
             {
                 if (MaximizeBox)
+                {
                     Parent.FindForm().WindowState = Parent.FindForm()?.WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal;
+                }
             }
         }
 

@@ -40,7 +40,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (Parent != null)
+                {
                     Parent.Invalidate();
+                }
+
                 setSize(value);
             }
         }
@@ -93,14 +96,22 @@ namespace ReaLTaiizor.Controls
 
         protected override void InitLayout()
         {
-            LocationChanged += (sender, e) => { if (DrawShadows) Parent?.Invalidate(); };
+            LocationChanged += (sender, e) => { if (DrawShadows) { Parent?.Invalidate(); } };
         }
 
         protected override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
-            if (DrawShadows && Parent != null) AddShadowPaintEvent(Parent, drawShadowOnParent);
-            if (_oldParent != null) RemoveShadowPaintEvent(_oldParent, drawShadowOnParent);
+            if (DrawShadows && Parent != null)
+            {
+                AddShadowPaintEvent(Parent, drawShadowOnParent);
+            }
+
+            if (_oldParent != null)
+            {
+                RemoveShadowPaintEvent(_oldParent, drawShadowOnParent);
+            }
+
             _oldParent = Parent;
         }
 
@@ -109,18 +120,30 @@ namespace ReaLTaiizor.Controls
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
-            if (Parent == null) return;
+            if (Parent == null)
+            {
+                return;
+            }
+
             if (Visible)
+            {
                 AddShadowPaintEvent(Parent, drawShadowOnParent);
+            }
             else
+            {
                 RemoveShadowPaintEvent(Parent, drawShadowOnParent);
+            }
         }
 
         private bool _shadowDrawEventSubscribed = false;
 
         private void AddShadowPaintEvent(Control control, PaintEventHandler shadowPaintEvent)
         {
-            if (_shadowDrawEventSubscribed) return;
+            if (_shadowDrawEventSubscribed)
+            {
+                return;
+            }
+
             control.Paint += shadowPaintEvent;
             control.Invalidate();
             _shadowDrawEventSubscribed = true;
@@ -128,7 +151,11 @@ namespace ReaLTaiizor.Controls
 
         private void RemoveShadowPaintEvent(Control control, PaintEventHandler shadowPaintEvent)
         {
-            if (!_shadowDrawEventSubscribed) return;
+            if (!_shadowDrawEventSubscribed)
+            {
+                return;
+            }
+
             control.Paint -= shadowPaintEvent;
             control.Invalidate();
             _shadowDrawEventSubscribed = false;
@@ -171,7 +198,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            var g = pevent.Graphics;
+            Graphics g = pevent.Graphics;
 
             g.Clear(Parent.BackColor);
             g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -193,10 +220,10 @@ namespace ReaLTaiizor.Controls
 
                 for (int i = 0; i < _animationManager.GetAnimationCount(); i++)
                 {
-                    var animationValue = _animationManager.GetProgress(i);
-                    var animationSource = _animationManager.GetSource(i);
-                    var rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationValue * 50)), Color.White));
-                    var rippleSize = (int)(animationValue * Width * 2);
+                    double animationValue = _animationManager.GetProgress(i);
+                    Point animationSource = _animationManager.GetSource(i);
+                    SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationValue * 50)), Color.White));
+                    int rippleSize = (int)(animationValue * Width * 2);
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
                 }
 
@@ -204,7 +231,9 @@ namespace ReaLTaiizor.Controls
             }
 
             if (Icon != null)
+            {
                 g.DrawImage(Icon, new Rectangle(fabBounds.Width / 2 - 11, fabBounds.Height / 2 - 11, 24, 24));
+            }
 
             if (_showAnimationManager.IsAnimating())
             {

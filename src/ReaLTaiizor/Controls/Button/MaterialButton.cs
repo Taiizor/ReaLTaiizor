@@ -64,14 +64,22 @@ namespace ReaLTaiizor.Controls
         {
             base.InitLayout();
             Invalidate();
-            LocationChanged += (sender, e) => { if (DrawShadows) Parent?.Invalidate(); };
+            LocationChanged += (sender, e) => { if (DrawShadows) { Parent?.Invalidate(); } };
         }
 
         protected override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
-            if (drawShadows && Parent != null) AddShadowPaintEvent(Parent, drawShadowOnParent);
-            if (_oldParent != null) RemoveShadowPaintEvent(_oldParent, drawShadowOnParent);
+            if (drawShadows && Parent != null)
+            {
+                AddShadowPaintEvent(Parent, drawShadowOnParent);
+            }
+
+            if (_oldParent != null)
+            {
+                RemoveShadowPaintEvent(_oldParent, drawShadowOnParent);
+            }
+
             _oldParent = Parent;
         }
 
@@ -80,18 +88,30 @@ namespace ReaLTaiizor.Controls
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
-            if (Parent == null) return;
+            if (Parent == null)
+            {
+                return;
+            }
+
             if (Visible)
+            {
                 AddShadowPaintEvent(Parent, drawShadowOnParent);
+            }
             else
+            {
                 RemoveShadowPaintEvent(Parent, drawShadowOnParent);
+            }
         }
 
         private bool _shadowDrawEventSubscribed = false;
 
         private void AddShadowPaintEvent(Control control, PaintEventHandler shadowPaintEvent)
         {
-            if (_shadowDrawEventSubscribed) return;
+            if (_shadowDrawEventSubscribed)
+            {
+                return;
+            }
+
             control.Paint += shadowPaintEvent;
             control.Invalidate();
             _shadowDrawEventSubscribed = true;
@@ -99,7 +119,11 @@ namespace ReaLTaiizor.Controls
 
         private void RemoveShadowPaintEvent(Control control, PaintEventHandler shadowPaintEvent)
         {
-            if (!_shadowDrawEventSubscribed) return;
+            if (!_shadowDrawEventSubscribed)
+            {
+                return;
+            }
+
             control.Paint -= shadowPaintEvent;
             control.Invalidate();
             _shadowDrawEventSubscribed = false;
@@ -177,7 +201,9 @@ namespace ReaLTaiizor.Controls
                 base.Text = value;
                 _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.getFontByType(MaterialManager.fontType.Button));
                 if (AutoSize)
+                {
                     Refresh();
+                }
 
                 Invalidate();
             }
@@ -191,7 +217,10 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            if (!DrawShadows || Type != MaterialButtonType.Contained || Parent == null) return;
+            if (!DrawShadows || Type != MaterialButtonType.Contained || Parent == null)
+            {
+                return;
+            }
 
             // paint shadow on parent
             Graphics gp = e.Graphics;
@@ -202,7 +231,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            var g = pevent.Graphics;
+            Graphics g = pevent.Graphics;
 
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -227,20 +256,28 @@ namespace ReaLTaiizor.Controls
                 if (!Enabled)
                 {
                     using (SolidBrush disabledBrush = new SolidBrush(BlendColor(Parent.BackColor, SkinManager.BackgroundDisabledColor, SkinManager.BackgroundDisabledColor.A)))
+                    {
                         g.FillPath(disabledBrush, buttonPath);
+                    }
                 }
                 // High emphasis
                 else if (HighEmphasis)
+                {
                     g.FillPath(UseAccentColor ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.PrimaryBrush, buttonPath);
+                }
                 // Mormal
                 else
                 {
                     using (SolidBrush normalBrush = new SolidBrush(SkinManager.BackgroundColor))
+                    {
                         g.FillPath(normalBrush, buttonPath);
+                    }
                 }
             }
             else
+            {
                 g.Clear(Parent.BackColor);
+            }
 
             //Hover
             using (SolidBrush hoverBrush = new SolidBrush(Color.FromArgb(
@@ -267,10 +304,10 @@ namespace ReaLTaiizor.Controls
             if (_animationManager.IsAnimating())
             {
                 g.Clip = new Region(buttonRectF);
-                for (var i = 0; i < _animationManager.GetAnimationCount(); i++)
+                for (int i = 0; i < _animationManager.GetAnimationCount(); i++)
                 {
-                    var animationValue = _animationManager.GetProgress(i);
-                    var animationSource = _animationManager.GetSource(i);
+                    double animationValue = _animationManager.GetProgress(i);
+                    Point animationSource = _animationManager.GetSource(i);
 
                     using (Brush rippleBrush = new SolidBrush(
                         Color.FromArgb((int)(100 - (animationValue * 100)), // Alpha animation
@@ -280,7 +317,7 @@ namespace ReaLTaiizor.Controls
                             (UseAccentColor ? SkinManager.ColorScheme.AccentColor : // Normal with accent
                             SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor))))) // Normal
                     {
-                        var rippleSize = (int)(animationValue * Width * 2);
+                        int rippleSize = (int)(animationValue * Width * 2);
                         g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
                     }
                 }
@@ -288,7 +325,7 @@ namespace ReaLTaiizor.Controls
             }
 
             //Icon
-            var iconRect = new Rectangle(8, 6, 24, 24);
+            Rectangle iconRect = new Rectangle(8, 6, 24, 24);
 
             if (string.IsNullOrEmpty(Text))
             {
@@ -297,10 +334,12 @@ namespace ReaLTaiizor.Controls
             }
 
             if (Icon != null)
+            {
                 g.DrawImage(Icon, iconRect);
+            }
 
             //Text
-            var textRect = ClientRectangle;
+            Rectangle textRect = ClientRectangle;
             if (Icon != null)
             {
                 textRect.Width -= 8 + 24 + 4 + 8; // left padding + icon width + space between Icon and Text + right padding
@@ -334,7 +373,7 @@ namespace ReaLTaiizor.Controls
             Size s = base.GetPreferredSize(proposedSize);
 
             // Provides extra space for proper padding for content
-            var extra = 16;
+            int extra = 16;
 
             if (Icon != null)
             {

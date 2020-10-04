@@ -29,7 +29,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -37,7 +39,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -45,7 +49,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -56,12 +62,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -76,12 +89,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -137,7 +157,7 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private Timer timer;
+        private readonly Timer timer;
         private int progress;
         private float angle = 270;
 
@@ -157,7 +177,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value != -1 && (value < minimum || value > maximum))
+                {
                     throw new ArgumentOutOfRangeException("Progress value must be -1 or between Minimum and Maximum.", (Exception)null);
+                }
+
                 progress = value;
                 Refresh();
             }
@@ -172,12 +195,21 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 0)
+                {
                     throw new ArgumentOutOfRangeException("Minimum value must be >= 0.", (Exception)null);
+                }
+
                 if (value >= maximum)
+                {
                     throw new ArgumentOutOfRangeException("Minimum value must be < Maximum.", (Exception)null);
+                }
+
                 minimum = value;
                 if (progress != -1 && progress < minimum)
+                {
                     progress = minimum;
+                }
+
                 Refresh();
             }
         }
@@ -191,10 +223,16 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value <= minimum)
+                {
                     throw new ArgumentOutOfRangeException("Maximum value must be > Minimum.", (Exception)null);
+                }
+
                 maximum = value;
                 if (progress > maximum)
+                {
                     progress = maximum;
+                }
+
                 Refresh();
             }
         }
@@ -217,7 +255,9 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value <= 0 || value > 10)
+                {
                     throw new ArgumentOutOfRangeException("Speed value must be > 0 and <= 10.", (Exception)null);
+                }
 
                 speed = value;
             }
@@ -297,9 +337,13 @@ namespace ReaLTaiizor.Controls
                 if (!useCustomBackColor)
                 {
                     if (Parent is PoisonTile)
+                    {
                         backColor = PoisonPaint.GetStyleColor(Style);
+                    }
                     else
+                    {
                         backColor = PoisonPaint.BackColor.Form(Theme);
+                    }
                 }
 
                 if (backColor.A == 255)
@@ -323,7 +367,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -339,13 +385,19 @@ namespace ReaLTaiizor.Controls
             Color foreColor;
 
             if (useCustomBackground)
+            {
                 foreColor = PoisonPaint.GetStyleColor(Style);
+            }
             else
             {
                 if (Parent is PoisonTile)
+                {
                     foreColor = PoisonPaint.ForeColor.Tile.Normal(Theme);
+                }
                 else
+                {
                     foreColor = PoisonPaint.GetStyleColor(Style);
+                }
             }
 
             using (Pen forePen = new Pen(foreColor, (float)Width / 5))
@@ -360,12 +412,18 @@ namespace ReaLTaiizor.Controls
                     float progFrac = (float)(progress - minimum) / (float)(maximum - minimum);
 
                     if (ensureVisible)
+                    {
                         sweepAngle = 30 + 300f * progFrac;
+                    }
                     else
+                    {
                         sweepAngle = 360f * progFrac;
+                    }
 
                     if (backwards)
+                    {
                         sweepAngle = -sweepAngle;
+                    }
 
                     e.Graphics.DrawArc(forePen, padding, padding, Width - 2 * padding - 1, Height - 2 * padding - 1, angle, sweepAngle);
                 }
@@ -377,9 +435,14 @@ namespace ReaLTaiizor.Controls
                         int alpha = 290 - (offset * 290 / maxOffset);
 
                         if (alpha > 255)
+                        {
                             alpha = 255;
+                        }
+
                         if (alpha < 0)
+                        {
                             alpha = 0;
+                        }
 
                         Color col = Color.FromArgb(alpha, forePen.Color);
                         using (Pen gradPen = new Pen(col, forePen.Width))

@@ -62,7 +62,7 @@ namespace ReaLTaiizor.Controls
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            var _Graphics = G;
+            Graphics _Graphics = G;
 
             _Graphics.Clear(Color.FromArgb(41, 50, 63));
             _Graphics.SmoothingMode = SmoothingMode.HighSpeed;
@@ -92,7 +92,9 @@ namespace ReaLTaiizor.Controls
                     {
                         int Index = TabPages[TabIndex].ImageIndex;
                         if (!(Index == -1))
+                        {
                             _Graphics.DrawImage(ImageList.Images[TabPages[TabIndex].ImageIndex], TabRect.X + 9, TabRect.Y + 6, 24, 24);
+                        }
                     }
                 }
                 else
@@ -104,7 +106,9 @@ namespace ReaLTaiizor.Controls
                     {
                         int Index = TabPages[TabIndex].ImageIndex;
                         if (!(Index == -1))
+                        {
                             _Graphics.DrawImage(ImageList.Images[TabPages[TabIndex].ImageIndex], TabRect.X + 9, TabRect.Y + 6, 24, 24);
+                        }
                     }
 
                 }
@@ -117,7 +121,9 @@ namespace ReaLTaiizor.Controls
             B.Dispose();
 
             foreach (System.Windows.Forms.TabPage Page in TabPages)
+            {
                 Page.BackColor = Color.FromArgb(50, 63, 74);
+            }
         }
     }
 

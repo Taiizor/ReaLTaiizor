@@ -23,7 +23,9 @@ namespace ReaLTaiizor.Design.Poison
             get
             {
                 if (designerVerbs != null)
+                {
                     return designerVerbs;
+                }
 
                 designerVerbs = new DesignerVerbCollection
                 {
@@ -40,7 +42,9 @@ namespace ReaLTaiizor.Design.Poison
             get
             {
                 if (designerHost != null)
+                {
                     return designerHost;
+                }
 
                 designerHost = (IDesignerHost)(GetService(typeof(IDesignerHost)));
 
@@ -54,7 +58,9 @@ namespace ReaLTaiizor.Design.Poison
             get
             {
                 if (componentChangeService != null)
+                {
                     return componentChangeService;
+                }
 
                 componentChangeService = (IComponentChangeService)(GetService(typeof(IComponentChangeService)));
 
@@ -81,7 +87,9 @@ namespace ReaLTaiizor.Design.Poison
         {
             IPoisonForm container = control as IPoisonForm;
             if (container != null && !ReferenceEquals(styleManager, container.StyleManager))
+            {
                 return;
+            }
 
             if (control is IPoisonControl)
             {
@@ -95,32 +103,42 @@ namespace ReaLTaiizor.Design.Poison
             }
 
             if (control.ContextMenuStrip != null)
+            {
                 ResetStyles(styleManager, control.ContextMenuStrip);
+            }
 
             TabControl tabControl = control as TabControl;
             if (tabControl != null)
             {
                 foreach (TabPage tp in tabControl.TabPages)
+                {
                     ResetStyles(styleManager, tp);
+                }
             }
 
             if (control.Controls != null)
             {
                 foreach (Control child in control.Controls)
+                {
                     ResetStyles(styleManager, child);
+                }
             }
         }
 
         private void ResetProperty(Control control, string name, object newValue)
         {
-            var typeDescriptor = TypeDescriptor.GetProperties(control)[name];
+            PropertyDescriptor typeDescriptor = TypeDescriptor.GetProperties(control)[name];
             if (typeDescriptor == null)
+            {
                 return;
+            }
 
             object oldValue = typeDescriptor.GetValue(control);
 
             if (newValue.Equals(oldValue))
+            {
                 return;
+            }
 
             ComponentChangeService.OnComponentChanging(control, typeDescriptor);
             typeDescriptor.SetValue(control, newValue);

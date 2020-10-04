@@ -123,7 +123,7 @@ namespace ReaLTaiizor.Forms
 
         private Point MouseP = new Point(0, 0);
         private bool cap = false;
-        private int moveheight = 29;
+        private readonly int moveheight = 29;
 
         protected override void OnMouseDown(MouseEventArgs e)
         {

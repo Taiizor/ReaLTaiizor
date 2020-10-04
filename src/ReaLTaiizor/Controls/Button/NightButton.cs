@@ -53,9 +53,13 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (!(value < 1 || value > 20))
+                {
                     _Radius = value;
+                }
                 else
+                {
                     throw new Exception("The entered value cannot be less than 1 or greater than 20.");
+                }
 
                 Invalidate();
             }
@@ -157,7 +161,9 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (System.Enum.IsDefined(typeof(DialogResult), value))
+                {
                     dlgResult = value;
+                }
             }
         }
 
@@ -179,21 +185,25 @@ namespace ReaLTaiizor.Controls
         private GraphicsPath RoundedRect(RectangleF rect, float x_radius, float y_radius, bool round_upperLeft, bool round_upperRight, bool round_lowerRight, bool round_lowerLeft)
         {
             PointF point1, point2;
-            var path = new GraphicsPath();
+            GraphicsPath path = new GraphicsPath();
 
             // Upper left corner
             if (round_upperLeft)
             {
-                var corner = new RectangleF(rect.X, rect.Y, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new RectangleF(rect.X, rect.Y, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 180, 90);
                 point1 = new PointF(rect.X + x_radius, rect.Y);
             }
             else
+            {
                 point1 = new PointF(rect.X, rect.Y);
+            }
 
             // Top side
             if (round_upperRight)
+            {
                 point2 = new PointF(rect.Right - x_radius, rect.Y);
+            }
             else
             {
                 point2 = new PointF(rect.Right, rect.Y);
@@ -203,16 +213,20 @@ namespace ReaLTaiizor.Controls
             // Upper right corner
             if (round_upperRight)
             {
-                var corner = new RectangleF(rect.Right - 2 * x_radius, rect.Y, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new RectangleF(rect.Right - 2 * x_radius, rect.Y, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 270, 90);
                 point1 = new PointF(rect.Right, rect.Y + y_radius);
             }
             else
+            {
                 point1 = new PointF(rect.Right, rect.Y);
+            }
 
             // Right side
             if (round_lowerRight)
+            {
                 point2 = new PointF(rect.Right, rect.Bottom - y_radius);
+            }
             else
             {
                 point2 = new PointF(rect.Right, rect.Bottom);
@@ -222,16 +236,20 @@ namespace ReaLTaiizor.Controls
             // Lower right corner
             if (round_lowerRight)
             {
-                var corner = new RectangleF(rect.Right - 2 * x_radius, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new RectangleF(rect.Right - 2 * x_radius, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 0, 90);
                 point1 = new PointF(rect.Right - x_radius, rect.Bottom);
             }
             else
+            {
                 point1 = new PointF(rect.Right, rect.Bottom);
+            }
 
             // Bottom side
             if (round_lowerLeft)
+            {
                 point2 = new PointF(rect.X + x_radius, rect.Bottom);
+            }
             else
             {
                 point2 = new PointF(rect.X, rect.Bottom);
@@ -241,16 +259,20 @@ namespace ReaLTaiizor.Controls
             // Lower left corner
             if (round_lowerLeft)
             {
-                var corner = new RectangleF(rect.X, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new RectangleF(rect.X, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 90, 90);
                 point1 = new PointF(rect.X, rect.Bottom - y_radius);
             }
             else
+            {
                 point1 = new PointF(rect.X, rect.Bottom);
+            }
 
             // Left side
             if (round_upperLeft)
+            {
                 point2 = new PointF(rect.X, rect.Y + y_radius);
+            }
             else
             {
                 point2 = new PointF(rect.X, rect.Y);
@@ -309,7 +331,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             if (Width > 0 && Height > 0)
+            {
                 stringRect = new Rectangle(0, 0, Width, Height);
+            }
 
             Invalidate();
             base.OnResize(e);
@@ -318,21 +342,33 @@ namespace ReaLTaiizor.Controls
         private void OnAnimation(object sender, EventArgs e)
         {
             if (DesignMode)
+            {
                 return;
+            }
 
             if (hoverButton)
             {
                 if (buttonGlow < 242)
+                {
                     buttonGlow += 15;
+                }
+
                 if (stringGlow < 160)
+                {
                     stringGlow += 15;
+                }
             }
             else
             {
                 if (buttonGlow >= 15)
+                {
                     buttonGlow -= 15;
+                }
+
                 if (stringGlow >= 15)
+                {
                     stringGlow -= 15;
+                }
             }
 
             Invalidate();
@@ -346,7 +382,7 @@ namespace ReaLTaiizor.Controls
         {
             if (msg.Msg == NativeConstants.WM_SETCURSOR)
             {
-                var cursor = NativeMethods.LoadCursor(IntPtr.Zero, NativeConstants.IDC_HAND);
+                IntPtr cursor = NativeMethods.LoadCursor(IntPtr.Zero, NativeConstants.IDC_HAND);
                 NativeMethods.SetCursor(cursor);
 
                 msg.Result = IntPtr.Zero;
@@ -375,14 +411,16 @@ namespace ReaLTaiizor.Controls
 
         private void FillButton(Graphics g)
         {
-            using (var animBrush = new SolidBrush(Color.FromArgb(buttonGlow, ForeColor)))
+            using (SolidBrush animBrush = new SolidBrush(Color.FromArgb(buttonGlow, ForeColor)))
+            {
                 g.FillPath(animBrush, roundRectPath);
+            }
         }
 
         private void DrawButton(Graphics g)
         {
-            var penColor = Color.Empty;
-            var brushColor = Color.Empty;
+            Color penColor = Color.Empty;
+            Color brushColor = Color.Empty;
 
             switch (mouseState)
             {
@@ -418,7 +456,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.SmoothingMode = _SmoothingType;
             g.InterpolationMode = _InterpolationType;
             g.PixelOffsetMode = _PixelOffsetType;

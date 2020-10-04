@@ -42,7 +42,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (DefaultLocation)
+                {
                     Location = new Point(Parent.Width - Width - 3, 3);
+                }
             }
             catch (Exception)
             {
@@ -61,16 +63,25 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseDown(e);
             if (e.Location.X > 0 && e.Location.X < 20)
+            {
                 FindForm().WindowState = FormWindowState.Minimized;
+            }
             else if (e.Location.X > 25 && e.Location.X < 45)
             {
                 if (FindForm().WindowState == FormWindowState.Normal)
+                {
                     FindForm().WindowState = FormWindowState.Maximized;
+                }
                 else
+                {
                     FindForm().WindowState = FormWindowState.Normal;
+                }
             }
             else if (e.Location.X > 50 && e.Location.X < 70)
+            {
                 FindForm().Close();
+            }
+
             Invalidate();
         }
 

@@ -997,10 +997,10 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            var g = pevent.Graphics;
+            Graphics g = pevent.Graphics;
             g.Clear(Parent.BackColor);
 
-            var lineY = _baseTextBox.Bottom + 3;
+            int lineY = _baseTextBox.Bottom + 3;
 
             if (!_animationManager.IsAnimating())
             {
@@ -1095,9 +1095,13 @@ namespace ReaLTaiizor.Controls
                 set
                 {
                     if (value)
+                    {
                         _useSystemPasswordChar = Application.RenderWithVisualStyles ? VisualStylePasswordChar : NonVisualStylePasswordChar;
+                    }
                     else
+                    {
                         _useSystemPasswordChar = EmptyChar;
+                    }
 
                     SetBasePasswordChar();
                 }
@@ -1149,7 +1153,7 @@ namespace ReaLTaiizor.Controls
 
             private void ContextMenuStripOnOpening(object sender, CancelEventArgs cancelEventArgs)
             {
-                var strip = sender as TextBoxContextMenuStrip;
+                TextBoxContextMenuStrip strip = sender as TextBoxContextMenuStrip;
                 if (strip != null)
                 {
                     strip.Undo.Enabled = CanUndo;

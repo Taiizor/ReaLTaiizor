@@ -32,12 +32,16 @@ namespace ReaLTaiizor.Manager
             set
             {
                 if (value == ColorStyle.Default)
+                {
                     value = PoisonDefaults.Style;
+                }
 
                 poisonStyle = value;
 
                 if (!isInitializing)
+                {
                     Update();
+                }
             }
         }
 
@@ -50,12 +54,16 @@ namespace ReaLTaiizor.Manager
             set
             {
                 if (value == ThemeStyle.Default)
+                {
                     value = PoisonDefaults.Theme;
+                }
 
                 poisonTheme = value;
 
                 if (!isInitializing)
+                {
                     Update();
+                }
             }
         }
 
@@ -66,7 +74,9 @@ namespace ReaLTaiizor.Manager
             set
             {
                 if (owner != null)
+                {
                     owner.ControlAdded -= ControlAdded;
+                }
 
                 owner = value;
 
@@ -75,7 +85,9 @@ namespace ReaLTaiizor.Manager
                     owner.ControlAdded += ControlAdded;
 
                     if (!isInitializing)
+                    {
                         UpdateControl(value);
+                    }
                 }
             }
         }
@@ -126,19 +138,29 @@ namespace ReaLTaiizor.Manager
                 BindingFlags.Instance |
                      BindingFlags.NonPublic);
 
-                if (fieldInfo == null) return clonedManager;
+                if (fieldInfo == null)
+                {
+                    return clonedManager;
+                }
 
                 IContainer mother = (IContainer)fieldInfo.GetValue(owner);
-                if (mother == null) return clonedManager;
+                if (mother == null)
+                {
+                    return clonedManager;
+                }
 
                 // Check for a helper component
                 foreach (Component obj in mother.Components)
                 {
                     if (obj is IPoisonComponent)
+                    {
                         ApplyTheme((IPoisonComponent)obj);
+                    }
 
                     if (obj.GetType() == typeof(PoisonContextMenuStrip))
+                    {
                         ApplyTheme((PoisonContextMenuStrip)obj);
+                    }
                 }
             }
 
@@ -169,55 +191,77 @@ namespace ReaLTaiizor.Manager
         private void ControlAdded(object sender, ControlEventArgs e)
         {
             if (!isInitializing)
+            {
                 UpdateControl(e.Control);
+            }
         }
 
         public void Update()
         {
             if (owner != null)
+            {
                 UpdateControl(owner);
+            }
 
             if (parentContainer == null || parentContainer.Components == null)
+            {
                 return;
+            }
 
-            foreach (Object obj in parentContainer.Components)
+            foreach (object obj in parentContainer.Components)
             {
                 if (obj is IPoisonComponent)
+                {
                     ApplyTheme((IPoisonComponent)obj);
+                }
 
                 if (obj.GetType() == typeof(PoisonContextMenuStrip))
+                {
                     ApplyTheme((PoisonContextMenuStrip)obj);
+                }
             }
         }
 
         private void UpdateControl(Control ctrl)
         {
             if (ctrl == null)
+            {
                 return;
+            }
 
             IPoisonControl poisonControl = ctrl as IPoisonControl;
             if (poisonControl != null)
+            {
                 ApplyTheme(poisonControl);
+            }
 
             IPoisonComponent poisonComponent = ctrl as IPoisonComponent;
             if (poisonComponent != null)
+            {
                 ApplyTheme(poisonComponent);
+            }
 
             TabControl tabControl = ctrl as TabControl;
             if (tabControl != null)
             {
                 foreach (System.Windows.Forms.TabPage tp in ((TabControl)ctrl).TabPages)
+                {
                     UpdateControl(tp);
+                }
             }
 
             if (ctrl.Controls != null)
             {
                 foreach (Control child in ctrl.Controls)
+                {
                     UpdateControl(child);
+                }
             }
 
             if (ctrl.ContextMenuStrip != null)
+            {
                 UpdateControl(ctrl.ContextMenuStrip);
+            }
 
             ctrl.Refresh();
         }

@@ -20,7 +20,10 @@ namespace ReaLTaiizor.Resolver.Poison
         {
             Font fontTester = new Font(familyName, emSize, fontStyle, unit);
             if (fontTester.Name == familyName || !TryResolve(ref familyName, ref fontStyle))
+            {
                 return fontTester;
+            }
+
             fontTester.Dispose();
 
             FontFamily fontFamily = GetFontFamily(familyName);
@@ -39,7 +42,10 @@ namespace ReaLTaiizor.Resolver.Poison
             {
                 familyName = OPEN_SANS_LIGHT;
                 if (fontStyle != FontStyle.Bold)
+                {
                     fontStyle = FontStyle.Regular;
+                }
+
                 return true;
             }
 
@@ -63,7 +69,12 @@ namespace ReaLTaiizor.Resolver.Poison
             lock (fontCollection)
             {
                 foreach (FontFamily fontFamily in fontCollection.Families)
-                    if (fontFamily.Name == familyName) return fontFamily;
+                {
+                    if (fontFamily.Name == familyName)
+                    {
+                        return fontFamily;
+                    }
+                }
 
                 string resourceName = "ReaLTaiizor.Resources.Poison." + familyName.Replace(' ', '_') + ".ttf";
 
@@ -84,9 +95,14 @@ namespace ReaLTaiizor.Resolver.Poison
                 finally
                 {
                     if (fontStream != null)
+                    {
                         fontStream.Dispose();
+                    }
+
                     if (data != IntPtr.Zero)
+                    {
                         Marshal.FreeCoTaskMem(data);
+                    }
                 }
             }
         }

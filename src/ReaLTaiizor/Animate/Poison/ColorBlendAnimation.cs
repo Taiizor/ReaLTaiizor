@@ -18,7 +18,9 @@ namespace ReaLTaiizor.Animate.Poison
         public void Start(Control control, string property, Color targetColor, int duration)
         {
             if (duration == 0)
+            {
                 duration = 1;
+            }
 
             base.Start(control, transitionType, 2 * duration,
                 delegate
@@ -38,7 +40,9 @@ namespace ReaLTaiizor.Animate.Poison
                         controlColor.R.Equals(targetColor.R) &&
                         controlColor.G.Equals(targetColor.G) &&
                         controlColor.B.Equals(targetColor.B))
+                    {
                         return true;
+                    }
 
                     return false;
                 });

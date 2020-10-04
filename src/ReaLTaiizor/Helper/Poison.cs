@@ -14,15 +14,15 @@ namespace ReaLTaiizor.Helper
 
     public class PoisonDataGridHelper
     {
-        private PoisonScrollBar _scrollbar;
+        private readonly PoisonScrollBar _scrollbar;
 
-        private DataGridView _grid;
+        private readonly DataGridView _grid;
 
         private int _ignoreScrollbarChange = 0;
 
-        private bool _ishorizontal = false;
-        private HScrollBar hScrollbar = null;
-        private VScrollBar vScrollbar = null;
+        private readonly bool _ishorizontal = false;
+        private readonly HScrollBar hScrollbar = null;
+        private readonly VScrollBar vScrollbar = null;
 
         public PoisonDataGridHelper(PoisonScrollBar scrollbar, DataGridView grid) : this(scrollbar, grid, true)
         { }
@@ -34,13 +34,17 @@ namespace ReaLTaiizor.Helper
             _grid = grid;
             _ishorizontal = !vertical;
 
-            foreach (var item in _grid.Controls)
+            foreach (object item in _grid.Controls)
             {
                 if (item.GetType() == typeof(VScrollBar))
+                {
                     vScrollbar = (VScrollBar)item;
+                }
 
                 if (item.GetType() == typeof(HScrollBar))
+                {
                     hScrollbar = (HScrollBar)item;
+                }
             }
 
             _grid.RowsAdded += new DataGridViewRowsAddedEventHandler(_grid_RowsAdded);
@@ -70,7 +74,10 @@ namespace ReaLTaiizor.Helper
 
         private void _scrollbar_Scroll(object sender, ScrollEventArgs e)
         {
-            if (_ignoreScrollbarChange > 0) return;
+            if (_ignoreScrollbarChange > 0)
+            {
+                return;
+            }
 
             if (_ishorizontal)
             {
@@ -89,16 +96,24 @@ namespace ReaLTaiizor.Helper
                     int firstDisplayedRowIndex = 0;
 
                     if (_scrollbar.Value >= 0 && _scrollbar.Value < _grid.Rows.Count)
+                    {
                         firstDisplayedRowIndex = _scrollbar.Value + (_scrollbar.Value == 1 ? -1 : 1) >= _grid.Rows.Count ? _grid.Rows.Count - 1 : _scrollbar.Value + (_scrollbar.Value == 1 ? -1 : 1);
+                    }
                     else
+                    {
                         firstDisplayedRowIndex = _scrollbar.Value - 1;
+                    }
 
                     while (!_grid.Rows[firstDisplayedRowIndex].Visible)
                     {
                         if (firstDisplayedRowIndex < 1)
+                        {
                             firstDisplayedRowIndex = 0;
+                        }
                         else
+                        {
                             firstDisplayedRowIndex -= 1;
+                        }
                     }
 
                     _grid.FirstDisplayedScrollingRowIndex = firstDisplayedRowIndex;
@@ -121,12 +136,18 @@ namespace ReaLTaiizor.Helper
         private void EndIgnoreScrollbarChangeEvents()
         {
             if (_ignoreScrollbarChange > 0)
+            {
                 _ignoreScrollbarChange--;
+            }
         }
 
         public void UpdateScrollbar()
         {
-            if (_grid == null) return;
+            if (_grid == null)
+            {
+                return;
+            }
+
             try
             {
                 BeginIgnoreScrollbarChangeEvents();
@@ -153,7 +174,10 @@ namespace ReaLTaiizor.Helper
                     _scrollbar.LargeChange = Math.Max(1, visibleRows - 1);
                     _scrollbar.Value = _grid.FirstDisplayedScrollingRowIndex;
                     if (_grid.RowCount > 0 && _grid.Rows[_grid.RowCount - 1].Cells[0].Displayed)
+                    {
                         _scrollbar.Value = _grid.RowCount;
+                    }
+
                     _scrollbar.Location = new Point(_grid.Width - _scrollbar.ScrollbarSize, 0);
                     _scrollbar.Height = _grid.Height - (hScrollbar.Visible ? _scrollbar.ScrollbarSize : 0);
                     _scrollbar.BringToFront();
@@ -181,7 +205,9 @@ namespace ReaLTaiizor.Helper
             bool _return = false;
 
             if (_grid.DisplayedRowCount(true) < _grid.RowCount + (_grid.RowHeadersVisible ? 1 : 0))
+            {
                 _return = true;
+            }
 
             return _return;
         }
@@ -191,7 +217,9 @@ namespace ReaLTaiizor.Helper
             bool _return = false;
 
             if (_grid.DisplayedColumnCount(true) < _grid.ColumnCount + (_grid.ColumnHeadersVisible ? 1 : 0))
+            {
                 _return = true;
+            }
 
             return _return;
         }

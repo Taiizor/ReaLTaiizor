@@ -57,9 +57,14 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value >= _Maximum)
+                {
                     value = _Maximum - 10;
+                }
+
                 if (_Value < value)
+                {
                     _Value = value;
+                }
 
                 _Minimum = value;
                 Invalidate();
@@ -73,9 +78,14 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value <= _Minimum)
+                {
                     value = _Minimum + 10;
+                }
+
                 if (_Value > value)
+                {
                     _Value = value;
+                }
 
                 _Maximum = value;
                 Invalidate();

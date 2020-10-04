@@ -13,11 +13,11 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalMessageBox : Forms.RoyalForm
     {
-        private RoyalButton okButton = new RoyalButton();
-        private RoyalButton yesButton = new RoyalButton();
-        private RoyalButton noButton = new RoyalButton();
-        private RoyalButton cancelButton = new RoyalButton();
-        private RoyalButton retryButton = new RoyalButton();
+        private readonly RoyalButton okButton = new RoyalButton();
+        private readonly RoyalButton yesButton = new RoyalButton();
+        private readonly RoyalButton noButton = new RoyalButton();
+        private readonly RoyalButton cancelButton = new RoyalButton();
+        private readonly RoyalButton retryButton = new RoyalButton();
         private Form parent;
         public Form FormParent
         {
@@ -149,7 +149,9 @@ namespace ReaLTaiizor.Controls
         public static DialogResult Show(Form form, string content, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, bool mode)
         {
             if (form == null)
+            {
                 throw new ArgumentNullException("RoyalMessageBox requires a valid form object in the first argument.");
+            }
 
             RoyalMessageBox msgBox = new RoyalMessageBox
             {
@@ -244,26 +246,40 @@ namespace ReaLTaiizor.Controls
             Font messageFont = new Font(Font.FontFamily, 12.75f, FontStyle.Regular);
 
             if (mode)
+            {
                 e.Graphics.FillRectangle(new SolidBrush(parent.BackColor), messageRect);
+            }
             else
             {
                 if (icon == MessageBoxIcon.Warning || icon == MessageBoxIcon.Exclamation)
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 128, 0)), messageRect);
+                }
                 else if (icon == MessageBoxIcon.Information || icon == MessageBoxIcon.Asterisk)
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.Gray), messageRect);
+                }
                 else if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Hand || icon == MessageBoxIcon.Stop)
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.Crimson), messageRect);
+                }
                 else if (icon == MessageBoxIcon.Question)
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.DodgerBlue), messageRect);
+                }
                 else
+                {
                     e.Graphics.FillRectangle(new SolidBrush(parent.BackColor), messageRect);
+                }
             }
 
             SolidBrush textBrush = new SolidBrush(parent.ForeColor);
             SolidBrush backBrush = new SolidBrush(parent.BackColor);
 
             if (!string.IsNullOrEmpty(caption))
+            {
                 e.Graphics.DrawString(caption, messageFont, new SolidBrush(RoyalColors.AccentColor), new PointF(messageRect.Left + 10, messageRect.Top + 10));
+            }
 
             if (icon != MessageBoxIcon.None)
             {
@@ -273,41 +289,55 @@ namespace ReaLTaiizor.Controls
                     {
                         e.Graphics.DrawImage(Properties.Resources.Warning, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                        }
                     }
                     else if (icon == MessageBoxIcon.Information || icon == MessageBoxIcon.Asterisk)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Information, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                        }
                     }
                     else if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Hand || icon == MessageBoxIcon.Stop)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Error, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                        }
                     }
                     else if (icon == MessageBoxIcon.Question)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Question, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                        }
                     }
                     else
                     {
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+                        }
                     }
                 }
                 else
                 {
                     if (!string.IsNullOrEmpty(content))
+                    {
                         e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+                    }
                 }
 
             }
             else if (!string.IsNullOrEmpty(content))
+            {
                 e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+            }
 
             base.OnPaint(e);
         }

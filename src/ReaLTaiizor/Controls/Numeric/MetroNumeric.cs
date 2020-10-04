@@ -130,24 +130,24 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
 
             const char plus = '+';
             const char minus = '-';
 
-            using (var bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
             {
-                using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                 {
-                    using (var s = new SolidBrush(Enabled ? SymbolsColor : DisabledForeColor))
+                    using (SolidBrush s = new SolidBrush(Enabled ? SymbolsColor : DisabledForeColor))
                     {
-                        using (var tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                        using (SolidBrush tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
                         {
-                            using (var f2 = MetroFonts.SemiBold(18))
+                            using (Font f2 = MetroFonts.SemiBold(18))
                             {
-                                using (var sf = new StringFormat { LineAlignment = StringAlignment.Center })
+                                using (StringFormat sf = new StringFormat { LineAlignment = StringAlignment.Center })
                                 {
                                     g.FillRectangle(bg, rect);
                                     g.DrawString(plus.ToString(), f2, s, new Rectangle(Width - 45, 1, 25, Height - 1), sf);
@@ -170,7 +170,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -200,7 +202,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.NumericDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.NumericDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -229,6 +232,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -274,7 +279,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value <= Maximum & value >= Minimum)
+                {
                     _value = value;
+                }
+
                 Invalidate();
             }
         }
@@ -407,9 +415,14 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseDown(e);
             if (_point.X <= Width - 45 || _point.X >= Width - 3)
+            {
                 return;
+            }
+
             if (e.Button == MouseButtons.Left)
+            {
                 _holdTimer.Enabled = true;
+            }
 
             Invalidate();
         }
@@ -427,16 +440,23 @@ namespace ReaLTaiizor.Controls
         private void Revaluate()
         {
             if (_point.X <= Width - 45 || _point.X >= Width - 3)
+            {
                 return;
+            }
+
             if (_point.X > Width - 45 && _point.X < Width - 25)
             {
                 if (Value + 1 <= Maximum)
+                {
                     Value += 1;
+                }
             }
             else
             {
                 if (Value - 1 >= Minimum)
+                {
                     Value -= 1;
+                }
             }
         }
 

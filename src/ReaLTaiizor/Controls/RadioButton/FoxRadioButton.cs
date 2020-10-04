@@ -79,24 +79,36 @@ namespace ReaLTaiizor.Controls
                 {
                     case FoxLibrary.MouseState.None:
                         using (Pen Border = new Pen(_BorderColor))
+                        {
                             G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
+                        }
+
                         break;
                     default:
                         using (Pen Border = new Pen(_HoverBorderColor))
+                        {
                             G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
+                        }
+
                         break;
                 }
 
                 using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                {
                     G.DrawString(Text, Font, TextColor, new Point(27, 1));
+                }
             }
             else
             {
                 using (Pen Border = new Pen(_DisabledBorderColor))
+                {
                     G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
+                }
 
                 using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+                {
                     G.DrawString(Text, Font, TextColor, new Point(27, 1));
+                }
             }
 
             if (Checked)
@@ -104,12 +116,16 @@ namespace ReaLTaiizor.Controls
                 if (Enabled)
                 {
                     using (SolidBrush FillColor = new SolidBrush(_CheckedColor))
+                    {
                         G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
+                    }
                 }
                 else
                 {
                     using (SolidBrush FillColor = new SolidBrush(_DisabledCheckedColor))
+                    {
                         G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
+                    }
                 }
             }
 

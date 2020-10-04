@@ -53,7 +53,9 @@ namespace ReaLTaiizor.Controls
                     Invalidate();
                 }
                 else
+                {
                     _Max = value;
+                }
             }
         }
 
@@ -69,7 +71,9 @@ namespace ReaLTaiizor.Controls
                     Invalidate();
                 }
                 else
+                {
                     _Min = value;
+                }
             }
         }
 
@@ -152,7 +156,9 @@ namespace ReaLTaiizor.Controls
                 }
 
                 using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                {
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
+                }
 
                 using (SolidBrush SignColor = new SolidBrush(_ButtonTextColor))
                 {
@@ -172,7 +178,9 @@ namespace ReaLTaiizor.Controls
                 }
 
                 using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+                {
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
+                }
 
                 using (SolidBrush SignColor = new SolidBrush(_DisabledButtonTextColor))
                 {
@@ -194,9 +202,13 @@ namespace ReaLTaiizor.Controls
             if (Enabled)
             {
                 if (e.X > Width - 20 & e.Y < 10)
+                {
                     Value += 1;
+                }
                 else if (e.X > Width - 20 & e.Y > 10)
+                {
                     Value -= 1;
+                }
             }
         }
 
@@ -207,11 +219,17 @@ namespace ReaLTaiizor.Controls
             if (Enabled)
             {
                 if (e.X > Width - 20 & e.Y < 10)
+                {
                     Cursor = Cursors.Hand;
+                }
                 else if (e.X > Width - 20 & e.Y > 10)
+                {
                     Cursor = Cursors.Hand;
+                }
                 else
+                {
                     Cursor = Cursors.Default;
+                }
             }
         }
 

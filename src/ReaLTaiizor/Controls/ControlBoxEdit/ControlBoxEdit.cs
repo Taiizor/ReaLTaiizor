@@ -53,9 +53,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseClick(e);
             if (i > 0 & i < 28)
+            {
                 FindForm().WindowState = FormWindowState.Minimized;
+            }
             else if (i > 30 & i < 75)
+            {
                 FindForm().Close();
+            }
 
             State = MouseState.Down;
         }
@@ -109,7 +113,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
             if (DefaultLocation)
+            {
                 Location = new Point(checked(FindForm().Width - 81), -1);
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -165,7 +171,10 @@ namespace ReaLTaiizor.Controls
                         G.DrawString("0", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), MinimizeRect.Width - 22, MinimizeRect.Height - 16);
                     }
                     else
+                    {
                         goto NonePoint; // Return to [MouseState = None]
+                    }
+
                     break;
             }
 

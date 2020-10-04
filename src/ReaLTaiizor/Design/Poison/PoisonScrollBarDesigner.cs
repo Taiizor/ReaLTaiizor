@@ -25,7 +25,9 @@ namespace ReaLTaiizor.Design.Poison
                     ScrollOrientationType orientation = (ScrollOrientationType)propDescriptor.GetValue(Component);
 
                     if (orientation == ScrollOrientationType.Vertical)
+                    {
                         return SelectionRules.Visible | SelectionRules.Moveable | SelectionRules.BottomSizeable | SelectionRules.TopSizeable;
+                    }
 
                     return SelectionRules.Visible | SelectionRules.Moveable | SelectionRules.LeftSizeable | SelectionRules.RightSizeable;
                 }

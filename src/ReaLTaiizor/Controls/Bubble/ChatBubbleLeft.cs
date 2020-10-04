@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Controls
         {
             Shape = new GraphicsPath();
 
-            var _Shape = Shape;
+            GraphicsPath _Shape = Shape;
             _Shape.AddArc(9, 0, 10, 10, 180, 90);
             _Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             _Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -125,15 +125,19 @@ namespace ReaLTaiizor.Controls
                     Height = TextRenderer.MeasureText(Text, Font).Height + 15;
                 }
                 else if (_SizeAutoW)
+                {
                     Width = TextRenderer.MeasureText(Text, Font).Width + 15;
+                }
                 else
+                {
                     Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+                }
             }
 
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            var _G = G;
+            Graphics _G = G;
             _G.SmoothingMode = SmoothingMode.HighQuality;
             _G.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _G.Clear(BackColor);

@@ -54,7 +54,10 @@ namespace ReaLTaiizor.Controls
             if (mouse.X <= Height - 1 || mouse.Y <= Width - 1)
             {
                 if (!_Checked)
+                {
                     Checked = true;
+                }
+
                 Invalidate();
             }
             base.OnClick(e);
@@ -72,12 +75,16 @@ namespace ReaLTaiizor.Controls
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
+            {
                 return;
+            }
 
             foreach (Control C in Parent.Controls)
             {
                 if (!object.ReferenceEquals(C, this) && C is SkyRadioButton)
+                {
                     ((SkyRadioButton)C).Checked = false;
+                }
             }
         }
         #endregion

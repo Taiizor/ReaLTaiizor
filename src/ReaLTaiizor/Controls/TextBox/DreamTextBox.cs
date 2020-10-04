@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(40, 218, 255);
             BackColor = Color.FromArgb(41, 41, 41);
             BorderStyle = BorderStyle.FixedSingle;
-            Text = String.Empty;
+            Text = string.Empty;
         }
 
         private Color _ColorA = Color.FromArgb(31, 31, 31);

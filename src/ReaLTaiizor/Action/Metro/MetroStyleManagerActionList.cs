@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            var items = new DesignerActionItemCollection
+            DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("OwnerForm", "OwnerForm", "Metro", "Gets or sets the form (MetroForm) to Apply themes for."),

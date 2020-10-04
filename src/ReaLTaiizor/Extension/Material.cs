@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Extension
         {
             try
             {
-                var type = objectToCheck.GetType();
+                Type type = objectToCheck.GetType();
 
                 return type.GetProperty(propertyName) != null;
             }
@@ -29,22 +29,31 @@ namespace ReaLTaiizor.Extension
             }
         }
 
-        public static bool IsMaterialControl(this Object obj)
+        public static bool IsMaterialControl(this object obj)
         {
             if (obj is MaterialDrawHelper.MaterialControlI)
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         public static string ToSecureString(this string plainString)
         {
             if (plainString == null)
+            {
                 return null;
+            }
 
             string secureString = "";
             for (uint i = 0; i < plainString.Length; i++)
+            {
                 secureString += '\u25CF';
+            }
+
             return secureString;
         }
 

@@ -34,7 +34,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -42,7 +44,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -50,7 +54,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -61,12 +67,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -81,12 +94,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -143,7 +163,7 @@ namespace ReaLTaiizor.Controls
         #region Fields
 
         public PoisonScrollBar VerticalPoisonScrollbar = new PoisonScrollBar(ScrollOrientationType.Vertical);
-        private PoisonScrollBar HorizontalPoisonScrollbar = new PoisonScrollBar(ScrollOrientationType.Horizontal);
+        private readonly PoisonScrollBar HorizontalPoisonScrollbar = new PoisonScrollBar(ScrollOrientationType.Horizontal);
 
         private bool showHorizontalScrollbar = false;
         [DefaultValue(false)]
@@ -254,15 +274,20 @@ namespace ReaLTaiizor.Controls
         {
             AutoScrollPosition = new Point(e.NewValue, VerticalPoisonScrollbar.Value);
             UpdateScrollBarPositions();
-            if (HorizontalScrolled != null) HorizontalScrolled(this, e);
-
+            if (HorizontalScrolled != null)
+            {
+                HorizontalScrolled(this, e);
+            }
         }
 
         private void VerticalScrollbarScroll(object sender, ScrollEventArgs e)
         {
             AutoScrollPosition = new Point(HorizontalPoisonScrollbar.Value, e.NewValue);
             UpdateScrollBarPositions();
-            if (VerticalScrolled != null) VerticalScrolled(this, e);
+            if (VerticalScrolled != null)
+            {
+                VerticalScrolled(this, e);
+            }
         }
 
         #endregion
@@ -276,7 +301,9 @@ namespace ReaLTaiizor.Controls
                 Color backColor = BackColor;
 
                 if (!useCustomBackColor)
+                {
                     backColor = PoisonPaint.BackColor.Form(Theme);
+                }
 
                 if (backColor.A == 255 && BackgroundImage == null)
                 {
@@ -299,7 +326,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -322,7 +351,10 @@ namespace ReaLTaiizor.Controls
             UpdateScrollBarPositions();
 
             if (HorizontalScrollbar)
+            {
                 HorizontalPoisonScrollbar.Visible = HorizontalScroll.Visible;
+            }
+
             if (HorizontalScroll.Visible)
             {
                 HorizontalPoisonScrollbar.Minimum = HorizontalScroll.Minimum;
@@ -332,7 +364,10 @@ namespace ReaLTaiizor.Controls
             }
 
             if (VerticalScrollbar)
+            {
                 VerticalPoisonScrollbar.Visible = VerticalScroll.Visible;
+            }
+
             if (VerticalScroll.Visible)
             {
                 VerticalPoisonScrollbar.Minimum = VerticalScroll.Minimum;
@@ -358,7 +393,9 @@ namespace ReaLTaiizor.Controls
             base.WndProc(ref m);
 
             if (!DesignMode)
+            {
                 WinApi.ShowScrollBar(Handle, (int)WinApi.ScrollBar.SB_BOTH, 0);
+            }
         }
 
         #endregion
@@ -368,7 +405,9 @@ namespace ReaLTaiizor.Controls
         private void UpdateScrollBarPositions()
         {
             if (DesignMode)
+            {
                 return;
+            }
 
             if (!AutoScroll)
             {
@@ -382,7 +421,7 @@ namespace ReaLTaiizor.Controls
 
             VerticalPoisonScrollbar.Location = new Point(ClientRectangle.Width - VerticalPoisonScrollbar.Width, ClientRectangle.Y);
 
-            if (!VerticalScrollbar || !this.VerticalScroll.Visible)
+            if (!VerticalScrollbar || !VerticalScroll.Visible)
             {
                 VerticalPoisonScrollbar.Visible = false;
                 _verticalScrollWidth = 0;
@@ -390,7 +429,7 @@ namespace ReaLTaiizor.Controls
 
             HorizontalPoisonScrollbar.Location = new Point(ClientRectangle.X, ClientRectangle.Height - HorizontalPoisonScrollbar.Height);
 
-            if (!HorizontalScrollbar || !this.HorizontalScroll.Visible)
+            if (!HorizontalScrollbar || !HorizontalScroll.Visible)
             {
                 HorizontalPoisonScrollbar.Visible = false;
                 _horizontalScrollHeight = 0;

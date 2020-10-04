@@ -45,7 +45,9 @@ namespace ReaLTaiizor.Controls
             pevent.Graphics.FillRectangle(new SolidBrush(BackColor), ClientRectangle);
 
             if (MouseOver && _hover)
+            {
                 pevent.Graphics.FillRectangle(new SolidBrush(ThemeLost.ForeColor.Shade(ThemeLost.ShadowSize, 0)), ClientRectangle);
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)

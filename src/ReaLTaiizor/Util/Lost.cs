@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Util
         public bool MouseOver = false;
         public bool IsMouseDown = false;
 
-        private System.Windows.Forms.Timer _ticker = new System.Windows.Forms.Timer();
+        private readonly System.Windows.Forms.Timer _ticker = new System.Windows.Forms.Timer();
 
         public ControlLostBase()
         {
@@ -111,7 +111,9 @@ namespace ReaLTaiizor.Util
             if (HasShadow)
             {
                 for (int i = 0; i < ShadowLevel; i++)
+                {
                     g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
+                }
             }
         }
 
@@ -122,7 +124,9 @@ namespace ReaLTaiizor.Util
                 ShadowLevel++;
 
                 if (ShadowLevel >= ThemeLost.ShadowSize || ShadowLevel == 0 || Disposing)
+                {
                     _ticker.Stop();
+                }
 
                 Parent.Invalidate(ShadeRect(ThemeLost.ShadowSize), false);
             }
@@ -173,7 +177,9 @@ namespace ReaLTaiizor.Util
         public virtual void DrawShadow(Graphics g)
         {
             for (int i = 0; i < ThemeLost.ShadowSize; i++)
+            {
                 g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
+            }
         }
 
         public virtual Rectangle ShadeRect(int index)
@@ -193,7 +199,9 @@ namespace ReaLTaiizor.Util
             foreach (Control c in Controls)
             {
                 if ((c is ControlLostBase || c is FormLostBase) && (c as Control).Visible)
+                {
                     (c as dynamic).DrawShadow(e.Graphics);
+                }
             }
         }
     }
@@ -244,7 +252,9 @@ namespace ReaLTaiizor.Util
         private void DrawShadow(Graphics g, Rectangle rect)
         {
             for (int i = 0; i < ThemeLost.ShadowSize; i++)
+            {
                 g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(rect, i));
+            }
         }
     }
 
@@ -311,7 +321,9 @@ namespace ReaLTaiizor.Util
             base.Hide();
 
             if (Parent != null)
+            {
                 Parent.Invalidate(ShadeRect(ThemeLost.ShadowSize), false);
+            }
         }
 
         public void Show()
@@ -320,7 +332,9 @@ namespace ReaLTaiizor.Util
             base.Show();
 
             if (Parent != null)
+            {
                 Parent.Invalidate(ShadeRect(ThemeLost.ShadowSize), false);
+            }
         }
 
         private void Animate()
@@ -363,7 +377,9 @@ namespace ReaLTaiizor.Util
             base.OnResize(e);
 
             if (Parent != null)
+            {
                 Parent.Invalidate(ShadeRect(ThemeLost.ShadowSize), false);
+            }
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -371,7 +387,9 @@ namespace ReaLTaiizor.Util
             base.OnFormClosed(e);
 
             if (Parent != null)
+            {
                 Parent.Invalidate(ShadeRect(ThemeLost.ShadowSize), false);
+            }
         }
     }
 

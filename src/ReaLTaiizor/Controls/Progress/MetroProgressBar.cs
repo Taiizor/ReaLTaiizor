@@ -117,7 +117,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -145,7 +147,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ProgressDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ProgressDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -171,6 +174,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -189,14 +194,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
 
-            using (var bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
             {
-                using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                 {
-                    using (var ps = new SolidBrush(Enabled ? ProgressColor : DisabledProgressColor))
+                    using (SolidBrush ps = new SolidBrush(Enabled ? ProgressColor : DisabledProgressColor))
                     {
                         g.FillRectangle(bg, rect);
                         if (_currentValue != 0)
@@ -230,7 +235,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > Maximum)
+                {
                     value = Maximum;
+                }
+
                 _value = value;
                 RenewCurrentValue();
                 ValueChanged?.Invoke(this);
@@ -365,9 +373,13 @@ namespace ReaLTaiizor.Controls
         private void RenewCurrentValue()
         {
             if (Orientation == ProgressOrientation.Horizontal)
+            {
                 _currentValue = (int)Math.Round((Value - Minimum) / (double)(Maximum - Minimum) * (Width - 1));
+            }
             else
+            {
                 _currentValue = Convert.ToInt32(Value / (double)Maximum * Height - 1);
+            }
         }
 
         #endregion

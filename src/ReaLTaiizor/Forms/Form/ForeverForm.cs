@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Forms
         private bool Cap = false;
         private bool _HeaderMaximize = false;
         private Point MousePoint = new Point(0, 0);
-        private int MoveHeight = 50;
+        private readonly int MoveHeight = 50;
 
         private Image _Image; //Properties.Resources.Taiizor
         private Size _ImageSize;
@@ -94,9 +94,13 @@ namespace ReaLTaiizor.Forms
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
             }
@@ -246,8 +250,8 @@ namespace ReaLTaiizor.Forms
 
         private Font _HeaderTextFont = new Font("Segoe UI", 12);
 
-        private Color _HeaderLight = Color.FromArgb(171, 171, 172);
-        private Color _BaseLight = Color.FromArgb(196, 199, 200);
+        private readonly Color _HeaderLight = Color.FromArgb(171, 171, 172);
+        private readonly Color _BaseLight = Color.FromArgb(196, 199, 200);
         public Color _TextLight = Color.SeaGreen;
 
         public ForeverForm()
@@ -271,7 +275,7 @@ namespace ReaLTaiizor.Forms
             Rectangle Base = new Rectangle(0, 0, W, H);
             Rectangle Header = new Rectangle(0, 0, W, 50);
 
-            var _with2 = G;
+            Graphics _with2 = G;
             _with2.SmoothingMode = SmoothingMode.HighQuality;
             _with2.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with2.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

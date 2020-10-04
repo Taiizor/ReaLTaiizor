@@ -156,13 +156,13 @@ namespace ReaLTaiizor.Controls
 
             if (_buttonType == HopeButtonType.Default)
             {
-                var BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
+                GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 graphics.DrawPath(new Pen(enterFlag ? (clickFlag ? _DefaultClickColor : _DefaultColor) : _BorderColor, 1), BG);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? (clickFlag ? _HoverClickTextColor : _HoverTextColor) : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {
-                var backColor = _DefaultColor;
+                Color backColor = _DefaultColor;
                 switch (_buttonType)
                 {
                     case HopeButtonType.Primary:
@@ -184,16 +184,18 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                var BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
+                GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 if (!enterFlag)
                 {
                     BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                     graphics.DrawPath(new Pen(backColor, 0.5f), BG);
                 }
                 else
+                {
                     BG = RoundRectangle.CreateRoundRect(0, 0, Width, Height, 3);
+                }
 
-                var brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : Color.FromArgb(25, backColor));
+                SolidBrush brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : Color.FromArgb(25, backColor));
                 graphics.FillPath(brush, BG);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }

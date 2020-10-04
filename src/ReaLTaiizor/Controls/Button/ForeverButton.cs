@@ -96,7 +96,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath GP = new GraphicsPath();
             Rectangle Base = new Rectangle(0, 0, W, H);
 
-            var _with8 = G;
+            Graphics _with8 = G;
             _with8.SmoothingMode = SmoothingMode.HighQuality;
             _with8.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with8.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

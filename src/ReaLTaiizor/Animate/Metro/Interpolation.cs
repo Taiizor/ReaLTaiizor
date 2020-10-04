@@ -31,9 +31,13 @@ namespace ReaLTaiizor.Animate.Metro
                     {
                         double mid = initial + (end - initial) / 2.0;
                         if (alpha <= 0.5)
+                        {
                             return ValueAt(initial, mid, alpha * 2, EasingType.QuadIn);
+                        }
                         else
+                        {
                             return ValueAt(mid, end, (alpha - 0.5) * 2, EasingType.QuadOut);
+                        }
                     }
                 case EasingType.CubeIn:
                     {
@@ -50,9 +54,13 @@ namespace ReaLTaiizor.Animate.Metro
                     {
                         double mid = initial + (end - initial) / 2.0;
                         if (alpha <= 0.5)
+                        {
                             return ValueAt(initial, mid, alpha * 2, EasingType.CubeIn);
+                        }
                         else
+                        {
                             return ValueAt(mid, end, (alpha - 0.5) * 2, EasingType.CubeOut);
+                        }
                     }
                 case EasingType.QuartIn:
                     {
@@ -69,9 +77,13 @@ namespace ReaLTaiizor.Animate.Metro
                     {
                         double mid = initial + (end - initial) / 2.0;
                         if (alpha <= 0.5)
+                        {
                             return ValueAt(initial, mid, alpha * 2, EasingType.QuartIn);
+                        }
                         else
+                        {
                             return ValueAt(mid, end, (alpha - 0.5) * 2, EasingType.QuartOut);
+                        }
                     }
                 case EasingType.QuintIn:
                     {
@@ -88,9 +100,13 @@ namespace ReaLTaiizor.Animate.Metro
                     {
                         double mid = initial + (end - initial) / 2.0;
                         if (alpha <= 0.5)
+                        {
                             return ValueAt(initial, mid, alpha / 0.5, EasingType.QuintIn);
+                        }
                         else
+                        {
                             return ValueAt(mid, end, (alpha - 0.5) / 0.5, EasingType.QuintOut);
+                        }
                     }
                 case EasingType.SineIn:
                     {
@@ -105,9 +121,13 @@ namespace ReaLTaiizor.Animate.Metro
                 case EasingType.SineInOut:
                     {
                         if (alpha <= 0.5)
+                        {
                             return ValueAt(initial, (initial + end) / 2.0, alpha * 2, EasingType.SineIn);
+                        }
                         else
+                        {
                             return ValueAt((initial + end) / 2.0, end, (alpha - 0.5) * 2, EasingType.SineOut);
+                        }
                     }
             }
         }

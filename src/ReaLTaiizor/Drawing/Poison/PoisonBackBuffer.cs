@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Drawing.Poison
 
     internal sealed class PoisonBackBuffer
     {
-        private Bitmap backBuffer;
+        private readonly Bitmap backBuffer;
 
         public PoisonBackBuffer(Size bufferSize)
         {

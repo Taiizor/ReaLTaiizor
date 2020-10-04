@@ -36,17 +36,23 @@ namespace ReaLTaiizor.Manager
         {
             if (_customTheme == null)
             {
-                var themePath = Properties.Settings.Default.ThemeFile;
+                string themePath = Properties.Settings.Default.ThemeFile;
                 if (File.Exists(themePath))
                 {
                     FileInfo FI = new FileInfo(themePath);
                     if (FI.Length > 0)
+                    {
                         _customTheme = themePath;
+                    }
                     else
+                    {
                         _customTheme = ThemeFilePath(Properties.Resources.Metro_Theme);
+                    }
                 }
                 else
+                {
                     _customTheme = ThemeFilePath(Properties.Resources.Metro_Theme);
+                }
             }
             Style = Style.Light;
             EvaluateDicts();
@@ -71,17 +77,23 @@ namespace ReaLTaiizor.Manager
             }
 
             if (OwnerForm.Controls.Count > 0)
+            {
                 UpdateControls(OwnerForm.Controls);
+            }
 
             OwnerForm.Invalidate();
         }
 
         private void UpdateControls(Control.ControlCollection controls)
         {
-            if (controls == null) throw new ArgumentNullException(nameof(controls));
+            if (controls == null)
+            {
+                throw new ArgumentNullException(nameof(controls));
+            }
+
             foreach (Control ctrl in controls)
             {
-                var control = ctrl as IMetroControl;
+                IMetroControl control = ctrl as IMetroControl;
                 if (control != null && CustomTheme != null)
                 {
                     control.Style = Style;
@@ -106,8 +118,10 @@ namespace ReaLTaiizor.Manager
 
                 foreach (Control child in ctrl.Controls)
                 {
-                    if (!(child is IMetroControl)) continue;
-                    ((IMetroControl)child).Style = Style;
+                    if (!(child is IMetroControl))
+                    {
+                        continue;
+                    } ((IMetroControl)child).Style = Style;
                     ((IMetroControl)child).StyleManager = this;
                     ((IMetroControl)child).ThemeAuthor = ThemeAuthor;
                     ((IMetroControl)child).ThemeName = ThemeName;
@@ -125,7 +139,9 @@ namespace ReaLTaiizor.Manager
                 control.StyleManager = this;
             }
             else
+            {
                 UpdateForm();
+            }
         }
 
         #endregion
@@ -152,7 +168,11 @@ namespace ReaLTaiizor.Manager
             get => _ownerForm;
             set
             {
-                if (_ownerForm != null) return;
+                if (_ownerForm != null)
+                {
+                    return;
+                }
+
                 _ownerForm = value;
                 _ownerForm.ControlAdded += ControlAdded;
                 UpdateForm();
@@ -184,7 +204,10 @@ namespace ReaLTaiizor.Manager
                             ControlProperties(_customTheme);
                         }
                         else
+                        {
                             Style = Style.Light;
+                        }
+
                         break;
                 }
                 UpdateForm();
@@ -205,7 +228,10 @@ namespace ReaLTaiizor.Manager
                     Style = Style.Custom;
                 }
                 else
+                {
                     Style = Style.Light;
+                }
+
                 _customTheme = value;
             }
         }
@@ -217,10 +243,13 @@ namespace ReaLTaiizor.Manager
         public void OpenTheme()
         {
             Style = Style.Custom;
-            using (var ofd = new OpenFileDialog { Filter = @"Xml File (*.xml)|*.xml" })
+            using (OpenFileDialog ofd = new OpenFileDialog { Filter = @"Xml File (*.xml)|*.xml" })
             {
                 if (ofd.ShowDialog() != DialogResult.OK)
+                {
                     return;
+                }
+
                 CustomTheme = ofd.FileName;
             }
         }
@@ -233,7 +262,7 @@ namespace ReaLTaiizor.Manager
 
         private string ThemeFilePath(string str)
         {
-            var path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Templates) + @"\ThemeFile.xml"}";
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Templates) + @"\ThemeFile.xml"}";
             File.WriteAllText(path, str);
             return path;
         }
@@ -401,12 +430,16 @@ namespace ReaLTaiizor.Manager
 
         private void ThemeDetailsReader(string path)
         {
-            foreach (var item in GetValues(path, "Theme"))
+            foreach (KeyValuePair<string, object> item in GetValues(path, "Theme"))
             {
                 if (item.Key == "Name")
+                {
                     ThemeName = item.Value.ToString();
+                }
                 else if (item.Key == "Author")
+                {
                     ThemeAuthor = item.Value.ToString();
+                }
             }
         }
 
@@ -414,15 +447,24 @@ namespace ReaLTaiizor.Manager
         {
             try
             {
-                var dict = new Dictionary<string, object>();
-                var doc = new XmlDocument();
+                Dictionary<string, object> dict = new Dictionary<string, object>();
+                XmlDocument doc = new XmlDocument();
                 if (File.Exists(path))
+                {
                     doc.Load(path);
+                }
+
                 if (doc.DocumentElement == null) { return null; }
-                var xmlNode = doc.SelectSingleNode($"/MetroTheme/{nodename}");
-                if (xmlNode == null) return dict;
+                XmlNode xmlNode = doc.SelectSingleNode($"/MetroTheme/{nodename}");
+                if (xmlNode == null)
+                {
+                    return dict;
+                }
+
                 foreach (XmlNode node in xmlNode.ChildNodes)
+                {
                     dict.Add(node.Name, node.InnerText);
+                }
 
                 return dict;
             }
@@ -447,11 +489,19 @@ namespace ReaLTaiizor.Manager
 
             public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
             {
-                if (context == null || provider == null) return base.EditValue(context, provider, value);
-                var editorService =
+                if (context == null || provider == null)
+                {
+                    return base.EditValue(context, provider, value);
+                }
+
+                IWindowsFormsEditorService editorService =
                     (IWindowsFormsEditorService)
                     provider.GetService(typeof(IWindowsFormsEditorService));
-                if (editorService == null) return base.EditValue(context, provider, value);
+                if (editorService == null)
+                {
+                    return base.EditValue(context, provider, value);
+                }
+
                 _ofd = new OpenFileDialog
                 {
                     Filter = @"Xml File (*.xml)|*.xml",

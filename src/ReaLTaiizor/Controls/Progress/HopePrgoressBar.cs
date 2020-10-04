@@ -134,13 +134,13 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BackColor);
 
-            var tempColor = _isError ? _DangerColor : _BaseColor;
+            Color tempColor = _isError ? _DangerColor : _BaseColor;
 
             switch (_style)
             {
                 case Style.ToolTip:
-                    var x = _valueNumber * (Width - 32) / 100 + 16f;
-                    var y = 25;
+                    float x = _valueNumber * (Width - 32) / 100 + 16f;
+                    int y = 25;
                     graphics.FillPolygon(new SolidBrush(_valueNumber == 100 && !_isError ? _FullBallonColor : tempColor), new PointF[]
                     {
                          new PointF(x,y),new PointF(x+5,y-5),new PointF(x+16,y-5),new PointF(x+16,y-25),new PointF(x-16,y-25),new PointF(x-16,y-5),new PointF(x-5,y-5)
@@ -152,17 +152,19 @@ namespace ReaLTaiizor.Controls
                     break;
 
                 case Style.ValueInSide:
-                    var path1 = new GraphicsPath();
+                    GraphicsPath path1 = new GraphicsPath();
                     path1.AddArc(new RectangleF(0, 0, Height, Height), 90, 180);
                     path1.AddArc(new RectangleF(Width - Height, 0, Height, Height), -90, 180);
                     path1.CloseAllFigures();
                     graphics.FillPath(new SolidBrush(_BarColor), path1);
 
                     if (_valueNumber == 0)
+                    {
                         graphics.DrawString("0%", new Font("Segoe UI", 9f), new SolidBrush(ForeColor), new RectangleF(5, 0, 50, Height), HopeStringAlign.Left);
+                    }
                     else
                     {
-                        var path2 = new GraphicsPath();
+                        GraphicsPath path2 = new GraphicsPath();
                         path2.AddArc(new RectangleF(0, 0, Height, Height), 90, 180);
                         path2.AddArc(new RectangleF(_valueNumber * (Width - Height) / 100, 0, Height, Height), -90, 180);
                         path2.CloseAllFigures();
@@ -172,7 +174,7 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case Style.ValueOutSide:
-                    var path3 = new GraphicsPath();
+                    GraphicsPath path3 = new GraphicsPath();
                     path3.AddArc(new RectangleF(0, 4, Height - 8, Height - 8), 90, 180);
                     path3.AddArc(new RectangleF(Width - 50, 4, Height - 8, Height - 8), -90, 180);
                     path3.CloseAllFigures();
@@ -180,7 +182,7 @@ namespace ReaLTaiizor.Controls
 
                     if (_valueNumber != 0)
                     {
-                        var path4 = new GraphicsPath();
+                        GraphicsPath path4 = new GraphicsPath();
                         path4.AddArc(new RectangleF(0, 4, Height - 8, Height - 8), 90, 180);
                         path4.AddArc(new RectangleF(_valueNumber * (Width - 50) / 100, 4, Height - 8, Height - 8), -90, 180);
                         path4.CloseAllFigures();
@@ -190,8 +192,8 @@ namespace ReaLTaiizor.Controls
                     if (_isError)
                     {
                         graphics.FillEllipse(new SolidBrush(_DangerColor), new RectangleF(Width - 40, 0, Height, Height));
-                        var a = Width - 40 + 4;
-                        var b = Height - 4;
+                        int a = Width - 40 + 4;
+                        int b = Height - 4;
                         graphics.DrawLine(new Pen(ForeColor), a, b - 6, a + 6, b);
                         graphics.DrawLine(new Pen(ForeColor), a + 6, b - 6, a, b);
                     }
@@ -200,13 +202,15 @@ namespace ReaLTaiizor.Controls
                         if (_valueNumber == 100)
                         {
                             graphics.FillEllipse(new SolidBrush(_FullBarColor), new RectangleF(Width - 40, 0, Height, Height));
-                            var a = Width - 40 + 4;
-                            var b = Height - 4;
+                            int a = Width - 40 + 4;
+                            int b = Height - 4;
                             graphics.DrawLine(new Pen(ForeColor), a, b - 3, a + 3, b);
                             graphics.DrawLine(new Pen(ForeColor), a + 3, b, a + 6, b - 6);
                         }
                         else
+                        {
                             graphics.DrawString(_valueNumber.ToString() + "%", new Font("Segoe UI", 10f), new SolidBrush(ForeColor), new RectangleF(Width - 40, 0, 50, Height), HopeStringAlign.Left);
+                        }
                     }
                     break;
             }

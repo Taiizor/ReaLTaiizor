@@ -36,8 +36,8 @@ namespace ReaLTaiizor.Util
             _tabpage = page;
         }
 
-        private int _index;
-        private string _tabpage;
+        private readonly int _index;
+        private readonly string _tabpage;
 
         public int index => _index;
 
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Util
 
         public SortOrder OrderOfSort;
 
-        private CaseInsensitiveComparer ObjectCompare;
+        private readonly CaseInsensitiveComparer ObjectCompare;
 
         private SortModifiersType mySortModifier = SortModifiersType.SortByText;
         public SortModifiersType _SortModifier
@@ -96,9 +96,13 @@ namespace ReaLTaiizor.Util
 
 
             if (DateTime.TryParse(listviewX.SubItems[ColumnToSort].Text, out DateTime dateX) && DateTime.TryParse(listviewY.SubItems[ColumnToSort].Text, out DateTime dateY))
+            {
                 compareResult = ObjectCompare.Compare(dateX, dateY);
+            }
             else
+            {
                 compareResult = ObjectCompare.Compare(listviewX.SubItems[ColumnToSort].Text, listviewY.SubItems[ColumnToSort].Text);
+            }
 
             // Calculate correct return value based on object comparison
             if (OrderOfSort == SortOrder.Ascending)

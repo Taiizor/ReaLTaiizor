@@ -67,7 +67,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 0 || value > 100)
+                {
                     value = 0;
+                }
+
                 _Opacity = value;
                 Invalidate();
             }
@@ -106,7 +109,9 @@ namespace ReaLTaiizor.Controls
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == 0xF)
+            {
                 foreach (Control C in Controls) { C.Invalidate(); C.Update(); BringToFront(); }
+            }
 
             FindForm().Controls.SetChildIndex(this, 0);
             UpdateZOrder();
@@ -119,8 +124,11 @@ namespace ReaLTaiizor.Controls
             switch (DrawMode)
             {
                 case Drawer.Default:
-                    using (var Brush = new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)))
+                    using (SolidBrush Brush = new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)))
+                    {
                         e.Graphics.FillRectangle(Brush, ClientRectangle);
+                    }
+
                     break;
                 case Drawer.Image:
                     e.Graphics.Clear(BackColor);
@@ -137,7 +145,9 @@ namespace ReaLTaiizor.Controls
                 Most.Start();
             }
             else if (!TopMost && Most.Enabled)
+            {
                 Most.Stop();
+            }
 
             base.OnPaint(e);
         }
@@ -151,7 +161,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnBackColorChanged(EventArgs e)
         {
             if (Parent != null)
+            {
                 Parent.Invalidate(Bounds, true);
+            }
+
             base.OnBackColorChanged(e);
         }
 

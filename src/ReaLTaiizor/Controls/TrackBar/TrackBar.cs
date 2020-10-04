@@ -55,9 +55,14 @@ namespace ReaLTaiizor.Controls
             {
 
                 if (value >= _Maximum)
+                {
                     value = _Maximum - 10;
+                }
+
                 if (_Value < value)
+                {
                     _Value = value;
+                }
 
                 _Minimum = value;
                 Invalidate();
@@ -71,9 +76,14 @@ namespace ReaLTaiizor.Controls
             {
 
                 if (value <= _Minimum)
+                {
                     value = _Minimum + 10;
+                }
+
                 if (_Value > value)
+                {
                     _Value = value;
+                }
 
                 _Maximum = value;
                 Invalidate();
@@ -103,13 +113,19 @@ namespace ReaLTaiizor.Controls
                 if (_Value != value)
                 {
                     if (value < _Minimum)
+                    {
                         _Value = _Minimum;
+                    }
                     else
                     {
                         if (value > _Maximum)
+                        {
                             _Value = _Maximum;
+                        }
                         else
+                        {
                             _Value = value;
+                        }
                     }
                     Invalidate();
                     ValueChangedEvent?.Invoke();
@@ -154,7 +170,9 @@ namespace ReaLTaiizor.Controls
             {
                 bool flag = Cap && e.X > -1 && e.X < Width + 1;
                 if (flag)
+                {
                     Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
+                }
             }
         }
 
@@ -168,7 +186,9 @@ namespace ReaLTaiizor.Controls
                 Cap = TrackBarHandleRect.Contains(e.Location);
                 Focus();
                 if (_JumpToMouse)
+                {
                     Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
+                }
             }
         }
 

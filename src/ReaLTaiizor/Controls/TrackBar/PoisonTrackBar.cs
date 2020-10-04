@@ -27,7 +27,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -35,7 +37,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -43,7 +47,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -54,12 +60,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -74,12 +87,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -143,14 +163,18 @@ namespace ReaLTaiizor.Controls
         private void OnValueChanged()
         {
             if (ValueChanged != null)
+            {
                 ValueChanged(this, EventArgs.Empty);
+            }
         }
 
         public event ScrollEventHandler Scroll;
         private void OnScroll(ScrollEventType scrollType, int newValue)
         {
             if (Scroll != null)
+            {
                 Scroll(this, new ScrollEventArgs(scrollType, newValue));
+            }
         }
 
 
@@ -180,7 +204,10 @@ namespace ReaLTaiizor.Controls
                     OnValueChanged();
                     Invalidate();
                 }
-                else throw new ArgumentOutOfRangeException("Value is outside appropriate range (min, max)");
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Value is outside appropriate range (min, max)");
+                }
             }
         }
 
@@ -197,11 +224,17 @@ namespace ReaLTaiizor.Controls
                     if (trackerValue < barMinimum)
                     {
                         trackerValue = barMinimum;
-                        if (ValueChanged != null) ValueChanged(this, new EventArgs());
+                        if (ValueChanged != null)
+                        {
+                            ValueChanged(this, new EventArgs());
+                        }
                     }
                     Invalidate();
                 }
-                else throw new ArgumentOutOfRangeException("Minimal value is greather than maximal one");
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Minimal value is greather than maximal one");
+                }
             }
         }
 
@@ -219,11 +252,17 @@ namespace ReaLTaiizor.Controls
                     if (trackerValue > barMaximum)
                     {
                         trackerValue = barMaximum;
-                        if (ValueChanged != null) ValueChanged(this, new EventArgs());
+                        if (ValueChanged != null)
+                        {
+                            ValueChanged(this, new EventArgs());
+                        }
                     }
                     Invalidate();
                 }
-                else throw new ArgumentOutOfRangeException("Maximal value is lower than minimal one");
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Maximal value is lower than minimal one");
+                }
             }
         }
 
@@ -251,8 +290,13 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > 0)
+                {
                     mouseWheelBarPartitions = value;
-                else throw new ArgumentOutOfRangeException("MouseWheelBarPartitions has to be greather than zero");
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("MouseWheelBarPartitions has to be greather than zero");
+                }
             }
         }
 
@@ -298,7 +342,9 @@ namespace ReaLTaiizor.Controls
                 Color backColor = BackColor;
 
                 if (!useCustomBackColor)
+                {
                     backColor = PoisonPaint.BackColor.Form(Theme);
+                }
 
                 if (backColor.A == 255)
                 {
@@ -321,7 +367,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -360,7 +408,9 @@ namespace ReaLTaiizor.Controls
             DrawTrackBar(e.Graphics, thumbColor, barColor);
 
             if (displayFocusRectangle && isFocused)
+            {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
+            }
         }
 
         private void DrawTrackBar(Graphics g, Color thumbColor, Color barColor)
@@ -473,10 +523,14 @@ namespace ReaLTaiizor.Controls
             }
 
             if (Value == barMinimum)
+            {
                 OnScroll(ScrollEventType.First, Value);
+            }
 
             if (Value == barMaximum)
+            {
                 OnScroll(ScrollEventType.Last, Value);
+            }
 
             Point pt = PointToClient(Cursor.Position);
             OnMouseMove(new MouseEventArgs(MouseButtons.None, 0, pt.X, pt.Y, 0));
@@ -485,7 +539,9 @@ namespace ReaLTaiizor.Controls
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (keyData == Keys.Tab | ModifierKeys == Keys.Shift)
+            {
                 return base.ProcessDialogKey(keyData);
+            }
             else
             {
                 OnKeyDown(new KeyEventArgs(keyData));
@@ -594,9 +650,18 @@ namespace ReaLTaiizor.Controls
 
         private void SetProperValue(int val)
         {
-            if (val < barMinimum) Value = barMinimum;
-            else if (val > barMaximum) Value = barMaximum;
-            else Value = val;
+            if (val < barMinimum)
+            {
+                Value = barMinimum;
+            }
+            else if (val > barMaximum)
+            {
+                Value = barMaximum;
+            }
+            else
+            {
+                Value = val;
+            }
         }
 
         #endregion

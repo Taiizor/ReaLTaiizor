@@ -24,8 +24,8 @@ namespace ReaLTaiizor.Controls
         private bool _Multiline;
         private HorizontalAlignment ALNType;
         private bool isPasswordMasked = false;
-        private Pen P1;
-        private SolidBrush B1;
+        private readonly Pen P1;
+        private readonly SolidBrush B1;
 
         #endregion
         #region Properties
@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
             }
 
             Shape = new GraphicsPath();
-            var _with1 = Shape;
+            GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 11, 0, 10, 10, -90, 90);
             _with1.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -171,7 +171,7 @@ namespace ReaLTaiizor.Controls
         #endregion
         public void AddTextBox()
         {
-            var _TB = RT_TB;
+            TextBox _TB = RT_TB;
             _TB.Size = new Size(Width - 10, 33);
             _TB.Location = new Point(7, 5);
             _TB.Text = string.Empty;
@@ -211,7 +211,7 @@ namespace ReaLTaiizor.Controls
 
             G.SmoothingMode = SmoothingMode.AntiAlias;
 
-            var _TB = RT_TB;
+            TextBox _TB = RT_TB;
             _TB.Width = Width - 10;
             _TB.TextAlign = TextAlignment;
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;

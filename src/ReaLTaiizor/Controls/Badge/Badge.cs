@@ -30,13 +30,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (_Value == 0)
+                {
                     return 0;
+                }
+
                 return _Value;
             }
             set
             {
                 if (value > _Maximum)
+                {
                     value = _Maximum;
+                }
+
                 _Value = value;
                 Invalidate();
             }
@@ -48,7 +54,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < _Value)
+                {
                     _Value = value;
+                }
+
                 _Maximum = value;
                 Invalidate();
             }
@@ -95,7 +104,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            var _G = e.Graphics;
+            Graphics _G = e.Graphics;
             string myString = _Value.ToString();
             _G.Clear(BackColor);
             _G.SmoothingMode = SmoothingMode.AntiAlias;

@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Child.Poison
 
     public partial class PoisonMessageBoxControl : Form
     {
-        private PoisonLocalize poisonLocalize = null;
+        private readonly PoisonLocalize poisonLocalize = null;
 
         public PoisonMessageBoxControl()
         {
@@ -36,24 +36,24 @@ namespace ReaLTaiizor.Child.Poison
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Color _defaultColor = Color.FromArgb(57, 179, 215);
+        private readonly Color _defaultColor = Color.FromArgb(57, 179, 215);
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Color _errorColor = Color.FromArgb(210, 50, 45);
+        private readonly Color _errorColor = Color.FromArgb(210, 50, 45);
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Color _warningColor = Color.FromArgb(237, 156, 40);
+        private readonly Color _warningColor = Color.FromArgb(237, 156, 40);
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Color _success = Color.FromArgb(71, 164, 71);
+        private readonly Color _success = Color.FromArgb(71, 164, 71);
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Color _question = Color.FromArgb(71, 164, 71);
+        private readonly Color _question = Color.FromArgb(71, 164, 71);
 
         public System.Windows.Forms.Panel Body => panelbody;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private PoisonMessageBoxProperties _properties = null;
+        private readonly PoisonMessageBoxProperties _properties = null;
 
         public PoisonMessageBoxProperties Properties => _properties;
 
@@ -204,15 +204,33 @@ namespace ReaLTaiizor.Child.Poison
             {
                 case MessageBoxDefaultButton.Button1:
                     if (poisonButton1 != null)
-                        if (poisonButton1.Enabled) poisonButton1.Focus();
+                    {
+                        if (poisonButton1.Enabled)
+                        {
+                            poisonButton1.Focus();
+                        }
+                    }
+
                     break;
                 case MessageBoxDefaultButton.Button2:
                     if (poisonButton2 != null)
-                        if (poisonButton2.Enabled) poisonButton2.Focus();
+                    {
+                        if (poisonButton2.Enabled)
+                        {
+                            poisonButton2.Focus();
+                        }
+                    }
+
                     break;
                 case MessageBoxDefaultButton.Button3:
                     if (poisonButton3 != null)
-                        if (poisonButton3.Enabled) poisonButton3.Focus();
+                    {
+                        if (poisonButton3.Enabled)
+                        {
+                            poisonButton3.Focus();
+                        }
+                    }
+
                     break;
                 default:
                     break;
@@ -273,7 +291,11 @@ namespace ReaLTaiizor.Child.Poison
         private void button_Click(object sender, EventArgs e)
         {
             PoisonButton button = (PoisonButton)sender;
-            if (!button.Enabled) return;
+            if (!button.Enabled)
+            {
+                return;
+            }
+
             _result = (DialogResult)button.Tag;
             Hide();
         }

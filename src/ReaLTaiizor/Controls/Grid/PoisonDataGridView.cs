@@ -24,7 +24,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category("Poison Appearance")]
@@ -32,7 +34,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category("Poison Appearance")]
@@ -40,7 +44,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -51,12 +57,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return ColorStyle.Blue;
+                }
 
                 return poisonStyle;
             }
@@ -71,12 +84,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return ThemeStyle.Light;
+                }
 
                 return poisonTheme;
             }
@@ -135,8 +155,8 @@ namespace ReaLTaiizor.Controls
         public float HighLightPercentage { get => _offset; set => _offset = value; }
         #endregion
 
-        private PoisonDataGridHelper scrollhelper = null;
-        private PoisonDataGridHelper scrollhelperH = null;
+        private readonly PoisonDataGridHelper scrollhelper = null;
+        private readonly PoisonDataGridHelper scrollhelperH = null;
 
         public PoisonDataGridView()
         {
@@ -144,11 +164,11 @@ namespace ReaLTaiizor.Controls
 
             StyleGrid();
 
-            this.Controls.Add(_vertical);
-            this.Controls.Add(_horizontal);
+            Controls.Add(_vertical);
+            Controls.Add(_horizontal);
 
-            this.Controls.SetChildIndex(_vertical, 0);
-            this.Controls.SetChildIndex(_horizontal, 1);
+            Controls.SetChildIndex(_vertical, 0);
+            Controls.SetChildIndex(_horizontal, 1);
 
             _horizontal.Visible = false;
             _vertical.Visible = false;
@@ -156,7 +176,7 @@ namespace ReaLTaiizor.Controls
             scrollhelper = new PoisonDataGridHelper(_vertical, this);
             scrollhelperH = new PoisonDataGridHelper(_horizontal, this, false);
 
-            this.DoubleBuffered = true;
+            DoubleBuffered = true;
         }
 
         protected override void OnColumnStateChanged(DataGridViewColumnStateChangedEventArgs e)
@@ -172,51 +192,55 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            if (this.RowCount > 1)
+            if (RowCount > 1)
             {
-                if (e.Delta > 0 && this.FirstDisplayedScrollingRowIndex > 0)
-                    this.FirstDisplayedScrollingRowIndex--;
+                if (e.Delta > 0 && FirstDisplayedScrollingRowIndex > 0)
+                {
+                    FirstDisplayedScrollingRowIndex--;
+                }
                 else if (e.Delta < 0)
-                    this.FirstDisplayedScrollingRowIndex++;
+                {
+                    FirstDisplayedScrollingRowIndex++;
+                }
             }
         }
 
         private void StyleGrid()
         {
-            this.BorderStyle = BorderStyle.None;
-            this.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            this.EnableHeadersVisualStyles = false;
-            this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.BackColor = PoisonPaint.BackColor.Form(Theme);
-            this.BackgroundColor = PoisonPaint.BackColor.Form(Theme);
-            this.GridColor = PoisonPaint.BackColor.Form(Theme);
-            this.ForeColor = PoisonPaint.ForeColor.Button.Disabled(Theme);
-            this.Font = new Font("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
+            BorderStyle = BorderStyle.None;
+            CellBorderStyle = DataGridViewCellBorderStyle.None;
+            EnableHeadersVisualStyles = false;
+            SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            BackColor = PoisonPaint.BackColor.Form(Theme);
+            BackgroundColor = PoisonPaint.BackColor.Form(Theme);
+            GridColor = PoisonPaint.BackColor.Form(Theme);
+            ForeColor = PoisonPaint.ForeColor.Button.Disabled(Theme);
+            Font = new Font("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
 
-            this.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.AllowUserToResizeRows = false;
+            RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            AllowUserToResizeRows = false;
 
-            this.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            this.ColumnHeadersDefaultCellStyle.BackColor = PoisonPaint.GetStyleColor(Style);
-            this.ColumnHeadersDefaultCellStyle.ForeColor = PoisonPaint.ForeColor.Button.Press(Theme);
+            ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            ColumnHeadersDefaultCellStyle.BackColor = PoisonPaint.GetStyleColor(Style);
+            ColumnHeadersDefaultCellStyle.ForeColor = PoisonPaint.ForeColor.Button.Press(Theme);
 
-            this.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            this.RowHeadersDefaultCellStyle.BackColor = PoisonPaint.GetStyleColor(Style);
-            this.RowHeadersDefaultCellStyle.ForeColor = PoisonPaint.ForeColor.Button.Press(Theme);
+            RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            RowHeadersDefaultCellStyle.BackColor = PoisonPaint.GetStyleColor(Style);
+            RowHeadersDefaultCellStyle.ForeColor = PoisonPaint.ForeColor.Button.Press(Theme);
 
-            this.DefaultCellStyle.BackColor = PoisonPaint.BackColor.Form(Theme);
+            DefaultCellStyle.BackColor = PoisonPaint.BackColor.Form(Theme);
 
-            this.DefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
-            this.DefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            DefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
+            DefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
 
-            this.DefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
-            this.DefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            DefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
+            DefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
 
-            this.RowHeadersDefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
-            this.RowHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            RowHeadersDefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
+            RowHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
 
-            this.ColumnHeadersDefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
-            this.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            ColumnHeadersDefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
+            ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
         }
     }
 

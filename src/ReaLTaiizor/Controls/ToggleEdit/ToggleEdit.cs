@@ -30,14 +30,22 @@ namespace ReaLTaiizor.Controls
             functionReturnValue = new GraphicsPath();
 
             if (PillStyle.Left)
+            {
                 functionReturnValue.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, Rectangle.Height, Rectangle.Height), -270, 180);
+            }
             else
+            {
                 functionReturnValue.AddLine(Rectangle.X, Rectangle.Y + Rectangle.Height, Rectangle.X, Rectangle.Y);
+            }
 
             if (PillStyle.Right)
+            {
                 functionReturnValue.AddArc(new Rectangle(Rectangle.X + Rectangle.Width - Rectangle.Height, Rectangle.Y, Rectangle.Height, Rectangle.Height), -90, 180);
+            }
             else
+            {
                 functionReturnValue.AddLine(Rectangle.X + Rectangle.Width, Rectangle.Y, Rectangle.X + Rectangle.Width, Rectangle.Y + Rectangle.Height);
+            }
 
             functionReturnValue.CloseAllFigures();
             return functionReturnValue;
@@ -61,7 +69,7 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Variables
 
-        private Timer AnimationTimer = new Timer { Interval = 1 };
+        private readonly Timer AnimationTimer = new Timer { Interval = 1 };
         private int ToggleLocation = 0;
         public event ToggledChangedEventHandler ToggledChanged;
         public delegate void ToggledChangedEventHandler();

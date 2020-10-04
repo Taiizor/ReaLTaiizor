@@ -50,16 +50,24 @@ namespace ReaLTaiizor.Controls
                     using (SolidBrush TextColor = new SolidBrush(_OverColor))
                     {
                         using (Font TextFont = new Font(Font.FontFamily, Font.Size, FontStyle.Underline))
+                        {
                             G.DrawString(Text, TextFont, TextColor, new Point(0, 0));
+                        }
                     }
                     break;
                 case FoxLibrary.MouseState.Down:
                     using (SolidBrush TextColor = new SolidBrush(_DownColor))
+                    {
                         G.DrawString(Text, Font, TextColor, new Point(0, 0));
+                    }
+
                     break;
                 default:
                     using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                    {
                         G.DrawString(Text, Font, TextColor, new Point(0, 0));
+                    }
+
                     break;
             }
 

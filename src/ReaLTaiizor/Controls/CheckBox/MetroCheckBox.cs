@@ -81,7 +81,7 @@ namespace ReaLTaiizor.Controls
         private Style _style;
         private MetroStyleManager _styleManager;
         private bool _checked;
-        private IntAnimate _animator;
+        private readonly IntAnimate _animator;
 
         private bool _isDerivedStyle = true;
         private SignStyle _signStyle = SignStyle.Sign;
@@ -122,7 +122,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -148,7 +150,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.CheckBoxDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.CheckBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -169,14 +172,21 @@ namespace ReaLTaiizor.Controls
                                     break;
                                 case "CheckedStyle":
                                     if ((string)varkey.Value == "Sign")
+                                    {
                                         SignStyle = SignStyle.Sign;
+                                    }
                                     else if ((string)varkey.Value == "Shape")
+                                    {
                                         SignStyle = SignStyle.Shape;
+                                    }
+
                                     break;
                                 default:
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -195,23 +205,23 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            var rect = new Rectangle(0, 0, 16, 15);
-            var alpha = _animator.Value;
+            Rectangle rect = new Rectangle(0, 0, 16, 15);
+            int alpha = _animator.Value;
 
-            using (var backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
+            using (SolidBrush backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
             {
-                using (var checkMarkPen = new Pen(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Color.FromArgb(alpha, DisabledBorderColor), 2))
+                using (Pen checkMarkPen = new Pen(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Color.FromArgb(alpha, DisabledBorderColor), 2))
                 {
-                    using (var checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : DisabledBorderColor))
+                    using (SolidBrush checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : DisabledBorderColor))
                     {
-                        using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                        using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                         {
-                            using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
+                            using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
                             {
-                                using (var tb = new SolidBrush(ForeColor))
+                                using (SolidBrush tb = new SolidBrush(ForeColor))
                                 {
                                     g.FillRectangle(backBrush, rect);
                                     g.DrawRectangle(Enabled ? p : checkMarkPen, rect);
@@ -228,7 +238,10 @@ namespace ReaLTaiizor.Controls
         private void DrawSymbol(Graphics g, Pen pen, SolidBrush solidBrush)
         {
             if (solidBrush == null)
+            {
                 throw new ArgumentNullException(nameof(solidBrush));
+            }
+
             if (SignStyle == SignStyle.Sign)
             {
                 g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -241,7 +254,9 @@ namespace ReaLTaiizor.Controls
                 g.SmoothingMode = SmoothingMode.None;
             }
             else
+            {
                 g.FillRectangle(solidBrush, new Rectangle(3, 3, 11, 10));
+            }
         }
 
         #endregion Draw Control

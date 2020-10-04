@@ -94,7 +94,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (!_Checked)
+            {
                 Checked = true;
+            }
+
             base.OnMouseDown(e);
             Focus();
         }
@@ -114,19 +117,23 @@ namespace ReaLTaiizor.Controls
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
+            {
                 return;
+            }
 
             foreach (Control _Control in Parent.Controls)
             {
                 if (!object.ReferenceEquals(_Control, this) && _Control is DungeonRadioButton)
+                {
                     ((DungeonRadioButton)_Control).Checked = false;
+                }
             }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            var MyDrawer = e.Graphics;
+            Graphics MyDrawer = e.Graphics;
 
             MyDrawer.Clear(BackColor);
             MyDrawer.SmoothingMode = SmoothingMode.AntiAlias;

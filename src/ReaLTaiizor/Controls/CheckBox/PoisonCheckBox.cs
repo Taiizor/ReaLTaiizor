@@ -29,7 +29,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -37,7 +39,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -45,7 +49,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -56,12 +62,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -76,12 +89,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -205,7 +225,9 @@ namespace ReaLTaiizor.Controls
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                     if (Parent is PoisonTile)
+                    {
                         backColor = PoisonPaint.GetStyleColor(Style);
+                    }
                 }
 
                 if (backColor.A == 255)
@@ -229,7 +251,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
                     OnPaintBackground(e);
+                }
 
                 OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
                 OnPaintForeground(e);
@@ -249,13 +273,21 @@ namespace ReaLTaiizor.Controls
                 foreColor = ForeColor;
 
                 if (isHovered && !isPressed && Enabled)
+                {
                     borderColor = PoisonPaint.BorderColor.CheckBox.Hover(Theme);
+                }
                 else if (isHovered && isPressed && Enabled)
+                {
                     borderColor = PoisonPaint.BorderColor.CheckBox.Press(Theme);
+                }
                 else if (!Enabled)
+                {
                     borderColor = PoisonPaint.BorderColor.CheckBox.Disabled(Theme);
+                }
                 else
+                {
                     borderColor = PoisonPaint.BorderColor.CheckBox.Normal(Theme);
+                }
             }
             else
             {
@@ -336,12 +368,14 @@ namespace ReaLTaiizor.Controls
             }
 
 
-            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), textRect, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign, !this.AutoSize));
+            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), textRect, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign, !AutoSize));
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
             if (displayFocusRectangle && isFocused)
+            {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
+            }
         }
 
         #endregion
@@ -446,7 +480,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseLeave(EventArgs e)
         {
             if (!isFocused)
+            {
                 isHovered = false;
+            }
+
             Invalidate();
 
             base.OnMouseLeave(e);
@@ -473,14 +510,16 @@ namespace ReaLTaiizor.Controls
             Size preferredSize;
             base.GetPreferredSize(proposedSize);
 
-            using (var g = CreateGraphics())
+            using (Graphics g = CreateGraphics())
             {
                 proposedSize = new Size(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
                 preferredSize.Width += 16;
 
                 if (CheckAlign == ContentAlignment.TopCenter || CheckAlign == ContentAlignment.BottomCenter)
+                {
                     preferredSize.Height += 16;
+                }
             }
 
             return preferredSize;

@@ -21,8 +21,8 @@ namespace ReaLTaiizor.Controls
     public partial class PoisonListView : ListView, IPoisonControl
     {
         private ListViewColumnSorter lvwColumnSorter;
-        private Font stdFont = new Font("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
-        private float _offset = 0.2F;
+        private readonly Font stdFont = new Font("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
+        private readonly float _offset = 0.2F;
 
         #region Interface
 
@@ -31,7 +31,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
                 CustomPaintBackground(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -39,7 +41,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
                 CustomPaint(this, e);
+            }
         }
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -47,7 +51,9 @@ namespace ReaLTaiizor.Controls
         protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
         {
             if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
                 CustomPaintForeground(this, e);
+            }
         }
 
         private ColorStyle poisonStyle = ColorStyle.Default;
@@ -58,12 +64,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
                     return poisonStyle;
+                }
 
                 if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
                     return StyleManager.Style;
+                }
+
                 if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
                     return PoisonDefaults.Style;
+                }
 
                 return poisonStyle;
             }
@@ -78,12 +91,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
                     return poisonTheme;
+                }
 
                 if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
                     return StyleManager.Theme;
+                }
+
                 if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
                     return PoisonDefaults.Theme;
+                }
 
                 return poisonTheme;
             }
@@ -221,14 +241,14 @@ namespace ReaLTaiizor.Controls
             SB_ENDSCROLL = 8
         }
 
-        private const UInt32 WM_VSCROLL = 0x0115;
-        private const UInt32 WM_NCCALCSIZE = 0x83;
+        private const uint WM_VSCROLL = 0x0115;
+        private const uint WM_NCCALCSIZE = 0x83;
 
-        private const UInt32 LVM_FIRST = 0x1000;
-        private const UInt32 LVM_INSERTITEMA = (LVM_FIRST + 7);
-        private const UInt32 LVM_INSERTITEMW = (LVM_FIRST + 77);
-        private const UInt32 LVM_DELETEITEM = (LVM_FIRST + 8);
-        private const UInt32 LVM_DELETEALLITEMS = (LVM_FIRST + 9);
+        private const uint LVM_FIRST = 0x1000;
+        private const uint LVM_INSERTITEMA = (LVM_FIRST + 7);
+        private const uint LVM_INSERTITEMW = (LVM_FIRST + 77);
+        private const uint LVM_DELETEITEM = (LVM_FIRST + 8);
+        private const uint LVM_DELETEALLITEMS = (LVM_FIRST + 9);
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -242,7 +262,7 @@ namespace ReaLTaiizor.Controls
 
         private int _disableChangeEvents = 0;
 
-        private PoisonScrollBar _vScrollbar = new PoisonScrollBar();
+        private readonly PoisonScrollBar _vScrollbar = new PoisonScrollBar();
 
         private void BeginDisableChangeEvents()
         {
@@ -252,13 +272,17 @@ namespace ReaLTaiizor.Controls
         private void EndDisableChangeEvents()
         {
             if (_disableChangeEvents > 0)
+            {
                 _disableChangeEvents--;
+            }
         }
 
         private void _vScrollbar_ValueChanged(object sender, int newValue)
         {
             if (_disableChangeEvents > 0)
+            {
                 return;
+            }
 
             SetScrollPosition(_vScrollbar.Value);
         }
@@ -270,7 +294,7 @@ namespace ReaLTaiizor.Controls
                 cbSize = (uint)Marshal.SizeOf(typeof(SCROLLINFO)),
                 fMask = (int)ScrollInfoMask.SIF_ALL
             };
-            if (GetScrollInfo(this.Handle, (int)SBTYPES.SB_VERT, ref scrollinfo))
+            if (GetScrollInfo(Handle, (int)SBTYPES.SB_VERT, ref scrollinfo))
             {
                 min = scrollinfo.nMin;
                 max = scrollinfo.nMax;
@@ -310,16 +334,24 @@ namespace ReaLTaiizor.Controls
             pos = Math.Min(Items.Count - 1, pos);
 
             if (pos < 0 || pos >= Items.Count)
+            {
                 return;
+            }
 
             SuspendLayout();
             EnsureVisible(pos);
 
-            if (View == View.Tile || View == View.LargeIcon || View == View.SmallIcon) return;
+            if (View == View.Tile || View == View.LargeIcon || View == View.SmallIcon)
+            {
+                return;
+            }
+
             for (int i = 0; i < 10; i++)
             {
                 if (TopItem != null && TopItem.Index != pos)
+                {
                     TopItem = Items[pos];
+                }
             }
 
             ResumeLayout();
@@ -327,22 +359,32 @@ namespace ReaLTaiizor.Controls
 
         protected void OnItemAdded()
         {
-            if (_disableChangeEvents > 0) return;
+            if (_disableChangeEvents > 0)
+            {
+                return;
+            }
 
             UpdateScrollbar();
 
             if (ItemAdded != null)
+            {
                 ItemAdded(this);
+            }
         }
 
         protected void OnItemsRemoved()
         {
-            if (_disableChangeEvents > 0) return;
+            if (_disableChangeEvents > 0)
+            {
+                return;
+            }
 
             UpdateScrollbar();
 
             if (ItemsRemoved != null)
+            {
                 ItemsRemoved(this);
+            }
         }
 
         protected override void OnMouseWheel(MouseEventArgs e)
@@ -350,7 +392,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseWheel(e);
 
             if (_vScrollbar != null)
+            {
                 _vScrollbar.Value -= 3 * Math.Sign(e.Delta);
+            }
         }
 
         protected override void WndProc(ref Message m)
@@ -360,22 +404,32 @@ namespace ReaLTaiizor.Controls
                 GetScrollPosition(out int min, out int max, out int pos, out int smallchange, out int largechange);
 
                 if (ScrollPositionChanged != null)
+                {
                     ScrollPositionChanged(this, pos);
+                }
 
                 if (_vScrollbar != null)
+                {
                     _vScrollbar.Value = pos;
+                }
             }
             else if (m.Msg == WM_NCCALCSIZE) // WM_NCCALCSIZE
             {
-                int style = (int)GetWindowLong(this.Handle, GWL_STYLE);
+                int style = (int)GetWindowLong(Handle, GWL_STYLE);
                 if ((style & WS_VSCROLL) == WS_VSCROLL)
-                    SetWindowLong(this.Handle, GWL_STYLE, style & ~WS_VSCROLL);
+                {
+                    SetWindowLong(Handle, GWL_STYLE, style & ~WS_VSCROLL);
+                }
             }
 
             else if (m.Msg == LVM_INSERTITEMA || m.Msg == LVM_INSERTITEMW)
+            {
                 OnItemAdded();
+            }
             else if (m.Msg == LVM_DELETEITEM || m.Msg == LVM_DELETEALLITEMS)
+            {
                 OnItemsRemoved();
+            }
 
             base.WndProc(ref m);
         }
@@ -386,17 +440,25 @@ namespace ReaLTaiizor.Controls
         public static int GetWindowLong(IntPtr hWnd, int nIndex)
         {
             if (IntPtr.Size == 4)
+            {
                 return (int)GetWindowLong32(hWnd, nIndex);
+            }
             else
+            {
                 return (int)(long)GetWindowLongPtr64(hWnd, nIndex);
+            }
         }
 
         public static int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong)
         {
             if (IntPtr.Size == 4)
+            {
                 return (int)SetWindowLongPtr32(hWnd, nIndex, dwNewLong);
+            }
             else
+            {
                 return (int)(long)SetWindowLongPtr64(hWnd, nIndex, dwNewLong);
+            }
         }
 
         [DllImport("user32.dll", EntryPoint = "GetWindowLong", CharSet = CharSet.Auto)]
@@ -414,18 +476,18 @@ namespace ReaLTaiizor.Controls
 
         public PoisonListView()
         {
-            this.Font = new Font("Segoe UI", 12.0f);
-            this.HideSelection = true;
+            Font = new Font("Segoe UI", 12.0f);
+            HideSelection = true;
 
-            this.OwnerDraw = true;
-            this.DrawColumnHeader += PoisonListView_DrawColumnHeader;
-            this.DrawItem += PoisonListView_DrawItem;
-            this.DrawSubItem += PoisonListView_DrawSubItem;
-            this.Resize += PoisonListView_Resize;
-            this.ColumnClick += PoisonListView_ColumnClick;
-            this.SelectedIndexChanged += PoisonListView_SelectedIndexChanged;
-            this.FullRowSelect = true;
-            this.Controls.Add(_vScrollbar);
+            OwnerDraw = true;
+            DrawColumnHeader += PoisonListView_DrawColumnHeader;
+            DrawItem += PoisonListView_DrawItem;
+            DrawSubItem += PoisonListView_DrawSubItem;
+            Resize += PoisonListView_Resize;
+            ColumnClick += PoisonListView_ColumnClick;
+            SelectedIndexChanged += PoisonListView_SelectedIndexChanged;
+            FullRowSelect = true;
+            Controls.Add(_vScrollbar);
             _vScrollbar.Visible = false;
             _vScrollbar.Width = 15;
             _vScrollbar.Dock = DockStyle.Right;
@@ -451,26 +513,34 @@ namespace ReaLTaiizor.Controls
                 if (!value)
                 {
                     lvwColumnSorter = null;
-                    this.ListViewItemSorter = null;
+                    ListViewItemSorter = null;
                 }
                 else
                 {
                     lvwColumnSorter = new ListViewColumnSorter();
-                    this.ListViewItemSorter = lvwColumnSorter;
+                    ListViewItemSorter = lvwColumnSorter;
                 }
             }
         }
 
         private void PoisonListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            if (lvwColumnSorter == null) return;
+            if (lvwColumnSorter == null)
+            {
+                return;
+            }
+
             if (e.Column == lvwColumnSorter.SortColumn)
             {
                 // Reverse the current sort direction for this column.
                 if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
                     lvwColumnSorter.Order = SortOrder.Descending;
+                }
                 else
+                {
                     lvwColumnSorter.Order = SortOrder.Ascending;
+                }
             }
             else
             {
@@ -480,12 +550,15 @@ namespace ReaLTaiizor.Controls
             }
 
             // Perform the sort with these new sort options.
-            this.Sort();
+            Sort();
         }
 
         private void PoisonListView_Resize(object sender, EventArgs e)
         {
-            if (this.Columns.Count <= 0) return;
+            if (Columns.Count <= 0)
+            {
+                return;
+            }
         }
 
         [Description("Set the font of the button caption")]
@@ -499,7 +572,7 @@ namespace ReaLTaiizor.Controls
         private void PoisonListView_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
         {
             Color itemForeColor = PoisonPaint.ForeColor.Button.Disabled(Theme);
-            if (this.View == View.Details)
+            if (View == View.Details)
             {
 
                 if (e.Item.Selected)
@@ -511,7 +584,7 @@ namespace ReaLTaiizor.Controls
                 TextFormatFlags align = TextFormatFlags.Left;
 
                 int _ded = 0, _left = 0;
-                if (this.CheckBoxes && e.ColumnIndex == 0)
+                if (CheckBoxes && e.ColumnIndex == 0)
                 {
                     _ded = 12; _left = 14;
                     int _top = (e.Bounds.Height / 2) - 6;
@@ -524,7 +597,10 @@ namespace ReaLTaiizor.Controls
                     if (e.Item.Checked)
                     {
                         Color fillColor = PoisonPaint.GetStyleColor(Style);
-                        if (e.Item.Selected) fillColor = Color.White;
+                        if (e.Item.Selected)
+                        {
+                            fillColor = Color.White;
+                        }
 
                         using (SolidBrush b = new SolidBrush(fillColor))
                         {
@@ -535,25 +611,36 @@ namespace ReaLTaiizor.Controls
                     }
                 }
 
-                if (this.SmallImageList != null)
+                if (SmallImageList != null)
                 {
                     int _top = 0;
                     Image _img = null;
-                    if (e.Item.ImageIndex > -1) _img = this.SmallImageList.Images[e.Item.ImageIndex];
-                    if (e.Item.ImageKey != "") _img = this.SmallImageList.Images[e.Item.ImageKey];
+                    if (e.Item.ImageIndex > -1)
+                    {
+                        _img = SmallImageList.Images[e.Item.ImageIndex];
+                    }
+
+                    if (e.Item.ImageKey != "")
+                    {
+                        _img = SmallImageList.Images[e.Item.ImageKey];
+                    }
+
                     if (_img != null)
                     {
                         _left += _left > 0 ? 4 : 2;
                         _top = (e.Item.Bounds.Height - _img.Height) / 2;
                         e.Graphics.DrawImage(_img, new Rectangle(e.Item.Bounds.Left + _left, e.Item.Bounds.Top + _top, _img.Width, _img.Height));
 
-                        _left += this.SmallImageList.ImageSize.Width;
-                        _ded += this.SmallImageList.ImageSize.Width;
+                        _left += SmallImageList.ImageSize.Width;
+                        _ded += SmallImageList.ImageSize.Width;
                     }
                 }
 
                 int _colWidth = e.Item.Bounds.Width;
-                if (this.View == View.Details) _colWidth = this.Columns[e.ColumnIndex].Width;
+                if (View == View.Details)
+                {
+                    _colWidth = Columns[e.ColumnIndex].Width;
+                }
 
                 using (StringFormat sf = new StringFormat())
                 {
@@ -575,7 +662,7 @@ namespace ReaLTaiizor.Controls
                             break;
                     }
 
-                    if (e.ColumnIndex > 0 && Double.TryParse(e.SubItem.Text, NumberStyles.Currency, NumberFormatInfo.CurrentInfo, out double subItemValue))
+                    if (e.ColumnIndex > 0 && double.TryParse(e.SubItem.Text, NumberStyles.Currency, NumberFormatInfo.CurrentInfo, out double subItemValue))
                     {
                         sf.Alignment = StringAlignment.Far;
                         flags = TextFormatFlags.Right;
@@ -588,13 +675,15 @@ namespace ReaLTaiizor.Controls
                 }
             }
             else
+            {
                 e.DrawDefault = true;
+            }
         }
 
         private void PoisonListView_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
             Color itemForeColor = PoisonPaint.ForeColor.Button.Disabled(Theme);
-            if (this.View == View.Details | this.View == View.List | this.View == View.SmallIcon)
+            if (View == View.Details | View == View.List | View == View.SmallIcon)
             {
                 Color fillColor = PoisonPaint.GetStyleColor(Style);
 
@@ -608,7 +697,7 @@ namespace ReaLTaiizor.Controls
                 TextFormatFlags align = TextFormatFlags.Left;
 
                 int _ded = 0, _left = 0;
-                if (this.CheckBoxes)
+                if (CheckBoxes)
                 {
                     _ded = 12; _left = 14;
                     int _top = (e.Bounds.Height / 2) - 6;
@@ -629,43 +718,66 @@ namespace ReaLTaiizor.Controls
                     }
                 }
 
-                if (this.SmallImageList != null)
+                if (SmallImageList != null)
                 {
                     int _top = 0;
                     Image _img = null;
-                    if (e.Item.ImageIndex > -1) _img = this.SmallImageList.Images[e.Item.ImageIndex];
-                    if (e.Item.ImageKey != "") _img = this.SmallImageList.Images[e.Item.ImageKey];
+                    if (e.Item.ImageIndex > -1)
+                    {
+                        _img = SmallImageList.Images[e.Item.ImageIndex];
+                    }
+
+                    if (e.Item.ImageKey != "")
+                    {
+                        _img = SmallImageList.Images[e.Item.ImageKey];
+                    }
+
                     if (_img != null)
                     {
                         _left += _left > 0 ? 4 : 2;
                         _top = (e.Item.Bounds.Height - _img.Height) / 2;
                         e.Graphics.DrawImage(_img, new Rectangle(e.Item.Bounds.Left + _left, e.Item.Bounds.Top + _top, _img.Width, _img.Height));
 
-                        _left += this.SmallImageList.ImageSize.Width;
-                        _ded += this.SmallImageList.ImageSize.Width;
+                        _left += SmallImageList.ImageSize.Width;
+                        _ded += SmallImageList.ImageSize.Width;
                     }
                 }
 
-                if (this.View == View.Details) return;
+                if (View == View.Details)
+                {
+                    return;
+                }
+
                 int _colWidth = e.Item.Bounds.Width;
-                if (this.View == View.Details) _colWidth = this.Columns[0].Width;
+                if (View == View.Details)
+                {
+                    _colWidth = Columns[0].Width;
+                }
 
                 Rectangle rect = new Rectangle(e.Bounds.X + _left, e.Bounds.Y, _colWidth - _ded, e.Item.Bounds.Height);
                 TextRenderer.DrawText(e.Graphics, e.Item.Text, stdFont, rect, itemForeColor, align | TextFormatFlags.SingleLine | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.VerticalCenter | TextFormatFlags.WordEllipsis);
             }
 
-            else if (this.View == View.Tile)
+            else if (View == View.Tile)
             {
                 int _left = 0;
 
-                if (this.LargeImageList != null)
+                if (LargeImageList != null)
                 {
                     int _top = 0;
-                    _left = this.LargeImageList.ImageSize.Width + 2;
+                    _left = LargeImageList.ImageSize.Width + 2;
 
                     Image _img = null;
-                    if (e.Item.ImageIndex > -1) _img = this.LargeImageList.Images[e.Item.ImageIndex];
-                    if (e.Item.ImageKey != "") _img = this.LargeImageList.Images[e.Item.ImageKey];
+                    if (e.Item.ImageIndex > -1)
+                    {
+                        _img = LargeImageList.Images[e.Item.ImageIndex];
+                    }
+
+                    if (e.Item.ImageKey != "")
+                    {
+                        _img = LargeImageList.Images[e.Item.ImageKey];
+                    }
+
                     if (_img != null)
                     {
                         _top = (e.Item.Bounds.Height - _img.Height) / 2;
@@ -682,7 +794,11 @@ namespace ReaLTaiizor.Controls
                 int _fill = 0;
                 foreach (ListViewItem.ListViewSubItem item in e.Item.SubItems)
                 {
-                    if (_fill > 0 && !e.Item.Selected) itemForeColor = Color.Silver;
+                    if (_fill > 0 && !e.Item.Selected)
+                    {
+                        itemForeColor = Color.Silver;
+                    }
+
                     int _y = (e.Item.Bounds.Y + _fill) + ((e.Item.Bounds.Height - ((e.Item.SubItems.Count) * 15)) / 2);
 
                     Rectangle rect = new Rectangle(e.Item.Bounds.X + _left, e.Item.Bounds.Y + _fill, e.Item.Bounds.Width, e.Item.Bounds.Height);
@@ -694,7 +810,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                if (this.CheckBoxes)
+                if (CheckBoxes)
                 {
                     int _top = (e.Bounds.Height / 2) - 6;
                     using (Pen p = new Pen(Color.Black))
@@ -706,7 +822,11 @@ namespace ReaLTaiizor.Controls
                     if (e.Item.Checked)
                     {
                         Color fillColor = PoisonPaint.GetStyleColor(Style);
-                        if (e.Item.Selected) fillColor = Color.White;
+                        if (e.Item.Selected)
+                        {
+                            fillColor = Color.White;
+                        }
+
                         using (SolidBrush b = new SolidBrush(fillColor))
                         {
                             _top = (e.Bounds.Height / 2) - 4;
@@ -721,7 +841,7 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.DrawString(e.Item.Text, stdFont, new SolidBrush(itemForeColor), rect);
                 }
 
-                this.Font = stdFont;
+                Font = stdFont;
                 e.DrawDefault = true;
             }
         }

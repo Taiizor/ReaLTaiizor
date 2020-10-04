@@ -40,7 +40,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (DefaultLocation)
+                {
                     Location = new Point(Parent.Width - Width - 36, 16);
+                }
             }
             catch (Exception)
             {
@@ -154,7 +156,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(0, 0, Width, Height);
 
-            var _with4 = G;
+            Graphics _with4 = G;
             _with4.SmoothingMode = SmoothingMode.HighQuality;
             _with4.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with4.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
@@ -165,9 +167,13 @@ namespace ReaLTaiizor.Controls
 
             //-- Maximize
             if (FindForm().WindowState == FormWindowState.Maximized)
+            {
                 _with4.DrawString("2", Font, new SolidBrush(TextColor), new Rectangle(1, 1, Width, Height), ForeverLibrary.CenterSF);
+            }
             else if (FindForm().WindowState == FormWindowState.Normal)
+            {
                 _with4.DrawString("1", Font, new SolidBrush(TextColor), new Rectangle(1, 1, Width, Height), ForeverLibrary.CenterSF);
+            }
 
             //-- Hover/down
             switch (State)

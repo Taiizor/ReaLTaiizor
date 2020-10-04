@@ -54,11 +54,18 @@ namespace ReaLTaiizor.Controls
         protected override void PaintHook()
         {
             if (State == MouseStateSpace.Over)
+            {
                 DrawGradient(C1, C2, ClientRectangle, 90f); // if button is hovered over
+            }
             else if (State == MouseStateSpace.Down)
+            {
                 DrawGradient(C6, C5, ClientRectangle, 90f);
+            }
             else
+            {
                 DrawGradient(C3, C4, ClientRectangle, 90f); // else change the shading
+            }
+
             DrawText(B1, HorizontalAlignment.Center, 0, 0); // Draw the Text Smack dab in the middle of the button
             DrawBorders(P1, 1); // Create the Inner Border
             DrawBorders(P2); // Create the Outer Border

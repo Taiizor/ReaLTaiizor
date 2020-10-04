@@ -85,35 +85,54 @@ namespace ReaLTaiizor.Controls
                 {
                     case FoxLibrary.MouseState.None:
                         using (SolidBrush Background = new SolidBrush(_BaseColor))
+                        {
                             G.FillPath(Background, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                        }
+
                         break;
                     case FoxLibrary.MouseState.Over:
 
                         using (SolidBrush Background = new SolidBrush(_OverColor))
+                        {
                             G.FillPath(Background, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                        }
+
                         break;
                     case FoxLibrary.MouseState.Down:
                         using (SolidBrush Background = new SolidBrush(_DownColor))
+                        {
                             G.FillPath(Background, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                        }
+
                         break;
                 }
 
                 using (Pen Border = new Pen(_BorderColor))
+                {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                }
 
                 using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                {
                     FoxLibrary.CenterString(G, Text, Font, TextColor.Color, new Rectangle(3, 0, Width, Height));
+                }
             }
             else
             {
                 using (SolidBrush Background = new SolidBrush(_DisabledBaseColor))
+                {
                     G.FillPath(Background, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                }
 
                 using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+                {
                     FoxLibrary.CenterString(G, Text, Font, TextColor.Color, new Rectangle(3, 0, Width, Height));
+                }
 
                 using (Pen Border = new Pen(_DisabledBorderColor))
+                {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                }
             }
 
             base.OnPaint(e);

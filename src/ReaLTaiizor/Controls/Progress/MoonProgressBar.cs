@@ -23,13 +23,21 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 0)
+                {
                     throw new Exception("Property value is not valid.");
+                }
 
                 _Minimum = value;
                 if (value > _Value)
+                {
                     _Value = value;
+                }
+
                 if (value > _Maximum)
+                {
                     _Maximum = value;
+                }
+
                 Invalidate();
             }
         }
@@ -41,13 +49,21 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 0)
+                {
                     throw new Exception("Property value is not valid.");
+                }
 
                 _Maximum = value;
                 if (value < _Value)
+                {
                     _Value = value;
+                }
+
                 if (value < _Minimum)
+                {
                     _Minimum = value;
+                }
+
                 Invalidate();
             }
         }
@@ -59,7 +75,9 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > _Maximum || value < _Minimum)
+                {
                     throw new Exception("Property value is not valid.");
+                }
 
                 _Value = value;
                 Invalidate();
@@ -150,9 +168,13 @@ namespace ReaLTaiizor.Controls
         protected override void OnAnimation()
         {
             if (HBPos == 0)
+            {
                 HBPos = 7;
+            }
             else
+            {
                 HBPos += 1;
+            }
         }
 
         public MoonProgressBar()

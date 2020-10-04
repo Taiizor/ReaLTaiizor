@@ -94,9 +94,14 @@ namespace ReaLTaiizor.Controls
             {
 
                 if (value >= _Maximum)
+                {
                     value = _Maximum - 10;
+                }
+
                 if (_Value < value)
+                {
                     _Value = value;
+                }
 
                 _Minimum = value;
                 Invalidate();
@@ -110,9 +115,14 @@ namespace ReaLTaiizor.Controls
             {
 
                 if (value <= _Minimum)
+                {
                     value = _Minimum + 10;
+                }
+
                 if (_Value > value)
+                {
                     _Value = value;
+                }
 
                 _Maximum = value;
                 Invalidate();
@@ -142,13 +152,19 @@ namespace ReaLTaiizor.Controls
                 if (_Value != value)
                 {
                     if (value < _Minimum)
+                    {
                         _Value = _Minimum;
+                    }
                     else
                     {
                         if (value > _Maximum)
+                        {
                             _Value = _Maximum;
+                        }
                         else
+                        {
                             _Value = value;
+                        }
                     }
                     Invalidate();
                     ValueChangedEvent?.Invoke();
@@ -190,9 +206,14 @@ namespace ReaLTaiizor.Controls
             {
                 _DrawValueString = value;
                 if (_DrawValueString == true)
+                {
                     Height = 35;
+                }
                 else
+                {
                     Height = 22;
+                }
+
                 Invalidate();
             }
         }
@@ -256,9 +277,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             if (_DrawValueString)
+            {
                 Height = 40;
+            }
             else
+            {
                 Height = 22;
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -295,7 +320,9 @@ namespace ReaLTaiizor.Controls
             G.DrawEllipse(new Pen(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)
+            {
                 G.DrawString(Convert.ToString(ValueToSet), Font, Brushes.DimGray, 1, 20);
+            }
         }
     }
 

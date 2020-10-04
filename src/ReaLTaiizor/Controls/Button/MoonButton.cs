@@ -42,7 +42,9 @@ namespace ReaLTaiizor.Controls
             G.Clear(BG);
 
             if (State == MouseStateMoon.Over)
+            {
                 G.FillRectangle(Brushes.White, new Rectangle(new Point(0, 0), new Size(Width, Height)));
+            }
             else if (State == MouseStateMoon.Down)
             {
                 LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(Width, Height)), Color.FromArgb(240, 240, 240), Color.White, 90f);

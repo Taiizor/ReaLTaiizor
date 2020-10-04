@@ -23,7 +23,9 @@ namespace ReaLTaiizor.Design.Poison
                     bool isMultiline = (bool)propDescriptor.GetValue(Component);
 
                     if (isMultiline)
+                    {
                         return SelectionRules.Visible | SelectionRules.Moveable | SelectionRules.AllSizeable;
+                    }
 
                     return SelectionRules.Visible | SelectionRules.Moveable | SelectionRules.LeftSizeable | SelectionRules.RightSizeable;
                 }

@@ -59,10 +59,15 @@ namespace ReaLTaiizor.Controls
                 if (B is ForeverButtonSticky)
                 {
                     if (object.ReferenceEquals(B, this) || !Rect.IntersectsWith(Rect))
+                    {
                         continue;
+                    }
+
                     double A = (Math.Atan2(Left - B.Left, Top - B.Top) * 2 / Math.PI);
                     if (A / 1 == A)
+                    {
                         Bool[(int)A + 1] = true;
+                    }
                 }
             }
 
@@ -133,7 +138,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath RoundedBase = ForeverLibrary.RoundRect(0, 0, W, H, 0.3, !(GCS[2] || GCS[1]), !(GCS[1] || GCS[0]), !(GCS[3] || GCS[0]), !(GCS[3] || GCS[2]));
             Rectangle Base = new Rectangle(0, 0, W, H);
 
-            var _with17 = G;
+            Graphics _with17 = G;
             _with17.SmoothingMode = SmoothingMode.HighQuality;
             _with17.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with17.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

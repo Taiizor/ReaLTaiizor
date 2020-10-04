@@ -130,7 +130,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -154,7 +156,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ScrollBarDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ScrollBarDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -174,6 +177,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -192,13 +197,13 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            var r = new Rectangle(0, 0, Width, Height);
+            Rectangle r = new Rectangle(0, 0, Width, Height);
 
-            using (var bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
             {
-                using (var thumbBrush = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                using (SolidBrush thumbBrush = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
                 {
                     g.FillRectangle(bg, r);
                     g.FillRectangle(thumbBrush, _thumb);
@@ -218,9 +223,14 @@ namespace ReaLTaiizor.Controls
             {
                 _minimum = value;
                 if (value > _value)
+                {
                     _value = value;
+                }
                 else if (value > _maximum)
+                {
                     _maximum = value;
+                }
+
                 InvalidateLayout();
             }
         }
@@ -232,17 +242,25 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < _value)
+                {
                     _value = value;
+                }
                 else if (value > _minimum)
+                {
                     _maximum = value;
+                }
 
                 if (Orientation != ScrollOrientate.Vertical)
                 {
                     if (Orientation == ScrollOrientate.Horizontal)
+                    {
                         _thumbSize = value > Width ? Convert.ToInt32(Width * (Width / (double)_maximum)) : 0;
+                    }
                 }
                 else
+                {
                     _thumbSize = value > Height ? Convert.ToInt32(Height * (Height / (double)_maximum)) : 0;
+                }
 
                 InvalidateLayout();
             }
@@ -255,11 +273,18 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > Maximum)
+                {
                     _value = Maximum;
+                }
                 else if (value < Minimum)
+                {
                     _value = Minimum;
+                }
                 else
+                {
                     _value = value;
+                }
+
                 InvalidatePosition();
                 Scroll?.Invoke(this);
             }
@@ -359,11 +384,17 @@ namespace ReaLTaiizor.Controls
             {
                 case ScrollOrientate.Vertical:
                     if (_showThumb)
+                    {
                         _thumb = new Rectangle(0, 0, Width, _thumbSize);
+                    }
+
                     break;
                 case ScrollOrientate.Horizontal:
                     if (_showThumb)
+                    {
                         _thumb = new Rectangle(0, 0, Width, _thumbSize);
+                    }
+
                     break;
             }
 
@@ -394,7 +425,10 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseDown(e);
             if (e.Button != MouseButtons.Left || !_showThumb)
+            {
                 return;
+            }
+
             if (_thumb.Contains(e.Location))
             {
                 _thumbState = MouseMode.Pushed;
@@ -420,7 +454,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (!(_thumbState == MouseMode.Pushed | !_showThumb))
+            {
                 return;
+            }
+
             int thumbPosition;
             int thumbBounds;
             switch (Orientation)

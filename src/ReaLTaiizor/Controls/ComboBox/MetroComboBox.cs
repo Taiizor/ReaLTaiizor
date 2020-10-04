@@ -258,17 +258,19 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             if (e.Index == -1)
-                return;
-
-            var itemState = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
-            using (var bg = new SolidBrush(itemState ? SelectedItemBackColor : BackgroundColor))
-            using (var tc = new SolidBrush(itemState ? SelectedItemForeColor : ForeColor))
             {
-                using (var f = new Font(Font.Name, 9))
+                return;
+            }
+
+            bool itemState = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+            using (SolidBrush bg = new SolidBrush(itemState ? SelectedItemBackColor : BackgroundColor))
+            using (SolidBrush tc = new SolidBrush(itemState ? SelectedItemForeColor : ForeColor))
+            {
+                using (Font f = new Font(Font.Name, 9))
                 {
                     g.FillRectangle(bg, e.Bounds);
                     g.DrawString(GetItemText(Items[e.Index]), f, tc, e.Bounds, _mth.SetPosition(StringAlignment.Near));
@@ -278,20 +280,20 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
-            var downArrow = '▼';
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            char downArrow = '▼';
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            using (var bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
             {
-                using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                 {
-                    using (var s = new SolidBrush(Enabled ? ArrowColor : DisabledForeColor))
+                    using (SolidBrush s = new SolidBrush(Enabled ? ArrowColor : DisabledForeColor))
                     {
-                        using (var tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                        using (SolidBrush tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
                         {
-                            using (var f = MetroFonts.SemiBold(8))
+                            using (Font f = MetroFonts.SemiBold(8))
                             {
                                 g.FillRectangle(bg, rect);
                                 g.TextRenderingHint = TextRenderingHint.AntiAlias;
@@ -313,7 +315,9 @@ namespace ReaLTaiizor.Controls
         private void ApplyTheme(Style style = Style.Light)
         {
             if (!IsDerivedStyle)
+            {
                 return;
+            }
 
             switch (style)
             {
@@ -347,7 +351,8 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Style.Custom:
                     if (StyleManager != null)
-                        foreach (var varkey in StyleManager.ComboBoxDictionary)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ComboBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -382,6 +387,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:

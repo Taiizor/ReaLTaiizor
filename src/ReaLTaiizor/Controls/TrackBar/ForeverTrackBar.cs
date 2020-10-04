@@ -42,7 +42,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseMove(e);
             if (Bool && e.X > -1 && e.X < (Width + 1))
+            {
                 Value = _Minimum + Convert.ToInt32((float)(_Maximum - _Minimum) * ((float)e.X / (float)Width));
+            }
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -106,14 +108,22 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 0)
+                {
                     _Value = 0;
+                }
 
                 _Minimum = value;
 
                 if (value > _Value)
+                {
                     _Value = value;
+                }
+
                 if (value > _Maximum)
+                {
                     _Maximum = value;
+                }
+
                 Invalidate();
             }
         }
@@ -125,13 +135,21 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < 0)
+                {
                     _Value = 0;
+                }
 
                 _Maximum = value;
                 if (value < _Value)
+                {
                     _Value = value;
+                }
+
                 if (value < _Minimum)
+                {
                     _Minimum = value;
+                }
+
                 Invalidate();
             }
         }
@@ -143,14 +161,20 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value == _Value)
+                {
                     return;
+                }
 
                 if (value > _Maximum || value < _Minimum)
                 {
                     if (value > _Maximum)
+                    {
                         _Value = Maximum;
+                    }
                     else
+                    {
                         _Value = _Minimum;
+                    }
                 }
 
                 _Value = value;
@@ -172,13 +196,19 @@ namespace ReaLTaiizor.Controls
             if (e.KeyCode == Keys.Subtract)
             {
                 if (Value == 0)
+                {
                     return;
+                }
+
                 Value -= 1;
             }
             else if (e.KeyCode == Keys.Add)
             {
                 if (Value == _Maximum)
+                {
                     return;
+                }
+
                 Value += 1;
             }
         }
@@ -225,7 +255,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath GP = new GraphicsPath();
             GraphicsPath GP2 = new GraphicsPath();
 
-            var _with20 = G;
+            Graphics _with20 = G;
             _with20.SmoothingMode = SmoothingMode.HighQuality;
             _with20.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with20.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

@@ -68,7 +68,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _hint = value;
-                hasHint = !String.IsNullOrEmpty(Hint);
+                hasHint = !string.IsNullOrEmpty(Hint);
                 Invalidate();
             }
         }
@@ -111,12 +111,18 @@ namespace ReaLTaiizor.Controls
             DropDownClosed += (sender, args) =>
             {
                 MouseState = MaterialMouseState.OUT;
-                if (SelectedIndex < 0 && !Focused) _animationManager.StartNewAnimation(AnimationDirection.Out);
+                if (SelectedIndex < 0 && !Focused)
+                {
+                    _animationManager.StartNewAnimation(AnimationDirection.Out);
+                }
             };
             LostFocus += (sender, args) =>
             {
                 MouseState = MaterialMouseState.OUT;
-                if (SelectedIndex < 0) _animationManager.StartNewAnimation(AnimationDirection.Out);
+                if (SelectedIndex < 0)
+                {
+                    _animationManager.StartNewAnimation(AnimationDirection.Out);
+                }
             };
             DropDown += (sender, args) =>
             {
@@ -183,7 +189,9 @@ namespace ReaLTaiizor.Controls
 
                 // bottom line
                 if (DroppedDown || Focused)
+                {
                     g.FillRectangle(UseAccent ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.PrimaryBrush, 0, LINE_Y, Width, 2);
+                }
             }
             else
             {
@@ -231,7 +239,7 @@ namespace ReaLTaiizor.Controls
             g.ResetClip();
 
             // Draw hint text
-            if (hasHint && (UseTallSize || String.IsNullOrEmpty(Text)))
+            if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))
             {
                 using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
                 {
@@ -257,7 +265,10 @@ namespace ReaLTaiizor.Controls
 
         private void CustomDrawItem(object sender, DrawItemEventArgs e)
         {
-            if (e.Index < 0 || e.Index > Items.Count || !Focused) return;
+            if (e.Index < 0 || e.Index > Items.Count || !Focused)
+            {
+                return;
+            }
 
             Graphics g = e.Graphics;
 
@@ -266,13 +277,19 @@ namespace ReaLTaiizor.Controls
 
             // Hover
             if (e.State.HasFlag(DrawItemState.Focus)) // Focus == hover
+            {
                 g.FillRectangle(SkinManager.BackgroundHoverBrush, e.Bounds);
+            }
 
             string Text = "";
             if (!string.IsNullOrWhiteSpace(DisplayMember))
+            {
                 Text = Items[e.Index].GetType().GetProperty(DisplayMember).GetValue(Items[e.Index], null).ToString();
+            }
             else
+            {
                 Text = Items[e.Index].ToString();
+            }
 
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
             {
@@ -316,7 +333,10 @@ namespace ReaLTaiizor.Controls
 
         public void recalculateAutoSize()
         {
-            if (!AutoResize) return;
+            if (!AutoResize)
+            {
+                return;
+            }
 
             int w = DropDownWidth;
             int padding = SkinManager.FORM_PADDING * 3;
@@ -325,11 +345,14 @@ namespace ReaLTaiizor.Controls
             Graphics g = CreateGraphics();
             using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
             {
-                var itemsList = Items.Cast<object>().Select(item => item.ToString());
+                System.Collections.Generic.IEnumerable<string> itemsList = Items.Cast<object>().Select(item => item.ToString());
                 foreach (string s in itemsList)
                 {
                     int newWidth = NativeText.MeasureLogString(s, SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1)).Width + vertScrollBarWidth + padding;
-                    if (w < newWidth) w = newWidth;
+                    if (w < newWidth)
+                    {
+                        w = newWidth;
+                    }
                 }
             }
 

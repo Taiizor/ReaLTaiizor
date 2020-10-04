@@ -82,10 +82,18 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked) return;
+            if (!IsHandleCreated || !_Checked)
+            {
+                return;
+            }
+
             foreach (Control C in Parent.Controls)
+            {
                 if (C is ThunderRadioButton && C != this)
+                {
                     ((ThunderRadioButton)C).Checked = false;
+                }
+            }
         }
 
         public ThunderRadioButton()

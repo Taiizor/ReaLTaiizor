@@ -23,10 +23,15 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (withEventsField_ListBx != null)
+                {
                     withEventsField_ListBx.DrawItem -= Drawitem;
+                }
+
                 withEventsField_ListBx = value;
                 if (withEventsField_ListBx != null)
+                {
                     withEventsField_ListBx.DrawItem += Drawitem;
+                }
             }
         }
 
@@ -63,7 +68,10 @@ namespace ReaLTaiizor.Controls
                 int functionReturnValue = 0;
                 //return ListBx.SelectedIndex;
                 if (ListBx.SelectedIndex < 0)
+                {
                     return functionReturnValue;
+                }
+
                 return functionReturnValue;
             }
         }
@@ -76,13 +84,18 @@ namespace ReaLTaiizor.Controls
         public void ClearSelected()
         {
             for (int i = (ListBx.SelectedItems.Count - 1); i >= 0; i += -1)
+            {
                 ListBx.Items.Remove(ListBx.SelectedItems[i]);
+            }
         }
 
         public void Drawitem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0)
+            {
                 return;
+            }
+
             e.DrawBackground();
             e.DrawFocusRectangle();
 
@@ -116,7 +129,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
             if (!Controls.Contains(ListBx))
+            {
                 Controls.Add(ListBx);
+            }
         }
 
         public void AddRange(object[] items)
@@ -131,7 +146,7 @@ namespace ReaLTaiizor.Controls
             ListBx.Items.Add(item);
         }
 
-        private Color BaseColor = Color.FromArgb(45, 47, 49);
+        private readonly Color BaseColor = Color.FromArgb(45, 47, 49);
         private Color _SelectedColor = ForeverLibrary.ForeverColor;
 
         public ForeverListBox()
@@ -164,7 +179,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle Base = new Rectangle(0, 0, Width, Height);
 
-            var _with19 = G;
+            Graphics _with19 = G;
             _with19.SmoothingMode = SmoothingMode.HighQuality;
             _with19.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with19.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;

@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private bool enterFlag = false;
-        private System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
+        private readonly System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
         private RectangleF upRectangleF = new RectangleF();
         private RectangleF downRectangleF = new RectangleF();
         private Point mousePoint = new Point();
@@ -83,7 +83,9 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > _maxNum || value < _minNum)
+                {
                     return;
+                }
                 else
                 {
                     _value = value;
@@ -185,9 +187,14 @@ namespace ReaLTaiizor.Controls
         {
             base.OnClick(e);
             if (upRectangleF.Contains(mousePoint))
+            {
                 ValueNumber += Step;
+            }
+
             if (downRectangleF.Contains(mousePoint))
+            {
                 ValueNumber -= Step;
+            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -205,7 +212,7 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            var bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
+            GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             graphics.FillPath(new SolidBrush(_BaseColor), bg);
             graphics.DrawPath(new Pen(enterFlag ? _BorderHoverColorA : _BorderColorA, 1f), bg);
 
@@ -260,7 +267,10 @@ namespace ReaLTaiizor.Controls
             if (e.KeyChar == 13)
             {
                 if (float.TryParse(textBox.Text, out float f))
+                {
                     ValueNumber = f;
+                }
+
                 base.Focus();
             }
         }
