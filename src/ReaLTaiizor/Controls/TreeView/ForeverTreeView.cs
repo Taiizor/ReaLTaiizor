@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
 {
 	#region ForeverTreeView
 
-	public class ForeverTreeView : System.Windows.Forms.TreeView
+	public class ForeverTreeView : TreeView
 	{
 		private TreeNodeStates State;
 

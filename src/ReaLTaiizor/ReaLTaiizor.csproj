@@ -38,6 +38,14 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
       <Version>1.1.0-beta-20204-02</Version>
@@ -79,19 +87,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\Extender\PoisonStyleExtender.cs" />
-    <Compile Update="Controls\Label\PoisonLabel.cs" />
-    <Compile Update="Controls\Panel\PoisonPanel.cs" />
-    <Compile Update="Controls\Progress\PoisonProgressSpinner.cs" />
-    <Compile Update="Controls\ScrollBar\PoisonScrollBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Strip\PoisonContextMenuStrip.cs" />
-    <Compile Update="Controls\TabControl\PoisonTabControl.cs" />
-    <Compile Update="Controls\TabPage\PoisonTabPage.cs" />
-    <Compile Update="Controls\Tile\PoisonTile.cs" />
-    <Compile Update="Controls\ToolTip\PoisonToolTip.cs" />
-    <Compile Update="Manager\PoisonStyleManager.cs" />
+    <Compile Update="Controls\Window\PoisonTaskWindow.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
