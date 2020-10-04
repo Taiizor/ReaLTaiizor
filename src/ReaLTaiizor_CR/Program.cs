@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor_CR
@@ -12,8 +13,10 @@ namespace ReaLTaiizor_CR
         private static void Main()
         {
             Application.EnableVisualStyles();
+            CultureInfo cultureInfo = new CultureInfo(CultureInfo.CurrentCulture.TextInfo.CultureName);
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Catcher());
+            Application.CurrentCulture = cultureInfo;
+            Application.Run(new Poison());
         }
     }
 }

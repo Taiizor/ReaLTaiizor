@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI
@@ -12,7 +13,9 @@ namespace ReaLTaiizor.UI
         static void Main()
         {
             Application.EnableVisualStyles();
+            CultureInfo cultureInfo = new CultureInfo(CultureInfo.CurrentCulture.TextInfo.CultureName);
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.CurrentCulture = cultureInfo;
             Application.Run(new Form17());
         }
     }

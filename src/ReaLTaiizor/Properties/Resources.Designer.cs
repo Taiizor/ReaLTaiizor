@@ -179,6 +179,26 @@ namespace ReaLTaiizor.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap lnkClearImage {
+            get {
+                object obj = ResourceManager.GetObject("lnkClear.Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap lnkClearNoFocusImage {
+            get {
+                object obj = ResourceManager.GetObject("lnkClear.NoFocusImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
 
         /// <summary>
         ///   System.String türünde yerelleştirilmiş bir kaynak arar.

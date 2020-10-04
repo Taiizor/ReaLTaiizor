@@ -123,6 +123,16 @@ namespace ReaLTaiizor.UI.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap AttachOrDetach_7014 {
+            get {
+                object obj = ResourceManager.GetObject("AttachOrDetach_7014", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap baseline_bluetooth_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_bluetooth_black_24dp", resourceCulture);
@@ -176,6 +186,16 @@ namespace ReaLTaiizor.UI.Properties {
         internal static System.Drawing.Bitmap filter {
             get {
                 object obj = ResourceManager.GetObject("filter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap GitHub_Mark {
+            get {
+                object obj = ResourceManager.GetObject("GitHub_Mark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

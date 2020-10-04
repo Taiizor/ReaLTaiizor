@@ -205,4 +205,10 @@
   <data name="monochrome_square_pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monochrome-square-pattern.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AttachOrDetach_7014" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AttachOrDetach_7014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GitHub_Mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GitHub-Mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
   <Localization>
     <Key>StatusOn</Key>
-    <Value>Abierto</Value>
+    <Value>UI_An</Value>
   </Localization>
   <Localization>
     <Key>StatusOff</Key>
-    <Value>Cerrado</Value>
+    <Value>UI_Aus</Value>
   </Localization>
 </root>

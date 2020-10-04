@@ -2,10 +2,10 @@
 <root>
   <Localization>
     <Key>StatusOn</Key>
-    <Value>Abierto</Value>
+    <Value>UI_Abierto</Value>
   </Localization>
   <Localization>
     <Key>StatusOff</Key>
-    <Value>Cerrado</Value>
+    <Value>UI_Cerrado</Value>
   </Localization>
 </root>

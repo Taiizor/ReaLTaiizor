@@ -1095,7 +1095,6 @@ namespace ReaLTaiizor.Controls
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new ComponentResourceManager(typeof(PoisonTextBox));
             lnkClear = new PoisonLinkLabel();
             SuspendLayout();
             // 
@@ -1103,11 +1102,11 @@ namespace ReaLTaiizor.Controls
             // 
             lnkClear.FontSize = PoisonLinkLabelSize.Medium;
             lnkClear.FontWeight = PoisonLinkLabelWeight.Regular;
-            lnkClear.Image = ((Image)(resources.GetObject("lnkClear.Image")));
+            lnkClear.Image = Properties.Resources.lnkClearImage;
             lnkClear.ImageSize = 10;
             lnkClear.Location = new Point(654, 96);
             lnkClear.Name = "lnkClear";
-            lnkClear.NoFocusImage = ((Image)(resources.GetObject("lnkClear.NoFocusImage")));
+            lnkClear.Image = Properties.Resources.lnkClearNoFocusImage;
             lnkClear.Size = new Size(12, 12);
             lnkClear.TabIndex = 2;
             lnkClear.UseSelectable = true;
