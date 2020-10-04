@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region DungeonTabPage
 
-    public class DungeonTabPage : System.Windows.Forms.TabControl
+    public class DungeonTabPage : TabControl
     {
         private Color _BaseColor = Color.Transparent;
         public Color BaseColor

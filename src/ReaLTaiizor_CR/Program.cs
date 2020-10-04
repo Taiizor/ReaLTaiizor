@@ -13,7 +13,7 @@ namespace ReaLTaiizor_CR
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Metro());
+            Application.Run(new Poison());
         }
     }
 }

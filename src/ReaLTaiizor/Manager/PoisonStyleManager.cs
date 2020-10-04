@@ -3,6 +3,7 @@
 using System;
 using ReaLTaiizor.Util;
 using System.Reflection;
+using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Poison;
@@ -15,7 +16,7 @@ namespace ReaLTaiizor.Manager
 {
     #region PoisonStyleManagerManager
 
-    [Designer(typeof(PoisonButtonDesigner))]
+    [Designer(typeof(PoisonStyleManagerDesigner))]
     public sealed class PoisonStyleManager : Component, ICloneable, ISupportInitialize
     {
         #region Fields
@@ -134,8 +135,8 @@ namespace ReaLTaiizor.Manager
                     if (obj is IPoisonComponent)
                         ApplyTheme((IPoisonComponent)obj);
 
-                    if (obj.GetType() == typeof(PoisonContextMenu))
-                        ApplyTheme((PoisonContextMenu)obj);
+                    if (obj.GetType() == typeof(PoisonContextMenuStrip))
+                        ApplyTheme((PoisonContextMenuStrip)obj);
                 }
             }
 
@@ -182,8 +183,8 @@ namespace ReaLTaiizor.Manager
                 if (obj is IPoisonComponent)
                     ApplyTheme((IPoisonComponent)obj);
 
-                if (obj.GetType() == typeof(PoisonContextMenu))
-                    ApplyTheme((PoisonContextMenu)obj);
+                if (obj.GetType() == typeof(PoisonContextMenuStrip))
+                    ApplyTheme((PoisonContextMenuStrip)obj);
             }
         }
 
@@ -203,7 +204,7 @@ namespace ReaLTaiizor.Manager
             TabControl tabControl = ctrl as TabControl;
             if (tabControl != null)
             {
-                foreach (TabPage tp in ((TabControl)ctrl).TabPages)
+                foreach (System.Windows.Forms.TabPage tp in ((TabControl)ctrl).TabPages)
                     UpdateControl(tp);
             }
 

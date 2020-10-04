@@ -9,9 +9,8 @@ namespace ReaLTaiizor.Controls
 {
     #region AirTabPage
 
-    public class AirTabPage : System.Windows.Forms.TabControl
+    public class AirTabPage : TabControl
     {
-
         public AirTabPage()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);

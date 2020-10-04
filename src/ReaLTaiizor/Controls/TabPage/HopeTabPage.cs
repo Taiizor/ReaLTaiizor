@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Controls
 {
     #region HopeTabPage
 
-    public class HopeTabPage : System.Windows.Forms.TabControl
+    public class HopeTabPage : TabControl
     {
         #region Variables
         int enterIndex;

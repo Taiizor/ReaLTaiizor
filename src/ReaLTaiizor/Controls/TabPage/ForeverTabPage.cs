@@ -15,7 +15,7 @@ namespace ReaLTaiizor.Controls
 {
 	#region ForeverTabPage
 
-	public class ForeverTabPage : System.Windows.Forms.TabControl
+	public class ForeverTabPage : TabControl
 	{
 		private int W;
 		private int H;

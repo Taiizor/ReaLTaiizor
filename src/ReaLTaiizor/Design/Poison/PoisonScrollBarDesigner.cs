@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.ComponentModel;
+using ReaLTaiizor.Enum.Poison;
 using System.Windows.Forms.Design;
 
 #endregion
@@ -21,9 +22,9 @@ namespace ReaLTaiizor.Design.Poison
 
                 if (propDescriptor != null)
                 {
-                    PoisonScrollOrientation orientation = (PoisonScrollOrientation)propDescriptor.GetValue(Component);
+                    ScrollOrientationType orientation = (ScrollOrientationType)propDescriptor.GetValue(Component);
 
-                    if (orientation == PoisonScrollOrientation.Vertical)
+                    if (orientation == ScrollOrientationType.Vertical)
                         return SelectionRules.Visible | SelectionRules.Moveable | SelectionRules.BottomSizeable | SelectionRules.TopSizeable;
 
                     return SelectionRules.Visible | SelectionRules.Moveable | SelectionRules.LeftSizeable | SelectionRules.RightSizeable;
