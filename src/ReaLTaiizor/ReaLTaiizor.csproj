@@ -87,10 +87,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\Button\CrownButton.cs" />
-    <Compile Update="Controls\ComboBox\CrownComboBox.cs" />
-    <Compile Update="Controls\Label\CrownLabel.cs" />
-    <Compile Update="Controls\Title\CrownTitle.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -307,10 +303,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <EmbeddedResource Include="Localization\Poison\es\PoisonToggle.xml" />
     <EmbeddedResource Include="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
     <EmbeddedResource Include="Localization\Poison\tr\PoisonToggle.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Child\Crown\" />
   </ItemGroup>
 
 </Project>
