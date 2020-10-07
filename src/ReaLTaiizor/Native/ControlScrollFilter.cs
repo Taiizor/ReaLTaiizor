@@ -18,10 +18,12 @@ namespace ReaLTaiizor.Native
             {
                 case (int)WM.MOUSEWHEEL:
                 case (int)WM.MOUSEHWHEEL:
-                    var hControlUnderMouse = Native.WindowFromPoint(new Point((int)m.LParam));
+                    System.IntPtr hControlUnderMouse = Native.WindowFromPoint(new Point((int)m.LParam));
 
                     if (hControlUnderMouse == m.HWnd)
+                    {
                         return false;
+                    }
 
                     Native.SendMessage(hControlUnderMouse, (uint)m.Msg, m.WParam, m.LParam);
                     return true;

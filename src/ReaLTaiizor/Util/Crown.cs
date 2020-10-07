@@ -77,10 +77,14 @@ namespace ReaLTaiizor.Util
             if (!_disposed)
             {
                 if (ItemsAdded != null)
+                {
                     ItemsAdded = null;
+                }
 
                 if (ItemsRemoved != null)
+                {
                     ItemsRemoved = null;
+                }
 
                 _disposed = true;
             }
@@ -95,17 +99,21 @@ namespace ReaLTaiizor.Util
             base.Add(item);
 
             if (ItemsAdded != null)
+            {
                 ItemsAdded(this, new ObservableListModified<T>(new List<T> { item }));
+            }
         }
 
         public new void AddRange(IEnumerable<T> collection)
         {
-            var list = collection.ToList();
+            List<T> list = collection.ToList();
 
             base.AddRange(list);
 
             if (ItemsAdded != null)
+            {
                 ItemsAdded(this, new ObservableListModified<T>(list));
+            }
         }
 
         public new void Remove(T item)
@@ -113,16 +121,21 @@ namespace ReaLTaiizor.Util
             base.Remove(item);
 
             if (ItemsRemoved != null)
+            {
                 ItemsRemoved(this, new ObservableListModified<T>(new List<T> { item }));
+            }
         }
 
         public new void Clear()
         {
-            ObservableListModified<T> removed = new ObservableListModified<T>(ToList<T>());
+            ObservableList<T> thisis = this;
+            ObservableListModified<T> removed = new ObservableListModified<T>(thisis.ToList<T>());
             base.Clear();
 
             if (removed.Items.Count() > 0 && ItemsRemoved != null)
+            {
                 ItemsRemoved(this, removed);
+            }
         }
 
         #endregion
@@ -159,8 +172,8 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
         {
-            var g = e.Graphics;
-            using (var b = new SolidBrush(CrownColors.GreyBackground))
+            Graphics g = e.Graphics;
+            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
             {
                 g.FillRectangle(b, e.AffectedBounds);
             }
@@ -168,11 +181,11 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderImageMargin(ToolStripRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            var rect = new Rectangle(0, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
+            Rectangle rect = new Rectangle(0, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
 
-            using (var p = new Pen(CrownColors.LightBorder))
+            using (Pen p = new Pen(CrownColors.LightBorder))
             {
                 g.DrawRectangle(p, rect);
             }
@@ -180,23 +193,23 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderItemCheck(ToolStripItemImageRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            var rect = new Rectangle(e.ImageRectangle.Left - 2, e.ImageRectangle.Top - 2,
+            Rectangle rect = new Rectangle(e.ImageRectangle.Left - 2, e.ImageRectangle.Top - 2,
                                          e.ImageRectangle.Width + 4, e.ImageRectangle.Height + 4);
 
-            using (var b = new SolidBrush(CrownColors.LightBorder))
+            using (SolidBrush b = new SolidBrush(CrownColors.LightBorder))
             {
                 g.FillRectangle(b, rect);
             }
 
-            using (var p = new Pen(CrownColors.BlueHighlight))
+            using (Pen p = new Pen(CrownColors.BlueHighlight))
             {
-                var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
                 g.DrawRectangle(p, modRect);
             }
 
-            if (e.Item.ImageIndex == -1 && String.IsNullOrEmpty(e.Item.ImageKey) && e.Item.Image == null)
+            if (e.Item.ImageIndex == -1 && string.IsNullOrEmpty(e.Item.ImageKey) && e.Item.Image == null)
             {
                 g.DrawImageUnscaled(Properties.Resources.tick, new Point(e.ImageRectangle.Left, e.ImageRectangle.Top));
             }
@@ -204,11 +217,11 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            var rect = new Rectangle(1, 3, e.Item.Width, 1);
+            Rectangle rect = new Rectangle(1, 3, e.Item.Width, 1);
 
-            using (var b = new SolidBrush(CrownColors.LightBorder))
+            using (SolidBrush b = new SolidBrush(CrownColors.LightBorder))
             {
                 g.FillRectangle(b, rect);
             }
@@ -224,19 +237,19 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             e.Item.ForeColor = e.Item.Enabled ? CrownColors.LightText : CrownColors.DisabledText;
 
             if (e.Item.Enabled)
             {
 
-                var bgColor = e.Item.Selected ? CrownColors.GreyHighlight : e.Item.BackColor;
+                Color bgColor = e.Item.Selected ? CrownColors.GreyHighlight : e.Item.BackColor;
 
                 // Normal item
-                var rect = new Rectangle(2, 0, e.Item.Width - 3, e.Item.Height);
+                Rectangle rect = new Rectangle(2, 0, e.Item.Width - 3, e.Item.Height);
 
-                using (var b = new SolidBrush(bgColor))
+                using (SolidBrush b = new SolidBrush(bgColor))
                 {
                     g.FillRectangle(b, rect);
                 }
@@ -246,7 +259,7 @@ namespace ReaLTaiizor.Util
                 {
                     if (((ToolStripMenuItem)e.Item).DropDown.Visible && e.Item.IsOnDropDown == false)
                     {
-                        using (var b = new SolidBrush(CrownColors.GreySelection))
+                        using (SolidBrush b = new SolidBrush(CrownColors.GreySelection))
                         {
                             g.FillRectangle(b, rect);
                         }
@@ -268,9 +281,11 @@ namespace ReaLTaiizor.Util
 
             if (item.GetType() == typeof(ToolStripSeparator))
             {
-                var castItem = (ToolStripSeparator)item;
+                ToolStripSeparator castItem = (ToolStripSeparator)item;
                 if (!castItem.IsOnDropDown)
+                {
                     item.Margin = new Padding(0, 0, 2, 0);
+                }
             }
 
             if (item.GetType() == typeof(ToolStripButton))
@@ -288,13 +303,13 @@ namespace ReaLTaiizor.Util
         {
             base.OnRenderToolStripBackground(e);
 
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             if (e.ToolStrip.GetType() == typeof(ToolStripOverflow))
             {
-                using (var p = new Pen(CrownColors.GreyBackground))
+                using (Pen p = new Pen(CrownColors.GreyBackground))
                 {
-                    var rect = new Rectangle(e.AffectedBounds.Left, e.AffectedBounds.Top, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
+                    Rectangle rect = new Rectangle(e.AffectedBounds.Left, e.AffectedBounds.Top, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
                     g.DrawRectangle(p, rect);
                 }
             }
@@ -303,18 +318,20 @@ namespace ReaLTaiizor.Util
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
         {
             if (e.ToolStrip.GetType() != typeof(ToolStrip))
+            {
                 base.OnRenderToolStripBorder(e);
+            }
         }
 
         protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            var rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
+            Rectangle rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
 
             if (e.Item.Selected || e.Item.Pressed)
             {
-                using (var b = new SolidBrush(CrownColors.GreySelection))
+                using (SolidBrush b = new SolidBrush(CrownColors.GreySelection))
                 {
                     g.FillRectangle(b, rect);
                 }
@@ -322,11 +339,11 @@ namespace ReaLTaiizor.Util
 
             if (e.Item.GetType() == typeof(ToolStripButton))
             {
-                var castItem = (ToolStripButton)e.Item;
+                ToolStripButton castItem = (ToolStripButton)e.Item;
 
                 if (castItem.Checked)
                 {
-                    using (var b = new SolidBrush(CrownColors.GreySelection))
+                    using (SolidBrush b = new SolidBrush(CrownColors.GreySelection))
                     {
                         g.FillRectangle(b, rect);
                     }
@@ -334,8 +351,8 @@ namespace ReaLTaiizor.Util
 
                 if (castItem.Checked && castItem.Selected)
                 {
-                    var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
-                    using (var p = new Pen(CrownColors.GreyHighlight))
+                    Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                    using (Pen p = new Pen(CrownColors.GreyHighlight))
                     {
                         g.DrawRectangle(p, modRect);
                     }
@@ -345,13 +362,13 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderDropDownButtonBackground(ToolStripItemRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            var rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
+            Rectangle rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
 
             if (e.Item.Selected || e.Item.Pressed)
             {
-                using (var b = new SolidBrush(CrownColors.GreySelection))
+                using (SolidBrush b = new SolidBrush(CrownColors.GreySelection))
                 {
                     g.FillRectangle(b, rect);
                 }
@@ -361,11 +378,13 @@ namespace ReaLTaiizor.Util
         protected override void OnRenderGrip(ToolStripGripRenderEventArgs e)
         {
             if (e.GripStyle == ToolStripGripStyle.Hidden)
+            {
                 return;
+            }
 
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            using (var img = Properties.Resources.grip.SetColor(CrownColors.LightBorder))
+            using (Bitmap img = Properties.Resources.grip.SetColor(CrownColors.LightBorder))
             {
                 g.DrawImageUnscaled(img, new Point(e.AffectedBounds.Left, e.AffectedBounds.Top));
             }
@@ -373,23 +392,23 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            var castItem = (ToolStripSeparator)e.Item;
+            ToolStripSeparator castItem = (ToolStripSeparator)e.Item;
             if (castItem.IsOnDropDown)
             {
                 base.OnRenderSeparator(e);
                 return;
             }
 
-            var rect = new Rectangle(3, 3, 2, e.Item.Height - 4);
+            Rectangle rect = new Rectangle(3, 3, 2, e.Item.Height - 4);
 
-            using (var p = new Pen(CrownColors.DarkBorder))
+            using (Pen p = new Pen(CrownColors.DarkBorder))
             {
                 g.DrawLine(p, rect.Left, rect.Top, rect.Left, rect.Height);
             }
 
-            using (var p = new Pen(CrownColors.LightBorder))
+            using (Pen p = new Pen(CrownColors.LightBorder))
             {
                 g.DrawLine(p, rect.Left + 1, rect.Top, rect.Left + 1, rect.Height);
             }
@@ -397,15 +416,21 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderItemImage(ToolStripItemImageRenderEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             if (e.Image == null)
+            {
                 return;
+            }
 
             if (e.Item.Enabled)
+            {
                 g.DrawImageUnscaled(e.Image, new Point(e.ImageRectangle.Left, e.ImageRectangle.Top));
+            }
             else
+            {
                 ControlPaint.DrawImageDisabled(g, e.Image, e.ImageRectangle.Left, e.ImageRectangle.Top, Color.Transparent);
+            }
         }
 
         protected override void OnRenderOverflowButtonBackground(ToolStripItemRenderEventArgs e)

@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         private bool _isDefault;
         private bool _spacePressed;
 
-        private int _padding = Consts.Padding / 2;
+        private readonly int _padding = Consts.Padding / 2;
         private int _imagePadding = 5; // Consts.Padding / 2
 
         #endregion
@@ -157,11 +157,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
 
-            var form = FindForm();
+            Form form = FindForm();
             if (form != null)
             {
                 if (form.AcceptButton == this)
+                {
                     _isDefault = true;
+                }
             }
         }
 
@@ -170,14 +172,20 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
 
             if (_spacePressed)
+            {
                 return;
+            }
 
             if (e.Button == MouseButtons.Left)
             {
                 if (ClientRectangle.Contains(e.Location))
+                {
                     SetButtonState(ControlState.Pressed);
+                }
                 else
+                {
                     SetButtonState(ControlState.Hover);
+                }
             }
             else
             {
@@ -190,7 +198,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
 
             if (!ClientRectangle.Contains(e.Location))
+            {
                 return;
+            }
 
             SetButtonState(ControlState.Pressed);
         }
@@ -200,7 +210,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseUp(e);
 
             if (_spacePressed)
+            {
                 return;
+            }
 
             SetButtonState(ControlState.Normal);
         }
@@ -210,7 +222,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseLeave(e);
 
             if (_spacePressed)
+            {
                 return;
+            }
 
             SetButtonState(ControlState.Normal);
         }
@@ -220,12 +234,16 @@ namespace ReaLTaiizor.Controls
             base.OnMouseCaptureChanged(e);
 
             if (_spacePressed)
+            {
                 return;
+            }
 
-            var location = Cursor.Position;
+            Point location = Cursor.Position;
 
             if (!ClientRectangle.Contains(location))
+            {
                 SetButtonState(ControlState.Normal);
+            }
         }
 
         protected override void OnGotFocus(EventArgs e)
@@ -241,12 +259,16 @@ namespace ReaLTaiizor.Controls
 
             _spacePressed = false;
 
-            var location = Cursor.Position;
+            Point location = Cursor.Position;
 
             if (!ClientRectangle.Contains(location))
+            {
                 SetButtonState(ControlState.Normal);
+            }
             else
+            {
                 SetButtonState(ControlState.Hover);
+            }
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -268,12 +290,16 @@ namespace ReaLTaiizor.Controls
             {
                 _spacePressed = false;
 
-                var location = Cursor.Position;
+                Point location = Cursor.Position;
 
                 if (!ClientRectangle.Contains(location))
+                {
                     SetButtonState(ControlState.Normal);
+                }
                 else
+                {
                     SetButtonState(ControlState.Hover);
+                }
             }
         }
 
@@ -282,7 +308,9 @@ namespace ReaLTaiizor.Controls
             base.NotifyDefault(value);
 
             if (!DesignMode)
+            {
                 return;
+            }
 
             _isDefault = value;
             Invalidate();
@@ -294,19 +322,21 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-            var textColor = CrownColors.LightText;
-            var borderColor = CrownColors.GreySelection;
-            var fillColor = _isDefault ? CrownColors.DarkBlueBackground : CrownColors.LightBackground;
+            Color textColor = CrownColors.LightText;
+            Color borderColor = CrownColors.GreySelection;
+            Color fillColor = _isDefault ? CrownColors.DarkBlueBackground : CrownColors.LightBackground;
 
             if (Enabled)
             {
                 if (ButtonStyle == ButtonStyle.Normal)
                 {
                     if (Focused && TabStop)
+                    {
                         borderColor = CrownColors.BlueHighlight;
+                    }
 
                     switch (ButtonState)
                     {
@@ -340,30 +370,30 @@ namespace ReaLTaiizor.Controls
                 fillColor = CrownColors.DarkGreySelection;
             }
 
-            using (var b = new SolidBrush(fillColor))
+            using (SolidBrush b = new SolidBrush(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
 
             if (ButtonStyle == ButtonStyle.Normal)
             {
-                using (var p = new Pen(borderColor, 1))
+                using (Pen p = new Pen(borderColor, 1))
                 {
-                    var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                    Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
 
                     g.DrawRectangle(p, modRect);
                 }
             }
 
-            var textOffsetX = 0;
-            var textOffsetY = 0;
+            int textOffsetX = 0;
+            int textOffsetY = 0;
 
             if (Image != null)
             {
-                var stringSize = g.MeasureString(Text, Font, rect.Size);
+                SizeF stringSize = g.MeasureString(Text, Font, rect.Size);
 
-                var x = (ClientSize.Width / 2) - (Image.Size.Width / 2);
-                var y = (ClientSize.Height / 2) - (Image.Size.Height / 2);
+                int x = (ClientSize.Width / 2) - (Image.Size.Width / 2);
+                int y = (ClientSize.Height / 2) - (Image.Size.Height / 2);
 
                 switch (TextImageRelation)
                 {
@@ -387,11 +417,11 @@ namespace ReaLTaiizor.Controls
                 g.DrawImageUnscaled(Image, x, y);
             }
 
-            using (var b = new SolidBrush(textColor))
+            using (SolidBrush b = new SolidBrush(textColor))
             {
-                var modRect = new Rectangle(rect.Left + textOffsetX + Padding.Left, rect.Top + textOffsetY + Padding.Top, rect.Width - Padding.Horizontal, rect.Height - Padding.Vertical);
+                Rectangle modRect = new Rectangle(rect.Left + textOffsetX + Padding.Left, rect.Top + textOffsetY + Padding.Top, rect.Width - Padding.Horizontal, rect.Height - Padding.Vertical);
 
-                var stringFormat = new StringFormat
+                StringFormat stringFormat = new StringFormat
                 {
                     LineAlignment = StringAlignment.Center,
                     Alignment = StringAlignment.Center,

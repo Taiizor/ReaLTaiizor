@@ -27,8 +27,8 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Field Region
 
-        private List<DockContent> _contents;
-        private Dictionary<DockArea, DockRegion> _regions;
+        private readonly List<DockContent> _contents;
+        private readonly Dictionary<DockArea, DockRegion> _regions;
 
         private DockContent _activeContent;
         private bool _switchingContent = false;
@@ -46,7 +46,9 @@ namespace ReaLTaiizor.Docking.Crown
             {
                 // Don't let content visibility changes re-trigger event
                 if (_switchingContent)
+                {
                     return;
+                }
 
                 _switchingContent = true;
 
@@ -55,11 +57,15 @@ namespace ReaLTaiizor.Docking.Crown
                 ActiveGroup = _activeContent.DockGroup;
                 ActiveRegion = ActiveGroup.DockRegion;
 
-                foreach (var region in _regions.Values)
+                foreach (DockRegion region in _regions.Values)
+                {
                     region.Redraw();
+                }
 
                 if (ActiveContentChanged != null)
+                {
                     ActiveContentChanged(this, new DockContentEventArgs(_activeContent));
+                }
 
                 _switchingContent = false;
             }
@@ -95,7 +101,7 @@ namespace ReaLTaiizor.Docking.Crown
         {
             get
             {
-                var buttonState = MouseButtons;
+                MouseButtons buttonState = MouseButtons;
                 return buttonState;
             }
         }
@@ -134,22 +140,30 @@ namespace ReaLTaiizor.Docking.Crown
         public void AddContent(DockContent dockContent, DockGroup dockGroup)
         {
             if (_contents.Contains(dockContent))
+            {
                 RemoveContent(dockContent);
+            }
 
             dockContent.DockPanel = this;
             _contents.Add(dockContent);
 
             if (dockGroup != null)
+            {
                 dockContent.DockArea = dockGroup.DockArea;
+            }
 
             if (dockContent.DockArea == DockArea.None)
+            {
                 dockContent.DockArea = dockContent.DefaultDockArea;
+            }
 
-            var region = _regions[dockContent.DockArea];
+            DockRegion region = _regions[dockContent.DockArea];
             region.AddContent(dockContent, dockGroup);
 
             if (ContentAdded != null)
+            {
                 ContentAdded(this, new DockContentEventArgs(dockContent));
+            }
 
             dockContent.Select();
         }
@@ -157,18 +171,22 @@ namespace ReaLTaiizor.Docking.Crown
         public void InsertContent(DockContent dockContent, DockGroup dockGroup, DockInsertType insertType)
         {
             if (_contents.Contains(dockContent))
+            {
                 RemoveContent(dockContent);
+            }
 
             dockContent.DockPanel = this;
             _contents.Add(dockContent);
 
             dockContent.DockArea = dockGroup.DockArea;
 
-            var region = _regions[dockGroup.DockArea];
+            DockRegion region = _regions[dockGroup.DockArea];
             region.InsertContent(dockContent, dockGroup, insertType);
 
             if (ContentAdded != null)
+            {
                 ContentAdded(this, new DockContentEventArgs(dockContent));
+            }
 
             dockContent.Select();
         }
@@ -176,16 +194,20 @@ namespace ReaLTaiizor.Docking.Crown
         public void RemoveContent(DockContent dockContent)
         {
             if (!_contents.Contains(dockContent))
+            {
                 return;
+            }
 
             dockContent.DockPanel = null;
             _contents.Remove(dockContent);
 
-            var region = _regions[dockContent.DockArea];
+            DockRegion region = _regions[dockContent.DockArea];
             region.RemoveContent(dockContent);
 
             if (ContentRemoved != null)
+            {
                 ContentRemoved(this, new DockContentEventArgs(dockContent));
+            }
         }
 
         public bool ContainsContent(DockContent dockContent)
@@ -200,16 +222,16 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void CreateRegions()
         {
-            var documentRegion = new DockRegion(this, DockArea.Document);
+            DockRegion documentRegion = new DockRegion(this, DockArea.Document);
             _regions.Add(DockArea.Document, documentRegion);
 
-            var leftRegion = new DockRegion(this, DockArea.Left);
+            DockRegion leftRegion = new DockRegion(this, DockArea.Left);
             _regions.Add(DockArea.Left, leftRegion);
 
-            var rightRegion = new DockRegion(this, DockArea.Right);
+            DockRegion rightRegion = new DockRegion(this, DockArea.Right);
             _regions.Add(DockArea.Right, rightRegion);
 
-            var bottomRegion = new DockRegion(this, DockArea.Bottom);
+            DockRegion bottomRegion = new DockRegion(this, DockArea.Bottom);
             _regions.Add(DockArea.Bottom, bottomRegion);
 
             // Add the regions in this order to force the bottom region to be positioned
@@ -237,19 +259,19 @@ namespace ReaLTaiizor.Docking.Crown
 
         public DockPanelState GetDockPanelState()
         {
-            var state = new DockPanelState();
+            DockPanelState state = new DockPanelState();
 
             state.Regions.Add(new DockRegionState(DockArea.Document));
             state.Regions.Add(new DockRegionState(DockArea.Left, _regions[DockArea.Left].Size));
             state.Regions.Add(new DockRegionState(DockArea.Right, _regions[DockArea.Right].Size));
             state.Regions.Add(new DockRegionState(DockArea.Bottom, _regions[DockArea.Bottom].Size));
 
-            var _groupStates = new Dictionary<DockGroup, DockGroupState>();
+            Dictionary<DockGroup, DockGroupState> _groupStates = new Dictionary<DockGroup, DockGroupState>();
 
-            var orderedContent = _contents.OrderBy(c => c.Order);
-            foreach (var content in orderedContent)
+            IOrderedEnumerable<DockContent> orderedContent = _contents.OrderBy(c => c.Order);
+            foreach (DockContent content in orderedContent)
             {
-                foreach (var region in state.Regions)
+                foreach (DockRegionState region in state.Regions)
                 {
                     if (region.Area == content.DockArea)
                     {
@@ -278,7 +300,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public void RestoreDockPanelState(DockPanelState state, Func<string, DockContent> getContentBySerializationKey)
         {
-            foreach (var region in state.Regions)
+            foreach (DockRegionState region in state.Regions)
             {
                 switch (region.Area)
                 {
@@ -293,33 +315,43 @@ namespace ReaLTaiizor.Docking.Crown
                         break;
                 }
 
-                foreach (var group in region.Groups)
+                foreach (DockGroupState group in region.Groups)
                 {
                     DockContent previousContent = null;
                     DockContent visibleContent = null;
 
-                    foreach (var contentKey in group.Contents)
+                    foreach (string contentKey in group.Contents)
                     {
-                        var content = getContentBySerializationKey(contentKey);
+                        DockContent content = getContentBySerializationKey(contentKey);
 
                         if (content == null)
+                        {
                             continue;
+                        }
 
                         content.DockArea = region.Area;
 
                         if (previousContent == null)
+                        {
                             AddContent(content);
+                        }
                         else
+                        {
                             AddContent(content, previousContent.DockGroup);
+                        }
 
                         previousContent = content;
 
                         if (group.VisibleContent == contentKey)
+                        {
                             visibleContent = content;
+                        }
                     }
 
                     if (visibleContent != null)
+                    {
                         visibleContent.Select();
+                    }
                 }
             }
         }

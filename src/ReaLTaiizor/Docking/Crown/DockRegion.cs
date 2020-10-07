@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Docking.Crown
     {
         #region Field Region
 
-        private List<DockGroup> _groups;
+        private readonly List<DockGroup> _groups;
 
         private Form _parentForm;
         private DockSplitter _splitter;
@@ -38,7 +38,9 @@ namespace ReaLTaiizor.Docking.Crown
             get
             {
                 if (DockArea != DockArea.Document || _groups.Count == 0)
+                {
                     return null;
+                }
 
                 return _groups[0].VisibleContent;
             }
@@ -76,9 +78,13 @@ namespace ReaLTaiizor.Docking.Crown
             {
                 // If this is the document region, then default to first group if it exists
                 if (DockArea == DockArea.Document && _groups.Count > 0)
+                {
                     dockGroup = _groups[0];
+                }
                 else
+                {
                     dockGroup = CreateGroup();
+                }
             }
 
             dockContent.DockRegion = this;
@@ -95,12 +101,14 @@ namespace ReaLTaiizor.Docking.Crown
 
         internal void InsertContent(DockContent dockContent, DockGroup dockGroup, DockInsertType insertType)
         {
-            var order = dockGroup.Order;
+            int order = dockGroup.Order;
 
             if (insertType == DockInsertType.After)
+            {
                 order++;
+            }
 
-            var newGroup = InsertGroup(order);
+            DockGroup newGroup = InsertGroup(order);
 
             dockContent.DockRegion = this;
             newGroup.AddContent(dockContent);
@@ -118,14 +126,16 @@ namespace ReaLTaiizor.Docking.Crown
         {
             dockContent.DockRegion = null;
 
-            var group = dockContent.DockGroup;
+            DockGroup group = dockContent.DockGroup;
             group.RemoveContent(dockContent);
 
             dockContent.DockArea = DockArea.None;
 
             // If that was the final content in the group then remove the group
             if (group.ContentCount == 0)
+            {
                 RemoveGroup(group);
+            }
 
             // If we just removed the final group, and this isn't the document region, then hide
             if (_groups.Count == 0 && DockArea != DockArea.Document)
@@ -139,29 +149,33 @@ namespace ReaLTaiizor.Docking.Crown
 
         public List<DockContent> GetContents()
         {
-            var result = new List<DockContent>();
+            List<DockContent> result = new List<DockContent>();
 
-            foreach (var group in _groups)
+            foreach (DockGroup group in _groups)
+            {
                 result.AddRange(group.GetContents());
+            }
 
             return result;
         }
 
         private DockGroup CreateGroup()
         {
-            var order = 0;
+            int order = 0;
 
             if (_groups.Count >= 1)
             {
                 order = -1;
-                foreach (var group in _groups)
+                foreach (DockGroup group in _groups)
                 {
                     if (group.Order >= order)
+                    {
                         order = group.Order + 1;
+                    }
                 }
             }
 
-            var newGroup = new DockGroup(DockPanel, this, order);
+            DockGroup newGroup = new DockGroup(DockPanel, this, order);
             _groups.Add(newGroup);
             Controls.Add(newGroup);
 
@@ -170,13 +184,15 @@ namespace ReaLTaiizor.Docking.Crown
 
         private DockGroup InsertGroup(int order)
         {
-            foreach (var group in _groups)
+            foreach (DockGroup group in _groups)
             {
                 if (group.Order >= order)
+                {
                     group.Order++;
+                }
             }
 
-            var newGroup = new DockGroup(DockPanel, this, order);
+            DockGroup newGroup = new DockGroup(DockPanel, this, order);
             _groups.Add(newGroup);
             Controls.Add(newGroup);
 
@@ -185,15 +201,17 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void RemoveGroup(DockGroup group)
         {
-            var lastOrder = group.Order;
+            int lastOrder = group.Order;
 
             _groups.Remove(group);
             Controls.Remove(group);
 
-            foreach (var otherGroup in _groups)
+            foreach (DockGroup otherGroup in _groups)
             {
                 if (otherGroup.Order > lastOrder)
+                {
                     otherGroup.Order--;
+                }
             }
         }
 
@@ -224,16 +242,20 @@ namespace ReaLTaiizor.Docking.Crown
 
             if (_groups.Count > 1)
             {
-                var lastGroup = _groups.OrderByDescending(g => g.Order).First();
+                DockGroup lastGroup = _groups.OrderByDescending(g => g.Order).First();
 
-                foreach (var group in _groups.OrderByDescending(g => g.Order))
+                foreach (DockGroup group in _groups.OrderByDescending(g => g.Order))
                 {
                     group.SendToBack();
 
                     if (group.Order == lastGroup.Order)
+                    {
                         group.Dock = DockStyle.Fill;
+                    }
                     else
+                    {
                         group.Dock = dockStyle;
+                    }
                 }
 
                 SizeGroups();
@@ -243,9 +265,11 @@ namespace ReaLTaiizor.Docking.Crown
         private void SizeGroups()
         {
             if (_groups.Count <= 1)
+            {
                 return;
+            }
 
-            var size = new Size(0, 0);
+            Size size = new Size(0, 0);
 
             switch (DockArea)
             {
@@ -261,8 +285,10 @@ namespace ReaLTaiizor.Docking.Crown
                     break;
             }
 
-            foreach (var group in _groups)
+            foreach (DockGroup group in _groups)
+            {
                 group.Size = size;
+            }
         }
 
         private void BuildProperties()
@@ -297,7 +323,9 @@ namespace ReaLTaiizor.Docking.Crown
         private void CreateSplitter()
         {
             if (_splitter != null && DockPanel.Splitters.Contains(_splitter))
+            {
                 DockPanel.Splitters.Remove(_splitter);
+            }
 
             switch (DockArea)
             {
@@ -320,7 +348,9 @@ namespace ReaLTaiizor.Docking.Crown
         private void RemoveSplitter()
         {
             if (DockPanel.Splitters.Contains(_splitter))
+            {
                 DockPanel.Splitters.Remove(_splitter);
+            }
         }
 
         #endregion
@@ -345,7 +375,9 @@ namespace ReaLTaiizor.Docking.Crown
         private void ParentForm_ResizeEnd(object sender, EventArgs e)
         {
             if (_splitter != null)
+            {
                 _splitter.UpdateBounds();
+            }
         }
 
         protected override void OnLayout(LayoutEventArgs e)
@@ -353,7 +385,9 @@ namespace ReaLTaiizor.Docking.Crown
             base.OnLayout(e);
 
             if (_splitter != null)
+            {
                 _splitter.UpdateBounds();
+            }
         }
 
         #endregion
@@ -364,37 +398,47 @@ namespace ReaLTaiizor.Docking.Crown
         {
             Invalidate();
 
-            foreach (var group in _groups)
+            foreach (DockGroup group in _groups)
+            {
                 group.Redraw();
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             if (!Visible)
+            {
                 return;
+            }
 
             // Fill body
-            using (var b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
 
             // Draw border
-            using (var p = new Pen(CrownColors.DarkBorder))
+            using (Pen p = new Pen(CrownColors.DarkBorder))
             {
                 // Top border
                 if (DockArea == DockArea.Document)
+                {
                     g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
+                }
 
                 // Left border
                 if (DockArea == DockArea.Right)
+                {
                     g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Left, ClientRectangle.Height);
+                }
 
                 // Right border
                 if (DockArea == DockArea.Left)
+                {
                     g.DrawLine(p, ClientRectangle.Right - 1, 0, ClientRectangle.Right - 1, ClientRectangle.Height);
+                }
             }
         }
 

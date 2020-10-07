@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public int CalculateWidth(Graphics g, Font font)
         {
-            var width = (int)g.MeasureString(DockContent.DockText, font).Width;
+            int width = (int)g.MeasureString(DockContent.DockText, font).Width;
             width += 10;
 
             return width;

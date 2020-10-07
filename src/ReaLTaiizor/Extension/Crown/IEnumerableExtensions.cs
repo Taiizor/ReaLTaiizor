@@ -13,17 +13,23 @@ namespace ReaLTaiizor.Extension.Crown
     {
         internal static bool IsLast<T>(this IEnumerable<T> items, T item)
         {
-            var last = items.LastOrDefault();
+            T last = items.LastOrDefault();
             if (last == null)
+            {
                 return false;
+            }
+
             return item.Equals(last);
         }
 
         internal static bool IsFirst<T>(this IEnumerable<T> items, T item)
         {
-            var first = items.FirstOrDefault();
+            T first = items.FirstOrDefault();
             if (first == null)
+            {
                 return false;
+            }
+
             return item.Equals(first);
         }
 

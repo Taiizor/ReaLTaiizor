@@ -21,11 +21,11 @@ namespace ReaLTaiizor.Docking.Crown
     {
         #region Field Region
 
-        private List<DockContent> _contents = new List<DockContent>();
+        private readonly List<DockContent> _contents = new List<DockContent>();
 
-        private Dictionary<DockContent, DockTab> _tabs = new Dictionary<DockContent, DockTab>();
+        private readonly Dictionary<DockContent, DockTab> _tabs = new Dictionary<DockContent, DockTab>();
 
-        private DockTabArea _tabArea;
+        private readonly DockTabArea _tabArea;
 
         private DockTab _dragTab = null;
 
@@ -83,11 +83,13 @@ namespace ReaLTaiizor.Docking.Crown
 
             if (_contents.Count > 0)
             {
-                var order = -1;
-                foreach (var otherContent in _contents)
+                int order = -1;
+                foreach (DockContent otherContent in _contents)
                 {
                     if (otherContent.Order >= order)
+                    {
                         order = otherContent.Order + 1;
+                    }
                 }
 
                 dockContent.Order = order;
@@ -110,7 +112,7 @@ namespace ReaLTaiizor.Docking.Crown
                 dockContent.Visible = false;
             }
 
-            var menuItem = new ToolStripMenuItem(dockContent.DockText)
+            ToolStripMenuItem menuItem = new ToolStripMenuItem(dockContent.DockText)
             {
                 Tag = dockContent
             };
@@ -125,21 +127,25 @@ namespace ReaLTaiizor.Docking.Crown
         {
             dockContent.DockGroup = null;
 
-            var order = dockContent.Order;
+            int order = dockContent.Order;
 
             _contents.Remove(dockContent);
             Controls.Remove(dockContent);
 
-            foreach (var otherContent in _contents)
+            foreach (DockContent otherContent in _contents)
             {
                 if (otherContent.Order > order)
+                {
                     otherContent.Order--;
+                }
             }
 
             dockContent.DockTextChanged -= DockContent_DockTextChanged;
 
             if (_tabs.ContainsKey(dockContent))
+            {
                 _tabs.Remove(dockContent);
+            }
 
             if (VisibleContent == dockContent)
             {
@@ -147,13 +153,13 @@ namespace ReaLTaiizor.Docking.Crown
 
                 if (_contents.Count > 0)
                 {
-                    var newContent = _contents[0];
+                    DockContent newContent = _contents[0];
                     newContent.Visible = true;
                     VisibleContent = newContent;
                 }
             }
 
-            var menuItem = _tabArea.GetMenuItem(dockContent);
+            ToolStripMenuItem menuItem = _tabArea.GetMenuItem(dockContent);
 
             menuItem.Click -= TabMenuItem_Select;
             _tabArea.RemoveMenuItem(menuItem);
@@ -169,11 +175,15 @@ namespace ReaLTaiizor.Docking.Crown
         private void UpdateTabArea()
         {
             if (DockArea == DockArea.Document)
+            {
                 _tabArea.Visible = (_contents.Count > 0);
+            }
             else
+            {
                 _tabArea.Visible = (_contents.Count > 1);
+            }
 
-            var size = 0;
+            int size = 0;
 
             switch (DockArea)
             {
@@ -197,7 +207,7 @@ namespace ReaLTaiizor.Docking.Crown
 
             if (DockArea == DockArea.Document)
             {
-                var dropdownSize = Consts.DocumentTabAreaSize;
+                int dropdownSize = Consts.DocumentTabAreaSize;
                 _tabArea.DropdownRectangle = new Rectangle(_tabArea.ClientRectangle.Right - dropdownSize, 0, dropdownSize, dropdownSize);
             }
 
@@ -209,24 +219,26 @@ namespace ReaLTaiizor.Docking.Crown
         private void BuildTabs()
         {
             if (!_tabArea.Visible)
+            {
                 return;
+            }
 
             SuspendLayout();
 
-            var closeButtonSize = Properties.Resources.close_normal.Width;
+            int closeButtonSize = Properties.Resources.close_normal.Width;
 
             // Calculate areas of all tabs
-            var totalSize = 0;
+            int totalSize = 0;
 
-            var orderedContent = _contents.OrderBy(c => c.Order);
+            IOrderedEnumerable<DockContent> orderedContent = _contents.OrderBy(c => c.Order);
 
-            foreach (var content in orderedContent)
+            foreach (DockContent content in orderedContent)
             {
                 int width;
 
-                var tab = _tabs[content];
+                DockTab tab = _tabs[content];
 
-                using (var g = CreateGraphics())
+                using (Graphics g = CreateGraphics())
                 {
                     width = tab.CalculateWidth(g, Font);
                 }
@@ -238,17 +250,19 @@ namespace ReaLTaiizor.Docking.Crown
                     width += closeButtonSize;
 
                     if (tab.DockContent.Icon != null)
+                    {
                         width += tab.DockContent.Icon.Width + 5;
+                    }
                 }
 
                 // Show separator on all tabs for now
                 tab.ShowSeparator = true;
                 width += 1;
 
-                var y = DockArea == DockArea.Document ? 0 : ClientRectangle.Height - Consts.ToolWindowTabAreaSize;
-                var height = DockArea == DockArea.Document ? Consts.DocumentTabAreaSize : Consts.ToolWindowTabAreaSize;
+                int y = DockArea == DockArea.Document ? 0 : ClientRectangle.Height - Consts.ToolWindowTabAreaSize;
+                int height = DockArea == DockArea.Document ? Consts.DocumentTabAreaSize : Consts.ToolWindowTabAreaSize;
 
-                var tabRect = new Rectangle(_tabArea.ClientRectangle.Left + totalSize, y, width, height);
+                Rectangle tabRect = new Rectangle(_tabArea.ClientRectangle.Left + totalSize, y, width, height);
                 tab.ClientRectangle = tabRect;
 
                 totalSize += width;
@@ -259,34 +273,36 @@ namespace ReaLTaiizor.Docking.Crown
             {
                 if (totalSize > _tabArea.ClientRectangle.Width)
                 {
-                    var difference = totalSize - _tabArea.ClientRectangle.Width;
+                    int difference = totalSize - _tabArea.ClientRectangle.Width;
 
                     // No matter what, we want to slice off the 1 pixel separator from the final tab.
-                    var lastTab = _tabs[orderedContent.Last()];
-                    var tabRect = lastTab.ClientRectangle;
+                    DockTab lastTab = _tabs[orderedContent.Last()];
+                    Rectangle tabRect = lastTab.ClientRectangle;
                     lastTab.ClientRectangle = new Rectangle(tabRect.Left, tabRect.Top, tabRect.Width - 1, tabRect.Height);
                     lastTab.ShowSeparator = false;
 
-                    var differenceMadeUp = 1;
+                    int differenceMadeUp = 1;
 
                     // Loop through and progressively resize the larger tabs until the total size fits within the tab area.
                     while (differenceMadeUp < difference)
                     {
-                        var largest = _tabs.Values.OrderByDescending(tab => tab.ClientRectangle.Width)
+                        int largest = _tabs.Values.OrderByDescending(tab => tab.ClientRectangle.Width)
                                                                      .First()
                                                                      .ClientRectangle.Width;
 
-                        foreach (var content in orderedContent)
+                        foreach (DockContent content in orderedContent)
                         {
-                            var tab = _tabs[content];
+                            DockTab tab = _tabs[content];
 
                             // Check if previous iteration of loop met the difference
                             if (differenceMadeUp >= difference)
+                            {
                                 break;
+                            }
 
                             if (tab.ClientRectangle.Width >= largest)
                             {
-                                var rect = tab.ClientRectangle;
+                                Rectangle rect = tab.ClientRectangle;
                                 tab.ClientRectangle = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height);
                                 differenceMadeUp += 1;
                             }
@@ -294,12 +310,12 @@ namespace ReaLTaiizor.Docking.Crown
                     }
 
                     // After resizing the tabs reposition them accordingly.
-                    var xOffset = 0;
-                    foreach (var content in orderedContent)
+                    int xOffset = 0;
+                    foreach (DockContent content in orderedContent)
                     {
-                        var tab = _tabs[content];
+                        DockTab tab = _tabs[content];
 
-                        var rect = tab.ClientRectangle;
+                        Rectangle rect = tab.ClientRectangle;
                         tab.ClientRectangle = new Rectangle(_tabArea.ClientRectangle.Left + xOffset, rect.Top, rect.Width, rect.Height);
 
                         xOffset += rect.Width;
@@ -310,10 +326,10 @@ namespace ReaLTaiizor.Docking.Crown
             // Build close button rectangles
             if (DockArea == DockArea.Document)
             {
-                foreach (var content in orderedContent)
+                foreach (DockContent content in orderedContent)
                 {
-                    var tab = _tabs[content];
-                    var closeRect = new Rectangle(tab.ClientRectangle.Right - 7 - closeButtonSize - 1,
+                    DockTab tab = _tabs[content];
+                    Rectangle closeRect = new Rectangle(tab.ClientRectangle.Right - 7 - closeButtonSize - 1,
                                                   tab.ClientRectangle.Top + (tab.ClientRectangle.Height / 2) - (closeButtonSize / 2) - 1,
                                                   closeButtonSize, closeButtonSize);
                     tab.CloseButtonRectangle = closeRect;
@@ -322,9 +338,9 @@ namespace ReaLTaiizor.Docking.Crown
 
             // Update the tab area with the new total tab width
             totalSize = 0;
-            foreach (var content in orderedContent)
+            foreach (DockContent content in orderedContent)
             {
-                var tab = _tabs[content];
+                DockTab tab = _tabs[content];
                 totalSize += tab.ClientRectangle.Width;
             }
 
@@ -338,35 +354,49 @@ namespace ReaLTaiizor.Docking.Crown
         public void EnsureVisible()
         {
             if (DockArea != DockArea.Document)
+            {
                 return;
+            }
 
             if (VisibleContent == null)
+            {
                 return;
+            }
 
-            var width = ClientRectangle.Width - Padding.Horizontal - _tabArea.DropdownRectangle.Width;
-            var offsetArea = new Rectangle(Padding.Left, 0, width, 0);
+            int width = ClientRectangle.Width - Padding.Horizontal - _tabArea.DropdownRectangle.Width;
+            Rectangle offsetArea = new Rectangle(Padding.Left, 0, width, 0);
 
-            var tab = _tabs[VisibleContent];
+            DockTab tab = _tabs[VisibleContent];
 
             if (tab.ClientRectangle.IsEmpty)
+            {
                 return;
+            }
 
             if (RectangleToTabArea(tab.ClientRectangle).Left < offsetArea.Left)
+            {
                 _tabArea.Offset = tab.ClientRectangle.Left;
+            }
             else if (RectangleToTabArea(tab.ClientRectangle).Right > offsetArea.Right)
+            {
                 _tabArea.Offset = tab.ClientRectangle.Right - width;
+            }
 
             if (_tabArea.TotalTabSize < offsetArea.Width)
+            {
                 _tabArea.Offset = 0;
+            }
 
             if (_tabArea.TotalTabSize > offsetArea.Width)
             {
-                var orderedContent = _contents.OrderBy(x => x.Order);
-                var lastTab = _tabs[orderedContent.Last()];
+                IOrderedEnumerable<DockContent> orderedContent = _contents.OrderBy(x => x.Order);
+                DockTab lastTab = _tabs[orderedContent.Last()];
                 if (lastTab != null)
                 {
                     if (RectangleToTabArea(lastTab.ClientRectangle).Right < offsetArea.Right)
+                    {
                         _tabArea.Offset = lastTab.ClientRectangle.Right - width;
+                    }
                 }
             }
 
@@ -376,17 +406,21 @@ namespace ReaLTaiizor.Docking.Crown
         public void SetVisibleContent(DockContent content)
         {
             if (!_contents.Contains(content))
+            {
                 return;
+            }
 
             if (VisibleContent != content)
             {
                 VisibleContent = content;
                 content.Visible = true;
 
-                foreach (var otherContent in _contents)
+                foreach (DockContent otherContent in _contents)
                 {
                     if (otherContent != content)
+                    {
                         otherContent.Visible = false;
+                    }
                 }
 
                 Invalidate();
@@ -420,21 +454,25 @@ namespace ReaLTaiizor.Docking.Crown
 
             if (_dragTab != null)
             {
-                var offsetX = e.Location.X + _tabArea.Offset;
+                int offsetX = e.Location.X + _tabArea.Offset;
                 if (offsetX < _dragTab.ClientRectangle.Left)
                 {
                     if (_dragTab.DockContent.Order > 0)
                     {
-                        var otherTabs = _tabs.Values.Where(t => t.DockContent.Order == _dragTab.DockContent.Order - 1).ToList();
+                        List<DockTab> otherTabs = _tabs.Values.Where(t => t.DockContent.Order == _dragTab.DockContent.Order - 1).ToList();
                         if (otherTabs.Count == 0)
+                        {
                             return;
+                        }
 
-                        var otherTab = otherTabs.First();
+                        DockTab otherTab = otherTabs.First();
 
                         if (otherTab == null)
+                        {
                             return;
+                        }
 
-                        var oldIndex = _dragTab.DockContent.Order;
+                        int oldIndex = _dragTab.DockContent.Order;
                         _dragTab.DockContent.Order = oldIndex - 1;
                         otherTab.DockContent.Order = oldIndex;
 
@@ -448,20 +486,24 @@ namespace ReaLTaiizor.Docking.Crown
                 }
                 else if (offsetX > _dragTab.ClientRectangle.Right)
                 {
-                    var maxOrder = _contents.Count;
+                    int maxOrder = _contents.Count;
 
                     if (_dragTab.DockContent.Order < maxOrder)
                     {
-                        var otherTabs = _tabs.Values.Where(t => t.DockContent.Order == _dragTab.DockContent.Order + 1).ToList();
+                        List<DockTab> otherTabs = _tabs.Values.Where(t => t.DockContent.Order == _dragTab.DockContent.Order + 1).ToList();
                         if (otherTabs.Count == 0)
+                        {
                             return;
+                        }
 
-                        var otherTab = otherTabs.First();
+                        DockTab otherTab = otherTabs.First();
 
                         if (otherTab == null)
+                        {
                             return;
+                        }
 
-                        var oldIndex = _dragTab.DockContent.Order;
+                        int oldIndex = _dragTab.DockContent.Order;
                         _dragTab.DockContent.Order = oldIndex + 1;
                         otherTab.DockContent.Order = oldIndex;
 
@@ -481,8 +523,10 @@ namespace ReaLTaiizor.Docking.Crown
             {
                 _tabArea.DropdownHot = true;
 
-                foreach (var tab in _tabs.Values)
+                foreach (DockTab tab in _tabs.Values)
+                {
                     tab.Hot = false;
+                }
 
                 Invalidate();
                 return;
@@ -490,10 +534,10 @@ namespace ReaLTaiizor.Docking.Crown
 
             _tabArea.DropdownHot = false;
 
-            foreach (var tab in _tabs.Values)
+            foreach (DockTab tab in _tabs.Values)
             {
-                var rect = RectangleToTabArea(tab.ClientRectangle);
-                var hot = rect.Contains(e.Location);
+                Rectangle rect = RectangleToTabArea(tab.ClientRectangle);
+                bool hot = rect.Contains(e.Location);
 
                 if (tab.Hot != hot)
                 {
@@ -501,8 +545,8 @@ namespace ReaLTaiizor.Docking.Crown
                     Invalidate();
                 }
 
-                var closeRect = RectangleToTabArea(tab.CloseButtonRectangle);
-                var closeHot = closeRect.Contains(e.Location);
+                Rectangle closeRect = RectangleToTabArea(tab.CloseButtonRectangle);
+                bool closeHot = closeRect.Contains(e.Location);
 
                 if (tab.CloseButtonHot != closeHot)
                 {
@@ -522,9 +566,9 @@ namespace ReaLTaiizor.Docking.Crown
                 return;
             }
 
-            foreach (var tab in _tabs.Values)
+            foreach (DockTab tab in _tabs.Values)
             {
-                var rect = RectangleToTabArea(tab.ClientRectangle);
+                Rectangle rect = RectangleToTabArea(tab.ClientRectangle);
                 if (rect.Contains(e.Location))
                 {
                     if (e.Button == MouseButtons.Middle)
@@ -533,7 +577,7 @@ namespace ReaLTaiizor.Docking.Crown
                         return;
                     }
 
-                    var closeRect = RectangleToTabArea(tab.CloseButtonRectangle);
+                    Rectangle closeRect = RectangleToTabArea(tab.CloseButtonRectangle);
                     if (closeRect.Contains(e.Location))
                     {
                         _tabArea.ClickedCloseButton = tab;
@@ -552,7 +596,9 @@ namespace ReaLTaiizor.Docking.Crown
             }
 
             if (VisibleContent != null)
+            {
                 DockPanel.ActiveContent = VisibleContent;
+            }
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -564,38 +610,50 @@ namespace ReaLTaiizor.Docking.Crown
             if (_tabArea.DropdownRectangle.Contains(e.Location))
             {
                 if (_tabArea.DropdownHot)
+                {
                     _tabArea.ShowMenu(this, new Point(_tabArea.DropdownRectangle.Left, _tabArea.DropdownRectangle.Bottom - 2));
+                }
 
                 return;
             }
 
             if (_tabArea.ClickedCloseButton == null)
+            {
                 return;
+            }
 
-            var closeRect = RectangleToTabArea(_tabArea.ClickedCloseButton.CloseButtonRectangle);
+            Rectangle closeRect = RectangleToTabArea(_tabArea.ClickedCloseButton.CloseButtonRectangle);
             if (closeRect.Contains(e.Location))
+            {
                 _tabArea.ClickedCloseButton.DockContent.Close();
+            }
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
 
-            foreach (var tab in _tabs.Values)
+            foreach (DockTab tab in _tabs.Values)
+            {
                 tab.Hot = false;
+            }
 
             Invalidate();
         }
 
         private void TabMenuItem_Select(object sender, EventArgs e)
         {
-            var menuItem = sender as ToolStripMenuItem;
+            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
             if (menuItem == null)
+            {
                 return;
+            }
 
-            var content = menuItem.Tag as DockContent;
+            DockContent content = menuItem.Tag as DockContent;
             if (content == null)
+            {
                 return;
+            }
 
             DockPanel.ActiveContent = content;
         }
@@ -603,7 +661,9 @@ namespace ReaLTaiizor.Docking.Crown
         private void DockPanel_ActiveContentChanged(object sender, DockContentEventArgs e)
         {
             if (!_contents.Contains(e.Content))
+            {
                 return;
+            }
 
             if (e.Content == VisibleContent)
             {
@@ -613,8 +673,10 @@ namespace ReaLTaiizor.Docking.Crown
 
             VisibleContent = e.Content;
 
-            foreach (var content in _contents)
+            foreach (DockContent content in _contents)
+            {
                 content.Visible = content == VisibleContent;
+            }
 
             VisibleContent.Focus();
 
@@ -635,55 +697,63 @@ namespace ReaLTaiizor.Docking.Crown
         {
             Invalidate();
 
-            foreach (var content in _contents)
+            foreach (DockContent content in _contents)
+            {
                 content.Invalidate();
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            using (var b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
 
             if (!_tabArea.Visible)
+            {
                 return;
+            }
 
-            using (var b = new SolidBrush(CrownColors.MediumBackground))
+            using (SolidBrush b = new SolidBrush(CrownColors.MediumBackground))
             {
                 g.FillRectangle(b, _tabArea.ClientRectangle);
             }
 
-            foreach (var tab in _tabs.Values)
+            foreach (DockTab tab in _tabs.Values)
             {
                 if (DockArea == DockArea.Document)
+                {
                     PaintDocumentTab(g, tab);
+                }
                 else
+                {
                     PaintToolWindowTab(g, tab);
+                }
             }
 
             if (DockArea == DockArea.Document)
             {
                 // Color divider
-                var isActiveGroup = DockPanel.ActiveGroup == this;
-                var divColor = isActiveGroup ? CrownColors.BlueSelection : CrownColors.GreySelection;
-                using (var b = new SolidBrush(divColor))
+                bool isActiveGroup = DockPanel.ActiveGroup == this;
+                Color divColor = isActiveGroup ? CrownColors.BlueSelection : CrownColors.GreySelection;
+                using (SolidBrush b = new SolidBrush(divColor))
                 {
-                    var divRect = new Rectangle(_tabArea.ClientRectangle.Left, _tabArea.ClientRectangle.Bottom - 2, _tabArea.ClientRectangle.Width, 2);
+                    Rectangle divRect = new Rectangle(_tabArea.ClientRectangle.Left, _tabArea.ClientRectangle.Bottom - 2, _tabArea.ClientRectangle.Width, 2);
                     g.FillRectangle(b, divRect);
                 }
 
                 // Content dropdown list
-                var dropdownRect = new Rectangle(_tabArea.DropdownRectangle.Left, _tabArea.DropdownRectangle.Top, _tabArea.DropdownRectangle.Width, _tabArea.DropdownRectangle.Height - 2);
+                Rectangle dropdownRect = new Rectangle(_tabArea.DropdownRectangle.Left, _tabArea.DropdownRectangle.Top, _tabArea.DropdownRectangle.Width, _tabArea.DropdownRectangle.Height - 2);
 
-                using (var b = new SolidBrush(CrownColors.MediumBackground))
+                using (SolidBrush b = new SolidBrush(CrownColors.MediumBackground))
                 {
                     g.FillRectangle(b, dropdownRect);
                 }
 
-                using (var img = Properties.Resources.arrow)
+                using (Bitmap img = Properties.Resources.arrow)
                 {
                     g.DrawImageUnscaled(img, dropdownRect.Left + (dropdownRect.Width / 2) - (img.Width / 2), dropdownRect.Top + (dropdownRect.Height / 2) - (img.Height / 2) + 1);
                 }
@@ -692,20 +762,24 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void PaintDocumentTab(Graphics g, DockTab tab)
         {
-            var tabRect = RectangleToTabArea(tab.ClientRectangle);
+            Rectangle tabRect = RectangleToTabArea(tab.ClientRectangle);
 
-            var isVisibleTab = VisibleContent == tab.DockContent;
-            var isActiveGroup = DockPanel.ActiveGroup == this;
+            bool isVisibleTab = VisibleContent == tab.DockContent;
+            bool isActiveGroup = DockPanel.ActiveGroup == this;
 
-            var bgColor = isVisibleTab ? CrownColors.BlueSelection : CrownColors.DarkBackground;
+            Color bgColor = isVisibleTab ? CrownColors.BlueSelection : CrownColors.DarkBackground;
 
             if (!isActiveGroup)
+            {
                 bgColor = isVisibleTab ? CrownColors.GreySelection : CrownColors.DarkBackground;
+            }
 
             if (tab.Hot && !isVisibleTab)
+            {
                 bgColor = CrownColors.MediumBackground;
+            }
 
-            using (var b = new SolidBrush(bgColor))
+            using (SolidBrush b = new SolidBrush(bgColor))
             {
                 g.FillRectangle(b, tabRect);
             }
@@ -713,13 +787,13 @@ namespace ReaLTaiizor.Docking.Crown
             // Draw separators
             if (tab.ShowSeparator)
             {
-                using (var p = new Pen(CrownColors.DarkBorder))
+                using (Pen p = new Pen(CrownColors.DarkBorder))
                 {
                     g.DrawLine(p, tabRect.Right - 1, tabRect.Top, tabRect.Right - 1, tabRect.Bottom);
                 }
             }
 
-            var xOffset = 0;
+            int xOffset = 0;
 
             // Draw icon
             if (tab.DockContent.Icon != null)
@@ -728,7 +802,7 @@ namespace ReaLTaiizor.Docking.Crown
                 xOffset += tab.DockContent.Icon.Width + 2;
             }
 
-            var tabTextFormat = new StringFormat
+            StringFormat tabTextFormat = new StringFormat
             {
                 Alignment = StringAlignment.Near,
                 LineAlignment = StringAlignment.Center,
@@ -737,40 +811,46 @@ namespace ReaLTaiizor.Docking.Crown
             };
 
             // Draw text
-            var textColor = isVisibleTab ? CrownColors.LightText : CrownColors.DisabledText;
-            using (var b = new SolidBrush(textColor))
+            Color textColor = isVisibleTab ? CrownColors.LightText : CrownColors.DisabledText;
+            using (SolidBrush b = new SolidBrush(textColor))
             {
-                var textRect = new Rectangle(tabRect.Left + 5 + xOffset, tabRect.Top, tabRect.Width - tab.CloseButtonRectangle.Width - 7 - 5 - xOffset, tabRect.Height);
+                Rectangle textRect = new Rectangle(tabRect.Left + 5 + xOffset, tabRect.Top, tabRect.Width - tab.CloseButtonRectangle.Width - 7 - 5 - xOffset, tabRect.Height);
                 g.DrawString(tab.DockContent.DockText, Font, b, textRect, tabTextFormat);
             }
 
             // Close button
-            var img = tab.CloseButtonHot ? Properties.Resources.inactive_close_selected : Properties.Resources.inactive_close;
+            Bitmap img = tab.CloseButtonHot ? Properties.Resources.inactive_close_selected : Properties.Resources.inactive_close;
 
             if (isVisibleTab)
             {
                 if (isActiveGroup)
+                {
                     img = tab.CloseButtonHot ? Properties.Resources.close_selected : Properties.Resources.close_normal;
+                }
                 else
+                {
                     img = tab.CloseButtonHot ? Properties.Resources.close_selected : Properties.Resources.active_inactive_close;
+                }
             }
 
-            var closeRect = RectangleToTabArea(tab.CloseButtonRectangle);
+            Rectangle closeRect = RectangleToTabArea(tab.CloseButtonRectangle);
             g.DrawImageUnscaled(img, closeRect.Left, closeRect.Top);
         }
 
         private void PaintToolWindowTab(Graphics g, DockTab tab)
         {
-            var tabRect = tab.ClientRectangle;
+            Rectangle tabRect = tab.ClientRectangle;
 
-            var isVisibleTab = VisibleContent == tab.DockContent;
+            bool isVisibleTab = VisibleContent == tab.DockContent;
 
-            var bgColor = isVisibleTab ? CrownColors.GreyBackground : CrownColors.DarkBackground;
+            Color bgColor = isVisibleTab ? CrownColors.GreyBackground : CrownColors.DarkBackground;
 
             if (tab.Hot && !isVisibleTab)
+            {
                 bgColor = CrownColors.MediumBackground;
+            }
 
-            using (var b = new SolidBrush(bgColor))
+            using (SolidBrush b = new SolidBrush(bgColor))
             {
                 g.FillRectangle(b, tabRect);
             }
@@ -778,13 +858,13 @@ namespace ReaLTaiizor.Docking.Crown
             // Draw separators
             if (tab.ShowSeparator)
             {
-                using (var p = new Pen(CrownColors.DarkBorder))
+                using (Pen p = new Pen(CrownColors.DarkBorder))
                 {
                     g.DrawLine(p, tabRect.Right - 1, tabRect.Top, tabRect.Right - 1, tabRect.Bottom);
                 }
             }
 
-            var tabTextFormat = new StringFormat
+            StringFormat tabTextFormat = new StringFormat
             {
                 Alignment = StringAlignment.Near,
                 LineAlignment = StringAlignment.Center,
@@ -792,10 +872,10 @@ namespace ReaLTaiizor.Docking.Crown
                 Trimming = StringTrimming.EllipsisCharacter
             };
 
-            var textColor = isVisibleTab ? CrownColors.BlueHighlight : CrownColors.DisabledText;
-            using (var b = new SolidBrush(textColor))
+            Color textColor = isVisibleTab ? CrownColors.BlueHighlight : CrownColors.DisabledText;
+            using (SolidBrush b = new SolidBrush(textColor))
             {
-                var textRect = new Rectangle(tabRect.Left + 5, tabRect.Top, tabRect.Width - 5, tabRect.Height);
+                Rectangle textRect = new Rectangle(tabRect.Left + 5, tabRect.Top, tabRect.Width - 5, tabRect.Height);
                 g.DrawString(tab.DockContent.DockText, Font, b, textRect, tabTextFormat);
             }
         }

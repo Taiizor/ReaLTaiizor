@@ -60,7 +60,9 @@ namespace ReaLTaiizor.Docking.Crown
         private bool IsActive()
         {
             if (DockPanel == null)
+            {
                 return false;
+            }
 
             return DockPanel.ActiveContent == this;
         }
@@ -147,7 +149,9 @@ namespace ReaLTaiizor.Docking.Crown
             base.OnMouseUp(e);
 
             if (_closeButtonRect.Contains(e.Location) && _closeButtonPressed)
+            {
                 Close();
+            }
 
             _closeButtonPressed = false;
             _closeButtonHot = false;
@@ -163,39 +167,39 @@ namespace ReaLTaiizor.Docking.Crown
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             // Fill body
-            using (var b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
 
-            var isActive = IsActive();
+            bool isActive = IsActive();
 
             // Draw header
-            var bgColor = isActive ? CrownColors.BlueBackground : CrownColors.HeaderBackground;
-            var darkColor = isActive ? CrownColors.DarkBlueBorder : CrownColors.DarkBorder;
-            var lightColor = isActive ? CrownColors.LightBlueBorder : CrownColors.LightBorder;
+            Color bgColor = isActive ? CrownColors.BlueBackground : CrownColors.HeaderBackground;
+            Color darkColor = isActive ? CrownColors.DarkBlueBorder : CrownColors.DarkBorder;
+            Color lightColor = isActive ? CrownColors.LightBlueBorder : CrownColors.LightBorder;
 
-            using (var b = new SolidBrush(bgColor))
+            using (SolidBrush b = new SolidBrush(bgColor))
             {
-                var bgRect = new Rectangle(0, 0, ClientRectangle.Width, Consts.ToolWindowHeaderSize);
+                Rectangle bgRect = new Rectangle(0, 0, ClientRectangle.Width, Consts.ToolWindowHeaderSize);
                 g.FillRectangle(b, bgRect);
             }
 
-            using (var p = new Pen(darkColor))
+            using (Pen p = new Pen(darkColor))
             {
                 g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
                 g.DrawLine(p, ClientRectangle.Left, Consts.ToolWindowHeaderSize - 1, ClientRectangle.Right, Consts.ToolWindowHeaderSize - 1);
             }
 
-            using (var p = new Pen(lightColor))
+            using (Pen p = new Pen(lightColor))
             {
                 g.DrawLine(p, ClientRectangle.Left, 1, ClientRectangle.Right, 1);
             }
 
-            var xOffset = 2;
+            int xOffset = 2;
 
             // Draw icon
             if (Icon != null)
@@ -205,11 +209,11 @@ namespace ReaLTaiizor.Docking.Crown
             }
 
             // Draw text
-            using (var b = new SolidBrush(CrownColors.LightText))
+            using (SolidBrush b = new SolidBrush(CrownColors.LightText))
             {
-                var textRect = new Rectangle(xOffset, 0, ClientRectangle.Width - 4 - xOffset, Consts.ToolWindowHeaderSize);
+                Rectangle textRect = new Rectangle(xOffset, 0, ClientRectangle.Width - 4 - xOffset, Consts.ToolWindowHeaderSize);
 
-                var format = new StringFormat
+                StringFormat format = new StringFormat
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Center,
@@ -221,10 +225,12 @@ namespace ReaLTaiizor.Docking.Crown
             }
 
             // Close button
-            var img = _closeButtonHot ? Properties.Resources.tw_close_selected : Properties.Resources.tw_close;
+            Bitmap img = _closeButtonHot ? Properties.Resources.tw_close_selected : Properties.Resources.tw_close;
 
             if (isActive)
+            {
                 img = _closeButtonHot ? Properties.Resources.tw_active_close_selected : Properties.Resources.tw_active_close;
+            }
 
             g.DrawImageUnscaled(img, _closeButtonRect.Left, _closeButtonRect.Top);
         }

@@ -16,10 +16,10 @@ namespace ReaLTaiizor.Docking.Crown
     {
         #region Field Region
 
-        private Control _parentControl;
-        private Control _control;
+        private readonly Control _parentControl;
+        private readonly Control _control;
 
-        private SplitterType _splitterType;
+        private readonly SplitterType _splitterType;
 
         private int _minimum;
         private int _maximum;
@@ -77,39 +77,47 @@ namespace ReaLTaiizor.Docking.Crown
 
         public void UpdateOverlay(Point difference)
         {
-            var bounds = new Rectangle(Bounds.Location, Bounds.Size);
+            Rectangle bounds = new Rectangle(Bounds.Location, Bounds.Size);
 
             switch (_splitterType)
             {
                 case SplitterType.Left:
-                    var leftX = Math.Max(bounds.Location.X - difference.X, _minimum);
+                    int leftX = Math.Max(bounds.Location.X - difference.X, _minimum);
 
                     if (_maximum != 0 && leftX > _maximum)
+                    {
                         leftX = _maximum;
+                    }
 
                     bounds.Location = new Point(leftX, bounds.Location.Y);
                     break;
                 case SplitterType.Right:
-                    var rightX = Math.Max(bounds.Location.X - difference.X, _minimum);
+                    int rightX = Math.Max(bounds.Location.X - difference.X, _minimum);
 
                     if (_maximum != 0 && rightX > _maximum)
+                    {
                         rightX = _maximum;
+                    }
 
                     bounds.Location = new Point(rightX, bounds.Location.Y);
                     break;
                 case SplitterType.Top:
-                    var topY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
+                    int topY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
 
                     if (_maximum != 0 && topY > _maximum)
+                    {
                         topY = _maximum;
+                    }
 
                     bounds.Location = new Point(bounds.Location.X, topY);
                     break;
                 case SplitterType.Bottom:
-                    var bottomY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
+                    int bottomY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
 
                     if (_maximum != 0 && bottomY > _maximum)
+                    {
                         topY = _maximum;
+                    }
 
                     bounds.Location = new Point(bounds.Location.X, bottomY);
                     break;
@@ -141,7 +149,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public void UpdateBounds()
         {
-            var bounds = _parentControl.RectangleToScreen(_control.Bounds);
+            Rectangle bounds = _parentControl.RectangleToScreen(_control.Bounds);
 
             switch (_splitterType)
             {

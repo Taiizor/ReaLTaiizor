@@ -37,12 +37,14 @@ namespace ReaLTaiizor.Docking.Crown
             get => _dockText;
             set
             {
-                var oldText = _dockText;
+                string oldText = _dockText;
 
                 _dockText = value;
 
                 if (DockTextChanged != null)
+                {
                     DockTextChanged(this, null);
+                }
 
                 Invalidate();
             }
@@ -103,7 +105,9 @@ namespace ReaLTaiizor.Docking.Crown
         public virtual void Close()
         {
             if (DockPanel != null)
+            {
                 DockPanel.RemoveContent(this);
+            }
         }
 
         #endregion
@@ -115,7 +119,9 @@ namespace ReaLTaiizor.Docking.Crown
             base.OnEnter(e);
 
             if (DockPanel == null)
+            {
                 return;
+            }
 
             DockPanel.ActiveContent = this;
         }

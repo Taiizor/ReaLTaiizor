@@ -49,7 +49,9 @@ namespace ReaLTaiizor.Controls
                 base.AutoSize = value;
 
                 if (AutoSize)
+                {
                     AutoUpdateHeight = false;
+                }
             }
         }
 
@@ -69,12 +71,14 @@ namespace ReaLTaiizor.Controls
         private void ResizeLabel()
         {
             if (!_autoUpdateHeight || _isGrowing)
+            {
                 return;
+            }
 
             try
             {
                 _isGrowing = true;
-                var sz = new Size(Width, int.MaxValue);
+                Size sz = new Size(Width, int.MaxValue);
                 sz = TextRenderer.MeasureText(Text, Font, sz, TextFormatFlags.WordBreak);
                 Height = sz.Height + Padding.Vertical;
             }

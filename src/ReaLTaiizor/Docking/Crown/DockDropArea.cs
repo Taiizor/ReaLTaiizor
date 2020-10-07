@@ -54,9 +54,13 @@ namespace ReaLTaiizor.Docking.Crown
         internal void BuildAreas()
         {
             if (DockRegion != null)
+            {
                 BuildRegionAreas();
+            }
             else if (DockGroup != null)
+            {
                 BuildGroupAreas();
+            }
         }
 
         private void BuildRegionAreas()
@@ -64,7 +68,7 @@ namespace ReaLTaiizor.Docking.Crown
             switch (DockRegion.DockArea)
             {
                 case DockArea.Left:
-                    var leftRect = new Rectangle
+                    Rectangle leftRect = new Rectangle
                     {
                         X = DockPanel.PointToScreen(Point.Empty).X,
                         Y = DockPanel.PointToScreen(Point.Empty).Y,
@@ -77,7 +81,7 @@ namespace ReaLTaiizor.Docking.Crown
 
                     break;
                 case DockArea.Right:
-                    var rightRect = new Rectangle
+                    Rectangle rightRect = new Rectangle
                     {
                         X = DockPanel.PointToScreen(Point.Empty).X + DockPanel.Width - 50,
                         Y = DockPanel.PointToScreen(Point.Empty).Y,
@@ -90,8 +94,8 @@ namespace ReaLTaiizor.Docking.Crown
 
                     break;
                 case DockArea.Bottom:
-                    var x = DockPanel.PointToScreen(Point.Empty).X;
-                    var width = DockPanel.Width;
+                    int x = DockPanel.PointToScreen(Point.Empty).X;
+                    int width = DockPanel.Width;
 
                     if (DockPanel.Regions[DockArea.Left].Visible)
                     {
@@ -104,7 +108,7 @@ namespace ReaLTaiizor.Docking.Crown
                         width -= DockPanel.Regions[DockArea.Right].Width;
                     }
 
-                    var bottomRect = new Rectangle
+                    Rectangle bottomRect = new Rectangle
                     {
                         X = x,
                         Y = DockPanel.PointToScreen(Point.Empty).Y + DockPanel.Height - 50,
@@ -124,7 +128,7 @@ namespace ReaLTaiizor.Docking.Crown
             switch (InsertType)
             {
                 case DockInsertType.None:
-                    var dropRect = new Rectangle
+                    Rectangle dropRect = new Rectangle
                     {
                         X = DockGroup.PointToScreen(Point.Empty).X,
                         Y = DockGroup.PointToScreen(Point.Empty).Y,
@@ -136,8 +140,8 @@ namespace ReaLTaiizor.Docking.Crown
                     HighlightArea = dropRect;
                     break;
                 case DockInsertType.Before:
-                    var beforeDropWidth = DockGroup.Width;
-                    var beforeDropHeight = DockGroup.Height;
+                    int beforeDropWidth = DockGroup.Width;
+                    int beforeDropHeight = DockGroup.Height;
 
                     switch (DockGroup.DockArea)
                     {
@@ -150,7 +154,7 @@ namespace ReaLTaiizor.Docking.Crown
                             break;
                     }
 
-                    var beforeDropRect = new Rectangle
+                    Rectangle beforeDropRect = new Rectangle
                     {
                         X = DockGroup.PointToScreen(Point.Empty).X,
                         Y = DockGroup.PointToScreen(Point.Empty).Y,
@@ -163,10 +167,10 @@ namespace ReaLTaiizor.Docking.Crown
 
                     break;
                 case DockInsertType.After:
-                    var afterDropX = DockGroup.PointToScreen(Point.Empty).X;
-                    var afterDropY = DockGroup.PointToScreen(Point.Empty).Y;
-                    var afterDropWidth = DockGroup.Width;
-                    var afterDropHeight = DockGroup.Height;
+                    int afterDropX = DockGroup.PointToScreen(Point.Empty).X;
+                    int afterDropY = DockGroup.PointToScreen(Point.Empty).Y;
+                    int afterDropWidth = DockGroup.Width;
+                    int afterDropHeight = DockGroup.Height;
 
                     switch (DockGroup.DockArea)
                     {
@@ -181,7 +185,7 @@ namespace ReaLTaiizor.Docking.Crown
                             break;
                     }
 
-                    var afterDropRect = new Rectangle
+                    Rectangle afterDropRect = new Rectangle
                     {
                         X = afterDropX,
                         Y = afterDropY,

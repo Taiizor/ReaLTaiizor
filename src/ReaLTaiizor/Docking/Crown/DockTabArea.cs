@@ -16,10 +16,10 @@ namespace ReaLTaiizor.Docking.Crown
     {
         #region Field Region
 
-        private Dictionary<DockContent, DockTab> _tabs = new Dictionary<DockContent, DockTab>();
+        private readonly Dictionary<DockContent, DockTab> _tabs = new Dictionary<DockContent, DockTab>();
 
-        private List<ToolStripMenuItem> _menuItems = new List<ToolStripMenuItem>();
-        private CrownContextMenuStrip _tabMenu = new CrownContextMenuStrip();
+        private readonly List<ToolStripMenuItem> _menuItems = new List<ToolStripMenuItem>();
+        private readonly CrownContextMenuStrip _tabMenu = new CrownContextMenuStrip();
 
         #endregion
 
@@ -76,12 +76,16 @@ namespace ReaLTaiizor.Docking.Crown
             ToolStripMenuItem menuItem = null;
             foreach (ToolStripMenuItem item in _menuItems)
             {
-                var menuContent = item.Tag as DockContent;
+                DockContent menuContent = item.Tag as DockContent;
                 if (menuContent == null)
+                {
                     continue;
+                }
 
                 if (menuContent == content)
+                {
                     menuItem = item;
+                }
             }
 
             return menuItem;
@@ -91,22 +95,26 @@ namespace ReaLTaiizor.Docking.Crown
         {
             _tabMenu.Items.Clear();
 
-            var orderedItems = new List<ToolStripMenuItem>();
+            List<ToolStripMenuItem> orderedItems = new List<ToolStripMenuItem>();
 
-            var index = 0;
-            for (var i = 0; i < _menuItems.Count; i++)
+            int index = 0;
+            for (int i = 0; i < _menuItems.Count; i++)
             {
-                foreach (var item in _menuItems)
+                foreach (ToolStripMenuItem item in _menuItems)
                 {
-                    var content = (DockContent)item.Tag;
+                    DockContent content = (DockContent)item.Tag;
                     if (content.Order == index)
+                    {
                         orderedItems.Add(item);
+                    }
                 }
                 index++;
             }
 
-            foreach (var item in orderedItems)
+            foreach (ToolStripMenuItem item in orderedItems)
+            {
                 _tabMenu.Items.Add(item);
+            }
         }
 
         #endregion

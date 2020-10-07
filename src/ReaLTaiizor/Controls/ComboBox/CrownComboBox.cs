@@ -52,7 +52,9 @@ namespace ReaLTaiizor.Controls
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 _buffer = null;
+            }
 
             base.Dispose(disposing);
         }
@@ -127,43 +129,47 @@ namespace ReaLTaiizor.Controls
         private void PaintCombobox()
         {
             if (_buffer == null)
-                _buffer = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
-
-            using (var g = Graphics.FromImage(_buffer))
             {
-                var rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+                _buffer = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
+            }
 
-                var textColor = Enabled ? CrownColors.LightText : CrownColors.DisabledText;
+            using (Graphics g = Graphics.FromImage(_buffer))
+            {
+                Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-                var borderColor = CrownColors.GreySelection;
-                var fillColor = CrownColors.LightBackground;
+                Color textColor = Enabled ? CrownColors.LightText : CrownColors.DisabledText;
+
+                Color borderColor = CrownColors.GreySelection;
+                Color fillColor = CrownColors.LightBackground;
 
                 if (Focused && TabStop)
+                {
                     borderColor = CrownColors.BlueHighlight;
+                }
 
-                using (var b = new SolidBrush(fillColor))
+                using (SolidBrush b = new SolidBrush(fillColor))
                 {
                     g.FillRectangle(b, rect);
                 }
 
-                using (var p = new Pen(borderColor, 1))
+                using (Pen p = new Pen(borderColor, 1))
                 {
-                    var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                    Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
                     g.DrawRectangle(p, modRect);
                 }
 
-                var icon = Properties.Resources.scrollbar_arrow_hot;
+                Bitmap icon = Properties.Resources.scrollbar_arrow_hot;
                 g.DrawImageUnscaled(icon, rect.Right - icon.Width - (Consts.Padding / 2), (rect.Height / 2) - (icon.Height / 2));
 
-                var text = SelectedItem != null ? SelectedItem.ToString() : Text;
+                string text = SelectedItem != null ? SelectedItem.ToString() : Text;
 
-                using (var b = new SolidBrush(textColor))
+                using (SolidBrush b = new SolidBrush(textColor))
                 {
-                    var padding = 2;
+                    int padding = 2;
 
-                    var modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - icon.Width - (Consts.Padding / 2) - (padding * 2), rect.Height - (padding * 2));
+                    Rectangle modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - icon.Width - (Consts.Padding / 2) - (padding * 2), rect.Height - (padding * 2));
 
-                    var stringFormat = new StringFormat
+                    StringFormat stringFormat = new StringFormat
                     {
                         LineAlignment = StringAlignment.Center,
                         Alignment = StringAlignment.Near,
@@ -179,44 +185,48 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             if (_buffer == null)
+            {
                 PaintCombobox();
+            }
 
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.DrawImageUnscaled(_buffer, Point.Empty);
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = e.Bounds;
+            Graphics g = e.Graphics;
+            Rectangle rect = e.Bounds;
 
-            var textColor = CrownColors.LightText;
-            var fillColor = CrownColors.LightBackground;
+            Color textColor = CrownColors.LightText;
+            Color fillColor = CrownColors.LightBackground;
 
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected ||
                 (e.State & DrawItemState.Focus) == DrawItemState.Focus ||
                 (e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect)
+            {
                 fillColor = CrownColors.BlueSelection;
+            }
 
-            using (var b = new SolidBrush(fillColor))
+            using (SolidBrush b = new SolidBrush(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
 
             if (e.Index >= 0 && e.Index < Items.Count)
             {
-                var text = Items[e.Index].ToString();
+                string text = Items[e.Index].ToString();
 
-                using (var b = new SolidBrush(textColor))
+                using (SolidBrush b = new SolidBrush(textColor))
                 {
-                    var padding = 2;
+                    int padding = 2;
 
-                    var modRect = new Rectangle(rect.Left + padding,
+                    Rectangle modRect = new Rectangle(rect.Left + padding,
                         rect.Top + padding,
                         rect.Width - (padding * 2),
                         rect.Height - (padding * 2));
 
-                    var stringFormat = new StringFormat
+                    StringFormat stringFormat = new StringFormat
                     {
                         LineAlignment = StringAlignment.Center,
                         Alignment = StringAlignment.Near,

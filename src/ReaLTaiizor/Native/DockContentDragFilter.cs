@@ -18,11 +18,11 @@ namespace ReaLTaiizor.Native
     {
         #region Field Region
 
-        private DockPanel _dockPanel;
+        private readonly DockPanel _dockPanel;
 
         private DockContent _dragContent;
 
-        private CrownTranslucentForm _highlightForm;
+        private readonly CrownTranslucentForm _highlightForm;
 
         private bool _isDragging = false;
         private DockRegion _targetRegion;
@@ -51,11 +51,15 @@ namespace ReaLTaiizor.Native
         {
             // Exit out early if we're not dragging any content
             if (!_isDragging)
+            {
                 return false;
+            }
 
             // We only care about mouse events
             if (!(m.Msg == (int)WM.MOUSEMOVE || m.Msg == (int)WM.LBUTTONDOWN || m.Msg == (int)WM.LBUTTONUP || m.Msg == (int)WM.LBUTTONDBLCLK || m.Msg == (int)WM.RBUTTONDOWN || m.Msg == (int)WM.RBUTTONUP || m.Msg == (int)WM.RBUTTONDBLCLK))
+            {
                 return false;
+            }
 
             // Move content
             if (m.Msg == (int)WM.MOUSEMOVE)
@@ -106,24 +110,26 @@ namespace ReaLTaiizor.Native
             _groupDropAreas = new Dictionary<DockGroup, DockDropCollection>();
 
             // Add all regions and groups to the drop collections
-            foreach (var region in _dockPanel.Regions.Values)
+            foreach (DockRegion region in _dockPanel.Regions.Values)
             {
                 if (region.DockArea == DockArea.Document)
+                {
                     continue;
+                }
 
                 // If the region is visible then build drop areas for the groups.
                 if (region.Visible)
                 {
-                    foreach (var group in region.Groups)
+                    foreach (DockGroup group in region.Groups)
                     {
-                        var collection = new DockDropCollection(_dockPanel, group);
+                        DockDropCollection collection = new DockDropCollection(_dockPanel, group);
                         _groupDropAreas.Add(group, collection);
                     }
                 }
                 // If the region is NOT visible then build the drop area for the region itself.
                 else
                 {
-                    var area = new DockDropArea(_dockPanel, region);
+                    DockDropArea area = new DockDropArea(_dockPanel, region);
                     _regionDropAreas.Add(region, area);
                 }
             }
@@ -161,7 +167,7 @@ namespace ReaLTaiizor.Native
 
         private void HandleDrag()
         {
-            var location = Cursor.Position;
+            Point location = Cursor.Position;
 
             _insertType = DockInsertType.None;
 
@@ -169,7 +175,7 @@ namespace ReaLTaiizor.Native
             _targetGroup = null;
 
             // Check all region drop areas
-            foreach (var area in _regionDropAreas.Values)
+            foreach (DockDropArea area in _regionDropAreas.Values)
             {
                 if (area.DropArea.Contains(location))
                 {
@@ -181,36 +187,46 @@ namespace ReaLTaiizor.Native
             }
 
             // Check all group drop areas
-            foreach (var collection in _groupDropAreas.Values)
+            foreach (DockDropCollection collection in _groupDropAreas.Values)
             {
-                var sameRegion = false;
-                var sameGroup = false;
-                var groupHasOtherContent = false;
+                bool sameRegion = false;
+                bool sameGroup = false;
+                bool groupHasOtherContent = false;
 
                 if (collection.DropArea.DockGroup == _dragContent.DockGroup)
+                {
                     sameGroup = true;
+                }
 
                 if (collection.DropArea.DockGroup.DockRegion == _dragContent.DockRegion)
+                {
                     sameRegion = true;
+                }
 
                 if (_dragContent.DockGroup.ContentCount > 1)
+                {
                     groupHasOtherContent = true;
+                }
 
                 // If we're hovering over the group itself, only allow inserting before/after if multiple content is tabbed.
                 if (!sameGroup || groupHasOtherContent)
                 {
-                    var skipBefore = false;
-                    var skipAfter = false;
+                    bool skipBefore = false;
+                    bool skipAfter = false;
 
                     // Inserting before/after other content might cause the content to be dropped on to its own location.
                     // Check if the group above/below the hovered group contains our drag content.
                     if (sameRegion && !groupHasOtherContent)
                     {
                         if (collection.InsertBeforeArea.DockGroup.Order == _dragContent.DockGroup.Order + 1)
+                        {
                             skipBefore = true;
+                        }
 
                         if (collection.InsertAfterArea.DockGroup.Order == _dragContent.DockGroup.Order - 1)
+                        {
                             skipAfter = true;
+                        }
                     }
 
                     if (!skipBefore)
@@ -251,7 +267,9 @@ namespace ReaLTaiizor.Native
 
             // Not hovering over anything - hide the highlight
             if (_highlightForm.Visible)
+            {
                 _highlightForm.Hide();
+            }
 
             // Show we can't drag here
             Cursor.Current = Cursors.No;
