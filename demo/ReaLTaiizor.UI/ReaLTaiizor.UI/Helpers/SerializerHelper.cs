@@ -8,9 +8,9 @@ namespace ReaLTaiizor.UI.Helpers
     {
         public static void Serialize<T>(T obj, string file)
         {
-            using (var fs = File.CreateText(file))
+            using (StreamWriter fs = File.CreateText(file))
             {
-                var serializer = new JsonSerializer();
+                JsonSerializer serializer = new JsonSerializer();
                 serializer.Converters.Add(new StringEnumConverter());
                 serializer.Formatting = Formatting.Indented;
 
@@ -20,12 +20,12 @@ namespace ReaLTaiizor.UI.Helpers
 
         public static T Deserialize<T>(string file) where T : class
         {
-            using (var fs = File.OpenText(file))
+            using (StreamReader fs = File.OpenText(file))
             {
-                var serializer = new JsonSerializer();
+                JsonSerializer serializer = new JsonSerializer();
                 serializer.Converters.Add(new StringEnumConverter());
 
-                var result = serializer.Deserialize(fs, typeof(T));
+                object result = serializer.Deserialize(fs, typeof(T));
                 return result as T;
             }
         }

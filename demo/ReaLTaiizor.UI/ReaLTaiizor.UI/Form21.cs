@@ -15,13 +15,13 @@ namespace ReaLTaiizor.UI
     {
         #region Field Region
 
-        private List<DockContent> _toolWindows = new List<DockContent>();
+        private readonly List<DockContent> _toolWindows = new List<DockContent>();
 
-        private DockProject _dockProject;
-        private DockProperties _dockProperties;
-        private DockConsole _dockConsole;
-        private DockLayers _dockLayers;
-        private DockHistory _dockHistory;
+        private readonly DockProject _dockProject;
+        private readonly DockProperties _dockProperties;
+        private readonly DockConsole _dockConsole;
+        private readonly DockLayers _dockLayers;
+        private readonly DockHistory _dockHistory;
 
         #endregion
 
@@ -67,8 +67,10 @@ namespace ReaLTaiizor.UI
             else
             {
                 // Add the tool window list contents to the dock panel
-                foreach (var toolWindow in _toolWindows)
+                foreach (DockContent toolWindow in _toolWindows)
+                {
                     DockPanel.AddContent(toolWindow);
+                }
 
                 // Add the history panel to the layer panel group
                 DockPanel.AddContent(_dockHistory, _dockLayers.DockGroup);
@@ -113,9 +115,13 @@ namespace ReaLTaiizor.UI
         private void ToggleToolWindow(ToolWindow toolWindow)
         {
             if (toolWindow.DockPanel == null)
+            {
                 DockPanel.AddContent(toolWindow);
+            }
             else
+            {
                 DockPanel.RemoveContent(toolWindow);
+            }
         }
 
         private void BuildWindowMenu()
@@ -139,18 +145,22 @@ namespace ReaLTaiizor.UI
         private void DockPanel_ContentAdded(object sender, DockContentEventArgs e)
         {
             if (_toolWindows.Contains(e.Content))
+            {
                 BuildWindowMenu();
+            }
         }
 
         private void DockPanel_ContentRemoved(object sender, DockContentEventArgs e)
         {
             if (_toolWindows.Contains(e.Content))
+            {
                 BuildWindowMenu();
+            }
         }
 
         private void NewFile_Click(object sender, EventArgs e)
         {
-            var newFile = new DockDocument("New document", Properties.Resources.document_16xLG);
+            DockDocument newFile = new DockDocument("New document", Properties.Resources.document_16xLG);
             DockPanel.AddContent(newFile);
         }
 
@@ -161,7 +171,7 @@ namespace ReaLTaiizor.UI
 
         private void Dialog_Click(object sender, EventArgs e)
         {
-            var test = new DialogControls();
+            DialogControls test = new DialogControls();
             test.ShowDialog();
         }
 
@@ -192,7 +202,7 @@ namespace ReaLTaiizor.UI
 
         private void About_Click(object sender, EventArgs e)
         {
-            var about = new DialogAbout();
+            DialogAbout about = new DialogAbout();
             about.ShowDialog();
         }
 
@@ -202,22 +212,24 @@ namespace ReaLTaiizor.UI
 
         private void SerializeDockPanel(string path)
         {
-            var state = DockPanel.GetDockPanelState();
+            DockPanelState state = DockPanel.GetDockPanelState();
             SerializerHelper.Serialize(state, path);
         }
 
         private void DeserializeDockPanel(string path)
         {
-            var state = SerializerHelper.Deserialize<DockPanelState>(path);
+            DockPanelState state = SerializerHelper.Deserialize<DockPanelState>(path);
             DockPanel.RestoreDockPanelState(state, GetContentBySerializationKey);
         }
          
         private DockContent GetContentBySerializationKey(string key)
         {
-            foreach (var window in _toolWindows)
+            foreach (DockContent window in _toolWindows)
             {
                 if (window.SerializationKey == key)
+                {
                     return window;
+                }
             }
 
             return null;

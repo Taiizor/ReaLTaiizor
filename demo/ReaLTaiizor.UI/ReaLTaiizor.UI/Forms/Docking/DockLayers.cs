@@ -12,15 +12,17 @@ namespace ReaLTaiizor.UI.Forms.Docking
             InitializeComponent();
 
             // Build dummy list data
-            for (var i = 0; i < 100; i++)
+            for (int i = 0; i < 100; i++)
             {
-                var item = new CrownListItem($"List item #{i}");
-                item.Icon = Properties.Resources.application_16x;
+                CrownListItem item = new CrownListItem($"List item #{i}")
+                {
+                    Icon = Properties.Resources.application_16x
+                };
                 lstLayers.Items.Add(item);
             }
 
             // Build dropdown list data
-            for (var i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 cmbList.Items.Add(new CrownDropDownItem($"Dropdown item #{i}"));
             }

@@ -31,7 +31,7 @@ namespace ReaLTaiizor.UI
 
         private void poisonTileSwitch_Click(object sender, EventArgs e)
         {
-            var m = new Random();
+            Random m = new Random();
             int next = m.Next(0, 13);
             poisonStyleManager.Style = (ColorStyle)next;
         }

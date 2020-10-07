@@ -39,9 +39,11 @@ namespace ReaLTaiizor.UI.Forms.Docking
 
         public override void Close()
         {
-            var result = CrownMessageBox.ShowWarning(@"You will lose any unsaved changes. Continue?", @"Close document", DialogButton.YesNo);
+            DialogResult result = CrownMessageBox.ShowWarning(@"You will lose any unsaved changes. Continue?", @"Close document", DialogButton.YesNo);
             if (result == DialogResult.No)
+            {
                 return;
+            }
 
             base.Close();
         }

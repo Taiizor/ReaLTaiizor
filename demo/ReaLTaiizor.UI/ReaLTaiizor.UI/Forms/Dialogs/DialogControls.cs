@@ -10,24 +10,28 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             InitializeComponent();
 
             // Build dummy list data
-            for (var i = 0; i < 100; i++)
+            for (int i = 0; i < 100; i++)
             {
-                var item = new CrownListItem($"List item #{i}");
+                CrownListItem item = new CrownListItem($"List item #{i}");
                 lstTest.Items.Add(item);
             }
 
             // Build dummy nodes
-            var childCount = 0;
-            for (var i = 0; i < 20; i++)
+            int childCount = 0;
+            for (int i = 0; i < 20; i++)
             {
-                var node = new CrownTreeNode($"Root node #{i}");
-                node.ExpandedIcon = Properties.Resources.folder_16x;
-                node.Icon = Properties.Resources.folder_Closed_16xLG;
-
-                for (var x = 0; x < 10; x++)
+                CrownTreeNode node = new CrownTreeNode($"Root node #{i}")
                 {
-                    var childNode = new CrownTreeNode($"Child node #{childCount}");
-                    childNode.Icon = Properties.Resources.Files_7954;
+                    ExpandedIcon = Properties.Resources.folder_16x,
+                    Icon = Properties.Resources.folder_Closed_16xLG
+                };
+
+                for (int x = 0; x < 10; x++)
+                {
+                    CrownTreeNode childNode = new CrownTreeNode($"Child node #{childCount}")
+                    {
+                        Icon = Properties.Resources.Files_7954
+                    };
                     childCount++;
                     node.Nodes.Add(childNode);
                 }

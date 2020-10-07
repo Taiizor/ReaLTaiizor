@@ -16,9 +16,13 @@ namespace ReaLTaiizor.UI
         private void MetroSwitch2_SwitchedChanged(object sender)
         {
             if (metroStyleManager1.Style == Style.Light)
+            {
                 metroStyleManager1.Style = Style.Dark;
+            }
             else
+            {
                 metroStyleManager1.Style = Style.Light;
+            }
         }
 
         private void MetroButton3_Click(object sender, EventArgs e)

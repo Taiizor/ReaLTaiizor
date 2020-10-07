@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// Uygulamanın ana girdi noktası.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             try
             {

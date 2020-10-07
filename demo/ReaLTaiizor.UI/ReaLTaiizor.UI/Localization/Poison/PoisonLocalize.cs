@@ -19,7 +19,9 @@ namespace ReaLTaiizor.UI.Localization.Poison
         {
             string language = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
             if (language.Length == 0)
+            {
                 language = DefaultLanguage();
+            }
 
             return language.ToLower();
         }
@@ -49,7 +51,9 @@ namespace ReaLTaiizor.UI.Localization.Poison
 
 
             if (languageDataset == null)
+            {
                 languageDataset = new DataSet();
+            }
 
             if (xmlStream != null)
             {
@@ -64,7 +68,9 @@ namespace ReaLTaiizor.UI.Localization.Poison
         private string convertVar(object var)
         {
             if (var == null)
+            {
                 return "";
+            }
 
             return var.ToString();
         }
@@ -72,17 +78,25 @@ namespace ReaLTaiizor.UI.Localization.Poison
         public string translate(string key)
         {
             if ((string.IsNullOrEmpty(key)))
+            {
                 return "";
+            }
 
             if (languageDataset == null)
+            {
                 return "~" + key;
+            }
 
             if (languageDataset.Tables["Localization"] == null)
+            {
                 return "~" + key;
+            }
 
             DataRow[] languageRows = languageDataset.Tables["Localization"].Select("Key='" + key + "'");
             if (languageRows.Length <= 0)
+            {
                 return "~" + key;
+            }
 
             return languageRows[0]["Value"].ToString();
         }

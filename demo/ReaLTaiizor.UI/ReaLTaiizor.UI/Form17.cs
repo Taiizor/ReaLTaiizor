@@ -42,7 +42,7 @@ namespace ReaLTaiizor.UI
         private void seedListView()
         {
             //Define
-            var data = new[]
+            string[][] data = new[]
             {
                 new [] {"Lollipop", "392", "0.2", "0"},
                 new [] {"KitKat", "518", "26.0", "7"},
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.UI
             //Add
             foreach (string[] version in data)
             {
-                var item = new ListViewItem(version);
+                ListViewItem item = new ListViewItem(version);
                 materialListView1.Items.Add(item);
             }
         }
@@ -71,7 +71,10 @@ namespace ReaLTaiizor.UI
         {
             colorSchemeIndex++;
             if (colorSchemeIndex > 2)
+            {
                 colorSchemeIndex = 0;
+            }
+
             updateColor();
         }
 
@@ -140,22 +143,26 @@ namespace ReaLTaiizor.UI
 
         private void MaterialButton3_Click(object sender, EventArgs e)
         {
-            var builder = new StringBuilder("Batch operation report:\n\n");
-            var random = new Random();
-            var result = 0;
+            StringBuilder builder = new StringBuilder("Batch operation report:\n\n");
+            Random random = new Random();
+            int result = 0;
 
             for (int i = 0; i < 200; i++)
             {
                 result = random.Next(1000);
 
                 if (result < 950)
+                {
                     builder.AppendFormat(" - Task {0}: Operation completed sucessfully.\n", i);
+                }
                 else
+                {
                     builder.AppendFormat(" - Task {0}: Operation failed! A very very very very very very very very very very very very serious error has occured during this sub-operation. The errorcode is: {1}).\n", i, result);
+                }
             }
 
-            var batchOperationResults = builder.ToString();
-            var mresult = MaterialMessageBox.Show(batchOperationResults, "Batch Operation");
+            string batchOperationResults = builder.ToString();
+            DialogResult mresult = MaterialMessageBox.Show(batchOperationResults, "Batch Operation");
             materialComboBox1.Items.Add("this is a very long string");
         }
 

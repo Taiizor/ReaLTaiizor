@@ -12,9 +12,9 @@ namespace ReaLTaiizor.UI.Forms.Docking
             InitializeComponent();
 
             // Build dummy list data
-            for (var i = 0; i < 100; i++)
+            for (int i = 0; i < 100; i++)
             {
-                var item = new CrownListItem($"List item #{i}");
+                CrownListItem item = new CrownListItem($"List item #{i}");
                 lstHistory.Items.Add(item);
             }
         }
