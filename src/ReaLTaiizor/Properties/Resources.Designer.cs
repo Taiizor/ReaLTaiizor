@@ -441,6 +441,42 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap info
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap warn
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("warn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap err
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("err", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
         ///   System.String türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static string Metro_Theme

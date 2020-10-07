@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 #endregion
 
-namespace ReaLTaiizor.Child.Metro
+namespace ReaLTaiizor.Child.Crown
 {
     #region CrownScrollBaseChild
 
