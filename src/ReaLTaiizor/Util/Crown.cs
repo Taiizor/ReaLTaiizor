@@ -118,7 +118,7 @@ namespace ReaLTaiizor.Util
 
         public new void Clear()
         {
-            ObservableListModified<T> removed = new ObservableListModified<T>(this.ToList<T>());
+            ObservableListModified<T> removed = new ObservableListModified<T>(ToList<T>());
             base.Clear();
 
             if (removed.Items.Count() > 0 && ItemsRemoved != null)
@@ -446,6 +446,16 @@ namespace ReaLTaiizor.Util
         }
 
         #endregion
+    }
+
+    public class ScrollValueEventArgs : EventArgs
+    {
+        public int Value { get; private set; }
+
+        public ScrollValueEventArgs(int value)
+        {
+            Value = value;
+        }
     }
 
     #endregion

@@ -231,7 +231,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("close-normal", resourceCulture);
+                object obj = ResourceManager.GetObject("close_normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("close-selected", resourceCulture);
+                object obj = ResourceManager.GetObject("close_selected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -255,7 +255,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("active-inactive-close", resourceCulture);
+                object obj = ResourceManager.GetObject("active_inactive_close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -267,7 +267,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("inactive-close-selected", resourceCulture);
+                object obj = ResourceManager.GetObject("inactive_close_selected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -279,7 +279,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("inactive-close", resourceCulture);
+                object obj = ResourceManager.GetObject("inactive_close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,7 +303,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("tw-close", resourceCulture);
+                object obj = ResourceManager.GetObject("tw_close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -315,7 +315,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("tw-close-selected", resourceCulture);
+                object obj = ResourceManager.GetObject("tw_close_selected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -327,7 +327,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("tw-active-close", resourceCulture);
+                object obj = ResourceManager.GetObject("tw_active_close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -339,7 +339,19 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("tw-active-close-selected", resourceCulture);
+                object obj = ResourceManager.GetObject("tw-active_close_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap scrollbar_arrow_hot
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("scrollbar_arrow_hot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

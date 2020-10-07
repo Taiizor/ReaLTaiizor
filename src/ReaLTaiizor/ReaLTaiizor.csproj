@@ -87,10 +87,10 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\Strip\CrownContextMenuStrip.cs" />
-    <Compile Update="Docking\Crown\DockContent.cs" />
-    <Compile Update="Docking\Crown\DockPanel.cs" />
-    <Compile Update="Forms\Form\CrownTranslucentForm.cs" />
+    <Compile Update="Controls\Button\CrownButton.cs" />
+    <Compile Update="Controls\ComboBox\CrownComboBox.cs" />
+    <Compile Update="Controls\Label\CrownLabel.cs" />
+    <Compile Update="Controls\Title\CrownTitle.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>

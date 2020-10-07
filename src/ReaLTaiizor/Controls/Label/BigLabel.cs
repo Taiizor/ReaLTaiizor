@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region BigLabel
 
-    public class BigLabel : System.Windows.Forms.Label
+    public class BigLabel : Label
     {
         public BigLabel()
         {
