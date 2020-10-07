@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialListView
 
-    public class MaterialListView : System.Windows.Forms.ListView, MaterialControlI
+    public class MaterialListView : ListView, MaterialControlI
     {
         [Browsable(false)]
         public int Depth { get; set; }
