@@ -477,6 +477,54 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap scrollbar_arrow_small_clicked
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("scrollbar_arrow_small_clicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap scrollbar_arrow_small_hot
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("scrollbar_arrow_small_hot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap scrollbar_arrow_small_standard
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("scrollbar_arrow_small_standard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap small_arrow
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("small_arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
         ///   System.String türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static string Metro_Theme

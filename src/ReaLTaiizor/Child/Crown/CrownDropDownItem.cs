@@ -8,7 +8,7 @@ namespace ReaLTaiizor.Child.Crown
 {
     #region CrownDropDownItemChild
 
-    public class CrownDropdownItem
+    public class CrownDropDownItem
     {
         #region Property Region
 
@@ -20,15 +20,15 @@ namespace ReaLTaiizor.Child.Crown
 
         #region Constructor Region
 
-        public CrownDropdownItem()
+        public CrownDropDownItem()
         { }
 
-        public CrownDropdownItem(string text)
+        public CrownDropDownItem(string text)
         {
             Text = text;
         }
 
-        public CrownDropdownItem(string text, Bitmap icon) : this(text)
+        public CrownDropDownItem(string text, Bitmap icon) : this(text)
         {
             Icon = icon;
         }
