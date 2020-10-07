@@ -57,6 +57,12 @@
     <Compile Include="Catcher.Designer.cs">
       <DependentUpon>Catcher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Crown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crown.Designer.cs">
+      <DependentUpon>Crown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Material.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Catcher.resx">
       <DependentUpon>Catcher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crown.resx">
+      <DependentUpon>Crown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Material.resx">
       <DependentUpon>Material.cs</DependentUpon>

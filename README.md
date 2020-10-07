@@ -114,6 +114,17 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		<br/>
 		<a href="https://github.com/dennismagno" target="_blank" title="Code">💻</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/RobinPerris">
+			<img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris"/>
+			<br/>
+			<sub>
+				<b>RobinPerris</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/RobinPerris" target="_blank" title="Code">💻</a>
+	</td>
   </tr>
 </table>
 

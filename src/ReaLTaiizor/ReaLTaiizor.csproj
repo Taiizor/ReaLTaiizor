@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!--<TargetFramework>net48</TargetFramework>-->
-    <TargetFrameworks>net48;net5.0</TargetFrameworks>
+    <TargetFramework>net48</TargetFramework>
+    <!--<TargetFrameworks>net48;net5.0</TargetFrameworks>-->
     <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>-->
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
@@ -13,7 +13,7 @@
     <PackageId>ReaLTaiizor</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Description>Best with more than 200 WinForm components.
+    <Description>Best with more than 250 WinForm components.
 C# WinForm UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
@@ -87,6 +87,10 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\Strip\CrownContextMenuStrip.cs" />
+    <Compile Update="Docking\Crown\DockContent.cs" />
+    <Compile Update="Docking\Crown\DockPanel.cs" />
+    <Compile Update="Forms\Form\CrownTranslucentForm.cs" />
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -184,6 +188,34 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <None Remove="Resources\Poison\Minimize.png" />
     <None Remove="Resources\Poison\TextBox\lnkClear.Image.png" />
     <None Remove="Resources\Poison\TextBox\lnkClear.NoFocusImage.png" />
+    <None Remove="Nones\Crown\active-inactive-close.png" />
+    <None Remove="Nones\Crown\arrow.png" />
+    <None Remove="Nones\Crown\close-normal.png" />
+    <None Remove="Nones\Crown\close-selected.png" />
+    <None Remove="Nones\Crown\err.png" />
+    <None Remove="Nones\Crown\grip.png" />
+    <None Remove="Nones\Crown\inactive-close-selected.png" />
+    <None Remove="Nones\Crown\inactive-close.png" />
+    <None Remove="Nones\Crown\info.png" />
+    <None Remove="Nones\Crown\node_closed_empty.png" />
+    <None Remove="Nones\Crown\node_closed_full.png" />
+    <None Remove="Nones\Crown\node_open.png" />
+    <None Remove="Nones\Crown\node_open_empty.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_clicked.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_hot.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_small_clicked.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_small_hot.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_small_standard.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_standard.png" />
+    <None Remove="Nones\Crown\scrollbar_disabled.png" />
+    <None Remove="Nones\Crown\small_arrow.png" />
+    <None Remove="Nones\Crown\tick.png" />
+    <None Remove="Nones\Crown\tw_active_close.png" />
+    <None Remove="Nones\Crown\tw_active_close_selected.png" />
+    <None Remove="Nones\Crown\tw_close.png" />
+    <None Remove="Nones\Crown\tw_close_selected.png" />
+    <None Remove="Nones\Crown\warn.png" />
     <None Remove="Resources\Taiizor.ico" />
     <None Remove="Resources\Twitter.png" />
   </ItemGroup>
@@ -226,6 +258,34 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Royal\Minimize.png" />
     <Resource Include="Resources\Poison\TextBox\lnkClear.Image.png" />
     <Resource Include="Resources\Poison\TextBox\lnkClear.NoFocusImage.png" />
+    <Resource Include="Resources\Crown\active-inactive-close.png" />
+    <Resource Include="Resources\Crown\arrow.png" />
+    <Resource Include="Resources\Crown\close-normal.png" />
+    <Resource Include="Resources\Crown\close-selected.png" />
+    <Resource Include="Resources\Crown\err.png" />
+    <Resource Include="Resources\Crown\grip.png" />
+    <Resource Include="Resources\Crown\inactive-close-selected.png" />
+    <Resource Include="Resources\Crown\inactive-close.png" />
+    <Resource Include="Resources\Crown\info.png" />
+    <Resource Include="Resources\Crown\node_closed_empty.png" />
+    <Resource Include="Resources\Crown\node_closed_full.png" />
+    <Resource Include="Resources\Crown\node_open.png" />
+    <Resource Include="Resources\Crown\node_open_empty.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_clicked.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_hot.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_small_clicked.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_small_hot.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_small_standard.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_standard.png" />
+    <Resource Include="Resources\Crown\scrollbar_disabled.png" />
+    <Resource Include="Resources\Crown\small_arrow.png" />
+    <Resource Include="Resources\Crown\tick.png" />
+    <Resource Include="Resources\Crown\tw_active_close.png" />
+    <Resource Include="Resources\Crown\tw_active_close_selected.png" />
+    <Resource Include="Resources\Crown\tw_close.png" />
+    <Resource Include="Resources\Crown\tw_close_selected.png" />
+    <Resource Include="Resources\Crown\warn.png" />
     <Resource Include="Resources\Taiizor.ico" />
     <Resource Include="Resources\Taiizor.png" />
     <Resource Include="Resources\Twitter.png" />
@@ -247,6 +307,10 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <EmbeddedResource Include="Localization\Poison\es\PoisonToggle.xml" />
     <EmbeddedResource Include="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
     <EmbeddedResource Include="Localization\Poison\tr\PoisonToggle.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Child\Crown\" />
   </ItemGroup>
 
 </Project>
