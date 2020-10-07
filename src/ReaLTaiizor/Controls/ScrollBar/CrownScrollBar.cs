@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
         private int _initialValue;
         private Point _initialContact;
 
-        private Timer _scrollTimer;
+        private readonly Timer _scrollTimer;
 
         #endregion
 
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(Enum.Crown.ScrollOrientation.Vertical)]
         public Enum.Crown.ScrollOrientation ScrollOrientation
         {
-            get { return _scrollOrientation; }
+            get => _scrollOrientation;
             set
             {
                 _scrollOrientation = value;
@@ -74,25 +74,33 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(0)]
         public int Value
         {
-            get { return _value; }
+            get => _value;
             set
             {
                 if (value < Minimum)
+                {
                     value = Minimum;
+                }
 
-                var maximumValue = Maximum - ViewSize;
+                int maximumValue = Maximum - ViewSize;
                 if (value > maximumValue)
+                {
                     value = maximumValue;
+                }
 
                 if (_value == value)
+                {
                     return;
+                }
 
                 _value = value;
 
                 UpdateThumb(true);
 
                 if (ValueChanged != null)
+                {
                     ValueChanged(this, new ScrollValueEventArgs(Value));
+                }
             }
         }
 
@@ -101,7 +109,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(0)]
         public int Minimum
         {
-            get { return _minimum; }
+            get => _minimum;
             set
             {
                 _minimum = value;
@@ -114,7 +122,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(100)]
         public int Maximum
         {
-            get { return _maximum; }
+            get => _maximum;
             set
             {
                 _maximum = value;
@@ -127,7 +135,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(0)]
         public int ViewSize
         {
-            get { return _viewSize; }
+            get => _viewSize;
             set
             {
                 _viewSize = value;
@@ -137,11 +145,13 @@ namespace ReaLTaiizor.Controls
 
         public new bool Visible
         {
-            get { return base.Visible; }
+            get => base.Visible;
             set
             {
                 if (base.Visible == value)
+                {
                     return;
+                }
 
                 base.Visible = value;
             }
@@ -163,8 +173,10 @@ namespace ReaLTaiizor.Controls
 
             SetStyle(ControlStyles.Selectable, false);
 
-            _scrollTimer = new Timer();
-            _scrollTimer.Interval = 1;
+            _scrollTimer = new Timer
+            {
+                Interval = 1
+            };
             _scrollTimer.Tick += ScrollTimerTick;
         }
 
@@ -189,9 +201,13 @@ namespace ReaLTaiizor.Controls
                 _initialContact = e.Location;
 
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
+                {
                     _initialValue = _thumbArea.Top;
+                }
                 else
+                {
                     _initialValue = _thumbArea.Left;
+                }
 
                 Invalidate();
                 return;
@@ -220,28 +236,32 @@ namespace ReaLTaiizor.Controls
                 // Step 1. Check if our input is at least aligned with the thumb
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
                 {
-                    var modRect = new Rectangle(_thumbArea.Left, _trackArea.Top, _thumbArea.Width, _trackArea.Height);
+                    Rectangle modRect = new Rectangle(_thumbArea.Left, _trackArea.Top, _thumbArea.Width, _trackArea.Height);
                     if (!modRect.Contains(e.Location))
+                    {
                         return;
+                    }
                 }
                 else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
                 {
-                    var modRect = new Rectangle(_trackArea.Left, _thumbArea.Top, _trackArea.Width, _thumbArea.Height);
+                    Rectangle modRect = new Rectangle(_trackArea.Left, _thumbArea.Top, _trackArea.Width, _thumbArea.Height);
                     if (!modRect.Contains(e.Location))
+                    {
                         return;
+                    }
                 }
 
                 // Step 2. Scroll to the area initially clicked.
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
                 {
-                    var loc = e.Location.Y;
+                    int loc = e.Location.Y;
                     loc -= _upArrowArea.Bottom - 1;
                     loc -= _thumbArea.Height / 2;
                     ScrollToPhysical(loc);
                 }
                 else
                 {
-                    var loc = e.Location.X;
+                    int loc = e.Location.X;
                     loc -= _upArrowArea.Right - 1;
                     loc -= _thumbArea.Width / 2;
                     ScrollToPhysical(loc);
@@ -253,9 +273,13 @@ namespace ReaLTaiizor.Controls
                 _thumbHot = true;
 
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
+                {
                     _initialValue = _thumbArea.Top;
+                }
                 else
+                {
                     _initialValue = _thumbArea.Left;
+                }
 
                 Invalidate();
                 return;
@@ -281,21 +305,21 @@ namespace ReaLTaiizor.Controls
 
             if (!_isScrolling)
             {
-                var thumbHot = _thumbArea.Contains(e.Location);
+                bool thumbHot = _thumbArea.Contains(e.Location);
                 if (_thumbHot != thumbHot)
                 {
                     _thumbHot = thumbHot;
                     Invalidate();
                 }
 
-                var upArrowHot = _upArrowArea.Contains(e.Location);
+                bool upArrowHot = _upArrowArea.Contains(e.Location);
                 if (_upArrowHot != upArrowHot)
                 {
                     _upArrowHot = upArrowHot;
                     Invalidate();
                 }
 
-                var downArrowHot = _downArrowArea.Contains(e.Location);
+                bool downArrowHot = _downArrowArea.Contains(e.Location);
                 if (_downArrowHot != downArrowHot)
                 {
                     _downArrowHot = downArrowHot;
@@ -311,19 +335,19 @@ namespace ReaLTaiizor.Controls
                     return;
                 }
 
-                var difference = new Point(e.Location.X - _initialContact.X, e.Location.Y - _initialContact.Y);
+                Point difference = new Point(e.Location.X - _initialContact.X, e.Location.Y - _initialContact.Y);
 
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
                 {
-                    var thumbPos = (_initialValue - _trackArea.Top);
-                    var newPosition = thumbPos + difference.Y;
+                    int thumbPos = (_initialValue - _trackArea.Top);
+                    int newPosition = thumbPos + difference.Y;
 
                     ScrollToPhysical(newPosition);
                 }
                 else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
                 {
-                    var thumbPos = (_initialValue - _trackArea.Left);
-                    var newPosition = thumbPos + difference.X;
+                    int thumbPos = (_initialValue - _trackArea.Left);
+                    int newPosition = thumbPos + difference.X;
 
                     ScrollToPhysical(newPosition);
                 }
@@ -352,9 +376,13 @@ namespace ReaLTaiizor.Controls
             }
 
             if (_upArrowClicked)
+            {
                 ScrollBy(-1);
+            }
             else if (_downArrowClicked)
+            {
                 ScrollBy(1);
+            }
         }
 
         #endregion
@@ -368,37 +396,37 @@ namespace ReaLTaiizor.Controls
 
         public void ScrollToPhysical(int positionInPixels)
         {
-            var isVert = _scrollOrientation == Enum.Crown.ScrollOrientation.Vertical;
+            bool isVert = _scrollOrientation == Enum.Crown.ScrollOrientation.Vertical;
 
-            var trackAreaSize = isVert ? _trackArea.Height - _thumbArea.Height : _trackArea.Width - _thumbArea.Width;
+            int trackAreaSize = isVert ? _trackArea.Height - _thumbArea.Height : _trackArea.Width - _thumbArea.Width;
 
-            var positionRatio = (float)positionInPixels / (float)trackAreaSize;
-            var viewScrollSize = (Maximum - ViewSize);
+            float positionRatio = (float)positionInPixels / (float)trackAreaSize;
+            int viewScrollSize = (Maximum - ViewSize);
 
-            var newValue = (int)(positionRatio * viewScrollSize);
+            int newValue = (int)(positionRatio * viewScrollSize);
             Value = newValue;
         }
 
         public void ScrollBy(int offset)
         {
-            var newValue = Value + offset;
+            int newValue = Value + offset;
             ScrollTo(newValue);
         }
 
         public void ScrollByPhysical(int offsetInPixels)
         {
-            var isVert = _scrollOrientation == Enum.Crown.ScrollOrientation.Vertical;
+            bool isVert = _scrollOrientation == Enum.Crown.ScrollOrientation.Vertical;
 
-            var thumbPos = isVert ? (_thumbArea.Top - _trackArea.Top) : (_thumbArea.Left - _trackArea.Left);
+            int thumbPos = isVert ? (_thumbArea.Top - _trackArea.Top) : (_thumbArea.Left - _trackArea.Left);
 
-            var newPosition = thumbPos - offsetInPixels;
+            int newPosition = thumbPos - offsetInPixels;
 
             ScrollToPhysical(newPosition);
         }
 
         public void UpdateScrollBar()
         {
-            var area = ClientRectangle;
+            Rectangle area = ClientRectangle;
 
             // Arrow buttons
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
@@ -431,40 +459,48 @@ namespace ReaLTaiizor.Controls
         private void UpdateThumb(bool forceRefresh = false)
         {
             if (ViewSize >= Maximum)
+            {
                 return;
+            }
 
             // Cap to maximum value
-            var maximumValue = Maximum - ViewSize;
+            int maximumValue = Maximum - ViewSize;
             if (Value > maximumValue)
+            {
                 Value = maximumValue;
+            }
 
             // Calculate size ratio
             _viewContentRatio = (float)ViewSize / (float)Maximum;
-            var viewAreaSize = Maximum - ViewSize;
-            var positionRatio = (float)Value / (float)viewAreaSize;
+            int viewAreaSize = Maximum - ViewSize;
+            float positionRatio = (float)Value / (float)viewAreaSize;
 
             // Update area
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
             {
-                var thumbSize = (int)(_trackArea.Height * _viewContentRatio);
+                int thumbSize = (int)(_trackArea.Height * _viewContentRatio);
 
                 if (thumbSize < Consts.MinimumThumbSize)
+                {
                     thumbSize = Consts.MinimumThumbSize;
+                }
 
-                var trackAreaSize = _trackArea.Height - thumbSize;
-                var thumbPosition = (int)(trackAreaSize * positionRatio);
+                int trackAreaSize = _trackArea.Height - thumbSize;
+                int thumbPosition = (int)(trackAreaSize * positionRatio);
 
                 _thumbArea = new Rectangle(_trackArea.Left + 3, _trackArea.Top + thumbPosition, Consts.ScrollBarSize - 6, thumbSize);
             }
             else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
             {
-                var thumbSize = (int)(_trackArea.Width * _viewContentRatio);
+                int thumbSize = (int)(_trackArea.Width * _viewContentRatio);
 
                 if (thumbSize < Consts.MinimumThumbSize)
+                {
                     thumbSize = Consts.MinimumThumbSize;
+                }
 
-                var trackAreaSize = _trackArea.Width - thumbSize;
-                var thumbPosition = (int)(trackAreaSize * positionRatio);
+                int trackAreaSize = _trackArea.Width - thumbSize;
+                int thumbPosition = (int)(trackAreaSize * positionRatio);
 
                 _thumbArea = new Rectangle(_trackArea.Left + thumbPosition, _trackArea.Top + 3, thumbSize, Consts.ScrollBarSize - 6);
             }
@@ -482,7 +518,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             // DEBUG: Scrollbar bg
             /*using (var b = new SolidBrush(Colors.MediumBackground))
@@ -498,44 +534,60 @@ namespace ReaLTaiizor.Controls
             }*/
 
             // Up arrow
-            var upIcon = _upArrowHot ? Properties.Resources.scrollbar_arrow_hot : Properties.Resources.scrollbar_arrow_standard;
+            Bitmap upIcon = _upArrowHot ? Properties.Resources.scrollbar_arrow_hot : Properties.Resources.scrollbar_arrow_standard;
 
             if (_upArrowClicked)
+            {
                 upIcon = Properties.Resources.scrollbar_arrow_clicked;
+            }
 
             if (!Enabled)
+            {
                 upIcon = Properties.Resources.scrollbar_arrow_disabled;
+            }
 
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
+            {
                 upIcon.RotateFlip(RotateFlipType.RotateNoneFlipY);
+            }
             else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
+            {
                 upIcon.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            }
 
             g.DrawImageUnscaled(upIcon,  _upArrowArea.Left + (_upArrowArea.Width / 2) - (upIcon.Width / 2), _upArrowArea.Top + (_upArrowArea.Height / 2) - (upIcon.Height / 2));
 
             // Down arrow
-            var downIcon = _downArrowHot ? Properties.Resources.scrollbar_arrow_hot : Properties.Resources.scrollbar_arrow_standard;
+            Bitmap downIcon = _downArrowHot ? Properties.Resources.scrollbar_arrow_hot : Properties.Resources.scrollbar_arrow_standard;
 
             if (_downArrowClicked)
+            {
                 downIcon = Properties.Resources.scrollbar_arrow_clicked;
+            }
 
             if (!Enabled)
+            {
                 downIcon = Properties.Resources.scrollbar_arrow_disabled;
+            }
 
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
+            {
                 downIcon.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            }
 
             g.DrawImageUnscaled(downIcon, _downArrowArea.Left + (_downArrowArea.Width / 2) - (downIcon.Width / 2), _downArrowArea.Top + (_downArrowArea.Height / 2) - (downIcon.Height / 2));
 
             // Draw thumb
             if (Enabled)
             {
-                var scrollColor = _thumbHot ? CrownColors.GreyHighlight : CrownColors.GreySelection;
+                Color scrollColor = _thumbHot ? CrownColors.GreyHighlight : CrownColors.GreySelection;
 
                 if (_isScrolling)
+                {
                     scrollColor = CrownColors.ActiveControl;
+                }
 
-                using (var b = new SolidBrush(scrollColor))
+                using (SolidBrush b = new SolidBrush(scrollColor))
                 {
                     g.FillRectangle(b, _thumbArea);
                 }

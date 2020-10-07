@@ -28,10 +28,10 @@ namespace ReaLTaiizor.Controls
 
         private ControlState _controlState = ControlState.Normal;
 
-        private ObservableCollection<CrownDropDownItem> _items = new ObservableCollection<CrownDropDownItem>();
+        private readonly ObservableCollection<CrownDropDownItem> _items = new ObservableCollection<CrownDropDownItem>();
         private CrownDropDownItem _selectedItem;
 
-        private CrownContextMenuStrip _menu = new CrownContextMenuStrip();
+        private readonly CrownContextMenuStrip _menu = new CrownContextMenuStrip();
         private bool _menuOpen = false;
 
         private bool _showBorder = true;
@@ -49,16 +49,13 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ObservableCollection<CrownDropDownItem> Items
-        {
-            get { return _items; }
-        }
+        public ObservableCollection<CrownDropDownItem> Items => _items;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public CrownDropDownItem SelectedItem
         {
-            get { return _selectedItem; }
+            get => _selectedItem;
             set
             {
                 _selectedItem = value;
@@ -71,7 +68,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(true)]
         public bool ShowBorder
         {
-            get { return _showBorder; }
+            get => _showBorder;
             set
             {
                 _showBorder = value;
@@ -79,24 +76,18 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        protected override Size DefaultSize
-        {
-            get { return new Size(100, 26); }
-        }
+        protected override Size DefaultSize => new Size(100, 26);
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ControlState ControlState
-        {
-            get { return _controlState; }
-        }
+        public ControlState ControlState => _controlState;
 
         [Category("Appearance")]
         [Description("Determines the height of the individual list view items.")]
         [DefaultValue(22)]
         public int ItemHeight
         {
-            get { return _itemHeight; }
+            get => _itemHeight;
             set
             {
                 _itemHeight = value;
@@ -109,7 +100,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(130)]
         public int MaxHeight
         {
-            get { return _maxHeight; }
+            get => _maxHeight;
             set
             {
                 _maxHeight = value;
@@ -122,8 +113,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(ToolStripDropDownDirection.Default)]
         public ToolStripDropDownDirection DropdownDirection
         {
-            get { return _dropdownDirection; }
-            set { _dropdownDirection = value; }
+            get => _dropdownDirection;
+            set => _dropdownDirection = value;
         }
 
         #endregion
@@ -160,7 +151,9 @@ namespace ReaLTaiizor.Controls
             foreach (ToolStripMenuItem menuItem in _menu.Items)
             {
                 if ((CrownDropDownItem)menuItem.Tag == item)
+                {
                     return menuItem;
+                }
             }
 
             return null;
@@ -169,7 +162,9 @@ namespace ReaLTaiizor.Controls
         private void SetControlState(ControlState controlState)
         {
             if (_menuOpen)
+            {
                 return;
+            }
 
             if (_controlState != controlState)
             {
@@ -181,33 +176,39 @@ namespace ReaLTaiizor.Controls
         private void ShowMenu()
         {
             if (_menu.Visible)
+            {
                 return;
+            }
 
             SetControlState(ControlState.Pressed);
 
             _menuOpen = true;
 
-            var pos = new Point(0, ClientRectangle.Bottom);
+            Point pos = new Point(0, ClientRectangle.Bottom);
 
             if (_dropdownDirection == ToolStripDropDownDirection.AboveLeft || _dropdownDirection == ToolStripDropDownDirection.AboveRight)
+            {
                 pos.Y = 0;
+            }
 
             _menu.Show(this, pos, _dropdownDirection);
 
             if (SelectedItem != null)
             {
-                var selectedItem = GetMenuItem(SelectedItem);
+                ToolStripMenuItem selectedItem = GetMenuItem(SelectedItem);
                 selectedItem.Select();
             }
         }
 
         private void ResizeMenu()
         {
-            var width = ClientRectangle.Width;
-            var height = (_menu.Items.Count * _itemHeight) + 4;
+            int width = ClientRectangle.Width;
+            int height = (_menu.Items.Count * _itemHeight) + 4;
 
             if (height > _maxHeight)
+            {
                 height = _maxHeight;
+            }
 
             // Dirty: Check what the autosized items are
             foreach (ToolStripMenuItem item in _menu.Items)
@@ -215,14 +216,18 @@ namespace ReaLTaiizor.Controls
                 item.AutoSize = true;
 
                 if (item.Size.Width > width)
+                {
                     width = item.Size.Width;
+                }
 
                 item.AutoSize = false;
             }
 
             // Force the size
             foreach (ToolStripMenuItem item in _menu.Items)
+            {
                 item.Size = new Size(width - 1, _itemHeight);
+            }
 
             _menu.Size = new Size(width, height);
         }
@@ -237,7 +242,7 @@ namespace ReaLTaiizor.Controls
             {
                 foreach (CrownDropDownItem item in e.NewItems)
                 {
-                    var menuItem = new ToolStripMenuItem(item.Text)
+                    ToolStripMenuItem menuItem = new ToolStripMenuItem(item.Text)
                     {
                         Image = item.Icon,
                         AutoSize = false,
@@ -251,7 +256,9 @@ namespace ReaLTaiizor.Controls
                     menuItem.Click += Item_Select;
 
                     if (SelectedItem == null)
+                    {
                         SelectedItem = item;
+                    }
                 }
             }
 
@@ -262,7 +269,9 @@ namespace ReaLTaiizor.Controls
                     foreach (ToolStripMenuItem menuItem in _menu.Items)
                     {
                         if ((CrownDropDownItem)menuItem.Tag == item)
+                        {
                             _menu.Items.Remove(menuItem);
+                        }
                     }
                 }
             }
@@ -278,13 +287,17 @@ namespace ReaLTaiizor.Controls
 
         private void Item_Select(object sender, EventArgs e)
         {
-            var menuItem = sender as ToolStripMenuItem;
+            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
             if (menuItem == null)
+            {
                 return;
+            }
 
-            var dropdownItem = (CrownDropDownItem)menuItem.Tag;
+            CrownDropDownItem dropdownItem = (CrownDropDownItem)menuItem.Tag;
             if (_selectedItem != dropdownItem)
+            {
                 SelectedItem = dropdownItem;
+            }
         }
 
         private void CrownDropDownList_SelectedItemChanged(object sender, EventArgs e)
@@ -320,9 +333,13 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Left)
             {
                 if (ClientRectangle.Contains(e.Location))
+                {
                     SetControlState(ControlState.Pressed);
+                }
                 else
+                {
                     SetControlState(ControlState.Hover);
+                }
             }
             else
             {
@@ -355,10 +372,12 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseCaptureChanged(e);
 
-            var location = Cursor.Position;
+            Point location = Cursor.Position;
 
             if (!ClientRectangle.Contains(location))
+            {
                 SetControlState(ControlState.Normal);
+            }
         }
 
         protected override void OnGotFocus(EventArgs e)
@@ -372,12 +391,16 @@ namespace ReaLTaiizor.Controls
         {
             base.OnLostFocus(e);
 
-            var location = Cursor.Position;
+            Point location = Cursor.Position;
 
             if (!ClientRectangle.Contains(location))
+            {
                 SetControlState(ControlState.Normal);
+            }
             else
+            {
                 SetControlState(ControlState.Hover);
+            }
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -385,7 +408,9 @@ namespace ReaLTaiizor.Controls
             base.OnKeyDown(e);
 
             if (e.KeyCode == Keys.Space)
+            {
                 ShowMenu();
+            }
         }
 
         private void Menu_Closed(object sender, ToolStripDropDownClosedEventArgs e)
@@ -393,9 +418,13 @@ namespace ReaLTaiizor.Controls
             _menuOpen = false;
 
             if (!ClientRectangle.Contains(MousePosition))
+            {
                 SetControlState(ControlState.Normal);
+            }
             else
+            {
                 SetControlState(ControlState.Hover);
+            }
         }
 
         #endregion
@@ -404,10 +433,10 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             // Draw background
-            using (var b = new SolidBrush(CrownColors.MediumBackground))
+            using (SolidBrush b = new SolidBrush(CrownColors.MediumBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -417,9 +446,9 @@ namespace ReaLTaiizor.Controls
             {
                 if (ShowBorder)
                 {
-                    using (var p = new Pen(CrownColors.LightBorder, 1))
+                    using (Pen p = new Pen(CrownColors.LightBorder, 1))
                     {
-                        var modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
+                        Rectangle modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
                         g.DrawRectangle(p, modRect);
                     }
                 }
@@ -428,20 +457,20 @@ namespace ReaLTaiizor.Controls
             // Draw hover state
             if (ControlState == ControlState.Hover)
             {
-                using (var b = new SolidBrush(CrownColors.DarkBorder))
+                using (SolidBrush b = new SolidBrush(CrownColors.DarkBorder))
                 {
                     g.FillRectangle(b, ClientRectangle);
                 }
 
-                using (var b = new SolidBrush(CrownColors.DarkBackground))
+                using (SolidBrush b = new SolidBrush(CrownColors.DarkBackground))
                 {
-                    var arrowRect = new Rectangle(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
+                    Rectangle arrowRect = new Rectangle(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
                     g.FillRectangle(b, arrowRect);
                 }
 
-                using (var p = new Pen(CrownColors.BlueSelection, 1))
+                using (Pen p = new Pen(CrownColors.BlueSelection, 1))
                 {
-                    var modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1 - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Height - 1);
+                    Rectangle modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1 - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Height - 1);
                     g.DrawRectangle(p, modRect);
                 }
             }
@@ -449,20 +478,20 @@ namespace ReaLTaiizor.Controls
             // Draw pressed state
             if (ControlState == ControlState.Pressed)
             {
-                using (var b = new SolidBrush(CrownColors.DarkBorder))
+                using (SolidBrush b = new SolidBrush(CrownColors.DarkBorder))
                 {
                     g.FillRectangle(b, ClientRectangle);
                 }
 
-                using (var b = new SolidBrush(CrownColors.BlueSelection))
+                using (SolidBrush b = new SolidBrush(CrownColors.BlueSelection))
                 {
-                    var arrowRect = new Rectangle(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
+                    Rectangle arrowRect = new Rectangle(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
                     g.FillRectangle(b, arrowRect);
                 }
             }
 
             // Draw dropdown arrow
-            using (var img = Properties.Resources.small_arrow)
+            using (Bitmap img = Properties.Resources.small_arrow)
             {
                 g.DrawImageUnscaled(img, ClientRectangle.Right - img.Width - 4, ClientRectangle.Top + (ClientRectangle.Height / 2) - (img.Height / 2));
             }
@@ -471,7 +500,7 @@ namespace ReaLTaiizor.Controls
             if (SelectedItem != null)
             {
                 // Draw Icon
-                var hasIcon = SelectedItem.Icon != null;
+                bool hasIcon = SelectedItem.Icon != null;
 
                 if (hasIcon)
                 {
@@ -479,15 +508,15 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Draw Text
-                using (var b = new SolidBrush(CrownColors.LightText))
+                using (SolidBrush b = new SolidBrush(CrownColors.LightText))
                 {
-                    var stringFormat = new StringFormat
+                    StringFormat stringFormat = new StringFormat
                     {
                         Alignment = StringAlignment.Near,
                         LineAlignment = StringAlignment.Center
                     };
 
-                    var rect = new Rectangle(ClientRectangle.Left + 2, ClientRectangle.Top, ClientRectangle.Width - 16, ClientRectangle.Height);
+                    Rectangle rect = new Rectangle(ClientRectangle.Left + 2, ClientRectangle.Top, ClientRectangle.Width - 16, ClientRectangle.Height);
 
                     if (hasIcon)
                     {

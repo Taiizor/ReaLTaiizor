@@ -1,0 +1,27 @@
+﻿using ReaLTaiizor.Child.Crown;
+using ReaLTaiizor.Docking.Crown;
+
+namespace ReaLTaiizor.UI.Forms.Docking
+{
+    public partial class DockProperties : ToolWindow
+    {
+        #region Constructor Region
+
+        public DockProperties()
+        {
+            InitializeComponent();
+
+            // Build dummy dropdown data
+            cmbList.Items.Add(new CrownDropDownItem("Item1"));
+            cmbList.Items.Add(new CrownDropDownItem("Item2"));
+            cmbList.Items.Add(new CrownDropDownItem("Item3"));
+            cmbList.Items.Add(new CrownDropDownItem("Item4"));
+            cmbList.Items.Add(new CrownDropDownItem("Item5"));
+            cmbList.Items.Add(new CrownDropDownItem("Item6"));
+
+            cmbList.SelectedItemChanged += delegate { System.Console.WriteLine($"Item changed to {cmbList.SelectedItem.Text}"); };
+        }
+
+        #endregion
+    }
+}

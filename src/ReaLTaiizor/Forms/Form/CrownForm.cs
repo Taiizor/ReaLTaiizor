@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Forms
         [DefaultValue(false)]
         public bool FlatBorder
         {
-            get { return _flatBorder; }
+            get => _flatBorder;
             set
             {
                 _flatBorder = value;
@@ -53,13 +53,15 @@ namespace ReaLTaiizor.Forms
             base.OnPaintBackground(e);
 
             if (!_flatBorder)
-                return;
-
-            var g = e.Graphics;
-
-            using (var p = new Pen(CrownColors.DarkBorder))
             {
-                var modRect = new Rectangle(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, ClientRectangle.Height - 1));
+                return;
+            }
+
+            Graphics g = e.Graphics;
+
+            using (Pen p = new Pen(CrownColors.DarkBorder))
+            {
+                Rectangle modRect = new Rectangle(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, ClientRectangle.Height - 1));
                 g.DrawRectangle(p, modRect);
             }
         }

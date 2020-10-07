@@ -33,10 +33,10 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             // Draw background
-            using (var b = new SolidBrush(BackColor))
+            using (SolidBrush b = new SolidBrush(BackColor))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -51,9 +51,9 @@ namespace ReaLTaiizor.Controls
             // Draw the bit where the scrollbars meet
             if (_vScrollBar.Visible && _hScrollBar.Visible)
             {
-                using (var b = new SolidBrush(BackColor))
+                using (SolidBrush b = new SolidBrush(BackColor))
                 {
-                    var rect = new Rectangle(_hScrollBar.Right, _vScrollBar.Bottom, _vScrollBar.Width,
+                    Rectangle rect = new Rectangle(_hScrollBar.Right, _vScrollBar.Bottom, _vScrollBar.Width,
                                              _hScrollBar.Height);
 
                     g.FillRectangle(b, rect);

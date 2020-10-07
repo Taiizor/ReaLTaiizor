@@ -324,7 +324,7 @@
 
         #endregion
 
-        private Forms.NightForm nightForm1;
+        private ReaLTaiizor.Forms.NightForm nightForm1;
         private Controls.NightTextBox nightTextBox2;
         private Controls.NightTextBox nightTextBox1;
         private Controls.NightPanel nightPanel2;

@@ -29,108 +29,63 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Appearance Appearance
-        {
-            get { return base.Appearance; }
-        }
+        public new Appearance Appearance => base.Appearance;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new bool AutoEllipsis
-        {
-            get { return base.AutoEllipsis; }
-        }
+        public new bool AutoEllipsis => base.AutoEllipsis;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Image BackgroundImage
-        {
-            get { return base.BackgroundImage; }
-        }
+        public new Image BackgroundImage => base.BackgroundImage;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new ImageLayout BackgroundImageLayout
-        {
-            get { return base.BackgroundImageLayout; }
-        }
+        public new ImageLayout BackgroundImageLayout => base.BackgroundImageLayout;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new bool FlatAppearance
-        {
-            get { return false; }
-        }
+        public new bool FlatAppearance => false;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new FlatStyle FlatStyle
-        {
-            get { return base.FlatStyle; }
-        }
+        public new FlatStyle FlatStyle => base.FlatStyle;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Image Image
-        {
-            get { return base.Image; }
-        }
+        public new Image Image => base.Image;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new System.Drawing.ContentAlignment ImageAlign
-        {
-            get { return base.ImageAlign; }
-        }
+        public new System.Drawing.ContentAlignment ImageAlign => base.ImageAlign;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new int ImageIndex
-        {
-            get { return base.ImageIndex; }
-        }
+        public new int ImageIndex => base.ImageIndex;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new string ImageKey
-        {
-            get { return base.ImageKey; }
-        }
+        public new string ImageKey => base.ImageKey;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new ImageList ImageList
-        {
-            get { return base.ImageList; }
-        }
+        public new ImageList ImageList => base.ImageList;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new System.Drawing.ContentAlignment TextAlign
-        {
-            get { return base.TextAlign; }
-        }
+        public new System.Drawing.ContentAlignment TextAlign => base.TextAlign;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new TextImageRelation TextImageRelation
-        {
-            get { return base.TextImageRelation; }
-        }
+        public new TextImageRelation TextImageRelation => base.TextImageRelation;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new bool UseCompatibleTextRendering
-        {
-            get { return false; }
-        }
+        public new bool UseCompatibleTextRendering => false;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new bool UseVisualStyleBackColor
-        {
-            get { return false; }
-        }
+        public new bool UseVisualStyleBackColor => false;
 
         #endregion
 
@@ -170,14 +125,20 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
 
             if (_spacePressed)
+            {
                 return;
+            }
 
             if (e.Button == MouseButtons.Left)
             {
                 if (ClientRectangle.Contains(e.Location))
+                {
                     SetControlState(ControlState.Pressed);
+                }
                 else
+                {
                     SetControlState(ControlState.Hover);
+                }
             }
             else
             {
@@ -190,7 +151,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
 
             if (!ClientRectangle.Contains(e.Location))
+            {
                 return;
+            }
 
             SetControlState(ControlState.Pressed);
         }
@@ -200,7 +163,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseUp(e);
 
             if (_spacePressed)
+            {
                 return;
+            }
 
             SetControlState(ControlState.Normal);
         }
@@ -210,7 +175,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseLeave(e);
 
             if (_spacePressed)
+            {
                 return;
+            }
 
             SetControlState(ControlState.Normal);
         }
@@ -220,12 +187,16 @@ namespace ReaLTaiizor.Controls
             base.OnMouseCaptureChanged(e);
 
             if (_spacePressed)
+            {
                 return;
+            }
 
-            var location = Cursor.Position;
+            Point location = Cursor.Position;
 
             if (!ClientRectangle.Contains(location))
+            {
                 SetControlState(ControlState.Normal);
+            }
         }
 
         protected override void OnGotFocus(EventArgs e)
@@ -241,12 +212,16 @@ namespace ReaLTaiizor.Controls
 
             _spacePressed = false;
 
-            var location = Cursor.Position;
+            Point location = Cursor.Position;
 
             if (!ClientRectangle.Contains(location))
+            {
                 SetControlState(ControlState.Normal);
+            }
             else
+            {
                 SetControlState(ControlState.Hover);
+            }
         }
 
         #endregion
@@ -255,14 +230,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-            var size = Consts.RadioButtonSize;
+            int size = Consts.RadioButtonSize;
 
-            var textColor = CrownColors.LightText;
-            var borderColor = CrownColors.LightText;
-            var fillColor = CrownColors.LightestBackground;
+            Color textColor = CrownColors.LightText;
+            Color borderColor = CrownColors.LightText;
+            Color fillColor = CrownColors.LightestBackground;
 
             if (Enabled)
             {
@@ -290,22 +265,22 @@ namespace ReaLTaiizor.Controls
                 fillColor = CrownColors.GreySelection;
             }
 
-            using (var b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
             {
                 g.FillRectangle(b, rect);
             }
 
             g.SmoothingMode = SmoothingMode.HighQuality;
 
-            using (var p = new Pen(borderColor))
+            using (Pen p = new Pen(borderColor))
             {
-                var boxRect = new Rectangle(0, (rect.Height / 2) - (size / 2), size, size);
+                Rectangle boxRect = new Rectangle(0, (rect.Height / 2) - (size / 2), size, size);
                 g.DrawEllipse(p, boxRect);
             }
 
             if (Checked)
             {
-                using (var b = new SolidBrush(fillColor))
+                using (SolidBrush b = new SolidBrush(fillColor))
                 {
                     Rectangle boxRect = new Rectangle(3, (rect.Height / 2) - ((size - 7) / 2) - 1, size - 6, size - 6);
                     g.FillEllipse(b, boxRect);
@@ -314,15 +289,15 @@ namespace ReaLTaiizor.Controls
 
             g.SmoothingMode = SmoothingMode.Default;
 
-            using (var b = new SolidBrush(textColor))
+            using (SolidBrush b = new SolidBrush(textColor))
             {
-                var stringFormat = new StringFormat
+                StringFormat stringFormat = new StringFormat
                 {
                     LineAlignment = StringAlignment.Center,
                     Alignment = StringAlignment.Near
                 };
 
-                var modRect = new Rectangle(size + 4, 0, rect.Width - size, rect.Height);
+                Rectangle modRect = new Rectangle(size + 4, 0, rect.Width - size, rect.Height);
                 g.DrawString(Text, Font, b, modRect, stringFormat);
             }
         }

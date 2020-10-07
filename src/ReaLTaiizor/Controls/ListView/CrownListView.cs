@@ -33,7 +33,7 @@ namespace ReaLTaiizor.Controls
         private readonly int _iconSize = 16;
 
         private ObservableCollection<CrownListItem> _items;
-        private List<int> _selectedIndices;
+        private readonly List<int> _selectedIndices;
         private int _anchoredItemStart = -1;
         private int _anchoredItemEnd = -1;
 
@@ -45,11 +45,13 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ObservableCollection<CrownListItem> Items
         {
-            get { return _items; }
+            get => _items;
             set
             {
                 if (_items != null)
+                {
                     _items.CollectionChanged -= Items_CollectionChanged;
+                }
 
                 _items = value;
 
@@ -61,17 +63,14 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<int> SelectedIndices
-        {
-            get { return _selectedIndices; }
-        }
+        public List<int> SelectedIndices => _selectedIndices;
 
         [Category("Appearance")]
         [Description("Determines the height of the individual list view items.")]
         [DefaultValue(20)]
         public int ItemHeight
         {
-            get { return _itemHeight; }
+            get => _itemHeight;
             set
             {
                 _itemHeight = value;
@@ -84,8 +83,8 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool MultiSelect
         {
-            get { return _multiSelect; }
-            set { _multiSelect = value; }
+            get => _multiSelect;
+            set => _multiSelect = value;
         }
 
         [Category("Appearance")]
@@ -111,7 +110,7 @@ namespace ReaLTaiizor.Controls
         {
             if (e.NewItems != null)
             {
-                using (var g = CreateGraphics())
+                using (Graphics g = CreateGraphics())
                 {
                     // Set the area size of all new items
                     foreach (CrownListItem item in e.NewItems)
@@ -124,7 +123,7 @@ namespace ReaLTaiizor.Controls
                 // Find the starting index of the new item list and update anything past that
                 if (e.NewStartingIndex < (Items.Count - 1))
                 {
-                    for (var i = e.NewStartingIndex; i <= Items.Count - 1; i++)
+                    for (int i = e.NewStartingIndex; i <= Items.Count - 1; i++)
                     {
                         UpdateItemPosition(Items[i], i);
                     }
@@ -134,12 +133,14 @@ namespace ReaLTaiizor.Controls
             if (e.OldItems != null)
             {
                 foreach (CrownListItem item in e.OldItems)
+                {
                     item.TextChanged -= Item_TextChanged;
+                }
 
                 // Find the starting index of the old item list and update anything past that
                 if (e.OldStartingIndex < (Items.Count - 1))
                 {
-                    for (var i = e.OldStartingIndex; i <= Items.Count - 1; i++)
+                    for (int i = e.OldStartingIndex; i <= Items.Count - 1; i++)
                     {
                         UpdateItemPosition(Items[i], i);
                     }
@@ -153,7 +154,9 @@ namespace ReaLTaiizor.Controls
                     _selectedIndices.Clear();
 
                     if (SelectedIndicesChanged != null)
+                    {
                         SelectedIndicesChanged(this, null);
+                    }
                 }
             }
 
@@ -162,7 +165,7 @@ namespace ReaLTaiizor.Controls
 
         private void Item_TextChanged(object sender, EventArgs e)
         {
-            var item = (CrownListItem)sender;
+            CrownListItem item = (CrownListItem)sender;
 
             UpdateItemSize(item);
             UpdateContentSize(item);
@@ -174,31 +177,41 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
 
             if (Items.Count == 0)
+            {
                 return;
+            }
 
             if (e.Button != MouseButtons.Left && e.Button != MouseButtons.Right)
-                return;
-
-            var pos = OffsetMousePosition;
-
-            var range = ItemIndexesInView().ToList();
-
-            var top = range.Min();
-            var bottom = range.Max();
-            var width = Math.Max(ContentSize.Width, Viewport.Width);
-
-            for (var i = top; i <= bottom; i++)
             {
-                var rect = new Rectangle(0, i * ItemHeight, width, ItemHeight);
+                return;
+            }
+
+            Point pos = OffsetMousePosition;
+
+            List<int> range = ItemIndexesInView().ToList();
+
+            int top = range.Min();
+            int bottom = range.Max();
+            int width = Math.Max(ContentSize.Width, Viewport.Width);
+
+            for (int i = top; i <= bottom; i++)
+            {
+                Rectangle rect = new Rectangle(0, i * ItemHeight, width, ItemHeight);
 
                 if (rect.Contains(pos))
                 {
                     if (MultiSelect && ModifierKeys == Keys.Shift)
+                    {
                         SelectAnchoredRange(i);
+                    }
                     else if (MultiSelect && ModifierKeys == Keys.Control)
+                    {
                         ToggleItem(i);
+                    }
                     else
+                    {
                         SelectItem(i);
+                    }
                 }
             }
         }
@@ -208,10 +221,14 @@ namespace ReaLTaiizor.Controls
             base.OnKeyDown(e);
 
             if (Items.Count == 0)
+            {
                 return;
+            }
 
             if (e.KeyCode != Keys.Down && e.KeyCode != Keys.Up)
+            {
                 return;
+            }
 
             if (MultiSelect && ModifierKeys == Keys.Shift)
             {
@@ -236,12 +253,16 @@ namespace ReaLTaiizor.Controls
                 if (e.KeyCode == Keys.Up)
                 {
                     if (_anchoredItemEnd - 1 >= 0)
+                    {
                         SelectItem(_anchoredItemEnd - 1);
+                    }
                 }
                 else if (e.KeyCode == Keys.Down)
                 {
                     if (_anchoredItemEnd + 1 <= Items.Count - 1)
+                    {
                         SelectItem(_anchoredItemEnd + 1);
+                    }
                 }
             }
 
@@ -260,13 +281,17 @@ namespace ReaLTaiizor.Controls
         public void SelectItem(int index)
         {
             if (index < 0 || index > Items.Count - 1)
+            {
                 throw new IndexOutOfRangeException($"Value '{index}' is outside of valid range.");
+            }
 
             _selectedIndices.Clear();
             _selectedIndices.Add(index);
 
             if (SelectedIndicesChanged != null)
+            {
                 SelectedIndicesChanged(this, null);
+            }
 
             _anchoredItemStart = index;
             _anchoredItemEnd = index;
@@ -278,18 +303,22 @@ namespace ReaLTaiizor.Controls
         {
             _selectedIndices.Clear();
 
-            var list = indexes.ToList();
+            List<int> list = indexes.ToList();
 
-            foreach (var index in list)
+            foreach (int index in list)
             {
                 if (index < 0 || index > Items.Count - 1)
+                {
                     throw new IndexOutOfRangeException($"Value '{index}' is outside of valid range.");
+                }
 
                 _selectedIndices.Add(index);
             }
 
             if (SelectedIndicesChanged != null)
+            {
                 SelectedIndicesChanged(this, null);
+            }
 
             _anchoredItemStart = list[list.Count - 1];
             _anchoredItemEnd = list[list.Count - 1];
@@ -322,22 +351,34 @@ namespace ReaLTaiizor.Controls
                 if (_anchoredItemStart == index)
                 {
                     if (_anchoredItemEnd < index)
+                    {
                         _anchoredItemStart = index - 1;
+                    }
                     else if (_anchoredItemEnd > index)
+                    {
                         _anchoredItemStart = index + 1;
+                    }
                     else
+                    {
                         _anchoredItemStart = _anchoredItemEnd;
+                    }
                 }
 
                 // If we just removed the anchor end then update it accordingly
                 if (_anchoredItemEnd == index)
                 {
                     if (_anchoredItemStart < index)
+                    {
                         _anchoredItemEnd = index - 1;
+                    }
                     else if (_anchoredItemStart > index)
+                    {
                         _anchoredItemEnd = index + 1;
+                    }
                     else
+                    {
                         _anchoredItemEnd = _anchoredItemStart;
+                    }
                 }
             }
             else
@@ -348,7 +389,9 @@ namespace ReaLTaiizor.Controls
             }
 
             if (SelectedIndicesChanged != null)
+            {
                 SelectedIndicesChanged(this, null);
+            }
 
             Invalidate();
         }
@@ -358,21 +401,29 @@ namespace ReaLTaiizor.Controls
             _selectedIndices.Clear();
 
             if (startRange == endRange)
+            {
                 _selectedIndices.Add(startRange);
+            }
 
             if (startRange < endRange)
             {
-                for (var i = startRange; i <= endRange; i++)
+                for (int i = startRange; i <= endRange; i++)
+                {
                     _selectedIndices.Add(i);
+                }
             }
             else if (startRange > endRange)
             {
-                for (var i = startRange; i >= endRange; i--)
+                for (int i = startRange; i >= endRange; i--)
+                {
                     _selectedIndices.Add(i);
+                }
             }
 
             if (SelectedIndicesChanged != null)
+            {
                 SelectedIndicesChanged(this, null);
+            }
 
             Invalidate();
         }
@@ -385,11 +436,11 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateListBox()
         {
-            using (var g = CreateGraphics())
+            using (Graphics g = CreateGraphics())
             {
-                for (var i = 0; i <= Items.Count - 1; i++)
+                for (int i = 0; i <= Items.Count - 1; i++)
                 {
-                    var item = Items[i];
+                    CrownListItem item = Items[i];
                     UpdateItemSize(item, g);
                     UpdateItemPosition(item, i);
                 }
@@ -400,7 +451,7 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateItemSize(CrownListItem item)
         {
-            using (var g = CreateGraphics())
+            using (Graphics g = CreateGraphics())
             {
                 UpdateItemSize(item, g);
             }
@@ -408,11 +459,13 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateItemSize(CrownListItem item, Graphics g)
         {
-            var size = g.MeasureString(item.Text, Font);
+            SizeF size = g.MeasureString(item.Text, Font);
             size.Width++;
 
             if (ShowIcons)
+            {
                 size.Width += _iconSize + 8;
+            }
 
             item.Area = new Rectangle(item.Area.Left, item.Area.Top, (int)size.Width, item.Area.Height);
         }
@@ -424,16 +477,18 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateContentSize()
         {
-            var highestWidth = 0;
+            int highestWidth = 0;
 
-            foreach (var item in Items)
+            foreach (CrownListItem item in Items)
             {
                 if (item.Area.Right + 1 > highestWidth)
+                {
                     highestWidth = item.Area.Right + 1;
+                }
             }
 
-            var width = highestWidth;
-            var height = Items.Count * ItemHeight;
+            int width = highestWidth;
+            int height = Items.Count * ItemHeight;
 
             if (ContentSize.Width != width || ContentSize.Height != height)
             {
@@ -444,7 +499,7 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateContentSize(CrownListItem item)
         {
-            var itemWidth = item.Area.Right + 1;
+            int itemWidth = item.Area.Right + 1;
 
             if (itemWidth == ContentSize.Width)
             {
@@ -462,44 +517,58 @@ namespace ReaLTaiizor.Controls
         public void EnsureVisible()
         {
             if (SelectedIndices.Count == 0)
+            {
                 return;
+            }
 
-            var itemTop = -1;
+            int itemTop = -1;
 
             if (!MultiSelect)
+            {
                 itemTop = SelectedIndices[0] * ItemHeight;
+            }
             else
+            {
                 itemTop = _anchoredItemEnd * ItemHeight;
+            }
 
-            var itemBottom = itemTop + ItemHeight;
+            int itemBottom = itemTop + ItemHeight;
 
             if (itemTop < Viewport.Top)
+            {
                 VScrollTo(itemTop);
+            }
 
             if (itemBottom > Viewport.Bottom)
+            {
                 VScrollTo((itemBottom - Viewport.Height));
+            }
         }
 
         private IEnumerable<int> ItemIndexesInView()
         {
-            var top = (Viewport.Top / ItemHeight) - 1;
+            int top = (Viewport.Top / ItemHeight) - 1;
 
             if (top < 0)
+            {
                 top = 0;
+            }
 
-            var bottom = ((Viewport.Top + Viewport.Height) / ItemHeight) + 1;
+            int bottom = ((Viewport.Top + Viewport.Height) / ItemHeight) + 1;
 
             if (bottom > Items.Count)
+            {
                 bottom = Items.Count;
+            }
 
-            var result = Enumerable.Range(top, bottom - top);
+            IEnumerable<int> result = Enumerable.Range(top, bottom - top);
             return result;
         }
 
         private IEnumerable<CrownListItem> ItemsInView()
         {
-            var indexes = ItemIndexesInView();
-            var result = indexes.Select(index => Items[index]).ToList();
+            IEnumerable<int> indexes = ItemIndexesInView();
+            List<CrownListItem> result = indexes.Select(index => Items[index]).ToList();
             return result;
         }
 
@@ -509,27 +578,31 @@ namespace ReaLTaiizor.Controls
 
         protected override void PaintContent(Graphics g)
         {
-            var range = ItemIndexesInView().ToList();
+            List<int> range = ItemIndexesInView().ToList();
 
             if (range.Count == 0)
-                return;
-
-            var top = range.Min();
-            var bottom = range.Max();
-
-            for (var i = top; i <= bottom; i++)
             {
-                var width = Math.Max(ContentSize.Width, Viewport.Width);
-                var rect = new Rectangle(0, i * ItemHeight, width, ItemHeight);
+                return;
+            }
+
+            int top = range.Min();
+            int bottom = range.Max();
+
+            for (int i = top; i <= bottom; i++)
+            {
+                int width = Math.Max(ContentSize.Width, Viewport.Width);
+                Rectangle rect = new Rectangle(0, i * ItemHeight, width, ItemHeight);
 
                 // Background
-                var odd = i % 2 != 0;
-                var bgColor = !odd ? CrownColors.HeaderBackground : CrownColors.GreyBackground;
+                bool odd = i % 2 != 0;
+                Color bgColor = !odd ? CrownColors.HeaderBackground : CrownColors.GreyBackground;
 
                 if (SelectedIndices.Count > 0 && SelectedIndices.Contains(i))
+                {
                     bgColor = Focused ? CrownColors.BlueSelection : CrownColors.GreySelection;
+                }
 
-                using (var b = new SolidBrush(bgColor))
+                using (SolidBrush b = new SolidBrush(bgColor))
                 {
                     g.FillRectangle(b, rect);
                 }
@@ -547,20 +620,22 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Text
-                using (var b = new SolidBrush(Items[i].TextColor))
+                using (SolidBrush b = new SolidBrush(Items[i].TextColor))
                 {
-                    var stringFormat = new StringFormat
+                    StringFormat stringFormat = new StringFormat
                     {
                         Alignment = StringAlignment.Near,
                         LineAlignment = StringAlignment.Center
                     };
 
-                    var modFont = new Font(Font, Items[i].FontStyle);
+                    Font modFont = new Font(Font, Items[i].FontStyle);
 
-                    var modRect = new Rectangle(rect.Left + 2, rect.Top, rect.Width, rect.Height);
+                    Rectangle modRect = new Rectangle(rect.Left + 2, rect.Top, rect.Width, rect.Height);
 
                     if (ShowIcons)
+                    {
                         modRect.X += _iconSize + 8;
+                    }
 
                     g.DrawString(Items[i].Text, modFont, b, modRect, stringFormat);
                 }

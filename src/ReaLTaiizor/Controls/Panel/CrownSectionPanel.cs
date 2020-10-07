@@ -23,16 +23,13 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Padding Padding
-        {
-            get { return base.Padding; }
-        }
+        public new Padding Padding => base.Padding;
 
         [Category("Appearance")]
         [Description("The section header text associated with this control.")]
         public string SectionHeader
         {
-            get { return _sectionHeader; }
+            get => _sectionHeader;
             set
             {
                 _sectionHeader = value;
@@ -76,7 +73,9 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
 
             if (Controls.Count > 0)
+            {
                 Controls[0].Focus();
+            }
         }
 
         #endregion
@@ -85,44 +84,44 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = ClientRectangle;
+            Graphics g = e.Graphics;
+            Rectangle rect = ClientRectangle;
 
             // Fill body
-            using (var b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
             {
                 g.FillRectangle(b, rect);
             }
 
             // Draw header
-            var bgColor = ContainsFocus ? CrownColors.BlueBackground : CrownColors.HeaderBackground;
-            var darkColor = ContainsFocus ? CrownColors.DarkBlueBorder : CrownColors.DarkBorder;
-            var lightColor = ContainsFocus ? CrownColors.LightBlueBorder : CrownColors.LightBorder;
+            Color bgColor = ContainsFocus ? CrownColors.BlueBackground : CrownColors.HeaderBackground;
+            Color darkColor = ContainsFocus ? CrownColors.DarkBlueBorder : CrownColors.DarkBorder;
+            Color lightColor = ContainsFocus ? CrownColors.LightBlueBorder : CrownColors.LightBorder;
 
-            using (var b = new SolidBrush(bgColor))
+            using (SolidBrush b = new SolidBrush(bgColor))
             {
-                var bgRect = new Rectangle(0, 0, rect.Width, 25);
+                Rectangle bgRect = new Rectangle(0, 0, rect.Width, 25);
                 g.FillRectangle(b, bgRect);
             }
 
-            using (var p = new Pen(darkColor))
+            using (Pen p = new Pen(darkColor))
             {
                 g.DrawLine(p, rect.Left, 0, rect.Right, 0);
                 g.DrawLine(p, rect.Left, 25 - 1, rect.Right, 25 - 1);
             }
 
-            using (var p = new Pen(lightColor))
+            using (Pen p = new Pen(lightColor))
             {
                 g.DrawLine(p, rect.Left, 1, rect.Right, 1);
             }
 
-            var xOffset = 3;
+            int xOffset = 3;
 
-            using (var b = new SolidBrush(CrownColors.LightText))
+            using (SolidBrush b = new SolidBrush(CrownColors.LightText))
             {
-                var textRect = new Rectangle(xOffset, 0, rect.Width - 4 - xOffset, 25);
+                Rectangle textRect = new Rectangle(xOffset, 0, rect.Width - 4 - xOffset, 25);
 
-                var format = new StringFormat
+                StringFormat format = new StringFormat
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Center,
@@ -134,9 +133,9 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw border
-            using (var p = new Pen(CrownColors.DarkBorder, 1))
+            using (Pen p = new Pen(CrownColors.DarkBorder, 1))
             {
-                var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
 
                 g.DrawRectangle(p, modRect);
             }

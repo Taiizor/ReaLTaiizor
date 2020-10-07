@@ -40,11 +40,13 @@ namespace ReaLTaiizor.Controls
 
         public string Text
         {
-            get { return _text; }
+            get => _text;
             set
             {
                 if (_text == value)
+                {
                     return;
+                }
 
                 _text = value;
 
@@ -68,33 +70,41 @@ namespace ReaLTaiizor.Controls
 
         public bool Expanded
         {
-            get { return _expanded; }
+            get => _expanded;
             set
             {
                 if (_expanded == value)
+                {
                     return;
+                }
 
                 if (value == true && Nodes.Count == 0)
+                {
                     return;
+                }
 
                 _expanded = value;
 
                 if (_expanded)
                 {
                     if (NodeExpanded != null)
+                    {
                         NodeExpanded(this, null);
+                    }
                 }
                 else
                 {
                     if (NodeCollapsed != null)
+                    {
                         NodeCollapsed(this, null);
+                    }
                 }
             }
         }
 
         public ObservableList<CrownTreeNode> Nodes
         {
-            get { return _nodes; }
+            get => _nodes;
             set
             {
                 if (_nodes != null)
@@ -112,29 +122,33 @@ namespace ReaLTaiizor.Controls
 
         public bool IsRoot
         {
-            get { return _isRoot; }
-            set { _isRoot = value; }
+            get => _isRoot;
+            set => _isRoot = value;
         }
 
         public CrownTreeView ParentTree
         {
-            get { return _parentTree; }
+            get => _parentTree;
             set
             {
                 if (_parentTree == value)
+                {
                     return;
+                }
 
                 _parentTree = value;
 
-                foreach (var node in Nodes)
+                foreach (CrownTreeNode node in Nodes)
+                {
                     node.ParentTree = _parentTree;
+                }
             }
         }
 
         public CrownTreeNode ParentNode
         {
-            get { return _parentNode; }
-            set { _parentNode = value; }
+            get => _parentNode;
+            set => _parentNode = value;
         }
 
         public bool Odd { get; set; }
@@ -147,8 +161,8 @@ namespace ReaLTaiizor.Controls
         {
             get
             {
-                var parent = ParentNode;
-                var path = Text;
+                CrownTreeNode parent = ParentNode;
+                string path = Text;
 
                 while (parent != null)
                 {
@@ -168,11 +182,13 @@ namespace ReaLTaiizor.Controls
 
         public bool IsNodeAncestor(CrownTreeNode node)
         {
-            var parent = ParentNode;
+            CrownTreeNode parent = ParentNode;
             while (parent != null)
             {
                 if (parent == node)
+                {
                     return true;
+                }
 
                 parent = parent.ParentNode;
             }
@@ -201,14 +217,18 @@ namespace ReaLTaiizor.Controls
         public void Remove()
         {
             if (ParentNode != null)
+            {
                 ParentNode.Nodes.Remove(this);
+            }
             else
+            {
                 ParentTree.Nodes.Remove(this);
+            }
         }
 
         public void EnsureVisible()
         {
-            var parent = ParentNode;
+            CrownTreeNode parent = ParentNode;
 
             while (parent != null)
             {
@@ -226,37 +246,51 @@ namespace ReaLTaiizor.Controls
             if (ParentTree != null && ParentTree.TreeViewNodeSorter != null)
             {
                 if (ParentNode != null)
+                {
                     ParentNode.Nodes.Sort(ParentTree.TreeViewNodeSorter);
+                }
                 else
+                {
                     ParentTree.Nodes.Sort(ParentTree.TreeViewNodeSorter);
+                }
             }
 
             if (TextChanged != null)
+            {
                 TextChanged(this, null);
+            }
         }
 
         private void Nodes_ItemsAdded(object sender, ObservableListModified<CrownTreeNode> e)
         {
-            foreach (var node in e.Items)
+            foreach (CrownTreeNode node in e.Items)
             {
                 node.ParentNode = this;
                 node.ParentTree = ParentTree;
             }
 
             if (ParentTree != null && ParentTree.TreeViewNodeSorter != null)
+            {
                 Nodes.Sort(ParentTree.TreeViewNodeSorter);
+            }
 
             if (ItemsAdded != null)
+            {
                 ItemsAdded(this, e);
+            }
         }
 
         private void Nodes_ItemsRemoved(object sender, ObservableListModified<CrownTreeNode> e)
         {
             if (Nodes.Count == 0)
+            {
                 Expanded = false;
+            }
 
             if (ItemsRemoved != null)
+            {
                 ItemsRemoved(this, e);
+            }
         }
 
         #endregion

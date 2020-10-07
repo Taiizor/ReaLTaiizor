@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
         [Description("Determines the color of the border.")]
         public Color BorderColor
         {
-            get { return _borderColor; }
+            get => _borderColor;
             set
             {
                 _borderColor = value;
@@ -55,35 +55,35 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
-            var stringSize = g.MeasureString(Text, Font);
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            SizeF stringSize = g.MeasureString(Text, Font);
 
-            var textColor = CrownColors.LightText;
-            var fillColor = CrownColors.GreyBackground;
+            Color textColor = CrownColors.LightText;
+            Color fillColor = CrownColors.GreyBackground;
 
-            using (var b = new SolidBrush(fillColor))
+            using (SolidBrush b = new SolidBrush(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
 
-            using (var p = new Pen(BorderColor, 1))
+            using (Pen p = new Pen(BorderColor, 1))
             {
-                var borderRect = new Rectangle(0, (int)stringSize.Height / 2, rect.Width - 1, rect.Height - ((int)stringSize.Height / 2) - 1);
+                Rectangle borderRect = new Rectangle(0, (int)stringSize.Height / 2, rect.Width - 1, rect.Height - ((int)stringSize.Height / 2) - 1);
                 g.DrawRectangle(p, borderRect);
             }
 
-            var textRect = new Rectangle(rect.Left + Consts.Padding, rect.Top, rect.Width - (Consts.Padding * 2), (int)stringSize.Height);
+            Rectangle textRect = new Rectangle(rect.Left + Consts.Padding, rect.Top, rect.Width - (Consts.Padding * 2), (int)stringSize.Height);
 
-            using (var b2 = new SolidBrush(fillColor))
+            using (SolidBrush b2 = new SolidBrush(fillColor))
             {
-                var modRect = new Rectangle(textRect.Left, textRect.Top, Math.Min(textRect.Width, (int)stringSize.Width), textRect.Height);
+                Rectangle modRect = new Rectangle(textRect.Left, textRect.Top, Math.Min(textRect.Width, (int)stringSize.Width), textRect.Height);
                 g.FillRectangle(b2, modRect);
             }
 
-            using (var b = new SolidBrush(textColor))
+            using (SolidBrush b = new SolidBrush(textColor))
             {
-                var stringFormat = new StringFormat
+                StringFormat stringFormat = new StringFormat
                 {
                     LineAlignment = StringAlignment.Center,
                     Alignment = StringAlignment.Near,

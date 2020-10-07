@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Child.Crown
         #region Field Region
 
         private DialogButton _dialogButtons = DialogButton.Ok;
-        private List<CrownButton> _buttons;
+        private readonly List<CrownButton> _buttons;
 
         #endregion
 
@@ -42,11 +42,13 @@ namespace ReaLTaiizor.Child.Crown
         [DefaultValue(DialogButton.Ok)]
         public DialogButton DialogButtons
         {
-            get { return _dialogButtons; }
+            get => _dialogButtons;
             set
             {
                 if (_dialogButtons == value)
+                {
                     return;
+                }
 
                 _dialogButtons = value;
                 SetButtons();
@@ -61,16 +63,16 @@ namespace ReaLTaiizor.Child.Crown
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new IButtonControl AcceptButton
         {
-            get { return base.AcceptButton; }
-            private set { base.AcceptButton = value; }
+            get => base.AcceptButton;
+            private set => base.AcceptButton = value;
         }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new IButtonControl CancelButton
         {
-            get { return base.CancelButton; }
-            private set { base.CancelButton = value; }
+            get => base.CancelButton;
+            private set => base.CancelButton = value;
         }
 
         #endregion
@@ -105,8 +107,10 @@ namespace ReaLTaiizor.Child.Crown
 
         private void SetButtons()
         {
-            foreach (var btn in _buttons)
+            foreach (CrownButton btn in _buttons)
+            {
                 btn.Visible = false;
+            }
 
             switch (_dialogButtons)
             {
@@ -161,19 +165,23 @@ namespace ReaLTaiizor.Child.Crown
             button.SendToBack();
 
             if (!isLast)
+            {
                 button.Margin = new Padding(0, 0, 10, 0);
+            }
 
             button.Visible = true;
         }
 
         private void SetFlowSize()
         {
-            var width = flowInner.Padding.Horizontal;
+            int width = flowInner.Padding.Horizontal;
 
-            foreach (var btn in _buttons)
+            foreach (CrownButton btn in _buttons)
             {
                 if (btn.Visible)
+                {
                     width += btn.Width + btn.Margin.Right;
+                }
             }
 
             flowInner.Width = width;

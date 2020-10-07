@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
         private int _indent = 20;
 
         private ObservableList<CrownTreeNode> _nodes;
-        private ObservableCollection<CrownTreeNode> _selectedNodes;
+        private readonly ObservableCollection<CrownTreeNode> _selectedNodes;
 
         private CrownTreeNode _anchoredNodeStart;
         private CrownTreeNode _anchoredNodeEnd;
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ObservableList<CrownTreeNode> Nodes
         {
-            get { return _nodes; }
+            get => _nodes;
             set
             {
                 if (_nodes != null)
@@ -73,8 +73,10 @@ namespace ReaLTaiizor.Controls
                     _nodes.ItemsAdded -= Nodes_ItemsAdded;
                     _nodes.ItemsRemoved -= Nodes_ItemsRemoved;
 
-                    foreach (var node in _nodes)
+                    foreach (CrownTreeNode node in _nodes)
+                    {
                         UnhookNodeEvents(node);
+                    }
                 }
 
                 _nodes = value;
@@ -82,8 +84,10 @@ namespace ReaLTaiizor.Controls
                 _nodes.ItemsAdded += Nodes_ItemsAdded;
                 _nodes.ItemsRemoved += Nodes_ItemsRemoved;
 
-                foreach (var node in _nodes)
+                foreach (CrownTreeNode node in _nodes)
+                {
                     HookNodeEvents(node);
+                }
 
                 UpdateNodes();
             }
@@ -91,17 +95,14 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ObservableCollection<CrownTreeNode> SelectedNodes
-        {
-            get { return _selectedNodes; }
-        }
+        public ObservableCollection<CrownTreeNode> SelectedNodes => _selectedNodes;
 
         [Category("Appearance")]
         [Description("Determines the height of tree nodes.")]
         [DefaultValue(20)]
         public int ItemHeight
         {
-            get { return _itemHeight; }
+            get => _itemHeight;
             set
             {
                 _itemHeight = value;
@@ -115,7 +116,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(20)]
         public int Indent
         {
-            get { return _indent; }
+            get => _indent;
             set
             {
                 _indent = value;
@@ -172,19 +173,29 @@ namespace ReaLTaiizor.Controls
                 DisposeIcons();
 
                 if (SelectedNodesChanged != null)
+                {
                     SelectedNodesChanged = null;
+                }
 
                 if (AfterNodeExpand != null)
+                {
                     AfterNodeExpand = null;
+                }
 
                 if (AfterNodeCollapse != null)
+                {
                     AfterNodeExpand = null;
+                }
 
                 if (_nodes != null)
+                {
                     _nodes.Dispose();
+                }
 
                 if (_selectedNodes != null)
+                {
                     _selectedNodes.CollectionChanged -= SelectedNodes_CollectionChanged;
+                }
 
                 _disposed = true;
             }
@@ -198,7 +209,7 @@ namespace ReaLTaiizor.Controls
 
         private void Nodes_ItemsAdded(object sender, ObservableListModified<CrownTreeNode> e)
         {
-            foreach (var node in e.Items)
+            foreach (CrownTreeNode node in e.Items)
             {
                 node.ParentTree = this;
                 node.IsRoot = true;
@@ -207,14 +218,16 @@ namespace ReaLTaiizor.Controls
             }
 
             if (TreeViewNodeSorter != null)
+            {
                 Nodes.Sort(TreeViewNodeSorter);
+            }
 
             UpdateNodes();
         }
 
         private void Nodes_ItemsRemoved(object sender, ObservableListModified<CrownTreeNode> e)
         {
-            foreach (var node in e.Items)
+            foreach (CrownTreeNode node in e.Items)
             {
                 node.ParentTree = this;
                 node.IsRoot = true;
@@ -227,18 +240,22 @@ namespace ReaLTaiizor.Controls
 
         private void ChildNodes_ItemsAdded(object sender, ObservableListModified<CrownTreeNode> e)
         {
-            foreach (var node in e.Items)
+            foreach (CrownTreeNode node in e.Items)
+            {
                 HookNodeEvents(node);
+            }
 
             UpdateNodes();
         }
 
         private void ChildNodes_ItemsRemoved(object sender, ObservableListModified<CrownTreeNode> e)
         {
-            foreach (var node in e.Items)
+            foreach (CrownTreeNode node in e.Items)
             {
                 if (SelectedNodes.Contains(node))
+                {
                     SelectedNodes.Remove(node);
+                }
 
                 UnhookNodeEvents(node);
             }
@@ -249,7 +266,9 @@ namespace ReaLTaiizor.Controls
         private void SelectedNodes_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (SelectedNodesChanged != null)
+            {
                 SelectedNodesChanged(this, null);
+            }
         }
 
         private void Nodes_TextChanged(object sender, EventArgs e)
@@ -262,7 +281,9 @@ namespace ReaLTaiizor.Controls
             UpdateNodes();
 
             if (AfterNodeExpand != null)
+            {
                 AfterNodeExpand(this, null);
+            }
         }
 
         private void Nodes_NodeCollapsed(object sender, EventArgs e)
@@ -270,7 +291,9 @@ namespace ReaLTaiizor.Controls
             UpdateNodes();
 
             if (AfterNodeCollapse != null)
+            {
                 AfterNodeCollapse(this, null);
+            }
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -289,7 +312,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (_dropNode != null)
                 {
-                    var rect = GetNodeFullRowArea(_dropNode);
+                    Rectangle rect = GetNodeFullRowArea(_dropNode);
                     if (!rect.Contains(OffsetMousePosition))
                     {
                         _dropNode = null;
@@ -319,8 +342,10 @@ namespace ReaLTaiizor.Controls
         {
             if (e.Button == MouseButtons.Left || e.Button == MouseButtons.Right)
             {
-                foreach (var node in Nodes)
+                foreach (CrownTreeNode node in Nodes)
+                {
                     CheckNodeClick(node, OffsetMousePosition, e.Button);
+                }
             }
 
             base.OnMouseDown(e);
@@ -338,9 +363,11 @@ namespace ReaLTaiizor.Controls
 
                 if (_provisionalNode != null)
                 {
-                    var pos = _dragPos;
+                    Point pos = _dragPos;
                     if (OffsetMousePosition == pos)
+                    {
                         SelectNode(_provisionalNode);
+                    }
                 }
 
                 _provisionalDragging = false;
@@ -352,12 +379,16 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDoubleClick(MouseEventArgs e)
         {
             if (ModifierKeys == Keys.Control)
+            {
                 return;
+            }
 
             if (e.Button == MouseButtons.Left)
             {
-                foreach (var node in Nodes)
+                foreach (CrownTreeNode node in Nodes)
+                {
                     CheckNodeDoubleClick(node, OffsetMousePosition);
+                }
             }
 
             base.OnMouseDoubleClick(e);
@@ -367,8 +398,10 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseLeave(e);
 
-            foreach (var node in Nodes)
+            foreach (CrownTreeNode node in Nodes)
+            {
                 NodeMouseLeave(node);
+            }
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -376,18 +409,27 @@ namespace ReaLTaiizor.Controls
             base.OnKeyDown(e);
 
             if (IsDragging)
+            {
                 return;
+            }
 
             if (Nodes.Count == 0)
+            {
                 return;
+            }
 
             if (e.KeyCode != Keys.Down && e.KeyCode != Keys.Up && e.KeyCode != Keys.Left && e.KeyCode != Keys.Right)
+            {
                 return;
+            }
 
             if (_anchoredNodeEnd == null)
             {
                 if (Nodes.Count > 0)
+                {
                     SelectNode(Nodes[0]);
+                }
+
                 return;
             }
 
@@ -482,17 +524,19 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            var pos = PointToClient(MousePosition);
+            Point pos = PointToClient(MousePosition);
 
             if (_vScrollBar.Visible)
             {
                 // Scroll up
                 if (pos.Y < ClientRectangle.Top)
                 {
-                    var difference = (pos.Y - ClientRectangle.Top) * -1;
+                    int difference = (pos.Y - ClientRectangle.Top) * -1;
 
                     if (difference > ItemHeight)
+                    {
                         difference = ItemHeight;
+                    }
 
                     _vScrollBar.Value = _vScrollBar.Value - difference;
                 }
@@ -500,10 +544,12 @@ namespace ReaLTaiizor.Controls
                 // Scroll down
                 if (pos.Y > ClientRectangle.Bottom)
                 {
-                    var difference = pos.Y - ClientRectangle.Bottom;
+                    int difference = pos.Y - ClientRectangle.Bottom;
 
                     if (difference > ItemHeight)
+                    {
                         difference = ItemHeight;
+                    }
 
                     _vScrollBar.Value = _vScrollBar.Value + difference;
                 }
@@ -514,10 +560,12 @@ namespace ReaLTaiizor.Controls
                 // Scroll left
                 if (pos.X < ClientRectangle.Left)
                 {
-                    var difference = (pos.X - ClientRectangle.Left) * -1;
+                    int difference = (pos.X - ClientRectangle.Left) * -1;
 
                     if (difference > ItemHeight)
+                    {
                         difference = ItemHeight;
+                    }
 
                     _hScrollBar.Value = _hScrollBar.Value - difference;
                 }
@@ -525,10 +573,12 @@ namespace ReaLTaiizor.Controls
                 // Scroll right
                 if (pos.X > ClientRectangle.Right)
                 {
-                    var difference = pos.X - ClientRectangle.Right;
+                    int difference = pos.X - ClientRectangle.Right;
 
                     if (difference > ItemHeight)
+                    {
                         difference = ItemHeight;
+                    }
 
                     _hScrollBar.Value = _hScrollBar.Value + difference;
                 }
@@ -548,8 +598,10 @@ namespace ReaLTaiizor.Controls
             node.NodeExpanded += Nodes_NodeExpanded;
             node.NodeCollapsed += Nodes_NodeCollapsed;
 
-            foreach (var childNode in node.Nodes)
+            foreach (CrownTreeNode childNode in node.Nodes)
+            {
                 HookNodeEvents(childNode);
+            }
         }
 
         private void UnhookNodeEvents(CrownTreeNode node)
@@ -561,28 +613,34 @@ namespace ReaLTaiizor.Controls
             node.NodeExpanded -= Nodes_NodeExpanded;
             node.NodeCollapsed -= Nodes_NodeCollapsed;
 
-            foreach (var childNode in node.Nodes)
+            foreach (CrownTreeNode childNode in node.Nodes)
+            {
                 UnhookNodeEvents(childNode);
+            }
         }
 
         private void UpdateNodes()
         {
             if (IsDragging)
+            {
                 return;
+            }
 
             ContentSize = new Size(0, 0);
 
             if (Nodes.Count == 0)
+            {
                 return;
+            }
 
-            var yOffset = 0;
-            var isOdd = false;
-            var index = 0;
+            int yOffset = 0;
+            bool isOdd = false;
+            int index = 0;
             CrownTreeNode prevNode = null;
 
-            for (var i = 0; i <= Nodes.Count - 1; i++)
+            for (int i = 0; i <= Nodes.Count - 1; i++)
             {
-                var node = Nodes[i];
+                CrownTreeNode node = Nodes[i];
                 UpdateNode(node, ref prevNode, 0, ref yOffset, ref isOdd, ref index);
             }
 
@@ -609,39 +667,49 @@ namespace ReaLTaiizor.Controls
             node.PrevVisibleNode = prevNode;
 
             if (prevNode != null)
+            {
                 prevNode.NextVisibleNode = node;
+            }
 
             prevNode = node;
 
             if (node.Expanded)
             {
-                foreach (var childNode in node.Nodes)
+                foreach (CrownTreeNode childNode in node.Nodes)
+                {
                     UpdateNode(childNode, ref prevNode, indent + Indent, ref yOffset, ref isOdd, ref index);
+                }
             }
         }
 
         private void UpdateNodeBounds(CrownTreeNode node, int yOffset, int indent)
         {
-            var expandTop = yOffset + (ItemHeight / 2) - (_expandAreaSize / 2);
+            int expandTop = yOffset + (ItemHeight / 2) - (_expandAreaSize / 2);
             node.ExpandArea = new Rectangle(indent + 3, expandTop, _expandAreaSize, _expandAreaSize);
 
-            var iconTop = yOffset + (ItemHeight / 2) - (_iconSize / 2);
+            int iconTop = yOffset + (ItemHeight / 2) - (_iconSize / 2);
 
             if (ShowIcons)
-                node.IconArea = new Rectangle(node.ExpandArea.Right + 2, iconTop, _iconSize, _iconSize);
-            else
-                node.IconArea = new Rectangle(node.ExpandArea.Right, iconTop, 0, 0);
-
-            using (var g = CreateGraphics())
             {
-                var textSize = (int)(g.MeasureString(node.Text, Font).Width);
+                node.IconArea = new Rectangle(node.ExpandArea.Right + 2, iconTop, _iconSize, _iconSize);
+            }
+            else
+            {
+                node.IconArea = new Rectangle(node.ExpandArea.Right, iconTop, 0, 0);
+            }
+
+            using (Graphics g = CreateGraphics())
+            {
+                int textSize = (int)(g.MeasureString(node.Text, Font).Width);
                 node.TextArea = new Rectangle(node.IconArea.Right + 2, yOffset, textSize + 1, ItemHeight);
             }
 
             node.FullArea = new Rectangle(indent, yOffset, (node.TextArea.Right - indent), ItemHeight);
 
             if (ContentSize.Width < node.TextArea.Right + 2)
+            {
                 ContentSize = new Size(node.TextArea.Right + 2, ContentSize.Height);
+            }
         }
 
         private void LoadIcons()
@@ -659,22 +727,34 @@ namespace ReaLTaiizor.Controls
         private void DisposeIcons()
         {
             if (_nodeClosed != null)
+            {
                 _nodeClosed.Dispose();
+            }
 
             if (_nodeClosedHover != null)
+            {
                 _nodeClosedHover.Dispose();
+            }
 
             if (_nodeClosedHoverSelected != null)
+            {
                 _nodeClosedHoverSelected.Dispose();
+            }
 
             if (_nodeOpen != null)
+            {
                 _nodeOpen.Dispose();
+            }
 
             if (_nodeOpenHover != null)
+            {
                 _nodeOpenHover.Dispose();
+            }
 
             if (_nodeOpenHoverSelected != null)
+            {
                 _nodeOpenHoverSelected.Dispose();
+            }
         }
 
         private void CheckHover()
@@ -693,16 +773,20 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            foreach (var node in Nodes)
+            foreach (CrownTreeNode node in Nodes)
+            {
                 CheckNodeHover(node, OffsetMousePosition);
+            }
         }
 
         private void NodeMouseLeave(CrownTreeNode node)
         {
             node.ExpandAreaHot = false;
 
-            foreach (var childNode in node.Nodes)
+            foreach (CrownTreeNode childNode in node.Nodes)
+            {
                 NodeMouseLeave(childNode);
+            }
 
             Invalidate();
         }
@@ -711,10 +795,10 @@ namespace ReaLTaiizor.Controls
         {
             if (IsDragging)
             {
-                var rect = GetNodeFullRowArea(node);
+                Rectangle rect = GetNodeFullRowArea(node);
                 if (rect.Contains(OffsetMousePosition))
                 {
-                    var newDropNode = _dragNodes.Contains(node) ? null : node;
+                    CrownTreeNode newDropNode = _dragNodes.Contains(node) ? null : node;
 
                     if (_dropNode != newDropNode)
                     {
@@ -725,7 +809,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                var hot = node.ExpandArea.Contains(location);
+                bool hot = node.ExpandArea.Contains(location);
                 if (node.ExpandAreaHot != hot)
                 {
                     node.ExpandAreaHot = hot;
@@ -733,19 +817,23 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            foreach (var childNode in node.Nodes)
+            foreach (CrownTreeNode childNode in node.Nodes)
+            {
                 CheckNodeHover(childNode, location);
+            }
         }
 
         private void CheckNodeClick(CrownTreeNode node, Point location, MouseButtons button)
         {
-            var rect = GetNodeFullRowArea(node);
+            Rectangle rect = GetNodeFullRowArea(node);
             if (rect.Contains(location))
             {
                 if (node.ExpandArea.Contains(location))
                 {
                     if (button == MouseButtons.Left)
+                    {
                         node.Expanded = !node.Expanded;
+                    }
                 }
                 else
                 {
@@ -762,7 +850,9 @@ namespace ReaLTaiizor.Controls
                         else
                         {
                             if (!SelectedNodes.Contains(node))
+                            {
                                 SelectNode(node);
+                            }
 
                             _dragPos = OffsetMousePosition;
                             _provisionalDragging = true;
@@ -774,13 +864,19 @@ namespace ReaLTaiizor.Controls
                     else if (button == MouseButtons.Right)
                     {
                         if (MultiSelect && ModifierKeys == Keys.Shift)
+                        {
                             return;
+                        }
 
                         if (MultiSelect && ModifierKeys == Keys.Control)
+                        {
                             return;
+                        }
 
                         if (!SelectedNodes.Contains(node))
+                        {
                             SelectNode(node);
+                        }
 
                         return;
                     }
@@ -789,26 +885,32 @@ namespace ReaLTaiizor.Controls
 
             if (node.Expanded)
             {
-                foreach (var childNode in node.Nodes)
+                foreach (CrownTreeNode childNode in node.Nodes)
+                {
                     CheckNodeClick(childNode, location, button);
+                }
             }
         }
 
         private void CheckNodeDoubleClick(CrownTreeNode node, Point location)
         {
-            var rect = GetNodeFullRowArea(node);
+            Rectangle rect = GetNodeFullRowArea(node);
             if (rect.Contains(location))
             {
                 if (!node.ExpandArea.Contains(location))
+                {
                     node.Expanded = !node.Expanded;
+                }
 
                 return;
             }
 
             if (node.Expanded)
             {
-                foreach (var childNode in node.Nodes)
+                foreach (CrownTreeNode childNode in node.Nodes)
+                {
                     CheckNodeDoubleClick(childNode, location);
+                }
             }
         }
 
@@ -825,14 +927,16 @@ namespace ReaLTaiizor.Controls
 
         public void SelectNodes(CrownTreeNode startNode, CrownTreeNode endNode)
         {
-            var nodes = new List<CrownTreeNode>();
+            List<CrownTreeNode> nodes = new List<CrownTreeNode>();
 
             if (startNode == endNode)
+            {
                 nodes.Add(startNode);
+            }
 
             if (startNode.VisibleIndex < endNode.VisibleIndex)
             {
-                var node = startNode;
+                CrownTreeNode node = startNode;
                 nodes.Add(node);
                 while (node != endNode && node != null)
                 {
@@ -842,7 +946,7 @@ namespace ReaLTaiizor.Controls
             }
             else if (startNode.VisibleIndex > endNode.VisibleIndex)
             {
-                var node = startNode;
+                CrownTreeNode node = startNode;
                 nodes.Add(node);
                 while (node != endNode && node != null)
                 {
@@ -858,8 +962,10 @@ namespace ReaLTaiizor.Controls
         {
             _selectedNodes.Clear();
 
-            foreach (var node in nodes)
+            foreach (CrownTreeNode node in nodes)
+            {
                 _selectedNodes.Add(node);
+            }
 
             if (updateAnchors && _selectedNodes.Count > 0)
             {
@@ -901,22 +1007,34 @@ namespace ReaLTaiizor.Controls
                 if (_anchoredNodeStart == node)
                 {
                     if (_anchoredNodeEnd.VisibleIndex < node.VisibleIndex)
+                    {
                         _anchoredNodeStart = node.PrevVisibleNode;
+                    }
                     else if (_anchoredNodeEnd.VisibleIndex > node.VisibleIndex)
+                    {
                         _anchoredNodeStart = node.NextVisibleNode;
+                    }
                     else
+                    {
                         _anchoredNodeStart = _anchoredNodeEnd;
+                    }
                 }
 
                 // If we just removed the anchor end then update it accordingly
                 if (_anchoredNodeEnd == node)
                 {
                     if (_anchoredNodeStart.VisibleIndex < node.VisibleIndex)
+                    {
                         _anchoredNodeEnd = node.PrevVisibleNode;
+                    }
                     else if (_anchoredNodeStart.VisibleIndex > node.VisibleIndex)
+                    {
                         _anchoredNodeEnd = node.NextVisibleNode;
+                    }
                     else
+                    {
                         _anchoredNodeEnd = _anchoredNodeStart;
+                    }
                 }
             }
             else
@@ -933,63 +1051,85 @@ namespace ReaLTaiizor.Controls
         public Rectangle GetNodeFullRowArea(CrownTreeNode node)
         {
             if (node.ParentNode != null && !node.ParentNode.Expanded)
+            {
                 return new Rectangle(-1, -1, -1, -1);
+            }
 
-            var width = Math.Max(ContentSize.Width, Viewport.Width);
-            var rect = new Rectangle(0, node.FullArea.Top, width, ItemHeight);
+            int width = Math.Max(ContentSize.Width, Viewport.Width);
+            Rectangle rect = new Rectangle(0, node.FullArea.Top, width, ItemHeight);
             return rect;
         }
 
         public void EnsureVisible()
         {
             if (SelectedNodes.Count == 0)
+            {
                 return;
+            }
 
-            foreach (var node in SelectedNodes)
+            foreach (CrownTreeNode node in SelectedNodes)
+            {
                 node.EnsureVisible();
+            }
 
-            var itemTop = -1;
+            int itemTop = -1;
 
             if (!MultiSelect)
+            {
                 itemTop = SelectedNodes[0].FullArea.Top;
+            }
             else
+            {
                 itemTop = _anchoredNodeEnd.FullArea.Top;
+            }
 
-            var itemBottom = itemTop + ItemHeight;
+            int itemBottom = itemTop + ItemHeight;
 
             if (itemTop < Viewport.Top)
+            {
                 VScrollTo(itemTop);
+            }
 
             if (itemBottom > Viewport.Bottom)
+            {
                 VScrollTo((itemBottom - Viewport.Height));
+            }
         }
 
         public void Sort()
         {
             if (TreeViewNodeSorter == null)
+            {
                 return;
+            }
 
             Nodes.Sort(TreeViewNodeSorter);
 
-            foreach (var node in Nodes)
+            foreach (CrownTreeNode node in Nodes)
+            {
                 SortChildNodes(node);
+            }
         }
 
         private void SortChildNodes(CrownTreeNode node)
         {
             node.Nodes.Sort(TreeViewNodeSorter);
 
-            foreach (var childNode in node.Nodes)
+            foreach (CrownTreeNode childNode in node.Nodes)
+            {
                 SortChildNodes(childNode);
+            }
         }
 
         public CrownTreeNode FindNode(string path)
         {
-            foreach (var node in Nodes)
+            foreach (CrownTreeNode node in Nodes)
             {
-                var compNode = FindNode(node, path);
+                CrownTreeNode compNode = FindNode(node, path);
                 if (compNode != null)
+                {
                     return compNode;
+                }
             }
 
             return null;
@@ -998,18 +1138,24 @@ namespace ReaLTaiizor.Controls
         private CrownTreeNode FindNode(CrownTreeNode parentNode, string path, bool recursive = true)
         {
             if (parentNode.FullPath == path)
+            {
                 return parentNode;
+            }
 
-            foreach (var node in parentNode.Nodes)
+            foreach (CrownTreeNode node in parentNode.Nodes)
             {
                 if (node.FullPath == path)
+                {
                     return node;
+                }
 
                 if (recursive)
                 {
-                    var compNode = FindNode(node, path);
+                    CrownTreeNode compNode = FindNode(node, path);
                     if (compNode != null)
+                    {
                         return compNode;
+                    }
                 }
             }
 
@@ -1030,17 +1176,23 @@ namespace ReaLTaiizor.Controls
 
             // Create initial list of nodes to drag
             _dragNodes = new List<CrownTreeNode>();
-            foreach (var node in SelectedNodes)
+            foreach (CrownTreeNode node in SelectedNodes)
+            {
                 _dragNodes.Add(node);
+            }
 
             // Clear out any nodes with a parent that is being dragged
-            foreach (var node in _dragNodes.ToList())
+            foreach (CrownTreeNode node in _dragNodes.ToList())
             {
                 if (node.ParentNode == null)
+                {
                     continue;
+                }
 
                 if (_dragNodes.Contains(node.ParentNode))
+                {
                     _dragNodes.Remove(node);
+                }
             }
 
             _provisionalDragging = false;
@@ -1053,39 +1205,51 @@ namespace ReaLTaiizor.Controls
         private void HandleDrag()
         {
             if (!AllowMoveNodes)
+            {
                 return;
+            }
 
-            var dropNode = _dropNode;
+            CrownTreeNode dropNode = _dropNode;
 
             if (dropNode == null)
             {
                 if (Cursor != Cursors.No)
+                {
                     Cursor = Cursors.No;
+                }
 
                 return;
             }
 
             if (ForceDropToParent(dropNode))
+            {
                 dropNode = dropNode.ParentNode;
+            }
 
             if (!CanMoveNodes(_dragNodes, dropNode))
             {
                 if (Cursor != Cursors.No)
+                {
                     Cursor = Cursors.No;
+                }
 
                 return;
             }
 
             if (Cursor != Cursors.SizeAll)
+            {
                 Cursor = Cursors.SizeAll;
+            }
         }
 
         private void HandleDrop()
         {
             if (!AllowMoveNodes)
+            {
                 return;
+            }
 
-            var dropNode = _dropNode;
+            CrownTreeNode dropNode = _dropNode;
 
             if (dropNode == null)
             {
@@ -1094,33 +1258,43 @@ namespace ReaLTaiizor.Controls
             }
 
             if (ForceDropToParent(dropNode))
+            {
                 dropNode = dropNode.ParentNode;
+            }
 
             if (CanMoveNodes(_dragNodes, dropNode, true))
             {
-                var cachedSelectedNodes = SelectedNodes.ToList();
+                List<CrownTreeNode> cachedSelectedNodes = SelectedNodes.ToList();
 
                 MoveNodes(_dragNodes, dropNode);
 
-                foreach (var node in _dragNodes)
+                foreach (CrownTreeNode node in _dragNodes)
                 {
                     if (node.ParentNode == null)
+                    {
                         Nodes.Remove(node);
+                    }
                     else
+                    {
                         node.ParentNode.Nodes.Remove(node);
+                    }
 
                     dropNode.Nodes.Add(node);
                 }
 
                 if (TreeViewNodeSorter != null)
+                {
                     dropNode.Nodes.Sort(TreeViewNodeSorter);
+                }
 
                 dropNode.Expanded = true;
 
                 NodesMoved(_dragNodes);
 
-                foreach (var node in cachedSelectedNodes)
+                foreach (CrownTreeNode node in cachedSelectedNodes)
+                {
                     _selectedNodes.Add(node);
+                }
             }
 
             StopDrag();
@@ -1147,14 +1321,18 @@ namespace ReaLTaiizor.Controls
         protected virtual bool CanMoveNodes(List<CrownTreeNode> dragNodes, CrownTreeNode dropNode, bool isMoving = false)
         {
             if (dropNode == null)
+            {
                 return false;
+            }
 
-            foreach (var node in dragNodes)
+            foreach (CrownTreeNode node in dragNodes)
             {
                 if (node == dropNode)
                 {
                     if (isMoving)
+                    {
                         CrownMessageBox.ShowError($"Cannot move {node.Text}. The destination folder is the same as the source folder.", Application.ProductName);
+                    }
 
                     return false;
                 }
@@ -1162,18 +1340,22 @@ namespace ReaLTaiizor.Controls
                 if (node.ParentNode != null && node.ParentNode == dropNode)
                 {
                     if (isMoving)
+                    {
                         CrownMessageBox.ShowError($"Cannot move {node.Text}. The destination folder is the same as the source folder.", Application.ProductName);
+                    }
 
                     return false;
                 }
 
-                var parentNode = dropNode.ParentNode;
+                CrownTreeNode parentNode = dropNode.ParentNode;
                 while (parentNode != null)
                 {
                     if (node == parentNode)
                     {
                         if (isMoving)
+                        {
                             CrownMessageBox.ShowError($"Cannot move {node.Text}. The destination folder is a subfolder of the source folder.", Application.ProductName);
+                        }
 
                         return false;
                     }
@@ -1197,7 +1379,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void PaintContent(Graphics g)
         {
-            foreach (var node in Nodes)
+            foreach (CrownTreeNode node in Nodes)
             {
                 DrawNode(node, g);
             }
@@ -1205,18 +1387,22 @@ namespace ReaLTaiizor.Controls
 
         private void DrawNode(CrownTreeNode node, Graphics g)
         {
-            var rect = GetNodeFullRowArea(node);
+            Rectangle rect = GetNodeFullRowArea(node);
 
             // 1. Draw background
-            var bgColor = node.Odd ? CrownColors.HeaderBackground : CrownColors.GreyBackground;
+            Color bgColor = node.Odd ? CrownColors.HeaderBackground : CrownColors.GreyBackground;
 
             if (SelectedNodes.Count > 0 && SelectedNodes.Contains(node))
+            {
                 bgColor = Focused ? CrownColors.BlueSelection : CrownColors.GreySelection;
+            }
 
             if (IsDragging && _dropNode == node)
+            {
                 bgColor = Focused ? CrownColors.BlueSelection : CrownColors.GreySelection;
+            }
 
-            using (var b = new SolidBrush(bgColor))
+            using (SolidBrush b = new SolidBrush(bgColor))
             {
                 g.FillRectangle(b, rect);
             }
@@ -1224,22 +1410,34 @@ namespace ReaLTaiizor.Controls
             // 2. Draw plus/minus icon
             if (node.Nodes.Count > 0)
             {
-                var pos = new Point(node.ExpandArea.Location.X - 1, node.ExpandArea.Location.Y - 1);
+                Point pos = new Point(node.ExpandArea.Location.X - 1, node.ExpandArea.Location.Y - 1);
 
-                var icon = _nodeOpen;
+                Bitmap icon = _nodeOpen;
 
                 if (node.Expanded && !node.ExpandAreaHot)
+                {
                     icon = _nodeOpen;
+                }
                 else if (node.Expanded && node.ExpandAreaHot && !SelectedNodes.Contains(node))
+                {
                     icon = _nodeOpenHover;
+                }
                 else if (node.Expanded && node.ExpandAreaHot && SelectedNodes.Contains(node))
+                {
                     icon = _nodeOpenHoverSelected;
+                }
                 else if (!node.Expanded && !node.ExpandAreaHot)
+                {
                     icon = _nodeClosed;
+                }
                 else if (!node.Expanded && node.ExpandAreaHot && !SelectedNodes.Contains(node))
+                {
                     icon = _nodeClosedHover;
+                }
                 else if (!node.Expanded && node.ExpandAreaHot && SelectedNodes.Contains(node))
+                {
                     icon = _nodeClosedHoverSelected;
+                }
 
                 g.DrawImageUnscaled(icon, pos);
             }
@@ -1248,15 +1446,19 @@ namespace ReaLTaiizor.Controls
             if (ShowIcons && node.Icon != null)
             {
                 if (node.Expanded && node.ExpandedIcon != null)
+                {
                     g.DrawImageUnscaled(node.ExpandedIcon, node.IconArea.Location);
+                }
                 else
+                {
                     g.DrawImageUnscaled(node.Icon, node.IconArea.Location);
+                }
             }
 
             // 4. Draw text
-            using (var b = new SolidBrush(CrownColors.LightText))
+            using (SolidBrush b = new SolidBrush(CrownColors.LightText))
             {
-                var stringFormat = new StringFormat
+                StringFormat stringFormat = new StringFormat
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Center
@@ -1268,8 +1470,10 @@ namespace ReaLTaiizor.Controls
             // 5. Draw child nodes
             if (node.Expanded)
             {
-                foreach (var childNode in node.Nodes)
+                foreach (CrownTreeNode childNode in node.Nodes)
+                {
                     DrawNode(childNode, g);
+                }
             }
         }
 

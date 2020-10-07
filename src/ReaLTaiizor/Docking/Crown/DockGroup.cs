@@ -286,9 +286,7 @@ namespace ReaLTaiizor.Docking.Crown
                     // Loop through and progressively resize the larger tabs until the total size fits within the tab area.
                     while (differenceMadeUp < difference)
                     {
-                        int largest = _tabs.Values.OrderByDescending(tab => tab.ClientRectangle.Width)
-                                                                     .First()
-                                                                     .ClientRectangle.Width;
+                        int largest = _tabs.Values.OrderByDescending(tab => tab.ClientRectangle.Width).First().ClientRectangle.Width;
 
                         foreach (DockContent content in orderedContent)
                         {
@@ -329,9 +327,7 @@ namespace ReaLTaiizor.Docking.Crown
                 foreach (DockContent content in orderedContent)
                 {
                     DockTab tab = _tabs[content];
-                    Rectangle closeRect = new Rectangle(tab.ClientRectangle.Right - 7 - closeButtonSize - 1,
-                                                  tab.ClientRectangle.Top + (tab.ClientRectangle.Height / 2) - (closeButtonSize / 2) - 1,
-                                                  closeButtonSize, closeButtonSize);
+                    Rectangle closeRect = new Rectangle(tab.ClientRectangle.Right - 7 - closeButtonSize - 1, tab.ClientRectangle.Top + (tab.ClientRectangle.Height / 2) - (closeButtonSize / 2) - 1, closeButtonSize, closeButtonSize);
                     tab.CloseButtonRectangle = closeRect;
                 }
             }

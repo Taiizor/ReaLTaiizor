@@ -28,14 +28,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            using (var p = new Pen(CrownColors.DarkBorder))
+            using (Pen p = new Pen(CrownColors.DarkBorder))
             {
                 g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
             }
 
-            using (var p = new Pen(CrownColors.LightBorder))
+            using (Pen p = new Pen(CrownColors.LightBorder))
             {
                 g.DrawLine(p, ClientRectangle.Left, 1, ClientRectangle.Right, 1);
             }

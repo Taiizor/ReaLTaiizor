@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Field Region
 
-        private string _message;
+        private readonly string _message;
         private int _maximumWidth = 350;
 
         #endregion
@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(350)]
         public int MaximumWidth
         {
-            get { return _maximumWidth; }
+            get => _maximumWidth;
             set
             {
                 _maximumWidth = value;
@@ -91,9 +91,9 @@ namespace ReaLTaiizor.Controls
 
         private static DialogResult ShowDialog(string message, string caption, DialogMessageBox icon, DialogButton buttons)
         {
-            using (var dlg = new CrownMessageBox(message, caption, icon, buttons))
+            using (CrownMessageBox dlg = new CrownMessageBox(message, caption, icon, buttons))
             {
-                var result = dlg.ShowDialog();
+                DialogResult result = dlg.ShowDialog();
                 return result;
             }
         }
@@ -124,7 +124,7 @@ namespace ReaLTaiizor.Controls
 
         private void CalculateSize()
         {
-            var width = 260; var height = 124;
+            int width = 260; int height = 124;
 
             // Reset form back to original size
             Size = new Size(width, height);
@@ -134,10 +134,10 @@ namespace ReaLTaiizor.Controls
             lblText.Text = _message;
 
             // Set the minimum dialog size to whichever is bigger - the original size or the buttons.
-            var minWidth = Math.Max(width, TotalButtonSize + 15);
+            int minWidth = Math.Max(width, TotalButtonSize + 15);
 
             // Calculate the total size of the message
-            var totalWidth = lblText.Right + 25;
+            int totalWidth = lblText.Right + 25;
 
             // Make sure we're not making the dialog bigger than the maximum size
             if (totalWidth < _maximumWidth)
@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Controls
                 // Width is larger than the maximum width.
                 // Change the label size and wrap it.
                 width = _maximumWidth;
-                var offsetHeight = Height - picIcon.Height;
+                int offsetHeight = Height - picIcon.Height;
                 lblText.AutoUpdateHeight = true;
                 lblText.Width = width - lblText.Left - 25;
                 height = offsetHeight + lblText.Height;
@@ -161,7 +161,9 @@ namespace ReaLTaiizor.Controls
 
             // Force the width to the minimum width
             if (width < minWidth)
+            {
                 width = minWidth;
+            }
 
             // Set the new size of the dialog
             Size = new Size(width, height);

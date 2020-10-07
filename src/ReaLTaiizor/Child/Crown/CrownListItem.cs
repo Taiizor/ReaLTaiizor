@@ -28,13 +28,15 @@ namespace ReaLTaiizor.Child.Crown
 
         public string Text
         {
-            get { return _text; }
+            get => _text;
             set
             {
                 _text = value;
 
                 if (TextChanged != null)
+                {
                     TextChanged(this, new EventArgs());
+                }
             }
         }
 

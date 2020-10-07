@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Child.Crown
         private Point _offsetMousePosition;
 
         private int _maxDragChange = 0;
-        private Timer _dragTimer;
+        private readonly Timer _dragTimer;
 
         private bool _hideScrollBars = true;
 
@@ -47,13 +47,15 @@ namespace ReaLTaiizor.Child.Crown
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Rectangle Viewport
         {
-            get { return _viewport; }
+            get => _viewport;
             private set
             {
                 _viewport = value;
 
                 if (ViewportChanged != null)
+                {
                     ViewportChanged(this, null);
+                }
             }
         }
 
@@ -61,30 +63,29 @@ namespace ReaLTaiizor.Child.Crown
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Size ContentSize
         {
-            get { return _contentSize; }
+            get => _contentSize;
             set
             {
                 _contentSize = value;
                 UpdateScrollBars();
 
                 if (ContentSizeChanged != null)
+                {
                     ContentSizeChanged(this, null);
+                }
             }
         }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Point OffsetMousePosition
-        {
-            get { return _offsetMousePosition; }
-        }
+        public Point OffsetMousePosition => _offsetMousePosition;
 
         [Category("Behavior")]
         [Description("Determines the maximum scroll change when dragging.")]
         [DefaultValue(0)]
         public int MaxDragChange
         {
-            get { return _maxDragChange; }
+            get => _maxDragChange;
             set
             {
                 _maxDragChange = value;
@@ -101,7 +102,7 @@ namespace ReaLTaiizor.Child.Crown
         [DefaultValue(true)]
         public bool HideScrollBars
         {
-            get { return _hideScrollBars; }
+            get => _hideScrollBars;
             set
             {
                 _hideScrollBars = value;
@@ -134,8 +135,10 @@ namespace ReaLTaiizor.Child.Crown
             _vScrollBar.MouseDown += delegate { Select(); };
             _hScrollBar.MouseDown += delegate { Select(); };
 
-            _dragTimer = new Timer();
-            _dragTimer.Interval = 1;
+            _dragTimer = new Timer
+            {
+                Interval = 1
+            };
             _dragTimer.Tick += DragTimer_Tick;
         }
 
@@ -146,12 +149,16 @@ namespace ReaLTaiizor.Child.Crown
         private void UpdateScrollBars()
         {
             if (_vScrollBar.Maximum != ContentSize.Height)
+            {
                 _vScrollBar.Maximum = ContentSize.Height;
+            }
 
             if (_hScrollBar.Maximum != ContentSize.Width)
+            {
                 _hScrollBar.Maximum = ContentSize.Width;
+            }
 
-            var scrollSize = Consts.ScrollBarSize;
+            int scrollSize = Consts.ScrollBarSize;
 
             _vScrollBar.Location = new Point(ClientSize.Width - scrollSize, 0);
             _vScrollBar.Size = new Size(scrollSize, ClientSize.Height);
@@ -160,7 +167,9 @@ namespace ReaLTaiizor.Child.Crown
             _hScrollBar.Size = new Size(ClientSize.Width, scrollSize);
 
             if (DesignMode)
+            {
                 return;
+            }
 
             // Do this twice in case changing the visibility of the scrollbars
             // causes the VisibleSize to change in such a way as to require a second scrollbar.
@@ -171,10 +180,14 @@ namespace ReaLTaiizor.Child.Crown
             SetScrollBarVisibility();
 
             if (_vScrollBar.Visible)
+            {
                 _hScrollBar.Width -= scrollSize;
+            }
 
             if (_hScrollBar.Visible)
+            {
                 _vScrollBar.Height -= scrollSize;
+            }
 
             _vScrollBar.ViewSize = _visibleSize.Height;
             _hScrollBar.ViewSize = _visibleSize.Width;
@@ -196,23 +209,27 @@ namespace ReaLTaiizor.Child.Crown
 
         private void SetVisibleSize()
         {
-            var scrollSize = Consts.ScrollBarSize;
+            int scrollSize = Consts.ScrollBarSize;
 
             _visibleSize = new Size(ClientSize.Width, ClientSize.Height);
 
             if (_vScrollBar.Visible)
+            {
                 _visibleSize.Width -= scrollSize;
+            }
 
             if (_hScrollBar.Visible)
+            {
                 _visibleSize.Height -= scrollSize;
+            }
         }
 
         private void UpdateViewport()
         {
-            var left = 0;
-            var top = 0;
-            var width = ClientSize.Width;
-            var height = ClientSize.Height;
+            int left = 0;
+            int top = 0;
+            int width = ClientSize.Width;
+            int height = ClientSize.Height;
 
             if (_hScrollBar.Visible)
             {
@@ -228,7 +245,7 @@ namespace ReaLTaiizor.Child.Crown
 
             Viewport = new Rectangle(left, top, width, height);
 
-            var pos = PointToClient(MousePosition);
+            Point pos = PointToClient(MousePosition);
             _offsetMousePosition = new Point(pos.X + Viewport.Left, pos.Y + Viewport.Top);
 
             Invalidate();
@@ -243,13 +260,17 @@ namespace ReaLTaiizor.Child.Crown
         public void VScrollTo(int value)
         {
             if (_vScrollBar.Visible)
+            {
                 _vScrollBar.Value = value;
+            }
         }
 
         public void HScrollTo(int value)
         {
             if (_hScrollBar.Visible)
+            {
                 _hScrollBar.Value = value;
+            }
         }
 
         protected virtual void StartDrag()
@@ -318,34 +339,48 @@ namespace ReaLTaiizor.Child.Crown
             base.OnMouseDown(e);
 
             if (e.Button == MouseButtons.Right)
+            {
                 Select();
+            }
         }
 
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
 
-            var horizontal = false;
+            bool horizontal = false;
 
             if (_hScrollBar.Visible && ModifierKeys == Keys.Control)
+            {
                 horizontal = true;
+            }
 
             if (_hScrollBar.Visible && !_vScrollBar.Visible)
+            {
                 horizontal = true;
+            }
 
             if (!horizontal)
             {
                 if (e.Delta > 0)
+                {
                     _vScrollBar.ScrollByPhysical(3);
+                }
                 else if (e.Delta < 0)
+                {
                     _vScrollBar.ScrollByPhysical(-3);
+                }
             }
             else
             {
                 if (e.Delta > 0)
+                {
                     _hScrollBar.ScrollByPhysical(3);
+                }
                 else if (e.Delta < 0)
+                {
                     _hScrollBar.ScrollByPhysical(-3);
+                }
             }
         }
 
@@ -367,26 +402,32 @@ namespace ReaLTaiizor.Child.Crown
 
         private void DragTimer_Tick(object sender, EventArgs e)
         {
-            var pos = PointToClient(MousePosition);
+            Point pos = PointToClient(MousePosition);
 
-            var right = ClientRectangle.Right;
-            var bottom = ClientRectangle.Bottom;
+            int right = ClientRectangle.Right;
+            int bottom = ClientRectangle.Bottom;
 
             if (_vScrollBar.Visible)
+            {
                 right = _vScrollBar.Left;
+            }
 
             if (_hScrollBar.Visible)
+            {
                 bottom = _hScrollBar.Top;
+            }
 
             if (_vScrollBar.Visible)
             {
                 // Scroll up
                 if (pos.Y < ClientRectangle.Top)
                 {
-                    var difference = (pos.Y - ClientRectangle.Top) * -1;
+                    int difference = (pos.Y - ClientRectangle.Top) * -1;
 
                     if (MaxDragChange > 0 && difference > MaxDragChange)
+                    {
                         difference = MaxDragChange;
+                    }
 
                     _vScrollBar.Value = _vScrollBar.Value - difference;
                 }
@@ -394,10 +435,12 @@ namespace ReaLTaiizor.Child.Crown
                 // Scroll down
                 if (pos.Y > bottom)
                 {
-                    var difference = pos.Y - bottom;
+                    int difference = pos.Y - bottom;
 
                     if (MaxDragChange > 0 && difference > MaxDragChange)
+                    {
                         difference = MaxDragChange;
+                    }
 
                     _vScrollBar.Value = _vScrollBar.Value + difference;
                 }
@@ -408,10 +451,12 @@ namespace ReaLTaiizor.Child.Crown
                 // Scroll left
                 if (pos.X < ClientRectangle.Left)
                 {
-                    var difference = (pos.X - ClientRectangle.Left) * -1;
+                    int difference = (pos.X - ClientRectangle.Left) * -1;
 
                     if (MaxDragChange > 0 && difference > MaxDragChange)
+                    {
                         difference = MaxDragChange;
+                    }
 
                     _hScrollBar.Value = _hScrollBar.Value - difference;
                 }
@@ -419,10 +464,12 @@ namespace ReaLTaiizor.Child.Crown
                 // Scroll right
                 if (pos.X > right)
                 {
-                    var difference = pos.X - right;
+                    int difference = pos.X - right;
 
                     if (MaxDragChange > 0 && difference > MaxDragChange)
+                    {
                         difference = MaxDragChange;
+                    }
 
                     _hScrollBar.Value = _hScrollBar.Value + difference;
                 }

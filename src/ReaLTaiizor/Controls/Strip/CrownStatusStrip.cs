@@ -30,19 +30,19 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
-            using (var b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
 
-            using (var p = new Pen(CrownColors.DarkBorder))
+            using (Pen p = new Pen(CrownColors.DarkBorder))
             {
                 g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
             }
 
-            using (var p = new Pen(CrownColors.LightBorder))
+            using (Pen p = new Pen(CrownColors.LightBorder))
             {
                 g.DrawLine(p, ClientRectangle.Left, 1, ClientRectangle.Right, 1);
             }

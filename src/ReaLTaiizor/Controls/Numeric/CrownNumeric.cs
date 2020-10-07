@@ -119,34 +119,38 @@ namespace ReaLTaiizor.Controls
 
         private void CrownNumericUpDown_Paint(object sender, PaintEventArgs e)
         {
-            var g = e.Graphics;
-            var rect = e.ClipRectangle;
+            Graphics g = e.Graphics;
+            Rectangle rect = e.ClipRectangle;
 
-            var fillColor = CrownColors.HeaderBackground;
+            Color fillColor = CrownColors.HeaderBackground;
 
-            using (var b = new SolidBrush(fillColor))
+            using (SolidBrush b = new SolidBrush(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
 
-            var mousePos = Controls[0].PointToClient(Cursor.Position);
+            Point mousePos = Controls[0].PointToClient(Cursor.Position);
 
-            var upArea = new Rectangle(0, 0, rect.Width, rect.Height / 2);
-            var upHot = upArea.Contains(mousePos);
+            Rectangle upArea = new Rectangle(0, 0, rect.Width, rect.Height / 2);
+            bool upHot = upArea.Contains(mousePos);
 
-            var upIcon = upHot ? Properties.Resources.scrollbar_arrow_small_hot : Properties.Resources.scrollbar_arrow_small_standard;
+            Bitmap upIcon = upHot ? Properties.Resources.scrollbar_arrow_small_hot : Properties.Resources.scrollbar_arrow_small_standard;
             if (upHot && _mouseDown)
+            {
                 upIcon = Properties.Resources.scrollbar_arrow_small_clicked;
+            }
 
             upIcon.RotateFlip(RotateFlipType.RotateNoneFlipY);
             g.DrawImageUnscaled(upIcon, (upArea.Width / 2) - (upIcon.Width / 2), (upArea.Height / 2) - (upIcon.Height / 2));
 
-            var downArea = new Rectangle(0, rect.Height / 2, rect.Width, rect.Height / 2);
-            var downHot = downArea.Contains(mousePos);
+            Rectangle downArea = new Rectangle(0, rect.Height / 2, rect.Width, rect.Height / 2);
+            bool downHot = downArea.Contains(mousePos);
 
-            var downIcon = downHot ? Properties.Resources.scrollbar_arrow_small_hot : Properties.Resources.scrollbar_arrow_small_standard;
+            Bitmap downIcon = downHot ? Properties.Resources.scrollbar_arrow_small_hot : Properties.Resources.scrollbar_arrow_small_standard;
             if (downHot && _mouseDown)
+            {
                 downIcon = Properties.Resources.scrollbar_arrow_small_clicked;
+            }
 
             g.DrawImageUnscaled(downIcon, (downArea.Width / 2) - (downIcon.Width / 2), downArea.Top + (downArea.Height / 2) - (downIcon.Height / 2));
         }
@@ -155,17 +159,19 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
-            var g = e.Graphics;
-            var rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-            var borderColor = CrownColors.GreySelection;
+            Color borderColor = CrownColors.GreySelection;
 
             if (Focused && TabStop)
-                borderColor = CrownColors.BlueHighlight;
-
-            using (var p = new Pen(borderColor, 1))
             {
-                var modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                borderColor = CrownColors.BlueHighlight;
+            }
+
+            using (Pen p = new Pen(borderColor, 1))
+            {
+                Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
                 g.DrawRectangle(p, modRect);
             }
         }
