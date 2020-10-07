@@ -23,6 +23,8 @@ namespace ReaLTaiizor.UI
         private readonly DockLayers _dockLayers;
         private readonly DockHistory _dockHistory;
 
+        private readonly string ConfigFile = "CrownDockPanel.config";
+
         #endregion
 
         #region Constructor Region
@@ -60,9 +62,9 @@ namespace ReaLTaiizor.UI
             _toolWindows.Add(_dockHistory);
 
             // Deserialize if a previous state is stored
-            if (File.Exists("dockpanel.config"))
+            if (File.Exists(ConfigFile))
             {
-                DeserializeDockPanel("dockpanel.config");
+                DeserializeDockPanel(ConfigFile);
             }
             else
             {
@@ -108,8 +110,6 @@ namespace ReaLTaiizor.UI
             mnuConsole.Click += Console_Click;
             mnuLayers.Click += Layers_Click;
             mnuHistory.Click += History_Click;
-
-            mnuAbout.Click += About_Click;
         }
 
         private void ToggleToolWindow(CrownToolWindow toolWindow)
@@ -139,7 +139,7 @@ namespace ReaLTaiizor.UI
 
         private void Form21_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SerializeDockPanel("dockpanel.config");
+            SerializeDockPanel(ConfigFile);
         }
 
         private void DockPanel_ContentAdded(object sender, DockContentEventArgs e)
@@ -198,12 +198,6 @@ namespace ReaLTaiizor.UI
         private void History_Click(object sender, EventArgs e)
         {
             ToggleToolWindow(_dockHistory);
-        }
-
-        private void About_Click(object sender, EventArgs e)
-        {
-            DialogAbout about = new DialogAbout();
-            about.ShowDialog();
         }
 
         #endregion

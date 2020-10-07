@@ -183,12 +183,6 @@
     <Compile Include="Form9.designer.cs">
       <DependentUpon>Form9.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dialogs\DialogAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Dialogs\DialogAbout.Designer.cs">
-      <DependentUpon>DialogAbout.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Dialogs\DialogControls.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,9 +297,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form9.resx">
       <DependentUpon>Form9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dialogs\DialogAbout.resx">
-      <DependentUpon>DialogAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dialogs\DialogControls.resx">
       <DependentUpon>DialogControls.cs</DependentUpon>

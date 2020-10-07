@@ -268,6 +268,9 @@
   <data name="scrollbar_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\scrollbar_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="scrollbar_arrow_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crown\scrollbar_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="small_arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\small_arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

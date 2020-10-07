@@ -339,7 +339,7 @@ namespace ReaLTaiizor.Properties {
         {
             get
             {
-                object obj = ResourceManager.GetObject("tw-active_close_selected", resourceCulture);
+                object obj = ResourceManager.GetObject("tw_active_close_selected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -247,7 +247,8 @@ namespace ReaLTaiizor
 
         public ControlRenderer(ColorTable ColorTable)
         {
-            ColorTable = ColorTable;
+            var thisis = this;
+            thisis.ColorTable = ColorTable;
         }
 
         private ColorTable _ColorTable;
