@@ -13,27 +13,27 @@ using System.Collections.Generic;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region DockRegionDocking
+    #region CrownDockRegionDocking
 
     [ToolboxItem(false)]
-    public class DockRegion : Panel
+    public class CrownDockRegion : Panel
     {
         #region Field Region
 
-        private readonly List<DockGroup> _groups;
+        private readonly List<CrownDockGroup> _groups;
 
         private Form _parentForm;
-        private DockSplitter _splitter;
+        private CrownDockSplitter _splitter;
 
         #endregion
 
         #region Property Region
 
-        public DockPanel DockPanel { get; private set; }
+        public CrownDockPanel DockPanel { get; private set; }
 
         public DockArea DockArea { get; private set; }
 
-        public DockContent ActiveDocument
+        public CrownDockContent ActiveDocument
         {
             get
             {
@@ -46,15 +46,15 @@ namespace ReaLTaiizor.Docking.Crown
             }
         }
 
-        public List<DockGroup> Groups => _groups.ToList();
+        public List<CrownDockGroup> Groups => _groups.ToList();
 
         #endregion
 
         #region Constructor Region
 
-        public DockRegion(DockPanel dockPanel, DockArea dockArea)
+        public CrownDockRegion(CrownDockPanel dockPanel, DockArea dockArea)
         {
-            _groups = new List<DockGroup>();
+            _groups = new List<CrownDockGroup>();
 
             DockPanel = dockPanel;
             DockArea = dockArea;
@@ -66,12 +66,12 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Method Region
 
-        internal void AddContent(DockContent dockContent)
+        internal void AddContent(CrownDockContent dockContent)
         {
             AddContent(dockContent, null);
         }
 
-        internal void AddContent(DockContent dockContent, DockGroup dockGroup)
+        internal void AddContent(CrownDockContent dockContent, CrownDockGroup dockGroup)
         {
             // If no existing group is specified then create a new one
             if (dockGroup == null)
@@ -99,7 +99,7 @@ namespace ReaLTaiizor.Docking.Crown
             PositionGroups();
         }
 
-        internal void InsertContent(DockContent dockContent, DockGroup dockGroup, DockInsertType insertType)
+        internal void InsertContent(CrownDockContent dockContent, CrownDockGroup dockGroup, DockInsertType insertType)
         {
             int order = dockGroup.Order;
 
@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Docking.Crown
                 order++;
             }
 
-            DockGroup newGroup = InsertGroup(order);
+            CrownDockGroup newGroup = InsertGroup(order);
 
             dockContent.DockRegion = this;
             newGroup.AddContent(dockContent);
@@ -122,11 +122,11 @@ namespace ReaLTaiizor.Docking.Crown
             PositionGroups();
         }
 
-        internal void RemoveContent(DockContent dockContent)
+        internal void RemoveContent(CrownDockContent dockContent)
         {
             dockContent.DockRegion = null;
 
-            DockGroup group = dockContent.DockGroup;
+            CrownDockGroup group = dockContent.DockGroup;
             group.RemoveContent(dockContent);
 
             dockContent.DockArea = DockArea.None;
@@ -147,11 +147,11 @@ namespace ReaLTaiizor.Docking.Crown
             PositionGroups();
         }
 
-        public List<DockContent> GetContents()
+        public List<CrownDockContent> GetContents()
         {
-            List<DockContent> result = new List<DockContent>();
+            List<CrownDockContent> result = new List<CrownDockContent>();
 
-            foreach (DockGroup group in _groups)
+            foreach (CrownDockGroup group in _groups)
             {
                 result.AddRange(group.GetContents());
             }
@@ -159,14 +159,14 @@ namespace ReaLTaiizor.Docking.Crown
             return result;
         }
 
-        private DockGroup CreateGroup()
+        private CrownDockGroup CreateGroup()
         {
             int order = 0;
 
             if (_groups.Count >= 1)
             {
                 order = -1;
-                foreach (DockGroup group in _groups)
+                foreach (CrownDockGroup group in _groups)
                 {
                     if (group.Order >= order)
                     {
@@ -175,16 +175,16 @@ namespace ReaLTaiizor.Docking.Crown
                 }
             }
 
-            DockGroup newGroup = new DockGroup(DockPanel, this, order);
+            CrownDockGroup newGroup = new CrownDockGroup(DockPanel, this, order);
             _groups.Add(newGroup);
             Controls.Add(newGroup);
 
             return newGroup;
         }
 
-        private DockGroup InsertGroup(int order)
+        private CrownDockGroup InsertGroup(int order)
         {
-            foreach (DockGroup group in _groups)
+            foreach (CrownDockGroup group in _groups)
             {
                 if (group.Order >= order)
                 {
@@ -192,21 +192,21 @@ namespace ReaLTaiizor.Docking.Crown
                 }
             }
 
-            DockGroup newGroup = new DockGroup(DockPanel, this, order);
+            CrownDockGroup newGroup = new CrownDockGroup(DockPanel, this, order);
             _groups.Add(newGroup);
             Controls.Add(newGroup);
 
             return newGroup;
         }
 
-        private void RemoveGroup(DockGroup group)
+        private void RemoveGroup(CrownDockGroup group)
         {
             int lastOrder = group.Order;
 
             _groups.Remove(group);
             Controls.Remove(group);
 
-            foreach (DockGroup otherGroup in _groups)
+            foreach (CrownDockGroup otherGroup in _groups)
             {
                 if (otherGroup.Order > lastOrder)
                 {
@@ -242,9 +242,9 @@ namespace ReaLTaiizor.Docking.Crown
 
             if (_groups.Count > 1)
             {
-                DockGroup lastGroup = _groups.OrderByDescending(g => g.Order).First();
+                CrownDockGroup lastGroup = _groups.OrderByDescending(g => g.Order).First();
 
-                foreach (DockGroup group in _groups.OrderByDescending(g => g.Order))
+                foreach (CrownDockGroup group in _groups.OrderByDescending(g => g.Order))
                 {
                     group.SendToBack();
 
@@ -285,7 +285,7 @@ namespace ReaLTaiizor.Docking.Crown
                     break;
             }
 
-            foreach (DockGroup group in _groups)
+            foreach (CrownDockGroup group in _groups)
             {
                 group.Size = size;
             }
@@ -330,13 +330,13 @@ namespace ReaLTaiizor.Docking.Crown
             switch (DockArea)
             {
                 case DockArea.Left:
-                    _splitter = new DockSplitter(DockPanel, this, SplitterType.Right);
+                    _splitter = new CrownDockSplitter(DockPanel, this, SplitterType.Right);
                     break;
                 case DockArea.Right:
-                    _splitter = new DockSplitter(DockPanel, this, SplitterType.Left);
+                    _splitter = new CrownDockSplitter(DockPanel, this, SplitterType.Left);
                     break;
                 case DockArea.Bottom:
-                    _splitter = new DockSplitter(DockPanel, this, SplitterType.Top);
+                    _splitter = new CrownDockSplitter(DockPanel, this, SplitterType.Top);
                     break;
                 default:
                     return;
@@ -398,7 +398,7 @@ namespace ReaLTaiizor.Docking.Crown
         {
             Invalidate();
 
-            foreach (DockGroup group in _groups)
+            foreach (CrownDockGroup group in _groups)
             {
                 group.Redraw();
             }

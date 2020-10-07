@@ -18,25 +18,25 @@ namespace ReaLTaiizor.Native
     {
         #region Field Region
 
-        private readonly DockPanel _dockPanel;
+        private readonly CrownDockPanel _dockPanel;
 
-        private DockContent _dragContent;
+        private CrownDockContent _dragContent;
 
         private readonly CrownTranslucentForm _highlightForm;
 
         private bool _isDragging = false;
-        private DockRegion _targetRegion;
-        private DockGroup _targetGroup;
+        private CrownDockRegion _targetRegion;
+        private CrownDockGroup _targetGroup;
         private DockInsertType _insertType = DockInsertType.None;
 
-        private Dictionary<DockRegion, DockDropArea> _regionDropAreas = new Dictionary<DockRegion, DockDropArea>();
-        private Dictionary<DockGroup, DockDropCollection> _groupDropAreas = new Dictionary<DockGroup, DockDropCollection>();
+        private Dictionary<CrownDockRegion, DockDropArea> _regionDropAreas = new Dictionary<CrownDockRegion, DockDropArea>();
+        private Dictionary<CrownDockGroup, DockDropCollection> _groupDropAreas = new Dictionary<CrownDockGroup, DockDropCollection>();
 
         #endregion
 
         #region Constructor Region
 
-        public DockContentDragFilter(DockPanel dockPanel)
+        public DockContentDragFilter(CrownDockPanel dockPanel)
         {
             _dockPanel = dockPanel;
 
@@ -104,13 +104,13 @@ namespace ReaLTaiizor.Native
 
         #region Method Region
 
-        public void StartDrag(DockContent content)
+        public void StartDrag(CrownDockContent content)
         {
-            _regionDropAreas = new Dictionary<DockRegion, DockDropArea>();
-            _groupDropAreas = new Dictionary<DockGroup, DockDropCollection>();
+            _regionDropAreas = new Dictionary<CrownDockRegion, DockDropArea>();
+            _groupDropAreas = new Dictionary<CrownDockGroup, DockDropCollection>();
 
             // Add all regions and groups to the drop collections
-            foreach (DockRegion region in _dockPanel.Regions.Values)
+            foreach (CrownDockRegion region in _dockPanel.Regions.Values)
             {
                 if (region.DockArea == DockArea.Document)
                 {
@@ -120,7 +120,7 @@ namespace ReaLTaiizor.Native
                 // If the region is visible then build drop areas for the groups.
                 if (region.Visible)
                 {
-                    foreach (DockGroup group in region.Groups)
+                    foreach (CrownDockGroup group in region.Groups)
                     {
                         DockDropCollection collection = new DockDropCollection(_dockPanel, group);
                         _groupDropAreas.Add(group, collection);

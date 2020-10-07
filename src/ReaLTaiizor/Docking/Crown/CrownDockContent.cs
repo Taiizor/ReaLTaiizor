@@ -10,10 +10,10 @@ using ReaLTaiizor.Enum.Crown;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region DockContentDocking
+    #region CrownDockContentDocking
 
     [ToolboxItem(false)]
-    public class DockContent : UserControl
+    public class CrownDockContent : UserControl
     {
         #region Event Handler Region
 
@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Category("Layout")]
         [Description("Determines the default area of the dock panel this content will be added to.")]
-        [DefaultValue(DockArea.Document)]
+        [DefaultValue(Enum.Crown.DockArea.Document)]
         public DockArea DefaultDockArea { get; set; }
 
         [Category("Behavior")]
@@ -73,15 +73,15 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DockPanel DockPanel { get; internal set; }
+        public CrownDockPanel DockPanel { get; internal set; }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DockRegion DockRegion { get; internal set; }
+        public CrownDockRegion DockRegion { get; internal set; }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DockGroup DockGroup { get; internal set; }
+        public CrownDockGroup DockGroup { get; internal set; }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -95,7 +95,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Constructor Region
 
-        public DockContent()
+        public CrownDockContent()
         { }
 
         #endregion

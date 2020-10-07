@@ -10,9 +10,9 @@ using ReaLTaiizor.Enum.Crown;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region DockSplitterDocking
+    #region CrownDockSplitterDocking
 
-    public class DockSplitter
+    public class CrownDockSplitter
     {
         #region Field Region
 
@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Constructor Region
 
-        public DockSplitter(Control parentControl, Control control, SplitterType splitterType)
+        public CrownDockSplitter(Control parentControl, Control control, SplitterType splitterType)
         {
             _parentControl = parentControl;
             _control = control;

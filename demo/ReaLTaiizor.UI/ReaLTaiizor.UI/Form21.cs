@@ -15,7 +15,7 @@ namespace ReaLTaiizor.UI
     {
         #region Field Region
 
-        private readonly List<DockContent> _toolWindows = new List<DockContent>();
+        private readonly List<CrownDockContent> _toolWindows = new List<CrownDockContent>();
 
         private readonly DockProject _dockProject;
         private readonly DockProperties _dockProperties;
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.UI
             else
             {
                 // Add the tool window list contents to the dock panel
-                foreach (DockContent toolWindow in _toolWindows)
+                foreach (CrownDockContent toolWindow in _toolWindows)
                 {
                     DockPanel.AddContent(toolWindow);
                 }
@@ -112,7 +112,7 @@ namespace ReaLTaiizor.UI
             mnuAbout.Click += About_Click;
         }
 
-        private void ToggleToolWindow(ToolWindow toolWindow)
+        private void ToggleToolWindow(CrownToolWindow toolWindow)
         {
             if (toolWindow.DockPanel == null)
             {
@@ -222,9 +222,9 @@ namespace ReaLTaiizor.UI
             DockPanel.RestoreDockPanelState(state, GetContentBySerializationKey);
         }
          
-        private DockContent GetContentBySerializationKey(string key)
+        private CrownDockContent GetContentBySerializationKey(string key)
         {
-            foreach (DockContent window in _toolWindows)
+            foreach (CrownDockContent window in _toolWindows)
             {
                 if (window.SerializationKey == key)
                 {

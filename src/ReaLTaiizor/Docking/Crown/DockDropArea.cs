@@ -13,15 +13,15 @@ namespace ReaLTaiizor.Docking.Crown
     {
         #region Property Region
 
-        internal DockPanel DockPanel { get; private set; }
+        internal CrownDockPanel DockPanel { get; private set; }
 
         internal Rectangle DropArea { get; private set; }
 
         internal Rectangle HighlightArea { get; private set; }
 
-        internal DockRegion DockRegion { get; private set; }
+        internal CrownDockRegion DockRegion { get; private set; }
 
-        internal DockGroup DockGroup { get; private set; }
+        internal CrownDockGroup DockGroup { get; private set; }
 
         internal DockInsertType InsertType { get; private set; }
 
@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Constructor Region
 
-        internal DockDropArea(DockPanel dockPanel, DockRegion region)
+        internal DockDropArea(CrownDockPanel dockPanel, CrownDockRegion region)
         {
             DockPanel = dockPanel;
             DockRegion = region;
@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Docking.Crown
             BuildAreas();
         }
 
-        internal DockDropArea(DockPanel dockPanel, DockGroup group, DockInsertType insertType)
+        internal DockDropArea(CrownDockPanel dockPanel, CrownDockGroup group, DockInsertType insertType)
         {
             DockPanel = dockPanel;
             DockGroup = group;
@@ -68,6 +68,7 @@ namespace ReaLTaiizor.Docking.Crown
             switch (DockRegion.DockArea)
             {
                 case DockArea.Left:
+
                     Rectangle leftRect = new Rectangle
                     {
                         X = DockPanel.PointToScreen(Point.Empty).X,
@@ -80,7 +81,9 @@ namespace ReaLTaiizor.Docking.Crown
                     HighlightArea = leftRect;
 
                     break;
+
                 case DockArea.Right:
+
                     Rectangle rightRect = new Rectangle
                     {
                         X = DockPanel.PointToScreen(Point.Empty).X + DockPanel.Width - 50,
@@ -93,7 +96,9 @@ namespace ReaLTaiizor.Docking.Crown
                     HighlightArea = rightRect;
 
                     break;
+
                 case DockArea.Bottom:
+
                     int x = DockPanel.PointToScreen(Point.Empty).X;
                     int width = DockPanel.Width;
 
@@ -138,7 +143,9 @@ namespace ReaLTaiizor.Docking.Crown
 
                     DropArea = dropRect;
                     HighlightArea = dropRect;
+
                     break;
+
                 case DockInsertType.Before:
                     int beforeDropWidth = DockGroup.Width;
                     int beforeDropHeight = DockGroup.Height;
@@ -149,6 +156,7 @@ namespace ReaLTaiizor.Docking.Crown
                         case DockArea.Right:
                             beforeDropHeight = DockGroup.Height / 4;
                             break;
+
                         case DockArea.Bottom:
                             beforeDropWidth = DockGroup.Width / 4;
                             break;
@@ -166,6 +174,7 @@ namespace ReaLTaiizor.Docking.Crown
                     HighlightArea = beforeDropRect;
 
                     break;
+
                 case DockInsertType.After:
                     int afterDropX = DockGroup.PointToScreen(Point.Empty).X;
                     int afterDropY = DockGroup.PointToScreen(Point.Empty).Y;
@@ -179,6 +188,7 @@ namespace ReaLTaiizor.Docking.Crown
                             afterDropHeight = DockGroup.Height / 4;
                             afterDropY = DockGroup.PointToScreen(Point.Empty).Y + DockGroup.Height - afterDropHeight;
                             break;
+
                         case DockArea.Bottom:
                             afterDropWidth = DockGroup.Width / 4;
                             afterDropX = DockGroup.PointToScreen(Point.Empty).X + DockGroup.Width - afterDropWidth;

@@ -10,13 +10,13 @@ using System.Collections.Generic;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region DockTabAreaDocking
+    #region CrownDockTabAreaDocking
 
-    internal class DockTabArea
+    internal class CrownDockTabArea
     {
         #region Field Region
 
-        private readonly Dictionary<DockContent, DockTab> _tabs = new Dictionary<DockContent, DockTab>();
+        private readonly Dictionary<CrownDockContent, CrownDockTab> _tabs = new Dictionary<CrownDockContent, CrownDockTab>();
 
         private readonly List<ToolStripMenuItem> _menuItems = new List<ToolStripMenuItem>();
         private readonly CrownContextMenuStrip _tabMenu = new CrownContextMenuStrip();
@@ -39,13 +39,13 @@ namespace ReaLTaiizor.Docking.Crown
 
         public bool Visible { get; set; }
 
-        public DockTab ClickedCloseButton { get; set; }
+        public CrownDockTab ClickedCloseButton { get; set; }
 
         #endregion
 
         #region Constructor Region
 
-        public DockTabArea(DockArea dockArea)
+        public CrownDockTabArea(DockArea dockArea)
         {
             DockArea = dockArea;
         }
@@ -71,12 +71,12 @@ namespace ReaLTaiizor.Docking.Crown
             RebuildMenu();
         }
 
-        public ToolStripMenuItem GetMenuItem(DockContent content)
+        public ToolStripMenuItem GetMenuItem(CrownDockContent content)
         {
             ToolStripMenuItem menuItem = null;
             foreach (ToolStripMenuItem item in _menuItems)
             {
-                DockContent menuContent = item.Tag as DockContent;
+                CrownDockContent menuContent = item.Tag as CrownDockContent;
                 if (menuContent == null)
                 {
                     continue;
@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Docking.Crown
             {
                 foreach (ToolStripMenuItem item in _menuItems)
                 {
-                    DockContent content = (DockContent)item.Tag;
+                    CrownDockContent content = (CrownDockContent)item.Tag;
                     if (content.Order == index)
                     {
                         orderedItems.Add(item);

@@ -8,10 +8,10 @@ using ReaLTaiizor.Enum.Crown;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region DocumentDocking
+    #region CrownDocumentDocking
 
     [ToolboxItem(false)]
-    public class Document : DockContent
+    public class CrownDocument : CrownDockContent
     {
         #region Property Region
 
@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Constructor Region
 
-        public Document()
+        public CrownDocument()
         {
             BackColor = CrownColors.GreyBackground;
             base.DefaultDockArea = DockArea.Document;

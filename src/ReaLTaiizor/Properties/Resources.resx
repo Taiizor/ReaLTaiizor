@@ -205,16 +205,16 @@
   <data name="lnkClear.NoFocusImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Poison\TextBox\lnkClear.NoFocusImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="active-inactive-close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="active_inactive_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\active-inactive-close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close-normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="close_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\close-normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close-selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="close_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\close-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="err" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -223,10 +223,10 @@
   <data name="grip" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\grip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="inactive-close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="inactive_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\inactive-close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="inactive-close-selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="inactive_close_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown\inactive-close-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">

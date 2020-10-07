@@ -59,7 +59,7 @@ namespace ReaLTaiizor.UI
             toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-            DockPanel = new ReaLTaiizor.Docking.Crown.DockPanel();
+            DockPanel = new ReaLTaiizor.Docking.Crown.CrownDockPanel();
             CrownSeparator1 = new ReaLTaiizor.Controls.CrownSeparator();
             mnuMain.SuspendLayout();
             toolMain.SuspendLayout();
@@ -400,7 +400,7 @@ namespace ReaLTaiizor.UI
         private System.Windows.Forms.ToolStripButton btnNewFile;
         private System.Windows.Forms.ToolStripMenuItem mnuNewFile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private DockPanel DockPanel;
+        private CrownDockPanel DockPanel;
         private System.Windows.Forms.ToolStripMenuItem mnuProject;
         private System.Windows.Forms.ToolStripMenuItem mnuProperties;
         private System.Windows.Forms.ToolStripMenuItem mnuConsole;

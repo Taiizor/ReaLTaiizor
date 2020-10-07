@@ -16,18 +16,18 @@ namespace ReaLTaiizor.Native
     {
         #region Field Region
 
-        private readonly DockPanel _dockPanel;
+        private readonly CrownDockPanel _dockPanel;
 
         private readonly Timer _dragTimer;
         private bool _isDragging;
         private Point _initialContact;
-        private DockSplitter _activeSplitter;
+        private CrownDockSplitter _activeSplitter;
 
         #endregion
 
         #region Constructor Region
 
-        public DockResizeFilter(DockPanel dockPanel)
+        public DockResizeFilter(CrownDockPanel dockPanel)
         {
             _dockPanel = dockPanel;
 
@@ -99,7 +99,7 @@ namespace ReaLTaiizor.Native
             // Start drag.
             if (m.Msg == (int)WM.LBUTTONDOWN)
             {
-                DockSplitter hotSplitter = HotSplitter();
+                CrownDockSplitter hotSplitter = HotSplitter();
                 if (hotSplitter != null)
                 {
                     StartDrag(hotSplitter);
@@ -142,7 +142,7 @@ namespace ReaLTaiizor.Native
 
         #region Method Region
 
-        private void StartDrag(DockSplitter splitter)
+        private void StartDrag(CrownDockSplitter splitter)
         {
             _activeSplitter = splitter;
             Cursor.Current = _activeSplitter.ResizeCursor;
@@ -165,9 +165,9 @@ namespace ReaLTaiizor.Native
             _isDragging = false;
         }
 
-        private DockSplitter HotSplitter()
+        private CrownDockSplitter HotSplitter()
         {
-            foreach (DockSplitter splitter in _dockPanel.Splitters)
+            foreach (CrownDockSplitter splitter in _dockPanel.Splitters)
             {
                 if (splitter.Bounds.Contains(Cursor.Position))
                 {
@@ -185,7 +185,7 @@ namespace ReaLTaiizor.Native
                 return;
             }
 
-            DockSplitter hotSplitter = HotSplitter();
+            CrownDockSplitter hotSplitter = HotSplitter();
             if (hotSplitter != null)
             {
                 Cursor.Current = hotSplitter.ResizeCursor;

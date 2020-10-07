@@ -13,9 +13,9 @@ using System.Collections.Generic;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region DockPanelDocking
+    #region CrownDockPanelDocking
 
-    public class DockPanel : UserControl
+    public class CrownDockPanel : UserControl
     {
         #region Event Region
 
@@ -27,10 +27,10 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Field Region
 
-        private readonly List<DockContent> _contents;
-        private readonly Dictionary<DockArea, DockRegion> _regions;
+        private readonly List<CrownDockContent> _contents;
+        private readonly Dictionary<DockArea, CrownDockRegion> _regions;
 
-        private DockContent _activeContent;
+        private CrownDockContent _activeContent;
         private bool _switchingContent = false;
 
         #endregion
@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DockContent ActiveContent
+        public CrownDockContent ActiveContent
         {
             get => _activeContent;
             set
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Docking.Crown
                 ActiveGroup = _activeContent.DockGroup;
                 ActiveRegion = ActiveGroup.DockRegion;
 
-                foreach (DockRegion region in _regions.Values)
+                foreach (CrownDockRegion region in _regions.Values)
                 {
                     region.Redraw();
                 }
@@ -73,15 +73,15 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DockRegion ActiveRegion { get; internal set; }
+        public CrownDockRegion ActiveRegion { get; internal set; }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DockGroup ActiveGroup { get; internal set; }
+        public CrownDockGroup ActiveGroup { get; internal set; }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DockContent ActiveDocument => _regions[DockArea.Document].ActiveDocument;
+        public CrownDockContent ActiveDocument => _regions[DockArea.Document].ActiveDocument;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<DockSplitter> Splitters { get; private set; }
+        public List<CrownDockSplitter> Splitters { get; private set; }
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -108,20 +108,20 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Dictionary<DockArea, DockRegion> Regions => _regions;
+        public Dictionary<DockArea, CrownDockRegion> Regions => _regions;
 
         #endregion
 
         #region Constructor Region
 
-        public DockPanel()
+        public CrownDockPanel()
         {
-            Splitters = new List<DockSplitter>();
+            Splitters = new List<CrownDockSplitter>();
             DockContentDragFilter = new DockContentDragFilter(this);
             DockResizeFilter = new DockResizeFilter(this);
 
-            _regions = new Dictionary<DockArea, DockRegion>();
-            _contents = new List<DockContent>();
+            _regions = new Dictionary<DockArea, CrownDockRegion>();
+            _contents = new List<CrownDockContent>();
 
             BackColor = CrownColors.GreyBackground;
 
@@ -132,12 +132,12 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Method Region
 
-        public void AddContent(DockContent dockContent)
+        public void AddContent(CrownDockContent dockContent)
         {
             AddContent(dockContent, null);
         }
 
-        public void AddContent(DockContent dockContent, DockGroup dockGroup)
+        public void AddContent(CrownDockContent dockContent, CrownDockGroup dockGroup)
         {
             if (_contents.Contains(dockContent))
             {
@@ -157,7 +157,7 @@ namespace ReaLTaiizor.Docking.Crown
                 dockContent.DockArea = dockContent.DefaultDockArea;
             }
 
-            DockRegion region = _regions[dockContent.DockArea];
+            CrownDockRegion region = _regions[dockContent.DockArea];
             region.AddContent(dockContent, dockGroup);
 
             if (ContentAdded != null)
@@ -168,7 +168,7 @@ namespace ReaLTaiizor.Docking.Crown
             dockContent.Select();
         }
 
-        public void InsertContent(DockContent dockContent, DockGroup dockGroup, DockInsertType insertType)
+        public void InsertContent(CrownDockContent dockContent, CrownDockGroup dockGroup, DockInsertType insertType)
         {
             if (_contents.Contains(dockContent))
             {
@@ -180,7 +180,7 @@ namespace ReaLTaiizor.Docking.Crown
 
             dockContent.DockArea = dockGroup.DockArea;
 
-            DockRegion region = _regions[dockGroup.DockArea];
+            CrownDockRegion region = _regions[dockGroup.DockArea];
             region.InsertContent(dockContent, dockGroup, insertType);
 
             if (ContentAdded != null)
@@ -191,7 +191,7 @@ namespace ReaLTaiizor.Docking.Crown
             dockContent.Select();
         }
 
-        public void RemoveContent(DockContent dockContent)
+        public void RemoveContent(CrownDockContent dockContent)
         {
             if (!_contents.Contains(dockContent))
             {
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Docking.Crown
             dockContent.DockPanel = null;
             _contents.Remove(dockContent);
 
-            DockRegion region = _regions[dockContent.DockArea];
+            CrownDockRegion region = _regions[dockContent.DockArea];
             region.RemoveContent(dockContent);
 
             if (ContentRemoved != null)
@@ -210,28 +210,28 @@ namespace ReaLTaiizor.Docking.Crown
             }
         }
 
-        public bool ContainsContent(DockContent dockContent)
+        public bool ContainsContent(CrownDockContent dockContent)
         {
             return _contents.Contains(dockContent);
         }
 
-        public List<DockContent> GetDocuments()
+        public List<CrownDockContent> GetDocuments()
         {
             return _regions[DockArea.Document].GetContents();
         }
 
         private void CreateRegions()
         {
-            DockRegion documentRegion = new DockRegion(this, DockArea.Document);
+            CrownDockRegion documentRegion = new CrownDockRegion(this, DockArea.Document);
             _regions.Add(DockArea.Document, documentRegion);
 
-            DockRegion leftRegion = new DockRegion(this, DockArea.Left);
+            CrownDockRegion leftRegion = new CrownDockRegion(this, DockArea.Left);
             _regions.Add(DockArea.Left, leftRegion);
 
-            DockRegion rightRegion = new DockRegion(this, DockArea.Right);
+            CrownDockRegion rightRegion = new CrownDockRegion(this, DockArea.Right);
             _regions.Add(DockArea.Right, rightRegion);
 
-            DockRegion bottomRegion = new DockRegion(this, DockArea.Bottom);
+            CrownDockRegion bottomRegion = new CrownDockRegion(this, DockArea.Bottom);
             _regions.Add(DockArea.Bottom, bottomRegion);
 
             // Add the regions in this order to force the bottom region to be positioned
@@ -248,7 +248,7 @@ namespace ReaLTaiizor.Docking.Crown
             leftRegion.TabIndex = 3;
         }
 
-        public void DragContent(DockContent content)
+        public void DragContent(CrownDockContent content)
         {
             DockContentDragFilter.StartDrag(content);
         }
@@ -266,10 +266,10 @@ namespace ReaLTaiizor.Docking.Crown
             state.Regions.Add(new DockRegionState(DockArea.Right, _regions[DockArea.Right].Size));
             state.Regions.Add(new DockRegionState(DockArea.Bottom, _regions[DockArea.Bottom].Size));
 
-            Dictionary<DockGroup, DockGroupState> _groupStates = new Dictionary<DockGroup, DockGroupState>();
+            Dictionary<CrownDockGroup, DockGroupState> _groupStates = new Dictionary<CrownDockGroup, DockGroupState>();
 
-            IOrderedEnumerable<DockContent> orderedContent = _contents.OrderBy(c => c.Order);
-            foreach (DockContent content in orderedContent)
+            IOrderedEnumerable<CrownDockContent> orderedContent = _contents.OrderBy(c => c.Order);
+            foreach (CrownDockContent content in orderedContent)
             {
                 foreach (DockRegionState region in state.Regions)
                 {
@@ -298,7 +298,7 @@ namespace ReaLTaiizor.Docking.Crown
             return state;
         }
 
-        public void RestoreDockPanelState(DockPanelState state, Func<string, DockContent> getContentBySerializationKey)
+        public void RestoreDockPanelState(DockPanelState state, Func<string, CrownDockContent> getContentBySerializationKey)
         {
             foreach (DockRegionState region in state.Regions)
             {
@@ -317,12 +317,12 @@ namespace ReaLTaiizor.Docking.Crown
 
                 foreach (DockGroupState group in region.Groups)
                 {
-                    DockContent previousContent = null;
-                    DockContent visibleContent = null;
+                    CrownDockContent previousContent = null;
+                    CrownDockContent visibleContent = null;
 
                     foreach (string contentKey in group.Contents)
                     {
-                        DockContent content = getContentBySerializationKey(contentKey);
+                        CrownDockContent content = getContentBySerializationKey(contentKey);
 
                         if (content == null)
                         {

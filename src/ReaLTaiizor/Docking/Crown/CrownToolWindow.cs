@@ -11,10 +11,10 @@ using System.ComponentModel;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region ToolWindowDocking
+    #region CrownToolWindowDocking
 
     [ToolboxItem(false)]
-    public class ToolWindow : DockContent
+    public class CrownToolWindow : CrownDockContent
     {
         #region Field Region
 
@@ -37,15 +37,11 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Constructor Region
 
-        public ToolWindow()
+        public CrownToolWindow()
         {
-            SetStyle
-            (
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.ResizeRedraw |
-                ControlStyles.UserPaint,
-                    true
-            );
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.ResizeRedraw |
+                     ControlStyles.UserPaint, true);
 
             BackColor = CrownColors.GreyBackground;
             base.Padding = new Padding(0, Consts.ToolWindowHeaderSize, 0, 0);

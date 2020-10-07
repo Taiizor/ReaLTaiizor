@@ -14,32 +14,32 @@ using System.Collections.Generic;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region DockGroupDocking
+    #region CrownDockGroupDocking
 
     [ToolboxItem(false)]
-    public class DockGroup : Panel
+    public class CrownDockGroup : Panel
     {
         #region Field Region
 
-        private readonly List<DockContent> _contents = new List<DockContent>();
+        private readonly List<CrownDockContent> _contents = new List<CrownDockContent>();
 
-        private readonly Dictionary<DockContent, DockTab> _tabs = new Dictionary<DockContent, DockTab>();
+        private readonly Dictionary<CrownDockContent, CrownDockTab> _tabs = new Dictionary<CrownDockContent, CrownDockTab>();
 
-        private readonly DockTabArea _tabArea;
+        private readonly CrownDockTabArea _tabArea;
 
-        private DockTab _dragTab = null;
+        private CrownDockTab _dragTab = null;
 
         #endregion
 
         #region Property Region
 
-        public DockPanel DockPanel { get; private set; }
+        public CrownDockPanel DockPanel { get; private set; }
 
-        public DockRegion DockRegion { get; private set; }
+        public CrownDockRegion DockRegion { get; private set; }
 
         public DockArea DockArea { get; private set; }
 
-        public DockContent VisibleContent { get; private set; }
+        public CrownDockContent VisibleContent { get; private set; }
 
         public int Order { get; set; }
 
@@ -49,15 +49,11 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Constructor Region
 
-        public DockGroup(DockPanel dockPanel, DockRegion dockRegion, int order)
+        public CrownDockGroup(CrownDockPanel dockPanel, CrownDockRegion dockRegion, int order)
         {
-            SetStyle
-            (
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.ResizeRedraw |
-                ControlStyles.UserPaint,
-                true
-            );
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.ResizeRedraw |
+                     ControlStyles.UserPaint, true);
 
             DockPanel = dockPanel;
             DockRegion = dockRegion;
@@ -65,7 +61,7 @@ namespace ReaLTaiizor.Docking.Crown
 
             Order = order;
 
-            _tabArea = new DockTabArea(DockArea);
+            _tabArea = new CrownDockTabArea(DockArea);
 
             DockPanel.ActiveContentChanged += DockPanel_ActiveContentChanged;
         }
@@ -74,7 +70,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Method Region
 
-        public void AddContent(DockContent dockContent)
+        public void AddContent(CrownDockContent dockContent)
         {
             dockContent.DockGroup = this;
             dockContent.Dock = DockStyle.Fill;
@@ -84,7 +80,7 @@ namespace ReaLTaiizor.Docking.Crown
             if (_contents.Count > 0)
             {
                 int order = -1;
-                foreach (DockContent otherContent in _contents)
+                foreach (CrownDockContent otherContent in _contents)
                 {
                     if (otherContent.Order >= order)
                     {
@@ -100,7 +96,7 @@ namespace ReaLTaiizor.Docking.Crown
 
             dockContent.DockTextChanged += DockContent_DockTextChanged;
 
-            _tabs.Add(dockContent, new DockTab(dockContent));
+            _tabs.Add(dockContent, new CrownDockTab(dockContent));
 
             if (VisibleContent == null)
             {
@@ -123,7 +119,7 @@ namespace ReaLTaiizor.Docking.Crown
             UpdateTabArea();
         }
 
-        public void RemoveContent(DockContent dockContent)
+        public void RemoveContent(CrownDockContent dockContent)
         {
             dockContent.DockGroup = null;
 
@@ -132,7 +128,7 @@ namespace ReaLTaiizor.Docking.Crown
             _contents.Remove(dockContent);
             Controls.Remove(dockContent);
 
-            foreach (DockContent otherContent in _contents)
+            foreach (CrownDockContent otherContent in _contents)
             {
                 if (otherContent.Order > order)
                 {
@@ -153,7 +149,7 @@ namespace ReaLTaiizor.Docking.Crown
 
                 if (_contents.Count > 0)
                 {
-                    DockContent newContent = _contents[0];
+                    CrownDockContent newContent = _contents[0];
                     newContent.Visible = true;
                     VisibleContent = newContent;
                 }
@@ -167,7 +163,7 @@ namespace ReaLTaiizor.Docking.Crown
             UpdateTabArea();
         }
 
-        public List<DockContent> GetContents()
+        public List<CrownDockContent> GetContents()
         {
             return _contents.OrderBy(c => c.Order).ToList();
         }
@@ -230,13 +226,13 @@ namespace ReaLTaiizor.Docking.Crown
             // Calculate areas of all tabs
             int totalSize = 0;
 
-            IOrderedEnumerable<DockContent> orderedContent = _contents.OrderBy(c => c.Order);
+            IOrderedEnumerable<CrownDockContent> orderedContent = _contents.OrderBy(c => c.Order);
 
-            foreach (DockContent content in orderedContent)
+            foreach (CrownDockContent content in orderedContent)
             {
                 int width;
 
-                DockTab tab = _tabs[content];
+                CrownDockTab tab = _tabs[content];
 
                 using (Graphics g = CreateGraphics())
                 {
@@ -276,7 +272,7 @@ namespace ReaLTaiizor.Docking.Crown
                     int difference = totalSize - _tabArea.ClientRectangle.Width;
 
                     // No matter what, we want to slice off the 1 pixel separator from the final tab.
-                    DockTab lastTab = _tabs[orderedContent.Last()];
+                    CrownDockTab lastTab = _tabs[orderedContent.Last()];
                     Rectangle tabRect = lastTab.ClientRectangle;
                     lastTab.ClientRectangle = new Rectangle(tabRect.Left, tabRect.Top, tabRect.Width - 1, tabRect.Height);
                     lastTab.ShowSeparator = false;
@@ -286,11 +282,13 @@ namespace ReaLTaiizor.Docking.Crown
                     // Loop through and progressively resize the larger tabs until the total size fits within the tab area.
                     while (differenceMadeUp < difference)
                     {
-                        int largest = _tabs.Values.OrderByDescending(tab => tab.ClientRectangle.Width).First().ClientRectangle.Width;
+                        int largest = _tabs.Values.OrderByDescending(tab => tab.ClientRectangle.Width)
+                                                                     .First()
+                                                                     .ClientRectangle.Width;
 
-                        foreach (DockContent content in orderedContent)
+                        foreach (CrownDockContent content in orderedContent)
                         {
-                            DockTab tab = _tabs[content];
+                            CrownDockTab tab = _tabs[content];
 
                             // Check if previous iteration of loop met the difference
                             if (differenceMadeUp >= difference)
@@ -309,9 +307,9 @@ namespace ReaLTaiizor.Docking.Crown
 
                     // After resizing the tabs reposition them accordingly.
                     int xOffset = 0;
-                    foreach (DockContent content in orderedContent)
+                    foreach (CrownDockContent content in orderedContent)
                     {
-                        DockTab tab = _tabs[content];
+                        CrownDockTab tab = _tabs[content];
 
                         Rectangle rect = tab.ClientRectangle;
                         tab.ClientRectangle = new Rectangle(_tabArea.ClientRectangle.Left + xOffset, rect.Top, rect.Width, rect.Height);
@@ -324,19 +322,21 @@ namespace ReaLTaiizor.Docking.Crown
             // Build close button rectangles
             if (DockArea == DockArea.Document)
             {
-                foreach (DockContent content in orderedContent)
+                foreach (CrownDockContent content in orderedContent)
                 {
-                    DockTab tab = _tabs[content];
-                    Rectangle closeRect = new Rectangle(tab.ClientRectangle.Right - 7 - closeButtonSize - 1, tab.ClientRectangle.Top + (tab.ClientRectangle.Height / 2) - (closeButtonSize / 2) - 1, closeButtonSize, closeButtonSize);
+                    CrownDockTab tab = _tabs[content];
+                    Rectangle closeRect = new Rectangle(tab.ClientRectangle.Right - 7 - closeButtonSize - 1,
+                                                  tab.ClientRectangle.Top + (tab.ClientRectangle.Height / 2) - (closeButtonSize / 2) - 1,
+                                                  closeButtonSize, closeButtonSize);
                     tab.CloseButtonRectangle = closeRect;
                 }
             }
 
             // Update the tab area with the new total tab width
             totalSize = 0;
-            foreach (DockContent content in orderedContent)
+            foreach (CrownDockContent content in orderedContent)
             {
-                DockTab tab = _tabs[content];
+                CrownDockTab tab = _tabs[content];
                 totalSize += tab.ClientRectangle.Width;
             }
 
@@ -362,7 +362,7 @@ namespace ReaLTaiizor.Docking.Crown
             int width = ClientRectangle.Width - Padding.Horizontal - _tabArea.DropdownRectangle.Width;
             Rectangle offsetArea = new Rectangle(Padding.Left, 0, width, 0);
 
-            DockTab tab = _tabs[VisibleContent];
+            CrownDockTab tab = _tabs[VisibleContent];
 
             if (tab.ClientRectangle.IsEmpty)
             {
@@ -385,8 +385,8 @@ namespace ReaLTaiizor.Docking.Crown
 
             if (_tabArea.TotalTabSize > offsetArea.Width)
             {
-                IOrderedEnumerable<DockContent> orderedContent = _contents.OrderBy(x => x.Order);
-                DockTab lastTab = _tabs[orderedContent.Last()];
+                IOrderedEnumerable<CrownDockContent> orderedContent = _contents.OrderBy(x => x.Order);
+                CrownDockTab lastTab = _tabs[orderedContent.Last()];
                 if (lastTab != null)
                 {
                     if (RectangleToTabArea(lastTab.ClientRectangle).Right < offsetArea.Right)
@@ -399,7 +399,7 @@ namespace ReaLTaiizor.Docking.Crown
             Invalidate();
         }
 
-        public void SetVisibleContent(DockContent content)
+        public void SetVisibleContent(CrownDockContent content)
         {
             if (!_contents.Contains(content))
             {
@@ -411,7 +411,7 @@ namespace ReaLTaiizor.Docking.Crown
                 VisibleContent = content;
                 content.Visible = true;
 
-                foreach (DockContent otherContent in _contents)
+                foreach (CrownDockContent otherContent in _contents)
                 {
                     if (otherContent != content)
                     {
@@ -455,13 +455,13 @@ namespace ReaLTaiizor.Docking.Crown
                 {
                     if (_dragTab.DockContent.Order > 0)
                     {
-                        List<DockTab> otherTabs = _tabs.Values.Where(t => t.DockContent.Order == _dragTab.DockContent.Order - 1).ToList();
+                        List<CrownDockTab> otherTabs = _tabs.Values.Where(t => t.DockContent.Order == _dragTab.DockContent.Order - 1).ToList();
                         if (otherTabs.Count == 0)
                         {
                             return;
                         }
 
-                        DockTab otherTab = otherTabs.First();
+                        CrownDockTab otherTab = otherTabs.First();
 
                         if (otherTab == null)
                         {
@@ -486,13 +486,13 @@ namespace ReaLTaiizor.Docking.Crown
 
                     if (_dragTab.DockContent.Order < maxOrder)
                     {
-                        List<DockTab> otherTabs = _tabs.Values.Where(t => t.DockContent.Order == _dragTab.DockContent.Order + 1).ToList();
+                        List<CrownDockTab> otherTabs = _tabs.Values.Where(t => t.DockContent.Order == _dragTab.DockContent.Order + 1).ToList();
                         if (otherTabs.Count == 0)
                         {
                             return;
                         }
 
-                        DockTab otherTab = otherTabs.First();
+                        CrownDockTab otherTab = otherTabs.First();
 
                         if (otherTab == null)
                         {
@@ -519,7 +519,7 @@ namespace ReaLTaiizor.Docking.Crown
             {
                 _tabArea.DropdownHot = true;
 
-                foreach (DockTab tab in _tabs.Values)
+                foreach (CrownDockTab tab in _tabs.Values)
                 {
                     tab.Hot = false;
                 }
@@ -530,7 +530,7 @@ namespace ReaLTaiizor.Docking.Crown
 
             _tabArea.DropdownHot = false;
 
-            foreach (DockTab tab in _tabs.Values)
+            foreach (CrownDockTab tab in _tabs.Values)
             {
                 Rectangle rect = RectangleToTabArea(tab.ClientRectangle);
                 bool hot = rect.Contains(e.Location);
@@ -562,7 +562,7 @@ namespace ReaLTaiizor.Docking.Crown
                 return;
             }
 
-            foreach (DockTab tab in _tabs.Values)
+            foreach (CrownDockTab tab in _tabs.Values)
             {
                 Rectangle rect = RectangleToTabArea(tab.ClientRectangle);
                 if (rect.Contains(e.Location))
@@ -629,7 +629,7 @@ namespace ReaLTaiizor.Docking.Crown
         {
             base.OnMouseLeave(e);
 
-            foreach (DockTab tab in _tabs.Values)
+            foreach (CrownDockTab tab in _tabs.Values)
             {
                 tab.Hot = false;
             }
@@ -645,7 +645,7 @@ namespace ReaLTaiizor.Docking.Crown
                 return;
             }
 
-            DockContent content = menuItem.Tag as DockContent;
+            CrownDockContent content = menuItem.Tag as CrownDockContent;
             if (content == null)
             {
                 return;
@@ -669,7 +669,7 @@ namespace ReaLTaiizor.Docking.Crown
 
             VisibleContent = e.Content;
 
-            foreach (DockContent content in _contents)
+            foreach (CrownDockContent content in _contents)
             {
                 content.Visible = content == VisibleContent;
             }
@@ -693,7 +693,7 @@ namespace ReaLTaiizor.Docking.Crown
         {
             Invalidate();
 
-            foreach (DockContent content in _contents)
+            foreach (CrownDockContent content in _contents)
             {
                 content.Invalidate();
             }
@@ -718,7 +718,7 @@ namespace ReaLTaiizor.Docking.Crown
                 g.FillRectangle(b, _tabArea.ClientRectangle);
             }
 
-            foreach (DockTab tab in _tabs.Values)
+            foreach (CrownDockTab tab in _tabs.Values)
             {
                 if (DockArea == DockArea.Document)
                 {
@@ -756,7 +756,7 @@ namespace ReaLTaiizor.Docking.Crown
             }
         }
 
-        private void PaintDocumentTab(Graphics g, DockTab tab)
+        private void PaintDocumentTab(Graphics g, CrownDockTab tab)
         {
             Rectangle tabRect = RectangleToTabArea(tab.ClientRectangle);
 
@@ -833,7 +833,7 @@ namespace ReaLTaiizor.Docking.Crown
             g.DrawImageUnscaled(img, closeRect.Left, closeRect.Top);
         }
 
-        private void PaintToolWindowTab(Graphics g, DockTab tab)
+        private void PaintToolWindowTab(Graphics g, CrownDockTab tab)
         {
             Rectangle tabRect = tab.ClientRectangle;
 

@@ -10,9 +10,9 @@ namespace ReaLTaiizor.Docking.Crown
 
     public class DockContentEventArgs : EventArgs
     {
-        public DockContent Content { get; private set; }
+        public CrownDockContent Content { get; private set; }
 
-        public DockContentEventArgs(DockContent content)
+        public DockContentEventArgs(CrownDockContent content)
         {
             Content = content;
         }

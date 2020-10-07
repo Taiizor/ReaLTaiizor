@@ -3,7 +3,7 @@ using ReaLTaiizor.Docking.Crown;
 
 namespace ReaLTaiizor.UI.Forms.Docking
 {
-    public partial class DockConsole : ToolWindow
+    public partial class DockConsole : CrownToolWindow
     {
         #region Constructor Region
 

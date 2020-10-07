@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Controls
             {
                 // Width is smaller than the maximum width.
                 // This means we can have a single-line message box.
-                // Move the label to accomodate this.
+                // Move the label to accomodate 
                 width = totalWidth;
                 lblText.Top = picIcon.Top + (picIcon.Height / 2) - (lblText.Height / 2);
             }

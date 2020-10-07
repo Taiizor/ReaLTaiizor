@@ -30,48 +30,48 @@ namespace ReaLTaiizor.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.picIcon = new System.Windows.Forms.PictureBox();
-            this.lblText = new CrownLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
-            this.SuspendLayout();
+            picIcon = new System.Windows.Forms.PictureBox();
+            lblText = new CrownLabel();
+            ((System.ComponentModel.ISupportInitialize)(picIcon)).BeginInit();
+            SuspendLayout();
             // 
             // picIcon
             // 
-            this.picIcon.Location = new System.Drawing.Point(10, 10);
-            this.picIcon.Name = "picIcon";
-            this.picIcon.Size = new System.Drawing.Size(32, 32);
-            this.picIcon.TabIndex = 3;
-            this.picIcon.TabStop = false;
+            picIcon.Location = new System.Drawing.Point(10, 10);
+            picIcon.Name = "picIcon";
+            picIcon.Size = new System.Drawing.Size(32, 32);
+            picIcon.TabIndex = 3;
+            picIcon.TabStop = false;
             // 
             // lblText
             // 
-            this.lblText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.lblText.Location = new System.Drawing.Point(50, 9);
-            this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(185, 15);
-            this.lblText.TabIndex = 4;
-            this.lblText.Text = "Something something something";
+            lblText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            lblText.Location = new System.Drawing.Point(50, 9);
+            lblText.Name = "lblText";
+            lblText.Size = new System.Drawing.Size(185, 15);
+            lblText.TabIndex = 4;
+            lblText.Text = "Something something something";
             // 
             // CrownMessageBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(244, 86);
-            this.Controls.Add(this.lblText);
-            this.Controls.Add(this.picIcon);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "CrownMessageBox";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Message box";
-            this.Controls.SetChildIndex(this.picIcon, 0);
-            this.Controls.SetChildIndex(this.lblText, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(244, 86);
+            Controls.Add(lblText);
+            Controls.Add(picIcon);
+            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "CrownMessageBox";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Message box";
+            Controls.SetChildIndex(picIcon, 0);
+            Controls.SetChildIndex(lblText, 0);
+            ((System.ComponentModel.ISupportInitialize)(picIcon)).EndInit();
+            ResumeLayout(false);
 
         }
 

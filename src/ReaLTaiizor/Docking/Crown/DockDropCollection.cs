@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Constructor Region
 
-        internal DockDropCollection(DockPanel dockPanel, DockGroup group)
+        internal DockDropCollection(CrownDockPanel dockPanel, CrownDockGroup group)
         {
             DropArea = new DockDropArea(dockPanel, group, DockInsertType.None);
             InsertBeforeArea = new DockDropArea(dockPanel, group, DockInsertType.Before);

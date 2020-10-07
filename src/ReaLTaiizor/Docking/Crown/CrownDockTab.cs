@@ -6,13 +6,13 @@ using System.Drawing;
 
 namespace ReaLTaiizor.Docking.Crown
 {
-    #region DockTabDocking
+    #region CrownDockTabDocking
 
-    internal class DockTab
+    internal class CrownDockTab
     {
         #region Property Region
 
-        public DockContent DockContent { get; set; }
+        public CrownDockContent DockContent { get; set; }
 
         public Rectangle ClientRectangle { get; set; }
 
@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Constructor Region
 
-        public DockTab(DockContent content)
+        public CrownDockTab(CrownDockContent content)
         {
             DockContent = content;
         }
