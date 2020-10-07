@@ -13,7 +13,7 @@
     <PackageId>ReaLTaiizor</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Description>New components have been added and bugs in some components have been fixed.
+    <Description>Best with more than 200 WinForm components.
 C# WinForm UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
