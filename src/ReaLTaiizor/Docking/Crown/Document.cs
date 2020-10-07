@@ -17,10 +17,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new DockArea DefaultDockArea
-        {
-            get { return base.DefaultDockArea; }
-        }
+        public new DockArea DefaultDockArea => base.DefaultDockArea;
 
         #endregion
 

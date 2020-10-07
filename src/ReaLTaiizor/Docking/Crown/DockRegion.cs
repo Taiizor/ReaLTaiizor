@@ -44,13 +44,7 @@ namespace ReaLTaiizor.Docking.Crown
             }
         }
 
-        public List<DockGroup> Groups
-        {
-            get
-            {
-                return _groups.ToList();
-            }
-        }
+        public List<DockGroup> Groups => _groups.ToList();
 
         #endregion
 

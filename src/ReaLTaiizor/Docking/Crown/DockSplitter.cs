@@ -62,8 +62,10 @@ namespace ReaLTaiizor.Docking.Crown
 
         public void ShowOverlay()
         {
-            _overlayForm = new CrownTranslucentForm(Color.Black);
-            _overlayForm.Visible = true;
+            _overlayForm = new CrownTranslucentForm(Color.Black)
+            {
+                Visible = true
+            };
 
             UpdateOverlay(new Point(0, 0));
         }

@@ -34,7 +34,7 @@ namespace ReaLTaiizor.Docking.Crown
         [Description("Determines the text that will appear in the content tabs and headers.")]
         public string DockText
         {
-            get { return _dockText; }
+            get => _dockText;
             set
             {
                 var oldText = _dockText;
@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Docking.Crown
         [Description("Determines the icon that will appear in the content tabs and headers.")]
         public Image Icon
         {
-            get { return _icon; }
+            get => _icon;
             set
             {
                 _icon = value;

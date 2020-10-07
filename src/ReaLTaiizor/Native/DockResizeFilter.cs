@@ -31,8 +31,10 @@ namespace ReaLTaiizor.Native
         {
             _dockPanel = dockPanel;
 
-            _dragTimer = new Timer();
-            _dragTimer.Interval = 1;
+            _dragTimer = new Timer
+            {
+                Interval = 1
+            };
             _dragTimer.Tick += DragTimer_Tick;
         }
 

@@ -31,10 +31,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Padding Padding
-        {
-            get { return base.Padding; }
-        }
+        public new Padding Padding => base.Padding;
 
         #endregion
 

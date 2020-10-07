@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Docking.Crown
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DockContent ActiveContent
         {
-            get { return _activeContent; }
+            get => _activeContent;
             set
             {
                 // Don't let content visibility changes re-trigger event
@@ -75,13 +75,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DockContent ActiveDocument
-        {
-            get
-            {
-                return _regions[DockArea.Document].ActiveDocument;
-            }
-        }
+        public DockContent ActiveDocument => _regions[DockArea.Document].ActiveDocument;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -108,13 +102,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Dictionary<DockArea, DockRegion> Regions
-        {
-            get
-            {
-                return _regions;
-            }
-        }
+        public Dictionary<DockArea, DockRegion> Regions => _regions;
 
         #endregion
 

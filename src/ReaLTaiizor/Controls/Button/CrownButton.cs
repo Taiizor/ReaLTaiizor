@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
 
         public new string Text
         {
-            get { return base.Text; }
+            get => base.Text;
             set
             {
                 base.Text = value;
@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool Enabled
         {
-            get { return base.Enabled; }
+            get => base.Enabled;
             set
             {
                 base.Enabled = value;
@@ -58,7 +58,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(ButtonStyle.Normal)]
         public ButtonStyle ButtonStyle
         {
-            get { return _style; }
+            get => _style;
             set
             {
                 _style = value;
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(5)]
         public int ImagePadding
         {
-            get { return _imagePadding; }
+            get => _imagePadding;
             set
             {
                 _imagePadding = value;
@@ -85,59 +85,35 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new bool AutoEllipsis
-        {
-            get { return false; }
-        }
+        public new bool AutoEllipsis => false;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ControlState ButtonState
-        {
-            get { return _buttonState; }
-        }
+        public ControlState ButtonState => _buttonState;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new System.Drawing.ContentAlignment ImageAlign
-        {
-            get { return base.ImageAlign; }
-        }
+        public new System.Drawing.ContentAlignment ImageAlign => base.ImageAlign;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new bool FlatAppearance
-        {
-            get { return false; }
-        }
+        public new bool FlatAppearance => false;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new FlatStyle FlatStyle
-        {
-            get { return base.FlatStyle; }
-        }
+        public new FlatStyle FlatStyle => base.FlatStyle;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new System.Drawing.ContentAlignment TextAlign
-        {
-            get { return base.TextAlign; }
-        }
+        public new System.Drawing.ContentAlignment TextAlign => base.TextAlign;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new bool UseCompatibleTextRendering
-        {
-            get { return false; }
-        }
+        public new bool UseCompatibleTextRendering => false;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new bool UseVisualStyleBackColor
-        {
-            get { return false; }
-        }
+        public new bool UseVisualStyleBackColor => false;
 
         #endregion
 

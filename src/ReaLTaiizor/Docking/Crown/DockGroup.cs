@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public int Order { get; set; }
 
-        public int ContentCount { get { return _contents.Count; } }
+        public int ContentCount => _contents.Count;
 
         #endregion
 
@@ -110,8 +110,10 @@ namespace ReaLTaiizor.Docking.Crown
                 dockContent.Visible = false;
             }
 
-            var menuItem = new ToolStripMenuItem(dockContent.DockText);
-            menuItem.Tag = dockContent;
+            var menuItem = new ToolStripMenuItem(dockContent.DockText)
+            {
+                Tag = dockContent
+            };
             menuItem.Click += TabMenuItem_Select;
             menuItem.Image = dockContent.Icon;
             _tabArea.AddMenuItem(menuItem);

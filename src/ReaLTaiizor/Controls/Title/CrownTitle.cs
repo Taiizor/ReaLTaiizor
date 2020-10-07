@@ -17,14 +17,14 @@ namespace ReaLTaiizor.Controls
         private Color _TextColor = CrownColors.LightText;
         public Color TextColor
         {
-            get { return _TextColor; }
+            get => _TextColor;
             set { _TextColor = value; Invalidate(); }
         }
 
         private Color _LineColor = CrownColors.GreyHighlight;
         public Color LineColor
         {
-            get { return _LineColor; }
+            get => _LineColor;
             set { _LineColor = value; Invalidate(); }
         }
 

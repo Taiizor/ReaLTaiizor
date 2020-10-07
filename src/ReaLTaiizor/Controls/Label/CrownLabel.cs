@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool AutoUpdateHeight
         {
-            get { return _autoUpdateHeight; }
+            get => _autoUpdateHeight;
             set
             {
                 _autoUpdateHeight = value;
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool AutoSize
         {
-            get { return base.AutoSize; }
+            get => base.AutoSize;
             set
             {
                 base.AutoSize = value;
