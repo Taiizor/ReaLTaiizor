@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Controls
 
         private Cursor _MCursor = Cursors.Hand;
         private bool _isDerivedStyle = true;
-        private bool _useAnimation;
+        private bool _useAnimation = true;
         private int _speed = 100;
         private Color _unselectedTextColor;
         private Color _selectedTextColor;
@@ -113,6 +113,11 @@ namespace ReaLTaiizor.Controls
             _mth = new Methods();
             _utl = new Utilites();
             _slideAnimator = new PointFAnimate();
+            if (Cursor == null)
+            {
+                Cursor = _MCursor;
+            }
+
             _MCursor = Cursor;
             ApplyTheme();
         }
