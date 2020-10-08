@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <!--<TargetFramework>net48</TargetFramework>-->
     <!--<TargetFrameworks>net48;net5.0</TargetFrameworks>-->
-    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>-->
+    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
     <Version>3.7.8.1</Version>
