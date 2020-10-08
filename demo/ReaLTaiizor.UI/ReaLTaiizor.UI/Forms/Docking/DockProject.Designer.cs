@@ -53,6 +53,7 @@ namespace ReaLTaiizor.UI.Forms.Docking
             Controls.Add(treeProject);
             DefaultDockArea = Enum.Crown.DockArea.Left;
             DockText = "Project Explorer";
+			BackColor = System.Drawing.Color.Transparent;
             Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             Icon = global::ReaLTaiizor.UI.Properties.Resources.application_16x;
             Name = "DockProject";

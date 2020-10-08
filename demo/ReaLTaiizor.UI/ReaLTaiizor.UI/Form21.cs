@@ -8,6 +8,7 @@ using ReaLTaiizor.Docking.Crown;
 using System.Collections.Generic;
 using ReaLTaiizor.UI.Forms.Docking;
 using ReaLTaiizor.UI.Forms.Dialogs;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 namespace ReaLTaiizor.UI
 {
@@ -198,6 +199,20 @@ namespace ReaLTaiizor.UI
         private void History_Click(object sender, EventArgs e)
         {
             ToggleToolWindow(_dockHistory);
+        }
+
+        private void DarkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemeProvider.Theme = new DarkTheme();
+            BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            Refresh();
+        }
+
+        private void LightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemeProvider.Theme = new LightTheme();
+            BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            Refresh();
         }
 
         #endregion

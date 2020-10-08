@@ -96,7 +96,9 @@ namespace ReaLTaiizor.Docking.Crown
         #region Constructor Region
 
         public CrownDockContent()
-        { }
+        {
+            BackColor = Color.Transparent;// ThemeProvider.Theme.Colors.GreyBackground;
+        }
 
         #endregion
 

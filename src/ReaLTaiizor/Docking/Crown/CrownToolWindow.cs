@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Docking.Crown
                     true
             );
 
-            BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            //BackColor = ThemeProvider.Theme.Colors.GreyBackground;
             base.Padding = new Padding(0, ThemeProvider.Theme.Sizes.ToolWindowHeaderSize, 0, 0);
 
             UpdateCloseButton();

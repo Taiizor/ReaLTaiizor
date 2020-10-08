@@ -44,8 +44,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Library\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="ReaLTaiizor, Version=3.7.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReaLTaiizor.3.7.8\lib\net48\ReaLTaiizor.dll</HintPath>
+    <Reference Include="ReaLTaiizor">
+      <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -128,11 +128,15 @@
     <Compile Include="Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form20.cs" />
+    <Compile Include="Form20.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form20.designer.cs">
       <DependentUpon>Form20.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form21.cs" />
+    <Compile Include="Form21.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form21.designer.cs">
       <DependentUpon>Form21.cs</DependentUpon>
     </Compile>
@@ -178,31 +182,45 @@
     <Compile Include="Form9.designer.cs">
       <DependentUpon>Form9.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dialogs\DialogControls.cs" />
+    <Compile Include="Forms\Dialogs\DialogControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Dialogs\DialogControls.Designer.cs">
       <DependentUpon>DialogControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Docking\DockConsole.cs" />
+    <Compile Include="Forms\Docking\DockConsole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Docking\DockConsole.Designer.cs">
       <DependentUpon>DockConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Docking\DockDocument.cs" />
+    <Compile Include="Forms\Docking\DockDocument.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Docking\DockDocument.Designer.cs">
       <DependentUpon>DockDocument.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Docking\DockHistory.cs" />
+    <Compile Include="Forms\Docking\DockHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Docking\DockHistory.Designer.cs">
       <DependentUpon>DockHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Docking\DockLayers.cs" />
+    <Compile Include="Forms\Docking\DockLayers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Docking\DockLayers.Designer.cs">
       <DependentUpon>DockLayers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Docking\DockProject.cs" />
+    <Compile Include="Forms\Docking\DockProject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Docking\DockProject.Designer.cs">
       <DependentUpon>DockProject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Docking\DockProperties.cs" />
+    <Compile Include="Forms\Docking\DockProperties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\Docking\DockProperties.Designer.cs">
       <DependentUpon>DockProperties.cs</DependentUpon>
     </Compile>
@@ -313,7 +331,6 @@
     <EmbeddedResource Include="TaskWindowControl.resx">
       <DependentUpon>TaskWindowControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

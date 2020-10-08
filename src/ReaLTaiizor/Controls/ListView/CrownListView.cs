@@ -620,7 +620,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Text
-                using (SolidBrush b = new SolidBrush(Items[i].TextColor))
+                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText)) //Items[i].TextColor
                 {
                     StringFormat stringFormat = new StringFormat
                     {

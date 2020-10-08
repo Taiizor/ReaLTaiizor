@@ -11,6 +11,8 @@ namespace ReaLTaiizor.UI.Forms.Docking
         {
             InitializeComponent();
 
+            panel1.BackColor = panel2.BackColor = panel3.BackColor = System.Drawing.Color.Transparent;
+
             // Build dummy dropdown data
             cmbList.Items.Add(new CrownDropDownItem("Item1"));
             cmbList.Items.Add(new CrownDropDownItem("Item2"));

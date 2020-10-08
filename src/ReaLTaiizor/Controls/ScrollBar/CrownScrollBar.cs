@@ -521,7 +521,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
 
             // DEBUG: Scrollbar bg
-            /*using (var b = new SolidBrush(Colors.MediumBackground))
+            /*using (var b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }*/

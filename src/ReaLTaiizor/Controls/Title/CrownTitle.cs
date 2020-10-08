@@ -28,6 +28,11 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
+            using (var b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            {
+                g.FillRectangle(b, rect);
+            }
+
             SizeF textSize = g.MeasureString(Text, Font);
 
             using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))

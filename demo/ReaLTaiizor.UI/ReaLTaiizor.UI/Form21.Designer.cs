@@ -59,6 +59,9 @@ namespace ReaLTaiizor.UI
             toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             DockPanel = new ReaLTaiizor.Docking.Crown.CrownDockPanel();
             CrownSeparator1 = new ReaLTaiizor.Controls.CrownSeparator();
+            themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            lightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             mnuMain.SuspendLayout();
             toolMain.SuspendLayout();
             stripMain.SuspendLayout();
@@ -98,7 +101,7 @@ namespace ReaLTaiizor.UI
             mnuNewFile.Image = global::ReaLTaiizor.UI.Properties.Resources.NewFile_6276;
             mnuNewFile.Name = "mnuNewFile";
             mnuNewFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            mnuNewFile.Size = new System.Drawing.Size(180, 22);
+            mnuNewFile.Size = new System.Drawing.Size(160, 22);
             mnuNewFile.Text = "&New file";
             // 
             // toolStripSeparator1
@@ -106,7 +109,7 @@ namespace ReaLTaiizor.UI
             toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // mnuClose
             // 
@@ -114,14 +117,15 @@ namespace ReaLTaiizor.UI
             mnuClose.Image = global::ReaLTaiizor.UI.Properties.Resources.Close_16xLG;
             mnuClose.Name = "mnuClose";
             mnuClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            mnuClose.Size = new System.Drawing.Size(180, 22);
+            mnuClose.Size = new System.Drawing.Size(160, 22);
             mnuClose.Text = "&Close";
             // 
             // mnuView
             // 
             mnuView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             mnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            mnuDialog});
+            mnuDialog,
+            themeToolStripMenuItem});
             mnuView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuView.Name = "mnuView";
             mnuView.Size = new System.Drawing.Size(44, 20);
@@ -132,7 +136,7 @@ namespace ReaLTaiizor.UI
             mnuDialog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuDialog.Image = global::ReaLTaiizor.UI.Properties.Resources.properties_16xLG;
             mnuDialog.Name = "mnuDialog";
-            mnuDialog.Size = new System.Drawing.Size(130, 22);
+            mnuDialog.Size = new System.Drawing.Size(180, 22);
             mnuDialog.Text = "&Dialog test";
             // 
             // mnuTools
@@ -333,6 +337,35 @@ namespace ReaLTaiizor.UI
             CrownSeparator1.TabIndex = 4;
             CrownSeparator1.Text = "CrownSeparator1";
             // 
+            // themeToolStripMenuItem
+            // 
+            themeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            darkToolStripMenuItem,
+            lightToolStripMenuItem});
+            themeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+            themeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            themeToolStripMenuItem.Text = "Theme";
+            // 
+            // darkToolStripMenuItem
+            // 
+            darkToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            darkToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            darkToolStripMenuItem.Name = "darkToolStripMenuItem";
+            darkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            darkToolStripMenuItem.Text = "Dark";
+            darkToolStripMenuItem.Click += new System.EventHandler(DarkToolStripMenuItem_Click);
+            // 
+            // lightToolStripMenuItem
+            // 
+            lightToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            lightToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            lightToolStripMenuItem.Name = "lightToolStripMenuItem";
+            lightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            lightToolStripMenuItem.Text = "Light";
+            lightToolStripMenuItem.Click += new System.EventHandler(LightToolStripMenuItem_Click);
+            // 
             // Form21
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -389,6 +422,9 @@ namespace ReaLTaiizor.UI
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem checkedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkedWithIconToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem darkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lightToolStripMenuItem;
     }
 }
 

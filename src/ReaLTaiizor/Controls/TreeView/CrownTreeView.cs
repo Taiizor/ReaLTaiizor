@@ -1379,6 +1379,12 @@ namespace ReaLTaiizor.Controls
 
         protected override void PaintContent(Graphics g)
         {
+            // Fill body
+            using (var b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            {
+                g.FillRectangle(b, ClientRectangle);
+            }
+
             foreach (CrownTreeNode node in Nodes)
             {
                 DrawNode(node, g);
