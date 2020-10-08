@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Drawing;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Native;
 using System.Windows.Forms;
@@ -205,6 +206,15 @@ namespace ReaLTaiizor.UI
         {
             ThemeProvider.Theme = new DarkTheme();
             BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            foreach (Control Control in DockPanel.ActiveDocument.Controls)
+            {
+                if (Control.Name == "txtDocument")
+                {
+                    Control.ForeColor = ThemeProvider.Theme.Colors.LightText;
+                    Control.BackColor = Color.FromArgb(43, 43, 43);
+                }
+            }
+            Invalidate();
             Refresh();
         }
 
@@ -212,6 +222,16 @@ namespace ReaLTaiizor.UI
         {
             ThemeProvider.Theme = new LightTheme();
             BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            foreach (Control Control in DockPanel.ActiveDocument.Controls)
+            {
+                if (Control.Name == "txtDocument")
+                {
+                    Control.ForeColor = ThemeProvider.Theme.Colors.LightText;
+                    Control.BackColor = ThemeProvider.Theme.Colors.LightBackground;
+                    break;
+                }
+            }
+            Invalidate();
             Refresh();
         }
 

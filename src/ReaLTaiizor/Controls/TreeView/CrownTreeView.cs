@@ -1377,6 +1377,12 @@ namespace ReaLTaiizor.Controls
 
         #region Paint Region
 
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
+            LoadIcons();
+        }
+
         protected override void PaintContent(Graphics g)
         {
             // Fill body

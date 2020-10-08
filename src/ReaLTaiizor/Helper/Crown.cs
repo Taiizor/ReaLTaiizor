@@ -3,6 +3,7 @@
 using System.Drawing;
 using ReaLTaiizor.Util;
 using ReaLTaiizor.Colors;
+using System.ComponentModel;
 using ReaLTaiizor.Interface.Crown;
 
 #endregion
@@ -99,6 +100,26 @@ namespace ReaLTaiizor.Helper
 
         public class ThemeProvider
         {
+            public static event PropertyChangedEventHandler PropertyChanged;
+
+            public event PropertyChangedEventHandler PropertyChangedInstance;
+
+            public void OnPropertyChangedInstance(string name)
+            {
+                if (PropertyChangedInstance != null)
+                {
+                    PropertyChangedInstance(this, new PropertyChangedEventArgs(name));
+                }
+            }
+
+            public static void OnPropertyChanged(string name)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(null, new PropertyChangedEventArgs(name));
+                }
+            }
+
             private static ITheme _Theme;
             public static ITheme Theme
             {
@@ -111,7 +132,14 @@ namespace ReaLTaiizor.Helper
 
                     return _Theme;
                 }
-                set => _Theme = value;
+                set
+                {
+                    if (value != _Theme)
+                    {
+                        _Theme = value;
+                        OnPropertyChanged("Theme");
+                    }
+                }
             }
         }
     }

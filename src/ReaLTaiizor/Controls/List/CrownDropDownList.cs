@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Crown;
 using ReaLTaiizor.Child.Crown;
+using ReaLTaiizor.Extension.Crown;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using static ReaLTaiizor.Helper.CrownHelper;
@@ -491,7 +492,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw dropdown arrow
-            using (Bitmap img = Properties.Resources.small_arrow)
+            using (Bitmap img = Properties.Resources.small_arrow.SetColor(ThemeProvider.Theme.Colors.LightText))
             {
                 g.DrawImageUnscaled(img, ClientRectangle.Right - img.Width - 4, ClientRectangle.Top + (ClientRectangle.Height / 2) - (img.Height / 2));
             }
