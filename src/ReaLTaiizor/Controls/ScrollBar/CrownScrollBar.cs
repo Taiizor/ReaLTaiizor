@@ -521,10 +521,10 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
 
             // DEBUG: Scrollbar bg
-            /*using (var b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
-            }*/
+            }/**/
 
             // DEBUG: Arrow backgrounds
             /*using (var b = new SolidBrush(Color.White))

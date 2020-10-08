@@ -54,20 +54,16 @@ namespace ReaLTaiizor.Controls
             SetIcon(icon);
         }
 
-        public CrownMessageBox(string message)
-            : this(message, null, DialogMessageBox.None, DialogButton.Ok)
+        public CrownMessageBox(string message) : this(message, null, DialogMessageBox.None, DialogButton.Ok)
         { }
 
-        public CrownMessageBox(string message, string title)
-            : this(message, title, DialogMessageBox.None, DialogButton.Ok)
+        public CrownMessageBox(string message, string title) : this(message, title, DialogMessageBox.None, DialogButton.Ok)
         { }
 
-        public CrownMessageBox(string message, string title, DialogButton buttons)
-            : this(message, title, DialogMessageBox.None, buttons)
+        public CrownMessageBox(string message, string title, DialogButton buttons) : this(message, title, DialogMessageBox.None, buttons)
         { }
 
-        public CrownMessageBox(string message, string title, DialogMessageBox icon)
-            : this(message, title, icon, DialogButton.Ok)
+        public CrownMessageBox(string message, string title, DialogMessageBox icon) : this(message, title, icon, DialogButton.Ok)
         { }
 
         #endregion

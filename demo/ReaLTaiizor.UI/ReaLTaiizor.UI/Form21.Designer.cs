@@ -85,11 +85,11 @@ namespace ReaLTaiizor.UI
             // 
             // mnuFile
             // 
-            mnuFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             mnuNewFile,
             toolStripSeparator1,
             mnuClose});
+            mnuFile.BackColor = System.Drawing.Color.Transparent;
             mnuFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuFile.Name = "mnuFile";
             mnuFile.Size = new System.Drawing.Size(37, 20);
@@ -106,6 +106,7 @@ namespace ReaLTaiizor.UI
             // 
             // toolStripSeparator1
             // 
+            toolStripSeparator1.BackColor = System.Drawing.Color.Transparent;
             toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             toolStripSeparator1.Name = "toolStripSeparator1";
@@ -113,6 +114,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuClose
             // 
+            mnuClose.BackColor = System.Drawing.Color.Transparent;
             mnuClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuClose.Image = global::ReaLTaiizor.UI.Properties.Resources.Close_16xLG;
             mnuClose.Name = "mnuClose";
@@ -122,17 +124,18 @@ namespace ReaLTaiizor.UI
             // 
             // mnuView
             // 
-            mnuView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            mnuView.BackColor = System.Drawing.Color.Transparent;
             mnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             mnuDialog,
             themeToolStripMenuItem});
-            mnuView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            mnuView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             mnuView.Name = "mnuView";
             mnuView.Size = new System.Drawing.Size(44, 20);
             mnuView.Text = "&View";
             // 
             // mnuDialog
             // 
+            mnuDialog.BackColor = System.Drawing.Color.Transparent;
             mnuDialog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuDialog.Image = global::ReaLTaiizor.UI.Properties.Resources.properties_16xLG;
             mnuDialog.Name = "mnuDialog";
@@ -141,7 +144,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuTools
             // 
-            mnuTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            mnuTools.BackColor = System.Drawing.Color.Transparent;
             mnuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             checkableToolStripMenuItem,
             checkableWithIconToolStripMenuItem,
@@ -155,6 +158,7 @@ namespace ReaLTaiizor.UI
             // 
             // checkableToolStripMenuItem
             // 
+            checkableToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             checkableToolStripMenuItem.CheckOnClick = true;
             checkableToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             checkableToolStripMenuItem.Name = "checkableToolStripMenuItem";
@@ -163,6 +167,7 @@ namespace ReaLTaiizor.UI
             // 
             // checkableWithIconToolStripMenuItem
             // 
+            checkableWithIconToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             checkableWithIconToolStripMenuItem.CheckOnClick = true;
             checkableWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             checkableWithIconToolStripMenuItem.Image = global::ReaLTaiizor.UI.Properties.Resources.properties_16xLG;
@@ -172,6 +177,7 @@ namespace ReaLTaiizor.UI
             // 
             // toolStripSeparator2
             // 
+            toolStripSeparator2.BackColor = System.Drawing.Color.Transparent;
             toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             toolStripSeparator2.Name = "toolStripSeparator2";
@@ -179,6 +185,7 @@ namespace ReaLTaiizor.UI
             // 
             // checkedToolStripMenuItem
             // 
+            checkedToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             checkedToolStripMenuItem.Checked = true;
             checkedToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             checkedToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
@@ -188,6 +195,7 @@ namespace ReaLTaiizor.UI
             // 
             // checkedWithIconToolStripMenuItem
             // 
+            checkedWithIconToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             checkedWithIconToolStripMenuItem.Checked = true;
             checkedWithIconToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             checkedWithIconToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
@@ -198,7 +206,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuWindow
             // 
-            mnuWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            mnuWindow.BackColor = System.Drawing.Color.Transparent;
             mnuWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             mnuProject,
             mnuProperties,
@@ -212,6 +220,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuProject
             // 
+            mnuProject.BackColor = System.Drawing.Color.Transparent;
             mnuProject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuProject.Image = global::ReaLTaiizor.UI.Properties.Resources.application_16x;
             mnuProject.Name = "mnuProject";
@@ -220,6 +229,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuProperties
             // 
+            mnuProperties.BackColor = System.Drawing.Color.Transparent;
             mnuProperties.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuProperties.Image = global::ReaLTaiizor.UI.Properties.Resources.properties_16xLG;
             mnuProperties.Name = "mnuProperties";
@@ -228,6 +238,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuConsole
             // 
+            mnuConsole.BackColor = System.Drawing.Color.Transparent;
             mnuConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuConsole.Image = global::ReaLTaiizor.UI.Properties.Resources.Console;
             mnuConsole.Name = "mnuConsole";
@@ -236,6 +247,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuLayers
             // 
+            mnuLayers.BackColor = System.Drawing.Color.Transparent;
             mnuLayers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuLayers.Image = global::ReaLTaiizor.UI.Properties.Resources.Collection_16xLG;
             mnuLayers.Name = "mnuLayers";
@@ -244,6 +256,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuHistory
             // 
+            mnuHistory.BackColor = System.Drawing.Color.Transparent;
             mnuHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuHistory.Image = ((System.Drawing.Image)(resources.GetObject("mnuHistory.Image")));
             mnuHistory.Name = "mnuHistory";
@@ -280,7 +293,7 @@ namespace ReaLTaiizor.UI
             // stripMain
             // 
             stripMain.AutoSize = false;
-            stripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            stripMain.BackColor = System.Drawing.Color.Transparent;
             stripMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             stripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             toolStripStatusLabel1,
@@ -339,7 +352,7 @@ namespace ReaLTaiizor.UI
             // 
             // themeToolStripMenuItem
             // 
-            themeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            themeToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             darkToolStripMenuItem,
             lightToolStripMenuItem});
@@ -350,7 +363,7 @@ namespace ReaLTaiizor.UI
             // 
             // darkToolStripMenuItem
             // 
-            darkToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            darkToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             darkToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             darkToolStripMenuItem.Name = "darkToolStripMenuItem";
             darkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -359,7 +372,7 @@ namespace ReaLTaiizor.UI
             // 
             // lightToolStripMenuItem
             // 
-            lightToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            lightToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             lightToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             lightToolStripMenuItem.Name = "lightToolStripMenuItem";
             lightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);

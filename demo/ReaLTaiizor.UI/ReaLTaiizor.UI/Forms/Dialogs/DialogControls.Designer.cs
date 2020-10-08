@@ -39,6 +39,9 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             lstTest = new ReaLTaiizor.Controls.CrownListView();
             pnlMessageBox = new ReaLTaiizor.Controls.CrownSectionPanel();
             panel1 = new System.Windows.Forms.Panel();
+            crownGroupBox1 = new ReaLTaiizor.Controls.CrownGroupBox();
+            crownRadioButton4 = new ReaLTaiizor.Controls.CrownRadioButton();
+            crownCheckBox3 = new ReaLTaiizor.Controls.CrownCheckBox();
             panel7 = new System.Windows.Forms.Panel();
             crownComboBox1 = new ReaLTaiizor.Controls.CrownComboBox();
             crownTitle4 = new ReaLTaiizor.Controls.CrownTitle();
@@ -59,15 +62,13 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             panel2 = new System.Windows.Forms.Panel();
             btnDialog = new ReaLTaiizor.Controls.CrownButton();
             crownTitle1 = new ReaLTaiizor.Controls.CrownTitle();
-            crownGroupBox1 = new ReaLTaiizor.Controls.CrownGroupBox();
-            crownCheckBox3 = new ReaLTaiizor.Controls.CrownCheckBox();
-            crownRadioButton4 = new ReaLTaiizor.Controls.CrownRadioButton();
             pnlMain.SuspendLayout();
             tblMain.SuspendLayout();
             pnlTreeView.SuspendLayout();
             pnlListView.SuspendLayout();
             pnlMessageBox.SuspendLayout();
             panel1.SuspendLayout();
+            crownGroupBox1.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(crownNumeric1)).BeginInit();
@@ -75,7 +76,6 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
-            crownGroupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlMain
@@ -107,13 +107,16 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             // 
             // pnlTreeView
             // 
+            pnlTreeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
             pnlTreeView.Controls.Add(treeTest);
             pnlTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlTreeView.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             pnlTreeView.Location = new System.Drawing.Point(469, 0);
             pnlTreeView.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             pnlTreeView.Name = "pnlTreeView";
             pnlTreeView.SectionHeader = "Tree view test";
             pnlTreeView.Size = new System.Drawing.Size(224, 518);
+            pnlTreeView.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnlTreeView.TabIndex = 14;
             // 
             // treeTest
@@ -131,13 +134,16 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             // 
             // pnlListView
             // 
+            pnlListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
             pnlListView.Controls.Add(lstTest);
             pnlListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlListView.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             pnlListView.Location = new System.Drawing.Point(237, 0);
             pnlListView.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             pnlListView.Name = "pnlListView";
             pnlListView.SectionHeader = "List view test";
             pnlListView.Size = new System.Drawing.Size(222, 518);
+            pnlListView.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnlListView.TabIndex = 13;
             // 
             // lstTest
@@ -152,17 +158,21 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             // 
             // pnlMessageBox
             // 
+            pnlMessageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
             pnlMessageBox.Controls.Add(panel1);
             pnlMessageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlMessageBox.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             pnlMessageBox.Location = new System.Drawing.Point(5, 0);
             pnlMessageBox.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             pnlMessageBox.Name = "pnlMessageBox";
             pnlMessageBox.SectionHeader = "Controls test";
             pnlMessageBox.Size = new System.Drawing.Size(222, 518);
+            pnlMessageBox.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnlMessageBox.TabIndex = 12;
             // 
             // panel1
             // 
+            panel1.BackColor = System.Drawing.Color.Transparent;
             panel1.Controls.Add(crownGroupBox1);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel6);
@@ -176,6 +186,42 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             panel1.Padding = new System.Windows.Forms.Padding(10);
             panel1.Size = new System.Drawing.Size(220, 492);
             panel1.TabIndex = 0;
+            // 
+            // crownGroupBox1
+            // 
+            crownGroupBox1.AutoSize = true;
+            crownGroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            crownGroupBox1.Controls.Add(crownRadioButton4);
+            crownGroupBox1.Controls.Add(crownCheckBox3);
+            crownGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            crownGroupBox1.Location = new System.Drawing.Point(10, 412);
+            crownGroupBox1.Name = "crownGroupBox1";
+            crownGroupBox1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
+            crownGroupBox1.Size = new System.Drawing.Size(200, 69);
+            crownGroupBox1.TabIndex = 24;
+            crownGroupBox1.TabStop = false;
+            crownGroupBox1.Text = "GroupBox";
+            // 
+            // crownRadioButton4
+            // 
+            crownRadioButton4.AutoSize = true;
+            crownRadioButton4.Dock = System.Windows.Forms.DockStyle.Top;
+            crownRadioButton4.Location = new System.Drawing.Point(10, 40);
+            crownRadioButton4.Name = "crownRadioButton4";
+            crownRadioButton4.Size = new System.Drawing.Size(180, 19);
+            crownRadioButton4.TabIndex = 1;
+            crownRadioButton4.TabStop = true;
+            crownRadioButton4.Text = "Radio button";
+            // 
+            // crownCheckBox3
+            // 
+            crownCheckBox3.AutoSize = true;
+            crownCheckBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            crownCheckBox3.Location = new System.Drawing.Point(10, 21);
+            crownCheckBox3.Name = "crownCheckBox3";
+            crownCheckBox3.Size = new System.Drawing.Size(180, 19);
+            crownCheckBox3.TabIndex = 0;
+            crownCheckBox3.Text = "Checkbox";
             // 
             // panel7
             // 
@@ -226,7 +272,7 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             // 
             crownNumeric1.Dock = System.Windows.Forms.DockStyle.Top;
             crownNumeric1.Location = new System.Drawing.Point(0, 26);
-            crownNumeric1.Name = "crownNumericUpDown1";
+            crownNumeric1.Name = "crownNumeric1";
             crownNumeric1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             crownNumeric1.Size = new System.Drawing.Size(200, 23);
             crownNumeric1.TabIndex = 24;
@@ -391,42 +437,6 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             crownTitle1.TabIndex = 14;
             crownTitle1.Text = "Dialogs";
             // 
-            // crownGroupBox1
-            // 
-            crownGroupBox1.AutoSize = true;
-            crownGroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            crownGroupBox1.Controls.Add(crownRadioButton4);
-            crownGroupBox1.Controls.Add(crownCheckBox3);
-            crownGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            crownGroupBox1.Location = new System.Drawing.Point(10, 412);
-            crownGroupBox1.Name = "crownGroupBox1";
-            crownGroupBox1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
-            crownGroupBox1.Size = new System.Drawing.Size(200, 69);
-            crownGroupBox1.TabIndex = 24;
-            crownGroupBox1.TabStop = false;
-            crownGroupBox1.Text = "GroupBox";
-            // 
-            // crownCheckBox3
-            // 
-            crownCheckBox3.AutoSize = true;
-            crownCheckBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            crownCheckBox3.Location = new System.Drawing.Point(10, 21);
-            crownCheckBox3.Name = "crownCheckBox3";
-            crownCheckBox3.Size = new System.Drawing.Size(180, 19);
-            crownCheckBox3.TabIndex = 0;
-            crownCheckBox3.Text = "Checkbox";
-            // 
-            // crownRadioButton4
-            // 
-            crownRadioButton4.AutoSize = true;
-            crownRadioButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            crownRadioButton4.Location = new System.Drawing.Point(10, 40);
-            crownRadioButton4.Name = "crownRadioButton4";
-            crownRadioButton4.Size = new System.Drawing.Size(180, 19);
-            crownRadioButton4.TabIndex = 1;
-            crownRadioButton4.TabStop = true;
-            crownRadioButton4.Text = "Radio button";
-            // 
             // DialogControls
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -436,7 +446,6 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
             Name = "DialogControls";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Controls";
             Controls.SetChildIndex(pnlMain, 0);
             pnlMain.ResumeLayout(false);
@@ -446,6 +455,8 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             pnlMessageBox.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            crownGroupBox1.ResumeLayout(false);
+            crownGroupBox1.PerformLayout();
             panel7.ResumeLayout(false);
             panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(crownNumeric1)).EndInit();
@@ -455,8 +466,6 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            crownGroupBox1.ResumeLayout(false);
-            crownGroupBox1.PerformLayout();
             ResumeLayout(false);
 
         }
