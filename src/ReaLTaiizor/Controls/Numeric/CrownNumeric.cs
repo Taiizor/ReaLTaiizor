@@ -4,9 +4,9 @@ using System;
 using System.Drawing;
 using System.Security;
 using System.Reflection;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
             );
 
             base.ForeColor = Color.Gainsboro;
-            base.BackColor = CrownColors.LightBackground;
+            base.BackColor = ThemeProvider.Theme.Colors.LightBackground;
 
             Controls[0].Paint += CrownNumericUpDown_Paint;
 
@@ -122,7 +122,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             Rectangle rect = e.ClipRectangle;
 
-            Color fillColor = CrownColors.HeaderBackground;
+            Color fillColor = ThemeProvider.Theme.Colors.HeaderBackground;
 
             using (SolidBrush b = new SolidBrush(fillColor))
             {
@@ -162,11 +162,11 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-            Color borderColor = CrownColors.GreySelection;
+            Color borderColor = ThemeProvider.Theme.Colors.GreySelection;
 
             if (Focused && TabStop)
             {
-                borderColor = CrownColors.BlueHighlight;
+                borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
             }
 
             using (Pen p = new Pen(borderColor, 1))

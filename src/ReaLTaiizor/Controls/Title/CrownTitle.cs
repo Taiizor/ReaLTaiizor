@@ -1,8 +1,8 @@
 ﻿#region Imports
 
 using System.Drawing;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -12,24 +12,6 @@ namespace ReaLTaiizor.Controls
 
     public class CrownTitle : Label
     {
-        #region Properties
-
-        private Color _TextColor = CrownColors.LightText;
-        public Color TextColor
-        {
-            get => _TextColor;
-            set { _TextColor = value; Invalidate(); }
-        }
-
-        private Color _LineColor = CrownColors.GreyHighlight;
-        public Color LineColor
-        {
-            get => _LineColor;
-            set { _LineColor = value; Invalidate(); }
-        }
-
-        #endregion
-
         #region Constructor Region
 
         public CrownTitle()
@@ -48,12 +30,12 @@ namespace ReaLTaiizor.Controls
 
             SizeF textSize = g.MeasureString(Text, Font);
 
-            using (SolidBrush b = new SolidBrush(TextColor))
+            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
             {
                 g.DrawString(Text, Font, b, new PointF(-2, 0));
             }
 
-            using (Pen p = new Pen(LineColor))
+            using (Pen p = new Pen(ThemeProvider.Theme.Colors.GreyHighlight))
             {
                 PointF p1 = new PointF(textSize.Width + 5, textSize.Height / 2);
                 PointF p2 = new PointF(rect.Width, textSize.Height / 2);

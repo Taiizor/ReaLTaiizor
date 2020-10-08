@@ -2,7 +2,7 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Colors;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -56,7 +56,7 @@ namespace ReaLTaiizor.Child.Crown
 
         public CrownListItem()
         {
-            TextColor = CrownColors.LightText;
+            TextColor = ThemeProvider.Theme.Colors.LightText;
             FontStyle = FontStyle.Regular;
         }
 

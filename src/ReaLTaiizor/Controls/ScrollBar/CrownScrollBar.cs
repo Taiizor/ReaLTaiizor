@@ -3,9 +3,9 @@
 using System;
 using System.Drawing;
 using ReaLTaiizor.Util;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -431,23 +431,23 @@ namespace ReaLTaiizor.Controls
             // Arrow buttons
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
             {
-                _upArrowArea = new Rectangle(area.Left, area.Top, Consts.ArrowButtonSize, Consts.ArrowButtonSize);
-                _downArrowArea = new Rectangle(area.Left, area.Bottom - Consts.ArrowButtonSize, Consts.ArrowButtonSize, Consts.ArrowButtonSize);
+                _upArrowArea = new Rectangle(area.Left, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
+                _downArrowArea = new Rectangle(area.Left, area.Bottom - ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
             }
             else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
             {
-                _upArrowArea = new Rectangle(area.Left, area.Top, Consts.ArrowButtonSize, Consts.ArrowButtonSize);
-                _downArrowArea = new Rectangle(area.Right - Consts.ArrowButtonSize, area.Top, Consts.ArrowButtonSize, Consts.ArrowButtonSize);
+                _upArrowArea = new Rectangle(area.Left, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
+                _downArrowArea = new Rectangle(area.Right - ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
             }
 
             // Track
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
             {
-                _trackArea = new Rectangle(area.Left, area.Top + Consts.ArrowButtonSize, area.Width, area.Height - (Consts.ArrowButtonSize * 2));
+                _trackArea = new Rectangle(area.Left, area.Top + ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Width, area.Height - (ThemeProvider.Theme.Sizes.ArrowButtonSize * 2));
             }
             else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
             {
-                _trackArea = new Rectangle(area.Left + Consts.ArrowButtonSize, area.Top, area.Width - (Consts.ArrowButtonSize * 2), area.Height);
+                _trackArea = new Rectangle(area.Left + ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Top, area.Width - (ThemeProvider.Theme.Sizes.ArrowButtonSize * 2), area.Height);
             }
 
             // Thumb
@@ -480,29 +480,29 @@ namespace ReaLTaiizor.Controls
             {
                 int thumbSize = (int)(_trackArea.Height * _viewContentRatio);
 
-                if (thumbSize < Consts.MinimumThumbSize)
+                if (thumbSize < ThemeProvider.Theme.Sizes.MinimumThumbSize)
                 {
-                    thumbSize = Consts.MinimumThumbSize;
+                    thumbSize = ThemeProvider.Theme.Sizes.MinimumThumbSize;
                 }
 
                 int trackAreaSize = _trackArea.Height - thumbSize;
                 int thumbPosition = (int)(trackAreaSize * positionRatio);
 
-                _thumbArea = new Rectangle(_trackArea.Left + 3, _trackArea.Top + thumbPosition, Consts.ScrollBarSize - 6, thumbSize);
+                _thumbArea = new Rectangle(_trackArea.Left + 3, _trackArea.Top + thumbPosition, ThemeProvider.Theme.Sizes.ScrollBarSize - 6, thumbSize);
             }
             else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
             {
                 int thumbSize = (int)(_trackArea.Width * _viewContentRatio);
 
-                if (thumbSize < Consts.MinimumThumbSize)
+                if (thumbSize < ThemeProvider.Theme.Sizes.MinimumThumbSize)
                 {
-                    thumbSize = Consts.MinimumThumbSize;
+                    thumbSize = ThemeProvider.Theme.Sizes.MinimumThumbSize;
                 }
 
                 int trackAreaSize = _trackArea.Width - thumbSize;
                 int thumbPosition = (int)(trackAreaSize * positionRatio);
 
-                _thumbArea = new Rectangle(_trackArea.Left + thumbPosition, _trackArea.Top + 3, thumbSize, Consts.ScrollBarSize - 6);
+                _thumbArea = new Rectangle(_trackArea.Left + thumbPosition, _trackArea.Top + 3, thumbSize, ThemeProvider.Theme.Sizes.ScrollBarSize - 6);
             }
 
             if (forceRefresh)
@@ -580,11 +580,11 @@ namespace ReaLTaiizor.Controls
             // Draw thumb
             if (Enabled)
             {
-                Color scrollColor = _thumbHot ? CrownColors.GreyHighlight : CrownColors.GreySelection;
+                Color scrollColor = _thumbHot ? ThemeProvider.Theme.Colors.GreyHighlight : ThemeProvider.Theme.Colors.GreySelection;
 
                 if (_isScrolling)
                 {
-                    scrollColor = CrownColors.ActiveControl;
+                    scrollColor = ThemeProvider.Theme.Colors.ActiveControl;
                 }
 
                 using (SolidBrush b = new SolidBrush(scrollColor))

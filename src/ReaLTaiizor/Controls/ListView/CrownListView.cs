@@ -3,13 +3,13 @@
 using System;
 using System.Linq;
 using System.Drawing;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Child.Crown;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -595,11 +595,11 @@ namespace ReaLTaiizor.Controls
 
                 // Background
                 bool odd = i % 2 != 0;
-                Color bgColor = !odd ? CrownColors.HeaderBackground : CrownColors.GreyBackground;
+                Color bgColor = !odd ? ThemeProvider.Theme.Colors.HeaderBackground : ThemeProvider.Theme.Colors.GreyBackground;
 
                 if (SelectedIndices.Count > 0 && SelectedIndices.Contains(i))
                 {
-                    bgColor = Focused ? CrownColors.BlueSelection : CrownColors.GreySelection;
+                    bgColor = Focused ? ThemeProvider.Theme.Colors.BlueSelection : ThemeProvider.Theme.Colors.GreySelection;
                 }
 
                 using (SolidBrush b = new SolidBrush(bgColor))
@@ -608,7 +608,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // DEBUG: Border
-                /*using (var p = new Pen(CrownColors.DarkBorder))
+                /*using (var p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
                 {
                     g.DrawLine(p, new Point(rect.Left, rect.Bottom - 1), new Point(rect.Right, rect.Bottom - 1));
                 }*/

@@ -3,11 +3,11 @@
 using System;
 using System.Linq;
 using System.Drawing;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Crown;
 using System.Collections.Generic;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -414,13 +414,13 @@ namespace ReaLTaiizor.Docking.Crown
             }
 
             // Fill body
-            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
 
             // Draw border
-            using (Pen p = new Pen(CrownColors.DarkBorder))
+            using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
             {
                 // Top border
                 if (DockArea == DockArea.Document)

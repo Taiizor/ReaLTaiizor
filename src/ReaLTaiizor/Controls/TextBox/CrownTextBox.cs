@@ -1,7 +1,7 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -15,8 +15,8 @@ namespace ReaLTaiizor.Controls
 
         public CrownTextBox()
         {
-            BackColor = CrownColors.LightBackground;
-            ForeColor = CrownColors.LightText;
+            BackColor = ThemeProvider.Theme.Colors.LightBackground;
+            ForeColor = ThemeProvider.Theme.Colors.LightText;
             Padding = new Padding(2, 2, 2, 2);
             BorderStyle = BorderStyle.FixedSingle;
         }

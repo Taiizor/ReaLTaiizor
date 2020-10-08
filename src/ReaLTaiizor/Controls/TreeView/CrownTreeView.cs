@@ -4,13 +4,13 @@ using System;
 using System.Linq;
 using System.Drawing;
 using ReaLTaiizor.Util;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using ReaLTaiizor.Extension.Crown;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -716,12 +716,12 @@ namespace ReaLTaiizor.Controls
         {
             DisposeIcons();
 
-            _nodeClosed = Properties.Resources.node_closed_empty.SetColor(CrownColors.LightText);
-            _nodeClosedHover = Properties.Resources.node_closed_empty.SetColor(CrownColors.BlueHighlight);
-            _nodeClosedHoverSelected = Properties.Resources.node_closed_full.SetColor(CrownColors.LightText);
-            _nodeOpen = Properties.Resources.node_open.SetColor(CrownColors.LightText);
-            _nodeOpenHover = Properties.Resources.node_open.SetColor(CrownColors.BlueHighlight);
-            _nodeOpenHoverSelected = Properties.Resources.node_open_empty.SetColor(CrownColors.LightText);
+            _nodeClosed = Properties.Resources.node_closed_empty.SetColor(ThemeProvider.Theme.Colors.LightText);
+            _nodeClosedHover = Properties.Resources.node_closed_empty.SetColor(ThemeProvider.Theme.Colors.BlueHighlight);
+            _nodeClosedHoverSelected = Properties.Resources.node_closed_full.SetColor(ThemeProvider.Theme.Colors.LightText);
+            _nodeOpen = Properties.Resources.node_open.SetColor(ThemeProvider.Theme.Colors.LightText);
+            _nodeOpenHover = Properties.Resources.node_open.SetColor(ThemeProvider.Theme.Colors.BlueHighlight);
+            _nodeOpenHoverSelected = Properties.Resources.node_open_empty.SetColor(ThemeProvider.Theme.Colors.LightText);
         }
 
         private void DisposeIcons()
@@ -1390,16 +1390,16 @@ namespace ReaLTaiizor.Controls
             Rectangle rect = GetNodeFullRowArea(node);
 
             // 1. Draw background
-            Color bgColor = node.Odd ? CrownColors.HeaderBackground : CrownColors.GreyBackground;
+            Color bgColor = node.Odd ? ThemeProvider.Theme.Colors.HeaderBackground : ThemeProvider.Theme.Colors.GreyBackground;
 
             if (SelectedNodes.Count > 0 && SelectedNodes.Contains(node))
             {
-                bgColor = Focused ? CrownColors.BlueSelection : CrownColors.GreySelection;
+                bgColor = Focused ? ThemeProvider.Theme.Colors.BlueSelection : ThemeProvider.Theme.Colors.GreySelection;
             }
 
             if (IsDragging && _dropNode == node)
             {
-                bgColor = Focused ? CrownColors.BlueSelection : CrownColors.GreySelection;
+                bgColor = Focused ? ThemeProvider.Theme.Colors.BlueSelection : ThemeProvider.Theme.Colors.GreySelection;
             }
 
             using (SolidBrush b = new SolidBrush(bgColor))
@@ -1456,7 +1456,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // 4. Draw text
-            using (SolidBrush b = new SolidBrush(CrownColors.LightText))
+            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
             {
                 StringFormat stringFormat = new StringFormat
                 {

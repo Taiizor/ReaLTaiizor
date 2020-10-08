@@ -3,11 +3,11 @@
 using System;
 using System.Linq;
 using ReaLTaiizor.Native;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Crown;
 using System.Collections.Generic;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -123,7 +123,7 @@ namespace ReaLTaiizor.Docking.Crown
             _regions = new Dictionary<DockArea, CrownDockRegion>();
             _contents = new List<CrownDockContent>();
 
-            BackColor = CrownColors.GreyBackground;
+            BackColor = ThemeProvider.Theme.Colors.GreyBackground;
 
             CreateRegions();
         }

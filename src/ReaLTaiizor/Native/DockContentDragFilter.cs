@@ -2,11 +2,11 @@
 
 using System.Drawing;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using ReaLTaiizor.Enum.Crown;
 using ReaLTaiizor.Docking.Crown;
 using System.Collections.Generic;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Native
         {
             _dockPanel = dockPanel;
 
-            _highlightForm = new CrownTranslucentForm(CrownColors.BlueSelection);
+            _highlightForm = new CrownTranslucentForm(ThemeProvider.Theme.Colors.BlueSelection);
         }
 
         #endregion

@@ -2,10 +2,10 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Util;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 using System.ComponentModel;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -158,7 +158,7 @@ namespace ReaLTaiizor.Child.Crown
                 _hScrollBar.Maximum = ContentSize.Width;
             }
 
-            int scrollSize = Consts.ScrollBarSize;
+            int scrollSize = ThemeProvider.Theme.Sizes.ScrollBarSize;
 
             _vScrollBar.Location = new Point(ClientSize.Width - scrollSize, 0);
             _vScrollBar.Size = new Size(scrollSize, ClientSize.Height);
@@ -209,7 +209,7 @@ namespace ReaLTaiizor.Child.Crown
 
         private void SetVisibleSize()
         {
-            int scrollSize = Consts.ScrollBarSize;
+            int scrollSize = ThemeProvider.Theme.Sizes.ScrollBarSize;
 
             _visibleSize = new Size(ClientSize.Width, ClientSize.Height);
 

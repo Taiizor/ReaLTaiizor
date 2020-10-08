@@ -1,8 +1,8 @@
 ﻿#region Imports
 
 using System.Drawing;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -17,8 +17,8 @@ namespace ReaLTaiizor.Controls
         public CrownStatusStrip()
         {
             AutoSize = false;
-            BackColor = CrownColors.GreyBackground;
-            ForeColor = CrownColors.LightText;
+            BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            ForeColor = ThemeProvider.Theme.Colors.LightText;
             Padding = new Padding(0, 5, 0, 3);
             Size = new Size(Size.Width, 24);
             SizingGrip = false;
@@ -32,17 +32,17 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
 
-            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
 
-            using (Pen p = new Pen(CrownColors.DarkBorder))
+            using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
             {
                 g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
             }
 
-            using (Pen p = new Pen(CrownColors.LightBorder))
+            using (Pen p = new Pen(ThemeProvider.Theme.Colors.LightBorder))
             {
                 g.DrawLine(p, ClientRectangle.Left, 1, ClientRectangle.Right, 1);
             }

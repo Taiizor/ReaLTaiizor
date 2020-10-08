@@ -2,10 +2,9 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -17,7 +16,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Properties
 
-        private Color _borderColor = CrownColors.DarkBorder;
+        private Color _borderColor = ThemeProvider.Theme.Colors.DarkBorder;
 
         [Category("Appearance")]
         [Description("Determines the color of the border.")]
@@ -59,8 +58,8 @@ namespace ReaLTaiizor.Controls
             Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
             SizeF stringSize = g.MeasureString(Text, Font);
 
-            Color textColor = CrownColors.LightText;
-            Color fillColor = CrownColors.GreyBackground;
+            Color textColor = ThemeProvider.Theme.Colors.LightText;
+            Color fillColor = ThemeProvider.Theme.Colors.GreyBackground;
 
             using (SolidBrush b = new SolidBrush(fillColor))
             {
@@ -73,7 +72,7 @@ namespace ReaLTaiizor.Controls
                 g.DrawRectangle(p, borderRect);
             }
 
-            Rectangle textRect = new Rectangle(rect.Left + Consts.Padding, rect.Top, rect.Width - (Consts.Padding * 2), (int)stringSize.Height);
+            Rectangle textRect = new Rectangle(rect.Left + ThemeProvider.Theme.Sizes.Padding, rect.Top, rect.Width - (ThemeProvider.Theme.Sizes.Padding * 2), (int)stringSize.Height);
 
             using (SolidBrush b2 = new SolidBrush(fillColor))
             {

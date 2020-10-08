@@ -1,8 +1,8 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Colors;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Crown;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public CrownDocument()
         {
-            BackColor = CrownColors.GreyBackground;
+            BackColor = ThemeProvider.Theme.Colors.GreyBackground;
             base.DefaultDockArea = DockArea.Document;
         }
 

@@ -1,9 +1,9 @@
 ﻿#region Imports
 
 using System.Drawing;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Forms
 
         public CrownForm()
         {
-            BackColor = CrownColors.GreyBackground;
+            BackColor = ThemeProvider.Theme.Colors.GreyBackground;
             StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Forms
 
             Graphics g = e.Graphics;
 
-            using (Pen p = new Pen(CrownColors.DarkBorder))
+            using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
             {
                 Rectangle modRect = new Rectangle(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, ClientRectangle.Height - 1));
                 g.DrawRectangle(p, modRect);

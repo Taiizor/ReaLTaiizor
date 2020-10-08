@@ -2,12 +2,11 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Crown;
 using System.Drawing.Drawing2D;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -233,39 +232,39 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-            int size = Consts.RadioButtonSize;
+            int size = ThemeProvider.Theme.Sizes.RadioButtonSize;
 
-            Color textColor = CrownColors.LightText;
-            Color borderColor = CrownColors.LightText;
-            Color fillColor = CrownColors.LightestBackground;
+            Color textColor = ThemeProvider.Theme.Colors.LightText;
+            Color borderColor = ThemeProvider.Theme.Colors.LightText;
+            Color fillColor = ThemeProvider.Theme.Colors.LightestBackground;
 
             if (Enabled)
             {
                 if (Focused)
                 {
-                    borderColor = CrownColors.BlueHighlight;
-                    fillColor = CrownColors.BlueSelection;
+                    borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
+                    fillColor = ThemeProvider.Theme.Colors.BlueSelection;
                 }
 
                 if (_controlState == ControlState.Hover)
                 {
-                    borderColor = CrownColors.BlueHighlight;
-                    fillColor = CrownColors.BlueSelection;
+                    borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
+                    fillColor = ThemeProvider.Theme.Colors.BlueSelection;
                 }
                 else if (_controlState == ControlState.Pressed)
                 {
-                    borderColor = CrownColors.GreyHighlight;
-                    fillColor = CrownColors.GreySelection;
+                    borderColor = ThemeProvider.Theme.Colors.GreyHighlight;
+                    fillColor = ThemeProvider.Theme.Colors.GreySelection;
                 }
             }
             else
             {
-                textColor = CrownColors.DisabledText;
-                borderColor = CrownColors.GreyHighlight;
-                fillColor = CrownColors.GreySelection;
+                textColor = ThemeProvider.Theme.Colors.DisabledText;
+                borderColor = ThemeProvider.Theme.Colors.GreyHighlight;
+                fillColor = ThemeProvider.Theme.Colors.GreySelection;
             }
 
-            using (SolidBrush b = new SolidBrush(CrownColors.GreyBackground))
+            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, rect);
             }

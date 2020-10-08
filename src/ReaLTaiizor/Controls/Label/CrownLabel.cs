@@ -2,9 +2,9 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Controls
 
         public CrownLabel()
         {
-            ForeColor = CrownColors.LightText;
+            ForeColor = ThemeProvider.Theme.Colors.LightText;
         }
 
         #endregion

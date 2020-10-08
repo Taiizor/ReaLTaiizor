@@ -2,11 +2,10 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Crown;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -26,8 +25,8 @@ namespace ReaLTaiizor.Controls
         private bool _isDefault;
         private bool _spacePressed;
 
-        private readonly int _padding = Consts.Padding / 2;
-        private int _imagePadding = 5; // Consts.Padding / 2
+        private readonly int _padding = ThemeProvider.Theme.Sizes.Padding / 2;
+        private int _imagePadding = 5; // ThemeProvider.Theme.Sizes.Padding / 2
 
         #endregion
 
@@ -325,9 +324,9 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-            Color textColor = CrownColors.LightText;
-            Color borderColor = CrownColors.GreySelection;
-            Color fillColor = _isDefault ? CrownColors.DarkBlueBackground : CrownColors.LightBackground;
+            Color textColor = ThemeProvider.Theme.Colors.LightText;
+            Color borderColor = ThemeProvider.Theme.Colors.GreySelection;
+            Color fillColor = _isDefault ? ThemeProvider.Theme.Colors.DarkBlueBackground : ThemeProvider.Theme.Colors.LightBackground;
 
             if (Enabled)
             {
@@ -335,16 +334,16 @@ namespace ReaLTaiizor.Controls
                 {
                     if (Focused && TabStop)
                     {
-                        borderColor = CrownColors.BlueHighlight;
+                        borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
                     }
 
                     switch (ButtonState)
                     {
                         case ControlState.Hover:
-                            fillColor = _isDefault ? CrownColors.BlueBackground : CrownColors.LighterBackground;
+                            fillColor = _isDefault ? ThemeProvider.Theme.Colors.BlueBackground : ThemeProvider.Theme.Colors.LighterBackground;
                             break;
                         case ControlState.Pressed:
-                            fillColor = _isDefault ? CrownColors.DarkBackground : CrownColors.DarkBackground;
+                            fillColor = _isDefault ? ThemeProvider.Theme.Colors.DarkBackground : ThemeProvider.Theme.Colors.DarkBackground;
                             break;
                     }
                 }
@@ -353,21 +352,21 @@ namespace ReaLTaiizor.Controls
                     switch (ButtonState)
                     {
                         case ControlState.Normal:
-                            fillColor = CrownColors.GreyBackground;
+                            fillColor = ThemeProvider.Theme.Colors.GreyBackground;
                             break;
                         case ControlState.Hover:
-                            fillColor = CrownColors.MediumBackground;
+                            fillColor = ThemeProvider.Theme.Colors.MediumBackground;
                             break;
                         case ControlState.Pressed:
-                            fillColor = CrownColors.DarkBackground;
+                            fillColor = ThemeProvider.Theme.Colors.DarkBackground;
                             break;
                     }
                 }
             }
             else
             {
-                textColor = CrownColors.DisabledText;
-                fillColor = CrownColors.DarkGreySelection;
+                textColor = ThemeProvider.Theme.Colors.DisabledText;
+                fillColor = ThemeProvider.Theme.Colors.DarkGreySelection;
             }
 
             using (SolidBrush b = new SolidBrush(fillColor))

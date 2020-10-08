@@ -2,10 +2,9 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 using System.ComponentModel;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -137,14 +136,14 @@ namespace ReaLTaiizor.Controls
             {
                 Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-                Color textColor = Enabled ? CrownColors.LightText : CrownColors.DisabledText;
+                Color textColor = Enabled ? ThemeProvider.Theme.Colors.LightText : ThemeProvider.Theme.Colors.DisabledText;
 
-                Color borderColor = CrownColors.GreySelection;
-                Color fillColor = CrownColors.LightBackground;
+                Color borderColor = ThemeProvider.Theme.Colors.GreySelection;
+                Color fillColor = ThemeProvider.Theme.Colors.LightBackground;
 
                 if (Focused && TabStop)
                 {
-                    borderColor = CrownColors.BlueHighlight;
+                    borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
                 }
 
                 using (SolidBrush b = new SolidBrush(fillColor))
@@ -159,7 +158,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 Bitmap icon = Properties.Resources.scrollbar_arrow_hot;
-                g.DrawImageUnscaled(icon, rect.Right - icon.Width - (Consts.Padding / 2), (rect.Height / 2) - (icon.Height / 2));
+                g.DrawImageUnscaled(icon, rect.Right - icon.Width - (ThemeProvider.Theme.Sizes.Padding / 2), (rect.Height / 2) - (icon.Height / 2));
 
                 string text = SelectedItem != null ? SelectedItem.ToString() : Text;
 
@@ -167,7 +166,7 @@ namespace ReaLTaiizor.Controls
                 {
                     int padding = 2;
 
-                    Rectangle modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - icon.Width - (Consts.Padding / 2) - (padding * 2), rect.Height - (padding * 2));
+                    Rectangle modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - icon.Width - (ThemeProvider.Theme.Sizes.Padding / 2) - (padding * 2), rect.Height - (padding * 2));
 
                     StringFormat stringFormat = new StringFormat
                     {
@@ -198,14 +197,14 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             Rectangle rect = e.Bounds;
 
-            Color textColor = CrownColors.LightText;
-            Color fillColor = CrownColors.LightBackground;
+            Color textColor = ThemeProvider.Theme.Colors.LightText;
+            Color fillColor = ThemeProvider.Theme.Colors.LightBackground;
 
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected ||
                 (e.State & DrawItemState.Focus) == DrawItemState.Focus ||
                 (e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect)
             {
-                fillColor = CrownColors.BlueSelection;
+                fillColor = ThemeProvider.Theme.Colors.BlueSelection;
             }
 
             using (SolidBrush b = new SolidBrush(fillColor))
