@@ -42,9 +42,6 @@ namespace ReaLTaiizor.Controls
                     true
             );
 
-            base.ForeColor = Color.Gainsboro;
-            base.BackColor = ThemeProvider.Theme.Colors.LightBackground;
-
             Controls[0].Paint += CrownNumericUpDown_Paint;
 
             try
@@ -158,6 +155,16 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
+            if (base.ForeColor != ThemeProvider.Theme.Colors.LightText)
+            {
+                base.ForeColor = ThemeProvider.Theme.Colors.LightText;
+            }
+
+            if (base.BackColor != ThemeProvider.Theme.Colors.LightBackground)
+            {
+                base.BackColor = ThemeProvider.Theme.Colors.LightBackground;
+            }
 
             Graphics g = e.Graphics;
             Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);

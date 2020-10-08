@@ -39,6 +39,9 @@ namespace ReaLTaiizor.UI
             mnuClose = new System.Windows.Forms.ToolStripMenuItem();
             mnuView = new System.Windows.Forms.ToolStripMenuItem();
             mnuDialog = new System.Windows.Forms.ToolStripMenuItem();
+            themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            lightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             mnuTools = new System.Windows.Forms.ToolStripMenuItem();
             checkableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             checkableWithIconToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,10 +61,7 @@ namespace ReaLTaiizor.UI
             toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             DockPanel = new ReaLTaiizor.Docking.Crown.CrownDockPanel();
-            CrownSeparator1 = new ReaLTaiizor.Controls.CrownSeparator();
-            themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            lightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            crownSeparator1 = new ReaLTaiizor.Controls.CrownSeparator();
             mnuMain.SuspendLayout();
             toolMain.SuspendLayout();
             stripMain.SuspendLayout();
@@ -81,15 +81,15 @@ namespace ReaLTaiizor.UI
             mnuMain.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
             mnuMain.Size = new System.Drawing.Size(944, 24);
             mnuMain.TabIndex = 0;
-            mnuMain.Text = "CrownMenuStrip1";
+            mnuMain.Text = "crownMenuStrip1";
             // 
             // mnuFile
             // 
+            mnuFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             mnuNewFile,
             toolStripSeparator1,
             mnuClose});
-            mnuFile.BackColor = System.Drawing.Color.Transparent;
             mnuFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuFile.Name = "mnuFile";
             mnuFile.Size = new System.Drawing.Size(37, 20);
@@ -97,11 +97,12 @@ namespace ReaLTaiizor.UI
             // 
             // mnuNewFile
             // 
+            mnuNewFile.BackColor = System.Drawing.Color.Transparent;
             mnuNewFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuNewFile.Image = global::ReaLTaiizor.UI.Properties.Resources.NewFile_6276;
             mnuNewFile.Name = "mnuNewFile";
             mnuNewFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            mnuNewFile.Size = new System.Drawing.Size(160, 22);
+            mnuNewFile.Size = new System.Drawing.Size(180, 22);
             mnuNewFile.Text = "&New file";
             // 
             // toolStripSeparator1
@@ -110,7 +111,7 @@ namespace ReaLTaiizor.UI
             toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // mnuClose
             // 
@@ -119,16 +120,16 @@ namespace ReaLTaiizor.UI
             mnuClose.Image = global::ReaLTaiizor.UI.Properties.Resources.Close_16xLG;
             mnuClose.Name = "mnuClose";
             mnuClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            mnuClose.Size = new System.Drawing.Size(160, 22);
+            mnuClose.Size = new System.Drawing.Size(180, 22);
             mnuClose.Text = "&Close";
             // 
             // mnuView
             // 
-            mnuView.BackColor = System.Drawing.Color.Transparent;
+            mnuView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             mnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             mnuDialog,
             themeToolStripMenuItem});
-            mnuView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            mnuView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuView.Name = "mnuView";
             mnuView.Size = new System.Drawing.Size(44, 20);
             mnuView.Text = "&View";
@@ -139,12 +140,41 @@ namespace ReaLTaiizor.UI
             mnuDialog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             mnuDialog.Image = global::ReaLTaiizor.UI.Properties.Resources.properties_16xLG;
             mnuDialog.Name = "mnuDialog";
-            mnuDialog.Size = new System.Drawing.Size(180, 22);
+            mnuDialog.Size = new System.Drawing.Size(130, 22);
             mnuDialog.Text = "&Dialog test";
+            // 
+            // themeToolStripMenuItem
+            // 
+            themeToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            darkToolStripMenuItem,
+            lightToolStripMenuItem});
+            themeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+            themeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            themeToolStripMenuItem.Text = "Theme";
+            // 
+            // darkToolStripMenuItem
+            // 
+            darkToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            darkToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            darkToolStripMenuItem.Name = "darkToolStripMenuItem";
+            darkToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            darkToolStripMenuItem.Text = "Dark";
+            darkToolStripMenuItem.Click += new System.EventHandler(DarkToolStripMenuItem_Click);
+            // 
+            // lightToolStripMenuItem
+            // 
+            lightToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            lightToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            lightToolStripMenuItem.Name = "lightToolStripMenuItem";
+            lightToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            lightToolStripMenuItem.Text = "Light";
+            lightToolStripMenuItem.Click += new System.EventHandler(LightToolStripMenuItem_Click);
             // 
             // mnuTools
             // 
-            mnuTools.BackColor = System.Drawing.Color.Transparent;
+            mnuTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             mnuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             checkableToolStripMenuItem,
             checkableWithIconToolStripMenuItem,
@@ -206,7 +236,7 @@ namespace ReaLTaiizor.UI
             // 
             // mnuWindow
             // 
-            mnuWindow.BackColor = System.Drawing.Color.Transparent;
+            mnuWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             mnuWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             mnuProject,
             mnuProperties,
@@ -276,7 +306,7 @@ namespace ReaLTaiizor.UI
             toolMain.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
             toolMain.Size = new System.Drawing.Size(944, 28);
             toolMain.TabIndex = 1;
-            toolMain.Text = "CrownToolStrip1";
+            toolMain.Text = "crownToolStrip1";
             // 
             // btnNewFile
             // 
@@ -305,7 +335,7 @@ namespace ReaLTaiizor.UI
             stripMain.Size = new System.Drawing.Size(944, 24);
             stripMain.SizingGrip = false;
             stripMain.TabIndex = 2;
-            stripMain.Text = "CrownStatusStrip1";
+            stripMain.Text = "crownStatusStrip1";
             // 
             // toolStripStatusLabel1
             // 
@@ -341,43 +371,14 @@ namespace ReaLTaiizor.UI
             DockPanel.Size = new System.Drawing.Size(944, 564);
             DockPanel.TabIndex = 3;
             // 
-            // CrownSeparator1
+            // crownSeparator1
             // 
-            CrownSeparator1.Dock = System.Windows.Forms.DockStyle.Top;
-            CrownSeparator1.Location = new System.Drawing.Point(0, 24);
-            CrownSeparator1.Name = "CrownSeparator1";
-            CrownSeparator1.Size = new System.Drawing.Size(944, 2);
-            CrownSeparator1.TabIndex = 4;
-            CrownSeparator1.Text = "CrownSeparator1";
-            // 
-            // themeToolStripMenuItem
-            // 
-            themeToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
-            themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            darkToolStripMenuItem,
-            lightToolStripMenuItem});
-            themeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            themeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            themeToolStripMenuItem.Text = "Theme";
-            // 
-            // darkToolStripMenuItem
-            // 
-            darkToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
-            darkToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            darkToolStripMenuItem.Name = "darkToolStripMenuItem";
-            darkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            darkToolStripMenuItem.Text = "Dark";
-            darkToolStripMenuItem.Click += new System.EventHandler(DarkToolStripMenuItem_Click);
-            // 
-            // lightToolStripMenuItem
-            // 
-            lightToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
-            lightToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            lightToolStripMenuItem.Name = "lightToolStripMenuItem";
-            lightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            lightToolStripMenuItem.Text = "Light";
-            lightToolStripMenuItem.Click += new System.EventHandler(LightToolStripMenuItem_Click);
+            crownSeparator1.Dock = System.Windows.Forms.DockStyle.Top;
+            crownSeparator1.Location = new System.Drawing.Point(0, 24);
+            crownSeparator1.Name = "crownSeparator1";
+            crownSeparator1.Size = new System.Drawing.Size(944, 2);
+            crownSeparator1.TabIndex = 4;
+            crownSeparator1.Text = "crownSeparator1";
             // 
             // Form21
             // 
@@ -387,7 +388,7 @@ namespace ReaLTaiizor.UI
             Controls.Add(DockPanel);
             Controls.Add(stripMain);
             Controls.Add(toolMain);
-            Controls.Add(CrownSeparator1);
+            Controls.Add(crownSeparator1);
             Controls.Add(mnuMain);
             Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
@@ -429,7 +430,7 @@ namespace ReaLTaiizor.UI
         private System.Windows.Forms.ToolStripMenuItem mnuConsole;
         private System.Windows.Forms.ToolStripMenuItem mnuLayers;
         private System.Windows.Forms.ToolStripMenuItem mnuHistory;
-        private CrownSeparator CrownSeparator1;
+        private CrownSeparator crownSeparator1;
         private System.Windows.Forms.ToolStripMenuItem checkableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkableWithIconToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -440,4 +441,3 @@ namespace ReaLTaiizor.UI
         private System.Windows.Forms.ToolStripMenuItem lightToolStripMenuItem;
     }
 }
-

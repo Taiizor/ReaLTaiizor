@@ -15,10 +15,10 @@ namespace ReaLTaiizor.Controls
 
         public CrownTextBox()
         {
-            BackColor = ThemeProvider.Theme.Colors.LightBackground;
-            ForeColor = ThemeProvider.Theme.Colors.LightText;
             Padding = new Padding(2, 2, 2, 2);
             BorderStyle = BorderStyle.FixedSingle;
+            ForeColor = ThemeProvider.Theme.Colors.LightText;
+            BackColor = ThemeProvider.Theme.Colors.LightBackground;
         }
 
         #endregion

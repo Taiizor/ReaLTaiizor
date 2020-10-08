@@ -20,6 +20,8 @@ using System.Runtime.InteropServices;
 
 namespace ReaLTaiizor
 {
+    #region Core
+
     #region RoundRectangle
 
     public sealed class RoundRectangle
@@ -730,6 +732,8 @@ namespace ReaLTaiizor
             Parent.Invalidate();
         }
     }
+
+    #endregion
 
     #endregion
 }

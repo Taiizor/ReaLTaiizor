@@ -48,6 +48,7 @@ namespace ReaLTaiizor.UI.Forms.Docking
             // 
             // DockProject
             // 
+            BackColor = System.Drawing.Color.Transparent;
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(treeProject);

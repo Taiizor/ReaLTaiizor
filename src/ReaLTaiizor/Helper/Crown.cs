@@ -52,7 +52,6 @@ namespace ReaLTaiizor.Helper
                 Sizes.ToolWindowHeaderSize = 25;
                 Sizes.DocumentTabAreaSize = 24;
                 Sizes.ToolWindowTabAreaSize = 21;
-
             }
         }
 
@@ -95,7 +94,6 @@ namespace ReaLTaiizor.Helper
                 Sizes.ToolWindowHeaderSize = 25;
                 Sizes.DocumentTabAreaSize = 24;
                 Sizes.ToolWindowTabAreaSize = 21;
-
             }
         }
 

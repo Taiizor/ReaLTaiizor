@@ -435,39 +435,41 @@ namespace ReaLTaiizor.Util
 
         protected override void OnRenderOverflowButtonBackground(ToolStripItemRenderEventArgs e)
         {
-            /*var g = e.Graphics;
+            /*
+                var g = e.Graphics;
 
-            var rect = new Rectangle(1, 0, e.Item.Width - 5, e.Item.Height);
+                var rect = new Rectangle(1, 0, e.Item.Width - 5, e.Item.Height);
 
-            var castItem = (ToolStripOverflowButton)e.Item;
+                var castItem = (ToolStripOverflowButton)e.Item;
 
-            var bgColor = BasicColors.White;
-            if (castItem.Selected)
-                bgColor = StyleColors.Weak(style);
-            if (castItem.Pressed)
-                bgColor = StyleColors.Medium(style);
+                var bgColor = BasicThemeProvider.Theme.Colors.White;
+                if (castItem.Selected)
+                    bgColor = BasicThemeProvider.Theme.Colors.Weak(style);
+                if (castItem.Pressed)
+                    bgColor = BasicThemeProvider.Theme.Colors.Medium(style);
 
-            using (var b = new SolidBrush(bgColor))
-            {
-                g.FillRectangle(b, rect);
-            }
+                using (var b = new SolidBrush(bgColor))
+                {
+                    g.FillRectangle(b, rect);
+                }
 
-            var fgColor = BasicColors.Grey;
-            if (castItem.Selected)
-                fgColor = StyleColors.Medium(style);
-            if (castItem.Pressed)
-                fgColor = StyleColors.Strong(style);
+                var fgColor = BasicThemeProvider.Theme.Colors.Grey;
+                if (castItem.Selected)
+                    fgColor = BasicThemeProvider.Theme.Colors.Medium(style);
+                if (castItem.Pressed)
+                    fgColor = BasicThemeProvider.Theme.Colors.Strong(style);
 
-            using (var p = new Pen(fgColor))
-            {
-                var modRect = new Rectangle(1, 0, e.Item.Width - 6, e.Item.Height - 1);
-                g.DrawRectangle(p, modRect);
-            }
+                using (var p = new Pen(fgColor))
+                {
+                    var modRect = new Rectangle(1, 0, e.Item.Width - 6, e.Item.Height - 1);
+                    g.DrawRectangle(p, modRect);
+                }
 
-            using (var img = MenuIcons.overflow.SetColor(BasicColors.MediumGrey))
-            {
-                g.DrawImageUnscaled(img, e.Item.Width - 13, e.Item.Height - 9);
-            }*/
+                using (var img = Properties.Resources.overflow.SetColor(BasicThemeProvider.Theme.Colors.MediumGrey))
+                {
+                    g.DrawImageUnscaled(img, e.Item.Width - 13, e.Item.Height - 9);
+                }
+            */
         }
 
         #endregion

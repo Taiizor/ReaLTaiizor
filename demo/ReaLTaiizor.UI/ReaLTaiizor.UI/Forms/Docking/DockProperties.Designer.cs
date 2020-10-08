@@ -1,7 +1,4 @@
-﻿using ReaLTaiizor.Controls;
-using ReaLTaiizor.Docking.Crown;
-
-namespace ReaLTaiizor.UI.Forms.Docking
+﻿namespace ReaLTaiizor.UI.Forms.Docking
 {
     partial class DockProperties
     {
@@ -31,7 +28,9 @@ namespace ReaLTaiizor.UI.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
-            pnlMain = new System.Windows.Forms.Panel();
+            panel3 = new System.Windows.Forms.Panel();
+            cmbList = new ReaLTaiizor.Controls.CrownDropDownList();
+            crownTitle3 = new ReaLTaiizor.Controls.CrownTitle();
             panel1 = new System.Windows.Forms.Panel();
             crownRadioButton3 = new ReaLTaiizor.Controls.CrownRadioButton();
             crownRadioButton2 = new ReaLTaiizor.Controls.CrownRadioButton();
@@ -43,26 +42,40 @@ namespace ReaLTaiizor.UI.Forms.Docking
             crownCheckBox1 = new ReaLTaiizor.Controls.CrownCheckBox();
             crownTitle2 = new ReaLTaiizor.Controls.CrownTitle();
             crownScrollBar1 = new ReaLTaiizor.Controls.CrownScrollBar();
-            panel3 = new System.Windows.Forms.Panel();
-            crownTitle3 = new ReaLTaiizor.Controls.CrownTitle();
-            cmbList = new ReaLTaiizor.Controls.CrownDropDownList();
-            pnlMain.SuspendLayout();
+            panel3.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // pnlMain
+            // panel3
             // 
-            pnlMain.Controls.Add(panel3);
-            pnlMain.Controls.Add(panel1);
-            pnlMain.Controls.Add(panel2);
-            pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            pnlMain.Location = new System.Drawing.Point(0, 25);
-            pnlMain.Name = "pnlMain";
-            pnlMain.Padding = new System.Windows.Forms.Padding(10, 10, 5, 10);
-            pnlMain.Size = new System.Drawing.Size(265, 425);
-            pnlMain.TabIndex = 0;
+            panel3.AutoSize = true;
+            panel3.Controls.Add(cmbList);
+            panel3.Controls.Add(crownTitle3);
+            panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            panel3.Location = new System.Drawing.Point(10, 196);
+            panel3.Name = "panel3";
+            panel3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            panel3.Size = new System.Drawing.Size(250, 62);
+            panel3.TabIndex = 3;
+            // 
+            // cmbList
+            // 
+            cmbList.Dock = System.Windows.Forms.DockStyle.Top;
+            cmbList.Location = new System.Drawing.Point(0, 26);
+            cmbList.Name = "cmbList";
+            cmbList.Size = new System.Drawing.Size(250, 26);
+            cmbList.TabIndex = 8;
+            cmbList.Text = "crownDropdownList1";
+            // 
+            // crownTitle3
+            // 
+            crownTitle3.Dock = System.Windows.Forms.DockStyle.Top;
+            crownTitle3.Location = new System.Drawing.Point(0, 0);
+            crownTitle3.Name = "crownTitle3";
+            crownTitle3.Size = new System.Drawing.Size(250, 26);
+            crownTitle3.TabIndex = 7;
+            crownTitle3.Text = "Lists";
             // 
             // panel1
             // 
@@ -190,41 +203,13 @@ namespace ReaLTaiizor.UI.Forms.Docking
             crownScrollBar1.TabIndex = 1;
             crownScrollBar1.Text = "crownScrollBar1";
             // 
-            // panel3
-            // 
-            panel3.AutoSize = true;
-            panel3.Controls.Add(cmbList);
-            panel3.Controls.Add(crownTitle3);
-            panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            panel3.Location = new System.Drawing.Point(10, 196);
-            panel3.Name = "panel3";
-            panel3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            panel3.Size = new System.Drawing.Size(250, 62);
-            panel3.TabIndex = 3;
-            // 
-            // crownTitle3
-            // 
-            crownTitle3.Dock = System.Windows.Forms.DockStyle.Top;
-            crownTitle3.Location = new System.Drawing.Point(0, 0);
-            crownTitle3.Name = "crownTitle3";
-            crownTitle3.Size = new System.Drawing.Size(250, 26);
-            crownTitle3.TabIndex = 7;
-            crownTitle3.Text = "Lists";
-            // 
-            // cmbList
-            // 
-            cmbList.Dock = System.Windows.Forms.DockStyle.Top;
-            cmbList.Location = new System.Drawing.Point(0, 26);
-            cmbList.Name = "cmbList";
-            cmbList.Size = new System.Drawing.Size(250, 26);
-            cmbList.TabIndex = 8;
-            cmbList.Text = "crownDropdownList1";
-            // 
             // DockProperties
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(pnlMain);
+            Controls.Add(panel3);
+            Controls.Add(panel1);
+            Controls.Add(panel2);
             Controls.Add(crownScrollBar1);
             DefaultDockArea = Enum.Crown.DockArea.Right;
             DockText = "Properties";
@@ -233,20 +218,17 @@ namespace ReaLTaiizor.UI.Forms.Docking
             Name = "DockProperties";
             SerializationKey = "DockProperties";
             Size = new System.Drawing.Size(280, 450);
-            pnlMain.ResumeLayout(false);
-            pnlMain.PerformLayout();
+            panel3.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel3.ResumeLayout(false);
             ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel panel1;
         private ReaLTaiizor.Controls.CrownRadioButton crownRadioButton3;
         private ReaLTaiizor.Controls.CrownRadioButton crownRadioButton2;

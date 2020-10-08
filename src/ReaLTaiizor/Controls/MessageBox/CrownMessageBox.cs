@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Crown;
 using ReaLTaiizor.Child.Crown;
+using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
 
@@ -43,6 +44,11 @@ namespace ReaLTaiizor.Controls
         public CrownMessageBox()
         {
             InitializeComponent();
+
+            ThemeProvider.Theme = ThemeProvider.Theme;
+            BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            lblText.ForeColor = ThemeProvider.Theme.Colors.LightText;
+            Refresh();
         }
 
         public CrownMessageBox(string message, string title, DialogMessageBox icon, DialogButton buttons) : this()

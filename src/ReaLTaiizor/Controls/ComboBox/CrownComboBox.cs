@@ -200,9 +200,7 @@ namespace ReaLTaiizor.Controls
             Color textColor = ThemeProvider.Theme.Colors.LightText;
             Color fillColor = ThemeProvider.Theme.Colors.LightBackground;
 
-            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected ||
-                (e.State & DrawItemState.Focus) == DrawItemState.Focus ||
-                (e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect)
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected || (e.State & DrawItemState.Focus) == DrawItemState.Focus || (e.State & DrawItemState.NoFocusRect) != DrawItemState.NoFocusRect)
             {
                 fillColor = ThemeProvider.Theme.Colors.BlueSelection;
             }
@@ -220,10 +218,7 @@ namespace ReaLTaiizor.Controls
                 {
                     int padding = 2;
 
-                    Rectangle modRect = new Rectangle(rect.Left + padding,
-                        rect.Top + padding,
-                        rect.Width - (padding * 2),
-                        rect.Height - (padding * 2));
+                    Rectangle modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
 
                     StringFormat stringFormat = new StringFormat
                     {
