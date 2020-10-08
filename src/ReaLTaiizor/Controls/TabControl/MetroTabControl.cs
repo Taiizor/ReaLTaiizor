@@ -84,6 +84,7 @@ namespace ReaLTaiizor.Controls
         private Graphics _slideGraphics;
         private Bitmap _slideBitmap;
 
+        private Cursor _MCursor = Cursors.Hand;
         private bool _isDerivedStyle = true;
         private bool _useAnimation;
         private int _speed = 100;
@@ -112,6 +113,7 @@ namespace ReaLTaiizor.Controls
             _mth = new Methods();
             _utl = new Utilites();
             _slideAnimator = new PointFAnimate();
+            _MCursor = Cursor;
             ApplyTheme();
         }
 
@@ -258,6 +260,15 @@ namespace ReaLTaiizor.Controls
             get => base.Dock; set => base.Dock = value;
         }
 
+        [Category("Metro"), Description("Gets or sets the cursor of control.")]
+        public Cursor MCursor
+        {
+            get => _MCursor; set => _MCursor = value;
+        }
+
+        [Browsable(false)]
+        public Cursor Cursor { get; set; }
+
         [Category("Metro")]
         [Browsable(false)]
         public new TabSizeMode SizeMode { get; set; } = TabSizeMode.Fixed;
@@ -390,7 +401,11 @@ namespace ReaLTaiizor.Controls
                     continue;
                 }
 
-                Cursor = Cursors.Hand;
+                if (MCursor != Cursor)
+                {
+                    Cursor = MCursor;
+                }
+
                 Invalidate();
             }
         }
@@ -398,13 +413,19 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            Cursor = Cursors.Default;
+            if (MCursor == Cursor)
+            {
+                Cursor = Cursors.Default;
+            }
+
             Invalidate();
         }
 
         protected override void WndProc(ref Message m)
         {
-            _utl.SmoothCursor(ref m);
+            //_utl.SmoothCursor(ref m);
+            _utl.SmoothCursor(ref m, Cursor);
+            //_utl.NormalCursor(ref m, Cursor);
 
             base.WndProc(ref m);
         }

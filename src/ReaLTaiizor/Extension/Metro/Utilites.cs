@@ -81,6 +81,25 @@ namespace ReaLTaiizor.Extension.Metro
             message.Result = IntPtr.Zero;
         }
 
+        public void SmoothCursor(ref Message message, Cursor Cursor)
+        {
+            if (message.Msg != User32.WM_SETCURSOR && Cursor != Cursors.Hand)
+            {
+                return;
+            }
+
+            User32.SetCursor(User32.LoadCursor(IntPtr.Zero, User32.IDC_HAND));
+            message.Result = IntPtr.Zero;
+        }
+
+        public void NormalCursor(ref Message message, Cursor Cursor)
+        {
+            if (message.Msg == User32.WM_SETCURSOR && Cursor == Cursors.Hand)
+            {
+                User32.SetCursor(User32.LoadCursor(IntPtr.Zero, User32.IDC_HAND));
+                message.Result = IntPtr.Zero;
+            }
+        }
     }
 
     #endregion

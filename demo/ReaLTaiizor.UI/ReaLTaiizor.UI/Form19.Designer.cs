@@ -138,11 +138,11 @@
             MetroTabControl1.Controls.Add(MetroTabPage5);
             MetroTabControl1.Controls.Add(MetroTabPage6);
             MetroTabControl1.Controls.Add(MetroTabPage7);
-            MetroTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             MetroTabControl1.IsDerivedStyle = true;
             MetroTabControl1.ItemSize = new System.Drawing.Size(100, 38);
             MetroTabControl1.Location = new System.Drawing.Point(12, 70);
+            MetroTabControl1.MCursor = System.Windows.Forms.Cursors.Hand;
             MetroTabControl1.Name = "MetroTabControl1";
             MetroTabControl1.SelectedIndex = 0;
             MetroTabControl1.SelectedTextColor = System.Drawing.Color.White;
@@ -155,6 +155,7 @@
             MetroTabControl1.ThemeAuthor = "Taiizor";
             MetroTabControl1.ThemeName = "MetroLight";
             MetroTabControl1.UnselectedTextColor = System.Drawing.Color.Gray;
+            MetroTabControl1.UseAnimation = true;
             // 
             // MetroTabPage2
             // 
@@ -711,6 +712,7 @@
             MetroTile5.TabIndex = 12;
             MetroTile5.ThemeAuthor = "Taiizor";
             MetroTile5.ThemeName = "MetroLight";
+            MetroTile5.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.Topleft;
             // 
             // MetroTile3
             // 
@@ -766,6 +768,7 @@
             MetroTile1.Text = "BottmLeft";
             MetroTile1.ThemeAuthor = "Taiizor";
             MetroTile1.ThemeName = "MetroLight";
+            MetroTile1.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.Topleft;
             // 
             // MetroLabel4
             // 
@@ -1545,6 +1548,7 @@
             MetroRadioButton4.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroRadioButton4.Enabled = false;
             MetroRadioButton4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            MetroRadioButton4.Group = 0;
             MetroRadioButton4.IsDerivedStyle = true;
             MetroRadioButton4.Location = new System.Drawing.Point(305, 219);
             MetroRadioButton4.Name = "MetroRadioButton4";
@@ -1566,6 +1570,7 @@
             MetroRadioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroRadioButton3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroRadioButton3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            MetroRadioButton3.Group = 0;
             MetroRadioButton3.IsDerivedStyle = true;
             MetroRadioButton3.Location = new System.Drawing.Point(305, 139);
             MetroRadioButton3.Name = "MetroRadioButton3";
@@ -1588,6 +1593,7 @@
             MetroRadioButton2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroRadioButton2.Enabled = false;
             MetroRadioButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            MetroRadioButton2.Group = 0;
             MetroRadioButton2.IsDerivedStyle = true;
             MetroRadioButton2.Location = new System.Drawing.Point(305, 179);
             MetroRadioButton2.Name = "MetroRadioButton2";
@@ -1609,6 +1615,7 @@
             MetroRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroRadioButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroRadioButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            MetroRadioButton1.Group = 0;
             MetroRadioButton1.IsDerivedStyle = true;
             MetroRadioButton1.Location = new System.Drawing.Point(305, 99);
             MetroRadioButton1.Name = "MetroRadioButton1";

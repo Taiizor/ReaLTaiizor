@@ -197,12 +197,16 @@ namespace ReaLTaiizor.Controls
 
         #region Events
 
-        protected override void WndProc(ref Message m)
-        {
-            _utl.SmoothCursor(ref m);
+        /*
+            protected override void WndProc(ref Message m)
+            {
+                //_utl.SmoothCursor(ref m);
+                _utl.SmoothCursor(ref m, base.Cursor);
+                //_utl.NormalCursor(ref m, base.Cursor);
 
-            base.WndProc(ref m);
-        }
+                base.WndProc(ref m);
+            }
+        */
 
         #endregion
 
