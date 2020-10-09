@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 //     Website: www.Taiizor.com
 //     Created: 15.May.2019
 //     Changed: 09.Oct.2020
-//     Version: 3.7.8.1
+//     Version: 3.7.8.2
 //
 // |---------DO-NOT-REMOVE---------|
 

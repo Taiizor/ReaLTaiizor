@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!--<TargetFramework>net48</TargetFramework>-->
+    <TargetFramework>net48</TargetFramework>
     <!--<TargetFrameworks>net48;net5.0</TargetFrameworks>-->
-    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>
+    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>-->
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-    <Version>3.7.8.1</Version>
+    <Version>3.7.8.2</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>$(PackageId)</Title>
@@ -17,7 +17,7 @@
 C# WinForm UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Poison and Crown theme added.
+    <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
     <PackageTags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet Component</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
