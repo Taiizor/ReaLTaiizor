@@ -38,8 +38,9 @@
             this.BOTPLSR = new ReaLTaiizor.Controls.LostSeparator();
             this.STATELLE = new ReaLTaiizor.Controls.LinkLabelEdit();
             this.FILLPL = new System.Windows.Forms.Panel();
-            this.TOPSR = new ReaLTaiizor.Controls.AirSeparator();
+            this.MIDPL = new System.Windows.Forms.Panel();
             this.TOOLSB = new ReaLTaiizor.Controls.LostAcceptButton();
+            this.TOPSR = new ReaLTaiizor.Controls.AirSeparator();
             this.BOTSR = new ReaLTaiizor.Controls.AirSeparator();
             this.TOPPL = new System.Windows.Forms.Panel();
             this.DETAILB = new ReaLTaiizor.Controls.MetroButton();
@@ -49,14 +50,13 @@
             this.USINGLE = new ReaLTaiizor.Controls.LabelEdit();
             this.UPGRADEB = new ReaLTaiizor.Controls.LostCancelButton();
             this.LOGOPB = new System.Windows.Forms.PictureBox();
-            this.MIDPL = new System.Windows.Forms.Panel();
             this.BOTPL.SuspendLayout();
             this.FILLPL.SuspendLayout();
+            this.MIDPL.SuspendLayout();
             this.TOPPL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TEXTPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PROTECTPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LOGOPB)).BeginInit();
-            this.MIDPL.SuspendLayout();
             this.SuspendLayout();
             // 
             // BOTPL
@@ -251,6 +251,32 @@
             this.FILLPL.Size = new System.Drawing.Size(770, 564);
             this.FILLPL.TabIndex = 4;
             // 
+            // MIDPL
+            // 
+            this.MIDPL.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MIDPL.BackgroundImage")));
+            this.MIDPL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MIDPL.Controls.Add(this.TOOLSB);
+            this.MIDPL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MIDPL.Location = new System.Drawing.Point(0, 206);
+            this.MIDPL.Margin = new System.Windows.Forms.Padding(0);
+            this.MIDPL.Name = "MIDPL";
+            this.MIDPL.Size = new System.Drawing.Size(770, 325);
+            this.MIDPL.TabIndex = 6;
+            // 
+            // TOOLSB
+            // 
+            this.TOOLSB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
+            this.TOOLSB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TOOLSB.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.TOOLSB.ForeColor = System.Drawing.Color.White;
+            this.TOOLSB.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(72)))));
+            this.TOOLSB.Image = null;
+            this.TOOLSB.Location = new System.Drawing.Point(312, 282);
+            this.TOOLSB.Name = "TOOLSB";
+            this.TOOLSB.Size = new System.Drawing.Size(150, 32);
+            this.TOOLSB.TabIndex = 4;
+            this.TOOLSB.Text = "Other Tools";
+            // 
             // TOPSR
             // 
             this.TOPSR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(192)))), ((int)(((byte)(193)))));
@@ -267,20 +293,6 @@
             this.TOPSR.TabIndex = 5;
             this.TOPSR.Text = "airSeparator1";
             this.TOPSR.Transparent = false;
-            // 
-            // TOOLSB
-            // 
-            this.TOOLSB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(92)))));
-            this.TOOLSB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TOOLSB.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.TOOLSB.ForeColor = System.Drawing.Color.White;
-            this.TOOLSB.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(72)))));
-            this.TOOLSB.Image = null;
-            this.TOOLSB.Location = new System.Drawing.Point(312, 282);
-            this.TOOLSB.Name = "TOOLSB";
-            this.TOOLSB.Size = new System.Drawing.Size(150, 32);
-            this.TOOLSB.TabIndex = 4;
-            this.TOOLSB.Text = "Other Tools";
             // 
             // BOTSR
             // 
@@ -317,6 +329,7 @@
             this.TOPPL.Name = "TOPPL";
             this.TOPPL.Size = new System.Drawing.Size(770, 205);
             this.TOPPL.TabIndex = 1;
+            this.TOPPL.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             // 
             // DETAILB
             // 
@@ -353,6 +366,7 @@
             this.TEXTPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.TEXTPB.TabIndex = 10;
             this.TEXTPB.TabStop = false;
+            this.TEXTPB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             // 
             // PROTECTPB
             // 
@@ -364,6 +378,7 @@
             this.PROTECTPB.Size = new System.Drawing.Size(210, 140);
             this.PROTECTPB.TabIndex = 9;
             this.PROTECTPB.TabStop = false;
+            this.PROTECTPB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             // 
             // PROTECTLE
             // 
@@ -376,6 +391,7 @@
             this.PROTECTLE.Size = new System.Drawing.Size(211, 18);
             this.PROTECTLE.TabIndex = 8;
             this.PROTECTLE.Text = "You are now protected";
+            this.PROTECTLE.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             // 
             // USINGLE
             // 
@@ -388,6 +404,7 @@
             this.USINGLE.Size = new System.Drawing.Size(153, 15);
             this.USINGLE.TabIndex = 7;
             this.USINGLE.Text = "You are using: Free package";
+            this.USINGLE.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             // 
             // UPGRADEB
             // 
@@ -412,18 +429,7 @@
             this.LOGOPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LOGOPB.TabIndex = 0;
             this.LOGOPB.TabStop = false;
-            // 
-            // MIDPL
-            // 
-            this.MIDPL.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MIDPL.BackgroundImage")));
-            this.MIDPL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.MIDPL.Controls.Add(this.TOOLSB);
-            this.MIDPL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MIDPL.Location = new System.Drawing.Point(0, 206);
-            this.MIDPL.Margin = new System.Windows.Forms.Padding(0);
-            this.MIDPL.Name = "MIDPL";
-            this.MIDPL.Size = new System.Drawing.Size(770, 325);
-            this.MIDPL.TabIndex = 6;
+            this.LOGOPB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MOVE_MouseDown);
             // 
             // Kaspersky
             // 
@@ -443,12 +449,12 @@
             this.Text = "Kaspersky Security Cloud - Free";
             this.BOTPL.ResumeLayout(false);
             this.FILLPL.ResumeLayout(false);
+            this.MIDPL.ResumeLayout(false);
             this.TOPPL.ResumeLayout(false);
             this.TOPPL.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TEXTPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PROTECTPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LOGOPB)).EndInit();
-            this.MIDPL.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
