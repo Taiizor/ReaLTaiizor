@@ -28,5 +28,16 @@ namespace ReaLTaiizor.Kaspersky
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        private void MINIMIZEB_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void CLOSEB_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            Environment.Exit(1);
+        }
     }
 }

@@ -45,8 +45,10 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Kaspersky.cs">
@@ -84,7 +86,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Clean.png" />
+    <Content Include="Resources\Close.png" />
     <Content Include="Resources\Connect.png" />
+    <Content Include="Resources\Connection.png" />
     <Content Include="Resources\Contact.png" />
     <Content Include="Resources\Down.png" />
     <Content Include="Resources\ICOPink.ico" />
@@ -95,10 +100,18 @@
     <Content Include="Resources\KasperskyUncolored.png" />
     <Content Include="Resources\Logo.png" />
     <Content Include="Resources\Message.png" />
+    <Content Include="Resources\MIDBG.png" />
+    <Content Include="Resources\Minimize.png" />
+    <Content Include="Resources\Money.png" />
+    <Content Include="Resources\Password.png" />
+    <Content Include="Resources\Phone.png" />
+    <Content Include="Resources\Privacy.png" />
     <Content Include="Resources\Protect.png" />
+    <Content Include="Resources\Scan.png" />
     <Content Include="Resources\Setting.png" />
     <Content Include="Resources\Text.png" />
     <Content Include="Resources\TOPBG.png" />
+    <Content Include="Resources\Update.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

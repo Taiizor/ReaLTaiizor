@@ -142,6 +142,10 @@ Paso 2：Disfruta diseñando
 
 ![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)
 
+### Kaspersky Security Cloud
+
+![KasperskySecurityCloudSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Kaspersky_Security_Cloud.png)
+
 ### Reproductor de MP3
 
 ![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)
