@@ -86,8 +86,16 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\Console.png" />
+    <Content Include="Resources\Folder.png" />
+    <Content Include="Resources\Help_A.png" />
+    <Content Include="Resources\Help_B.png" />
     <Content Include="Resources\ICO.ico" />
+    <Content Include="Resources\Services_A.png" />
+    <Content Include="Resources\Services_B.png" />
     <Content Include="Resources\Text.png" />
+    <Content Include="Resources\World.png" />
+    <Content Include="Resources\Wrench.png" />
     <Content Include="Resources\XAMPP_256.png" />
     <Content Include="Resources\XAMPP_512.png" />
     <Content Include="Resources\XAMPP_64.png" />
