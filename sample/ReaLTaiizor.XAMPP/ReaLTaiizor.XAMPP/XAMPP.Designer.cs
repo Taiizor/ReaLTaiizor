@@ -76,6 +76,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton4 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton5 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton6 = new ReaLTaiizor.Controls.MaterialButton();
+            this.poisonPanel1 = new ReaLTaiizor.Controls.PoisonPanel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager1)).BeginInit();
             this.SuspendLayout();
@@ -381,6 +382,7 @@ namespace ReaLTaiizor.XAMPP
             this.poisonLabel16.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
             this.poisonLabel16.TabIndex = 20;
             this.poisonLabel16.Text = "80, 443";
+            this.poisonLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.poisonLabel16.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.poisonLabel16.UseCustomForeColor = true;
             // 
@@ -390,12 +392,13 @@ namespace ReaLTaiizor.XAMPP
             this.poisonLabel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
             this.poisonLabel11.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
             this.poisonLabel11.ForeColor = System.Drawing.Color.White;
-            this.poisonLabel11.Location = new System.Drawing.Point(166, 41);
+            this.poisonLabel11.Location = new System.Drawing.Point(170, 41);
             this.poisonLabel11.Name = "poisonLabel11";
             this.poisonLabel11.Size = new System.Drawing.Size(41, 38);
             this.poisonLabel11.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
             this.poisonLabel11.TabIndex = 15;
             this.poisonLabel11.Text = "6716\r\n6352";
+            this.poisonLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.poisonLabel11.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.poisonLabel11.UseCustomForeColor = true;
             // 
@@ -517,6 +520,7 @@ namespace ReaLTaiizor.XAMPP
             this.poisonLabel5.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
             this.poisonLabel5.TabIndex = 5;
             this.poisonLabel5.Text = "Actions";
+            this.poisonLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.poisonLabel5.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
             // poisonLabel4
@@ -529,6 +533,7 @@ namespace ReaLTaiizor.XAMPP
             this.poisonLabel4.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
             this.poisonLabel4.TabIndex = 4;
             this.poisonLabel4.Text = "Port(s)";
+            this.poisonLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.poisonLabel4.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
             // poisonLabel3
@@ -541,6 +546,7 @@ namespace ReaLTaiizor.XAMPP
             this.poisonLabel3.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
             this.poisonLabel3.TabIndex = 3;
             this.poisonLabel3.Text = "PID(s)";
+            this.poisonLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.poisonLabel3.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
             // poisonLabel2
@@ -553,6 +559,7 @@ namespace ReaLTaiizor.XAMPP
             this.poisonLabel2.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
             this.poisonLabel2.TabIndex = 2;
             this.poisonLabel2.Text = "Module";
+            this.poisonLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.poisonLabel2.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
             // poisonLabel1
@@ -565,6 +572,7 @@ namespace ReaLTaiizor.XAMPP
             this.poisonLabel1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
             this.poisonLabel1.TabIndex = 1;
             this.poisonLabel1.Text = "Service";
+            this.poisonLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.poisonLabel1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
             // panel1
@@ -695,6 +703,26 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton6.UseAccentColor = false;
             this.materialButton6.UseVisualStyleBackColor = true;
             // 
+            // poisonPanel1
+            // 
+            this.poisonPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.poisonPanel1.HorizontalScrollbarBarColor = true;
+            this.poisonPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonPanel1.HorizontalScrollbarSize = 10;
+            this.poisonPanel1.Location = new System.Drawing.Point(23, 351);
+            this.poisonPanel1.Name = "poisonPanel1";
+            this.poisonPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.poisonPanel1.Size = new System.Drawing.Size(771, 150);
+            this.poisonPanel1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
+            this.poisonPanel1.TabIndex = 7;
+            this.poisonPanel1.Text = "poisonPanel1";
+            this.poisonPanel1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.poisonPanel1.UseCustomBackColor = true;
+            this.poisonPanel1.UseSelectable = true;
+            this.poisonPanel1.VerticalScrollbarBarColor = true;
+            this.poisonPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonPanel1.VerticalScrollbarSize = 10;
+            // 
             // XAMPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -702,7 +730,8 @@ namespace ReaLTaiizor.XAMPP
             this.BackImage = global::ReaLTaiizor.XAMPP.Properties.Resources.XAMPP_512;
             this.BackImagePadding = new System.Windows.Forms.Padding(28, 22, 0, 0);
             this.BackMaxSize = 32;
-            this.ClientSize = new System.Drawing.Size(817, 365);
+            this.ClientSize = new System.Drawing.Size(817, 521);
+            this.Controls.Add(this.poisonPanel1);
             this.Controls.Add(this.materialButton6);
             this.Controls.Add(this.materialButton5);
             this.Controls.Add(this.materialButton4);
@@ -774,5 +803,6 @@ namespace ReaLTaiizor.XAMPP
         private Controls.MaterialButton materialButton4;
         private Controls.MaterialButton materialButton3;
         private Controls.MaterialButton materialButton2;
+        private Controls.PoisonPanel poisonPanel1;
     }
 }

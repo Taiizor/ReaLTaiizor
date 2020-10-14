@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
     #region PoisonPanel
 
     [ToolboxBitmap(typeof(Panel))]
-    public class PoisonPanel : Panel, IPoisonControl
+    public class PoisonPanel : System.Windows.Forms.Panel, IPoisonControl
     {
         #region Interface
 

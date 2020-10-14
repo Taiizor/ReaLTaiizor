@@ -11,7 +11,7 @@ namespace ReaLTaiizor.Controls
 {
     #region CrownSectionPanel
 
-    public class CrownSectionPanel : Panel
+    public class CrownSectionPanel : System.Windows.Forms.Panel
     {
         #region Field Region
 

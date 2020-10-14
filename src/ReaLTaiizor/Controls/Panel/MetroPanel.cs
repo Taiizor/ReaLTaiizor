@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(MetroPanel), "Bitmaps.Panel.bmp")]
     [ComVisible(true)]
-    public class MetroPanel : Panel, IMetroControl
+    public class MetroPanel : System.Windows.Forms.Panel, IMetroControl
     {
         #region Interfaces
 
