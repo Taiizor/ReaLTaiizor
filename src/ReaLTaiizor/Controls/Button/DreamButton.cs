@@ -49,39 +49,39 @@ namespace ReaLTaiizor.Controls
             base.OnMouseUp(e);
         }
 
-        Color _ColorA = Color.FromArgb(31, 31, 31);
+        private Color _ColorA = Color.FromArgb(31, 31, 31);
         public Color ColorA
         {
-            get { return _ColorA; }
-            set { _ColorA = value; }
+            get => _ColorA;
+            set => _ColorA = value;
         }
 
-        Color _ColorB = Color.FromArgb(41, 41, 41);
+        private Color _ColorB = Color.FromArgb(41, 41, 41);
         public Color ColorB
         {
-            get { return _ColorB; }
-            set { _ColorB = value; }
+            get => _ColorB;
+            set => _ColorB = value;
         }
 
-        Color _ColorC = Color.FromArgb(51, 51, 51);
+        private Color _ColorC = Color.FromArgb(51, 51, 51);
         public Color ColorC
         {
-            get { return _ColorC; }
-            set { _ColorC = value; }
+            get => _ColorC;
+            set => _ColorC = value;
         }
 
-        Color _ColorD = Color.FromArgb(0, 0, 0, 0);
+        private Color _ColorD = Color.FromArgb(0, 0, 0, 0);
         public Color ColorD
         {
-            get { return _ColorD; }
-            set { _ColorD = value; }
+            get => _ColorD;
+            set => _ColorD = value;
         }
 
-        Color _ColorE = Color.FromArgb(25, 255, 255, 255);
+        private Color _ColorE = Color.FromArgb(25, 255, 255, 255);
         public Color ColorE
         {
-            get { return _ColorE; }
-            set { _ColorE = value; }
+            get => _ColorE;
+            set => _ColorE = value;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)

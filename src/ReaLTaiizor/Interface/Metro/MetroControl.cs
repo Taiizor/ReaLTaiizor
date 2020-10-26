@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Interface.Metro
     {
         Style Style { get; set; }
 
-        MetroStyleManager MetroStyleManager { get; set; }
+        MetroStyleManager StyleManager { get; set; }
 
         string ThemeAuthor { get; set; }
 

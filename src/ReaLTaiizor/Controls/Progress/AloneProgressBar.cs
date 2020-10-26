@@ -24,10 +24,10 @@ namespace ReaLTaiizor.Controls
         private int _Max;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), CompilerGenerated]
-        private Color _Stripes;
+        private readonly Color _Stripes;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), CompilerGenerated]
-        private Color _BackgroundColor;
+        private readonly Color _BackgroundColor;
 
         public Color Stripes
         {
@@ -43,10 +43,7 @@ namespace ReaLTaiizor.Controls
 
         public int Value
         {
-            get
-            {
-                return _Val;
-            }
+            get => _Val;
             set
             {
                 _Val = value;
@@ -56,10 +53,7 @@ namespace ReaLTaiizor.Controls
 
         public int Minimum
         {
-            get
-            {
-                return _Min;
-            }
+            get => _Min;
             set
             {
                 _Min = value;
@@ -69,10 +63,7 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get
-            {
-                return _Max;
-            }
+            get => _Max;
             set
             {
                 _Max = value;
@@ -83,8 +74,8 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColor = Color.DodgerBlue;
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public AloneProgressBar()
@@ -109,12 +100,17 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
             graphics.Clear(BackColor);
             using (Pen pen = new Pen(_BorderColor))
+            {
                 graphics.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
+            }
+
             bool flag = Value != 0;
             if (flag)
             {
                 using (HatchBrush hatchBrush = new HatchBrush(HatchStyle.LightUpwardDiagonal, Stripes, BackgroundColor))
+                {
                     graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked((double)Value / (double)Maximum * (double)base.Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
+                }
             }
         }
     }

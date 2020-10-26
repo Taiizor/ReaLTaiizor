@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
         private int _StartIndex = 0;
         public int StartIndex
         {
-            get { return _StartIndex; }
+            get => _StartIndex;
             set
             {
                 _StartIndex = value;
@@ -46,9 +46,14 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.DrawRectangle(new Pen(Color.FromArgb(50, Color.Black)) { DashStyle = DashStyle.Dot }, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
                 }
                 else
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 255, 255, 255)), e.Bounds);
+                }
+
                 using (SolidBrush b = new SolidBrush(Color.Black))
+                {
                     e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), e.Font, b, new Rectangle(e.Bounds.X + 2, e.Bounds.Y, e.Bounds.Width - 4, e.Bounds.Height));
+                }
             }
             catch
             {
@@ -58,17 +63,19 @@ namespace ReaLTaiizor.Controls
 
         protected void DrawTriangle(Color Clr, Point FirstPoint, Point SecondPoint, Point ThirdPoint, Graphics G)
         {
-            List<Point> points = new List<Point>();
-            points.Add(FirstPoint);
-            points.Add(SecondPoint);
-            points.Add(ThirdPoint);
+            List<Point> points = new List<Point>
+            {
+                FirstPoint,
+                SecondPoint,
+                ThirdPoint
+            };
             G.FillPolygon(new SolidBrush(Clr), points.ToArray());
         }
 
         private Color _highlightColor = Color.FromArgb(121, 176, 214);
         public Color ItemHighlightColor
         {
-            get { return _highlightColor; }
+            get => _highlightColor;
             set
             {
                 _highlightColor = value;

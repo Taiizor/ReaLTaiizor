@@ -31,20 +31,20 @@ namespace ReaLTaiizor.Controls
 
         public Color P_BaseColor
         {
-            get { return BaseColor.Color; }
-            set { BaseColor.Color = value; }
+            get => BaseColor.Color;
+            set => BaseColor.Color = value;
         }
 
         public Color P_AnimationColor
         {
-            get { return AnimationColor.Color; }
-            set { AnimationColor.Color = value; }
+            get => AnimationColor.Color;
+            set => AnimationColor.Color = value;
         }
 
         public int P_AnimationSpeed
         {
-            get { return AnimationSpeed.Interval; }
-            set { AnimationSpeed.Interval = value; }
+            get => AnimationSpeed.Interval;
+            set => AnimationSpeed.Interval = value;
         }
 
         #endregion
@@ -75,9 +75,14 @@ namespace ReaLTaiizor.Controls
         private void AnimationSpeed_Tick(object sender, EventArgs e)
         {
             if (IndicatorIndex.Equals(0))
+            {
                 IndicatorIndex = FloatPoint.Length - 1;
+            }
             else
+            {
                 IndicatorIndex -= 1;
+            }
+
             Invalidate(false);
         }
 
@@ -133,9 +138,13 @@ namespace ReaLTaiizor.Controls
             for (int i = 0; i <= num2; i++)
             {
                 if (IndicatorIndex == i)
+                {
                     BuffGraphics.Graphics.FillEllipse(AnimationColor, FloatPoint[i].X, FloatPoint[i].Y, 15f, 15f);
+                }
                 else
+                {
                     BuffGraphics.Graphics.FillEllipse(BaseColor, FloatPoint[i].X, FloatPoint[i].Y, 15f, 15f);
+                }
             }
             BuffGraphics.Render(e.Graphics);
         }

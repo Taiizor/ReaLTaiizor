@@ -21,15 +21,14 @@ namespace ReaLTaiizor.Controls
     [ToolboxBitmap(typeof(MetroContextMenuStrip), "Bitmaps.ContextMenu.bmp")]
     [DefaultEvent("Opening")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroContextMenuStrip : ContextMenuStrip, iControl
+    public class MetroContextMenuStrip : ContextMenuStrip, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -53,10 +52,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -76,8 +75,10 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private ToolStripItemClickedEventArgs _clickedEventArgs;
+
+        private bool _isDerivedStyle = true;
 
         #endregion Internal Vars
 
@@ -96,6 +97,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -107,7 +113,7 @@ namespace ReaLTaiizor.Controls
                     SeparatorColor = Color.LightGray;
                     DisabledForeColor = Color.Silver;
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -123,8 +129,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.ContextMenuDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ContextMenuDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -153,6 +160,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -194,6 +203,19 @@ namespace ReaLTaiizor.Controls
 
         public static new Font Font => MetroFonts.UIRegular(10);
 
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
+
         #endregion
 
         #region Events
@@ -203,11 +225,20 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
         {
-            if ((e.ClickedItem == null) || e.ClickedItem is ToolStripSeparator) return;
+            if ((e.ClickedItem == null) || e.ClickedItem is ToolStripSeparator)
+            {
+                return;
+            }
+
             if (ReferenceEquals(e, _clickedEventArgs))
+            {
                 OnItemClicked(e);
+            }
             else
-                _clickedEventArgs = e; Clicked?.Invoke(this);
+            {
+                _clickedEventArgs = e;
+                Clicked?.Invoke(this);
+            }
         }
 
         protected override void OnMouseHover(EventArgs e)
@@ -235,9 +266,11 @@ namespace ReaLTaiizor.Controls
             protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
             {
                 e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-                var textRect = new Rectangle(25, e.Item.ContentRectangle.Y, e.Item.ContentRectangle.Width - (24 + 16), e.Item.ContentRectangle.Height - 4);
-                using (var b = new SolidBrush(e.Item.Enabled ? e.Item.Selected ? SelectedItemColor : ForegroundColor : DisabledForeColor))
+                Rectangle textRect = new Rectangle(25, e.Item.ContentRectangle.Y, e.Item.ContentRectangle.Width - (24 + 16), e.Item.ContentRectangle.Height - 4);
+                using (SolidBrush b = new SolidBrush(e.Item.Enabled ? e.Item.Selected ? SelectedItemColor : ForegroundColor : DisabledForeColor))
+                {
                     e.Graphics.DrawString(e.Text, Font, b, textRect);
+                }
             }
 
             #endregion Drawing Text
@@ -254,9 +287,11 @@ namespace ReaLTaiizor.Controls
             {
                 e.Graphics.InterpolationMode = InterpolationMode.High;
                 e.Graphics.Clear(BackgroundColor);
-                var r = new Rectangle(0, e.Item.ContentRectangle.Y - 2, e.Item.ContentRectangle.Width + 4, e.Item.ContentRectangle.Height + 3);
-                using (var b = new SolidBrush(e.Item.Selected && e.Item.Enabled ? SelectedItemBackColor : BackgroundColor))
+                Rectangle r = new Rectangle(0, e.Item.ContentRectangle.Y - 2, e.Item.ContentRectangle.Width + 4, e.Item.ContentRectangle.Height + 3);
+                using (SolidBrush b = new SolidBrush(e.Item.Selected && e.Item.Enabled ? SelectedItemBackColor : BackgroundColor))
+                {
                     e.Graphics.FillRectangle(b, r);
+                }
             }
 
             #endregion Drawing Backgrounds
@@ -275,8 +310,10 @@ namespace ReaLTaiizor.Controls
 
             protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
             {
-                using (var p = new Pen(SeparatorColor))
+                using (Pen p = new Pen(SeparatorColor))
+                {
                     e.Graphics.DrawLine(p, new Point(e.Item.Bounds.Left, e.Item.Bounds.Height / 2), new Point(e.Item.Bounds.Right - 5, e.Item.Bounds.Height / 2));
+                }
             }
 
             #endregion Drawing Seperators & Borders
@@ -285,17 +322,19 @@ namespace ReaLTaiizor.Controls
 
             protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
             {
-                var arrowX = e.ArrowRectangle.X + e.ArrowRectangle.Width / 2;
-                var arrowY = e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2;
-                var arrowPoints = new[]
+                int arrowX = e.ArrowRectangle.X + e.ArrowRectangle.Width / 2;
+                int arrowY = e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2;
+                Point[] arrowPoints = new[]
                 {
                     new Point(arrowX - 5, arrowY - 5),
                     new Point(arrowX, arrowY),
                     new Point(arrowX - 5, arrowY + 5)
                 };
 
-                using (var arrowBrush = new SolidBrush(e.Item.Enabled ? ArrowColor : DisabledForeColor))
+                using (SolidBrush arrowBrush = new SolidBrush(e.Item.Enabled ? ArrowColor : DisabledForeColor))
+                {
                     e.Graphics.FillPolygon(arrowBrush, arrowPoints);
+                }
             }
 
             #endregion Drawing DropDown Arrows

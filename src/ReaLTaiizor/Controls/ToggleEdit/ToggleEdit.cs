@@ -30,14 +30,22 @@ namespace ReaLTaiizor.Controls
             functionReturnValue = new GraphicsPath();
 
             if (PillStyle.Left)
+            {
                 functionReturnValue.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, Rectangle.Height, Rectangle.Height), -270, 180);
+            }
             else
+            {
                 functionReturnValue.AddLine(Rectangle.X, Rectangle.Y + Rectangle.Height, Rectangle.X, Rectangle.Y);
+            }
 
             if (PillStyle.Right)
+            {
                 functionReturnValue.AddArc(new Rectangle(Rectangle.X + Rectangle.Width - Rectangle.Height, Rectangle.Y, Rectangle.Height, Rectangle.Height), -90, 180);
+            }
             else
+            {
                 functionReturnValue.AddLine(Rectangle.X + Rectangle.Width, Rectangle.Y, Rectangle.X + Rectangle.Width, Rectangle.Y + Rectangle.Height);
+            }
 
             functionReturnValue.CloseAllFigures();
             return functionReturnValue;
@@ -61,7 +69,7 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Variables
 
-        private Timer AnimationTimer = new Timer { Interval = 1 };
+        private readonly Timer AnimationTimer = new Timer { Interval = 1 };
         private int ToggleLocation = 0;
         public event ToggledChangedEventHandler ToggledChanged;
         public delegate void ToggledChangedEventHandler();
@@ -75,7 +83,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Toggled
         {
-            get { return _Toggled; }
+            get => _Toggled;
             set
             {
                 _Toggled = value;
@@ -87,7 +95,7 @@ namespace ReaLTaiizor.Controls
 
         public _Type Type
         {
-            get { return ToggleType; }
+            get => ToggleType;
             set
             {
                 ToggleType = value;
@@ -125,7 +133,7 @@ namespace ReaLTaiizor.Controls
             AnimationTimer.Start();
         }
 
-        void AnimationTimer_Tick(object sender, EventArgs e)
+        private void AnimationTimer_Tick(object sender, EventArgs e)
         {
             //  Create a slide animation when toggled on/off
             if ((_Toggled == true))

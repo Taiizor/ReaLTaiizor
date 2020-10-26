@@ -59,47 +59,49 @@ namespace ReaLTaiizor.Controls
 
         public Color EmptyBackColor
         {
-            get { return _EmptyBackColor; }
-            set { _EmptyBackColor = value; }
+            get => _EmptyBackColor;
+            set => _EmptyBackColor = value;
         }
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color FillBackColor
         {
-            get { return _FillBackColor; }
-            set { _FillBackColor = value; }
+            get => _FillBackColor;
+            set => _FillBackColor = value;
         }
 
         public Color ThumbBackColor
         {
-            get { return _ThumbBackColor; }
-            set { _ThumbBackColor = value; }
+            get => _ThumbBackColor;
+            set => _ThumbBackColor = value;
         }
 
         public Color ThumbBorderColor
         {
-            get { return _ThumbBorderColor; }
-            set { _ThumbBorderColor = value; }
+            get => _ThumbBorderColor;
+            set => _ThumbBorderColor = value;
         }
 
         public int Minimum
         {
-            get
-            {
-                return _Minimum;
-            }
+            get => _Minimum;
             set
             {
 
                 if (value >= _Maximum)
+                {
                     value = _Maximum - 10;
+                }
+
                 if (_Value < value)
+                {
                     _Value = value;
+                }
 
                 _Minimum = value;
                 Invalidate();
@@ -108,17 +110,19 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get
-            {
-                return _Maximum;
-            }
+            get => _Maximum;
             set
             {
 
                 if (value <= _Minimum)
+                {
                     value = _Minimum + 10;
+                }
+
                 if (_Value > value)
+                {
                     _Value = value;
+                }
 
                 _Maximum = value;
                 Invalidate();
@@ -142,22 +146,25 @@ namespace ReaLTaiizor.Controls
 
         public int Value
         {
-            get
-            {
-                return _Value;
-            }
+            get => _Value;
             set
             {
                 if (_Value != value)
                 {
                     if (value < _Minimum)
+                    {
                         _Value = _Minimum;
+                    }
                     else
                     {
                         if (value > _Maximum)
+                        {
                             _Value = _Maximum;
+                        }
                         else
+                        {
                             _Value = value;
+                        }
                     }
                     Invalidate();
                     ValueChangedEvent?.Invoke();
@@ -167,10 +174,7 @@ namespace ReaLTaiizor.Controls
 
         public ValueDivisor ValueDivison
         {
-            get
-            {
-                return DividedValue;
-            }
+            get => DividedValue;
             set
             {
                 DividedValue = value;
@@ -181,22 +185,13 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public float ValueToSet
         {
-            get
-            {
-                return _Value / (int)DividedValue;
-            }
-            set
-            {
-                Value = (int)(value * (int)DividedValue);
-            }
+            get => _Value / (int)DividedValue;
+            set => Value = (int)(value * (int)DividedValue);
         }
 
         public bool JumpToMouse
         {
-            get
-            {
-                return _JumpToMouse;
-            }
+            get => _JumpToMouse;
             set
             {
                 _JumpToMouse = value;
@@ -206,17 +201,19 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawValueString
         {
-            get
-            {
-                return _DrawValueString;
-            }
+            get => _DrawValueString;
             set
             {
                 _DrawValueString = value;
                 if (_DrawValueString == true)
+                {
                     Height = 35;
+                }
                 else
+                {
                     Height = 22;
+                }
+
                 Invalidate();
             }
         }
@@ -280,9 +277,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             if (_DrawValueString)
+            {
                 Height = 40;
+            }
             else
+            {
                 Height = 22;
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -319,7 +320,9 @@ namespace ReaLTaiizor.Controls
             G.DrawEllipse(new Pen(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)
+            {
                 G.DrawString(Convert.ToString(ValueToSet), Font, Brushes.DimGray, 1, 20);
+            }
         }
     }
 

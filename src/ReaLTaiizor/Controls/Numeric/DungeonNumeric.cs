@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         private GraphicsPath Shape;
-        private Pen P1;
+        private readonly Pen P1;
 
         private long _Value;
         private long _Minimum;
@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
         private bool KeyboardNum;
         private _TextAlignment MyStringAlignment;
 
-        private Timer LongPressTimer = new Timer();
+        private readonly Timer LongPressTimer = new Timer();
 
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Color _BackColorA = Color.FromArgb(246, 246, 246);
@@ -48,86 +48,89 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color BackColorA
         {
-            get { return _BackColorA; }
-            set { _BackColorA = value; }
+            get => _BackColorA;
+            set => _BackColorA = value;
         }
 
         public Color BackColorB
         {
-            get { return _BackColorB; }
-            set { _BackColorB = value; }
+            get => _BackColorB;
+            set => _BackColorB = value;
         }
 
         public Color ButtonForeColorA
         {
-            get { return _ButtonForeColorA; }
-            set { _ButtonForeColorA = value; }
+            get => _ButtonForeColorA;
+            set => _ButtonForeColorA = value;
         }
 
         public Color ButtonForeColorB
         {
-            get { return _ButtonForeColorB; }
-            set { _ButtonForeColorB = value; }
+            get => _ButtonForeColorB;
+            set => _ButtonForeColorB = value;
         }
 
         public long Value
         {
-            get
-            {
-                return _Value;
-            }
+            get => _Value;
             set
             {
                 if (value <= _Maximum & value >= _Minimum)
+                {
                     _Value = value;
+                }
+
                 Invalidate();
             }
         }
 
         public long Minimum
         {
-            get
-            {
-                return _Minimum;
-            }
+            get => _Minimum;
             set
             {
                 if (value < _Maximum)
+                {
                     _Minimum = value;
+                }
+
                 if (_Value < _Minimum)
+                {
                     _Value = Minimum;
+                }
+
                 Invalidate();
             }
         }
 
         public long Maximum
         {
-            get
-            {
-                return _Maximum;
-            }
+            get => _Maximum;
             set
             {
                 if (value > _Minimum)
+                {
                     _Maximum = value;
+                }
+
                 if (_Value > _Maximum)
+                {
                     _Value = _Maximum;
+                }
+
                 Invalidate();
             }
         }
 
         public _TextAlignment TextAlignment
         {
-            get
-            {
-                return MyStringAlignment;
-            }
+            get => MyStringAlignment;
             set
             {
                 MyStringAlignment = value;
@@ -158,13 +161,23 @@ namespace ReaLTaiizor.Controls
             Invalidate();
 
             if (e.X < Width - 50)
+            {
                 Cursor = Cursors.Default; //Cursors.IBeam
+            }
             else
+            {
                 Cursor = Cursors.Default;
+            }
+
             if (e.X > Width - 25 && e.X < Width - 10)
+            {
                 Cursor = Cursors.Hand;
+            }
+
             if (e.X > Width - 44 && e.X < Width - 33)
+            {
                 Cursor = Cursors.Hand;
+            }
         }
 
         private void ClickButton()
@@ -172,14 +185,18 @@ namespace ReaLTaiizor.Controls
             if (Xval > Width - 25 && Xval < Width - 10)
             {
                 if ((Value + 1) <= _Maximum)
+                {
                     _Value++;
+                }
             }
             else
             {
-                if (Xval > Width - 44 && Xval <Width - 33)
+                if (Xval > Width - 44 && Xval < Width - 33)
                 {
                     if ((Value - 1) >= _Minimum)
+                    {
                         _Value--;
+                    }
                 }
                 KeyboardNum = !KeyboardNum;
             }
@@ -211,9 +228,14 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (KeyboardNum == true)
+                {
                     _Value = long.Parse((_Value).ToString() + e.KeyChar.ToString().ToString());
+                }
+
                 if (_Value > _Maximum)
+                {
                     _Value = _Maximum;
+                }
             }
             catch (Exception)
             {
@@ -228,7 +250,10 @@ namespace ReaLTaiizor.Controls
                 string TemporaryValue = _Value.ToString();
                 TemporaryValue = TemporaryValue.Remove(Convert.ToInt32(TemporaryValue.Length - 1));
                 if (TemporaryValue.Length == 0)
+                {
                     TemporaryValue = "0";
+                }
+
                 _Value = Convert.ToInt32(TemporaryValue);
             }
             Invalidate();
@@ -240,13 +265,19 @@ namespace ReaLTaiizor.Controls
             if (e.Delta > 0)
             {
                 if ((Value + 1) <= _Maximum)
+                {
                     _Value++;
+                }
+
                 Invalidate();
             }
             else
             {
                 if ((Value - 1) >= _Minimum)
+                {
                     _Value--;
+                }
+
                 Invalidate();
             }
         }

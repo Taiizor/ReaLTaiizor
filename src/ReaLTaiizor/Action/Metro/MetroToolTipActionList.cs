@@ -31,10 +31,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroToolTip.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroToolTip.MetroStyleManager;
-            set => _metroToolTip.MetroStyleManager = value;
+            get => _metroToolTip.StyleManager;
+            set => _metroToolTip.StyleManager = value;
         }
 
         public bool Active
@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
@@ -100,7 +100,6 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("UseAnimation", "UseAnimation", "Misc", "Gets or sets a value determining whether an animation effect should be used when displaying the ToolTip."),
                 new DesignerActionPropertyItem("UseFading", "UseFading", "Appearance", "Gets or sets a value determining whether a fade effect should be used when displaying the ToolTip."),
             };
-
             return items;
         }
     }

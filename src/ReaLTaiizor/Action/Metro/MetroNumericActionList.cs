@@ -31,10 +31,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroNumeric.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroNumeric.MetroStyleManager;
-            set => _metroNumeric.MetroStyleManager = value;
+            get => _metroNumeric.StyleManager;
+            set => _metroNumeric.StyleManager = value;
         }
 
         public int Maximum
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
@@ -72,7 +72,6 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("Minimum", "Minimum", "Appearance", "Gets or sets the minimum number of the Numeric."),
                 new DesignerActionPropertyItem("Maximum", "Maximum", "Appearance", "Gets or sets the maximum number of the Numeric."),
             };
-
             return items;
         }
     }

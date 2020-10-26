@@ -32,14 +32,18 @@ namespace ReaLTaiizor.Controls
         private PanelSide _Side = PanelSide.Left;
         public PanelSide Side
         {
-            get { return _Side; }
+            get => _Side;
             set
             {
                 _Side = value;
                 if (_Side == PanelSide.Left)
+                {
                     BackColor = LeftSideColor;
+                }
                 else
+                {
                     BackColor = RightSideColor;
+                }
 
                 Invalidate();
             }
@@ -48,7 +52,7 @@ namespace ReaLTaiizor.Controls
         private Color _LeftSideColor = ColorTranslator.FromHtml("#F25D59");
         public Color LeftSideColor
         {
-            get { return _LeftSideColor; }
+            get => _LeftSideColor;
             set
             {
                 _LeftSideColor = value;
@@ -59,7 +63,7 @@ namespace ReaLTaiizor.Controls
         private Color _RightSideColor = ColorTranslator.FromHtml("#292C3D");
         public Color RightSideColor
         {
-            get { return _RightSideColor; }
+            get => _RightSideColor;
             set
             {
                 _RightSideColor = value;

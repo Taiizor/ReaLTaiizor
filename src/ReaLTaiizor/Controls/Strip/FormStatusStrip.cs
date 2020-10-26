@@ -19,8 +19,8 @@ namespace ReaLTaiizor.Controls
 
         public new ControlRenderer Renderer
         {
-            get { return (ControlRenderer)base.Renderer; }
-            set { base.Renderer = value; }
+            get => (ControlRenderer)base.Renderer;
+            set => base.Renderer = value;
         }
     }
 

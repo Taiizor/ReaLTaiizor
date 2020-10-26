@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
         private bool _ShowText = true;
         public bool ShowText
         {
-            get { return _ShowText; }
+            get => _ShowText;
             set
             {
                 _ShowText = value;
@@ -46,7 +46,9 @@ namespace ReaLTaiizor.Controls
         public override void DrawShadow(Graphics g)
         {
             for (int i = 0; i < ThemeLost.ShadowSize; i++)
+            {
                 g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -54,11 +56,17 @@ namespace ReaLTaiizor.Controls
             e.Graphics.FillRectangle(new SolidBrush(BackColor), ClientRectangle);
 
             if (_ShowText)
+            {
                 e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), 2, 2);
+            }
 
             foreach (Control c in Controls)
+            {
                 if (c is ControlLostBase)
+                {
                     (c as ControlLostBase).DrawShadow(e.Graphics);
+                }
+            }
 
             base.OnPaint(e);
         }
@@ -72,8 +80,12 @@ namespace ReaLTaiizor.Controls
         {
             //return;
             foreach (Control c in Controls)
+            {
                 if (c is ControlLostBase && (c as ControlLostBase).ShadowLevel != 0)
+                {
                     (c as ControlLostBase).Invalidate();
+                }
+            }
         }
     }
 

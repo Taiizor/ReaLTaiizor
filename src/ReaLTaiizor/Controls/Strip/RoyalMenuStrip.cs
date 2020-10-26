@@ -12,17 +12,17 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalMenuStrip : MenuStrip
     {
-        Color hotTrackColor;
+        private Color hotTrackColor;
         public Color HotTrackColor
         {
-            get { return hotTrackColor; }
+            get => hotTrackColor;
             set { hotTrackColor = value; Invalidate(); }
         }
 
-        Color selectedColor;
+        private Color selectedColor;
         public Color SelectedColor
         {
-            get { return selectedColor; }
+            get => selectedColor;
             set { selectedColor = value; Invalidate(); }
         }
 
@@ -40,7 +40,9 @@ namespace ReaLTaiizor.Controls
             int width = 1;
 
             for (int i = 0; i < Items.Count; i++)
+            {
                 width += Items[i].Width;
+            }
 
             width += 1;
 
@@ -54,7 +56,9 @@ namespace ReaLTaiizor.Controls
             int width = 1;
 
             for (int i = 0; i < Items.Count; i++)
+            {
                 width += Items[i].Width;
+            }
 
             width += 1;
 

@@ -13,52 +13,51 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalMessageBox : Forms.RoyalForm
     {
-        RoyalButton okButton = new RoyalButton();
-        RoyalButton yesButton = new RoyalButton();
-        RoyalButton noButton = new RoyalButton();
-        RoyalButton cancelButton = new RoyalButton();
-        RoyalButton retryButton = new RoyalButton();
-
-        Form parent;
+        private readonly RoyalButton okButton = new RoyalButton();
+        private readonly RoyalButton yesButton = new RoyalButton();
+        private readonly RoyalButton noButton = new RoyalButton();
+        private readonly RoyalButton cancelButton = new RoyalButton();
+        private readonly RoyalButton retryButton = new RoyalButton();
+        private Form parent;
         public Form FormParent
         {
-            get { return parent; }
-            set { parent = value; }
+            get => parent;
+            set => parent = value;
         }
 
-        string content;
+        private string content;
         public string Content
         {
-            get { return content; }
-            set { content = value; }
+            get => content;
+            set => content = value;
         }
 
-        string caption;
+        private string caption;
         public string Caption
         {
-            get { return caption; }
-            set { caption = value; }
+            get => caption;
+            set => caption = value;
         }
 
-        MessageBoxButtons buttons;
+        private MessageBoxButtons buttons;
         public MessageBoxButtons Buttons
         {
-            get { return buttons; }
-            set { buttons = value; }
+            get => buttons;
+            set => buttons = value;
         }
 
-        MessageBoxIcon icon;
+        private MessageBoxIcon icon;
         public MessageBoxIcon Icon
         {
-            get { return icon; }
-            set { icon = value; }
+            get => icon;
+            set => icon = value;
         }
 
-        static bool mode = true;
+        private static bool mode = true;
         public bool Mode
         {
-            get { return mode; }
-            set { mode = value; }
+            get => mode;
+            set => mode = value;
         }
 
         public RoyalMessageBox() : base()
@@ -102,27 +101,27 @@ namespace ReaLTaiizor.Controls
             retryButton.Hide();
         }
 
-        void RetryButton_Click(object sender, EventArgs e)
+        private void RetryButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Retry;
         }
 
-        void CancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
 
-        void NoButton_Click(object sender, EventArgs e)
+        private void NoButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.No;
         }
 
-        void YesButton_Click(object sender, EventArgs e)
+        private void YesButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
         }
 
-        void OkButton_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
         }
@@ -150,18 +149,22 @@ namespace ReaLTaiizor.Controls
         public static DialogResult Show(Form form, string content, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, bool mode)
         {
             if (form == null)
+            {
                 throw new ArgumentNullException("RoyalMessageBox requires a valid form object in the first argument.");
+            }
 
-            RoyalMessageBox msgBox = new RoyalMessageBox();
-            msgBox.parent = form;
-            msgBox.content = content;
-            msgBox.caption = caption;
-            msgBox.buttons = buttons;
-            msgBox.icon = icon;
-            msgBox.Mode = mode;
+            RoyalMessageBox msgBox = new RoyalMessageBox
+            {
+                parent = form,
+                content = content,
+                caption = caption,
+                buttons = buttons,
+                icon = icon,
+                Mode = mode,
 
-            msgBox.Size = form.Size;
-            msgBox.Location = form.Location;
+                Size = form.Size,
+                Location = form.Location
+            };
 
             return msgBox.ShowDialog();
         }
@@ -234,34 +237,50 @@ namespace ReaLTaiizor.Controls
         {
             e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(150, Color.DarkGray)), e.ClipRectangle);
 
-            Rectangle messageRect = new Rectangle();
-            messageRect.Size = new Size(Width, (Height / 3));
-            messageRect.Location = new Point(0, ((Height - (Height / 3)) / 2));
+            Rectangle messageRect = new Rectangle
+            {
+                Size = new Size(Width, (Height / 3)),
+                Location = new Point(0, ((Height - (Height / 3)) / 2))
+            };
 
             Font messageFont = new Font(Font.FontFamily, 12.75f, FontStyle.Regular);
 
             if (mode)
+            {
                 e.Graphics.FillRectangle(new SolidBrush(parent.BackColor), messageRect);
+            }
             else
             {
                 if (icon == MessageBoxIcon.Warning || icon == MessageBoxIcon.Exclamation)
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 128, 0)), messageRect);
+                }
                 else if (icon == MessageBoxIcon.Information || icon == MessageBoxIcon.Asterisk)
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.Gray), messageRect);
+                }
                 else if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Hand || icon == MessageBoxIcon.Stop)
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.Crimson), messageRect);
+                }
                 else if (icon == MessageBoxIcon.Question)
+                {
                     e.Graphics.FillRectangle(new SolidBrush(Color.DodgerBlue), messageRect);
+                }
                 else
+                {
                     e.Graphics.FillRectangle(new SolidBrush(parent.BackColor), messageRect);
+                }
             }
 
             SolidBrush textBrush = new SolidBrush(parent.ForeColor);
             SolidBrush backBrush = new SolidBrush(parent.BackColor);
 
             if (!string.IsNullOrEmpty(caption))
+            {
                 e.Graphics.DrawString(caption, messageFont, new SolidBrush(RoyalColors.AccentColor), new PointF(messageRect.Left + 10, messageRect.Top + 10));
-            
+            }
+
             if (icon != MessageBoxIcon.None)
             {
                 if (mode)
@@ -270,41 +289,55 @@ namespace ReaLTaiizor.Controls
                     {
                         e.Graphics.DrawImage(Properties.Resources.Warning, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                        }
                     }
                     else if (icon == MessageBoxIcon.Information || icon == MessageBoxIcon.Asterisk)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Information, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                        }
                     }
                     else if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Hand || icon == MessageBoxIcon.Stop)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Error, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                        }
                     }
                     else if (icon == MessageBoxIcon.Question)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Question, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                        }
                     }
                     else
                     {
                         if (!string.IsNullOrEmpty(content))
+                        {
                             e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+                        }
                     }
                 }
                 else
                 {
                     if (!string.IsNullOrEmpty(content))
+                    {
                         e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+                    }
                 }
 
             }
             else if (!string.IsNullOrEmpty(content))
+            {
                 e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+            }
 
             base.OnPaint(e);
         }

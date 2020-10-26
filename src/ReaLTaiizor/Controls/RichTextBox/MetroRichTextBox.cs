@@ -24,15 +24,14 @@ namespace ReaLTaiizor.Controls
     [DefaultProperty("Text")]
     [DefaultEvent("TextChanged")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroRichTextBox : Control, iControl
+    public class MetroRichTextBox : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -56,10 +55,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -79,7 +78,7 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private int _maxLength;
         private bool _readOnly;
         private MouseMode _state;
@@ -91,9 +90,14 @@ namespace ReaLTaiizor.Controls
         private Color _borderColor;
         private Color _hoverColor;
 
+        private bool _isDerivedStyle = true;
+        private Color _disabledBackColor = Color.FromArgb(204, 204, 204);
+        private Color _disabledForeColor = Color.FromArgb(136, 136, 136);
+        private Color _disabledBorderColor = Color.FromArgb(155, 155, 155);
+
         #region Base RichTextBox
 
-        private RichTextBox T = new RichTextBox();
+        private readonly RichTextBox _richTextBox = new RichTextBox();
 
         #endregion Base RichTextBox
 
@@ -112,7 +116,7 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            Font = MetroFonts.Regular(10);
+            base.Font = MetroFonts.Regular(10);
             EvaluateVars();
             ApplyTheme();
             T_Defaults();
@@ -127,29 +131,29 @@ namespace ReaLTaiizor.Controls
         {
             _wordWrap = true;
             _autoWordSelection = false;
-            _foreColor = Color.FromArgb(20, 20, 20); ;
+            _foreColor = Color.FromArgb(20, 20, 20);
+
             _borderColor = Color.FromArgb(155, 155, 155);
             _hoverColor = Color.FromArgb(102, 102, 102);
             _backColor = Color.FromArgb(238, 238, 238);
-            T.BackColor = BackColor;
-            T.ForeColor = ForeColor;
+            _richTextBox.BackColor = BackColor;
+            _richTextBox.ForeColor = ForeColor;
             _readOnly = false;
             _maxLength = 32767;
             _state = MouseMode.Normal;
             _lines = null;
-            T.Cursor = Cursors.IBeam;
-            T.BorderStyle = BorderStyle.None;
-            T.Location = new Point(7, 8);
-            T.Font = Font;
-            T.Size = new Size(Width, Height);
+            _richTextBox.Cursor = Cursors.IBeam;
+            _richTextBox.BorderStyle = BorderStyle.None;
+            _richTextBox.Location = new Point(7, 8);
+            _richTextBox.Font = Font;
+            _richTextBox.Size = new Size(Width, Height);
 
-            T.MouseHover += T_MouseHover;
-            T.MouseUp += T_MouseUp;
-            T.Leave += T_Leave;
-            T.Enter += T_Enter;
-            T.KeyDown += T_KeyDown;
-            T.TextChanged += T_TextChanged;
-
+            _richTextBox.MouseHover += T_MouseHover;
+            _richTextBox.MouseUp += T_MouseUp;
+            _richTextBox.Leave += T_Leave;
+            _richTextBox.Enter += T_Enter;
+            _richTextBox.KeyDown += T_KeyDown;
+            _richTextBox.TextChanged += T_TextChanged;
         }
 
         #endregion Constructors
@@ -158,51 +162,51 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             if (Enabled)
             {
-                using (var bg = new SolidBrush(BackColor))
+                using (SolidBrush bg = new SolidBrush(BackColor))
                 {
-                    using (var p = new Pen(BorderColor))
+                    using (Pen p = new Pen(BorderColor))
                     {
-                        using (var ph = new Pen(HoverColor))
+                        using (Pen ph = new Pen(HoverColor))
                         {
-                            G.FillRectangle(bg, rect);
+                            g.FillRectangle(bg, rect);
                             switch (_state)
                             {
                                 case MouseMode.Normal:
-                                    G.DrawRectangle(p, rect);
+                                    g.DrawRectangle(p, rect);
                                     break;
                                 case MouseMode.Hovered:
-                                    G.DrawRectangle(ph, rect);
+                                    g.DrawRectangle(ph, rect);
                                     break;
                             }
 
-                            T.BackColor = BackColor;
-                            T.ForeColor = ForeColor;
+                            _richTextBox.BackColor = BackColor;
+                            _richTextBox.ForeColor = ForeColor;
                         }
                     }
                 }
             }
             else
             {
-                using (var bg = new SolidBrush(DisabledBackColor))
+                using (SolidBrush bg = new SolidBrush(DisabledBackColor))
                 {
-                    using (var p = new Pen(DisabledBorderColor))
+                    using (Pen p = new Pen(DisabledBorderColor))
                     {
-                        G.FillRectangle(bg, rect);
-                        G.DrawRectangle(p, rect);
-                        T.BackColor = DisabledBackColor;
-                        T.ForeColor = DisabledForeColor;
+                        g.FillRectangle(bg, rect);
+                        g.DrawRectangle(p, rect);
+                        _richTextBox.BackColor = DisabledBackColor;
+                        _richTextBox.ForeColor = DisabledForeColor;
                     }
                 }
             }
 
-            T.Location = new Point(7, 4);
-            T.Width = Width - 10;
+            _richTextBox.Location = new Point(7, 4);
+            _richTextBox.Width = Width - 10;
 
         }
 
@@ -212,6 +216,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -223,7 +232,7 @@ namespace ReaLTaiizor.Controls
                     DisabledBorderColor = Color.FromArgb(155, 155, 155);
                     DisabledForeColor = Color.FromArgb(136, 136, 136);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -239,8 +248,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.RichTextBoxDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.RichTextBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -269,6 +279,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -279,7 +291,7 @@ namespace ReaLTaiizor.Controls
         private void UpdateProperties()
         {
             Invalidate();
-            T.Invalidate();
+            _richTextBox.Invalidate();
         }
 
         #endregion ApplyTheme
@@ -343,7 +355,9 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Right)
             {
                 if (ContextMenuStrip != null)
-                    ContextMenuStrip.Show(T, new Point(e.X, e.Y));
+                {
+                    ContextMenuStrip.Show(_richTextBox, new Point(e.X, e.Y));
+                }
             }
             Invalidate();
         }
@@ -371,7 +385,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            T.Size = new Size(Width - 10, Height - 10);
+            _richTextBox.Size = new Size(Width - 10, Height - 10);
         }
 
         public void T_Enter(object sender, EventArgs e)
@@ -383,17 +397,20 @@ namespace ReaLTaiizor.Controls
         private void T_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.A)
+            {
                 e.SuppressKeyPress = true;
+            }
+
             if (e.Control && e.KeyCode == Keys.C)
             {
-                T.Copy();
+                _richTextBox.Copy();
                 e.SuppressKeyPress = true;
             }
         }
 
         private void T_TextChanged(object sender, EventArgs e)
         {
-            Text = T.Text;
+            Text = _richTextBox.Text;
             TextChanged?.Invoke(this);
             Invalidate();
         }
@@ -401,187 +418,261 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            if (!Controls.Contains(T))
-                Controls.Add(T);
+            if (!Controls.Contains(_richTextBox))
+            {
+                Controls.Add(_richTextBox);
+            }
         }
 
         public void AppendText(string text)
         {
-            if (T != null)
-                T.AppendText(text);
+            if (_richTextBox != null)
+            {
+                _richTextBox.AppendText(text);
+            }
         }
 
         public void Undo()
         {
-            if (T != null)
+            if (_richTextBox != null)
             {
-                if (T.CanUndo)
-                    T.Undo();
+                if (_richTextBox.CanUndo)
+                {
+                    _richTextBox.Undo();
+                }
             }
         }
 
         public int GetLineFromCharIndex(int index)
         {
-            if (T != null)
-                return T.GetLineFromCharIndex(index);
+            if (_richTextBox != null)
+            {
+                return _richTextBox.GetLineFromCharIndex(index);
+            }
             else
+            {
                 return 0;
+            }
         }
 
         public Point GetPositionFromCharIndex(int index)
         {
-            return T.GetPositionFromCharIndex(index);
+            return _richTextBox.GetPositionFromCharIndex(index);
         }
 
         public int GetCharIndexFromPosition(Point pt)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return 0;
-            return T.GetCharIndexFromPosition(pt);
+            }
+
+            return _richTextBox.GetCharIndexFromPosition(pt);
         }
 
         public void ClearUndo()
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.ClearUndo();
+            }
+
+            _richTextBox.ClearUndo();
         }
 
         public void Copy()
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.Copy();
+            }
+
+            _richTextBox.Copy();
         }
 
         public void Cut()
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.Cut();
+            }
+
+            _richTextBox.Cut();
         }
 
         public void SelectAll()
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.SelectAll();
+            }
+
+            _richTextBox.SelectAll();
         }
 
         public void DeselectAll()
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.DeselectAll();
+            }
+
+            _richTextBox.DeselectAll();
         }
 
         public void Select(int start, int length)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.Select(start, length);
+            }
+
+            _richTextBox.Select(start, length);
         }
 
         public void Paste(DataFormats.Format clipFormat)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.Paste(clipFormat);
+            }
+
+            _richTextBox.Paste(clipFormat);
         }
 
         public void LoadFile(string path)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.LoadFile(path);
+            }
+
+            _richTextBox.LoadFile(path);
         }
 
         public void LoadFile(string path, RichTextBoxStreamType fileType)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.LoadFile(path, fileType);
+            }
+
+            _richTextBox.LoadFile(path, fileType);
         }
 
         public void LoadFile(System.IO.Stream data, RichTextBoxStreamType fileType)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.LoadFile(data, fileType);
+            }
+
+            _richTextBox.LoadFile(data, fileType);
         }
 
         public void SaveFile(string path)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.SaveFile(path);
+            }
+
+            _richTextBox.SaveFile(path);
         }
+
         public void SaveFile(string path, RichTextBoxStreamType fileType)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.SaveFile(path, fileType);
+            }
+
+            _richTextBox.SaveFile(path, fileType);
         }
 
         public void SaveFile(System.IO.Stream data, RichTextBoxStreamType fileType)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return;
-            T.SaveFile(data, fileType);
+            }
+
+            _richTextBox.SaveFile(data, fileType);
         }
 
         public bool CanPaste(DataFormats.Format clipFormat)
         {
-            return T.CanPaste(clipFormat);
+            return _richTextBox.CanPaste(clipFormat);
         }
 
         public int Find(char[] characterSet)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return 0;
-            return T.Find(characterSet);
+            }
+
+            return _richTextBox.Find(characterSet);
         }
 
         public int Find(char[] characterSet, int start)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return 0;
-            return T.Find(characterSet, start);
+            }
+
+            return _richTextBox.Find(characterSet, start);
         }
 
         public int Find(char[] characterSet, int start, int ends)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return 0;
-            return T.Find(characterSet, start, ends);
+            }
+
+            return _richTextBox.Find(characterSet, start, ends);
         }
 
         public int Find(string str)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return 0;
-            return T.Find(str);
+            }
+
+            return _richTextBox.Find(str);
         }
 
         public int Find(string str, int start, int ends, RichTextBoxFinds options)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return 0;
-            return T.Find(str, start, ends, options);
+            }
+
+            return _richTextBox.Find(str, start, ends, options);
         }
 
         public int Find(string str, RichTextBoxFinds options)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return 0;
-            return T.Find(str, options);
+            }
+
+            return _richTextBox.Find(str, options);
         }
 
         public int Find(string str, int start, RichTextBoxFinds options)
         {
-            if (T == null)
+            if (_richTextBox == null)
+            {
                 return 0;
-            return T.Find(str, start, options);
+            }
+
+            return _richTextBox.Find(str, start, options);
         }
 
         #endregion Events
@@ -598,8 +689,11 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _maxLength = value;
-                if (T != null)
-                    T.MaxLength = value;
+                if (_richTextBox != null)
+                {
+                    _richTextBox.MaxLength = value;
+                }
+
                 Invalidate();
             }
         }
@@ -612,7 +706,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _backColor = value;
-                T.BackColor = value;
+                _richTextBox.BackColor = value;
                 Invalidate();
             }
         }
@@ -650,7 +744,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _foreColor = value;
-                T.ForeColor = value;
+                _richTextBox.ForeColor = value;
                 Invalidate();
             }
         }
@@ -662,8 +756,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _readOnly = value;
-                if (T != null)
-                    T.ReadOnly = value;
+                if (_richTextBox != null)
+                {
+                    _richTextBox.ReadOnly = value;
+                }
             }
         }
 
@@ -673,12 +769,14 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the current text in the RichTextBox.")]
         public override string Text
         {
-            get => T.Text;
+            get => _richTextBox.Text;
             set
             {
                 base.Text = value;
-                if (T != null)
-                    T.Text = value;
+                if (_richTextBox != null)
+                {
+                    _richTextBox.Text = value;
+                }
             }
         }
 
@@ -689,11 +787,14 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Font = value;
-                if (T == null)
+                if (_richTextBox == null)
+                {
                     return;
-                T.Font = value;
-                T.Location = new Point(5, 5);
-                T.Width = Width - 8;
+                }
+
+                _richTextBox.Font = value;
+                _richTextBox.Location = new Point(5, 5);
+                _richTextBox.Width = Width - 8;
             }
         }
 
@@ -704,8 +805,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _wordWrap = value;
-                if (T != null)
-                    T.WordWrap = value;
+                if (_richTextBox != null)
+                {
+                    _richTextBox.WordWrap = value;
+                }
             }
         }
 
@@ -716,8 +819,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _autoWordSelection = value;
-                if (T != null)
-                    T.AutoWordSelection = value;
+                if (_richTextBox != null)
+                {
+                    _richTextBox.AutoWordSelection = value;
+                }
             }
         }
 
@@ -728,8 +833,11 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _lines = value;
-                if (T != null)
-                    T.Lines = value;
+                if (_richTextBox != null)
+                {
+                    _richTextBox.Lines = value;
+                }
+
                 Invalidate();
             }
         }
@@ -741,21 +849,64 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.ContextMenuStrip = value;
-                if (T == null)
+                if (_richTextBox == null)
+                {
                     return;
-                T.ContextMenuStrip = value;
+                }
+
+                _richTextBox.ContextMenuStrip = value;
                 Invalidate();
             }
         }
 
         [Category("Metro")]
-        public Color DisabledBackColor { get; set; } = Color.FromArgb(204, 204, 204);
+        [Description("Gets or sets back color used by the control while disabled.")]
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color DisabledForeColor { get; set; } = Color.FromArgb(136, 136, 136);
+        [Description("Gets or sets the fore color of the control whenever while disabled")]
+        public Color DisabledForeColor
+        {
+            get => _disabledForeColor;
+            set
+            {
+                _disabledForeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color DisabledBorderColor { get; set; } = Color.FromArgb(155, 155, 155);
+        [Description("Gets or sets the border color of the control while disabled.")]
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
     }

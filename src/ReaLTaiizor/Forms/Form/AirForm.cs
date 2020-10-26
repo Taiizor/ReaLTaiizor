@@ -25,9 +25,9 @@ namespace ReaLTaiizor.Forms
             MinimumSize = new Size(112, 35);
         }
 
-        Color TitleColor;
-        Color Xcolor;
-        Color Xellipse;
+        private Color TitleColor;
+        private Color Xcolor;
+        private Color Xellipse;
         protected override void ColorHook()
         {
             TitleColor = GetColor("Title color");
@@ -35,9 +35,8 @@ namespace ReaLTaiizor.Forms
             Xellipse = GetColor("X-ellipse");
         }
 
-        int X;
-
-        int Y;
+        private int X;
+        private int Y;
         protected override void OnMouseMove(MouseEventArgs e)
         {
             X = e.Location.X;
@@ -50,7 +49,9 @@ namespace ReaLTaiizor.Forms
             base.OnClick(e);
             Rectangle r = new Rectangle(Width - 22, 5, 15, 15);
             if (r.Contains(new Point(e.X, e.Y)) || r.Contains(new Point(X, Y)) && e.Button == MouseButtons.Left)
+            {
                 FindForm().Close();
+            }
         }
 
         protected override void PaintHook()
@@ -69,7 +70,9 @@ namespace ReaLTaiizor.Forms
                 G.DrawString("r", new Font("Webdings", 8), new SolidBrush(BackColor), new Point(Width - 23, 5));
             }
             else
+            {
                 G.DrawString("r", new Font("Webdings", 8), new SolidBrush(Xcolor), new Point(Width - 23, 5));
+            }
 
             DrawText(new SolidBrush(TitleColor), new Point(8, 7));
         }

@@ -18,19 +18,18 @@ namespace ReaLTaiizor.Controls
     #region MetroComboBox
 
     [ToolboxItem(true)]
-    [ToolboxBitmap(typeof(MetroComboBox), "Bitmaps.ComoBox.bmp")]
+    [ToolboxBitmap(typeof(MetroComboBox), "Bitmaps.ComboBox.bmp")]
     [DefaultEvent("SelectedIndexChanged")]
     [DefaultProperty("Items")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroComboBox : ComboBox, iControl
+    public class MetroComboBox : ComboBox, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -49,15 +48,15 @@ namespace ReaLTaiizor.Controls
                         ApplyTheme();
                         break;
                 }
-                Invalidate();
+                Refresh();
             }
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -78,8 +77,18 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private int _startIndex;
+
+        private bool _isDerivedStyle = true;
+        private Color _backgroundColor;
+        private Color _borderColor;
+        private Color _arrowColor;
+        private Color _selectedItemForeColor;
+        private Color _selectedItemBackColor;
+        private Color _disabledBackColor;
+        private Color _disabledForeColor;
+        private Color _disabledBorderColor;
 
         #endregion Internal Vars
 
@@ -97,13 +106,13 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            Font = MetroFonts.Regular(11);
-            BackColor = Color.Transparent;
+            base.Font = MetroFonts.Regular(11);
+            base.BackColor = Color.Transparent;
+            base.AllowDrop = true;
             DrawMode = DrawMode.OwnerDrawFixed;
             ItemHeight = 20;
             _startIndex = 0;
             CausesValidation = false;
-            AllowDrop = true;
             DropDownStyle = ComboBoxStyle.DropDownList;
             _mth = new Methods();
             _utl = new Utilites();
@@ -143,28 +152,105 @@ namespace ReaLTaiizor.Controls
 
         [Category("Metro"), Description("Gets or sets the form backcolor.")]
         [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color BorderColor { get; set; }
+        public Color BorderColor
+        {
+            get => _borderColor;
+            set
+            {
+                _borderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color ArrowColor { get; set; }
+        public Color ArrowColor
+        {
+            get => _arrowColor;
+            set
+            {
+                _arrowColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color SelectedItemForeColor { get; set; }
+        public Color SelectedItemForeColor
+        {
+            get => _selectedItemForeColor;
+            set
+            {
+                _selectedItemForeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color SelectedItemBackColor { get; set; }
+        public Color SelectedItemBackColor
+        {
+            get => _selectedItemBackColor;
+            set
+            {
+                _selectedItemBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color DisabledBackColor { get; set; }
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color DisabledForeColor { get; set; }
+        public Color DisabledForeColor
+        {
+            get => _disabledForeColor;
+            set
+            {
+                _disabledForeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion
 
@@ -172,47 +258,49 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
-            var G = e.Graphics;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             if (e.Index == -1)
-                return;
-
-            var itemState = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
-            using (var bg = new SolidBrush(itemState ? SelectedItemBackColor : BackgroundColor))
-            using (var tc = new SolidBrush(itemState ? SelectedItemForeColor : ForeColor))
             {
-                using (var f = new Font(Font.Name, 9))
+                return;
+            }
+
+            bool itemState = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+            using (SolidBrush bg = new SolidBrush(itemState ? SelectedItemBackColor : BackgroundColor))
+            using (SolidBrush tc = new SolidBrush(itemState ? SelectedItemForeColor : ForeColor))
+            {
+                using (Font f = new Font(Font.Name, 9))
                 {
-                    G.FillRectangle(bg, e.Bounds);
-                    G.DrawString(GetItemText(Items[e.Index]), f, tc, e.Bounds, _mth.SetPosition(StringAlignment.Near));
+                    g.FillRectangle(bg, e.Bounds);
+                    g.DrawString(GetItemText(Items[e.Index]), f, tc, e.Bounds, _mth.SetPosition(StringAlignment.Near));
                 }
             }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
-            var downArrow = '▼';
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            char downArrow = '▼';
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            using (var bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
             {
-                using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                 {
-                    using (var s = new SolidBrush(Enabled ? ArrowColor : DisabledForeColor))
+                    using (SolidBrush s = new SolidBrush(Enabled ? ArrowColor : DisabledForeColor))
                     {
-                        using (var tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                        using (SolidBrush tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
                         {
-                            using (var f = MetroFonts.SemiBold(8))
+                            using (Font f = MetroFonts.SemiBold(8))
                             {
-                                G.FillRectangle(bg, rect);
-                                G.TextRenderingHint = TextRenderingHint.AntiAlias;
-                                G.DrawString(downArrow.ToString(), f, s, new Point(Width - 22, 8));
-                                G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-                                G.DrawString(Text, f, tb, new Rectangle(7, 0, Width - 1, Height - 1), _mth.SetPosition(StringAlignment.Near));
-                                G.DrawRectangle(p, rect);
+                                g.FillRectangle(bg, rect);
+                                g.TextRenderingHint = TextRenderingHint.AntiAlias;
+                                g.DrawString(downArrow.ToString(), f, s, new Point(Width - 22, 8));
+                                g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+                                g.DrawString(Text, f, tb, new Rectangle(7, 0, Width - 1, Height - 1), _mth.SetPosition(StringAlignment.Near));
+                                g.DrawRectangle(p, rect);
                             }
                         }
                     }
@@ -224,12 +312,13 @@ namespace ReaLTaiizor.Controls
 
         #region ApplyTheme
 
-        /// <summary>
-        /// Gets or sets the style provided by the user.
-        /// </summary>
-        /// <param name="style">The Style.</param>
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -243,7 +332,7 @@ namespace ReaLTaiizor.Controls
                     DisabledBorderColor = Color.FromArgb(155, 155, 155);
                     DisabledForeColor = Color.FromArgb(136, 136, 136);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -261,8 +350,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.ComboBoxDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ComboBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -297,6 +387,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:

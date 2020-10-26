@@ -27,16 +27,14 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     [DefaultProperty("Checked")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroRadioButton : Control, iControl, IDisposable
+    public class MetroRadioButton : Control, IMetroControl, IDisposable
     {
-
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -60,10 +58,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -83,9 +81,16 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private bool _checked;
-        private IntAnimate _animator;
+        private readonly IntAnimate _animator;
+
+        private bool _isDerivedStyle = true;
+        private int _group;
+        private Color _backgroundColor;
+        private Color _borderColor;
+        private Color _disabledBorderColor;
+        private Color _checkSignColor;
 
         #endregion Internal Vars
 
@@ -101,11 +106,10 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            Font = MetroFonts.SemiBold(10);
-            Font = new Font("Segoe UI", 10);
+            base.Font = MetroFonts.SemiBold(10);
             _utl = new Utilites();
             _animator = new IntAnimate();
-            _animator.Setting(100, 0, 255, EasingType.Linear);
+            _animator.Setting(100, 0, 255);
             _animator.Update = (alpha) => Invalidate();
             ApplyTheme();
         }
@@ -116,6 +120,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -125,7 +134,7 @@ namespace ReaLTaiizor.Controls
                     DisabledBorderColor = Color.FromArgb(205, 205, 205);
                     CheckSignColor = Color.FromArgb(65, 177, 225);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -139,8 +148,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.RadioButtonDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.RadioButtonDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -163,6 +173,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -177,9 +189,9 @@ namespace ReaLTaiizor.Controls
                 ForeColor = ForeColor;
                 Invalidate();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                throw new Exception(Ex.StackTrace);
+                throw new Exception(ex.StackTrace);
             }
         }
 
@@ -189,39 +201,41 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            G.SmoothingMode = SmoothingMode.AntiAlias;
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            var rect = new Rectangle(0, 0, 17, 16);
-            var alpha = _animator.Value;
+            Rectangle rect = new Rectangle(0, 0, 17, 16);
+            int alpha = _animator.Value;
 
-            using (var backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
+            using (SolidBrush backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
             {
-                using (var checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Checked || _animator.Active ? Color.FromArgb(alpha, DisabledBorderColor) : Color.FromArgb(238, 238, 238)))
+                using (SolidBrush checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Checked || _animator.Active ? Color.FromArgb(alpha, DisabledBorderColor) : Color.FromArgb(238, 238, 238)))
                 {
-                    using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                    using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                     {
-                        G.FillEllipse(backBrush, rect);
+                        g.FillEllipse(backBrush, rect);
                         if (Enabled)
                         {
-                            G.DrawEllipse(p, rect);
-                            G.FillEllipse(checkMarkBrush, new Rectangle(3, 3, 11, 10));
+                            g.DrawEllipse(p, rect);
+                            g.FillEllipse(checkMarkBrush, new Rectangle(3, 3, 11, 10));
                         }
                         else
                         {
-                            G.FillEllipse(checkMarkBrush, new Rectangle(3, 3, 11, 10));
-                            G.DrawEllipse(p, rect);
+                            g.FillEllipse(checkMarkBrush, new Rectangle(3, 3, 11, 10));
+                            g.DrawEllipse(p, rect);
                         }
                     }
                 }
 
             }
-            G.SmoothingMode = SmoothingMode.Default;
-            using (var tb = new SolidBrush(ForeColor))
+            g.SmoothingMode = SmoothingMode.Default;
+            using (SolidBrush tb = new SolidBrush(ForeColor))
             {
-                using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
-                    G.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
+                using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
+                {
+                    g.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
+                }
             }
         }
 
@@ -249,11 +263,16 @@ namespace ReaLTaiizor.Controls
         private void UpdateState()
         {
             if (!IsHandleCreated || !Checked)
+            {
                 return;
+            }
+
             foreach (Control c in Parent.Controls)
             {
                 if (!ReferenceEquals(c, this) && c is MetroRadioButton && ((MetroRadioButton)c).Group == Group)
+                {
                     ((MetroRadioButton)c).Checked = false;
+                }
             }
             CheckedChanged?.Invoke(this);
         }
@@ -293,7 +312,16 @@ namespace ReaLTaiizor.Controls
         public Enum.Metro.CheckState CheckState { get; set; }
 
         [Category("Metro")]
-        public int Group { get; set; } = 1;
+        [DefaultValue(1)]
+        public int Group
+        {
+            get => _group;
+            set
+            {
+                _group = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the control forecolor.")]
         public override Color ForeColor { get; set; }
@@ -303,16 +331,61 @@ namespace ReaLTaiizor.Controls
 
         [Category("Metro"), Description("Gets or sets the control backcolor.")]
         [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color.")]
-        public Color BorderColor { get; set; }
+        public Color BorderColor
+        {
+            get => _borderColor;
+            set
+            {
+                _borderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the color of the check symbol.")]
-        public Color CheckSignColor { get; set; }
+        public Color CheckSignColor
+        {
+            get => _checkSignColor;
+            set
+            {
+                _checkSignColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
 
@@ -324,13 +397,7 @@ namespace ReaLTaiizor.Controls
             GC.SuppressFinalize(this);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-        }
-
         #endregion
-
     }
 
     #endregion

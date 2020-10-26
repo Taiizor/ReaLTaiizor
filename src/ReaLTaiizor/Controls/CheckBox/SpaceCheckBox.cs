@@ -74,8 +74,8 @@ namespace ReaLTaiizor.Controls
         private bool _Checked { get; set; }
         public bool Checked
         {
-            get { return _Checked; }
-            set { _Checked = value; }
+            get => _Checked;
+            set => _Checked = value;
         }
         protected override void OnClick(System.EventArgs e)
         {

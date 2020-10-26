@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     public class ThunderRadioButton : Control
     {
-        MouseStateThunder State = MouseStateThunder.None;
+        private MouseStateThunder State = MouseStateThunder.None;
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
         private bool _Checked = false;
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -82,10 +82,18 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked) return;
+            if (!IsHandleCreated || !_Checked)
+            {
+                return;
+            }
+
             foreach (Control C in Parent.Controls)
+            {
                 if (C is ThunderRadioButton && C != this)
+                {
                     ((ThunderRadioButton)C).Checked = false;
+                }
+            }
         }
 
         public ThunderRadioButton()

@@ -18,17 +18,16 @@ namespace ReaLTaiizor.Controls
     public class HopeButton : Control
     {
         #region Variables
-        bool enterFlag = false;
-        bool clickFlag = false;
-
-        Color _DefaultColor = HopeColors.DefaultColor;
-        Color _PrimaryColor = HopeColors.PrimaryColor;
-        Color _SuccessColor = HopeColors.Success;
-        Color _InfoColor = HopeColors.Info;
-        Color _WarningColor = HopeColors.Warning;
-        Color _DangerColor = HopeColors.Danger;
-        Color _BorderColor = HopeColors.OneLevelBorder;
-        Color _HoverTextColor = HopeColors.MainText;
+        private bool enterFlag = false;
+        private bool clickFlag = false;
+        private Color _DefaultColor = HopeColors.DefaultColor;
+        private Color _PrimaryColor = HopeColors.PrimaryColor;
+        private Color _SuccessColor = HopeColors.Success;
+        private Color _InfoColor = HopeColors.Info;
+        private Color _WarningColor = HopeColors.Warning;
+        private Color _DangerColor = HopeColors.Danger;
+        private Color _BorderColor = HopeColors.OneLevelBorder;
+        private Color _HoverTextColor = HopeColors.MainText;
         #endregion
 
         #region Settings
@@ -42,57 +41,57 @@ namespace ReaLTaiizor.Controls
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color DefaultColor
         {
-            get { return _DefaultColor; }
-            set { _DefaultColor = value; }
+            get => _DefaultColor;
+            set => _DefaultColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color PrimaryColor
         {
-            get { return _PrimaryColor; }
-            set { _PrimaryColor = value; }
+            get => _PrimaryColor;
+            set => _PrimaryColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color SuccessColor
         {
-            get { return _SuccessColor; }
-            set { _SuccessColor = value; }
+            get => _SuccessColor;
+            set => _SuccessColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color InfoColor
         {
-            get { return _InfoColor; }
-            set { _InfoColor = value; }
+            get => _InfoColor;
+            set => _InfoColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color WarningColor
         {
-            get { return _WarningColor; }
-            set { _WarningColor = value; }
+            get => _WarningColor;
+            set => _WarningColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color DangerColor
         {
-            get { return _DangerColor; }
-            set { _DangerColor = value; }
+            get => _DangerColor;
+            set => _DangerColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color HoverTextColor
         {
-            get { return _HoverTextColor; }
-            set { _HoverTextColor = value; }
+            get => _HoverTextColor;
+            set => _HoverTextColor = value;
         }
 
         #endregion
@@ -137,15 +136,15 @@ namespace ReaLTaiizor.Controls
 
             if (ButtonType == HopeButtonType.Default)
             {
-                var BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
+                GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, _DefaultColor) : _DefaultColor), BG);
                 graphics.DrawPath(new Pen(clickFlag ? _DefaultColor : _BorderColor, 1), BG);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {
-                var BG = RoundRectangle.CreateRoundRect(0, 0, Width, Height, 3);
-                var backColor = _DefaultColor;
+                GraphicsPath BG = RoundRectangle.CreateRoundRect(0, 0, Width, Height, 3);
+                Color backColor = _DefaultColor;
                 switch (ButtonType)
                 {
                     case HopeButtonType.Primary:
@@ -167,10 +166,13 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                var brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
+                SolidBrush brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
                 graphics.FillPath(brush, BG);
                 if (!Enabled)
+                {
                     graphics.FillPath(new SolidBrush(Color.FromArgb(125, _BorderColor)), BG);
+                }
+
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
         }

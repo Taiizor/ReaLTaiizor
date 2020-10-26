@@ -40,7 +40,7 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ReaLTaiizor, Version=3.7.7.6, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ReaLTaiizor, Version=3.7.8.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ReaLTaiizor\bin\Release\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
@@ -63,6 +63,18 @@
     <Compile Include="Material.Designer.cs">
       <DependentUpon>Material.cs</DependentUpon>
     </Compile>
+    <Compile Include="Metro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Metro.Designer.cs">
+      <DependentUpon>Metro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Poison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Poison.Designer.cs">
+      <DependentUpon>Poison.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Catcher.resx">
@@ -70,6 +82,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Material.resx">
       <DependentUpon>Material.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Metro.resx">
+      <DependentUpon>Metro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Poison.resx">
+      <DependentUpon>Poison.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

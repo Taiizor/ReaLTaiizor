@@ -27,15 +27,14 @@ namespace ReaLTaiizor.Controls
     [DefaultProperty("Items")]
     [DefaultEvent("SelectedIndexChanged")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroListBox : Control, iControl
+    public class MetroListBox : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -60,12 +59,12 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
+            get => _styleManager;
             set
             {
-                _metroStyleManager = value;
+                _styleManager = value;
                 Invalidate();
             }
         }
@@ -87,7 +86,7 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private MetroItemCollection _items;
         private List<object> _selectedItems;
         private List<object> _indicates;
@@ -100,6 +99,17 @@ namespace ReaLTaiizor.Controls
         private int _hoveredItem;
         private MetroScrollBar _svs;
         private object _selectedValue;
+
+        private bool _isDerivedStyle = true;
+        private int _itemHeight;
+        private bool _showBorder;
+        private Color _selectedItemColor;
+        private Color _selectedItemBackColor;
+        private Color _hoveredItemColor;
+        private Color _hoveredItemBackColor;
+        private Color _disabledForeColor;
+        private Color _disabledBackColor;
+        private Color _borderColor;
 
         #endregion Internal Vars
 
@@ -118,8 +128,8 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            BackColor = Color.Transparent;
-            Font = MetroFonts.SemiBold(10);
+            base.BackColor = Color.Transparent;
+            base.Font = MetroFonts.Light(10);
             _utl = new Utilites();
             ApplyTheme();
             SetDefaults();
@@ -138,7 +148,7 @@ namespace ReaLTaiizor.Controls
             _multiKeyDown = false;
             _svs = new MetroScrollBar()
             {
-                Orientation = Enum.Metro.ScrollOrientate.Vertical,
+                Orientation = ScrollOrientate.Vertical,
                 Size = new Size(12, Height),
                 Maximum = _items.Count * ItemHeight,
                 SmallChange = 1,
@@ -159,6 +169,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -172,7 +187,7 @@ namespace ReaLTaiizor.Controls
                     DisabledForeColor = Color.FromArgb(136, 136, 136);
                     BorderColor = Color.LightGray;
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -190,8 +205,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.ListBoxDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (KeyValuePair<string, object> varkey in StyleManager.ListBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -226,6 +242,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -244,65 +262,67 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            var mainRect = new Rectangle(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Rectangle mainRect = new Rectangle(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
 
-            using (var bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
             {
-                using (var usic = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                using (SolidBrush usic = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
                 {
-                    using (var sic = new SolidBrush(SelectedItemColor))
+                    using (SolidBrush sic = new SolidBrush(SelectedItemColor))
                     {
-                        using (var sibc = new SolidBrush(SelectedItemBackColor))
+                        using (SolidBrush sibc = new SolidBrush(SelectedItemBackColor))
                         {
-                            using (var hic = new SolidBrush(HoveredItemColor))
+                            using (SolidBrush hic = new SolidBrush(HoveredItemColor))
                             {
-                                using (var hibc = new SolidBrush(HoveredItemBackColor))
+                                using (SolidBrush hibc = new SolidBrush(HoveredItemBackColor))
                                 {
-                                    using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
+                                    using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
                                     {
-                                        var firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
-                                        var lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
+                                        int firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
+                                        int lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
 
-                                        G.FillRectangle(bg, mainRect);
+                                        g.FillRectangle(bg, mainRect);
 
-                                        for (var i = firstItem; i < lastItem; i++)
+                                        for (int i = firstItem; i < lastItem; i++)
                                         {
-                                            var itemText = (string)Items[i];
+                                            string itemText = (string)Items[i];
 
-                                            var rect = new Rectangle(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
-                                            G.DrawString(itemText, Font, usic, rect, sf);
+                                            Rectangle rect = new Rectangle(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
+                                            g.DrawString(itemText, Font, usic, rect, sf);
                                             if (MultiSelect && _indicates.Count != 0)
                                             {
                                                 if (i == _hoveredItem && !_indicates.Contains(i))
                                                 {
-                                                    G.FillRectangle(hibc, rect);
-                                                    G.DrawString(itemText, Font, hic, rect, sf);
+                                                    g.FillRectangle(hibc, rect);
+                                                    g.DrawString(itemText, Font, hic, rect, sf);
                                                 }
                                                 else if (_indicates.Contains(i))
                                                 {
-                                                    G.FillRectangle(sibc, rect);
-                                                    G.DrawString(itemText, Font, sic, rect, sf);
+                                                    g.FillRectangle(sibc, rect);
+                                                    g.DrawString(itemText, Font, sic, rect, sf);
                                                 }
                                             }
                                             else
                                             {
                                                 if (i == _hoveredItem && i != SelectedIndex)
                                                 {
-                                                    G.FillRectangle(hibc, rect);
-                                                    G.DrawString(itemText, Font, hic, rect, sf);
+                                                    g.FillRectangle(hibc, rect);
+                                                    g.DrawString(itemText, Font, hic, rect, sf);
                                                 }
                                                 else if (i == SelectedIndex)
                                                 {
-                                                    G.FillRectangle(sibc, rect);
-                                                    G.DrawString(itemText, Font, sic, rect, sf);
+                                                    g.FillRectangle(sibc, rect);
+                                                    g.DrawString(itemText, Font, sic, rect, sf);
                                                 }
                                             }
 
                                         }
                                         if (ShowBorder)
-                                            G.DrawRectangle(Pens.LightGray, mainRect);
+                                        {
+                                            g.DrawRectangle(Pens.LightGray, mainRect);
+                                        }
                                     }
                                 }
                             }
@@ -327,7 +347,15 @@ namespace ReaLTaiizor.Controls
         public List<object> SelectedItems => _selectedItems;
 
         [Category("Metro"), Description("Gets or sets the height of an item in the ListBox.")]
-        public int ItemHeight { get; set; }
+        public int ItemHeight
+        {
+            get => _itemHeight;
+            set
+            {
+                _itemHeight = value;
+                Refresh();
+            }
+        }
 
         [Browsable(false), Category("Metro"), Description("Gets or sets the currently selected item in the ListBox.")]
         public object SelectedItem
@@ -340,7 +368,8 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        [Browsable(false), Category("Metro"), Description("Gets or sets the currently selected Text in the ListBox.")]
+        [Browsable(false), Category("Metro"),
+         Description("Gets or sets the currently selected Text in the ListBox.")]
         public string SelectedText
         {
             get => _selectedText;
@@ -382,7 +411,9 @@ namespace ReaLTaiizor.Controls
                 _multiSelect = value;
 
                 if (_selectedItems.Count > 1)
+                {
                     _selectedItems.RemoveRange(1, _selectedItems.Count - 1);
+                }
 
                 Invalidate();
             }
@@ -404,7 +435,15 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets a value indicating whether the border shown or not.")]
-        public bool ShowBorder { get; set; } = false;
+        public bool ShowBorder
+        {
+            get => _showBorder;
+            set
+            {
+                _showBorder = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets backcolor used by the control.")]
         public override Color BackColor { get; set; }
@@ -417,25 +456,94 @@ namespace ReaLTaiizor.Controls
         public override string Text { get => base.Text; set => base.Text = value; }
 
         [Category("Metro"), Description("Gets or sets selected item used by the control.")]
-        public Color SelectedItemColor { get; set; }
+        public Color SelectedItemColor
+        {
+            get => _selectedItemColor;
+            set
+            {
+                _selectedItemColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets selected item backcolor used by the control.")]
-        public Color SelectedItemBackColor { get; set; }
+        public Color SelectedItemBackColor
+        {
+            get => _selectedItemBackColor;
+            set
+            {
+                _selectedItemBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets hovered item used by the control.")]
-        public Color HoveredItemColor { get; set; }
+        public Color HoveredItemColor
+        {
+            get => _hoveredItemColor;
+            set
+            {
+                _hoveredItemColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets hovered item backcolor used by the control.")]
-        public Color HoveredItemBackColor { get; set; }
+        public Color HoveredItemBackColor
+        {
+            get => _hoveredItemBackColor;
+            set
+            {
+                _hoveredItemBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets disabled forecolor used by the control.")]
-        public Color DisabledForeColor { get; set; }
+        public Color DisabledForeColor
+        {
+            get => _disabledForeColor;
+            set
+            {
+                _disabledForeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
-        public Color DisabledBackColor { get; set; }
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets border color used by the control.")]
-        public Color BorderColor { get; set; }
+        public Color BorderColor
+        {
+            get => _borderColor;
+            set
+            {
+                _borderColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
 
@@ -449,8 +557,11 @@ namespace ReaLTaiizor.Controls
 
         public void AddItems(string[] newItems)
         {
-            foreach (var str in newItems)
+            foreach (string str in newItems)
+            {
                 AddItem(str);
+            }
+
             InvalidateScroll(this, null);
         }
 
@@ -478,15 +589,21 @@ namespace ReaLTaiizor.Controls
 
         public void RemoveItems(string[] itemsToRemove)
         {
-            foreach (var item in itemsToRemove)
+            foreach (string item in itemsToRemove)
+            {
                 _items.Remove(item);
+            }
+
             InvalidateScroll(this, null);
         }
 
         public void Clear()
         {
-            for (var i = _items.Count - 1; i >= 0; i += -1)
+            for (int i = _items.Count - 1; i >= 0; i += -1)
+            {
                 _items.RemoveAt(i);
+            }
+
             InvalidateScroll(this, null);
         }
 
@@ -514,7 +631,7 @@ namespace ReaLTaiizor.Controls
             Focus();
             if (e.Button == MouseButtons.Left)
             {
-                var index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
+                int index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
                 if (index >= 0 && index < _items.Count)
                 {
                     if (MultiSelect && _multiKeyDown)
@@ -584,6 +701,7 @@ namespace ReaLTaiizor.Controls
                         //
                     }
                     break;
+
                 case Keys.Up:
                     try
                     {
@@ -605,13 +723,18 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseMove(e);
             Cursor = Cursors.Hand;
-            var index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
+            int index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
 
             if (index >= Items.Count)
+            {
                 index = -1;
+            }
 
             if (index >= 0 && index < Items.Count)
+            {
                 _hoveredItem = index;
+            }
+
             Invalidate();
         }
 
@@ -642,6 +765,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion Events
+
     }
 
     #endregion

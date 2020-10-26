@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Action.Metro
 {
     #region MetroLabelActionListAction
 
-    class MetroLabelActionList : DesignerActionList
+    internal class MetroLabelActionList : DesignerActionList
     {
         private readonly MetroLabel _metroLabel;
 
@@ -32,10 +32,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroLabel.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroLabel.MetroStyleManager;
-            set => _metroLabel.MetroStyleManager = value;
+            get => _metroLabel.StyleManager;
+            set => _metroLabel.StyleManager = value;
         }
 
         public string Text
@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
@@ -66,7 +66,6 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("Text", "Text", "Appearance", "Gets or sets the The text associated with the control."),
                 new DesignerActionPropertyItem("Font", "Font", "Appearance", "Gets or sets the The font associated with the control.")
             };
-
             return items;
         }
     }

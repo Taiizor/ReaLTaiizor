@@ -25,15 +25,14 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("Click")]
     [DefaultProperty("Text")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroBadge : Control, iControl
+    public class MetroBadge : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -63,12 +62,12 @@ namespace ReaLTaiizor.Controls
         public string ThemeName { get; set; }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
+            get => _styleManager;
             set
             {
-                _metroStyleManager = value;
+                _styleManager = value;
                 Invalidate();
             }
         }
@@ -86,7 +85,29 @@ namespace ReaLTaiizor.Controls
 
         private MouseMode _state;
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
+
+        private bool _isDerivedStyle = true;
+        private BadgeAlign _badgeAlignment;
+        private string _badgeText;
+        private Color _normalColor;
+        private Color _normalBorderColor;
+        private Color _normalTextColor;
+        private Color _hoverColor;
+        private Color _hoverBorderColor;
+        private Color _hoverTextColor;
+        private Color _pressColor;
+        private Color _pressBorderColor;
+        private Color _pressTextColor;
+        private Color _disabledBackColor;
+        private Color _disabledForeColor;
+        private Color _disabledBorderColor;
+        private Color _normalBadgeColor;
+        private Color _normalBadgeTextColor;
+        private Color _hoverBadgeColor;
+        private Color _hoverBadgeTextColor;
+        private Color _pressBadgeColor;
+        private Color _pressBadgeTextColor;
 
         #endregion Internal Vars
 
@@ -97,15 +118,16 @@ namespace ReaLTaiizor.Controls
             SetStyle
             (
                 ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.ResizeRedraw |
-                ControlStyles.UserPaint |
+                ControlStyles.ResizeRedraw | ControlStyles.UserPaint |
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.SupportsTransparentBackColor,
-                    true
+                true
             );
             UpdateStyles();
-            BackColor = Color.Transparent;
-            Font = MetroFonts.Light(10);
+            base.Font = MetroFonts.Light(10);
+            base.BackColor = Color.Transparent;
+            _badgeAlignment = BadgeAlign.TopRight;
+            _badgeText = "3";
             _utl = new Utilites();
             _mth = new Methods();
             ApplyTheme();
@@ -116,10 +138,26 @@ namespace ReaLTaiizor.Controls
         #region Properties
 
         [Category("Metro"), Description("Gets or sets the badge alignment associated with the control.")]
-        public BadgeAlign BadgeAlignment { get; set; } = BadgeAlign.TopRight;
+        public BadgeAlign BadgeAlignment
+        {
+            get => _badgeAlignment;
+            set
+            {
+                _badgeAlignment = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the badge text associated with the control.")]
-        public string BadgeText { get; set; } = "3";
+        public string BadgeText
+        {
+            get => _badgeText;
+            set
+            {
+                _badgeText = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         public new bool Enabled
@@ -128,83 +166,243 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Enabled = value;
-                if (!value)
+                if (value == false)
+                {
                     _state = MouseMode.Disabled;
+                }
+
                 Invalidate();
             }
         }
 
         [Category("Metro")]
         [Description("Gets or sets the control background color in normal mouse sate.")]
-        public Color NormalColor { get; set; }
+        public Color NormalColor
+        {
+            get => _normalColor;
+            set
+            {
+                _normalColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control border color in normal mouse sate.")]
-        public Color NormalBorderColor { get; set; }
+        public Color NormalBorderColor
+        {
+            get => _normalBorderColor;
+            set
+            {
+                _normalBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control Text color in normal mouse sate.")]
-        public Color NormalTextColor { get; set; }
+        public Color NormalTextColor
+        {
+            get => _normalTextColor;
+            set
+            {
+                _normalTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control background color in hover mouse sate.")]
-        public Color HoverColor { get; set; }
+        public Color HoverColor
+        {
+            get => _hoverColor;
+            set
+            {
+                _hoverColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control border color in hover mouse sate.")]
-        public Color HoverBorderColor { get; set; }
+        public Color HoverBorderColor
+        {
+            get => _hoverBorderColor;
+            set
+            {
+                _hoverBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control Text color in hover mouse sate.")]
-        public Color HoverTextColor { get; set; }
+        public Color HoverTextColor
+        {
+            get => _hoverTextColor;
+            set
+            {
+                _hoverTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control background color in pushed mouse sate.")]
-        public Color PressColor { get; set; }
+        public Color PressColor
+        {
+            get => _pressColor;
+            set
+            {
+                _pressColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control border color in pushed mouse sate.")]
-        public Color PressBorderColor { get; set; }
+        public Color PressBorderColor
+        {
+            get => _pressBorderColor;
+            set
+            {
+                _pressBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control Text color in pushed mouse sate.")]
-        public Color PressTextColor { get; set; }
+        public Color PressTextColor
+        {
+            get => _pressTextColor;
+            set
+            {
+                _pressTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets backcolor used by the control while disabled.")]
-        public Color DisabledBackColor { get; set; }
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the forecolor of the control whenever while disabled.")]
-        public Color DisabledForeColor { get; set; }
+        public Color DisabledForeColor
+        {
+            get => _disabledForeColor;
+            set
+            {
+                _disabledForeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the border color of the control while disabled.")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the Badge background color in normal mouse sate.")]
-        public Color NormalBadgeColor { get; set; }
+        public Color NormalBadgeColor
+        {
+            get => _normalBadgeColor;
+            set
+            {
+                _normalBadgeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the Badge Text color in normal mouse sate.")]
-        public Color NormalBadgeTextColor { get; set; }
+        public Color NormalBadgeTextColor
+        {
+            get => _normalBadgeTextColor;
+            set
+            {
+                _normalBadgeTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the Badge background color in hover mouse sate.")]
-        public Color HoverBadgeColor { get; set; }
+        public Color HoverBadgeColor
+        {
+            get => _hoverBadgeColor;
+            set
+            {
+                _hoverBadgeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the Badge Text color in hover mouse sate.")]
-        public Color HoverBadgeTextColor { get; set; }
+        public Color HoverBadgeTextColor
+        {
+            get => _hoverBadgeTextColor;
+            set
+            {
+                _hoverBadgeTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the Badge background color in pushed mouse sate.")]
-        public Color PressBadgeColor { get; set; }
+        public Color PressBadgeColor
+        {
+            get => _pressBadgeColor;
+            set
+            {
+                _pressBadgeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the Badge Text color in pushed mouse sate.")]
-        public Color PressBadgeTextColor { get; set; }
+        public Color PressBadgeTextColor
+        {
+            get => _pressBadgeTextColor;
+            set
+            {
+                _pressBadgeTextColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
 
@@ -212,10 +410,10 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics g = e.Graphics;
             Rectangle r;
             Rectangle badge;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             switch (BadgeAlignment)
             {
@@ -242,64 +440,67 @@ namespace ReaLTaiizor.Controls
             switch (_state)
             {
                 case MouseMode.Normal:
-                    using (var bg = new SolidBrush(NormalColor))
-                    using (var p = new Pen(NormalBorderColor))
-                    using (var tb = new SolidBrush(NormalTextColor))
-                    using (var bdgBrush = new SolidBrush(NormalBadgeColor))
-                    using (var bdgtxtBrush = new SolidBrush(NormalBadgeTextColor))
+
+                    using (SolidBrush bg = new SolidBrush(NormalColor))
+                    using (Pen p = new Pen(NormalBorderColor))
+                    using (SolidBrush tb = new SolidBrush(NormalTextColor))
+                    using (SolidBrush bdgBrush = new SolidBrush(NormalBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new SolidBrush(NormalBadgeTextColor))
                     {
-                        G.FillRectangle(bg, r);
-                        G.DrawRectangle(p, r);
-                        G.DrawString(Text, Font, tb, r, _mth.SetPosition());
-                        SmoothingType(G);
-                        G.FillEllipse(bdgBrush, badge);
-                        G.DrawString(BadgeText, Font, bdgtxtBrush, badge, _mth.SetPosition());
+                        g.FillRectangle(bg, r);
+                        g.DrawRectangle(p, r);
+                        g.DrawString(Text, Font, tb, r, _mth.SetPosition());
+                        SmoothingType(g);
+                        g.FillEllipse(bdgBrush, badge);
+                        g.DrawString(BadgeText, Font, bdgtxtBrush, badge, _mth.SetPosition());
                     }
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (var bg = new SolidBrush(HoverColor))
-                    using (var p = new Pen(HoverBorderColor))
-                    using (var tb = new SolidBrush(HoverTextColor))
-                    using (var bdgBrush = new SolidBrush(HoverBadgeColor))
-                    using (var bdgtxtBrush = new SolidBrush(HoverBadgeTextColor))
+                    using (SolidBrush bg = new SolidBrush(HoverColor))
+                    using (Pen p = new Pen(HoverBorderColor))
+                    using (SolidBrush tb = new SolidBrush(HoverTextColor))
+                    using (SolidBrush bdgBrush = new SolidBrush(HoverBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new SolidBrush(HoverBadgeTextColor))
                     {
-                        G.FillRectangle(bg, r);
-                        G.DrawRectangle(p, r);
-                        G.DrawString(Text, Font, tb, r, _mth.SetPosition());
-                        SmoothingType(G);
-                        G.FillEllipse(bdgBrush, badge);
-                        G.DrawString(BadgeText, Font, bdgtxtBrush, badge, _mth.SetPosition());
+                        g.FillRectangle(bg, r);
+                        g.DrawRectangle(p, r);
+                        g.DrawString(Text, Font, tb, r, _mth.SetPosition());
+                        SmoothingType(g);
+                        g.FillEllipse(bdgBrush, badge);
+                        g.DrawString(BadgeText, Font, bdgtxtBrush, badge, _mth.SetPosition());
                     }
                     break;
                 case MouseMode.Pushed:
-                    using (var bg = new SolidBrush(PressColor))
-                    using (var p = new Pen(PressBorderColor))
-                    using (var tb = new SolidBrush(PressTextColor))
-                    using (var bdgBrush = new SolidBrush(PressBadgeColor))
-                    using (var bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
+
+                    using (SolidBrush bg = new SolidBrush(PressColor))
+                    using (Pen p = new Pen(PressBorderColor))
+                    using (SolidBrush tb = new SolidBrush(PressTextColor))
+                    using (SolidBrush bdgBrush = new SolidBrush(PressBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
                     {
-                        G.FillRectangle(bg, r);
-                        G.DrawRectangle(p, r);
-                        G.DrawString(Text, Font, tb, r, _mth.SetPosition());
-                        SmoothingType(G);
-                        G.FillEllipse(bdgBrush, badge);
-                        G.DrawString(BadgeText, Font, bdgtxtBrush, badge, _mth.SetPosition());
+                        g.FillRectangle(bg, r);
+                        g.DrawRectangle(p, r);
+                        g.DrawString(Text, Font, tb, r, _mth.SetPosition());
+                        SmoothingType(g);
+                        g.FillEllipse(bdgBrush, badge);
+                        g.DrawString(BadgeText, Font, bdgtxtBrush, badge, _mth.SetPosition());
                     }
                     break;
                 case MouseMode.Disabled:
-                    using (var bg = new SolidBrush(DisabledBackColor))
-                    using (var p = new Pen(DisabledBorderColor))
-                    using (var tb = new SolidBrush(DisabledForeColor))
-                    using (var bdgBrush = new SolidBrush(PressBadgeColor))
-                    using (var bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
+
+                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
+                    using (Pen p = new Pen(DisabledBorderColor))
+                    using (SolidBrush tb = new SolidBrush(DisabledForeColor))
+                    using (SolidBrush bdgBrush = new SolidBrush(PressBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
                     {
-                        G.FillRectangle(bg, r);
-                        G.DrawRectangle(p, r);
-                        G.DrawString(Text, Font, tb, r, _mth.SetPosition());
-                        SmoothingType(G);
-                        G.FillEllipse(bdgBrush, badge);
-                        G.DrawString(BadgeText, Font, bdgtxtBrush, badge, _mth.SetPosition());
+                        g.FillRectangle(bg, r);
+                        g.DrawRectangle(p, r);
+                        g.DrawString(Text, Font, tb, r, _mth.SetPosition());
+                        SmoothingType(g);
+                        g.FillEllipse(bdgBrush, badge);
+                        g.DrawString(BadgeText, Font, bdgtxtBrush, badge, _mth.SetPosition());
                     }
                     break;
             }
@@ -311,6 +512,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -333,7 +539,7 @@ namespace ReaLTaiizor.Controls
                     DisabledBorderColor = Color.FromArgb(155, 155, 155);
                     DisabledForeColor = Color.FromArgb(136, 136, 136);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     break;
                 case Style.Dark:
                     NormalColor = Color.FromArgb(32, 32, 32);
@@ -358,11 +564,14 @@ namespace ReaLTaiizor.Controls
                     ThemeName = "MetroDark";
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.BadgeDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.BadgeDictionary)
                         {
                             if (varkey.Key == null)
+                            {
                                 return;
+                            }
 
                             switch (varkey.Key)
                             {
@@ -422,6 +631,8 @@ namespace ReaLTaiizor.Controls
                                     break;
                             }
                         }
+                    }
+
                     Invalidate();
                     break;
                 default:

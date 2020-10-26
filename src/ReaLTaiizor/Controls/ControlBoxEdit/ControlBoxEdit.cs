@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -41,10 +41,10 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Variables
 
-        MouseState State = MouseState.None;
-        int i;
-        Rectangle CloseRect = new Rectangle(28, 0, 47, 18);
-        Rectangle MinimizeRect = new Rectangle(0, 0, 28, 18);
+        private MouseState State = MouseState.None;
+        private int i;
+        private Rectangle CloseRect = new Rectangle(28, 0, 47, 18);
+        private Rectangle MinimizeRect = new Rectangle(0, 0, 28, 18);
 
         #endregion
         #region EventArgs
@@ -53,9 +53,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseClick(e);
             if (i > 0 & i < 28)
+            {
                 FindForm().WindowState = FormWindowState.Minimized;
+            }
             else if (i > 30 & i < 75)
+            {
                 FindForm().Close();
+            }
 
             State = MouseState.Down;
         }
@@ -109,7 +113,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
             if (DefaultLocation)
+            {
                 Location = new Point(checked(FindForm().Width - 81), -1);
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -128,7 +134,7 @@ namespace ReaLTaiizor.Controls
             switch (State)
             {
                 case MouseState.None:
-                NonePoint:
+                    NonePoint:
                     LinearGradientBrush MinimizeGradient = new LinearGradientBrush(MinimizeRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
                     G.FillPath(MinimizeGradient, GP_MinimizeRect);
                     G.DrawPath(new Pen(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);
@@ -165,7 +171,10 @@ namespace ReaLTaiizor.Controls
                         G.DrawString("0", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), MinimizeRect.Width - 22, MinimizeRect.Height - 16);
                     }
                     else
+                    {
                         goto NonePoint; // Return to [MouseState = None]
+                    }
+
                     break;
             }
 

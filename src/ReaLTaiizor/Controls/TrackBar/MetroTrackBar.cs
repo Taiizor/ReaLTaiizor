@@ -23,15 +23,14 @@ namespace ReaLTaiizor.Controls
     [DefaultProperty("Value")]
     [DefaultEvent("Scroll")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroTrackBar : Control, iControl
+    public class MetroTrackBar : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -55,10 +54,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -78,13 +77,22 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private bool _variable;
         private Rectangle _track;
         private int _maximum;
         private int _minimum;
         private int _value;
         private int _currentValue;
+
+        private bool _isDerivedStyle = true;
+        private Color _valueColor;
+        private Color _handlerColor;
+        private Color _backgroundColor;
+        private Color _disabledValueColor;
+        private Color _disabledBackColor;
+        private Color _disabledBorderColor;
+        private Color _disabledHandlerColor;
 
         #endregion Internal Vars
 
@@ -114,6 +122,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -124,7 +137,7 @@ namespace ReaLTaiizor.Controls
                     DisabledValueColor = Color.FromArgb(205, 205, 205);
                     DisabledHandlerColor = Color.FromArgb(196, 196, 196);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -139,8 +152,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.TrackBarDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.TrackBarDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -166,6 +180,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -184,20 +200,23 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics g = e.Graphics;
 
             Cursor = Cursors.Hand;
 
-            using (var bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
             {
-                using (var v = new SolidBrush(Enabled ? ValueColor : DisabledValueColor))
+                using (SolidBrush v = new SolidBrush(Enabled ? ValueColor : DisabledValueColor))
                 {
-                    using (var vc = new SolidBrush(Enabled ? HandlerColor : DisabledHandlerColor))
+                    using (SolidBrush vc = new SolidBrush(Enabled ? HandlerColor : DisabledHandlerColor))
                     {
-                        G.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
+                        g.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
                         if (_currentValue != 0)
-                            G.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
-                        G.FillRectangle(vc, _track);
+                        {
+                            g.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
+                        }
+
+                        g.FillRectangle(vc, _track);
                     }
                 }
             }
@@ -257,26 +276,95 @@ namespace ReaLTaiizor.Controls
         public override Color BackColor => Color.Transparent;
 
         [Category("Metro"), Description(" Gets or sets the value color in normal mouse sate.")]
-        public Color ValueColor { get; set; }
+        public Color ValueColor
+        {
+            get => _valueColor;
+            set
+            {
+                _valueColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the handler color.")]
-        public Color HandlerColor { get; set; }
+        public Color HandlerColor
+        {
+            get => _handlerColor;
+            set
+            {
+                _handlerColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the control backcolor.")]
         [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the value of the control whenever while disabled.")]
-        public Color DisabledValueColor { get; set; }
+        public Color DisabledValueColor
+        {
+            get => _disabledValueColor;
+            set
+            {
+                _disabledValueColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
-        public Color DisabledBackColor { get; set; }
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the handler color while the control disabled.")]
-        public Color DisabledHandlerColor { get; set; }
+        public Color DisabledHandlerColor
+        {
+            get => _disabledHandlerColor;
+            set
+            {
+                _disabledHandlerColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion
 
@@ -288,7 +376,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (_variable && e.X > -1 && e.X < Width + 1)
+            {
                 Value = Minimum + (int)Math.Round((double)(Maximum - Minimum) * e.X / Width);
+            }
+
             base.OnMouseMove(e);
         }
 
@@ -314,12 +405,16 @@ namespace ReaLTaiizor.Controls
             if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left)
             {
                 if (Value != 0)
+                {
                     Value -= 1;
+                }
             }
             else if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Up || e.KeyCode == Keys.Right)
             {
                 if (Value != Maximum)
+                {
                     Value += 1;
+                }
             }
             base.OnKeyDown(e);
         }

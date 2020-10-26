@@ -92,7 +92,7 @@ namespace ReaLTaiizor.Controls
 
         public class ItemsList : List<MaterialCheckBox>
         {
-            private System.Windows.Forms.Panel _parent;
+            private readonly System.Windows.Forms.Panel _parent;
 
             public ItemsList(System.Windows.Forms.Panel parent)
             {

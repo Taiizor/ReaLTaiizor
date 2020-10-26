@@ -130,6 +130,7 @@
             // 
             MetroTabControl1.AnimateEasingType = ReaLTaiizor.Enum.Metro.EasingType.CubeOut;
             MetroTabControl1.AnimateTime = 200;
+            MetroTabControl1.BackgroundColor = System.Drawing.Color.White;
             MetroTabControl1.Controls.Add(MetroTabPage2);
             MetroTabControl1.Controls.Add(MetroTabPage1);
             MetroTabControl1.Controls.Add(MetroTabPage3);
@@ -137,21 +138,23 @@
             MetroTabControl1.Controls.Add(MetroTabPage5);
             MetroTabControl1.Controls.Add(MetroTabPage6);
             MetroTabControl1.Controls.Add(MetroTabPage7);
-            MetroTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            MetroTabControl1.IsDerivedStyle = true;
             MetroTabControl1.ItemSize = new System.Drawing.Size(100, 38);
             MetroTabControl1.Location = new System.Drawing.Point(12, 70);
-            MetroTabControl1.MetroStyleManager = metroStyleManager1;
+            MetroTabControl1.MCursor = System.Windows.Forms.Cursors.Hand;
             MetroTabControl1.Name = "MetroTabControl1";
             MetroTabControl1.SelectedIndex = 0;
+            MetroTabControl1.SelectedTextColor = System.Drawing.Color.White;
             MetroTabControl1.Size = new System.Drawing.Size(1114, 616);
             MetroTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             MetroTabControl1.Speed = 100;
             MetroTabControl1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTabControl1.StyleManager = metroStyleManager1;
             MetroTabControl1.TabIndex = 0;
-            MetroTabControl1.TabStyle = ReaLTaiizor.Enum.Metro.TabStyle.Style1;
             MetroTabControl1.ThemeAuthor = "Taiizor";
-            MetroTabControl1.ThemeName = "MetroLite";
+            MetroTabControl1.ThemeName = "MetroLight";
+            MetroTabControl1.UnselectedTextColor = System.Drawing.Color.Gray;
             MetroTabControl1.UseAnimation = true;
             // 
             // MetroTabPage2
@@ -170,17 +173,19 @@
             MetroTabPage2.Controls.Add(MetroLabel1);
             MetroTabPage2.Controls.Add(MetroDefaultButton2);
             MetroTabPage2.Controls.Add(MetroDefaultButton1);
+            MetroTabPage2.Font = null;
             MetroTabPage2.ImageIndex = 0;
             MetroTabPage2.ImageKey = null;
+            MetroTabPage2.IsDerivedStyle = true;
             MetroTabPage2.Location = new System.Drawing.Point(4, 42);
-            MetroTabPage2.MetroStyleManager = metroStyleManager1;
             MetroTabPage2.Name = "MetroTabPage2";
             MetroTabPage2.Size = new System.Drawing.Size(1106, 570);
             MetroTabPage2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTabPage2.StyleManager = metroStyleManager1;
             MetroTabPage2.TabIndex = 1;
             MetroTabPage2.Text = "ButtonBase";
             MetroTabPage2.ThemeAuthor = "Taiizor";
-            MetroTabPage2.ThemeName = "MetroLite";
+            MetroTabPage2.ThemeName = "MetroLight";
             MetroTabPage2.ToolTipText = null;
             // 
             // MetroButton2
@@ -193,8 +198,8 @@
             MetroButton2.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             MetroButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             MetroButton2.HoverTextColor = System.Drawing.Color.White;
+            MetroButton2.IsDerivedStyle = true;
             MetroButton2.Location = new System.Drawing.Point(376, 171);
-            MetroButton2.MetroStyleManager = metroStyleManager1;
             MetroButton2.Name = "MetroButton2";
             MetroButton2.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroButton2.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -204,18 +209,19 @@
             MetroButton2.PressTextColor = System.Drawing.Color.White;
             MetroButton2.Size = new System.Drawing.Size(180, 40);
             MetroButton2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroButton2.StyleManager = metroStyleManager1;
             MetroButton2.TabIndex = 9;
             MetroButton2.Text = "Disabled button";
             MetroButton2.ThemeAuthor = "Taiizor";
-            MetroButton2.ThemeName = "MetroLite";
+            MetroButton2.ThemeName = "MetroLight";
             // 
             // metroStyleManager1
             // 
-            metroStyleManager1.CustomTheme = "";
-            metroStyleManager1.MetroForm = this;
+            metroStyleManager1.CustomTheme = "C:\\Users\\Taiizor\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
+            metroStyleManager1.OwnerForm = this;
             metroStyleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             metroStyleManager1.ThemeAuthor = "Taiizor";
-            metroStyleManager1.ThemeName = "MetroLite";
+            metroStyleManager1.ThemeName = "MetroLight";
             // 
             // MetroButton1
             // 
@@ -226,8 +232,8 @@
             MetroButton1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             MetroButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             MetroButton1.HoverTextColor = System.Drawing.Color.White;
+            MetroButton1.IsDerivedStyle = true;
             MetroButton1.Location = new System.Drawing.Point(376, 104);
-            MetroButton1.MetroStyleManager = metroStyleManager1;
             MetroButton1.Name = "MetroButton1";
             MetroButton1.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroButton1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -237,10 +243,11 @@
             MetroButton1.PressTextColor = System.Drawing.Color.White;
             MetroButton1.Size = new System.Drawing.Size(180, 40);
             MetroButton1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroButton1.StyleManager = metroStyleManager1;
             MetroButton1.TabIndex = 9;
             MetroButton1.Text = "Normal button";
             MetroButton1.ThemeAuthor = "Taiizor";
-            MetroButton1.ThemeName = "MetroLite";
+            MetroButton1.ThemeName = "MetroLight";
             // 
             // MetroEllipse3
             // 
@@ -255,8 +262,8 @@
             MetroEllipse3.HoverTextColor = System.Drawing.Color.White;
             MetroEllipse3.Image = ((System.Drawing.Image)(resources.GetObject("MetroEllipse3.Image")));
             MetroEllipse3.ImageSize = new System.Drawing.Size(64, 64);
+            MetroEllipse3.IsDerivedStyle = true;
             MetroEllipse3.Location = new System.Drawing.Point(793, 234);
-            MetroEllipse3.MetroStyleManager = metroStyleManager1;
             MetroEllipse3.Name = "MetroEllipse3";
             MetroEllipse3.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroEllipse3.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -266,9 +273,10 @@
             MetroEllipse3.PressTextColor = System.Drawing.Color.White;
             MetroEllipse3.Size = new System.Drawing.Size(139, 122);
             MetroEllipse3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroEllipse3.StyleManager = metroStyleManager1;
             MetroEllipse3.TabIndex = 5;
             MetroEllipse3.ThemeAuthor = "Taiizor";
-            MetroEllipse3.ThemeName = "MetroLite";
+            MetroEllipse3.ThemeName = "MetroLight";
             // 
             // MetroEllipse2
             // 
@@ -284,8 +292,8 @@
             MetroEllipse2.HoverTextColor = System.Drawing.Color.White;
             MetroEllipse2.Image = null;
             MetroEllipse2.ImageSize = new System.Drawing.Size(64, 64);
+            MetroEllipse2.IsDerivedStyle = true;
             MetroEllipse2.Location = new System.Drawing.Point(870, 104);
-            MetroEllipse2.MetroStyleManager = metroStyleManager1;
             MetroEllipse2.Name = "MetroEllipse2";
             MetroEllipse2.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroEllipse2.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -295,10 +303,11 @@
             MetroEllipse2.PressTextColor = System.Drawing.Color.White;
             MetroEllipse2.Size = new System.Drawing.Size(139, 122);
             MetroEllipse2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroEllipse2.StyleManager = metroStyleManager1;
             MetroEllipse2.TabIndex = 5;
             MetroEllipse2.Text = "Disabled Ellipse";
             MetroEllipse2.ThemeAuthor = "Taiizor";
-            MetroEllipse2.ThemeName = "MetroLite";
+            MetroEllipse2.ThemeName = "MetroLight";
             // 
             // MetroEllipse1
             // 
@@ -313,8 +322,8 @@
             MetroEllipse1.HoverTextColor = System.Drawing.Color.White;
             MetroEllipse1.Image = null;
             MetroEllipse1.ImageSize = new System.Drawing.Size(64, 64);
+            MetroEllipse1.IsDerivedStyle = true;
             MetroEllipse1.Location = new System.Drawing.Point(714, 104);
-            MetroEllipse1.MetroStyleManager = metroStyleManager1;
             MetroEllipse1.Name = "MetroEllipse1";
             MetroEllipse1.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroEllipse1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -324,10 +333,11 @@
             MetroEllipse1.PressTextColor = System.Drawing.Color.White;
             MetroEllipse1.Size = new System.Drawing.Size(139, 122);
             MetroEllipse1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroEllipse1.StyleManager = metroStyleManager1;
             MetroEllipse1.TabIndex = 5;
             MetroEllipse1.Text = "Ellipse Button";
             MetroEllipse1.ThemeAuthor = "Taiizor";
-            MetroEllipse1.ThemeName = "MetroLite";
+            MetroEllipse1.ThemeName = "MetroLight";
             // 
             // MetroBadge2
             // 
@@ -344,8 +354,8 @@
             MetroBadge2.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroBadge2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroBadge2.HoverTextColor = System.Drawing.Color.White;
+            MetroBadge2.IsDerivedStyle = true;
             MetroBadge2.Location = new System.Drawing.Point(376, 289);
-            MetroBadge2.MetroStyleManager = metroStyleManager1;
             MetroBadge2.Name = "MetroBadge2";
             MetroBadge2.NormalBadgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroBadge2.NormalBadgeTextColor = System.Drawing.Color.White;
@@ -359,10 +369,11 @@
             MetroBadge2.PressTextColor = System.Drawing.Color.White;
             MetroBadge2.Size = new System.Drawing.Size(198, 67);
             MetroBadge2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroBadge2.StyleManager = metroStyleManager1;
             MetroBadge2.TabIndex = 4;
             MetroBadge2.Text = "Disabled Badge Button";
             MetroBadge2.ThemeAuthor = "Taiizor";
-            MetroBadge2.ThemeName = "MetroLite";
+            MetroBadge2.ThemeName = "MetroLight";
             // 
             // MetroBadge1
             // 
@@ -378,8 +389,8 @@
             MetroBadge1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroBadge1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroBadge1.HoverTextColor = System.Drawing.Color.White;
+            MetroBadge1.IsDerivedStyle = true;
             MetroBadge1.Location = new System.Drawing.Point(15, 289);
-            MetroBadge1.MetroStyleManager = metroStyleManager1;
             MetroBadge1.Name = "MetroBadge1";
             MetroBadge1.NormalBadgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroBadge1.NormalBadgeTextColor = System.Drawing.Color.White;
@@ -393,62 +404,67 @@
             MetroBadge1.PressTextColor = System.Drawing.Color.White;
             MetroBadge1.Size = new System.Drawing.Size(195, 67);
             MetroBadge1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroBadge1.StyleManager = metroStyleManager1;
             MetroBadge1.TabIndex = 3;
             MetroBadge1.Text = "Normal Badge Button";
             MetroBadge1.ThemeAuthor = "Taiizor";
-            MetroBadge1.ThemeName = "MetroLite";
+            MetroBadge1.ThemeName = "MetroLight";
             // 
             // MetroLabel2
             // 
             MetroLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel2.IsDerivedStyle = true;
             MetroLabel2.Location = new System.Drawing.Point(15, 259);
-            MetroLabel2.MetroStyleManager = metroStyleManager1;
             MetroLabel2.Name = "MetroLabel2";
             MetroLabel2.Size = new System.Drawing.Size(100, 23);
             MetroLabel2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel2.StyleManager = metroStyleManager1;
             MetroLabel2.TabIndex = 2;
             MetroLabel2.Text = "Badge Button";
             MetroLabel2.ThemeAuthor = "Taiizor";
-            MetroLabel2.ThemeName = "MetroLite";
+            MetroLabel2.ThemeName = "MetroLight";
             // 
             // MetroLabel3
             // 
             MetroLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel3.IsDerivedStyle = true;
             MetroLabel3.Location = new System.Drawing.Point(810, 59);
-            MetroLabel3.MetroStyleManager = metroStyleManager1;
             MetroLabel3.Name = "MetroLabel3";
             MetroLabel3.Size = new System.Drawing.Size(100, 23);
             MetroLabel3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel3.StyleManager = metroStyleManager1;
             MetroLabel3.TabIndex = 1;
             MetroLabel3.Text = "Ellipse Button";
             MetroLabel3.ThemeAuthor = "Taiizor";
-            MetroLabel3.ThemeName = "MetroLite";
+            MetroLabel3.ThemeName = "MetroLight";
             // 
             // MetroLabel19
             // 
             MetroLabel19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel19.IsDerivedStyle = true;
             MetroLabel19.Location = new System.Drawing.Point(376, 59);
-            MetroLabel19.MetroStyleManager = metroStyleManager1;
             MetroLabel19.Name = "MetroLabel19";
             MetroLabel19.Size = new System.Drawing.Size(100, 23);
             MetroLabel19.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel19.StyleManager = metroStyleManager1;
             MetroLabel19.TabIndex = 1;
             MetroLabel19.Text = "Normal Button";
             MetroLabel19.ThemeAuthor = "Taiizor";
-            MetroLabel19.ThemeName = "MetroLite";
+            MetroLabel19.ThemeName = "MetroLight";
             // 
             // MetroLabel1
             // 
             MetroLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel1.IsDerivedStyle = true;
             MetroLabel1.Location = new System.Drawing.Point(15, 59);
-            MetroLabel1.MetroStyleManager = metroStyleManager1;
             MetroLabel1.Name = "MetroLabel1";
             MetroLabel1.Size = new System.Drawing.Size(100, 23);
             MetroLabel1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel1.StyleManager = metroStyleManager1;
             MetroLabel1.TabIndex = 1;
             MetroLabel1.Text = "Default Button";
             MetroLabel1.ThemeAuthor = "Taiizor";
-            MetroLabel1.ThemeName = "MetroLite";
+            MetroLabel1.ThemeName = "MetroLight";
             // 
             // MetroDefaultButton2
             // 
@@ -460,8 +476,8 @@
             MetroDefaultButton2.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroDefaultButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroDefaultButton2.HoverTextColor = System.Drawing.Color.White;
+            MetroDefaultButton2.IsDerivedStyle = true;
             MetroDefaultButton2.Location = new System.Drawing.Point(15, 171);
-            MetroDefaultButton2.MetroStyleManager = metroStyleManager1;
             MetroDefaultButton2.Name = "MetroDefaultButton2";
             MetroDefaultButton2.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroDefaultButton2.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -471,10 +487,11 @@
             MetroDefaultButton2.PressTextColor = System.Drawing.Color.White;
             MetroDefaultButton2.Size = new System.Drawing.Size(180, 40);
             MetroDefaultButton2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroDefaultButton2.StyleManager = metroStyleManager1;
             MetroDefaultButton2.TabIndex = 0;
             MetroDefaultButton2.Text = "Disabled button";
             MetroDefaultButton2.ThemeAuthor = "Taiizor";
-            MetroDefaultButton2.ThemeName = "MetroLite";
+            MetroDefaultButton2.ThemeName = "MetroLight";
             // 
             // MetroDefaultButton1
             // 
@@ -485,8 +502,8 @@
             MetroDefaultButton1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroDefaultButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroDefaultButton1.HoverTextColor = System.Drawing.Color.White;
+            MetroDefaultButton1.IsDerivedStyle = true;
             MetroDefaultButton1.Location = new System.Drawing.Point(15, 104);
-            MetroDefaultButton1.MetroStyleManager = metroStyleManager1;
             MetroDefaultButton1.Name = "MetroDefaultButton1";
             MetroDefaultButton1.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroDefaultButton1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -496,10 +513,11 @@
             MetroDefaultButton1.PressTextColor = System.Drawing.Color.White;
             MetroDefaultButton1.Size = new System.Drawing.Size(180, 40);
             MetroDefaultButton1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroDefaultButton1.StyleManager = metroStyleManager1;
             MetroDefaultButton1.TabIndex = 0;
             MetroDefaultButton1.Text = "Default button";
             MetroDefaultButton1.ThemeAuthor = "Taiizor";
-            MetroDefaultButton1.ThemeName = "MetroLite";
+            MetroDefaultButton1.ThemeName = "MetroLight";
             MetroToolTip1.SetToolTip(MetroDefaultButton1, "Choose Custom Theme");
             MetroDefaultButton1.Click += new System.EventHandler(MetroDefaultButton1_Click);
             // 
@@ -515,17 +533,19 @@
             MetroTabPage1.Controls.Add(MetroTile3);
             MetroTabPage1.Controls.Add(MetroTile1);
             MetroTabPage1.Controls.Add(MetroLabel4);
+            MetroTabPage1.Font = null;
             MetroTabPage1.ImageIndex = 0;
             MetroTabPage1.ImageKey = null;
+            MetroTabPage1.IsDerivedStyle = true;
             MetroTabPage1.Location = new System.Drawing.Point(4, 42);
-            MetroTabPage1.MetroStyleManager = metroStyleManager1;
             MetroTabPage1.Name = "MetroTabPage1";
             MetroTabPage1.Size = new System.Drawing.Size(1106, 570);
             MetroTabPage1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTabPage1.StyleManager = metroStyleManager1;
             MetroTabPage1.TabIndex = 7;
             MetroTabPage1.Text = "Tile";
             MetroTabPage1.ThemeAuthor = "Taiizor";
-            MetroTabPage1.ThemeName = "MetroLite";
+            MetroTabPage1.ThemeName = "MetroLight";
             MetroTabPage1.ToolTipText = null;
             // 
             // MetroTile8
@@ -538,8 +558,8 @@
             MetroTile8.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             MetroTile8.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile8.HoverTextColor = System.Drawing.Color.White;
+            MetroTile8.IsDerivedStyle = true;
             MetroTile8.Location = new System.Drawing.Point(732, 259);
-            MetroTile8.MetroStyleManager = metroStyleManager1;
             MetroTile8.Name = "MetroTile8";
             MetroTile8.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile8.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -549,10 +569,11 @@
             MetroTile8.PressTextColor = System.Drawing.Color.White;
             MetroTile8.Size = new System.Drawing.Size(190, 122);
             MetroTile8.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTile8.StyleManager = metroStyleManager1;
             MetroTile8.TabIndex = 13;
             MetroTile8.Text = "Disabled Tile";
             MetroTile8.ThemeAuthor = "Taiizor";
-            MetroTile8.ThemeName = "MetroLite";
+            MetroTile8.ThemeName = "MetroLight";
             MetroTile8.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.BottomCenter;
             // 
             // MetroTile4
@@ -564,8 +585,8 @@
             MetroTile4.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             MetroTile4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile4.HoverTextColor = System.Drawing.Color.White;
+            MetroTile4.IsDerivedStyle = true;
             MetroTile4.Location = new System.Drawing.Point(732, 104);
-            MetroTile4.MetroStyleManager = metroStyleManager1;
             MetroTile4.Name = "MetroTile4";
             MetroTile4.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile4.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -575,10 +596,11 @@
             MetroTile4.PressTextColor = System.Drawing.Color.White;
             MetroTile4.Size = new System.Drawing.Size(190, 122);
             MetroTile4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTile4.StyleManager = metroStyleManager1;
             MetroTile4.TabIndex = 13;
             MetroTile4.Text = "Normal Tile";
             MetroTile4.ThemeAuthor = "Taiizor";
-            MetroTile4.ThemeName = "MetroLite";
+            MetroTile4.ThemeName = "MetroLight";
             MetroTile4.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.TopCenter;
             // 
             // MetroTile7
@@ -591,8 +613,8 @@
             MetroTile7.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             MetroTile7.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile7.HoverTextColor = System.Drawing.Color.White;
+            MetroTile7.IsDerivedStyle = true;
             MetroTile7.Location = new System.Drawing.Point(254, 259);
-            MetroTile7.MetroStyleManager = metroStyleManager1;
             MetroTile7.Name = "MetroTile7";
             MetroTile7.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile7.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -602,10 +624,11 @@
             MetroTile7.PressTextColor = System.Drawing.Color.White;
             MetroTile7.Size = new System.Drawing.Size(190, 122);
             MetroTile7.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTile7.StyleManager = metroStyleManager1;
             MetroTile7.TabIndex = 10;
             MetroTile7.Text = "TopCenter";
             MetroTile7.ThemeAuthor = "Taiizor";
-            MetroTile7.ThemeName = "MetroLite";
+            MetroTile7.ThemeName = "MetroLight";
             MetroTile7.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.BottomCenter;
             // 
             // MetroTile6
@@ -618,8 +641,8 @@
             MetroTile6.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             MetroTile6.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile6.HoverTextColor = System.Drawing.Color.White;
+            MetroTile6.IsDerivedStyle = true;
             MetroTile6.Location = new System.Drawing.Point(493, 259);
-            MetroTile6.MetroStyleManager = metroStyleManager1;
             MetroTile6.Name = "MetroTile6";
             MetroTile6.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile6.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -629,10 +652,11 @@
             MetroTile6.PressTextColor = System.Drawing.Color.White;
             MetroTile6.Size = new System.Drawing.Size(190, 122);
             MetroTile6.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTile6.StyleManager = metroStyleManager1;
             MetroTile6.TabIndex = 11;
             MetroTile6.Text = "BottomRight";
             MetroTile6.ThemeAuthor = "Taiizor";
-            MetroTile6.ThemeName = "MetroLite";
+            MetroTile6.ThemeName = "MetroLight";
             MetroTile6.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.BottomRight;
             // 
             // MetroTile2
@@ -645,8 +669,8 @@
             MetroTile2.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             MetroTile2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile2.HoverTextColor = System.Drawing.Color.White;
+            MetroTile2.IsDerivedStyle = true;
             MetroTile2.Location = new System.Drawing.Point(254, 104);
-            MetroTile2.MetroStyleManager = metroStyleManager1;
             MetroTile2.Name = "MetroTile2";
             MetroTile2.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile2.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -656,10 +680,11 @@
             MetroTile2.PressTextColor = System.Drawing.Color.White;
             MetroTile2.Size = new System.Drawing.Size(190, 122);
             MetroTile2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTile2.StyleManager = metroStyleManager1;
             MetroTile2.TabIndex = 10;
             MetroTile2.Text = "TopCenter";
             MetroTile2.ThemeAuthor = "Taiizor";
-            MetroTile2.ThemeName = "MetroLite";
+            MetroTile2.ThemeName = "MetroLight";
             MetroTile2.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.TopCenter;
             // 
             // MetroTile5
@@ -672,8 +697,8 @@
             MetroTile5.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             MetroTile5.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile5.HoverTextColor = System.Drawing.Color.White;
+            MetroTile5.IsDerivedStyle = true;
             MetroTile5.Location = new System.Drawing.Point(493, 104);
-            MetroTile5.MetroStyleManager = metroStyleManager1;
             MetroTile5.Name = "MetroTile5";
             MetroTile5.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile5.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -683,10 +708,11 @@
             MetroTile5.PressTextColor = System.Drawing.Color.White;
             MetroTile5.Size = new System.Drawing.Size(190, 122);
             MetroTile5.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTile5.StyleManager = metroStyleManager1;
             MetroTile5.TabIndex = 12;
             MetroTile5.ThemeAuthor = "Taiizor";
-            MetroTile5.ThemeName = "MetroLite";
-            MetroTile5.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.BottmLeft;
+            MetroTile5.ThemeName = "MetroLight";
+            MetroTile5.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.Topleft;
             // 
             // MetroTile3
             // 
@@ -698,8 +724,8 @@
             MetroTile3.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             MetroTile3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile3.HoverTextColor = System.Drawing.Color.White;
+            MetroTile3.IsDerivedStyle = true;
             MetroTile3.Location = new System.Drawing.Point(15, 259);
-            MetroTile3.MetroStyleManager = metroStyleManager1;
             MetroTile3.Name = "MetroTile3";
             MetroTile3.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile3.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -709,10 +735,11 @@
             MetroTile3.PressTextColor = System.Drawing.Color.White;
             MetroTile3.Size = new System.Drawing.Size(190, 122);
             MetroTile3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTile3.StyleManager = metroStyleManager1;
             MetroTile3.TabIndex = 11;
             MetroTile3.Text = "BottomRight";
             MetroTile3.ThemeAuthor = "Taiizor";
-            MetroTile3.ThemeName = "MetroLite";
+            MetroTile3.ThemeName = "MetroLight";
             MetroTile3.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.BottomRight;
             // 
             // MetroTile1
@@ -725,8 +752,8 @@
             MetroTile1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             MetroTile1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile1.HoverTextColor = System.Drawing.Color.White;
+            MetroTile1.IsDerivedStyle = true;
             MetroTile1.Location = new System.Drawing.Point(15, 104);
-            MetroTile1.MetroStyleManager = metroStyleManager1;
             MetroTile1.Name = "MetroTile1";
             MetroTile1.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroTile1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -736,24 +763,26 @@
             MetroTile1.PressTextColor = System.Drawing.Color.White;
             MetroTile1.Size = new System.Drawing.Size(190, 122);
             MetroTile1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTile1.StyleManager = metroStyleManager1;
             MetroTile1.TabIndex = 12;
             MetroTile1.Text = "BottmLeft";
             MetroTile1.ThemeAuthor = "Taiizor";
-            MetroTile1.ThemeName = "MetroLite";
-            MetroTile1.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.BottmLeft;
+            MetroTile1.ThemeName = "MetroLight";
+            MetroTile1.TileAlign = ReaLTaiizor.Enum.Metro.TileAlign.Topleft;
             // 
             // MetroLabel4
             // 
             MetroLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel4.IsDerivedStyle = true;
             MetroLabel4.Location = new System.Drawing.Point(15, 59);
-            MetroLabel4.MetroStyleManager = metroStyleManager1;
             MetroLabel4.Name = "MetroLabel4";
             MetroLabel4.Size = new System.Drawing.Size(100, 23);
             MetroLabel4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel4.StyleManager = metroStyleManager1;
             MetroLabel4.TabIndex = 9;
             MetroLabel4.Text = "Tile";
             MetroLabel4.ThemeAuthor = "Taiizor";
-            MetroLabel4.ThemeName = "MetroLite";
+            MetroLabel4.ThemeName = "MetroLight";
             // 
             // MetroTabPage3
             // 
@@ -773,27 +802,31 @@
             MetroTabPage3.Controls.Add(MetroLabel6);
             MetroTabPage3.Controls.Add(MetroLabel7);
             MetroTabPage3.Controls.Add(MetroLabel5);
+            MetroTabPage3.Font = null;
             MetroTabPage3.ImageIndex = 0;
             MetroTabPage3.ImageKey = null;
+            MetroTabPage3.IsDerivedStyle = true;
             MetroTabPage3.Location = new System.Drawing.Point(4, 42);
-            MetroTabPage3.MetroStyleManager = metroStyleManager1;
             MetroTabPage3.Name = "MetroTabPage3";
             MetroTabPage3.Size = new System.Drawing.Size(1106, 570);
             MetroTabPage3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTabPage3.StyleManager = metroStyleManager1;
             MetroTabPage3.TabIndex = 2;
             MetroTabPage3.Text = "InputBase";
             MetroTabPage3.ThemeAuthor = "Taiizor";
-            MetroTabPage3.ThemeName = "MetroLite";
+            MetroTabPage3.ThemeName = "MetroLight";
             MetroTabPage3.ToolTipText = null;
             // 
             // MetroListBox2
             // 
+            MetroListBox2.BackColor = System.Drawing.Color.White;
             MetroListBox2.BorderColor = System.Drawing.Color.LightGray;
             MetroListBox2.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroListBox2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             MetroListBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             MetroListBox2.HoveredItemBackColor = System.Drawing.Color.LightGray;
             MetroListBox2.HoveredItemColor = System.Drawing.Color.DimGray;
+            MetroListBox2.IsDerivedStyle = true;
             MetroListBox2.ItemHeight = 30;
             MetroListBox2.Items.Add("ListItem 1");
             MetroListBox2.Items.Add("ListItem 2");
@@ -896,21 +929,22 @@
             MetroListBox2.Items.Add("ListItem 99");
             MetroListBox2.Items.Add("ListItem 100");
             MetroListBox2.Location = new System.Drawing.Point(635, 82);
-            MetroListBox2.MetroStyleManager = metroStyleManager1;
             MetroListBox2.MultiSelect = false;
             MetroListBox2.Name = "MetroListBox2";
             MetroListBox2.SelectedIndex = -1;
             MetroListBox2.SelectedItem = null;
             MetroListBox2.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroListBox2.SelectedItemColor = System.Drawing.Color.White;
+            MetroListBox2.SelectedText = null;
             MetroListBox2.SelectedValue = null;
             MetroListBox2.ShowBorder = false;
             MetroListBox2.ShowScrollBar = true;
             MetroListBox2.Size = new System.Drawing.Size(374, 286);
             MetroListBox2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroListBox2.StyleManager = metroStyleManager1;
             MetroListBox2.TabIndex = 9;
             MetroListBox2.ThemeAuthor = "Taiizor";
-            MetroListBox2.ThemeName = "MetroLite";
+            MetroListBox2.ThemeName = "MetroLight";
             // 
             // MetroComboBox2
             // 
@@ -928,17 +962,18 @@
             MetroComboBox2.Enabled = false;
             MetroComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             MetroComboBox2.FormattingEnabled = true;
+            MetroComboBox2.IsDerivedStyle = true;
             MetroComboBox2.ItemHeight = 20;
             MetroComboBox2.Location = new System.Drawing.Point(305, 342);
-            MetroComboBox2.MetroStyleManager = metroStyleManager1;
             MetroComboBox2.Name = "MetroComboBox2";
             MetroComboBox2.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroComboBox2.SelectedItemForeColor = System.Drawing.Color.White;
             MetroComboBox2.Size = new System.Drawing.Size(215, 26);
             MetroComboBox2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroComboBox2.StyleManager = metroStyleManager1;
             MetroComboBox2.TabIndex = 7;
             MetroComboBox2.ThemeAuthor = "Taiizor";
-            MetroComboBox2.ThemeName = "MetroLite";
+            MetroComboBox2.ThemeName = "MetroLight";
             // 
             // MetroComboBox1
             // 
@@ -955,6 +990,7 @@
             MetroComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             MetroComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             MetroComboBox1.FormattingEnabled = true;
+            MetroComboBox1.IsDerivedStyle = true;
             MetroComboBox1.ItemHeight = 20;
             MetroComboBox1.Items.AddRange(new object[] {
             "ListItem 1",
@@ -1058,15 +1094,15 @@
             "ListItem 99",
             "ListItem 100"});
             MetroComboBox1.Location = new System.Drawing.Point(305, 292);
-            MetroComboBox1.MetroStyleManager = metroStyleManager1;
             MetroComboBox1.Name = "MetroComboBox1";
             MetroComboBox1.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroComboBox1.SelectedItemForeColor = System.Drawing.Color.White;
             MetroComboBox1.Size = new System.Drawing.Size(215, 26);
             MetroComboBox1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroComboBox1.StyleManager = metroStyleManager1;
             MetroComboBox1.TabIndex = 7;
             MetroComboBox1.ThemeAuthor = "Taiizor";
-            MetroComboBox1.ThemeName = "MetroLite";
+            MetroComboBox1.ThemeName = "MetroLight";
             MetroToolTip1.SetToolTip(MetroComboBox1, "MetroComboBox");
             // 
             // MetroNumeric3
@@ -1078,18 +1114,19 @@
             MetroNumeric3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             MetroNumeric3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             MetroNumeric3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroNumeric3.IsDerivedStyle = true;
             MetroNumeric3.Location = new System.Drawing.Point(15, 426);
             MetroNumeric3.Maximum = 100;
-            MetroNumeric3.MetroStyleManager = metroStyleManager1;
             MetroNumeric3.Minimum = 0;
             MetroNumeric3.Name = "MetroNumeric3";
             MetroNumeric3.Size = new System.Drawing.Size(215, 26);
             MetroNumeric3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroNumeric3.StyleManager = metroStyleManager1;
             MetroNumeric3.SymbolsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             MetroNumeric3.TabIndex = 6;
             MetroNumeric3.Text = "MetroNumeric3";
             MetroNumeric3.ThemeAuthor = "Taiizor";
-            MetroNumeric3.ThemeName = "MetroLite";
+            MetroNumeric3.ThemeName = "MetroLight";
             MetroNumeric3.Value = 5;
             // 
             // MetroNumeric2
@@ -1102,18 +1139,19 @@
             MetroNumeric2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             MetroNumeric2.Enabled = false;
             MetroNumeric2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroNumeric2.IsDerivedStyle = true;
             MetroNumeric2.Location = new System.Drawing.Point(15, 476);
             MetroNumeric2.Maximum = 100;
-            MetroNumeric2.MetroStyleManager = metroStyleManager1;
             MetroNumeric2.Minimum = 0;
             MetroNumeric2.Name = "MetroNumeric2";
             MetroNumeric2.Size = new System.Drawing.Size(215, 26);
             MetroNumeric2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroNumeric2.StyleManager = metroStyleManager1;
             MetroNumeric2.SymbolsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             MetroNumeric2.TabIndex = 5;
             MetroNumeric2.Text = "MetroNumeric1";
             MetroNumeric2.ThemeAuthor = "Taiizor";
-            MetroNumeric2.ThemeName = "MetroLite";
+            MetroNumeric2.ThemeName = "MetroLight";
             MetroNumeric2.Value = 0;
             // 
             // MetroRichTextBox1
@@ -1125,18 +1163,19 @@
             MetroRichTextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             MetroRichTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             MetroRichTextBox1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            MetroRichTextBox1.IsDerivedStyle = true;
             MetroRichTextBox1.Lines = null;
             MetroRichTextBox1.Location = new System.Drawing.Point(305, 93);
             MetroRichTextBox1.MaxLength = 32767;
-            MetroRichTextBox1.MetroStyleManager = metroStyleManager1;
             MetroRichTextBox1.Name = "MetroRichTextBox1";
             MetroRichTextBox1.ReadOnly = false;
             MetroRichTextBox1.Size = new System.Drawing.Size(245, 138);
             MetroRichTextBox1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroRichTextBox1.StyleManager = metroStyleManager1;
             MetroRichTextBox1.TabIndex = 4;
             MetroRichTextBox1.Text = resources.GetString("MetroRichTextBox1.Text");
             MetroRichTextBox1.ThemeAuthor = "Taiizor";
-            MetroRichTextBox1.ThemeName = "MetroLite";
+            MetroRichTextBox1.ThemeName = "MetroLight";
             MetroRichTextBox1.WordWrap = true;
             // 
             // MetroTextBox3
@@ -1151,20 +1190,21 @@
             MetroTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             MetroTextBox3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroTextBox3.Image = null;
+            MetroTextBox3.IsDerivedStyle = true;
             MetroTextBox3.Lines = null;
             MetroTextBox3.Location = new System.Drawing.Point(15, 230);
             MetroTextBox3.MaxLength = 32767;
-            MetroTextBox3.MetroStyleManager = metroStyleManager1;
             MetroTextBox3.Multiline = true;
             MetroTextBox3.Name = "MetroTextBox3";
             MetroTextBox3.ReadOnly = false;
             MetroTextBox3.Size = new System.Drawing.Size(215, 138);
             MetroTextBox3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTextBox3.StyleManager = metroStyleManager1;
             MetroTextBox3.TabIndex = 3;
             MetroTextBox3.Text = resources.GetString("MetroTextBox3.Text");
             MetroTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             MetroTextBox3.ThemeAuthor = "Taiizor";
-            MetroTextBox3.ThemeName = "MetroLite";
+            MetroTextBox3.ThemeName = "MetroLight";
             MetroTextBox3.UseSystemPasswordChar = false;
             MetroTextBox3.WatermarkText = "n";
             // 
@@ -1181,19 +1221,20 @@
             MetroTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             MetroTextBox2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroTextBox2.Image = null;
+            MetroTextBox2.IsDerivedStyle = true;
             MetroTextBox2.Lines = null;
             MetroTextBox2.Location = new System.Drawing.Point(15, 185);
             MetroTextBox2.MaxLength = 32767;
-            MetroTextBox2.MetroStyleManager = metroStyleManager1;
             MetroTextBox2.Multiline = false;
             MetroTextBox2.Name = "MetroTextBox2";
             MetroTextBox2.ReadOnly = false;
             MetroTextBox2.Size = new System.Drawing.Size(215, 26);
             MetroTextBox2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTextBox2.StyleManager = metroStyleManager1;
             MetroTextBox2.TabIndex = 3;
             MetroTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             MetroTextBox2.ThemeAuthor = "Taiizor";
-            MetroTextBox2.ThemeName = "MetroLite";
+            MetroTextBox2.ThemeName = "MetroLight";
             MetroTextBox2.UseSystemPasswordChar = false;
             MetroTextBox2.WatermarkText = "n";
             // 
@@ -1209,19 +1250,20 @@
             MetroTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             MetroTextBox4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroTextBox4.Image = global::ReaLTaiizor.UI.Properties.Resources.filter;
+            MetroTextBox4.IsDerivedStyle = true;
             MetroTextBox4.Lines = null;
             MetroTextBox4.Location = new System.Drawing.Point(15, 139);
             MetroTextBox4.MaxLength = 32767;
-            MetroTextBox4.MetroStyleManager = metroStyleManager1;
             MetroTextBox4.Multiline = false;
             MetroTextBox4.Name = "MetroTextBox4";
             MetroTextBox4.ReadOnly = false;
             MetroTextBox4.Size = new System.Drawing.Size(215, 26);
             MetroTextBox4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTextBox4.StyleManager = metroStyleManager1;
             MetroTextBox4.TabIndex = 3;
             MetroTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             MetroTextBox4.ThemeAuthor = "Taiizor";
-            MetroTextBox4.ThemeName = "MetroLite";
+            MetroTextBox4.ThemeName = "MetroLight";
             MetroTextBox4.UseSystemPasswordChar = false;
             MetroTextBox4.WatermarkText = "n";
             // 
@@ -1238,30 +1280,32 @@
             MetroTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             MetroTextBox1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroTextBox1.Image = null;
+            MetroTextBox1.IsDerivedStyle = true;
             MetroTextBox1.Lines = null;
             MetroTextBox1.Location = new System.Drawing.Point(15, 93);
             MetroTextBox1.MaxLength = 32767;
-            MetroTextBox1.MetroStyleManager = metroStyleManager1;
             MetroTextBox1.Multiline = false;
             MetroTextBox1.Name = "MetroTextBox1";
             MetroTextBox1.ReadOnly = false;
             MetroTextBox1.Size = new System.Drawing.Size(215, 26);
             MetroTextBox1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTextBox1.StyleManager = metroStyleManager1;
             MetroTextBox1.TabIndex = 3;
             MetroTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             MetroTextBox1.ThemeAuthor = "Taiizor";
-            MetroTextBox1.ThemeName = "MetroLite";
+            MetroTextBox1.ThemeName = "MetroLight";
             MetroTextBox1.UseSystemPasswordChar = false;
             MetroTextBox1.WatermarkText = "n";
             // 
             // MetroContextMenuStrip1
             // 
+            MetroContextMenuStrip1.IsDerivedStyle = true;
             MetroContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             textBoxToolStripMenuItem});
-            MetroContextMenuStrip1.MetroStyleManager = null;
             MetroContextMenuStrip1.Name = "MetroContextMenuStrip1";
             MetroContextMenuStrip1.Size = new System.Drawing.Size(116, 26);
             MetroContextMenuStrip1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroContextMenuStrip1.StyleManager = null;
             MetroContextMenuStrip1.ThemeAuthor = "Taiizor";
             MetroContextMenuStrip1.ThemeName = "MetroLite";
             // 
@@ -1274,67 +1318,72 @@
             // MetroLabel8
             // 
             MetroLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel8.IsDerivedStyle = true;
             MetroLabel8.Location = new System.Drawing.Point(305, 254);
-            MetroLabel8.MetroStyleManager = metroStyleManager1;
             MetroLabel8.Name = "MetroLabel8";
             MetroLabel8.Size = new System.Drawing.Size(138, 23);
             MetroLabel8.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel8.StyleManager = metroStyleManager1;
             MetroLabel8.TabIndex = 2;
             MetroLabel8.Text = "Normal ComboBox";
             MetroLabel8.ThemeAuthor = "Taiizor";
-            MetroLabel8.ThemeName = "MetroLite";
+            MetroLabel8.ThemeName = "MetroLight";
             // 
             // MetroLabel9
             // 
             MetroLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel9.IsDerivedStyle = true;
             MetroLabel9.Location = new System.Drawing.Point(635, 55);
-            MetroLabel9.MetroStyleManager = metroStyleManager1;
             MetroLabel9.Name = "MetroLabel9";
             MetroLabel9.Size = new System.Drawing.Size(138, 23);
             MetroLabel9.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel9.StyleManager = metroStyleManager1;
             MetroLabel9.TabIndex = 2;
             MetroLabel9.Text = "Normal ListBox";
             MetroLabel9.ThemeAuthor = "Taiizor";
-            MetroLabel9.ThemeName = "MetroLite";
+            MetroLabel9.ThemeName = "MetroLight";
             // 
             // MetroLabel6
             // 
             MetroLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel6.IsDerivedStyle = true;
             MetroLabel6.Location = new System.Drawing.Point(305, 55);
-            MetroLabel6.MetroStyleManager = metroStyleManager1;
             MetroLabel6.Name = "MetroLabel6";
             MetroLabel6.Size = new System.Drawing.Size(138, 23);
             MetroLabel6.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel6.StyleManager = metroStyleManager1;
             MetroLabel6.TabIndex = 2;
             MetroLabel6.Text = "Normal RichTextBox";
             MetroLabel6.ThemeAuthor = "Taiizor";
-            MetroLabel6.ThemeName = "MetroLite";
+            MetroLabel6.ThemeName = "MetroLight";
             // 
             // MetroLabel7
             // 
             MetroLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel7.IsDerivedStyle = true;
             MetroLabel7.Location = new System.Drawing.Point(15, 388);
-            MetroLabel7.MetroStyleManager = metroStyleManager1;
             MetroLabel7.Name = "MetroLabel7";
             MetroLabel7.Size = new System.Drawing.Size(114, 23);
             MetroLabel7.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel7.StyleManager = metroStyleManager1;
             MetroLabel7.TabIndex = 2;
             MetroLabel7.Text = "Normal Numeric";
             MetroLabel7.ThemeAuthor = "Taiizor";
-            MetroLabel7.ThemeName = "MetroLite";
+            MetroLabel7.ThemeName = "MetroLight";
             // 
             // MetroLabel5
             // 
             MetroLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel5.IsDerivedStyle = true;
             MetroLabel5.Location = new System.Drawing.Point(15, 55);
-            MetroLabel5.MetroStyleManager = metroStyleManager1;
             MetroLabel5.Name = "MetroLabel5";
             MetroLabel5.Size = new System.Drawing.Size(114, 23);
             MetroLabel5.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel5.StyleManager = metroStyleManager1;
             MetroLabel5.TabIndex = 2;
             MetroLabel5.Text = "Normal TextBox";
             MetroLabel5.ThemeAuthor = "Taiizor";
-            MetroLabel5.ThemeName = "MetroLite";
+            MetroLabel5.ThemeName = "MetroLight";
             // 
             // MetroTabPage4
             // 
@@ -1356,17 +1405,19 @@
             MetroTabPage4.Controls.Add(MetroCheckBox1);
             MetroTabPage4.Controls.Add(MetroLabel11);
             MetroTabPage4.Controls.Add(MetroLabel10);
+            MetroTabPage4.Font = null;
             MetroTabPage4.ImageIndex = 0;
             MetroTabPage4.ImageKey = null;
+            MetroTabPage4.IsDerivedStyle = true;
             MetroTabPage4.Location = new System.Drawing.Point(4, 42);
-            MetroTabPage4.MetroStyleManager = metroStyleManager1;
             MetroTabPage4.Name = "MetroTabPage4";
             MetroTabPage4.Size = new System.Drawing.Size(1106, 570);
             MetroTabPage4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTabPage4.StyleManager = metroStyleManager1;
             MetroTabPage4.TabIndex = 3;
             MetroTabPage4.Text = "Switchery";
             MetroTabPage4.ThemeAuthor = "Taiizor";
-            MetroTabPage4.ThemeName = "MetroLite";
+            MetroTabPage4.ThemeName = "MetroLight";
             MetroTabPage4.ToolTipText = null;
             // 
             // MetroSwitch4
@@ -1381,17 +1432,18 @@
             MetroSwitch4.DisabledCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroSwitch4.DisabledUnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroSwitch4.Enabled = false;
+            MetroSwitch4.IsDerivedStyle = true;
             MetroSwitch4.Location = new System.Drawing.Point(635, 220);
-            MetroSwitch4.MetroStyleManager = metroStyleManager1;
             MetroSwitch4.Name = "MetroSwitch4";
             MetroSwitch4.Size = new System.Drawing.Size(58, 22);
             MetroSwitch4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroSwitch4.StyleManager = metroStyleManager1;
             MetroSwitch4.Switched = true;
             MetroSwitch4.SymbolColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             MetroSwitch4.TabIndex = 8;
             MetroSwitch4.Text = "MetroSwitch1";
             MetroSwitch4.ThemeAuthor = "Taiizor";
-            MetroSwitch4.ThemeName = "MetroLite";
+            MetroSwitch4.ThemeName = "MetroLight";
             MetroSwitch4.UnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             // 
             // MetroSwitch3
@@ -1406,17 +1458,18 @@
             MetroSwitch3.DisabledCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroSwitch3.DisabledUnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroSwitch3.Enabled = false;
+            MetroSwitch3.IsDerivedStyle = true;
             MetroSwitch3.Location = new System.Drawing.Point(635, 179);
-            MetroSwitch3.MetroStyleManager = metroStyleManager1;
             MetroSwitch3.Name = "MetroSwitch3";
             MetroSwitch3.Size = new System.Drawing.Size(58, 22);
             MetroSwitch3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroSwitch3.StyleManager = metroStyleManager1;
             MetroSwitch3.Switched = false;
             MetroSwitch3.SymbolColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             MetroSwitch3.TabIndex = 7;
             MetroSwitch3.Text = "MetroSwitch1";
             MetroSwitch3.ThemeAuthor = "Taiizor";
-            MetroSwitch3.ThemeName = "MetroLite";
+            MetroSwitch3.ThemeName = "MetroLight";
             MetroSwitch3.UnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             // 
             // MetroSwitch2
@@ -1430,17 +1483,18 @@
             MetroSwitch2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroSwitch2.DisabledCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroSwitch2.DisabledUnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            MetroSwitch2.IsDerivedStyle = true;
             MetroSwitch2.Location = new System.Drawing.Point(635, 134);
-            MetroSwitch2.MetroStyleManager = metroStyleManager1;
             MetroSwitch2.Name = "MetroSwitch2";
             MetroSwitch2.Size = new System.Drawing.Size(58, 22);
             MetroSwitch2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroSwitch2.StyleManager = metroStyleManager1;
             MetroSwitch2.Switched = true;
             MetroSwitch2.SymbolColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             MetroSwitch2.TabIndex = 7;
             MetroSwitch2.Text = "MetroSwitch1";
             MetroSwitch2.ThemeAuthor = "Taiizor";
-            MetroSwitch2.ThemeName = "MetroLite";
+            MetroSwitch2.ThemeName = "MetroLight";
             MetroSwitch2.UnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             MetroSwitch2.SwitchedChanged += new ReaLTaiizor.Controls.MetroSwitch.SwitchedChangedEventHandler(MetroSwitch2_SwitchedChanged);
             // 
@@ -1455,31 +1509,33 @@
             MetroSwitch1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroSwitch1.DisabledCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroSwitch1.DisabledUnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            MetroSwitch1.IsDerivedStyle = true;
             MetroSwitch1.Location = new System.Drawing.Point(635, 99);
-            MetroSwitch1.MetroStyleManager = metroStyleManager1;
             MetroSwitch1.Name = "MetroSwitch1";
             MetroSwitch1.Size = new System.Drawing.Size(58, 22);
             MetroSwitch1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroSwitch1.StyleManager = metroStyleManager1;
             MetroSwitch1.Switched = false;
             MetroSwitch1.SymbolColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             MetroSwitch1.TabIndex = 7;
             MetroSwitch1.Text = "MetroSwitch1";
             MetroSwitch1.ThemeAuthor = "Taiizor";
-            MetroSwitch1.ThemeName = "MetroLite";
+            MetroSwitch1.ThemeName = "MetroLight";
             MetroSwitch1.UnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             // 
             // MetroLabel12
             // 
             MetroLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel12.IsDerivedStyle = true;
             MetroLabel12.Location = new System.Drawing.Point(635, 55);
-            MetroLabel12.MetroStyleManager = metroStyleManager1;
             MetroLabel12.Name = "MetroLabel12";
             MetroLabel12.Size = new System.Drawing.Size(130, 23);
             MetroLabel12.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel12.StyleManager = metroStyleManager1;
             MetroLabel12.TabIndex = 6;
             MetroLabel12.Text = "Switches";
             MetroLabel12.ThemeAuthor = "Taiizor";
-            MetroLabel12.ThemeName = "MetroLite";
+            MetroLabel12.ThemeName = "MetroLight";
             // 
             // MetroRadioButton4
             // 
@@ -1492,16 +1548,17 @@
             MetroRadioButton4.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroRadioButton4.Enabled = false;
             MetroRadioButton4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            MetroRadioButton4.Group = 1;
+            MetroRadioButton4.Group = 0;
+            MetroRadioButton4.IsDerivedStyle = true;
             MetroRadioButton4.Location = new System.Drawing.Point(305, 219);
-            MetroRadioButton4.MetroStyleManager = metroStyleManager1;
             MetroRadioButton4.Name = "MetroRadioButton4";
             MetroRadioButton4.Size = new System.Drawing.Size(145, 17);
             MetroRadioButton4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroRadioButton4.StyleManager = metroStyleManager1;
             MetroRadioButton4.TabIndex = 5;
             MetroRadioButton4.Text = "Disabled Checked";
             MetroRadioButton4.ThemeAuthor = "Taiizor";
-            MetroRadioButton4.ThemeName = "MetroLite";
+            MetroRadioButton4.ThemeName = "MetroLight";
             // 
             // MetroRadioButton3
             // 
@@ -1513,16 +1570,17 @@
             MetroRadioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroRadioButton3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroRadioButton3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            MetroRadioButton3.Group = 1;
+            MetroRadioButton3.Group = 0;
+            MetroRadioButton3.IsDerivedStyle = true;
             MetroRadioButton3.Location = new System.Drawing.Point(305, 139);
-            MetroRadioButton3.MetroStyleManager = metroStyleManager1;
             MetroRadioButton3.Name = "MetroRadioButton3";
             MetroRadioButton3.Size = new System.Drawing.Size(145, 17);
             MetroRadioButton3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroRadioButton3.StyleManager = metroStyleManager1;
             MetroRadioButton3.TabIndex = 5;
             MetroRadioButton3.Text = "Normal Checked";
             MetroRadioButton3.ThemeAuthor = "Taiizor";
-            MetroRadioButton3.ThemeName = "MetroLite";
+            MetroRadioButton3.ThemeName = "MetroLight";
             // 
             // MetroRadioButton2
             // 
@@ -1535,16 +1593,17 @@
             MetroRadioButton2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroRadioButton2.Enabled = false;
             MetroRadioButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            MetroRadioButton2.Group = 1;
+            MetroRadioButton2.Group = 0;
+            MetroRadioButton2.IsDerivedStyle = true;
             MetroRadioButton2.Location = new System.Drawing.Point(305, 179);
-            MetroRadioButton2.MetroStyleManager = metroStyleManager1;
             MetroRadioButton2.Name = "MetroRadioButton2";
             MetroRadioButton2.Size = new System.Drawing.Size(145, 17);
             MetroRadioButton2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroRadioButton2.StyleManager = metroStyleManager1;
             MetroRadioButton2.TabIndex = 5;
             MetroRadioButton2.Text = "Disabled Unchecked";
             MetroRadioButton2.ThemeAuthor = "Taiizor";
-            MetroRadioButton2.ThemeName = "MetroLite";
+            MetroRadioButton2.ThemeName = "MetroLight";
             // 
             // MetroRadioButton1
             // 
@@ -1556,16 +1615,17 @@
             MetroRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroRadioButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroRadioButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            MetroRadioButton1.Group = 1;
+            MetroRadioButton1.Group = 0;
+            MetroRadioButton1.IsDerivedStyle = true;
             MetroRadioButton1.Location = new System.Drawing.Point(305, 99);
-            MetroRadioButton1.MetroStyleManager = metroStyleManager1;
             MetroRadioButton1.Name = "MetroRadioButton1";
             MetroRadioButton1.Size = new System.Drawing.Size(145, 17);
             MetroRadioButton1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroRadioButton1.StyleManager = metroStyleManager1;
             MetroRadioButton1.TabIndex = 5;
             MetroRadioButton1.Text = "Normal Unchecked";
             MetroRadioButton1.ThemeAuthor = "Taiizor";
-            MetroRadioButton1.ThemeName = "MetroLite";
+            MetroRadioButton1.ThemeName = "MetroLight";
             // 
             // MetroCheckBox5
             // 
@@ -1579,16 +1639,17 @@
             MetroCheckBox5.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroCheckBox5.Enabled = false;
             MetroCheckBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroCheckBox5.IsDerivedStyle = true;
             MetroCheckBox5.Location = new System.Drawing.Point(15, 300);
-            MetroCheckBox5.MetroStyleManager = metroStyleManager1;
             MetroCheckBox5.Name = "MetroCheckBox5";
             MetroCheckBox5.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
             MetroCheckBox5.Size = new System.Drawing.Size(197, 16);
             MetroCheckBox5.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroCheckBox5.StyleManager = metroStyleManager1;
             MetroCheckBox5.TabIndex = 4;
             MetroCheckBox5.Text = "Disabled Checked With Shape";
             MetroCheckBox5.ThemeAuthor = "Taiizor";
-            MetroCheckBox5.ThemeName = "MetroLite";
+            MetroCheckBox5.ThemeName = "MetroLight";
             // 
             // MetroCheckBox4
             // 
@@ -1602,16 +1663,17 @@
             MetroCheckBox4.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroCheckBox4.Enabled = false;
             MetroCheckBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroCheckBox4.IsDerivedStyle = true;
             MetroCheckBox4.Location = new System.Drawing.Point(15, 260);
-            MetroCheckBox4.MetroStyleManager = metroStyleManager1;
             MetroCheckBox4.Name = "MetroCheckBox4";
             MetroCheckBox4.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
             MetroCheckBox4.Size = new System.Drawing.Size(187, 16);
             MetroCheckBox4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroCheckBox4.StyleManager = metroStyleManager1;
             MetroCheckBox4.TabIndex = 4;
             MetroCheckBox4.Text = "Disabled Checked With Tick";
             MetroCheckBox4.ThemeAuthor = "Taiizor";
-            MetroCheckBox4.ThemeName = "MetroLite";
+            MetroCheckBox4.ThemeName = "MetroLight";
             // 
             // MetroCheckBox3
             // 
@@ -1624,16 +1686,17 @@
             MetroCheckBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroCheckBox3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroCheckBox3.IsDerivedStyle = true;
             MetroCheckBox3.Location = new System.Drawing.Point(15, 180);
-            MetroCheckBox3.MetroStyleManager = metroStyleManager1;
             MetroCheckBox3.Name = "MetroCheckBox3";
             MetroCheckBox3.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
             MetroCheckBox3.Size = new System.Drawing.Size(197, 16);
             MetroCheckBox3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroCheckBox3.StyleManager = metroStyleManager1;
             MetroCheckBox3.TabIndex = 4;
             MetroCheckBox3.Text = "Normal  Checked With Shape";
             MetroCheckBox3.ThemeAuthor = "Taiizor";
-            MetroCheckBox3.ThemeName = "MetroLite";
+            MetroCheckBox3.ThemeName = "MetroLight";
             // 
             // MetroCheckBox2
             // 
@@ -1646,16 +1709,17 @@
             MetroCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroCheckBox2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroCheckBox2.IsDerivedStyle = true;
             MetroCheckBox2.Location = new System.Drawing.Point(15, 140);
-            MetroCheckBox2.MetroStyleManager = metroStyleManager1;
             MetroCheckBox2.Name = "MetroCheckBox2";
             MetroCheckBox2.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
             MetroCheckBox2.Size = new System.Drawing.Size(187, 16);
             MetroCheckBox2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroCheckBox2.StyleManager = metroStyleManager1;
             MetroCheckBox2.TabIndex = 4;
             MetroCheckBox2.Text = "Normal  Checked With Tick";
             MetroCheckBox2.ThemeAuthor = "Taiizor";
-            MetroCheckBox2.ThemeName = "MetroLite";
+            MetroCheckBox2.ThemeName = "MetroLight";
             // 
             // MetroCheckBox6
             // 
@@ -1669,16 +1733,17 @@
             MetroCheckBox6.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroCheckBox6.Enabled = false;
             MetroCheckBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroCheckBox6.IsDerivedStyle = true;
             MetroCheckBox6.Location = new System.Drawing.Point(15, 220);
-            MetroCheckBox6.MetroStyleManager = metroStyleManager1;
             MetroCheckBox6.Name = "MetroCheckBox6";
             MetroCheckBox6.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
             MetroCheckBox6.Size = new System.Drawing.Size(148, 16);
             MetroCheckBox6.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroCheckBox6.StyleManager = metroStyleManager1;
             MetroCheckBox6.TabIndex = 4;
             MetroCheckBox6.Text = "Disabled Unchecked";
             MetroCheckBox6.ThemeAuthor = "Taiizor";
-            MetroCheckBox6.ThemeName = "MetroLite";
+            MetroCheckBox6.ThemeName = "MetroLight";
             // 
             // MetroCheckBox1
             // 
@@ -1691,42 +1756,45 @@
             MetroCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroCheckBox1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroCheckBox1.IsDerivedStyle = true;
             MetroCheckBox1.Location = new System.Drawing.Point(15, 100);
-            MetroCheckBox1.MetroStyleManager = metroStyleManager1;
             MetroCheckBox1.Name = "MetroCheckBox1";
             MetroCheckBox1.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
             MetroCheckBox1.Size = new System.Drawing.Size(148, 16);
             MetroCheckBox1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroCheckBox1.StyleManager = metroStyleManager1;
             MetroCheckBox1.TabIndex = 4;
             MetroCheckBox1.Text = "Normal Unchecked";
             MetroCheckBox1.ThemeAuthor = "Taiizor";
-            MetroCheckBox1.ThemeName = "MetroLite";
+            MetroCheckBox1.ThemeName = "MetroLight";
             // 
             // MetroLabel11
             // 
             MetroLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel11.IsDerivedStyle = true;
             MetroLabel11.Location = new System.Drawing.Point(305, 55);
-            MetroLabel11.MetroStyleManager = metroStyleManager1;
             MetroLabel11.Name = "MetroLabel11";
             MetroLabel11.Size = new System.Drawing.Size(145, 23);
             MetroLabel11.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel11.StyleManager = metroStyleManager1;
             MetroLabel11.TabIndex = 3;
             MetroLabel11.Text = "Normal RadioButton";
             MetroLabel11.ThemeAuthor = "Taiizor";
-            MetroLabel11.ThemeName = "MetroLite";
+            MetroLabel11.ThemeName = "MetroLight";
             // 
             // MetroLabel10
             // 
             MetroLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel10.IsDerivedStyle = true;
             MetroLabel10.Location = new System.Drawing.Point(15, 55);
-            MetroLabel10.MetroStyleManager = metroStyleManager1;
             MetroLabel10.Name = "MetroLabel10";
             MetroLabel10.Size = new System.Drawing.Size(130, 23);
             MetroLabel10.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel10.StyleManager = metroStyleManager1;
             MetroLabel10.TabIndex = 3;
             MetroLabel10.Text = "Normal CheckBox";
             MetroLabel10.ThemeAuthor = "Taiizor";
-            MetroLabel10.ThemeName = "MetroLite";
+            MetroLabel10.ThemeName = "MetroLight";
             // 
             // MetroTabPage5
             // 
@@ -1740,17 +1808,19 @@
             MetroTabPage5.Controls.Add(MetroLabel13);
             MetroTabPage5.Controls.Add(MetroProgressBar2);
             MetroTabPage5.Controls.Add(MetroProgressBar1);
+            MetroTabPage5.Font = null;
             MetroTabPage5.ImageIndex = 0;
             MetroTabPage5.ImageKey = null;
+            MetroTabPage5.IsDerivedStyle = true;
             MetroTabPage5.Location = new System.Drawing.Point(4, 42);
-            MetroTabPage5.MetroStyleManager = metroStyleManager1;
             MetroTabPage5.Name = "MetroTabPage5";
             MetroTabPage5.Size = new System.Drawing.Size(1106, 570);
             MetroTabPage5.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTabPage5.StyleManager = metroStyleManager1;
             MetroTabPage5.TabIndex = 4;
             MetroTabPage5.Text = "Progress";
             MetroTabPage5.ThemeAuthor = "Taiizor";
-            MetroTabPage5.ThemeName = "MetroLite";
+            MetroTabPage5.ThemeName = "MetroLight";
             MetroTabPage5.ToolTipText = null;
             // 
             // MetroTrackBar2
@@ -1764,17 +1834,18 @@
             MetroTrackBar2.DisabledValueColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroTrackBar2.Enabled = false;
             MetroTrackBar2.HandlerColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            MetroTrackBar2.IsDerivedStyle = true;
             MetroTrackBar2.Location = new System.Drawing.Point(494, 147);
             MetroTrackBar2.Maximum = 100;
-            MetroTrackBar2.MetroStyleManager = metroStyleManager1;
             MetroTrackBar2.Minimum = 0;
             MetroTrackBar2.Name = "MetroTrackBar2";
             MetroTrackBar2.Size = new System.Drawing.Size(241, 16);
             MetroTrackBar2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTrackBar2.StyleManager = metroStyleManager1;
             MetroTrackBar2.TabIndex = 4;
             MetroTrackBar2.Text = "MetroTrackBar1";
             MetroTrackBar2.ThemeAuthor = "Taiizor";
-            MetroTrackBar2.ThemeName = "MetroLite";
+            MetroTrackBar2.ThemeName = "MetroLight";
             MetroTrackBar2.Value = 45;
             MetroTrackBar2.ValueColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             // 
@@ -1788,17 +1859,18 @@
             MetroTrackBar1.DisabledHandlerColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             MetroTrackBar1.DisabledValueColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             MetroTrackBar1.HandlerColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            MetroTrackBar1.IsDerivedStyle = true;
             MetroTrackBar1.Location = new System.Drawing.Point(494, 102);
             MetroTrackBar1.Maximum = 100;
-            MetroTrackBar1.MetroStyleManager = metroStyleManager1;
             MetroTrackBar1.Minimum = 0;
             MetroTrackBar1.Name = "MetroTrackBar1";
             MetroTrackBar1.Size = new System.Drawing.Size(241, 16);
             MetroTrackBar1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTrackBar1.StyleManager = metroStyleManager1;
             MetroTrackBar1.TabIndex = 4;
             MetroTrackBar1.Text = "MetroTrackBar1";
             MetroTrackBar1.ThemeAuthor = "Taiizor";
-            MetroTrackBar1.ThemeName = "MetroLite";
+            MetroTrackBar1.ThemeName = "MetroLight";
             MetroTrackBar1.Value = 75;
             MetroTrackBar1.ValueColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             // 
@@ -1810,19 +1882,20 @@
             MetroProgressBar4.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroProgressBar4.DisabledProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroProgressBar4.Enabled = false;
+            MetroProgressBar4.IsDerivedStyle = true;
             MetroProgressBar4.Location = new System.Drawing.Point(144, 289);
             MetroProgressBar4.Maximum = 100;
-            MetroProgressBar4.MetroStyleManager = metroStyleManager1;
             MetroProgressBar4.Minimum = 0;
             MetroProgressBar4.Name = "MetroProgressBar4";
             MetroProgressBar4.Orientation = ReaLTaiizor.Enum.Metro.ProgressOrientation.Vertical;
             MetroProgressBar4.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroProgressBar4.Size = new System.Drawing.Size(30, 211);
             MetroProgressBar4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroProgressBar4.StyleManager = metroStyleManager1;
             MetroProgressBar4.TabIndex = 3;
             MetroProgressBar4.Text = "MetroProgressBar3";
             MetroProgressBar4.ThemeAuthor = "Taiizor";
-            MetroProgressBar4.ThemeName = "MetroLite";
+            MetroProgressBar4.ThemeName = "MetroLight";
             MetroProgressBar4.Value = 30;
             // 
             // MetroProgressBar3
@@ -1832,59 +1905,63 @@
             MetroProgressBar3.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroProgressBar3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroProgressBar3.DisabledProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            MetroProgressBar3.IsDerivedStyle = true;
             MetroProgressBar3.Location = new System.Drawing.Point(15, 289);
             MetroProgressBar3.Maximum = 100;
-            MetroProgressBar3.MetroStyleManager = metroStyleManager1;
             MetroProgressBar3.Minimum = 0;
             MetroProgressBar3.Name = "MetroProgressBar3";
             MetroProgressBar3.Orientation = ReaLTaiizor.Enum.Metro.ProgressOrientation.Vertical;
             MetroProgressBar3.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroProgressBar3.Size = new System.Drawing.Size(30, 211);
             MetroProgressBar3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroProgressBar3.StyleManager = metroStyleManager1;
             MetroProgressBar3.TabIndex = 3;
             MetroProgressBar3.Text = "MetroProgressBar3";
             MetroProgressBar3.ThemeAuthor = "Taiizor";
-            MetroProgressBar3.ThemeName = "MetroLite";
+            MetroProgressBar3.ThemeName = "MetroLight";
             MetroProgressBar3.Value = 70;
             // 
             // MetroLabel14
             // 
             MetroLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel14.IsDerivedStyle = true;
             MetroLabel14.Location = new System.Drawing.Point(15, 209);
-            MetroLabel14.MetroStyleManager = metroStyleManager1;
             MetroLabel14.Name = "MetroLabel14";
             MetroLabel14.Size = new System.Drawing.Size(159, 23);
             MetroLabel14.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel14.StyleManager = metroStyleManager1;
             MetroLabel14.TabIndex = 2;
             MetroLabel14.Text = "Vertical ProgressBar";
             MetroLabel14.ThemeAuthor = "Taiizor";
-            MetroLabel14.ThemeName = "MetroLite";
+            MetroLabel14.ThemeName = "MetroLight";
             // 
             // MetroLabel15
             // 
             MetroLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel15.IsDerivedStyle = true;
             MetroLabel15.Location = new System.Drawing.Point(494, 59);
-            MetroLabel15.MetroStyleManager = metroStyleManager1;
             MetroLabel15.Name = "MetroLabel15";
             MetroLabel15.Size = new System.Drawing.Size(159, 23);
             MetroLabel15.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel15.StyleManager = metroStyleManager1;
             MetroLabel15.TabIndex = 2;
             MetroLabel15.Text = "Horizontal ProgressBar";
             MetroLabel15.ThemeAuthor = "Taiizor";
-            MetroLabel15.ThemeName = "MetroLite";
+            MetroLabel15.ThemeName = "MetroLight";
             // 
             // MetroLabel13
             // 
             MetroLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel13.IsDerivedStyle = true;
             MetroLabel13.Location = new System.Drawing.Point(15, 59);
-            MetroLabel13.MetroStyleManager = metroStyleManager1;
             MetroLabel13.Name = "MetroLabel13";
             MetroLabel13.Size = new System.Drawing.Size(159, 23);
             MetroLabel13.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel13.StyleManager = metroStyleManager1;
             MetroLabel13.TabIndex = 2;
             MetroLabel13.Text = "Horizontal ProgressBar";
             MetroLabel13.ThemeAuthor = "Taiizor";
-            MetroLabel13.ThemeName = "MetroLite";
+            MetroLabel13.ThemeName = "MetroLight";
             // 
             // MetroProgressBar2
             // 
@@ -1894,19 +1971,20 @@
             MetroProgressBar2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroProgressBar2.DisabledProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroProgressBar2.Enabled = false;
+            MetroProgressBar2.IsDerivedStyle = true;
             MetroProgressBar2.Location = new System.Drawing.Point(15, 147);
             MetroProgressBar2.Maximum = 100;
-            MetroProgressBar2.MetroStyleManager = metroStyleManager1;
             MetroProgressBar2.Minimum = 0;
             MetroProgressBar2.Name = "MetroProgressBar2";
             MetroProgressBar2.Orientation = ReaLTaiizor.Enum.Metro.ProgressOrientation.Horizontal;
             MetroProgressBar2.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroProgressBar2.Size = new System.Drawing.Size(323, 23);
             MetroProgressBar2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroProgressBar2.StyleManager = metroStyleManager1;
             MetroProgressBar2.TabIndex = 0;
             MetroProgressBar2.Text = "MetroProgressBar1";
             MetroProgressBar2.ThemeAuthor = "Taiizor";
-            MetroProgressBar2.ThemeName = "MetroLite";
+            MetroProgressBar2.ThemeName = "MetroLight";
             MetroProgressBar2.Value = 40;
             // 
             // MetroProgressBar1
@@ -1916,19 +1994,20 @@
             MetroProgressBar1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroProgressBar1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroProgressBar1.DisabledProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            MetroProgressBar1.IsDerivedStyle = true;
             MetroProgressBar1.Location = new System.Drawing.Point(15, 102);
             MetroProgressBar1.Maximum = 100;
-            MetroProgressBar1.MetroStyleManager = metroStyleManager1;
             MetroProgressBar1.Minimum = 0;
             MetroProgressBar1.Name = "MetroProgressBar1";
             MetroProgressBar1.Orientation = ReaLTaiizor.Enum.Metro.ProgressOrientation.Horizontal;
             MetroProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             MetroProgressBar1.Size = new System.Drawing.Size(323, 23);
             MetroProgressBar1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroProgressBar1.StyleManager = metroStyleManager1;
             MetroProgressBar1.TabIndex = 0;
             MetroProgressBar1.Text = "MetroProgressBar1";
             MetroProgressBar1.ThemeAuthor = "Taiizor";
-            MetroProgressBar1.ThemeName = "MetroLite";
+            MetroProgressBar1.ThemeName = "MetroLight";
             MetroProgressBar1.Value = 60;
             // 
             // MetroTabPage6
@@ -1938,17 +2017,19 @@
             MetroTabPage6.Controls.Add(MetroLink1);
             MetroTabPage6.Controls.Add(MetroLabel17);
             MetroTabPage6.Controls.Add(MetroLabel16);
+            MetroTabPage6.Font = null;
             MetroTabPage6.ImageIndex = 0;
             MetroTabPage6.ImageKey = null;
+            MetroTabPage6.IsDerivedStyle = true;
             MetroTabPage6.Location = new System.Drawing.Point(4, 42);
-            MetroTabPage6.MetroStyleManager = metroStyleManager1;
             MetroTabPage6.Name = "MetroTabPage6";
             MetroTabPage6.Size = new System.Drawing.Size(1106, 570);
             MetroTabPage6.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTabPage6.StyleManager = metroStyleManager1;
             MetroTabPage6.TabIndex = 5;
             MetroTabPage6.Text = "Labels";
             MetroTabPage6.ThemeAuthor = "Taiizor";
-            MetroTabPage6.ThemeName = "MetroLite";
+            MetroTabPage6.ThemeName = "MetroLight";
             MetroTabPage6.ToolTipText = null;
             // 
             // MetroLink2
@@ -1956,62 +2037,66 @@
             MetroLink2.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroLink2.Enabled = false;
             MetroLink2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLink2.IsDerivedStyle = true;
             MetroLink2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             MetroLink2.Location = new System.Drawing.Point(309, 110);
-            MetroLink2.MetroStyleManager = metroStyleManager1;
             MetroLink2.Name = "MetroLink2";
             MetroLink2.Size = new System.Drawing.Size(100, 23);
             MetroLink2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLink2.StyleManager = metroStyleManager1;
             MetroLink2.TabIndex = 5;
             MetroLink2.TabStop = true;
             MetroLink2.Text = "Disabled Link";
             MetroLink2.ThemeAuthor = "Taiizor";
-            MetroLink2.ThemeName = "MetroLite";
+            MetroLink2.ThemeName = "MetroLight";
             MetroLink2.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(157)))), ((int)(((byte)(205)))));
             // 
             // MetroLink1
             // 
             MetroLink1.Cursor = System.Windows.Forms.Cursors.Hand;
             MetroLink1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLink1.IsDerivedStyle = true;
             MetroLink1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             MetroLink1.Location = new System.Drawing.Point(309, 59);
-            MetroLink1.MetroStyleManager = metroStyleManager1;
             MetroLink1.Name = "MetroLink1";
             MetroLink1.Size = new System.Drawing.Size(100, 23);
             MetroLink1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLink1.StyleManager = metroStyleManager1;
             MetroLink1.TabIndex = 5;
             MetroLink1.TabStop = true;
             MetroLink1.Text = "Normal Link";
             MetroLink1.ThemeAuthor = "Taiizor";
-            MetroLink1.ThemeName = "MetroLite";
+            MetroLink1.ThemeName = "MetroLight";
             MetroLink1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(157)))), ((int)(((byte)(205)))));
             // 
             // MetroLabel17
             // 
             MetroLabel17.Enabled = false;
             MetroLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel17.IsDerivedStyle = true;
             MetroLabel17.Location = new System.Drawing.Point(15, 110);
-            MetroLabel17.MetroStyleManager = metroStyleManager1;
             MetroLabel17.Name = "MetroLabel17";
             MetroLabel17.Size = new System.Drawing.Size(108, 23);
             MetroLabel17.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel17.StyleManager = metroStyleManager1;
             MetroLabel17.TabIndex = 3;
             MetroLabel17.Text = "Disabled Label";
             MetroLabel17.ThemeAuthor = "Taiizor";
-            MetroLabel17.ThemeName = "MetroLite";
+            MetroLabel17.ThemeName = "MetroLight";
             // 
             // MetroLabel16
             // 
             MetroLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel16.IsDerivedStyle = true;
             MetroLabel16.Location = new System.Drawing.Point(15, 59);
-            MetroLabel16.MetroStyleManager = metroStyleManager1;
             MetroLabel16.Name = "MetroLabel16";
             MetroLabel16.Size = new System.Drawing.Size(100, 23);
             MetroLabel16.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel16.StyleManager = metroStyleManager1;
             MetroLabel16.TabIndex = 4;
             MetroLabel16.Text = "Normal Label";
             MetroLabel16.ThemeAuthor = "Taiizor";
-            MetroLabel16.ThemeName = "MetroLite";
+            MetroLabel16.ThemeName = "MetroLight";
             // 
             // MetroTabPage7
             // 
@@ -2022,17 +2107,19 @@
             MetroTabPage7.Controls.Add(MetroButton4);
             MetroTabPage7.Controls.Add(MetroButton3);
             MetroTabPage7.Controls.Add(MetroLabel18);
+            MetroTabPage7.Font = null;
             MetroTabPage7.ImageIndex = 0;
             MetroTabPage7.ImageKey = null;
+            MetroTabPage7.IsDerivedStyle = true;
             MetroTabPage7.Location = new System.Drawing.Point(4, 42);
-            MetroTabPage7.MetroStyleManager = metroStyleManager1;
             MetroTabPage7.Name = "MetroTabPage7";
             MetroTabPage7.Size = new System.Drawing.Size(1106, 570);
             MetroTabPage7.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroTabPage7.StyleManager = metroStyleManager1;
             MetroTabPage7.TabIndex = 6;
             MetroTabPage7.Text = "Message";
             MetroTabPage7.ThemeAuthor = "Taiizor";
-            MetroTabPage7.ThemeName = "MetroLite";
+            MetroTabPage7.ThemeName = "MetroLight";
             MetroTabPage7.ToolTipText = null;
             // 
             // MetroButton7
@@ -2044,8 +2131,8 @@
             MetroButton7.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton7.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton7.HoverTextColor = System.Drawing.Color.White;
+            MetroButton7.IsDerivedStyle = true;
             MetroButton7.Location = new System.Drawing.Point(506, 111);
-            MetroButton7.MetroStyleManager = metroStyleManager1;
             MetroButton7.Name = "MetroButton7";
             MetroButton7.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroButton7.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -2055,10 +2142,11 @@
             MetroButton7.PressTextColor = System.Drawing.Color.White;
             MetroButton7.Size = new System.Drawing.Size(167, 40);
             MetroButton7.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroButton7.StyleManager = metroStyleManager1;
             MetroButton7.TabIndex = 2;
             MetroButton7.Text = "Question Message";
             MetroButton7.ThemeAuthor = "Taiizor";
-            MetroButton7.ThemeName = "MetroLite";
+            MetroButton7.ThemeName = "MetroLight";
             MetroButton7.Click += new System.EventHandler(MetroButton7_Click_1);
             // 
             // MetroButton6
@@ -2070,8 +2158,8 @@
             MetroButton6.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton6.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton6.HoverTextColor = System.Drawing.Color.White;
+            MetroButton6.IsDerivedStyle = true;
             MetroButton6.Location = new System.Drawing.Point(258, 183);
-            MetroButton6.MetroStyleManager = metroStyleManager1;
             MetroButton6.Name = "MetroButton6";
             MetroButton6.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroButton6.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -2081,10 +2169,11 @@
             MetroButton6.PressTextColor = System.Drawing.Color.White;
             MetroButton6.Size = new System.Drawing.Size(167, 40);
             MetroButton6.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroButton6.StyleManager = metroStyleManager1;
             MetroButton6.TabIndex = 1;
             MetroButton6.Text = "Warning Message";
             MetroButton6.ThemeAuthor = "Taiizor";
-            MetroButton6.ThemeName = "MetroLite";
+            MetroButton6.ThemeName = "MetroLight";
             MetroButton6.Click += new System.EventHandler(MetroButton6_Click);
             // 
             // MetroButton5
@@ -2096,8 +2185,8 @@
             MetroButton5.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton5.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton5.HoverTextColor = System.Drawing.Color.White;
+            MetroButton5.IsDerivedStyle = true;
             MetroButton5.Location = new System.Drawing.Point(258, 111);
-            MetroButton5.MetroStyleManager = metroStyleManager1;
             MetroButton5.Name = "MetroButton5";
             MetroButton5.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroButton5.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -2107,10 +2196,11 @@
             MetroButton5.PressTextColor = System.Drawing.Color.White;
             MetroButton5.Size = new System.Drawing.Size(167, 40);
             MetroButton5.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroButton5.StyleManager = metroStyleManager1;
             MetroButton5.TabIndex = 1;
             MetroButton5.Text = "Info Message";
             MetroButton5.ThemeAuthor = "Taiizor";
-            MetroButton5.ThemeName = "MetroLite";
+            MetroButton5.ThemeName = "MetroLight";
             MetroButton5.Click += new System.EventHandler(MetroButton5_Click);
             // 
             // MetroButton4
@@ -2122,8 +2212,8 @@
             MetroButton4.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton4.HoverTextColor = System.Drawing.Color.White;
+            MetroButton4.IsDerivedStyle = true;
             MetroButton4.Location = new System.Drawing.Point(15, 183);
-            MetroButton4.MetroStyleManager = metroStyleManager1;
             MetroButton4.Name = "MetroButton4";
             MetroButton4.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroButton4.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -2133,10 +2223,11 @@
             MetroButton4.PressTextColor = System.Drawing.Color.White;
             MetroButton4.Size = new System.Drawing.Size(167, 40);
             MetroButton4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroButton4.StyleManager = metroStyleManager1;
             MetroButton4.TabIndex = 1;
             MetroButton4.Text = "Stop Message";
             MetroButton4.ThemeAuthor = "Taiizor";
-            MetroButton4.ThemeName = "MetroLite";
+            MetroButton4.ThemeName = "MetroLight";
             MetroButton4.Click += new System.EventHandler(MetroButton4_Click);
             // 
             // MetroButton3
@@ -2148,8 +2239,8 @@
             MetroButton3.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             MetroButton3.HoverTextColor = System.Drawing.Color.White;
+            MetroButton3.IsDerivedStyle = true;
             MetroButton3.Location = new System.Drawing.Point(15, 111);
-            MetroButton3.MetroStyleManager = metroStyleManager1;
             MetroButton3.Name = "MetroButton3";
             MetroButton3.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             MetroButton3.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -2159,24 +2250,26 @@
             MetroButton3.PressTextColor = System.Drawing.Color.White;
             MetroButton3.Size = new System.Drawing.Size(167, 40);
             MetroButton3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroButton3.StyleManager = metroStyleManager1;
             MetroButton3.TabIndex = 1;
             MetroButton3.Text = "Normal Message";
             MetroButton3.ThemeAuthor = "Taiizor";
-            MetroButton3.ThemeName = "MetroLite";
+            MetroButton3.ThemeName = "MetroLight";
             MetroButton3.Click += new System.EventHandler(MetroButton3_Click);
             // 
             // MetroLabel18
             // 
             MetroLabel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            MetroLabel18.IsDerivedStyle = true;
             MetroLabel18.Location = new System.Drawing.Point(15, 59);
-            MetroLabel18.MetroStyleManager = metroStyleManager1;
             MetroLabel18.Name = "MetroLabel18";
             MetroLabel18.Size = new System.Drawing.Size(100, 23);
             MetroLabel18.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroLabel18.StyleManager = metroStyleManager1;
             MetroLabel18.TabIndex = 0;
             MetroLabel18.Text = "MessageBox";
             MetroLabel18.ThemeAuthor = "Taiizor";
-            MetroLabel18.ThemeName = "MetroLite";
+            MetroLabel18.ThemeName = "MetroLight";
             // 
             // MetroControlBox1
             // 
@@ -2185,13 +2278,15 @@
             MetroControlBox1.CloseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             MetroControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
             MetroControlBox1.CloseNormalForeColor = System.Drawing.Color.Gray;
+            MetroControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            MetroControlBox1.DefaultLocation = ReaLTaiizor.Enum.Metro.LocationType.Space;
             MetroControlBox1.DisabledForeColor = System.Drawing.Color.DimGray;
+            MetroControlBox1.IsDerivedStyle = true;
             MetroControlBox1.Location = new System.Drawing.Point(1026, 13);
             MetroControlBox1.MaximizeBox = true;
             MetroControlBox1.MaximizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroControlBox1.MaximizeHoverForeColor = System.Drawing.Color.Gray;
             MetroControlBox1.MaximizeNormalForeColor = System.Drawing.Color.Gray;
-            MetroControlBox1.MetroStyleManager = metroStyleManager1;
             MetroControlBox1.MinimizeBox = true;
             MetroControlBox1.MinimizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             MetroControlBox1.MinimizeHoverForeColor = System.Drawing.Color.Gray;
@@ -2199,19 +2294,21 @@
             MetroControlBox1.Name = "MetroControlBox1";
             MetroControlBox1.Size = new System.Drawing.Size(100, 25);
             MetroControlBox1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroControlBox1.StyleManager = metroStyleManager1;
             MetroControlBox1.TabIndex = 1;
             MetroControlBox1.Text = "MetroControlBox1";
             MetroControlBox1.ThemeAuthor = "Taiizor";
-            MetroControlBox1.ThemeName = "MetroLite";
+            MetroControlBox1.ThemeName = "MetroLight";
             // 
             // MetroToolTip1
             // 
-            MetroToolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            MetroToolTip1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            MetroToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            MetroToolTip1.MetroStyleManager = metroStyleManager1;
+            MetroToolTip1.BackColor = System.Drawing.Color.White;
+            MetroToolTip1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            MetroToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            MetroToolTip1.IsDerivedStyle = true;
             MetroToolTip1.OwnerDraw = true;
             MetroToolTip1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            MetroToolTip1.StyleManager = null;
             MetroToolTip1.ThemeAuthor = "Taiizor";
             MetroToolTip1.ThemeName = "MetroDark";
             // 
@@ -2224,10 +2321,10 @@
             Controls.Add(MetroControlBox1);
             Controls.Add(MetroTabControl1);
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
-            MetroStyleManager = metroStyleManager1;
             Name = "Form19";
             SmallRectThickness = 2;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StyleManager = metroStyleManager1;
             Text = "Metro Form";
             MetroTabControl1.ResumeLayout(false);
             MetroTabPage2.ResumeLayout(false);
@@ -2326,9 +2423,9 @@
         private ReaLTaiizor.Controls.MetroTile MetroTile7;
         private ReaLTaiizor.Controls.MetroTile MetroTile6;
         private ReaLTaiizor.Controls.MetroTile MetroTile5;
-        private ReaLTaiizor.Manager.MetroStyleManager metroStyleManager1;
         private ReaLTaiizor.Controls.MetroToolTip MetroToolTip1;
         private ReaLTaiizor.Controls.MetroContextMenuStrip MetroContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem textBoxToolStripMenuItem;
+        private Manager.MetroStyleManager metroStyleManager1;
     }
 }

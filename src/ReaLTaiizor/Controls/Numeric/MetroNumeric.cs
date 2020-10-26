@@ -25,15 +25,14 @@ namespace ReaLTaiizor.Controls
     [Designer(typeof(MetroNumericDesigner))]
     [DefaultProperty("Text")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroNumeric : Control, iControl
+    public class MetroNumeric : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -57,10 +56,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -81,10 +80,20 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private Point _point;
         private int _value;
         private readonly Timer _holdTimer;
+
+        private bool _isDerivedStyle = true;
+        private int _maximum = 100;
+        private int _minimum;
+        private Color _backgroundColor;
+        private Color _disabledForeColor;
+        private Color _disabledBackColor;
+        private Color _disabledBorderColor;
+        private Color _borderColor;
+        private Color _symbolsColor;
 
         #endregion Internal Vars
 
@@ -97,10 +106,10 @@ namespace ReaLTaiizor.Controls
                 ControlStyles.ResizeRedraw |
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.SupportsTransparentBackColor,
-                true
+                    true
             );
             UpdateStyles();
-            Font = MetroFonts.SemiLight(10);
+            base.Font = MetroFonts.SemiLight(10);
             BackColor = Color.Transparent;
             _mth = new Methods();
             _utl = new Utilites();
@@ -121,30 +130,30 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
 
             const char plus = '+';
             const char minus = '-';
 
-            using (var bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
             {
-                using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                 {
-                    using (var s = new SolidBrush(Enabled ? SymbolsColor : DisabledForeColor))
+                    using (SolidBrush s = new SolidBrush(Enabled ? SymbolsColor : DisabledForeColor))
                     {
-                        using (var tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                        using (SolidBrush tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
                         {
-                            using (var f2 = MetroFonts.SemiBold(18))
+                            using (Font f2 = MetroFonts.SemiBold(18))
                             {
-                                using (var sf = new StringFormat { LineAlignment = StringAlignment.Center })
+                                using (StringFormat sf = new StringFormat { LineAlignment = StringAlignment.Center })
                                 {
-                                    G.FillRectangle(bg, rect);
-                                    G.DrawString(plus.ToString(), f2, s, new Rectangle(Width - 45, 1, 25, Height - 1), sf);
-                                    G.DrawString(minus.ToString(), f2, s, new Rectangle(Width - 25, -1, 20, Height - 1), sf);
-                                    G.DrawString(Value.ToString(), Font, tb, new Rectangle(0, 0, Width - 50, Height - 1), _mth.SetPosition(StringAlignment.Far));
-                                    G.DrawRectangle(p, rect);
+                                    g.FillRectangle(bg, rect);
+                                    g.DrawString(plus.ToString(), f2, s, new Rectangle(Width - 45, 1, 25, Height - 1), sf);
+                                    g.DrawString(minus.ToString(), f2, s, new Rectangle(Width - 25, -1, 20, Height - 1), sf);
+                                    g.DrawString(Value.ToString(), Font, tb, new Rectangle(0, 0, Width - 50, Height - 1), _mth.SetPosition(StringAlignment.Far));
+                                    g.DrawRectangle(p, rect);
                                 }
                             }
                         }
@@ -160,6 +169,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -170,8 +184,8 @@ namespace ReaLTaiizor.Controls
                     DisabledBackColor = Color.FromArgb(204, 204, 204);
                     DisabledBorderColor = Color.FromArgb(155, 155, 155);
                     DisabledForeColor = Color.FromArgb(136, 136, 136);
-                    ThemeAuthor = "Taiizor  ";
-                    ThemeName = "MetroLite";
+                    ThemeAuthor = "Taiizor";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -187,8 +201,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.NumericDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.NumericDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -217,6 +232,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -234,10 +251,26 @@ namespace ReaLTaiizor.Controls
         #region Properties
 
         [Category("Metro"), Description("Gets or sets the maximum number of the Numeric.")]
-        public int Maximum { get; set; } = 100;
+        public int Maximum
+        {
+            get => _maximum;
+            set
+            {
+                _maximum = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the minimum number of the Numeric.")]
-        public int Minimum { get; set; } = 0;
+        public int Minimum
+        {
+            get => _minimum;
+            set
+            {
+                _minimum = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the current number of the Numeric.")]
         public int Value
@@ -246,7 +279,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value <= Maximum & value >= Minimum)
+                {
                     _value = value;
+                }
+
                 Invalidate();
             }
         }
@@ -256,25 +292,86 @@ namespace ReaLTaiizor.Controls
 
         [Category("Metro"), Description("Gets or sets the control backcolor.")]
         [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the forecolor of the control whenever while disabled.")]
-        public Color DisabledForeColor { get; set; }
+        public Color DisabledForeColor
+        {
+            get => _disabledForeColor;
+            set
+            {
+                _disabledForeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
-        public Color DisabledBackColor { get; set; }
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color.")]
-        public Color BorderColor { get; set; }
+        public Color BorderColor
+        {
+            get => _borderColor;
+            set
+            {
+                _borderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets forecolor used by the control.")]
         public override Color ForeColor { get; set; }
 
         [Category("Metro"), Description("Gets or sets arrow color used by the control.")]
-        public Color SymbolsColor { get; set; }
+        public Color SymbolsColor
+        {
+            get => _symbolsColor;
+            set
+            {
+                _symbolsColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion
 
@@ -286,6 +383,8 @@ namespace ReaLTaiizor.Controls
             _point = e.Location;
             Invalidate();
             Cursor = _point.X > Width - 50 ? Cursors.Hand : Cursors.IBeam;
+
+
         }
 
         protected override void OnClick(EventArgs e)
@@ -315,9 +414,15 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            if (_point.X <= Width - 45 || _point.X >= Width - 3) return;
+            if (_point.X <= Width - 45 || _point.X >= Width - 3)
+            {
+                return;
+            }
+
             if (e.Button == MouseButtons.Left)
+            {
                 _holdTimer.Enabled = true;
+            }
 
             Invalidate();
         }
@@ -334,16 +439,24 @@ namespace ReaLTaiizor.Controls
 
         private void Revaluate()
         {
-            if (_point.X <= Width - 45 || _point.X >= Width - 3) return;
+            if (_point.X <= Width - 45 || _point.X >= Width - 3)
+            {
+                return;
+            }
+
             if (_point.X > Width - 45 && _point.X < Width - 25)
             {
                 if (Value + 1 <= Maximum)
+                {
                     Value += 1;
+                }
             }
             else
             {
                 if (Value - 1 >= Minimum)
+                {
                     Value -= 1;
+                }
             }
         }
 

@@ -1,0 +1,495 @@
+﻿#region Imports
+
+using System;
+using System.Drawing;
+using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
+using System.Windows.Forms;
+using System.ComponentModel;
+using ReaLTaiizor.Enum.Poison;
+using System.Drawing.Drawing2D;
+using ReaLTaiizor.Design.Poison;
+using ReaLTaiizor.Drawing.Poison;
+using ReaLTaiizor.Interface.Poison;
+using ReaLTaiizor.Extension.Poison;
+
+#endregion
+
+namespace ReaLTaiizor.Controls
+{
+    #region PoisonRadioButton
+
+    [Designer(typeof(PoisonRadioButtonDesigner))]
+    [ToolboxBitmap(typeof(System.Windows.Forms.RadioButton))]
+    public class PoisonRadioButton : System.Windows.Forms.RadioButton, IPoisonControl
+    {
+        #region Interface
+
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public event EventHandler<PoisonPaintEventArgs> CustomPaintBackground;
+        protected virtual void OnCustomPaintBackground(PoisonPaintEventArgs e)
+        {
+            if (GetStyle(ControlStyles.UserPaint) && CustomPaintBackground != null)
+            {
+                CustomPaintBackground(this, e);
+            }
+        }
+
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public event EventHandler<PoisonPaintEventArgs> CustomPaint;
+        protected virtual void OnCustomPaint(PoisonPaintEventArgs e)
+        {
+            if (GetStyle(ControlStyles.UserPaint) && CustomPaint != null)
+            {
+                CustomPaint(this, e);
+            }
+        }
+
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public event EventHandler<PoisonPaintEventArgs> CustomPaintForeground;
+        protected virtual void OnCustomPaintForeground(PoisonPaintEventArgs e)
+        {
+            if (GetStyle(ControlStyles.UserPaint) && CustomPaintForeground != null)
+            {
+                CustomPaintForeground(this, e);
+            }
+        }
+
+        private ColorStyle poisonStyle = ColorStyle.Default;
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        [DefaultValue(ColorStyle.Default)]
+        public ColorStyle Style
+        {
+            get
+            {
+                if (DesignMode || poisonStyle != ColorStyle.Default)
+                {
+                    return poisonStyle;
+                }
+
+                if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                {
+                    return StyleManager.Style;
+                }
+
+                if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                {
+                    return PoisonDefaults.Style;
+                }
+
+                return poisonStyle;
+            }
+            set => poisonStyle = value;
+        }
+
+        private ThemeStyle poisonTheme = ThemeStyle.Default;
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        [DefaultValue(ThemeStyle.Default)]
+        public ThemeStyle Theme
+        {
+            get
+            {
+                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                {
+                    return poisonTheme;
+                }
+
+                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                {
+                    return StyleManager.Theme;
+                }
+
+                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                {
+                    return PoisonDefaults.Theme;
+                }
+
+                return poisonTheme;
+            }
+            set => poisonTheme = value;
+        }
+
+        private PoisonStyleManager poisonStyleManager = null;
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public PoisonStyleManager StyleManager
+        {
+            get => poisonStyleManager;
+            set => poisonStyleManager = value;
+        }
+
+        private bool useCustomBackColor = false;
+        [DefaultValue(false)]
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public bool UseCustomBackColor
+        {
+            get => useCustomBackColor;
+            set => useCustomBackColor = value;
+        }
+
+        private bool useCustomForeColor = false;
+        [DefaultValue(false)]
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public bool UseCustomForeColor
+        {
+            get => useCustomForeColor;
+            set => useCustomForeColor = value;
+        }
+
+        private bool useStyleColors = false;
+        [DefaultValue(false)]
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public bool UseStyleColors
+        {
+            get => useStyleColors;
+            set => useStyleColors = value;
+        }
+
+        [Browsable(false)]
+        [Category(PoisonDefaults.PropertyCategory.Behaviour)]
+        [DefaultValue(false)]
+        public bool UseSelectable
+        {
+            get => GetStyle(ControlStyles.Selectable);
+            set => SetStyle(ControlStyles.Selectable, value);
+        }
+
+        #endregion
+
+        #region Fields
+
+        private bool displayFocusRectangle = false;
+        [DefaultValue(false)]
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public bool DisplayFocus
+        {
+            get => displayFocusRectangle;
+            set => displayFocusRectangle = value;
+        }
+
+        private PoisonCheckBoxSize poisonCheckBoxSize = PoisonCheckBoxSize.Small;
+        [DefaultValue(PoisonCheckBoxSize.Small)]
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public PoisonCheckBoxSize FontSize
+        {
+            get => poisonCheckBoxSize;
+            set => poisonCheckBoxSize = value;
+        }
+
+        private PoisonCheckBoxWeight poisonCheckBoxWeight = PoisonCheckBoxWeight.Regular;
+        [DefaultValue(PoisonCheckBoxWeight.Regular)]
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public PoisonCheckBoxWeight FontWeight
+        {
+            get => poisonCheckBoxWeight;
+            set => poisonCheckBoxWeight = value;
+        }
+
+        [Browsable(false)]
+        public override Font Font
+        {
+            get => base.Font;
+            set => base.Font = value;
+        }
+
+        private bool isHovered = false;
+        private bool isPressed = false;
+        private bool isFocused = false;
+
+        #endregion
+
+        #region Constructor
+
+        public PoisonRadioButton()
+        {
+            SetStyle
+            (
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.ResizeRedraw |
+                ControlStyles.UserPaint,
+                     true
+            );
+        }
+
+        #endregion
+
+        #region Paint Methods
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            try
+            {
+                Color backColor = BackColor;
+
+                if (!useCustomBackColor)
+                {
+                    backColor = PoisonPaint.BackColor.Form(Theme);
+                    if (Parent is PoisonTile)
+                    {
+                        backColor = PoisonPaint.GetStyleColor(Style);
+                    }
+                }
+
+                if (backColor.A == 255)
+                {
+                    e.Graphics.Clear(backColor);
+                    return;
+                }
+
+                base.OnPaintBackground(e);
+
+                OnCustomPaintBackground(new PoisonPaintEventArgs(backColor, Color.Empty, e.Graphics));
+            }
+            catch
+            {
+                Invalidate();
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            try
+            {
+                if (GetStyle(ControlStyles.AllPaintingInWmPaint))
+                {
+                    OnPaintBackground(e);
+                }
+
+                OnCustomPaint(new PoisonPaintEventArgs(Color.Empty, Color.Empty, e.Graphics));
+                OnPaintForeground(e);
+            }
+            catch
+            {
+                Invalidate();
+            }
+        }
+
+        protected virtual void OnPaintForeground(PaintEventArgs e)
+        {
+            Color borderColor, foreColor;
+
+            if (useCustomForeColor)
+            {
+                foreColor = ForeColor;
+
+                if (isHovered && !isPressed && Enabled)
+                {
+                    borderColor = PoisonPaint.BorderColor.CheckBox.Hover(Theme);
+                }
+                else if (isHovered && isPressed && Enabled)
+                {
+                    borderColor = PoisonPaint.BorderColor.CheckBox.Press(Theme);
+                }
+                else if (!Enabled)
+                {
+                    borderColor = PoisonPaint.BorderColor.CheckBox.Disabled(Theme);
+                }
+                else
+                {
+                    borderColor = PoisonPaint.BorderColor.CheckBox.Normal(Theme);
+                }
+            }
+            else
+            {
+                if (isHovered && !isPressed && Enabled)
+                {
+                    foreColor = PoisonPaint.ForeColor.CheckBox.Hover(Theme);
+                    borderColor = PoisonPaint.BorderColor.CheckBox.Hover(Theme);
+                }
+                else if (isHovered && isPressed && Enabled)
+                {
+                    foreColor = PoisonPaint.ForeColor.CheckBox.Press(Theme);
+                    borderColor = PoisonPaint.BorderColor.CheckBox.Press(Theme);
+                }
+                else if (!Enabled)
+                {
+                    foreColor = PoisonPaint.ForeColor.CheckBox.Disabled(Theme);
+                    borderColor = PoisonPaint.BorderColor.CheckBox.Disabled(Theme);
+                }
+                else
+                {
+                    foreColor = !useStyleColors ? PoisonPaint.ForeColor.CheckBox.Normal(Theme) : PoisonPaint.GetStyleColor(Style);
+                    borderColor = PoisonPaint.BorderColor.CheckBox.Normal(Theme);
+                }
+            }
+
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+
+            using (Pen p = new Pen(borderColor))
+            {
+                Rectangle boxRect = new Rectangle(0, Height / 2 - 6, 12, 12);
+                e.Graphics.DrawEllipse(p, boxRect);
+            }
+
+            if (Checked)
+            {
+                Color fillColor = PoisonPaint.GetStyleColor(Style);
+
+                using (SolidBrush b = new SolidBrush(fillColor))
+                {
+                    Rectangle boxRect = new Rectangle(3, Height / 2 - 3, 6, 6);
+                    e.Graphics.FillEllipse(b, boxRect);
+                }
+            }
+
+            e.Graphics.SmoothingMode = SmoothingMode.Default;
+
+            Rectangle textRect = new Rectangle(16, 0, Width - 16, Height);
+            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), textRect, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
+
+            OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
+
+            if (displayFocusRectangle && isFocused)
+            {
+                ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
+            }
+        }
+
+        #endregion
+
+        #region Focus Methods
+
+        protected override void OnGotFocus(EventArgs e)
+        {
+            isFocused = true;
+            isHovered = true;
+            Invalidate();
+
+            base.OnGotFocus(e);
+        }
+
+        protected override void OnLostFocus(EventArgs e)
+        {
+            isFocused = false;
+            isHovered = false;
+            isPressed = false;
+            Invalidate();
+
+            base.OnLostFocus(e);
+        }
+
+        protected override void OnEnter(EventArgs e)
+        {
+            isFocused = true;
+            isHovered = true;
+            Invalidate();
+
+            base.OnEnter(e);
+        }
+
+        protected override void OnLeave(EventArgs e)
+        {
+            isFocused = false;
+            isHovered = false;
+            isPressed = false;
+            Invalidate();
+
+            base.OnLeave(e);
+        }
+
+        #endregion
+
+        #region Keyboard Methods
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                isHovered = true;
+                isPressed = true;
+                Invalidate();
+            }
+
+            base.OnKeyDown(e);
+        }
+
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            //Remove this code cause this prevents the focus color
+            //isHovered = false;
+            //isPressed = false;
+            Invalidate();
+
+            base.OnKeyUp(e);
+        }
+
+        #endregion
+
+        #region Mouse Methods
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            isHovered = true;
+            Invalidate();
+
+            base.OnMouseEnter(e);
+        }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isPressed = true;
+                Invalidate();
+            }
+
+            base.OnMouseDown(e);
+        }
+
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            isPressed = false;
+            Invalidate();
+
+            base.OnMouseUp(e);
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            if (!isFocused)
+            {
+                isHovered = false;
+            }
+
+            Invalidate();
+
+            base.OnMouseLeave(e);
+        }
+
+        #endregion
+
+        #region Overridden Methods
+
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            base.OnEnabledChanged(e);
+            Invalidate();
+        }
+
+        protected override void OnCheckedChanged(EventArgs e)
+        {
+            base.OnCheckedChanged(e);
+            Invalidate();
+        }
+
+        public override Size GetPreferredSize(Size proposedSize)
+        {
+            Size preferredSize;
+            base.GetPreferredSize(proposedSize);
+
+            using (Graphics g = CreateGraphics())
+            {
+                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
+                preferredSize.Width += 16;
+            }
+
+            return preferredSize;
+        }
+
+        #endregion
+    }
+
+    #endregion
+}

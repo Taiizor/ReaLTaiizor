@@ -21,14 +21,14 @@ namespace ReaLTaiizor.Controls
     [ToolboxBitmap(typeof(MetroToolTip), "Bitmaps.ToolTip.bmp")]
     [Designer(typeof(MetroToolTipDesigner))]
     [DefaultEvent("Popup")]
-    public class MetroToolTip : ToolTip, iControl
+    public class MetroToolTip : ToolTip, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -51,10 +51,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set => _metroStyleManager = value;
+            get => _styleManager;
+            set => _styleManager = value;
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -74,8 +74,10 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private Style _style;
+
+        private bool _isDerivedStyle = true;
 
         #endregion Internal Vars
 
@@ -97,22 +99,17 @@ namespace ReaLTaiizor.Controls
 
         private void OnDraw(object sender, DrawToolTipEventArgs e)
         {
-            var G = e.Graphics;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            var rect = new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
-            using (var bg = new SolidBrush(BackColor))
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Rectangle rect = new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
+            using (SolidBrush bg = new SolidBrush(BackColor))
+            using (Pen stroke = new Pen(BorderColor))
+            using (SolidBrush tb = new SolidBrush(ForeColor))
             {
-                using (var stroke = new Pen(BorderColor))
-                {
-                    using (var tb = new SolidBrush(ForeColor))
-                    {
-                        G.FillRectangle(bg, rect);
-                        G.DrawString(e.ToolTipText, MetroFonts.Light(11), tb, rect, _mth.SetPosition());
-                        G.DrawRectangle(stroke, rect);
-                    }
-                }
+                g.FillRectangle(bg, rect);
+                g.DrawString(e.ToolTipText, MetroFonts.Light(11), tb, rect, _mth.SetPosition());
+                g.DrawRectangle(stroke, rect);
             }
-
         }
 
         #endregion
@@ -121,6 +118,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -128,7 +130,7 @@ namespace ReaLTaiizor.Controls
                     BackColor = Color.White;
                     BorderColor = Color.FromArgb(204, 204, 204);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     break;
                 case Style.Dark:
                     ForeColor = Color.FromArgb(204, 204, 204);
@@ -138,14 +140,16 @@ namespace ReaLTaiizor.Controls
                     ThemeName = "MetroDark";
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.ToolTipDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ToolTipDictionary)
                         {
                             switch (varkey.Key)
                             {
                                 case "BackColor":
                                     BackColor = _utl.HexColor((string)varkey.Value);
                                     break;
+
                                 case "BorderColor":
                                     BorderColor = _utl.HexColor((string)varkey.Value);
                                     break;
@@ -156,6 +160,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(style), style, null);
@@ -194,16 +200,26 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color for the ToolTip.")]
         public Color BorderColor { get; set; }
 
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set => _isDerivedStyle = value;
+        }
+
         #endregion
 
         #region Methods
 
         public new void SetToolTip(Control control, string caption)
         {
-            //This Method is useful at runtime.
             base.SetToolTip(control, caption);
             foreach (Control c in control.Controls)
+            {
                 SetToolTip(c, caption);
+            }
         }
 
         #endregion
@@ -212,20 +228,20 @@ namespace ReaLTaiizor.Controls
 
         private void ToolTip_Popup(object sender, PopupEventArgs e)
         {
-            var control = e.AssociatedControl;
-            if (control is iControl iControl)
+            Control control = e.AssociatedControl;
+            if (control is IMetroControl iControl)
             {
                 Style = iControl.Style;
                 ThemeAuthor = iControl.ThemeAuthor;
                 ThemeName = iControl.ThemeName;
-                MetroStyleManager = iControl.MetroStyleManager;
+                StyleManager = iControl.StyleManager;
             }
-            else if (control is iForm)
+            else if (control is IMetroForm)
             {
-                Style = ((iForm)control).Style;
-                ThemeAuthor = ((iForm)control).ThemeAuthor;
-                ThemeName = ((iForm)control).ThemeName;
-                MetroStyleManager = ((iForm)control).MetroStyleManager;
+                Style = ((IMetroForm)control).Style;
+                ThemeAuthor = ((IMetroForm)control).ThemeAuthor;
+                ThemeName = ((IMetroForm)control).ThemeName;
+                StyleManager = ((IMetroForm)control).StyleManager;
             }
             e.ToolTipSize = new Size(e.ToolTipSize.Width + 30, e.ToolTipSize.Height + 6);
         }

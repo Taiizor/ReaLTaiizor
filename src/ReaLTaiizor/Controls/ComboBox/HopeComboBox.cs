@@ -32,10 +32,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [DllImport("user32.dll")]
-        static extern IntPtr GetWindowDC(IntPtr hWnd);
+        private static extern IntPtr GetWindowDC(IntPtr hWnd);
 
         [DllImport("user32.dll")]
-        static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
+        private static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
         protected override void WndProc(ref Message m)
         {
@@ -45,7 +45,9 @@ namespace ReaLTaiizor.Controls
             {
                 IntPtr hDC = GetWindowDC(m.HWnd);
                 if (hDC.ToInt32() == 0)
+                {
                     return;
+                }
 
                 Graphics graphics = Graphics.FromHdc(hDC);
 
@@ -55,7 +57,7 @@ namespace ReaLTaiizor.Controls
                 graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 graphics.Clear(Parent.BackColor);
 
-                var backPath = RoundRectangle.CreateRoundRect(1, 1, Width - 2, Height - 2, 2);
+                GraphicsPath backPath = RoundRectangle.CreateRoundRect(1, 1, Width - 2, Height - 2, 2);
                 graphics.FillPath(new SolidBrush(Color.White), backPath);
                 graphics.DrawPath(new Pen(HopeColors.OneLevelBorder, 2), backPath);
 
@@ -71,7 +73,11 @@ namespace ReaLTaiizor.Controls
 
         private void HopeComboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
-            if (e.Index < 0) return;
+            if (e.Index < 0)
+            {
+                return;
+            }
+
             e.DrawBackground();
             e.DrawFocusRectangle();
 
@@ -89,7 +95,7 @@ namespace ReaLTaiizor.Controls
             else
             {
                 e.Graphics.FillRectangle(new SolidBrush(Color.White), e.Bounds);
-                var textColor = HopeColors.MainText;
+                Color textColor = HopeColors.MainText;
 
                 e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), Font, new SolidBrush(textColor), e.Bounds, HopeStringAlign.BottomLeft);
             }

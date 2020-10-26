@@ -27,7 +27,7 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Controls
 
         public Color HeaderColor
         {
-            get { return _HeaderColor; }
+            get => _HeaderColor;
             set
             {
                 _HeaderColor = value;
@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColorH
         {
-            get { return _BorderColorH; }
+            get => _BorderColorH;
             set
             {
                 _BorderColorH = value;
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColorG
         {
-            get { return _BorderColorG; }
+            get => _BorderColorG;
             set
             {
                 _BorderColorG = value;
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BackGColor
         {
-            get { return _BackGColor; }
+            get => _BackGColor;
             set
             {
                 _BackGColor = value;
@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BaseColor
         {
-            get { return _BaseColor; }
+            get => _BaseColor;
             set
             {
                 _BaseColor = value;

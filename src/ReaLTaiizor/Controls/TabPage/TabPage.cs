@@ -11,7 +11,7 @@ namespace ReaLTaiizor.Controls
 {
     #region TabPage
 
-    public class TabPage : System.Windows.Forms.TabControl
+    public class TabPage : TabControl
     {
 
         public TabPage()
@@ -34,20 +34,19 @@ namespace ReaLTaiizor.Controls
             Alignment = TabAlignment.Left;
         }
 
-
         protected override void OnControlAdded(ControlEventArgs e)
         {
             base.OnControlAdded(e);
             if (e.Control is TabPage)
             {
-                IEnumerator enumerator;
+                IEnumerator Enumerator;
                 try
                 {
-                    enumerator = Controls.GetEnumerator();
-                    while (enumerator.MoveNext())
+                    Enumerator = Controls.GetEnumerator();
+                    while (Enumerator.MoveNext())
                     {
-                        TabPage current = (TabPage)enumerator.Current;
-                        current = new TabPage();
+                        TabPage Current = (TabPage)Enumerator.Current;
+                        Current = new TabPage();
                     }
                 }
                 finally
@@ -63,7 +62,7 @@ namespace ReaLTaiizor.Controls
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            var _Graphics = G;
+            Graphics _Graphics = G;
 
             _Graphics.Clear(Color.FromArgb(41, 50, 63));
             _Graphics.SmoothingMode = SmoothingMode.HighSpeed;
@@ -93,7 +92,9 @@ namespace ReaLTaiizor.Controls
                     {
                         int Index = TabPages[TabIndex].ImageIndex;
                         if (!(Index == -1))
+                        {
                             _Graphics.DrawImage(ImageList.Images[TabPages[TabIndex].ImageIndex], TabRect.X + 9, TabRect.Y + 6, 24, 24);
+                        }
                     }
                 }
                 else
@@ -105,7 +106,9 @@ namespace ReaLTaiizor.Controls
                     {
                         int Index = TabPages[TabIndex].ImageIndex;
                         if (!(Index == -1))
+                        {
                             _Graphics.DrawImage(ImageList.Images[TabPages[TabIndex].ImageIndex], TabRect.X + 9, TabRect.Y + 6, 24, 24);
+                        }
                     }
 
                 }
@@ -118,7 +121,9 @@ namespace ReaLTaiizor.Controls
             B.Dispose();
 
             foreach (System.Windows.Forms.TabPage Page in TabPages)
+            {
                 Page.BackColor = Color.FromArgb(50, 63, 74);
+            }
         }
     }
 

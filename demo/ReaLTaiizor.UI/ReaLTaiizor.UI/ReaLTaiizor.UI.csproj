@@ -40,8 +40,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="ReaLTaiizor, Version=3.7.7.9, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReaLTaiizor.3.7.7.9\lib\net48\ReaLTaiizor.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ReaLTaiizor, Version=3.7.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReaLTaiizor.3.7.8.1\lib\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +53,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -111,7 +116,9 @@
     <Compile Include="Form18.Designer.cs">
       <DependentUpon>Form18.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form19.cs" />
+    <Compile Include="Form19.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form19.designer.cs">
       <DependentUpon>Form19.cs</DependentUpon>
     </Compile>
@@ -120,6 +127,14 @@
     </Compile>
     <Compile Include="Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form20.cs" />
+    <Compile Include="Form20.designer.cs">
+      <DependentUpon>Form20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form21.cs" />
+    <Compile Include="Form21.designer.cs">
+      <DependentUpon>Form21.cs</DependentUpon>
     </Compile>
     <Compile Include="Form3.cs">
       <SubType>Form</SubType>
@@ -163,8 +178,44 @@
     <Compile Include="Form9.designer.cs">
       <DependentUpon>Form9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dialogs\DialogControls.cs" />
+    <Compile Include="Forms\Dialogs\DialogControls.Designer.cs">
+      <DependentUpon>DialogControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Docking\DockConsole.cs" />
+    <Compile Include="Forms\Docking\DockConsole.Designer.cs">
+      <DependentUpon>DockConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Docking\DockDocument.cs" />
+    <Compile Include="Forms\Docking\DockDocument.Designer.cs">
+      <DependentUpon>DockDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Docking\DockHistory.cs" />
+    <Compile Include="Forms\Docking\DockHistory.Designer.cs">
+      <DependentUpon>DockHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Docking\DockLayers.cs" />
+    <Compile Include="Forms\Docking\DockLayers.Designer.cs">
+      <DependentUpon>DockLayers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Docking\DockProject.cs" />
+    <Compile Include="Forms\Docking\DockProject.Designer.cs">
+      <DependentUpon>DockProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Docking\DockProperties.cs" />
+    <Compile Include="Forms\Docking\DockProperties.Designer.cs">
+      <DependentUpon>DockProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\SerializerHelper.cs" />
+    <Compile Include="Localization\Poison\PoisonLocalize.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskWindowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaskWindowControl.designer.cs">
+      <DependentUpon>TaskWindowControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +252,12 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form20.resx">
+      <DependentUpon>Form20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form21.resx">
+      <DependentUpon>Form21.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +279,27 @@
     <EmbeddedResource Include="Form9.resx">
       <DependentUpon>Form9.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\DialogControls.resx">
+      <DependentUpon>DialogControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Docking\DockConsole.resx">
+      <DependentUpon>DockConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Docking\DockDocument.resx">
+      <DependentUpon>DockDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Docking\DockHistory.resx">
+      <DependentUpon>DockHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Docking\DockLayers.resx">
+      <DependentUpon>DockLayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Docking\DockProject.resx">
+      <DependentUpon>DockProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Docking\DockProperties.resx">
+      <DependentUpon>DockProperties.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -232,6 +310,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TaskWindowControl.resx">
+      <DependentUpon>TaskWindowControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -247,14 +328,38 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Books.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Localization\Poison\de\PoisonMessageBoxControl.xml" />
+    <EmbeddedResource Include="Localization\Poison\de\PoisonToggle.xml" />
+    <EmbeddedResource Include="Localization\Poison\en\PoisonToggle.xml" />
+    <EmbeddedResource Include="Localization\Poison\es\PoisonToggle.xml" />
+    <EmbeddedResource Include="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
+    <EmbeddedResource Include="Localization\Poison\tr\PoisonToggle.xml" />
+    <Content Include="Library\Newtonsoft.Json.dll" />
+    <Content Include="Library\Newtonsoft.Json.xml" />
+    <Content Include="Resources\application_16x.png" />
+    <Content Include="Resources\AttachOrDetach_7014.png" />
     <Content Include="Resources\baseline_thumb_up_black_24dp.png" />
     <Content Include="Resources\baseline_bluetooth_black_24dp.png" />
     <Content Include="Resources\baseline_build_black_24dp.png" />
     <Content Include="Resources\baseline_favorite_border_black_24dp.png" />
     <Content Include="Resources\baseline_fingerprint_black_24dp.png" />
+    <Content Include="Resources\document_16xLG.png" />
+    <Content Include="Resources\Files_7954.png" />
+    <Content Include="Resources\folder_16x.png" />
+    <Content Include="Resources\folder_Closed_16xLG.png" />
+    <Content Include="Resources\Close_16xLG.png" />
+    <Content Include="Resources\Collection_16xLG.png" />
+    <Content Include="Resources\Console.png" />
+    <Content Include="Resources\GitHub-Mark.png" />
     <Content Include="Resources\Google.png" />
     <Content Include="Resources\minus.png" />
+    <Content Include="Resources\NewFile_6276.png" />
     <Content Include="Resources\plus.png" />
+    <Content Include="Resources\properties_16xLG.png" />
+    <Content Include="Resources\RefactoringLog_12810.png" />
     <Content Include="Resources\round_assessment_white_24dp.png" />
     <Content Include="Resources\round_backup_white_24dp.png" />
     <Content Include="Resources\round_bluetooth_white_24dp.png" />
@@ -264,6 +369,8 @@
     <Content Include="Resources\round_http_white_24dp.png" />
     <Content Include="Resources\round_report_problem_white_24dp.png" />
     <Content Include="Resources\round_swap_vert_white_24dp.png" />
+    <Content Include="Resources\StatusAnnotations_Information_16xLG_color.png" />
+    <Content Include="Resources\StatusAnnotations_Information_16xMD_color.png" />
     <Content Include="Resources\Taiizor.ico" />
     <Content Include="Resources\Twitter.png" />
   </ItemGroup>

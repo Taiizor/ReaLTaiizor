@@ -24,29 +24,24 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
                 Invalidate();
             }
         }
 
-        protected Size ImageSize
-        {
-            get
-            {
-                return _ImageSize;
-            }
-        }
+        protected Size ImageSize => _ImageSize;
 
         #endregion
         #region EventArgs
@@ -141,7 +136,9 @@ namespace ReaLTaiizor.Controls
             // The best size for the drawn image is 32x32\
             // The best matching color of drawn image is (RGB: 31, 40, 49)
             if (Image != null)
+            {
                 G.DrawImage(_Image, (int)ImgPoint.X, (int)ImgPoint.Y, ImageSize.Width, ImageSize.Height);
+            }
         }
     }
 

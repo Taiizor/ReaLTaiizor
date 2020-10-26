@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Action.Metro
 {
     #region MetroScrollBarActionListAction
 
-    class MetroScrollBarActionList : DesignerActionList
+    internal class MetroScrollBarActionList : DesignerActionList
     {
         private readonly MetroScrollBar _metroScrollBar;
 
@@ -26,14 +26,15 @@ namespace ReaLTaiizor.Action.Metro
             get => _metroScrollBar.Style;
             set => _metroScrollBar.Style = value;
         }
+
         public string ThemeAuthor => _metroScrollBar.ThemeAuthor;
 
         public string ThemeName => _metroScrollBar.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroScrollBar.MetroStyleManager;
-            set => _metroScrollBar.MetroStyleManager = value;
+            get => _metroScrollBar.StyleManager;
+            set => _metroScrollBar.StyleManager = value;
         }
 
         public int Maximum
@@ -48,17 +49,20 @@ namespace ReaLTaiizor.Action.Metro
             set => _metroScrollBar.Minimum = value;
         }
 
+
         public int Value
         {
             get => _metroScrollBar.Value;
             set => _metroScrollBar.Value = value;
         }
 
+
         public int SmallChange
         {
             get => _metroScrollBar.SmallChange;
             set => _metroScrollBar.SmallChange = value;
         }
+
 
         public int LargeChange
         {
@@ -77,7 +81,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
@@ -93,8 +97,8 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("Value", "Value", "Behavior", "Gets or sets a numeric value that represents the current position of the scroll bar box."),
                 new DesignerActionPropertyItem("LargeChange", "LargeChange", "Behavior", "Gets or sets the distance to move a scroll bar in response to a large scroll command."),
                 new DesignerActionPropertyItem("SmallChange", "SmallChange", "Behavior", "Gets or sets the distance to move a scroll bar in response to a small scroll command."),
-            };
 
+            };
             return items;
         }
     }

@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -46,26 +46,26 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
-            set { _CheckedColor = value; }
+            get => _CheckedColor;
+            set => _CheckedColor = value;
         }
 
         public Color CheckedBackColorA
         {
-            get { return _CheckedBackColorA; }
-            set { _CheckedBackColorA = value; }
+            get => _CheckedBackColorA;
+            set => _CheckedBackColorA = value;
         }
 
         public Color CheckedBackColorB
         {
-            get { return _CheckedBackColorB; }
-            set { _CheckedBackColorB = value; }
+            get => _CheckedBackColorB;
+            set => _CheckedBackColorB = value;
         }
 
         public Color CheckedBorderColor
         {
-            get { return _CheckedBorderColor; }
-            set { _CheckedBorderColor = value; }
+            get => _CheckedBorderColor;
+            set => _CheckedBorderColor = value;
         }
 
         #endregion
@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
                 R2 = new Rectangle(0, 0, Width, Height);
                 GB = new LinearGradientBrush(new Rectangle(0, 0, 25, 25), _CheckedBackColorA, _CheckedBackColorB, 90);
 
-                var MyDrawer = Shape;
+                GraphicsPath MyDrawer = Shape;
                 MyDrawer.AddArc(0, 0, 7, 7, 180, 90);
                 MyDrawer.AddArc(7, 0, 7, 7, -90, 90);
                 MyDrawer.AddArc(7, 7, 7, 7, 0, 90);
@@ -125,7 +125,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
-            var MyDrawer = e.Graphics;
+            Graphics MyDrawer = e.Graphics;
             MyDrawer.Clear(BackColor);
             MyDrawer.SmoothingMode = SmoothingMode.AntiAlias;
 
@@ -137,7 +137,10 @@ namespace ReaLTaiizor.Controls
             MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(17, 0, Width, Height - 1), new StringFormat { LineAlignment = StringAlignment.Center });
 
             if (Checked)
+            {
                 MyDrawer.DrawString("ü", new Font("Wingdings", 12), new SolidBrush(_CheckedColor), new Rectangle(-2, 1, Width, Height + 2), new StringFormat { LineAlignment = StringAlignment.Center });
+            }
+
             e.Dispose();
         }
     }

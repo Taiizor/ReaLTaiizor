@@ -26,15 +26,15 @@ namespace ReaLTaiizor.Controls
         private Size _ImageSize;
         private HorizontalAlignment ALNType;
         private bool isPasswordMasked = false;
-        private Pen P1;
-        private SolidBrush B1;
+        private readonly Pen P1;
+        private readonly SolidBrush B1;
 
         #endregion
         #region Properties
 
         public HorizontalAlignment TextAlignment
         {
-            get { return ALNType; }
+            get => ALNType;
             set
             {
                 ALNType = value;
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
         }
         public int MaxLength
         {
-            get { return _maxchars; }
+            get => _maxchars;
             set
             {
                 _maxchars = value;
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
 
         public bool UseSystemPasswordChar
         {
-            get { return isPasswordMasked; }
+            get => isPasswordMasked;
             set
             {
                 RT_TB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Controls
         }
         public bool ReadOnly
         {
-            get { return _ReadOnly; }
+            get => _ReadOnly;
             set
             {
                 _ReadOnly = value;
@@ -76,7 +76,7 @@ namespace ReaLTaiizor.Controls
         }
         public bool Multiline
         {
-            get { return _Multiline; }
+            get => _Multiline;
             set
             {
                 _Multiline = value;
@@ -99,10 +99,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -128,13 +125,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        protected Size ImageSize
-        {
-            get
-            {
-                return _ImageSize;
-            }
-        }
+        protected Size ImageSize => _ImageSize;
 
         #endregion
         #region EventArgs
@@ -196,7 +187,7 @@ namespace ReaLTaiizor.Controls
             }
 
             Shape = new GraphicsPath();
-            var _with1 = Shape;
+            GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 11, 0, 10, 10, -90, 90);
             _with1.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -213,7 +204,7 @@ namespace ReaLTaiizor.Controls
         #endregion
         public void AddTextBox()
         {
-            var _TB = RT_TB;
+            TextBox _TB = RT_TB;
             _TB.Location = new Point(7, 10);
             _TB.Text = string.Empty;
             _TB.BorderStyle = BorderStyle.None;

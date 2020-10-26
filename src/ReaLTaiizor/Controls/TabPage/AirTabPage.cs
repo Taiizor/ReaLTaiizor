@@ -9,9 +9,8 @@ namespace ReaLTaiizor.Controls
 {
     #region AirTabPage
 
-    public class AirTabPage : System.Windows.Forms.TabControl
+    public class AirTabPage : TabControl
     {
-
         public AirTabPage()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
@@ -25,10 +24,10 @@ namespace ReaLTaiizor.Controls
             Alignment = TabAlignment.Left;
         }
 
-        Color C1 = Color.FromArgb(78, 87, 100);
+        private Color C1 = Color.FromArgb(78, 87, 100);
         public Color SquareColor
         {
-            get { return C1; }
+            get => C1;
             set
             {
                 C1 = value;
@@ -36,10 +35,10 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        bool OB = false;
+        private bool OB = false;
         public bool ShowOuterBorders
         {
-            get { return OB; }
+            get => OB;
             set
             {
                 OB = value;

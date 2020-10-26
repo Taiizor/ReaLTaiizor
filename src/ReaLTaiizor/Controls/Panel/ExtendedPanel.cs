@@ -13,8 +13,7 @@ namespace ReaLTaiizor.Controls
     public class ExtendedPanel : System.Windows.Forms.Panel
     {
         private const int WS_EX_TRANSPARENT = 0x20;
-
-        readonly Timer Most = new Timer()
+        private readonly Timer Most = new Timer()
         {
             Interval = 100
         };
@@ -29,7 +28,7 @@ namespace ReaLTaiizor.Controls
         private Drawer _DrawMode = Drawer.Default;
         public Drawer DrawMode
         {
-            get { return _DrawMode; }
+            get => _DrawMode;
             set
             {
                 if (value == Drawer.Image)
@@ -53,7 +52,7 @@ namespace ReaLTaiizor.Controls
         private bool _TopMost = true;
         public bool TopMost
         {
-            get { return _TopMost; }
+            get => _TopMost;
             set
             {
                 _TopMost = value;
@@ -64,14 +63,14 @@ namespace ReaLTaiizor.Controls
         private int _Opacity = 50;
         public int Opacity
         {
-            get
-            {
-                return _Opacity;
-            }
+            get => _Opacity;
             set
             {
                 if (value < 0 || value > 100)
+                {
                     value = 0;
+                }
+
                 _Opacity = value;
                 Invalidate();
             }
@@ -79,10 +78,7 @@ namespace ReaLTaiizor.Controls
 
         public int MostInterval
         {
-            get
-            {
-                return Most.Interval;
-            }
+            get => Most.Interval;
             set
             {
                 Most.Interval = value;
@@ -113,7 +109,9 @@ namespace ReaLTaiizor.Controls
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == 0xF)
+            {
                 foreach (Control C in Controls) { C.Invalidate(); C.Update(); BringToFront(); }
+            }
 
             FindForm().Controls.SetChildIndex(this, 0);
             UpdateZOrder();
@@ -126,8 +124,11 @@ namespace ReaLTaiizor.Controls
             switch (DrawMode)
             {
                 case Drawer.Default:
-                    using (var Brush = new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)))
+                    using (SolidBrush Brush = new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)))
+                    {
                         e.Graphics.FillRectangle(Brush, ClientRectangle);
+                    }
+
                     break;
                 case Drawer.Image:
                     e.Graphics.Clear(BackColor);
@@ -144,7 +145,9 @@ namespace ReaLTaiizor.Controls
                 Most.Start();
             }
             else if (!TopMost && Most.Enabled)
+            {
                 Most.Stop();
+            }
 
             base.OnPaint(e);
         }
@@ -158,7 +161,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnBackColorChanged(EventArgs e)
         {
             if (Parent != null)
+            {
                 Parent.Invalidate(Bounds, true);
+            }
+
             base.OnBackColorChanged(e);
         }
 

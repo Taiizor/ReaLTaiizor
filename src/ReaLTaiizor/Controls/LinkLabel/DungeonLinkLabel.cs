@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region DungeonLinkLabel
 
-    public class DungeonLinkLabel : System.Windows.Forms.LinkLabel
+    public class DungeonLinkLabel : LinkLabel
     {
         public DungeonLinkLabel()
         {

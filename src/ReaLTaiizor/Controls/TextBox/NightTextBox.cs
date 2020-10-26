@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Fields
 
-        private TextBox tbCtrl = new TextBox();
+        private readonly TextBox tbCtrl = new TextBox();
         private Color BorderColor;
         private Panel watermarkContainer;
 
@@ -33,7 +33,7 @@ namespace ReaLTaiizor.Controls
         [Description("The image displayed in the TextBox.")]
         public Image Image
         {
-            get { return _Image; }
+            get => _Image;
             set
             {
                 _Image = value;
@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Controls
         [Description("Specifies the maximum number of characters that can be entered into the edit control.")]
         public int MaxLength
         {
-            get { return _MaxLength; }
+            get => _MaxLength;
             set
             {
                 _MaxLength = value;
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
         [Description("Controls whether the text of the edit control can span more than one line.")]
         public bool Multiline
         {
-            get { return _Multiline; }
+            get => _Multiline;
             set
             {
                 _Multiline = value;
@@ -73,9 +73,13 @@ namespace ReaLTaiizor.Controls
                 {
                     tbCtrl.Multiline = value;
                     if (value)
+                    {
                         tbCtrl.Height = Height - 10;
+                    }
                     else
+                    {
                         Height = tbCtrl.Height + 10;
+                    }
                 }
             }
         }
@@ -85,12 +89,14 @@ namespace ReaLTaiizor.Controls
         [Description("Controls whether the text in the edit control can be changed or not.")]
         public bool ReadOnly
         {
-            get { return _ReadOnly; }
+            get => _ReadOnly;
             set
             {
                 _ReadOnly = value;
                 if (tbCtrl != null)
+                {
                     tbCtrl.ReadOnly = value;
+                }
             }
         }
 
@@ -99,7 +105,7 @@ namespace ReaLTaiizor.Controls
         [Description("Indicates whether shortcuts defined for the control are enabled.")]
         public bool ShortcutsEnabled
         {
-            get { return _ShortcutsEnabled; }
+            get => _ShortcutsEnabled;
             set
             {
                 _ShortcutsEnabled = value;
@@ -112,7 +118,7 @@ namespace ReaLTaiizor.Controls
         [Description("Decides whether the bottom border line should be drawn.")]
         public bool ShowBottomBorder
         {
-            get { return _ShowBottomBorder; }
+            get => _ShowBottomBorder;
             set
             {
                 _ShowBottomBorder = value;
@@ -125,7 +131,7 @@ namespace ReaLTaiizor.Controls
         [Description("Decides whether the top border line should be drawn.")]
         public bool ShowTopBorder
         {
-            get { return _ShowTopBorder; }
+            get => _ShowTopBorder;
             set
             {
                 _ShowTopBorder = value;
@@ -138,7 +144,7 @@ namespace ReaLTaiizor.Controls
         [Description("Indicates how the text should be aligned for edit controls.")]
         public HorizontalAlignment TextAlignment
         {
-            get { return _TextAlignment; }
+            get => _TextAlignment;
             set
             {
                 _TextAlignment = value;
@@ -152,7 +158,7 @@ namespace ReaLTaiizor.Controls
         [Description("Indicates if the text in the edit control should appear as the default password character.")]
         public bool UseSystemPasswordChar
         {
-            get { return _UseSystemPasswordChar; }
+            get => _UseSystemPasswordChar;
             set
             {
                 _UseSystemPasswordChar = value;
@@ -166,7 +172,7 @@ namespace ReaLTaiizor.Controls
         [Description("Allows adding a watermark to the TextBox field when it is empty.")]
         public string Watermark
         {
-            get { return _Watermark; }
+            get => _Watermark;
             set
             {
                 _Watermark = value;
@@ -179,7 +185,7 @@ namespace ReaLTaiizor.Controls
         [Description("Allows adding a watermark to the TextBox field when it is empty.")]
         public Color WatermarkColor
         {
-            get { return _WatermarkColor; }
+            get => _WatermarkColor;
             set
             {
                 _WatermarkColor = value;
@@ -192,7 +198,7 @@ namespace ReaLTaiizor.Controls
         [Description("Actived TextBox border line color.")]
         public Color ActiveBorderColor
         {
-            get { return _ActiveBorderColor; }
+            get => _ActiveBorderColor;
             set
             {
                 _ActiveBorderColor = value;
@@ -205,7 +211,7 @@ namespace ReaLTaiizor.Controls
         [Description("Disabled TextBox border line color.")]
         public Color DisableBorderColor
         {
-            get { return _DisableBorderColor; }
+            get => _DisableBorderColor;
             set
             {
                 _DisableBorderColor = value;
@@ -219,7 +225,7 @@ namespace ReaLTaiizor.Controls
         [Description("TextBox is change BackColor.")]
         public Color BaseBackColor
         {
-            get { return _BaseBackColor; }
+            get => _BaseBackColor;
             set
             {
                 _BaseBackColor = value;
@@ -239,7 +245,9 @@ namespace ReaLTaiizor.Controls
         private void TextBox_Enter(object sender, EventArgs e)
         {
             if (ColorBordersOnEnter)
+            {
                 BorderColor = _ActiveBorderColor;
+            }
 
             if (tbCtrl.TextLength <= 0)
             {
@@ -253,12 +261,18 @@ namespace ReaLTaiizor.Controls
         private void TextBox_Leave(object sender, EventArgs e)
         {
             if (ColorBordersOnEnter)
+            {
                 BorderColor = _DisableBorderColor;
+            }
 
             if (tbCtrl.TextLength <= 0)
+            {
                 RemoveWatermark();
+            }
             else
+            {
                 Invalidate();
+            }
 
             Invalidate();
         }
@@ -295,9 +309,13 @@ namespace ReaLTaiizor.Controls
             Text = tbCtrl.Text;
 
             if (tbCtrl.TextLength > 0)
+            {
                 RemoveWatermark();
+            }
             else
+            {
                 DrawWatermark();
+            }
         }
 
         private void WatermarkContainer_Click(object sender, EventArgs e)
@@ -313,8 +331,10 @@ namespace ReaLTaiizor.Controls
             watermarkContainer.Width = tbCtrl.Width - 25;
             watermarkContainer.Height = tbCtrl.Height;
 
-            using (var watermark = new SolidBrush(_WatermarkColor))
+            using (SolidBrush watermark = new SolidBrush(_WatermarkColor))
+            {
                 e.Graphics.DrawString(_Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
+            }
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -348,9 +368,13 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
 
             if (_Multiline)
+            {
                 tbCtrl.Height = Height - 30;
+            }
             else
+            {
                 Height = tbCtrl.Height + 32;
+            }
         }
 
         protected override void OnTextChanged(EventArgs e)
@@ -364,7 +388,9 @@ namespace ReaLTaiizor.Controls
             base.OnInvalidated(e);
 
             if (watermarkContainer != null)
+            {
                 watermarkContainer.Invalidate();
+            }
         }
 
         #endregion
@@ -417,7 +443,9 @@ namespace ReaLTaiizor.Controls
         private void DrawWatermark()
         {
             if (watermarkContainer != null || tbCtrl.TextLength > 0)
+            {
                 return;
+            }
 
             watermarkContainer = new Panel();
             watermarkContainer.Paint += WatermarkContainer_Paint;
@@ -429,7 +457,9 @@ namespace ReaLTaiizor.Controls
         private void RemoveWatermark()
         {
             if (watermarkContainer == null)
+            {
                 return;
+            }
 
             tbCtrl.Controls.Remove(watermarkContainer);
             watermarkContainer = null;
@@ -437,7 +467,7 @@ namespace ReaLTaiizor.Controls
 
         private void DrawBorder(Graphics g)
         {
-            using (var border = new Pen(BorderColor))
+            using (Pen border = new Pen(BorderColor))
             {
                 // Top border
                 if (_ShowTopBorder)
@@ -458,7 +488,9 @@ namespace ReaLTaiizor.Controls
         private void DrawImage(Graphics g)
         {
             if (Image == null)
+            {
                 tbCtrl.Width = Width - 35;
+            }
             else
             {
                 tbCtrl.Location = new Point(48, tbCtrl.Location.Y);
@@ -470,7 +502,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             DrawWatermark();
             DrawBorder(g);

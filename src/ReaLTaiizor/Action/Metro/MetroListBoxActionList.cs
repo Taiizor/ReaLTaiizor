@@ -32,10 +32,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroListBox.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroListBox.MetroStyleManager;
-            set => _metroListBox.MetroStyleManager = value;
+            get => _metroListBox.StyleManager;
+            set => _metroListBox.StyleManager = value;
         }
 
         [TypeConverter(typeof(CollectionConverter))]
@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
@@ -86,7 +86,6 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("ShowScrollBar", "ShowScrollBar", "Appearance", "Gets or sets a value indicating whether the vertical scroll bar is shown or not."),
                 new DesignerActionPropertyItem("ShowBorder", "ShowBorder", "Appearance", "Gets or sets a value indicating whether the border shown or not."),
             };
-
             return items;
         }
     }

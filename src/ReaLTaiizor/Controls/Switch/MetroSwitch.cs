@@ -2,7 +2,6 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Native;
 using ReaLTaiizor.Manager;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -26,15 +25,14 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("SwitchedChanged")]
     [DefaultProperty("Switched")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroSwitch : Control, iControl, IDisposable
+    public class MetroSwitch : Control, IMetroControl, IDisposable
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -58,10 +56,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -80,11 +78,22 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private bool _switched;
         private Style _style;
-        private int _switchlocation = 0;
-        private IntAnimate _animator;
+        private int _switchLocation;
+        private readonly IntAnimate _animator;
+
+        private bool _isDerivedStyle = true;
+        private Enum.Metro.CheckState _checkState;
+        private Color _borderColor;
+        private Color _checkColor;
+        private Color _disabledBorderColor;
+        private Color _disabledCheckColor;
+        private Color _disabledUnCheckColor;
+        private Color _backgroundColor;
+        private Color _symbolColor;
+        private Color _unCheckColor;
 
         #endregion Internal Vars
 
@@ -100,13 +109,13 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            Cursor = Cursors.Hand;
+            base.Cursor = Cursors.Hand;
             _utl = new Utilites();
             _animator = new IntAnimate();
-            _animator.Setting(100, 0, 132, EasingType.Linear);
+            _animator.Setting(100, 0, 132);
             _animator.Update = (alpha) =>
             {
-                _switchlocation = alpha;
+                _switchLocation = alpha;
                 Invalidate(false);
             };
             ApplyTheme();
@@ -123,6 +132,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -136,7 +150,7 @@ namespace ReaLTaiizor.Controls
                     DisabledUnCheckColor = Color.FromArgb(200, 205, 205, 205);
                     DisabledCheckColor = Color.FromArgb(100, 65, 177, 225);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -154,8 +168,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.SwitchBoxDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.SwitchBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -187,6 +202,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -200,25 +217,24 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            var rect = new Rectangle(1, 1, 56, 20);
+            Rectangle rect = new Rectangle(1, 1, 56, 20);
+            Rectangle rect2 = new Rectangle(3, 3, 52, 16);
 
-            var rect2 = new Rectangle(3, 3, 52, 16);
-
-            using (var backBrush = new SolidBrush(BackgroundColor))
+            using (SolidBrush backBrush = new SolidBrush(BackgroundColor))
             {
-                using (var checkback = new SolidBrush(Enabled ? Switched ? CheckColor : UnCheckColor : Switched ? DisabledCheckColor : DisabledUnCheckColor))
+                using (SolidBrush checkback = new SolidBrush(Enabled ? Switched ? CheckColor : UnCheckColor : Switched ? DisabledCheckColor : DisabledUnCheckColor))
                 {
-                    using (var checkMarkBrush = new SolidBrush(SymbolColor))
+                    using (SolidBrush checkMarkBrush = new SolidBrush(SymbolColor))
                     {
-                        using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor, 2))
+                        using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor, 2))
                         {
-                            G.FillRectangle(backBrush, rect);
-                            G.FillRectangle(checkback, rect2);
-                            G.DrawRectangle(p, rect);
-                            G.FillRectangle(checkMarkBrush, new Rectangle((Convert.ToInt32(rect.Width * (_switchlocation / 180.0))), 0, 16, 22));
+                            g.FillRectangle(backBrush, rect);
+                            g.FillRectangle(checkback, rect2);
+                            g.DrawRectangle(p, rect);
+                            g.FillRectangle(checkMarkBrush, new Rectangle((Convert.ToInt32(rect.Width * (_switchLocation / 180.0))), 0, 16, 22));
                         }
                     }
                 }
@@ -247,24 +263,31 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == User32.WM_SETCURSOR)
+        /*
+            protected override void WndProc(ref Message m)
             {
-                User32.SetCursor(User32.LoadCursor(IntPtr.Zero, User32.IDC_HAND));
-                m.Result = IntPtr.Zero;
-                return;
-            }
+                //_utl.SmoothCursor(ref m);
+                _utl.SmoothCursor(ref m, base.Cursor);
+                //_utl.NormalCursor(ref m, base.Cursor);
 
-            base.WndProc(ref m);
-        }
+                base.WndProc(ref m);
+            }
+        */
 
         #endregion Events
 
         #region Properties
 
         [Browsable(false)]
-        public Enum.Metro.CheckState CheckState { get; set; }
+        public Enum.Metro.CheckState CheckState
+        {
+            get => _checkState;
+            set
+            {
+                _checkState = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets a value indicating whether the control is checked.")]
         public bool Switched
@@ -281,19 +304,59 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the border color.")]
-        public Color BorderColor { get; set; }
+        public Color BorderColor
+        {
+            get => _borderColor;
+            set
+            {
+                _borderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the Checkd backColor.")]
-        public Color CheckColor { get; set; }
+        public Color CheckColor
+        {
+            get => _checkColor;
+            set
+            {
+                _checkColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the CheckdBackColor while disabled.")]
-        public Color DisabledCheckColor { get; set; }
+        public Color DisabledCheckColor
+        {
+            get => _disabledCheckColor;
+            set
+            {
+                _disabledCheckColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the Un-Checkd BackColor while disabled.")]
-        public Color DisabledUnCheckColor { get; set; }
+        public Color DisabledUnCheckColor
+        {
+            get => _disabledUnCheckColor;
+            set
+            {
+                _disabledUnCheckColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets forecolor used by the control.")]
         public override Color ForeColor { get; set; }
@@ -303,13 +366,50 @@ namespace ReaLTaiizor.Controls
 
         [Category("Metro"), Description("Gets or sets the control backcolor.")]
         [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the color of the check symbol.")]
-        public Color SymbolColor { get; set; }
+        public Color SymbolColor
+        {
+            get => _symbolColor;
+            set
+            {
+                _symbolColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the Un-Checkd backColor.")]
-        public Color UnCheckColor { get; set; }
+        public Color UnCheckColor
+        {
+            get => _unCheckColor;
+            set
+            {
+                _unCheckColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
 
@@ -319,11 +419,6 @@ namespace ReaLTaiizor.Controls
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
         }
 
         #endregion

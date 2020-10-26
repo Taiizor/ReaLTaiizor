@@ -34,10 +34,7 @@ namespace ReaLTaiizor.Controls
 
         public int StartIndex
         {
-            get
-            {
-                return _StartIndex;
-            }
+            get => _StartIndex;
             set
             {
                 _StartIndex = value;
@@ -54,10 +51,7 @@ namespace ReaLTaiizor.Controls
 
         public Color HoverSelectionColor
         {
-            get
-            {
-                return _HoverSelectionColor;
-            }
+            get => _HoverSelectionColor;
             set
             {
                 _HoverSelectionColor = value;
@@ -67,56 +61,56 @@ namespace ReaLTaiizor.Controls
 
         public Color ColorA
         {
-            get { return _ColorA; }
-            set { _ColorA = value; }
+            get => _ColorA;
+            set => _ColorA = value;
         }
 
         public Color ColorB
         {
-            get { return _ColorB; }
-            set { _ColorB = value; }
+            get => _ColorB;
+            set => _ColorB = value;
         }
 
         public Color ColorC
         {
-            get { return _ColorC; }
-            set { _ColorC = value; }
+            get => _ColorC;
+            set => _ColorC = value;
         }
 
         public Color ColorD
         {
-            get { return _ColorD; }
-            set { _ColorD = value; }
+            get => _ColorD;
+            set => _ColorD = value;
         }
 
         public Color ColorE
         {
-            get { return _ColorE; }
-            set { _ColorE = value; }
+            get => _ColorE;
+            set => _ColorE = value;
         }
 
         public Color ColorF
         {
-            get { return _ColorF; }
-            set { _ColorF = value; }
+            get => _ColorF;
+            set => _ColorF = value;
         }
 
         public Color ColorG
         {
-            get { return _ColorG; }
-            set { _ColorG = value; }
+            get => _ColorG;
+            set => _ColorG = value;
         }
 
         public Color ColorH
         {
-            get { return _ColorH; }
-            set { _ColorH = value; }
+            get => _ColorH;
+            set => _ColorH = value;
         }
 
         public Color ColorI
         {
-            get { return _ColorI; }
-            set { _ColorI = value; }
+            get => _ColorI;
+            set => _ColorI = value;
         }
 
         #endregion
@@ -164,7 +158,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             if (!Focused)
+            {
                 SelectionLength = 0;
+            }
         }
 
         #endregion

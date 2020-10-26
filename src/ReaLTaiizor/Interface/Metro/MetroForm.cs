@@ -9,11 +9,11 @@ namespace ReaLTaiizor.Interface.Metro
 {
     #region MetroFormInterface
 
-    public interface MetroForm
+    public interface iMetroSetForm
     {
         Style Style { get; set; }
 
-        MetroStyleManager MetroStyleManager { get; set; }
+        MetroStyleManager StyleManager { get; set; }
 
         string ThemeAuthor { get; set; }
 

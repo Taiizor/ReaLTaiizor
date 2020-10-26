@@ -14,6 +14,7 @@ namespace ReaLTaiizor.Instagram
         private void LostCancelButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            Environment.Exit(1);
         }
     }
 }

@@ -101,11 +101,14 @@ namespace ReaLTaiizor.Controls
         private int _Field = 16;
         public int Field
         {
-            get { return _Field; }
+            get => _Field;
             set
             {
                 if (value < 4)
+                {
                     return;
+                }
+
                 _Field = value;
                 LockHeight = value;
                 Invalidate();
@@ -115,7 +118,7 @@ namespace ReaLTaiizor.Controls
         private bool _Checked;
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -128,7 +131,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (!_Checked)
+            {
                 Checked = true;
+            }
+
             base.OnMouseDown(e);
         }
 
@@ -143,12 +149,16 @@ namespace ReaLTaiizor.Controls
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
+            {
                 return;
+            }
 
             foreach (Control C in Parent.Controls)
             {
                 if (!object.ReferenceEquals(C, this) && C is AirRadioButton)
+                {
                     ((AirRadioButton)C).Checked = false;
+                }
             }
         }
 

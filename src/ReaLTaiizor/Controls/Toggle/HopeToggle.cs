@@ -17,8 +17,8 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        Timer AnimationTimer = new Timer { Interval = 1 };
-        int PointAnimationNum = 4;
+        private readonly Timer AnimationTimer = new Timer { Interval = 1 };
+        private int PointAnimationNum = 4;
 
         private Color _BaseColor = Color.FromArgb(44, 55, 66);
         private Color _BaseColorA = HopeColors.OneLevelBorder;
@@ -33,38 +33,38 @@ namespace ReaLTaiizor.Controls
         #region Settings
         public Color BaseColor
         {
-            get { return _BaseColor; }
-            set { _BaseColor = value; }
+            get => _BaseColor;
+            set => _BaseColor = value;
         }
         public Color BaseColorA
         {
-            get { return _BaseColorA; }
-            set { _BaseColorA = value; }
+            get => _BaseColorA;
+            set => _BaseColorA = value;
         }
         public Color BaseColorB
         {
-            get { return _BaseColorB; }
-            set { _BaseColorB = value; }
+            get => _BaseColorB;
+            set => _BaseColorB = value;
         }
         public Color HeadColorA
         {
-            get { return _HeadColorA; }
-            set { _HeadColorA = value; }
+            get => _HeadColorA;
+            set => _HeadColorA = value;
         }
         public Color HeadColorB
         {
-            get { return _HeadColorB; }
-            set { _HeadColorB = value; }
+            get => _HeadColorB;
+            set => _HeadColorB = value;
         }
         public Color HeadColorC
         {
-            get { return _HeadColorC; }
-            set { _HeadColorC = value; }
+            get => _HeadColorC;
+            set => _HeadColorC = value;
         }
         public Color HeadColorD
         {
-            get { return _HeadColorD; }
-            set { _HeadColorD = value; }
+            get => _HeadColorD;
+            set => _HeadColorD = value;
         }
         #endregion
 
@@ -86,14 +86,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            var graphics = pevent.Graphics;
+            Graphics graphics = pevent.Graphics;
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BaseColor);
 
-            var roundRectangle = new GraphicsPath();
-            var radius = 9;
+            GraphicsPath roundRectangle = new GraphicsPath();
+            int radius = 9;
             roundRectangle.AddArc(11, 5, radius - 1, radius, 180, 90);
             roundRectangle.AddArc(Width - 21, 5, radius - 1, radius, -90, 90);
             roundRectangle.AddArc(Width - 21, Height - 14, radius - 1, radius, 0, 90);
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
             Cursor = Cursors.Hand;
         }
 
-        void AnimationTick(object sender, EventArgs e)
+        private void AnimationTick(object sender, EventArgs e)
         {
             if (Checked)
             {

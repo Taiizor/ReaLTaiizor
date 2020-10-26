@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
         [Description("Determines the foreground color of the label according to which side it is placed on.")]
         public PanelSide Side
         {
-            get { return _Side; }
+            get => _Side;
             set
             {
                 _Side = value;
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
         private Color _LeftSideForeColor = ColorTranslator.FromHtml("#FAFAFA");
         public Color LeftSideForeColor
         {
-            get { return _LeftSideForeColor; }
+            get => _LeftSideForeColor;
             set
             {
                 _LeftSideForeColor = value;
@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Controls
         private Color _RightSideForeColor = ColorTranslator.FromHtml("#AAABB0");
         public Color RightSideForeColor
         {
-            get { return _RightSideForeColor; }
+            get => _RightSideForeColor;
             set
             {
                 _RightSideForeColor = value;
@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Controls
         [Description("Specifies the quality of text rendering.")]
         public TextRenderingHint TextRenderingHint
         {
-            get { return _TextRenderingHint; }
+            get => _TextRenderingHint;
             set
             {
                 _TextRenderingHint = value;

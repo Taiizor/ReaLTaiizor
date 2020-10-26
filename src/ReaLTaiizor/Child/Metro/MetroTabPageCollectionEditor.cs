@@ -17,10 +17,7 @@ namespace ReaLTaiizor.Child.Metro
 
         protected override Type[] CreateNewItemTypes()
         {
-            return new[]
-            {
-                typeof(TabPage), typeof(MetroTabPage)
-            };
+            return new[] { typeof(TabPage), typeof(MetroTabPage) };
         }
     }
 

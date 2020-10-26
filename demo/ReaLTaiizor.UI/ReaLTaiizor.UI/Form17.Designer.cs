@@ -2362,7 +2362,7 @@ namespace ReaLTaiizor.UI
             materialTabSelector1.BaseTabControl = materialTabControl2;
             materialTabSelector1.Depth = 0;
             materialTabSelector1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialTabSelector1.HeadAlignment = ReaLTaiizor.Controls.MaterialTabSelector.Alignment.Left;
+            materialTabSelector1.HeadAlignment = ReaLTaiizor.Controls.MaterialTabSelector.Alignment.Center;
             materialTabSelector1.Location = new System.Drawing.Point(40, 90);
             materialTabSelector1.Margin = new System.Windows.Forms.Padding(0);
             materialTabSelector1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;

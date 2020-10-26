@@ -37,11 +37,14 @@ namespace ReaLTaiizor.Controls
 
         public long Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value > _Maximum)
+                {
                     value = _Maximum;
+                }
+
                 _Value = value;
                 Invalidate();
             }
@@ -49,11 +52,14 @@ namespace ReaLTaiizor.Controls
 
         public long Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 if (value < 1)
+                {
                     value = 1;
+                }
+
                 _Maximum = value;
                 Invalidate();
             }
@@ -61,7 +67,7 @@ namespace ReaLTaiizor.Controls
 
         public Color PercentColor
         {
-            get { return _PercentColor; }
+            get => _PercentColor;
             set
             {
                 _PercentColor = value;
@@ -71,7 +77,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ProgressColor1
         {
-            get { return _ProgressColor1; }
+            get => _ProgressColor1;
             set
             {
                 _ProgressColor1 = value;
@@ -81,7 +87,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ProgressColor2
         {
-            get { return _ProgressColor2; }
+            get => _ProgressColor2;
             set
             {
                 _ProgressColor2 = value;
@@ -91,7 +97,7 @@ namespace ReaLTaiizor.Controls
 
         public _ProgressShape ProgressShape
         {
-            get { return ProgressShapeVal; }
+            get => ProgressShapeVal;
             set
             {
                 ProgressShapeVal = value;
@@ -176,7 +182,10 @@ namespace ReaLTaiizor.Controls
                         }
                     }
                     using (LinearGradientBrush brush2 = new LinearGradientBrush(ClientRectangle, Color.FromArgb(0x34, 0x34, 0x34), Color.FromArgb(0x34, 0x34, 0x34), LinearGradientMode.Vertical))
+                    {
                         graphics.FillEllipse(brush2, 0x18, 0x18, (Width - 0x30) - 1, (Height - 0x30) - 1);
+                    }
+
                     SizeF MS = graphics.MeasureString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font);
                     graphics.DrawString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font, new SolidBrush(_PercentColor), Convert.ToInt32(Width / 2 - MS.Width / 2), Convert.ToInt32(Height / 2 - MS.Height / 2));
                     e.Graphics.DrawImage(bitmap, 0, 0);

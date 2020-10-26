@@ -15,7 +15,7 @@ namespace ReaLTaiizor.Controls
     public class RibbonButtonLeft : Control
     {
         #region " MouseStates "
-        MouseStateRibbon State = MouseStateRibbon.None;
+        private MouseStateRibbon State = MouseStateRibbon.None;
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -56,7 +56,7 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColorA = Color.FromArgb(203, 201, 205);
         public Color BaseColorA
         {
-            get { return _BaseColorA; }
+            get => _BaseColorA;
             set
             {
                 _BaseColorA = value;
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColorB = Color.FromArgb(188, 186, 190);
         public Color BaseColorB
         {
-            get { return _BaseColorB; }
+            get => _BaseColorB;
             set
             {
                 _BaseColorB = value;
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColorA = Color.FromArgb(117, 120, 117);
         public Color BorderColorA
         {
-            get { return _BorderColorA; }
+            get => _BorderColorA;
             set
             {
                 _BorderColorA = value;
@@ -89,7 +89,7 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColorB = Color.FromArgb(75, Color.White);
         public Color BorderColorB
         {
-            get { return _BorderColorB; }
+            get => _BorderColorB;
             set
             {
                 _BorderColorB = value;
@@ -100,7 +100,7 @@ namespace ReaLTaiizor.Controls
         private Color _HoverBaseColorA = Color.FromArgb(193, 191, 195);
         public Color HoverBaseColorA
         {
-            get { return _HoverBaseColorA; }
+            get => _HoverBaseColorA;
             set
             {
                 _HoverBaseColorA = value;
@@ -111,7 +111,7 @@ namespace ReaLTaiizor.Controls
         private Color _HoverBaseColorB = Color.FromArgb(194, 192, 196);
         public Color HoverBaseColorB
         {
-            get { return _HoverBaseColorB; }
+            get => _HoverBaseColorB;
             set
             {
                 _HoverBaseColorB = value;
@@ -122,7 +122,7 @@ namespace ReaLTaiizor.Controls
         private Color _HoverBorderColorA = Color.FromArgb(117, 120, 117);
         public Color HoverBorderColorA
         {
-            get { return _HoverBorderColorA; }
+            get => _HoverBorderColorA;
             set
             {
                 _HoverBorderColorA = value;
@@ -133,7 +133,7 @@ namespace ReaLTaiizor.Controls
         private Color _HoverBorderColorB = Color.FromArgb(75, Color.White);
         public Color HoverBorderColorB
         {
-            get { return _HoverBorderColorB; }
+            get => _HoverBorderColorB;
             set
             {
                 _HoverBorderColorB = value;
@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Controls
         private Color _DownBaseColorA = Color.FromArgb(203, 201, 205);
         public Color DownBaseColorA
         {
-            get { return _DownBaseColorA; }
+            get => _DownBaseColorA;
             set
             {
                 _DownBaseColorA = value;
@@ -155,7 +155,7 @@ namespace ReaLTaiizor.Controls
         private Color _DownBaseColorB = Color.FromArgb(188, 186, 190);
         public Color DownBaseColorB
         {
-            get { return _DownBaseColorB; }
+            get => _DownBaseColorB;
             set
             {
                 _DownBaseColorB = value;
@@ -166,7 +166,7 @@ namespace ReaLTaiizor.Controls
         private Color _DownBorderColorA = Color.FromArgb(117, 120, 117);
         public Color DownBorderColorA
         {
-            get { return _DownBorderColorA; }
+            get => _DownBorderColorA;
             set
             {
                 _DownBorderColorA = value;
@@ -177,7 +177,7 @@ namespace ReaLTaiizor.Controls
         private Color _DownBorderColorB = Color.FromArgb(75, Color.White);
         public Color DownBorderColorB
         {
-            get { return _DownBorderColorB; }
+            get => _DownBorderColorB;
             set
             {
                 _DownBorderColorB = value;

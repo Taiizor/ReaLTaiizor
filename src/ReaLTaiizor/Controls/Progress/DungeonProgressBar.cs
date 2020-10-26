@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Controls
         private GraphicsPath GP3;
         private Rectangle R1;
         private Rectangle R2;
-        private LinearGradientBrush GB1;
+        private readonly LinearGradientBrush GB1;
         private LinearGradientBrush GB2;
         private int I1;
 
@@ -54,49 +54,55 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color BackColorA
         {
-            get { return _BackColorA; }
-            set { _BackColorA = value; }
+            get => _BackColorA;
+            set => _BackColorA = value;
         }
 
         public Color BackColorB
         {
-            get { return _BackColorB; }
-            set { _BackColorB = value; }
+            get => _BackColorB;
+            set => _BackColorB = value;
         }
 
         public Color ProgressColorA
         {
-            get { return _ProgressColorA; }
-            set { _ProgressColorA = value; }
+            get => _ProgressColorA;
+            set => _ProgressColorA = value;
         }
 
         public Color ProgressColorB
         {
-            get { return _ProgressColorB; }
-            set { _ProgressColorB = value; }
+            get => _ProgressColorB;
+            set => _ProgressColorB = value;
         }
 
         public Color ProgressHatchColor
         {
-            get { return _ProgressHatchColor; }
-            set { _ProgressHatchColor = value; }
+            get => _ProgressHatchColor;
+            set => _ProgressHatchColor = value;
         }
 
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 if (value < 1)
+                {
                     value = 1;
+                }
+
                 if (value < _Value)
+                {
                     _Value = value;
+                }
+
                 _Maximum = value;
                 Invalidate();
             }
@@ -104,15 +110,20 @@ namespace ReaLTaiizor.Controls
 
         public int Minimum
         {
-            get { return _Minimum; }
+            get => _Minimum;
             set
             {
                 _Minimum = value;
 
                 if (value > _Maximum)
+                {
                     _Maximum = value;
+                }
+
                 if (value > _Value)
+                {
                     _Value = value;
+                }
 
                 Invalidate();
             }
@@ -120,11 +131,14 @@ namespace ReaLTaiizor.Controls
 
         public int Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value > _Maximum)
+                {
                     value = Maximum;
+                }
+
                 _Value = value;
                 Invalidate();
             }
@@ -132,7 +146,7 @@ namespace ReaLTaiizor.Controls
 
         public Alignment ValueAlignment
         {
-            get { return ALN; }
+            get => ALN;
             set
             {
                 ALN = value;
@@ -142,7 +156,7 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawHatch
         {
-            get { return _DrawHatch; }
+            get => _DrawHatch;
             set
             {
                 _DrawHatch = value;
@@ -152,7 +166,7 @@ namespace ReaLTaiizor.Controls
 
         public bool ShowPercentage
         {
-            get { return _ShowPercentage; }
+            get => _ShowPercentage;
             set
             {
                 _ShowPercentage = value;
@@ -231,8 +245,10 @@ namespace ReaLTaiizor.Controls
                 // Draw diagonal lines
                 if (_DrawHatch == true)
                 {
-                    for (var i = 0; i <= (Width - 1) * _Maximum / _Value; i += 20)
+                    for (int i = 0; i <= (Width - 1) * _Maximum / _Value; i += 20)
+                    {
                         G.DrawLine(new Pen(new SolidBrush(_ProgressHatchColor), 10.0F), new Point(Convert.ToInt32(i), 0), new Point((int)(i - 10), Height));
+                    }
                 }
 
                 G.SetClip(GP3);

@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region HeaderLabel
 
-    public class HeaderLabel : System.Windows.Forms.Label
+    public class HeaderLabel : Label
     {
         public HeaderLabel()
         {

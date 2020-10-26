@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Controls
 
     public class ThunderButton : Control
     {
-        MouseStateThunder State = MouseStateThunder.None;
+        private MouseStateThunder State = MouseStateThunder.None;
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
@@ -72,11 +72,17 @@ namespace ReaLTaiizor.Controls
             Pen o = new Pen(Color.FromArgb(50, 50, 50), 1);
             StringFormat format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             if (State == MouseStateThunder.Over)
+            {
                 gloss = new LinearGradientBrush(R1, Color.FromArgb(15, Color.FromArgb(26, 26, 26)), Color.FromArgb(1, 255, 255, 255), 90);
+            }
             else if (State == MouseStateThunder.Down)
+            {
                 gloss = new LinearGradientBrush(R1, Color.FromArgb(100, Color.FromArgb(26, 26, 26)), Color.FromArgb(1, 255, 255, 255), 90);
+            }
             else
+            {
                 gloss = new LinearGradientBrush(R1, Color.FromArgb(75, Color.FromArgb(26, 26, 26)), Color.FromArgb(3, 255, 255, 255), 90);
+            }
 
             G.FillPath(lgb, DrawThunder.RoundRect(ClientRectangle, 2));
             G.FillPath(gloss, DrawThunder.RoundRect(ClientRectangle, 2));

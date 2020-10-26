@@ -30,13 +30,19 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (_Value == 0)
+                {
                     return 0;
+                }
+
                 return _Value;
             }
             set
             {
                 if (value > _Maximum)
+                {
                     value = _Maximum;
+                }
+
                 _Value = value;
                 Invalidate();
             }
@@ -44,14 +50,14 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get
-            {
-                return _Maximum;
-            }
+            get => _Maximum;
             set
             {
                 if (value < _Value)
+                {
                     _Value = value;
+                }
+
                 _Maximum = value;
                 Invalidate();
             }
@@ -59,19 +65,19 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
+            get => _BorderColor;
             set { _BorderColor = value; Invalidate(); }
         }
 
         public Color BGColorA
         {
-            get { return _BGColorA; }
+            get => _BGColorA;
             set { _BGColorA = value; Invalidate(); }
         }
 
         public Color BGColorB
         {
-            get { return _BGColorB; }
+            get => _BGColorB;
             set { _BGColorB = value; Invalidate(); }
         }
 
@@ -98,7 +104,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            var _G = e.Graphics;
+            Graphics _G = e.Graphics;
             string myString = _Value.ToString();
             _G.Clear(BackColor);
             _G.SmoothingMode = SmoothingMode.AntiAlias;

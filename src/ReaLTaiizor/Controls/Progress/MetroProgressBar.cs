@@ -23,15 +23,14 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("ValueChanged")]
     [DefaultProperty("Value")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroProgressBar : Control, iControl
+    public class MetroProgressBar : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -55,10 +54,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -78,9 +77,20 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private int _value;
         private int _currentValue;
+
+        private bool _isDerivedStyle = true;
+        private int _maximum = 100;
+        private int _minimum;
+        private ProgressOrientation _orientation = ProgressOrientation.Horizontal;
+        private Color _backgroundColor;
+        private Color _borderColor;
+        private Color _progressColor;
+        private Color _disabledProgressColor;
+        private Color _disabledBackColor;
+        private Color _disabledBorderColor;
 
         #endregion Internal Vars
 
@@ -93,7 +103,7 @@ namespace ReaLTaiizor.Controls
                 ControlStyles.ResizeRedraw |
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.SupportsTransparentBackColor,
-                true
+                    true
             );
             UpdateStyles();
             _utl = new Utilites();
@@ -106,6 +116,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -116,7 +131,7 @@ namespace ReaLTaiizor.Controls
                     DisabledBorderColor = Color.FromArgb(238, 238, 238);
                     DisabledBackColor = Color.FromArgb(238, 238, 238);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -131,8 +146,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.ProgressDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ProgressDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -142,7 +158,6 @@ namespace ReaLTaiizor.Controls
                                 case "BorderColor":
                                     BorderColor = _utl.HexColor((string)varkey.Value);
                                     break;
-
                                 case "BackColor":
                                     BackgroundColor = _utl.HexColor((string)varkey.Value);
                                     break;
@@ -159,6 +174,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -177,31 +194,31 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            var rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Graphics g = e.Graphics;
+            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
 
-            using (var bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
             {
-                using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                 {
-                    using (var ps = new SolidBrush(Enabled ? ProgressColor : DisabledProgressColor))
+                    using (SolidBrush ps = new SolidBrush(Enabled ? ProgressColor : DisabledProgressColor))
                     {
-                        G.FillRectangle(bg, rect);
+                        g.FillRectangle(bg, rect);
                         if (_currentValue != 0)
                         {
                             switch (Orientation)
                             {
                                 case ProgressOrientation.Horizontal:
-                                    G.FillRectangle(ps, new Rectangle(0, 0, _currentValue - 1, Height - 1));
+                                    g.FillRectangle(ps, new Rectangle(0, 0, _currentValue - 1, Height - 1));
                                     break;
                                 case ProgressOrientation.Vertical:
-                                    G.FillRectangle(ps, new Rectangle(0, Height - _currentValue, Width - 1, _currentValue - 1));
+                                    g.FillRectangle(ps, new Rectangle(0, Height - _currentValue, Width - 1, _currentValue - 1));
                                     break;
                                 default:
                                     throw new ArgumentOutOfRangeException();
                             }
                         }
-                        G.DrawRectangle(p, rect);
+                        g.DrawRectangle(p, rect);
                     }
                 }
             }
@@ -218,7 +235,10 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > Maximum)
+                {
                     value = Maximum;
+                }
+
                 _value = value;
                 RenewCurrentValue();
                 ValueChanged?.Invoke(this);
@@ -227,35 +247,121 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the maximum value of the progressbar.")]
-        public int Maximum { get; set; } = 100;
+        public int Maximum
+        {
+            get => _maximum;
+            set
+            {
+                _maximum = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the minimum value of the progressbar.")]
-        public int Minimum { get; set; } = 0;
+        public int Minimum
+        {
+            get => _minimum;
+            set
+            {
+                _minimum = value;
+                Refresh();
+            }
+        }
+
 
         [Browsable(false)]
         public override Color BackColor => Color.Transparent;
 
         [Category("Metro"), Description("Gets or sets the minimum value of the progressbar.")]
-        public ProgressOrientation Orientation { get; set; } = ProgressOrientation.Horizontal;
+        public ProgressOrientation Orientation
+        {
+            get => _orientation;
+            set
+            {
+                _orientation = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the control backcolor.")]
         [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color.")]
-        public Color BorderColor { get; set; }
+        public Color BorderColor
+        {
+            get => _borderColor;
+            set
+            {
+                _borderColor = value;
+                Refresh();
+            }
+        }
 
-        [Category("Metro"), Description("Gets or sets the progress color of the cotnrol.")]
-        public Color ProgressColor { get; set; }
+        [Category("Metro"), Description("Gets or sets the progress color of the control.")]
+        public Color ProgressColor
+        {
+            get => _progressColor;
+            set
+            {
+                _progressColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the progresscolor of the control whenever while disabled.")]
-        public Color DisabledProgressColor { get; set; }
+        public Color DisabledProgressColor
+        {
+            get => _disabledProgressColor;
+            set
+            {
+                _disabledProgressColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
-        public Color DisabledBackColor { get; set; }
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion
 
@@ -267,9 +373,13 @@ namespace ReaLTaiizor.Controls
         private void RenewCurrentValue()
         {
             if (Orientation == ProgressOrientation.Horizontal)
+            {
                 _currentValue = (int)Math.Round((Value - Minimum) / (double)(Maximum - Minimum) * (Width - 1));
+            }
             else
+            {
                 _currentValue = Convert.ToInt32(Value / (double)Maximum * Height - 1);
+            }
         }
 
         #endregion

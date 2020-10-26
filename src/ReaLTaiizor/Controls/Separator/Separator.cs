@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
         private Color _LineColor = Color.Gray;
         public Color LineColor
         {
-            get { return _LineColor; }
+            get => _LineColor;
             set
             {
                 _LineColor = value;

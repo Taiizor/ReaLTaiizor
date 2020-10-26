@@ -22,15 +22,14 @@ namespace ReaLTaiizor.Controls
     [Designer(typeof(MetroDividerDesigner))]
     [DefaultProperty("Orientation")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroDivider : Control, iControl
+    public class MetroDivider : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -54,10 +53,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -70,14 +69,18 @@ namespace ReaLTaiizor.Controls
 
         #region Global Vars
 
-        private Utilites utl;
+        private readonly Utilites _utl;
 
         #endregion Global Vars
 
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
+
+        private bool _isDerivedStyle = true;
+        private DividerStyle _orientation;
+        private int _thickness;
 
         #endregion Internal Vars
 
@@ -92,7 +95,7 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            utl = new Utilites();
+            _utl = new Utilites();
             ApplyTheme();
             Orientation = DividerStyle.Horizontal;
         }
@@ -103,13 +106,18 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
                     Thickness = 1;
                     ForeColor = Color.Black;
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -120,27 +128,35 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.DividerDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.DividerDictionary)
                         {
                             switch (varkey.Key)
                             {
                                 case "Orientation":
                                     if ((string)varkey.Value == "Horizontal")
+                                    {
                                         Orientation = DividerStyle.Horizontal;
+                                    }
                                     else if ((string)varkey.Value == "Vertical")
+                                    {
                                         Orientation = DividerStyle.Vertical;
+                                    }
+
                                     break;
                                 case "Thickness":
                                     Thickness = ((int)varkey.Value);
                                     break;
                                 case "ForeColor":
-                                    ForeColor = utl.HexColor((string)varkey.Value);
+                                    ForeColor = _utl.HexColor((string)varkey.Value);
                                     break;
                                 default:
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -159,13 +175,17 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            using (var p = new Pen(ForeColor, Thickness))
+            Graphics g = e.Graphics;
+            using (Pen p = new Pen(ForeColor, Thickness))
             {
                 if (Orientation == DividerStyle.Horizontal)
-                    G.DrawLine(p, 0, Thickness, Width, Thickness);
+                {
+                    g.DrawLine(p, 0, Thickness, Width, Thickness);
+                }
                 else
-                    G.DrawLine(p, Thickness, 0, Thickness, Height);
+                {
+                    g.DrawLine(p, Thickness, 0, Thickness, Height);
+                }
             }
         }
 
@@ -174,16 +194,45 @@ namespace ReaLTaiizor.Controls
         #region Properties
 
         [Category("Metro"), Description("Gets or sets Orientation of the control.")]
-        public DividerStyle Orientation { get; set; }
+        public DividerStyle Orientation
+        {
+            get => _orientation;
+            set
+            {
+                _orientation = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the divider thickness.")]
-        public int Thickness { get; set; }
+        public int Thickness
+        {
+            get => _thickness;
+            set
+            {
+                _thickness = value;
+                Refresh();
+            }
+        }
 
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public override Color BackColor => Color.Transparent;
 
         [Category("Metro"), Description("Gets or sets the form forecolor.")]
         public override Color ForeColor { get; set; }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
 
@@ -193,9 +242,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             if (Orientation == DividerStyle.Horizontal)
+            {
                 Height = Thickness + 3;
+            }
             else
+            {
                 Width = Thickness + 3;
+            }
         }
 
         #endregion Events

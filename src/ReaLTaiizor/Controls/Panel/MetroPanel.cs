@@ -19,15 +19,14 @@ namespace ReaLTaiizor.Controls
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(MetroPanel), "Bitmaps.Panel.bmp")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroPanel : System.Windows.Forms.Panel, iControl
+    public class MetroPanel : System.Windows.Forms.Panel, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -51,10 +50,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -74,7 +73,12 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
+
+        private bool _isDerivedStyle = true;
+        private int _borderThickness = 1;
+        private Color _borderColor;
+        private Color _backgroundColor;
 
         #endregion Internal Vars
 
@@ -103,13 +107,18 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
                     BorderColor = Color.FromArgb(150, 150, 150);
                     BackgroundColor = Color.White;
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -120,8 +129,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.LabelDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.LabelDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -135,6 +145,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -153,15 +165,15 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            var r = new Rectangle(BorderThickness, BorderThickness, Width - (BorderThickness * 2 + 1), Height - ((BorderThickness * 2) + 1));
+            Graphics g = e.Graphics;
+            Rectangle r = new Rectangle(BorderThickness, BorderThickness, Width - (BorderThickness * 2 + 1), Height - ((BorderThickness * 2) + 1));
 
-            using (var bg = new SolidBrush(BackgroundColor))
+            using (SolidBrush bg = new SolidBrush(BackgroundColor))
             {
-                using (var p = new Pen(BorderColor, BorderThickness))
+                using (Pen p = new Pen(BorderColor, BorderThickness))
                 {
-                    G.FillRectangle(bg, r);
-                    G.DrawRectangle(p, r);
+                    g.FillRectangle(bg, r);
+                    g.DrawRectangle(p, r);
                 }
             }
 
@@ -178,17 +190,54 @@ namespace ReaLTaiizor.Controls
         public override Color ForeColor => Color.Transparent;
 
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public new BorderStyle BorderStyle = BorderStyle.None;
+        public new BorderStyle BorderStyle;
 
         [Category("Metro"), Description("Gets or sets the border thickness the control.")]
-        public int BorderThickness { get; set; } = 1;
+        public int BorderThickness
+        {
+            get => _borderThickness;
+            set
+            {
+                _borderThickness = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets bordercolor used by the control.")]
-        public Color BorderColor { get; set; }
+        public Color BorderColor
+        {
+            get => _borderColor;
+            set
+            {
+                _borderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets backcolor used by the control.")]
         [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion
     }

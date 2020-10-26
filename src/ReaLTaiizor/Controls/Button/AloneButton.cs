@@ -69,10 +69,7 @@ namespace ReaLTaiizor.Controls
 
         public new bool Enabled
         {
-            get
-            {
-                return EnabledCalc;
-            }
+            get => EnabledCalc;
             set
             {
                 _EnabledCalc = value;
@@ -83,10 +80,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("Enabled")]
         public bool EnabledCalc
         {
-            get
-            {
-                return _EnabledCalc;
-            }
+            get => _EnabledCalc;
             set
             {
                 Enabled = value;
@@ -118,18 +112,24 @@ namespace ReaLTaiizor.Controls
                     if (state != AloneButton.MouseState.Down)
                     {
                         using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#F6F6F6")))
+                        {
                             G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
+                        }
                     }
                     else
                     {
                         using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#F0F0F0")))
+                        {
                             G.FillPath(solidBrush2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
+                        }
                     }
                 }
                 else
                 {
                     using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#FDFDFD")))
+                    {
                         G.FillPath(solidBrush3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
+                    }
                 }
                 using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#C3C3C3")))
                 {
@@ -172,7 +172,10 @@ namespace ReaLTaiizor.Controls
             base.OnMouseUp(e);
             bool enabled = Enabled;
             if (enabled)
+            {
                 ClickEvent?.Invoke(this, e);
+            }
+
             State = AloneButton.MouseState.Over;
             base.Invalidate();
         }

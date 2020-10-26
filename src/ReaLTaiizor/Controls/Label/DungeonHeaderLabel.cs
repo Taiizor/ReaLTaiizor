@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region DungeonHeaderLabel
 
-    public class DungeonHeaderLabel : System.Windows.Forms.Label
+    public class DungeonHeaderLabel : Label
     {
 
         public DungeonHeaderLabel()

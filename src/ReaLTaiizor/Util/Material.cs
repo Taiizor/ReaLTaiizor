@@ -59,29 +59,33 @@ namespace ReaLTaiizor.Util
 
             RobotoFontFamilies = new Dictionary<string, FontFamily>();
             foreach (FontFamily ff in privateFontCollection.Families.ToArray())
+            {
                 RobotoFontFamilies.Add(ff.Name.Replace(' ', '_'), ff);
+            }
 
             // create and save font handles for GDI
-            logicalFonts = new Dictionary<string, IntPtr>(18);
-            logicalFonts.Add("H1", createLogicalFont("Roboto Light", 96, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT));
-            logicalFonts.Add("H2", createLogicalFont("Roboto Light", 60, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT));
-            logicalFonts.Add("H3", createLogicalFont("Roboto", 48, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("H4", createLogicalFont("Roboto", 34, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("H5", createLogicalFont("Roboto", 24, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("H6", createLogicalFont("Roboto Medium", 20, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
-            logicalFonts.Add("Subtitle1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("Subtitle2", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
-            logicalFonts.Add("Body1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("Body2", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("Button", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
-            logicalFonts.Add("Caption", createLogicalFont("Roboto", 12, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("Overline", createLogicalFont("Roboto", 10, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            // Logical fonts for textbox animation
-            logicalFonts.Add("textBox16", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("textBox15", createLogicalFont("Roboto", 15, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("textBox14", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("textBox13", createLogicalFont("Roboto Medium", 13, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
-            logicalFonts.Add("textBox12", createLogicalFont("Roboto Medium", 12, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
+            logicalFonts = new Dictionary<string, IntPtr>(18)
+            {
+                { "H1", createLogicalFont("Roboto Light", 96, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT) },
+                { "H2", createLogicalFont("Roboto Light", 60, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT) },
+                { "H3", createLogicalFont("Roboto", 48, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "H4", createLogicalFont("Roboto", 34, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "H5", createLogicalFont("Roboto", 24, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "H6", createLogicalFont("Roboto Medium", 20, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
+                { "Subtitle1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "Subtitle2", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
+                { "Body1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "Body2", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "Button", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
+                { "Caption", createLogicalFont("Roboto", 12, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "Overline", createLogicalFont("Roboto", 10, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                // Logical fonts for textbox animation
+                { "textBox16", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "textBox15", createLogicalFont("Roboto", 15, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "textBox14", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "textBox13", createLogicalFont("Roboto Medium", 13, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
+                { "textBox12", createLogicalFont("Roboto Medium", 12, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) }
+            };
         }
 
         // Destructor
@@ -89,13 +93,15 @@ namespace ReaLTaiizor.Util
         {
             // RemoveFontMemResourceEx
             foreach (IntPtr handle in logicalFonts.Values)
+            {
                 MaterialNativeTextRenderer.DeleteObject(handle);
+            }
         }
 
         private Themes _theme;
         public Themes Theme
         {
-            get { return _theme; }
+            get => _theme;
             set
             {
                 _theme = value;
@@ -107,7 +113,7 @@ namespace ReaLTaiizor.Util
         private MaterialColorScheme _colorScheme;
         public MaterialColorScheme ColorScheme
         {
-            get { return _colorScheme; }
+            get => _colorScheme;
             set
             {
                 _colorScheme = value;
@@ -325,11 +331,11 @@ namespace ReaLTaiizor.Util
         }
 
         // Font stuff
-        private Dictionary<string, IntPtr> logicalFonts;
+        private readonly Dictionary<string, IntPtr> logicalFonts;
 
-        private Dictionary<string, FontFamily> RobotoFontFamilies;
+        private readonly Dictionary<string, FontFamily> RobotoFontFamilies;
 
-        private PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+        private readonly PrivateFontCollection privateFontCollection = new PrivateFontCollection();
 
         private void addFont(byte[] fontdata)
         {
@@ -350,10 +356,12 @@ namespace ReaLTaiizor.Util
         private IntPtr createLogicalFont(string fontName, int size, MaterialNativeTextRenderer.logFontWeight weight)
         {
             // Logical font:
-            MaterialNativeTextRenderer.LogFont lfont = new MaterialNativeTextRenderer.LogFont();
-            lfont.lfFaceName = fontName;
-            lfont.lfHeight = -size;
-            lfont.lfWeight = (int)weight;
+            MaterialNativeTextRenderer.LogFont lfont = new MaterialNativeTextRenderer.LogFont
+            {
+                lfFaceName = fontName,
+                lfHeight = -size,
+                lfWeight = (int)weight
+            };
             return MaterialNativeTextRenderer.CreateFontIndirect(lfont);
         }
 
@@ -377,8 +385,8 @@ namespace ReaLTaiizor.Util
 
         private void UpdateBackgrounds()
         {
-            var newBackColor = BackdropColor;
-            foreach (var materialForm in _formsToManage)
+            Color newBackColor = BackdropColor;
+            foreach (Forms.MaterialForm materialForm in _formsToManage)
             {
                 materialForm.BackColor = newBackColor;
                 UpdateControlBackColor(materialForm, newBackColor);
@@ -388,18 +396,28 @@ namespace ReaLTaiizor.Util
         private void UpdateControlBackColor(Control controlToUpdate, Color newBackColor)
         {
             // No control
-            if (controlToUpdate == null) return;
+            if (controlToUpdate == null)
+            {
+                return;
+            }
 
             // Control's Context menu
-            if (controlToUpdate.ContextMenuStrip != null) UpdateToolStrip(controlToUpdate.ContextMenuStrip, newBackColor);
+            if (controlToUpdate.ContextMenuStrip != null)
+            {
+                UpdateToolStrip(controlToUpdate.ContextMenuStrip, newBackColor);
+            }
 
             // Material Tabcontrol pages
             if (controlToUpdate is System.Windows.Forms.TabPage)
+            {
                 ((System.Windows.Forms.TabPage)controlToUpdate).BackColor = newBackColor;
+            }
 
             // Material Divider
             else if (controlToUpdate is MaterialDivider)
+            {
                 controlToUpdate.BackColor = DividersColor;
+            }
 
             // Other Material control
             else if (controlToUpdate.IsMaterialControl())
@@ -418,20 +436,26 @@ namespace ReaLTaiizor.Util
 
             // Recursive call to control's children
             foreach (Control control in controlToUpdate.Controls)
+            {
                 UpdateControlBackColor(control, newBackColor);
+            }
         }
 
         private void UpdateToolStrip(ToolStrip toolStrip, Color newBackColor)
         {
             if (toolStrip == null)
+            {
                 return;
+            }
 
             toolStrip.BackColor = newBackColor;
             foreach (ToolStripItem control in toolStrip.Items)
             {
                 control.BackColor = newBackColor;
                 if (control is MaterialToolStripMenuItem && (control as MaterialToolStripMenuItem).HasDropDown)
+                {
                     UpdateToolStrip((control as MaterialToolStripMenuItem).DropDown, newBackColor);
+                }
             }
         }
     }
@@ -456,7 +480,7 @@ namespace ReaLTaiizor.Util
         {
             _g = g;
 
-            var clip = _g.Clip.GetHrgn(_g);
+            IntPtr clip = _g.Clip.GetHrgn(_g);
 
             _hdc = _g.GetHdc();
             SetBkMode(_hdc, 1);
@@ -470,7 +494,7 @@ namespace ReaLTaiizor.Util
         {
             SetFont(font);
 
-            var size = new Size();
+            Size size = new Size();
             GetTextExtentPoint32(_hdc, str, str.Length, ref size);
             return size;
         }
@@ -479,7 +503,7 @@ namespace ReaLTaiizor.Util
         {
             SelectObject(_hdc, LogFont);
 
-            var size = new Size();
+            Size size = new Size();
             GetTextExtentPoint32(_hdc, str, str.Length, ref size);
             return size;
         }
@@ -488,14 +512,14 @@ namespace ReaLTaiizor.Util
         {
             SetFont(font);
 
-            var size = new Size();
+            Size size = new Size();
             GetTextExtentExPoint(_hdc, str, str.Length, (int)Math.Round(maxWidth), _charFit, _charFitWidth, ref size);
             charFit = _charFit[0];
             charFitWidth = charFit > 0 ? _charFitWidth[charFit - 1] : 0;
             return size;
         }
 
-        public void DrawString(String str, Font font, Color color, Point point)
+        public void DrawString(string str, Font font, Color color, Point point)
         {
             SetFont(font);
             SetTextColor(color);
@@ -503,12 +527,12 @@ namespace ReaLTaiizor.Util
             TextOut(_hdc, point.X, point.Y, str, str.Length);
         }
 
-        public void DrawString(String str, Font font, Color color, Rectangle rect, TextFormatFlags flags)
+        public void DrawString(string str, Font font, Color color, Rectangle rect, TextFormatFlags flags)
         {
             SetFont(font);
             SetTextColor(color);
 
-            var rect2 = new Rect(rect);
+            Rect rect2 = new Rect(rect);
             DrawText(_hdc, str, str.Length, ref rect2, (uint)flags);
         }
 
@@ -539,15 +563,14 @@ namespace ReaLTaiizor.Util
             SetBkMode(memoryHdc, 1);
 
             // Create a device-independent bitmap and select it into our DC
-            var info = new BitMapInfo();
+            BitMapInfo info = new BitMapInfo();
             info.biSize = Marshal.SizeOf(info);
             info.biWidth = size.Width;
             info.biHeight = -size.Height;
             info.biPlanes = 1;
             info.biBitCount = 32;
             info.biCompression = 0; // BI_RGB
-            IntPtr ppvBits;
-            IntPtr dib = CreateDIBSection(_hdc, ref info, 0, out ppvBits, IntPtr.Zero, 0);
+            IntPtr dib = CreateDIBSection(_hdc, ref info, 0, out IntPtr ppvBits, IntPtr.Zero, 0);
             SelectObject(memoryHdc, dib);
 
             try
@@ -567,18 +590,28 @@ namespace ReaLTaiizor.Util
                     TextFormatFlags fmtFlags = TextFormatFlags.WordBreak;
                     // Aligment
                     if (flags.HasFlag(TextAlignFlags.Center))
+                    {
                         fmtFlags |= TextFormatFlags.Center;
+                    }
+
                     if (flags.HasFlag(TextAlignFlags.Right))
+                    {
                         fmtFlags |= TextFormatFlags.Right;
+                    }
 
                     // Calculate the string size
                     Rect strRect = new Rect(new Rectangle(point, size));
                     DrawText(memoryHdc, str, str.Length, ref strRect, TextFormatFlags.CalcRect | fmtFlags);
 
                     if (flags.HasFlag(TextAlignFlags.Middle))
+                    {
                         pos.Y = ((size.Height) >> 1) - (strRect.Height >> 1);
+                    }
+
                     if (flags.HasFlag(TextAlignFlags.Bottom))
+                    {
                         pos.Y = (size.Height) - (strRect.Height);
+                    }
 
                     // Draw Text for multiline format
                     Rect region = new Rect(new Rectangle(pos, size));
@@ -591,14 +624,24 @@ namespace ReaLTaiizor.Util
                     GetTextExtentPoint32(memoryHdc, str, str.Length, ref strSize);
                     // Aligment
                     if (flags.HasFlag(TextAlignFlags.Center))
+                    {
                         pos.X = ((size.Width) >> 1) - (strSize.Width >> 1);
+                    }
+
                     if (flags.HasFlag(TextAlignFlags.Right))
+                    {
                         pos.X = (size.Width) - (strSize.Width);
+                    }
 
                     if (flags.HasFlag(TextAlignFlags.Middle))
+                    {
                         pos.Y = ((size.Height) >> 1) - (strSize.Height >> 1);
+                    }
+
                     if (flags.HasFlag(TextAlignFlags.Bottom))
+                    {
                         pos.Y = (size.Height) - (strSize.Height);
+                    }
 
                     // Draw text to memory HDC
                     TextOut(memoryHdc, pos.X, pos.Y, str, str.Length);
@@ -634,23 +677,29 @@ namespace ReaLTaiizor.Util
         private static IntPtr GetCachedHFont(Font font)
         {
             IntPtr hfont = IntPtr.Zero;
-            Dictionary<float, Dictionary<FontStyle, IntPtr>> dic1;
-            if (_fontsCache.TryGetValue(font.Name, out dic1))
+            if (_fontsCache.TryGetValue(font.Name, out Dictionary<float, Dictionary<FontStyle, IntPtr>> dic1))
             {
-                Dictionary<FontStyle, IntPtr> dic2;
-                if (dic1.TryGetValue(font.Size, out dic2))
+                if (dic1.TryGetValue(font.Size, out Dictionary<FontStyle, IntPtr> dic2))
+                {
                     dic2.TryGetValue(font.Style, out hfont);
+                }
                 else
+                {
                     dic1[font.Size] = new Dictionary<FontStyle, IntPtr>();
+                }
             }
             else
             {
-                _fontsCache[font.Name] = new Dictionary<float, Dictionary<FontStyle, IntPtr>>();
-                _fontsCache[font.Name][font.Size] = new Dictionary<FontStyle, IntPtr>();
+                _fontsCache[font.Name] = new Dictionary<float, Dictionary<FontStyle, IntPtr>>
+                {
+                    [font.Size] = new Dictionary<FontStyle, IntPtr>()
+                };
             }
 
             if (hfont == IntPtr.Zero)
+            {
                 _fontsCache[font.Name][font.Size][font.Style] = hfont = font.ToHfont();
+            }
 
             return hfont;
         }
@@ -739,10 +788,10 @@ namespace ReaLTaiizor.Util
 
         private struct Rect
         {
-            private int _left;
-            private int _top;
-            private int _right;
-            private int _bottom;
+            private readonly int _left;
+            private readonly int _top;
+            private readonly int _right;
+            private readonly int _bottom;
 
             public Rect(Rectangle r)
             {
@@ -752,13 +801,7 @@ namespace ReaLTaiizor.Util
                 _right = r.Right;
             }
 
-            public int Height
-            {
-                get
-                {
-                    return _bottom - _top;
-                }
-            }
+            public int Height => _bottom - _top;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -969,15 +1012,15 @@ namespace ReaLTaiizor.Util
         private static AnimationRunType _AnimationRun = AnimationRunType.Normal;
         public static AnimationRunType AnimationRun
         {
-            get { return _AnimationRun; }
-            set { _AnimationRun = value; }
+            get => _AnimationRun;
+            set => _AnimationRun = value;
         }
 
         public static class AnimationCustomQuadratic
         {
             public static double CalculateProgress(double progress)
             {
-                var kickoff = 0.6;
+                double kickoff = 0.6;
                 return 1 - Math.Cos((Math.Max(progress, kickoff) - kickoff) * Math.PI / (2 - (2 * kickoff)));
             }
         }
@@ -1069,11 +1112,17 @@ namespace ReaLTaiizor.Util
                             if (!Singular)
                             {
                                 if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutOut;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] == MAX_VALUE) || (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] == MIN_VALUE) || (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] == MIN_VALUE))
                                 {
                                     _animationProgresses.RemoveAt(i);
@@ -1085,28 +1134,40 @@ namespace ReaLTaiizor.Util
                             else
                             {
                                 if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutOut;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                                }
                             }
                         });
                     }
                     else
                     {
-                        for (var i = 0; i < _animationProgresses.Count; i++)
+                        for (int i = 0; i < _animationProgresses.Count; i++)
                         {
                             UpdateProgress(i);
 
                             if (!Singular)
                             {
                                 if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutOut;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] == MAX_VALUE) || (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] == MIN_VALUE) || (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] == MIN_VALUE))
                                 {
                                     _animationProgresses.RemoveAt(i);
@@ -1118,11 +1179,17 @@ namespace ReaLTaiizor.Util
                             else
                             {
                                 if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutOut;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
+                                }
                                 else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
+                                }
                             }
                         }
                     }
@@ -1150,14 +1217,22 @@ namespace ReaLTaiizor.Util
                 if (!IsAnimating() || InterruptAnimation)
                 {
                     if (Singular && _animationDirections.Count > 0)
+                    {
                         _animationDirections[0] = animationDirection;
+                    }
                     else
+                    {
                         _animationDirections.Add(animationDirection);
+                    }
 
                     if (Singular && _animationSources.Count > 0)
+                    {
                         _animationSources[0] = animationSource;
+                    }
                     else
+                    {
                         _animationSources.Add(animationSource);
+                    }
 
                     if (!(Singular && _animationProgresses.Count > 0))
                     {
@@ -1179,9 +1254,13 @@ namespace ReaLTaiizor.Util
                     }
 
                     if (Singular && _animationDatas.Count > 0)
+                    {
                         _animationDatas[0] = data ?? new object[] { };
+                    }
                     else
+                    {
                         _animationDatas.Add(data ?? new object[] { });
+                    }
                 }
 
                 _animationTimer.Start();
@@ -1220,19 +1299,29 @@ namespace ReaLTaiizor.Util
                             Parallel.For(0, GetAnimationCount(), i =>
                             {
                                 if (_animationDirections[i] == AnimationDirection.InOutIn)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MAX_VALUE)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] != MAX_VALUE)
+                                {
                                     return;
+                                }
                             });
                         }
                         else
@@ -1240,19 +1329,29 @@ namespace ReaLTaiizor.Util
                             for (int i = 0; i < GetAnimationCount(); i++)
                             {
                                 if (_animationDirections[i] == AnimationDirection.InOutIn)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MAX_VALUE)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.In && _animationProgresses[i] != MAX_VALUE)
+                                {
                                     return;
+                                }
                             }
                         }
 
@@ -1280,39 +1379,59 @@ namespace ReaLTaiizor.Util
                             Parallel.For(0, GetAnimationCount(), i =>
                             {
                                 if (_animationDirections[i] == AnimationDirection.InOutIn)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MIN_VALUE)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] != MIN_VALUE)
+                                {
                                     return;
+                                }
                             });
                         }
                         else
                         {
-                            for (var i = 0; i < GetAnimationCount(); i++)
+                            for (int i = 0; i < GetAnimationCount(); i++)
                             {
                                 if (_animationDirections[i] == AnimationDirection.InOutIn)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] != MIN_VALUE)
+                                {
                                     return;
+                                }
 
                                 if (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] != MIN_VALUE)
+                                {
                                     return;
+                                }
                             }
                         }
 
@@ -1329,10 +1448,14 @@ namespace ReaLTaiizor.Util
             public double GetProgress()
             {
                 if (!Singular)
+                {
                     throw new Exception("Animation is not set to Singular.");
+                }
 
                 if (_animationProgresses.Count == 0)
+                {
                     throw new Exception("Invalid animation");
+                }
 
                 return GetProgress(0);
             }
@@ -1340,7 +1463,9 @@ namespace ReaLTaiizor.Util
             public double GetProgress(int index)
             {
                 if (!(index < GetAnimationCount()))
+                {
                     throw new IndexOutOfRangeException("Invalid animation index");
+                }
 
                 switch (AnimationType)
                 {
@@ -1360,7 +1485,9 @@ namespace ReaLTaiizor.Util
             public Point GetSource(int index)
             {
                 if (!(index < GetAnimationCount()))
+                {
                     throw new IndexOutOfRangeException("Invalid animation index");
+                }
 
                 return _animationSources[index];
             }
@@ -1368,10 +1495,14 @@ namespace ReaLTaiizor.Util
             public Point GetSource()
             {
                 if (!Singular)
+                {
                     throw new Exception("Animation is not set to Singular.");
+                }
 
                 if (_animationSources.Count == 0)
+                {
                     throw new Exception("Invalid animation");
+                }
 
                 return _animationSources[0];
             }
@@ -1379,10 +1510,14 @@ namespace ReaLTaiizor.Util
             public AnimationDirection GetDirection()
             {
                 if (!Singular)
+                {
                     throw new Exception("Animation is not set to Singular.");
+                }
 
                 if (_animationDirections.Count == 0)
+                {
                     throw new Exception("Invalid animation");
+                }
 
                 return _animationDirections[0];
             }
@@ -1390,7 +1525,9 @@ namespace ReaLTaiizor.Util
             public AnimationDirection GetDirection(int index)
             {
                 if (!(index < _animationDirections.Count))
+                {
                     throw new IndexOutOfRangeException("Invalid animation index");
+                }
 
                 return _animationDirections[index];
             }
@@ -1398,10 +1535,14 @@ namespace ReaLTaiizor.Util
             public object[] GetData()
             {
                 if (!Singular)
+                {
                     throw new Exception("Animation is not set to Singular.");
+                }
 
                 if (_animationDatas.Count == 0)
+                {
                     throw new Exception("Invalid animation");
+                }
 
                 return _animationDatas[0];
             }
@@ -1409,7 +1550,9 @@ namespace ReaLTaiizor.Util
             public object[] GetData(int index)
             {
                 if (!(index < _animationDatas.Count))
+                {
                     throw new IndexOutOfRangeException("Invalid animation index");
+                }
 
                 return _animationDatas[index];
             }
@@ -1422,10 +1565,14 @@ namespace ReaLTaiizor.Util
             public void SetProgress(double progress)
             {
                 if (!Singular)
+                {
                     throw new Exception("Animation is not set to Singular.");
+                }
 
                 if (_animationProgresses.Count == 0)
+                {
                     throw new Exception("Invalid animation");
+                }
 
                 _animationProgresses[0] = progress;
             }
@@ -1433,10 +1580,14 @@ namespace ReaLTaiizor.Util
             public void SetDirection(AnimationDirection direction)
             {
                 if (!Singular)
+                {
                     throw new Exception("Animation is not set to Singular.");
+                }
 
                 if (_animationProgresses.Count == 0)
+                {
                     throw new Exception("Invalid animation");
+                }
 
                 _animationDirections[0] = direction;
             }
@@ -1444,10 +1595,14 @@ namespace ReaLTaiizor.Util
             public void SetData(object[] data)
             {
                 if (!Singular)
+                {
                     throw new Exception("Animation is not set to Singular.");
+                }
 
                 if (_animationDatas.Count == 0)
+                {
                     throw new Exception("Invalid animation");
+                }
 
                 _animationDatas[0] = data;
             }

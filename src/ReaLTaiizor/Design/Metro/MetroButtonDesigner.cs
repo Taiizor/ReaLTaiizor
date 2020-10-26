@@ -19,11 +19,13 @@ namespace ReaLTaiizor.Design.Metro
             "RightToLeft","ImeMode"
         };
 
-
         protected override void PostFilterProperties(IDictionary properties)
         {
-            foreach (var property in _propertiesToRemove)
+            foreach (string property in _propertiesToRemove)
+            {
                 properties.Remove(property);
+            }
+
             base.PostFilterProperties(properties);
         }
 

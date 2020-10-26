@@ -42,31 +42,31 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color CheckedBackColorA
         {
-            get { return _CheckedBackColorA; }
-            set { _CheckedBackColorA = value; }
+            get => _CheckedBackColorA;
+            set => _CheckedBackColorA = value;
         }
 
         public Color CheckedBackColorB
         {
-            get { return _CheckedBackColorB; }
-            set { _CheckedBackColorB = value; }
+            get => _CheckedBackColorB;
+            set => _CheckedBackColorB = value;
         }
 
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
-            set { _CheckedColor = value; }
+            get => _CheckedColor;
+            set => _CheckedColor = value;
         }
 
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -94,7 +94,10 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (!_Checked)
+            {
                 Checked = true;
+            }
+
             base.OnMouseDown(e);
             Focus();
         }
@@ -114,19 +117,23 @@ namespace ReaLTaiizor.Controls
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
+            {
                 return;
+            }
 
             foreach (Control _Control in Parent.Controls)
             {
                 if (!object.ReferenceEquals(_Control, this) && _Control is DungeonRadioButton)
+                {
                     ((DungeonRadioButton)_Control).Checked = false;
+                }
             }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            var MyDrawer = e.Graphics;
+            Graphics MyDrawer = e.Graphics;
 
             MyDrawer.Clear(BackColor);
             MyDrawer.SmoothingMode = SmoothingMode.AntiAlias;

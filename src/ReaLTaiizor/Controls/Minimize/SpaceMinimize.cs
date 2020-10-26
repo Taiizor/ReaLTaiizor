@@ -69,7 +69,10 @@ namespace ReaLTaiizor.Controls
                 Parent.FindForm().WindowState = FormWindowState.Minimized;
             }
             else
+            {
                 DrawGradient(C3, C4, ClientRectangle, 90f); // else change the shading
+            }
+
             DrawText(B1, HorizontalAlignment.Center, 0, 0); // Draw the Text Smack dab in the middle of the button
             DrawBorders(P1, 1); // Create the Inner Border
             DrawBorders(P2); // Create the Outer Border

@@ -13,14 +13,14 @@ namespace ReaLTaiizor.Forms
 
     public class MoonForm : MoonLibrary
     {
-        Color G1;
-        Color G2;
-        Color BG;
+        private Color G1;
+        private Color G2;
+        private Color BG;
 
         private Color _TitleColor = Color.Black;
         public Color TitleColor
         {
-            get { return _TitleColor; }
+            get => _TitleColor;
             set
             {
                 _TitleColor = value;
@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Forms
         private Color _BorderColor = Color.LightGray;
         public Color BorderColor
         {
-            get { return _BorderColor; }
+            get => _BorderColor;
             set
             {
                 _BorderColor = value;
@@ -42,7 +42,7 @@ namespace ReaLTaiizor.Forms
         private Color _FirstEdge = Color.LightGray;
         public Color FirstEdge
         {
-            get { return _FirstEdge; }
+            get => _FirstEdge;
             set
             {
                 _FirstEdge = value;
@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Forms
         private Color _SecondEdge = Color.White;
         public Color SecondEdge
         {
-            get { return _SecondEdge; }
+            get => _SecondEdge;
             set
             {
                 _SecondEdge = value;

@@ -13,14 +13,14 @@ namespace ReaLTaiizor.Controls
 
     public class SkyTextBox : Control
     {
-        System.Windows.Forms.TextBox txtbox = new System.Windows.Forms.TextBox();
+        private readonly System.Windows.Forms.TextBox txtbox = new System.Windows.Forms.TextBox();
 
         #region " Control Help - Properties & Flicker Control "
 
         private bool _passmask = false;
         public bool UseSystemPasswordChar
         {
-            get { return _passmask; }
+            get => _passmask;
             set
             {
                 txtbox.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
         private int _maxchars = 32767;
         public int MaxLength
         {
-            get { return _maxchars; }
+            get => _maxchars;
             set
             {
                 _maxchars = value;
@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
         private HorizontalAlignment _align;
         public HorizontalAlignment TextAlignment
         {
-            get { return _align; }
+            get => _align;
             set
             {
                 _align = value;
@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Controls
         private bool _multiline = false;
         public bool MultiLine
         {
-            get { return _multiline; }
+            get => _multiline;
             set
             {
                 _multiline = value;

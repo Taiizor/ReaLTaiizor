@@ -18,12 +18,12 @@ namespace ReaLTaiizor.Controls
 
         #region " Control Help - Properties & Flicker Control "
         private int OFS = 0;
-        private int Speed = 50;
+        private readonly int Speed = 50;
 
         private int _Maximum = 100;
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 _Maximum = value;
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
         private bool _ShowPercentage = false;
         public bool ShowPercentage
         {
-            get { return _ShowPercentage; }
+            get => _ShowPercentage;
             set
             {
                 _ShowPercentage = value;
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
         private bool _ShowEdge = false;
         public bool ShowEdge
         {
-            get { return _ShowEdge; }
+            get => _ShowEdge;
             set
             {
                 _ShowEdge = value;
@@ -76,8 +76,10 @@ namespace ReaLTaiizor.Controls
         protected override void CreateHandle()
         {
             base.CreateHandle();
-            Thread T = new Thread(Animate);
-            T.IsBackground = true;
+            Thread T = new Thread(Animate)
+            {
+                IsBackground = true
+            };
         }
 
         public void Animate()
@@ -85,9 +87,14 @@ namespace ReaLTaiizor.Controls
             while (true)
             {
                 if (OFS <= Width)
+                {
                     OFS += 1;
+                }
                 else
+                {
                     OFS = 0;
+                }
+
                 Invalidate();
                 Thread.Sleep(Speed);
             }
@@ -96,7 +103,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -107,7 +114,7 @@ namespace ReaLTaiizor.Controls
         private string _PercentageText = "%";
         public string PercentageText
         {
-            get { return _PercentageText; }
+            get => _PercentageText;
             set
             {
                 _PercentageText = value;
@@ -118,7 +125,7 @@ namespace ReaLTaiizor.Controls
         private Color _ProgressBorderColorA = Color.FromArgb(150, 97, 94, 90);
         public Color ProgressBorderColorA
         {
-            get { return _ProgressBorderColorA; }
+            get => _ProgressBorderColorA;
             set
             {
                 _ProgressBorderColorA = value;
@@ -129,7 +136,7 @@ namespace ReaLTaiizor.Controls
         private Color _ProgressBorderColorB = Color.FromArgb(142, 107, 46);
         public Color ProgressBorderColorB
         {
-            get { return _ProgressBorderColorB; }
+            get => _ProgressBorderColorB;
             set
             {
                 _ProgressBorderColorB = value;
@@ -140,7 +147,7 @@ namespace ReaLTaiizor.Controls
         private Color _EdgeColor = Color.FromArgb(125, 97, 94, 90);
         public Color EdgeColor
         {
-            get { return _EdgeColor; }
+            get => _EdgeColor;
             set
             {
                 _EdgeColor = value;
@@ -151,7 +158,7 @@ namespace ReaLTaiizor.Controls
         private Color _BorderColor = Color.FromArgb(117, 120, 117);
         public Color BorderColor
         {
-            get { return _BorderColor; }
+            get => _BorderColor;
             set
             {
                 _BorderColor = value;
@@ -162,7 +169,7 @@ namespace ReaLTaiizor.Controls
         private Color _ColorA = Color.FromArgb(203, 201, 205);
         public Color ColorA
         {
-            get { return _ColorA; }
+            get => _ColorA;
             set
             {
                 _ColorA = value;
@@ -173,7 +180,7 @@ namespace ReaLTaiizor.Controls
         private Color _ColorB = Color.FromArgb(188, 186, 190);
         public Color ColorB
         {
-            get { return _ColorB; }
+            get => _ColorB;
             set
             {
                 _ColorB = value;
@@ -184,7 +191,7 @@ namespace ReaLTaiizor.Controls
         private Color _BaseColor = Color.FromArgb(75, Color.White);
         public Color BaseColor
         {
-            get { return _BaseColor; }
+            get => _BaseColor;
             set
             {
                 _BaseColor = value;
@@ -195,7 +202,7 @@ namespace ReaLTaiizor.Controls
         private Color _ProgressColorA = Color.FromArgb(214, 162, 68);
         public Color ProgressColorA
         {
-            get { return _ProgressColorA; }
+            get => _ProgressColorA;
             set
             {
                 _ProgressColorA = value;
@@ -206,7 +213,7 @@ namespace ReaLTaiizor.Controls
         private Color _ProgressColorB = Color.FromArgb(199, 147, 53);
         public Color ProgressColorB
         {
-            get { return _ProgressColorB; }
+            get => _ProgressColorB;
             set
             {
                 _ProgressColorB = value;
@@ -217,7 +224,7 @@ namespace ReaLTaiizor.Controls
         private Color _ProgressLineColorA = Color.FromArgb(40, Color.White);
         public Color ProgressLineColorA
         {
-            get { return _ProgressLineColorA; }
+            get => _ProgressLineColorA;
             set
             {
                 _ProgressLineColorA = value;
@@ -228,7 +235,7 @@ namespace ReaLTaiizor.Controls
         private Color _ProgressLineColorB = Color.FromArgb(20, Color.White);
         public Color ProgressLineColorB
         {
-            get { return _ProgressLineColorB; }
+            get => _ProgressLineColorB;
             set
             {
                 _ProgressLineColorB = value;
@@ -239,7 +246,7 @@ namespace ReaLTaiizor.Controls
         private HatchStyle _HatchType = HatchStyle.DarkUpwardDiagonal;
         public HatchStyle HatchType
         {
-            get { return _HatchType; }
+            get => _HatchType;
             set
             {
                 _HatchType = value;
@@ -275,8 +282,10 @@ namespace ReaLTaiizor.Controls
             G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
 
             if (ShowEdge)
+            {
                 G.DrawPath(new Pen(EdgeColor), DrawRibbon.RoundRect(new Rectangle(0, 1, Width - 1, Height - 3), 2));
-            
+            }
+
             G.DrawPath(new Pen(BorderColor), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
 
             G.DrawPath(new Pen(ProgressBorderColorA), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));

@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
         private Color _bordercolor = ThemeLost.AccentPen.Color;
         public Color BorderColor
         {
-            get { return _bordercolor; }
+            get => _bordercolor;
             set { _bordercolor = value; Invalidate(); }
         }
 

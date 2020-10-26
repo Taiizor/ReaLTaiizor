@@ -32,10 +32,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroEllipse.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroEllipse.MetroStyleManager;
-            set => _metroEllipse.MetroStyleManager = value;
+            get => _metroEllipse.StyleManager;
+            set => _metroEllipse.StyleManager = value;
         }
 
         public string Text
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
@@ -84,10 +84,9 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("BorderThickness", "BorderThickness", "Appearance", "Gets or sets the border thickness associated with the control."),
                 new DesignerActionPropertyItem("Image", "Image", "Appearance", "Gets or sets the image associated with the control."),
                 new DesignerActionPropertyItem("ImageSize", "ImageSize", "Appearance", "Gets or sets the image size associated with the control."),
-                };
-
-                return items;
-            }
+            };
+            return items;
+        }
     }
 
     #endregion

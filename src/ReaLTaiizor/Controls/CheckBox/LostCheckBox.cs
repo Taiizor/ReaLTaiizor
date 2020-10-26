@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
         private Color _checkedcolor = ThemeLost.FontBrush.Color;
         public bool Checked
         {
-            get { return _checked; }
+            get => _checked;
             set
             {
                 _checked = value;
@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Controls
         }
         public Color CheckedColor
         {
-            get { return _checkedcolor; }
+            get => _checkedcolor;
             set
             {
                 _checkedcolor = value;
@@ -52,12 +52,16 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             if (MouseOver)
+            {
                 e.Graphics.FillRectangle(new SolidBrush(ThemeLost.ForeColor.Shade(ThemeLost.ShadowSize, 0)), ClientRectangle);
+            }
 
             e.Graphics.DrawRectangle(ThemeLost.FontPen, 1, 1, Height - 2, Height - 2);
 
             if (Checked)
+            {
                 e.Graphics.FillRectangle(new SolidBrush(_checkedcolor), 4, 4, Height - 7, Height - 7);
+            }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);
             e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), Height + 3, Height / 2 - textSize.Height / 2);

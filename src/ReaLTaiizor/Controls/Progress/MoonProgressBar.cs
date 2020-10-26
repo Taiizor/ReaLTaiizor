@@ -13,24 +13,31 @@ namespace ReaLTaiizor.Controls
 
     public class MoonProgressBar : MoonControl
     {
-        Color BG;
-
-        int HBPos;
+        private Color BG;
+        private int HBPos;
 
         private int _Minimum;
         public int Minimum
         {
-            get { return _Minimum; }
+            get => _Minimum;
             set
             {
                 if (value < 0)
+                {
                     throw new Exception("Property value is not valid.");
+                }
 
                 _Minimum = value;
                 if (value > _Value)
+                {
                     _Value = value;
+                }
+
                 if (value > _Maximum)
+                {
                     _Maximum = value;
+                }
+
                 Invalidate();
             }
         }
@@ -38,17 +45,25 @@ namespace ReaLTaiizor.Controls
         private int _Maximum = 100;
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 if (value < 0)
+                {
                     throw new Exception("Property value is not valid.");
+                }
 
                 _Maximum = value;
                 if (value < _Value)
+                {
                     _Value = value;
+                }
+
                 if (value < _Minimum)
+                {
                     _Minimum = value;
+                }
+
                 Invalidate();
             }
         }
@@ -56,11 +71,13 @@ namespace ReaLTaiizor.Controls
         private int _Value;
         public int Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value > _Maximum || value < _Minimum)
+                {
                     throw new Exception("Property value is not valid.");
+                }
 
                 _Value = value;
                 Invalidate();
@@ -70,7 +87,7 @@ namespace ReaLTaiizor.Controls
         private Color _LineColor = Color.White;
         public Color LineColor
         {
-            get { return _LineColor; }
+            get => _LineColor;
             set
             {
                 _LineColor = value;
@@ -81,7 +98,7 @@ namespace ReaLTaiizor.Controls
         private Color _LinesColor = Color.LightGray;
         public Color LinesColor
         {
-            get { return _LinesColor; }
+            get => _LinesColor;
             set
             {
                 _LinesColor = value;
@@ -92,7 +109,7 @@ namespace ReaLTaiizor.Controls
         private Color _LinerColor = Color.Transparent;
         public Color LinerColor
         {
-            get { return _LinerColor; }
+            get => _LinerColor;
             set
             {
                 _LinerColor = value;
@@ -103,7 +120,7 @@ namespace ReaLTaiizor.Controls
         private Color _LineUpColor = Color.FromArgb(240, 240, 240);
         public Color LineUpColor
         {
-            get { return _LineUpColor; }
+            get => _LineUpColor;
             set
             {
                 _LineUpColor = value;
@@ -114,7 +131,7 @@ namespace ReaLTaiizor.Controls
         private Color _LineEndColor = Color.LightGray;
         public Color LineEndColor
         {
-            get { return _LineEndColor; }
+            get => _LineEndColor;
             set
             {
                 _LineEndColor = value;
@@ -125,7 +142,7 @@ namespace ReaLTaiizor.Controls
         private HatchStyle _HatchType = HatchStyle.BackwardDiagonal;
         public HatchStyle HatchType
         {
-            get { return _HatchType; }
+            get => _HatchType;
             set
             {
                 _HatchType = value;
@@ -140,7 +157,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Animated
         {
-            get { return IsAnimated; }
+            get => IsAnimated;
             set
             {
                 IsAnimated = value;
@@ -151,9 +168,13 @@ namespace ReaLTaiizor.Controls
         protected override void OnAnimation()
         {
             if (HBPos == 0)
+            {
                 HBPos = 7;
+            }
             else
+            {
                 HBPos += 1;
+            }
         }
 
         public MoonProgressBar()

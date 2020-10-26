@@ -25,8 +25,8 @@ namespace ReaLTaiizor.Controls
         private LinearGradientBrush EnteredGB;
         private Color _EnteredColor = Color.FromArgb(32, 34, 37);
         private Rectangle R1;
-        private Pen P1;
-        private Pen P3;
+        private readonly Pen P1;
+        private readonly Pen P3;
         private Image _Image;
         private Size _ImageSize;
         private StringAlignment _TextAlignment = StringAlignment.Center;
@@ -118,36 +118,28 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
                 Invalidate();
             }
         }
 
-        protected Size ImageSize
-        {
-            get
-            {
-                return _ImageSize;
-            }
-        }
+        protected Size ImageSize => _ImageSize;
 
         public ContentAlignment ImageAlign
         {
-            get
-            {
-                return _ImageAlign;
-            }
+            get => _ImageAlign;
             set
             {
                 _ImageAlign = value;
@@ -157,10 +149,7 @@ namespace ReaLTaiizor.Controls
 
         public StringAlignment TextAlignment
         {
-            get
-            {
-                return _TextAlignment;
-            }
+            get => _TextAlignment;
             set
             {
                 _TextAlignment = value;
@@ -170,10 +159,7 @@ namespace ReaLTaiizor.Controls
 
         public override Color ForeColor
         {
-            get
-            {
-                return _TextColor;
-            }
+            get => _TextColor;
             set
             {
                 _TextColor = value;
@@ -183,20 +169,20 @@ namespace ReaLTaiizor.Controls
 
         public Color InactiveColor
         {
-            get { return _InactiveColor; }
-            set { _InactiveColor = value; }
+            get => _InactiveColor;
+            set => _InactiveColor = value;
         }
 
         public Color PressedColor
         {
-            get { return _PressedColor; }
-            set { _PressedColor = value; }
+            get => _PressedColor;
+            set => _PressedColor = value;
         }
 
         public Color EnteredColor
         {
-            get { return _EnteredColor; }
-            set { _EnteredColor = value; }
+            get => _EnteredColor;
+            set => _EnteredColor = value;
         }
 
         #endregion
@@ -286,7 +272,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics G = e.Graphics;
             G.SmoothingMode = SmoothingMode.HighQuality;
             PointF ipt = ImageLocation(GetStringFormat(ImageAlign), Size, ImageSize);
 

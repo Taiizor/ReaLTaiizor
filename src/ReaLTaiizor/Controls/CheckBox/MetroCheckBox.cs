@@ -13,7 +13,6 @@ using ReaLTaiizor.Design.Metro;
 using ReaLTaiizor.Animate.Metro;
 using ReaLTaiizor.Extension.Metro;
 using ReaLTaiizor.Interface.Metro;
-using System.Runtime.InteropServices;
 
 #endregion
 
@@ -26,16 +25,14 @@ namespace ReaLTaiizor.Controls
     [Designer(typeof(MetroCheckBoxDesigner))]
     [DefaultEvent("CheckedChanged")]
     [DefaultProperty("Checked")]
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroCheckBox : Control, iControl, IDisposable
+    public class MetroCheckBox : Control, IMetroControl, IDisposable
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -59,10 +56,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -82,9 +79,17 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private bool _checked;
-        private IntAnimate _animator;
+        private readonly IntAnimate _animator;
+
+        private bool _isDerivedStyle = true;
+        private SignStyle _signStyle = SignStyle.Sign;
+        private Enum.Metro.CheckState _checkState;
+        private Color _backgroundColor;
+        private Color _borderColor;
+        private Color _disabledBorderColor;
+        private Color _checkSignColor;
 
         #endregion Internal Vars
 
@@ -100,12 +105,12 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            Font = MetroFonts.SemiBold(10);
-            Cursor = Cursors.Hand;
-            BackColor = Color.Transparent;
+            base.Font = MetroFonts.Light(10);
+            base.Cursor = Cursors.Hand;
+            base.BackColor = Color.Transparent;
             _utl = new Utilites();
             _animator = new IntAnimate();
-            _animator.Setting(100, 0, 255, EasingType.Linear);
+            _animator.Setting(100, 0, 255);
             _animator.Update = (alpha) => Invalidate();
             ApplyTheme();
         }
@@ -116,6 +121,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -125,7 +135,7 @@ namespace ReaLTaiizor.Controls
                     DisabledBorderColor = Color.FromArgb(205, 205, 205);
                     CheckSignColor = Color.FromArgb(65, 177, 225);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -139,8 +149,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.CheckBoxDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.CheckBoxDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -161,14 +172,21 @@ namespace ReaLTaiizor.Controls
                                     break;
                                 case "CheckedStyle":
                                     if ((string)varkey.Value == "Sign")
+                                    {
                                         SignStyle = SignStyle.Sign;
+                                    }
                                     else if ((string)varkey.Value == "Shape")
+                                    {
                                         SignStyle = SignStyle.Shape;
+                                    }
+
                                     break;
                                 default:
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -187,28 +205,28 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            var rect = new Rectangle(0, 0, 16, 15);
-            var alpha = _animator.Value;
+            Rectangle rect = new Rectangle(0, 0, 16, 15);
+            int alpha = _animator.Value;
 
-            using (var backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
+            using (SolidBrush backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
             {
-                using (var checkMarkPen = new Pen(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Color.FromArgb(alpha, DisabledBorderColor), 2))
+                using (Pen checkMarkPen = new Pen(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Color.FromArgb(alpha, DisabledBorderColor), 2))
                 {
-                    using (var checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : DisabledBorderColor))
+                    using (SolidBrush checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : DisabledBorderColor))
                     {
-                        using (var p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                        using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
                         {
-                            using (var sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
+                            using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
                             {
-                                using (var tb = new SolidBrush(ForeColor))
+                                using (SolidBrush tb = new SolidBrush(ForeColor))
                                 {
-                                    G.FillRectangle(backBrush, rect);
-                                    G.DrawRectangle(Enabled ? p : checkMarkPen, rect);
-                                    DrawSymbol(G, checkMarkPen, checkMarkBrush);
-                                    G.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
+                                    g.FillRectangle(backBrush, rect);
+                                    g.DrawRectangle(Enabled ? p : checkMarkPen, rect);
+                                    DrawSymbol(g, checkMarkPen, checkMarkBrush);
+                                    g.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
                                 }
                             }
                         }
@@ -219,7 +237,11 @@ namespace ReaLTaiizor.Controls
 
         private void DrawSymbol(Graphics g, Pen pen, SolidBrush solidBrush)
         {
-            if (solidBrush == null) throw new ArgumentNullException(nameof(solidBrush));
+            if (solidBrush == null)
+            {
+                throw new ArgumentNullException(nameof(solidBrush));
+            }
+
             if (SignStyle == SignStyle.Sign)
             {
                 g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -290,10 +312,26 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the the sign style of check.")]
-        public SignStyle SignStyle { get; set; } = SignStyle.Sign;
+        public SignStyle SignStyle
+        {
+            get => _signStyle;
+            set
+            {
+                _signStyle = value;
+                Refresh();
+            }
+        }
 
         [Browsable(false)]
-        public Enum.Metro.CheckState CheckState { get; set; }
+        public Enum.Metro.CheckState CheckState
+        {
+            get => _checkState;
+            set
+            {
+                _checkState = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the form forecolor.")]
         public override Color ForeColor { get; set; }
@@ -303,16 +341,61 @@ namespace ReaLTaiizor.Controls
 
         [Category("Metro"), Description("Gets or sets the form backcolor.")]
         [DisplayName("BackColor")]
-        public Color BackgroundColor { get; set; }
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color.")]
-        public Color BorderColor { get; set; }
+        public Color BorderColor
+        {
+            get => _borderColor;
+            set
+            {
+                _borderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the color of the check symbol.")]
-        public Color CheckSignColor { get; set; }
+        public Color CheckSignColor
+        {
+            get => _checkSignColor;
+            set
+            {
+                _checkSignColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
 
@@ -324,13 +407,7 @@ namespace ReaLTaiizor.Controls
             GC.SuppressFinalize(this);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-        }
-
         #endregion
-
     }
 
     #endregion

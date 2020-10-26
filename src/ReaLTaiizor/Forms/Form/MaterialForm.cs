@@ -32,8 +32,8 @@ namespace ReaLTaiizor.Forms
 
         public new FormBorderStyle FormBorderStyle
         {
-            get { return base.FormBorderStyle; }
-            set { base.FormBorderStyle = value; }
+            get => base.FormBorderStyle;
+            set => base.FormBorderStyle = value;
         }
 
         [Category("Layout")]
@@ -167,13 +167,7 @@ namespace ReaLTaiizor.Forms
         private Rectangle _xButtonBounds;
         private Rectangle _actionBarBounds;
 
-        public Rectangle UserArea
-        {
-            get
-            {
-                return new Rectangle(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
-            }
-        }
+        public Rectangle UserArea => new Rectangle(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
 
         private Rectangle _statusBarBounds;
         private bool _maximized;
@@ -213,7 +207,10 @@ namespace ReaLTaiizor.Forms
             Shown += (sender, e) =>
             {
                 if (DesignMode || IsDisposed)
+                {
                     return;
+                }
+
                 AddDrawerOverlayForm();
             };
         }
@@ -224,7 +221,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerShowIconsWhenHidden
         {
-            get { return _drawerShowIconsWhenHidden; }
+            get => _drawerShowIconsWhenHidden;
             set
             {
                 _drawerShowIconsWhenHidden = value;
@@ -250,19 +247,20 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerIsOpen
         {
-            get
-            {
-                return _drawerIsOpen;
-            }
+            get => _drawerIsOpen;
             set
             {
                 _drawerIsOpen = value;
                 if (drawerControl != null)
                 {
                     if (value)
+                    {
                         drawerControl.Show();
+                    }
                     else
+                    {
                         drawerControl.Hide();
+                    }
                 }
             }
         }
@@ -272,10 +270,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerUseColors
         {
-            get
-            {
-                return _drawerUseColors;
-            }
+            get => _drawerUseColors;
             set
             {
                 _drawerUseColors = value;
@@ -292,10 +287,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerHighlightWithAccent
         {
-            get
-            {
-                return _drawerHighlightWithAccent;
-            }
+            get => _drawerHighlightWithAccent;
             set
             {
                 _drawerHighlightWithAccent = value;
@@ -312,10 +304,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerBackgroundWithAccent
         {
-            get
-            {
-                return _backgroundWithAccent;
-            }
+            get => _backgroundWithAccent;
             set
             {
                 _backgroundWithAccent = value;
@@ -327,7 +316,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private MaterialDrawer drawerControl = new MaterialDrawer();
+        private readonly MaterialDrawer drawerControl = new MaterialDrawer();
 
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
@@ -336,11 +325,13 @@ namespace ReaLTaiizor.Forms
 
         protected void AddDrawerOverlayForm()
         {
-            System.Windows.Forms.Form drawerOverlay = new System.Windows.Forms.Form();
-            System.Windows.Forms.Form drawerForm = new System.Windows.Forms.Form();
+            Form drawerOverlay = new Form();
+            Form drawerForm = new Form();
 
             if (DrawerTabControl == null)
+            {
                 return;
+            }
 
             // Form opacity fade animation;
             _drawerShowHideAnimManager = new AnimationManager
@@ -455,7 +446,9 @@ namespace ReaLTaiizor.Forms
             // Form Padding corrections
 
             if (Padding.Top < (_statusBarBounds.Height + _actionBarBounds.Height))
+            {
                 Padding = new Padding(Padding.Left, (_statusBarBounds.Height + _actionBarBounds.Height), Padding.Right, Padding.Bottom);
+            }
 
             originalPadding = Padding;
 
@@ -470,21 +463,30 @@ namespace ReaLTaiizor.Forms
         private void TerminateOnClose(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+            //FindForm().Close();
+            //Close();
         }
 
         private void FixFormPadding(object sender)
         {
             if (drawerControl.ShowIconsWhenHidden &&
-                Padding.Left < drawerControl.MinWidth) Padding = new Padding(drawerControl.MinWidth, originalPadding.Top, originalPadding.Right, originalPadding.Bottom);
+                Padding.Left < drawerControl.MinWidth)
+            {
+                Padding = new Padding(drawerControl.MinWidth, originalPadding.Top, originalPadding.Right, originalPadding.Bottom);
+            }
             else
+            {
                 Padding = originalPadding;
+            }
         }
 
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
             if (DesignMode || IsDisposed)
+            {
                 return;
+            }
 
             // Drawer
             if (DrawerTabControl != null && (m.Msg == WM_LBUTTONDOWN || m.Msg == WM_LBUTTONDBLCLK) && _drawerIconRect.Contains(PointToClient(Cursor.Position)))
@@ -492,11 +494,13 @@ namespace ReaLTaiizor.Forms
                 drawerControl.Toggle();
                 _clickAnimManager.SetProgress(0);
                 _clickAnimManager.StartNewAnimation(AnimationDirection.In);
-                _animationSource = (PointToClient(Cursor.Position));
+                _animationSource = PointToClient(Cursor.Position);
             }
             // Double click to maximize
             else if (m.Msg == WM_LBUTTONDBLCLK)
+            {
                 MaximizeWindow(!_maximized);
+            }
             // move a maximized window
             else if (m.Msg == WM_MOUSEMOVE && _maximized && (_statusBarBounds.Contains(PointToClient(Cursor.Position)) || _actionBarBounds.Contains(PointToClient(Cursor.Position))) && !(_minButtonBounds.Contains(PointToClient(Cursor.Position)) || _maxButtonBounds.Contains(PointToClient(Cursor.Position)) || _xButtonBounds.Contains(PointToClient(Cursor.Position))))
             {
@@ -505,15 +509,19 @@ namespace ReaLTaiizor.Forms
                     _maximized = false;
                     _headerMouseDown = false;
 
-                    var mousePoint = PointToClient(Cursor.Position);
+                    Point mousePoint = PointToClient(Cursor.Position);
                     if (mousePoint.X < Width / 2)
+                    {
                         Location = mousePoint.X < _previousSize.Width / 2 ?
                             new Point(Cursor.Position.X - mousePoint.X, Cursor.Position.Y - mousePoint.Y) :
                             new Point(Cursor.Position.X - _previousSize.Width / 2, Cursor.Position.Y - mousePoint.Y);
+                    }
                     else
+                    {
                         Location = Width - mousePoint.X < _previousSize.Width / 2 ?
                             new Point(Cursor.Position.X - _previousSize.Width + Width - mousePoint.X, Cursor.Position.Y - mousePoint.Y) :
                             new Point(Cursor.Position.X - _previousSize.Width / 2, Cursor.Position.Y - mousePoint.Y);
+                    }
 
                     Size = _previousSize;
                     ReleaseCapture();
@@ -529,7 +537,9 @@ namespace ReaLTaiizor.Forms
                     SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                 }
                 else
+                {
                     _headerMouseDown = true;
+                }
             }
             // Default context menu
             else if (m.Msg == WM_RBUTTONDOWN)
@@ -540,7 +550,7 @@ namespace ReaLTaiizor.Forms
                     !_maxButtonBounds.Contains(cursorPos) && !_xButtonBounds.Contains(cursorPos))
                 {
                     // Show default system menu when right clicking titlebar
-                    var id = TrackPopupMenuEx(GetSystemMenu(Handle, false), TPM_LEFTALIGN | TPM_RETURNCMD, Cursor.Position.X, Cursor.Position.Y, Handle, IntPtr.Zero);
+                    int id = TrackPopupMenuEx(GetSystemMenu(Handle, false), TPM_LEFTALIGN | TPM_RETURNCMD, Cursor.Position.X, Cursor.Position.Y, Handle, IntPtr.Zero);
 
                     // Pass the command as a WM_SYSCOMMAND message
                     SendMessage(Handle, WM_SYSCOMMAND, id, 0);
@@ -551,26 +561,34 @@ namespace ReaLTaiizor.Forms
                 // This re-enables resizing by letting the application know when the
                 // user is trying to resize a side. This is disabled by default when using WS_SYSMENU.
                 if (!Sizable)
+                {
                     return;
+                }
 
                 byte bFlag = 0;
 
                 // Get which side to resize from
                 if (_resizingLocationsToCmd.ContainsKey((int)m.WParam))
+                {
                     bFlag = (byte)_resizingLocationsToCmd[(int)m.WParam];
+                }
 
                 if (bFlag != 0)
+                {
                     SendMessage(Handle, WM_SYSCOMMAND, 0xF000 | bFlag, (int)m.LParam);
+                }
             }
             else if (m.Msg == WM_LBUTTONUP)
+            {
                 _headerMouseDown = false;
+            }
         }
 
         protected override CreateParams CreateParams
         {
             get
             {
-                var par = base.CreateParams;
+                CreateParams par = base.CreateParams;
                 // WS_SYSMENU: Trigger the creation of the system menu
                 // WS_MINIMIZEBOX: Allow minimizing from taskbar
                 par.Style = par.Style | WS_MINIMIZEBOX | WS_SYSMENU; // Turn on the WS_MINIMIZEBOX style flag
@@ -581,11 +599,17 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (DesignMode)
+            {
                 return;
+            }
+
             UpdateButtons(e);
 
             if (e.Button == MouseButtons.Left && !_maximized)
+            {
                 ResizeForm(_resizeDir);
+            }
+
             base.OnMouseDown(e);
         }
 
@@ -593,7 +617,10 @@ namespace ReaLTaiizor.Forms
         {
             base.OnMouseLeave(e);
             if (DesignMode)
+            {
                 return;
+            }
+
             _buttonState = ButtonState.None;
             Invalidate();
         }
@@ -603,12 +630,14 @@ namespace ReaLTaiizor.Forms
             base.OnMouseMove(e);
 
             if (DesignMode)
+            {
                 return;
+            }
 
             if (Sizable)
             {
                 //True if the mouse is hovering over a child control
-                var isChildUnderMouse = GetChildAtPoint(e.Location) != null;
+                bool isChildUnderMouse = GetChildAtPoint(e.Location) != null;
 
                 if (e.Location.X < BORDER_WIDTH && e.Location.Y > Height - BORDER_WIDTH && !isChildUnderMouse && !_maximized)
                 {
@@ -641,7 +670,9 @@ namespace ReaLTaiizor.Forms
 
                     //Only reset the cursor when needed, this prevents it from flickering when a child control changes the cursor to its own needs
                     if (_resizeCursors.Contains(Cursor))
+                    {
                         Cursor = Cursors.Default;
+                    }
                 }
             }
 
@@ -651,33 +682,48 @@ namespace ReaLTaiizor.Forms
         protected void OnGlobalMouseMove(object sender, MouseEventArgs e)
         {
             if (IsDisposed)
+            {
                 return;
+            }
             // Convert to client position and pass to Form.MouseMove
-            var clientCursorPos = PointToClient(e.Location);
-            var newE = new MouseEventArgs(MouseButtons.None, 0, clientCursorPos.X, clientCursorPos.Y, 0);
+            Point clientCursorPos = PointToClient(e.Location);
+            MouseEventArgs newE = new MouseEventArgs(MouseButtons.None, 0, clientCursorPos.X, clientCursorPos.Y, 0);
             OnMouseMove(newE);
         }
 
         private void UpdateButtons(MouseEventArgs e, bool up = false)
         {
             if (DesignMode)
+            {
                 return;
-            var oldState = _buttonState;
+            }
+
+            ButtonState oldState = _buttonState;
             bool showMin = MinimizeBox && ControlBox;
             bool showMax = MaximizeBox && ControlBox;
 
             if (e.Button == MouseButtons.Left && !up)
             {
                 if (showMin && !showMax && _maxButtonBounds.Contains(e.Location))
+                {
                     _buttonState = ButtonState.MinDown;
+                }
                 else if (showMin && showMax && _minButtonBounds.Contains(e.Location))
+                {
                     _buttonState = ButtonState.MinDown;
+                }
                 else if (showMax && _maxButtonBounds.Contains(e.Location))
+                {
                     _buttonState = ButtonState.MaxDown;
+                }
                 else if (ControlBox && _xButtonBounds.Contains(e.Location))
+                {
                     _buttonState = ButtonState.XDown;
+                }
                 else
+                {
                     _buttonState = ButtonState.None;
+                }
             }
             else
             {
@@ -686,48 +732,62 @@ namespace ReaLTaiizor.Forms
                     _buttonState = ButtonState.MinOver;
 
                     if (oldState == ButtonState.MinDown && up)
+                    {
                         WindowState = FormWindowState.Minimized;
+                    }
                 }
                 else if (showMin && showMax && _minButtonBounds.Contains(e.Location))
                 {
                     _buttonState = ButtonState.MinOver;
 
                     if (oldState == ButtonState.MinDown && up)
+                    {
                         WindowState = FormWindowState.Minimized;
+                    }
                 }
                 else if (MaximizeBox && ControlBox && _maxButtonBounds.Contains(e.Location))
                 {
                     _buttonState = ButtonState.MaxOver;
 
                     if (oldState == ButtonState.MaxDown && up)
+                    {
                         MaximizeWindow(!_maximized);
+                    }
                 }
                 else if (ControlBox && _xButtonBounds.Contains(e.Location))
                 {
                     _buttonState = ButtonState.XOver;
 
                     if (oldState == ButtonState.XDown && up)
+                    {
                         Close();
+                    }
                 }
                 else
+                {
                     _buttonState = ButtonState.None;
+                }
             }
 
             if (oldState != _buttonState)
+            {
                 Invalidate();
+            }
         }
 
         private void MaximizeWindow(bool maximize)
         {
             if (!MaximizeBox || !ControlBox)
+            {
                 return;
+            }
 
             _maximized = maximize;
 
             if (maximize)
             {
-                var monitorHandle = MonitorFromWindow(Handle, MONITOR_DEFAULTTONEAREST);
-                var monitorInfo = new MONITORINFOEX();
+                IntPtr monitorHandle = MonitorFromWindow(Handle, MONITOR_DEFAULTTONEAREST);
+                MONITORINFOEX monitorInfo = new MONITORINFOEX();
                 GetMonitorInfo(new HandleRef(null, monitorHandle), monitorInfo);
                 _previousSize = Size;
                 _previousLocation = Location;
@@ -744,7 +804,10 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseUp(MouseEventArgs e)
         {
             if (DesignMode)
+            {
                 return;
+            }
+
             UpdateButtons(e, true);
 
             base.OnMouseUp(e);
@@ -754,26 +817,25 @@ namespace ReaLTaiizor.Forms
         private void ResizeForm(ResizeDirection direction)
         {
             if (DesignMode)
+            {
                 return;
-            var dir = -1;
+            }
+
+            int dir = -1;
             switch (direction)
             {
                 case ResizeDirection.BottomLeft:
                     dir = HTBOTTOMLEFT;
                     break;
-
                 case ResizeDirection.Left:
                     dir = HTLEFT;
                     break;
-
                 case ResizeDirection.Right:
                     dir = HTRIGHT;
                     break;
-
                 case ResizeDirection.BottomRight:
                     dir = HTBOTTOMRIGHT;
                     break;
-
                 case ResizeDirection.Bottom:
                     dir = HTBOTTOM;
                     break;
@@ -781,7 +843,9 @@ namespace ReaLTaiizor.Forms
 
             ReleaseCapture();
             if (dir != -1)
+            {
                 SendMessage(Handle, WM_NCLBUTTONDOWN, dir, 0);
+            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -797,7 +861,7 @@ namespace ReaLTaiizor.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             g.Clear(SkinManager.BackdropColor);
@@ -805,7 +869,7 @@ namespace ReaLTaiizor.Forms
             g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, _actionBarBounds);
 
             //Draw border
-            using (var borderPen = new Pen(SkinManager.DividersColor, 1))
+            using (Pen borderPen = new Pen(SkinManager.DividersColor, 1))
             {
                 g.DrawLine(borderPen, new Point(0, _actionBarBounds.Bottom), new Point(0, Height - 2));
                 g.DrawLine(borderPen, new Point(Width - 1, _actionBarBounds.Bottom), new Point(Width - 1, Height - 2));
@@ -815,29 +879,41 @@ namespace ReaLTaiizor.Forms
             // Determine whether or not we even should be drawing the buttons.
             bool showMin = MinimizeBox && ControlBox;
             bool showMax = MaximizeBox && ControlBox;
-            var hoverBrush = SkinManager.BackgroundHoverBrush;
-            var downBrush = SkinManager.BackgroundFocusBrush;
+            Brush hoverBrush = SkinManager.BackgroundHoverBrush;
+            Brush downBrush = SkinManager.BackgroundFocusBrush;
 
             // When MaximizeButton == false, the minimize button will be painted in its place
             if (_buttonState == ButtonState.MinOver && showMin)
+            {
                 g.FillRectangle(hoverBrush, showMax ? _minButtonBounds : _maxButtonBounds);
+            }
 
             if (_buttonState == ButtonState.MinDown && showMin)
+            {
                 g.FillRectangle(downBrush, showMax ? _minButtonBounds : _maxButtonBounds);
+            }
 
             if (_buttonState == ButtonState.MaxOver && showMax)
+            {
                 g.FillRectangle(hoverBrush, _maxButtonBounds);
+            }
 
             if (_buttonState == ButtonState.MaxDown && showMax)
+            {
                 g.FillRectangle(downBrush, _maxButtonBounds);
+            }
 
             if (_buttonState == ButtonState.XOver && ControlBox)
+            {
                 g.FillRectangle(hoverBrush, _xButtonBounds);
+            }
 
             if (_buttonState == ButtonState.XDown && ControlBox)
+            {
                 g.FillRectangle(downBrush, _xButtonBounds);
+            }
 
-            using (var formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
+            using (Pen formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
             {
                 // Minimize button.
                 if (showMin)
@@ -893,10 +969,10 @@ namespace ReaLTaiizor.Forms
                 // Ripple
                 if (_clickAnimManager.IsAnimating())
                 {
-                    var clickAnimProgress = _clickAnimManager.GetProgress();
+                    double clickAnimProgress = _clickAnimManager.GetProgress();
 
-                    var rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (clickAnimProgress * 50)), Color.White));
-                    var rippleSize = (int)(clickAnimProgress * _drawerIconRect.Width * 1.75);
+                    SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (clickAnimProgress * 50)), Color.White));
+                    int rippleSize = (int)(clickAnimProgress * _drawerIconRect.Width * 1.75);
 
                     g.SetClip(_drawerIconRect);
                     g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X - rippleSize / 2, _animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
@@ -904,7 +980,7 @@ namespace ReaLTaiizor.Forms
                     rippleBrush.Dispose();
                 }
 
-                using (var formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
+                using (Pen formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
                 {
                     // Middle line
                     g.DrawLine(

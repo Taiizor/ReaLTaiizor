@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Localization>
+    <Key>StatusOn</Key>
+    <Value>UI_An</Value>
+  </Localization>
+  <Localization>
+    <Key>StatusOff</Key>
+    <Value>UI_Aus</Value>
+  </Localization>
+</root>

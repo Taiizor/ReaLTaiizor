@@ -29,10 +29,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get
-            {
-                return _Checked;
-            }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -44,7 +41,7 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -54,7 +51,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CircleColor
         {
-            get { return _CircleColor; }
+            get => _CircleColor;
             set
             {
                 _CircleColor = value;
@@ -64,7 +61,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedColor
         {
-            get { return _CheckedColor; }
+            get => _CheckedColor;
             set
             {
                 _CheckedColor = value;
@@ -94,9 +91,14 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (!_Checked)
+            {
                 @Checked = true;
+            }
             else
-                @Checked = false;    
+            {
+                @Checked = false;
+            }
+
             Focus();
             base.OnMouseDown(e);
         }
@@ -134,12 +136,16 @@ namespace ReaLTaiizor.Controls
         private void InvalidateControls()
         {
             if (!IsHandleCreated || !_Checked)
+            {
                 return;
+            }
 
             foreach (Control _Control in Parent.Controls)
             {
                 if (_Control != this && _Control is RadioButton)
+                {
                     ((RadioButton)_Control).Checked = false;
+                }
             }
         }
 
@@ -153,7 +159,9 @@ namespace ReaLTaiizor.Controls
             G.FillEllipse(new SolidBrush(CircleColor), new Rectangle(0, 0, 16, 16));
 
             if (_Checked)
+            {
                 G.DrawString("a", new Font("Marlett", 15), new SolidBrush(CheckedColor), new Point(-3, -2));
+            }
 
             G.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(20, -3));
         }

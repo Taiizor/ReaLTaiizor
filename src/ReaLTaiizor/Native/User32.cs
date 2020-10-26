@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Native
         [StructLayout(LayoutKind.Sequential)]
         public struct TCHITTESTINFO
         {
-            private readonly Point pt;
+            private readonly Point _point;
             public readonly TabControlHitTest flags;
 
             private TCHITTESTINFO(TabControlHitTest hitTest) : this()
@@ -33,12 +33,12 @@ namespace ReaLTaiizor.Native
 
             public TCHITTESTINFO(Point point, TabControlHitTest hitTest) : this(hitTest)
             {
-                pt = point;
+                _point = point;
             }
 
             public TCHITTESTINFO(int x, int y, TabControlHitTest hitTest) : this(hitTest)
             {
-                pt = new Point(x, y);
+                Point pt = new Point(x, y);
             }
         }
 

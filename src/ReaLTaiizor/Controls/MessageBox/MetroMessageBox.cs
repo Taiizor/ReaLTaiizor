@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
 
     public class MetroMessageBox : MetroForm
     {
-        #region Internal Vars
+        #region Internal vars
 
         private Size _buttonSize;
         private MetroDefaultButton _okButton;
@@ -43,23 +43,24 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        private new static Color BackgroundColor { get; set; }
+        private static new Color BackgroundColor { get; set; }
 
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        private new static Color BorderColor { get; set; }
+        private static new Color BorderColor { get; set; }
 
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         private static Color ForegroundColor { get; set; }
 
+
         #endregion
 
         #region Constructor
 
-        private MetroMessageBox() : base()
+        private MetroMessageBox()
         {
-            Font = MetroFonts.Regular(9.5f);
+            base.Font = MetroFonts.Regular(9.5f);
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             _buttonSize = new Size(95, 32);
@@ -72,17 +73,11 @@ namespace ReaLTaiizor.Controls
         private void EvaluateControls()
         {
             EvaluateOkeyButton();
-
             EvaluateYesButton();
-
             EvaluateNoButton();
-
             EvaluateCancelButton();
-
             EvaluateRetryButton();
-
             EvaluateAbortButton();
-
             EvaluateIgnoreButton();
         }
 
@@ -101,7 +96,7 @@ namespace ReaLTaiizor.Controls
         {
             _retryButton = new MetroDefaultButton
             {
-                Text = "Retry",
+                Text = @"Retry",
                 Size = _buttonSize,
                 Visible = false
             };
@@ -112,7 +107,7 @@ namespace ReaLTaiizor.Controls
         {
             _cancelButton = new MetroDefaultButton
             {
-                Text = "Cancel",
+                Text = @"Cancel",
                 Size = _buttonSize,
                 Visible = false
             };
@@ -123,7 +118,7 @@ namespace ReaLTaiizor.Controls
         {
             _noButton = new MetroDefaultButton
             {
-                Text = "No",
+                Text = @"No",
                 Size = _buttonSize,
                 Visible = false
             };
@@ -134,7 +129,7 @@ namespace ReaLTaiizor.Controls
         {
             _yesButton = new MetroDefaultButton
             {
-                Text = "Yes",
+                Text = @"Yes",
                 Size = _buttonSize,
                 Visible = false
             };
@@ -145,7 +140,7 @@ namespace ReaLTaiizor.Controls
         {
             _okButton = new MetroDefaultButton
             {
-                Text = "Ok",
+                Text = @"Ok",
                 Size = _buttonSize,
                 Visible = false
             };
@@ -156,7 +151,7 @@ namespace ReaLTaiizor.Controls
         {
             _abortButton = new MetroDefaultButton
             {
-                Text = "Abort",
+                Text = @"Abort",
                 Size = _buttonSize,
                 Visible = false
 
@@ -168,7 +163,7 @@ namespace ReaLTaiizor.Controls
         {
             _ignoreButton = new MetroDefaultButton
             {
-                Text = "Ignore",
+                Text = @"Ignore",
                 Size = _buttonSize,
                 Visible = false
             };
@@ -231,44 +226,40 @@ namespace ReaLTaiizor.Controls
 
         public static DialogResult Show(MetroForm form, string content, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
-            var msgBox = new MetroMessageBox
+            const string message = @"MetroMessageBox requires a form, use 'this' as the first parameter in the place you use MetroMessageBox.";
+            MetroMessageBox msgBox = new MetroMessageBox
             {
-                OwnerForm = form ?? throw new ArgumentNullException("MetroMessageBox requires a form, use 'this' as the first parameter in the place you use MetroMessageBox."),
+                OwnerForm = form ?? throw new ArgumentNullException(message),
                 Content = content,
                 Caption = caption,
                 Buttons = buttons,
                 Size = new Size(form.Width - 2, (form.Height / 3) - 1),
                 Location = new Point(form.Location.X, (form.Height / 2) - 1)
             };
-
             if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Stop)
             {
                 BackgroundColor = Color.FromArgb(210, 50, 45);
                 BorderColor = Color.FromArgb(210, 50, 45);
                 ForegroundColor = Color.White;
             }
-
             else if (icon == MessageBoxIcon.Information)
             {
                 BackgroundColor = Color.FromArgb(60, 180, 218);
                 BorderColor = Color.FromArgb(60, 180, 218);
                 ForegroundColor = Color.White;
             }
-
             else if (icon == MessageBoxIcon.Question)
             {
                 BackgroundColor = Color.FromArgb(70, 165, 70);
                 BorderColor = Color.FromArgb(70, 165, 70);
                 ForegroundColor = Color.White;
             }
-
             else if (icon == MessageBoxIcon.Exclamation || icon == MessageBoxIcon.Warning)
             {
                 BackgroundColor = Color.FromArgb(237, 156, 40);
                 BorderColor = Color.FromArgb(237, 156, 40);
                 ForegroundColor = Color.White;
             }
-
             else if (icon == MessageBoxIcon.None || icon == MessageBoxIcon.Asterisk || icon == MessageBoxIcon.Hand)
             {
                 BackgroundColor = Color.White;
@@ -281,9 +272,10 @@ namespace ReaLTaiizor.Controls
 
         protected new DialogResult ShowDialog()
         {
-            var buttonHeight = Height - 45;
-            var firstButton = (Width - _buttonSize.Width) - 10;
-            var secondButoon = (Width - (_buttonSize.Width * 2)) - 20;
+
+            int buttonHeight = Height - 45;
+            int firstButton = (Width - _buttonSize.Width) - 10;
+            int secondButoon = (Width - (_buttonSize.Width * 2)) - 20;
             switch (Buttons)
             {
                 case MessageBoxButtons.OK:
@@ -338,16 +330,16 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics G = e.Graphics;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            var rect = new Rectangle(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
+            Rectangle rect = new Rectangle(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
 
-            using (var bg = new SolidBrush(BackgroundColor))
+            using (SolidBrush bg = new SolidBrush(BackgroundColor))
             {
-                using (var CTNT = new SolidBrush(ForegroundColor))
+                using (SolidBrush CTNT = new SolidBrush(ForegroundColor))
                 {
-                    using (var p = new Pen(BorderColor))
+                    using (Pen p = new Pen(BorderColor))
                     {
                         G.FillRectangle(bg, rect);
                         G.DrawString(Caption, Font, CTNT, new PointF(rect.X + 10, rect.Y + 10));
@@ -359,6 +351,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
     }
 
     #endregion

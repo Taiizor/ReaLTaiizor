@@ -22,15 +22,14 @@ namespace ReaLTaiizor.Controls
     [Designer(typeof(MetroLabelDesigner))]
     [DefaultProperty("Text")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroLabel : Label, iControl
+    public class MetroLabel : Label, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -54,10 +53,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -70,15 +69,17 @@ namespace ReaLTaiizor.Controls
 
         #region Global Vars
 
-        private Methods mth;
-        private Utilites utl;
+        private readonly Methods mth;
+        private readonly Utilites utl;
 
         #endregion Global Vars
 
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
+
+        private bool _isDerivedStyle = true;
 
         #endregion Internal Vars
 
@@ -94,7 +95,7 @@ namespace ReaLTaiizor.Controls
                 true
             );
             UpdateStyles();
-            Font = MetroFonts.SemiBold(10);
+            base.Font = MetroFonts.Light(10);
             mth = new Methods();
             utl = new Utilites();
             ApplyTheme();
@@ -106,13 +107,18 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
                     ForeColor = Color.Black;
                     BackColor = Color.Transparent;
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -123,8 +129,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.LabelDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.LabelDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -138,6 +145,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -157,8 +166,24 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the form forecolor.")]
         public override Color ForeColor { get; set; }
 
+        /// <summary>
+        /// Gets or sets the form BackColor.
+        /// </summary>
         [Category("Metro"), Description("Gets or sets the form backcolor.")]
         public override Color BackColor { get; set; }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
     }

@@ -5,7 +5,7 @@
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2019-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
-[![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/packages/ReaLTaiizor)
+[![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
 # ReaLTaiizor'a Hoşgeldiniz
 ReaLTaiizor bir UI/UX bileşen kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
@@ -92,6 +92,39 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 		<br/>
 		<a href="https://github.com/N-a-r-w-i-n" target="_blank" title="Kodlama">💻</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/peters">
+			<img src="https://avatars3.githubusercontent.com/u/869?s=200&v=4" width="80px;" alt="peters"/>
+			<br/>
+			<sub>
+				<b>peters</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/peters" target="_blank" title="Kodlama">💻</a>
+	</td>
+	<td align="center">
+		<a href="https://github.com/dennismagno">
+			<img src="https://avatars3.githubusercontent.com/u/5070675?s=200&v=4" width="80px;" alt="dennismagno"/>
+			<br/>
+			<sub>
+				<b>dennismagno</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/dennismagno" target="_blank" title="Kodlama">💻</a>
+	</td>
+	<td align="center">
+		<a href="https://github.com/RobinPerris">
+			<img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris"/>
+			<br/>
+			<sub>
+				<b>RobinPerris</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/RobinPerris" target="_blank" title="Kodlama">💻</a>
+	</td>
   </tr>
 </table>
 
@@ -108,6 +141,14 @@ Adım 2：Tasarlamanın tadını çıkarın
 ### Windows Defender
 
 ![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)
+
+### Kaspersky Security Cloud
+
+![KasperskySecurityCloudSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Kaspersky_Security_Cloud.png)
+
+### XAMPP
+
+![XAMPPSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/XAMPP.png)
 
 ### MP3 Oynatıcı
 
@@ -137,13 +178,17 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ![Overview-2](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Metro.gif)
 
-![Overview-3](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form1.png)
+![Overview-3](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Poison.gif)
 
-![Overview-4](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form2.png)
+![Overview-4](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Crown.gif)
 
-![Overview-5](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Sky.png)
+![Overview-5](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form1.png)
 
-![Overview-6](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Alone.png)
+![Overview-6](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form2.png)
+
+![Overview-7](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Sky.png)
+
+![Overview-8](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Alone.png)
 
 ## Son Tema Örnekleri
 

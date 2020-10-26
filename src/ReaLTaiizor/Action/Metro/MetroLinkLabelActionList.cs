@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Enum.Metro;
 using System.ComponentModel.Design;
+using static System.Windows.Forms.LinkLabel;
 
 #endregion
 
@@ -14,7 +15,7 @@ namespace ReaLTaiizor.Action.Metro
 {
     #region MetroLinkLabelActionListAction
 
-    class MetroLinkLabelActionList : DesignerActionList
+    internal class MetroLinkLabelActionList : DesignerActionList
     {
         private readonly MetroLinkLabel _metroLinkLabel;
 
@@ -33,10 +34,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroLinkLabel.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroLinkLabel.MetroStyleManager;
-            set => _metroLinkLabel.MetroStyleManager = value;
+            get => _metroLinkLabel.StyleManager;
+            set => _metroLinkLabel.StyleManager = value;
         }
 
         public string Text
@@ -81,14 +82,14 @@ namespace ReaLTaiizor.Action.Metro
             set => _metroLinkLabel.LinkVisited = value;
         }
 
-        public LinkLabel.LinkCollection Links => _metroLinkLabel.Links;
+        public LinkCollection Links => _metroLinkLabel.Links;
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
@@ -107,9 +108,9 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("LinkBehaviour", "LinkBehaviour", "Behaviour", "Gets or sets a value that represents the behavior of a link."),
                 new DesignerActionPropertyItem("Links", "Links", "Behaviour", "Gets the collection of links contained within the LinkLabel.")
             };
-
             return items;
         }
+
     }
 
     #endregion

@@ -12,216 +12,223 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor.Controls
 {
-	#region ForeverComboBox
+    #region ForeverComboBox
 
-	public class ForeverComboBox : ComboBox
-	{
-		private int W;
-		private int H;
-		private int _StartIndex = 0;
-		private int x;
-		private int y;
+    public class ForeverComboBox : ComboBox
+    {
+        private int W;
+        private int H;
+        private int _StartIndex = 0;
+        private int x;
+        private int y;
 
-		private MouseStateForever State = MouseStateForever.None;
-		protected override void OnMouseDown(MouseEventArgs e)
-		{
-			base.OnMouseDown(e);
-			State = MouseStateForever.Down;
-			Invalidate();
-		}
+        private MouseStateForever State = MouseStateForever.None;
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            State = MouseStateForever.Down;
+            Invalidate();
+        }
 
-		protected override void OnMouseUp(MouseEventArgs e)
-		{
-			base.OnMouseUp(e);
-			State = MouseStateForever.Over;
-			Invalidate();
-		}
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnMouseUp(e);
+            State = MouseStateForever.Over;
+            Invalidate();
+        }
 
-		protected override void OnMouseEnter(EventArgs e)
-		{
-			base.OnMouseEnter(e);
-			State = MouseStateForever.Over;
-			Invalidate();
-		}
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            base.OnMouseEnter(e);
+            State = MouseStateForever.Over;
+            Invalidate();
+        }
 
-		protected override void OnMouseLeave(EventArgs e)
-		{
-			base.OnMouseLeave(e);
-			State = MouseStateForever.None;
-			Invalidate();
-		}
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            State = MouseStateForever.None;
+            Invalidate();
+        }
 
-		protected override void OnMouseMove(MouseEventArgs e)
-		{
-			base.OnMouseMove(e);
-			x = e.Location.X;
-			y = e.Location.Y;
-			Invalidate();
-			if (e.X < Width - 41)
-				Cursor = Cursors.Default; //Cursors.IBeam
-			else
-				Cursor = Cursors.Hand;
-		}
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            x = e.Location.X;
+            y = e.Location.Y;
+            Invalidate();
+            if (e.X < Width - 41)
+            {
+                Cursor = Cursors.Default; //Cursors.IBeam
+            }
+            else
+            {
+                Cursor = Cursors.Hand;
+            }
+        }
 
-		protected override void OnDrawItem(DrawItemEventArgs e)
-		{
-			base.OnDrawItem(e);
-			Invalidate();
-			if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-			{
-				Invalidate();
-			}
-		}
+        protected override void OnDrawItem(DrawItemEventArgs e)
+        {
+            base.OnDrawItem(e);
+            Invalidate();
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                Invalidate();
+            }
+        }
 
-		protected override void OnClick(EventArgs e)
-		{
-			base.OnClick(e);
-			Invalidate();
-		}
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            Invalidate();
+        }
 
-		[Category("Colors")]
-		public Color HoverColor
-		{
-			get { return _HoverColor; }
-			set { _HoverColor = value; }
-		}
+        [Category("Colors")]
+        public Color HoverColor
+        {
+            get => _HoverColor;
+            set => _HoverColor = value;
+        }
 
-		[Category("Colors")]
-		public Color HoverFontColor
-		{
-			get { return _HoverFontColor; }
-			set { _HoverFontColor = value; }
-		}
+        [Category("Colors")]
+        public Color HoverFontColor
+        {
+            get => _HoverFontColor;
+            set => _HoverFontColor = value;
+        }
 
-		[Category("Colors")]
-		public Color BaseColor
-		{
-			get { return _BaseColor; }
-			set { _BaseColor = value; }
-		}
+        [Category("Colors")]
+        public Color BaseColor
+        {
+            get => _BaseColor;
+            set => _BaseColor = value;
+        }
 
-		[Category("Colors")]
-		public Color BGColor
-		{
-			get { return _BGColor; }
-			set { _BGColor = value; }
-		}
+        [Category("Colors")]
+        public Color BGColor
+        {
+            get => _BGColor;
+            set => _BGColor = value;
+        }
 
-		private int StartIndex
-		{
-			get { return _StartIndex; }
-			set
-			{
-				_StartIndex = value;
-				try
-				{
-					base.SelectedIndex = value;
-				}
-				catch
-				{
-					//
-				}
-				Invalidate();
-			}
-		}
+        private int StartIndex
+        {
+            get => _StartIndex;
+            set
+            {
+                _StartIndex = value;
+                try
+                {
+                    base.SelectedIndex = value;
+                }
+                catch
+                {
+                    //
+                }
+                Invalidate();
+            }
+        }
 
-		public void DrawItem_(object sender, DrawItemEventArgs e)
-		{
-			if (e.Index < 0)
-				return;
-			e.DrawBackground();
-			e.DrawFocusRectangle();
+        public void DrawItem_(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0)
+            {
+                return;
+            }
 
-			e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
-			e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-			e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-			e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            e.DrawBackground();
+            e.DrawFocusRectangle();
 
-			if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-			{
-				//-- Selected item
-				e.Graphics.FillRectangle(new SolidBrush(_HoverColor), e.Bounds);
-			}
-			else
-			{
-				//-- Not Selected
-				e.Graphics.FillRectangle(new SolidBrush(_BaseColor), e.Bounds);
-			}
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+            e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
-			//-- Text
-			e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), new Font("Segoe UI", 8), new SolidBrush(_HoverFontColor), new Rectangle(e.Bounds.X + 2, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height));
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                //-- Selected item
+                e.Graphics.FillRectangle(new SolidBrush(_HoverColor), e.Bounds);
+            }
+            else
+            {
+                //-- Not Selected
+                e.Graphics.FillRectangle(new SolidBrush(_BaseColor), e.Bounds);
+            }
 
-			e.Graphics.Dispose();
-		}
+            //-- Text
+            e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), new Font("Segoe UI", 8), new SolidBrush(_HoverFontColor), new Rectangle(e.Bounds.X + 2, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height));
 
-		protected override void OnResize(EventArgs e)
-		{
-			base.OnResize(e);
-			Height = 18;
-		}
+            e.Graphics.Dispose();
+        }
 
-		private Color _BaseColor = Color.FromArgb(25, 27, 29);
-		private Color _BGColor = Color.FromArgb(45, 47, 49);
-		private Color _HoverColor = Color.FromArgb(35, 168, 109);
-		private Color _HoverFontColor = Color.White;
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            Height = 18;
+        }
 
-		public ForeverComboBox()
-		{
-			DrawItem += DrawItem_;
-			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
-			DoubleBuffered = true;
+        private Color _BaseColor = Color.FromArgb(25, 27, 29);
+        private Color _BGColor = Color.FromArgb(45, 47, 49);
+        private Color _HoverColor = Color.FromArgb(35, 168, 109);
+        private Color _HoverFontColor = Color.White;
 
-			DrawMode = DrawMode.OwnerDrawFixed;
-			ForeColor = _HoverFontColor;
-			DropDownStyle = ComboBoxStyle.DropDownList;
-			Cursor = Cursors.Hand;
-			StartIndex = 0;
-			ItemHeight = 18;
-			Font = new Font("Segoe UI", 8, FontStyle.Regular);
-		}
+        public ForeverComboBox()
+        {
+            DrawItem += DrawItem_;
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
+            DoubleBuffered = true;
 
-		protected override void OnPaint(PaintEventArgs e)
-		{
-			Bitmap B = new Bitmap(Width, Height);
-			Graphics G = Graphics.FromImage(B);
-			W = Width;
-			H = Height;
+            DrawMode = DrawMode.OwnerDrawFixed;
+            ForeColor = _HoverFontColor;
+            DropDownStyle = ComboBoxStyle.DropDownList;
+            Cursor = Cursors.Hand;
+            StartIndex = 0;
+            ItemHeight = 18;
+            Font = new Font("Segoe UI", 8, FontStyle.Regular);
+        }
 
-			Rectangle Base = new Rectangle(0, 0, W, H);
-			Rectangle Button = new Rectangle(Convert.ToInt32(W - 40), 0, W, H);
-			GraphicsPath GP = new GraphicsPath();
-			GraphicsPath GP2 = new GraphicsPath();
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Bitmap B = new Bitmap(Width, Height);
+            Graphics G = Graphics.FromImage(B);
+            W = Width;
+            H = Height;
 
-			var _with16 = G;
-			_with16.Clear(Color.FromArgb(45, 45, 48));
-			_with16.SmoothingMode = SmoothingMode.HighQuality;
-			_with16.PixelOffsetMode = PixelOffsetMode.HighQuality;
-			_with16.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            Rectangle Base = new Rectangle(0, 0, W, H);
+            Rectangle Button = new Rectangle(Convert.ToInt32(W - 40), 0, W, H);
+            GraphicsPath GP = new GraphicsPath();
+            GraphicsPath GP2 = new GraphicsPath();
 
-			//-- Base
-			_with16.FillRectangle(new SolidBrush(_BGColor), Base);
+            Graphics _with16 = G;
+            _with16.Clear(Color.FromArgb(45, 45, 48));
+            _with16.SmoothingMode = SmoothingMode.HighQuality;
+            _with16.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            _with16.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-			//-- Text
-			_with16.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(4, 6), ForeverLibrary.NearSF);
+            //-- Base
+            _with16.FillRectangle(new SolidBrush(_BGColor), Base);
 
-			//-- Button
-			GP.Reset();
-			GP.AddRectangle(Button);
-			_with16.SetClip(GP);
-			_with16.FillRectangle(new SolidBrush(_BaseColor), Button);
-			_with16.ResetClip();
+            //-- Text
+            _with16.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(4, 6), ForeverLibrary.NearSF);
 
-			//-- Lines
-			_with16.DrawLine(Pens.White, W - 10, 6, W - 30, 6);
-			_with16.DrawLine(Pens.White, W - 10, 12, W - 30, 12);
-			_with16.DrawLine(Pens.White, W - 10, 18, W - 30, 18);
+            //-- Button
+            GP.Reset();
+            GP.AddRectangle(Button);
+            _with16.SetClip(GP);
+            _with16.FillRectangle(new SolidBrush(_BaseColor), Button);
+            _with16.ResetClip();
 
-			G.Dispose();
-			e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-			e.Graphics.DrawImageUnscaled(B, 0, 0);
-			B.Dispose();
-		}
-	}
+            //-- Lines
+            _with16.DrawLine(Pens.White, W - 10, 6, W - 30, 6);
+            _with16.DrawLine(Pens.White, W - 10, 12, W - 30, 12);
+            _with16.DrawLine(Pens.White, W - 10, 18, W - 30, 18);
 
-	#endregion
+            G.Dispose();
+            e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            e.Graphics.DrawImageUnscaled(B, 0, 0);
+            B.Dispose();
+        }
+    }
+
+    #endregion
 }

@@ -16,28 +16,28 @@ namespace ReaLTaiizor.Controls
         private Image _image = null;
         public Image Image
         {
-            get { return _image; }
+            get => _image;
             set { _image = value; Invalidate(); }
         }
 
         private Color _hovercolor = Color.IndianRed;
         public Color HoverColor
         {
-            get { return _hovercolor; }
+            get => _hovercolor;
             set { _hovercolor = value; Invalidate(); }
         }
 
         private Color _backcolor = Color.Crimson;
         public Color BackColor
         {
-            get { return _backcolor; }
+            get => _backcolor;
             set { _backcolor = value; Invalidate(); }
         }
 
         private Color _forecolor = Color.White;
         public Color ForeColor
         {
-            get { return _forecolor; }
+            get => _forecolor;
             set { _forecolor = value; Invalidate(); }
         }
 
@@ -58,7 +58,9 @@ namespace ReaLTaiizor.Controls
             e.Graphics.FillRectangle(MouseOver ? new SolidBrush(_hovercolor) : new SolidBrush(_backcolor), ClientRectangle);
 
             if (BackgroundImage != null)
+            {
                 e.Graphics.DrawImage(BackgroundImage, Width / 2 - BackgroundImage.Width / 2, Height / 2 - BackgroundImage.Height / 2);
+            }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);
             e.Graphics.DrawString(Text, Font, new SolidBrush(_forecolor), Width / 2 - textSize.Width / 2, Height / 2 - textSize.Height / 2);

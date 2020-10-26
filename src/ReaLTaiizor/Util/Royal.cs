@@ -16,8 +16,8 @@ namespace ReaLTaiizor.Util
 
     public abstract class ControlRoyalBase : Control
     {
-        Thread animationThread;
-        double framesPerSecond = (1000 / 15);
+        private Thread animationThread;
+        private readonly double framesPerSecond = (1000 / 15);
 
         protected delegate void MoveControlDelegate(Point location);
         protected delegate void ResizeControlDelegate(Size size);
@@ -32,16 +32,17 @@ namespace ReaLTaiizor.Util
 
         public override Color BackColor
         {
-            get
-            {
-                return base.BackColor;
-            }
+            get => base.BackColor;
             set
             {
                 if (AnimateBackColorChange)
+                {
                     SetBackgroundColor(value, SecondsToChange);
+                }
                 else
+                {
                     base.BackColor = value;
+                }
             }
         }
 
@@ -250,7 +251,9 @@ namespace ReaLTaiizor.Util
         public void AddRange(IEnumerable<object> items)
         {
             foreach (object item in items)
+            {
                 Items.Add(item);
+            }
         }
 
         protected override void InsertItem(int index, object item)
@@ -296,32 +299,32 @@ namespace ReaLTaiizor.Util
     {
         public Color ForeColor
         {
-            get { return RoyalColors.ForeColor; }
-            set { RoyalColors.ForeColor = value; }
+            get => RoyalColors.ForeColor;
+            set => RoyalColors.ForeColor = value;
         }
 
         public Color PressedForeColor
         {
-            get { return RoyalColors.PressedForeColor; }
-            set { RoyalColors.PressedForeColor = value; }
+            get => RoyalColors.PressedForeColor;
+            set => RoyalColors.PressedForeColor = value;
         }
 
         public Color BackColor
         {
-            get { return RoyalColors.BackColor; }
-            set { RoyalColors.BackColor = value; }
+            get => RoyalColors.BackColor;
+            set => RoyalColors.BackColor = value;
         }
 
         public Color SelectedColor
         {
-            get { return RoyalColors.HotTrackColor; }
-            set { RoyalColors.HotTrackColor = value; }
+            get => RoyalColors.HotTrackColor;
+            set => RoyalColors.HotTrackColor = value;
         }
 
         public Color PressedColor
         {
-            get { return RoyalColors.AccentColor; }
-            set { RoyalColors.AccentColor = value; }
+            get => RoyalColors.AccentColor;
+            set => RoyalColors.AccentColor = value;
         }
 
         public RoyalToolStripRenderer()
@@ -352,9 +355,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -367,9 +374,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -382,9 +393,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -397,9 +412,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -412,9 +431,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), rect);
         }
@@ -439,7 +462,9 @@ namespace ReaLTaiizor.Util
             Color foreColor = RoyalColors.ForeColor;
 
             if (e.Item.Pressed)
+            {
                 foreColor = RoyalColors.PressedForeColor;
+            }
 
             TextRenderer.DrawText(e.Graphics, e.Text, e.TextFont, e.TextRectangle, foreColor,
                 Color.Transparent, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
@@ -470,9 +495,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), e.Item.Bounds);
         }
@@ -502,9 +531,13 @@ namespace ReaLTaiizor.Util
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
+            {
                 color = SelectedColor;
+            }
             else if (e.Item.Pressed)
+            {
                 color = PressedColor;
+            }
 
             e.Graphics.FillRectangle(new SolidBrush(color), e.Item.Bounds);
         }

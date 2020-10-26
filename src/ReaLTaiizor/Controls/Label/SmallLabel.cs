@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region SmallLabel
 
-    public class SmallLabel : System.Windows.Forms.Label
+    public class SmallLabel : Label
     {
         public SmallLabel()
         {

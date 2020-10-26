@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
             set
             {
                 _Maximum = value;
@@ -31,21 +31,29 @@ namespace ReaLTaiizor.Controls
             get
             {
                 if (_Value == 0)
+                {
                     return 0;
-                else return _Value;
+                }
+                else
+                {
+                    return _Value;
+                }
             }
             set
             {
                 _Value = value;
                 if (_Value > _Maximum)
+                {
                     _Value = _Maximum;
+                }
+
                 Invalidate();
             }
         }
         private bool _ShowPercentage = false;
         public bool ShowPercentage
         {
-            get { return _ShowPercentage; }
+            get => _ShowPercentage;
             set
             {
                 _ShowPercentage = value;
@@ -93,7 +101,9 @@ namespace ReaLTaiizor.Controls
             G.DrawPath(P1, GP2);
 
             if (_ShowPercentage)
+            {
                 G.DrawString(Convert.ToString(string.Concat(Value, "%")), Font, new SolidBrush(ForeColor), R1, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            }
 
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();

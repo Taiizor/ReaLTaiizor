@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         private bool isPasswordMasked = false;
         private Pen P1;
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
-        private SolidBrush B1;
+        private readonly SolidBrush B1;
         private Color _EdgeColor = Color.White;
 
         #endregion
@@ -35,19 +35,19 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         public Color EdgeColor
         {
-            get { return _EdgeColor; }
-            set { _EdgeColor = value; }
+            get => _EdgeColor;
+            set => _EdgeColor = value;
         }
 
         public HorizontalAlignment TextAlignment
         {
-            get { return ALNType; }
+            get => ALNType;
             set
             {
                 ALNType = value;
@@ -56,7 +56,7 @@ namespace ReaLTaiizor.Controls
         }
         public int MaxLength
         {
-            get { return _maxchars; }
+            get => _maxchars;
             set
             {
                 _maxchars = value;
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
 
         public bool UseSystemPasswordChar
         {
-            get { return isPasswordMasked; }
+            get => isPasswordMasked;
             set
             {
                 DungeonTB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -78,18 +78,20 @@ namespace ReaLTaiizor.Controls
 
         public bool ReadOnly
         {
-            get { return _ReadOnly; }
+            get => _ReadOnly;
             set
             {
                 _ReadOnly = value;
                 if (DungeonTB != null)
+                {
                     DungeonTB.ReadOnly = value;
+                }
             }
         }
 
         public bool Multiline
         {
-            get { return _Multiline; }
+            get => _Multiline;
             set
             {
                 _Multiline = value;
@@ -98,9 +100,13 @@ namespace ReaLTaiizor.Controls
                     DungeonTB.Multiline = value;
 
                     if (value)
+                    {
                         DungeonTB.Height = Height - 10;
+                    }
                     else
+                    {
                         Height = DungeonTB.Height + 10;
+                    }
                 }
             }
         }
@@ -178,7 +184,7 @@ namespace ReaLTaiizor.Controls
             }
 
             Shape = new GraphicsPath();
-            var _with1 = Shape;
+            GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 11, 0, 10, 10, -90, 90);
             _with1.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -196,10 +202,10 @@ namespace ReaLTaiizor.Controls
 
         public void AddTextBox()
         {
-            var _TB = DungeonTB;
+            TextBox _TB = DungeonTB;
             _TB.Size = new Size(Width - 10, 33);
             _TB.Location = new Point(7, 4);
-            _TB.Text = String.Empty;
+            _TB.Text = string.Empty;
             _TB.BorderStyle = BorderStyle.None;
             _TB.TextAlign = HorizontalAlignment.Left;
             _TB.Font = Font;
@@ -239,7 +245,7 @@ namespace ReaLTaiizor.Controls
 
             G.SmoothingMode = SmoothingMode.AntiAlias;
 
-            var _TB = DungeonTB;
+            TextBox _TB = DungeonTB;
             _TB.Width = Width - 10;
             _TB.TextAlign = TextAlignment;
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;

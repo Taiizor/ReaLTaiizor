@@ -25,15 +25,14 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("Click")]
     [DefaultProperty("Text")]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroEllipse : Control, iControl
+    public class MetroEllipse : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -63,12 +62,12 @@ namespace ReaLTaiizor.Controls
         public string ThemeName { get; set; }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
+            get => _styleManager;
             set
             {
-                _metroStyleManager = value;
+                _styleManager = value;
                 Invalidate();
             }
         }
@@ -86,7 +85,24 @@ namespace ReaLTaiizor.Controls
 
         private MouseMode _state;
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
+
+        private bool _isDerivedStyle = true;
+        private int _borderThickness = 7;
+        private Image _image;
+        private Size _imageSize = new Size(64, 64);
+        private Color _normalColor;
+        private Color _normalBorderColor;
+        private Color _normalTextColor;
+        private Color _hoverColor;
+        private Color _hoverBorderColor;
+        private Color _hoverTextColor;
+        private Color _pressColor;
+        private Color _pressBorderColor;
+        private Color _pressTextColor;
+        private Color _disabledBackColor;
+        private Color _disabledForeColor;
+        private Color _disabledBorderColor;
 
         #endregion Internal Vars
 
@@ -100,10 +116,10 @@ namespace ReaLTaiizor.Controls
                 ControlStyles.ResizeRedraw | ControlStyles.UserPaint |
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.SupportsTransparentBackColor,
-                true
+                    true
             );
             UpdateStyles();
-            Font = MetroFonts.Light(10);
+            base.Font = MetroFonts.Light(10);
             _utl = new Utilites();
             _mth = new Methods();
             ApplyTheme();
@@ -115,61 +131,65 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-            var r = new Rectangle(BorderThickness, BorderThickness, Width - ((BorderThickness * 2) + 1), Height - ((BorderThickness * 2) + 1));
-            G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            G.SmoothingMode = SmoothingMode.AntiAlias;
+            Graphics g = e.Graphics;
+            Rectangle r = new Rectangle(BorderThickness, BorderThickness, Width - ((BorderThickness * 2) + 1), Height - ((BorderThickness * 2) + 1));
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
 
             switch (_state)
             {
                 case MouseMode.Normal:
-                    using (var bg = new SolidBrush(NormalColor))
-                    using (var p = new Pen(NormalBorderColor, BorderThickness))
-                    using (var tb = new SolidBrush(NormalTextColor))
+                    using (SolidBrush bg = new SolidBrush(NormalColor))
+                    using (Pen p = new Pen(NormalBorderColor, BorderThickness))
+                    using (SolidBrush tb = new SolidBrush(NormalTextColor))
                     {
-                        G.FillEllipse(bg, r);
-                        G.DrawEllipse(p, r);
-                        G.DrawString(Text, Font, tb, new Rectangle(0, 0, Width, Height), _mth.SetPosition());
+                        g.FillEllipse(bg, r);
+                        g.DrawEllipse(p, r);
+                        g.DrawString(Text, Font, tb, new Rectangle(0, 0, Width, Height), _mth.SetPosition());
                     }
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (var bg = new SolidBrush(HoverColor))
-                    using (var p = new Pen(HoverBorderColor, BorderThickness))
-                    using (var tb = new SolidBrush(HoverTextColor))
+                    using (SolidBrush bg = new SolidBrush(HoverColor))
+                    using (Pen p = new Pen(HoverBorderColor, BorderThickness))
+                    using (SolidBrush tb = new SolidBrush(HoverTextColor))
                     {
-                        G.FillEllipse(bg, r);
-                        G.DrawEllipse(p, r);
-                        G.DrawString(Text, Font, tb, new Rectangle(0, 0, Width, Height), _mth.SetPosition());
+                        g.FillEllipse(bg, r);
+                        g.DrawEllipse(p, r);
+                        g.DrawString(Text, Font, tb, new Rectangle(0, 0, Width, Height), _mth.SetPosition());
                     }
                     break;
                 case MouseMode.Pushed:
-                    using (var bg = new SolidBrush(PressColor))
-                    using (var p = new Pen(PressBorderColor, BorderThickness))
-                    using (var tb = new SolidBrush(PressTextColor))
+                    using (SolidBrush bg = new SolidBrush(PressColor))
+                    using (Pen p = new Pen(PressBorderColor, BorderThickness))
+                    using (SolidBrush tb = new SolidBrush(PressTextColor))
                     {
-                        G.FillEllipse(bg, r);
-                        G.DrawEllipse(p, r);
-                        G.DrawString(Text, Font, tb, new Rectangle(0, 0, Width, Height), _mth.SetPosition());
+                        g.FillEllipse(bg, r);
+                        g.DrawEllipse(p, r);
+                        g.DrawString(Text, Font, tb, new Rectangle(0, 0, Width, Height), _mth.SetPosition());
                     }
                     break;
                 case MouseMode.Disabled:
-                    using (var bg = new SolidBrush(DisabledBackColor))
-                    using (var p = new Pen(DisabledBorderColor, BorderThickness))
-                    using (var tb = new SolidBrush(DisabledForeColor))
+                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
+                    using (Pen p = new Pen(DisabledBorderColor, BorderThickness))
+                    using (SolidBrush tb = new SolidBrush(DisabledForeColor))
                     {
-                        G.FillEllipse(bg, r);
-                        G.DrawEllipse(p, r);
-                        G.DrawString(Text, Font, tb, new Rectangle(0, 0, Width, Height), _mth.SetPosition());
+                        g.FillEllipse(bg, r);
+                        g.DrawEllipse(p, r);
+                        g.DrawString(Text, Font, tb, new Rectangle(0, 0, Width, Height), _mth.SetPosition());
                     }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            if (Image == null) return;
-            var imgRect = new Rectangle(new Point((Width - ImageSize.Width) / 2, (Height - ImageSize.Height) / 2), ImageSize);
-            G.DrawImage(Image, imgRect);
+            if (Image == null)
+            {
+                return;
+            }
+
+            Rectangle imgRect = new Rectangle(new Point((Width - ImageSize.Width) / 2, (Height - ImageSize.Height) / 2), ImageSize);
+            g.DrawImage(Image, imgRect);
         }
 
         #endregion Draw Control
@@ -178,6 +198,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -194,7 +219,7 @@ namespace ReaLTaiizor.Controls
                     DisabledBorderColor = Color.FromArgb(155, 155, 155);
                     DisabledForeColor = Color.FromArgb(136, 136, 136);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     break;
                 case Style.Dark:
                     NormalColor = Color.FromArgb(32, 32, 32);
@@ -213,37 +238,66 @@ namespace ReaLTaiizor.Controls
                     ThemeName = "MetroDark";
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.EllipseDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.EllipseDictionary)
                         {
                             if ((varkey.Key == null) || varkey.Key == null)
+                            {
                                 return;
+                            }
 
                             if (varkey.Key == "NormalColor")
+                            {
                                 NormalColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "NormalBorderColor")
+                            {
                                 NormalBorderColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "NormalTextColor")
+                            {
                                 NormalTextColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "HoverColor")
+                            {
                                 HoverColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "HoverBorderColor")
+                            {
                                 HoverBorderColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "HoverTextColor")
+                            {
                                 HoverTextColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "PressColor")
+                            {
                                 PressColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "PressBorderColor")
+                            {
                                 PressBorderColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "PressTextColor")
+                            {
                                 PressTextColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "DisabledBackColor")
+                            {
                                 DisabledBackColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "DisabledBorderColor")
+                            {
                                 DisabledBorderColor = _utl.HexColor((string)varkey.Value);
+                            }
                             else if (varkey.Key == "DisabledForeColor")
+                            {
                                 DisabledForeColor = _utl.HexColor((string)varkey.Value);
+                            }
                         }
+                    }
+
                     Refresh();
                     break;
                 default:
@@ -259,7 +313,15 @@ namespace ReaLTaiizor.Controls
         public override Color BackColor => Color.Transparent;
 
         [Category("Metro"), Description("Gets or sets the border thickness associated with the control.")]
-        public int BorderThickness { get; set; } = 7;
+        public int BorderThickness
+        {
+            get => _borderThickness;
+            set
+            {
+                _borderThickness = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         public new bool Enabled
@@ -268,65 +330,194 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Enabled = value;
-                if (!value)
+                if (value == false)
+                {
                     _state = MouseMode.Disabled;
+                }
+
                 Invalidate();
             }
         }
 
         [Category("Metro"), Description("Gets or sets the image associated with the control.")]
-        public Image Image { get; set; }
+        public Image Image
+        {
+            get => _image;
+            set
+            {
+                _image = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the image size associated with the control.")]
-        public Size ImageSize { get; set; } = new Size(64, 64);
+        public Size ImageSize
+        {
+            get => _imageSize;
+            set
+            {
+                _imageSize = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control background color in normal mouse sate.")]
-        public Color NormalColor { get; set; }
+        public Color NormalColor
+        {
+            get => _normalColor;
+            set
+            {
+                _normalColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control border color in normal mouse sate.")]
-        public Color NormalBorderColor { get; set; }
+        public Color NormalBorderColor
+        {
+            get => _normalBorderColor;
+            set
+            {
+                _normalBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control Text color in normal mouse sate.")]
-        public Color NormalTextColor { get; set; }
+        public Color NormalTextColor
+        {
+            get => _normalTextColor;
+            set
+            {
+                _normalTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control background color in hover mouse sate.")]
-        public Color HoverColor { get; set; }
+        public Color HoverColor
+        {
+            get => _hoverColor;
+            set
+            {
+                _hoverColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control border color in hover mouse sate.")]
-        public Color HoverBorderColor { get; set; }
+        public Color HoverBorderColor
+        {
+            get => _hoverBorderColor;
+            set
+            {
+                _hoverBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control Text color in hover mouse sate.")]
-        public Color HoverTextColor { get; set; }
+        public Color HoverTextColor
+        {
+            get => _hoverTextColor;
+            set
+            {
+                _hoverTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control background color in pushed mouse sate.")]
-        public Color PressColor { get; set; }
+        public Color PressColor
+        {
+            get => _pressColor;
+            set
+            {
+                _pressColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control border color in pushed mouse sate.")]
-        public Color PressBorderColor { get; set; }
+        public Color PressBorderColor
+        {
+            get => _pressBorderColor;
+            set
+            {
+                _pressBorderColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the control Text color in pushed mouse sate.")]
-        public Color PressTextColor { get; set; }
+        public Color PressTextColor
+        {
+            get => _pressTextColor;
+            set
+            {
+                _pressTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets backcolor used by the control while disabled.")]
-        public Color DisabledBackColor { get; set; }
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the forecolor of the control whenever while disabled.")]
-        public Color DisabledForeColor { get; set; }
+        public Color DisabledForeColor
+        {
+            get => _disabledForeColor;
+            set
+            {
+                _disabledForeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         [Description("Gets or sets the border color of the control while disabled.")]
-        public Color DisabledBorderColor { get; set; }
+        public Color DisabledBorderColor
+        {
+            get => _disabledBorderColor;
+            set
+            {
+                _disabledBorderColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
+
 
         #endregion
 

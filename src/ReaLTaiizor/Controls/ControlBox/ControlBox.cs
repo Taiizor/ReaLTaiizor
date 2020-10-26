@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Controls
 
     public class ControlBox : Control
     {
-
         #region Enums
 
         public enum ButtonHoverState
@@ -36,7 +35,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -47,7 +46,7 @@ namespace ReaLTaiizor.Controls
         private bool _EnableMaximize = true;
         public bool EnableMaximizeButton
         {
-            get { return _EnableMaximize; }
+            get => _EnableMaximize;
             set
             {
                 _EnableMaximize = value;
@@ -58,7 +57,7 @@ namespace ReaLTaiizor.Controls
         private bool _EnableMinimize = true;
         public bool EnableMinimizeButton
         {
-            get { return _EnableMinimize; }
+            get => _EnableMinimize;
             set
             {
                 _EnableMinimize = value;
@@ -69,7 +68,7 @@ namespace ReaLTaiizor.Controls
         private bool _EnableHoverHighlight = false;
         public bool EnableHoverHighlight
         {
-            get { return _EnableHoverHighlight; }
+            get => _EnableHoverHighlight;
             set
             {
                 _EnableHoverHighlight = value;
@@ -80,22 +79,22 @@ namespace ReaLTaiizor.Controls
         private Color _MinimizeHoverColor = Color.FromArgb(63, 63, 65);
         public Color MinimizeHoverColor
         {
-            get { return _MinimizeHoverColor; }
-            set { _MinimizeHoverColor = value; }
+            get => _MinimizeHoverColor;
+            set => _MinimizeHoverColor = value;
         }
 
         private Color _MaximizeHoverColor = Color.FromArgb(74, 74, 74);
         public Color MaximizeHoverColor
         {
-            get { return _MaximizeHoverColor; }
-            set { _MaximizeHoverColor = value; }
+            get => _MaximizeHoverColor;
+            set => _MaximizeHoverColor = value;
         }
 
         private Color _CloseHoverColor = Color.FromArgb(230, 17, 35);
         public Color CloseHoverColor
         {
-            get { return _CloseHoverColor; }
-            set { _CloseHoverColor = value; }
+            get => _CloseHoverColor;
+            set => _CloseHoverColor = value;
         }
 
         #endregion
@@ -119,17 +118,25 @@ namespace ReaLTaiizor.Controls
                 {
                     ButtonHState = ButtonHoverState.Minimize;
                     if (_EnableMinimize == true)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.No;
+                    }
                 }
                 else if (X > 30 && X <= 60)
                 {
                     ButtonHState = ButtonHoverState.Maximize;
                     if (_EnableMaximize == true)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.No;
+                    }
                 }
                 else if (X > 60 && X < Width)
                 {
@@ -170,9 +177,13 @@ namespace ReaLTaiizor.Controls
                     if (_EnableMaximize == true)
                     {
                         if (Parent.FindForm().WindowState == FormWindowState.Normal)
+                        {
                             Parent.FindForm().WindowState = FormWindowState.Maximized;
+                        }
                         else
+                        {
                             Parent.FindForm().WindowState = FormWindowState.Normal;
+                        }
                     }
                     break;
             }
@@ -209,7 +220,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (DefaultLocation)
+                {
                     Location = new Point(Parent.Width - 100, 18);
+                }
             }
             catch (Exception)
             {
@@ -231,24 +244,37 @@ namespace ReaLTaiizor.Controls
             {
                 case FormWindowState.Maximized:
                     if (_EnableMaximize == true)
+                    {
                         G.DrawString("2", new Font("Marlett", 12), new SolidBrush(base.ForeColor), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("2", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                    }
+
                     break;
                 case FormWindowState.Normal:
                     if (_EnableMaximize == true)
+                    {
                         G.DrawString("1", new Font("Marlett", 12), new SolidBrush(base.ForeColor), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("1", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                    }
+
                     break;
             }
 
             //Minimize
             if (_EnableMinimize == true)
+            {
                 G.DrawString("0", new Font("Marlett", 12), new SolidBrush(base.ForeColor), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
+            }
             else
+            {
                 G.DrawString("0", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
-
+            }
 
             if (_EnableHoverHighlight == true)
             {
@@ -264,7 +290,10 @@ namespace ReaLTaiizor.Controls
                             G.DrawString("0", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
                         }
                         else
+                        {
                             G.DrawString("0", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(17, 0), new StringFormat { Alignment = StringAlignment.Center });
+                        }
+
                         break;
                     case ButtonHoverState.Maximize:
                         switch (Parent.FindForm().WindowState)
@@ -276,7 +305,10 @@ namespace ReaLTaiizor.Controls
                                     G.DrawString("2", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
                                 }
                                 else
+                                {
                                     G.DrawString("2", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                                }
+
                                 break;
                             case FormWindowState.Normal:
                                 if (_EnableMaximize == true)
@@ -285,7 +317,10 @@ namespace ReaLTaiizor.Controls
                                     G.DrawString("1", new Font("Marlett", 12), new SolidBrush(Color.White), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
                                 }
                                 else
+                                {
                                     G.DrawString("1", new Font("Marlett", 12), new SolidBrush(Color.FromArgb(55, 60, 50)), new Point(46, 4), new StringFormat { Alignment = StringAlignment.Center });
+                                }
+
                                 break;
                         }
                         break;

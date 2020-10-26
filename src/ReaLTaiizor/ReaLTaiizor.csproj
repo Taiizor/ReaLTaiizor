@@ -2,20 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
+    <!--<TargetFrameworks>net48;net5.0</TargetFrameworks>-->
     <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0</TargetFrameworks>-->
+    <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-    <Version>3.7.8.0</Version>
+    <Version>3.7.8.2</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>$(PackageId)</Title>
     <PackageId>ReaLTaiizor</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Description>Best with more than 200 WinForm components.
+    <Description>Best with more than 250 WinForm components.
 C# WinForm UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>New components have been added and bugs in some components have been fixed.
+    <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
     <PackageTags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet Component</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
@@ -36,10 +38,13 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Design\Metro\Style.cs" />
-    <Compile Remove="Design\Metro\TextAlign.cs" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
@@ -58,12 +63,20 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <PackageReference Include="System.Configuration.ConfigurationManager">
       <Version>5.0.0-rc.1.20451.14</Version>
     </PackageReference>
-    <Reference Include="System.Design">
-      <HintPath>Library\System.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Forms">
-      <HintPath>Library\System.Windows.Forms.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <PackageReference Include="System.Drawing.Common">
+      <Version>5.0.0-rc.1.20451.14</Version>
+    </PackageReference>
+    <PackageReference Include="System.Resources.Extensions">
+      <Version>5.0.0-rc.1.20451.14</Version>
+    </PackageReference>
+    <PackageReference Include="System.Configuration.ConfigurationManager">
+      <Version>5.0.0-rc.1.20451.14</Version>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
@@ -94,7 +107,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-  
+
   <ItemGroup>
     <None Include="Resources\Metro\Metro Theme.xml">
       <SubType>Designer</SubType>
@@ -136,6 +149,9 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <None Remove="Resources\Metro\SegoeWP-Light.ttf" />
     <None Remove="Resources\Metro\SegoeWP-Semibold.ttf" />
     <None Remove="Resources\Metro\SegoeWP-Semilight.ttf" />
+    <None Remove="Resources\Poison\Open-Sans.ttf" />
+    <None Remove="Resources\Poison\Open-Sans-Bold.ttf" />
+    <None Remove="Resources\Poison\Open-Sans-Light.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -150,6 +166,9 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Metro\SegoeWP-Light.ttf" />
     <Resource Include="Resources\Metro\SegoeWP-Semibold.ttf" />
     <Resource Include="Resources\Metro\SegoeWP-Semilight.ttf" />
+    <Resource Include="Resources\Poison\Open-Sans.ttf" />
+    <Resource Include="Resources\Poison\Open-Sans-Bold.ttf" />
+    <Resource Include="Resources\Poison\Open-Sans-Light.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -162,6 +181,37 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <None Remove="Resources\Royal\MessageBox\Question.png" />
     <None Remove="Resources\Royal\MessageBox\Warning.png" />
     <None Remove="Resources\Royal\Minimize.png" />
+    <None Remove="Resources\Poison\Minimize.png" />
+    <None Remove="Resources\Poison\TextBox\lnkClear.Image.png" />
+    <None Remove="Resources\Poison\TextBox\lnkClear.NoFocusImage.png" />
+    <None Remove="Nones\Crown\active-inactive-close.png" />
+    <None Remove="Nones\Crown\arrow.png" />
+    <None Remove="Nones\Crown\close-normal.png" />
+    <None Remove="Nones\Crown\close-selected.png" />
+    <None Remove="Nones\Crown\err.png" />
+    <None Remove="Nones\Crown\grip.png" />
+    <None Remove="Nones\Crown\inactive-close-selected.png" />
+    <None Remove="Nones\Crown\inactive-close.png" />
+    <None Remove="Nones\Crown\info.png" />
+    <None Remove="Nones\Crown\node_closed_empty.png" />
+    <None Remove="Nones\Crown\node_closed_full.png" />
+    <None Remove="Nones\Crown\node_open.png" />
+    <None Remove="Nones\Crown\node_open_empty.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_clicked.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_hot.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_small_clicked.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_small_hot.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_small_standard.png" />
+    <None Remove="Nones\Crown\scrollbar_arrow_standard.png" />
+    <None Remove="Nones\Crown\scrollbar_disabled.png" />
+    <None Remove="Nones\Crown\small_arrow.png" />
+    <None Remove="Nones\Crown\tick.png" />
+    <None Remove="Nones\Crown\tw_active_close.png" />
+    <None Remove="Nones\Crown\tw_active_close_selected.png" />
+    <None Remove="Nones\Crown\tw_close.png" />
+    <None Remove="Nones\Crown\tw_close_selected.png" />
+    <None Remove="Nones\Crown\warn.png" />
     <None Remove="Resources\Taiizor.ico" />
     <None Remove="Resources\Twitter.png" />
   </ItemGroup>
@@ -202,9 +252,57 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Resource Include="Resources\Royal\MessageBox\Question.png" />
     <Resource Include="Resources\Royal\MessageBox\Warning.png" />
     <Resource Include="Resources\Royal\Minimize.png" />
+    <Resource Include="Resources\Poison\TextBox\lnkClear.Image.png" />
+    <Resource Include="Resources\Poison\TextBox\lnkClear.NoFocusImage.png" />
+    <Resource Include="Resources\Crown\active-inactive-close.png" />
+    <Resource Include="Resources\Crown\arrow.png" />
+    <Resource Include="Resources\Crown\close-normal.png" />
+    <Resource Include="Resources\Crown\close-selected.png" />
+    <Resource Include="Resources\Crown\err.png" />
+    <Resource Include="Resources\Crown\grip.png" />
+    <Resource Include="Resources\Crown\inactive-close-selected.png" />
+    <Resource Include="Resources\Crown\inactive-close.png" />
+    <Resource Include="Resources\Crown\info.png" />
+    <Resource Include="Resources\Crown\node_closed_empty.png" />
+    <Resource Include="Resources\Crown\node_closed_full.png" />
+    <Resource Include="Resources\Crown\node_open.png" />
+    <Resource Include="Resources\Crown\node_open_empty.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_clicked.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_hot.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_small_clicked.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_small_hot.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_small_standard.png" />
+    <Resource Include="Resources\Crown\scrollbar_arrow_standard.png" />
+    <Resource Include="Resources\Crown\scrollbar_disabled.png" />
+    <Resource Include="Resources\Crown\small_arrow.png" />
+    <Resource Include="Resources\Crown\tick.png" />
+    <Resource Include="Resources\Crown\tw_active_close.png" />
+    <Resource Include="Resources\Crown\tw_active_close_selected.png" />
+    <Resource Include="Resources\Crown\tw_close.png" />
+    <Resource Include="Resources\Crown\tw_close_selected.png" />
+    <Resource Include="Resources\Crown\warn.png" />
     <Resource Include="Resources\Taiizor.ico" />
     <Resource Include="Resources\Taiizor.png" />
     <Resource Include="Resources\Twitter.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Localization\Poison\de\PoisonMessageBoxControl.xml" />
+    <None Remove="Localization\Poison\de\PoisonToggle.xml" />
+    <None Remove="Localization\Poison\en\PoisonToggle.xml" />
+    <None Remove="Localization\Poison\es\PoisonToggle.xml" />
+    <None Remove="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
+    <None Remove="Localization\Poison\tr\PoisonToggle.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Poison\de\PoisonMessageBoxControl.xml" />
+    <EmbeddedResource Include="Localization\Poison\de\PoisonToggle.xml" />
+    <EmbeddedResource Include="Localization\Poison\en\PoisonToggle.xml" />
+    <EmbeddedResource Include="Localization\Poison\es\PoisonToggle.xml" />
+    <EmbeddedResource Include="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
+    <EmbeddedResource Include="Localization\Poison\tr\PoisonToggle.xml" />
   </ItemGroup>
 
 </Project>

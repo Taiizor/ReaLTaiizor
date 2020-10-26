@@ -17,29 +17,29 @@ namespace ReaLTaiizor.Controls
         [Category("Colors")]
         public Color BodyColorA
         {
-            get { return _BodyColorA; }
-            set { _BodyColorA = value; }
+            get => _BodyColorA;
+            set => _BodyColorA = value;
         }
 
         [Category("Colors")]
         public Color BodyColorB
         {
-            get { return _BodyColorB; }
-            set { _BodyColorB = value; }
+            get => _BodyColorB;
+            set => _BodyColorB = value;
         }
 
         [Category("Colors")]
         public Color BodyColorC
         {
-            get { return _BodyColorC; }
-            set { _BodyColorC = value; }
+            get => _BodyColorC;
+            set => _BodyColorC = value;
         }
 
         [Category("Colors")]
         public Color BodyColorD
         {
-            get { return _BodyColorD; }
-            set { _BodyColorD = value; }
+            get => _BodyColorD;
+            set => _BodyColorD = value;
         }
 
         private Color _BodyColorA = Color.FromArgb(26, 26, 26);

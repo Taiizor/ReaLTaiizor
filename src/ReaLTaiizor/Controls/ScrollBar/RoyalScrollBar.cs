@@ -16,30 +16,34 @@ namespace ReaLTaiizor.Controls
     {
         public event EventHandler ValueChanged;
 
-        Color gutterColor;
+        private Color gutterColor;
         public Color GutterColor
         {
-            get { return gutterColor; }
+            get => gutterColor;
             set { gutterColor = value; Invalidate(); }
         }
 
-        Color thumbColor;
+        private Color thumbColor;
         public Color ThumbColor
         {
-            get { return thumbColor; }
+            get => thumbColor;
             set { thumbColor = value; Invalidate(); }
         }
 
-        int _value;
+        private int _value;
         public int Value
         {
-            get { return _value; }
+            get => _value;
             set
             {
                 if (value < 0)
+                {
                     _value = 0;
+                }
                 else if (value > Max)
+                {
                     _value = Max;
+                }
                 else
                 {
                     _value = value;
@@ -49,17 +53,17 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        int min;
+        private int min;
         public int Min
         {
-            get { return min; }
+            get => min;
             set { min = value; Invalidate(); }
         }
 
-        int max;
+        private int max;
         public int Max
         {
-            get { return max; }
+            get => max;
             set
             {
                 max = value;
@@ -67,16 +71,24 @@ namespace ReaLTaiizor.Controls
                 if (Orientation == Orientation.Vertical)
                 {
                     if (max > Height)
+                    {
                         thumbSize = (double)Height * ((double)Height / (double)max);
+                    }
                     else
+                    {
                         thumbSize = 0;
+                    }
                 }
                 else if (Orientation == Orientation.Horizontal)
                 {
                     if (max > Width)
+                    {
                         thumbSize = (double)Width * ((double)Width / (double)max);
+                    }
                     else
+                    {
                         thumbSize = 0;
+                    }
                 }
 
                 Refresh();
@@ -84,28 +96,27 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        int smallChange;
+        private int smallChange;
         public int SmallChange
         {
-            get { return smallChange; }
+            get => smallChange;
             set { smallChange = value; Invalidate(); }
         }
 
-        int largeChange;
+        private int largeChange;
         public int LargeChange
         {
-            get { return largeChange; }
+            get => largeChange;
             set { largeChange = value; Invalidate(); }
         }
 
-        double thumbSize;
-        bool thumbSelected;
-        Point lastMousePos;
-
-        Orientation orientation;
+        private double thumbSize;
+        private bool thumbSelected;
+        private Point lastMousePos;
+        private Orientation orientation;
         public Orientation Orientation
         {
-            get { return orientation; }
+            get => orientation;
             set { orientation = value; Invalidate(); }
         }
 
@@ -134,7 +145,9 @@ namespace ReaLTaiizor.Controls
         protected void DrawGutter(PaintEventArgs e)
         {
             if (Max > Height)
+            {
                 e.Graphics.FillRectangle(new SolidBrush(GutterColor), e.ClipRectangle);
+            }
         }
 
         protected void DrawThumb(PaintEventArgs e)
@@ -171,14 +184,18 @@ namespace ReaLTaiizor.Controls
                 Value -= SmallChange;
 
                 if (Value < Min)
+                {
                     Value = Min;
+                }
             }
             else if (e.Delta < 0)
             {
                 Value += SmallChange;
 
                 if (Value > Max)
+                {
                     Value = Max;
+                }
             }
 
             Refresh();
@@ -216,22 +233,32 @@ namespace ReaLTaiizor.Controls
             if (mouseRect.IntersectsWith(gutterRect))
             {
                 if (mouseRect.IntersectsWith(thumbRect))
+                {
                     thumbSelected = true;
+                }
                 else
                 {
                     if (Orientation == Orientation.Vertical)
                     {
                         if (mouseRect.Y < thumbRect.Top)
+                        {
                             Value -= largeChange;
+                        }
                         else if (mouseRect.Y > thumbRect.Bottom)
+                        {
                             Value += largeChange;
+                        }
                     }
                     else if (Orientation == Orientation.Horizontal)
                     {
                         if (mouseRect.X < thumbRect.Left)
+                        {
                             Value -= largeChange;
+                        }
                         else if (mouseRect.X > thumbRect.Right)
+                        {
                             Value += largeChange;
+                        }
                     }
                 }
             }

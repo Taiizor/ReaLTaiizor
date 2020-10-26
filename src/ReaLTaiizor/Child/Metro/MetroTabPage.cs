@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Child.Metro
     #region MetroTabPageChild
 
     [Designer(typeof(MetroTabPageDesigner))]
-    public class MetroTabPage : TabPage, iControl
+    public class MetroTabPage : TabPage, IMetroControl
     {
         #region Interfaces
 
@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Child.Metro
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -49,10 +49,10 @@ namespace ReaLTaiizor.Child.Metro
 
         [Browsable(false)]
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -66,7 +66,9 @@ namespace ReaLTaiizor.Child.Metro
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
+
+        private bool _isDerivedStyle = true;
 
         #endregion Internal Vars
 
@@ -83,8 +85,8 @@ namespace ReaLTaiizor.Child.Metro
                 ControlStyles.SupportsTransparentBackColor,
                     true
             );
+            base.Font = MetroFonts.Light(10);
             UpdateStyles();
-            Font = MetroFonts.Light(10);
             ApplyTheme();
         }
 
@@ -94,12 +96,17 @@ namespace ReaLTaiizor.Child.Metro
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
                     BaseColor = Color.White;
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -123,14 +130,11 @@ namespace ReaLTaiizor.Child.Metro
         [Browsable(false)]
         public new Color BackColor { get; set; } = Color.Transparent;
 
-        // I dont' want to recreate the following properties for specific reason but for helping
-        // user to find usage properties easily under Metro category in propertygrid.
-
         [Category("Metro")]
         public override string Text { get; set; }
 
         [Category("Metro")]
-        public override Font Font { get; set; }
+        public new Font Font { get; set; }
 
         [Category("Metro")]
         public new int ImageIndex { get; set; }
@@ -145,16 +149,31 @@ namespace ReaLTaiizor.Child.Metro
         [Bindable(false)]
         public Color BaseColor { get; set; }
 
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent form style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
+
         #endregion Properties
 
         #region DrawControl
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Graphics G = e.Graphics;
-            G.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            using (var bg = new SolidBrush(BaseColor))
-                G.FillRectangle(bg, ClientRectangle);
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            using (SolidBrush bg = new SolidBrush(BaseColor))
+            {
+                g.FillRectangle(bg, ClientRectangle);
+            }
         }
 
         #endregion

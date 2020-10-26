@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Forms
         private bool _ControlMode;
         protected bool ControlMode
         {
-            get { return _ControlMode; }
+            get => _ControlMode;
             set
             {
                 _ControlMode = value;
@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Forms
         [Description("Indicates how the window title should be aligned.")]
         public Alignment TextAlignment
         {
-            get { return _TextAlignment; }
+            get => _TextAlignment;
             set
             {
                 _TextAlignment = value;
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Forms
         [Description("Determines whether the icon specified in the parent form should be drawn.")]
         public bool DrawIcon
         {
-            get { return _DrawIcon; }
+            get => _DrawIcon;
             set
             {
                 _DrawIcon = value;
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Forms
         [Description("Sets the title bar title color.")]
         public Color TitleBarTextColor
         {
-            get { return _TitleBarTextColor; }
+            get => _TitleBarTextColor;
             set
             {
                 _TitleBarTextColor = value;
@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Forms
         [Description("Sets the title bar color.")]
         public Color HeadColor
         {
-            get { return _HeadColor; }
+            get => _HeadColor;
             set
             {
                 _HeadColor = value;
@@ -120,7 +120,7 @@ namespace ReaLTaiizor.Forms
         /// </summary>
         private bool IsOverTitleBarIcon(MouseEventArgs e)
         {
-            var point = (e.X > 8 && e.X < 26) && (e.Y > 6 && e.Y < 22);
+            bool point = (e.X > 8 && e.X < 26) && (e.Y > 6 && e.Y < 22);
             return point;
         }
 
@@ -131,7 +131,9 @@ namespace ReaLTaiizor.Forms
         protected override void OnSizeChanged(EventArgs e)
         {
             if (!ControlMode)
+            {
                 titleBarRect = new Rectangle(9, 2, Width, draggableHeight);
+            }
 
             base.OnSizeChanged(e);
         }
@@ -145,7 +147,9 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
+            {
                 return;
+            }
 
             if (titleBarRect.Contains(e.Location))
             {
@@ -159,11 +163,15 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseDoubleClick(MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
+            {
                 return;
+            }
 
             // Close when double-clicking on the title bar icon
             if (_DrawIcon && IsOverTitleBarIcon(e))
+            {
                 Application.Exit();
+            }
 
             base.OnMouseDoubleClick(e);
         }
@@ -171,7 +179,9 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (isBeingDragged)
+            {
                 Parent.Location = Point.Subtract(MousePosition, (Size)mouseLocation);
+            }
 
             base.OnMouseMove(e);
         }
@@ -179,7 +189,9 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseUp(MouseEventArgs e)
         {
             if (isBeingDragged)
+            {
                 isBeingDragged = false;
+            }
 
             base.OnMouseUp(e);
         }
@@ -216,8 +228,10 @@ namespace ReaLTaiizor.Forms
 
         private void DrawTitleBar(Graphics g)
         {
-            using (var brush = new SolidBrush(HeadColor))
+            using (SolidBrush brush = new SolidBrush(HeadColor))
+            {
                 g.FillRectangle(brush, new Rectangle(0, 0, Width, 31));
+            }
 
             // ========== FOR TESTING PURPOSES ONLY! ==========
             // PLACEMENT BACKGROUNDS FOR THE CONTROLBOX BUTTONS
@@ -237,23 +251,25 @@ namespace ReaLTaiizor.Forms
             if (_DrawIcon)
             {
                 titleBarStringLeft = _TextAlignment == Alignment.Left ? 33 : 5;
-                var iconRect = new Rectangle(10, 7, 16, 16);
+                Rectangle iconRect = new Rectangle(10, 7, 16, 16);
 
                 g.DrawIcon(FindForm().Icon, iconRect);
             }
             else
+            {
                 titleBarStringLeft = 5;
+            }
         }
 
         private void DrawTitleBarText(Graphics g)
         {
-            var stringRect = new Rectangle(titleBarStringLeft, 7, Width - 13, Height);
+            Rectangle stringRect = new Rectangle(titleBarStringLeft, 7, Width - 13, Height);
 
             switch (_TextAlignment)
             {
                 case Alignment.Left:
-                    using (var stringColor = new SolidBrush(_TitleBarTextColor))
-                    using (var sf = new StringFormat
+                    using (SolidBrush stringColor = new SolidBrush(_TitleBarTextColor))
+                    using (StringFormat sf = new StringFormat
                     {
                         Alignment = StringAlignment.Near,
                         LineAlignment = StringAlignment.Near
@@ -263,8 +279,8 @@ namespace ReaLTaiizor.Forms
                     }
                     break;
                 case Alignment.Center:
-                    using (var stringColor = new SolidBrush(_TitleBarTextColor))
-                    using (var sf = new StringFormat
+                    using (SolidBrush stringColor = new SolidBrush(_TitleBarTextColor))
+                    using (StringFormat sf = new StringFormat
                     {
                         Alignment = StringAlignment.Center,
                         LineAlignment = StringAlignment.Near
@@ -278,7 +294,7 @@ namespace ReaLTaiizor.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
             g.Clear(BackColor);
 
             DrawTitleBar(g);

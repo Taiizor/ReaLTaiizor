@@ -34,7 +34,10 @@ namespace ReaLTaiizor.Forms
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
+            {
                 components.Dispose();
+            }
+
             base.Dispose(disposing);
         }
 
@@ -205,9 +208,9 @@ namespace ReaLTaiizor.Forms
         private MaterialButton rightButton;
 
         //These separators are used for the "copy to clipboard" standard operation, triggered by Ctrl + C (behavior and clipboard format is like in a standard MessageBox)
-        private static readonly String STANDARD_MESSAGEBOX_SEPARATOR_LINES = "---------------------------\n";
+        private static readonly string STANDARD_MESSAGEBOX_SEPARATOR_LINES = "---------------------------\n";
 
-        private static readonly String STANDARD_MESSAGEBOX_SEPARATOR_SPACES = "   ";
+        private static readonly string STANDARD_MESSAGEBOX_SEPARATOR_SPACES = "   ";
 
         //These are the possible buttons (in a standard MessageBox)
         private enum ButtonID
@@ -233,23 +236,23 @@ namespace ReaLTaiizor.Forms
             zh
         };
 
-        private static readonly String[] BUTTON_TEXTS_ENGLISH_EN = { "Ok", "Cancel", "Yes", "No", "Abort", "Retry", "Ignore" };
+        private static readonly string[] BUTTON_TEXTS_ENGLISH_EN = { "Ok", "Cancel", "Yes", "No", "Abort", "Retry", "Ignore" };
 
-        private static readonly String[] BUTTON_TEXTS_GERMAN_DE = { "Ok", "Abbrechen", "Ja", "Nein", "Abbrechen", "Wiederholen", "Ignorieren" };
+        private static readonly string[] BUTTON_TEXTS_GERMAN_DE = { "Ok", "Abbrechen", "Ja", "Nein", "Abbrechen", "Wiederholen", "Ignorieren" };
 
-        private static readonly String[] BUTTON_TEXTS_SPANISH_ES = { "Aceptar", "Cancelar", "Sí", "No", "Abortar", "Reintentar", "Ignorar" };
+        private static readonly string[] BUTTON_TEXTS_SPANISH_ES = { "Aceptar", "Cancelar", "Sí", "No", "Abortar", "Reintentar", "Ignorar" };
 
-        private static readonly String[] BUTTON_TEXTS_ITALIAN_IT = { "Ok", "Annulla", "Sì", "No", "Interrompi", "Riprova", "Ignora" };
+        private static readonly string[] BUTTON_TEXTS_ITALIAN_IT = { "Ok", "Annulla", "Sì", "No", "Interrompi", "Riprova", "Ignora" };
 
-        private static readonly String[] BUTTON_TEXTS_TURKISH_TR = { "Tamam", "İptal", "Evet", "Hayır", "Sonlandır", "Yeniden Dene", "Yoksay" };
+        private static readonly string[] BUTTON_TEXTS_TURKISH_TR = { "Tamam", "İptal", "Evet", "Hayır", "Sonlandır", "Yeniden Dene", "Yoksay" };
 
-        private static readonly String[] BUTTON_TEXTS_CHINA_ZH = { "确定", "取消", "是", "否", "终止", "重试", "忽略" };
+        private static readonly string[] BUTTON_TEXTS_CHINA_ZH = { "确定", "取消", "是", "否", "终止", "重试", "忽略" };
 
         private MessageBoxDefaultButton defaultButton;
 
         private int visibleButtonsCount;
 
-        private TwoLetterISOLanguageID languageID = TwoLetterISOLanguageID.en;
+        private readonly TwoLetterISOLanguageID languageID = TwoLetterISOLanguageID.en;
 
         private MaterialFlexibleForm()
         {
@@ -269,15 +272,17 @@ namespace ReaLTaiizor.Forms
         private static string[] GetStringRows(string message)
         {
             if (string.IsNullOrEmpty(message))
+            {
                 return null;
+            }
 
-            var messageRows = message.Split(new char[] { '\n' }, StringSplitOptions.None);
+            string[] messageRows = message.Split(new char[] { '\n' }, StringSplitOptions.None);
             return messageRows;
         }
 
         private string GetButtonText(ButtonID buttonID)
         {
-            var buttonTextArrayIndex = Convert.ToInt32(buttonID);
+            int buttonTextArrayIndex = Convert.ToInt32(buttonID);
 
             switch (languageID)
             {
@@ -297,10 +302,14 @@ namespace ReaLTaiizor.Forms
             const double MAX_FACTOR = 1.0;
 
             if (workingAreaFactor < MIN_FACTOR)
+            {
                 return MIN_FACTOR;
+            }
 
             if (workingAreaFactor > MAX_FACTOR)
+            {
                 return MAX_FACTOR;
+            }
 
             return workingAreaFactor;
         }
@@ -310,7 +319,7 @@ namespace ReaLTaiizor.Forms
             //If no owner given: Center on current screen
             if (owner == null)
             {
-                var screen = Screen.FromPoint(Cursor.Position);
+                Screen screen = Screen.FromPoint(Cursor.Position);
                 MaterialFlexibleForm.StartPosition = FormStartPosition.Manual;
                 MaterialFlexibleForm.Left = screen.Bounds.Left + screen.Bounds.Width / 2 - MaterialFlexibleForm.Width / 2;
                 MaterialFlexibleForm.Top = screen.Bounds.Top + screen.Bounds.Height / 2 - MaterialFlexibleForm.Height / 2;
@@ -323,22 +332,24 @@ namespace ReaLTaiizor.Forms
             MaterialFlexibleForm.MaximumSize = new Size(Convert.ToInt32(SystemInformation.WorkingArea.Width * GetCorrectedWorkingAreaFactor(MAX_WIDTH_FACTOR)), Convert.ToInt32(SystemInformation.WorkingArea.Height * GetCorrectedWorkingAreaFactor(MAX_HEIGHT_FACTOR)));
 
             //Get rows. Exit if there are no rows to render...
-            var stringRows = GetStringRows(text);
+            string[] stringRows = GetStringRows(text);
             if (stringRows == null)
+            {
                 return;
+            }
 
             //Calculate whole text height
-            var textHeight = Math.Min(TextRenderer.MeasureText(text, FONT).Height, 600);
+            int textHeight = Math.Min(TextRenderer.MeasureText(text, FONT).Height, 600);
 
             //Calculate width for longest text line
             const int SCROLLBAR_WIDTH_OFFSET = 15;
-            var longestTextRowWidth = stringRows.Max(textForRow => TextRenderer.MeasureText(textForRow, FONT).Width);
-            var captionWidth = TextRenderer.MeasureText(caption, SystemFonts.CaptionFont).Width;
-            var textWidth = Math.Max(longestTextRowWidth + SCROLLBAR_WIDTH_OFFSET, captionWidth);
+            int longestTextRowWidth = stringRows.Max(textForRow => TextRenderer.MeasureText(textForRow, FONT).Width);
+            int captionWidth = TextRenderer.MeasureText(caption, SystemFonts.CaptionFont).Width;
+            int textWidth = Math.Max(longestTextRowWidth + SCROLLBAR_WIDTH_OFFSET, captionWidth);
 
             //Calculate margins
-            var marginWidth = MaterialFlexibleForm.Width - MaterialFlexibleForm.richTextBoxMessage.Width;
-            var marginHeight = MaterialFlexibleForm.Height - MaterialFlexibleForm.richTextBoxMessage.Height;
+            int marginWidth = MaterialFlexibleForm.Width - MaterialFlexibleForm.richTextBoxMessage.Width;
+            int marginHeight = MaterialFlexibleForm.Height - MaterialFlexibleForm.richTextBoxMessage.Height;
 
             //Set calculated dialog size (if the calculated values exceed the maximums, they were cut by windows forms automatically)
             MaterialFlexibleForm.Size = new Size(textWidth + marginWidth, textHeight + marginHeight);
@@ -483,14 +494,22 @@ namespace ReaLTaiizor.Forms
             }
 
             if (buttonIndexToFocus > visibleButtonsCount)
+            {
                 buttonIndexToFocus = visibleButtonsCount;
+            }
 
             if (buttonIndexToFocus == 3)
+            {
                 buttonToFocus = rightButton;
+            }
             else if (buttonIndexToFocus == 2)
+            {
                 buttonToFocus = middleButton;
+            }
             else
+            {
                 buttonToFocus = leftButton;
+            }
 
             buttonToFocus.Focus();
         }
@@ -518,12 +537,12 @@ namespace ReaLTaiizor.Forms
             //Handle standard key strikes for clipboard copy: "Ctrl + C" and "Ctrl + Insert"
             if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.Insert))
             {
-                var buttonsTextLine = (leftButton.Visible ? leftButton.Text + STANDARD_MESSAGEBOX_SEPARATOR_SPACES : string.Empty)
+                string buttonsTextLine = (leftButton.Visible ? leftButton.Text + STANDARD_MESSAGEBOX_SEPARATOR_SPACES : string.Empty)
                                     + (middleButton.Visible ? middleButton.Text + STANDARD_MESSAGEBOX_SEPARATOR_SPACES : string.Empty)
                                     + (rightButton.Visible ? rightButton.Text + STANDARD_MESSAGEBOX_SEPARATOR_SPACES : string.Empty);
 
                 //Build same clipboard text like the standard .Net MessageBox
-                var textForClipboard = STANDARD_MESSAGEBOX_SEPARATOR_LINES
+                string textForClipboard = STANDARD_MESSAGEBOX_SEPARATOR_LINES
                                      + Text + Environment.NewLine
                                      + STANDARD_MESSAGEBOX_SEPARATOR_LINES
                                      + richTextBoxMessage.Text + Environment.NewLine
@@ -543,12 +562,14 @@ namespace ReaLTaiizor.Forms
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton)
         {
             //Create a new instance of the FlexibleMessageBox form
-            var MaterialFlexibleForm = new MaterialFlexibleForm();
-            MaterialFlexibleForm.ShowInTaskbar = false;
+            MaterialFlexibleForm MaterialFlexibleForm = new MaterialFlexibleForm
+            {
+                ShowInTaskbar = false,
 
-            //Bind the caption and the message text
-            MaterialFlexibleForm.CaptionText = caption;
-            MaterialFlexibleForm.MessageText = text;
+                //Bind the caption and the message text
+                CaptionText = caption,
+                MessageText = text
+            };
             MaterialFlexibleForm.MaterialFlexibleFormBindingSource.DataSource = MaterialFlexibleForm;
 
             //Set the buttons visibilities and texts. Also set a default button.

@@ -55,10 +55,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Toggled
         {
-            get
-            {
-                return _Toggled;
-            }
+            get => _Toggled;
             set
             {
                 _Toggled = value;
@@ -69,10 +66,7 @@ namespace ReaLTaiizor.Controls
 
         public _Type Type
         {
-            get
-            {
-                return ToggleType;
-            }
+            get => ToggleType;
             set
             {
                 ToggleType = value;
@@ -144,27 +138,47 @@ namespace ReaLTaiizor.Controls
             {
                 case _Type.CheckMark:
                     if (Toggled)
+                    {
                         G.DrawString("ü", new Font("Wingdings", 18, FontStyle.Regular), Brushes.WhiteSmoke, Bar.X + 18, Bar.Y + 19, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("r", new Font("Marlett", 14, FontStyle.Regular), Brushes.DimGray, Bar.X + 59, Bar.Y + 18, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
+
                     break;
                 case _Type.OnOff:
                     if (Toggled)
+                    {
                         G.DrawString("ON", new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.WhiteSmoke, Bar.X + 18, Bar.Y + 16, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("OFF", new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.DimGray, Bar.X + 57, Bar.Y + 16, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
+
                     break;
                 case _Type.YesNo:
                     if (Toggled)
+                    {
                         G.DrawString("YES", new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.WhiteSmoke, Bar.X + 19, Bar.Y + 16, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("NO", new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.DimGray, Bar.X + 56, Bar.Y + 16, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
+
                     break;
                 case _Type.IO:
                     if (Toggled)
+                    {
                         G.DrawString("I", new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.WhiteSmoke, Bar.X + 18, Bar.Y + 16, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
                     else
+                    {
                         G.DrawString("O", new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.DimGray, Bar.X + 57, Bar.Y + 16, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    }
+
                     break;
             }
         }

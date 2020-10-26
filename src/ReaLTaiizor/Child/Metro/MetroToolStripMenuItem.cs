@@ -27,8 +27,11 @@ namespace ReaLTaiizor.Child.Metro
         protected override ToolStripDropDown CreateDefaultDropDown()
         {
             if (DesignMode)
+            {
                 return base.CreateDefaultDropDown();
-            var dp = new MetroContextMenuStrip();
+            }
+
+            MetroContextMenuStrip dp = new MetroContextMenuStrip();
             dp.Items.AddRange(base.CreateDefaultDropDown().Items);
             return dp;
         }

@@ -2,7 +2,6 @@
 
 using System;
 using System.Drawing;
-using ReaLTaiizor.Native;
 using ReaLTaiizor.Manager;
 using System.Windows.Forms;
 using System.ComponentModel;
@@ -25,15 +24,14 @@ namespace ReaLTaiizor.Controls
     [ToolboxBitmap(typeof(MetroTabControl), "Bitmaps.TabControl.bmp")]
     [Designer(typeof(MetroTabControlDesigner))]
     [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroTabControl : TabControl, iControl
+    public class MetroTabControl : TabControl, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -57,10 +55,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -81,10 +79,18 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
-        private PointFAnimate _slideAnimator;
+        private MetroStyleManager _styleManager;
+        private readonly PointFAnimate _slideAnimator;
         private Graphics _slideGraphics;
         private Bitmap _slideBitmap;
+
+        private Cursor _MCursor = Cursors.Hand;
+        private bool _isDerivedStyle = true;
+        private bool _useAnimation = true;
+        private int _speed = 100;
+        private Color _unselectedTextColor;
+        private Color _selectedTextColor;
+        private TabStyle _tabStyle;
 
         #endregion Internal Vars
 
@@ -107,6 +113,12 @@ namespace ReaLTaiizor.Controls
             _mth = new Methods();
             _utl = new Utilites();
             _slideAnimator = new PointFAnimate();
+            if (Cursor == null)
+            {
+                Cursor = _MCursor;
+            }
+
+            _MCursor = Cursor;
             ApplyTheme();
         }
 
@@ -116,20 +128,25 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
-                    ForeroundColor = Color.FromArgb(65, 177, 225);
-                    BackgroungColor = Color.White;
+                    ForegroundColor = Color.FromArgb(65, 177, 225);
+                    BackgroundColor = Color.White;
                     UnselectedTextColor = Color.Gray;
                     SelectedTextColor = Color.White;
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
-                    ForeroundColor = Color.FromArgb(65, 177, 225);
-                    BackgroungColor = Color.FromArgb(30, 30, 30);
+                    ForegroundColor = Color.FromArgb(65, 177, 225);
+                    BackgroundColor = Color.FromArgb(30, 30, 30);
                     UnselectedTextColor = Color.Gray;
                     SelectedTextColor = Color.White;
                     ThemeAuthor = "Taiizor";
@@ -137,16 +154,17 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.TabControlDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.TabControlDictionary)
                         {
                             switch (varkey.Key)
                             {
                                 case "ForeColor":
-                                    ForeroundColor = _utl.HexColor((string)varkey.Value);
+                                    ForegroundColor = _utl.HexColor((string)varkey.Value);
                                     break;
                                 case "BackColor":
-                                    BackgroungColor = _utl.HexColor((string)varkey.Value);
+                                    BackgroundColor = _utl.HexColor((string)varkey.Value);
                                     break;
                                 case "UnselectedTextColor":
                                     UnselectedTextColor = _utl.HexColor((string)varkey.Value);
@@ -158,10 +176,10 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(style), style, null);
             }
         }
 
@@ -169,12 +187,12 @@ namespace ReaLTaiizor.Controls
         {
             try
             {
-                InvalidateTabPage(BackgroungColor);
+                InvalidateTabPage(BackgroundColor);
                 Invalidate();
             }
-            catch (Exception Ex)
+            catch
             {
-                throw new Exception(Ex.StackTrace);
+                //throw new Exception(Ex.StackTrace);
             }
         }
 
@@ -201,7 +219,16 @@ namespace ReaLTaiizor.Controls
         public new TabPageCollection TabPages => base.TabPages;
 
         [Category("Metro"), Description("Gets or sets wether the tabcontrol use animation or not.")]
-        public bool UseAnimation { get; set; } = true;
+        [DefaultValue(true)]
+        public bool UseAnimation
+        {
+            get => _useAnimation;
+            set
+            {
+                _useAnimation = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the size of the control's tabs.")]
         public new Size ItemSize
@@ -221,13 +248,31 @@ namespace ReaLTaiizor.Controls
         public new TabAlignment Alignment => TabAlignment.Top;
 
         [Category("Metro"), Description("Gets or sets the speed of transition.")]
-        public int Speed { get; set; } = 20;
+        [DefaultValue(20)]
+        public int Speed
+        {
+            get => _speed;
+            set
+            {
+                _speed = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro")]
         public override DockStyle Dock
         {
             get => base.Dock; set => base.Dock = value;
         }
+
+        [Category("Metro"), Description("Gets or sets the cursor of control.")]
+        public Cursor MCursor
+        {
+            get => _MCursor; set => _MCursor = value;
+        }
+
+        [Browsable(false)]
+        public Cursor Cursor { get; set; }
 
         [Category("Metro")]
         [Browsable(false)]
@@ -238,19 +283,57 @@ namespace ReaLTaiizor.Controls
         public new TabDrawMode DrawMode { get; set; } = TabDrawMode.Normal;
 
         [Category("Metro"), Description("Gets or sets the backgorund color.")]
-        private Color BackgroungColor { get; set; }
+        public Color BackgroundColor { get; set; }
 
         [Category("Metro"), Description("Gets or sets the foregorund color.")]
-        private Color ForeroundColor { get; set; }
+        private Color ForegroundColor { get; set; }
 
         [Category("Metro"), Description("Gets or sets the tabpage text while un-selected.")]
-        private Color UnselectedTextColor { get; set; }
+        public Color UnselectedTextColor
+        {
+            get => _unselectedTextColor;
+            set
+            {
+                _unselectedTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the tabpage text while selected.")]
-        private Color SelectedTextColor { get; set; }
+        public Color SelectedTextColor
+        {
+            get => _selectedTextColor;
+            set
+            {
+                _selectedTextColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the tancontrol apperance style.")]
-        public TabStyle TabStyle { get; set; } = TabStyle.Style1;
+        [DefaultValue(TabStyle.Style1)]
+        public TabStyle TabStyle
+        {
+            get => _tabStyle;
+            set
+            {
+                _tabStyle = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion Properties
 
@@ -258,53 +341,54 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
-
-            G.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-
-            G.Clear(BackgroungColor);
-
-            var h = ItemSize.Height + 2;
-
+            Graphics g = e.Graphics;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            g.Clear(BackgroundColor);
+            int h = ItemSize.Height + 2;
             switch (TabStyle)
             {
                 case TabStyle.Style1:
-
-                    using (var sb = new Pen(ForeroundColor, 2))
-                        G.DrawLine(sb, 2, h, Width - 3, h);
-
-                    for (var i = 0; i <= TabCount - 1; i++)
+                    using (Pen sb = new Pen(ForegroundColor, 2))
                     {
-                        var r = GetTabRect(i);
+                        g.DrawLine(sb, 2, h, Width - 3, h);
+                    }
+
+                    for (int i = 0; i <= TabCount - 1; i++)
+                    {
+                        Rectangle r = GetTabRect(i);
 
                         if (i == SelectedIndex)
                         {
-                            using (var sb = new SolidBrush(ForeroundColor))
-                                G.FillRectangle(sb, r);
+                            using (SolidBrush sb = new SolidBrush(ForegroundColor))
+                            {
+                                g.FillRectangle(sb, r);
+                            }
                         }
-                        using (var tb = new SolidBrush(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor))
-                            G.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
+                        using (SolidBrush tb = new SolidBrush(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor))
+                        {
+                            g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
+                        }
                     }
                     break;
                 case TabStyle.Style2:
-
-                    for (var i = 0; i <= TabCount - 1; i++)
+                    for (int i = 0; i <= TabCount - 1; i++)
                     {
-                        var r = GetTabRect(i);
+                        Rectangle r = GetTabRect(i);
 
                         if (i == SelectedIndex)
                         {
-                            using (var sb = new Pen(ForeroundColor, 2))
-                                G.DrawLine(sb, r.X, r.Height, r.X + r.Width, r.Height);
+                            using (Pen sb = new Pen(ForegroundColor, 2))
+                            {
+                                g.DrawLine(sb, r.X, r.Height, r.X + r.Width, r.Height);
+                            }
                         }
-                        using (var tb = new SolidBrush(UnselectedTextColor))
-                            G.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
+                        using (SolidBrush tb = new SolidBrush(UnselectedTextColor))
+                        {
+                            g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
+                        }
                     }
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
-
         }
 
         #endregion Draw Control
@@ -314,11 +398,19 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            for (var i = 0; i <= TabCount - 1; i++)
+            for (int i = 0; i <= TabCount - 1; i++)
             {
-                var r = GetTabRect(i);
-                if (!r.Contains(e.Location)) continue;
-                Cursor = Cursors.Hand;
+                Rectangle r = GetTabRect(i);
+                if (!r.Contains(e.Location))
+                {
+                    continue;
+                }
+
+                if (MCursor != Cursor)
+                {
+                    Cursor = MCursor;
+                }
+
                 Invalidate();
             }
         }
@@ -326,31 +418,29 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            Cursor = Cursors.Default;
+            if (MCursor == Cursor)
+            {
+                Cursor = Cursors.Default;
+            }
+
             Invalidate();
         }
 
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == User32.WM_SETCURSOR)
-            {
-                User32.SetCursor(User32.LoadCursor(IntPtr.Zero, User32.IDC_HAND));
-                m.Result = IntPtr.Zero;
-                return;
-            }
+            //_utl.SmoothCursor(ref m);
+            _utl.SmoothCursor(ref m, Cursor);
+            //_utl.NormalCursor(ref m, Cursor);
 
             base.WndProc(ref m);
         }
 
         #region Animation
 
-        // Credits : Mavamaarten
-
         private int _oldIndex;
 
         private void DoSlideAnimate(System.Windows.Forms.TabPage control1, System.Windows.Forms.TabPage control2, bool moveback)
         {
-            // initialize control and child controls when control first painted
             _utl.InitControlHandle(control1);
             _utl.InitControlHandle(control2);
             _slideGraphics = Graphics.FromHwnd(control2.Handle);
@@ -368,7 +458,9 @@ namespace ReaLTaiizor.Controls
             }
 
             foreach (Control c in control2.Controls)
+            {
                 c.Hide();
+            }
 
             _slideAnimator.Update = (alpha) =>
             {
@@ -378,7 +470,9 @@ namespace ReaLTaiizor.Controls
             {
                 SelectedTab = control2;
                 foreach (Control c in control2.Controls)
+                {
                     c.Show();
+                }
             };
             _slideAnimator.Start
             (
@@ -391,7 +485,11 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnSelecting(TabControlCancelEventArgs e)
         {
-            if (!UseAnimation) return;
+            if (!UseAnimation)
+            {
+                return;
+            }
+
             if (_slideAnimator.Active)
             {
                 e.Cancel = true;
@@ -407,34 +505,40 @@ namespace ReaLTaiizor.Controls
 
         private void DoAnimationScrollRight(Control control1, Control control2)
         {
-            var G = control1.CreateGraphics();
-            var p1 = new Bitmap(control1.Width, control1.Height);
-            var p2 = new Bitmap(control2.Width, control2.Height);
+            Graphics g = control1.CreateGraphics();
+            Bitmap p1 = new Bitmap(control1.Width, control1.Height);
+            Bitmap p2 = new Bitmap(control2.Width, control2.Height);
             control1.DrawToBitmap(p1, new Rectangle(0, 0, control1.Width, control1.Height));
             control2.DrawToBitmap(p2, new Rectangle(0, 0, control2.Width, control2.Height));
 
             foreach (Control c in control1.Controls)
+            {
                 c.Hide();
+            }
 
-            var slide = control1.Width - (control1.Width % Speed);
+            int slide = control1.Width - (control1.Width % Speed);
 
             int a;
             for (a = 0; a >= -slide; a += -Speed)
             {
-                G.DrawImage(p1, new Rectangle(a, 0, control1.Width, control1.Height));
-                G.DrawImage(p2, new Rectangle(a + control2.Width, 0, control2.Width, control2.Height));
+                g.DrawImage(p1, new Rectangle(a, 0, control1.Width, control1.Height));
+                g.DrawImage(p2, new Rectangle(a + control2.Width, 0, control2.Width, control2.Height));
             }
             a = control1.Width;
-            G.DrawImage(p1, new Rectangle(a, 0, control1.Width, control1.Height));
-            G.DrawImage(p2, new Rectangle(a + control2.Width, 0, control2.Width, control2.Height));
+            g.DrawImage(p1, new Rectangle(a, 0, control1.Width, control1.Height));
+            g.DrawImage(p2, new Rectangle(a + control2.Width, 0, control2.Width, control2.Height));
 
             SelectedTab = (System.Windows.Forms.TabPage)control2;
 
             foreach (Control c in control2.Controls)
+            {
                 c.Show();
+            }
 
             foreach (Control c in control1.Controls)
+            {
                 c.Show();
+            }
         }
 
         #endregion Animation

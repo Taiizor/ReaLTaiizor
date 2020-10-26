@@ -13,12 +13,15 @@ namespace ReaLTaiizor.Child.Metro
     public class MetroItemCollection : Collection<object>
     {
         public event EventHandler ItemUpdated;
+
         public delegate void EventHandler(object sender, EventArgs e);
 
         public void AddRange(IEnumerable<object> items)
         {
-            foreach (var item in items)
+            foreach (object item in items)
+            {
                 Add(item);
+            }
         }
 
         protected new void Add(object item)

@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         [Description("Determines whether the control should enable the use of the maximize button.")]
         public bool EnableMaximizeButton
         {
-            get { return _EnableMaximize; }
+            get => _EnableMaximize;
             set
             {
                 _EnableMaximize = value;
@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
         [Description("Determines whether the control should enable the use of the minimize button.")]
         public bool EnableMinimizeButton
         {
-            get { return _EnableMinimize; }
+            get => _EnableMinimize;
             set
             {
                 _EnableMinimize = value;
@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Controls
         [Description("ControlBox set location to default.")]
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
         [Description("Enabled is Minimize ForeColor.")]
         public Color EnableMinimizeColor
         {
-            get { return _EnableMinimizeColor; }
+            get => _EnableMinimizeColor;
             set
             {
                 _EnableMinimizeColor = value;
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
         [Description("Disabled is Minimize ForeColor.")]
         public Color DisableMinimizeColor
         {
-            get { return _DisableMinimizeColor; }
+            get => _DisableMinimizeColor;
             set
             {
                 _DisableMinimizeColor = value;
@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
         [Description("Minimize is HoverColor.")]
         public Color MinimizeHoverColor
         {
-            get { return _MinimizeHoverColor; }
+            get => _MinimizeHoverColor;
             set
             {
                 _MinimizeHoverColor = value;
@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
         [Description("Minimize is HoverForeColor.")]
         public Color MinimizeHoverForeColor
         {
-            get { return _MinimizeHoverForeColor; }
+            get => _MinimizeHoverForeColor;
             set
             {
                 _MinimizeHoverForeColor = value;
@@ -117,7 +117,7 @@ namespace ReaLTaiizor.Controls
         [Description("Enabled is Maximize ForeColor.")]
         public Color EnableMaximizeColor
         {
-            get { return _EnableMaximizeColor; }
+            get => _EnableMaximizeColor;
             set
             {
                 _EnableMaximizeColor = value;
@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Controls
         [Description("Disabled is Maximize ForeColor.")]
         public Color DisableMaximizeColor
         {
-            get { return _DisableMaximizeColor; }
+            get => _DisableMaximizeColor;
             set
             {
                 _DisableMaximizeColor = value;
@@ -143,7 +143,7 @@ namespace ReaLTaiizor.Controls
         [Description("Maximize is HoverColor.")]
         public Color MaximizeHoverColor
         {
-            get { return _MaximizeHoverColor; }
+            get => _MaximizeHoverColor;
             set
             {
                 _MaximizeHoverColor = value;
@@ -156,7 +156,7 @@ namespace ReaLTaiizor.Controls
         [Description("Maximize is HoverForeColor.")]
         public Color MaximizeHoverForeColor
         {
-            get { return _MaximizeHoverForeColor; }
+            get => _MaximizeHoverForeColor;
             set
             {
                 _MaximizeHoverForeColor = value;
@@ -169,7 +169,7 @@ namespace ReaLTaiizor.Controls
         [Description("Enabled is Close ForeColor.")]
         public Color EnableCloseColor
         {
-            get { return _EnableCloseColor; }
+            get => _EnableCloseColor;
             set
             {
                 _EnableCloseColor = value;
@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Controls
         [Description("Close is HoverColor.")]
         public Color CloseHoverColor
         {
-            get { return _CloseHoverColor; }
+            get => _CloseHoverColor;
             set
             {
                 _CloseHoverColor = value;
@@ -195,7 +195,7 @@ namespace ReaLTaiizor.Controls
         [Description("Close is HoverForeColor.")]
         public Color CloseHoverForeColor
         {
-            get { return _CloseHoverForeColor; }
+            get => _CloseHoverForeColor;
             set
             {
                 _CloseHoverForeColor = value;
@@ -318,7 +318,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseUp(e);
 
             // Parent form
-            var pf = FindForm();
+            Form pf = FindForm();
 
             if (_EnableMaximize)
             {
@@ -339,11 +339,15 @@ namespace ReaLTaiizor.Controls
             if (_EnableMinimize)
             {
                 if (hover_min & e.Button == MouseButtons.Left)
+                {
                     pf.WindowState = FormWindowState.Minimized;
+                }
             }
 
             if (hover_close & e.Button == MouseButtons.Left)
+            {
                 Application.Exit();
+            }
         }
 
         #endregion
@@ -363,7 +367,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (DefaultLocation)
+                {
                     Location = new Point(Parent.Width - 139, 0); //Location = new Point(FindForm().Width - 139, 0);
+                }
             }
             catch (Exception)
             {
@@ -373,21 +379,23 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var g = e.Graphics;
+            Graphics g = e.Graphics;
 
             // This defines the size of the background that is drawn when
             // the mouse moves over one of the three ControlBox buttons
-            var btnBackgroundSize = new Size(46, Height);
+            Size btnBackgroundSize = new Size(46, Height);
 
             // Minimize button
-            var minimizeBtnFont = new Font("Tahoma", 12);
-            var minimizeBtnPoint = new Point(15, 5);
-            var minimizeBtnBrush = new SolidBrush(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
+            Font minimizeBtnFont = new Font("Tahoma", 12);
+            Point minimizeBtnPoint = new Point(15, 5);
+            SolidBrush minimizeBtnBrush = new SolidBrush(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
 
             if (hover_min && _EnableMinimize)
             {
-                using (var backColor = new SolidBrush(_MinimizeHoverColor))
+                using (SolidBrush backColor = new SolidBrush(_MinimizeHoverColor))
+                {
                     g.FillRectangle(backColor, new Rectangle(new Point(1, 0), btnBackgroundSize));
+                }
 
                 minimizeBtnBrush = new SolidBrush(_MinimizeHoverForeColor);
             }
@@ -397,14 +405,16 @@ namespace ReaLTaiizor.Controls
             minimizeBtnFont.Dispose();
 
             // Maxmize button
-            var maximizeBtnFont = new Font("Marlett", 9);
-            var maximizeBtnPoint = new Point(63, 10);
-            var maximizeBtnBrush = new SolidBrush(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
+            Font maximizeBtnFont = new Font("Marlett", 9);
+            Point maximizeBtnPoint = new Point(63, 10);
+            SolidBrush maximizeBtnBrush = new SolidBrush(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
 
             if (hover_max && _EnableMaximize)
             {
-                using (var backColor = new SolidBrush(_MaximizeHoverColor))
+                using (SolidBrush backColor = new SolidBrush(_MaximizeHoverColor))
+                {
                     g.FillRectangle(backColor, new Rectangle(new Point(47, 0), btnBackgroundSize));
+                }
 
                 maximizeBtnBrush = new SolidBrush(_MaximizeHoverForeColor);
             }
@@ -415,14 +425,16 @@ namespace ReaLTaiizor.Controls
             maximizeBtnFont.Dispose();
 
             // Close button
-            var closeBtnFont = new Font("Tahoma", 11);
-            var closeBtnPoint = new Point(107, 6);
-            var closeBtnBrush = new SolidBrush(_EnableCloseColor);
+            Font closeBtnFont = new Font("Tahoma", 11);
+            Point closeBtnPoint = new Point(107, 6);
+            SolidBrush closeBtnBrush = new SolidBrush(_EnableCloseColor);
 
             if (hover_close)
             {
-                using (var backColor = new SolidBrush(_CloseHoverColor))
+                using (SolidBrush backColor = new SolidBrush(_CloseHoverColor))
+                {
                     g.FillRectangle(backColor, new Rectangle(new Point(93, 0), btnBackgroundSize));
+                }
 
                 closeBtnBrush = new SolidBrush(_CloseHoverForeColor);
             }

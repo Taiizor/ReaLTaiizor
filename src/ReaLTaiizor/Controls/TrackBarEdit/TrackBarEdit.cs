@@ -52,14 +52,19 @@ namespace ReaLTaiizor.Controls
 
         public int Minimum
         {
-            get { return _Minimum; }
+            get => _Minimum;
 
             set
             {
                 if (value >= _Maximum)
+                {
                     value = _Maximum - 10;
+                }
+
                 if (_Value < value)
+                {
                     _Value = value;
+                }
 
                 _Minimum = value;
                 Invalidate();
@@ -68,14 +73,19 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get { return _Maximum; }
+            get => _Maximum;
 
             set
             {
                 if (value <= _Minimum)
+                {
                     value = _Minimum + 10;
+                }
+
                 if (_Value > value)
+                {
                     _Value = value;
+                }
 
                 _Maximum = value;
                 Invalidate();
@@ -86,7 +96,7 @@ namespace ReaLTaiizor.Controls
         public delegate void ValueChangedEventHandler();
         public int Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (_Value != value)
@@ -114,10 +124,7 @@ namespace ReaLTaiizor.Controls
 
         public ValueDivisor ValueDivison
         {
-            get
-            {
-                return DividedValue;
-            }
+            get => DividedValue;
             set
             {
                 DividedValue = value;
@@ -128,19 +135,13 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public float ValueToSet
         {
-            get
-            {
-                return (float)(((double)_Value) / ((double)DividedValue));
-            }
-            set
-            {
-                Value = (int)Math.Round((double)(value * ((float)DividedValue)));
-            }
+            get => (float)(((double)_Value) / ((double)DividedValue));
+            set => Value = (int)Math.Round((double)(value * ((float)DividedValue)));
         }
 
         public Color ValueColour
         {
-            get { return _ValueColour; }
+            get => _ValueColour;
             set
             {
                 _ValueColour = value;
@@ -150,7 +151,7 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawHatch
         {
-            get { return _DrawHatch; }
+            get => _DrawHatch;
             set
             {
                 _DrawHatch = value;
@@ -160,7 +161,7 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawValueString
         {
-            get { return _DrawValueString; }
+            get => _DrawValueString;
             set
             {
                 _DrawValueString = value;
@@ -178,14 +179,8 @@ namespace ReaLTaiizor.Controls
 
         public bool JumpToMouse
         {
-            get
-            {
-                return _JumpToMouse;
-            }
-            set
-            {
-                _JumpToMouse = value;
-            }
+            get => _JumpToMouse;
+            set => _JumpToMouse = value;
         }
 
         #endregion

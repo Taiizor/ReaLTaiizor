@@ -22,21 +22,21 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public int Progress
         {
-            get { return _progress; }
+            get => _progress;
             set { _progress = value; Invalidate(); }
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color Color
         {
-            get { return _color; }
+            get => _color;
             set { _color = value; Invalidate(); }
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool Hover
         {
-            get { return _hover; }
+            get => _hover;
             set { _hover = value; Invalidate(); }
         }
 
@@ -45,7 +45,9 @@ namespace ReaLTaiizor.Controls
             pevent.Graphics.FillRectangle(new SolidBrush(BackColor), ClientRectangle);
 
             if (MouseOver && _hover)
+            {
                 pevent.Graphics.FillRectangle(new SolidBrush(ThemeLost.ForeColor.Shade(ThemeLost.ShadowSize, 0)), ClientRectangle);
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)

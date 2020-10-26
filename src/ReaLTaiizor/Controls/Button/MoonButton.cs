@@ -13,11 +13,10 @@ namespace ReaLTaiizor.Controls
 
     public class MoonButton : MoonControl
     {
-        Color G1;
-        Color G2;
-
-        Color BG;
-        Color FC;
+        private Color G1;
+        private Color G2;
+        private Color BG;
+        private Color FC;
 
         public MoonButton()
         {
@@ -43,7 +42,9 @@ namespace ReaLTaiizor.Controls
             G.Clear(BG);
 
             if (State == MouseStateMoon.Over)
+            {
                 G.FillRectangle(Brushes.White, new Rectangle(new Point(0, 0), new Size(Width, Height)));
+            }
             else if (State == MouseStateMoon.Down)
             {
                 LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(Width, Height)), Color.FromArgb(240, 240, 240), Color.White, 90f);
@@ -58,9 +59,11 @@ namespace ReaLTaiizor.Controls
             DrawBorders(Pens.LightGray);
             DrawCorners(Color.Transparent);
 
-            StringFormat SF = new StringFormat();
-            SF.Alignment = StringAlignment.Center;
-            SF.LineAlignment = StringAlignment.Center;
+            StringFormat SF = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
             G.DrawString(Text, Font, new SolidBrush(FC), new RectangleF(2, 2, Width - 5, Height - 4), SF);
         }
     }

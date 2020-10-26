@@ -34,15 +34,15 @@ namespace ReaLTaiizor.Controls
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color LineColor
         {
-            get { return _LineColor; }
-            set { _LineColor = value; }
+            get => _LineColor;
+            set => _LineColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color BorderColor
         {
-            get { return _BorderColor; }
-            set { _BorderColor = value; }
+            get => _BorderColor;
+            set => _BorderColor = value;
         }
 
         #endregion
@@ -56,7 +56,7 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            var BG = RoundRectangle.CreateRoundRect(1, 1, Width - 2, Height - 2, 3);
+            GraphicsPath BG = RoundRectangle.CreateRoundRect(1, 1, Width - 2, Height - 2, 3);
             graphics.FillPath(new SolidBrush(ThemeColor), BG);
             graphics.DrawPath(new Pen(_BorderColor), BG);
 

@@ -37,7 +37,9 @@ namespace ReaLTaiizor.Util
             SizeF TS = G.MeasureString(T, F);
 
             using (SolidBrush B = new SolidBrush(C))
+            {
                 G.DrawString(T, F, B, new Point((int)(R.X + R.Width / 2 - (TS.Width / 2)), (int)(R.Y + R.Height / 2 - (TS.Height / 2))));
+            }
         }
 
         public static Color ColorFromHex(string Hex)
@@ -48,9 +50,13 @@ namespace ReaLTaiizor.Util
         public static Rectangle FullRectangle(Size S, bool Subtract)
         {
             if (Subtract)
+            {
                 return new Rectangle(0, 0, S.Width - 1, S.Height - 1);
+            }
             else
+            {
                 return new Rectangle(0, 0, S.Width, S.Height);
+            }
         }
 
         public static GraphicsPath RoundRect(Rectangle Rect, int Rounding, RoundingStyle Style = RoundingStyle.All)
@@ -130,15 +136,19 @@ namespace ReaLTaiizor.Util
             private bool IsChecked;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
 
                     if (Enabled)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.Default;
+                    }
 
                     Invalidate();
                 }
@@ -147,7 +157,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -157,7 +167,7 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get { return IsChecked; }
+                get => IsChecked;
                 set
                 {
                     IsChecked = value;
@@ -220,15 +230,19 @@ namespace ReaLTaiizor.Util
             private bool IsChecked;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
 
                     if (Enabled)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.Default;
+                    }
 
                     Invalidate();
                 }
@@ -237,7 +251,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -247,7 +261,7 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get { return IsChecked; }
+                get => IsChecked;
                 set
                 {
                     IsChecked = value;
@@ -312,15 +326,19 @@ namespace ReaLTaiizor.Util
             private bool IsChecked;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
 
                     if (Enabled)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.Default;
+                    }
 
                     Invalidate();
                 }
@@ -329,7 +347,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -339,7 +357,7 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get { return IsChecked; }
+                get => IsChecked;
                 set
                 {
                     IsChecked = value;
@@ -416,15 +434,19 @@ namespace ReaLTaiizor.Util
             private bool IsEnabled;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
 
                     if (Enabled)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.Default;
+                    }
 
                     Invalidate();
                 }
@@ -433,7 +455,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -470,7 +492,9 @@ namespace ReaLTaiizor.Util
                 Invalidate();
 
                 if (Enabled)
+                {
                     Click?.Invoke(this, e);
+                }
             }
 
             protected override void OnMouseDown(MouseEventArgs e)
@@ -492,15 +516,19 @@ namespace ReaLTaiizor.Util
             private bool IsEnabled;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
 
                     if (Enabled)
+                    {
                         Cursor = Cursor;
+                    }
                     else
+                    {
                         Cursor = Cursors.Default;
+                    }
 
                     Invalidate();
                 }
@@ -509,7 +537,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -546,7 +574,9 @@ namespace ReaLTaiizor.Util
                 Invalidate();
 
                 if (Enabled)
+                {
                     Click?.Invoke(this, e);
+                }
             }
 
             protected override void OnMouseDown(MouseEventArgs e)
@@ -568,15 +598,19 @@ namespace ReaLTaiizor.Util
             private bool IsEnabled;
             public new bool Enabled
             {
-                get { return EnabledCalc; }
+                get => EnabledCalc;
                 set
                 {
                     IsEnabled = value;
 
                     if (Enabled)
+                    {
                         Cursor = Cursors.Hand;
+                    }
                     else
+                    {
                         Cursor = Cursors.Default;
+                    }
 
                     Invalidate();
                 }
@@ -585,7 +619,7 @@ namespace ReaLTaiizor.Util
             [DisplayName("Enabled")]
             public bool EnabledCalc
             {
-                get { return IsEnabled; }
+                get => IsEnabled;
                 set
                 {
                     Enabled = value;
@@ -621,7 +655,9 @@ namespace ReaLTaiizor.Util
                 Invalidate();
 
                 if (Enabled)
+                {
                     Click?.Invoke(this, e);
+                }
             }
 
             protected override void OnMouseDown(MouseEventArgs e)

@@ -9,7 +9,6 @@ using ReaLTaiizor.Enum.Metro;
 using ReaLTaiizor.Design.Metro;
 using ReaLTaiizor.Interface.Metro;
 using ReaLTaiizor.Extension.Metro;
-using System.Runtime.InteropServices;
 
 #endregion
 
@@ -22,16 +21,14 @@ namespace ReaLTaiizor.Controls
     [Designer(typeof(MetroScrollBarDesigner))]
     [DefaultEvent("Scroll")]
     [DefaultProperty("Value")]
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.AutoDispatch)]
-    public class MetroScrollBar : Control, iControl
+    public class MetroScrollBar : Control, IMetroControl
     {
         #region Interfaces
 
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => MetroStyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? _style;
             set
             {
                 _style = value;
@@ -55,10 +52,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroStyleManager;
-            set { _metroStyleManager = value; Invalidate(); }
+            get => _styleManager;
+            set { _styleManager = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -78,7 +75,7 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private Style _style;
-        private MetroStyleManager _metroStyleManager;
+        private MetroStyleManager _styleManager;
         private int _minimum;
         private int _maximum;
         private int _value;
@@ -88,6 +85,13 @@ namespace ReaLTaiizor.Controls
         private bool _showThumb;
         private int _thumbSize;
         private MouseMode _thumbState;
+
+        private bool _isDerivedStyle = true;
+        private int _smallChange;
+        private int _largeChange;
+        private ScrollOrientate _orientation;
+        private Color _disabledForeColor;
+        private Color _disabledBackColor;
 
         #endregion Internal Vars
 
@@ -109,10 +113,9 @@ namespace ReaLTaiizor.Controls
             SetDefaults();
             _utl = new Utilites();
             ApplyTheme();
-
         }
 
-        void SetDefaults()
+        private void SetDefaults()
         {
             _minimum = 0;
             _maximum = 100;
@@ -126,6 +129,11 @@ namespace ReaLTaiizor.Controls
 
         private void ApplyTheme(Style style = Style.Light)
         {
+            if (!IsDerivedStyle)
+            {
+                return;
+            }
+
             switch (style)
             {
                 case Style.Light:
@@ -134,7 +142,7 @@ namespace ReaLTaiizor.Controls
                     DisabledBackColor = Color.FromArgb(204, 204, 204);
                     DisabledForeColor = Color.FromArgb(136, 136, 136);
                     ThemeAuthor = "Taiizor";
-                    ThemeName = "MetroLite";
+                    ThemeName = "MetroLight";
                     UpdateProperties();
                     break;
                 case Style.Dark:
@@ -147,8 +155,9 @@ namespace ReaLTaiizor.Controls
                     UpdateProperties();
                     break;
                 case Style.Custom:
-                    if (MetroStyleManager != null)
-                        foreach (var varkey in MetroStyleManager.ScrollBarDictionary)
+                    if (StyleManager != null)
+                    {
+                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ScrollBarDictionary)
                         {
                             switch (varkey.Key)
                             {
@@ -168,6 +177,8 @@ namespace ReaLTaiizor.Controls
                                     return;
                             }
                         }
+                    }
+
                     UpdateProperties();
                     break;
                 default:
@@ -186,16 +197,16 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var G = e.Graphics;
+            Graphics g = e.Graphics;
 
-            var r = new Rectangle(0, 0, Width, Height);
+            Rectangle r = new Rectangle(0, 0, Width, Height);
 
-            using (var bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
             {
-                using (var thumbBrush = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                using (SolidBrush thumbBrush = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
                 {
-                    G.FillRectangle(bg, r);
-                    G.FillRectangle(thumbBrush, _thumb);
+                    g.FillRectangle(bg, r);
+                    g.FillRectangle(thumbBrush, _thumb);
                 }
             }
         }
@@ -212,9 +223,14 @@ namespace ReaLTaiizor.Controls
             {
                 _minimum = value;
                 if (value > _value)
+                {
                     _value = value;
+                }
                 else if (value > _maximum)
+                {
                     _maximum = value;
+                }
+
                 InvalidateLayout();
             }
         }
@@ -226,17 +242,25 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value < _value)
+                {
                     _value = value;
+                }
                 else if (value > _minimum)
+                {
                     _maximum = value;
+                }
 
                 if (Orientation != ScrollOrientate.Vertical)
                 {
                     if (Orientation == ScrollOrientate.Horizontal)
+                    {
                         _thumbSize = value > Width ? Convert.ToInt32(Width * (Width / (double)_maximum)) : 0;
+                    }
                 }
                 else
+                {
                     _thumbSize = value > Height ? Convert.ToInt32(Height * (Height / (double)_maximum)) : 0;
+                }
 
                 InvalidateLayout();
             }
@@ -249,36 +273,99 @@ namespace ReaLTaiizor.Controls
             set
             {
                 if (value > Maximum)
+                {
                     _value = Maximum;
+                }
                 else if (value < Minimum)
+                {
                     _value = Minimum;
+                }
                 else
+                {
                     _value = value;
+                }
+
                 InvalidatePosition();
                 Scroll?.Invoke(this);
             }
         }
 
         [Category("Metro"), Description("Gets or sets the distance to move a scroll bar in response to a small scroll command.")]
-        public int SmallChange { get; set; } = 1;
+        [DefaultValue(1)]
+        public int SmallChange
+        {
+            get => _smallChange;
+            set
+            {
+                _smallChange = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the distance to move a scroll bar in response to a large scroll command.")]
-        public int LargeChange { get; set; } = 10;
+        [DefaultValue(10)]
+        public int LargeChange
+        {
+            get => _largeChange;
+            set
+            {
+                _largeChange = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets the scroll bar orientation.")]
-        public ScrollOrientate Orientation { get; set; } = ScrollOrientate.Horizontal;
+        [DefaultValue(ScrollOrientate.Horizontal)]
+        public ScrollOrientate Orientation
+        {
+            get => _orientation;
+            set
+            {
+                _orientation = value;
+                Refresh();
+            }
+        }
 
-        [Category("Metro"), Description("Gets or sets the scroll bar orientation.")]
+        [Category("Metro"), Description("Gets or sets the scroll bar forecolor.")]
         public override Color ForeColor { get; set; }
 
         [Category("Metro"), Description("Gets or sets backcolor used by the control.")]
         public override Color BackColor { get; set; }
 
         [Category("Metro"), Description("Gets or sets disabled forecolor used by the control.")]
-        public Color DisabledForeColor { get; set; }
+        public Color DisabledForeColor
+        {
+            get => _disabledForeColor;
+            set
+            {
+                _disabledForeColor = value;
+                Refresh();
+            }
+        }
 
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
-        public Color DisabledBackColor { get; set; }
+        public Color DisabledBackColor
+        {
+            get => _disabledBackColor;
+            set
+            {
+                _disabledBackColor = value;
+                Refresh();
+            }
+        }
+
+        [Category("Metro")]
+        [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
+                     "Set it to false if you want the style of this control be independent. ")]
+        public bool IsDerivedStyle
+        {
+            get => _isDerivedStyle;
+            set
+            {
+                _isDerivedStyle = value;
+                Refresh();
+            }
+        }
 
         #endregion
 
@@ -297,14 +384,18 @@ namespace ReaLTaiizor.Controls
             {
                 case ScrollOrientate.Vertical:
                     if (_showThumb)
+                    {
                         _thumb = new Rectangle(0, 0, Width, _thumbSize);
+                    }
+
                     break;
                 case ScrollOrientate.Horizontal:
                     if (_showThumb)
+                    {
                         _thumb = new Rectangle(0, 0, Width, _thumbSize);
+                    }
+
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
 
             Scroll?.Invoke(this);
@@ -312,6 +403,7 @@ namespace ReaLTaiizor.Controls
         }
 
         public event ScrollEventHandler Scroll;
+
         public delegate void ScrollEventHandler(object sender);
 
         private void InvalidatePosition()
@@ -332,7 +424,11 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            if (e.Button != MouseButtons.Left || !_showThumb) return;
+            if (e.Button != MouseButtons.Left || !_showThumb)
+            {
+                return;
+            }
+
             if (_thumb.Contains(e.Location))
             {
                 _thumbState = MouseMode.Pushed;
@@ -357,7 +453,11 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            if (!(_thumbState == MouseMode.Pushed | !_showThumb)) return;
+            if (!(_thumbState == MouseMode.Pushed | !_showThumb))
+            {
+                return;
+            }
+
             int thumbPosition;
             int thumbBounds;
             switch (Orientation)

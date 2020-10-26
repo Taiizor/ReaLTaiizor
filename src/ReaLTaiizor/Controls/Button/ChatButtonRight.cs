@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         private Color _PressedContourColorA = Color.FromArgb(0, 118, 176);
         private Color _PressedContourColorB = Color.FromArgb(0, 118, 176);
         private Rectangle R1;
-        private Pen P1;
+        private readonly Pen P1;
         private Pen P3;
         private Image _Image;
         private Size _ImageSize;
@@ -119,7 +119,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get { return _Image; }
+            get => _Image;
             set
             {
                 if (value == null)
@@ -138,7 +138,7 @@ namespace ReaLTaiizor.Controls
 
         public StringAlignment TextAlignment
         {
-            get { return _TextAlignment; }
+            get => _TextAlignment;
             set
             {
                 _TextAlignment = value;
@@ -146,14 +146,11 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        protected Size ImageSize
-        {
-            get { return _ImageSize; }
-        }
+        protected Size ImageSize => _ImageSize;
 
         public ContentAlignment ImageAlign
         {
-            get { return _ImageAlign; }
+            get => _ImageAlign;
             set
             {
                 _ImageAlign = value;
@@ -194,38 +191,38 @@ namespace ReaLTaiizor.Controls
 
         public Color InactiveColorA
         {
-            get { return _InactiveColorA; }
-            set { _InactiveColorA = value; }
+            get => _InactiveColorA;
+            set => _InactiveColorA = value;
         }
 
         public Color InactiveColorB
         {
-            get { return _InactiveColorB; }
-            set { _InactiveColorB = value; }
+            get => _InactiveColorB;
+            set => _InactiveColorB = value;
         }
 
         public Color PressedColorA
         {
-            get { return _PressedColorA; }
-            set { _PressedColorA = value; }
+            get => _PressedColorA;
+            set => _PressedColorA = value;
         }
 
         public Color PressedColorB
         {
-            get { return _PressedColorB; }
-            set { _PressedColorB = value; }
+            get => _PressedColorB;
+            set => _PressedColorB = value;
         }
 
         public Color PressedContourColorA
         {
-            get { return _PressedContourColorA; }
-            set { _PressedContourColorA = value; }
+            get => _PressedContourColorA;
+            set => _PressedContourColorA = value;
         }
 
         public Color PressedContourColorB
         {
-            get { return _PressedContourColorB; }
-            set { _PressedContourColorB = value; }
+            get => _PressedContourColorB;
+            set => _PressedContourColorB = value;
         }
 
         #endregion
@@ -259,7 +256,7 @@ namespace ReaLTaiizor.Controls
                 P3 = new Pen(PressedContourGB);
             }
 
-            var _Shape = Shape;
+            GraphicsPath _Shape = Shape;
             _Shape.AddArc(0, 0, 10, 10, 180, 90);
             _Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             _Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -271,7 +268,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var _G = e.Graphics;
+            Graphics _G = e.Graphics;
             _G.SmoothingMode = SmoothingMode.HighQuality;
 
             PointF ipt = ImageLocation(GetStringFormat(ImageAlign), Size, ImageSize);

@@ -13,51 +13,49 @@ namespace ReaLTaiizor.Forms
 {
     #region RoyalForm
 
-    public class RoyalForm : System.Windows.Forms.Form
+    public class RoyalForm : Form
     {
         private RoyalButton maximizeButton;
         private RoyalButton minimizeButton;
         private RoyalButton closeButton;
-
-        const int WM_NCHITTEST = 0x0084;
-        const int HTCLIENT = 0x01;
-        const int HTCAPTION = 0x02;
-        const int wmNcHitTest = 0x84;
-        const int htLeft = 10;
-        const int htRight = 11;
-        const int htTop = 12;
-        const int htTopLeft = 13;
-        const int htTopRight = 14;
-        const int htBottom = 15;
-        const int htBottomLeft = 16;
-        const int htBottomRight = 17;
-
-        bool drawBorder;
+        private const int WM_NCHITTEST = 0x0084;
+        private const int HTCLIENT = 0x01;
+        private const int HTCAPTION = 0x02;
+        private const int wmNcHitTest = 0x84;
+        private const int htLeft = 10;
+        private const int htRight = 11;
+        private const int htTop = 12;
+        private const int htTopLeft = 13;
+        private const int htTopRight = 14;
+        private const int htBottom = 15;
+        private const int htBottomLeft = 16;
+        private const int htBottomRight = 17;
+        private bool drawBorder;
         public bool DrawBorder
         {
-            get { return drawBorder; }
-            set { drawBorder = value; }
+            get => drawBorder;
+            set => drawBorder = value;
         }
 
-        int borderThickness;
+        private int borderThickness;
         public int BorderThickness
         {
-            get { return borderThickness; }
-            set { borderThickness = value; }
+            get => borderThickness;
+            set => borderThickness = value;
         }
 
-        bool moveable = true;
+        private bool moveable = true;
         public bool Moveable
         {
-            get { return moveable; }
-            set { moveable = value; }
+            get => moveable;
+            set => moveable = value;
         }
 
         private bool sizable = true;
         public bool Sizable
         {
-            get { return sizable; }
-            set { sizable = value; }
+            get => sizable;
+            set => sizable = value;
         }
 
         public RoyalForm()
@@ -94,9 +92,13 @@ namespace ReaLTaiizor.Forms
             closeButton.Location = new Point(Width - 34, 1);
             maximizeButton.Location = new Point(Width - 68, 1);
             if (MaximizeBox)
+            {
                 minimizeButton.Location = new Point(Width - 102, 1);
+            }
             else
+            {
                 minimizeButton.Location = new Point(Width - 68, 1);
+            }
 
             base.OnResize(e);
         }
@@ -106,7 +108,9 @@ namespace ReaLTaiizor.Forms
             base.OnPaint(e);
 
             if (DrawBorder)
+            {
                 e.Graphics.DrawRectangle(new Pen(RoyalColors.BorderColor, BorderThickness), new Rectangle(0, 0, Width - BorderThickness, Height - BorderThickness));
+            }
         }
 
         protected override void WndProc(ref Message m)
@@ -178,7 +182,9 @@ namespace ReaLTaiizor.Forms
                 if (Moveable)
                 {
                     if ((int)m.Result == HTCLIENT)
+                    {
                         m.Result = new IntPtr(HTCAPTION);
+                    }
                 }
             }
 
@@ -193,21 +199,33 @@ namespace ReaLTaiizor.Forms
                 closeButton.Show();
 
                 if (MinimizeBox)
+                {
                     minimizeButton.Show();
+                }
 
                 if (MaximizeBox)
+                {
                     maximizeButton.Show();
+                }
             }
 
             if (Visible && !MinimizeBox && minimizeButton.Visible)
+            {
                 minimizeButton.Hide();
+            }
             else if (Visible && MinimizeBox && !minimizeButton.Visible && ControlBox)
+            {
                 minimizeButton.Show();
+            }
 
             if (Visible && !MaximizeBox && maximizeButton.Visible)
+            {
                 maximizeButton.Hide();
+            }
             else if (Visible && MaximizeBox && !maximizeButton.Visible && ControlBox)
+            {
                 maximizeButton.Show();
+            }
         }
 
         private void InitializeComponent()
@@ -298,9 +316,13 @@ namespace ReaLTaiizor.Forms
         private void MaximizeButton_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Maximized)
+            {
                 WindowState = FormWindowState.Normal;
+            }
             else
+            {
                 WindowState = FormWindowState.Maximized;
+            }
         }
 
         private void MinimizeButton_Click(object sender, EventArgs e)

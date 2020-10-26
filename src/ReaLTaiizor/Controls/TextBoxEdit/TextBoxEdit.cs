@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         private HorizontalAlignment ALNType;
         private bool isPasswordMasked = false;
         private Pen P1;
-        private SolidBrush B1;
+        private readonly SolidBrush B1;
         private GraphicsPath Shape;
 
         #endregion
@@ -34,10 +34,7 @@ namespace ReaLTaiizor.Controls
 
         public HorizontalAlignment TextAlignment
         {
-            get
-            {
-                return ALNType;
-            }
+            get => ALNType;
             set
             {
                 ALNType = value;
@@ -46,10 +43,7 @@ namespace ReaLTaiizor.Controls
         }
         public int MaxLength
         {
-            get
-            {
-                return _maxchars;
-            }
+            get => _maxchars;
             set
             {
                 _maxchars = value;
@@ -60,10 +54,7 @@ namespace ReaLTaiizor.Controls
 
         public bool UseSystemPasswordChar
         {
-            get
-            {
-                return isPasswordMasked;
-            }
+            get => isPasswordMasked;
             set
             {
                 ReaLTaiizorTB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -73,23 +64,19 @@ namespace ReaLTaiizor.Controls
         }
         public bool ReadOnly
         {
-            get
-            {
-                return _ReadOnly;
-            }
+            get => _ReadOnly;
             set
             {
                 _ReadOnly = value;
                 if (ReaLTaiizorTB != null)
+                {
                     ReaLTaiizorTB.ReadOnly = value;
+                }
             }
         }
         public bool Multiline
         {
-            get
-            {
-                return _Multiline;
-            }
+            get => _Multiline;
             set
             {
                 _Multiline = value;
@@ -98,43 +85,47 @@ namespace ReaLTaiizor.Controls
                     ReaLTaiizorTB.Multiline = value;
 
                     if (value)
+                    {
                         ReaLTaiizorTB.Height = Height - 23;
+                    }
                     else
+                    {
                         Height = ReaLTaiizorTB.Height + 23;
+                    }
                 }
             }
         }
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
 
                 if (Image == null)
+                {
                     ReaLTaiizorTB.Location = new Point(8, 10);
+                }
                 else
+                {
                     ReaLTaiizorTB.Location = new Point(35, 11);
+                }
+
                 Invalidate();
             }
         }
 
-        protected Size ImageSize
-        {
-            get
-            {
-                return _ImageSize;
-            }
-        }
+        protected Size ImageSize => _ImageSize;
 
         #endregion
         #region EventArgs
@@ -199,9 +190,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             if (_Multiline)
+            {
                 ReaLTaiizorTB.Height = Height - 23;
+            }
             else
+            {
                 Height = ReaLTaiizorTB.Height + 23;
+            }
 
             Shape = new GraphicsPath();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
@@ -232,7 +227,7 @@ namespace ReaLTaiizor.Controls
         public void AddTextBox()
         {
             ReaLTaiizorTB.Location = new Point(8, 10);
-            ReaLTaiizorTB.Text = String.Empty;
+            ReaLTaiizorTB.Text = string.Empty;
             ReaLTaiizorTB.BorderStyle = BorderStyle.None;
             ReaLTaiizorTB.TextAlign = HorizontalAlignment.Left;
             ReaLTaiizorTB.Font = Font;
@@ -276,9 +271,13 @@ namespace ReaLTaiizor.Controls
 
 
             if (Image == null)
+            {
                 ReaLTaiizorTB.Width = Width - 18;
+            }
             else
+            {
                 ReaLTaiizorTB.Width = Width - 45;
+            }
 
             ReaLTaiizorTB.TextAlign = TextAlignment;
             ReaLTaiizorTB.UseSystemPasswordChar = UseSystemPasswordChar;

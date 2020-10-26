@@ -8,7 +8,7 @@ using ReaLTaiizor.Extension;
 
 namespace ReaLTaiizor.Colors
 {
-    #region MaterialLibrary
+    #region MaterialColors
 
     public class MaterialColorScheme
     {

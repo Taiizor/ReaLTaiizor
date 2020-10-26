@@ -50,17 +50,19 @@ namespace ReaLTaiizor.Controls
 
         public int Minimum
         {
-            get
-            {
-                return _Minimum;
-            }
+            get => _Minimum;
             set
             {
 
                 if (value >= _Maximum)
+                {
                     value = _Maximum - 10;
+                }
+
                 if (_Value < value)
+                {
                     _Value = value;
+                }
 
                 _Minimum = value;
                 Invalidate();
@@ -69,17 +71,19 @@ namespace ReaLTaiizor.Controls
 
         public int Maximum
         {
-            get
-            {
-                return _Maximum;
-            }
+            get => _Maximum;
             set
             {
 
                 if (value <= _Minimum)
+                {
                     value = _Minimum + 10;
+                }
+
                 if (_Value > value)
+                {
                     _Value = value;
+                }
 
                 _Maximum = value;
                 Invalidate();
@@ -103,22 +107,25 @@ namespace ReaLTaiizor.Controls
 
         public int Value
         {
-            get
-            {
-                return _Value;
-            }
+            get => _Value;
             set
             {
                 if (_Value != value)
                 {
                     if (value < _Minimum)
+                    {
                         _Value = _Minimum;
+                    }
                     else
                     {
                         if (value > _Maximum)
+                        {
                             _Value = _Maximum;
+                        }
                         else
+                        {
                             _Value = value;
+                        }
                     }
                     Invalidate();
                     ValueChangedEvent?.Invoke();
@@ -128,10 +135,7 @@ namespace ReaLTaiizor.Controls
 
         public ValueDivisor ValueDivison
         {
-            get
-            {
-                return DividedValue;
-            }
+            get => DividedValue;
             set
             {
                 DividedValue = value;
@@ -142,22 +146,13 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public float ValueToSet
         {
-            get
-            {
-                return _Value / (int)DividedValue;
-            }
-            set
-            {
-                Value = (int)(value * (int)DividedValue);
-            }
+            get => _Value / (int)DividedValue;
+            set => Value = (int)(value * (int)DividedValue);
         }
 
         public bool JumpToMouse
         {
-            get
-            {
-                return _JumpToMouse;
-            }
+            get => _JumpToMouse;
             set
             {
                 _JumpToMouse = value;
@@ -175,7 +170,9 @@ namespace ReaLTaiizor.Controls
             {
                 bool flag = Cap && e.X > -1 && e.X < Width + 1;
                 if (flag)
+                {
                     Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
+                }
             }
         }
 
@@ -189,7 +186,9 @@ namespace ReaLTaiizor.Controls
                 Cap = TrackBarHandleRect.Contains(e.Location);
                 Focus();
                 if (_JumpToMouse)
+                {
                     Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
+                }
             }
         }
 

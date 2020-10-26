@@ -33,10 +33,10 @@ namespace ReaLTaiizor.Action.Metro
 
         public string ThemeName => _metroTextBox.ThemeName;
 
-        public MetroStyleManager MetroStyleManager
+        public MetroStyleManager StyleManager
         {
-            get => _metroTextBox.MetroStyleManager;
-            set => _metroTextBox.MetroStyleManager = value;
+            get => _metroTextBox.StyleManager;
+            set => _metroTextBox.StyleManager = value;
         }
 
         public string Text
@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Action.Metro
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
                 new DesignerActionHeaderItem("Metro"),
-                new DesignerActionPropertyItem("MetroStyleManager", "MetroStyleManager", "Metro", "Gets or sets the stylemanager for the control."),
+                new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
 
                 new DesignerActionHeaderItem("Informations"),
@@ -102,7 +102,6 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("WatermarkText", "WatermarkText", "Appearance", "Gets or sets the text in the TextBox while being empty."),
                 new DesignerActionPropertyItem("ContextMenuStrip", "ContextMenuStrip", "Appearance", "Gets or sets the ContextMenuStrip associated with this control."),
             };
-
             return items;
         }
     }

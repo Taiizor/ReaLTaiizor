@@ -7,7 +7,7 @@ using ReaLTaiizor.Util;
 
 namespace ReaLTaiizor.Colors
 {
-    #region ForeverLibrary
+    #region ForeverColors
 
     public class ForeverColors
     {

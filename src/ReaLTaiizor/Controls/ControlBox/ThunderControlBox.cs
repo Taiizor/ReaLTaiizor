@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -30,13 +30,11 @@ namespace ReaLTaiizor.Controls
 
         #endregion
 
-        MouseStateThunder State = MouseStateThunder.None;
-
-        Rectangle MinBtn = new Rectangle(0, 0, 20, 20);
-        Rectangle MaxBtn = new Rectangle(25, 0, 20, 20);
-        Rectangle ClsBtn = new Rectangle(50, 0, 20, 20);
-
-        int x = 0;
+        private MouseStateThunder State = MouseStateThunder.None;
+        private Rectangle MinBtn = new Rectangle(0, 0, 20, 20);
+        private Rectangle MaxBtn = new Rectangle(25, 0, 20, 20);
+        private Rectangle ClsBtn = new Rectangle(50, 0, 20, 20);
+        private int x = 0;
 
         protected override void OnCreateControl()
         {
@@ -44,7 +42,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (DefaultLocation)
+                {
                     Location = new Point(Parent.Width - Width - 3, 3);
+                }
             }
             catch (Exception)
             {
@@ -63,16 +63,25 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseDown(e);
             if (e.Location.X > 0 && e.Location.X < 20)
+            {
                 FindForm().WindowState = FormWindowState.Minimized;
+            }
             else if (e.Location.X > 25 && e.Location.X < 45)
             {
                 if (FindForm().WindowState == FormWindowState.Normal)
+                {
                     FindForm().WindowState = FormWindowState.Maximized;
+                }
                 else
+                {
                     FindForm().WindowState = FormWindowState.Normal;
+                }
             }
             else if (e.Location.X > 50 && e.Location.X < 70)
+            {
                 FindForm().Close();
+            }
+
             Invalidate();
         }
 

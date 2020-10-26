@@ -37,16 +37,17 @@ namespace ReaLTaiizor.Forms
 
         public Image Image
         {
-            get
-            {
-                return _Image;
-            }
+            get => _Image;
             set
             {
                 if (value == null)
+                {
                     _ImageSize = Size.Empty;
+                }
                 else
+                {
                     _ImageSize = value.Size;
+                }
 
                 _Image = value;
                 Invalidate();
@@ -55,7 +56,7 @@ namespace ReaLTaiizor.Forms
 
         public Color ThemeColor
         {
-            get { return _themeColor; }
+            get => _themeColor;
             set
             {
                 _themeColor = value;
@@ -65,7 +66,7 @@ namespace ReaLTaiizor.Forms
 
         public Color ControlBoxColorN
         {
-            get { return _ControlBoxColorN; }
+            get => _ControlBoxColorN;
             set
             {
                 _ControlBoxColorN = value;
@@ -75,7 +76,7 @@ namespace ReaLTaiizor.Forms
 
         public Color ControlBoxColorH
         {
-            get { return _ControlBoxColorH; }
+            get => _ControlBoxColorH;
             set
             {
                 _ControlBoxColorH = value;
@@ -85,7 +86,7 @@ namespace ReaLTaiizor.Forms
 
         public Color ControlBoxColorHC
         {
-            get { return _ControlBoxColorHC; }
+            get => _ControlBoxColorHC;
             set
             {
                 _ControlBoxColorHC = value;
@@ -194,9 +195,13 @@ namespace ReaLTaiizor.Forms
                 if (!minRectangle.Contains(mousePoint) && !maxRectangle.Contains(mousePoint) && !closeRectangle.Contains(mousePoint))
                 {
                     if (Dock == DockStyle.Top)
+                    {
                         Parent.Location = new Point(MousePosition.X - mousePoint.X, MousePosition.Y - mousePoint.Y);
+                    }
                     else
+                    {
                         Parent.Location = new Point(MousePosition.X - mousePoint.X, MousePosition.Y - Parent.Height - mousePoint.Y + Height);
+                    }
                 }
             }
             else
@@ -216,16 +221,25 @@ namespace ReaLTaiizor.Forms
         {
             base.OnClick(e);
             if (minRectangle.Contains(mousePoint))
+            {
                 ParentForm.WindowState = FormWindowState.Minimized;
+            }
+
             if (maxRectangle.Contains(mousePoint))
             {
                 if (ParentForm.WindowState == FormWindowState.Maximized)
+                {
                     ParentForm.WindowState = FormWindowState.Normal;
+                }
                 else
+                {
                     ParentForm.WindowState = FormWindowState.Maximized;
+                }
             }
             if (closeRectangle.Contains(mousePoint))
+            {
                 ParentForm.Close();
+            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -250,12 +264,18 @@ namespace ReaLTaiizor.Forms
             base.OnPaint(e);
 
             if (Dock == DockStyle.Left || Dock == DockStyle.Right || Dock == DockStyle.None)
+            {
                 Dock = DockStyle.Top;
+            }
 
             if (Dock == DockStyle.Top && Location.X != 0 && Location.Y != 0)
+            {
                 Location = new Point(0, 0);
+            }
             else if (Dock == DockStyle.Bottom && Location.X != 0 && Location.Y != ParentForm.Height - Height)
+            {
                 Location = new Point(0, ParentForm.Height - Height);
+            }
 
             Width = ParentForm.Width;
             ParentForm.MinimumSize = new Size(190, 40);
@@ -268,7 +288,7 @@ namespace ReaLTaiizor.Forms
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(_themeColor);
 
-            var icoFont = new Font("Marlett", 12);
+            Font icoFont = new Font("Marlett", 12);
 
             if (_Image != null)
             {
@@ -277,7 +297,9 @@ namespace ReaLTaiizor.Forms
                 graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(45, 1, Width - 100, Height), HopeStringAlign.Left);
             }
             else
+            {
                 graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(15, 1, Width - 100, Height), HopeStringAlign.Left);
+            }
 
             if (ControlBox)
             {
@@ -291,7 +313,9 @@ namespace ReaLTaiizor.Forms
                         Cursor = Cursors.Hand;
                     }
                     else
+                    {
                         graphics.DrawString("0", icoFont, new SolidBrush(_ControlBoxColorN), minRectangle, HopeStringAlign.Center);
+                    }
                 }
                 if (MaximizeBox)
                 {
@@ -300,17 +324,26 @@ namespace ReaLTaiizor.Forms
                     if (maxRectangle.Contains(mousePoint))
                     {
                         if (ParentForm.WindowState == FormWindowState.Normal)
+                        {
                             graphics.DrawString("1", icoFont, new SolidBrush(_ControlBoxColorH), maxRectangle, HopeStringAlign.Center);
+                        }
                         else
+                        {
                             graphics.DrawString("2", icoFont, new SolidBrush(_ControlBoxColorH), maxRectangle, HopeStringAlign.Center);
+                        }
+
                         Cursor = Cursors.Hand;
                     }
                     else
                     {
                         if (ParentForm.WindowState == FormWindowState.Normal)
+                        {
                             graphics.DrawString("1", icoFont, new SolidBrush(_ControlBoxColorN), maxRectangle, HopeStringAlign.Center);
+                        }
                         else
+                        {
                             graphics.DrawString("2", icoFont, new SolidBrush(_ControlBoxColorN), maxRectangle, HopeStringAlign.Center);
+                        }
                     }
                 }
 
@@ -322,10 +355,14 @@ namespace ReaLTaiizor.Forms
                     Cursor = Cursors.Hand;
                 }
                 else
+                {
                     graphics.DrawString("r", icoFont, new SolidBrush(_ControlBoxColorN), closeRectangle, HopeStringAlign.Center);
+                }
 
                 if (!minRectangle.Contains(mousePoint) && !maxRectangle.Contains(mousePoint) && !closeRectangle.Contains(mousePoint))
+                {
                     Cursor = Cursors.Default;
+                }
             }
 
             base.OnPaint(e);

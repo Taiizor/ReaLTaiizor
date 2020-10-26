@@ -16,14 +16,14 @@ namespace ReaLTaiizor.Controls
         private Image _image = null;
         public Image Image
         {
-            get { return _image; }
+            get => _image;
             set { _image = value; Invalidate(); }
         }
 
         private Color _hovercolor = ThemeLost.AccentBrush.Color;
         public Color HoverColor
         {
-            get { return _hovercolor; }
+            get => _hovercolor;
             set { _hovercolor = value; Invalidate(); }
         }
 
@@ -43,10 +43,12 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             if (_image != null)
-                e.Graphics.DrawImage(_image,  Width / 2 - _image.Width / 2, Height / 2 - _image.Height / 2, _image.Width, _image.Height);
+            {
+                e.Graphics.DrawImage(_image, Width / 2 - _image.Width / 2, Height / 2 - _image.Height / 2, _image.Width, _image.Height);
+            }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);
-            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor),  Width / 2 - textSize.Width / 2, Height / 2 - textSize.Height / 2);
+            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), Width / 2 - textSize.Width / 2, Height / 2 - textSize.Height / 2);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)

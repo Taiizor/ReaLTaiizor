@@ -32,9 +32,9 @@ namespace ReaLTaiizor.Controls
 
         private Graphics G;
 
-        private string B64Enabled;
+        private readonly string B64Enabled;
 
-        private string B64Disabled;
+        private readonly string B64Disabled;
 
         public event AloneCheckBox.CheckedChangedEventHandler CheckedChanged
         {
@@ -68,10 +68,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get
-            {
-                return _Checked;
-            }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -81,18 +78,20 @@ namespace ReaLTaiizor.Controls
 
         public new bool Enabled
         {
-            get
-            {
-                return EnabledCalc;
-            }
+            get => EnabledCalc;
             set
             {
                 _EnabledCalc = value;
                 bool enabled = Enabled;
                 if (enabled)
+                {
                     Cursor = Cursors.Hand;
+                }
                 else
+                {
                     Cursor = Cursors.Default;
+                }
+
                 base.Invalidate();
             }
         }
@@ -100,10 +99,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("Enabled")]
         public bool EnabledCalc
         {
-            get
-            {
-                return _EnabledCalc;
-            }
+            get => _EnabledCalc;
             set
             {
                 Enabled = value;
@@ -151,7 +147,9 @@ namespace ReaLTaiizor.Controls
                 if (@checked)
                 {
                     using (Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Enabled))))
+                    {
                         G.DrawImage(image, new Rectangle(3, 3, 11, 11));
+                    }
                 }
             }
             else
@@ -175,7 +173,9 @@ namespace ReaLTaiizor.Controls
                 if (checked2)
                 {
                     using (Image image2 = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Disabled))))
+                    {
                         G.DrawImage(image2, new Rectangle(3, 3, 11, 11));
+                    }
                 }
             }
         }

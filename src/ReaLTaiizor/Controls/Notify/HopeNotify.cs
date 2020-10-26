@@ -21,8 +21,8 @@ namespace ReaLTaiizor.Controls
 
         private bool _Close = true;
 
-        private Color _DefaultBackColor = HopeColors.PrimaryColor;
-        private Color _DefaultTextColor = HopeColors.PrimaryColor;
+        private readonly Color _DefaultBackColor = HopeColors.PrimaryColor;
+        private readonly Color _DefaultTextColor = HopeColors.PrimaryColor;
 
         private Color _SuccessBackColor = Color.FromArgb(25, HopeColors.Success);
         private Color _SuccessTextColor = HopeColors.Success;
@@ -52,85 +52,90 @@ namespace ReaLTaiizor.Controls
         private Timer _timer;
         private Timer _Timer
         {
-            get { return _timer; }
+            get => _timer;
             set
             {
                 if (_timer != null)
+                {
                     _timer.Tick -= Timer_Tick;
+                }
+
                 _timer = value;
                 if (_timer != null)
+                {
                     _timer.Tick += Timer_Tick;
+                }
             }
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public bool Close
         {
-            get { return _Close; }
-            set { _Close = value; }
+            get => _Close;
+            set => _Close = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color SuccessBackColor
         {
-            get { return _SuccessBackColor; }
-            set { _SuccessBackColor = value; }
+            get => _SuccessBackColor;
+            set => _SuccessBackColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color SuccessTextColor
         {
-            get { return _SuccessTextColor; }
-            set { _SuccessTextColor = value; }
+            get => _SuccessTextColor;
+            set => _SuccessTextColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color WarningBackColor
         {
-            get { return _WarningBackColor; }
-            set { _WarningBackColor = value; }
+            get => _WarningBackColor;
+            set => _WarningBackColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color WarningTextColor
         {
-            get { return _WarningTextColor; }
-            set { _WarningTextColor = value; }
+            get => _WarningTextColor;
+            set => _WarningTextColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color InfoBackColor
         {
-            get { return _InfoBackColor; }
-            set { _InfoBackColor = value; }
+            get => _InfoBackColor;
+            set => _InfoBackColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color InfoTextColor
         {
-            get { return _InfoTextColor; }
-            set { _InfoTextColor = value; }
+            get => _InfoTextColor;
+            set => _InfoTextColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color ErrorBackColor
         {
-            get { return _ErrorBackColor; }
-            set { _ErrorBackColor = value; }
+            get => _ErrorBackColor;
+            set => _ErrorBackColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color ErrorTextColor
         {
-            get { return _ErrorTextColor; }
-            set { _ErrorTextColor = value; }
+            get => _ErrorTextColor;
+            set => _ErrorTextColor = value;
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color CloseColor
         {
-            get { return _CloseColor; }
-            set { _CloseColor = value; }
+            get => _CloseColor;
+            set => _CloseColor = value;
         }
 
         #endregion
@@ -146,7 +151,9 @@ namespace ReaLTaiizor.Controls
         {
             base.OnClick(e);
             if (_Close)
+            {
                 Visible = false;
+            }
         }
         #endregion
 
@@ -154,14 +161,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            var graphics = e.Graphics;
+            Graphics graphics = e.Graphics;
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            var backBrush = new SolidBrush(_DefaultBackColor);
-            var textBrush = new SolidBrush(_DefaultTextColor);
+            SolidBrush backBrush = new SolidBrush(_DefaultBackColor);
+            SolidBrush textBrush = new SolidBrush(_DefaultTextColor);
             switch (Type)
             {
                 case AlertType.Success:
@@ -184,7 +191,7 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            var back = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
+            GraphicsPath back = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             graphics.FillPath(new SolidBrush(Color.White), back);
             graphics.FillPath(backBrush, back);
             graphics.DrawPath(new Pen(textBrush, 1f), back);
@@ -194,7 +201,9 @@ namespace ReaLTaiizor.Controls
                 graphics.DrawString("r", new Font("Marlett", 10), new SolidBrush(_CloseColor), new Rectangle(Width - 34, 1, 34, 34), HopeStringAlign.Center);
             }
             else
+            {
                 graphics.DrawString(Text, Font, textBrush, new RectangleF(20, 0, Width - 35, Height), HopeStringAlign.Left);
+            }
         }
 
         #endregion
@@ -211,7 +220,10 @@ namespace ReaLTaiizor.Controls
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (_Close)
+            {
                 Visible = false;
+            }
+
             _Timer.Enabled = false;
             _Timer.Dispose();
         }
@@ -225,9 +237,11 @@ namespace ReaLTaiizor.Controls
             Type = type;
             Text = text;
             Visible = true;
-            _Timer = new Timer();
-            _Timer.Interval = Interval;
-            _Timer.Enabled = true;
+            _Timer = new Timer
+            {
+                Interval = Interval,
+                Enabled = true
+            };
         }
     }
 

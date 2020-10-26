@@ -25,37 +25,52 @@ namespace ReaLTaiizor.Controls
 
         public long Value
         {
-            get { return _Value; }
+            get => _Value;
             set
             {
                 if (value <= _Max & value >= _Min)
+                {
                     _Value = value;
+                }
+
                 Invalidate();
             }
         }
 
         public long Maximum
         {
-            get { return _Max; }
+            get => _Max;
             set
             {
                 if (value > _Min)
+                {
                     _Max = value;
+                }
+
                 if (_Value > _Max)
+                {
                     _Value = _Max;
+                }
+
                 Invalidate();
             }
         }
 
         public long Minimum
         {
-            get { return _Min; }
+            get => _Min;
             set
             {
                 if (value < _Max)
+                {
                     _Min = value;
+                }
+
                 if (_Value < _Min)
+                {
                     _Value = _Min;
+                }
+
                 Invalidate();
             }
         }
@@ -66,9 +81,13 @@ namespace ReaLTaiizor.Controls
             Y = e.Location.Y;
             Invalidate();
             if (e.X < Width - 23)
+            {
                 Cursor = Cursors.Default;
+            }
             else
+            {
                 Cursor = Cursors.Hand;
+            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -85,12 +104,16 @@ namespace ReaLTaiizor.Controls
                 if (Y < 15)
                 {
                     if ((Value + 1) <= _Max)
+                    {
                         _Value += 1;
+                    }
                 }
                 else
                 {
                     if ((Value - 1) >= _Min)
+                    {
                         _Value -= 1;
+                    }
                 }
             }
             else
@@ -107,7 +130,10 @@ namespace ReaLTaiizor.Controls
             try
             {
                 if (Typing)
+                {
                     _Value = Convert.ToInt32(Convert.ToString(Convert.ToString(_Value) + e.KeyChar.ToString()));
+                }
+
                 if (_Value > _Max) { _Value = _Max; }
 
             }
@@ -122,17 +148,22 @@ namespace ReaLTaiizor.Controls
             if (e.KeyCode == Keys.Up)
             {
                 if ((Value + 1) <= _Max)
+                {
                     _Value += 1;
+                }
+
                 Invalidate();
             }
             else if (e.KeyCode == Keys.Down)
             {
                 if ((Value - 1) >= _Min)
+                {
                     _Value -= 1;
+                }
             }
             else if (e.KeyCode == Keys.Back)
             {
-                String tmp = _Value.ToString();
+                string tmp = _Value.ToString();
                 tmp = tmp.Remove(Convert.ToInt32(tmp.Length - 1));
                 if (tmp.Length == 0) { tmp = "0"; }
                 _Value = Convert.ToInt32(tmp);
@@ -142,10 +173,12 @@ namespace ReaLTaiizor.Controls
 
         protected void DrawTriangle(Color Clr, Point FirstPoint, Point SecondPoint, Point ThirdPoint, Graphics G)
         {
-            List<Point> points = new List<Point>();
-            points.Add(FirstPoint);
-            points.Add(SecondPoint);
-            points.Add(ThirdPoint);
+            List<Point> points = new List<Point>
+            {
+                FirstPoint,
+                SecondPoint,
+                ThirdPoint
+            };
             G.FillPolygon(new SolidBrush(Clr), points.ToArray());
         }
         #endregion

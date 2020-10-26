@@ -25,11 +25,11 @@ namespace ReaLTaiizor.Controls
 
         #endregion
         #region MouseStates
-        MouseState State = MouseState.None;
-        int X;
-        Rectangle CloseBtn = new Rectangle(3, 2, 17, 17);
-        Rectangle MinBtn = new Rectangle(23, 2, 17, 17);
-        Rectangle MaxBtn = new Rectangle(43, 2, 17, 17);
+        private MouseState State = MouseState.None;
+        private int X;
+        private Rectangle CloseBtn = new Rectangle(3, 2, 17, 17);
+        private Rectangle MinBtn = new Rectangle(23, 2, 17, 17);
+        private Rectangle MaxBtn = new Rectangle(43, 2, 17, 17);
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -48,7 +48,9 @@ namespace ReaLTaiizor.Controls
             else if (X > 23 && X < 40)
             {
                 if (_EnableMinimize == true)
+                {
                     FindForm().WindowState = FormWindowState.Minimized;
+                }
                 else if (_EnableMaximize == true)
                 {
                     if (FindForm().WindowState == FormWindowState.Maximized)
@@ -106,7 +108,7 @@ namespace ReaLTaiizor.Controls
         private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get { return _DefaultLocation; }
+            get => _DefaultLocation;
             set
             {
                 _DefaultLocation = value;
@@ -114,48 +116,56 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        bool _EnableMaximize = true;
+        private bool _EnableMaximize = true;
         public bool EnableMaximize
         {
-            get
-            {
-                return _EnableMaximize;
-            }
+            get => _EnableMaximize;
             set
             {
                 _EnableMaximize = value;
                 if (_EnableMaximize == false || _EnableMinimize == false)
                 {
                     if (_EnableMaximize == false && _EnableMinimize == false)
+                    {
                         Size = new Size(24, 22);
+                    }
                     else
+                    {
                         Size = new Size(44, 22);
+                    }
                 }
                 else
+                {
                     Size = new Size(64, 22);
+                }
+
                 Invalidate();
             }
         }
 
-        bool _EnableMinimize = true;
+        private bool _EnableMinimize = true;
         public bool EnableMinimize
         {
-            get
-            {
-                return _EnableMinimize;
-            }
+            get => _EnableMinimize;
             set
             {
                 _EnableMinimize = value;
                 if (_EnableMaximize == false || _EnableMinimize == false)
                 {
                     if (_EnableMaximize == false && _EnableMinimize == false)
+                    {
                         Size = new Size(24, 22);
+                    }
                     else
+                    {
                         Size = new Size(44, 22);
+                    }
                 }
                 else
+                {
                     Size = new Size(64, 22);
+                }
+
                 Invalidate();
             }
         }
@@ -177,12 +187,18 @@ namespace ReaLTaiizor.Controls
             if (_EnableMaximize == false || _EnableMinimize == false)
             {
                 if (_EnableMaximize == false && _EnableMinimize == false)
+                {
                     Size = new Size(23, 22);
+                }
                 else
+                {
                     Size = new Size(44, 22);
+                }
             }
             else
+            {
                 Size = new Size(64, 22);
+            }
         }
 
         protected override void OnCreateControl()
@@ -190,7 +206,9 @@ namespace ReaLTaiizor.Controls
             base.OnCreateControl();
             // Auto-decide control location on the theme container
             if (DefaultLocation)
+            {
                 Location = new Point(5, 13);
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)

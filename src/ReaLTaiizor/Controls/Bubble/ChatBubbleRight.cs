@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
 
         public override Color ForeColor
         {
-            get { return _TextColor; }
+            get => _TextColor;
             set
             {
                 _TextColor = value;
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BubbleColor
         {
-            get { return _BubbleColor; }
+            get => _BubbleColor;
             set
             {
                 _BubbleColor = value;
@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawBubbleArrow
         {
-            get { return _DrawBubbleArrow; }
+            get => _DrawBubbleArrow;
             set
             {
                 _DrawBubbleArrow = value;
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Controls
 
         public bool SizeAuto
         {
-            get { return _SizeAuto; }
+            get => _SizeAuto;
             set
             {
                 _SizeAuto = value;
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
 
         public bool SizeAutoW
         {
-            get { return _SizeAutoW; }
+            get => _SizeAutoW;
             set
             {
                 _SizeAutoW = value;
@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
 
         public bool SizeAutoH
         {
-            get { return _SizeAutoH; }
+            get => _SizeAutoH;
             set
             {
                 _SizeAutoH = value;
@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Controls
 
         public bool SizeWidthLeft
         {
-            get { return _SizeWidthLeft; }
+            get => _SizeWidthLeft;
             set
             {
                 _SizeWidthLeft = value;
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             Shape = new GraphicsPath();
 
-            var _with1 = Shape;
+            GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 18, 0, 10, 10, -90, 90);
             _with1.AddArc(Width - 18, Height - 11, 10, 10, 0, 90);
@@ -137,22 +137,28 @@ namespace ReaLTaiizor.Controls
                     Width = TextRenderer.MeasureText(Text, Font).Width + 15;
                     Height = TextRenderer.MeasureText(Text, Font).Height + 15;
                     if (_SizeWidthLeft)
+                    {
                         Location = new Point(Location.X - (Width - WW), Location.Y);
+                    }
                 }
                 else if (_SizeAutoW)
                 {
                     Width = TextRenderer.MeasureText(Text, Font).Width + 15;
                     if (_SizeWidthLeft)
+                    {
                         Location = new Point(Location.X - (Width - WW), Location.Y);
+                    }
                 }
                 else
+                {
                     Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+                }
             }
 
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            var _G = G;
+            Graphics _G = G;
             _G.SmoothingMode = SmoothingMode.HighQuality;
             _G.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _G.Clear(BackColor);

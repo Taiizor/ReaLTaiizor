@@ -64,10 +64,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get
-            {
-                return _Checked;
-            }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -77,18 +74,20 @@ namespace ReaLTaiizor.Controls
 
         public new bool Enabled
         {
-            get
-            {
-                return EnabledCalc;
-            }
+            get => EnabledCalc;
             set
             {
                 _EnabledCalc = value;
                 bool enabled = Enabled;
                 if (enabled)
+                {
                     Cursor = Cursors.Hand;
+                }
                 else
+                {
                     Cursor = Cursors.Default;
+                }
+
                 base.Invalidate();
             }
         }
@@ -96,10 +95,7 @@ namespace ReaLTaiizor.Controls
         [DisplayName("Enabled")]
         public bool EnabledCalc
         {
-            get
-            {
-                return _EnabledCalc;
-            }
+            get => _EnabledCalc;
             set
             {
                 Enabled = value;

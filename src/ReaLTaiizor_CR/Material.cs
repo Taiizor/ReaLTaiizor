@@ -37,7 +37,10 @@ namespace ReaLTaiizor_CR
 
             colorSchemeIndex++;
             if (colorSchemeIndex > 2)
+            {
                 colorSchemeIndex = 0;
+            }
+
             updateColor();
         }
 

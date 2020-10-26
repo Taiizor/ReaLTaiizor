@@ -14,10 +14,10 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     public class MoonCheckBox : MoonControl
     {
-        Color BG;
-        Color FC;
-        Color TCN;
-        Color TCH;
+        private Color BG;
+        private Color FC;
+        private Color TCN;
+        private Color TCH;
 
         private bool _Checked;
         public event CheckedChangedEventHandler CheckedChanged;
@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get { return _Checked; }
+            get => _Checked;
             set
             {
                 _Checked = value;
@@ -67,13 +67,17 @@ namespace ReaLTaiizor.Controls
             G.Clear(BG);
 
             if (_Checked)
+            {
                 G.DrawString("a", new Font("Marlett", 14), new SolidBrush(TCN), new Point(0, 1));
+            }
 
             if (State == MouseStateMoon.Over)
             {
                 G.FillRectangle(Brushes.White, new Rectangle(new Point(3, 3), new Size(15, 15)));
                 if (_Checked)
+                {
                     G.DrawString("a", new Font("Marlett", 14), new SolidBrush(TCH), new Point(0, 1));
+                }
             }
 
             G.DrawRectangle(Pens.White, 2, 2, 17, 17);

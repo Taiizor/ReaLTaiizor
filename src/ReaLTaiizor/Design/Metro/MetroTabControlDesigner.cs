@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Design.Metro
             {
                 if (_verbs == null)
                 {
-                    var addVerbs = new[]
+                    DesignerVerb[] addVerbs = new[]
                     {
                         new DesignerVerb("Add Tab", OnAddTab),
                         new DesignerVerb("Remove Tab", OnRemoveTab)
@@ -49,13 +49,16 @@ namespace ReaLTaiizor.Design.Metro
                     _verbs = new DesignerVerbCollection();
                     _verbs.AddRange(addVerbs);
 
-                    if (!(Control is MetroTabControl parentControl)) return _verbs;
+                    if (!(Control is MetroTabControl parentControl))
+                    {
+                        return _verbs;
+                    }
+
                     switch (parentControl.TabPages.Count)
                     {
                         case 0:
                             _verbs[1].Enabled = false;
                             break;
-
                         default:
                             _verbs[1].Enabled = true;
                             break;
@@ -77,9 +80,10 @@ namespace ReaLTaiizor.Design.Metro
             _designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
             _changeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
-            // Update your designer verb whenever ComponentChanged event occurs.
             if (_changeService != null)
+            {
                 _changeService.ComponentChanged += OnComponentChanged;
+            }
         }
 
         protected override void PostFilterProperties(IDictionary properties)
@@ -103,27 +107,29 @@ namespace ReaLTaiizor.Design.Metro
             if (m.Msg == (int)User32.Msgs.WM_NCHITTEST)
             {
                 if (m.Result.ToInt32() == User32._HT_TRANSPARENT)
+                {
                     m.Result = (IntPtr)User32._HTCLIENT;
+                }
             }
         }
 
         protected override bool GetHitTest(Point point)
         {
-            var selectionService = (ISelectionService)GetService(typeof(ISelectionService));
-            var selectedObject = selectionService?.PrimarySelection;
+            ISelectionService selectionService = (ISelectionService)GetService(typeof(ISelectionService));
+            object selectedObject = selectionService?.PrimarySelection;
             if (selectedObject != null && selectedObject.Equals(Control))
             {
-                var p = Control.PointToClient(point);
+                Point p = Control.PointToClient(point);
 
-                var hti = new User32.TCHITTESTINFO(p, User32.TabControlHitTest.TCHT_ONITEM);
+                User32.TCHITTESTINFO hti = new User32.TCHITTESTINFO(p, User32.TabControlHitTest.TCHT_ONITEM);
 
-                var m = new Message
+                Message m = new Message
                 {
                     HWnd = Control.Handle,
                     Msg = User32._TCM_HITTEST
                 };
 
-                var lParam = Marshal.AllocHGlobal(Marshal.SizeOf(hti));
+                IntPtr lParam = Marshal.AllocHGlobal(Marshal.SizeOf(hti));
                 Marshal.StructureToPtr(hti, lParam, false);
                 m.LParam = lParam;
 
@@ -131,7 +137,9 @@ namespace ReaLTaiizor.Design.Metro
                 Marshal.FreeHGlobal(lParam);
 
                 if (m.Result.ToInt32() != -1)
+                {
                     return hti.flags != User32.TabControlHitTest.TCHT_NOWHERE;
+                }
             }
 
             return false;
@@ -140,7 +148,9 @@ namespace ReaLTaiizor.Design.Metro
         protected override void Dispose(bool disposing)
         {
             if (disposing && _changeService != null)
+            {
                 _changeService.ComponentChanged -= OnComponentChanged;
+            }
 
             base.Dispose(disposing);
         }
@@ -149,42 +159,55 @@ namespace ReaLTaiizor.Design.Metro
 
         #region Helper Methods
 
-        private void OnAddTab(Object sender, EventArgs e)
+        private void OnAddTab(object sender, EventArgs e)
         {
-            var parentControl = Control as MetroTabControl;
+            MetroTabControl parentControl = Control as MetroTabControl;
 
-            var oldTabs = parentControl.TabPages;
+            TabControl.TabPageCollection oldTabs = parentControl?.TabPages;
 
-            // Notify the IDE that the TabPages collection property of the current tab control has changed.
             RaiseComponentChanging(TypeDescriptor.GetProperties(parentControl)["TabPages"]);
-            var newTab = (MetroTabPage)_designerHost.CreateComponent(typeof(MetroTabPage));
+            MetroTabPage newTab = (MetroTabPage)_designerHost.CreateComponent(typeof(MetroTabPage));
             newTab.Text = newTab.Name;
-            parentControl.TabPages.Add(newTab);
+            parentControl?.TabPages.Add(newTab);
+            if (parentControl == null)
+            {
+                return;
+            }
+
             parentControl.SelectedTab = newTab;
             RaiseComponentChanged(TypeDescriptor.GetProperties(parentControl)["TabPages"], oldTabs, parentControl.TabPages);
         }
 
-        private void OnRemoveTab(Object sender, EventArgs e)
+        private void OnRemoveTab(object sender, EventArgs e)
         {
-            var parentControl = Control as MetroTabControl;
+            MetroTabControl parentControl = Control as MetroTabControl;
 
             if (parentControl != null && parentControl.SelectedIndex < 0)
+            {
                 return;
+            }
 
-            var oldTabs = parentControl.TabPages;
+            TabControl.TabPageCollection oldTabs = parentControl?.TabPages;
 
-            // Notify the IDE that the TabPages collection property of the current tab control has changed.
             RaiseComponentChanging(TypeDescriptor.GetProperties(parentControl)["TabPages"]);
-            _designerHost.DestroyComponent(parentControl.SelectedTab);
-            RaiseComponentChanged(TypeDescriptor.GetProperties(parentControl)["TabPages"], oldTabs, parentControl.TabPages);
+            _designerHost.DestroyComponent(parentControl?.SelectedTab);
+            RaiseComponentChanged(TypeDescriptor.GetProperties(parentControl)["TabPages"], oldTabs, parentControl?.TabPages);
         }
 
         private void OnComponentChanged(object sender, ComponentChangedEventArgs e)
         {
-            if (!(e.Component is MetroTabControl parentControl) || e.Member.Name != "TabPages") return;
+            if (!(e.Component is MetroTabControl parentControl) || e.Member.Name != "TabPages")
+            {
+                return;
+            }
+
             foreach (DesignerVerb verb in Verbs)
             {
-                if (verb.Text != "Remove Tab") continue;
+                if (verb.Text != "Remove Tab")
+                {
+                    continue;
+                }
+
                 switch (parentControl.TabPages.Count)
                 {
                     case 0:
@@ -194,6 +217,7 @@ namespace ReaLTaiizor.Design.Metro
                         verb.Enabled = true;
                         break;
                 }
+
                 break;
             }
         }
