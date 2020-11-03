@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using System.Drawing;
+using ReaLTaiizor.Forms;
 using ReaLTaiizor.Colors;
 using System.Drawing.Text;
 using ReaLTaiizor.Controls;
@@ -29,7 +30,7 @@ namespace ReaLTaiizor.Util
     {
         private static MaterialManager _instance;
 
-        private readonly List<Forms.MaterialForm> _formsToManage = new List<Forms.MaterialForm>();
+        private readonly List<MaterialForm> _formsToManage = new List<MaterialForm>();
 
         public delegate void SkinManagerEventHandler(object sender);
 
@@ -366,7 +367,7 @@ namespace ReaLTaiizor.Util
         }
 
         // Dyanmic Themes
-        public void AddFormToManage(Forms.MaterialForm materialForm)
+        public void AddFormToManage(MaterialForm materialForm)
         {
             _formsToManage.Add(materialForm);
             UpdateBackgrounds();
@@ -378,7 +379,7 @@ namespace ReaLTaiizor.Util
             };
         }
 
-        public void RemoveFormToManage(Forms.MaterialForm materialForm)
+        public void RemoveFormToManage(MaterialForm materialForm)
         {
             _formsToManage.Remove(materialForm);
         }
@@ -386,7 +387,7 @@ namespace ReaLTaiizor.Util
         private void UpdateBackgrounds()
         {
             Color newBackColor = BackdropColor;
-            foreach (Forms.MaterialForm materialForm in _formsToManage)
+            foreach (MaterialForm materialForm in _formsToManage)
             {
                 materialForm.BackColor = newBackColor;
                 UpdateControlBackColor(materialForm, newBackColor);
