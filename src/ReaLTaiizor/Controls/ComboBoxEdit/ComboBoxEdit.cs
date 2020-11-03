@@ -11,7 +11,7 @@ namespace ReaLTaiizor.Controls
 {
     #region ComboBoxEdit
 
-    public class ComboBoxEdit : System.Windows.Forms.ComboBox
+    public class ComboBoxEdit : ComboBox
     {
 
         #region Variables
