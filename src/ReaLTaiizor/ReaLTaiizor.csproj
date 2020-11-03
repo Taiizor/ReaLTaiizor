@@ -19,7 +19,7 @@ C# WinForm UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
-    <PackageTags>ReaL Taiizor ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet Component</PackageTags>
+    <PackageTags>ReaL Taiizor Soferity ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet Component</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/ReaLTaiizor</RepositoryUrl>
