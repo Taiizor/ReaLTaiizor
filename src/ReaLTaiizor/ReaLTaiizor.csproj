@@ -61,7 +61,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
       <Version>5.0.0-rc.1.20451.14</Version>
     </PackageReference>
     <PackageReference Include="System.Configuration.ConfigurationManager">
-      <Version>5.0.0-rc.1.20451.14</Version>
+      <Version>5.0.0</Version>
     </PackageReference>
   </ItemGroup>
 
@@ -75,7 +75,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
       <Version>5.0.0-rc.1.20451.14</Version>
     </PackageReference>
     <PackageReference Include="System.Configuration.ConfigurationManager">
-      <Version>5.0.0-rc.1.20451.14</Version>
+      <Version>5.0.0</Version>
     </PackageReference>
   </ItemGroup>
 
