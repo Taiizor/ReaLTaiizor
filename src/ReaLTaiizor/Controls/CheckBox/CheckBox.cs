@@ -15,7 +15,6 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     public class CheckBox : Control
     {
-
         #region Variables
 
         private int X;
@@ -28,6 +27,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedBackColor = Color.FromArgb(66, 76, 85);
 
         #endregion
+
         #region Properties
 
         public bool Checked
@@ -36,6 +36,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Checked = value;
+                CheckedChangedEvent?.Invoke(this);
                 Invalidate();
             }
         }
@@ -75,6 +76,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region EventArgs
 
         public delegate void CheckedChangedEventHandler(object sender);
@@ -104,9 +106,8 @@ namespace ReaLTaiizor.Controls
         {
             if (_Enable)
             {
-                _Checked = !_Checked;
+                Checked = !Checked;
                 Focus();
-                CheckedChangedEvent?.Invoke(this);
                 base.OnMouseDown(e);
             }
         }

@@ -31,6 +31,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Checked = value;
+                CheckedChangedEvent?.Invoke(this);
                 Invalidate();
             }
         }
@@ -149,9 +150,8 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            _Checked = !_Checked;
+            Checked = !Checked;
             Focus();
-            CheckedChangedEvent?.Invoke(this);
             base.OnMouseDown(e);
         }
 
