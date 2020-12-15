@@ -61,6 +61,26 @@ namespace ReaLTaiizor.Rufus.Properties {
         }
         
         /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap approval_48px {
+            get {
+                object obj = ResourceManager.GetObject("approval_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap checkmark_96px {
+            get {
+                object obj = ResourceManager.GetObject("checkmark_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         internal static System.Drawing.Icon ICO {
@@ -83,6 +103,16 @@ namespace ReaLTaiizor.Rufus.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap tiktok_verified_account_96px {
+            get {
+                object obj = ResourceManager.GetObject("tiktok_verified_account_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap usb_memory_stick_100px {
             get {
                 object obj = ResourceManager.GetObject("usb_memory_stick_100px", resourceCulture);
@@ -96,6 +126,26 @@ namespace ReaLTaiizor.Rufus.Properties {
         internal static System.Drawing.Bitmap usb_memory_stick_60px {
             get {
                 object obj = ResourceManager.GetObject("usb_memory_stick_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap verified_account_48px {
+            get {
+                object obj = ResourceManager.GetObject("verified_account_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap verified_account_96px {
+            get {
+                object obj = ResourceManager.GetObject("verified_account_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

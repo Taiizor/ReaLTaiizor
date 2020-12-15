@@ -96,5 +96,20 @@
   <ItemGroup>
     <None Include="Resources\ICO.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tiktok_verified_account_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verified_account_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verified_account_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\approval_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkmark_96px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
