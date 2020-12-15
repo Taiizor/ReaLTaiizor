@@ -72,6 +72,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Checked = value;
+                CheckedChangedEvent?.Invoke(this, null);
                 base.Invalidate();
             }
         }
@@ -187,7 +188,7 @@ namespace ReaLTaiizor.Controls
             if (enabled)
             {
                 Checked = !Checked;
-                CheckedChangedEvent?.Invoke(this, e);
+                //CheckedChangedEvent?.Invoke(this, e);
             }
         }
 

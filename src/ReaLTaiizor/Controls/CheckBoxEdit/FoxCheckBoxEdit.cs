@@ -8,6 +8,7 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
+using ReaLTaiizor.Util.FoxBase;
 
 #endregion
 
@@ -16,7 +17,7 @@ namespace ReaLTaiizor.Controls
     #region FoxCheckBoxEdit
 
     [DefaultEvent("CheckedChanged")]
-    public class FoxCheckBoxEdit : Util.FoxBase.CheckControlEdit
+    public class FoxCheckBoxEdit : CheckControlEdit
     {
         private Graphics G;
 

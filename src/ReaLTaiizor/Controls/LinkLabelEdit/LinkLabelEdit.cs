@@ -9,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region LinkLabelEdit
 
-    public class LinkLabelEdit : System.Windows.Forms.LinkLabel
+    public class LinkLabelEdit : LinkLabel
     {
         public LinkLabelEdit()
         {

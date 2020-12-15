@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using System.Drawing;
+using System.Windows.Forms;
 
 #endregion
 
@@ -8,7 +9,7 @@ namespace ReaLTaiizor.Controls
 {
     #region LabelEdit
 
-    public class LabelEdit : System.Windows.Forms.Label
+    public class LabelEdit : Label
     {
         public LabelEdit()
         {

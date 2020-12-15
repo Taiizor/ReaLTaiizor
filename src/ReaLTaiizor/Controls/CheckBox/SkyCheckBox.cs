@@ -15,7 +15,6 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     public class SkyCheckBox : Control
     {
-
         #region " Control Help - MouseState & Flicker Control"
         private Point mouse = new Point(0, 0);
 
@@ -24,11 +23,12 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             mouse = e.Location;
         }
-        protected override void OnTextChanged(System.EventArgs e)
+        protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
             Invalidate();
         }
+
         private bool _Checked;
         public bool Checked
         {
@@ -36,21 +36,23 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Checked = value;
+                CheckedChanged?.Invoke(this);
                 Invalidate();
             }
         }
+
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
             Height = 14;
         }
+
         protected override void OnClick(EventArgs e)
         {
             if (mouse.X <= Height - 1 || mouse.Y <= Width - 1)
             {
-                _Checked = !_Checked;
+                Checked = !Checked;
                 Invalidate();
-                CheckedChanged?.Invoke(this);
             }
 
             base.OnClick(e);
@@ -117,7 +119,6 @@ namespace ReaLTaiizor.Controls
             B.Dispose();
 
         }
-
     }
 
     #endregion

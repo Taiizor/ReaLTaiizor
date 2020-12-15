@@ -29,15 +29,15 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Checked = value;
-                Invalidate();
                 CheckedChanged?.Invoke(this);
+                Invalidate();
             }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            _Checked = !_Checked;
+            Checked = !Checked;
         }
 
         public MoonCheckBox()

@@ -14,7 +14,6 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")] // This is used to see if it is a checkbox and so on.
     public class SpaceCheckBox : SpaceControl // This Checkbox uses a green middle
     {
-
         public SpaceCheckBox()
         {
             Transparent = true; // it is infact transpernt
@@ -70,19 +69,23 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-
         private bool _Checked { get; set; }
         public bool Checked
         {
             get => _Checked;
-            set => _Checked = value;
+            set
+            {
+                _Checked = value;
+                CheckedChanged?.Invoke(this);
+            }
         }
+
         protected override void OnClick(System.EventArgs e)
         {
-            _Checked = !_Checked;
-            CheckedChanged?.Invoke(this);
+            Checked = !Checked;
             base.OnClick(e);
         }
+
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
     }

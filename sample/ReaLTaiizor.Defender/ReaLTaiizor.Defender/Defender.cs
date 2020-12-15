@@ -23,27 +23,27 @@ namespace ReaLTaiizor.Defender
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-            panel1.Location = new Point(0, pictureBox2.Location.Y);
+            panel1.Location = new Point(0, 3);
         }
 
         private void PictureBox3_Click(object sender, EventArgs e)
         {
-            panel1.Location = new Point(0, pictureBox3.Location.Y);
+            panel1.Location = new Point(0, 51);
         }
 
         private void PictureBox4_Click(object sender, EventArgs e)
         {
-            panel1.Location = new Point(0, pictureBox4.Location.Y);
+            panel1.Location = new Point(0, 147);
         }
 
         private void PictureBox5_Click(object sender, EventArgs e)
         {
-            panel1.Location = new Point(0, pictureBox5.Location.Y);
+            panel1.Location = new Point(0, 99);
         }
 
         private void PictureBox6_Click(object sender, EventArgs e)
         {
-            panel1.Location = new Point(0, pictureBox6.Location.Y);
+            panel1.Location = new Point(0, 195);
         }
     }
 }

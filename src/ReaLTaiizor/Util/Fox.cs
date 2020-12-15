@@ -126,7 +126,6 @@ namespace ReaLTaiizor.Util
     {
         public abstract class CheckControlBox : Control
         {
-
             public event CheckedChangedEventHandler CheckedChanged;
             public delegate void CheckedChangedEventHandler(object sender, EventArgs e);
 
@@ -171,6 +170,7 @@ namespace ReaLTaiizor.Util
                 set
                 {
                     IsChecked = value;
+                    CheckedChanged?.Invoke(this, null);
                     Invalidate();
                 }
             }
@@ -204,7 +204,7 @@ namespace ReaLTaiizor.Util
                 if (Enabled)
                 {
                     Checked = !Checked;
-                    CheckedChanged?.Invoke(this, e);
+                    //CheckedChanged?.Invoke(this, e);
                 }
 
             }
@@ -265,6 +265,7 @@ namespace ReaLTaiizor.Util
                 set
                 {
                     IsChecked = value;
+                    CheckedChanged?.Invoke(this, null);
                     Invalidate();
                 }
             }
@@ -300,7 +301,7 @@ namespace ReaLTaiizor.Util
                 if (Enabled)
                 {
                     Checked = !Checked;
-                    CheckedChanged?.Invoke(this, e);
+                    //CheckedChanged?.Invoke(this, e);
                 }
 
             }
