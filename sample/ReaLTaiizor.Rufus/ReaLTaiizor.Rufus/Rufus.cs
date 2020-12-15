@@ -12,6 +12,9 @@ namespace ReaLTaiizor.Rufus
             metroComboBox2.SelectedIndex = 1;
             metroComboBox3.SelectedIndex = 0;
             metroComboBox4.SelectedIndex = 0;
+            metroTextBox1.Text = metroComboBox1.SelectedItem.ToString();
+            metroComboBox5.SelectedIndex = 0;
+            metroComboBox6.SelectedIndex = 0;
         }
 
         private void MetroSwitch1_SwitchedChanged(object sender)

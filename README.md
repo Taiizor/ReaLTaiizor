@@ -150,6 +150,10 @@ Step 2：Enjoy designing
 
 ![XAMPPSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/XAMPP.png)
 
+### Rufus
+
+![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)
+
 ### MP3 Player
 
 ![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)

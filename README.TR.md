@@ -150,6 +150,10 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ![XAMPPSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/XAMPP.png)
 
+### Rufus
+
+![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)
+
 ### MP3 Oynatıcı
 
 ![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)
