@@ -57,10 +57,25 @@
     <Compile Include="AppLocker.Designer.cs">
       <DependentUpon>AppLocker.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppPassword.Designer.cs">
+      <DependentUpon>AppPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunApp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RunApp.Designer.cs">
+      <DependentUpon>RunApp.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AppLocker.resx">
       <DependentUpon>AppLocker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppPassword.resx">
+      <DependentUpon>AppPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,6 +87,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RunApp.resx">
+      <DependentUpon>RunApp.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -139,6 +157,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ICO4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_window_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_96px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,8 +24,6 @@ namespace ReaLTaiizor.AppLocker
             else
             {
                 MessageBox.Show("Already Open!", "AppLocker", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Application.Exit();
-                Environment.Exit(1);
             }
         }
     }

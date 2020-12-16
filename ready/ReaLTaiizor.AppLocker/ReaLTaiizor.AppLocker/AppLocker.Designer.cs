@@ -29,15 +29,19 @@ namespace ReaLTaiizor.AppLocker
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppLocker));
             this.nightForm1 = new ReaLTaiizor.Forms.NightForm();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
+            this.RAL = new System.Windows.Forms.Timer(this.components);
             this.nightForm1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nightForm1
             // 
             this.nightForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(51)))));
+            this.nightForm1.Controls.Add(this.flowLayoutPanel1);
             this.nightForm1.Controls.Add(this.nightControlBox1);
             this.nightForm1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nightForm1.DrawIcon = true;
@@ -47,11 +51,19 @@ namespace ReaLTaiizor.AppLocker
             this.nightForm1.MinimumSize = new System.Drawing.Size(100, 42);
             this.nightForm1.Name = "nightForm1";
             this.nightForm1.Padding = new System.Windows.Forms.Padding(0, 31, 0, 0);
-            this.nightForm1.Size = new System.Drawing.Size(450, 450);
+            this.nightForm1.Size = new System.Drawing.Size(287, 450);
             this.nightForm1.TabIndex = 0;
             this.nightForm1.Text = "AppLocker";
             this.nightForm1.TextAlignment = ReaLTaiizor.Forms.NightForm.Alignment.Left;
             this.nightForm1.TitleBarTextColor = System.Drawing.Color.Gainsboro;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 34);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(281, 174);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // nightControlBox1
             // 
@@ -68,7 +80,7 @@ namespace ReaLTaiizor.AppLocker
             this.nightControlBox1.EnableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.nightControlBox1.EnableMinimizeButton = true;
             this.nightControlBox1.EnableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.nightControlBox1.Location = new System.Drawing.Point(311, 0);
+            this.nightControlBox1.Location = new System.Drawing.Point(148, 0);
             this.nightControlBox1.MaximizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.nightControlBox1.MaximizeHoverForeColor = System.Drawing.Color.White;
             this.nightControlBox1.MinimizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -77,11 +89,16 @@ namespace ReaLTaiizor.AppLocker
             this.nightControlBox1.Size = new System.Drawing.Size(139, 31);
             this.nightControlBox1.TabIndex = 0;
             // 
+            // RAL
+            // 
+            this.RAL.Enabled = true;
+            this.RAL.Tick += new System.EventHandler(this.RAL_Tick);
+            // 
             // AppLocker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 450);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(287, 450);
             this.Controls.Add(this.nightForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -99,5 +116,7 @@ namespace ReaLTaiizor.AppLocker
 
         private Forms.NightForm nightForm1;
         private Controls.NightControlBox nightControlBox1;
+        private System.Windows.Forms.Timer RAL;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
