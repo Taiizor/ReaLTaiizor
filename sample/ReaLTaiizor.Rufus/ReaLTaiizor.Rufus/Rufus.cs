@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Rufus
             metroComboBox2.SelectedIndex = 1;
             metroComboBox3.SelectedIndex = 0;
             metroComboBox4.SelectedIndex = 0;
-            metroTextBox1.Text = metroComboBox1.SelectedItem.ToString();
+            metroTextBox1.Text = metroComboBox1.SelectedItem.ToString().Split(' ')[0];
             metroComboBox5.SelectedIndex = 0;
             metroComboBox6.SelectedIndex = 0;
         }
