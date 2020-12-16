@@ -35,12 +35,14 @@ namespace ReaLTaiizor.AppLocker
             this.nightTextBox1 = new ReaLTaiizor.Controls.NightTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.nightButton2 = new ReaLTaiizor.Controls.NightButton();
             this.nightForm1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nightForm1
             // 
             this.nightForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(51)))));
+            this.nightForm1.Controls.Add(this.nightButton2);
             this.nightForm1.Controls.Add(this.nightButton1);
             this.nightForm1.Controls.Add(this.nightTextBox1);
             this.nightForm1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -51,7 +53,7 @@ namespace ReaLTaiizor.AppLocker
             this.nightForm1.MinimumSize = new System.Drawing.Size(100, 42);
             this.nightForm1.Name = "nightForm1";
             this.nightForm1.Padding = new System.Windows.Forms.Padding(0, 31, 0, 0);
-            this.nightForm1.Size = new System.Drawing.Size(302, 94);
+            this.nightForm1.Size = new System.Drawing.Size(539, 94);
             this.nightForm1.TabIndex = 0;
             this.nightForm1.Text = "nightForm1";
             this.nightForm1.TextAlignment = ReaLTaiizor.Forms.NightForm.Alignment.Left;
@@ -117,11 +119,35 @@ namespace ReaLTaiizor.AppLocker
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
+            // nightButton2
+            // 
+            this.nightButton2.BackColor = System.Drawing.Color.Transparent;
+            this.nightButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nightButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.nightButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.nightButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(93)))), ((int)(((byte)(89)))));
+            this.nightButton2.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(242)))), ((int)(((byte)(93)))), ((int)(((byte)(89)))));
+            this.nightButton2.HoverForeColor = System.Drawing.Color.White;
+            this.nightButton2.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            this.nightButton2.Location = new System.Drawing.Point(304, 34);
+            this.nightButton2.MinimumSize = new System.Drawing.Size(144, 47);
+            this.nightButton2.Name = "nightButton2";
+            this.nightButton2.NormalBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(93)))), ((int)(((byte)(89)))));
+            this.nightButton2.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            this.nightButton2.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(242)))), ((int)(((byte)(93)))), ((int)(((byte)(89)))));
+            this.nightButton2.PressedForeColor = System.Drawing.Color.White;
+            this.nightButton2.Radius = 20;
+            this.nightButton2.Size = new System.Drawing.Size(144, 50);
+            this.nightButton2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            this.nightButton2.TabIndex = 3;
+            this.nightButton2.Text = "nightButton2";
+            this.nightButton2.Click += new System.EventHandler(this.NightButton2_Click);
+            // 
             // AppPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 94);
+            this.ClientSize = new System.Drawing.Size(539, 94);
             this.Controls.Add(this.nightForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1366, 768);
@@ -144,5 +170,6 @@ namespace ReaLTaiizor.AppLocker
         private Controls.NightButton nightButton1;
         private Controls.NightTextBox nightTextBox1;
         private System.Windows.Forms.Timer timer1;
+        private Controls.NightButton nightButton2;
     }
 }

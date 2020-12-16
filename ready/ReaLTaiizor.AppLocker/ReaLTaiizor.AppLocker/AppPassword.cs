@@ -44,6 +44,22 @@ namespace ReaLTaiizor.AppLocker
             }
         }
 
+        private void NightButton2_Click(object sender, EventArgs e)
+        {
+            if (PT == Type.G)
+            {
+                if (!AppLocker.BPProcs[PN])
+                {
+                    AppLocker.PProcs[PN] = true;
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+
         private void AppPassword_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (PT == Type.G)
