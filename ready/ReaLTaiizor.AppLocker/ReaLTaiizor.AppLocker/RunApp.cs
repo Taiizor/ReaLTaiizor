@@ -14,6 +14,7 @@ namespace ReaLTaiizor.AppLocker
             InitializeComponent();
             ICO.Image = I == null ? Properties.Resources.application_window_96px : I;
             NAME.Text = N + " - " + T;
+            PTT.SetToolTip(NAME, T);
             ANAME = N;
             ADIR = D;
         }

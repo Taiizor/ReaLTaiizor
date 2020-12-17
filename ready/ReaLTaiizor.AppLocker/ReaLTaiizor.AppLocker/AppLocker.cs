@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
-using System.Data;
-using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
@@ -33,7 +28,7 @@ namespace ReaLTaiizor.AppLocker
         private void RAL_Tick(object sender, EventArgs e)
         {
             RAL.Stop();
-            foreach (Process Process in Process.GetProcesses().Where(p => !string.IsNullOrEmpty(p.MainWindowTitle)).ToList())
+            foreach (Process Process in Process.GetProcesses().Where(p => !string.IsNullOrEmpty(p.MainWindowTitle) && Text != p.MainWindowTitle).ToList())
             {
                 if (LProcs.ContainsKey(Process.ProcessName))
                 {
@@ -48,7 +43,7 @@ namespace ReaLTaiizor.AppLocker
                 else
                 {
                     LProcs[Process.ProcessName] = Process.ProcessName;
-                    flowLayoutPanel1.Controls.Add(new RunApp(null, Process.ProcessName, Process.MainWindowTitle, Process.StartInfo.WorkingDirectory));
+                    panel1.Controls.Add(new RunApp(null, Process.ProcessName, Process.MainWindowTitle, Process.StartInfo.WorkingDirectory) { Dock = DockStyle.Top });
                 }
             }
 
