@@ -23,13 +23,15 @@ namespace ReaLTaiizor.AppLocker
             this.PN = PN;
             this.PW = PW;
             this.PT = PT;
+            Text = PN + " - Locking Operations";
+            nightForm1.Text = Text;
         }
 
         private void NightButton1_Click(object sender, EventArgs e)
         {
             if (PT == Type.G)
             {
-                if (nightTextBox1.Text == PW)
+                if (materialTextBox1.Text == PW)
                 {
                     AppLocker.BPProcs[PN] = true;
                     Close();
@@ -37,9 +39,21 @@ namespace ReaLTaiizor.AppLocker
             }
             else
             {
-                AppLocker.Procs[PN] = nightTextBox1.Text;
-                AppLocker.PProcs[PN] = true;
-                AppLocker.BPProcs[PN] = false;
+                if (!string.IsNullOrEmpty(materialTextBox1.Text))
+                {
+                    AppLocker.Procs[PN] = materialTextBox1.Text;
+                    AppLocker.PProcs[PN] = true;
+                    AppLocker.BPProcs[PN] = false;
+
+                    foreach (Process Process in Process.GetProcesses().Where(p => !string.IsNullOrEmpty(p.MainWindowTitle)).ToList())
+                    {
+                        if (Process.ProcessName == PN)
+                        {
+                            Process.Kill();
+                            break;
+                        }
+                    }
+                }
                 Close();
             }
         }

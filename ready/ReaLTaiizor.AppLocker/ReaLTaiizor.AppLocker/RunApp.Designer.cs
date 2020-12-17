@@ -54,6 +54,7 @@ namespace ReaLTaiizor.AppLocker
             this.NAME.Size = new System.Drawing.Size(183, 15);
             this.NAME.TabIndex = 1;
             this.NAME.Text = "NAME - TITLE";
+            this.PTT.SetToolTip(this.NAME, "NAME - TITLE");
             // 
             // DIRECTORY
             // 
@@ -96,6 +97,7 @@ namespace ReaLTaiizor.AppLocker
             this.ICO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ICO.TabIndex = 0;
             this.ICO.TabStop = false;
+            this.PTT.SetToolTip(this.ICO, "Application Image");
             // 
             // PTT
             // 
