@@ -177,6 +177,15 @@ namespace ReaLTaiizor.Forms
 
         private Padding originalPadding;
 
+        private bool _MessageFilter = true;
+
+        [Category("Mouse")]
+        public bool MessageFilter
+        {
+            get => _MessageFilter;
+            set => _MessageFilter = value;
+        }
+
         public MaterialForm()
         {
             DrawerWidth = 200;
@@ -191,10 +200,6 @@ namespace ReaLTaiizor.Forms
             Sizable = true;
             DoubleBuffered = true;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
-
-            // This enables the form to trigger the MouseMove event even when mouse is over another control
-            Application.AddMessageFilter(new MouseMessageFilter());
-            MouseMessageFilter.MouseMove += OnGlobalMouseMove;
 
             _clickAnimManager = new AnimationManager()
             {
@@ -1018,6 +1023,18 @@ namespace ReaLTaiizor.Forms
                     textLocation.Size,
                     MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
+
+            // This enables the form to trigger the MouseMove event even when mouse is over another control
+            if (MessageFilter)
+            {
+                Application.AddMessageFilter(new MaterialMouseMessageFilter());
+                MaterialMouseMessageFilter.MouseMove += OnGlobalMouseMove;
+            }
+            else
+            {
+                Application.RemoveMessageFilter(new MaterialMouseMessageFilter());
+                MaterialMouseMessageFilter.MouseMove += null;
+            }
         }
 
         private readonly AnimationManager _clickAnimManager;
@@ -1042,27 +1059,6 @@ namespace ReaLTaiizor.Forms
 
         private void MaterialForm_Load(object sender, EventArgs e)
         {
-        }
-    }
-
-    public class MouseMessageFilter : IMessageFilter
-    {
-        private const int WM_MOUSEMOVE = 0x0200;
-
-        public static event MouseEventHandler MouseMove;
-
-        public bool PreFilterMessage(ref Message m)
-        {
-            if (m.Msg == WM_MOUSEMOVE)
-            {
-                if (MouseMove != null)
-                {
-                    int x = Control.MousePosition.X, y = Control.MousePosition.Y;
-
-                    MouseMove(null, new MouseEventArgs(MouseButtons.None, 0, x, y, 0));
-                }
-            }
-            return false;
         }
     }
 
