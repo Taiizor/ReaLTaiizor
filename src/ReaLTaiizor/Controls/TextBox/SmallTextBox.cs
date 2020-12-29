@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        public System.Windows.Forms.TextBox RT_TB = new System.Windows.Forms.TextBox();
+        public TextBox RT_TB = new TextBox();
         private GraphicsPath Shape;
         private int _maxchars = 32767;
         private bool _ReadOnly;
@@ -26,8 +26,13 @@ namespace ReaLTaiizor.Controls
         private bool isPasswordMasked = false;
         private readonly Pen P1;
         private readonly SolidBrush B1;
+        
+        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
+        private Color _BorderColor = Color.FromArgb(180, 180, 180);
+        private Color _CustomBGColor = Color.White;
 
         #endregion
+
         #region Properties
 
         public HorizontalAlignment TextAlignment
@@ -39,6 +44,7 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
         public int MaxLength
         {
             get => _maxchars;
@@ -60,6 +66,7 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
         public bool ReadOnly
         {
             get => _ReadOnly;
@@ -72,6 +79,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
         }
+
         public bool Multiline
         {
             get => _Multiline;
@@ -94,7 +102,38 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        public SmoothingMode SmoothingType
+        {
+            get => _SmoothingType;
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public Color BorderColor
+        {
+            get => _BorderColor;
+            set
+            {
+                _BorderColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color CustomBGColor
+        {
+            get => _CustomBGColor;
+            set
+            {
+                _CustomBGColor = value;
+                Invalidate();
+            }
+        }
+
         #endregion
+
         #region EventArgs
 
         protected override void OnTextChanged(EventArgs e)
@@ -169,6 +208,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         public void AddTextBox()
         {
             TextBox _TB = RT_TB;
@@ -192,8 +232,8 @@ namespace ReaLTaiizor.Controls
             AddTextBox();
             Controls.Add(RT_TB);
 
-            P1 = new Pen(Color.FromArgb(180, 180, 180)); // P1 = Border color
-            B1 = new SolidBrush(Color.White); // B1 = Rect Background color
+            P1 = new Pen(BorderColor); // P1 = Border color
+            B1 = new SolidBrush(CustomBGColor); // B1 = Rect Background color
             BackColor = Color.Transparent;
             ForeColor = Color.DimGray;
 
@@ -209,14 +249,14 @@ namespace ReaLTaiizor.Controls
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            G.SmoothingMode = SmoothingMode.AntiAlias;
+            G.SmoothingMode = SmoothingType;
 
             TextBox _TB = RT_TB;
             _TB.Width = Width - 10;
             _TB.TextAlign = TextAlignment;
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;
 
-            G.Clear(Color.Transparent);
+            G.Clear(BackColor);
             G.FillPath(B1, Shape); // Draw background
             G.DrawPath(P1, Shape); // Draw border
 
@@ -224,7 +264,6 @@ namespace ReaLTaiizor.Controls
             G.Dispose();
             B.Dispose();
         }
-
     }
 
     #endregion
