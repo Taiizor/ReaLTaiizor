@@ -84,6 +84,22 @@ namespace ReaLTaiizor.Controls
         }
         #endregion
 
+        #region Variables
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        #endregion
+
+        #region Settings
+        public SmoothingMode SmoothingType
+        {
+            get => _SmoothingType;
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+        #endregion
+
         public SkyComboBox() : base()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
@@ -103,7 +119,7 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.SmoothingMode = SmoothingType;
 
             G.Clear(BackColor);
             LinearGradientBrush bodyGradNone = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 2), Color.FromArgb(245, 245, 245), Color.FromArgb(230, 230, 230), 90);
@@ -119,6 +135,7 @@ namespace ReaLTaiizor.Controls
             G.DrawLine(new Pen(Color.White), new Point(Width - 22, 1), new Point(Width - 22, Height - 3));
             G.DrawLine(new Pen(Color.FromArgb(189, 189, 189)), new Point(Width - 21, 1), new Point(Width - 21, Height - 3));
             G.DrawLine(new Pen(Color.White), new Point(Width - 20, 1), new Point(Width - 20, Height - 3));
+            
             try
             {
                 G.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(5, -1, Width - 20, Height), new StringFormat
