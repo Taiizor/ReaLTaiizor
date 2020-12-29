@@ -57,8 +57,68 @@ namespace ReaLTaiizor.Controls
 
             base.OnClick(e);
         }
+
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
+        #endregion
+
+        #region Variables
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+
+        private Color _BoxBGColorA = Color.FromArgb(245, 245, 245);
+        private Color _BoxBGColorB = Color.FromArgb(231, 231, 231);
+        private Color _BoxBorderColorA = Color.FromArgb(189, 189, 189);
+        private Color _BoxBorderColorB = Color.FromArgb(252, 252, 252);
+        private Color _BoxBorderColorC = Color.FromArgb(168, 168, 168);
+        private Color _CheckedColor = Color.FromArgb(220, 27, 94, 137);
+        #endregion
+
+        #region Settings
+        public SmoothingMode SmoothingType
+        {
+            get => _SmoothingType;
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public Color BoxBGColorA
+        {
+            get => _BoxBGColorA;
+            set => _BoxBGColorA = value;
+        }
+
+        public Color BoxBGColorB
+        {
+            get => _BoxBGColorB;
+            set => _BoxBGColorB = value;
+        }
+
+        public Color BoxBorderColorA
+        {
+            get => _BoxBorderColorA;
+            set => _BoxBorderColorA = value;
+        }
+
+        public Color BoxBorderColorB
+        {
+            get => _BoxBorderColorB;
+            set => _BoxBorderColorB = value;
+        }
+
+        public Color BoxBorderColorC
+        {
+            get => _BoxBorderColorC;
+            set => _BoxBorderColorC = value;
+        }
+
+        public Color CheckedColor
+        {
+            get => _CheckedColor;
+            set => _CheckedColor = value;
+        }
         #endregion
 
         public SkyCheckBox() : base()
@@ -78,15 +138,15 @@ namespace ReaLTaiizor.Controls
             Graphics G = Graphics.FromImage(B);
 
             Rectangle checkBoxRectangle = new Rectangle(0, 0, Height - 1, Height - 1);
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.SmoothingMode = SmoothingType;
 
             G.Clear(Parent.FindForm().BackColor);
 
-            LinearGradientBrush bodyGrad = new LinearGradientBrush(checkBoxRectangle, Color.FromArgb(245, 245, 245), Color.FromArgb(231, 231, 231), 90);
+            LinearGradientBrush bodyGrad = new LinearGradientBrush(checkBoxRectangle, BoxBGColorA, BoxBGColorB, 90);
             G.FillRectangle(bodyGrad, bodyGrad.Rectangle);
-            G.DrawRectangle(new Pen(Color.FromArgb(189, 189, 189)), new Rectangle(0, 0, Height - 1, Height - 2));
-            G.DrawRectangle(new Pen(Color.FromArgb(252, 252, 252)), new Rectangle(1, 1, Height - 3, Height - 4));
-            G.DrawLine(new Pen(Color.FromArgb(168, 168, 168)), new Point(1, Height - 1), new Point(Height - 2, Height - 1));
+            G.DrawRectangle(new Pen(BoxBorderColorA), new Rectangle(0, 0, Height - 1, Height - 2));
+            G.DrawRectangle(new Pen(BoxBorderColorB), new Rectangle(1, 1, Height - 3, Height - 4));
+            G.DrawLine(new Pen(BoxBorderColorC), new Point(1, Height - 1), new Point(Height - 2, Height - 1));
 
             if (Checked)
             {
@@ -97,11 +157,9 @@ namespace ReaLTaiizor.Controls
                     new Point(chkPoly.X + chkPoly.Width / 2, chkPoly.Y + chkPoly.Height),
                     new Point(chkPoly.X + chkPoly.Width, chkPoly.Y)
                 };
-                G.SmoothingMode = SmoothingMode.HighQuality;
-                Pen P1 = new Pen(Color.FromArgb(27, 94, 137), 2);
-                LinearGradientBrush chkGrad = new LinearGradientBrush(chkPoly, Color.FromArgb(200, 200, 200), Color.FromArgb(255, 255, 255), 0f);
+                G.SmoothingMode = SmoothingType;
 
-                G.DrawString("a", new Font("Marlett", 10.75f), new SolidBrush(Color.FromArgb(220, ForeColor)), new Rectangle(-2, -1, Width - 1, Height - 1), new StringFormat
+                G.DrawString("a", new Font("Marlett", 10.75f), new SolidBrush(CheckedColor), new Rectangle(-2, -1, Width - 1, Height - 1), new StringFormat
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Near
