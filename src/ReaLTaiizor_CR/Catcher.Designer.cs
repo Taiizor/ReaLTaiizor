@@ -69,7 +69,6 @@
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
             this.skyComboBox1 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.socialButton1 = new ReaLTaiizor.Controls.SocialButton();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -409,23 +408,12 @@
             this.skyComboBox1.StartIndex = 0;
             this.skyComboBox1.TabIndex = 18;
             // 
-            // socialButton1
-            // 
-            this.socialButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.socialButton1.Image = null;
-            this.socialButton1.Location = new System.Drawing.Point(660, 145);
-            this.socialButton1.Name = "socialButton1";
-            this.socialButton1.Size = new System.Drawing.Size(54, 54);
-            this.socialButton1.TabIndex = 21;
-            this.socialButton1.Text = "socialButton1";
-            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 318);
-            this.Controls.Add(this.socialButton1);
             this.Controls.Add(this.skyComboBox1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
@@ -477,6 +465,5 @@
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
         private ReaLTaiizor.Controls.SkyComboBox skyComboBox1;
-        private ReaLTaiizor.Controls.SocialButton socialButton1;
     }
 }

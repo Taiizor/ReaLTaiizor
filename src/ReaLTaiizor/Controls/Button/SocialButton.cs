@@ -17,9 +17,15 @@ namespace ReaLTaiizor.Controls
 
         private Image _Image;
         private Size _ImageSize;
-        private Color EllipseColor; // VBConversions Note: Initial value cannot be assigned here since it is non-static.  Assignment has been moved to the class constructors.
+        private Color EllipseColor = Color.FromArgb(66, 76, 85); // VBConversions Note: Initial value cannot be assigned here since it is non-static.  Assignment has been moved to the class constructors.
+
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        private Color _HoverEllipseColor = Color.FromArgb(32, 34, 37);
+        private Color _NormalEllipseColor = Color.FromArgb(66, 76, 85);
+        private Color _DownEllipseColor = Color.FromArgb(153, 34, 34);
 
         #endregion
+
         #region Properties
 
         public Image Image
@@ -43,7 +49,48 @@ namespace ReaLTaiizor.Controls
 
         protected Size ImageSize => _ImageSize;
 
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public Color HoverEllipseColor
+        {
+            get { return _HoverEllipseColor; }
+            set
+            {
+                _HoverEllipseColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color NormalEllipseColor
+        {
+            get { return _NormalEllipseColor; }
+            set
+            {
+                _NormalEllipseColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color DownEllipseColor
+        {
+            get { return _DownEllipseColor; }
+            set
+            {
+                _DownEllipseColor = value;
+                Invalidate();
+            }
+        }
+
         #endregion
+
         #region EventArgs
 
         protected override void OnResize(EventArgs e)
@@ -55,31 +102,32 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            EllipseColor = Color.FromArgb(32, 34, 37);
+            EllipseColor = HoverEllipseColor;
             Refresh();
         }
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            EllipseColor = Color.FromArgb(66, 76, 85);
+            EllipseColor = NormalEllipseColor;
             Refresh();
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            EllipseColor = Color.FromArgb(153, 34, 34);
+            EllipseColor = DownEllipseColor;
             Focus();
             Refresh();
         }
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            EllipseColor = Color.FromArgb(32, 34, 37);
+            EllipseColor = HoverEllipseColor;
             Refresh();
         }
 
         #endregion
+
         #region Image Designer
 
         private static PointF ImageLocation(StringFormat SF, SizeF Area, SizeF ImageArea)
@@ -119,7 +167,6 @@ namespace ReaLTaiizor.Controls
         public SocialButton()
         {
             DoubleBuffered = true;
-            EllipseColor = Color.FromArgb(66, 76, 85);
             Cursor = Cursors.Hand;
         }
 
@@ -127,7 +174,7 @@ namespace ReaLTaiizor.Controls
         {
             Graphics G = e.Graphics;
             G.Clear(Parent.BackColor);
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.SmoothingMode = SmoothingType;
 
             PointF ImgPoint = ImageLocation(GetStringFormat(ContentAlignment.MiddleCenter), Size, ImageSize);
             G.FillEllipse(new SolidBrush(EllipseColor), new Rectangle(0, 0, 53, 53));
