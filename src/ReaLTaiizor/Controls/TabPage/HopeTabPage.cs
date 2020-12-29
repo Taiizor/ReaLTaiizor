@@ -82,8 +82,41 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
+        public enum TextState
+        {
+            Upper,
+            Lower,
+            Normal
+        }
+
+        private TextState _TitleTextState = TextState.Normal;
+        public TextState TitleTextState
+        {
+            get => _TitleTextState;
+            set
+            {
+                _TitleTextState = value;
+                Invalidate();
+            }
+        }
+
         #endregion
 
+        #region Functions
+        private string TitleText(string Text)
+        {
+            switch (TitleTextState)
+            {
+                case TextState.Upper:
+                    return Text.ToUpperInvariant();
+                case TextState.Lower:
+                    return Text.ToLowerInvariant();
+                default:
+                    return Text;
+            }
+        }
+        #endregion
 
         public override Rectangle DisplayRectangle
         {
@@ -139,18 +172,18 @@ namespace ReaLTaiizor.Controls
                 if (i == SelectedIndex)
                 {
                     graphics.FillRectangle(new SolidBrush(_themeColorA), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
-                    graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorA), GetTabRect(i), HopeStringAlign.Center);
+                    graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorA), GetTabRect(i), HopeStringAlign.Center);
                 }
                 else
                 {
                     if (i == enterIndex && enterFlag)
                     {
                         graphics.FillRectangle(new SolidBrush(_themeColorB), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
-                        graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorC), GetTabRect(i), HopeStringAlign.Center);
+                        graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorC), GetTabRect(i), HopeStringAlign.Center);
                     }
                     else
                     {
-                        graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorB), GetTabRect(i), HopeStringAlign.Center);
+                        graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorB), GetTabRect(i), HopeStringAlign.Center);
                     }
                 }
             }
