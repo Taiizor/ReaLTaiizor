@@ -68,7 +68,7 @@
             this.foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
-            this.skyButton1 = new ReaLTaiizor.Controls.SkyButton();
+            this.skyCheckBox1 = new ReaLTaiizor.Controls.SkyCheckBox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -386,17 +386,18 @@
             this.royalScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.royalScrollBar1.Value = 5;
             // 
-            // skyButton1
+            // skyCheckBox1
             // 
-            this.skyButton1.BackColor = System.Drawing.Color.Transparent;
-            this.skyButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.skyButton1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.skyButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyButton1.Location = new System.Drawing.Point(716, 289);
-            this.skyButton1.Name = "skyButton1";
-            this.skyButton1.Size = new System.Drawing.Size(75, 23);
-            this.skyButton1.TabIndex = 18;
-            this.skyButton1.Text = "skyButton1";
+            this.skyCheckBox1.BackColor = System.Drawing.Color.Transparent;
+            this.skyCheckBox1.Checked = false;
+            this.skyCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.skyCheckBox1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.skyCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyCheckBox1.Location = new System.Drawing.Point(701, 294);
+            this.skyCheckBox1.Name = "skyCheckBox1";
+            this.skyCheckBox1.Size = new System.Drawing.Size(90, 14);
+            this.skyCheckBox1.TabIndex = 18;
+            this.skyCheckBox1.Text = "skyCheckBox1";
             // 
             // Catcher
             // 
@@ -404,7 +405,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 318);
-            this.Controls.Add(this.skyButton1);
+            this.Controls.Add(this.skyCheckBox1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
@@ -454,6 +455,6 @@
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
-        private ReaLTaiizor.Controls.SkyButton skyButton1;
+        private ReaLTaiizor.Controls.SkyCheckBox skyCheckBox1;
     }
 }
