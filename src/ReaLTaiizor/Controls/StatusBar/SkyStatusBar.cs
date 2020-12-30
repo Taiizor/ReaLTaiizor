@@ -13,7 +13,6 @@ namespace ReaLTaiizor.Controls
 
     public class SkyStatusBar : Control
     {
-
         protected override void CreateHandle()
         {
             base.CreateHandle();

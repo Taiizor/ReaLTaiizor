@@ -2,8 +2,8 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 #endregion
 
@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
 
     public class SkyTextBox : Control
     {
-        private readonly System.Windows.Forms.TextBox txtbox = new System.Windows.Forms.TextBox();
+        private readonly TextBox txtbox = new TextBox();
 
         #region " Control Help - Properties & Flicker Control "
 

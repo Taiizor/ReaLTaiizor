@@ -68,7 +68,8 @@
             this.foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
-            this.skyRadioButton1 = new ReaLTaiizor.Controls.SkyRadioButton();
+            this.skyTextBox1 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.skyStatusBar1 = new ReaLTaiizor.Controls.SkyStatusBar();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -386,18 +387,31 @@
             this.royalScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.royalScrollBar1.Value = 5;
             // 
-            // skyRadioButton1
+            // skyTextBox1
             // 
-            this.skyRadioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.skyRadioButton1.Checked = false;
-            this.skyRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.skyRadioButton1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.skyRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyRadioButton1.Location = new System.Drawing.Point(686, 298);
-            this.skyRadioButton1.Name = "skyRadioButton1";
-            this.skyRadioButton1.Size = new System.Drawing.Size(105, 14);
-            this.skyRadioButton1.TabIndex = 18;
-            this.skyRadioButton1.Text = "skyRadioButton1";
+            this.skyTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.skyTextBox1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.skyTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyTextBox1.Location = new System.Drawing.Point(519, 167);
+            this.skyTextBox1.MaxLength = 32767;
+            this.skyTextBox1.MultiLine = false;
+            this.skyTextBox1.Name = "skyTextBox1";
+            this.skyTextBox1.Size = new System.Drawing.Size(75, 21);
+            this.skyTextBox1.TabIndex = 18;
+            this.skyTextBox1.Text = "skyTextBox1";
+            this.skyTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.skyTextBox1.UseSystemPasswordChar = false;
+            // 
+            // skyStatusBar1
+            // 
+            this.skyStatusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.skyStatusBar1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.skyStatusBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyStatusBar1.Location = new System.Drawing.Point(2, 293);
+            this.skyStatusBar1.Name = "skyStatusBar1";
+            this.skyStatusBar1.Size = new System.Drawing.Size(792, 23);
+            this.skyStatusBar1.TabIndex = 19;
+            this.skyStatusBar1.Text = "skyStatusBar1";
             // 
             // Catcher
             // 
@@ -405,7 +419,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 318);
-            this.Controls.Add(this.skyRadioButton1);
+            this.Controls.Add(this.skyStatusBar1);
+            this.Controls.Add(this.skyTextBox1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
@@ -455,6 +470,7 @@
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
-        private ReaLTaiizor.Controls.SkyRadioButton skyRadioButton1;
+        private ReaLTaiizor.Controls.SkyTextBox skyTextBox1;
+        private ReaLTaiizor.Controls.SkyStatusBar skyStatusBar1;
     }
 }
