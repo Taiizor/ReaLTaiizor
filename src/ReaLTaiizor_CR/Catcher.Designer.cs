@@ -68,7 +68,7 @@
             this.foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
-            this.skyComboBox1 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.skyLabel1 = new ReaLTaiizor.Controls.SkyLabel();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -386,27 +386,16 @@
             this.royalScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.royalScrollBar1.Value = 5;
             // 
-            // skyComboBox1
+            // skyLabel1
             // 
-            this.skyComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.skyComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.skyComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.skyComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.skyComboBox1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.skyComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyComboBox1.FormattingEnabled = true;
-            this.skyComboBox1.ItemHeight = 16;
-            this.skyComboBox1.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.skyComboBox1.Items.AddRange(new object[] {
-            "Item A",
-            "Item B",
-            "Item C"});
-            this.skyComboBox1.Location = new System.Drawing.Point(679, 290);
-            this.skyComboBox1.Name = "skyComboBox1";
-            this.skyComboBox1.Size = new System.Drawing.Size(112, 22);
-            this.skyComboBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.skyComboBox1.StartIndex = 0;
-            this.skyComboBox1.TabIndex = 18;
+            this.skyLabel1.AutoSize = true;
+            this.skyLabel1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.skyLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyLabel1.Location = new System.Drawing.Point(562, 167);
+            this.skyLabel1.Name = "skyLabel1";
+            this.skyLabel1.Size = new System.Drawing.Size(55, 12);
+            this.skyLabel1.TabIndex = 18;
+            this.skyLabel1.Text = "skyLabel1";
             // 
             // Catcher
             // 
@@ -414,7 +403,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 318);
-            this.Controls.Add(this.skyComboBox1);
+            this.Controls.Add(this.skyLabel1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
@@ -464,6 +453,6 @@
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
-        private ReaLTaiizor.Controls.SkyComboBox skyComboBox1;
+        private ReaLTaiizor.Controls.SkyLabel skyLabel1;
     }
 }
