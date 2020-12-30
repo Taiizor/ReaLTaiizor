@@ -69,7 +69,6 @@
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
             this.skyTextBox1 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.skyStatusBar1 = new ReaLTaiizor.Controls.SkyStatusBar();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -402,24 +401,12 @@
             this.skyTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.skyTextBox1.UseSystemPasswordChar = false;
             // 
-            // skyStatusBar1
-            // 
-            this.skyStatusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.skyStatusBar1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.skyStatusBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyStatusBar1.Location = new System.Drawing.Point(2, 293);
-            this.skyStatusBar1.Name = "skyStatusBar1";
-            this.skyStatusBar1.Size = new System.Drawing.Size(792, 23);
-            this.skyStatusBar1.TabIndex = 19;
-            this.skyStatusBar1.Text = "skyStatusBar1";
-            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 318);
-            this.Controls.Add(this.skyStatusBar1);
             this.Controls.Add(this.skyTextBox1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
@@ -471,6 +458,5 @@
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
         private ReaLTaiizor.Controls.SkyTextBox skyTextBox1;
-        private ReaLTaiizor.Controls.SkyStatusBar skyStatusBar1;
     }
 }
