@@ -101,7 +101,7 @@ namespace ReaLTaiizor.Controls
         #region Settings
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -111,38 +111,38 @@ namespace ReaLTaiizor.Controls
 
         public Color EllipseBorderColorA
         {
-            get { return _EllipseBorderColorA; }
-            set { _EllipseBorderColorA = value; }
+            get => _EllipseBorderColorA;
+            set => _EllipseBorderColorA = value;
         }
 
         public Color EllipseBorderColorB
         {
-            get { return _EllipseBorderColorB; }
-            set { _EllipseBorderColorB = value; }
+            get => _EllipseBorderColorB;
+            set => _EllipseBorderColorB = value;
         }
 
         public Color EllipseBackColorA
         {
-            get { return _EllipseBackColorA; }
-            set { _EllipseBackColorA = value; }
+            get => _EllipseBackColorA;
+            set => _EllipseBackColorA = value;
         }
 
         public Color EllipseBackColorB
         {
-            get { return _EllipseBackColorB; }
-            set { _EllipseBackColorB = value; }
+            get => _EllipseBackColorB;
+            set => _EllipseBackColorB = value;
         }
 
         public Color CheckedColorA
         {
-            get { return _CheckedColorA; }
-            set { _CheckedColorA = value; }
+            get => _CheckedColorA;
+            set => _CheckedColorA = value;
         }
 
         public Color CheckedColorB
         {
-            get { return _CheckedColorB; }
-            set { _CheckedColorB = value; }
+            get => _CheckedColorB;
+            set => _CheckedColorB = value;
         }
         #endregion
 

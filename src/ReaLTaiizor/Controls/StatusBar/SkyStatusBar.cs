@@ -24,32 +24,32 @@ namespace ReaLTaiizor.Controls
         #region Settings
         public Color BackColorA
         {
-            get { return _BackColorA; }
-            set { _BackColorA = value; }
+            get => _BackColorA;
+            set => _BackColorA = value;
         }
 
         public Color BackColorB
         {
-            get { return _BackColorB; }
-            set { _BackColorB = value; }
+            get => _BackColorB;
+            set => _BackColorB = value;
         }
 
         public Color BorderColorA
         {
-            get { return _BorderColorA; }
-            set { _BorderColorA = value; }
+            get => _BorderColorA;
+            set => _BorderColorA = value;
         }
 
         public Color BorderColorB
         {
-            get { return _BorderColorB; }
-            set { _BorderColorB = value; }
+            get => _BorderColorB;
+            set => _BorderColorB = value;
         }
 
         public Color BorderColorC
         {
-            get { return _BorderColorC; }
-            set { _BorderColorC = value; }
+            get => _BorderColorC;
+            set => _BorderColorC = value;
         }
         #endregion
 

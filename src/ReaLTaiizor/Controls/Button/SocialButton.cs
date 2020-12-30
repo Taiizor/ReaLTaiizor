@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Controls
 
         public Color HoverEllipseColor
         {
-            get { return _HoverEllipseColor; }
+            get => _HoverEllipseColor;
             set
             {
                 _HoverEllipseColor = value;
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
 
         public Color NormalEllipseColor
         {
-            get { return _NormalEllipseColor; }
+            get => _NormalEllipseColor;
             set
             {
                 _NormalEllipseColor = value;
@@ -81,7 +81,7 @@ namespace ReaLTaiizor.Controls
 
         public Color DownEllipseColor
         {
-            get { return _DownEllipseColor; }
+            get => _DownEllipseColor;
             set
             {
                 _DownEllipseColor = value;

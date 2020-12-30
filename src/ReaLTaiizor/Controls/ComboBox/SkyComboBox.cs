@@ -118,104 +118,104 @@ namespace ReaLTaiizor.Controls
 
         public Color BGColorA
         {
-            get { return _BGColorA; }
-            set { _BGColorA = value; }
+            get => _BGColorA;
+            set => _BGColorA = value;
         }
 
         public Color BGColorB
         {
-            get { return _BGColorB; }
-            set { _BGColorB = value; }
+            get => _BGColorB;
+            set => _BGColorB = value;
         }
 
         public Color BorderColorA
         {
-            get { return _BorderColorA; }
-            set { _BorderColorA = value; }
+            get => _BorderColorA;
+            set => _BorderColorA = value;
         }
 
         public Color BorderColorB
         {
-            get { return _BorderColorB; }
-            set { _BorderColorB = value; }
+            get => _BorderColorB;
+            set => _BorderColorB = value;
         }
 
         public Color BorderColorC
         {
-            get { return _BorderColorC; }
-            set { _BorderColorC = value; }
+            get => _BorderColorC;
+            set => _BorderColorC = value;
         }
 
         public Color BorderColorD
         {
-            get { return _BorderColorD; }
-            set { _BorderColorD = value; }
+            get => _BorderColorD;
+            set => _BorderColorD = value;
         }
 
         public Color TriangleColorA
         {
-            get { return _TriangleColorA; }
-            set { _TriangleColorA = value; }
+            get => _TriangleColorA;
+            set => _TriangleColorA = value;
         }
 
         public Color TriangleColorB
         {
-            get { return _TriangleColorB; }
-            set { _TriangleColorB = value; }
+            get => _TriangleColorB;
+            set => _TriangleColorB = value;
         }
 
         public Color LineColorA
         {
-            get { return _LineColorA; }
-            set { _LineColorA = value; }
+            get => _LineColorA;
+            set => _LineColorA = value;
         }
 
         public Color LineColorB
         {
-            get { return _LineColorB; }
-            set { _LineColorB = value; }
+            get => _LineColorB;
+            set => _LineColorB = value;
         }
 
         public Color LineColorC
         {
-            get { return _LineColorC; }
-            set { _LineColorC = value; }
+            get => _LineColorC;
+            set => _LineColorC = value;
         }
 
         public Color ListForeColor
         {
-            get { return _ListForeColor; }
-            set { _ListForeColor = value; }
+            get => _ListForeColor;
+            set => _ListForeColor = value;
         }
 
         public Color ListBackColor
         {
-            get { return _ListBackColor; }
-            set { _ListBackColor = value; }
+            get => _ListBackColor;
+            set => _ListBackColor = value;
         }
 
         public Color ListBorderColor
         {
-            get { return _ListBorderColor; }
-            set { _ListBorderColor = value; }
+            get => _ListBorderColor;
+            set => _ListBorderColor = value;
         }
 
         public DashStyle ListDashType
         {
-            get { return _ListDashType; }
-            set { _ListDashType = value; }
+            get => _ListDashType;
+            set => _ListDashType = value;
         }
 
         public Color ListSelectedBackColorA
         {
-            get { return _ListSelectedBackColorA; }
-            set { _ListSelectedBackColorA = value; }
+            get => _ListSelectedBackColorA;
+            set => _ListSelectedBackColorA = value;
         }
 
         public Color ListSelectedBackColorB
         {
-            get { return _ListSelectedBackColorB; }
-            set { _ListSelectedBackColorB = value; }
+            get => _ListSelectedBackColorB;
+            set => _ListSelectedBackColorB = value;
         }
         #endregion
 

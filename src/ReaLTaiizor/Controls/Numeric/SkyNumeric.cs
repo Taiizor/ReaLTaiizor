@@ -202,7 +202,7 @@ namespace ReaLTaiizor.Controls
         #region Settings
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -212,80 +212,80 @@ namespace ReaLTaiizor.Controls
 
         public Color TopTriangleColor
         {
-            get { return _TopTriangleColor; }
-            set { _TopTriangleColor = value; }
+            get => _TopTriangleColor;
+            set => _TopTriangleColor = value;
         }
 
         public Color BotTriangleColor
         {
-            get { return _BotTriangleColor; }
-            set { _BotTriangleColor = value; }
+            get => _BotTriangleColor;
+            set => _BotTriangleColor = value;
         }
 
         public Color BorderColorA
         {
-            get { return _BorderColorA; }
-            set { _BorderColorA = value; }
+            get => _BorderColorA;
+            set => _BorderColorA = value;
         }
 
         public Color BorderColorB
         {
-            get { return _BorderColorB; }
-            set { _BorderColorB = value; }
+            get => _BorderColorB;
+            set => _BorderColorB = value;
         }
 
         public Color BorderColorC
         {
-            get { return _BorderColorC; }
-            set { _BorderColorC = value; }
+            get => _BorderColorC;
+            set => _BorderColorC = value;
         }
 
         public Color BorderColorD
         {
-            get { return _BorderColorD; }
-            set { _BorderColorD = value; }
+            get => _BorderColorD;
+            set => _BorderColorD = value;
         }
 
         public Color ButtonBackColorA
         {
-            get { return _ButtonBackColorA; }
-            set { _ButtonBackColorA = value; }
+            get => _ButtonBackColorA;
+            set => _ButtonBackColorA = value;
         }
 
         public Color ButtonBackColorB
         {
-            get { return _ButtonBackColorB; }
-            set { _ButtonBackColorB = value; }
+            get => _ButtonBackColorB;
+            set => _ButtonBackColorB = value;
         }
 
         public Color ButtonBorderColorA
         {
-            get { return _ButtonBorderColorA; }
-            set { _ButtonBorderColorA = value; }
+            get => _ButtonBorderColorA;
+            set => _ButtonBorderColorA = value;
         }
 
         public Color ButtonBorderColorB
         {
-            get { return _ButtonBorderColorB; }
-            set { _ButtonBorderColorB = value; }
+            get => _ButtonBorderColorB;
+            set => _ButtonBorderColorB = value;
         }
 
         public Color ButtonBorderColorC
         {
-            get { return _ButtonBorderColorC; }
-            set { _ButtonBorderColorC = value; }
+            get => _ButtonBorderColorC;
+            set => _ButtonBorderColorC = value;
         }
 
         public Color ButtonBorderColorD
         {
-            get { return _ButtonBorderColorD; }
-            set { _ButtonBorderColorD = value; }
+            get => _ButtonBorderColorD;
+            set => _ButtonBorderColorD = value;
         }
 
         public Color ButtonBorderColorE
         {
-            get { return _ButtonBorderColorE; }
-            set { _ButtonBorderColorE = value; }
+            get => _ButtonBorderColorE;
+            set => _ButtonBorderColorE = value;
         }
         #endregion
 
