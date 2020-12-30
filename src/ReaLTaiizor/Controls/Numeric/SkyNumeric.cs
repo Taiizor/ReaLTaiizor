@@ -14,7 +14,6 @@ namespace ReaLTaiizor.Controls
 
     public class SkyNumeric : Control
     {
-
         #region " Properties & Flicker Control "
         private int X;
         private int Y;
@@ -183,6 +182,113 @@ namespace ReaLTaiizor.Controls
         }
         #endregion
 
+        #region Variables
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        private Color _TopTriangleColor = Color.FromArgb(27, 94, 137);
+        private Color _BotTriangleColor = Color.FromArgb(27, 94, 137);
+        private Color _BorderColorA = Color.FromArgb(220, 220, 220);
+        private Color _BorderColorB = Color.FromArgb(228, 228, 228);
+        private Color _BorderColorC = Color.FromArgb(191, 191, 191);
+        private Color _BorderColorD = Color.FromArgb(254, 254, 254);
+        private Color _ButtonBackColorA = Color.FromArgb(245, 245, 245);
+        private Color _ButtonBackColorB = Color.FromArgb(232, 232, 232);
+        private Color _ButtonBorderColorA = Color.FromArgb(252, 252, 252);
+        private Color _ButtonBorderColorB = Color.FromArgb(190, 190, 190);
+        private Color _ButtonBorderColorC = Color.FromArgb(200, 167, 167, 167);
+        private Color _ButtonBorderColorD = Color.FromArgb(188, 188, 188);
+        private Color _ButtonBorderColorE = Color.FromArgb(252, 252, 252);
+        #endregion
+
+        #region Settings
+        public SmoothingMode SmoothingType
+        {
+            get { return _SmoothingType; }
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public Color TopTriangleColor
+        {
+            get { return _TopTriangleColor; }
+            set { _TopTriangleColor = value; }
+        }
+
+        public Color BotTriangleColor
+        {
+            get { return _BotTriangleColor; }
+            set { _BotTriangleColor = value; }
+        }
+
+        public Color BorderColorA
+        {
+            get { return _BorderColorA; }
+            set { _BorderColorA = value; }
+        }
+
+        public Color BorderColorB
+        {
+            get { return _BorderColorB; }
+            set { _BorderColorB = value; }
+        }
+
+        public Color BorderColorC
+        {
+            get { return _BorderColorC; }
+            set { _BorderColorC = value; }
+        }
+
+        public Color BorderColorD
+        {
+            get { return _BorderColorD; }
+            set { _BorderColorD = value; }
+        }
+
+        public Color ButtonBackColorA
+        {
+            get { return _ButtonBackColorA; }
+            set { _ButtonBackColorA = value; }
+        }
+
+        public Color ButtonBackColorB
+        {
+            get { return _ButtonBackColorB; }
+            set { _ButtonBackColorB = value; }
+        }
+
+        public Color ButtonBorderColorA
+        {
+            get { return _ButtonBorderColorA; }
+            set { _ButtonBorderColorA = value; }
+        }
+
+        public Color ButtonBorderColorB
+        {
+            get { return _ButtonBorderColorB; }
+            set { _ButtonBorderColorB = value; }
+        }
+
+        public Color ButtonBorderColorC
+        {
+            get { return _ButtonBorderColorC; }
+            set { _ButtonBorderColorC = value; }
+        }
+
+        public Color ButtonBorderColorD
+        {
+            get { return _ButtonBorderColorD; }
+            set { _ButtonBorderColorD = value; }
+        }
+
+        public Color ButtonBorderColorE
+        {
+            get { return _ButtonBorderColorE; }
+            set { _ButtonBorderColorE = value; }
+        }
+        #endregion
+
         public SkyNumeric()
         {
             _Max = 9999999;
@@ -201,28 +307,28 @@ namespace ReaLTaiizor.Controls
             Graphics G = Graphics.FromImage(B);
 
             G.Clear(BackColor);
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.SmoothingMode = SmoothingType;
 
-            LinearGradientBrush innerBorderBrush = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 3), Color.FromArgb(220, 220, 220), Color.FromArgb(228, 228, 228), 90);
+            LinearGradientBrush innerBorderBrush = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 3), BorderColorA, BorderColorB, 90);
             Pen innerBorderPen = new Pen(innerBorderBrush);
             G.DrawRectangle(innerBorderPen, new Rectangle(1, 1, Width - 3, Height - 3));
-            G.DrawLine(new Pen(Color.FromArgb(191, 191, 191)), new Point(1, 1), new Point(Width - 3, 1));
+            G.DrawLine(new Pen(BorderColorC), new Point(1, 1), new Point(Width - 3, 1));
 
-            G.DrawRectangle(new Pen(Color.FromArgb(254, 254, 254)), new Rectangle(0, 0, Width - 1, Height - 1));
+            G.DrawRectangle(new Pen(BorderColorD), new Rectangle(0, 0, Width - 1, Height - 1));
 
-            LinearGradientBrush buttonGradient = new LinearGradientBrush(new Rectangle(Width - 23, 4, 19, 21), Color.FromArgb(245, 245, 245), Color.FromArgb(232, 232, 232), 90);
+            LinearGradientBrush buttonGradient = new LinearGradientBrush(new Rectangle(Width - 23, 4, 19, 21), ButtonBackColorA, ButtonBackColorB, 90);
             G.FillRectangle(buttonGradient, buttonGradient.Rectangle);
-            G.DrawRectangle(new Pen(Color.FromArgb(252, 252, 252)), new Rectangle(Width - 22, 5, 17, 19));
-            G.DrawRectangle(new Pen(Color.FromArgb(190, 190, 190)), new Rectangle(Width - 23, 4, 19, 21));
-            G.DrawLine(new Pen(Color.FromArgb(200, 167, 167, 167)), new Point(Width - 22, Height - 4), new Point(Width - 5, Height - 4));
-            G.DrawLine(new Pen(Color.FromArgb(188, 188, 188)), new Point(Width - 22, Height - 16), new Point(Width - 5, Height - 16));
-            G.DrawLine(new Pen(Color.FromArgb(252, 252, 252)), new Point(Width - 22, Height - 15), new Point(Width - 5, Height - 15));
+            G.DrawRectangle(new Pen(ButtonBorderColorA), new Rectangle(Width - 22, 5, 17, 19));
+            G.DrawRectangle(new Pen(ButtonBorderColorB), new Rectangle(Width - 23, 4, 19, 21));
+            G.DrawLine(new Pen(ButtonBorderColorC), new Point(Width - 22, Height - 4), new Point(Width - 5, Height - 4));
+            G.DrawLine(new Pen(ButtonBorderColorD), new Point(Width - 22, Height - 16), new Point(Width - 5, Height - 16));
+            G.DrawLine(new Pen(ButtonBorderColorE), new Point(Width - 22, Height - 15), new Point(Width - 5, Height - 15));
 
             //Top Triangle
-            DrawTriangle(Color.FromArgb(27, 94, 137), new Point(Width - 17, 18), new Point(Width - 9, 18), new Point(Width - 13, 21), G);
+            DrawTriangle(TopTriangleColor, new Point(Width - 17, 18), new Point(Width - 9, 18), new Point(Width - 13, 21), G);
 
             //Bottom Triangle
-            DrawTriangle(Color.FromArgb(27, 94, 137), new Point(Width - 17, 10), new Point(Width - 9, 10), new Point(Width - 13, 7), G);
+            DrawTriangle(BotTriangleColor, new Point(Width - 17, 10), new Point(Width - 9, 10), new Point(Width - 13, 7), G);
 
             G.DrawString(Value.ToString(), Font, new SolidBrush(ForeColor), new Rectangle(5, 0, Width - 1, Height - 1), new StringFormat { LineAlignment = StringAlignment.Center });
 
@@ -230,7 +336,6 @@ namespace ReaLTaiizor.Controls
             G.Dispose();
             B.Dispose();
         }
-
     }
 
     #endregion
