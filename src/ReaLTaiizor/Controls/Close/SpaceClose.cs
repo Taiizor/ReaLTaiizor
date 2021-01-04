@@ -12,6 +12,28 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceClose : SpaceControl // A Close Button for the App
     {
+        private bool _DefaultLocation = true;
+        public bool DefaultLocation
+        {
+            get => _DefaultLocation;
+            set
+            {
+                _DefaultLocation = value;
+                Invalidate();
+            }
+        }
+
+        private bool _DefaultAnchor = true;
+        public bool DefaultAnchor
+        {
+            get => _DefaultAnchor;
+            set
+            {
+                _DefaultAnchor = value;
+                Invalidate();
+            }
+        }
+
         public SpaceClose()
         {
             SetColor("DownGradient1", 210, 15, 13); // Basic Gradients Used to Shade the Button
@@ -24,13 +46,23 @@ namespace ReaLTaiizor.Controls
             SetColor("Border1", 35, 35, 35); // The Inside Border
             SetColor("Border2", 42, 42, 42); // The Outside Border
             Cursor = Cursors.Hand;
-            Size = new Size(23, 22);
+            Size = new Size(23, 21);
         }
 
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
             Text = "x";
+
+            if (DefaultLocation)
+            {
+                Location = new Point(Parent.Width - Width - 3, 3);
+            }
+
+            if (DefaultAnchor)
+            {
+                Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            }
         }
 
         private Color C1; // Set up Simple Colors
@@ -76,7 +108,6 @@ namespace ReaLTaiizor.Controls
             DrawBorders(P2); // Create the Outer Border
             DrawCorners(BackColor); // Draw the Corners
         }
-
     }
 
     #endregion

@@ -17,7 +17,6 @@ namespace ReaLTaiizor.Forms
 
     public class HopeForm : ContainerControl
     {
-
         #region Variables
         private bool mouseFlag = false;
         private Point mousePoint;

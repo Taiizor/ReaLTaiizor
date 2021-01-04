@@ -1515,6 +1515,7 @@ namespace ReaLTaiizor.Util
         }
 
         private bool DoneCreation;
+
         protected sealed override void OnParentChanged(EventArgs e)
         {
             if (Parent != null)

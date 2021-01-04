@@ -68,14 +68,6 @@
             this.foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
-            this.spaceCheckBox1 = new ReaLTaiizor.Controls.SpaceCheckBox();
-            this.spaceClose1 = new ReaLTaiizor.Controls.SpaceClose();
-            this.spaceLabel1 = new ReaLTaiizor.Controls.SpaceLabel();
-            this.spaceMaximize1 = new ReaLTaiizor.Controls.SpaceMaximize();
-            this.spaceQuest1 = new ReaLTaiizor.Controls.SpaceQuest();
-            this.spaceSeparatorHorizantal1 = new ReaLTaiizor.Controls.SpaceSeparatorHorizantal();
-            this.spaceSeparatorVertical1 = new ReaLTaiizor.Controls.SpaceSeparatorVertical();
-            this.spaceMinimize1 = new ReaLTaiizor.Controls.SpaceMinimize();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -393,133 +385,12 @@
             this.royalScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.royalScrollBar1.Value = 5;
             // 
-            // spaceCheckBox1
-            // 
-            this.spaceCheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.spaceCheckBox1.Checked = false;
-            this.spaceCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceCheckBox1.Customization = "+fn5/yPJzP8bioz/6+vr//n5+f8=";
-            this.spaceCheckBox1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceCheckBox1.Image = null;
-            this.spaceCheckBox1.Location = new System.Drawing.Point(469, 121);
-            this.spaceCheckBox1.Name = "spaceCheckBox1";
-            this.spaceCheckBox1.NoRounding = false;
-            this.spaceCheckBox1.Size = new System.Drawing.Size(75, 75);
-            this.spaceCheckBox1.TabIndex = 18;
-            this.spaceCheckBox1.Text = "spaceCheckBox1";
-            this.spaceCheckBox1.Transparent = true;
-            // 
-            // spaceClose1
-            // 
-            this.spaceClose1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceClose1.Customization = "DQ/S/xhh8/8yMjL/Kioq/x5/9/8ND9L//v7+/yMjI/8qKir/";
-            this.spaceClose1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceClose1.Image = null;
-            this.spaceClose1.Location = new System.Drawing.Point(749, 266);
-            this.spaceClose1.Name = "spaceClose1";
-            this.spaceClose1.NoRounding = false;
-            this.spaceClose1.Size = new System.Drawing.Size(23, 22);
-            this.spaceClose1.TabIndex = 19;
-            this.spaceClose1.Text = "spaceClose1";
-            this.spaceClose1.Transparent = false;
-            // 
-            // spaceLabel1
-            // 
-            this.spaceLabel1.Customization = "/v7+/yoqKv8=";
-            this.spaceLabel1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceLabel1.Image = null;
-            this.spaceLabel1.Location = new System.Drawing.Point(512, 229);
-            this.spaceLabel1.Name = "spaceLabel1";
-            this.spaceLabel1.NoRounding = false;
-            this.spaceLabel1.Size = new System.Drawing.Size(116, 40);
-            this.spaceLabel1.TabIndex = 20;
-            this.spaceLabel1.Text = "spaceLabel1";
-            this.spaceLabel1.Transparent = false;
-            // 
-            // spaceMaximize1
-            // 
-            this.spaceMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceMaximize1.Customization = "G4qM/3LEtP8yMjL/Kioq/yPJzP8bioz//v7+/yMjI/8qKir/";
-            this.spaceMaximize1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceMaximize1.Image = null;
-            this.spaceMaximize1.Location = new System.Drawing.Point(720, 266);
-            this.spaceMaximize1.Name = "spaceMaximize1";
-            this.spaceMaximize1.NoRounding = false;
-            this.spaceMaximize1.Size = new System.Drawing.Size(23, 22);
-            this.spaceMaximize1.TabIndex = 21;
-            this.spaceMaximize1.Text = "spaceMaximize1";
-            this.spaceMaximize1.Transparent = false;
-            this.spaceMaximize1.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            // 
-            // spaceQuest1
-            // 
-            this.spaceQuest1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceQuest1.Customization = "G4qM/3LEtP8yMjL/Kioq/yPJzP8bioz//v7+/yMjI/8qKir/";
-            this.spaceQuest1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceQuest1.Image = null;
-            this.spaceQuest1.Location = new System.Drawing.Point(662, 265);
-            this.spaceQuest1.Name = "spaceQuest1";
-            this.spaceQuest1.NoRounding = false;
-            this.spaceQuest1.Size = new System.Drawing.Size(23, 22);
-            this.spaceQuest1.TabIndex = 22;
-            this.spaceQuest1.Text = "spaceQuest1";
-            this.spaceQuest1.Transparent = false;
-            // 
-            // spaceSeparatorHorizantal1
-            // 
-            this.spaceSeparatorHorizantal1.Customization = "Kioq/yoqKv8jIyP/Kioq/w==";
-            this.spaceSeparatorHorizantal1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceSeparatorHorizantal1.Image = null;
-            this.spaceSeparatorHorizantal1.Location = new System.Drawing.Point(635, 86);
-            this.spaceSeparatorHorizantal1.Name = "spaceSeparatorHorizantal1";
-            this.spaceSeparatorHorizantal1.NoRounding = false;
-            this.spaceSeparatorHorizantal1.Size = new System.Drawing.Size(50, 4);
-            this.spaceSeparatorHorizantal1.TabIndex = 23;
-            this.spaceSeparatorHorizantal1.Text = "spaceSeparatorHorizantal1";
-            this.spaceSeparatorHorizantal1.Transparent = false;
-            // 
-            // spaceSeparatorVertical1
-            // 
-            this.spaceSeparatorVertical1.Customization = "Kioq/yoqKv8jIyP/Kioq/w==";
-            this.spaceSeparatorVertical1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceSeparatorVertical1.Image = null;
-            this.spaceSeparatorVertical1.Location = new System.Drawing.Point(710, 64);
-            this.spaceSeparatorVertical1.Name = "spaceSeparatorVertical1";
-            this.spaceSeparatorVertical1.NoRounding = false;
-            this.spaceSeparatorVertical1.Size = new System.Drawing.Size(4, 50);
-            this.spaceSeparatorVertical1.TabIndex = 24;
-            this.spaceSeparatorVertical1.Text = "spaceSeparatorVertical1";
-            this.spaceSeparatorVertical1.Transparent = false;
-            // 
-            // spaceMinimize1
-            // 
-            this.spaceMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceMinimize1.Customization = "G4qM/3LEtP8yMjL/Kioq/yPJzP8bioz//v7+/yMjI/8qKir/";
-            this.spaceMinimize1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceMinimize1.Image = null;
-            this.spaceMinimize1.Location = new System.Drawing.Point(691, 265);
-            this.spaceMinimize1.Name = "spaceMinimize1";
-            this.spaceMinimize1.NoRounding = false;
-            this.spaceMinimize1.Size = new System.Drawing.Size(23, 22);
-            this.spaceMinimize1.TabIndex = 25;
-            this.spaceMinimize1.Text = "spaceMinimize1";
-            this.spaceMinimize1.Transparent = false;
-            this.spaceMinimize1.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 318);
-            this.Controls.Add(this.spaceMinimize1);
-            this.Controls.Add(this.spaceSeparatorVertical1);
-            this.Controls.Add(this.spaceSeparatorHorizantal1);
-            this.Controls.Add(this.spaceQuest1);
-            this.Controls.Add(this.spaceMaximize1);
-            this.Controls.Add(this.spaceLabel1);
-            this.Controls.Add(this.spaceClose1);
-            this.Controls.Add(this.spaceCheckBox1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
@@ -569,13 +440,5 @@
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
-        private ReaLTaiizor.Controls.SpaceCheckBox spaceCheckBox1;
-        private ReaLTaiizor.Controls.SpaceClose spaceClose1;
-        private ReaLTaiizor.Controls.SpaceLabel spaceLabel1;
-        private ReaLTaiizor.Controls.SpaceMaximize spaceMaximize1;
-        private ReaLTaiizor.Controls.SpaceQuest spaceQuest1;
-        private ReaLTaiizor.Controls.SpaceSeparatorHorizantal spaceSeparatorHorizantal1;
-        private ReaLTaiizor.Controls.SpaceSeparatorVertical spaceSeparatorVertical1;
-        private ReaLTaiizor.Controls.SpaceMinimize spaceMinimize1;
     }
 }

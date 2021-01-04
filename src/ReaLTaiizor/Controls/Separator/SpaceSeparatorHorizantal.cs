@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceSeparatorHorizantal : SpaceControl // A Horizontal Separator
     {
-
         public SpaceSeparatorHorizantal()
         {
             SetColor("DownGradient1", 42, 42, 42); // Basic Gradients Used to Shade the Button

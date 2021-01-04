@@ -9,10 +9,22 @@ using System.Drawing.Drawing2D;
 
 namespace ReaLTaiizor.Forms
 {
-    #region DungeonForm
+    #region FormTheme
 
-    public class DungeonForm : ContainerControl
+    public class FormTheme : ContainerControl
     {
+        #region Variables
+
+        private Point MouseP = new Point(0, 0);
+        private bool Cap = false;
+        private readonly int MoveHeight;
+        private readonly string _TextBottom = null;
+        private const int BorderCurve = 7;
+        protected MouseState State;
+        private bool HasShown;
+        private Rectangle HeaderRect;
+
+        #endregion
 
         #region Enums
 
@@ -25,67 +37,8 @@ namespace ReaLTaiizor.Forms
         }
 
         #endregion
-        #region Variables
 
-        private Rectangle HeaderRect;
-        protected MouseState State;
-        private readonly int MoveHeight;
-        private Point MouseP = new Point(0, 0);
-        private bool Cap = false;
-        private bool HasShown;
-
-        private Color _TitleColor = Color.FromArgb(223, 219, 210);
-        private Color _BorderColor = Color.FromArgb(38, 38, 38);
-        private Color _HeaderEdgeColorA = Color.FromArgb(87, 85, 77);
-        private Color _HeaderEdgeColorB = Color.FromArgb(69, 68, 63);
-        private Color _FooterEdgeColor = Color.FromArgb(69, 68, 63);
-        private Color _FillEdgeColorA = Color.FromArgb(69, 68, 63);
-        private Color _FillEdgeColorB = Color.FromArgb(69, 68, 63);
-
-        #endregion
         #region Properties
-
-        public Color TitleColor
-        {
-            get => _TitleColor;
-            set => _TitleColor = value;
-        }
-
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
-
-        public Color HeaderEdgeColorA
-        {
-            get => _HeaderEdgeColorA;
-            set => _HeaderEdgeColorA = value;
-        }
-
-        public Color HeaderEdgeColorB
-        {
-            get => _HeaderEdgeColorB;
-            set => _HeaderEdgeColorB = value;
-        }
-
-        public Color FooterEdgeColor
-        {
-            get => _FooterEdgeColor;
-            set => _FooterEdgeColor = value;
-        }
-
-        public Color FillEdgeColorA
-        {
-            get => _FillEdgeColorA;
-            set => _FillEdgeColorA = value;
-        }
-
-        public Color FillEdgeColorB
-        {
-            get => _FillEdgeColorB;
-            set => _FillEdgeColorB = value;
-        }
 
         private bool _Sizable = true;
         public bool Sizable
@@ -94,22 +47,11 @@ namespace ReaLTaiizor.Forms
             set => _Sizable = value;
         }
 
-        private bool _SmartBounds = true;
+        private bool _SmartBounds = false;
         public bool SmartBounds
         {
             get => _SmartBounds;
             set => _SmartBounds = value;
-        }
-
-        private bool _RoundCorners = true;
-        public bool RoundCorners
-        {
-            get => _RoundCorners;
-            set
-            {
-                _RoundCorners = value;
-                Invalidate();
-            }
         }
 
         private bool _IsParentForm;
@@ -123,6 +65,7 @@ namespace ReaLTaiizor.Forms
                 {
                     return false;
                 }
+
                 return Parent.Parent != null;
             }
         }
@@ -164,6 +107,7 @@ namespace ReaLTaiizor.Forms
         }
 
         #endregion
+
         #region EventArgs
 
         protected sealed override void OnParentChanged(EventArgs e)
@@ -192,7 +136,7 @@ namespace ReaLTaiizor.Forms
                     }
                 }
                 Parent.BackColor = BackColor;
-                Parent.MinimumSize = new Size(261, 65);
+                Parent.MinimumSize = new Size(126, 50);
             }
         }
 
@@ -288,6 +232,7 @@ namespace ReaLTaiizor.Forms
         }
 
         #endregion
+
         #region Mouse & Size
 
         private void SetState(MouseState current)
@@ -465,108 +410,71 @@ namespace ReaLTaiizor.Forms
 
         #endregion
 
+        //protected override void OnCreateControl()
+        //{
+        //    base.OnCreateControl();
+        //    ParentForm.FormBorderStyle = FormBorderStyle.None;
+        //    ParentForm.TransparencyKey = Color.Fuchsia;
+        //}
+
         protected override void CreateHandle()
         {
             base.CreateHandle();
         }
 
-        public DungeonForm()
+        public FormTheme()
         {
-            SetStyle((ControlStyles)(139270), true);
-            BackColor = Color.FromArgb(244, 241, 243);
-            ForeColor = Color.FromArgb(223, 219, 210);
-            Padding = new Padding(20, 56, 20, 16);
-            DoubleBuffered = true;
+            MoveHeight = 25;
             Dock = DockStyle.Fill;
-            MoveHeight = 48;
-            Font = new Font("Segoe UI", 9);
+            DoubleBuffered = true;
+            Padding = new Padding(3, 28, 3, 28);
+            SetStyle((ControlStyles)(139270), true);
+            ForeColor = Color.FromArgb(142, 142, 142);
+            BackColor = Color.FromArgb(32, 41, 50);
             StartPosition = FormStartPosition.CenterScreen;
+            Font = new Font("Segoe UI", 8, FontStyle.Regular);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Graphics G = e.Graphics;
-            G.Clear(_FooterEdgeColor);
 
-            G.DrawRectangle(new Pen(_BorderColor), new Rectangle(0, 0, Width - 1, Height - 1));
-            // Use [Color.FromArgb(87, 86, 81), Color.FromArgb(60, 59, 55)] for a darker taste
-            // And replace each (60, 59, 55) with (69, 68, 63)
-            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, 36), _HeaderEdgeColorA, _HeaderEdgeColorB), new Rectangle(1, 1, Width - 2, 36));
-            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, Height), _FillEdgeColorA, _FillEdgeColorB), new Rectangle(1, 36, Width - 2, Height - 46));
+            Bitmap B = new Bitmap(Width, Height);
+            Graphics G = Graphics.FromImage(B);
+            Rectangle ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            Color TransparencyKey = ParentForm.TransparencyKey;
 
-            G.DrawRectangle(new Pen(_BorderColor), new Rectangle(9, 47, Width - 19, Height - 55));
-            G.FillRectangle(new SolidBrush(BackColor), new Rectangle(10, 48, Width - 20, Height - 56));
+            G.SmoothingMode = SmoothingMode.Default;
+            G.Clear(TransparencyKey);
 
-            if (_RoundCorners == true)
-            {
-                // Draw Left upper corner
-                G.FillRectangle(Brushes.Fuchsia, 0, 0, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 1, 0, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 2, 0, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 3, 0, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 0, 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 0, 2, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 0, 3, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 1, 1, 1, 1);
+            // Draw the container borders
+            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(ClientRectangle, BorderCurve));
+            // Draw a rectangle in which the controls should be added on
+            G.FillPath(new SolidBrush(Color.FromArgb(32, 41, 50)), RoundRectangle.RoundRect(new Rectangle(2, 20, Width - 5, Height - 42), BorderCurve));
 
-                G.FillRectangle(new SolidBrush(_BorderColor), 1, 3, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 1, 2, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 2, 1, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 3, 1, 1, 1);
+            // Patch the header with a rectangle that has a curve so its border will remain within container bounds
+            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(2, 2, (int)(Width / 2 + 2), 16), BorderCurve));
+            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle((int)(Width / 2 - 3), 2, (int)(Width / 2), 16), BorderCurve));
+            // Fill the header rectangle below the patch
+            G.FillRectangle(new SolidBrush(Color.FromArgb(52, 52, 52)), new Rectangle(2, 15, Width - 5, 10));
 
-                // Draw right upper corner
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, 0, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 2, 0, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 3, 0, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 4, 0, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, 2, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, 3, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 2, 1, 1, 1);
+            // Increase the thickness of the container borders
+            G.DrawPath(new Pen(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(2, 2, Width - 5, Height - 5), BorderCurve));
+            G.DrawPath(new Pen(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(ClientRectangle, BorderCurve));
 
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, 3, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, 2, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 3, 1, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 4, 1, 1, 1);
+            // Draw the string from the specified 'Text' property on the header rectangle
+            G.DrawString(Text, new Font("Trebuchet MS", 10, FontStyle.Bold), new SolidBrush(Color.FromArgb(221, 221, 221)), new Rectangle(BorderCurve, BorderCurve - 4, Width - 1, 22), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near });
 
-                // Draw Left bottom corner
-                G.FillRectangle(Brushes.Fuchsia, 0, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 0, Height - 2, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 0, Height - 3, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 0, Height - 4, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 1, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 2, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 3, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 1, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, 1, Height - 2, 1, 1);
+            // Draws a rectangle at the bottom of the container
+            G.FillRectangle(new SolidBrush(Color.FromArgb(52, 52, 52)), 0, Height - 25, Width - 3, 22 - 2);
+            G.DrawLine(new Pen(Color.FromArgb(52, 52, 52)), 5, Height - 5, Width - 6, Height - 5);
+            G.DrawLine(new Pen(Color.FromArgb(52, 52, 52)), 7, Height - 4, Width - 7, Height - 4);
 
-                G.FillRectangle(new SolidBrush(_BorderColor), 1, Height - 3, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 1, Height - 4, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 3, Height - 2, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 2, Height - 2, 1, 1);
+            G.DrawString(_TextBottom, new Font("Trebuchet MS", 10, FontStyle.Bold), new SolidBrush(Color.FromArgb(221, 221, 221)), 5, Height - 23);
 
-                // Draw right bottom corner
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, Height, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 2, Height, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 3, Height, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 4, Height, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, Height - 2, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, Height - 3, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 2, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 3, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 4, Height - 1, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 1, Height - 4, 1, 1);
-                G.FillRectangle(Brushes.Fuchsia, Width - 2, Height - 2, 1, 1);
-
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, Height - 3, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, Height - 4, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 4, Height - 2, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 3, Height - 2, 1, 1);
-            }
-
-            G.DrawString(Text, new Font("Tahoma", 12, FontStyle.Bold), new SolidBrush(_TitleColor), new Rectangle(0, 14, Width - 1, Height), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near });
+            e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);
+            G.Dispose();
+            B.Dispose();
         }
     }
 

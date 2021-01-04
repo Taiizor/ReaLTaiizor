@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceSeparatorVertical : SpaceControl // A Vertical Separator
     {
-
         public SpaceSeparatorVertical()
         {
             SetColor("DownGradient1", 42, 42, 42); // Basic Gradients Used to Shade the Button

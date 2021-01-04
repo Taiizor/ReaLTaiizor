@@ -12,6 +12,18 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceLabel : SpaceControl // Create a Custom Label
     {
+        private HorizontalAlignment _TextAlignment = HorizontalAlignment.Center;
+
+        public HorizontalAlignment TextAlignment
+        {
+            get { return _TextAlignment; }
+            set
+            {
+                _TextAlignment = value;
+                Invalidate();
+            }
+        }
+
         public SpaceLabel()
         { // Create a Label
             SetColor("Text", 254, 254, 254); // Text Color for Label
@@ -31,7 +43,7 @@ namespace ReaLTaiizor.Controls
         protected override void PaintHook()
         {
             G.Clear(C1); // Clear the Color of Background
-            DrawText(B1, HorizontalAlignment.Center, 0, 0); // Align Text In Center of Label
+            DrawText(B1, TextAlignment, 0, 0); // Align Text In Center of Label
         }
     }
 
