@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
 
         public HorizontalAlignment TextAlignment
         {
-            get { return _TextAlignment; }
+            get => _TextAlignment;
             set
             {
                 _TextAlignment = value;

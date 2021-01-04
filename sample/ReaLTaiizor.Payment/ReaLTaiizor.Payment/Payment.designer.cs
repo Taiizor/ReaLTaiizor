@@ -226,11 +226,11 @@
             foreverComboBox2.HoverFontColor = System.Drawing.Color.White;
             foreverComboBox2.ItemHeight = 18;
             foreverComboBox2.Items.AddRange(new object[] {
-            "2020",
             "2021",
             "2022",
             "2023",
-            "2024"});
+            "2024",
+            "2025"});
             foreverComboBox2.Location = new System.Drawing.Point(178, 243);
             foreverComboBox2.Name = "foreverComboBox2";
             foreverComboBox2.Size = new System.Drawing.Size(89, 24);
