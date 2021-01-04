@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Forms
 
     public class ThemeForm : ContainerControl
     {
-
         #region Enums
 
         public enum MouseState
@@ -24,6 +23,7 @@ namespace ReaLTaiizor.Forms
         }
 
         #endregion
+
         #region Variables
 
         private Image _Image = Properties.Resources.Taiizor;
@@ -36,6 +36,7 @@ namespace ReaLTaiizor.Forms
         private bool HasShown;
 
         #endregion
+
         #region Properties
 
         public Image Image
@@ -135,6 +136,7 @@ namespace ReaLTaiizor.Forms
         }
 
         #endregion
+
         #region EventArgs
 
         protected sealed override void OnParentChanged(EventArgs e)
@@ -260,6 +262,7 @@ namespace ReaLTaiizor.Forms
         }
 
         #endregion
+
         #region Mouse & Size
 
         private void SetState(MouseState current)

@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Util
         public bool MouseOver = false;
         public bool IsMouseDown = false;
 
-        private readonly System.Windows.Forms.Timer _ticker = new System.Windows.Forms.Timer();
+        private readonly Timer _ticker = new Timer();
 
         public ControlLostBase()
         {
