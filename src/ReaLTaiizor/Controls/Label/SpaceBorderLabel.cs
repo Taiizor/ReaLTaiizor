@@ -27,6 +27,17 @@ namespace ReaLTaiizor.Controls
         private SolidBrush B1; // A Brush to use text
         private Pen P1; // A Pen used to create borders
         private Pen P2;
+        private HorizontalAlignment _TextAlignment = HorizontalAlignment.Center;
+
+        public HorizontalAlignment TextAlignment
+        {
+            get { return _TextAlignment; }
+            set
+            {
+                _TextAlignment = value;
+                Invalidate();
+            }
+        }
 
         protected override void ColorHook()
         { // Assign Variables
@@ -40,7 +51,7 @@ namespace ReaLTaiizor.Controls
         protected override void PaintHook()
         { // Draw Custom Label
             DrawGradient(C1, C2, ClientRectangle, 90f); // if button is pressed
-            DrawText(B1, HorizontalAlignment.Center, 0, 0); // Draw the Text Smack dab in the middle of the button
+            DrawText(B1, TextAlignment, 0, 0); // Draw the Text Smack dab in the middle of the button
             DrawBorders(P1, 1); // Create the Inner Border
             DrawBorders(P2); // Create the Outer Border
             DrawCorners(BackColor); // Draw the Corners

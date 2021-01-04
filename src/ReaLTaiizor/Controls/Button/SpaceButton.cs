@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceButton : SpaceControl // A Simple Button
     {
-
         public SpaceButton()
         {
             SetColor("DownGradient1", 42, 42, 42); // Basic Gradients Used to Shade the Button
@@ -37,6 +36,17 @@ namespace ReaLTaiizor.Controls
         private SolidBrush B1; // A Brush to use text
         private Pen P1; // A Pen used to create borders
         private Pen P2;
+        private HorizontalAlignment _TextAlignment = HorizontalAlignment.Center;
+
+        public HorizontalAlignment TextAlignment
+        {
+            get { return _TextAlignment; }
+            set
+            {
+                _TextAlignment = value;
+                Invalidate();
+            }
+        }
 
         protected override void ColorHook()
         {
@@ -66,7 +76,7 @@ namespace ReaLTaiizor.Controls
                 DrawGradient(C3, C4, ClientRectangle, 90f); // else change the shading
             }
 
-            DrawText(B1, HorizontalAlignment.Center, 0, 0); // Draw the Text Smack dab in the middle of the button
+            DrawText(B1, TextAlignment, 0, 0); // Draw the Text Smack dab in the middle of the button
             DrawBorders(P1, 1); // Create the Inner Border
             DrawBorders(P2); // Create the Outer Border
             DrawCorners(BackColor); // Draw the Corners
