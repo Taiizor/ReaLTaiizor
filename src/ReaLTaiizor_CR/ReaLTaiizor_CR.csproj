@@ -73,14 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Space.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Space.Designer.cs">
-      <DependentUpon>Space.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Catcher.resx">
       <DependentUpon>Catcher.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Material.resx">
       <DependentUpon>Material.cs</DependentUpon>
@@ -101,9 +96,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Space.resx">
-      <DependentUpon>Space.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
