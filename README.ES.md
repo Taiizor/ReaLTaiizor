@@ -125,6 +125,17 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<br/>
 		<a href="https://github.com/RobinPerris" target="_blank" title="Código">💻</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/VPKSoft">
+			<img src="https://avatars3.githubusercontent.com/u/40712699?s=200&v=4" width="80px;" alt="VPKSoft"/>
+			<br/>
+			<sub>
+				<b>VPKSoft</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/VPKSoft" target="_blank" title="Contenido">🖋</a>
+	</td>
   </tr>
 </table>
 
