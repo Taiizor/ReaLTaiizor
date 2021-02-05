@@ -418,20 +418,20 @@ namespace ReaLTaiizor.Controls
             switch (BadgeAlignment)
             {
                 case BadgeAlign.Topleft:
-                    r = new Rectangle(18, 18, Width - 21, Height - 21);
-                    badge = new Rectangle(5, 5, 29, 29);
+                    r = new(18, 18, Width - 21, Height - 21);
+                    badge = new(5, 5, 29, 29);
                     break;
                 case BadgeAlign.TopRight:
-                    r = new Rectangle(0, 18, Width - 18, Height - 21);
-                    badge = new Rectangle(Width - 35, 1, 29, 29);
+                    r = new(0, 18, Width - 18, Height - 21);
+                    badge = new(Width - 35, 1, 29, 29);
                     break;
                 case BadgeAlign.BottmLeft:
-                    r = new Rectangle(18, 0, Width - 19, Height - 18);
-                    badge = new Rectangle(1, Height - 35, 29, 29);
+                    r = new(18, 0, Width - 19, Height - 18);
+                    badge = new(1, Height - 35, 29, 29);
                     break;
                 case BadgeAlign.BottomRight:
-                    r = new Rectangle(0, 0, Width - 19, Height - 18);
-                    badge = new Rectangle(Width - 35, Height - 35, 29, 29);
+                    r = new(0, 0, Width - 19, Height - 18);
+                    badge = new(Width - 35, Height - 35, 29, 29);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -441,11 +441,11 @@ namespace ReaLTaiizor.Controls
             {
                 case MouseMode.Normal:
 
-                    using (SolidBrush bg = new SolidBrush(NormalColor))
-                    using (Pen p = new Pen(NormalBorderColor))
-                    using (SolidBrush tb = new SolidBrush(NormalTextColor))
-                    using (SolidBrush bdgBrush = new SolidBrush(NormalBadgeColor))
-                    using (SolidBrush bdgtxtBrush = new SolidBrush(NormalBadgeTextColor))
+                    using (SolidBrush bg = new(NormalColor))
+                    using (Pen p = new(NormalBorderColor))
+                    using (SolidBrush tb = new(NormalTextColor))
+                    using (SolidBrush bdgBrush = new(NormalBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new(NormalBadgeTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -457,11 +457,11 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (SolidBrush bg = new SolidBrush(HoverColor))
-                    using (Pen p = new Pen(HoverBorderColor))
-                    using (SolidBrush tb = new SolidBrush(HoverTextColor))
-                    using (SolidBrush bdgBrush = new SolidBrush(HoverBadgeColor))
-                    using (SolidBrush bdgtxtBrush = new SolidBrush(HoverBadgeTextColor))
+                    using (SolidBrush bg = new(HoverColor))
+                    using (Pen p = new(HoverBorderColor))
+                    using (SolidBrush tb = new(HoverTextColor))
+                    using (SolidBrush bdgBrush = new(HoverBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new(HoverBadgeTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -473,11 +473,11 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Pushed:
 
-                    using (SolidBrush bg = new SolidBrush(PressColor))
-                    using (Pen p = new Pen(PressBorderColor))
-                    using (SolidBrush tb = new SolidBrush(PressTextColor))
-                    using (SolidBrush bdgBrush = new SolidBrush(PressBadgeColor))
-                    using (SolidBrush bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
+                    using (SolidBrush bg = new(PressColor))
+                    using (Pen p = new(PressBorderColor))
+                    using (SolidBrush tb = new(PressTextColor))
+                    using (SolidBrush bdgBrush = new(PressBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new(PressBadgeTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -489,11 +489,11 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Disabled:
 
-                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
-                    using (Pen p = new Pen(DisabledBorderColor))
-                    using (SolidBrush tb = new SolidBrush(DisabledForeColor))
-                    using (SolidBrush bdgBrush = new SolidBrush(PressBadgeColor))
-                    using (SolidBrush bdgtxtBrush = new SolidBrush(PressBadgeTextColor))
+                    using (SolidBrush bg = new(DisabledBackColor))
+                    using (Pen p = new(DisabledBorderColor))
+                    using (SolidBrush tb = new(DisabledForeColor))
+                    using (SolidBrush bdgBrush = new(PressBadgeColor))
+                    using (SolidBrush bdgtxtBrush = new(PressBadgeTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);

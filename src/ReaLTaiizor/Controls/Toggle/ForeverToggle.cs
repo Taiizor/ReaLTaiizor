@@ -159,8 +159,8 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath GP = new GraphicsPath();
             GraphicsPath GP2 = new GraphicsPath();
-            Rectangle Base = new Rectangle(0, 0, W, H);
-            Rectangle Toggle = new Rectangle(Convert.ToInt32(W / 2), 0, 38, H);
+            Rectangle Base = new(0, 0, W, H);
+            Rectangle Toggle = new(Convert.ToInt32(W / 2), 0, 38, H);
 
             Graphics _with9 = G;
             _with9.SmoothingMode = SmoothingMode.HighQuality;
@@ -197,15 +197,15 @@ namespace ReaLTaiizor.Controls
                     //-- Style 2
                     //-- Base
                     GP = ForeverLibrary.RoundRec(Base, 6);
-                    Toggle = new Rectangle(4, 4, 36, H - 8);
+                    Toggle = new(4, 4, 36, H - 8);
                     GP2 = ForeverLibrary.RoundRec(Toggle, 4);
                     _with9.FillPath(new SolidBrush(_BaseColorRed), GP);
                     _with9.FillPath(new SolidBrush(_ToggleColor), GP2);
 
                     //-- Lines
-                    _with9.DrawLine(new Pen(_BGColor), 18, 20, 18, 12);
-                    _with9.DrawLine(new Pen(_BGColor), 22, 20, 22, 12);
-                    _with9.DrawLine(new Pen(_BGColor), 26, 20, 26, 12);
+                    _with9.DrawLine(new(_BGColor), 18, 20, 18, 12);
+                    _with9.DrawLine(new(_BGColor), 22, 20, 22, 12);
+                    _with9.DrawLine(new(_BGColor), 26, 20, 26, 12);
 
                     //-- Text
                     _with9.DrawString("r", new Font("Marlett", 8), new SolidBrush(_TextColor), new Rectangle(19, 2, Width, Height), ForeverLibrary.CenterSF);
@@ -213,15 +213,15 @@ namespace ReaLTaiizor.Controls
                     if (Checked)
                     {
                         GP = ForeverLibrary.RoundRec(Base, 6);
-                        Toggle = new Rectangle(Convert.ToInt32(W / 2) - 2, 4, 36, H - 8);
+                        Toggle = new(Convert.ToInt32(W / 2) - 2, 4, 36, H - 8);
                         GP2 = ForeverLibrary.RoundRec(Toggle, 4);
                         _with9.FillPath(new SolidBrush(_BaseColor), GP);
                         _with9.FillPath(new SolidBrush(_ToggleColor), GP2);
 
                         //-- Lines
-                        _with9.DrawLine(new Pen(_BGColor), Convert.ToInt32(W / 2) + 12, 20, Convert.ToInt32(W / 2) + 12, 12);
-                        _with9.DrawLine(new Pen(_BGColor), Convert.ToInt32(W / 2) + 16, 20, Convert.ToInt32(W / 2) + 16, 12);
-                        _with9.DrawLine(new Pen(_BGColor), Convert.ToInt32(W / 2) + 20, 20, Convert.ToInt32(W / 2) + 20, 12);
+                        _with9.DrawLine(new(_BGColor), Convert.ToInt32(W / 2) + 12, 20, Convert.ToInt32(W / 2) + 12, 12);
+                        _with9.DrawLine(new(_BGColor), Convert.ToInt32(W / 2) + 16, 20, Convert.ToInt32(W / 2) + 16, 12);
+                        _with9.DrawLine(new(_BGColor), Convert.ToInt32(W / 2) + 20, 20, Convert.ToInt32(W / 2) + 20, 12);
 
                         //-- Text
                         _with9.DrawString("ü", new Font("Wingdings", 14), new SolidBrush(_TextColor), new Rectangle(8, 7, Width, Height), ForeverLibrary.NearSF);
@@ -231,7 +231,7 @@ namespace ReaLTaiizor.Controls
                     //-- Style 3
                     //-- Base
                     GP = ForeverLibrary.RoundRec(Base, 16);
-                    Toggle = new Rectangle(W - 28, 4, 22, H - 8);
+                    Toggle = new(W - 28, 4, 22, H - 8);
                     GP2.AddEllipse(Toggle);
                     _with9.FillPath(new SolidBrush(_ToggleColor), GP);
                     _with9.FillPath(new SolidBrush(_BaseColorRed), GP2);
@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Controls
                     {
                         //-- Base
                         GP = ForeverLibrary.RoundRec(Base, 16);
-                        Toggle = new Rectangle(6, 4, 22, H - 8);
+                        Toggle = new(6, 4, 22, H - 8);
                         GP2.Reset();
                         GP2.AddEllipse(Toggle);
                         _with9.FillPath(new SolidBrush(_ToggleColor), GP);

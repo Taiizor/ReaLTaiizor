@@ -161,13 +161,13 @@ namespace ReaLTaiizor.Controls
 
         private void _Enter(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(205, 87, 40));
+            P1 = new(Color.FromArgb(205, 87, 40));
             Refresh();
         }
 
         private void _Leave(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(180, 180, 180));
+            P1 = new(Color.FromArgb(180, 180, 180));
             Refresh();
         }
 
@@ -226,8 +226,8 @@ namespace ReaLTaiizor.Controls
             AddTextBox();
             Controls.Add(DungeonTB);
 
-            P1 = new Pen(_BorderColor); // P1 = Border color
-            B1 = new SolidBrush(_EdgeColor); // B1 = Rect Background color
+            P1 = new(_BorderColor); // P1 = Border color
+            B1 = new(_EdgeColor); // B1 = Rect Background color
             BackColor = Color.Transparent;
             ForeColor = Color.DimGray;
 

@@ -244,7 +244,7 @@ namespace ReaLTaiizor.Controls
                 if (flag)
                 {
                     ValueDrawer = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 11));
-                    TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 25, 25);
+                    TrackBarHandleRect = new(ValueDrawer, 0, 25, 25);
                     Cap = TrackBarHandleRect.Contains(e.Location);
                     Focus();
                     flag = _JumpToMouse;
@@ -293,7 +293,7 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(Parent.BackColor);
             G.SmoothingMode = SmoothingMode.AntiAlias;
-            TrackThumb = new Rectangle(8, 10, Width - 16, 2);
+            TrackThumb = new(8, 10, Width - 16, 2);
             PipeBorder = RoundRectangle.RoundRect(1, 8, Width - 3, 5, 2);
 
             try
@@ -304,7 +304,7 @@ namespace ReaLTaiizor.Controls
             {
             }
 
-            TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 10, 20);
+            TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
 
             G.SetClip(PipeBorder); // Set the clipping region of this Graphics to the specified GraphicsPath
             G.FillPath(new SolidBrush(_EmptyBackColor), PipeBorder);
@@ -313,11 +313,11 @@ namespace ReaLTaiizor.Controls
             G.ResetClip(); // Reset the clip region of this Graphics to an infinite region
 
             G.SmoothingMode = SmoothingMode.HighQuality;
-            G.DrawPath(new Pen(_BorderColor), PipeBorder); // Draw pipe border
+            G.DrawPath(new(_BorderColor), PipeBorder); // Draw pipe border
             G.FillPath(new SolidBrush(_FillBackColor), FillValue);
 
             G.FillEllipse(new SolidBrush(_ThumbBackColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
-            G.DrawEllipse(new Pen(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.DrawEllipse(new(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)
             {

@@ -78,14 +78,14 @@ namespace ReaLTaiizor.Controls
                 switch (State)
                 {
                     case FoxLibrary.MouseState.None:
-                        using (Pen Border = new Pen(_BorderColor))
+                        using (Pen Border = new(_BorderColor))
                         {
                             G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
                         }
 
                         break;
                     default:
-                        using (Pen Border = new Pen(_HoverBorderColor))
+                        using (Pen Border = new(_HoverBorderColor))
                         {
                             G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
                         }
@@ -93,19 +93,19 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                using (SolidBrush TextColor = new(ForeColor))
                 {
                     G.DrawString(Text, Font, TextColor, new Point(27, 1));
                 }
             }
             else
             {
-                using (Pen Border = new Pen(_DisabledBorderColor))
+                using (Pen Border = new(_DisabledBorderColor))
                 {
                     G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+                using (SolidBrush TextColor = new(_DisabledTextColor))
                 {
                     G.DrawString(Text, Font, TextColor, new Point(27, 1));
                 }
@@ -115,14 +115,14 @@ namespace ReaLTaiizor.Controls
             {
                 if (Enabled)
                 {
-                    using (SolidBrush FillColor = new SolidBrush(_CheckedColor))
+                    using (SolidBrush FillColor = new(_CheckedColor))
                     {
                         G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
                     }
                 }
                 else
                 {
-                    using (SolidBrush FillColor = new SolidBrush(_DisabledCheckedColor))
+                    using (SolidBrush FillColor = new(_DisabledCheckedColor))
                     {
                         G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
                     }

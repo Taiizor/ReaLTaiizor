@@ -857,11 +857,11 @@ namespace ReaLTaiizor.Forms
         {
             base.OnResize(e);
 
-            _minButtonBounds = new Rectangle((Width) - 3 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
-            _maxButtonBounds = new Rectangle((Width) - 2 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
-            _xButtonBounds = new Rectangle((Width) - STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
-            _statusBarBounds = new Rectangle(0, 0, Width, STATUS_BAR_HEIGHT);
-            _actionBarBounds = new Rectangle(0, STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
+            _minButtonBounds = new((Width) - 3 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _maxButtonBounds = new((Width) - 2 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _xButtonBounds = new((Width) - STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _statusBarBounds = new(0, 0, Width, STATUS_BAR_HEIGHT);
+            _actionBarBounds = new(0, STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -874,7 +874,7 @@ namespace ReaLTaiizor.Forms
             g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, _actionBarBounds);
 
             //Draw border
-            using (Pen borderPen = new Pen(SkinManager.DividersColor, 1))
+            using (Pen borderPen = new(SkinManager.DividersColor, 1))
             {
                 g.DrawLine(borderPen, new Point(0, _actionBarBounds.Bottom), new Point(0, Height - 2));
                 g.DrawLine(borderPen, new Point(Width - 1, _actionBarBounds.Bottom), new Point(Width - 1, Height - 2));
@@ -918,7 +918,7 @@ namespace ReaLTaiizor.Forms
                 g.FillRectangle(downBrush, _xButtonBounds);
             }
 
-            using (Pen formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
+            using (Pen formButtonsPen = new(SkinManager.ColorScheme.TextColor, 2))
             {
                 // Minimize button.
                 if (showMin)
@@ -970,13 +970,13 @@ namespace ReaLTaiizor.Forms
             // Drawer Icon
             if (DrawerTabControl != null)
             {
-                _drawerIconRect = new Rectangle(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + SkinManager.FORM_PADDING / 2, ACTION_BAR_HEIGHT);
+                _drawerIconRect = new(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + SkinManager.FORM_PADDING / 2, ACTION_BAR_HEIGHT);
                 // Ripple
                 if (_clickAnimManager.IsAnimating())
                 {
                     double clickAnimProgress = _clickAnimManager.GetProgress();
 
-                    SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (clickAnimProgress * 50)), Color.White));
+                    SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (clickAnimProgress * 50)), Color.White));
                     int rippleSize = (int)(clickAnimProgress * _drawerIconRect.Width * 1.75);
 
                     g.SetClip(_drawerIconRect);
@@ -985,7 +985,7 @@ namespace ReaLTaiizor.Forms
                     rippleBrush.Dispose();
                 }
 
-                using (Pen formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
+                using (Pen formButtonsPen = new(SkinManager.ColorScheme.TextColor, 2))
                 {
                     // Middle line
                     g.DrawLine(
@@ -1014,9 +1014,9 @@ namespace ReaLTaiizor.Forms
             }
 
             //Form title
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
-                Rectangle textLocation = new Rectangle(SkinManager.FORM_PADDING + (DrawerTabControl != null ? 24 + (int)(SkinManager.FORM_PADDING * 1.5) : 0), STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
+                Rectangle textLocation = new(SkinManager.FORM_PADDING + (DrawerTabControl != null ? 24 + (int)(SkinManager.FORM_PADDING * 1.5) : 0), STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
                 NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.H6),
                     SkinManager.ColorScheme.TextColor,
                     textLocation.Location,

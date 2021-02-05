@@ -94,7 +94,7 @@ namespace ReaLTaiizor.Controls
             H = Height - 1;
 
             GraphicsPath GP = new GraphicsPath();
-            Rectangle Base = new Rectangle(0, 0, W, H);
+            Rectangle Base = new(0, 0, W, H);
 
             Graphics _with8 = G;
             _with8.SmoothingMode = SmoothingMode.HighQuality;

@@ -53,11 +53,11 @@ namespace ReaLTaiizor.Controls
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
             G.Clear(_BorderColor);
-            using (SolidBrush solidBrush = new SolidBrush(BackColor))
+            using (SolidBrush solidBrush = new(BackColor))
             {
-                using (Pen pen = new Pen(_BorderColor))
+                using (Pen pen = new(_BorderColor))
                 {
-                    using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
+                    using (SolidBrush solidBrush2 = new(ForeColor))
                     {
                         using (Font font = new Font("Segoe UI", 9f))
                         {

@@ -402,7 +402,7 @@ namespace ReaLTaiizor.Controls
             // Determine the header Notification Type font
             Font TypeFont = new Font(Font.FontFamily, Font.Size, FontStyle.Bold);
             // Decalre a new rectangle to draw the control inside it
-            Rectangle MainRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle MainRectangle = new(0, 0, Width - 1, Height - 1);
             // Declare a GraphicsPath to create a border radius
             GraphicsPath CrvBorderPath = CreateRoundRect(MainRectangle, _BorderCurve);
 
@@ -441,12 +441,12 @@ namespace ReaLTaiizor.Controls
             if (_RoundedCorners)
             {
                 GFX.FillPath(new SolidBrush(BackgroundColor), CrvBorderPath);
-                GFX.DrawPath(new Pen(BorderColor), CrvBorderPath);
+                GFX.DrawPath(new(BorderColor), CrvBorderPath);
             }
             else
             {
                 GFX.FillRectangle(new SolidBrush(BackgroundColor), MainRectangle);
-                GFX.DrawRectangle(new Pen(BorderColor), MainRectangle);
+                GFX.DrawRectangle(new(BorderColor), MainRectangle);
             }
 
             if (Image == null)

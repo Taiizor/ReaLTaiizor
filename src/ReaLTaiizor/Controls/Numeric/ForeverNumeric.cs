@@ -212,7 +212,7 @@ namespace ReaLTaiizor.Controls
             W = Width;
             H = Height;
 
-            Rectangle Base = new Rectangle(0, 0, W, H);
+            Rectangle Base = new(0, 0, W, H);
 
             Graphics _with18 = G;
             _with18.SmoothingMode = SmoothingMode.HighQuality;

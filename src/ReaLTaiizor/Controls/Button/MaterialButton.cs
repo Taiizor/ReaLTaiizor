@@ -3,8 +3,8 @@
 using System;
 using System.Drawing;
 using ReaLTaiizor.Util;
-using System.Drawing.Text;
 using ReaLTaiizor.Helper;
+using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using ReaLTaiizor.Extension;
@@ -72,12 +72,12 @@ namespace ReaLTaiizor.Controls
             base.OnParentChanged(e);
             if (drawShadows && Parent != null)
             {
-                AddShadowPaintEvent(Parent, drawShadowOnParent);
+                AddShadowPaintEvent(Parent, DrawShadowOnParent);
             }
 
             if (_oldParent != null)
             {
-                RemoveShadowPaintEvent(_oldParent, drawShadowOnParent);
+                RemoveShadowPaintEvent(_oldParent, DrawShadowOnParent);
             }
 
             _oldParent = Parent;
@@ -95,11 +95,11 @@ namespace ReaLTaiizor.Controls
 
             if (Visible)
             {
-                AddShadowPaintEvent(Parent, drawShadowOnParent);
+                AddShadowPaintEvent(Parent, DrawShadowOnParent);
             }
             else
             {
-                RemoveShadowPaintEvent(Parent, drawShadowOnParent);
+                RemoveShadowPaintEvent(Parent, DrawShadowOnParent);
             }
         }
 
@@ -209,11 +209,11 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private void drawShadowOnParent(object sender, PaintEventArgs e)
+        private void DrawShadowOnParent(object sender, PaintEventArgs e)
         {
             if (Parent == null)
             {
-                RemoveShadowPaintEvent((Control)sender, drawShadowOnParent);
+                RemoveShadowPaintEvent((Control)sender, DrawShadowOnParent);
                 return;
             }
 
@@ -224,7 +224,7 @@ namespace ReaLTaiizor.Controls
 
             // paint shadow on parent
             Graphics gp = e.Graphics;
-            Rectangle rect = new Rectangle(Location, ClientRectangle.Size);
+            Rectangle rect = new(Location, ClientRectangle.Size);
             gp.SmoothingMode = SmoothingMode.AntiAlias;
             DrawSquareShadow(gp, rect);
         }
@@ -241,7 +241,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor);
 
             // button rectand path
-            RectangleF buttonRectF = new RectangleF(ClientRectangle.Location, ClientRectangle.Size);
+            RectangleF buttonRectF = new(ClientRectangle.Location, ClientRectangle.Size);
             buttonRectF.X -= 0.5f;
             buttonRectF.Y -= 0.5f;
             GraphicsPath buttonPath = CreateRoundRect(buttonRectF, 4);
@@ -255,10 +255,8 @@ namespace ReaLTaiizor.Controls
                 // Disabled
                 if (!Enabled)
                 {
-                    using (SolidBrush disabledBrush = new SolidBrush(BlendColor(Parent.BackColor, SkinManager.BackgroundDisabledColor, SkinManager.BackgroundDisabledColor.A)))
-                    {
-                        g.FillPath(disabledBrush, buttonPath);
-                    }
+                    using SolidBrush disabledBrush = new(BlendColor(Parent.BackColor, SkinManager.BackgroundDisabledColor, SkinManager.BackgroundDisabledColor.A));
+                    g.FillPath(disabledBrush, buttonPath);
                 }
                 // High emphasis
                 else if (HighEmphasis)
@@ -268,10 +266,8 @@ namespace ReaLTaiizor.Controls
                 // Mormal
                 else
                 {
-                    using (SolidBrush normalBrush = new SolidBrush(SkinManager.BackgroundColor))
-                    {
-                        g.FillPath(normalBrush, buttonPath);
-                    }
+                    using SolidBrush normalBrush = new(SkinManager.BackgroundColor);
+                    g.FillPath(normalBrush, buttonPath);
                 }
             }
             else
@@ -280,7 +276,7 @@ namespace ReaLTaiizor.Controls
             }
 
             //Hover
-            using (SolidBrush hoverBrush = new SolidBrush(Color.FromArgb(
+            using (SolidBrush hoverBrush = new(Color.FromArgb(
                 (int)(hoverAnimProgress * SkinManager.BackgroundFocusColor.A), (UseAccentColor ? (HighEmphasis && Type == MaterialButtonType.Contained ?
                 SkinManager.ColorScheme.AccentColor.Lighten(0.5f) : // Contained with Emphasis - with accent
                 SkinManager.ColorScheme.AccentColor) : // Not Contained Or Low Emphasis - with accent
@@ -292,12 +288,10 @@ namespace ReaLTaiizor.Controls
 
             if (Type == MaterialButtonType.Outlined)
             {
-                using (Pen outlinePen = new Pen(Enabled ? SkinManager.DividersAlternativeColor : SkinManager.DividersColor, 1))
-                {
-                    buttonRectF.X += 0.5f;
-                    buttonRectF.Y += 0.5f;
-                    g.DrawPath(outlinePen, buttonPath);
-                }
+                using Pen outlinePen = new(Enabled ? SkinManager.DividersAlternativeColor : SkinManager.DividersColor, 1);
+                buttonRectF.X += 0.5f;
+                buttonRectF.Y += 0.5f;
+                g.DrawPath(outlinePen, buttonPath);
             }
 
             //Ripple
@@ -309,23 +303,21 @@ namespace ReaLTaiizor.Controls
                     double animationValue = _animationManager.GetProgress(i);
                     Point animationSource = _animationManager.GetSource(i);
 
-                    using (Brush rippleBrush = new SolidBrush(
+                    using Brush rippleBrush = new SolidBrush(
                         Color.FromArgb((int)(100 - (animationValue * 100)), // Alpha animation
                         (Type == MaterialButtonType.Contained && HighEmphasis ? (UseAccentColor ?
                             SkinManager.ColorScheme.AccentColor.Lighten(0.5f) : // Emphasis with accent
                             SkinManager.ColorScheme.LightPrimaryColor) : // Emphasis
                             (UseAccentColor ? SkinManager.ColorScheme.AccentColor : // Normal with accent
-                            SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor))))) // Normal
-                    {
-                        int rippleSize = (int)(animationValue * Width * 2);
-                        g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
-                    }
+                            SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor)))); // Normal
+                    int rippleSize = (int)(animationValue * Width * 2);
+                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
                 }
                 g.ResetClip();
             }
 
             //Icon
-            Rectangle iconRect = new Rectangle(8, 6, 24, 24);
+            Rectangle iconRect = new(8, 6, 24, 24);
 
             if (string.IsNullOrEmpty(Text))
             {
@@ -353,20 +345,15 @@ namespace ReaLTaiizor.Controls
                 SkinManager.TextHighEmphasisColor) : // Cointained and accent
                 SkinManager.TextDisabledOrHintColor; // Disabled
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-            {
-                NativeText.DrawTransparentText(Text.ToUpper(), SkinManager.getLogFontByType(MaterialManager.fontType.Button),
-                    textColor,
-                    textRect.Location,
-                    textRect.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Center | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            NativeText.DrawTransparentText(Text.ToUpper(), SkinManager.getLogFontByType(MaterialManager.fontType.Button),
+                textColor,
+                textRect.Location,
+                textRect.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Center | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
-        private Size GetPreferredSize()
-        {
-            return GetPreferredSize(Size);
-        }
+        private Size PreferredSize => GetPreferredSize(Size);
 
         public override Size GetPreferredSize(Size proposedSize)
         {

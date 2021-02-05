@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle ClientRectangle = new(0, 0, Width - 1, Height - 1);
             base.OnPaint(e);
             G.Clear(BackColor);
             Font drawFont = new Font("Tahoma", 9, FontStyle.Bold);

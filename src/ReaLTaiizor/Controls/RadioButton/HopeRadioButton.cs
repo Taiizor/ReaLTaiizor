@@ -157,8 +157,8 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BackColor);
 
-            Rectangle BGEllipse = new Rectangle(1, 1, 18, 18);
-            SolidBrush BG = new SolidBrush(_Enable ? (Checked || enterFalg ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
+            Rectangle BGEllipse = new(1, 1, 18, 18);
+            SolidBrush BG = new(_Enable ? (Checked || enterFalg ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
 
             graphics.FillEllipse(BG, BGEllipse);
             graphics.FillEllipse(new SolidBrush(Color.White), new Rectangle(3, 3, 14, 14));

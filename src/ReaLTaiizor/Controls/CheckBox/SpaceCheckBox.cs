@@ -40,8 +40,8 @@ namespace ReaLTaiizor.Controls
             C1 = GetColor("Background"); // Get the Colors for the Button Shading
             C2 = GetColor("ClickedGradient1");
             C3 = GetColor("ClickedGradient2");
-            P1 = new Pen(GetColor("Border1")); // Get and create the borders for the Buttons
-            P2 = new Pen(GetColor("Border2"));
+            P1 = new(GetColor("Border1")); // Get and create the borders for the Buttons
+            P2 = new(GetColor("Border2"));
         }
 
         protected override void PaintHook()

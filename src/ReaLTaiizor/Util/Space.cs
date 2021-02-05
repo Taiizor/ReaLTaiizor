@@ -170,7 +170,7 @@ namespace ReaLTaiizor.Util
         {
             if (_Movable && !_ControlMode)
             {
-                Frame = new Rectangle(7, 7, Width - 14, _Header - 7);
+                Frame = new(7, 7, Width - 14, _Header - 7);
             }
 
             InvalidateBitmap();
@@ -863,7 +863,7 @@ namespace ReaLTaiizor.Util
 
                 if (!_ControlMode)
                 {
-                    Frame = new Rectangle(7, 7, Width - 14, value - 7);
+                    Frame = new(7, 7, Width - 14, value - 7);
                     Invalidate();
                 }
             }
@@ -905,11 +905,11 @@ namespace ReaLTaiizor.Util
 
         protected Pen GetPen(string name)
         {
-            return new Pen(Items[name]);
+            return new(Items[name]);
         }
         protected Pen GetPen(string name, float width)
         {
-            return new Pen(Items[name], width);
+            return new(Items[name], width);
         }
 
         protected SolidBrush GetBrush(string name)
@@ -1017,7 +1017,7 @@ namespace ReaLTaiizor.Util
         private Rectangle OffsetReturnRectangle;
         protected Rectangle Offset(Rectangle r, int amount)
         {
-            OffsetReturnRectangle = new Rectangle(r.X + amount, r.Y + amount, r.Width - (amount * 2), r.Height - (amount * 2));
+            OffsetReturnRectangle = new(r.X + amount, r.Y + amount, r.Width - (amount * 2), r.Height - (amount * 2));
             return OffsetReturnRectangle;
         }
 
@@ -1111,7 +1111,7 @@ namespace ReaLTaiizor.Util
             }
             else
             {
-                DrawPixelBrush = new SolidBrush(c1);
+                DrawPixelBrush = new(c1);
                 G.FillRectangle(DrawPixelBrush, x, y, 1, 1);
             }
         }
@@ -1158,7 +1158,7 @@ namespace ReaLTaiizor.Util
             }
             else
             {
-                DrawCornersBrush = new SolidBrush(c1);
+                DrawCornersBrush = new(c1);
                 G.FillRectangle(DrawCornersBrush, x, y, 1, 1);
                 G.FillRectangle(DrawCornersBrush, x + (width - 1), y, 1, 1);
                 G.FillRectangle(DrawCornersBrush, x, y + (height - 1), 1, 1);
@@ -1314,18 +1314,18 @@ namespace ReaLTaiizor.Util
         private Rectangle DrawGradientRectangle;
         protected void DrawGradient(ColorBlend blend, int x, int y, int width, int height)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(blend, DrawGradientRectangle);
         }
         protected void DrawGradient(ColorBlend blend, int x, int y, int width, int height, float angle)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(blend, DrawGradientRectangle, angle);
         }
 
         protected void DrawGradient(ColorBlend blend, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f)
+            DrawGradientBrush = new(r, Color.Empty, Color.Empty, 90f)
             {
                 InterpolationColors = blend
             };
@@ -1333,7 +1333,7 @@ namespace ReaLTaiizor.Util
         }
         protected void DrawGradient(ColorBlend blend, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle)
+            DrawGradientBrush = new(r, Color.Empty, Color.Empty, angle)
             {
                 InterpolationColors = blend
             };
@@ -1343,23 +1343,23 @@ namespace ReaLTaiizor.Util
 
         protected void DrawGradient(Color c1, Color c2, int x, int y, int width, int height)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(c1, c2, DrawGradientRectangle);
         }
         protected void DrawGradient(Color c1, Color c2, int x, int y, int width, int height, float angle)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(c1, c2, DrawGradientRectangle, angle);
         }
 
         protected void DrawGradient(Color c1, Color c2, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, c1, c2, 90f);
+            DrawGradientBrush = new(r, c1, c2, 90f);
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawGradient(Color c1, Color c2, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, c1, c2, angle);
+            DrawGradientBrush = new(r, c1, c2, angle);
             G.FillRectangle(DrawGradientBrush, r);
         }
 
@@ -1374,17 +1374,17 @@ namespace ReaLTaiizor.Util
         private Rectangle DrawRadialRectangle;
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, width / 2, height / 2);
         }
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height, Point center)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, center.X, center.Y);
         }
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height, int cx, int cy)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, cx, cy);
         }
 
@@ -1420,23 +1420,23 @@ namespace ReaLTaiizor.Util
 
         protected void DrawRadial(Color c1, Color c2, int x, int y, int width, int height)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(c1, c2, DrawGradientRectangle);
         }
         protected void DrawRadial(Color c1, Color c2, int x, int y, int width, int height, float angle)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(c1, c2, DrawGradientRectangle, angle);
         }
 
         protected void DrawRadial(Color c1, Color c2, Rectangle r)
         {
-            DrawRadialBrush2 = new LinearGradientBrush(r, c1, c2, 90f);
+            DrawRadialBrush2 = new(r, c1, c2, 90f);
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawRadial(Color c1, Color c2, Rectangle r, float angle)
         {
-            DrawRadialBrush2 = new LinearGradientBrush(r, c1, c2, angle);
+            DrawRadialBrush2 = new(r, c1, c2, angle);
             G.FillEllipse(DrawGradientBrush, r);
         }
 
@@ -1449,7 +1449,7 @@ namespace ReaLTaiizor.Util
         private Rectangle CreateRoundRectangle;
         public GraphicsPath CreateRound(int x, int y, int width, int height, int slope)
         {
-            CreateRoundRectangle = new Rectangle(x, y, width, height);
+            CreateRoundRectangle = new(x, y, width, height);
             return CreateRound(CreateRoundRectangle, slope);
         }
 
@@ -1901,11 +1901,11 @@ namespace ReaLTaiizor.Util
 
         protected Pen GetPen(string name)
         {
-            return new Pen(Items[name]);
+            return new(Items[name]);
         }
         protected Pen GetPen(string name, float width)
         {
-            return new Pen(Items[name], width);
+            return new(Items[name], width);
         }
 
         protected SolidBrush GetBrush(string name)
@@ -2004,7 +2004,7 @@ namespace ReaLTaiizor.Util
         private Rectangle OffsetReturnRectangle;
         protected Rectangle Offset(Rectangle r, int amount)
         {
-            OffsetReturnRectangle = new Rectangle(r.X + amount, r.Y + amount, r.Width - (amount * 2), r.Height - (amount * 2));
+            OffsetReturnRectangle = new(r.X + amount, r.Y + amount, r.Width - (amount * 2), r.Height - (amount * 2));
             return OffsetReturnRectangle;
         }
 
@@ -2094,7 +2094,7 @@ namespace ReaLTaiizor.Util
             }
             else
             {
-                DrawPixelBrush = new SolidBrush(c1);
+                DrawPixelBrush = new(c1);
                 G.FillRectangle(DrawPixelBrush, x, y, 1, 1);
             }
         }
@@ -2141,7 +2141,7 @@ namespace ReaLTaiizor.Util
             }
             else
             {
-                DrawCornersBrush = new SolidBrush(c1);
+                DrawCornersBrush = new(c1);
                 G.FillRectangle(DrawCornersBrush, x, y, 1, 1);
                 G.FillRectangle(DrawCornersBrush, x + (width - 1), y, 1, 1);
                 G.FillRectangle(DrawCornersBrush, x, y + (height - 1), 1, 1);
@@ -2298,18 +2298,18 @@ namespace ReaLTaiizor.Util
         private Rectangle DrawGradientRectangle;
         protected void DrawGradient(ColorBlend blend, int x, int y, int width, int height)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(blend, DrawGradientRectangle);
         }
         protected void DrawGradient(ColorBlend blend, int x, int y, int width, int height, float angle)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(blend, DrawGradientRectangle, angle);
         }
 
         protected void DrawGradient(ColorBlend blend, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f)
+            DrawGradientBrush = new(r, Color.Empty, Color.Empty, 90f)
             {
                 InterpolationColors = blend
             };
@@ -2317,7 +2317,7 @@ namespace ReaLTaiizor.Util
         }
         protected void DrawGradient(ColorBlend blend, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle)
+            DrawGradientBrush = new(r, Color.Empty, Color.Empty, angle)
             {
                 InterpolationColors = blend
             };
@@ -2327,23 +2327,23 @@ namespace ReaLTaiizor.Util
 
         protected void DrawGradient(Color c1, Color c2, int x, int y, int width, int height)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(c1, c2, DrawGradientRectangle);
         }
         protected void DrawGradient(Color c1, Color c2, int x, int y, int width, int height, float angle)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(c1, c2, DrawGradientRectangle, angle);
         }
 
         protected void DrawGradient(Color c1, Color c2, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, c1, c2, 90f);
+            DrawGradientBrush = new(r, c1, c2, 90f);
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawGradient(Color c1, Color c2, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, c1, c2, angle);
+            DrawGradientBrush = new(r, c1, c2, angle);
             G.FillRectangle(DrawGradientBrush, r);
         }
 
@@ -2358,17 +2358,17 @@ namespace ReaLTaiizor.Util
         private Rectangle DrawRadialRectangle;
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, width / 2, height / 2);
         }
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height, Point center)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, center.X, center.Y);
         }
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height, int cx, int cy)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, cx, cy);
         }
 
@@ -2404,23 +2404,23 @@ namespace ReaLTaiizor.Util
 
         protected void DrawRadial(Color c1, Color c2, int x, int y, int width, int height)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(c1, c2, DrawRadialRectangle);
         }
         protected void DrawRadial(Color c1, Color c2, int x, int y, int width, int height, float angle)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(c1, c2, DrawRadialRectangle, angle);
         }
 
         protected void DrawRadial(Color c1, Color c2, Rectangle r)
         {
-            DrawRadialBrush2 = new LinearGradientBrush(r, c1, c2, 90f);
+            DrawRadialBrush2 = new(r, c1, c2, 90f);
             G.FillEllipse(DrawRadialBrush2, r);
         }
         protected void DrawRadial(Color c1, Color c2, Rectangle r, float angle)
         {
-            DrawRadialBrush2 = new LinearGradientBrush(r, c1, c2, angle);
+            DrawRadialBrush2 = new(r, c1, c2, angle);
             G.FillEllipse(DrawRadialBrush2, r);
         }
 
@@ -2433,7 +2433,7 @@ namespace ReaLTaiizor.Util
         private Rectangle CreateRoundRectangle;
         public GraphicsPath CreateRound(int x, int y, int width, int height, int slope)
         {
-            CreateRoundRectangle = new Rectangle(x, y, width, height);
+            CreateRoundRectangle = new(x, y, width, height);
             return CreateRound(CreateRoundRectangle, slope);
         }
 

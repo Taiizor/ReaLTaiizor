@@ -101,10 +101,10 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            Rectangle rect = new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
-            using (SolidBrush bg = new SolidBrush(BackColor))
-            using (Pen stroke = new Pen(BorderColor))
-            using (SolidBrush tb = new SolidBrush(ForeColor))
+            Rectangle rect = new(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
+            using (SolidBrush bg = new(BackColor))
+            using (Pen stroke = new(BorderColor))
+            using (SolidBrush tb = new(ForeColor))
             {
                 g.FillRectangle(bg, rect);
                 g.DrawString(e.ToolTipText, MetroFonts.Light(11), tb, rect, _mth.SetPosition());

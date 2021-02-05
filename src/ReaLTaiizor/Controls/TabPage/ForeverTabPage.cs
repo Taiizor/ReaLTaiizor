@@ -103,8 +103,8 @@ namespace ReaLTaiizor.Controls
 
             for (int i = 0; i <= TabCount - 1; i++)
             {
-                Rectangle Base = new Rectangle(new Point(GetTabRect(i).Location.X + 2, GetTabRect(i).Location.Y), new Size(GetTabRect(i).Width, GetTabRect(i).Height));
-                Rectangle BaseSize = new Rectangle(Base.Location, new Size(Base.Width, Base.Height));
+                Rectangle Base = new(new Point(GetTabRect(i).Location.X + 2, GetTabRect(i).Location.Y), new Size(GetTabRect(i).Width, GetTabRect(i).Height));
+                Rectangle BaseSize = new(Base.Location, new Size(Base.Width, Base.Height));
 
                 if (i == SelectedIndex)
                 {

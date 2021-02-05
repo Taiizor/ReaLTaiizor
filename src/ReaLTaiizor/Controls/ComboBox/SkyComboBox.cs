@@ -41,16 +41,16 @@ namespace ReaLTaiizor.Controls
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(_highlightColor), e.Bounds);
-                    LinearGradientBrush gloss = new LinearGradientBrush(e.Bounds, ListSelectedBackColorA, ListSelectedBackColorB, 90);
+                    LinearGradientBrush gloss = new(e.Bounds, ListSelectedBackColorA, ListSelectedBackColorB, 90);
                     e.Graphics.FillRectangle(gloss, new Rectangle(new Point(e.Bounds.X, e.Bounds.Y), new Size(e.Bounds.Width, e.Bounds.Height)));
-                    e.Graphics.DrawRectangle(new Pen(ListBorderColor) { DashStyle = ListDashType }, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
+                    e.Graphics.DrawRectangle(new(ListBorderColor) { DashStyle = ListDashType }, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
                 }
                 else
                 {
                     e.Graphics.FillRectangle(new SolidBrush(ListBackColor), e.Bounds);
                 }
 
-                using (SolidBrush b = new SolidBrush(ListForeColor))
+                using (SolidBrush b = new(ListForeColor))
                 {
                     e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), e.Font, b, new Rectangle(e.Bounds.X + 2, e.Bounds.Y, e.Bounds.Width - 4, e.Bounds.Height));
                 }
@@ -241,19 +241,19 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingType;
 
             G.Clear(BackColor);
-            LinearGradientBrush bodyGradNone = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 2), BGColorA, BGColorB, 90);
+            LinearGradientBrush bodyGradNone = new(new Rectangle(0, 0, Width - 1, Height - 2), BGColorA, BGColorB, 90);
             G.FillRectangle(bodyGradNone, bodyGradNone.Rectangle);
-            LinearGradientBrush bodyInBorderNone = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 3), BorderColorA, BorderColorB, 90);
-            G.DrawRectangle(new Pen(bodyInBorderNone), new Rectangle(1, 1, Width - 3, Height - 4));
-            G.DrawRectangle(new Pen(BorderColorC), new Rectangle(0, 0, Width - 1, Height - 2));
-            G.DrawLine(new Pen(BorderColorD), new Point(1, Height - 1), new Point(Width - 2, Height - 1));
+            LinearGradientBrush bodyInBorderNone = new(new Rectangle(0, 0, Width - 1, Height - 3), BorderColorA, BorderColorB, 90);
+            G.DrawRectangle(new(bodyInBorderNone), new Rectangle(1, 1, Width - 3, Height - 4));
+            G.DrawRectangle(new(BorderColorC), new Rectangle(0, 0, Width - 1, Height - 2));
+            G.DrawLine(new(BorderColorD), new Point(1, Height - 1), new Point(Width - 2, Height - 1));
             DrawTriangle(TriangleColorA, new Point(Width - 14, 8), new Point(Width - 7, 8), new Point(Width - 11, 12), G);
-            G.DrawLine(new Pen(TriangleColorB), new Point(Width - 14, 8), new Point(Width - 8, 8));
+            G.DrawLine(new(TriangleColorB), new Point(Width - 14, 8), new Point(Width - 8, 8));
 
             //Draw Separator line
-            G.DrawLine(new Pen(LineColorA), new Point(Width - 22, 1), new Point(Width - 22, Height - 3));
-            G.DrawLine(new Pen(LineColorB), new Point(Width - 21, 1), new Point(Width - 21, Height - 3));
-            G.DrawLine(new Pen(LineColorC), new Point(Width - 20, 1), new Point(Width - 20, Height - 3));
+            G.DrawLine(new(LineColorA), new Point(Width - 22, 1), new Point(Width - 22, Height - 3));
+            G.DrawLine(new(LineColorB), new Point(Width - 21, 1), new Point(Width - 21, Height - 3));
+            G.DrawLine(new(LineColorC), new Point(Width - 20, 1), new Point(Width - 20, Height - 3));
             
             try
             {

@@ -235,7 +235,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Image Rect
-                Rectangle destRect = new Rectangle(0, 0, _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
+                Rectangle destRect = new(0, 0, _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
 
                 // Create a pre-processed copy of the image (GRAY)
                 Bitmap bgray = new Bitmap(destRect.Width, destRect.Height);
@@ -273,7 +273,7 @@ namespace ReaLTaiizor.Controls
                 // Translate the brushes to the correct positions
                 int currentTabIndex = _baseTabControl.TabPages.IndexOf(tabPage);
 
-                Rectangle iconRect = new Rectangle(
+                Rectangle iconRect = new(
                    _drawerItemRects[currentTabIndex].X + (drawerItemHeight / 2) - (_baseTabControl.ImageList.Images[tabPage.ImageKey].Width / 2),
                    _drawerItemRects[currentTabIndex].Y + (drawerItemHeight / 2) - (_baseTabControl.ImageList.Images[tabPage.ImageKey].Height / 2),
                    _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
@@ -451,7 +451,7 @@ namespace ReaLTaiizor.Controls
             // Ripple
             if (_clickAnimManager.IsAnimating())
             {
-                SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(70 - (clickAnimProgress * 70)),
+                SolidBrush rippleBrush = new(Color.FromArgb((int)(70 - (clickAnimProgress * 70)),
                     UseColors ? SkinManager.ColorScheme.AccentColor : // Using colors
                     SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : // light theme
                     SkinManager.ColorScheme.LightPrimaryColor)); // dark theme
@@ -489,7 +489,7 @@ namespace ReaLTaiizor.Controls
                 textRect.X += _baseTabControl.ImageList != null ? drawerItemHeight : (int)(SkinManager.FORM_PADDING * 0.75);
                 textRect.Width -= SkinManager.FORM_PADDING << 2;
 
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+                using (MaterialNativeTextRenderer NativeText = new(g))
                 {
                     NativeText.DrawTransparentText(tabPage.Text, textFont, textColor, textRect.Location, textRect.Size, MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
                 }
@@ -497,7 +497,7 @@ namespace ReaLTaiizor.Controls
                 // Icons
                 if (_baseTabControl.ImageList != null && !string.IsNullOrEmpty(tabPage.ImageKey))
                 {
-                    Rectangle iconRect = new Rectangle(
+                    Rectangle iconRect = new(
                         _drawerItemRects[currentTabIndex].X + (drawerItemHeight >> 1) - (iconsSize[tabPage.ImageKey].Width >> 1),
                         _drawerItemRects[currentTabIndex].Y + (drawerItemHeight >> 1) - (iconsSize[tabPage.ImageKey].Height >> 1),
                         iconsSize[tabPage.ImageKey].Width, iconsSize[tabPage.ImageKey].Height);
@@ -515,7 +515,7 @@ namespace ReaLTaiizor.Controls
             // Draw divider if not using colors
             if (!UseColors)
             {
-                using (Pen dividerPen = new Pen(SkinManager.DividersColor, 1))
+                using (Pen dividerPen = new(SkinManager.DividersColor, 1))
                 {
                     g.DrawLine(dividerPen, Width - 1, 0, Width - 1, Height);
                 }

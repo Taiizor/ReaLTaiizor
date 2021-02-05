@@ -276,48 +276,23 @@ namespace ReaLTaiizor.Util
 
         public Font getFontByType(fontType type)
         {
-            switch (type)
+            return type switch
             {
-                case fontType.H1:
-                    return new Font(RobotoFontFamilies["Roboto_Light"], 96f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.H2:
-                    return new Font(RobotoFontFamilies["Roboto_Light"], 60f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.H3:
-                    return new Font(RobotoFontFamilies["Roboto"], 48f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.H4:
-                    return new Font(RobotoFontFamilies["Roboto"], 34f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.H5:
-                    return new Font(RobotoFontFamilies["Roboto"], 24f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.H6:
-                    return new Font(RobotoFontFamilies["Roboto_Medium"], 20f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.Subtitle1:
-                    return new Font(RobotoFontFamilies["Roboto"], 16f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.Subtitle2:
-                    return new Font(RobotoFontFamilies["Roboto_Medium"], 14f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.Body1:
-                    return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.Body2:
-                    return new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.Button:
-                    return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.Caption:
-                    return new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.Overline:
-                    return new Font(RobotoFontFamilies["Roboto"], 10f, FontStyle.Regular, GraphicsUnit.Pixel);
-            }
-            return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel);
+                fontType.H1 => new Font(RobotoFontFamilies["Roboto_Light"], 96f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.H2 => new Font(RobotoFontFamilies["Roboto_Light"], 60f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.H3 => new Font(RobotoFontFamilies["Roboto"], 48f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.H4 => new Font(RobotoFontFamilies["Roboto"], 34f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.H5 => new Font(RobotoFontFamilies["Roboto"], 24f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.H6 => new Font(RobotoFontFamilies["Roboto_Medium"], 20f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.Subtitle1 => new Font(RobotoFontFamilies["Roboto"], 16f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.Subtitle2 => new Font(RobotoFontFamilies["Roboto_Medium"], 14f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.Body1 => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.Body2 => new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.Button => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.Caption => new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.Overline => new Font(RobotoFontFamilies["Roboto"], 10f, FontStyle.Regular, GraphicsUnit.Pixel),
+                _ => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel),
+            };
         }
 
         public IntPtr getTextBoxFontBySize(int size)
@@ -1468,19 +1443,14 @@ namespace ReaLTaiizor.Util
                     throw new IndexOutOfRangeException("Invalid animation index");
                 }
 
-                switch (AnimationType)
+                return AnimationType switch
                 {
-                    case AnimationType.Linear:
-                        return AnimationLinear.CalculateProgress(_animationProgresses[index]);
-                    case AnimationType.EaseInOut:
-                        return AnimationEaseInOut.CalculateProgress(_animationProgresses[index]);
-                    case AnimationType.EaseOut:
-                        return AnimationEaseOut.CalculateProgress(_animationProgresses[index]);
-                    case AnimationType.CustomQuadratic:
-                        return AnimationCustomQuadratic.CalculateProgress(_animationProgresses[index]);
-                    default:
-                        throw new NotImplementedException("The given AnimationType is not implemented");
-                }
+                    AnimationType.Linear => AnimationLinear.CalculateProgress(_animationProgresses[index]),
+                    AnimationType.EaseInOut => AnimationEaseInOut.CalculateProgress(_animationProgresses[index]),
+                    AnimationType.EaseOut => AnimationEaseOut.CalculateProgress(_animationProgresses[index]),
+                    AnimationType.CustomQuadratic => AnimationCustomQuadratic.CalculateProgress(_animationProgresses[index]),
+                    _ => throw new NotImplementedException("The given AnimationType is not implemented"),
+                };
             }
 
             public Point GetSource(int index)

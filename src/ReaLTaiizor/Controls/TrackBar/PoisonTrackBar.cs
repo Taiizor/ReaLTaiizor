@@ -417,18 +417,18 @@ namespace ReaLTaiizor.Controls
         {
             int TrackX = (((trackerValue - barMinimum) * (Width - 6)) / (barMaximum - barMinimum));
 
-            using (SolidBrush b = new SolidBrush(thumbColor))
+            using (SolidBrush b = new(thumbColor))
             {
-                Rectangle barRect = new Rectangle(0, Height / 2 - 2, TrackX, 4);
+                Rectangle barRect = new(0, Height / 2 - 2, TrackX, 4);
                 g.FillRectangle(b, barRect);
 
-                Rectangle thumbRect = new Rectangle(TrackX, Height / 2 - 8, 6, 16);
+                Rectangle thumbRect = new(TrackX, Height / 2 - 8, 6, 16);
                 g.FillRectangle(b, thumbRect);
             }
 
-            using (SolidBrush b = new SolidBrush(barColor))
+            using (SolidBrush b = new(barColor))
             {
-                Rectangle barRect = new Rectangle(TrackX + 7, Height / 2 - 2, Width - TrackX + 7, 4);
+                Rectangle barRect = new(TrackX + 7, Height / 2 - 2, Width - TrackX + 7, 4);
                 g.FillRectangle(b, barRect);
             }
         }

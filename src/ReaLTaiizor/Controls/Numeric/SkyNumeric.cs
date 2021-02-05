@@ -309,20 +309,20 @@ namespace ReaLTaiizor.Controls
             G.Clear(BackColor);
             G.SmoothingMode = SmoothingType;
 
-            LinearGradientBrush innerBorderBrush = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 3), BorderColorA, BorderColorB, 90);
-            Pen innerBorderPen = new Pen(innerBorderBrush);
+            LinearGradientBrush innerBorderBrush = new(new Rectangle(1, 1, Width - 3, Height - 3), BorderColorA, BorderColorB, 90);
+            Pen innerBorderPen = new(innerBorderBrush);
             G.DrawRectangle(innerBorderPen, new Rectangle(1, 1, Width - 3, Height - 3));
-            G.DrawLine(new Pen(BorderColorC), new Point(1, 1), new Point(Width - 3, 1));
+            G.DrawLine(new(BorderColorC), new Point(1, 1), new Point(Width - 3, 1));
 
-            G.DrawRectangle(new Pen(BorderColorD), new Rectangle(0, 0, Width - 1, Height - 1));
+            G.DrawRectangle(new(BorderColorD), new Rectangle(0, 0, Width - 1, Height - 1));
 
-            LinearGradientBrush buttonGradient = new LinearGradientBrush(new Rectangle(Width - 23, 4, 19, 21), ButtonBackColorA, ButtonBackColorB, 90);
+            LinearGradientBrush buttonGradient = new(new Rectangle(Width - 23, 4, 19, 21), ButtonBackColorA, ButtonBackColorB, 90);
             G.FillRectangle(buttonGradient, buttonGradient.Rectangle);
-            G.DrawRectangle(new Pen(ButtonBorderColorA), new Rectangle(Width - 22, 5, 17, 19));
-            G.DrawRectangle(new Pen(ButtonBorderColorB), new Rectangle(Width - 23, 4, 19, 21));
-            G.DrawLine(new Pen(ButtonBorderColorC), new Point(Width - 22, Height - 4), new Point(Width - 5, Height - 4));
-            G.DrawLine(new Pen(ButtonBorderColorD), new Point(Width - 22, Height - 16), new Point(Width - 5, Height - 16));
-            G.DrawLine(new Pen(ButtonBorderColorE), new Point(Width - 22, Height - 15), new Point(Width - 5, Height - 15));
+            G.DrawRectangle(new(ButtonBorderColorA), new Rectangle(Width - 22, 5, 17, 19));
+            G.DrawRectangle(new(ButtonBorderColorB), new Rectangle(Width - 23, 4, 19, 21));
+            G.DrawLine(new(ButtonBorderColorC), new Point(Width - 22, Height - 4), new Point(Width - 5, Height - 4));
+            G.DrawLine(new(ButtonBorderColorD), new Point(Width - 22, Height - 16), new Point(Width - 5, Height - 16));
+            G.DrawLine(new(ButtonBorderColorE), new Point(Width - 22, Height - 15), new Point(Width - 5, Height - 15));
 
             //Top Triangle
             DrawTriangle(TopTriangleColor, new Point(Width - 17, 18), new Point(Width - 9, 18), new Point(Width - 13, 21), G);

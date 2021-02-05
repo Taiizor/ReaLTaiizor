@@ -272,8 +272,8 @@ namespace ReaLTaiizor.Forms
             W = Width;
             H = Height;
 
-            Rectangle Base = new Rectangle(0, 0, W, H);
-            Rectangle Header = new Rectangle(0, 0, W, 50);
+            Rectangle Base = new(0, 0, W, H);
+            Rectangle Header = new(0, 0, W, 50);
 
             Graphics _with2 = G;
             _with2.SmoothingMode = SmoothingMode.HighQuality;
@@ -301,7 +301,7 @@ namespace ReaLTaiizor.Forms
             }
 
             //-- Border
-            _with2.DrawRectangle(new Pen(_BorderColor), Base);
+            _with2.DrawRectangle(new(_BorderColor), Base);
 
             base.OnPaint(e);
             G.Dispose();

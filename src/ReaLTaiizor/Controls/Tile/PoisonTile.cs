@@ -356,10 +356,10 @@ namespace ReaLTaiizor.Controls
 
             if (isPressed || ((isHovered || isFocused) && displayFocusBorder))
             {
-                using (Pen p = new Pen(borderColor))
+                using (Pen p = new(borderColor))
                 {
                     p.Width = 3;
-                    Rectangle borderRect = new Rectangle(1, 1, Width - 3, Height - 3);
+                    Rectangle borderRect = new(1, 1, Width - 3, Height - 3);
                     e.Graphics.DrawRectangle(p, borderRect);
                 }
             }
@@ -375,34 +375,34 @@ namespace ReaLTaiizor.Controls
                     switch (tileImageAlign)
                     {
                         case ContentAlignment.BottomLeft:
-                            imageRectangle = new Rectangle(new Point(0, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(0, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height));
                             break;
                         case ContentAlignment.BottomCenter:
-                            imageRectangle = new Rectangle(new Point(Width / 2 - TileImage.Width / 2, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(Width / 2 - TileImage.Width / 2, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height));
                             break;
                         case ContentAlignment.BottomRight:
-                            imageRectangle = new Rectangle(new Point(Width - TileImage.Width, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(Width - TileImage.Width, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height));
                             break;
                         case ContentAlignment.MiddleLeft:
-                            imageRectangle = new Rectangle(new Point(0, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(0, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height));
                             break;
                         case ContentAlignment.MiddleCenter:
-                            imageRectangle = new Rectangle(new Point(Width / 2 - TileImage.Width / 2, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(Width / 2 - TileImage.Width / 2, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height));
                             break;
                         case ContentAlignment.MiddleRight:
-                            imageRectangle = new Rectangle(new Point(Width - TileImage.Width, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(Width - TileImage.Width, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height));
                             break;
                         case ContentAlignment.TopLeft:
-                            imageRectangle = new Rectangle(new Point(0, 0), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(0, 0), new Size(TileImage.Width, TileImage.Height));
                             break;
                         case ContentAlignment.TopCenter:
-                            imageRectangle = new Rectangle(new Point(Width / 2 - TileImage.Width / 2, 0), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(Width / 2 - TileImage.Width / 2, 0), new Size(TileImage.Width, TileImage.Height));
                             break;
                         case ContentAlignment.TopRight:
-                            imageRectangle = new Rectangle(new Point(Width - TileImage.Width, 0), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(Width - TileImage.Width, 0), new Size(TileImage.Width, TileImage.Height));
                             break;
                         default:
-                            imageRectangle = new Rectangle(new Point(0, 0), new Size(TileImage.Width, TileImage.Height));
+                            imageRectangle = new(new Point(0, 0), new Size(TileImage.Width, TileImage.Height));
                             break;
                     }
 

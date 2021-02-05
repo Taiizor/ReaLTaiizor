@@ -61,22 +61,15 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
 
 
-            switch (State)
+            LGB = State switch
             {
-                case MouseStateAir.None:
-                    LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f);
-                    break;
-                case MouseStateAir.Over:
-                    LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTO, GBO, 90f);
-                    break;
-                default:
-                    LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTD, GBD, 90f);
-                    break;
-            }
-
+                MouseStateAir.None => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f),
+                MouseStateAir.Over => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTO, GBO, 90f),
+                _ => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTD, GBD, 90f),
+            };
             if (!Enabled)
             {
-                LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f);
+                LGB = new(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f);
             }
 
             GraphicsPath buttonpath = CreateRound(Rectangle.Round(LGB.Rectangle), 3);
@@ -87,11 +80,11 @@ namespace ReaLTaiizor.Controls
             }
 
             G.SetClip(buttonpath);
-            LGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height / 6), Color.FromArgb(80, Color.White), Color.Transparent, 90f);
+            LGB = new(new Rectangle(0, 0, Width, Height / 6), Color.FromArgb(80, Color.White), Color.Transparent, 90f);
             G.FillRectangle(LGB, Rectangle.Round(LGB.Rectangle));
 
             G.ResetClip();
-            G.DrawPath(new Pen(Bo), buttonpath);
+            G.DrawPath(new(Bo), buttonpath);
 
             if (Enabled)
             {

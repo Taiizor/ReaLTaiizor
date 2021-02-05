@@ -122,13 +122,13 @@ namespace ReaLTaiizor.Controls
 
         private void _Enter(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(205, 87, 40));
+            P1 = new(Color.FromArgb(205, 87, 40));
             Refresh();
         }
 
         private void _Leave(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(180, 180, 180));
+            P1 = new(Color.FromArgb(180, 180, 180));
             Refresh();
         }
 
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(76, 76, 76);
 
-            P1 = new Pen(_BorderColor);
+            P1 = new(_BorderColor);
             Text = null;
             Font = new Font("Tahoma", 10);
             Size = new Size(150, 100);

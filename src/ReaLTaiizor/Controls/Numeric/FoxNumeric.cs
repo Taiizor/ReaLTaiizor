@@ -149,18 +149,18 @@ namespace ReaLTaiizor.Controls
 
             if (Enabled)
             {
-                using (Pen Border = new Pen(_BorderColor))
+                using (Pen Border = new(_BorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                using (SolidBrush TextColor = new(ForeColor))
                 {
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
                 }
 
-                using (SolidBrush SignColor = new SolidBrush(_ButtonTextColor))
+                using (SolidBrush SignColor = new(_ButtonTextColor))
                 {
                     using (Font SignFont = new Font("Marlett", 10))
                     {
@@ -171,18 +171,18 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                using (Pen Border = new Pen(_DisabledBorderColor))
+                using (Pen Border = new(_DisabledBorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+                using (SolidBrush TextColor = new(_DisabledTextColor))
                 {
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
                 }
 
-                using (SolidBrush SignColor = new SolidBrush(_DisabledButtonTextColor))
+                using (SolidBrush SignColor = new(_DisabledButtonTextColor))
                 {
                     using (Font SignFont = new Font("Marlett", 10))
                     {

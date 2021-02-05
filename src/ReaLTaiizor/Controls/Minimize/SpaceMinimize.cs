@@ -85,9 +85,9 @@ namespace ReaLTaiizor.Controls
             C4 = GetColor("NoneGradient2");
             C5 = GetColor("ClickedGradient1");
             C6 = GetColor("ClickedGradient2");
-            B1 = new SolidBrush(GetColor("Text")); // Set up Color for the Text
-            P1 = new Pen(GetColor("Border1")); // Get and create the borders for the Buttons
-            P2 = new Pen(GetColor("Border2"));
+            B1 = new(GetColor("Text")); // Set up Color for the Text
+            P1 = new(GetColor("Border1")); // Get and create the borders for the Buttons
+            P2 = new(GetColor("Border2"));
         }
 
         protected override void PaintHook()

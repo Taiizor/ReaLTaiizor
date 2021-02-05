@@ -58,12 +58,12 @@ namespace ReaLTaiizor.Controls
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             G.Clear(Parent.BackColor);
-            using (SolidBrush HColor = new SolidBrush(ForeColor))
+            using (SolidBrush HColor = new(ForeColor))
             {
                 G.DrawString(Text, Font, HColor, new Point(0, 0));
             }
 
-            using (Pen BottomLine = new Pen(_LineColor))
+            using (Pen BottomLine = new(_LineColor))
             {
                 if (_Line == Direction.Bottom)
                 {

@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(BackColor);
 
-            using (SolidBrush HColor = new SolidBrush(ForeColor))
+            using (SolidBrush HColor = new(ForeColor))
             {
                 G.DrawString(Text, Font, HColor, new Point(0, 0));
             }

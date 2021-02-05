@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseClick(MouseEventArgs e)
         {
             base.OnClick(e);
-            Rectangle r = new Rectangle(Width - 22, 5, 15, 15);
+            Rectangle r = new(Width - 22, 5, 15, 15);
             if (r.Contains(new Point(e.X, e.Y)) || r.Contains(new Point(X, Y)) && e.Button == MouseButtons.Left)
             {
                 FindForm().Close();

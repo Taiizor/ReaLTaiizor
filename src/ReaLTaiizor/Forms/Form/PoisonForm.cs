@@ -321,7 +321,7 @@ namespace ReaLTaiizor.Forms
 
             using (SolidBrush b = PoisonPaint.GetStyleBrush(Style))
             {
-                Rectangle topRect = new Rectangle(0, 0, Width, borderWidth);
+                Rectangle topRect = new(0, 0, Width, borderWidth);
                 e.Graphics.FillRectangle(b, topRect);
             }
 
@@ -329,7 +329,7 @@ namespace ReaLTaiizor.Forms
             {
                 Color c = PoisonPaint.BorderColor.Form(Theme);
 
-                using (Pen pen = new Pen(c))
+                using (Pen pen = new(c))
                 {
                     e.Graphics.DrawLines
                     (
@@ -371,14 +371,14 @@ namespace ReaLTaiizor.Forms
 
             if (displayHeader)
             {
-                Rectangle bounds = new Rectangle(20, 20, ClientRectangle.Width - 2 * 20, 40);
+                Rectangle bounds = new(20, 20, ClientRectangle.Width - 2 * 20, 40);
                 TextFormatFlags flags = TextFormatFlags.EndEllipsis | GetTextFormatFlags();
                 TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Title, bounds, foreColor, flags);
             }
 
             if (Resizable && (SizeGripStyle == SizeGripStyle.Auto || SizeGripStyle == SizeGripStyle.Show))
             {
-                using (SolidBrush b = new SolidBrush(PoisonPaint.ForeColor.Button.Disabled(Theme)))
+                using (SolidBrush b = new(PoisonPaint.ForeColor.Button.Disabled(Theme)))
                 {
                     Size resizeHandleSize = new Size(2, 2);
                     e.Graphics.FillRectangles
@@ -399,14 +399,13 @@ namespace ReaLTaiizor.Forms
 
         private TextFormatFlags GetTextFormatFlags()
         {
-            switch (TextAlign)
+            return TextAlign switch
             {
-                case FormTextAlignType.Left: return TextFormatFlags.Left;
-                case FormTextAlignType.Center: return TextFormatFlags.HorizontalCenter;
-                case FormTextAlignType.Right: return TextFormatFlags.Right;
-            }
-
-            throw new InvalidOperationException();
+                FormTextAlignType.Left => TextFormatFlags.Left,
+                FormTextAlignType.Center => TextFormatFlags.HorizontalCenter,
+                FormTextAlignType.Right => TextFormatFlags.Right,
+                _ => throw new InvalidOperationException(),
+            };
         }
 
         #endregion
@@ -1422,7 +1421,7 @@ namespace ReaLTaiizor.Forms
             private Image DrawOutsetShadow(Color color, Rectangle shadowCanvasArea)
             {
                 Rectangle rOuter = shadowCanvasArea;
-                Rectangle rInner = new Rectangle(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - (-Offset.X * 2 - 1), shadowCanvasArea.Height - (-Offset.Y * 2 - 1));
+                Rectangle rInner = new(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - (-Offset.X * 2 - 1), shadowCanvasArea.Height - (-Offset.Y * 2 - 1));
 
                 Bitmap img = new Bitmap(rOuter.Width, rOuter.Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
@@ -1598,14 +1597,14 @@ namespace ReaLTaiizor.Forms
 
                 if (cornerRadius > 5)
                 {
-                    using (SolidBrush b = new SolidBrush(fillColor))
+                    using (SolidBrush b = new(fillColor))
                     {
                         g.FillPath(b, gfxPath);
                     }
                 }
                 if (drawPen != Pens.Transparent)
                 {
-                    using (Pen p = new Pen(drawPen.Color))
+                    using (Pen p = new(drawPen.Color))
                     {
                         p.EndCap = p.StartCap = LineCap.Round;
                         g.DrawPath(p, gfxPath);

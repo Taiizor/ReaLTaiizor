@@ -171,7 +171,7 @@ namespace ReaLTaiizor.Controls
 
             // HintText
             bool userTextPresent = SelectedIndex >= 0;
-            Rectangle hintRect = new Rectangle(SkinManager.FORM_PADDING, ClientRectangle.Y, Width, LINE_Y);
+            Rectangle hintRect = new(SkinManager.FORM_PADDING, ClientRectangle.Y, Width, LINE_Y);
             int hintTextSize = 16;
 
             // bottom line base
@@ -183,7 +183,7 @@ namespace ReaLTaiizor.Controls
                 if (hasHint && UseTallSize && (DroppedDown || Focused || SelectedIndex >= 0))
                 {
                     // hint text
-                    hintRect = new Rectangle(SkinManager.FORM_PADDING, TEXT_SMALL_Y, Width, TEXT_SMALL_SIZE);
+                    hintRect = new(SkinManager.FORM_PADDING, TEXT_SMALL_Y, Width, TEXT_SMALL_SIZE);
                     hintTextSize = 12;
                 }
 
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Controls
                 // hint Animation
                 if (hasHint && UseTallSize)
                 {
-                    hintRect = new Rectangle(
+                    hintRect = new(
                         SkinManager.FORM_PADDING,
                         userTextPresent && !_animationManager.IsAnimating() ? (TEXT_SMALL_Y) : ClientRectangle.Y + (int)((TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
                         Width,
@@ -216,7 +216,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Calc text Rect
-            Rectangle textRect = new Rectangle(
+            Rectangle textRect = new(
                 SkinManager.FORM_PADDING,
                 hasHint && UseTallSize ? (hintRect.Y + hintRect.Height) - 2 : ClientRectangle.Y,
                 ClientRectangle.Width - SkinManager.FORM_PADDING * 3 - 8,
@@ -224,7 +224,7 @@ namespace ReaLTaiizor.Controls
 
             g.Clip = new Region(textRect);
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 // Draw user text
                 NativeText.DrawTransparentText(
@@ -241,7 +241,7 @@ namespace ReaLTaiizor.Controls
             // Draw hint text
             if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))
             {
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+                using (MaterialNativeTextRenderer NativeText = new(g))
                 {
                     NativeText.DrawTransparentText(
                     Hint,
@@ -291,7 +291,7 @@ namespace ReaLTaiizor.Controls
                 Text = Items[e.Index].ToString();
             }
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 NativeText.DrawTransparentText(
                 Text,
@@ -343,7 +343,7 @@ namespace ReaLTaiizor.Controls
             int vertScrollBarWidth = (Items.Count > MaxDropDownItems) ? SystemInformation.VerticalScrollBarWidth : 0;
 
             Graphics g = CreateGraphics();
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 System.Collections.Generic.IEnumerable<string> itemsList = Items.Cast<object>().Select(item => item.ToString());
                 foreach (string s in itemsList)

@@ -157,8 +157,8 @@ namespace ReaLTaiizor.Controls
             W = Width - 1;
             H = Height - 1;
 
-            Rectangle Base = new Rectangle(0, 2, Height - 5, Height - 5);
-            Rectangle Dot = new Rectangle(4, 6, H - 12, H - 12);
+            Rectangle Base = new(0, 2, Height - 5, Height - 5);
+            Rectangle Dot = new(4, 6, H - 12, H - 12);
 
             Graphics _with10 = G;
             _with10.SmoothingMode = SmoothingMode.HighQuality;
@@ -174,10 +174,10 @@ namespace ReaLTaiizor.Controls
                     switch (State)
                     {
                         case MouseStateForever.Over:
-                            _with10.DrawEllipse(new Pen(_BorderColor), Base);
+                            _with10.DrawEllipse(new(_BorderColor), Base);
                             break;
                         case MouseStateForever.Down:
-                            _with10.DrawEllipse(new Pen(_BorderColor), Base);
+                            _with10.DrawEllipse(new(_BorderColor), Base);
                             break;
                     }
 
@@ -195,12 +195,12 @@ namespace ReaLTaiizor.Controls
                     {
                         case MouseStateForever.Over:
                             //-- Base
-                            _with10.DrawEllipse(new Pen(_BorderColor), Base);
+                            _with10.DrawEllipse(new(_BorderColor), Base);
                             _with10.FillEllipse(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                         case MouseStateForever.Down:
                             //-- Base
-                            _with10.DrawEllipse(new Pen(_BorderColor), Base);
+                            _with10.DrawEllipse(new(_BorderColor), Base);
                             _with10.FillEllipse(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                     }

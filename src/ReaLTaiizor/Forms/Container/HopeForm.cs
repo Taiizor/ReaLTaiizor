@@ -304,7 +304,7 @@ namespace ReaLTaiizor.Forms
             {
                 if (MinimizeBox)
                 {
-                    minRectangle = new Rectangle(Width - 54 - (MaximizeBox ? 1 : 0) * 22, (Height - 16) / 2, 18, 18);
+                    minRectangle = new(Width - 54 - (MaximizeBox ? 1 : 0) * 22, (Height - 16) / 2, 18, 18);
 
                     if (minRectangle.Contains(mousePoint))
                     {
@@ -318,7 +318,7 @@ namespace ReaLTaiizor.Forms
                 }
                 if (MaximizeBox)
                 {
-                    maxRectangle = new Rectangle(Width - 54, (Height - 16) / 2, 18, 18);
+                    maxRectangle = new(Width - 54, (Height - 16) / 2, 18, 18);
 
                     if (maxRectangle.Contains(mousePoint))
                     {
@@ -346,7 +346,7 @@ namespace ReaLTaiizor.Forms
                     }
                 }
 
-                closeRectangle = new Rectangle(Width - 32, (Height - 16) / 2, 18, 18);
+                closeRectangle = new(Width - 32, (Height - 16) / 2, 18, 18);
 
                 if (closeRectangle.Contains(mousePoint))
                 {

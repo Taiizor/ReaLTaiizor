@@ -264,19 +264,19 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            Rectangle mainRect = new Rectangle(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
+            Rectangle mainRect = new(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
 
-            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+            using (SolidBrush bg = new(Enabled ? BackColor : DisabledBackColor))
             {
-                using (SolidBrush usic = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                using (SolidBrush usic = new(Enabled ? ForeColor : DisabledForeColor))
                 {
-                    using (SolidBrush sic = new SolidBrush(SelectedItemColor))
+                    using (SolidBrush sic = new(SelectedItemColor))
                     {
-                        using (SolidBrush sibc = new SolidBrush(SelectedItemBackColor))
+                        using (SolidBrush sibc = new(SelectedItemBackColor))
                         {
-                            using (SolidBrush hic = new SolidBrush(HoveredItemColor))
+                            using (SolidBrush hic = new(HoveredItemColor))
                             {
-                                using (SolidBrush hibc = new SolidBrush(HoveredItemBackColor))
+                                using (SolidBrush hibc = new(HoveredItemBackColor))
                                 {
                                     using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
                                     {
@@ -289,7 +289,7 @@ namespace ReaLTaiizor.Controls
                                         {
                                             string itemText = (string)Items[i];
 
-                                            Rectangle rect = new Rectangle(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
+                                            Rectangle rect = new(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
                                             g.DrawString(itemText, Font, usic, rect, sf);
                                             if (MultiSelect && _indicates.Count != 0)
                                             {

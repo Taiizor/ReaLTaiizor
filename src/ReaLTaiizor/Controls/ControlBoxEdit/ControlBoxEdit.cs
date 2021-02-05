@@ -43,8 +43,8 @@ namespace ReaLTaiizor.Controls
 
         private MouseState State = MouseState.None;
         private int i;
-        private Rectangle CloseRect = new Rectangle(28, 0, 47, 18);
-        private Rectangle MinimizeRect = new Rectangle(0, 0, 28, 18);
+        private Rectangle CloseRect = new(28, 0, 47, 18);
+        private Rectangle MinimizeRect = new(0, 0, 28, 18);
 
         #endregion
         #region EventArgs
@@ -135,39 +135,39 @@ namespace ReaLTaiizor.Controls
             {
                 case MouseState.None:
                     NonePoint:
-                    LinearGradientBrush MinimizeGradient = new LinearGradientBrush(MinimizeRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
+                    LinearGradientBrush MinimizeGradient = new(MinimizeRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
                     G.FillPath(MinimizeGradient, GP_MinimizeRect);
-                    G.DrawPath(new Pen(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);
+                    G.DrawPath(new(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);
                     G.DrawString("0", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), MinimizeRect.Width - 22, MinimizeRect.Height - 16);
 
-                    LinearGradientBrush CloseGradient = new LinearGradientBrush(CloseRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
+                    LinearGradientBrush CloseGradient = new(CloseRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
                     G.FillPath(CloseGradient, GP_CloseRect);
-                    G.DrawPath(new Pen(Color.FromArgb(40, 40, 40)), GP_CloseRect);
+                    G.DrawPath(new(Color.FromArgb(40, 40, 40)), GP_CloseRect);
                     G.DrawString("r", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), CloseRect.Width - 4, CloseRect.Height - 16);
                     break;
                 case MouseState.Over:
                     if (i > 0 & i < 28)
                     {
-                        LinearGradientBrush xMinimizeGradient = new LinearGradientBrush(MinimizeRect, Color.FromArgb(76, 76, 76, 76), Color.FromArgb(48, 48, 48), 90f);
+                        LinearGradientBrush xMinimizeGradient = new(MinimizeRect, Color.FromArgb(76, 76, 76, 76), Color.FromArgb(48, 48, 48), 90f);
                         G.FillPath(xMinimizeGradient, GP_MinimizeRect);
-                        G.DrawPath(new Pen(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);
+                        G.DrawPath(new(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);
                         G.DrawString("0", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), MinimizeRect.Width - 22, MinimizeRect.Height - 16);
 
-                        LinearGradientBrush xCloseGradient = new LinearGradientBrush(CloseRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
+                        LinearGradientBrush xCloseGradient = new(CloseRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
                         G.FillPath(xCloseGradient, GP_CloseRect);
-                        G.DrawPath(new Pen(Color.FromArgb(40, 40, 40)), GP_CloseRect);
+                        G.DrawPath(new(Color.FromArgb(40, 40, 40)), GP_CloseRect);
                         G.DrawString("r", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), CloseRect.Width - 4, CloseRect.Height - 16);
                     }
                     else if (i > 30 & i < 75)
                     {
-                        LinearGradientBrush xCloseGradient = new LinearGradientBrush(CloseRect, Color.FromArgb(76, 76, 76, 76), Color.FromArgb(48, 48, 48), 90);
+                        LinearGradientBrush xCloseGradient = new(CloseRect, Color.FromArgb(76, 76, 76, 76), Color.FromArgb(48, 48, 48), 90);
                         G.FillPath(xCloseGradient, GP_CloseRect);
-                        G.DrawPath(new Pen(Color.FromArgb(40, 40, 40)), GP_CloseRect);
+                        G.DrawPath(new(Color.FromArgb(40, 40, 40)), GP_CloseRect);
                         G.DrawString("r", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), CloseRect.Width - 4, CloseRect.Height - 16);
 
-                        LinearGradientBrush xMinimizeGradient = new LinearGradientBrush(MinimizeRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
+                        LinearGradientBrush xMinimizeGradient = new(MinimizeRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
                         G.FillPath(xMinimizeGradient, RoundRectangle.RoundRect(MinimizeRect, 1));
-                        G.DrawPath(new Pen(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);
+                        G.DrawPath(new(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);
                         G.DrawString("0", new Font("Marlett", 11, FontStyle.Regular), new SolidBrush(Color.FromArgb(221, 221, 221)), MinimizeRect.Width - 22, MinimizeRect.Height - 16);
                     }
                     else

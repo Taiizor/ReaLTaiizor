@@ -132,7 +132,7 @@ namespace ReaLTaiizor.Forms
         {
             if (!ControlMode)
             {
-                titleBarRect = new Rectangle(9, 2, Width, draggableHeight);
+                titleBarRect = new(9, 2, Width, draggableHeight);
             }
 
             base.OnSizeChanged(e);
@@ -228,7 +228,7 @@ namespace ReaLTaiizor.Forms
 
         private void DrawTitleBar(Graphics g)
         {
-            using (SolidBrush brush = new SolidBrush(HeadColor))
+            using (SolidBrush brush = new(HeadColor))
             {
                 g.FillRectangle(brush, new Rectangle(0, 0, Width, 31));
             }
@@ -236,13 +236,13 @@ namespace ReaLTaiizor.Forms
             // ========== FOR TESTING PURPOSES ONLY! ==========
             // PLACEMENT BACKGROUNDS FOR THE CONTROLBOX BUTTONS
             // ================================================
-            //          using (var brush = new SolidBrush(ColorTranslator.FromHtml("#FF0000")))
+            //          using (var brush = new(ColorTranslator.FromHtml("#FF0000")))
             //              g.FillRectangle(brush, new Rectangle(Width - 46, 0, 46, 31));
             //          
-            //          using (var brush = new SolidBrush(ColorTranslator.FromHtml("#00FF00")))
+            //          using (var brush = new(ColorTranslator.FromHtml("#00FF00")))
             //              g.FillRectangle(brush, new Rectangle(Width - 92, 0, 46, 31));
             //          
-            //          using (var brush = new SolidBrush(ColorTranslator.FromHtml("#0000FF")))
+            //          using (var brush = new(ColorTranslator.FromHtml("#0000FF")))
             //              g.FillRectangle(brush, new Rectangle(Width - 138, 0, 46, 31));
         }
 
@@ -251,7 +251,7 @@ namespace ReaLTaiizor.Forms
             if (_DrawIcon)
             {
                 titleBarStringLeft = _TextAlignment == Alignment.Left ? 33 : 5;
-                Rectangle iconRect = new Rectangle(10, 7, 16, 16);
+                Rectangle iconRect = new(10, 7, 16, 16);
 
                 g.DrawIcon(FindForm().Icon, iconRect);
             }
@@ -263,12 +263,12 @@ namespace ReaLTaiizor.Forms
 
         private void DrawTitleBarText(Graphics g)
         {
-            Rectangle stringRect = new Rectangle(titleBarStringLeft, 7, Width - 13, Height);
+            Rectangle stringRect = new(titleBarStringLeft, 7, Width - 13, Height);
 
             switch (_TextAlignment)
             {
                 case Alignment.Left:
-                    using (SolidBrush stringColor = new SolidBrush(_TitleBarTextColor))
+                    using (SolidBrush stringColor = new(_TitleBarTextColor))
                     using (StringFormat sf = new StringFormat
                     {
                         Alignment = StringAlignment.Near,
@@ -279,7 +279,7 @@ namespace ReaLTaiizor.Forms
                     }
                     break;
                 case Alignment.Center:
-                    using (SolidBrush stringColor = new SolidBrush(_TitleBarTextColor))
+                    using (SolidBrush stringColor = new(_TitleBarTextColor))
                     using (StringFormat sf = new StringFormat
                     {
                         Alignment = StringAlignment.Center,

@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(pe);
 
             GraphicsPath backPath = RoundRectangle.CreateRoundRect(0, 00, Width, Height, 4);
-            graphics.DrawPath(new Pen(Parent.BackColor, 4), backPath);
+            graphics.DrawPath(new(Parent.BackColor, 4), backPath);
         }
 
         public HopePictureBox()

@@ -141,7 +141,7 @@ namespace ReaLTaiizor.Controls
             W = Width - 1;
             H = Height - 1;
 
-            Rectangle Base = new Rectangle(0, 24, W, H);
+            Rectangle Base = new(0, 24, W, H);
             GraphicsPath GP = new GraphicsPath();
             GraphicsPath GP2 = new GraphicsPath();
             GraphicsPath GP3 = new GraphicsPath();
@@ -189,7 +189,7 @@ namespace ReaLTaiizor.Controls
                     if (_ShowBalloon)
                     {
                         //-- Balloon
-                        Rectangle Balloon = new Rectangle(iValue - 18, 0, 34, 16);
+                        Rectangle Balloon = new(iValue - 18, 0, 34, 16);
                         GP2 = ForeverLibrary.RoundRec(Balloon, 4);
                         _with15.FillPath(new SolidBrush(_BaseColor), GP2);
 

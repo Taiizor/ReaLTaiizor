@@ -173,9 +173,9 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            G.DrawEllipse(new Pen(new SolidBrush(CircleColorA)), new Rectangle(new Point(3, 3), new Size(16, 16)));
-            G.DrawEllipse(new Pen(new SolidBrush(CircleColorB)), new Rectangle(new Point(2, 2), new Size(18, 18)));
-            G.DrawEllipse(new Pen(new SolidBrush(CircleColorC)), new Rectangle(new Point(4, 4), new Size(14, 14)));
+            G.DrawEllipse(new(new SolidBrush(CircleColorA)), new Rectangle(new Point(3, 3), new Size(16, 16)));
+            G.DrawEllipse(new(new SolidBrush(CircleColorB)), new Rectangle(new Point(2, 2), new Size(18, 18)));
+            G.DrawEllipse(new(new SolidBrush(CircleColorC)), new Rectangle(new Point(4, 4), new Size(14, 14)));
 
             G.DrawString(Text, Font, new SolidBrush(FC), 23, 3);
         }

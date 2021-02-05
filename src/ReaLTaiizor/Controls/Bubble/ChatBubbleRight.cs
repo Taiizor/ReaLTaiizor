@@ -178,7 +178,7 @@ namespace ReaLTaiizor.Controls
                     new Point(Width - 8, Height - 30)
                 };
                 _G.FillPolygon(new SolidBrush(_BubbleColor), p);
-                _G.DrawPolygon(new Pen(new SolidBrush(_BubbleColor)), p);
+                _G.DrawPolygon(new(new SolidBrush(_BubbleColor)), p);
             }
 
             G.Dispose();

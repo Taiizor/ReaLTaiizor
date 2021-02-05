@@ -195,13 +195,13 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle rect = new(0, 0, Width - 1, Height - 1);
 
-            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using (SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor))
             {
-                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor))
                 {
-                    using (SolidBrush ps = new SolidBrush(Enabled ? ProgressColor : DisabledProgressColor))
+                    using (SolidBrush ps = new(Enabled ? ProgressColor : DisabledProgressColor))
                     {
                         g.FillRectangle(bg, rect);
                         if (_currentValue != 0)

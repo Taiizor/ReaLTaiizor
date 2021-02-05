@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(EdgeColor); // Set control background to transparent
             G.FillPath(new SolidBrush(BackColor), Shape); // Draw RTB background
-            G.DrawPath(new Pen(BackColor), Shape); // Draw border
+            G.DrawPath(new(BackColor), Shape); // Draw border
 
             G.Dispose();
             e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);

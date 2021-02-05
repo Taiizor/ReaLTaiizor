@@ -247,7 +247,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(150, 150, 150);
             Size = new Size(166, 40);
             _TextAlignment = StringAlignment.Center;
-            P1 = new Pen(Color.FromArgb(190, 190, 190)); // P1 = Border color
+            P1 = new(Color.FromArgb(190, 190, 190)); // P1 = Border color
             Cursor = Cursors.Hand;
         }
 
@@ -256,13 +256,13 @@ namespace ReaLTaiizor.Controls
             if (Width > 0 && Height > 0)
             {
                 Shape = new GraphicsPath();
-                R1 = new Rectangle(0, 0, Width, Height);
+                R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
-                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
-                PressedContourGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
+                PressedContourGB = new(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
 
-                P3 = new Pen(PressedContourGB);
+                P3 = new(PressedContourGB);
             }
 
             GraphicsPath _Shape = Shape;

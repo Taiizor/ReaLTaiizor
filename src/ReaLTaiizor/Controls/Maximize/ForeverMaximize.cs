@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            Rectangle Base = new Rectangle(0, 0, Width, Height);
+            Rectangle Base = new(0, 0, Width, Height);
 
             Graphics _with4 = G;
             _with4.SmoothingMode = SmoothingMode.HighQuality;

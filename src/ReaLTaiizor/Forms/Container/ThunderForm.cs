@@ -69,18 +69,18 @@ namespace ReaLTaiizor.Forms
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle TopLeft = new Rectangle(0, 0, Width - 125, 28);
-            Rectangle TopRight = new Rectangle(Width - 82, 0, 81, 28);
-            Rectangle Body = new Rectangle(10, 10, Width - 21, Height - 16);
-            Rectangle Body2 = new Rectangle(5, 5, Width - 11, Height - 6);
+            Rectangle TopLeft = new(0, 0, Width - 125, 28);
+            Rectangle TopRight = new(Width - 82, 0, 81, 28);
+            Rectangle Body = new(10, 10, Width - 21, Height - 16);
+            Rectangle Body2 = new(5, 5, Width - 11, Height - 6);
             base.OnPaint(e);
-            LinearGradientBrush BodyBrush = new LinearGradientBrush(Body2, _BodyColorA, _BodyColorB, 90);
-            LinearGradientBrush BodyBrush2 = new LinearGradientBrush(Body, _BodyColorC, _BodyColorD, 120);
-            LinearGradientBrush gloss = new LinearGradientBrush(new Rectangle(0, 0, Width - 128, 28 / 2), Color.FromArgb(240, Color.FromArgb(26, 26, 26)), Color.FromArgb(5, 255, 255, 255), 90);
-            LinearGradientBrush gloss2 = new LinearGradientBrush(new Rectangle(Width - 82, 0, Width - 205, 28 / 2), Color.FromArgb(240, Color.FromArgb(26, 26, 26)), Color.FromArgb(5, 255, 255, 255), 90);
-            LinearGradientBrush mainbrush1 = new LinearGradientBrush(TopLeft, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
-            LinearGradientBrush mainbrush2 = new LinearGradientBrush(TopRight, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
-            Pen P1 = new Pen(Color.FromArgb(174, 195, 30), 2);
+            LinearGradientBrush BodyBrush = new(Body2, _BodyColorA, _BodyColorB, 90);
+            LinearGradientBrush BodyBrush2 = new(Body, _BodyColorC, _BodyColorD, 120);
+            LinearGradientBrush gloss = new(new Rectangle(0, 0, Width - 128, 28 / 2), Color.FromArgb(240, Color.FromArgb(26, 26, 26)), Color.FromArgb(5, 255, 255, 255), 90);
+            LinearGradientBrush gloss2 = new(new Rectangle(Width - 82, 0, Width - 205, 28 / 2), Color.FromArgb(240, Color.FromArgb(26, 26, 26)), Color.FromArgb(5, 255, 255, 255), 90);
+            LinearGradientBrush mainbrush1 = new(TopLeft, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
+            LinearGradientBrush mainbrush2 = new(TopRight, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
+            Pen P1 = new(Color.FromArgb(174, 195, 30), 2);
             Font drawFont = new Font("Tahoma", 10, FontStyle.Bold);
 
             G.Clear(Color.Fuchsia);

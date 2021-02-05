@@ -86,16 +86,16 @@ namespace ReaLTaiizor.Forms
         {
             G.Clear(BG);
 
-            LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(1, 1), new Size(Width - 2, 23)), G1, G2, 90f);
+            LinearGradientBrush LGB = new(new Rectangle(new Point(1, 1), new Size(Width - 2, 23)), G1, G2, 90f);
             G.FillRectangle(LGB, new Rectangle(new Point(1, 1), new Size(Width - 2, 23)));
 
-            G.DrawLine(new Pen(new SolidBrush(FirstEdge)), 1, 25, Width - 2, 25);
-            G.DrawLine(new Pen(new SolidBrush(SecondEdge)), 1, 26, Width - 2, 26);
+            G.DrawLine(new(new SolidBrush(FirstEdge)), 1, 25, Width - 2, 25);
+            G.DrawLine(new(new SolidBrush(SecondEdge)), 1, 26, Width - 2, 26);
 
             DrawCorners(TransparencyKey);
-            DrawBorders(new Pen(new SolidBrush(BorderColor)), 1);
+            DrawBorders(new(new SolidBrush(BorderColor)), 1);
 
-            Rectangle IconRec = new Rectangle(3, 3, 20, 20);
+            Rectangle IconRec = new(3, 3, 20, 20);
             G.DrawIcon(ParentForm.Icon, IconRec);
 
             G.DrawString(ParentForm.Text, Font, new SolidBrush(TitleColor), new Point(25, 5));

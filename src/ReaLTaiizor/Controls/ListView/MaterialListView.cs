@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Controls
 
             g.FillRectangle(new SolidBrush(BackColor), e.Bounds);
             // Draw Text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 NativeText.DrawTransparentText(
                     e.Header.Text,
@@ -135,12 +135,12 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw separator line
-            g.DrawLine(new Pen(SkinManager.DividersColor), e.Bounds.Left, e.Bounds.Y, e.Bounds.Right, e.Bounds.Y);
+            g.DrawLine(new(SkinManager.DividersColor), e.Bounds.Left, e.Bounds.Y, e.Bounds.Right, e.Bounds.Y);
 
             foreach (ListViewItem.ListViewSubItem subItem in e.Item.SubItems)
             {
                 // Draw Text
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+                using (MaterialNativeTextRenderer NativeText = new(g))
                 {
                     NativeText.DrawTransparentText(
                         subItem.Text,

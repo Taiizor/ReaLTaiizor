@@ -117,11 +117,11 @@ namespace ReaLTaiizor.Controls
             {
                 if (Checked)
                 {
-                    using (Pen Border = new Pen(_CheckedBorderColorA))
+                    using (Pen Border = new(_CheckedBorderColorA))
                     {
-                        using (SolidBrush Background = new SolidBrush(_CheckedColor))
+                        using (SolidBrush Background = new(_CheckedColor))
                         {
-                            using (Pen BackBorder = new Pen(_CheckedBorderColorB))
+                            using (Pen BackBorder = new(_CheckedBorderColorB))
                             {
                                 using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64C))))
                                 {
@@ -138,11 +138,11 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    using (Pen Border = new Pen(_UncheckedBorderColorA))
+                    using (Pen Border = new(_UncheckedBorderColorA))
                     {
-                        using (SolidBrush Background = new SolidBrush(_UncheckedColor))
+                        using (SolidBrush Background = new(_UncheckedColor))
                         {
-                            using (Pen BackBorder = new Pen(_UncheckedBorderColorB))
+                            using (Pen BackBorder = new(_UncheckedBorderColorB))
                             {
                                 using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64U))))
                                 {
@@ -162,11 +162,11 @@ namespace ReaLTaiizor.Controls
             {
                 if (Checked)
                 {
-                    using (Pen Border = new Pen(_DisabledCheckedBorderColorA))
+                    using (Pen Border = new(_DisabledCheckedBorderColorA))
                     {
-                        using (SolidBrush Background = new SolidBrush(_DisabledCheckedColor))
+                        using (SolidBrush Background = new(_DisabledCheckedColor))
                         {
-                            using (Pen BackBorder = new Pen(_DisabledCheckedBorderColorB))
+                            using (Pen BackBorder = new(_DisabledCheckedBorderColorB))
                             {
                                 using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64C))))
                                 {
@@ -183,11 +183,11 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    using (Pen Border = new Pen(_DisabledUncheckedBorderColorA))
+                    using (Pen Border = new(_DisabledUncheckedBorderColorA))
                     {
-                        using (SolidBrush Background = new SolidBrush(_DisabledUncheckedColor))
+                        using (SolidBrush Background = new(_DisabledUncheckedColor))
                         {
-                            using (Pen BackBorder = new Pen(_DisabledUncheckedBorderColorB))
+                            using (Pen BackBorder = new(_DisabledUncheckedBorderColorB))
                             {
                                 using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64U))))
                                 {

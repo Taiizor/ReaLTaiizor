@@ -158,15 +158,15 @@ namespace ReaLTaiizor.Controls
             graphics.Clear(BackColor);
 
             GraphicsPath checkmarkPath = RoundRectangle.CreateRoundRect(2, 2, 16, 16, 1);
-            Rectangle checkMarkLine = new Rectangle(3, 3, 14, 14);
+            Rectangle checkMarkLine = new(3, 3, 14, 14);
 
-            SolidBrush BG = new SolidBrush(_Enable ? (Checked || enterFlag ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
-            Pen Pen = new Pen(BG.Color);
+            SolidBrush BG = new(_Enable ? (Checked || enterFlag ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
+            Pen Pen = new(BG.Color);
 
             graphics.FillPath(BG, checkmarkPath);
             graphics.DrawPath(Pen, checkmarkPath);
 
-            graphics.DrawLines(new Pen(Color.White, 2), new PointF[]
+            graphics.DrawLines(new(Color.White, 2), new PointF[]
             {
                 new PointF(5, 9),new PointF(9, 13), new PointF(15, 6)
             });

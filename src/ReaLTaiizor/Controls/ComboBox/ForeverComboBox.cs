@@ -194,8 +194,8 @@ namespace ReaLTaiizor.Controls
             W = Width;
             H = Height;
 
-            Rectangle Base = new Rectangle(0, 0, W, H);
-            Rectangle Button = new Rectangle(Convert.ToInt32(W - 40), 0, W, H);
+            Rectangle Base = new(0, 0, W, H);
+            Rectangle Button = new(Convert.ToInt32(W - 40), 0, W, H);
             GraphicsPath GP = new GraphicsPath();
             GraphicsPath GP2 = new GraphicsPath();
 

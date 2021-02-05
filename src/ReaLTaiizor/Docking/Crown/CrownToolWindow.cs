@@ -169,7 +169,7 @@ namespace ReaLTaiizor.Docking.Crown
             Graphics g = e.Graphics;
 
             // Fill body
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -181,19 +181,19 @@ namespace ReaLTaiizor.Docking.Crown
             Color darkColor = isActive ? ThemeProvider.Theme.Colors.DarkBlueBorder : ThemeProvider.Theme.Colors.DarkBorder;
             Color lightColor = isActive ? ThemeProvider.Theme.Colors.LightBlueBorder : ThemeProvider.Theme.Colors.LightBorder;
 
-            using (SolidBrush b = new SolidBrush(bgColor))
+            using (SolidBrush b = new(bgColor))
             {
-                Rectangle bgRect = new Rectangle(0, 0, ClientRectangle.Width, ThemeProvider.Theme.Sizes.ToolWindowHeaderSize);
+                Rectangle bgRect = new(0, 0, ClientRectangle.Width, ThemeProvider.Theme.Sizes.ToolWindowHeaderSize);
                 g.FillRectangle(b, bgRect);
             }
 
-            using (Pen p = new Pen(darkColor))
+            using (Pen p = new(darkColor))
             {
                 g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
                 g.DrawLine(p, ClientRectangle.Left, ThemeProvider.Theme.Sizes.ToolWindowHeaderSize - 1, ClientRectangle.Right, ThemeProvider.Theme.Sizes.ToolWindowHeaderSize - 1);
             }
 
-            using (Pen p = new Pen(lightColor))
+            using (Pen p = new(lightColor))
             {
                 g.DrawLine(p, ClientRectangle.Left, 1, ClientRectangle.Right, 1);
             }
@@ -208,9 +208,9 @@ namespace ReaLTaiizor.Docking.Crown
             }
 
             // Draw text
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText))
             {
-                Rectangle textRect = new Rectangle(xOffset, 0, ClientRectangle.Width - 4 - xOffset, ThemeProvider.Theme.Sizes.ToolWindowHeaderSize);
+                Rectangle textRect = new(xOffset, 0, ClientRectangle.Width - 4 - xOffset, ThemeProvider.Theme.Sizes.ToolWindowHeaderSize);
 
                 StringFormat format = new StringFormat
                 {

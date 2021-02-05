@@ -95,9 +95,9 @@ namespace ReaLTaiizor.Controls
             {
                 using (Graphics G = Graphics.FromImage(B))
                 {
-                    Rectangle R1 = new Rectangle(0, 0, Width, Height / 2);
-                    Rectangle R2 = new Rectangle(0, Height / 2, Width, Height);
-                    G.DrawRectangle(new Pen(_ColorA), 0, 0, Width - 1, Height - 1);
+                    Rectangle R1 = new(0, 0, Width, Height / 2);
+                    Rectangle R2 = new(0, Height / 2, Width, Height);
+                    G.DrawRectangle(new(_ColorA), 0, 0, Width - 1, Height - 1);
 
                     if (State == 2)
                     {
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
                         G.FillRectangle(GB2, R2);
                         // Draw.Gradient(G, _ColorC, _ColorB, 1, 1, Width - 2, Height - 2);
                     }
-                    Pen P2 = new Pen(Color.Black, 2);
+                    Pen P2 = new(Color.Black, 2);
                     G.DrawRectangle(P2, 0, 0, Width, Height);
                     SizeF O = G.MeasureString(Text, Font);
                     G.DrawString(Text, Font, new SolidBrush(ForeColor), Width / 2 - O.Width / 2, Height / 2 - O.Height / 2);

@@ -76,9 +76,9 @@ namespace ReaLTaiizor.Controls
             {
                 if (enabled)
                 {
-                    using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
+                    using (Pen pen = new(AloneLibrary.ColorFromHex("#D0D5D9")))
                     {
-                        using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
+                        using (SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#7C858E")))
                         {
                             using (Font font = new Font("Marlett", 13f))
                             {
@@ -90,9 +90,9 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#E1E1E2")))
+                    using (Pen pen2 = new(AloneLibrary.ColorFromHex("#E1E1E2")))
                     {
-                        using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#D0D3D7")))
+                        using (SolidBrush solidBrush2 = new(AloneLibrary.ColorFromHex("#D0D3D7")))
                         {
                             using (Font font2 = new Font("Marlett", 13f))
                             {
@@ -107,7 +107,7 @@ namespace ReaLTaiizor.Controls
                 {
                     using (Font font3 = new Font("Segoe UI", 9f))
                     {
-                        using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
+                        using (SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#7C858E")))
                         {
                             bool enabled2 = Enabled;
                             if (enabled2)
@@ -132,7 +132,7 @@ namespace ReaLTaiizor.Controls
                             }
                             else
                             {
-                                using (SolidBrush solidBrush4 = new SolidBrush(AloneLibrary.ColorFromHex("#D0D3D7")))
+                                using (SolidBrush solidBrush4 = new(AloneLibrary.ColorFromHex("#D0D3D7")))
                                 {
                                     bool flag3 = SelectedIndex != -1;
                                     if (flag3)
@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls
                                 {
                                     using (new SolidBrush(Color.White))
                                     {
-                                        using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#78B7E6")))
+                                        using (SolidBrush solidBrush2 = new(AloneLibrary.ColorFromHex("#78B7E6")))
                                         {
                                             G.FillRectangle(solidBrush2, Rect);
                                             G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), Brushes.White, new Point(Rect.X + 5, Rect.Y + 1));
@@ -184,7 +184,7 @@ namespace ReaLTaiizor.Controls
                                 }
                                 else
                                 {
-                                    using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
+                                    using (SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#7C858E")))
                                     {
                                         G.FillRectangle(Brushes.White, Rect);
                                         G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), solidBrush3, new Point(Rect.X + 5, Rect.Y + 1));

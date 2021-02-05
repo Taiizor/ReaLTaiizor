@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
             switch (State)
             {
                 case FoxLibrary.MouseState.Over:
-                    using (SolidBrush TextColor = new SolidBrush(_OverColor))
+                    using (SolidBrush TextColor = new(_OverColor))
                     {
                         using (Font TextFont = new Font(Font.FontFamily, Font.Size, FontStyle.Underline))
                         {
@@ -56,14 +56,14 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case FoxLibrary.MouseState.Down:
-                    using (SolidBrush TextColor = new SolidBrush(_DownColor))
+                    using (SolidBrush TextColor = new(_DownColor))
                     {
                         G.DrawString(Text, Font, TextColor, new Point(0, 0));
                     }
 
                     break;
                 default:
-                    using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                    using (SolidBrush TextColor = new(ForeColor))
                     {
                         G.DrawString(Text, Font, TextColor, new Point(0, 0));
                     }

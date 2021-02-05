@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Forms
 
             if (DrawBorder)
             {
-                e.Graphics.DrawRectangle(new Pen(RoyalColors.BorderColor, BorderThickness), new Rectangle(0, 0, Width - BorderThickness, Height - BorderThickness));
+                e.Graphics.DrawRectangle(new(RoyalColors.BorderColor, BorderThickness), new Rectangle(0, 0, Width - BorderThickness, Height - BorderThickness));
             }
         }
 

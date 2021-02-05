@@ -65,15 +65,12 @@ namespace ReaLTaiizor.Controls
 
         private string TitleText(string Text)
         {
-            switch (TitleTextState)
+            return TitleTextState switch
             {
-                case TextState.Upper:
-                    return Text.ToUpperInvariant();
-                case TextState.Lower:
-                    return Text.ToLowerInvariant();
-                default:
-                    return Text;
-            }
+                TextState.Upper => Text.ToUpperInvariant(),
+                TextState.Lower => Text.ToLowerInvariant(),
+                _ => Text,
+            };
         }
 
         private MaterialTabControl _baseTabControl;
@@ -166,7 +163,7 @@ namespace ReaLTaiizor.Controls
                 //Click feedback
                 if (_animationManager.IsAnimating())
                 {
-                    SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationProgress * 50)), Color.White));
+                    SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationProgress * 50)), Color.White));
                     int rippleSize = (int)(animationProgress * _tabRects[_baseTabControl.SelectedIndex].Width * 1.75);
 
                     g.SetClip(_tabRects[_baseTabControl.SelectedIndex]);
@@ -180,7 +177,7 @@ namespace ReaLTaiizor.Controls
                 {
                     int currentTabIndex = _baseTabControl.TabPages.IndexOf(tabPage);
 
-                    using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+                    using (MaterialNativeTextRenderer NativeText = new(g))
                     {
                         Rectangle textLocation = _tabRects[currentTabIndex];
                         NativeText.DrawTransparentText(

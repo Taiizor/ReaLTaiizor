@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Controls
         protected override void ColorHook()
         { // Assigning the colors to variables
             C1 = GetColor("Background"); // Get the Background Color
-            B1 = new SolidBrush(GetColor("Text")); // Set up Color for the Text
+            B1 = new(GetColor("Text")); // Set up Color for the Text
         }
 
         protected override void PaintHook()

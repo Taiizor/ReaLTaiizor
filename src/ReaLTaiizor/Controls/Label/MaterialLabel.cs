@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
             if (AutoSize)
             {
                 Size strSize;
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+                using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
                 {
                     strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(_fontType));
                     strSize.Width += 1; // necessary to avoid a bug when autosize = true
@@ -129,7 +129,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor);
 
             // Draw Text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 NativeText.DrawMultilineTransparentText(
                     Text,

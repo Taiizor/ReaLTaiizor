@@ -185,25 +185,25 @@ namespace ReaLTaiizor.Docking.Crown
                 case DockArea.Document:
                     size = _tabArea.Visible ? ThemeProvider.Theme.Sizes.DocumentTabAreaSize : 0;
                     Padding = new Padding(0, size, 0, 0);
-                    _tabArea.ClientRectangle = new Rectangle(Padding.Left, 0, ClientRectangle.Width - Padding.Horizontal, size);
+                    _tabArea.ClientRectangle = new(Padding.Left, 0, ClientRectangle.Width - Padding.Horizontal, size);
                     break;
                 case DockArea.Left:
                 case DockArea.Right:
                     size = _tabArea.Visible ? ThemeProvider.Theme.Sizes.ToolWindowTabAreaSize : 0;
                     Padding = new Padding(0, 0, 0, size);
-                    _tabArea.ClientRectangle = new Rectangle(Padding.Left, ClientRectangle.Bottom - size, ClientRectangle.Width - Padding.Horizontal, size);
+                    _tabArea.ClientRectangle = new(Padding.Left, ClientRectangle.Bottom - size, ClientRectangle.Width - Padding.Horizontal, size);
                     break;
                 case DockArea.Bottom:
                     size = _tabArea.Visible ? ThemeProvider.Theme.Sizes.ToolWindowTabAreaSize : 0;
                     Padding = new Padding(1, 0, 0, size);
-                    _tabArea.ClientRectangle = new Rectangle(Padding.Left, ClientRectangle.Bottom - size, ClientRectangle.Width - Padding.Horizontal, size);
+                    _tabArea.ClientRectangle = new(Padding.Left, ClientRectangle.Bottom - size, ClientRectangle.Width - Padding.Horizontal, size);
                     break;
             }
 
             if (DockArea == DockArea.Document)
             {
                 int dropdownSize = ThemeProvider.Theme.Sizes.DocumentTabAreaSize;
-                _tabArea.DropdownRectangle = new Rectangle(_tabArea.ClientRectangle.Right - dropdownSize, 0, dropdownSize, dropdownSize);
+                _tabArea.DropdownRectangle = new(_tabArea.ClientRectangle.Right - dropdownSize, 0, dropdownSize, dropdownSize);
             }
 
             BuildTabs();
@@ -257,7 +257,7 @@ namespace ReaLTaiizor.Docking.Crown
                 int y = DockArea == DockArea.Document ? 0 : ClientRectangle.Height - ThemeProvider.Theme.Sizes.ToolWindowTabAreaSize;
                 int height = DockArea == DockArea.Document ? ThemeProvider.Theme.Sizes.DocumentTabAreaSize : ThemeProvider.Theme.Sizes.ToolWindowTabAreaSize;
 
-                Rectangle tabRect = new Rectangle(_tabArea.ClientRectangle.Left + totalSize, y, width, height);
+                Rectangle tabRect = new(_tabArea.ClientRectangle.Left + totalSize, y, width, height);
                 tab.ClientRectangle = tabRect;
 
                 totalSize += width;
@@ -273,7 +273,7 @@ namespace ReaLTaiizor.Docking.Crown
                     // No matter what, we want to slice off the 1 pixel separator from the final tab.
                     CrownDockTab lastTab = _tabs[orderedContent.Last()];
                     Rectangle tabRect = lastTab.ClientRectangle;
-                    lastTab.ClientRectangle = new Rectangle(tabRect.Left, tabRect.Top, tabRect.Width - 1, tabRect.Height);
+                    lastTab.ClientRectangle = new(tabRect.Left, tabRect.Top, tabRect.Width - 1, tabRect.Height);
                     lastTab.ShowSeparator = false;
 
                     int differenceMadeUp = 1;
@@ -298,7 +298,7 @@ namespace ReaLTaiizor.Docking.Crown
                             if (tab.ClientRectangle.Width >= largest)
                             {
                                 Rectangle rect = tab.ClientRectangle;
-                                tab.ClientRectangle = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height);
+                                tab.ClientRectangle = new(rect.Left, rect.Top, rect.Width - 1, rect.Height);
                                 differenceMadeUp += 1;
                             }
                         }
@@ -311,7 +311,7 @@ namespace ReaLTaiizor.Docking.Crown
                         CrownDockTab tab = _tabs[content];
 
                         Rectangle rect = tab.ClientRectangle;
-                        tab.ClientRectangle = new Rectangle(_tabArea.ClientRectangle.Left + xOffset, rect.Top, rect.Width, rect.Height);
+                        tab.ClientRectangle = new(_tabArea.ClientRectangle.Left + xOffset, rect.Top, rect.Width, rect.Height);
 
                         xOffset += rect.Width;
                     }
@@ -324,7 +324,7 @@ namespace ReaLTaiizor.Docking.Crown
                 foreach (CrownDockContent content in orderedContent)
                 {
                     CrownDockTab tab = _tabs[content];
-                    Rectangle closeRect = new Rectangle(tab.ClientRectangle.Right - 7 - closeButtonSize - 1,
+                    Rectangle closeRect = new(tab.ClientRectangle.Right - 7 - closeButtonSize - 1,
                                                   tab.ClientRectangle.Top + (tab.ClientRectangle.Height / 2) - (closeButtonSize / 2) - 1,
                                                   closeButtonSize, closeButtonSize);
                     tab.CloseButtonRectangle = closeRect;
@@ -359,7 +359,7 @@ namespace ReaLTaiizor.Docking.Crown
             }
 
             int width = ClientRectangle.Width - Padding.Horizontal - _tabArea.DropdownRectangle.Width;
-            Rectangle offsetArea = new Rectangle(Padding.Left, 0, width, 0);
+            Rectangle offsetArea = new(Padding.Left, 0, width, 0);
 
             CrownDockTab tab = _tabs[VisibleContent];
 
@@ -702,7 +702,7 @@ namespace ReaLTaiizor.Docking.Crown
         {
             Graphics g = e.Graphics;
 
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -712,7 +712,7 @@ namespace ReaLTaiizor.Docking.Crown
                 return;
             }
 
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.MediumBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.MediumBackground))
             {
                 g.FillRectangle(b, _tabArea.ClientRectangle);
             }
@@ -734,16 +734,16 @@ namespace ReaLTaiizor.Docking.Crown
                 // Color divider
                 bool isActiveGroup = DockPanel.ActiveGroup == this;
                 Color divColor = isActiveGroup ? ThemeProvider.Theme.Colors.BlueSelection : ThemeProvider.Theme.Colors.GreySelection;
-                using (SolidBrush b = new SolidBrush(divColor))
+                using (SolidBrush b = new(divColor))
                 {
-                    Rectangle divRect = new Rectangle(_tabArea.ClientRectangle.Left, _tabArea.ClientRectangle.Bottom - 2, _tabArea.ClientRectangle.Width, 2);
+                    Rectangle divRect = new(_tabArea.ClientRectangle.Left, _tabArea.ClientRectangle.Bottom - 2, _tabArea.ClientRectangle.Width, 2);
                     g.FillRectangle(b, divRect);
                 }
 
                 // Content dropdown list
-                Rectangle dropdownRect = new Rectangle(_tabArea.DropdownRectangle.Left, _tabArea.DropdownRectangle.Top, _tabArea.DropdownRectangle.Width, _tabArea.DropdownRectangle.Height - 2);
+                Rectangle dropdownRect = new(_tabArea.DropdownRectangle.Left, _tabArea.DropdownRectangle.Top, _tabArea.DropdownRectangle.Width, _tabArea.DropdownRectangle.Height - 2);
 
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.MediumBackground))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.MediumBackground))
                 {
                     g.FillRectangle(b, dropdownRect);
                 }
@@ -774,7 +774,7 @@ namespace ReaLTaiizor.Docking.Crown
                 bgColor = ThemeProvider.Theme.Colors.MediumBackground;
             }
 
-            using (SolidBrush b = new SolidBrush(bgColor))
+            using (SolidBrush b = new(bgColor))
             {
                 g.FillRectangle(b, tabRect);
             }
@@ -782,7 +782,7 @@ namespace ReaLTaiizor.Docking.Crown
             // Draw separators
             if (tab.ShowSeparator)
             {
-                using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
+                using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder))
                 {
                     g.DrawLine(p, tabRect.Right - 1, tabRect.Top, tabRect.Right - 1, tabRect.Bottom);
                 }
@@ -807,9 +807,9 @@ namespace ReaLTaiizor.Docking.Crown
 
             // Draw text
             Color textColor = isVisibleTab ? ThemeProvider.Theme.Colors.LightText : ThemeProvider.Theme.Colors.DisabledText;
-            using (SolidBrush b = new SolidBrush(textColor))
+            using (SolidBrush b = new(textColor))
             {
-                Rectangle textRect = new Rectangle(tabRect.Left + 5 + xOffset, tabRect.Top, tabRect.Width - tab.CloseButtonRectangle.Width - 7 - 5 - xOffset, tabRect.Height);
+                Rectangle textRect = new(tabRect.Left + 5 + xOffset, tabRect.Top, tabRect.Width - tab.CloseButtonRectangle.Width - 7 - 5 - xOffset, tabRect.Height);
                 g.DrawString(tab.DockContent.DockText, Font, b, textRect, tabTextFormat);
             }
 
@@ -845,7 +845,7 @@ namespace ReaLTaiizor.Docking.Crown
                 bgColor = ThemeProvider.Theme.Colors.MediumBackground;
             }
 
-            using (SolidBrush b = new SolidBrush(bgColor))
+            using (SolidBrush b = new(bgColor))
             {
                 g.FillRectangle(b, tabRect);
             }
@@ -853,7 +853,7 @@ namespace ReaLTaiizor.Docking.Crown
             // Draw separators
             if (tab.ShowSeparator)
             {
-                using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
+                using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder))
                 {
                     g.DrawLine(p, tabRect.Right - 1, tabRect.Top, tabRect.Right - 1, tabRect.Bottom);
                 }
@@ -868,9 +868,9 @@ namespace ReaLTaiizor.Docking.Crown
             };
 
             Color textColor = isVisibleTab ? ThemeProvider.Theme.Colors.BlueHighlight : ThemeProvider.Theme.Colors.DisabledText;
-            using (SolidBrush b = new SolidBrush(textColor))
+            using (SolidBrush b = new(textColor))
             {
-                Rectangle textRect = new Rectangle(tabRect.Left + 5, tabRect.Top, tabRect.Width - 5, tabRect.Height);
+                Rectangle textRect = new(tabRect.Left + 5, tabRect.Top, tabRect.Width - 5, tabRect.Height);
                 g.DrawString(tab.DockContent.DockText, Font, b, textRect, tabTextFormat);
             }
         }

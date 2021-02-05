@@ -205,14 +205,14 @@ namespace ReaLTaiizor.Controls
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            Rectangle rect = new Rectangle(0, 0, 17, 16);
+            Rectangle rect = new(0, 0, 17, 16);
             int alpha = _animator.Value;
 
-            using (SolidBrush backBrush = new SolidBrush(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
+            using (SolidBrush backBrush = new(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
             {
-                using (SolidBrush checkMarkBrush = new SolidBrush(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Checked || _animator.Active ? Color.FromArgb(alpha, DisabledBorderColor) : Color.FromArgb(238, 238, 238)))
+                using (SolidBrush checkMarkBrush = new(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Checked || _animator.Active ? Color.FromArgb(alpha, DisabledBorderColor) : Color.FromArgb(238, 238, 238)))
                 {
-                    using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                    using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor))
                     {
                         g.FillEllipse(backBrush, rect);
                         if (Enabled)
@@ -230,7 +230,7 @@ namespace ReaLTaiizor.Controls
 
             }
             g.SmoothingMode = SmoothingMode.Default;
-            using (SolidBrush tb = new SolidBrush(ForeColor))
+            using (SolidBrush tb = new(ForeColor))
             {
                 using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
                 {

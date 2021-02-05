@@ -214,12 +214,12 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(BaseColor);
 
-            LinearGradientBrush innerBorderBrush = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 3), BorderColorA, BorderColorB, 90);
-            Pen innerBorderPen = new Pen(innerBorderBrush);
+            LinearGradientBrush innerBorderBrush = new(new Rectangle(1, 1, Width - 3, Height - 3), BorderColorA, BorderColorB, 90);
+            Pen innerBorderPen = new(innerBorderBrush);
             G.DrawRectangle(innerBorderPen, new Rectangle(1, 1, Width - 3, Height - 3));
-            G.DrawLine(new Pen(BorderColorC), new Point(1, 1), new Point(Width - 3, 1));
+            G.DrawLine(new(BorderColorC), new Point(1, 1), new Point(Width - 3, 1));
 
-            G.DrawRectangle(new Pen(BorderColorD), new Rectangle(0, 0, Width - 1, Height - 1));
+            G.DrawRectangle(new(BorderColorD), new Rectangle(0, 0, Width - 1, Height - 1));
             e.Graphics.DrawImage(B, 0, 0);
             G.Dispose();
             B.Dispose();

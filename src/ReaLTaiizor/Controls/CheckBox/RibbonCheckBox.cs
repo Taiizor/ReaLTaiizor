@@ -187,8 +187,8 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle checkBoxRectangle = new Rectangle(0, 0, Height, Height - 1);
-            Rectangle Inner = new Rectangle(1, 1, Height - 2, Height - 3);
+            Rectangle checkBoxRectangle = new(0, 0, Height, Height - 1);
+            Rectangle Inner = new(1, 1, Height - 2, Height - 3);
 
             G.SmoothingMode = SmoothingType;
             G.CompositingQuality = CompositingQualityType;
@@ -196,10 +196,10 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(BaseColor);
 
-            LinearGradientBrush bodyGrad = new LinearGradientBrush(checkBoxRectangle, CheckBackColorA, CheckBackColorB, 90);
+            LinearGradientBrush bodyGrad = new(checkBoxRectangle, CheckBackColorA, CheckBackColorB, 90);
             G.FillRectangle(bodyGrad, bodyGrad.Rectangle);
-            G.DrawRectangle(new Pen(CheckBorderColorA), checkBoxRectangle);
-            G.DrawRectangle(new Pen(CheckBorderColorB), Inner);
+            G.DrawRectangle(new(CheckBorderColorA), checkBoxRectangle);
+            G.DrawRectangle(new(CheckBorderColorB), Inner);
 
             if (Checked)
             {

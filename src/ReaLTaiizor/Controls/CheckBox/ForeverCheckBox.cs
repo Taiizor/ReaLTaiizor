@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Controls
             W = Width - 1;
             H = Height - 1;
 
-            Rectangle Base = new Rectangle(0, 2, Height - 5, Height - 5);
+            Rectangle Base = new(0, 2, Height - 5, Height - 5);
 
             Graphics _with11 = G;
             _with11.SmoothingMode = SmoothingMode.HighQuality;
@@ -151,11 +151,11 @@ namespace ReaLTaiizor.Controls
                     {
                         case MouseStateForever.Over:
                             //-- Base
-                            _with11.DrawRectangle(new Pen(_BorderColor), Base);
+                            _with11.DrawRectangle(new(_BorderColor), Base);
                             break;
                         case MouseStateForever.Down:
                             //-- Base
-                            _with11.DrawRectangle(new Pen(_BorderColor), Base);
+                            _with11.DrawRectangle(new(_BorderColor), Base);
                             break;
                     }
 
@@ -184,12 +184,12 @@ namespace ReaLTaiizor.Controls
                     {
                         case MouseStateForever.Over:
                             //-- Base
-                            _with11.DrawRectangle(new Pen(_BorderColor), Base);
+                            _with11.DrawRectangle(new(_BorderColor), Base);
                             _with11.FillRectangle(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                         case MouseStateForever.Down:
                             //-- Base
-                            _with11.DrawRectangle(new Pen(_BorderColor), Base);
+                            _with11.DrawRectangle(new(_BorderColor), Base);
                             _with11.FillRectangle(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                     }

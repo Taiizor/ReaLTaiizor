@@ -156,7 +156,7 @@ namespace ReaLTaiizor.Controls
 
             if (DrawBorder)
             {
-                e.Graphics.DrawRectangle(new Pen(BorderColor, BorderThickness), new Rectangle(1, 1, Width - BorderThickness, Height - BorderThickness));
+                e.Graphics.DrawRectangle(new(BorderColor, BorderThickness), new Rectangle(1, 1, Width - BorderThickness, Height - BorderThickness));
             }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);

@@ -170,7 +170,7 @@ namespace ReaLTaiizor.Child.Metro
         {
             Graphics g = e.Graphics;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            using (SolidBrush bg = new SolidBrush(BaseColor))
+            using (SolidBrush bg = new(BaseColor))
             {
                 g.FillRectangle(bg, ClientRectangle);
             }

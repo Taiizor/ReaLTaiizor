@@ -167,25 +167,25 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            SolidBrush backBrush = new SolidBrush(_DefaultBackColor);
-            SolidBrush textBrush = new SolidBrush(_DefaultTextColor);
+            SolidBrush backBrush = new(_DefaultBackColor);
+            SolidBrush textBrush = new(_DefaultTextColor);
             switch (Type)
             {
                 case AlertType.Success:
-                    backBrush = new SolidBrush(_SuccessBackColor);
-                    textBrush = new SolidBrush(_SuccessTextColor);
+                    backBrush = new(_SuccessBackColor);
+                    textBrush = new(_SuccessTextColor);
                     break;
                 case AlertType.Warning:
-                    backBrush = new SolidBrush(_WarningBackColor);
-                    textBrush = new SolidBrush(_WarningTextColor);
+                    backBrush = new(_WarningBackColor);
+                    textBrush = new(_WarningTextColor);
                     break;
                 case AlertType.Info:
-                    backBrush = new SolidBrush(_InfoBackColor);
-                    textBrush = new SolidBrush(_InfoTextColor);
+                    backBrush = new(_InfoBackColor);
+                    textBrush = new(_InfoTextColor);
                     break;
                 case AlertType.Error:
-                    backBrush = new SolidBrush(_ErrorBackColor);
-                    textBrush = new SolidBrush(_ErrorTextColor);
+                    backBrush = new(_ErrorBackColor);
+                    textBrush = new(_ErrorTextColor);
                     break;
                 default:
                     break;
@@ -194,7 +194,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath back = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             graphics.FillPath(new SolidBrush(Color.White), back);
             graphics.FillPath(backBrush, back);
-            graphics.DrawPath(new Pen(textBrush, 1f), back);
+            graphics.DrawPath(new(textBrush, 1f), back);
             if (_Close)
             {
                 graphics.DrawString(Text, Font, textBrush, new RectangleF(20, 0, Width - 40, Height), HopeStringAlign.Left);

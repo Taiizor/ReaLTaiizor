@@ -189,7 +189,7 @@ namespace ReaLTaiizor.Controls
 
             // paint shadow on parent
             Graphics gp = e.Graphics;
-            Rectangle rect = new Rectangle(Location, fabBounds.Size);
+            Rectangle rect = new(Location, fabBounds.Size);
             gp.SmoothingMode = SmoothingMode.AntiAlias;
             DrawRoundShadow(gp, rect);
         }
@@ -222,7 +222,7 @@ namespace ReaLTaiizor.Controls
                 {
                     double animationValue = _animationManager.GetProgress(i);
                     Point animationSource = _animationManager.GetSource(i);
-                    SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationValue * 50)), Color.White));
+                    SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationValue * 50)), Color.White));
                     int rippleSize = (int)(animationValue * Width * 2);
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
                 }

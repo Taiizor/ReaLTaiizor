@@ -165,10 +165,10 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingType;
             G.Clear(Parent.FindForm().BackColor);
 
-            G.DrawEllipse(new Pen(EllipseBorderColorA), new Rectangle(0, 0, Height - 2, Height - 1));
-            LinearGradientBrush bgGrad = new LinearGradientBrush(new Rectangle(0, 0, Height - 2, Height - 2), EllipseBackColorA, EllipseBackColorB, 90);
+            G.DrawEllipse(new(EllipseBorderColorA), new Rectangle(0, 0, Height - 2, Height - 1));
+            LinearGradientBrush bgGrad = new(new Rectangle(0, 0, Height - 2, Height - 2), EllipseBackColorA, EllipseBackColorB, 90);
             G.FillEllipse(bgGrad, new Rectangle(0, 0, Height - 2, Height - 2));
-            G.DrawEllipse(new Pen(EllipseBorderColorB), new Rectangle(1, 1, Height - 4, Height - 4));
+            G.DrawEllipse(new(EllipseBorderColorB), new Rectangle(1, 1, Height - 4, Height - 4));
 
             if (Checked)
             {

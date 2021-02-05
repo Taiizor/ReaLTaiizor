@@ -16,8 +16,8 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private readonly SolidBrush BaseColor = new SolidBrush(Color.DarkGray);
-        private readonly SolidBrush AnimationColor = new SolidBrush(Color.DimGray);
+        private readonly SolidBrush BaseColor = new(Color.DarkGray);
+        private readonly SolidBrush AnimationColor = new(Color.DimGray);
 
         private readonly Timer AnimationSpeed = new Timer();
         private PointF[] FloatPoint;

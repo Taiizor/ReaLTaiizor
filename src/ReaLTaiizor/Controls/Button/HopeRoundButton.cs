@@ -147,7 +147,7 @@ namespace ReaLTaiizor.Controls
 
             if (_buttonType == HopeButtonType.Default)
             {
-                graphics.DrawPath(new Pen(clickFlag ? _DefaultColor : _BorderColor, 1), backPath);
+                graphics.DrawPath(new(clickFlag ? _DefaultColor : _BorderColor, 1), backPath);
                 graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, _DefaultColor) : _DefaultColor), backPath);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : _textColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
                     default:
                         break;
                 }
-                SolidBrush brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
+                SolidBrush brush = new(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
                 graphics.FillPath(brush, backPath);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : _textColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }

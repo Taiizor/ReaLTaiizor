@@ -387,11 +387,11 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            using (SolidBrush closeBoxState = new SolidBrush(CloseHovered ? CloseHoverBackColor : Color.Transparent))
+            using (SolidBrush closeBoxState = new(CloseHovered ? CloseHoverBackColor : Color.Transparent))
             {
                 using (Font f = new Font(@"Marlett", 12))
                 {
-                    using (SolidBrush tb = new SolidBrush(CloseHovered ? CloseHoverForeColor : CloseNormalForeColor))
+                    using (SolidBrush tb = new(CloseHovered ? CloseHoverForeColor : CloseNormalForeColor))
                     {
                         using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Center })
                         {
@@ -401,11 +401,11 @@ namespace ReaLTaiizor.Controls
                     }
                 }
             }
-            using (SolidBrush maximizeBoxState = new SolidBrush(MaximizeBox ? MaximizeHovered ? MaximizeHoverBackColor : Color.Transparent : Color.Transparent))
+            using (SolidBrush maximizeBoxState = new(MaximizeBox ? MaximizeHovered ? MaximizeHoverBackColor : Color.Transparent : Color.Transparent))
             {
                 using (Font f = new Font(@"Marlett", 12))
                 {
-                    using (SolidBrush tb = new SolidBrush(MaximizeBox ? MaximizeHovered ? MaximizeHoverForeColor : MaximizeNormalForeColor : DisabledForeColor))
+                    using (SolidBrush tb = new(MaximizeBox ? MaximizeHovered ? MaximizeHoverForeColor : MaximizeNormalForeColor : DisabledForeColor))
                     {
                         string maxSymbol = Parent.FindForm()?.WindowState == FormWindowState.Maximized ? "2" : "1";
                         using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Center })
@@ -416,11 +416,11 @@ namespace ReaLTaiizor.Controls
                     }
                 }
             }
-            using (SolidBrush minimizeBoxState = new SolidBrush(MinimizeBox ? MinimizeHovered ? MinimizeHoverBackColor : Color.Transparent : Color.Transparent))
+            using (SolidBrush minimizeBoxState = new(MinimizeBox ? MinimizeHovered ? MinimizeHoverBackColor : Color.Transparent : Color.Transparent))
             {
                 using (Font f = new Font(@"Marlett", 12))
                 {
-                    using (SolidBrush tb = new SolidBrush(MinimizeBox ? MinimizeHovered ? MinimizeHoverForeColor : MinimizeNormalForeColor : DisabledForeColor))
+                    using (SolidBrush tb = new(MinimizeBox ? MinimizeHovered ? MinimizeHoverForeColor : MinimizeNormalForeColor : DisabledForeColor))
                     {
                         using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Center })
                         {

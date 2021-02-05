@@ -267,7 +267,7 @@ namespace ReaLTaiizor.Forms
                                 }
                                 else
                                 {
-                                    MaximizedBounds = new Rectangle(0, 0, workingArea.Width, workingArea.Height);
+                                    MaximizedBounds = new(0, 0, workingArea.Width, workingArea.Height);
                                 }
 
                                 WindowState = FormWindowState.Maximized;

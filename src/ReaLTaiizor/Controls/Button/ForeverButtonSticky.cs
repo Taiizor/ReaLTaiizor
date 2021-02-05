@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
             bool[] GCS = GetConnectedSides();
             // dynamic RoundedBase = ForeverLibrary.RoundRect(0, 0, W, H, ???, !(GCS(2) | GCS(1)), !(GCS(1) | GCS(0)), !(GCS(3) | GCS(0)), !(GCS(3) | GCS(2)));
             GraphicsPath RoundedBase = ForeverLibrary.RoundRect(0, 0, W, H, 0.3, !(GCS[2] || GCS[1]), !(GCS[1] || GCS[0]), !(GCS[3] || GCS[0]), !(GCS[3] || GCS[2]));
-            Rectangle Base = new Rectangle(0, 0, W, H);
+            Rectangle Base = new(0, 0, W, H);
 
             Graphics _with17 = G;
             _with17.SmoothingMode = SmoothingMode.HighQuality;

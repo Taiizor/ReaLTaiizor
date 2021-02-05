@@ -47,12 +47,12 @@ namespace ReaLTaiizor.Controls
             }
             else if (State == MouseStateMoon.Down)
             {
-                LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(Width, Height)), Color.FromArgb(240, 240, 240), Color.White, 90f);
+                LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(Width, Height)), Color.FromArgb(240, 240, 240), Color.White, 90f);
                 G.FillRectangle(LGB, new Rectangle(new Point(0, 0), new Size(Width, Height)));
             }
             else if (State == MouseStateMoon.None)
             {
-                LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(Width, Height)), Color.White, Color.FromArgb(240, 240, 240), 90f);
+                LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(Width, Height)), Color.White, Color.FromArgb(240, 240, 240), 90f);
                 G.FillRectangle(LGB, new Rectangle(new Point(0, 0), new Size(Width, Height)));
             }
 

@@ -289,7 +289,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
 
-            P1 = new Pen(_BorderColor);
+            P1 = new(_BorderColor);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(76, 76, 76);
             _Minimum = 0;
@@ -322,7 +322,7 @@ namespace ReaLTaiizor.Controls
             Graphics G = Graphics.FromImage(B);
             LinearGradientBrush BackgroundLGB = default(LinearGradientBrush);
 
-            BackgroundLGB = new LinearGradientBrush(ClientRectangle, _BackColorA, _BackColorB, 90.0F);
+            BackgroundLGB = new(ClientRectangle, _BackColorA, _BackColorB, 90.0F);
 
             G.SmoothingMode = SmoothingMode.AntiAlias;
 
@@ -331,9 +331,9 @@ namespace ReaLTaiizor.Controls
             G.DrawPath(P1, Shape); // Draw border
 
             G.DrawString("+", new Font("Tahoma", 14), new SolidBrush(_ButtonForeColorA), new Rectangle(Width - 25, 1, 19, 30));
-            G.DrawLine(new Pen(_BorderColor), Width - 28, 1, Width - 28, Height - 2);
+            G.DrawLine(new(_BorderColor), Width - 28, 1, Width - 28, Height - 2);
             G.DrawString("-", new Font("Tahoma", 14), new SolidBrush(_ButtonForeColorB), new Rectangle(Width - 44, 1, 19, 30));
-            G.DrawLine(new Pen(_BorderColor), Width - 48, 1, Width - 48, Height - 2);
+            G.DrawLine(new(_BorderColor), Width - 48, 1, Width - 48, Height - 2);
 
             switch (MyStringAlignment)
             {

@@ -267,8 +267,8 @@ namespace ReaLTaiizor.Controls
             }
 
             bool itemState = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
-            using (SolidBrush bg = new SolidBrush(itemState ? SelectedItemBackColor : BackgroundColor))
-            using (SolidBrush tc = new SolidBrush(itemState ? SelectedItemForeColor : ForeColor))
+            using (SolidBrush bg = new(itemState ? SelectedItemBackColor : BackgroundColor))
+            using (SolidBrush tc = new(itemState ? SelectedItemForeColor : ForeColor))
             {
                 using (Font f = new Font(Font.Name, 9))
                 {
@@ -281,17 +281,17 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle rect = new(0, 0, Width - 1, Height - 1);
             char downArrow = '▼';
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using (SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor))
             {
-                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
+                using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor))
                 {
-                    using (SolidBrush s = new SolidBrush(Enabled ? ArrowColor : DisabledForeColor))
+                    using (SolidBrush s = new(Enabled ? ArrowColor : DisabledForeColor))
                     {
-                        using (SolidBrush tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                        using (SolidBrush tb = new(Enabled ? ForeColor : DisabledForeColor))
                         {
                             using (Font f = MetroFonts.SemiBold(8))
                             {

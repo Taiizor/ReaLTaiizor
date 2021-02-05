@@ -332,7 +332,7 @@ namespace ReaLTaiizor.Controls
         {
             if (Width > 0 && Height > 0)
             {
-                stringRect = new Rectangle(0, 0, Width, Height);
+                stringRect = new(0, 0, Width, Height);
             }
 
             Invalidate();
@@ -411,7 +411,7 @@ namespace ReaLTaiizor.Controls
 
         private void FillButton(Graphics g)
         {
-            using (SolidBrush animBrush = new SolidBrush(Color.FromArgb(buttonGlow, ForeColor)))
+            using (SolidBrush animBrush = new(Color.FromArgb(buttonGlow, ForeColor)))
             {
                 g.FillPath(animBrush, roundRectPath);
             }
@@ -438,8 +438,8 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            using (Pen pathPen = new Pen(penColor, 2f))
-            using (SolidBrush stringBrush = new SolidBrush(brushColor))
+            using (Pen pathPen = new(penColor, 2f))
+            using (SolidBrush stringBrush = new(brushColor))
             using
             (
                 StringFormat sf = new StringFormat

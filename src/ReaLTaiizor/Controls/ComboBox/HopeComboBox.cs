@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Controls
 
                 GraphicsPath backPath = RoundRectangle.CreateRoundRect(1, 1, Width - 2, Height - 2, 2);
                 graphics.FillPath(new SolidBrush(Color.White), backPath);
-                graphics.DrawPath(new Pen(HopeColors.OneLevelBorder, 2), backPath);
+                graphics.DrawPath(new(HopeColors.OneLevelBorder, 2), backPath);
 
                 graphics.FillRectangle(new SolidBrush(Color.White), new RectangleF(1, 1, Width - 2, Height - 2));
 

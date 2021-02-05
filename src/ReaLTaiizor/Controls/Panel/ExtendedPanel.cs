@@ -124,7 +124,7 @@ namespace ReaLTaiizor.Controls
             switch (DrawMode)
             {
                 case Drawer.Default:
-                    using (SolidBrush Brush = new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)))
+                    using (SolidBrush Brush = new(Color.FromArgb(Opacity * 255 / 100, BackColor)))
                     {
                         e.Graphics.FillRectangle(Brush, ClientRectangle);
                     }

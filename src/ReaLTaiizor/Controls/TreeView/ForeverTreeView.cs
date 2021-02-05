@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
         {
             try
             {
-                Rectangle Bounds = new Rectangle(e.Bounds.Location.X, e.Bounds.Location.Y, e.Bounds.Width, e.Bounds.Height);
+                Rectangle Bounds = new(e.Bounds.Location.X, e.Bounds.Location.Y, e.Bounds.Width, e.Bounds.Height);
                 //e.Node.Nodes.Item.
                 switch (State)
                 {
@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Controls
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            Rectangle Base = new Rectangle(0, 0, Width, Height);
+            Rectangle Base = new(0, 0, Width, Height);
 
             Graphics _with22 = G;
             _with22.SmoothingMode = SmoothingMode.HighQuality;

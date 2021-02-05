@@ -220,16 +220,16 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            Rectangle rect = new Rectangle(1, 1, 56, 20);
-            Rectangle rect2 = new Rectangle(3, 3, 52, 16);
+            Rectangle rect = new(1, 1, 56, 20);
+            Rectangle rect2 = new(3, 3, 52, 16);
 
-            using (SolidBrush backBrush = new SolidBrush(BackgroundColor))
+            using (SolidBrush backBrush = new(BackgroundColor))
             {
-                using (SolidBrush checkback = new SolidBrush(Enabled ? Switched ? CheckColor : UnCheckColor : Switched ? DisabledCheckColor : DisabledUnCheckColor))
+                using (SolidBrush checkback = new(Enabled ? Switched ? CheckColor : UnCheckColor : Switched ? DisabledCheckColor : DisabledUnCheckColor))
                 {
-                    using (SolidBrush checkMarkBrush = new SolidBrush(SymbolColor))
+                    using (SolidBrush checkMarkBrush = new(SymbolColor))
                     {
-                        using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor, 2))
+                        using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor, 2))
                         {
                             g.FillRectangle(backBrush, rect);
                             g.FillRectangle(checkback, rect2);

@@ -45,11 +45,11 @@ namespace ReaLTaiizor.Forms
             C1 = GetColor("Background"); // Get the Background Color
             C2 = GetColor("DarkGradient"); // Get the Dark Gradient
             C3 = GetColor("BackgroundGradient"); // The Light Gradient
-            P1 = new Pen(GetColor("Line1")); // Create a Pen for the Line
-            P2 = new Pen(GetColor("Line2"));
-            P3 = new Pen(GetColor("Border1")); // Create a Pen for the Border
-            P4 = new Pen(GetColor("Border2"));
-            B1 = new SolidBrush(GetColor("Text")); // Set up a brush for the Text
+            P1 = new(GetColor("Line1")); // Create a Pen for the Line
+            P2 = new(GetColor("Line2"));
+            P3 = new(GetColor("Border1")); // Create a Pen for the Border
+            P4 = new(GetColor("Border2"));
+            B1 = new(GetColor("Text")); // Set up a brush for the Text
             BackColor = C1; // Create a Second Variable for The Background Color
         }
 

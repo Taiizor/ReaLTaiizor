@@ -194,8 +194,8 @@ namespace ReaLTaiizor.Controls
                         graphics.FillEllipse(new SolidBrush(_DangerColor), new RectangleF(Width - 40, 0, Height, Height));
                         int a = Width - 40 + 4;
                         int b = Height - 4;
-                        graphics.DrawLine(new Pen(ForeColor), a, b - 6, a + 6, b);
-                        graphics.DrawLine(new Pen(ForeColor), a + 6, b - 6, a, b);
+                        graphics.DrawLine(new(ForeColor), a, b - 6, a + 6, b);
+                        graphics.DrawLine(new(ForeColor), a + 6, b - 6, a, b);
                     }
                     else
                     {
@@ -204,8 +204,8 @@ namespace ReaLTaiizor.Controls
                             graphics.FillEllipse(new SolidBrush(_FullBarColor), new RectangleF(Width - 40, 0, Height, Height));
                             int a = Width - 40 + 4;
                             int b = Height - 4;
-                            graphics.DrawLine(new Pen(ForeColor), a, b - 3, a + 3, b);
-                            graphics.DrawLine(new Pen(ForeColor), a + 3, b, a + 6, b - 6);
+                            graphics.DrawLine(new(ForeColor), a, b - 3, a + 3, b);
+                            graphics.DrawLine(new(ForeColor), a + 3, b, a + 6, b - 6);
                         }
                         else
                         {

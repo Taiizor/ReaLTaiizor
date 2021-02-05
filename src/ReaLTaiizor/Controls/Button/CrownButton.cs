@@ -322,7 +322,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            Rectangle rect = new(0, 0, ClientSize.Width, ClientSize.Height);
 
             Color textColor = ThemeProvider.Theme.Colors.LightText;
             Color borderColor = ThemeProvider.Theme.Colors.GreySelection;
@@ -369,16 +369,16 @@ namespace ReaLTaiizor.Controls
                 fillColor = ThemeProvider.Theme.Colors.DarkGreySelection;
             }
 
-            using (SolidBrush b = new SolidBrush(fillColor))
+            using (SolidBrush b = new(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
 
             if (ButtonStyle == ButtonStyle.Normal)
             {
-                using (Pen p = new Pen(borderColor, 1))
+                using (Pen p = new(borderColor, 1))
                 {
-                    Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                    Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
 
                     g.DrawRectangle(p, modRect);
                 }
@@ -416,9 +416,9 @@ namespace ReaLTaiizor.Controls
                 g.DrawImageUnscaled(Image, x, y);
             }
 
-            using (SolidBrush b = new SolidBrush(textColor))
+            using (SolidBrush b = new(textColor))
             {
-                Rectangle modRect = new Rectangle(rect.Left + textOffsetX + Padding.Left, rect.Top + textOffsetY + Padding.Top, rect.Width - Padding.Horizontal, rect.Height - Padding.Vertical);
+                Rectangle modRect = new(rect.Left + textOffsetX + Padding.Left, rect.Top + textOffsetY + Padding.Top, rect.Width - Padding.Horizontal, rect.Height - Padding.Vertical);
 
                 StringFormat stringFormat = new StringFormat
                 {

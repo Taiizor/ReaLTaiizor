@@ -132,13 +132,13 @@ namespace ReaLTaiizor.Controls
 
         private void _Enter(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(32, 34, 37));
+            P1 = new(Color.FromArgb(32, 34, 37));
             Refresh();
         }
 
         private void _Leave(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(32, 41, 50));
+            P1 = new(Color.FromArgb(32, 41, 50));
             Refresh();
         }
 
@@ -250,8 +250,8 @@ namespace ReaLTaiizor.Controls
             AddTextBox();
             Controls.Add(ReaLTaiizorTB);
 
-            P1 = new Pen(Color.FromArgb(32, 41, 50));
-            B1 = new SolidBrush(Color.FromArgb(66, 76, 85));
+            P1 = new(Color.FromArgb(32, 41, 50));
+            B1 = new(Color.FromArgb(66, 76, 85));
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(176, 183, 191);
 

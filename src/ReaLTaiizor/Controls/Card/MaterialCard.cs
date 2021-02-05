@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Controls
 
             // paint shadow on parent
             Graphics gp = e.Graphics;
-            Rectangle rect = new Rectangle(Location, ClientRectangle.Size);
+            Rectangle rect = new(Location, ClientRectangle.Size);
             gp.SmoothingMode = SmoothingMode.AntiAlias;
             DrawSquareShadow(gp, rect);
         }
@@ -141,7 +141,7 @@ namespace ReaLTaiizor.Controls
             DrawSquareShadow(g, ClientRectangle);
 
             // Draw card
-            using (SolidBrush normalBrush = new SolidBrush(BackColor))
+            using (SolidBrush normalBrush = new(BackColor))
             {
                 g.FillPath(normalBrush, cardPath);
             }

@@ -172,12 +172,12 @@ namespace ReaLTaiizor.Controls
             Color borderColor = PoisonPaint.BorderColor.Button.Normal(displayTheme);
             Color foreColor = PoisonPaint.ForeColor.Label.Normal(displayTheme);
 
-            using (SolidBrush b = new SolidBrush(backColor))
+            using (SolidBrush b = new(backColor))
             {
                 e.Graphics.FillRectangle(b, e.Bounds);
             }
 
-            using (Pen p = new Pen(borderColor))
+            using (Pen p = new(borderColor))
             {
                 e.Graphics.DrawRectangle(p, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
             }

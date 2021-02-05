@@ -400,7 +400,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            using (Pen forePen = new Pen(foreColor, (float)Width / 5))
+            using (Pen forePen = new(foreColor, (float)Width / 5))
             {
                 int padding = (int)Math.Ceiling((float)Width / 10);
 
@@ -445,7 +445,7 @@ namespace ReaLTaiizor.Controls
                         }
 
                         Color col = Color.FromArgb(alpha, forePen.Color);
-                        using (Pen gradPen = new Pen(col, forePen.Width))
+                        using (Pen gradPen = new(col, forePen.Width))
                         {
                             float startAngle = angle + (offset - (ensureVisible ? 30 : 0)) * (backwards ? 1 : -1);
                             float sweepAngle = 15 * (backwards ? 1 : -1);

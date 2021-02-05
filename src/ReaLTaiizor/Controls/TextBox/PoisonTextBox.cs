@@ -697,7 +697,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            using (Pen p = new Pen(borderColor))
+            using (Pen p = new(borderColor))
             {
                 e.Graphics.DrawRectangle(p, new Rectangle(0, 0, Width - 2, Height - 1));
             }
@@ -1036,7 +1036,7 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                SolidBrush drawBrush = new SolidBrush(WaterMarkColor);
+                SolidBrush drawBrush = new(WaterMarkColor);
 
                 TextRenderer.DrawText(g, promptText, _waterMarkFont, clientRectangle, _waterMarkColor, BackColor, flags);
             }

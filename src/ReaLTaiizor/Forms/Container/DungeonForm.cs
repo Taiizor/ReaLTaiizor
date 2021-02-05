@@ -203,7 +203,7 @@ namespace ReaLTaiizor.Forms
             base.OnSizeChanged(e);
             if (!_ControlMode)
             {
-                HeaderRect = new Rectangle(0, 0, Width - 14, MoveHeight - 7);
+                HeaderRect = new(0, 0, Width - 14, MoveHeight - 7);
             }
 
             Invalidate();
@@ -492,13 +492,13 @@ namespace ReaLTaiizor.Forms
             Graphics G = e.Graphics;
             G.Clear(_FooterEdgeColor);
 
-            G.DrawRectangle(new Pen(_BorderColor), new Rectangle(0, 0, Width - 1, Height - 1));
+            G.DrawRectangle(new(_BorderColor), new Rectangle(0, 0, Width - 1, Height - 1));
             // Use [Color.FromArgb(87, 86, 81), Color.FromArgb(60, 59, 55)] for a darker taste
             // And replace each (60, 59, 55) with (69, 68, 63)
             G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, 36), _HeaderEdgeColorA, _HeaderEdgeColorB), new Rectangle(1, 1, Width - 2, 36));
             G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, Height), _FillEdgeColorA, _FillEdgeColorB), new Rectangle(1, 36, Width - 2, Height - 46));
 
-            G.DrawRectangle(new Pen(_BorderColor), new Rectangle(9, 47, Width - 19, Height - 55));
+            G.DrawRectangle(new(_BorderColor), new Rectangle(9, 47, Width - 19, Height - 55));
             G.FillRectangle(new SolidBrush(BackColor), new Rectangle(10, 48, Width - 20, Height - 56));
 
             if (_RoundCorners == true)

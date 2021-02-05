@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
 
             e.Graphics.SmoothingMode = SmoothingType;
             e.Graphics.FillEllipse(new SolidBrush(backColor), new Rectangle(2, 2, Width - (BorderThickness + 1), Height - (BorderThickness + 1)));
-            e.Graphics.DrawEllipse(new Pen(BorderColor, BorderThickness), new Rectangle(1, 1, Width - BorderThickness, Height - BorderThickness));
+            e.Graphics.DrawEllipse(new(BorderColor, BorderThickness), new Rectangle(1, 1, Width - BorderThickness, Height - BorderThickness));
 
             if (Image != null)
             {

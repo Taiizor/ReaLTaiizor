@@ -137,26 +137,14 @@ namespace ReaLTaiizor.Controls
                 Size = new Size(400, 200);
 
                 TaskBar myTaskbar = new TaskBar();
-                switch (myTaskbar.Position)
+                Location = myTaskbar.Position switch
                 {
-                    case TaskBarPosition.Left:
-                        Location = new Point(myTaskbar.Bounds.Width + 5, myTaskbar.Bounds.Height - Height - 5);
-                        break;
-                    case TaskBarPosition.Top:
-                        Location = new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Height + 5);
-                        break;
-                    case TaskBarPosition.Right:
-                        Location = new Point(myTaskbar.Bounds.X - Width - 5, myTaskbar.Bounds.Height - Height - 5);
-                        break;
-                    case TaskBarPosition.Bottom:
-                        Location = new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Y - Height - 5);
-                        break;
-                    case TaskBarPosition.Unknown:
-                    default:
-                        Location = new Point(Screen.PrimaryScreen.Bounds.Width - Width - 5, Screen.PrimaryScreen.Bounds.Height - Height - 5);
-                        break;
-                }
-
+                    TaskBarPosition.Left => new Point(myTaskbar.Bounds.Width + 5, myTaskbar.Bounds.Height - Height - 5),
+                    TaskBarPosition.Top => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Height + 5),
+                    TaskBarPosition.Right => new Point(myTaskbar.Bounds.X - Width - 5, myTaskbar.Bounds.Height - Height - 5),
+                    TaskBarPosition.Bottom => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Y - Height - 5),
+                    _ => new Point(Screen.PrimaryScreen.Bounds.Width - Width - 5, Screen.PrimaryScreen.Bounds.Height - Height - 5),
+                };
                 controlContainer.Location = new Point(0, 60);
                 controlContainer.Size = new Size(Width - 40, Height - 80);
                 controlContainer.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;
@@ -184,7 +172,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
-            using (SolidBrush b = new SolidBrush(PoisonPaint.BackColor.Form(Theme)))
+            using (SolidBrush b = new(PoisonPaint.BackColor.Form(Theme)))
             {
                 e.Graphics.FillRectangle(b, new Rectangle(Width - progressWidth, 0, progressWidth, 5));
             }

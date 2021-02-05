@@ -137,20 +137,20 @@ namespace ReaLTaiizor.Controls
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            Rectangle checkBoxRectangle = new Rectangle(0, 0, Height - 1, Height - 1);
+            Rectangle checkBoxRectangle = new(0, 0, Height - 1, Height - 1);
             G.SmoothingMode = SmoothingType;
 
             G.Clear(Parent.FindForm().BackColor);
 
-            LinearGradientBrush bodyGrad = new LinearGradientBrush(checkBoxRectangle, BoxBGColorA, BoxBGColorB, 90);
+            LinearGradientBrush bodyGrad = new(checkBoxRectangle, BoxBGColorA, BoxBGColorB, 90);
             G.FillRectangle(bodyGrad, bodyGrad.Rectangle);
-            G.DrawRectangle(new Pen(BoxBorderColorA), new Rectangle(0, 0, Height - 1, Height - 2));
-            G.DrawRectangle(new Pen(BoxBorderColorB), new Rectangle(1, 1, Height - 3, Height - 4));
-            G.DrawLine(new Pen(BoxBorderColorC), new Point(1, Height - 1), new Point(Height - 2, Height - 1));
+            G.DrawRectangle(new(BoxBorderColorA), new Rectangle(0, 0, Height - 1, Height - 2));
+            G.DrawRectangle(new(BoxBorderColorB), new Rectangle(1, 1, Height - 3, Height - 4));
+            G.DrawLine(new(BoxBorderColorC), new Point(1, Height - 1), new Point(Height - 2, Height - 1));
 
             if (Checked)
             {
-                Rectangle chkPoly = new Rectangle(checkBoxRectangle.X + checkBoxRectangle.Width / 4, checkBoxRectangle.Y + checkBoxRectangle.Height / 4, checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
+                Rectangle chkPoly = new(checkBoxRectangle.X + checkBoxRectangle.Width / 4, checkBoxRectangle.Y + checkBoxRectangle.Height / 4, checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
                 Point[] Poly =
                 {
                     new Point(chkPoly.X, chkPoly.Y + chkPoly.Height / 2),

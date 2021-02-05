@@ -141,13 +141,13 @@ namespace ReaLTaiizor.Forms
                         O = Width - S.Width - 6;
                     }
 
-                    Rectangle R = new Rectangle((int)O, (_TitleHeight + 2) / 2 - (int)S.Height / 2, (int)S.Width, (int)S.Height);
+                    Rectangle R = new((int)O, (_TitleHeight + 2) / 2 - (int)S.Height / 2, (int)S.Width, (int)S.Height);
                     using (Brush T = new LinearGradientBrush(R, _ColorA, _ColorC, LinearGradientMode.Vertical))
                     {
                         G.DrawString(Text, Font, T, R);
                     }
 
-                    G.DrawLine(new Pen(_ColorC), 0, 1, Width, 1);
+                    G.DrawLine(new(_ColorC), 0, 1, Width, 1);
 
                     // Draw.Blend(G, _ColorE, _ColorF, _ColorE, 0.5, 0, 0, _TitleHeight + 1, Width, 1)
                     ColorBlend x = new ColorBlend();
@@ -157,12 +157,12 @@ namespace ReaLTaiizor.Forms
                     x.Positions = temp2;
 
                     /*
-                        LinearGradientBrush B = new LinearGradientBrush(new Point(10, 110), new Point(140, 110), Color.White, Color.Black);
+                        LinearGradientBrush B = new(new Point(10, 110), new Point(140, 110), Color.White, Color.Black);
                         B.InterpolationColors = C_Blend;
                     */
 
-                    G.DrawLine(new Pen(_ColorD), 0, _TitleHeight, Width, _TitleHeight);
-                    G.DrawRectangle(new Pen(_ColorD), 0, 0, Width - 1, Height - 1);
+                    G.DrawLine(new(_ColorD), 0, _TitleHeight, Width, _TitleHeight);
+                    G.DrawRectangle(new(_ColorD), 0, 0, Width - 1, Height - 1);
                     Bitmap B1 = B;
                     e.Graphics.DrawImage(B, 0, 0);
                 }

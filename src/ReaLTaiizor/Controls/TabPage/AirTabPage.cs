@@ -60,8 +60,8 @@ namespace ReaLTaiizor.Controls
             G.Clear(Color.White);
             for (int i = 0; i <= TabCount - 1; i++)
             {
-                Rectangle x2 = new Rectangle(new Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2), new Size(GetTabRect(i).Width + 3, GetTabRect(i).Height - 1));
-                Rectangle textrectangle = new Rectangle(x2.Location.X + 20, x2.Location.Y, x2.Width - 20, x2.Height);
+                Rectangle x2 = new(new Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2), new Size(GetTabRect(i).Width + 3, GetTabRect(i).Height - 1));
+                Rectangle textrectangle = new(x2.Location.X + 20, x2.Location.Y, x2.Width - 20, x2.Height);
                 if (i == SelectedIndex)
                 {
                     G.FillRectangle(new SolidBrush(C1), new Rectangle(x2.Location, new Size(9, x2.Height)));

@@ -437,7 +437,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
 
             // Draw background
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.MediumBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.MediumBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -447,9 +447,9 @@ namespace ReaLTaiizor.Controls
             {
                 if (ShowBorder)
                 {
-                    using (Pen p = new Pen(ThemeProvider.Theme.Colors.LightBorder, 1))
+                    using (Pen p = new(ThemeProvider.Theme.Colors.LightBorder, 1))
                     {
-                        Rectangle modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
+                        Rectangle modRect = new(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
                         g.DrawRectangle(p, modRect);
                     }
                 }
@@ -458,20 +458,20 @@ namespace ReaLTaiizor.Controls
             // Draw hover state
             if (ControlState == ControlState.Hover)
             {
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.DarkBorder))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.DarkBorder))
                 {
                     g.FillRectangle(b, ClientRectangle);
                 }
 
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.DarkBackground))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.DarkBackground))
                 {
-                    Rectangle arrowRect = new Rectangle(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
+                    Rectangle arrowRect = new(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
                     g.FillRectangle(b, arrowRect);
                 }
 
-                using (Pen p = new Pen(ThemeProvider.Theme.Colors.BlueSelection, 1))
+                using (Pen p = new(ThemeProvider.Theme.Colors.BlueSelection, 1))
                 {
-                    Rectangle modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1 - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Height - 1);
+                    Rectangle modRect = new(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1 - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Height - 1);
                     g.DrawRectangle(p, modRect);
                 }
             }
@@ -479,14 +479,14 @@ namespace ReaLTaiizor.Controls
             // Draw pressed state
             if (ControlState == ControlState.Pressed)
             {
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.DarkBorder))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.DarkBorder))
                 {
                     g.FillRectangle(b, ClientRectangle);
                 }
 
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.BlueSelection))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.BlueSelection))
                 {
-                    Rectangle arrowRect = new Rectangle(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
+                    Rectangle arrowRect = new(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
                     g.FillRectangle(b, arrowRect);
                 }
             }
@@ -509,7 +509,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Draw Text
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText))
                 {
                     StringFormat stringFormat = new StringFormat
                     {
@@ -517,7 +517,7 @@ namespace ReaLTaiizor.Controls
                         LineAlignment = StringAlignment.Center
                     };
 
-                    Rectangle rect = new Rectangle(ClientRectangle.Left + 2, ClientRectangle.Top, ClientRectangle.Width - 16, ClientRectangle.Height);
+                    Rectangle rect = new(ClientRectangle.Left + 2, ClientRectangle.Top, ClientRectangle.Width - 16, ClientRectangle.Height);
 
                     if (hasIcon)
                     {

@@ -128,15 +128,15 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle r = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle r = new(0, 0, Width - 1, Height - 1);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             switch (_state)
             {
                 case MouseMode.Normal:
-                    using (SolidBrush bg = new SolidBrush(NormalColor))
-                    using (Pen p = new Pen(NormalBorderColor))
-                    using (SolidBrush tb = new SolidBrush(NormalTextColor))
+                    using (SolidBrush bg = new(NormalColor))
+                    using (Pen p = new(NormalBorderColor))
+                    using (SolidBrush tb = new(NormalTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -145,9 +145,9 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (SolidBrush bg = new SolidBrush(HoverColor))
-                    using (Pen p = new Pen(HoverBorderColor))
-                    using (SolidBrush tb = new SolidBrush(HoverTextColor))
+                    using (SolidBrush bg = new(HoverColor))
+                    using (Pen p = new(HoverBorderColor))
+                    using (SolidBrush tb = new(HoverTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -155,9 +155,9 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Pushed:
-                    using (SolidBrush bg = new SolidBrush(PressColor))
-                    using (Pen p = new Pen(PressBorderColor))
-                    using (SolidBrush tb = new SolidBrush(PressTextColor))
+                    using (SolidBrush bg = new(PressColor))
+                    using (Pen p = new(PressBorderColor))
+                    using (SolidBrush tb = new(PressTextColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);
@@ -165,9 +165,9 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Disabled:
-                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
-                    using (Pen p = new Pen(DisabledBorderColor))
-                    using (SolidBrush tb = new SolidBrush(DisabledForeColor))
+                    using (SolidBrush bg = new(DisabledBackColor))
+                    using (Pen p = new(DisabledBorderColor))
+                    using (SolidBrush tb = new(DisabledForeColor))
                     {
                         g.FillRectangle(bg, r);
                         g.DrawRectangle(p, r);

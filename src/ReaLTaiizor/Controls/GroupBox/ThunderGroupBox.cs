@@ -60,16 +60,16 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle Body = new Rectangle(4, 25, Width - 9, Height - 30);
-            Rectangle Body2 = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle Body = new(4, 25, Width - 9, Height - 30);
+            Rectangle Body2 = new(0, 0, Width - 1, Height - 1);
             base.OnPaint(e);
             G.Clear(Color.Transparent);
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.CompositingQuality = CompositingQuality.HighQuality;
 
-            Pen P1 = new Pen(Color.Black);
-            LinearGradientBrush BodyBrush = new LinearGradientBrush(Body2, _BodyColorA, _BodyColorB, 90);
-            LinearGradientBrush BodyBrush2 = new LinearGradientBrush(Body, _BodyColorC, _BodyColorD, 120);
+            Pen P1 = new(Color.Black);
+            LinearGradientBrush BodyBrush = new(Body2, _BodyColorA, _BodyColorB, 90);
+            LinearGradientBrush BodyBrush2 = new(Body, _BodyColorC, _BodyColorD, 120);
             Font drawFont = new Font("Tahoma", 9, FontStyle.Bold);
             G.FillPath(BodyBrush, DrawThunder.RoundRect(Body2, 3));
             G.DrawPath(P1, DrawThunder.RoundRect(Body2, 3));

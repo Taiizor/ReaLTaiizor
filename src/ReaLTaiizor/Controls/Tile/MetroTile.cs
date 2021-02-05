@@ -127,43 +127,26 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle r = new Rectangle(1, 1, Width - 2, Height - 2);
+            Rectangle r = new(1, 1, Width - 2, Height - 2);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-
-            StringFormat sf;
-
-            switch (TileAlign)
+            StringFormat sf = TileAlign switch
             {
-                case TileAlign.BottmLeft:
-                    sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Far };
-                    break;
-                case TileAlign.BottomRight:
-                    sf = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far };
-                    break;
-                case TileAlign.Topleft:
-                    sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
-                    break;
-                case TileAlign.TopRight:
-                    sf = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Near };
-                    break;
-                case TileAlign.TopCenter:
-                    sf = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near };
-                    break;
-                case TileAlign.BottomCenter:
-                    sf = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far };
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
+                TileAlign.BottmLeft => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Far },
+                TileAlign.BottomRight => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far },
+                TileAlign.Topleft => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near },
+                TileAlign.TopRight => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Near },
+                TileAlign.TopCenter => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near },
+                TileAlign.BottomCenter => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far },
+                _ => throw new ArgumentOutOfRangeException(),
+            };
             switch (_state)
             {
                 case MouseMode.Normal:
-                    using (SolidBrush bg = new SolidBrush(NormalColor))
+                    using (SolidBrush bg = new(NormalColor))
                     {
-                        using (Pen p = new Pen(NormalBorderColor, 2))
+                        using (Pen p = new(NormalBorderColor, 2))
                         {
-                            using (SolidBrush tb = new SolidBrush(NormalTextColor))
+                            using (SolidBrush tb = new(NormalTextColor))
                             {
                                 if (BackgroundImage != null)
                                 {
@@ -181,11 +164,11 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (SolidBrush bg = new SolidBrush(HoverColor))
+                    using (SolidBrush bg = new(HoverColor))
                     {
-                        using (Pen p = new Pen(HoverBorderColor, 2))
+                        using (Pen p = new(HoverBorderColor, 2))
                         {
-                            using (SolidBrush tb = new SolidBrush(HoverTextColor))
+                            using (SolidBrush tb = new(HoverTextColor))
                             {
                                 if (BackgroundImage != null)
                                 {
@@ -203,11 +186,11 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Pushed:
-                    using (SolidBrush bg = new SolidBrush(PressColor))
+                    using (SolidBrush bg = new(PressColor))
                     {
-                        using (Pen p = new Pen(PressBorderColor, 2))
+                        using (Pen p = new(PressBorderColor, 2))
                         {
-                            using (SolidBrush tb = new SolidBrush(PressTextColor))
+                            using (SolidBrush tb = new(PressTextColor))
                             {
                                 if (BackgroundImage != null)
                                 {
@@ -226,11 +209,11 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Disabled:
-                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
+                    using (SolidBrush bg = new(DisabledBackColor))
                     {
-                        using (Pen p = new Pen(DisabledBorderColor))
+                        using (Pen p = new(DisabledBorderColor))
                         {
-                            using (SolidBrush tb = new SolidBrush(DisabledForeColor))
+                            using (SolidBrush tb = new(DisabledForeColor))
                             {
                                 g.FillRectangle(bg, r);
                                 g.DrawString(Text, Font, tb, r, sf);

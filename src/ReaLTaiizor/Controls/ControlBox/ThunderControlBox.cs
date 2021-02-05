@@ -31,9 +31,9 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         private MouseStateThunder State = MouseStateThunder.None;
-        private Rectangle MinBtn = new Rectangle(0, 0, 20, 20);
-        private Rectangle MaxBtn = new Rectangle(25, 0, 20, 20);
-        private Rectangle ClsBtn = new Rectangle(50, 0, 20, 20);
+        private Rectangle MinBtn = new(0, 0, 20, 20);
+        private Rectangle MaxBtn = new(25, 0, 20, 20);
+        private Rectangle ClsBtn = new(50, 0, 20, 20);
         private int x = 0;
 
         protected override void OnCreateControl()
@@ -126,8 +126,8 @@ namespace ReaLTaiizor.Controls
 
             LinearGradientBrush mlgb = null;
             Font mf = new Font("Marlett", 9);
-            SolidBrush mfb = new SolidBrush(ForeColor);
-            Pen P1 = new Pen(Color.FromArgb(21, 21, 21), 1);
+            SolidBrush mfb = new(ForeColor);
+            Pen P1 = new(Color.FromArgb(21, 21, 21), 1);
             Color C1 = Color.FromArgb(66, 67, 70);
             Color C2 = Color.FromArgb(43, 44, 48);
             GraphicsPath GP1 = DrawThunder.RoundRect(MinBtn, 4);
@@ -137,7 +137,7 @@ namespace ReaLTaiizor.Controls
             switch (State)
             {
                 case MouseStateThunder.None:
-                    mlgb = new LinearGradientBrush(MinBtn, C1, C2, 90);
+                    mlgb = new(MinBtn, C1, C2, 90);
                     G.FillPath(mlgb, GP1);
                     G.DrawPath(P1, GP1);
                     G.DrawString("0", mf, mfb, 4, 4);
@@ -162,27 +162,27 @@ namespace ReaLTaiizor.Controls
                 case MouseStateThunder.Over:
                     if (x > 0 && x < 20)
                     {
-                        mlgb = new LinearGradientBrush(MinBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
+                        mlgb = new(MinBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
                         G.FillPath(mlgb, GP1);
                         G.DrawPath(P1, GP1);
                         G.DrawString("0", mf, mfb, 4, 4);
 
                         if (FindForm().WindowState == FormWindowState.Normal)
                         {
-                            mlgb = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                            mlgb = new(MaxBtn, C1, C2, 90);
                             G.FillPath(mlgb, DrawThunder.RoundRect(MaxBtn, 4));
                             G.DrawPath(P1, GP2);
                             G.DrawString("1", mf, mfb, 28, 4);
                         }
                         else
                         {
-                            mlgb = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                            mlgb = new(MaxBtn, C1, C2, 90);
                             G.FillPath(mlgb, DrawThunder.RoundRect(MaxBtn, 4));
                             G.DrawPath(P1, GP2);
                             G.DrawString("2", mf, mfb, 28, 4);
                         }
 
-                        mlgb = new LinearGradientBrush(ClsBtn, C1, C2, 90);
+                        mlgb = new(ClsBtn, C1, C2, 90);
                         G.FillPath(mlgb, DrawThunder.RoundRect(ClsBtn, 4));
                         G.DrawPath(P1, GP3);
                         G.DrawString("r", mf, mfb, 52, 4);
@@ -191,27 +191,27 @@ namespace ReaLTaiizor.Controls
                     }
                     else if (x > 25 && x < 45)
                     {
-                        mlgb = new LinearGradientBrush(MinBtn, C1, C2, 90);
+                        mlgb = new(MinBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP1);
                         G.DrawPath(P1, GP1);
                         G.DrawString("0", mf, mfb, 4, 4);
 
                         if (FindForm().WindowState == FormWindowState.Normal)
                         {
-                            mlgb = new LinearGradientBrush(MaxBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
+                            mlgb = new(MaxBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
                             G.FillPath(mlgb, GP2);
                             G.DrawPath(P1, GP2);
                             G.DrawString("1", mf, mfb, 28, 4);
                         }
                         else
                         {
-                            mlgb = new LinearGradientBrush(MaxBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
+                            mlgb = new(MaxBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
                             G.FillPath(mlgb, GP2);
                             G.DrawPath(P1, GP2);
                             G.DrawString("2", mf, mfb, 28, 4);
                         }
 
-                        mlgb = new LinearGradientBrush(ClsBtn, C1, C2, 90);
+                        mlgb = new(ClsBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP3);
                         G.DrawPath(P1, GP3);
                         G.DrawString("r", mf, mfb, 52, 4);
@@ -220,27 +220,27 @@ namespace ReaLTaiizor.Controls
                     }
                     else if (x > 50 && x < 70)
                     {
-                        mlgb = new LinearGradientBrush(MinBtn, C1, C2, 90);
+                        mlgb = new(MinBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP1);
                         G.DrawPath(P1, GP1);
                         G.DrawString("0", mf, mfb, 4, 4);
 
                         if (FindForm().WindowState == FormWindowState.Normal)
                         {
-                            mlgb = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                            mlgb = new(MaxBtn, C1, C2, 90);
                             G.FillPath(mlgb, GP2);
                             G.DrawPath(P1, GP2);
                             G.DrawString("1", mf, mfb, 28, 4);
                         }
                         else
                         {
-                            mlgb = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                            mlgb = new(MaxBtn, C1, C2, 90);
                             G.FillPath(mlgb, GP2);
                             G.DrawPath(P1, GP2);
                             G.DrawString("2", mf, mfb, 28, 4);
                         }
 
-                        mlgb = new LinearGradientBrush(ClsBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
+                        mlgb = new(ClsBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
                         G.FillPath(mlgb, GP3);
                         G.DrawPath(P1, GP3);
                         G.DrawString("r", mf, mfb, 52, 4);
@@ -249,27 +249,27 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        mlgb = new LinearGradientBrush(MinBtn, C1, C2, 90);
+                        mlgb = new(MinBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP1);
                         G.DrawPath(P1, GP1);
                         G.DrawString("0", mf, mfb, 4, 4);
 
                         if (FindForm().WindowState == FormWindowState.Normal)
                         {
-                            LinearGradientBrush lgb1 = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                            LinearGradientBrush lgb1 = new(MaxBtn, C1, C2, 90);
                             G.FillPath(lgb1, GP2);
                             G.DrawPath(P1, GP2);
                             G.DrawString("1", mf, mfb, 28, 4);
                         }
                         else
                         {
-                            LinearGradientBrush lgb1 = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                            LinearGradientBrush lgb1 = new(MaxBtn, C1, C2, 90);
                             G.FillPath(lgb1, GP2);
                             G.DrawPath(P1, GP2);
                             G.DrawString("2", mf, mfb, 28, 4);
                         }
 
-                        LinearGradientBrush lgb2 = new LinearGradientBrush(ClsBtn, C1, C2, 90);
+                        LinearGradientBrush lgb2 = new(ClsBtn, C1, C2, 90);
                         G.FillPath(lgb2, GP3);
                         G.DrawPath(P1, GP3);
                         G.DrawString("r", mf, mfb, 52, 4);
@@ -278,27 +278,27 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseStateThunder.Down:
-                    mlgb = new LinearGradientBrush(MinBtn, C1, C2, 90);
+                    mlgb = new(MinBtn, C1, C2, 90);
                     G.FillPath(mlgb, GP1);
                     G.DrawPath(P1, GP1);
                     G.DrawString("0", mf, mfb, 4, 4);
 
                     if (FindForm().WindowState == FormWindowState.Normal)
                     {
-                        mlgb = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                        mlgb = new(MaxBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP2);
                         G.DrawPath(P1, GP2);
                         G.DrawString("1", mf, mfb, 28, 4);
                     }
                     else
                     {
-                        mlgb = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                        mlgb = new(MaxBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP2);
                         G.DrawPath(P1, GP2);
                         G.DrawString("2", mf, mfb, 28, 4);
                     }
 
-                    mlgb = new LinearGradientBrush(ClsBtn, C1, C2, 90);
+                    mlgb = new(ClsBtn, C1, C2, 90);
                     G.FillPath(mlgb, GP3);
                     G.DrawPath(P1, GP3);
                     G.DrawString("r", mf, mfb, 52, 4);
@@ -306,27 +306,27 @@ namespace ReaLTaiizor.Controls
                     Cursor = Cursors.Default;
                     break;
                 default:
-                    mlgb = new LinearGradientBrush(MinBtn, C1, C2, 90);
+                    mlgb = new(MinBtn, C1, C2, 90);
                     G.FillPath(mlgb, GP1);
                     G.DrawPath(P1, GP1);
                     G.DrawString("0", mf, mfb, 4, 4);
 
                     if (FindForm().WindowState == FormWindowState.Normal)
                     {
-                        mlgb = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                        mlgb = new(MaxBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP2);
                         G.DrawPath(P1, GP2);
                         G.DrawString("1", mf, mfb, 28, 4);
                     }
                     else
                     {
-                        mlgb = new LinearGradientBrush(MaxBtn, C1, C2, 90);
+                        mlgb = new(MaxBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP2);
                         G.DrawPath(P1, GP2);
                         G.DrawString("2", mf, mfb, 28, 4);
                     }
 
-                    mlgb = new LinearGradientBrush(ClsBtn, C1, C2, 90);
+                    mlgb = new(ClsBtn, C1, C2, 90);
                     G.FillPath(mlgb, GP3);
                     G.DrawPath(P1, GP3);
                     G.DrawString("r", mf, mfb, 52, 4);

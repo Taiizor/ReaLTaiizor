@@ -266,8 +266,8 @@ namespace ReaLTaiizor.Controls
             protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
             {
                 e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-                Rectangle textRect = new Rectangle(25, e.Item.ContentRectangle.Y, e.Item.ContentRectangle.Width - (24 + 16), e.Item.ContentRectangle.Height - 4);
-                using (SolidBrush b = new SolidBrush(e.Item.Enabled ? e.Item.Selected ? SelectedItemColor : ForegroundColor : DisabledForeColor))
+                Rectangle textRect = new(25, e.Item.ContentRectangle.Y, e.Item.ContentRectangle.Width - (24 + 16), e.Item.ContentRectangle.Height - 4);
+                using (SolidBrush b = new(e.Item.Enabled ? e.Item.Selected ? SelectedItemColor : ForegroundColor : DisabledForeColor))
                 {
                     e.Graphics.DrawString(e.Text, Font, b, textRect);
                 }
@@ -287,8 +287,8 @@ namespace ReaLTaiizor.Controls
             {
                 e.Graphics.InterpolationMode = InterpolationMode.High;
                 e.Graphics.Clear(BackgroundColor);
-                Rectangle r = new Rectangle(0, e.Item.ContentRectangle.Y - 2, e.Item.ContentRectangle.Width + 4, e.Item.ContentRectangle.Height + 3);
-                using (SolidBrush b = new SolidBrush(e.Item.Selected && e.Item.Enabled ? SelectedItemBackColor : BackgroundColor))
+                Rectangle r = new(0, e.Item.ContentRectangle.Y - 2, e.Item.ContentRectangle.Width + 4, e.Item.ContentRectangle.Height + 3);
+                using (SolidBrush b = new(e.Item.Selected && e.Item.Enabled ? SelectedItemBackColor : BackgroundColor))
                 {
                     e.Graphics.FillRectangle(b, r);
                 }
@@ -310,7 +310,7 @@ namespace ReaLTaiizor.Controls
 
             protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
             {
-                using (Pen p = new Pen(SeparatorColor))
+                using (Pen p = new(SeparatorColor))
                 {
                     e.Graphics.DrawLine(p, new Point(e.Item.Bounds.Left, e.Item.Bounds.Height / 2), new Point(e.Item.Bounds.Right - 5, e.Item.Bounds.Height / 2));
                 }
@@ -331,7 +331,7 @@ namespace ReaLTaiizor.Controls
                     new Point(arrowX - 5, arrowY + 5)
                 };
 
-                using (SolidBrush arrowBrush = new SolidBrush(e.Item.Enabled ? ArrowColor : DisabledForeColor))
+                using (SolidBrush arrowBrush = new(e.Item.Enabled ? ArrowColor : DisabledForeColor))
                 {
                     e.Graphics.FillPolygon(arrowBrush, arrowPoints);
                 }

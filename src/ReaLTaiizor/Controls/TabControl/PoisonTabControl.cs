@@ -316,7 +316,7 @@ namespace ReaLTaiizor.Controls
         {
             using (Brush bgBrush = new SolidBrush(PoisonPaint.BorderColor.TabControl.Normal(Theme)))
             {
-                Rectangle borderRectangle = new Rectangle(DisplayRectangle.X, GetTabRect(index).Bottom + 2 - TabBottomBorderHeight, DisplayRectangle.Width, TabBottomBorderHeight);
+                Rectangle borderRectangle = new(DisplayRectangle.X, GetTabRect(index).Bottom + 2 - TabBottomBorderHeight, DisplayRectangle.Width, TabBottomBorderHeight);
                 graphics.FillRectangle(bgBrush, borderRectangle);
             }
         }
@@ -326,7 +326,7 @@ namespace ReaLTaiizor.Controls
             using (Brush selectionBrush = new SolidBrush(PoisonPaint.GetStyleColor(Style)))
             {
                 Rectangle selectedTabRect = GetTabRect(index);
-                Rectangle borderRectangle = new Rectangle(selectedTabRect.X + ((index == 0) ? 2 : 0), GetTabRect(index).Bottom + 2 - TabBottomBorderHeight, selectedTabRect.Width + ((index == 0) ? 0 : 2), TabBottomBorderHeight);
+                Rectangle borderRectangle = new(selectedTabRect.X + ((index == 0) ? 2 : 0), GetTabRect(index).Bottom + 2 - TabBottomBorderHeight, selectedTabRect.Width + ((index == 0) ? 0 : 2), TabBottomBorderHeight);
                 graphics.FillRectangle(selectionBrush, borderRectangle);
             }
         }
@@ -393,7 +393,7 @@ namespace ReaLTaiizor.Controls
         {
             Color backColor = Parent != null ? Parent.BackColor : PoisonPaint.BackColor.Form(Theme);
 
-            Rectangle borderRect = new Rectangle();
+            Rectangle borderRect = new();
             WinApi.GetClientRect(scUpDown.Handle, ref borderRect);
 
             graphics.CompositingQuality = CompositingQuality.HighQuality;
@@ -611,7 +611,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (WinApi.IsWindowVisible(scUpDown.Handle))
                 {
-                    Rectangle rect = new Rectangle();
+                    Rectangle rect = new();
                     WinApi.GetClientRect(scUpDown.Handle, ref rect);
                     WinApi.InvalidateRect(scUpDown.Handle, ref rect, true);
                 }
@@ -630,7 +630,7 @@ namespace ReaLTaiizor.Controls
                     g.Dispose();
                     WinApi.ReleaseDC(scUpDown.Handle, hDC);
                     m.Result = IntPtr.Zero;
-                    Rectangle rect = new Rectangle();
+                    Rectangle rect = new();
                     WinApi.GetClientRect(scUpDown.Handle, ref rect);
                     WinApi.ValidateRect(scUpDown.Handle, ref rect);
                     return 1;

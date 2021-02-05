@@ -246,14 +246,14 @@ namespace ReaLTaiizor.Controls
                 bool flag = State == AloneTextBox.MouseState.Down;
                 if (flag)
                 {
-                    using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#78B7E6")))
+                    using (Pen pen = new(AloneLibrary.ColorFromHex("#78B7E6")))
                     {
                         G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
                     }
                 }
                 else
                 {
-                    using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
+                    using (Pen pen2 = new(AloneLibrary.ColorFromHex("#D0D5D9")))
                     {
                         G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
                     }
@@ -262,7 +262,7 @@ namespace ReaLTaiizor.Controls
             else
             {
                 TB.ForeColor = ForeColor;
-                using (Pen pen3 = new Pen(AloneLibrary.ColorFromHex("#E1E1E2")))
+                using (Pen pen3 = new(AloneLibrary.ColorFromHex("#E1E1E2")))
                 {
                     G.DrawPath(pen3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
                 }

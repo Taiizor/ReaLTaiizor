@@ -82,22 +82,22 @@ namespace ReaLTaiizor.Controls
             G.Clear(BackColor);
             Color C1 = Color.FromArgb(174, 195, 30);
             Color C2 = Color.FromArgb(141, 153, 16);
-            Rectangle R1 = new Rectangle(0, 0, Width - 1, Height - 1);
-            Rectangle R2 = new Rectangle(0, 0, intValue - 1, Height - 1);
-            Rectangle R3 = new Rectangle(0, 0, intValue - 1, Height - 2);
+            Rectangle R1 = new(0, 0, Width - 1, Height - 1);
+            Rectangle R2 = new(0, 0, intValue - 1, Height - 1);
+            Rectangle R3 = new(0, 0, intValue - 1, Height - 2);
             GraphicsPath GP1 = DrawThunder.RoundRect(R1, 1);
             GraphicsPath GP2 = DrawThunder.RoundRect(R2, 2);
             GraphicsPath GP3 = DrawThunder.RoundRect(R3, 1);
-            LinearGradientBrush gB = new LinearGradientBrush(R1, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
-            LinearGradientBrush g1 = new LinearGradientBrush(new Rectangle(2, 2, intValue - 1, Height - 2), C1, C2, 90);
+            LinearGradientBrush gB = new(R1, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
+            LinearGradientBrush g1 = new(new Rectangle(2, 2, intValue - 1, Height - 2), C1, C2, 90);
             HatchBrush h1 = new HatchBrush(HatchStyle.DarkUpwardDiagonal, Color.FromArgb(50, C1), Color.FromArgb(25, C2));
-            Pen P1 = new Pen(Color.Black);
+            Pen P1 = new(Color.Black);
 
             G.FillPath(gB, GP1);
             G.FillPath(g1, GP3);
             G.FillPath(h1, GP3);
             G.DrawPath(P1, GP1);
-            G.DrawPath(new Pen(Color.FromArgb(150, 97, 94, 90)), GP2);
+            G.DrawPath(new(Color.FromArgb(150, 97, 94, 90)), GP2);
             G.DrawPath(P1, GP2);
 
             if (_ShowPercentage)

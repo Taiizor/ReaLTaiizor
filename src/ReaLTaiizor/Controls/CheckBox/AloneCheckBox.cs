@@ -129,11 +129,11 @@ namespace ReaLTaiizor.Controls
             bool enabled = Enabled;
             if (enabled)
             {
-                using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#F3F4F7")))
+                using (SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#F3F4F7")))
                 {
-                    using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
+                    using (Pen pen = new(AloneLibrary.ColorFromHex("#D0D5D9")))
                     {
-                        using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
+                        using (SolidBrush solidBrush2 = new(ForeColor))
                         {
                             using (Font font = new Font("Segoe UI", 9f))
                             {
@@ -155,11 +155,11 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#F5F5F8")))
+                using (SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#F5F5F8")))
                 {
-                    using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#E1E1E2")))
+                    using (Pen pen2 = new(AloneLibrary.ColorFromHex("#E1E1E2")))
                     {
-                        using (SolidBrush solidBrush4 = new SolidBrush(AloneLibrary.ColorFromHex("#D0D3D7")))
+                        using (SolidBrush solidBrush4 = new(AloneLibrary.ColorFromHex("#D0D3D7")))
                         {
                             using (Font font2 = new Font("Segoe UI", 9f))
                             {

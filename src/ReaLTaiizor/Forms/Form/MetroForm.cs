@@ -69,7 +69,7 @@ namespace ReaLTaiizor.Forms
             e.Graphics.InterpolationMode = InterpolationMode.High;
             e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
 
-            using (SolidBrush b = new SolidBrush(BackgroundColor))
+            using (SolidBrush b = new(BackgroundColor))
             {
                 e.Graphics.FillRectangle(b, new Rectangle(0, 0, Width, Height));
                 if (BackgroundImage != null)
@@ -79,7 +79,7 @@ namespace ReaLTaiizor.Forms
             }
             if (ShowBorder)
             {
-                using (Pen p = new Pen(BorderColor, BorderThickness))
+                using (Pen p = new(BorderColor, BorderThickness))
                 {
                     e.Graphics.DrawRectangle(p, new Rectangle(0, 0, Width - 1, Height - 1));
                 }
@@ -87,9 +87,9 @@ namespace ReaLTaiizor.Forms
 
             if (ShowLeftRect)
             {
-                using (LinearGradientBrush b = new LinearGradientBrush(new Rectangle(0, 25, SmallRectThickness, 35), SmallLineColor1, SmallLineColor2, 90))
+                using (LinearGradientBrush b = new(new Rectangle(0, 25, SmallRectThickness, 35), SmallLineColor1, SmallLineColor2, 90))
                 {
-                    using (SolidBrush textBrush = new SolidBrush(TextColor))
+                    using (SolidBrush textBrush = new(TextColor))
                     {
                         e.Graphics.FillRectangle(b, new Rectangle(0, 40, SmallRectThickness, 35));
                         e.Graphics.DrawString(Text, Font, textBrush, new Point(SmallRectThickness + 10, 46));
@@ -100,13 +100,13 @@ namespace ReaLTaiizor.Forms
             {
                 if (ShowHeader)
                 {
-                    using (SolidBrush b = new SolidBrush(HeaderColor))
+                    using (SolidBrush b = new(HeaderColor))
                     {
                         e.Graphics.FillRectangle(b, new Rectangle(1, 1, Width - 1, HeaderHeight));
                     }
                 }
 
-                SolidBrush textBrush = new SolidBrush(TextColor);
+                SolidBrush textBrush = new(TextColor);
                 if (ShowTitle)
                 {
                     switch (TextAlign)

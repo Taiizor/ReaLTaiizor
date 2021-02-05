@@ -251,7 +251,7 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            object ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            //object ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
             base.OnPaint(e);
 
             G.SmoothingMode = SmoothingType;
@@ -261,12 +261,12 @@ namespace ReaLTaiizor.Controls
             {
                 case MouseStateSky.None:
                     //Mouse None
-                    LinearGradientBrush bodyGrad = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 2), NormalBGColorA, NormalBGColorB, 90);
+                    LinearGradientBrush bodyGrad = new(new Rectangle(0, 0, Width - 1, Height - 2), NormalBGColorA, NormalBGColorB, 90);
                     G.FillRectangle(bodyGrad, bodyGrad.Rectangle);
-                    LinearGradientBrush bodyInBorder = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 4), NormalBorderColorA, NormalBorderColorB, 90);
-                    G.DrawRectangle(new Pen(bodyInBorder), new Rectangle(1, 1, Width - 3, Height - 4));
-                    G.DrawRectangle(new Pen(NormalBorderColorC), new Rectangle(0, 0, Width - 1, Height - 2));
-                    G.DrawLine(new Pen(NormalBorderColorD), new Point(1, Height - 1), new Point(Width - 2, Height - 1));
+                    LinearGradientBrush bodyInBorder = new(new Rectangle(1, 1, Width - 3, Height - 4), NormalBorderColorA, NormalBorderColorB, 90);
+                    G.DrawRectangle(new(bodyInBorder), new Rectangle(1, 1, Width - 3, Height - 4));
+                    G.DrawRectangle(new(NormalBorderColorC), new Rectangle(0, 0, Width - 1, Height - 2));
+                    G.DrawLine(new(NormalBorderColorD), new Point(1, Height - 1), new Point(Width - 2, Height - 1));
                     ForeColor = NormalForeColor;
                     G.DrawString(Text, Font, new SolidBrush(NormalShadowForeColor), new Rectangle(-1, 0, Width - 1, Height - 1), new StringFormat
                     {
@@ -276,12 +276,12 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseStateSky.Over:
                     //Mouse Hover
-                    LinearGradientBrush bodyGradOver = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 2), HoverBGColorA, HoverBGColorB, 90);
+                    LinearGradientBrush bodyGradOver = new(new Rectangle(0, 0, Width - 1, Height - 2), HoverBGColorA, HoverBGColorB, 90);
                     G.FillRectangle(bodyGradOver, bodyGradOver.Rectangle);
-                    LinearGradientBrush bodyInBorderOver = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 4), HoverBorderColorA, HoverBorderColorB, 90);
-                    G.DrawRectangle(new Pen(bodyInBorderOver), new Rectangle(1, 1, Width - 3, Height - 4));
-                    G.DrawRectangle(new Pen(HoverBorderColorC), new Rectangle(0, 0, Width - 1, Height - 2));
-                    G.DrawLine(new Pen(HoverBorderColorD), new Point(1, Height - 1), new Point(Width - 2, Height - 1));
+                    LinearGradientBrush bodyInBorderOver = new(new Rectangle(1, 1, Width - 3, Height - 4), HoverBorderColorA, HoverBorderColorB, 90);
+                    G.DrawRectangle(new(bodyInBorderOver), new Rectangle(1, 1, Width - 3, Height - 4));
+                    G.DrawRectangle(new(HoverBorderColorC), new Rectangle(0, 0, Width - 1, Height - 2));
+                    G.DrawLine(new(HoverBorderColorD), new Point(1, Height - 1), new Point(Width - 2, Height - 1));
                     ForeColor = HoverForeColor;
                     G.DrawString(Text, Font, new SolidBrush(HoverShadowForeColor), new Rectangle(-1, -2, Width - 1, Height - 1), new StringFormat
                     {
@@ -291,12 +291,12 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseStateSky.Down:
                     //Mouse Down
-                    LinearGradientBrush bodyGradDown = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 2), DownBGColorA, DownBGColorB, 270);
+                    LinearGradientBrush bodyGradDown = new(new Rectangle(0, 0, Width - 1, Height - 2), DownBGColorA, DownBGColorB, 270);
                     G.FillRectangle(bodyGradDown, bodyGradDown.Rectangle);
-                    LinearGradientBrush bodyInBorderDown = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 4), DownBorderColorA, DownBorderColorB, 270);
-                    G.DrawRectangle(new Pen(bodyInBorderDown), new Rectangle(1, 1, Width - 3, Height - 4));
-                    G.DrawRectangle(new Pen(DownBorderColorC), new Rectangle(0, 0, Width - 1, Height - 2));
-                    G.DrawLine(new Pen(DownBorderColorD), new Point(1, Height - 1), new Point(Width - 2, Height - 1));
+                    LinearGradientBrush bodyInBorderDown = new(new Rectangle(1, 1, Width - 3, Height - 4), DownBorderColorA, DownBorderColorB, 270);
+                    G.DrawRectangle(new(bodyInBorderDown), new Rectangle(1, 1, Width - 3, Height - 4));
+                    G.DrawRectangle(new(DownBorderColorC), new Rectangle(0, 0, Width - 1, Height - 2));
+                    G.DrawLine(new(DownBorderColorD), new Point(1, Height - 1), new Point(Width - 2, Height - 1));
                     ForeColor = DownForeColor;
                     G.DrawString(Text, Font, new SolidBrush(DownShadowForeColor), new Rectangle(-1, -2, Width - 1, Height - 1), new StringFormat
                     {

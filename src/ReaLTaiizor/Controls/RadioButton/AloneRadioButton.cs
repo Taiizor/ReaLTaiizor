@@ -122,11 +122,11 @@ namespace ReaLTaiizor.Controls
             bool enabled = Enabled;
             if (enabled)
             {
-                using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#F3F4F7")))
+                using (SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#F3F4F7")))
                 {
-                    using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
+                    using (Pen pen = new(AloneLibrary.ColorFromHex("#D0D5D9")))
                     {
-                        using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
+                        using (SolidBrush solidBrush2 = new(ForeColor))
                         {
                             using (Font font = new Font("Segoe UI", 9f))
                             {
@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Controls
                 bool @checked = Checked;
                 if (@checked)
                 {
-                    using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#575C62")))
+                    using (SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#575C62")))
                     {
                         G.FillEllipse(solidBrush3, new Rectangle(4, 4, 8, 8));
                     }
@@ -148,11 +148,11 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                using (SolidBrush solidBrush4 = new SolidBrush(AloneLibrary.ColorFromHex("#F5F5F8")))
+                using (SolidBrush solidBrush4 = new(AloneLibrary.ColorFromHex("#F5F5F8")))
                 {
-                    using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#E1E1E2")))
+                    using (Pen pen2 = new(AloneLibrary.ColorFromHex("#E1E1E2")))
                     {
-                        using (SolidBrush solidBrush5 = new SolidBrush(AloneLibrary.ColorFromHex("#D0D3D7")))
+                        using (SolidBrush solidBrush5 = new(AloneLibrary.ColorFromHex("#D0D3D7")))
                         {
                             using (Font font2 = new Font("Segoe UI", 9f))
                             {
@@ -166,7 +166,7 @@ namespace ReaLTaiizor.Controls
                 bool checked2 = Checked;
                 if (checked2)
                 {
-                    using (SolidBrush solidBrush6 = new SolidBrush(AloneLibrary.ColorFromHex("#BCC1C6")))
+                    using (SolidBrush solidBrush6 = new(AloneLibrary.ColorFromHex("#BCC1C6")))
                     {
                         G.FillEllipse(solidBrush6, new Rectangle(4, 4, 8, 8));
                     }

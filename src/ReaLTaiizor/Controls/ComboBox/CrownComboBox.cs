@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Controls
 
             using (Graphics g = Graphics.FromImage(_buffer))
             {
-                Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+                Rectangle rect = new(0, 0, ClientSize.Width, ClientSize.Height);
 
                 Color textColor = Enabled ? ThemeProvider.Theme.Colors.LightText : ThemeProvider.Theme.Colors.DisabledText;
 
@@ -146,14 +146,14 @@ namespace ReaLTaiizor.Controls
                     borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
                 }
 
-                using (SolidBrush b = new SolidBrush(fillColor))
+                using (SolidBrush b = new(fillColor))
                 {
                     g.FillRectangle(b, rect);
                 }
 
-                using (Pen p = new Pen(borderColor, 1))
+                using (Pen p = new(borderColor, 1))
                 {
-                    Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                    Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
                     g.DrawRectangle(p, modRect);
                 }
 
@@ -162,11 +162,11 @@ namespace ReaLTaiizor.Controls
 
                 string text = SelectedItem != null ? SelectedItem.ToString() : Text;
 
-                using (SolidBrush b = new SolidBrush(textColor))
+                using (SolidBrush b = new(textColor))
                 {
                     int padding = 2;
 
-                    Rectangle modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - icon.Width - (ThemeProvider.Theme.Sizes.Padding / 2) - (padding * 2), rect.Height - (padding * 2));
+                    Rectangle modRect = new(rect.Left + padding, rect.Top + padding, rect.Width - icon.Width - (ThemeProvider.Theme.Sizes.Padding / 2) - (padding * 2), rect.Height - (padding * 2));
 
                     StringFormat stringFormat = new StringFormat
                     {
@@ -205,7 +205,7 @@ namespace ReaLTaiizor.Controls
                 fillColor = ThemeProvider.Theme.Colors.BlueSelection;
             }
 
-            using (SolidBrush b = new SolidBrush(fillColor))
+            using (SolidBrush b = new(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
@@ -214,11 +214,11 @@ namespace ReaLTaiizor.Controls
             {
                 string text = Items[e.Index].ToString();
 
-                using (SolidBrush b = new SolidBrush(textColor))
+                using (SolidBrush b = new(textColor))
                 {
                     int padding = 2;
 
-                    Rectangle modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
+                    Rectangle modRect = new(rect.Left + padding, rect.Top + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
 
                     StringFormat stringFormat = new StringFormat
                     {

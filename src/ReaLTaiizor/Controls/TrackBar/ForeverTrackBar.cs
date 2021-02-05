@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Left)
             {
                 Val = Convert.ToInt32((float)(_Value - _Minimum) / (float)(_Maximum - _Minimum) * (float)(Width - 11));
-                Track = new Rectangle(Val, 0, 10, 20);
+                Track = new(Val, 0, 10, 20);
 
                 Bool = Track.Contains(e.Location);
             }
@@ -251,7 +251,7 @@ namespace ReaLTaiizor.Controls
             W = Width - 1;
             H = Height - 1;
 
-            Rectangle Base = new Rectangle(1, 6, W - 2, 8);
+            Rectangle Base = new(1, 6, W - 2, 8);
             GraphicsPath GP = new GraphicsPath();
             GraphicsPath GP2 = new GraphicsPath();
 
@@ -263,8 +263,8 @@ namespace ReaLTaiizor.Controls
 
             //-- Value
             Val = Convert.ToInt32((float)(_Value - _Minimum) / (float)(_Maximum - _Minimum) * (float)(W - 10));
-            Track = new Rectangle(Val, 0, 10, 20);
-            Knob = new Rectangle(Val, 4, 11, 14);
+            Track = new(Val, 0, 10, 20);
+            Knob = new(Val, 4, 11, 14);
 
             //-- Base
             GP.AddRectangle(Base);

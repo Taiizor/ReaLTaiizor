@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Extension.Poison
             {
                 if (!poisonPens.ContainsKey(key))
                 {
-                    poisonPens.Add(key, new Pen(color, 1f));
+                    poisonPens.Add(key, new(color, 1f));
                 }
 
                 return poisonPens[key].Clone() as Pen;

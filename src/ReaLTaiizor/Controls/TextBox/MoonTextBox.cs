@@ -48,7 +48,7 @@ namespace ReaLTaiizor.Controls
 
         private void CustomPaint()
         {
-            Pen p = new Pen(new SolidBrush(BorderColor));
+            Pen p = new(new SolidBrush(BorderColor));
             CreateGraphics().DrawLine(p, 0, 0, Width, 0);
             CreateGraphics().DrawLine(p, 0, Height - 1, Width, Height - 1);
             CreateGraphics().DrawLine(p, 0, 0, 0, Height - 1);

@@ -99,7 +99,7 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
             graphics.Clear(BackColor);
-            using (Pen pen = new Pen(_BorderColor))
+            using (Pen pen = new(_BorderColor))
             {
                 graphics.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
             }

@@ -331,7 +331,7 @@ namespace ReaLTaiizor.Controls
             watermarkContainer.Width = tbCtrl.Width - 25;
             watermarkContainer.Height = tbCtrl.Height;
 
-            using (SolidBrush watermark = new SolidBrush(_WatermarkColor))
+            using (SolidBrush watermark = new(_WatermarkColor))
             {
                 e.Graphics.DrawString(_Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
             }
@@ -467,7 +467,7 @@ namespace ReaLTaiizor.Controls
 
         private void DrawBorder(Graphics g)
         {
-            using (Pen border = new Pen(BorderColor))
+            using (Pen border = new(BorderColor))
             {
                 // Top border
                 if (_ShowTopBorder)

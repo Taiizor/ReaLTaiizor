@@ -139,7 +139,7 @@ namespace ReaLTaiizor.Controls
             MyDrawer.SmoothingMode = SmoothingMode.AntiAlias;
 
             // Fill the body of the ellipse with a gradient
-            LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(14, 14)), _CheckedBackColorA, _CheckedBackColorB, 90);
+            LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(14, 14)), _CheckedBackColorA, _CheckedBackColorB, 90);
             MyDrawer.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(14, 14)));
 
             GraphicsPath GP = new GraphicsPath();
@@ -148,12 +148,12 @@ namespace ReaLTaiizor.Controls
             MyDrawer.ResetClip();
 
             // Draw ellipse border
-            MyDrawer.DrawEllipse(new Pen(_BorderColor), new Rectangle(new Point(0, 0), new Size(14, 14)));
+            MyDrawer.DrawEllipse(new(_BorderColor), new Rectangle(new Point(0, 0), new Size(14, 14)));
 
             // Draw an ellipse inside the body
             if (_Checked)
             {
-                SolidBrush EllipseColor = new SolidBrush(_CheckedColor);
+                SolidBrush EllipseColor = new(_CheckedColor);
                 MyDrawer.FillEllipse(EllipseColor, new Rectangle(new Point(4, 4), new Size(6, 6)));
             }
             MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), 16, 7, new StringFormat { LineAlignment = StringAlignment.Center });

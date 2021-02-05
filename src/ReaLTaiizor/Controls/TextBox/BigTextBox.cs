@@ -224,8 +224,8 @@ namespace ReaLTaiizor.Controls
             AddTextBox();
             Controls.Add(RT_TB);
 
-            P1 = new Pen(Color.FromArgb(180, 180, 180)); // P1 = Border color
-            B1 = new SolidBrush(Color.White); // B1 = Rect Background color
+            P1 = new(Color.FromArgb(180, 180, 180)); // P1 = Border color
+            B1 = new(Color.White); // B1 = Rect Background color
             BackColor = Color.Transparent;
             ForeColor = Color.DimGray;
 

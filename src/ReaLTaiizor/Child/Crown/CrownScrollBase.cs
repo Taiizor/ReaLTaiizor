@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Child.Crown
                 width -= _vScrollBar.Width;
             }
 
-            Viewport = new Rectangle(left, top, width, height);
+            Viewport = new(left, top, width, height);
 
             Point pos = PointToClient(MousePosition);
             _offsetMousePosition = new Point(pos.X + Viewport.Left, pos.Y + Viewport.Top);

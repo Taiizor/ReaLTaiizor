@@ -240,7 +240,7 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingType;
             G.Clear(BaseColor);
             G.FillPath(new SolidBrush(EdgeColor), Shape);
-            G.DrawPath(new Pen(BorderColor), Shape);
+            G.DrawPath(new(BorderColor), Shape);
             G.Dispose();
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             B.Dispose();

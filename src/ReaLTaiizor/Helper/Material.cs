@@ -115,21 +115,15 @@ namespace ReaLTaiizor.Helper
             iMid = Convert.ToInt32(fMid * 255);
             iMin = Convert.ToInt32(fMin * 255);
 
-            switch (iSextant)
+            return iSextant switch
             {
-                case 1:
-                    return Color.FromArgb(alpha, iMid, iMax, iMin);
-                case 2:
-                    return Color.FromArgb(alpha, iMin, iMax, iMid);
-                case 3:
-                    return Color.FromArgb(alpha, iMin, iMid, iMax);
-                case 4:
-                    return Color.FromArgb(alpha, iMid, iMin, iMax);
-                case 5:
-                    return Color.FromArgb(alpha, iMax, iMin, iMid);
-                default:
-                    return Color.FromArgb(alpha, iMax, iMid, iMin);
-            }
+                1 => Color.FromArgb(alpha, iMid, iMax, iMin),
+                2 => Color.FromArgb(alpha, iMin, iMax, iMid),
+                3 => Color.FromArgb(alpha, iMin, iMid, iMax),
+                4 => Color.FromArgb(alpha, iMid, iMin, iMax),
+                5 => Color.FromArgb(alpha, iMax, iMin, iMid),
+                _ => Color.FromArgb(alpha, iMax, iMid, iMin),
+            };
         }
     }
 
@@ -173,7 +167,7 @@ namespace ReaLTaiizor.Helper
 
         public static void DrawSquareShadow(Graphics g, Rectangle bounds)
         {
-            using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(12, 0, 0, 0)))
+            using (SolidBrush shadowBrush = new(Color.FromArgb(12, 0, 0, 0)))
             {
                 GraphicsPath path;
                 path = CreateRoundRect(new RectangleF(bounds.X - 3.5f, bounds.Y - 1.5f, bounds.Width + 6, bounds.Height + 6), 8);
@@ -192,7 +186,7 @@ namespace ReaLTaiizor.Helper
 
         public static void DrawRoundShadow(Graphics g, Rectangle bounds)
         {
-            using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(12, 0, 0, 0)))
+            using (SolidBrush shadowBrush = new(Color.FromArgb(12, 0, 0, 0)))
             {
                 g.FillEllipse(shadowBrush, new Rectangle(bounds.X - 2, bounds.Y - 1, bounds.Width + 4, bounds.Height + 6));
                 g.FillEllipse(shadowBrush, new Rectangle(bounds.X - 1, bounds.Y - 1, bounds.Width + 2, bounds.Height + 4));

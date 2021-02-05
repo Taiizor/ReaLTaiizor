@@ -273,8 +273,8 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            SolidBrush textBrush = new SolidBrush(parent.ForeColor);
-            SolidBrush backBrush = new SolidBrush(parent.BackColor);
+            SolidBrush textBrush = new(parent.ForeColor);
+            SolidBrush backBrush = new(parent.BackColor);
 
             if (!string.IsNullOrEmpty(caption))
             {

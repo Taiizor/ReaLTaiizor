@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Controls
                 switch (State)
                 {
                     case FoxLibrary.MouseState.None:
-                        using (SolidBrush Background = new SolidBrush(_BaseColor))
+                        using (SolidBrush Background = new(_BaseColor))
                         {
                             G.FillPath(Background, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                         }
@@ -92,14 +92,14 @@ namespace ReaLTaiizor.Controls
                         break;
                     case FoxLibrary.MouseState.Over:
 
-                        using (SolidBrush Background = new SolidBrush(_OverColor))
+                        using (SolidBrush Background = new(_OverColor))
                         {
                             G.FillPath(Background, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                         }
 
                         break;
                     case FoxLibrary.MouseState.Down:
-                        using (SolidBrush Background = new SolidBrush(_DownColor))
+                        using (SolidBrush Background = new(_DownColor))
                         {
                             G.FillPath(Background, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                         }
@@ -107,29 +107,29 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                using (Pen Border = new Pen(_BorderColor))
+                using (Pen Border = new(_BorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                using (SolidBrush TextColor = new(ForeColor))
                 {
                     FoxLibrary.CenterString(G, Text, Font, TextColor.Color, new Rectangle(3, 0, Width, Height));
                 }
             }
             else
             {
-                using (SolidBrush Background = new SolidBrush(_DisabledBaseColor))
+                using (SolidBrush Background = new(_DisabledBaseColor))
                 {
                     G.FillPath(Background, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+                using (SolidBrush TextColor = new(_DisabledTextColor))
                 {
                     FoxLibrary.CenterString(G, Text, Font, TextColor.Color, new Rectangle(3, 0, Width, Height));
                 }
 
-                using (Pen Border = new Pen(_DisabledBorderColor))
+                using (Pen Border = new(_DisabledBorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                 }

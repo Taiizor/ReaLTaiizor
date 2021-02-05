@@ -145,7 +145,7 @@ namespace ReaLTaiizor.Forms
             base.OnSizeChanged(e);
             if (!_ControlMode)
             {
-                HeaderRect = new Rectangle(0, 0, Width - 14, MoveHeight - 7);
+                HeaderRect = new(0, 0, Width - 14, MoveHeight - 7);
             }
 
             Invalidate();
@@ -441,7 +441,7 @@ namespace ReaLTaiizor.Forms
 
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle ClientRectangle = new(0, 0, Width - 1, Height - 1);
             Color TransparencyKey = ParentForm.TransparencyKey;
 
             G.SmoothingMode = SmoothingMode.Default;
@@ -459,16 +459,16 @@ namespace ReaLTaiizor.Forms
             G.FillRectangle(new SolidBrush(Color.FromArgb(52, 52, 52)), new Rectangle(2, 15, Width - 5, 10));
 
             // Increase the thickness of the container borders
-            G.DrawPath(new Pen(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(2, 2, Width - 5, Height - 5), BorderCurve));
-            G.DrawPath(new Pen(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(ClientRectangle, BorderCurve));
+            G.DrawPath(new(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(2, 2, Width - 5, Height - 5), BorderCurve));
+            G.DrawPath(new(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(ClientRectangle, BorderCurve));
 
             // Draw the string from the specified 'Text' property on the header rectangle
             G.DrawString(Text, new Font("Trebuchet MS", 10, FontStyle.Bold), new SolidBrush(Color.FromArgb(221, 221, 221)), new Rectangle(BorderCurve, BorderCurve - 4, Width - 1, 22), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near });
 
             // Draws a rectangle at the bottom of the container
             G.FillRectangle(new SolidBrush(Color.FromArgb(52, 52, 52)), 0, Height - 25, Width - 3, 22 - 2);
-            G.DrawLine(new Pen(Color.FromArgb(52, 52, 52)), 5, Height - 5, Width - 6, Height - 5);
-            G.DrawLine(new Pen(Color.FromArgb(52, 52, 52)), 7, Height - 4, Width - 7, Height - 4);
+            G.DrawLine(new(Color.FromArgb(52, 52, 52)), 5, Height - 5, Width - 6, Height - 5);
+            G.DrawLine(new(Color.FromArgb(52, 52, 52)), 7, Height - 4, Width - 7, Height - 4);
 
             G.DrawString(_TextBottom, new Font("Trebuchet MS", 10, FontStyle.Bold), new SolidBrush(Color.FromArgb(221, 221, 221)), 5, Height - 23);
 

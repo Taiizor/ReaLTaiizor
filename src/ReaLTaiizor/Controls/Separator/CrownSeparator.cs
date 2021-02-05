@@ -30,12 +30,12 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
 
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
+            using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder))
             {
                 g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
             }
 
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.LightBorder))
+            using (Pen p = new(ThemeProvider.Theme.Colors.LightBorder))
             {
                 g.DrawLine(p, ClientRectangle.Left, 1, ClientRectangle.Right, 1);
             }

@@ -217,23 +217,12 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void PositionGroups()
         {
-            DockStyle dockStyle;
-
-            switch (DockArea)
+            var dockStyle = DockArea switch
             {
-                default:
-                case DockArea.Document:
-                    dockStyle = DockStyle.Fill;
-                    break;
-                case DockArea.Left:
-                case DockArea.Right:
-                    dockStyle = DockStyle.Top;
-                    break;
-                case DockArea.Bottom:
-                    dockStyle = DockStyle.Left;
-                    break;
-            }
-
+                DockArea.Left or DockArea.Right => DockStyle.Top,
+                DockArea.Bottom => DockStyle.Left,
+                _ => DockStyle.Fill,
+            };
             if (_groups.Count == 1)
             {
                 _groups[0].Dock = DockStyle.Fill;
@@ -414,13 +403,13 @@ namespace ReaLTaiizor.Docking.Crown
             }
 
             // Fill body
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
 
             // Draw border
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
+            using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder))
             {
                 // Top border
                 if (DockArea == DockArea.Document)

@@ -58,23 +58,23 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             if (_Checked)
             {
-                LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(14, 14)), G1, G2, 90f);
+                LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(14, 14)), G1, G2, 90f);
                 G.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(14, 14)));
             }
             else
             {
-                LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(14, 16)), G1, G2, 90f);
+                LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(14, 16)), G1, G2, 90f);
                 G.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(14, 14)));
             }
 
             if (State == MouseStateAir.Over & X < 15)
             {
-                SolidBrush SB = new SolidBrush(Color.FromArgb(10, Color.Black));
+                SolidBrush SB = new(Color.FromArgb(10, Color.Black));
                 G.FillEllipse(SB, new Rectangle(new Point(0, 0), new Size(14, 14)));
             }
             else if (State == MouseStateAir.Down & X < 15)
             {
-                SolidBrush SB = new SolidBrush(Color.FromArgb(20, Color.Black));
+                SolidBrush SB = new(Color.FromArgb(20, Color.Black));
                 G.FillEllipse(SB, new Rectangle(new Point(0, 0), new Size(14, 14)));
             }
 
@@ -82,16 +82,16 @@ namespace ReaLTaiizor.Controls
             P.AddEllipse(new Rectangle(0, 0, 14, 14));
             G.SetClip(P);
 
-            LinearGradientBrush LLGGBB = new LinearGradientBrush(new Rectangle(0, 0, 14, 5), Color.FromArgb(150, Color.White), Color.Transparent, 90f);
+            LinearGradientBrush LLGGBB = new(new Rectangle(0, 0, 14, 5), Color.FromArgb(150, Color.White), Color.Transparent, 90f);
             G.FillRectangle(LLGGBB, LLGGBB.Rectangle);
 
             G.ResetClip();
 
-            G.DrawEllipse(new Pen(Bo), new Rectangle(new Point(0, 0), new Size(14, 14)));
+            G.DrawEllipse(new(Bo), new Rectangle(new Point(0, 0), new Size(14, 14)));
 
             if (_Checked)
             {
-                SolidBrush LGB = new SolidBrush(Bb);
+                SolidBrush LGB = new(Bb);
                 G.FillEllipse(LGB, new Rectangle(new Point(4, 4), new Size(6, 6)));
             }
 

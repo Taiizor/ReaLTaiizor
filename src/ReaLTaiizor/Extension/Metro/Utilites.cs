@@ -38,12 +38,12 @@ namespace ReaLTaiizor.Extension.Metro
 
         public Pen PenRGBColor(int red, int green, int blue, int alpha, float size)
         {
-            return new Pen(Color.FromArgb(alpha, red, green, blue), size);
+            return new(Color.FromArgb(alpha, red, green, blue), size);
         }
 
         public Pen PenHTMlColor(string colorWithoutHash, float size = 1)
         {
-            return new Pen(HexColor(colorWithoutHash), size);
+            return new(HexColor(colorWithoutHash), size);
         }
 
         public Color HexColor(string hexColor)

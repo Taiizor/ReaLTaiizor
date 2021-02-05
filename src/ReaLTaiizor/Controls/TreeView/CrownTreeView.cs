@@ -685,26 +685,26 @@ namespace ReaLTaiizor.Controls
         private void UpdateNodeBounds(CrownTreeNode node, int yOffset, int indent)
         {
             int expandTop = yOffset + (ItemHeight / 2) - (_expandAreaSize / 2);
-            node.ExpandArea = new Rectangle(indent + 3, expandTop, _expandAreaSize, _expandAreaSize);
+            node.ExpandArea = new(indent + 3, expandTop, _expandAreaSize, _expandAreaSize);
 
             int iconTop = yOffset + (ItemHeight / 2) - (_iconSize / 2);
 
             if (ShowIcons)
             {
-                node.IconArea = new Rectangle(node.ExpandArea.Right + 2, iconTop, _iconSize, _iconSize);
+                node.IconArea = new(node.ExpandArea.Right + 2, iconTop, _iconSize, _iconSize);
             }
             else
             {
-                node.IconArea = new Rectangle(node.ExpandArea.Right, iconTop, 0, 0);
+                node.IconArea = new(node.ExpandArea.Right, iconTop, 0, 0);
             }
 
             using (Graphics g = CreateGraphics())
             {
                 int textSize = (int)(g.MeasureString(node.Text, Font).Width);
-                node.TextArea = new Rectangle(node.IconArea.Right + 2, yOffset, textSize + 1, ItemHeight);
+                node.TextArea = new(node.IconArea.Right + 2, yOffset, textSize + 1, ItemHeight);
             }
 
-            node.FullArea = new Rectangle(indent, yOffset, (node.TextArea.Right - indent), ItemHeight);
+            node.FullArea = new(indent, yOffset, (node.TextArea.Right - indent), ItemHeight);
 
             if (ContentSize.Width < node.TextArea.Right + 2)
             {
@@ -1056,7 +1056,7 @@ namespace ReaLTaiizor.Controls
             }
 
             int width = Math.Max(ContentSize.Width, Viewport.Width);
-            Rectangle rect = new Rectangle(0, node.FullArea.Top, width, ItemHeight);
+            Rectangle rect = new(0, node.FullArea.Top, width, ItemHeight);
             return rect;
         }
 
@@ -1386,7 +1386,7 @@ namespace ReaLTaiizor.Controls
         protected override void PaintContent(Graphics g)
         {
             // Fill body
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -1414,7 +1414,7 @@ namespace ReaLTaiizor.Controls
                 bgColor = Focused ? ThemeProvider.Theme.Colors.BlueSelection : ThemeProvider.Theme.Colors.GreySelection;
             }
 
-            using (SolidBrush b = new SolidBrush(bgColor))
+            using (SolidBrush b = new(bgColor))
             {
                 g.FillRectangle(b, rect);
             }
@@ -1468,7 +1468,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // 4. Draw text
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText))
             {
                 StringFormat stringFormat = new StringFormat
                 {

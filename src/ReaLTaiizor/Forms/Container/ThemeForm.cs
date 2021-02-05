@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Forms
             base.OnSizeChanged(e);
             if (!_ControlMode)
             {
-                HeaderRect = new Rectangle(0, 0, Width - 14, MoveHeight - 7);
+                HeaderRect = new(0, 0, Width - 14, MoveHeight - 7);
             }
 
             Invalidate();

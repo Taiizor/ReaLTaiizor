@@ -184,8 +184,8 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle radioBtnRectangle = new Rectangle(0, 0, Height, Height - 1);
-            Rectangle Inner = new Rectangle(1, 1, Height - 2, Height - 3);
+            Rectangle radioBtnRectangle = new(0, 0, Height, Height - 1);
+            Rectangle Inner = new(1, 1, Height - 2, Height - 3);
 
             G.SmoothingMode = SmoothingType;
             G.CompositingQuality = CompositingQualityType;
@@ -193,11 +193,11 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(BackColor);
 
-            LinearGradientBrush bgGrad = new LinearGradientBrush(radioBtnRectangle, CheckedBorderColorA, CheckedBorderColorB, 90F);
+            LinearGradientBrush bgGrad = new(radioBtnRectangle, CheckedBorderColorA, CheckedBorderColorB, 90F);
             G.FillEllipse(bgGrad, radioBtnRectangle);
 
-            G.DrawEllipse(new Pen(CircleBorderColor), radioBtnRectangle);
-            G.DrawEllipse(new Pen(CircleEdgeColor), Inner);
+            G.DrawEllipse(new(CircleBorderColor), radioBtnRectangle);
+            G.DrawEllipse(new(CircleEdgeColor), Inner);
 
             if (Checked)
             {

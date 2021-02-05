@@ -173,7 +173,7 @@ namespace ReaLTaiizor.Util
         protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
         {
             Graphics g = e.Graphics;
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, e.AffectedBounds);
             }
@@ -183,9 +183,9 @@ namespace ReaLTaiizor.Util
         {
             Graphics g = e.Graphics;
 
-            Rectangle rect = new Rectangle(0, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
+            Rectangle rect = new(0, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
 
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.LightBorder))
+            using (Pen p = new(ThemeProvider.Theme.Colors.LightBorder))
             {
                 g.DrawRectangle(p, rect);
             }
@@ -195,17 +195,17 @@ namespace ReaLTaiizor.Util
         {
             Graphics g = e.Graphics;
 
-            Rectangle rect = new Rectangle(e.ImageRectangle.Left - 2, e.ImageRectangle.Top - 2,
+            Rectangle rect = new(e.ImageRectangle.Left - 2, e.ImageRectangle.Top - 2,
                                          e.ImageRectangle.Width + 4, e.ImageRectangle.Height + 4);
 
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightBorder))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightBorder))
             {
                 g.FillRectangle(b, rect);
             }
 
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.BlueHighlight))
+            using (Pen p = new(ThemeProvider.Theme.Colors.BlueHighlight))
             {
-                Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
                 g.DrawRectangle(p, modRect);
             }
 
@@ -219,9 +219,9 @@ namespace ReaLTaiizor.Util
         {
             Graphics g = e.Graphics;
 
-            Rectangle rect = new Rectangle(1, 3, e.Item.Width, 1);
+            Rectangle rect = new(1, 3, e.Item.Width, 1);
 
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightBorder))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightBorder))
             {
                 g.FillRectangle(b, rect);
             }
@@ -230,7 +230,7 @@ namespace ReaLTaiizor.Util
         protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
         {
             e.ArrowColor = ThemeProvider.Theme.Colors.LightText;
-            e.ArrowRectangle = new Rectangle(new Point(e.ArrowRectangle.Left, e.ArrowRectangle.Top - 1), e.ArrowRectangle.Size);
+            e.ArrowRectangle = new(new Point(e.ArrowRectangle.Left, e.ArrowRectangle.Top - 1), e.ArrowRectangle.Size);
 
             base.OnRenderArrow(e);
         }
@@ -247,9 +247,9 @@ namespace ReaLTaiizor.Util
                 Color bgColor = e.Item.Selected ? ThemeProvider.Theme.Colors.GreyHighlight : e.Item.BackColor;
 
                 // Normal item
-                Rectangle rect = new Rectangle(2, 0, e.Item.Width - 3, e.Item.Height);
+                Rectangle rect = new(2, 0, e.Item.Width - 3, e.Item.Height);
 
-                using (SolidBrush b = new SolidBrush(bgColor))
+                using (SolidBrush b = new(bgColor))
                 {
                     g.FillRectangle(b, rect);
                 }
@@ -259,7 +259,7 @@ namespace ReaLTaiizor.Util
                 {
                     if (((ToolStripMenuItem)e.Item).DropDown.Visible && e.Item.IsOnDropDown == false)
                     {
-                        using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreySelection))
+                        using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection))
                         {
                             g.FillRectangle(b, rect);
                         }
@@ -307,9 +307,9 @@ namespace ReaLTaiizor.Util
 
             if (e.ToolStrip.GetType() == typeof(ToolStripOverflow))
             {
-                using (Pen p = new Pen(ThemeProvider.Theme.Colors.GreyBackground))
+                using (Pen p = new(ThemeProvider.Theme.Colors.GreyBackground))
                 {
-                    Rectangle rect = new Rectangle(e.AffectedBounds.Left, e.AffectedBounds.Top, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
+                    Rectangle rect = new(e.AffectedBounds.Left, e.AffectedBounds.Top, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
                     g.DrawRectangle(p, rect);
                 }
             }
@@ -327,11 +327,11 @@ namespace ReaLTaiizor.Util
         {
             Graphics g = e.Graphics;
 
-            Rectangle rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
+            Rectangle rect = new(0, 1, e.Item.Width, e.Item.Height - 2);
 
             if (e.Item.Selected || e.Item.Pressed)
             {
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreySelection))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection))
                 {
                     g.FillRectangle(b, rect);
                 }
@@ -343,7 +343,7 @@ namespace ReaLTaiizor.Util
 
                 if (castItem.Checked)
                 {
-                    using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreySelection))
+                    using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection))
                     {
                         g.FillRectangle(b, rect);
                     }
@@ -351,8 +351,8 @@ namespace ReaLTaiizor.Util
 
                 if (castItem.Checked && castItem.Selected)
                 {
-                    Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
-                    using (Pen p = new Pen(ThemeProvider.Theme.Colors.GreyHighlight))
+                    Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                    using (Pen p = new(ThemeProvider.Theme.Colors.GreyHighlight))
                     {
                         g.DrawRectangle(p, modRect);
                     }
@@ -364,11 +364,11 @@ namespace ReaLTaiizor.Util
         {
             Graphics g = e.Graphics;
 
-            Rectangle rect = new Rectangle(0, 1, e.Item.Width, e.Item.Height - 2);
+            Rectangle rect = new(0, 1, e.Item.Width, e.Item.Height - 2);
 
             if (e.Item.Selected || e.Item.Pressed)
             {
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreySelection))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection))
                 {
                     g.FillRectangle(b, rect);
                 }
@@ -401,14 +401,14 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            Rectangle rect = new Rectangle(3, 3, 2, e.Item.Height - 4);
+            Rectangle rect = new(3, 3, 2, e.Item.Height - 4);
 
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
+            using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder))
             {
                 g.DrawLine(p, rect.Left, rect.Top, rect.Left, rect.Height);
             }
 
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.LightBorder))
+            using (Pen p = new(ThemeProvider.Theme.Colors.LightBorder))
             {
                 g.DrawLine(p, rect.Left + 1, rect.Top, rect.Left + 1, rect.Height);
             }
@@ -438,7 +438,7 @@ namespace ReaLTaiizor.Util
             /*
                 var g = e.Graphics;
 
-                var rect = new Rectangle(1, 0, e.Item.Width - 5, e.Item.Height);
+                var rect = new(1, 0, e.Item.Width - 5, e.Item.Height);
 
                 var castItem = (ToolStripOverflowButton)e.Item;
 
@@ -448,7 +448,7 @@ namespace ReaLTaiizor.Util
                 if (castItem.Pressed)
                     bgColor = BasicThemeProvider.Theme.Colors.Medium(style);
 
-                using (var b = new SolidBrush(bgColor))
+                using (var b = new(bgColor))
                 {
                     g.FillRectangle(b, rect);
                 }
@@ -459,9 +459,9 @@ namespace ReaLTaiizor.Util
                 if (castItem.Pressed)
                     fgColor = BasicThemeProvider.Theme.Colors.Strong(style);
 
-                using (var p = new Pen(fgColor))
+                using (var p = new(fgColor))
                 {
-                    var modRect = new Rectangle(1, 0, e.Item.Width - 6, e.Item.Height - 1);
+                    var modRect = new(1, 0, e.Item.Width - 6, e.Item.Height - 1);
                     g.DrawRectangle(p, modRect);
                 }
 

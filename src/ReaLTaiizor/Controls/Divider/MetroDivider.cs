@@ -176,7 +176,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            using (Pen p = new Pen(ForeColor, Thickness))
+            using (Pen p = new(ForeColor, Thickness))
             {
                 if (Orientation == DividerStyle.Horizontal)
                 {

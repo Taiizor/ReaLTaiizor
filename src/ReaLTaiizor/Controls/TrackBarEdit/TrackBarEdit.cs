@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Left)
             {
                 ValueDrawer = (int)Math.Round((double)((((double)(_Value - _Minimum)) / ((double)(_Maximum - _Minimum))) * (Width - 11)));
-                TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 10, 20);
+                TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
                 Cap = TrackBarHandleRect.Contains(e.Location);
                 if (_JumpToMouse)
                 {
@@ -258,10 +258,10 @@ namespace ReaLTaiizor.Controls
                 catch (Exception)
                 {
                 }
-                TrackBarHandleRect = new Rectangle(ValueDrawer, 0, 10, 20);
+                TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
                 G.SetClip(PipeBorder);
-                ValueRect = new Rectangle(1, 7, TrackBarHandleRect.X + TrackBarHandleRect.Width - 2, 7);
-                VlaueLGB = new LinearGradientBrush(ValueRect, _ValueColour, _ValueColour, 90f);
+                ValueRect = new(1, 7, TrackBarHandleRect.X + TrackBarHandleRect.Width - 2, 7);
+                VlaueLGB = new(ValueRect, _ValueColour, _ValueColour, 90f);
                 G.FillRectangle(VlaueLGB, ValueRect);
 
                 if (_DrawHatch == true)
@@ -271,11 +271,11 @@ namespace ReaLTaiizor.Controls
 
                 G.ResetClip();
                 G.SmoothingMode = SmoothingMode.AntiAlias;
-                G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), PipeBorder);
+                G.DrawPath(new(Color.FromArgb(180, 180, 180)), PipeBorder);
                 TrackBarHandle = RoundRectangle.RoundRect(TrackBarHandleRect, 3);
-                TrackBarHandleLGB = new LinearGradientBrush(ClientRectangle, SystemColors.Control, SystemColors.Control, 90f);
+                TrackBarHandleLGB = new(ClientRectangle, SystemColors.Control, SystemColors.Control, 90f);
                 G.FillPath(TrackBarHandleLGB, TrackBarHandle);
-                G.DrawPath(new Pen(Color.FromArgb(180, 180, 180)), TrackBarHandle);
+                G.DrawPath(new(Color.FromArgb(180, 180, 180)), TrackBarHandle);
 
                 if (_DrawValueString == true)
                 {

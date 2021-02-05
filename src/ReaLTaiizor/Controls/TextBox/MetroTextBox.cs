@@ -183,16 +183,16 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle rect = new(0, 0, Width - 1, Height - 1);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             if (Enabled)
             {
-                using (SolidBrush bg = new SolidBrush(BackColor))
+                using (SolidBrush bg = new(BackColor))
                 {
-                    using (Pen p = new Pen(BorderColor))
+                    using (Pen p = new(BorderColor))
                     {
-                        using (Pen ph = new Pen(HoverColor))
+                        using (Pen ph = new(HoverColor))
                         {
                             g.FillRectangle(bg, rect);
                             if (_state == MouseMode.Normal)
@@ -209,9 +209,9 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                using (SolidBrush bg = new SolidBrush(DisabledBackColor))
+                using (SolidBrush bg = new(DisabledBackColor))
                 {
-                    using (Pen p = new Pen(DisabledBorderColor))
+                    using (Pen p = new(DisabledBorderColor))
                     {
                         g.FillRectangle(bg, rect);
                         g.DrawRectangle(p, rect);

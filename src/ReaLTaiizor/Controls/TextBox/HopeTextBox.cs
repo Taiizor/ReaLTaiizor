@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(BackColor), bg);
-            g.DrawPath(new Pen(_baseTextBox.Focused ? _BorderColorA : _BorderColorB, 0.5f), bg);
+            g.DrawPath(new(_baseTextBox.Focused ? _BorderColorA : _BorderColorB, 0.5f), bg);
         }
 
         public HopeTextBox()

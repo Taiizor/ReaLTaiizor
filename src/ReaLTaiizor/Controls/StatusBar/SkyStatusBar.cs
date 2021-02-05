@@ -87,11 +87,11 @@ namespace ReaLTaiizor.Controls
             Graphics G = Graphics.FromImage(B);
             base.OnPaint(e);
 
-            LinearGradientBrush bodyGradNone = new LinearGradientBrush(new Rectangle(0, 1, Width, Height - 1), BackColorA, BackColorB, 90);
+            LinearGradientBrush bodyGradNone = new(new Rectangle(0, 1, Width, Height - 1), BackColorA, BackColorB, 90);
             G.FillRectangle(bodyGradNone, bodyGradNone.Rectangle);
-            LinearGradientBrush bodyInBorderNone = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 3), BorderColorA, BorderColorB, 90);
-            G.DrawRectangle(new Pen(bodyInBorderNone), new Rectangle(1, 1, Width - 3, Height - 3));
-            G.DrawRectangle(new Pen(BorderColorC), new Rectangle(0, 0, Width - 1, Height - 1));
+            LinearGradientBrush bodyInBorderNone = new(new Rectangle(1, 1, Width - 3, Height - 3), BorderColorA, BorderColorB, 90);
+            G.DrawRectangle(new(bodyInBorderNone), new Rectangle(1, 1, Width - 3, Height - 3));
+            G.DrawRectangle(new(BorderColorC), new Rectangle(0, 0, Width - 1, Height - 1));
 
             G.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(4, 4), StringFormat.GenericDefault);
 

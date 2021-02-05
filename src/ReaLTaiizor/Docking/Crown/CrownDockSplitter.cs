@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public void UpdateOverlay(Point difference)
         {
-            Rectangle bounds = new Rectangle(Bounds.Location, Bounds.Size);
+            Rectangle bounds = new(Bounds.Location, Bounds.Size);
 
             switch (_splitterType)
             {
@@ -154,19 +154,19 @@ namespace ReaLTaiizor.Docking.Crown
             switch (_splitterType)
             {
                 case SplitterType.Left:
-                    Bounds = new Rectangle(bounds.Left - 2, bounds.Top, 5, bounds.Height);
+                    Bounds = new(bounds.Left - 2, bounds.Top, 5, bounds.Height);
                     _maximum = bounds.Right - 2 - _control.MinimumSize.Width;
                     break;
                 case SplitterType.Right:
-                    Bounds = new Rectangle(bounds.Right - 2, bounds.Top, 5, bounds.Height);
+                    Bounds = new(bounds.Right - 2, bounds.Top, 5, bounds.Height);
                     _minimum = bounds.Left - 2 + _control.MinimumSize.Width;
                     break;
                 case SplitterType.Top:
-                    Bounds = new Rectangle(bounds.Left, bounds.Top - 2, bounds.Width, 5);
+                    Bounds = new(bounds.Left, bounds.Top - 2, bounds.Width, 5);
                     _maximum = bounds.Bottom - 2 - _control.MinimumSize.Height;
                     break;
                 case SplitterType.Bottom:
-                    Bounds = new Rectangle(bounds.Left, bounds.Bottom - 2, bounds.Width, 5);
+                    Bounds = new(bounds.Left, bounds.Bottom - 2, bounds.Width, 5);
                     _minimum = bounds.Top - 2 + _control.MinimumSize.Height;
                     break;
             }

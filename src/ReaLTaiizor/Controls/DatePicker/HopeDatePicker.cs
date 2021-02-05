@@ -419,7 +419,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(1f, 1f, Width - 2, Height - 2, 3);
             graphics.FillPath(new SolidBrush(BackColor), bg);
-            graphics.DrawPath(new Pen(_BorderColor), bg);
+            graphics.DrawPath(new(_BorderColor), bg);
 
             graphics.DrawString(string.Format(_HeaderFormat, CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(_HeaderTextColor), TopDateRect, HopeStringAlign.Center);
 
@@ -434,13 +434,13 @@ namespace ReaLTaiizor.Controls
                 graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(_DaysTextColor), new RectangleF(10 + i * (Width - 20) / 7, WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
             }
 
-            graphics.DrawLine(new Pen(_HeadLineColor, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);
+            graphics.DrawLine(new(_HeadLineColor, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);
 
             DateTime FirstDay = FirstDayOfMonth(CurrentDate);
             for (int i = 0; i < 42; i++)
             {
                 Util.HopeBase.DateRectHopeBase tempDate = DateRectangles[i / 7][i % 7];
-                SolidBrush brush = new SolidBrush(_DayTextColorA);
+                SolidBrush brush = new(_DayTextColorA);
 
                 if (HoverX == i / 7 && HoverY == i % 7)
                 {
@@ -452,7 +452,7 @@ namespace ReaLTaiizor.Controls
 
                 if (tempDate.Date == DateTime.Today)
                 {
-                    brush = new SolidBrush(_ValueTextColor);
+                    brush = new(_ValueTextColor);
                 }
 
                 if (tempDate.Date == Date)
@@ -462,7 +462,7 @@ namespace ReaLTaiizor.Controls
                     graphics.FillPath(new SolidBrush(_SelectedBackColor), bg1);
 
                     //graphics.FillRectangle(new SolidBrush(HopeColors.PrimaryColor), new RectangleF(rect1.X+3,rect1.Y+3,rect1.Width-6,rect1.Width-6));
-                    brush = new SolidBrush(_SelectedTextColor);
+                    brush = new(_SelectedTextColor);
                 }
                 graphics.DrawString(DateRectangles[i / 7][i % 7].Date.Day.ToString(), Font, DateRectangles[i / 7][i % 7].Drawn ? brush : new SolidBrush(_DayTextColorB), DateRectangles[i / 7][i % 7].Rect, HopeStringAlign.Center);
             }

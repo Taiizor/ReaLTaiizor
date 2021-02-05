@@ -27,13 +27,13 @@ namespace ReaLTaiizor.Controls
         {
             base.OnDrawItem(e);
             e.DrawBackground();
-            LinearGradientBrush LGB = new LinearGradientBrush(e.Bounds, Color.FromArgb(246, 132, 85), Color.FromArgb(231, 108, 57), 90.0F);
+            LinearGradientBrush LGB = new(e.Bounds, Color.FromArgb(246, 132, 85), Color.FromArgb(231, 108, 57), 90.0F);
             if (Convert.ToInt32((e.State & DrawItemState.Selected)) == (int)DrawItemState.Selected)
             {
                 e.Graphics.FillRectangle(LGB, e.Bounds);
             }
 
-            using (SolidBrush b = new SolidBrush(e.ForeColor))
+            using (SolidBrush b = new(e.ForeColor))
             {
                 if (base.Items.Count == 0)
                 {

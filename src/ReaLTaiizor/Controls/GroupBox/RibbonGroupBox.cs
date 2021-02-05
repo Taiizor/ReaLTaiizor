@@ -116,7 +116,7 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new Bitmap(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle Body = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle Body = new(0, 0, Width - 1, Height - 1);
 
             base.OnPaint(e);
 
@@ -130,11 +130,11 @@ namespace ReaLTaiizor.Controls
             TextureBrush GROUPIMAGE = new TextureBrush(GROUPHATCH, WrapMode.TileFlipXY);
 
             G.FillRectangle(GROUPIMAGE, Body);
-            Pen p = new Pen(new SolidBrush(BorderColorA));
+            Pen p = new(new SolidBrush(BorderColorA));
             G.DrawRectangle(p, Body);
-            Pen p1 = new Pen(new SolidBrush(BorderColorB));
+            Pen p1 = new(new SolidBrush(BorderColorB));
             G.DrawRectangle(p1, 1, 1, Width - 3, Height - 3);
-            Pen p2 = new Pen(new SolidBrush(BorderColorC));
+            Pen p2 = new(new SolidBrush(BorderColorC));
             G.DrawRectangle(p2, 2, 2, Width - 5, Height - 5);
 
             //G.DrawString(Text, t, New SolidBrush(Color.FromArgb(50, 50, 50)), New Rectangle(-1, 1, Width - 1, 25), New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center})
@@ -144,9 +144,9 @@ namespace ReaLTaiizor.Controls
                 LineAlignment = StringAlignment.Center
             });
 
-            Pen UnderlinePen = new Pen(new SolidBrush(LineColorA), 3);
+            Pen UnderlinePen = new(new SolidBrush(LineColorA), 3);
             G.DrawLine(UnderlinePen, 20, 24, Width - 20, 24);
-            Pen UnderlinePen2 = new Pen(new SolidBrush(LineColorB), 1);
+            Pen UnderlinePen2 = new(new SolidBrush(LineColorB), 1);
             G.DrawLine(UnderlinePen2, 20, 27, Width - 20, 27);
 
             e.Graphics.DrawImage(B, 0, 0);

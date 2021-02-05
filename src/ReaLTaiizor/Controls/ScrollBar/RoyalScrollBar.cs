@@ -152,21 +152,21 @@ namespace ReaLTaiizor.Controls
 
         protected void DrawThumb(PaintEventArgs e)
         {
-            Rectangle rect = new Rectangle(0, 0, 10, 10);
+            Rectangle rect = new(0, 0, 10, 10);
 
             if (Orientation == Orientation.Vertical)
             {
                 thumbSize = (double)Height * ((double)Height / (double)max);
                 double y = (double)(Height - thumbSize) * ((double)Value / (double)max);
 
-                rect = new Rectangle(new Point(0, (int)y), new Size(Width, (int)thumbSize));
+                rect = new(new Point(0, (int)y), new Size(Width, (int)thumbSize));
             }
             else if (Orientation == Orientation.Horizontal)
             {
                 thumbSize = (double)Width * ((double)Width / (double)max);
                 double x = (double)(Width - thumbSize) * ((double)Value / (double)max);
 
-                rect = new Rectangle(new Point((int)x, 0), new Size((int)thumbSize, Height));
+                rect = new(new Point((int)x, 0), new Size((int)thumbSize, Height));
             }
 
             e.Graphics.FillRectangle(new SolidBrush(ThumbColor), rect);
@@ -211,23 +211,23 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            Rectangle mouseRect = new Rectangle(e.X, e.Y, 1, 1);
-            Rectangle gutterRect = new Rectangle(0, 0, Width, Height);
-            Rectangle thumbRect = new Rectangle(0, 0, 10, 10);
+            Rectangle mouseRect = new(e.X, e.Y, 1, 1);
+            Rectangle gutterRect = new(0, 0, Width, Height);
+            Rectangle thumbRect = new(0, 0, 10, 10);
 
             if (Orientation == Orientation.Vertical)
             {
                 thumbSize = (double)Height * ((double)Height / (double)max);
                 double y = (double)(Height - thumbSize) * ((double)Value / (double)max);
 
-                thumbRect = new Rectangle(0, (int)y, Width, (int)thumbSize);
+                thumbRect = new(0, (int)y, Width, (int)thumbSize);
             }
             else if (Orientation == Orientation.Horizontal)
             {
                 thumbSize = (double)Width * ((double)Width / (double)max);
                 double x = (double)(Width - thumbSize) * ((double)Value / (double)max);
 
-                thumbRect = new Rectangle((int)x, 0, (int)thumbSize, Height);
+                thumbRect = new((int)x, 0, (int)thumbSize, Height);
             }
 
             if (mouseRect.IntersectsWith(gutterRect))

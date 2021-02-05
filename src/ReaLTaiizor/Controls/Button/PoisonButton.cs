@@ -314,9 +314,9 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            using (Pen p = new Pen(borderColor))
+            using (Pen p = new(borderColor))
             {
-                Rectangle borderRect = new Rectangle(0, 0, Width - 1, Height - 1);
+                Rectangle borderRect = new(0, 0, Width - 1, Height - 1);
                 e.Graphics.DrawRectangle(p, borderRect);
             }
 
@@ -324,9 +324,9 @@ namespace ReaLTaiizor.Controls
             {
                 using (Pen p = PoisonPaint.GetStylePen(Style))
                 {
-                    Rectangle borderRect = new Rectangle(0, 0, Width - 1, Height - 1);
+                    Rectangle borderRect = new(0, 0, Width - 1, Height - 1);
                     e.Graphics.DrawRectangle(p, borderRect);
-                    borderRect = new Rectangle(1, 1, Width - 3, Height - 3);
+                    borderRect = new(1, 1, Width - 3, Height - 3);
                     e.Graphics.DrawRectangle(p, borderRect);
                 }
             }

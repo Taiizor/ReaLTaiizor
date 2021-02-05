@@ -230,7 +230,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            Rectangle rect = new(0, 0, ClientSize.Width, ClientSize.Height);
 
             int size = ThemeProvider.Theme.Sizes.RadioButtonSize;
 
@@ -264,31 +264,31 @@ namespace ReaLTaiizor.Controls
                 fillColor = ThemeProvider.Theme.Colors.GreySelection;
             }
 
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, rect);
             }
 
             g.SmoothingMode = SmoothingMode.HighQuality;
 
-            using (Pen p = new Pen(borderColor))
+            using (Pen p = new(borderColor))
             {
-                Rectangle boxRect = new Rectangle(0, (rect.Height / 2) - (size / 2), size, size);
+                Rectangle boxRect = new(0, (rect.Height / 2) - (size / 2), size, size);
                 g.DrawEllipse(p, boxRect);
             }
 
             if (Checked)
             {
-                using (SolidBrush b = new SolidBrush(fillColor))
+                using (SolidBrush b = new(fillColor))
                 {
-                    Rectangle boxRect = new Rectangle(3, (rect.Height / 2) - ((size - 7) / 2) - 1, size - 6, size - 6);
+                    Rectangle boxRect = new(3, (rect.Height / 2) - ((size - 7) / 2) - 1, size - 6, size - 6);
                     g.FillEllipse(b, boxRect);
                 }
             }
 
             g.SmoothingMode = SmoothingMode.Default;
 
-            using (SolidBrush b = new SolidBrush(textColor))
+            using (SolidBrush b = new(textColor))
             {
                 StringFormat stringFormat = new StringFormat
                 {
@@ -296,7 +296,7 @@ namespace ReaLTaiizor.Controls
                     Alignment = StringAlignment.Near
                 };
 
-                Rectangle modRect = new Rectangle(size + 4, 0, rect.Width - size, rect.Height);
+                Rectangle modRect = new(size + 4, 0, rect.Width - size, rect.Height);
                 g.DrawString(Text, Font, b, modRect, stringFormat);
             }
         }

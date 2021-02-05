@@ -125,9 +125,9 @@ namespace ReaLTaiizor.Controls
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             Rectangle itemRect = GetItemRect(e.Item);
-            Rectangle textRect = new Rectangle(24, itemRect.Y, itemRect.Width - (24 + 16), itemRect.Height);
+            Rectangle textRect = new(24, itemRect.Y, itemRect.Width - (24 + 16), itemRect.Height);
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 NativeText.DrawTransparentText(e.Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body2),
                     e.Item.Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
@@ -157,7 +157,7 @@ namespace ReaLTaiizor.Controls
                     for (int i = 0; i < animationManager.GetAnimationCount(); i++)
                     {
                         double animationValue = animationManager.GetProgress(i);
-                        SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationValue * 50)), Color.Black));
+                        SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationValue * 50)), Color.Black));
                         int rippleSize = (int)(animationValue * itemRect.Width * 2.5);
                         g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, itemRect.Y - itemRect.Height, rippleSize, itemRect.Height * 3));
                     }
@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls
 
             g.FillRectangle(SkinManager.BackdropBrush, e.Item.Bounds);
             g.DrawLine(
-                new Pen(SkinManager.DividersColor),
+                new(SkinManager.DividersColor),
                 new Point(e.Item.Bounds.Left, e.Item.Bounds.Height / 2),
                 new Point(e.Item.Bounds.Right, e.Item.Bounds.Height / 2));
         }
@@ -185,7 +185,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
 
             g.DrawRectangle(
-                new Pen(SkinManager.DividersColor),
+                new(SkinManager.DividersColor),
                 new Rectangle(e.AffectedBounds.X, e.AffectedBounds.Y, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1));
         }
 

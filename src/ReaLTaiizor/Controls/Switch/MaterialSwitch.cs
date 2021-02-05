@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Controls
         public override Size GetPreferredSize(Size proposedSize)
         {
             Size strSize;
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+            using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
                 strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
             }
@@ -159,7 +159,7 @@ namespace ReaLTaiizor.Controls
 
             using (GraphicsPath path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - TRACK_SIZE_HEIGHT / 2, TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
             {
-                using (SolidBrush trackBrush = new SolidBrush(
+                using (SolidBrush trackBrush = new(
                     Color.FromArgb(Enabled ? SkinManager.SwitchOffTrackColor.A : SkinManager.BackgroundDisabledColor.A, // Track alpha
                     BlendColor( // animate color
                         (Enabled ? SkinManager.SwitchOffTrackColor : SkinManager.BackgroundDisabledColor), // Off color
@@ -188,7 +188,7 @@ namespace ReaLTaiizor.Controls
                     double rippleAnimProgress = _rippleAM.GetProgress(i);
                     int rippleAnimatedDiameter = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress))) : rippleSize;
 
-                    using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha())))
+                    using (SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha())))
                     {
                         g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - rippleAnimatedDiameter / 2, TRACK_CENTER_Y - rippleAnimatedDiameter / 2, rippleAnimatedDiameter, rippleAnimatedDiameter));
                     }
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Controls
                 double rippleAnimProgress = _hoverAM.GetProgress();
                 int rippleAnimatedDiameter = (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress)));
 
-                using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha())))
+                using (SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha())))
                 {
                     g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - rippleAnimatedDiameter / 2, TRACK_CENTER_Y - rippleAnimatedDiameter / 2, rippleAnimatedDiameter, rippleAnimatedDiameter));
                 }
@@ -209,7 +209,7 @@ namespace ReaLTaiizor.Controls
 
             // draw Thumb Shadow
             RectangleF thumbBounds = new RectangleF(TRACK_CENTER_X_BEGIN + OffsetX - THUMB_SIZE_HALF, TRACK_CENTER_Y - THUMB_SIZE_HALF, THUMB_SIZE, THUMB_SIZE);
-            using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(12, 0, 0, 0)))
+            using (SolidBrush shadowBrush = new(Color.FromArgb(12, 0, 0, 0)))
             {
                 g.FillEllipse(shadowBrush, new RectangleF(thumbBounds.X - 2, thumbBounds.Y - 1, thumbBounds.Width + 4, thumbBounds.Height + 6));
                 g.FillEllipse(shadowBrush, new RectangleF(thumbBounds.X - 1, thumbBounds.Y - 1, thumbBounds.Width + 2, thumbBounds.Height + 4));
@@ -219,15 +219,15 @@ namespace ReaLTaiizor.Controls
             }
 
             // draw Thumb
-            using (SolidBrush thumbBrush = new SolidBrush(thumbColor))
+            using (SolidBrush thumbBrush = new(thumbColor))
             {
                 g.FillEllipse(thumbBrush, thumbBounds);
             }
 
             // draw text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
-                Rectangle textLocation = new Rectangle(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
+                Rectangle textLocation = new(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
                 NativeText.DrawTransparentText(
                     Text,
                     SkinManager.getLogFontByType(MaterialManager.fontType.Body1),
@@ -247,7 +247,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Color.Transparent);
 
             // draw the checkmark lines
-            using (Pen pen = new Pen(Parent.BackColor, 2))
+            using (Pen pen = new(Parent.BackColor, 2))
             {
                 g.DrawLines(pen, CheckmarkLine);
             }

@@ -195,13 +195,13 @@ namespace ReaLTaiizor.Controls
             DrawBorders(Pens.LightGray, 1);
             DrawCorners(Color.Transparent);
 
-            LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(2, 2), new Size(Width - 2, Height - 5)), LineColor, LineUpColor, 90f);
+            LinearGradientBrush LGB = new(new Rectangle(new Point(2, 2), new Size(Width - 2, Height - 5)), LineColor, LineUpColor, 90f);
             G.FillRectangle(LGB, new Rectangle(new Point(2, 2), new Size((Width / Maximum) * Value - 5, Height - 5)));
 
             G.RenderingOrigin = new Point(HBPos, 0);
             HatchBrush HB = new HatchBrush(HatchType, LinesColor, LinerColor);
             G.FillRectangle(HB, new Rectangle(new Point(1, 2), new Size((Width / Maximum) * Value - 3, Height - 3)));
-            G.DrawLine(new Pen(new SolidBrush(LineEndColor)), new Point((Width / Maximum) * Value - 2, 1), new Point((Width / Maximum) * Value - 2, Height - 3));
+            G.DrawLine(new(new SolidBrush(LineEndColor)), new Point((Width / Maximum) * Value - 2, 1), new Point((Width / Maximum) * Value - 2, Height - 3));
         }
     }
 

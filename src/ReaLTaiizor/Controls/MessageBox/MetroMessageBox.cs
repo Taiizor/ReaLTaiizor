@@ -333,13 +333,13 @@ namespace ReaLTaiizor.Controls
             Graphics G = e.Graphics;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            Rectangle rect = new Rectangle(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
+            Rectangle rect = new(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
 
-            using (SolidBrush bg = new SolidBrush(BackgroundColor))
+            using (SolidBrush bg = new(BackgroundColor))
             {
-                using (SolidBrush CTNT = new SolidBrush(ForegroundColor))
+                using (SolidBrush CTNT = new(ForegroundColor))
                 {
-                    using (Pen p = new Pen(BorderColor))
+                    using (Pen p = new(BorderColor))
                     {
                         G.FillRectangle(bg, rect);
                         G.DrawString(Caption, Font, CTNT, new PointF(rect.X + 10, rect.Y + 10));

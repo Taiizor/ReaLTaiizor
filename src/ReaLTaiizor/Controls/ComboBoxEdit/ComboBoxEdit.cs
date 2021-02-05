@@ -115,14 +115,14 @@ namespace ReaLTaiizor.Controls
             // Create a curvy border
             GP = RoundRectangle.RoundRect(0, 0, Width - 1, Height - 1, 5);
             // Fills the body of the rectangle with a gradient
-            LGB = new LinearGradientBrush(ClientRectangle, Color.FromArgb(241, 241, 241), Color.FromArgb(241, 241, 241), 90f);
+            LGB = new(ClientRectangle, Color.FromArgb(241, 241, 241), Color.FromArgb(241, 241, 241), 90f);
 
             e.Graphics.SetClip(GP);
             e.Graphics.FillRectangle(LGB, ClientRectangle);
             e.Graphics.ResetClip();
 
             // Draw rectangle border
-            e.Graphics.DrawPath(new Pen(Color.FromArgb(204, 204, 204)), GP);
+            e.Graphics.DrawPath(new(Color.FromArgb(204, 204, 204)), GP);
             // Draw string
             e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(3, 0, Width - 20, Height), new StringFormat
             {
@@ -131,9 +131,9 @@ namespace ReaLTaiizor.Controls
             });
 
             // Draw the dropdown arrow
-            e.Graphics.DrawLine(new Pen(Color.FromArgb(160, 160, 160), 2), new Point(Width - 18, 10), new Point(Width - 14, 14));
-            e.Graphics.DrawLine(new Pen(Color.FromArgb(160, 160, 160), 2), new Point(Width - 14, 14), new Point(Width - 10, 10));
-            e.Graphics.DrawLine(new Pen(Color.FromArgb(160, 160, 160)), new Point(Width - 14, 15), new Point(Width - 14, 14));
+            e.Graphics.DrawLine(new(Color.FromArgb(160, 160, 160), 2), new Point(Width - 18, 10), new Point(Width - 14, 14));
+            e.Graphics.DrawLine(new(Color.FromArgb(160, 160, 160), 2), new Point(Width - 14, 14), new Point(Width - 10, 10));
+            e.Graphics.DrawLine(new(Color.FromArgb(160, 160, 160)), new Point(Width - 14, 15), new Point(Width - 14, 14));
 
             GP.Dispose();
             LGB.Dispose();

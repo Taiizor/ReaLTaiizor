@@ -89,7 +89,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath GP = new GraphicsPath();
             GraphicsPath GP2 = new GraphicsPath();
             GraphicsPath GP3 = new GraphicsPath();
-            Rectangle Base = new Rectangle(8, 8, W - 16, H - 16);
+            Rectangle Base = new(8, 8, W - 16, H - 16);
 
             Graphics _with7 = G;
             _with7.SmoothingMode = SmoothingMode.HighQuality;

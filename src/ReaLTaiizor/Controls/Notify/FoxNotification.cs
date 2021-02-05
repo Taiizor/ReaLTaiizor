@@ -151,11 +151,11 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            using (SolidBrush Back = new SolidBrush(Background))
+            using (SolidBrush Back = new(Background))
             {
-                using (SolidBrush TC = new SolidBrush(TextColor))
+                using (SolidBrush TC = new(TextColor))
                 {
-                    using (SolidBrush LB = new SolidBrush(LeftBar))
+                    using (SolidBrush LB = new(LeftBar))
                     {
                         G.FillRectangle(Back, FoxLibrary.FullRectangle(Size, true));
                         G.SmoothingMode = SmoothingMode.None;

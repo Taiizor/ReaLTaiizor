@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Controls
             LINE_Y = HEIGHT - BOTTOM_PADDING;
 
             // Position the "real" text field
-            Rectangle rect = new Rectangle(SkinManager.FORM_PADDING, UseTallSize ? hasHint ?
+            Rectangle rect = new(SkinManager.FORM_PADDING, UseTallSize ? hasHint ?
                     (HINT_TEXT_SMALL_Y + HINT_TEXT_SMALL_SIZE) : // Has hint and it's tall
                     (int)(LINE_Y / 3.5) : // No hint and tall
                     Height / 5, // not tall
@@ -190,7 +190,7 @@ namespace ReaLTaiizor.Controls
 
             g.Clear(Parent.BackColor);
 
-            SolidBrush backBrush = new SolidBrush(BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A));
+            SolidBrush backBrush = new(BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A));
 
             g.FillRectangle(
                 !Enabled ? SkinManager.BackgroundDisabledBrush : // Disabled
@@ -205,7 +205,7 @@ namespace ReaLTaiizor.Controls
                             UseAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : // Focused
                             SkinManager.TextHighEmphasisColor : // Inactive
                             SkinManager.TextDisabledOrHintColor; // Disabled
-            Rectangle hintRect = new Rectangle(SkinManager.FORM_PADDING, ClientRectangle.Y, Width, LINE_Y);
+            Rectangle hintRect = new(SkinManager.FORM_PADDING, ClientRectangle.Y, Width, LINE_Y);
             int hintTextSize = 16;
 
             // bottom line base
@@ -217,7 +217,7 @@ namespace ReaLTaiizor.Controls
                 if (hasHint && UseTallSize && (Focused || userTextPresent))
                 {
                     // hint text
-                    hintRect = new Rectangle(SkinManager.FORM_PADDING, HINT_TEXT_SMALL_Y, Width, HINT_TEXT_SMALL_SIZE);
+                    hintRect = new(SkinManager.FORM_PADDING, HINT_TEXT_SMALL_Y, Width, HINT_TEXT_SMALL_SIZE);
                     hintTextSize = 12;
                 }
 
@@ -235,7 +235,7 @@ namespace ReaLTaiizor.Controls
                 // hint Animation
                 if (hasHint && UseTallSize)
                 {
-                    hintRect = new Rectangle(
+                    hintRect = new(
                         SkinManager.FORM_PADDING,
                         userTextPresent ? (HINT_TEXT_SMALL_Y) : ClientRectangle.Y + (int)((HINT_TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
                         Width,
@@ -255,7 +255,7 @@ namespace ReaLTaiizor.Controls
             Rectangle textSelectRect;
 
             // Calc text Rect
-            Rectangle textRect = new Rectangle(
+            Rectangle textRect = new(
                 SkinManager.FORM_PADDING,
                 hasHint && UseTallSize ? (hintRect.Y + hintRect.Height) - 2 : ClientRectangle.Y,
                 ClientRectangle.Width - SkinManager.FORM_PADDING * 2 + scrollPos.X,
@@ -264,7 +264,7 @@ namespace ReaLTaiizor.Controls
             g.Clip = new Region(textRect);
             textRect.X -= scrollPos.X;
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 // Selection rects calc
                 string textBeforeSelection = textToDisplay.Substring(0, SelectionStart);
@@ -273,7 +273,7 @@ namespace ReaLTaiizor.Controls
                 int selectX = NativeText.MeasureLogString(textBeforeSelection, SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1)).Width;
                 int selectWidth = NativeText.MeasureLogString(textSelected, SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1)).Width;
 
-                textSelectRect = new Rectangle(
+                textSelectRect = new(
                     textRect.X + selectX, UseTallSize ? hasHint ?
                      textRect.Y + BOTTOM_PADDING : // tall and hint
                      LINE_Y / 3 - BOTTOM_PADDING : // tall and no hint
@@ -300,7 +300,7 @@ namespace ReaLTaiizor.Controls
                 g.FillRectangle(UseAccent ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.DarkPrimaryBrush, textSelectRect);
 
                 // Draw Selected Text
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+                using (MaterialNativeTextRenderer NativeText = new(g))
                 {
                     NativeText.DrawTransparentText(
                         textSelected,
@@ -317,7 +317,7 @@ namespace ReaLTaiizor.Controls
             // Draw hint text
             if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))
             {
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+                using (MaterialNativeTextRenderer NativeText = new(g))
                 {
                     NativeText.DrawTransparentText(
                     Hint,

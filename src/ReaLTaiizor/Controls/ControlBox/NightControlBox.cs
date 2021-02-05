@@ -388,16 +388,16 @@ namespace ReaLTaiizor.Controls
             // Minimize button
             Font minimizeBtnFont = new Font("Tahoma", 12);
             Point minimizeBtnPoint = new Point(15, 5);
-            SolidBrush minimizeBtnBrush = new SolidBrush(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
+            SolidBrush minimizeBtnBrush = new(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
 
             if (hover_min && _EnableMinimize)
             {
-                using (SolidBrush backColor = new SolidBrush(_MinimizeHoverColor))
+                using (SolidBrush backColor = new(_MinimizeHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(1, 0), btnBackgroundSize));
                 }
 
-                minimizeBtnBrush = new SolidBrush(_MinimizeHoverForeColor);
+                minimizeBtnBrush = new(_MinimizeHoverForeColor);
             }
 
             g.DrawString("\u2212", minimizeBtnFont, minimizeBtnBrush, minimizeBtnPoint);
@@ -407,16 +407,16 @@ namespace ReaLTaiizor.Controls
             // Maxmize button
             Font maximizeBtnFont = new Font("Marlett", 9);
             Point maximizeBtnPoint = new Point(63, 10);
-            SolidBrush maximizeBtnBrush = new SolidBrush(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
+            SolidBrush maximizeBtnBrush = new(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
 
             if (hover_max && _EnableMaximize)
             {
-                using (SolidBrush backColor = new SolidBrush(_MaximizeHoverColor))
+                using (SolidBrush backColor = new(_MaximizeHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(47, 0), btnBackgroundSize));
                 }
 
-                maximizeBtnBrush = new SolidBrush(_MaximizeHoverForeColor);
+                maximizeBtnBrush = new(_MaximizeHoverForeColor);
             }
 
             g.DrawString(FindForm().WindowState != FormWindowState.Maximized ? "1" : "2", maximizeBtnFont, maximizeBtnBrush, maximizeBtnPoint);
@@ -427,16 +427,16 @@ namespace ReaLTaiizor.Controls
             // Close button
             Font closeBtnFont = new Font("Tahoma", 11);
             Point closeBtnPoint = new Point(107, 6);
-            SolidBrush closeBtnBrush = new SolidBrush(_EnableCloseColor);
+            SolidBrush closeBtnBrush = new(_EnableCloseColor);
 
             if (hover_close)
             {
-                using (SolidBrush backColor = new SolidBrush(_CloseHoverColor))
+                using (SolidBrush backColor = new(_CloseHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(93, 0), btnBackgroundSize));
                 }
 
-                closeBtnBrush = new SolidBrush(_CloseHoverForeColor);
+                closeBtnBrush = new(_CloseHoverForeColor);
             }
 
             g.DrawString("\u2A09", closeBtnFont, closeBtnBrush, closeBtnPoint);

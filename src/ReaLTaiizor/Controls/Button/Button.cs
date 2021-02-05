@@ -245,8 +245,8 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(255, 255, 255);
             Size = new Size(120, 40);
             _TextAlignment = StringAlignment.Center;
-            P1 = new Pen(Color.FromArgb(32, 34, 37)); // P1 = Border color
-            P3 = new Pen(Color.FromArgb(165, 37, 37)); // P3 = Border color when pressed
+            P1 = new(Color.FromArgb(32, 34, 37)); // P1 = Border color
+            P3 = new(Color.FromArgb(165, 37, 37)); // P3 = Border color when pressed
         }
 
         protected override void OnResize(EventArgs e)
@@ -255,11 +255,11 @@ namespace ReaLTaiizor.Controls
             if (Width > 0 && Height > 0)
             {
                 Shape = new GraphicsPath();
-                R1 = new Rectangle(0, 0, Width, Height);
+                R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _InactiveColor, _InactiveColor, 90.0F);
-                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedColor, _PressedColor, 90.0F);
-                EnteredGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _EnteredColor, _EnteredColor, 90.0F);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColor, _InactiveColor, 90.0F);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColor, _PressedColor, 90.0F);
+                EnteredGB = new(new Rectangle(0, 0, Width, Height), _EnteredColor, _EnteredColor, 90.0F);
             }
 
             Shape.AddArc(0, 0, 10, 10, 180, 90);

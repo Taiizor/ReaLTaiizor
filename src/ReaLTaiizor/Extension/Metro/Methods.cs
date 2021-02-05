@@ -158,7 +158,7 @@ namespace ReaLTaiizor.Extension.Metro
 
         public GraphicsPath RoundRec(int x, int y, int width, int height, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
         {
-            Rectangle r = new Rectangle(x, y, width, height);
+            Rectangle r = new(x, y, width, height);
             GraphicsPath createRoundPath = new GraphicsPath(FillMode.Winding);
             if (topLeft)
             {
