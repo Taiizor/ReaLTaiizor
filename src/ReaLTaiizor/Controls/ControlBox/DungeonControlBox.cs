@@ -127,16 +127,16 @@ namespace ReaLTaiizor.Controls
                 {
                     if (_EnableMaximize == false && _EnableMinimize == false)
                     {
-                        Size = new Size(24, 22);
+                        Size = new(24, 22);
                     }
                     else
                     {
-                        Size = new Size(44, 22);
+                        Size = new(44, 22);
                     }
                 }
                 else
                 {
-                    Size = new Size(64, 22);
+                    Size = new(64, 22);
                 }
 
                 Invalidate();
@@ -154,16 +154,16 @@ namespace ReaLTaiizor.Controls
                 {
                     if (_EnableMaximize == false && _EnableMinimize == false)
                     {
-                        Size = new Size(24, 22);
+                        Size = new(24, 22);
                     }
                     else
                     {
-                        Size = new Size(44, 22);
+                        Size = new(44, 22);
                     }
                 }
                 else
                 {
-                    Size = new Size(64, 22);
+                    Size = new(64, 22);
                 }
 
                 Invalidate();
@@ -188,16 +188,16 @@ namespace ReaLTaiizor.Controls
             {
                 if (_EnableMaximize == false && _EnableMinimize == false)
                 {
-                    Size = new Size(23, 22);
+                    Size = new(23, 22);
                 }
                 else
                 {
-                    Size = new Size(44, 22);
+                    Size = new(44, 22);
                 }
             }
             else
             {
-                Size = new Size(64, 22);
+                Size = new(64, 22);
             }
         }
 
@@ -207,7 +207,7 @@ namespace ReaLTaiizor.Controls
             // Auto-decide control location on the theme container
             if (DefaultLocation)
             {
-                Location = new Point(5, 13);
+                Location = new(5, 13);
             }
         }
 

@@ -122,7 +122,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(243, 243, 243);
             Cursor = Cursors.Hand;
             Font = new("Segoe UI", 10);
-            Size = new Size(130, 22);
+            Size = new(130, 22);
         }
 
         protected override void OnPaint(PaintEventArgs e)

@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
     public class SkyCheckBox : Control
     {
         #region " Control Help - MouseState & Flicker Control"
-        private Point mouse = new Point(0, 0);
+        private Point mouse = new(0, 0);
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Controls
             Font = new("Verdana", 6.75f, FontStyle.Bold);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(27, 94, 137);
-            Size = new Size(90, 16);
+            Size = new(90, 16);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
         }

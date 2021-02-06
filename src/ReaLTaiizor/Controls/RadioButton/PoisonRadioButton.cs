@@ -480,7 +480,7 @@ namespace ReaLTaiizor.Controls
 
             using (Graphics g = CreateGraphics())
             {
-                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
                 preferredSize.Width += 16;
             }

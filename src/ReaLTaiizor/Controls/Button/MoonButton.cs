@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
 
         public MoonButton()
         {
-            Size = new Size(120, 26);
+            Size = new(120, 26);
             SetColor("G1", Color.White);
             SetColor("G2", Color.LightGray);
             SetColor("BG", Color.FromArgb(240, 240, 240));

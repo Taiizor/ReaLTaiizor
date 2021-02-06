@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Controls
             Enabled = true;
             base.DrawMode = DrawMode.OwnerDrawFixed;
             base.ItemHeight = 20;
-            Size = new Size(64, 26);
+            Size = new(64, 26);
         }
 
         protected override void OnCreateControl()

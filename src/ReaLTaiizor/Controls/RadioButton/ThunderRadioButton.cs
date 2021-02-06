@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
             ForeColor = Color.WhiteSmoke;
-            Size = new Size(160, 16);
+            Size = new(160, 16);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
         }

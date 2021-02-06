@@ -212,8 +212,8 @@ namespace ReaLTaiizor.Controls
         public void AddTextBox()
         {
             TextBox _TB = RT_TB;
-            _TB.Size = new Size(Width - 10, 33);
-            _TB.Location = new Point(7, 5);
+            _TB.Size = new(Width - 10, 33);
+            _TB.Location = new(7, 5);
             _TB.Text = string.Empty;
             _TB.BorderStyle = BorderStyle.None;
             _TB.TextAlign = HorizontalAlignment.Left;
@@ -239,7 +239,7 @@ namespace ReaLTaiizor.Controls
 
             Text = null;
             Font = new("Tahoma", 11);
-            Size = new Size(110, 33);
+            Size = new(110, 33);
             DoubleBuffered = true;
         }
 

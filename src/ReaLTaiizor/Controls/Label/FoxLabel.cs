@@ -22,13 +22,13 @@ namespace ReaLTaiizor.Controls
             Font = new("Segoe UI", 10, FontStyle.Bold);
             ForeColor = FoxLibrary.ColorFromHex("#4C5864");
             DoubleBuffered = true;
-            Size = new Size(65, 19);
+            Size = new(65, 19);
         }
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            //Size = new Size(65, 19);
+            //Size = new(65, 19);
         }
 
         protected override void OnPaint(PaintEventArgs e)

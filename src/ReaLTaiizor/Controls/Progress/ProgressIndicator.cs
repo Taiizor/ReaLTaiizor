@@ -92,9 +92,9 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
 
-            Size = new Size(80, 80);
+            Size = new(80, 80);
             Text = string.Empty;
-            MinimumSize = new Size(50, 50);
+            MinimumSize = new(50, 50);
             SetPoints();
             AnimationSpeed.Interval = 100;
         }
@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Controls
         private void SetStandardSize()
         {
             int _Size = Math.Max(Width, Height);
-            Size = new Size(_Size, _Size);
+            Size = new(_Size, _Size);
         }
 
         private void SetPoints()
@@ -123,7 +123,7 @@ namespace ReaLTaiizor.Controls
         {
             if (Width > 0 && Height > 0)
             {
-                Size size2 = new Size(Width + 1, Height + 1);
+                Size size2 = new(Width + 1, Height + 1);
                 GraphicsContext.MaximumBuffer = size2;
                 BuffGraphics = GraphicsContext.Allocate(CreateGraphics(), ClientRectangle);
                 BuffGraphics.Graphics.SmoothingMode = SmoothingMode.AntiAlias;

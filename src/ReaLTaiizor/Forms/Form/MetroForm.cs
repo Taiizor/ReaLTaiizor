@@ -324,7 +324,7 @@ namespace ReaLTaiizor.Forms
                         }
 
                         c.BringToFront();
-                        c.Location = new Point(Width - 12, 11);
+                        c.Location = new(Width - 12, 11);
                     }
                 }
                 else

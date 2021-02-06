@@ -492,7 +492,7 @@ namespace ReaLTaiizor.Controls
 
             if (ContentSize.Width != width || ContentSize.Height != height)
             {
-                ContentSize = new Size(width, height);
+                ContentSize = new(width, height);
                 Invalidate();
             }
         }
@@ -509,7 +509,7 @@ namespace ReaLTaiizor.Controls
 
             if (itemWidth > ContentSize.Width)
             {
-                ContentSize = new Size(itemWidth, ContentSize.Height);
+                ContentSize = new(itemWidth, ContentSize.Height);
                 Invalidate();
             }
         }

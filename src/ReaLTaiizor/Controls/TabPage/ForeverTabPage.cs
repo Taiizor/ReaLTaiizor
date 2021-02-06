@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Controls
 
             Font = new("Segoe UI", 10);
             SizeMode = TabSizeMode.Fixed;
-            ItemSize = new Size(120, 40);
+            ItemSize = new(120, 40);
         }
 
         protected override void OnPaint(PaintEventArgs e)

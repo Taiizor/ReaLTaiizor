@@ -203,8 +203,8 @@ namespace ReaLTaiizor.Controls
         public void AddTextBox()
         {
             TextBox _TB = DungeonTB;
-            _TB.Size = new Size(Width - 10, 33);
-            _TB.Location = new Point(7, 4);
+            _TB.Size = new(Width - 10, 33);
+            _TB.Location = new(7, 4);
             _TB.Text = string.Empty;
             _TB.BorderStyle = BorderStyle.None;
             _TB.TextAlign = HorizontalAlignment.Left;
@@ -233,7 +233,7 @@ namespace ReaLTaiizor.Controls
 
             Text = null;
             Font = new("Tahoma", 11);
-            Size = new Size(135, 33);
+            Size = new(135, 33);
             DoubleBuffered = true;
         }
 

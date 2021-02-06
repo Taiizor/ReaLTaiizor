@@ -372,7 +372,7 @@ namespace ReaLTaiizor.Controls
 
             using (Graphics g = CreateGraphics())
             {
-                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.Label(poisonLabelSize, poisonLabelWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
             }
 
@@ -447,7 +447,7 @@ namespace ReaLTaiizor.Controls
             baseTextBox.Visible = true;
             baseTextBox.BorderStyle = BorderStyle.None;
             baseTextBox.Font = PoisonFonts.Label(poisonLabelSize, poisonLabelWeight);
-            baseTextBox.Location = new Point(1, 0);
+            baseTextBox.Location = new(1, 0);
             baseTextBox.Text = Text;
             baseTextBox.ReadOnly = true;
 

@@ -100,7 +100,7 @@ namespace ReaLTaiizor.Util
                     ox += xStepDist;
                     oy += yStepDist;
 
-                    Point p = new Point((int)ox, (int)oy);
+                    Point p = new((int)ox, (int)oy);
 
                     if (InvokeRequired)
                     {
@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Util
                     ox += xStepDist;
                     oy += yStepDist;
 
-                    Size s = new Size((int)ox, (int)oy);
+                    Size s = new((int)ox, (int)oy);
 
                     if (InvokeRequired)
                     {

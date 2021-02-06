@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
         public DreamButton()
         {
             ForeColor = Color.FromArgb(40, 218, 255);
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             Cursor = Cursors.Hand;
         }
 

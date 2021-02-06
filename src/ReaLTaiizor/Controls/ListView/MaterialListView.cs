@@ -55,13 +55,13 @@ namespace ReaLTaiizor.Controls
             OwnerDraw = true;
             ResizeRedraw = true;
             BorderStyle = BorderStyle.None;
-            MinimumSize = new Size(200, 100);
+            MinimumSize = new(200, 100);
 
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
             BackColor = SkinManager.BackgroundColor;
 
             // Fix for hovers, by default it doesn't redraw
-            MouseLocation = new Point(-1, -1);
+            MouseLocation = new(-1, -1);
             MouseState = MaterialMouseState.OUT;
             MouseEnter += delegate
             {
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
             MouseLeave += delegate
             {
                 MouseState = MaterialMouseState.OUT;
-                MouseLocation = new Point(-1, -1);
+                MouseLocation = new(-1, -1);
                 HoveredItem = null;
                 Invalidate();
             };
@@ -198,7 +198,7 @@ namespace ReaLTaiizor.Controls
                 h += item.Bounds.Height;
             }
 
-            Size = new Size(w, h);
+            Size = new(w, h);
         }
 
         protected override void InitLayout()

@@ -144,9 +144,9 @@ namespace ReaLTaiizor.Controls
             _lines = null;
             _richTextBox.Cursor = Cursors.IBeam;
             _richTextBox.BorderStyle = BorderStyle.None;
-            _richTextBox.Location = new Point(7, 8);
+            _richTextBox.Location = new(7, 8);
             _richTextBox.Font = Font;
-            _richTextBox.Size = new Size(Width, Height);
+            _richTextBox.Size = new(Width, Height);
 
             _richTextBox.MouseHover += T_MouseHover;
             _richTextBox.MouseUp += T_MouseUp;
@@ -205,7 +205,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            _richTextBox.Location = new Point(7, 4);
+            _richTextBox.Location = new(7, 4);
             _richTextBox.Width = Width - 10;
 
         }
@@ -385,7 +385,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            _richTextBox.Size = new Size(Width - 10, Height - 10);
+            _richTextBox.Size = new(Width - 10, Height - 10);
         }
 
         public void T_Enter(object sender, EventArgs e)
@@ -793,7 +793,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 _richTextBox.Font = value;
-                _richTextBox.Location = new Point(5, 5);
+                _richTextBox.Location = new(5, 5);
                 _richTextBox.Width = Width - 8;
             }
         }

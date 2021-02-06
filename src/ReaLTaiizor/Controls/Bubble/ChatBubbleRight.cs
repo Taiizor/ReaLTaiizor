@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
             DoubleBuffered = true;
-            Size = new Size(130, 40);
+            Size = new(130, 40);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(52, 52, 52);
             Font = new("Segoe UI", 10);
@@ -138,7 +138,7 @@ namespace ReaLTaiizor.Controls
                     Height = TextRenderer.MeasureText(Text, Font).Height + 15;
                     if (_SizeWidthLeft)
                     {
-                        Location = new Point(Location.X - (Width - WW), Location.Y);
+                        Location = new(Location.X - (Width - WW), Location.Y);
                     }
                 }
                 else if (_SizeAutoW)
@@ -146,7 +146,7 @@ namespace ReaLTaiizor.Controls
                     Width = TextRenderer.MeasureText(Text, Font).Width + 15;
                     if (_SizeWidthLeft)
                     {
-                        Location = new Point(Location.X - (Width - WW), Location.Y);
+                        Location = new(Location.X - (Width - WW), Location.Y);
                     }
                 }
                 else

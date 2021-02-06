@@ -193,7 +193,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
             Font = new("Tahoma", 8, FontStyle.Bold);
-            Size = new Size(140, 40);
+            Size = new(140, 40);
         }
 
         protected override void OnPaint(PaintEventArgs e)

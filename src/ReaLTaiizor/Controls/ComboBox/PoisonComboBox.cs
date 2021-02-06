@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
     public class PoisonComboBox : ComboBox, IPoisonControl
     {
         #region Edit Control
-        private readonly PoisonTextBox textBox = new PoisonTextBox();
+        private readonly PoisonTextBox textBox = new();
         #endregion
 
         #region Interface
@@ -525,10 +525,8 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    using (SolidBrush b = new(backColor))
-                    {
-                        e.Graphics.FillRectangle(b, new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height));
-                    }
+                    using SolidBrush b = new(backColor);
+                    e.Graphics.FillRectangle(b, new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height));
                 }
 
                 if (DropDownStyle != ComboBoxStyle.DropDown)
@@ -551,10 +549,8 @@ namespace ReaLTaiizor.Controls
         private void DrawTextPrompt()
         {
 
-            using (Graphics graphics = CreateGraphics())
-            {
-                DrawTextPrompt(graphics);
-            }
+            using Graphics graphics = CreateGraphics();
+            DrawTextPrompt(graphics);
         }
 
         private void DrawTextPrompt(Graphics g)
@@ -704,7 +700,7 @@ namespace ReaLTaiizor.Controls
             using (Graphics g = CreateGraphics())
             {
                 string measureText = Text.Length > 0 ? Text : "MeasureText";
-                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
                 preferredSize.Height += 4;
             }

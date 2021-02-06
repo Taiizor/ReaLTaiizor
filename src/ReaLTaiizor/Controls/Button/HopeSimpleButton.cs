@@ -207,7 +207,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Font = new("Segoe UI", 12);
             Cursor = Cursors.Hand;
-            Size = new Size(150, 40);
+            Size = new(150, 40);
         }
     }
 

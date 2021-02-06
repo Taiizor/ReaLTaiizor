@@ -205,7 +205,7 @@ namespace ReaLTaiizor.Forms
             DoubleBuffered = true;
             Dock = DockStyle.Fill;
             Padding = new Padding(0, 31, 0, 0);
-            MinimumSize = new Size(100, 42);
+            MinimumSize = new(100, 42);
 
             BackColor = Color.FromArgb(40, 48, 51);
 

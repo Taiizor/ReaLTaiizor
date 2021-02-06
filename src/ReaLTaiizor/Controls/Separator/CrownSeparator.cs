@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.Selectable, false);
 
             Dock = DockStyle.Top;
-            Size = new Size(1, 2);
+            Size = new(1, 2);
         }
 
         #endregion

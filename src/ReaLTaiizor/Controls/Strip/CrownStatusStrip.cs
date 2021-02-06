@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
             BackColor = ThemeProvider.Theme.Colors.GreyBackground;
             ForeColor = ThemeProvider.Theme.Colors.LightText;
             Padding = new Padding(0, 5, 0, 3);
-            Size = new Size(Size.Width, 24);
+            Size = new(Size.Width, 24);
             SizingGrip = false;
         }
 

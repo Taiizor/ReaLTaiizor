@@ -404,37 +404,37 @@ namespace ReaLTaiizor.Controls
                     _imgH = _image.Height;
                 }
 
-                Point iconLocation = new Point(2, (ClientRectangle.Height - _imagesize) / 2);
+                Point iconLocation = new(2, (ClientRectangle.Height - _imagesize) / 2);
                 int _filler = 0;
 
                 switch (ImageAlign)
                 {
                     case ContentAlignment.BottomCenter:
-                        iconLocation = new Point((ClientRectangle.Width - _imgW) / 2, (ClientRectangle.Height - _imgH) - _filler);
+                        iconLocation = new((ClientRectangle.Width - _imgW) / 2, (ClientRectangle.Height - _imgH) - _filler);
                         break;
                     case ContentAlignment.BottomLeft:
-                        iconLocation = new Point(_filler, (ClientRectangle.Height - _imgH) - _filler);
+                        iconLocation = new(_filler, (ClientRectangle.Height - _imgH) - _filler);
                         break;
                     case ContentAlignment.BottomRight:
-                        iconLocation = new Point((ClientRectangle.Width - _imgW) - _filler, (ClientRectangle.Height - _imgH) - _filler);
+                        iconLocation = new((ClientRectangle.Width - _imgW) - _filler, (ClientRectangle.Height - _imgH) - _filler);
                         break;
                     case ContentAlignment.MiddleCenter:
-                        iconLocation = new Point((ClientRectangle.Width - _imgW) / 2, (ClientRectangle.Height - _imgH) / 2);
+                        iconLocation = new((ClientRectangle.Width - _imgW) / 2, (ClientRectangle.Height - _imgH) / 2);
                         break;
                     case ContentAlignment.MiddleLeft:
-                        iconLocation = new Point(_filler, (ClientRectangle.Height - _imgH) / 2);
+                        iconLocation = new(_filler, (ClientRectangle.Height - _imgH) / 2);
                         break;
                     case ContentAlignment.MiddleRight:
-                        iconLocation = new Point((ClientRectangle.Width - _imgW) - _filler, (ClientRectangle.Height - _imgH) / 2);
+                        iconLocation = new((ClientRectangle.Width - _imgW) - _filler, (ClientRectangle.Height - _imgH) / 2);
                         break;
                     case ContentAlignment.TopCenter:
-                        iconLocation = new Point((ClientRectangle.Width - _imgW) / 2, _filler);
+                        iconLocation = new((ClientRectangle.Width - _imgW) / 2, _filler);
                         break;
                     case ContentAlignment.TopLeft:
-                        iconLocation = new Point(_filler, _filler);
+                        iconLocation = new(_filler, _filler);
                         break;
                     case ContentAlignment.TopRight:
-                        iconLocation = new Point((ClientRectangle.Width - _imgW) - _filler, _filler);
+                        iconLocation = new((ClientRectangle.Width - _imgW) - _filler, _filler);
                         break;
                 }
 

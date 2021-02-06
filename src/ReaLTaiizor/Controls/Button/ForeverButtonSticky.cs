@@ -106,7 +106,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            //Size = New Size(112, 32)
+            //Size = new(112, 32)
         }
 
         private Color _BaseColor = ForeverLibrary.ForeverColor;
@@ -116,7 +116,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Size = new Size(160, 40);
+            Size = new(160, 40);
             BackColor = Color.Transparent;
             Font = new("Segoe UI", 12);
             Cursor = Cursors.Hand;

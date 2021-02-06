@@ -172,20 +172,14 @@ namespace ReaLTaiizor.Child.Poison
                 default: break;
             }
 
-            switch (_properties.Icon)
+            panelbody.BackColor = _properties.Icon switch
             {
-                case MessageBoxIcon.Error:
-                    panelbody.BackColor = _errorColor; break;
-                case MessageBoxIcon.Warning:
-                    panelbody.BackColor = _warningColor; break;
-                case MessageBoxIcon.Information:
-                    panelbody.BackColor = _defaultColor;
-                    break;
-                case MessageBoxIcon.Question:
-                    panelbody.BackColor = _question; break;
-                default:
-                    panelbody.BackColor = Color.DarkGray; break;
-            }
+                MessageBoxIcon.Error => _errorColor,
+                MessageBoxIcon.Warning => _warningColor,
+                MessageBoxIcon.Information => _defaultColor,
+                MessageBoxIcon.Question => _question,
+                _ => Color.DarkGray,
+            };
         }
 
         private void EnableButton(PoisonButton button)
@@ -193,7 +187,7 @@ namespace ReaLTaiizor.Child.Poison
             EnableButton(button, true);
         }
 
-        private void EnableButton(PoisonButton button, bool enabled)
+        private static void EnableButton(PoisonButton button, bool enabled)
         {
             button.Enabled = enabled; button.Visible = enabled;
         }

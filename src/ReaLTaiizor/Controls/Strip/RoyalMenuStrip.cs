@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
             Dock = DockStyle.None;
             AutoSize = false;
             Padding = new Padding(1);
-            Size = new Size(100, 30);
+            Size = new(100, 30);
         }
 
         protected override void OnItemAdded(ToolStripItemEventArgs e)
@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Controls
 
             width += 1;
 
-            Size = new Size(width, 30);
+            Size = new(width, 30);
 
             base.OnItemAdded(e);
         }
@@ -62,7 +62,7 @@ namespace ReaLTaiizor.Controls
 
             width += 1;
 
-            Size = new Size(width, 30);
+            Size = new(width, 30);
 
             base.OnItemRemoved(e);
         }

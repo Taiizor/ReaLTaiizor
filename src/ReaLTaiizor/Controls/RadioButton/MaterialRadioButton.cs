@@ -110,7 +110,7 @@ namespace ReaLTaiizor.Controls
             SizeChanged += OnSizeChanged;
 
             Ripple = true;
-            MouseLocation = new Point(-1, -1);
+            MouseLocation = new(-1, -1);
         }
 
         private void OnSizeChanged(object sender, EventArgs eventArgs)
@@ -142,7 +142,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor);
 
             int RADIOBUTTON_CENTER = _boxOffset + RADIOBUTTON_SIZE_HALF;
-            Point animationSource = new Point(RADIOBUTTON_CENTER, RADIOBUTTON_CENTER);
+            Point animationSource = new(RADIOBUTTON_CENTER, RADIOBUTTON_CENTER);
 
             double animationProgress = _checkAM.GetProgress();
 
@@ -263,7 +263,7 @@ namespace ReaLTaiizor.Controls
 
             MouseLeave += (sender, args) =>
             {
-                MouseLocation = new Point(-1, -1);
+                MouseLocation = new(-1, -1);
                 MouseState = MaterialMouseState.OUT;
                 //if (Ripple && hovered)
                 //{

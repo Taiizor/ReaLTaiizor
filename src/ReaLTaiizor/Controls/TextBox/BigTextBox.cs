@@ -115,11 +115,11 @@ namespace ReaLTaiizor.Controls
 
                 if (Image == null)
                 {
-                    RT_TB.Location = new Point(8, 10);
+                    RT_TB.Location = new(8, 10);
                 }
                 else
                 {
-                    RT_TB.Location = new Point(35, 11);
+                    RT_TB.Location = new(35, 11);
                 }
                 Invalidate();
             }
@@ -205,7 +205,7 @@ namespace ReaLTaiizor.Controls
         public void AddTextBox()
         {
             TextBox _TB = RT_TB;
-            _TB.Location = new Point(7, 10);
+            _TB.Location = new(7, 10);
             _TB.Text = string.Empty;
             _TB.BorderStyle = BorderStyle.None;
             _TB.TextAlign = HorizontalAlignment.Left;
@@ -231,7 +231,7 @@ namespace ReaLTaiizor.Controls
 
             Text = null;
             Font = new("Tahoma", 11);
-            Size = new Size(100, 43);
+            Size = new(100, 43);
             DoubleBuffered = true;
         }
 

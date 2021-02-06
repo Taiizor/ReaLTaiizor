@@ -94,7 +94,7 @@ namespace ReaLTaiizor.Forms
             //FormBorderStyle = FormBorderStyle.Sizable;
             Padding = new Padding(2, 36, 2, 2);
             ResizeRedraw = true;
-            MinimumSize = new Size(160, 160);
+            MinimumSize = new(160, 160);
             Font = ThemeLost.TitleFont;
         }
 

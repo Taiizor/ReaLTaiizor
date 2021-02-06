@@ -401,8 +401,8 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Font = new("Segoe UI", 10);
             ForeColor = ColorTranslator.FromHtml("#F25D59");
-            Size = new Size(144, 47);
-            MinimumSize = new Size(144, 47);
+            Size = new(144, 47);
+            MinimumSize = new(144, 47);
             Cursor = Cursors.Hand;
 
             animationTimer = new Timer { Interval = 1 };
@@ -442,7 +442,7 @@ namespace ReaLTaiizor.Controls
             using (SolidBrush stringBrush = new(brushColor))
             using
             (
-                StringFormat sf = new StringFormat
+                StringFormat sf = new()
                 {
                     Alignment = StringAlignment.Center,
                     LineAlignment = StringAlignment.Center

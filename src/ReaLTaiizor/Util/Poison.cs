@@ -87,7 +87,6 @@ namespace ReaLTaiizor.Util
 
         public int Compare(object x, object y)
         {
-            int compareResult = 0;
             ListViewItem listviewX, listviewY;
 
             // Cast the objects to be compared to ListViewItem objects
@@ -95,6 +94,7 @@ namespace ReaLTaiizor.Util
             listviewY = (ListViewItem)y;
 
 
+            int compareResult;
             if (DateTime.TryParse(listviewX.SubItems[ColumnToSort].Text, out DateTime dateX) && DateTime.TryParse(listviewY.SubItems[ColumnToSort].Text, out DateTime dateY))
             {
                 compareResult = ObjectCompare.Compare(dateX, dateY);

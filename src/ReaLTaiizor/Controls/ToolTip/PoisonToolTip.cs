@@ -161,7 +161,7 @@ namespace ReaLTaiizor.Controls
                 StyleManager = ((IPoisonControl)e.AssociatedControl).StyleManager;
             }
 
-            e.ToolTipSize = new Size(e.ToolTipSize.Width + 24, e.ToolTipSize.Height + 9);
+            e.ToolTipSize = new(e.ToolTipSize.Width + 24, e.ToolTipSize.Height + 9);
         }
 
         private void PoisonToolTip_Draw(object sender, DrawToolTipEventArgs e)

@@ -92,7 +92,7 @@ namespace ReaLTaiizor.Controls
 
             Ripple = true;
             Height = HEIGHT_RIPPLE;
-            MouseLocation = new Point(-1, -1);
+            MouseLocation = new(-1, -1);
         }
 
         protected override void OnSizeChanged(EventArgs e)
@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor);
 
             int CHECKBOX_CENTER = _boxOffset + CHECKBOX_SIZE_HALF - 1;
-            Point animationSource = new Point(CHECKBOX_CENTER, CHECKBOX_CENTER);
+            Point animationSource = new(CHECKBOX_CENTER, CHECKBOX_CENTER);
             double animationProgress = _checkAM.GetProgress();
 
             int colorAlpha = Enabled ? (int)(animationProgress * 255.0) : SkinManager.CheckBoxOffDisabledColor.A;
@@ -233,7 +233,7 @@ namespace ReaLTaiizor.Controls
                 base.AutoSize = value;
                 if (value)
                 {
-                    Size = new Size(10, 10);
+                    Size = new(10, 10);
                 }
             }
         }
@@ -286,7 +286,7 @@ namespace ReaLTaiizor.Controls
 
             MouseLeave += (sender, args) =>
             {
-                MouseLocation = new Point(-1, -1);
+                MouseLocation = new(-1, -1);
                 MouseState = MaterialMouseState.OUT;
                 //if (Ripple && hovered)
                 //{

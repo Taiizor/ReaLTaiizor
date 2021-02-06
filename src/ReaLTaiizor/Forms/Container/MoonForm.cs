@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Forms
             Font = new("Segoe UI", 9);
             ForeColor = Color.Gray;
             TitleColor = _TitleColor;
-            MinimumSize = new Size(100, 50);
+            MinimumSize = new(100, 50);
         }
 
         protected override void ColorHook()

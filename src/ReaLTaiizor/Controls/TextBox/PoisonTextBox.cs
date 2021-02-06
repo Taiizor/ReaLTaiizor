@@ -706,10 +706,10 @@ namespace ReaLTaiizor.Controls
         {
             if (displayIcon && textBoxIcon != null)
             {
-                Point iconLocation = new Point(5, 5);
+                Point iconLocation = new(5, 5);
                 if (textBoxIconRight)
                 {
-                    iconLocation = new Point(ClientRectangle.Width - iconSize.Width - 1, 1);
+                    iconLocation = new(ClientRectangle.Width - iconSize.Width - 1, 1);
                 }
 
                 g.DrawImage(textBoxIcon, new Rectangle(iconLocation, iconSize));
@@ -765,11 +765,11 @@ namespace ReaLTaiizor.Controls
             {
                 BorderStyle = BorderStyle.None,
                 Font = PoisonFonts.TextBox(poisonTextBoxSize, poisonTextBoxWeight),
-                Location = new Point(3, 3),
-                Size = new Size(Width - 6, Height - 6)
+                Location = new(3, 3),
+                Size = new(Width - 6, Height - 6)
             };
 
-            Size = new Size(baseTextBox.Width + 6, baseTextBox.Height + 6);
+            Size = new(baseTextBox.Width + 6, baseTextBox.Height + 6);
 
             baseTextBox.TabStop = true;
             //baseTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Right;
@@ -785,8 +785,8 @@ namespace ReaLTaiizor.Controls
             {
                 Theme = Theme,
                 Style = Style,
-                Location = new Point(3, 1),
-                Size = new Size(Height - 4, Height - 4)
+                Location = new(3, 1),
+                Size = new(Height - 4, Height - 4)
             };
             _button.TextChanged += _button_TextChanged;
             _button.MouseEnter += _button_MouseEnter;
@@ -904,13 +904,13 @@ namespace ReaLTaiizor.Controls
             {
                 if ((Height % 2) > 0)
                 {
-                    _button.Size = new Size(Height - 2, Height - 2);
-                    _button.Location = new Point(Width - (_button.Width + 1), 1);
+                    _button.Size = new(Height - 2, Height - 2);
+                    _button.Location = new(Width - (_button.Width + 1), 1);
                 }
                 else
                 {
-                    _button.Size = new Size(Height - 5, Height - 5);
-                    _button.Location = new Point((Width - _button.Width) - 3, 2);
+                    _button.Size = new(Height - 5, Height - 5);
+                    _button.Location = new((Width - _button.Width) - 3, 2);
                 }
 
                 _button.Visible = _showbutton;
@@ -923,7 +923,7 @@ namespace ReaLTaiizor.Controls
                 if (_showclear && Text != "" && !ReadOnly && Enabled)
                 {
                     _clearloc = 16;
-                    lnkClear.Location = new Point(Width - (ButtonWidth + 17), (Height - 14) / 2);
+                    lnkClear.Location = new(Width - (ButtonWidth + 17), (Height - 14) / 2);
                     lnkClear.Visible = true;
                 }
             }
@@ -938,19 +938,19 @@ namespace ReaLTaiizor.Controls
 
             if (displayIcon)
             {
-                Point textBoxLocation = new Point(iconSize.Width + 10, 5);
+                Point textBoxLocation = new(iconSize.Width + 10, 5);
                 if (textBoxIconRight)
                 {
-                    textBoxLocation = new Point(3, 3);
+                    textBoxLocation = new(3, 3);
                 }
 
                 baseTextBox.Location = textBoxLocation;
-                baseTextBox.Size = new Size(Width - (20 + ButtonWidth + _clearloc) - iconSize.Width, Height - 6);
+                baseTextBox.Size = new(Width - (20 + ButtonWidth + _clearloc) - iconSize.Width, Height - 6);
             }
             else
             {
-                baseTextBox.Location = new Point(3, 3);
-                baseTextBox.Size = new Size(Width - (6 + ButtonWidth + _clearloc), Height - 6);
+                baseTextBox.Location = new(3, 3);
+                baseTextBox.Size = new(Width - (6 + ButtonWidth + _clearloc), Height - 6);
             }
         }
 
@@ -1102,10 +1102,10 @@ namespace ReaLTaiizor.Controls
             lnkClear.FontWeight = PoisonLinkLabelWeight.Regular;
             lnkClear.Image = Properties.Resources.lnkClearImage;
             lnkClear.ImageSize = 10;
-            lnkClear.Location = new Point(654, 96);
+            lnkClear.Location = new(654, 96);
             lnkClear.Name = "lnkClear";
             lnkClear.Image = Properties.Resources.lnkClearNoFocusImage;
-            lnkClear.Size = new Size(12, 12);
+            lnkClear.Size = new(12, 12);
             lnkClear.TabIndex = 2;
             lnkClear.UseSelectable = true;
             lnkClear.Click += new EventHandler(lnkClear_Click);
@@ -1400,7 +1400,7 @@ namespace ReaLTaiizor.Controls
                         Size originalSize = Image.Size;
                         double resizeFactor = 14 / (double)originalSize.Height;
 
-                        //Point iconLocation = new Point(1, 1);
+                        //Point iconLocation = new(1, 1);
                         return new Size((int)(originalSize.Width * resizeFactor), (int)(originalSize.Height * resizeFactor));
                     }
 
@@ -1412,37 +1412,37 @@ namespace ReaLTaiizor.Controls
             {
                 if (Image != null)
                 {
-                    Point iconLocation = new Point(2, (ClientRectangle.Height - iconSize.Height) / 2);
+                    Point iconLocation = new(2, (ClientRectangle.Height - iconSize.Height) / 2);
                     int _filler = 5;
 
                     switch (ImageAlign)
                     {
                         case ContentAlignment.BottomCenter:
-                            iconLocation = new Point((ClientRectangle.Width - iconSize.Width) / 2, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, (ClientRectangle.Height - iconSize.Height) - _filler);
                             break;
                         case ContentAlignment.BottomLeft:
-                            iconLocation = new Point(_filler, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new(_filler, (ClientRectangle.Height - iconSize.Height) - _filler);
                             break;
                         case ContentAlignment.BottomRight:
-                            iconLocation = new Point((ClientRectangle.Width - iconSize.Width) - _filler, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, (ClientRectangle.Height - iconSize.Height) - _filler);
                             break;
                         case ContentAlignment.MiddleCenter:
-                            iconLocation = new Point((ClientRectangle.Width - iconSize.Width) / 2, (ClientRectangle.Height - iconSize.Height) / 2);
+                            iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, (ClientRectangle.Height - iconSize.Height) / 2);
                             break;
                         case ContentAlignment.MiddleLeft:
-                            iconLocation = new Point(_filler, (ClientRectangle.Height - iconSize.Height) / 2);
+                            iconLocation = new(_filler, (ClientRectangle.Height - iconSize.Height) / 2);
                             break;
                         case ContentAlignment.MiddleRight:
-                            iconLocation = new Point((ClientRectangle.Width - iconSize.Width) - _filler, (ClientRectangle.Height - iconSize.Height) / 2);
+                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, (ClientRectangle.Height - iconSize.Height) / 2);
                             break;
                         case ContentAlignment.TopCenter:
-                            iconLocation = new Point((ClientRectangle.Width - iconSize.Width) / 2, _filler);
+                            iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, _filler);
                             break;
                         case ContentAlignment.TopLeft:
-                            iconLocation = new Point(_filler, _filler);
+                            iconLocation = new(_filler, _filler);
                             break;
                         case ContentAlignment.TopRight:
-                            iconLocation = new Point((ClientRectangle.Width - iconSize.Width) - _filler, _filler);
+                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, _filler);
                             break;
                     }
 

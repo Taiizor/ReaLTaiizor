@@ -129,16 +129,16 @@ namespace ReaLTaiizor.Controls
 
         public CircleProgressBar()
         {
-            Size = new Size(130, 130);
+            Size = new(130, 130);
             Font = new("Segoe UI", 15);
-            MinimumSize = new Size(100, 100);
+            MinimumSize = new(100, 100);
             DoubleBuffered = true;
         }
 
         private void SetStandardSize()
         {
             int _Size = Math.Max(Width, Height);
-            Size = new Size(_Size, _Size);
+            Size = new(_Size, _Size);
         }
 
         public void Increment(int Val)

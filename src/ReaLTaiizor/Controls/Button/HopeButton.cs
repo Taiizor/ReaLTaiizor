@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             Font = new("Segoe UI", 12);
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             Cursor = Cursors.Hand;
         }
     }

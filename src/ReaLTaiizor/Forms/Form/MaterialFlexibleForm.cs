@@ -66,12 +66,12 @@ namespace ReaLTaiizor.Forms
             leftButton.DrawShadows = true;
             leftButton.HighEmphasis = false;
             leftButton.Icon = null;
-            leftButton.Location = new Point(44, 163);
+            leftButton.Location = new(44, 163);
             leftButton.Margin = new Padding(4, 6, 4, 6);
-            leftButton.MinimumSize = new Size(0, 24);
+            leftButton.MinimumSize = new(0, 24);
             leftButton.MouseState = MaterialMouseState.HOVER;
             leftButton.Name = "leftButton";
-            leftButton.Size = new Size(108, 36);
+            leftButton.Size = new(108, 36);
             leftButton.TabIndex = 2;
             leftButton.Text = "OK";
             leftButton.Type = MaterialButton.MaterialButtonType.Text;
@@ -87,17 +87,17 @@ namespace ReaLTaiizor.Forms
             messageContainer.BackColor = Color.White;
             messageContainer.Controls.Add(pictureBoxForIcon);
             messageContainer.Controls.Add(richTextBoxMessage);
-            messageContainer.Location = new Point(0, 65);
+            messageContainer.Location = new(0, 65);
             messageContainer.Name = "messageContainer";
-            messageContainer.Size = new Size(388, 81);
+            messageContainer.Size = new(388, 81);
             messageContainer.TabIndex = 1;
             //
             // pictureBoxForIcon
             //
             pictureBoxForIcon.BackColor = Color.Transparent;
-            pictureBoxForIcon.Location = new Point(15, 19);
+            pictureBoxForIcon.Location = new(15, 19);
             pictureBoxForIcon.Name = "pictureBoxForIcon";
-            pictureBoxForIcon.Size = new Size(32, 32);
+            pictureBoxForIcon.Size = new(32, 32);
             pictureBoxForIcon.TabIndex = 8;
             pictureBoxForIcon.TabStop = false;
             //
@@ -113,13 +113,13 @@ namespace ReaLTaiizor.Forms
             richTextBoxMessage.Font = new("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             richTextBoxMessage.ForeColor = Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             richTextBoxMessage.Hint = "";
-            richTextBoxMessage.Location = new Point(47, 2);
+            richTextBoxMessage.Location = new(47, 2);
             richTextBoxMessage.Margin = new Padding(0);
             richTextBoxMessage.MouseState = MaterialMouseState.HOVER;
             richTextBoxMessage.Name = "richTextBoxMessage";
             richTextBoxMessage.ReadOnly = true;
             richTextBoxMessage.ScrollBars = RichTextBoxScrollBars.Vertical;
-            richTextBoxMessage.Size = new Size(338, 78);
+            richTextBoxMessage.Size = new(338, 78);
             richTextBoxMessage.TabIndex = 0;
             richTextBoxMessage.TabStop = false;
             richTextBoxMessage.Text = "<Message>";
@@ -135,12 +135,12 @@ namespace ReaLTaiizor.Forms
             middleButton.DrawShadows = true;
             middleButton.HighEmphasis = true;
             middleButton.Icon = null;
-            middleButton.Location = new Point(160, 163);
+            middleButton.Location = new(160, 163);
             middleButton.Margin = new Padding(4, 6, 4, 6);
-            middleButton.MinimumSize = new Size(0, 24);
+            middleButton.MinimumSize = new(0, 24);
             middleButton.MouseState = MaterialMouseState.HOVER;
             middleButton.Name = "middleButton";
-            middleButton.Size = new Size(102, 36);
+            middleButton.Size = new(102, 36);
             middleButton.TabIndex = 3;
             middleButton.Text = "OK";
             middleButton.Type = MaterialButton.MaterialButtonType.Text;
@@ -158,12 +158,12 @@ namespace ReaLTaiizor.Forms
             rightButton.DrawShadows = true;
             rightButton.HighEmphasis = true;
             rightButton.Icon = null;
-            rightButton.Location = new Point(270, 163);
+            rightButton.Location = new(270, 163);
             rightButton.Margin = new Padding(4, 6, 4, 6);
-            rightButton.MinimumSize = new Size(0, 24);
+            rightButton.MinimumSize = new(0, 24);
             rightButton.MouseState = MaterialMouseState.HOVER;
             rightButton.Name = "rightButton";
-            rightButton.Size = new Size(106, 36);
+            rightButton.Size = new(106, 36);
             rightButton.TabIndex = 0;
             rightButton.Text = "OK";
             rightButton.Type = MaterialButton.MaterialButtonType.Contained;
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Forms
             // MaterialFlexibleForm
             //
             BackColor = Color.White;
-            ClientSize = new Size(388, 208);
+            ClientSize = new(388, 208);
             Controls.Add(rightButton);
             Controls.Add(middleButton);
             Controls.Add(messageContainer);
@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Forms
             DataBindings.Add(new Binding("Text", MaterialFlexibleFormBindingSource, "CaptionText", true));
             MaximizeBox = false;
             MinimizeBox = false;
-            MinimumSize = new Size(276, 140);
+            MinimumSize = new(276, 140);
             Name = "MaterialFlexibleForm";
             ShowIcon = false;
             SizeGripStyle = SizeGripStyle.Show;
@@ -329,7 +329,7 @@ namespace ReaLTaiizor.Forms
         private static void SetDialogSizes(MaterialFlexibleForm MaterialFlexibleForm, string text, string caption)
         {
             //First set the bounds for the maximum dialog size
-            MaterialFlexibleForm.MaximumSize = new Size(Convert.ToInt32(SystemInformation.WorkingArea.Width * GetCorrectedWorkingAreaFactor(MAX_WIDTH_FACTOR)), Convert.ToInt32(SystemInformation.WorkingArea.Height * GetCorrectedWorkingAreaFactor(MAX_HEIGHT_FACTOR)));
+            MaterialFlexibleForm.MaximumSize = new(Convert.ToInt32(SystemInformation.WorkingArea.Width * GetCorrectedWorkingAreaFactor(MAX_WIDTH_FACTOR)), Convert.ToInt32(SystemInformation.WorkingArea.Height * GetCorrectedWorkingAreaFactor(MAX_HEIGHT_FACTOR)));
 
             //Get rows. Exit if there are no rows to render...
             string[] stringRows = GetStringRows(text);
@@ -352,7 +352,7 @@ namespace ReaLTaiizor.Forms
             int marginHeight = MaterialFlexibleForm.Height - MaterialFlexibleForm.richTextBoxMessage.Height;
 
             //Set calculated dialog size (if the calculated values exceed the maximums, they were cut by windows forms automatically)
-            MaterialFlexibleForm.Size = new Size(textWidth + marginWidth, textHeight + marginHeight);
+            MaterialFlexibleForm.Size = new(textWidth + marginWidth, textHeight + marginHeight);
         }
 
         private static void SetDialogIcon(MaterialFlexibleForm MaterialFlexibleForm, MessageBoxIcon icon)

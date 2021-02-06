@@ -76,7 +76,7 @@ namespace ReaLTaiizor.Controls
         {
             base.CreateHandle();
 
-            ItemSize = new Size(80, 24);
+            ItemSize = new(80, 24);
             Alignment = TabAlignment.Top;
         }
 

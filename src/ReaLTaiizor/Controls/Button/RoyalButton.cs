@@ -92,7 +92,7 @@ namespace ReaLTaiizor.Controls
 
             Image = null;
             LayoutFlags = RoyalLayoutFlags.ImageBeforeText;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             Cursor = Cursors.Hand;
 
             HotTrackChanged = new EventHandler(OnHotTrackChanged);

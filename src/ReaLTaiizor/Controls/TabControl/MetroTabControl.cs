@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            ItemSize = new Size(100, 38);
+            ItemSize = new(100, 38);
             Font = MetroFonts.UIRegular(8);
             _mth = new Methods();
             _utl = new Utilites();

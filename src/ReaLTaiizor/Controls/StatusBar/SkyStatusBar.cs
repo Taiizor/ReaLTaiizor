@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Controls
         {
             Font = new("Verdana", 6.75f, FontStyle.Bold);
             ForeColor = Color.FromArgb(27, 94, 137);
-            Size = new Size(Width, 20);
+            Size = new(Width, 20);
             DoubleBuffered = true;
         }
 

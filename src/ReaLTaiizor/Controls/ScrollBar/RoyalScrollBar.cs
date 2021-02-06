@@ -303,7 +303,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            lastMousePos = new Point(e.X, e.Y);
+            lastMousePos = new(e.X, e.Y);
             base.OnMouseMove(e);
         }
 

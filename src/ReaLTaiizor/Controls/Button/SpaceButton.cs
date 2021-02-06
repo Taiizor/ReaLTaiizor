@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Controls
             SetColor("Border1", 35, 35, 35); // The Inside Border
             SetColor("Border2", 42, 42, 42); // The Outside Border
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
         }
 
         private Color C1; // Set up Simple Colors

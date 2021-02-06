@@ -195,11 +195,11 @@ namespace ReaLTaiizor.Forms
                 {
                     if (Dock == DockStyle.Top)
                     {
-                        Parent.Location = new Point(MousePosition.X - mousePoint.X, MousePosition.Y - mousePoint.Y);
+                        Parent.Location = new(MousePosition.X - mousePoint.X, MousePosition.Y - mousePoint.Y);
                     }
                     else
                     {
-                        Parent.Location = new Point(MousePosition.X - mousePoint.X, MousePosition.Y - Parent.Height - mousePoint.Y + Height);
+                        Parent.Location = new(MousePosition.X - mousePoint.X, MousePosition.Y - Parent.Height - mousePoint.Y + Height);
                     }
                 }
             }
@@ -269,15 +269,15 @@ namespace ReaLTaiizor.Forms
 
             if (Dock == DockStyle.Top && Location.X != 0 && Location.Y != 0)
             {
-                Location = new Point(0, 0);
+                Location = new(0, 0);
             }
             else if (Dock == DockStyle.Bottom && Location.X != 0 && Location.Y != ParentForm.Height - Height)
             {
-                Location = new Point(0, ParentForm.Height - Height);
+                Location = new(0, ParentForm.Height - Height);
             }
 
             Width = ParentForm.Width;
-            ParentForm.MinimumSize = new Size(190, 40);
+            ParentForm.MinimumSize = new(190, 40);
 
             Bitmap bitmap = new(Width, Height);
             Graphics graphics = Graphics.FromImage(bitmap);

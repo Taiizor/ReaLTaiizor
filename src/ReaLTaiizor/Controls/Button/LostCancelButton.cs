@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
         public LostCancelButton() : base()
         {
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             Font = ThemeLost.BodyFont;
         }
 

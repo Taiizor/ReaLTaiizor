@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
         private bool Cap;
         private int ValueDrawer;
 
-        private Size ThumbSize = new Size(15, 15);
+        private Size ThumbSize = new(15, 15);
         private Rectangle TrackThumb;
 
         private int _Minimum = 0;
@@ -269,8 +269,8 @@ namespace ReaLTaiizor.Controls
             SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer), true);
 
             Cursor = Cursors.Hand;
-            Size = new Size(80, 22);
-            MinimumSize = new Size(47, 22);
+            Size = new(80, 22);
+            MinimumSize = new(47, 22);
         }
 
         protected override void OnResize(EventArgs e)

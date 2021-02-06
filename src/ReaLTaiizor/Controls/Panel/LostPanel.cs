@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
         public LostPanel()
         {
             DoubleBuffered = true;
-            Size = new Size(222, 111);
+            Size = new(222, 111);
             Font = ThemeLost.TitleFont;
             BackColor = ThemeLost.ForeBrush.Color;
             ForeColor = ThemeLost.FontBrush.Color;

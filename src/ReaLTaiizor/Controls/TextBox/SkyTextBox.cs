@@ -114,9 +114,9 @@ namespace ReaLTaiizor.Controls
                 txtbox.Text = string.Empty;
                 txtbox.TextAlign = HorizontalAlignment.Center;
                 txtbox.BorderStyle = BorderStyle.None;
-                txtbox.Location = new Point(5, 4);
+                txtbox.Location = new(5, 4);
                 txtbox.Font = new("Trebuchet MS", 8.25f, FontStyle.Bold);
-                txtbox.Size = new Size(Width - 10, Height - 11);
+                txtbox.Size = new(Width - 10, Height - 11);
                 txtbox.UseSystemPasswordChar = UseSystemPasswordChar;
             }
 
@@ -193,7 +193,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.FromArgb(233, 233, 233);
             ForeColor = Color.FromArgb(27, 94, 137);
             Font = new("Verdana", 6.75f, FontStyle.Bold);
-            Size = new Size(75, 35);
+            Size = new(75, 35);
             DoubleBuffered = true;
             txtbox.TextChanged += new EventHandler(TextChngTxtBox);
             base.TextChanged += new EventHandler(TextChng);

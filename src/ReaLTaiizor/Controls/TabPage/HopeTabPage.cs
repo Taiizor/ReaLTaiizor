@@ -195,7 +195,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Font = new("Segoe UI", 12F);
             SizeMode = TabSizeMode.Fixed;
-            ItemSize = new Size(120, 40);
+            ItemSize = new(120, 40);
         }
     }
 

@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.FromArgb(246, 246, 246);
             ForeColor = Color.FromArgb(76, 76, 97);
-            Size = new Size(135, 26);
+            Size = new(135, 26);
             ItemHeight = 20;
             DropDownHeight = 100;
             Font = new("Segoe UI", 10, FontStyle.Regular);
@@ -185,8 +185,8 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            LinearGradientBrush LGB = default(LinearGradientBrush);
-            GraphicsPath GP = default(GraphicsPath);
+            LinearGradientBrush LGB = default;
+            GraphicsPath GP = default;
 
             e.Graphics.Clear(Parent.BackColor);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;

@@ -129,7 +129,7 @@ namespace ReaLTaiizor.Controls
             int width = 260; int height = 124;
 
             // Reset form back to original size
-            Size = new Size(width, height);
+            Size = new(width, height);
 
             lblText.Text = string.Empty;
             lblText.AutoSize = true;
@@ -168,7 +168,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Set the new size of the dialog
-            Size = new Size(width, height);
+            Size = new(width, height);
         }
 
         #endregion

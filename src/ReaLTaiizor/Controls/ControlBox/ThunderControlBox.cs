@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (DefaultLocation)
                 {
-                    Location = new Point(Parent.Width - Width - 3, 3);
+                    Location = new(Parent.Width - Width - 3, 3);
                 }
             }
             catch (Exception)

@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
         private Color _EnabledStringColor = ColorTranslator.FromHtml("#999999");
         private Color _DisabledStringColor = ColorTranslator.FromHtml("#babbbd");
         private Color _CheckedColor = HopeColors.PrimaryColor;
-        private readonly Timer AnimationTimer = new Timer { Interval = 15 };
+        private readonly Timer AnimationTimer = new() { Interval = 15 };
         private int SizeAnimationNum = 14;
         private int PointAnimationNum = 3;
         private bool enterFlag = false;
@@ -158,7 +158,7 @@ namespace ReaLTaiizor.Controls
             graphics.Clear(BackColor);
 
             GraphicsPath checkmarkPath = RoundRectangle.CreateRoundRect(2, 2, 16, 16, 1);
-            Rectangle checkMarkLine = new(3, 3, 14, 14);
+            //Rectangle checkMarkLine = new(3, 3, 14, 14);
 
             SolidBrush BG = new(_Enable ? (Checked || enterFlag ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
             Pen Pen = new(BG.Color);
@@ -203,7 +203,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Font = new("Segoe UI", 12);
             ForeColor = HopeColors.MainText;
-            Size = new Size(147, 20);
+            Size = new(147, 20);
             Cursor = Cursors.Hand;
         }
     }

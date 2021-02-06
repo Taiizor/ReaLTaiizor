@@ -325,7 +325,7 @@ namespace ReaLTaiizor.Controls
         private void setHeightVars()
         {
             HEIGHT = UseTallSize ? 50 : 36;
-            Size = new Size(Size.Width, HEIGHT);
+            Size = new(Size.Width, HEIGHT);
             LINE_Y = HEIGHT - BOTTOM_PADDING;
             ItemHeight = HEIGHT - 7;
             DropDownHeight = ItemHeight * MaxDropDownItems + 2;

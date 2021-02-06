@@ -291,7 +291,7 @@ namespace ReaLTaiizor.Util
             if (item.GetType() == typeof(ToolStripButton))
             {
                 item.AutoSize = false;
-                item.Size = new Size(24, 24);
+                item.Size = new(24, 24);
             }
         }
 

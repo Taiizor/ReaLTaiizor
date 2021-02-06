@@ -50,10 +50,8 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.FillRectangle(new SolidBrush(ListBackColor), e.Bounds);
                 }
 
-                using (SolidBrush b = new(ListForeColor))
-                {
-                    e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), e.Font, b, new Rectangle(e.Bounds.X + 2, e.Bounds.Y, e.Bounds.Width - 4, e.Bounds.Height));
-                }
+                using SolidBrush b = new(ListForeColor);
+                e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), e.Font, b, new Rectangle(e.Bounds.X + 2, e.Bounds.Y, e.Bounds.Width - 4, e.Bounds.Height));
             }
             catch
             {
@@ -63,7 +61,7 @@ namespace ReaLTaiizor.Controls
 
         protected void DrawTriangle(Color Clr, Point FirstPoint, Point SecondPoint, Point ThirdPoint, Graphics G)
         {
-            List<Point> points = new List<Point>
+            List<Point> points = new()
             {
                 FirstPoint,
                 SecondPoint,
@@ -228,7 +226,7 @@ namespace ReaLTaiizor.Controls
             Font = new("Verdana", 6.75f, FontStyle.Bold);
             DropDownStyle = ComboBoxStyle.DropDownList;
             DoubleBuffered = true;
-            Size = new Size(75, 21);
+            Size = new(75, 21);
             ItemHeight = 16;
             DrawItem += new DrawItemEventHandler(ReplaceItem);
             Cursor = Cursors.Hand;

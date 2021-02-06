@@ -395,7 +395,7 @@ namespace ReaLTaiizor.Controls
 
             using (Graphics g = CreateGraphics())
             {
-                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, ProgressPercentText, PoisonFonts.ProgressBar(poisonLabelSize, poisonLabelWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
             }
 

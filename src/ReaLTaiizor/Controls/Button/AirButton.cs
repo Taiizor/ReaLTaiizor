@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
             SetColor("Text normal", 60, 60, 60);
             SetColor("Text down/over", 20, 20, 20);
             SetColor("Text disabled", Color.Gray);
-            Size = new Size(100, 45);
+            Size = new(100, 45);
             Cursor = Cursors.Hand;
         }
 

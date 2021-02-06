@@ -258,7 +258,7 @@ namespace ReaLTaiizor.Docking.Crown
                 return;
             }
 
-            Size size = new Size(0, 0);
+            Size size = new(0, 0);
 
             switch (DockArea)
             {
@@ -267,10 +267,10 @@ namespace ReaLTaiizor.Docking.Crown
                     return;
                 case DockArea.Left:
                 case DockArea.Right:
-                    size = new Size(ClientRectangle.Width, ClientRectangle.Height / _groups.Count);
+                    size = new(ClientRectangle.Width, ClientRectangle.Height / _groups.Count);
                     break;
                 case DockArea.Bottom:
-                    size = new Size(ClientRectangle.Width / _groups.Count, ClientRectangle.Height);
+                    size = new(ClientRectangle.Width / _groups.Count, ClientRectangle.Height);
                     break;
             }
 
@@ -282,7 +282,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void BuildProperties()
         {
-            MinimumSize = new Size(50, 50);
+            MinimumSize = new(50, 50);
 
             switch (DockArea)
             {

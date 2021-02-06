@@ -222,13 +222,13 @@ namespace ReaLTaiizor.Controls
             switch (_style)
             {
                 case NumericStyle.LeftRight:
-                    textBox.Size = new Size(Width - 2 * Height, Height - 2);
-                    textBox.Location = new Point(Height, 5);
+                    textBox.Size = new(Width - 2 * Height, Height - 2);
+                    textBox.Location = new(Height, 5);
                     graphics.DrawLine(new(_BorderColorB, 0.5f), textBox.Location.X - 0.5f, 1, textBox.Location.X - 0.5f, Height - 1);
                     break;
                 case NumericStyle.TopDown:
-                    textBox.Size = new Size(Width - Height - 2, Height - 2);
-                    textBox.Location = new Point(2, 5);
+                    textBox.Size = new(Width - Height - 2, Height - 2);
+                    textBox.Location = new(2, 5);
                     graphics.DrawLine(new(_BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, Height / 2, Width - 1, Height / 2);
                     break;
             }

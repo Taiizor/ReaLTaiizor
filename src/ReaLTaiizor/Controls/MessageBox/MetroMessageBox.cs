@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
             base.Font = MetroFonts.Regular(9.5f);
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
-            _buttonSize = new Size(95, 32);
+            _buttonSize = new(95, 32);
             ApplyTheme();
             EvaluateControls();
             AddControls();
@@ -233,8 +233,8 @@ namespace ReaLTaiizor.Controls
                 Content = content,
                 Caption = caption,
                 Buttons = buttons,
-                Size = new Size(form.Width - 2, (form.Height / 3) - 1),
-                Location = new Point(form.Location.X, (form.Height / 2) - 1)
+                Size = new(form.Width - 2, (form.Height / 3) - 1),
+                Location = new(form.Location.X, (form.Height / 2) - 1)
             };
             if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Stop)
             {
@@ -279,45 +279,45 @@ namespace ReaLTaiizor.Controls
             switch (Buttons)
             {
                 case MessageBoxButtons.OK:
-                    _okButton.Location = new Point(firstButton, buttonHeight);
+                    _okButton.Location = new(firstButton, buttonHeight);
                     _okButton.Visible = true;
                     break;
                 case MessageBoxButtons.OKCancel:
-                    _okButton.Location = new Point(secondButoon, buttonHeight);
+                    _okButton.Location = new(secondButoon, buttonHeight);
                     _okButton.Visible = true;
-                    _cancelButton.Location = new Point(firstButton, buttonHeight);
+                    _cancelButton.Location = new(firstButton, buttonHeight);
                     _cancelButton.Visible = true;
                     break;
                 case MessageBoxButtons.YesNo:
-                    _yesButton.Location = new Point(secondButoon, buttonHeight);
+                    _yesButton.Location = new(secondButoon, buttonHeight);
                     _yesButton.Visible = true;
-                    _noButton.Location = new Point(firstButton, buttonHeight);
+                    _noButton.Location = new(firstButton, buttonHeight);
                     _noButton.Visible = true;
                     break;
                 case MessageBoxButtons.YesNoCancel:
-                    _yesButton.Location = new Point((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
+                    _yesButton.Location = new((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
                     _yesButton.Visible = true;
-                    _noButton.Location = new Point(secondButoon, buttonHeight);
+                    _noButton.Location = new(secondButoon, buttonHeight);
                     _noButton.Visible = true;
-                    _cancelButton.Location = new Point(firstButton, buttonHeight);
+                    _cancelButton.Location = new(firstButton, buttonHeight);
                     _cancelButton.Visible = true;
                     break;
                 case MessageBoxButtons.RetryCancel:
-                    _retryButton.Location = new Point(secondButoon, buttonHeight);
+                    _retryButton.Location = new(secondButoon, buttonHeight);
                     _retryButton.Visible = true;
-                    _cancelButton.Location = new Point(firstButton, buttonHeight);
+                    _cancelButton.Location = new(firstButton, buttonHeight);
                     _cancelButton.Visible = true;
                     break;
                 case MessageBoxButtons.AbortRetryIgnore:
-                    _abortButton.Location = new Point((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
+                    _abortButton.Location = new((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
                     _abortButton.Visible = true;
-                    _retryButton.Location = new Point(secondButoon, buttonHeight);
+                    _retryButton.Location = new(secondButoon, buttonHeight);
                     _retryButton.Visible = true;
-                    _ignoreButton.Location = new Point(firstButton, buttonHeight);
+                    _ignoreButton.Location = new(firstButton, buttonHeight);
                     _ignoreButton.Visible = true;
                     break;
                 default:
-                    _okButton.Location = new Point(firstButton, buttonHeight);
+                    _okButton.Location = new(firstButton, buttonHeight);
                     _okButton.Visible = true;
                     break;
             }

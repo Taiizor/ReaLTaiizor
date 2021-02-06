@@ -420,7 +420,7 @@ namespace ReaLTaiizor.Controls
             {
                 Rectangle modRect = new(rect.Left + textOffsetX + Padding.Left, rect.Top + textOffsetY + Padding.Top, rect.Width - Padding.Horizontal, rect.Height - Padding.Vertical);
 
-                StringFormat stringFormat = new StringFormat
+                StringFormat stringFormat = new()
                 {
                     LineAlignment = StringAlignment.Center,
                     Alignment = StringAlignment.Center,

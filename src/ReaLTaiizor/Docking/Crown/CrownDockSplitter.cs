@@ -89,7 +89,7 @@ namespace ReaLTaiizor.Docking.Crown
                         leftX = _maximum;
                     }
 
-                    bounds.Location = new Point(leftX, bounds.Location.Y);
+                    bounds.Location = new(leftX, bounds.Location.Y);
                     break;
                 case SplitterType.Right:
                     int rightX = Math.Max(bounds.Location.X - difference.X, _minimum);
@@ -99,7 +99,7 @@ namespace ReaLTaiizor.Docking.Crown
                         rightX = _maximum;
                     }
 
-                    bounds.Location = new Point(rightX, bounds.Location.Y);
+                    bounds.Location = new(rightX, bounds.Location.Y);
                     break;
                 case SplitterType.Top:
                     int topY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Docking.Crown
                         topY = _maximum;
                     }
 
-                    bounds.Location = new Point(bounds.Location.X, topY);
+                    bounds.Location = new(bounds.Location.X, topY);
                     break;
                 case SplitterType.Bottom:
                     int bottomY = Math.Max(bounds.Location.Y - difference.Y, _minimum);
@@ -119,7 +119,7 @@ namespace ReaLTaiizor.Docking.Crown
                         topY = _maximum;
                     }
 
-                    bounds.Location = new Point(bounds.Location.X, bottomY);
+                    bounds.Location = new(bounds.Location.X, bottomY);
                     break;
             }
 

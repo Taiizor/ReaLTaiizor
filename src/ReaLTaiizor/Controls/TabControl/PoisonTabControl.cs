@@ -238,7 +238,7 @@ namespace ReaLTaiizor.Controls
                     true
             );
 
-            Padding = new Point(6, 8);
+            Padding = new(6, 8);
             Selecting += PoisonTabControl_Selecting;
         }
 
@@ -336,7 +336,7 @@ namespace ReaLTaiizor.Controls
             Size preferredSize;
             using (Graphics g = CreateGraphics())
             {
-                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                Size proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, text, PoisonFonts.TabControl(poisonLabelSize, poisonLabelWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign) | TextFormatFlags.NoPadding);
             }
             return preferredSize;

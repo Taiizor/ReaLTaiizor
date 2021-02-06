@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Font = new("Microsoft Sans Serif", 12);
             ForeColor = Color.FromArgb(255, 255, 255);
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             _TextAlignment = StringAlignment.Center;
             P1 = new(Color.FromArgb(32, 34, 37)); // P1 = Border color
             P3 = new(Color.FromArgb(165, 37, 37)); // P3 = Border color when pressed

@@ -157,7 +157,7 @@ namespace ReaLTaiizor.Util
             {
                 Rectangle SB = Screen.PrimaryScreen.Bounds;
                 Rectangle CB = ParentForm.Bounds;
-                ParentForm.Location = new Point(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
+                ParentForm.Location = new(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
             }
 
             HasShown = true;
@@ -451,7 +451,7 @@ namespace ReaLTaiizor.Util
                 Y = Height - Parent.Height;
             }
 
-            Parent.Location = new Point(X, Y);
+            Parent.Location = new(X, Y);
         }
 
         #endregion
@@ -753,12 +753,11 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                byte[] Data = null;
                 BloomSpace[] Items = Colors;
 
                 try
                 {
-                    Data = Convert.FromBase64String(value);
+                    byte[] Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
                     {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
@@ -967,7 +966,7 @@ namespace ReaLTaiizor.Util
 
         private void InvalidateCustimization()
         {
-            MemoryStream M = new MemoryStream(Items.Count * 4);
+            MemoryStream M = new(Items.Count * 4);
 
             foreach (BloomSpace B in Colors)
             {
@@ -1024,14 +1023,14 @@ namespace ReaLTaiizor.Util
         private Size OffsetReturnSize;
         protected Size Offset(Size s, int amount)
         {
-            OffsetReturnSize = new Size(s.Width + amount, s.Height + amount);
+            OffsetReturnSize = new(s.Width + amount, s.Height + amount);
             return OffsetReturnSize;
         }
 
         private Point OffsetReturnPoint;
         protected Point Offset(Point p, int amount)
         {
-            OffsetReturnPoint = new Point(p.X + amount, p.Y + amount);
+            OffsetReturnPoint = new(p.X + amount, p.Y + amount);
             return OffsetReturnPoint;
         }
 
@@ -1043,12 +1042,12 @@ namespace ReaLTaiizor.Util
         private Point CenterReturn;
         protected Point Center(Rectangle p, Rectangle c)
         {
-            CenterReturn = new Point((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
+            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
             return CenterReturn;
         }
         protected Point Center(Rectangle p, Size c)
         {
-            CenterReturn = new Point((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
+            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
             return CenterReturn;
         }
 
@@ -1072,7 +1071,7 @@ namespace ReaLTaiizor.Util
 
         protected Point Center(int pWidth, int pHeight, int cWidth, int cHeight)
         {
-            CenterReturn = new Point(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
+            CenterReturn = new(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
             return CenterReturn;
         }
 
@@ -1215,7 +1214,7 @@ namespace ReaLTaiizor.Util
             }
 
             DrawTextSize = Measure(text);
-            DrawTextPoint = new Point(Width / 2 - DrawTextSize.Width / 2, Header / 2 - DrawTextSize.Height / 2);
+            DrawTextPoint = new(Width / 2 - DrawTextSize.Width / 2, Header / 2 - DrawTextSize.Height / 2);
 
             switch (a)
             {
@@ -1266,7 +1265,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            DrawImagePoint = new Point(Width / 2 - image.Width / 2, Header / 2 - image.Height / 2);
+            DrawImagePoint = new(Width / 2 - image.Width / 2, Header / 2 - image.Height / 2);
 
             switch (a)
             {
@@ -1403,7 +1402,7 @@ namespace ReaLTaiizor.Util
 
             DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath)
             {
-                CenterPoint = new Point(r.X + cx, r.Y + cy),
+                CenterPoint = new(r.X + cx, r.Y + cy),
                 InterpolationColors = blend
             };
 
@@ -1825,12 +1824,11 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                byte[] Data = null;
                 BloomSpace[] Items = Colors;
 
                 try
                 {
-                    Data = Convert.FromBase64String(value);
+                    byte[] Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
                     {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
@@ -1955,7 +1953,7 @@ namespace ReaLTaiizor.Util
 
         private void InvalidateCustimization()
         {
-            MemoryStream M = new MemoryStream(Items.Count * 4);
+            MemoryStream M = new(Items.Count * 4);
 
             foreach (BloomSpace B in Colors)
             {
@@ -2011,14 +2009,14 @@ namespace ReaLTaiizor.Util
         private Size OffsetReturnSize;
         protected Size Offset(Size s, int amount)
         {
-            OffsetReturnSize = new Size(s.Width + amount, s.Height + amount);
+            OffsetReturnSize = new(s.Width + amount, s.Height + amount);
             return OffsetReturnSize;
         }
 
         private Point OffsetReturnPoint;
         protected Point Offset(Point p, int amount)
         {
-            OffsetReturnPoint = new Point(p.X + amount, p.Y + amount);
+            OffsetReturnPoint = new(p.X + amount, p.Y + amount);
             return OffsetReturnPoint;
         }
 
@@ -2030,12 +2028,12 @@ namespace ReaLTaiizor.Util
         private Point CenterReturn;
         protected Point Center(Rectangle p, Rectangle c)
         {
-            CenterReturn = new Point((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
+            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
             return CenterReturn;
         }
         protected Point Center(Rectangle p, Size c)
         {
-            CenterReturn = new Point((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
+            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
             return CenterReturn;
         }
 
@@ -2059,7 +2057,7 @@ namespace ReaLTaiizor.Util
 
         protected Point Center(int pWidth, int pHeight, int cWidth, int cHeight)
         {
-            CenterReturn = new Point(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
+            CenterReturn = new(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
             return CenterReturn;
         }
 
@@ -2387,7 +2385,7 @@ namespace ReaLTaiizor.Util
 
             DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath)
             {
-                CenterPoint = new Point(r.X + cx, r.Y + cy),
+                CenterPoint = new(r.X + cx, r.Y + cy),
                 InterpolationColors = blend
             };
 

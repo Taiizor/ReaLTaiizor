@@ -26,30 +26,30 @@ namespace ReaLTaiizor.Controls
 
         public RoyalEllipseButton() : base()
         {
-            Size = new Size(120, 120);
+            Size = new(120, 120);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             Color foreColor = ForeColor;
             Color backColor = BackColor;
-            Color borderColor = BackColor;
+            //Color borderColor = BackColor;
 
             if (HotTracked && !Pressed)
             {
                 backColor = HotTrackColor;
-                borderColor = backColor;
+                //borderColor = backColor;
             }
             else if (Pressed)
             {
                 foreColor = PressedForeColor;
                 backColor = PressedColor;
-                borderColor = backColor;
+                //borderColor = backColor;
             }
 
             if (DrawBorder)
             {
-                borderColor = BorderColor;
+                //borderColor = BorderColor;
             }
 
             e.Graphics.SmoothingMode = SmoothingType;

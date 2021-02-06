@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Forms
         {
             StartPosition = FormStartPosition.Manual;
             FormBorderStyle = FormBorderStyle.None;
-            Size = new Size(1, 1);
+            Size = new(1, 1);
             ShowInTaskbar = false;
             AllowTransparency = true;
             Opacity = opacity;

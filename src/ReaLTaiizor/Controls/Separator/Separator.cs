@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Controls
         public Separator()
         {
             SetStyle(ControlStyles.ResizeRedraw, true);
-            Size = new Size(120, 10);
+            Size = new(120, 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)

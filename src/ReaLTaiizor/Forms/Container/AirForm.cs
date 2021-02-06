@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Forms
             SetColor("Title color", Color.Black);
             SetColor("X-color", 90, 90, 90);
             SetColor("X-ellipse", 114, 114, 114);
-            MinimumSize = new Size(112, 35);
+            MinimumSize = new(112, 35);
         }
 
         private Color TitleColor;

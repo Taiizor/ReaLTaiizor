@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Controls
 
         public RadioButton()
         {
-            Size = new Size(120, 17);
+            Size = new(120, 17);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
             ForeColor = Color.FromArgb(116, 125, 132);

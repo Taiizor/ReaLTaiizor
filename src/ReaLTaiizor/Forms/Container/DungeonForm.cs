@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Forms
         private Rectangle HeaderRect;
         protected MouseState State;
         private readonly int MoveHeight;
-        private Point MouseP = new Point(0, 0);
+        private Point MouseP = new(0, 0);
         private bool Cap = false;
         private bool HasShown;
 
@@ -194,7 +194,7 @@ namespace ReaLTaiizor.Forms
                     }
                 }
                 Parent.BackColor = BackColor;
-                Parent.MinimumSize = new Size(261, 65);
+                Parent.MinimumSize = new(261, 65);
             }
         }
 
@@ -284,7 +284,7 @@ namespace ReaLTaiizor.Forms
             {
                 Rectangle SB = Screen.PrimaryScreen.Bounds;
                 Rectangle CB = ParentForm.Bounds;
-                ParentForm.Location = new Point(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
+                ParentForm.Location = new(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
             }
             HasShown = true;
         }
@@ -437,7 +437,7 @@ namespace ReaLTaiizor.Forms
                 Y = Height - Parent.Height;
             }
 
-            Parent.Location = new Point(X, Y);
+            Parent.Location = new(X, Y);
         }
 
         private bool WM_LMBUTTONDOWN;

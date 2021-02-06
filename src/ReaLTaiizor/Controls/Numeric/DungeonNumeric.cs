@@ -145,7 +145,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             Height = 28;
-            MinimumSize = new Size(93, 28);
+            MinimumSize = new(93, 28);
             Shape = new();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
             Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -295,8 +295,8 @@ namespace ReaLTaiizor.Controls
             _Minimum = 0;
             _Maximum = 100;
             Font = new("Tahoma", 11);
-            Size = new Size(70, 28);
-            MinimumSize = new Size(62, 28);
+            Size = new(70, 28);
+            MinimumSize = new(62, 28);
             DoubleBuffered = true;
 
             LongPressTimer.Tick += LongPressTimer_Tick;

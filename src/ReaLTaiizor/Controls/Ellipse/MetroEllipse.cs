@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Controls
         private bool _isDerivedStyle = true;
         private int _borderThickness = 7;
         private Image _image;
-        private Size _imageSize = new Size(64, 64);
+        private Size _imageSize = new(64, 64);
         private Color _normalColor;
         private Color _normalBorderColor;
         private Color _normalTextColor;

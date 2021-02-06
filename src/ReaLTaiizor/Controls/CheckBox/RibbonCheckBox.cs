@@ -176,7 +176,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer, true);
             BackColor = Color.Transparent;
             ForeColor = Color.Black;
-            Size = new Size(120, 16);
+            Size = new(120, 16);
             DoubleBuffered = true;
             Font = new("Tahoma", 8, FontStyle.Bold);
             Cursor = Cursors.Hand;

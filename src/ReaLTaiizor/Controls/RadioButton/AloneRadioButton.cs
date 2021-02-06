@@ -107,7 +107,7 @@ namespace ReaLTaiizor.Controls
         {
             DoubleBuffered = true;
             Enabled = true;
-            Size = new Size(138, 18);
+            Size = new(138, 18);
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
             BackColor = Color.White;
         }
@@ -209,7 +209,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            base.Size = new Size(base.Width, 18);
+            base.Size = new(base.Width, 18);
         }
     }
 

@@ -160,11 +160,11 @@ namespace ReaLTaiizor.Child.Crown
 
             int scrollSize = ThemeProvider.Theme.Sizes.ScrollBarSize;
 
-            _vScrollBar.Location = new Point(ClientSize.Width - scrollSize, 0);
-            _vScrollBar.Size = new Size(scrollSize, ClientSize.Height);
+            _vScrollBar.Location = new(ClientSize.Width - scrollSize, 0);
+            _vScrollBar.Size = new(scrollSize, ClientSize.Height);
 
-            _hScrollBar.Location = new Point(0, ClientSize.Height - scrollSize);
-            _hScrollBar.Size = new Size(ClientSize.Width, scrollSize);
+            _hScrollBar.Location = new(0, ClientSize.Height - scrollSize);
+            _hScrollBar.Size = new(ClientSize.Width, scrollSize);
 
             if (DesignMode)
             {
@@ -211,7 +211,7 @@ namespace ReaLTaiizor.Child.Crown
         {
             int scrollSize = ThemeProvider.Theme.Sizes.ScrollBarSize;
 
-            _visibleSize = new Size(ClientSize.Width, ClientSize.Height);
+            _visibleSize = new(ClientSize.Width, ClientSize.Height);
 
             if (_vScrollBar.Visible)
             {
@@ -246,7 +246,7 @@ namespace ReaLTaiizor.Child.Crown
             Viewport = new(left, top, width, height);
 
             Point pos = PointToClient(MousePosition);
-            _offsetMousePosition = new Point(pos.X + Viewport.Left, pos.Y + Viewport.Top);
+            _offsetMousePosition = new(pos.X + Viewport.Left, pos.Y + Viewport.Top);
 
             Invalidate();
         }
@@ -331,7 +331,7 @@ namespace ReaLTaiizor.Child.Crown
         {
             base.OnMouseMove(e);
 
-            _offsetMousePosition = new Point(e.X + Viewport.Left, e.Y + Viewport.Top);
+            _offsetMousePosition = new(e.X + Viewport.Left, e.Y + Viewport.Top);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)

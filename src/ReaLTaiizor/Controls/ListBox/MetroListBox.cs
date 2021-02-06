@@ -149,7 +149,7 @@ namespace ReaLTaiizor.Controls
             _svs = new MetroScrollBar()
             {
                 Orientation = ScrollOrientate.Vertical,
-                Size = new Size(12, Height),
+                Size = new(12, Height),
                 Maximum = _items.Count * ItemHeight,
                 SmallChange = 1,
                 LargeChange = 5
@@ -674,8 +674,8 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateLayout()
         {
-            _svs.Size = new Size(12, Height - (ShowBorder ? 2 : 0));
-            _svs.Location = new Point(Width - (_svs.Width + (ShowBorder ? 2 : 0)), ShowBorder ? 1 : 0);
+            _svs.Size = new(12, Height - (ShowBorder ? 2 : 0));
+            _svs.Location = new(Width - (_svs.Width + (ShowBorder ? 2 : 0)), ShowBorder ? 1 : 0);
             Invalidate();
         }
 
@@ -749,7 +749,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            _svs.Location = new Point(Width - (_svs.Width + (ShowBorder ? 2 : 0)), ShowBorder ? 1 : 0);
+            _svs.Location = new(Width - (_svs.Width + (ShowBorder ? 2 : 0)), ShowBorder ? 1 : 0);
             InvalidateScroll(this, e);
         }
 

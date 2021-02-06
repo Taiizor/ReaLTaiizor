@@ -114,7 +114,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            _baseTextBox.Location = new Point(12, 8);
+            _baseTextBox.Location = new(12, 8);
             _baseTextBox.Width = Width - 24;
             _baseTextBox.Height = (Height - 16) > 0 ? (Height - 16) : 0;
             Height = _baseTextBox.Height + 16;

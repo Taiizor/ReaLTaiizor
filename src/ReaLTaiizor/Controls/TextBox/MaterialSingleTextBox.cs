@@ -973,7 +973,7 @@ namespace ReaLTaiizor.Controls
             {
                 BorderStyle = BorderStyle.None,
                 Font = SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
-                Location = new Point(0, 0),
+                Location = new(0, 0),
                 Width = Width,
                 Height = Height - 5
             };
@@ -1026,7 +1026,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
 
-            _baseTextBox.Location = new Point(0, 0);
+            _baseTextBox.Location = new(0, 0);
             _baseTextBox.Width = Width;
 
             Height = _baseTextBox.Height + 5;

@@ -182,8 +182,8 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             BackColor = Color.FromArgb(60, 70, 73);
-            Size = new Size(215, 42);
-            Location = new Point(10, 61);
+            Size = new(215, 42);
+            Location = new(10, 61);
             Font = new("Segoe UI", 10);
             Cursor = Cursors.Hand;
             Visible = true;

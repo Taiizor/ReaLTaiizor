@@ -160,13 +160,13 @@ namespace ReaLTaiizor.Controls
             ListBx.BorderStyle = BorderStyle.None;
             ListBx.BackColor = BaseColor;
             ListBx.ForeColor = Color.White;
-            ListBx.Location = new Point(3, 3);
+            ListBx.Location = new(3, 3);
             ListBx.Font = new("Segoe UI", 8);
             ListBx.ItemHeight = 20;
             ListBx.Items.Clear();
             ListBx.IntegralHeight = false;
 
-            Size = new Size(131, 101);
+            Size = new(131, 101);
             BackColor = BaseColor;
         }
 
@@ -186,7 +186,7 @@ namespace ReaLTaiizor.Controls
             _with19.Clear(BackColor);
 
             //-- Size
-            ListBx.Size = new Size(Width - 6, Height - 2);
+            ListBx.Size = new(Width - 6, Height - 2);
 
             //-- Base
             _with19.FillRectangle(new SolidBrush(BaseColor), Base);

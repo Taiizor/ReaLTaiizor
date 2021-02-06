@@ -274,7 +274,7 @@ namespace ReaLTaiizor.Util
             {
                 Enabled = true;
                 DoubleBuffered = true;
-                Size = new Size(115, 23);
+                Size = new(115, 23);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
@@ -370,7 +370,7 @@ namespace ReaLTaiizor.Util
             {
                 Enabled = true;
                 DoubleBuffered = true;
-                Size = new Size(130, 23);
+                Size = new(130, 23);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
@@ -468,7 +468,7 @@ namespace ReaLTaiizor.Util
             {
                 DoubleBuffered = true;
                 Enabled = true;
-                Size = new Size(120, 40);
+                Size = new(120, 40);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
@@ -551,7 +551,7 @@ namespace ReaLTaiizor.Util
                 DoubleBuffered = true;
                 Enabled = true;
                 Cursor = Cursors.Default;
-                Size = new Size(120, 40);
+                Size = new(120, 40);
             }
 
             protected override void OnMouseEnter(EventArgs e)
@@ -632,7 +632,7 @@ namespace ReaLTaiizor.Util
             {
                 DoubleBuffered = true;
                 Enabled = true;
-                Size = new Size(85, 19);
+                Size = new(85, 19);
             }
 
             protected override void OnMouseEnter(EventArgs e)

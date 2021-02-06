@@ -272,7 +272,7 @@ namespace ReaLTaiizor.Controls
 
         private void HorizontalScrollbarScroll(object sender, ScrollEventArgs e)
         {
-            AutoScrollPosition = new Point(e.NewValue, VerticalPoisonScrollbar.Value);
+            AutoScrollPosition = new(e.NewValue, VerticalPoisonScrollbar.Value);
             UpdateScrollBarPositions();
             if (HorizontalScrolled != null)
             {
@@ -282,7 +282,7 @@ namespace ReaLTaiizor.Controls
 
         private void VerticalScrollbarScroll(object sender, ScrollEventArgs e)
         {
-            AutoScrollPosition = new Point(HorizontalPoisonScrollbar.Value, e.NewValue);
+            AutoScrollPosition = new(HorizontalPoisonScrollbar.Value, e.NewValue);
             UpdateScrollBarPositions();
             if (VerticalScrolled != null)
             {
@@ -419,7 +419,7 @@ namespace ReaLTaiizor.Controls
             int _horizontalScrollHeight = HorizontalPoisonScrollbar.Height;
             int _verticalScrollWidth = VerticalPoisonScrollbar.Width;
 
-            VerticalPoisonScrollbar.Location = new Point(ClientRectangle.Width - VerticalPoisonScrollbar.Width, ClientRectangle.Y);
+            VerticalPoisonScrollbar.Location = new(ClientRectangle.Width - VerticalPoisonScrollbar.Width, ClientRectangle.Y);
 
             if (!VerticalScrollbar || !VerticalScroll.Visible)
             {
@@ -427,7 +427,7 @@ namespace ReaLTaiizor.Controls
                 _verticalScrollWidth = 0;
             }
 
-            HorizontalPoisonScrollbar.Location = new Point(ClientRectangle.X, ClientRectangle.Height - HorizontalPoisonScrollbar.Height);
+            HorizontalPoisonScrollbar.Location = new(ClientRectangle.X, ClientRectangle.Height - HorizontalPoisonScrollbar.Height);
 
             if (!HorizontalScrollbar || !HorizontalScroll.Visible)
             {

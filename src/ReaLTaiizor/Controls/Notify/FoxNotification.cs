@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         public FoxNotification() : base()
         {
-            Size = new Size(130, 40);
+            Size = new(130, 40);
             Font = new("Segoe UI", 10);
         }
 
@@ -172,7 +172,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(Width, 40);
+            Size = new(Width, 40);
         }
 
     }

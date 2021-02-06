@@ -185,7 +185,7 @@ namespace ReaLTaiizor.Controls
 
             _menuOpen = true;
 
-            Point pos = new Point(0, ClientRectangle.Bottom);
+            Point pos = new(0, ClientRectangle.Bottom);
 
             if (_dropdownDirection == ToolStripDropDownDirection.AboveLeft || _dropdownDirection == ToolStripDropDownDirection.AboveRight)
             {
@@ -227,10 +227,10 @@ namespace ReaLTaiizor.Controls
             // Force the size
             foreach (ToolStripMenuItem item in _menu.Items)
             {
-                item.Size = new Size(width - 1, _itemHeight);
+                item.Size = new(width - 1, _itemHeight);
             }
 
-            _menu.Size = new Size(width, height);
+            _menu.Size = new(width, height);
         }
 
         #endregion

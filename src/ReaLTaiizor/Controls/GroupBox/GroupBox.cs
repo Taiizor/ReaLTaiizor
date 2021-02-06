@@ -92,8 +92,8 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
             DoubleBuffered = true;
-            Size = new Size(212, 104);
-            MinimumSize = new Size(136, 50);
+            Size = new(212, 104);
+            MinimumSize = new(136, 50);
             Padding = new Padding(5, 28, 5, 5);
             ForeColor = Color.FromArgb(53, 53, 53);
             Font = new("Tahoma", 9, FontStyle.Regular);

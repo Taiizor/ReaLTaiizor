@@ -142,10 +142,10 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
             BackColor = Color.Transparent;
-            Size = new Size(44, Height + 1);
+            Size = new(44, Height + 1);
             Cursor = Cursors.Hand;
             Font = new("Segoe UI", 10);
-            Size = new Size(76, 33);
+            Size = new(76, 33);
         }
 
         protected override void OnPaint(PaintEventArgs e)

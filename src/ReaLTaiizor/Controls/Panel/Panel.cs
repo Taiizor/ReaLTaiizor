@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint, true);
 
             BackColor = Color.FromArgb(39, 51, 63);
-            Size = new Size(187, 117);
+            Size = new(187, 117);
             Padding = new Padding(5, 5, 5, 5);
             DoubleBuffered = true;
         }

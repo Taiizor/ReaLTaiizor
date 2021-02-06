@@ -116,7 +116,7 @@ namespace ReaLTaiizor.Controls
             Enabled = true;
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
             BackColor = Color.White;
-            Size = new Size(118, 18);
+            Size = new(118, 18);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -195,7 +195,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            base.Size = new Size(base.Width, 18);
+            base.Size = new(base.Width, 18);
         }
     }
 

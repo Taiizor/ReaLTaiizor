@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Enabled = true;
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             Font = new("Segoe UI", 9f);
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
         }

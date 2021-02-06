@@ -315,7 +315,7 @@ namespace ReaLTaiizor.Controls
                     scrollOrientation = ScrollOrientation.HorizontalScroll;
                 }
 
-                Size = new Size(Height, Width);
+                Size = new(Height, Width);
                 SetupScrollBar();
             }
         }

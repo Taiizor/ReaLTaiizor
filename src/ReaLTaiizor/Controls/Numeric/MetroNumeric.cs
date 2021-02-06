@@ -114,7 +114,7 @@ namespace ReaLTaiizor.Controls
             _mth = new Methods();
             _utl = new Utilites();
             ApplyTheme();
-            _point = new Point(0, 0);
+            _point = new(0, 0);
             _holdTimer = new Timer()
             {
                 Interval = 10,

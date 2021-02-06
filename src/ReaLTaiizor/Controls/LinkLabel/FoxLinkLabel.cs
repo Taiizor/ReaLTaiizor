@@ -33,7 +33,7 @@ namespace ReaLTaiizor.Controls
 
         public FoxLinkLabel() : base()
         {
-            Size = new Size(82, 18);
+            Size = new(82, 18);
             Font = new("Segoe UI", 10);
             ForeColor = FoxLibrary.ColorFromHex("#0095DD");
         }

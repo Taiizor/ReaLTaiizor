@@ -380,7 +380,7 @@ namespace ReaLTaiizor.Forms
             {
                 using (SolidBrush b = new(PoisonPaint.ForeColor.Button.Disabled(Theme)))
                 {
-                    Size resizeHandleSize = new Size(2, 2);
+                    Size resizeHandleSize = new(2, 2);
                     e.Graphics.FillRectangles
                     (
                         b, new Rectangle[]
@@ -633,7 +633,7 @@ namespace ReaLTaiizor.Forms
         {
             //Point vPoint = PointToClient(new Point((int)lparam & 0xFFFF, (int)lparam >> 16 & 0xFFFF));
             //Point vPoint = PointToClient(new Point((Int16)lparam, (Int16)((int)lparam >> 16)));
-            Point vPoint = new Point((short)lparam, (short)((int)lparam >> 16));
+            Point vPoint = new((short)lparam, (short)((int)lparam >> 16));
             int vPadding = Math.Max(Padding.Right, Padding.Bottom);
 
             if (Resizable)
@@ -745,7 +745,7 @@ namespace ReaLTaiizor.Forms
             newButton.Style = Style;
             newButton.Theme = Theme;
             newButton.Tag = button;
-            newButton.Size = new Size(25, 20);
+            newButton.Size = new(25, 20);
             newButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             newButton.TabStop = false; //remove the form controls from the tab stop
             newButton.Click += WindowButton_Click;
@@ -793,7 +793,7 @@ namespace ReaLTaiizor.Forms
 
             Dictionary<int, WindowButtons> priorityOrder = new Dictionary<int, WindowButtons>(3) { { 0, WindowButtons.Close }, { 1, WindowButtons.Maximize }, { 2, WindowButtons.Minimize } };
 
-            Point firstButtonLocation = new Point(ClientRectangle.Width - borderWidth - 25, borderWidth);
+            Point firstButtonLocation = new(ClientRectangle.Width - borderWidth - 25, borderWidth);
             int lastDrawedButtonPosition = firstButtonLocation.X - 25;
 
             PoisonFormButton firstButton = null;
@@ -823,7 +823,7 @@ namespace ReaLTaiizor.Forms
                         continue;
                     }
 
-                    windowButtonList[button.Value].Location = new Point(lastDrawedButtonPosition, borderWidth);
+                    windowButtonList[button.Value].Location = new(lastDrawedButtonPosition, borderWidth);
                     lastDrawedButtonPosition = lastDrawedButtonPosition - 25;
                 }
             }
@@ -1331,7 +1331,7 @@ namespace ReaLTaiizor.Forms
 
         protected class PoisonFlatDropShadow : PoisonShadowBase
         {
-            private Point Offset = new Point(-6, -6);
+            private Point Offset = new(-6, -6);
 
             public PoisonFlatDropShadow(Form targetForm) : base(targetForm, 6, WS_EX_LAYERED | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE)
             {
@@ -1643,7 +1643,7 @@ namespace ReaLTaiizor.Forms
 
         private Rectangle MeasureText(Graphics g, Rectangle clientRectangle, Font font, string text, TextFormatFlags flags)
         {
-            Size proposedSize = new Size(int.MaxValue, int.MinValue);
+            Size proposedSize = new(int.MaxValue, int.MinValue);
             Size actualSize = TextRenderer.MeasureText(g, text, font, proposedSize, flags);
             return new Rectangle(clientRectangle.X, clientRectangle.Y, actualSize.Width, actualSize.Height);
         }

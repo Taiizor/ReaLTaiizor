@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            RT_RTB.Size = new Size(Width - 13, Height - 11);
+            RT_RTB.Size = new(Width - 13, Height - 11);
         }
 
 
@@ -203,8 +203,8 @@ namespace ReaLTaiizor.Controls
         {
             RichTextBox _RTB = RT_RTB;
             _RTB.BackColor = TextBackColor;
-            _RTB.Size = new Size(Width - 10, 100);
-            _RTB.Location = new Point(7, 5);
+            _RTB.Size = new(Width - 10, 100);
+            _RTB.Location = new(7, 5);
             _RTB.Text = string.Empty;
             _RTB.BorderStyle = TextBorderStyle;
             _RTB.Font = TextFont;
@@ -224,7 +224,7 @@ namespace ReaLTaiizor.Controls
 
             Text = null;
             Font = new("Tahoma", 10);
-            Size = new Size(150, 100);
+            Size = new(150, 100);
             WordWrap = true;
             AutoWordSelection = false;
             DoubleBuffered = true;

@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             ForeColor = Color.Black;
             Font = new("Tahoma", 10, FontStyle.Bold);
-            Size = new Size(170, 90);
+            Size = new(170, 90);
         }
 
         protected override void OnPaint(PaintEventArgs e)

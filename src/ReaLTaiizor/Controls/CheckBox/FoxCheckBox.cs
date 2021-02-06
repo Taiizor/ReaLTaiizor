@@ -210,7 +210,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(55, 28);
+            Size = new(55, 28);
         }
     }
 

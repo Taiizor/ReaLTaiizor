@@ -69,23 +69,23 @@ namespace ReaLTaiizor.Controls
             StartPosition = FormStartPosition.CenterParent;
 
             okButton.Text = "Ok";
-            okButton.Size = new Size(100, 35);
+            okButton.Size = new(100, 35);
             okButton.Click += OkButton_Click;
 
             yesButton.Text = "Yes";
-            yesButton.Size = new Size(100, 35);
+            yesButton.Size = new(100, 35);
             yesButton.Click += YesButton_Click;
 
             noButton.Text = "No";
-            noButton.Size = new Size(100, 35);
+            noButton.Size = new(100, 35);
             noButton.Click += NoButton_Click;
 
             cancelButton.Text = "Cancel";
-            cancelButton.Size = new Size(100, 35);
+            cancelButton.Size = new(100, 35);
             cancelButton.Click += CancelButton_Click;
 
             retryButton.Text = "Retry";
-            retryButton.Size = new Size(100, 35);
+            retryButton.Size = new(100, 35);
             retryButton.Click += RetryButton_Click;
 
             Controls.Add(okButton);
@@ -186,47 +186,47 @@ namespace ReaLTaiizor.Controls
 
             if (buttons == MessageBoxButtons.OK)
             {
-                okButton.Location = new Point(oneButtonRight, buttonHeight);
+                okButton.Location = new(oneButtonRight, buttonHeight);
                 okButton.Show();
             }
             else if (buttons == MessageBoxButtons.OKCancel)
             {
-                okButton.Location = new Point(twoButtonRight, buttonHeight);
+                okButton.Location = new(twoButtonRight, buttonHeight);
                 okButton.Show();
 
-                cancelButton.Location = new Point(oneButtonRight, buttonHeight);
+                cancelButton.Location = new(oneButtonRight, buttonHeight);
                 cancelButton.Show();
             }
             else if (buttons == MessageBoxButtons.YesNo)
             {
-                yesButton.Location = new Point(twoButtonRight, buttonHeight);
+                yesButton.Location = new(twoButtonRight, buttonHeight);
                 yesButton.Show();
 
-                noButton.Location = new Point(oneButtonRight, buttonHeight);
+                noButton.Location = new(oneButtonRight, buttonHeight);
                 noButton.Show();
             }
             else if (buttons == MessageBoxButtons.YesNoCancel)
             {
-                yesButton.Location = new Point(threeButtonRight, buttonHeight);
+                yesButton.Location = new(threeButtonRight, buttonHeight);
                 yesButton.Show();
 
-                noButton.Location = new Point(twoButtonRight, buttonHeight);
+                noButton.Location = new(twoButtonRight, buttonHeight);
                 noButton.Show();
 
-                cancelButton.Location = new Point(oneButtonRight, buttonHeight);
+                cancelButton.Location = new(oneButtonRight, buttonHeight);
                 cancelButton.Show();
             }
             else if (buttons == MessageBoxButtons.RetryCancel)
             {
-                retryButton.Location = new Point(twoButtonRight, buttonHeight);
+                retryButton.Location = new(twoButtonRight, buttonHeight);
                 retryButton.Show();
 
-                cancelButton.Location = new Point(oneButtonRight, buttonHeight);
+                cancelButton.Location = new(oneButtonRight, buttonHeight);
                 cancelButton.Show();
             }
             else
             {
-                okButton.Location = new Point(oneButtonRight, buttonHeight);
+                okButton.Location = new(oneButtonRight, buttonHeight);
                 okButton.Show();
             }
 
@@ -239,8 +239,8 @@ namespace ReaLTaiizor.Controls
 
             Rectangle messageRect = new Rectangle
             {
-                Size = new Size(Width, (Height / 3)),
-                Location = new Point(0, ((Height - (Height / 3)) / 2))
+                Size = new(Width, (Height / 3)),
+                Location = new(0, ((Height - (Height / 3)) / 2))
             };
 
             Font messageFont = new(Font.FontFamily, 12.75f, FontStyle.Regular);

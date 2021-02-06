@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.WhiteSmoke;
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
         }
 
         protected override void OnPaint(PaintEventArgs e)

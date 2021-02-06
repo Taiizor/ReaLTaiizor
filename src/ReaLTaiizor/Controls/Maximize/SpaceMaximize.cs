@@ -49,7 +49,7 @@ namespace ReaLTaiizor.Controls
             SetColor("Border1", 35, 35, 35); // The Inside Border
             SetColor("Border2", 42, 42, 42); // The Outside Border
             Cursor = Cursors.Hand;
-            Size = new Size(23, 21);
+            Size = new(23, 21);
         }
 
         protected override void OnCreateControl()
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
 
             if (DefaultLocation)
             {
-                Location = new Point(Parent.Width - (Width * 2) - 4, 3);
+                Location = new(Parent.Width - (Width * 2) - 4, 3);
             }
 
             if (DefaultAnchor)

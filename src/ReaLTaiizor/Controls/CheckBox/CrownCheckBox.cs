@@ -312,16 +312,14 @@ namespace ReaLTaiizor.Controls
 
             if (Checked)
             {
-                using (SolidBrush b = new(fillColor))
-                {
-                    Rectangle boxRect = new(2, (rect.Height / 2) - ((size - 4) / 2), size - 3, size - 3);
-                    g.FillRectangle(b, boxRect);
-                }
+                using SolidBrush b = new(fillColor);
+                Rectangle boxRect = new(2, (rect.Height / 2) - ((size - 4) / 2), size - 3, size - 3);
+                g.FillRectangle(b, boxRect);
             }
 
             using (SolidBrush b = new(textColor))
             {
-                StringFormat stringFormat = new StringFormat
+                StringFormat stringFormat = new()
                 {
                     LineAlignment = StringAlignment.Center,
                     Alignment = StringAlignment.Near

@@ -179,9 +179,9 @@ namespace ReaLTaiizor.Controls
             _with1.ForeColor = ForeColor;
             _with1.TextAlign = HorizontalAlignment.Left;
             _with1.BorderStyle = BorderStyle.None;
-            _with1.Location = new Point(3, 3);
+            _with1.Location = new(3, 3);
             _with1.Font = Font;
-            _with1.Size = new Size(Width - 3, Height - 3);
+            _with1.Size = new(Width - 3, Height - 3);
             _with1.UseSystemPasswordChar = UseSystemPasswordChar;
         }
 
@@ -196,7 +196,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.White;
             ForeColor = Color.FromArgb(66, 78, 90);
             Font = new("Segoe UI", 10);
-            Size = new Size(90, 29);
+            Size = new(90, 29);
             Enabled = true;
         }
 
@@ -251,13 +251,13 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             if (!MultiLine)
             {
-                TB.Location = new Point(10, (Height / 2) - (TB.Height / 2) - 0);
-                TB.Size = new Size(Width - 20, TB.Height);
+                TB.Location = new(10, (Height / 2) - (TB.Height / 2) - 0);
+                TB.Size = new(Width - 20, TB.Height);
             }
             else
             {
-                TB.Location = new Point(10, 10);
-                TB.Size = new Size(Width - 20, Height - 20);
+                TB.Location = new(10, 10);
+                TB.Size = new(Width - 20, Height - 20);
             }
         }
 

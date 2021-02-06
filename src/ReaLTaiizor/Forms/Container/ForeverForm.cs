@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Forms
         private int H;
         private bool Cap = false;
         private bool _HeaderMaximize = false;
-        private Point MousePoint = new Point(0, 0);
+        private Point MousePoint = new(0, 0);
         private readonly int MoveHeight = 50;
 
         private Image _Image; //Properties.Resources.Taiizor
@@ -227,7 +227,7 @@ namespace ReaLTaiizor.Forms
             if (Cap)
             {
                 // Parent.Location = MousePosition - MousePoint;
-                Parent.Location = new Point(MousePosition.X - MousePoint.X, MousePosition.Y - MousePoint.Y);
+                Parent.Location = new(MousePosition.X - MousePoint.X, MousePosition.Y - MousePoint.Y);
             }
         }
 
@@ -261,7 +261,7 @@ namespace ReaLTaiizor.Forms
             DoubleBuffered = true;
             BackColor = Color.White;
             Font = new("Segoe UI", 12);
-            MinimumSize = new Size(210, 50);
+            MinimumSize = new(210, 50);
             Padding = new Padding(1, 51, 1, 1);
         }
 

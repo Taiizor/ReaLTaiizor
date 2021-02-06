@@ -24,10 +24,9 @@ namespace ReaLTaiizor.Controls
             public bool Right;
         }
 
-        public GraphicsPath Pill(Rectangle Rectangle, PillStyle PillStyle)
+        public static GraphicsPath Pill(Rectangle Rectangle, PillStyle PillStyle)
         {
-            GraphicsPath functionReturnValue = default(GraphicsPath);
-            functionReturnValue = new();
+            GraphicsPath functionReturnValue = new();
 
             if (PillStyle.Left)
             {
@@ -69,14 +68,14 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Variables
 
-        private readonly Timer AnimationTimer = new Timer { Interval = 1 };
+        private readonly Timer AnimationTimer = new() { Interval = 1 };
         private int ToggleLocation = 0;
         public event ToggledChangedEventHandler ToggledChanged;
         public delegate void ToggledChangedEventHandler();
         private bool _Toggled;
         private _Type ToggleType;
         private Rectangle Bar;
-        private Size cHandle = new Size(15, 20);
+        private Size cHandle = new(15, 20);
 
         #endregion
         #region Properties
@@ -158,9 +157,9 @@ namespace ReaLTaiizor.Controls
             G.Clear(Parent.BackColor);
             checked
             {
-                Point point = new Point(0, (int)Math.Round(unchecked((double)Height / 2.0 - (double)cHandle.Height / 2.0)));
+                Point point = new(0, (int)Math.Round(unchecked((double)Height / 2.0 - (double)cHandle.Height / 2.0)));
                 Point arg_A8_0 = point;
-                Point point2 = new Point(0, (int)Math.Round(unchecked((double)Height / 2.0 + (double)cHandle.Height / 2.0)));
+                Point point2 = new(0, (int)Math.Round(unchecked((double)Height / 2.0 + (double)cHandle.Height / 2.0)));
                 LinearGradientBrush Gradient = new(arg_A8_0, point2, Color.FromArgb(250, 250, 250), Color.FromArgb(240, 240, 240));
                 Bar = new(8, 10, Width - 21, Height - 21);
 

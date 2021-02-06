@@ -383,28 +383,28 @@ namespace ReaLTaiizor.Controls
             {
                 if (ShowIconsWhenHidden)
                 {
-                    Location = new Point((int)((-Width + MinWidth) * showHideAnimProgress), Location.Y);
+                    Location = new((int)((-Width + MinWidth) * showHideAnimProgress), Location.Y);
                 }
                 else
                 {
-                    Location = new Point((int)(-Width * showHideAnimProgress), Location.Y);
+                    Location = new((int)(-Width * showHideAnimProgress), Location.Y);
                 }
             }
             else
             {
                 if (_isOpen)
                 {
-                    Location = new Point(0, Location.Y);
+                    Location = new(0, Location.Y);
                 }
                 else
                 {
                     if (ShowIconsWhenHidden)
                     {
-                        Location = new Point((int)(-Width + MinWidth), Location.Y);
+                        Location = new((int)(-Width + MinWidth), Location.Y);
                     }
                     else
                     {
-                        Location = new Point(-Width, Location.Y);
+                        Location = new(-Width, Location.Y);
                     }
                 }
             }

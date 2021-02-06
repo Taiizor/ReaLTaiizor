@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Controls
                 ThemeName = ((IMetroForm)control).ThemeName;
                 StyleManager = ((IMetroForm)control).StyleManager;
             }
-            e.ToolTipSize = new Size(e.ToolTipSize.Width + 30, e.ToolTipSize.Height + 6);
+            e.ToolTipSize = new(e.ToolTipSize.Width + 30, e.ToolTipSize.Height + 6);
         }
 
         #endregion

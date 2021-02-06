@@ -203,7 +203,7 @@ namespace ReaLTaiizor.Controls
             tB.ForeColor = ForeColor;
             tB.TextAlign = HorizontalAlignment.Left;
             tB.BorderStyle = BorderStyle.None;
-            tB.Location = new Point(3, 3);
+            tB.Location = new(3, 3);
             tB.Font = Font;
             tB.Size = checked(new Size(base.Width - 3, base.Height - 3));
             tB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -228,7 +228,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
             BackColor = Color.White;
             Font = new("Segoe UI", 9f);
-            base.Size = new Size(97, 29);
+            base.Size = new(97, 29);
             Enabled = true;
         }
 
@@ -280,13 +280,13 @@ namespace ReaLTaiizor.Controls
                 if (flag)
                 {
                     int height = TB.Height;
-                    TB.Location = new Point(10, (int)Math.Round(unchecked((double)base.Height / 2.0 - (double)height / 2.0 - 0.0)));
-                    TB.Size = new Size(base.Width - 20, height);
+                    TB.Location = new(10, (int)Math.Round(unchecked((double)base.Height / 2.0 - (double)height / 2.0 - 0.0)));
+                    TB.Size = new(base.Width - 20, height);
                 }
                 else
                 {
-                    TB.Location = new Point(10, 10);
-                    TB.Size = new Size(base.Width - 20, base.Height - 20);
+                    TB.Location = new(10, 10);
+                    TB.Size = new(base.Width - 20, base.Height - 20);
                 }
             }
         }

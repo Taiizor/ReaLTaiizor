@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Controls
             T_Defaults();
             if (!Multiline)
             {
-                Size = new Size(135, 30);
+                Size = new(135, 30);
             }
         }
 
@@ -156,7 +156,7 @@ namespace ReaLTaiizor.Controls
             _textBox.BackColor = BackColor;
             _textBox.ForeColor = ForeColor;
             _textBox.BorderStyle = BorderStyle.None;
-            _textBox.Location = new Point(7, 8);
+            _textBox.Location = new(7, 8);
             _textBox.Font = Font;
             _textBox.UseSystemPasswordChar = UseSystemPasswordChar;
             if (Multiline)
@@ -222,14 +222,14 @@ namespace ReaLTaiizor.Controls
             }
             if (Image != null)
             {
-                _textBox.Location = new Point(31, 4);
+                _textBox.Location = new(31, 4);
                 _textBox.Width = Width - 60;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 g.DrawImage(Image, new Rectangle(7, 6, 18, 18));
             }
             else
             {
-                _textBox.Location = new Point(7, 4);
+                _textBox.Location = new(7, 4);
                 _textBox.Width = Width - 10;
             }
 
@@ -377,7 +377,7 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             //if (!Multiline)
             //{
-            _textBox.Size = new Size(Width - 10, Height - 10);
+            _textBox.Size = new(Width - 10, Height - 10);
             //}
         }
 
@@ -737,7 +737,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 _textBox.Font = value;
-                _textBox.Location = new Point(5, 5);
+                _textBox.Location = new(5, 5);
                 _textBox.Width = Width - 8;
                 if (!Multiline)
                 {

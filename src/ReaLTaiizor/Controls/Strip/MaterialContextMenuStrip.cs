@@ -88,7 +88,7 @@ namespace ReaLTaiizor.Controls
         public MaterialToolStripMenuItem()
         {
             AutoSize = false;
-            Size = new Size(120, 30);
+            Size = new(120, 30);
         }
 
 #if NET40
@@ -194,7 +194,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             const int ARROW_SIZE = 4;
 
-            Point arrowMiddle = new Point(e.ArrowRectangle.X + e.ArrowRectangle.Width / 2, e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2);
+            Point arrowMiddle = new(e.ArrowRectangle.X + e.ArrowRectangle.Width / 2, e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2);
             Brush arrowBrush = e.Item.Enabled ? SkinManager.TextHighEmphasisBrush : SkinManager.TextDisabledOrHintBrush;
             using (GraphicsPath arrowPath = new())
             {

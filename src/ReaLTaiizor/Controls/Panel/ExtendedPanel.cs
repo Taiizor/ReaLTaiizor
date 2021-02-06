@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
     public class ExtendedPanel : System.Windows.Forms.Panel
     {
         private const int WS_EX_TRANSPARENT = 0x20;
-        private readonly Timer Most = new Timer()
+        private readonly Timer Most = new()
         {
             Interval = 100
         };
@@ -185,8 +185,7 @@ namespace ReaLTaiizor.Controls
                     break;
                 case Drawer.Image:
                     //BackColor = Color.FromArgb(Opacity * 255 / 100, BackColor);
-                    Graphics Graph = null;
-                    Graph = CreateGraphics();
+                    Graphics Graph = CreateGraphics();
                     Graph.CopyFromScreen(PointToScreen(new Point(0, 0)), new Point(0, 0), new Size(Width, Height));
                     Graph.FillRectangle(new SolidBrush(Color.FromArgb(Opacity * 255 / 100, BackColor)), new Rectangle(new Point(0, 0), Size));
                     break;

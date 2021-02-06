@@ -153,8 +153,8 @@ namespace ReaLTaiizor.Native
 
             _highlightForm.SuspendLayout();
 
-            _highlightForm.Size = new Size(rect.Width, rect.Height);
-            _highlightForm.Location = new Point(rect.X, rect.Y);
+            _highlightForm.Size = new(rect.Width, rect.Height);
+            _highlightForm.Location = new(rect.X, rect.Y);
 
             _highlightForm.ResumeLayout();
 

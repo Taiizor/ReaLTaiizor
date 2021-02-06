@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             ForeColor = Color.WhiteSmoke;
             DoubleBuffered = true;
-            Size = new Size(132, 100);
+            Size = new(132, 100);
         }
 
         protected override void OnPaint(PaintEventArgs e)

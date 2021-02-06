@@ -235,7 +235,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Font = new("Segoe UI", 12);
             ForeColor = Color.FromArgb(234, 234, 234);
-            Size = new Size(166, 40);
+            Size = new(166, 40);
             _TextAlignment = StringAlignment.Center;
             P1 = new(Color.FromArgb(0, 118, 176));
             Cursor = Cursors.Hand;

@@ -383,9 +383,9 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw), true);
             Font = new("Tahoma", 9);
-            MinimumSize = new Size(100, 40);
+            MinimumSize = new(100, 40);
             RoundCorners = false;
-            Size = new Size(130, 40);
+            Size = new(130, 40);
             ShowCloseButton = true;
         }
 
@@ -461,7 +461,7 @@ namespace ReaLTaiizor.Controls
                 GFX.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(10, 21, Width - 17, Height - 5));
             }
 
-            CloseCoordinates = new Point(Width - 26, 4);
+            CloseCoordinates = new(Width - 26, 4);
 
             if (_ShowCloseButton)
             {

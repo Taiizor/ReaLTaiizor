@@ -363,16 +363,16 @@ namespace ReaLTaiizor.Forms
             drawerForm.ControlBox = false;
             drawerForm.FormBorderStyle = FormBorderStyle.None;
             drawerForm.Visible = true;
-            drawerForm.Size = new Size(DrawerWidth, H);
-            drawerForm.Location = new Point(Location.X, Y);
+            drawerForm.Size = new(DrawerWidth, H);
+            drawerForm.Location = new(Location.X, Y);
             drawerForm.ShowInTaskbar = false;
             drawerForm.Owner = drawerOverlay;
             drawerForm.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
 
             // Add drawer to overlay form
             drawerForm.Controls.Add(drawerControl);
-            drawerControl.Location = new Point(0, 0);
-            drawerControl.Size = new Size(DrawerWidth, H);
+            drawerControl.Location = new(0, 0);
+            drawerControl.Size = new(DrawerWidth, H);
             drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
             drawerControl.BaseTabControl = DrawerTabControl;
             drawerControl.ShowIconsWhenHidden = true;
@@ -404,8 +404,8 @@ namespace ReaLTaiizor.Forms
             drawerOverlay.ControlBox = false;
             drawerOverlay.FormBorderStyle = FormBorderStyle.None;
             drawerOverlay.Visible = true;
-            drawerOverlay.Size = new Size(Size.Width, H);
-            drawerOverlay.Location = new Point(Location.X, Y);
+            drawerOverlay.Size = new(Size.Width, H);
+            drawerOverlay.Location = new(Location.X, Y);
             drawerOverlay.ShowInTaskbar = false;
             drawerOverlay.Owner = this;
             drawerOverlay.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
@@ -420,13 +420,13 @@ namespace ReaLTaiizor.Forms
             Resize += (sender, e) =>
             {
                 H = Size.Height - _statusBarBounds.Height - _actionBarBounds.Height;
-                drawerForm.Size = new Size(DrawerWidth, H);
-                drawerOverlay.Size = new Size(Size.Width, H);
+                drawerForm.Size = new(DrawerWidth, H);
+                drawerOverlay.Size = new(Size.Width, H);
             };
 
             Move += (sender, e) =>
             {
-                Point pos = new Point(Location.X, Location.Y + _statusBarBounds.Height + _actionBarBounds.Height);
+                Point pos = new(Location.X, Location.Y + _statusBarBounds.Height + _actionBarBounds.Height);
                 drawerForm.Location = pos;
                 drawerOverlay.Location = pos;
             };
@@ -796,8 +796,8 @@ namespace ReaLTaiizor.Forms
                 GetMonitorInfo(new HandleRef(null, monitorHandle), monitorInfo);
                 _previousSize = Size;
                 _previousLocation = Location;
-                Size = new Size(monitorInfo.rcWork.Width(), monitorInfo.rcWork.Height());
-                Location = new Point(monitorInfo.rcWork.left, monitorInfo.rcWork.top);
+                Size = new(monitorInfo.rcWork.Width(), monitorInfo.rcWork.Height());
+                Location = new(monitorInfo.rcWork.left, monitorInfo.rcWork.top);
             }
             else
             {
@@ -1049,8 +1049,8 @@ namespace ReaLTaiizor.Forms
             //
             // MaterialForm
             //
-            ClientSize = new Size(284, 261);
-            MinimumSize = new Size(300, 200);
+            ClientSize = new(284, 261);
+            MinimumSize = new(300, 200);
             Name = "MaterialForm";
             Padding = new Padding(3, 64, 3, 3);
             Load += new EventHandler(MaterialForm_Load);

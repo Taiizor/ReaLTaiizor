@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             DoubleBuffered = true;
             SizeMode = TabSizeMode.Fixed;
-            ItemSize = new Size(30, 115);
+            ItemSize = new(30, 115);
         }
         protected override void CreateHandle()
         {

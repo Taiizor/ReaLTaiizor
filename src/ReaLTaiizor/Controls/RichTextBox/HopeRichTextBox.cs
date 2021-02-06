@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
             Height = 20
         };
 
-        private Point mousePoint = new Point();
+        private Point mousePoint = new();
         private static Size _currentControlStartSize;
         private bool _resizing = false;
         private Point _cursorStartPoint;
@@ -113,7 +113,7 @@ namespace ReaLTaiizor.Controls
                 _currentControlStartSize = Size;
                 _resizing = true;
             }
-            _cursorStartPoint = new Point(e.X, e.Y);
+            _cursorStartPoint = new(e.X, e.Y);
             Capture = true;
         }
 
@@ -125,7 +125,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            _baseTextBox.Location = new Point(12, 8);
+            _baseTextBox.Location = new(12, 8);
             _baseTextBox.Width = Width - 24;
             _baseTextBox.Height = (Height - 16) > 0 ? (Height - 16) : 0;
             _baseTextBox.ForeColor = ForeColor;

@@ -120,7 +120,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             BackColor = Color.FromArgb(60, 70, 73);
-            Size = new Size(160, 80);
+            Size = new(160, 80);
             Font = new("Segoe UI", 12);
         }
 

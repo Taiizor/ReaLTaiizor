@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.FromArgb(246, 246, 246);
             ForeColor = Color.Gray;
             Font = new("Segoe UI", 25, FontStyle.Bold);
-            Size = new Size(33, 33);
+            Size = new(33, 33);
             DoubleBuffered = true;
         }
 

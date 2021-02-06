@@ -322,7 +322,7 @@ namespace ReaLTaiizor.Util
             Marshal.Copy(fontdata, 0, ptrFont, dataLength);
 
             // GDI Font
-            uint cFonts = 0;
+            //uint cFonts = 0;
             MaterialNativeTextRenderer.AddFontMemResourceEx(fontdata, dataLength, IntPtr.Zero, out _);
 
             // GDI+ Font
@@ -470,7 +470,7 @@ namespace ReaLTaiizor.Util
         {
             SetFont(font);
 
-            Size size = new Size();
+            Size size = new();
             GetTextExtentPoint32(_hdc, str, str.Length, ref size);
             return size;
         }
@@ -479,7 +479,7 @@ namespace ReaLTaiizor.Util
         {
             SelectObject(_hdc, LogFont);
 
-            Size size = new Size();
+            Size size = new();
             GetTextExtentPoint32(_hdc, str, str.Length, ref size);
             return size;
         }
@@ -488,7 +488,7 @@ namespace ReaLTaiizor.Util
         {
             SetFont(font);
 
-            Size size = new Size();
+            Size size = new();
             GetTextExtentExPoint(_hdc, str, str.Length, (int)Math.Round(maxWidth), _charFit, _charFitWidth, ref size);
             charFit = _charFit[0];
             charFitWidth = charFit > 0 ? _charFitWidth[charFit - 1] : 0;
@@ -558,8 +558,8 @@ namespace ReaLTaiizor.Util
                 SelectObject(memoryHdc, fontHandle);
                 SetTextColor(memoryHdc, (color.B & 0xFF) << 16 | (color.G & 0xFF) << 8 | color.R);
 
-                Size strSize = new Size();
-                Point pos = new Point();
+                Size strSize = new();
+                Point pos = new();
 
                 if (multilineSupport)
                 {

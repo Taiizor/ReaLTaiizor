@@ -181,7 +181,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             Height = 20;
-            MinimumSize = new Size(58, 20);
+            MinimumSize = new(58, 20);
         }
 
         #endregion

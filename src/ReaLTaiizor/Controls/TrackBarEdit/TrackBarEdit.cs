@@ -224,8 +224,8 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer, true);
 
             _DrawHatch = true;
-            Size = new Size(80, 22);
-            MinimumSize = new Size(37, 22);
+            Size = new(80, 22);
+            MinimumSize = new(37, 22);
         }
 
         protected override void OnResize(EventArgs e)

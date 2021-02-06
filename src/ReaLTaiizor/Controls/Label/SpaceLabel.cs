@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         { // Create a Label
             SetColor("Text", 254, 254, 254); // Text Color for Label
             SetColor("Background", 42, 42, 42); // Background Color
-            Size = new Size(75, 40);
+            Size = new(75, 40);
         }
 
         private Color C1; // used for the Basic Background of the Label

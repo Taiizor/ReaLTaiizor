@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Controls
 
                 TopMost = true;
 
-                Size = new Size(400, 200);
+                Size = new(400, 200);
 
                 TaskBar myTaskbar = new TaskBar();
                 Location = myTaskbar.Position switch
@@ -145,8 +145,8 @@ namespace ReaLTaiizor.Controls
                     TaskBarPosition.Bottom => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Y - Height - 5),
                     _ => new Point(Screen.PrimaryScreen.Bounds.Width - Width - 5, Screen.PrimaryScreen.Bounds.Height - Height - 5),
                 };
-                controlContainer.Location = new Point(0, 60);
-                controlContainer.Size = new Size(Width - 40, Height - 80);
+                controlContainer.Location = new(0, 60);
+                controlContainer.Size = new(Width - 40, Height - 80);
                 controlContainer.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;
 
                 controlContainer.AutoScroll = false;

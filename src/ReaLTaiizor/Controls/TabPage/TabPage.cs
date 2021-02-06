@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
 
             DoubleBuffered = true;
             SizeMode = TabSizeMode.Fixed;
-            ItemSize = new Size(44, 135);
+            ItemSize = new(44, 135);
             DrawMode = TabDrawMode.OwnerDrawFixed;
         }
 

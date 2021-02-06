@@ -262,7 +262,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(139, 31);
+            Size = new(139, 31);
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -368,7 +368,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (DefaultLocation)
                 {
-                    Location = new Point(Parent.Width - 139, 0); //Location = new Point(FindForm().Width - 139, 0);
+                    Location = new(Parent.Width - 139, 0); //Location = new(FindForm().Width - 139, 0);
                 }
             }
             catch (Exception)
@@ -383,11 +383,11 @@ namespace ReaLTaiizor.Controls
 
             // This defines the size of the background that is drawn when
             // the mouse moves over one of the three ControlBox buttons
-            Size btnBackgroundSize = new Size(46, Height);
+            Size btnBackgroundSize = new(46, Height);
 
             // Minimize button
             Font minimizeBtnFont = new("Tahoma", 12);
-            Point minimizeBtnPoint = new Point(15, 5);
+            Point minimizeBtnPoint = new(15, 5);
             SolidBrush minimizeBtnBrush = new(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
 
             if (hover_min && _EnableMinimize)
@@ -406,7 +406,7 @@ namespace ReaLTaiizor.Controls
 
             // Maxmize button
             Font maximizeBtnFont = new("Marlett", 9);
-            Point maximizeBtnPoint = new Point(63, 10);
+            Point maximizeBtnPoint = new(63, 10);
             SolidBrush maximizeBtnBrush = new(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
 
             if (hover_max && _EnableMaximize)
@@ -426,7 +426,7 @@ namespace ReaLTaiizor.Controls
 
             // Close button
             Font closeBtnFont = new("Tahoma", 11);
-            Point closeBtnPoint = new Point(107, 6);
+            Point closeBtnPoint = new(107, 6);
             SolidBrush closeBtnBrush = new(_EnableCloseColor);
 
             if (hover_close)

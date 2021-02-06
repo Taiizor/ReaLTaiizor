@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
     public class SkyRadioButton : Control
     {
         #region " Control Help - MouseState & Flicker Control"
-        private Point mouse = new Point(0, 0);
+        private Point mouse = new(0, 0);
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
@@ -152,7 +152,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(27, 94, 137);
             Font = new("Verdana", 6.75f, FontStyle.Bold);
-            Size = new Size(105, 14);
+            Size = new(105, 14);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
         }

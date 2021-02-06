@@ -92,7 +92,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
             DoubleBuffered = true;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(52, 52, 52);
             Font = new("Segoe UI", 10);

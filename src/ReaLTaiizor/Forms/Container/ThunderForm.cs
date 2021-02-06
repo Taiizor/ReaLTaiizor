@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Forms
             SetStyle(ControlStyles.UserPaint, true);
             ForeColor = Color.WhiteSmoke;
             Padding = new Padding(11, 29, 11, 6);
-            MinimumSize = new Size(270, 50);
+            MinimumSize = new(270, 50);
             DoubleBuffered = true;
         }
 
@@ -121,7 +121,7 @@ namespace ReaLTaiizor.Forms
             B.Dispose();
         }
 
-        private Point MouseP = new Point(0, 0);
+        private Point MouseP = new(0, 0);
         private bool cap = false;
         private readonly int moveheight = 29;
 

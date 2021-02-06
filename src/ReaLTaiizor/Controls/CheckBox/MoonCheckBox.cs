@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Controls
             SetColor("TCH", Color.Gray);
             Cursor = Cursors.Hand;
             Font = new("Segoe UI", 9);
-            Size = new Size(118, Height);
+            Size = new(118, Height);
         }
 
         protected override void ColorHook()

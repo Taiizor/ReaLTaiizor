@@ -114,7 +114,7 @@ namespace ReaLTaiizor.Controls
             base.OnCreateControl();
             if (DefaultLocation)
             {
-                Location = new Point(checked(FindForm().Width - 81), -1);
+                Location = new(checked(FindForm().Width - 81), -1);
             }
         }
 

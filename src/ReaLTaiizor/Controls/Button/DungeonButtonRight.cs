@@ -253,7 +253,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Font = new("Segoe UI", 11f, FontStyle.Bold);
             ForeColor = Color.FromArgb(76, 76, 76);
-            Size = new Size(177, 30);
+            Size = new(177, 30);
             _TextAlignment = StringAlignment.Center;
             P1 = new(_BorderColor);
             // P1 = Border color

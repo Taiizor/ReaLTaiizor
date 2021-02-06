@@ -75,17 +75,17 @@ namespace ReaLTaiizor.Controls
                 //    _owner.Size.Height < _minHeight)
                 //{
                 //    if (_owner.Size.Width < _minWidth && _owner.Size.Height < _minHeight) {
-                //            _owner.Size = new Size(_minWidth, _minHeight);
+                //            _owner.Size = new(_minWidth, _minHeight);
                 //    }
                 //    else
                 //    {
-                //        if (_owner.Size.Width < _minWidth) _owner.Size = new Size(_minWidth, _owner.Size.Height);
-                //        else _owner.Size = new Size(_owner.Size.Width, _minHeight);
+                //        if (_owner.Size.Width < _minWidth) _owner.Size = new(_minWidth, _owner.Size.Height);
+                //        else _owner.Size = new(_owner.Size.Width, _minHeight);
                 //    }
 
                 //    int x = Convert.ToInt32(Math.Ceiling((decimal)(Screen.PrimaryScreen.WorkingArea.Size.Width / 2) - (_owner.Size.Width / 2)));
                 //    int y = Convert.ToInt32(Math.Ceiling((decimal)(Screen.PrimaryScreen.WorkingArea.Size.Height / 2) - (_owner.Size.Height / 2)));
-                //    _owner.Location = new Point(x, y);
+                //    _owner.Location = new(x, y);
                 //}
 
                 switch (icon)
@@ -124,12 +124,12 @@ namespace ReaLTaiizor.Controls
                 //    _control.Style = ((PoisonForm)_owner).Style;
                 //}
 
-                _control.Size = new Size(_owner.Size.Width, height);
-                _control.Location = new Point(_owner.Location.X, _owner.Location.Y + (_owner.Height - _control.Height) / 2);
+                _control.Size = new(_owner.Size.Width, height);
+                _control.Location = new(_owner.Location.X, _owner.Location.Y + (_owner.Height - _control.Height) / 2);
                 _control.ArrangeApperance();
                 int _overlaySizes = Convert.ToInt32(Math.Floor(_control.Size.Height * 0.28));
-                //_control.OverlayPanelTop.Size = new Size(_control.Size.Width, _overlaySizes - 30);
-                //_control.OverlayPanelBottom.Size = new Size(_control.Size.Width, _overlaySizes);
+                //_control.OverlayPanelTop.Size = new(_control.Size.Width, _overlaySizes - 30);
+                //_control.OverlayPanelBottom.Size = new(_control.Size.Width, _overlaySizes);
 
                 _control.ShowDialog();
                 _control.BringToFront();

@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
             try
             {
                 _isGrowing = true;
-                Size sz = new Size(Width, int.MaxValue);
+                Size sz = new(Width, int.MaxValue);
                 sz = TextRenderer.MeasureText(Text, Font, sz, TextFormatFlags.WordBreak);
                 Height = sz.Height + Padding.Vertical;
             }

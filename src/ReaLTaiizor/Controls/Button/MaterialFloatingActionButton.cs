@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Controls
             DrawShadows = true;
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
 
-            Size = new Size(FAB_SIZE, FAB_SIZE);
+            Size = new(FAB_SIZE, FAB_SIZE);
             _animationManager = new AnimationManager(false)
             {
                 Increment = 0.03,

@@ -335,7 +335,7 @@ namespace ReaLTaiizor.Controls
                     return;
                 }
 
-                Point difference = new Point(e.Location.X - _initialContact.X, e.Location.Y - _initialContact.Y);
+                Point difference = new(e.Location.X - _initialContact.X, e.Location.Y - _initialContact.Y);
 
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
                 {

@@ -110,7 +110,7 @@ namespace ReaLTaiizor.Controls
             };
 
             Ripple = true;
-            MouseLocation = new Point(-1, -1);
+            MouseLocation = new(-1, -1);
         }
 
         protected override void OnSizeChanged(EventArgs e)
@@ -263,7 +263,7 @@ namespace ReaLTaiizor.Controls
                 base.AutoSize = value;
                 if (value)
                 {
-                    Size = new Size(10, 10);
+                    Size = new(10, 10);
                 }
             }
         }
@@ -316,7 +316,7 @@ namespace ReaLTaiizor.Controls
 
             MouseLeave += (sender, args) =>
             {
-                MouseLocation = new Point(-1, -1);
+                MouseLocation = new(-1, -1);
                 MouseState = MaterialMouseState.OUT;
                 //if (Ripple && hovered)
                 //{

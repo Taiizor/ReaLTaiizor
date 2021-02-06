@@ -105,7 +105,7 @@ namespace ReaLTaiizor.Controls
             Font = new("Segoe UI", 8);
             ForeColor = Color.White;
             TimeFormat = _TimeFormat;
-            Size = new Size(Width, 20);
+            Size = new(Width, 20);
         }
 
         protected override void OnPaint(PaintEventArgs e)

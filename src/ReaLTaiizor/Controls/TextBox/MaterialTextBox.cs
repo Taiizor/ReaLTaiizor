@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Controls
             {
                 _UseTallSize = value;
                 HEIGHT = UseTallSize ? 50 : 36;
-                Size = new Size(Size.Width, HEIGHT);
+                Size = new(Size.Width, HEIGHT);
                 Invalidate();
             }
         }
@@ -124,7 +124,7 @@ namespace ReaLTaiizor.Controls
 
             // Size and padding
             HEIGHT = UseTallSize ? 50 : 36;
-            Size = new Size(Size.Width, HEIGHT);
+            Size = new(Size.Width, HEIGHT);
             LINE_Y = HEIGHT - BOTTOM_PADDING;
 
             // Position the "real" text field
@@ -349,7 +349,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(Width, HEIGHT);
+            Size = new(Width, HEIGHT);
             LINE_Y = HEIGHT - BOTTOM_PADDING;
         }
 

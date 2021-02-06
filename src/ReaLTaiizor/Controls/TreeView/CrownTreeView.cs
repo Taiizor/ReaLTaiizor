@@ -626,7 +626,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            ContentSize = new Size(0, 0);
+            ContentSize = new(0, 0);
 
             if (Nodes.Count == 0)
             {
@@ -644,7 +644,7 @@ namespace ReaLTaiizor.Controls
                 UpdateNode(node, ref prevNode, 0, ref yOffset, ref isOdd, ref index);
             }
 
-            ContentSize = new Size(ContentSize.Width, yOffset);
+            ContentSize = new(ContentSize.Width, yOffset);
 
             VisibleNodeCount = index;
 
@@ -708,7 +708,7 @@ namespace ReaLTaiizor.Controls
 
             if (ContentSize.Width < node.TextArea.Right + 2)
             {
-                ContentSize = new Size(node.TextArea.Right + 2, ContentSize.Height);
+                ContentSize = new(node.TextArea.Right + 2, ContentSize.Height);
             }
         }
 
@@ -1422,7 +1422,7 @@ namespace ReaLTaiizor.Controls
             // 2. Draw plus/minus icon
             if (node.Nodes.Count > 0)
             {
-                Point pos = new Point(node.ExpandArea.Location.X - 1, node.ExpandArea.Location.Y - 1);
+                Point pos = new(node.ExpandArea.Location.X - 1, node.ExpandArea.Location.Y - 1);
 
                 Bitmap icon = _nodeOpen;
 

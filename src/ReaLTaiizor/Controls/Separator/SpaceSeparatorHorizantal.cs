@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
             SetColor("DownGradient2", 42, 42, 42); // The Gradients are reversed, depending on if Button is Pressed or not
             SetColor("Border1", 35, 35, 35); // The Inside Border
             SetColor("Border2", 42, 42, 42); // The Outside Border
-            Size = new Size(50, 4);
+            Size = new(50, 4);
         }
 
         private Color C1; // Set up Simple Colors

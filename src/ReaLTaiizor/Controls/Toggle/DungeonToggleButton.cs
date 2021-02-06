@@ -223,7 +223,7 @@ namespace ReaLTaiizor.Controls
             Rectangle ControlRectangle = new(0, 0, Width - 1, Height - 1);
             GraphicsPath ControlPath = RoundRectangle.RoundRect(ControlRectangle, 4);
 
-            LinearGradientBrush BackgroundLGB = default;
+            LinearGradientBrush BackgroundLGB;
             if (_Toggled)
             {
                 SwitchXLoc = 37;

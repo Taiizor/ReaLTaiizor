@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.Gray;
             BackColor = Color.FromArgb(235, 235, 235);
             BorderStyle = BorderStyle.FixedSingle;
-            Size = new Size(76, 20);
+            Size = new(76, 20);
         }
 
         private void CustomPaint()

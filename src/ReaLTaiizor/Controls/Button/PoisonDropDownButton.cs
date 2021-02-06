@@ -469,7 +469,7 @@ namespace ReaLTaiizor.Controls
 
         private void PaintArrow(Graphics g, Rectangle dropDownRect)
         {
-            Point middle = new Point(Convert.ToInt32(dropDownRect.Left + dropDownRect.Width / 2), Convert.ToInt32(dropDownRect.Top + dropDownRect.Height / 2));
+            Point middle = new(Convert.ToInt32(dropDownRect.Left + dropDownRect.Width / 2), Convert.ToInt32(dropDownRect.Top + dropDownRect.Height / 2));
 
             //if the width is odd - favor pushing it over one pixel right.
             middle.X += (dropDownRect.Width % 2);
@@ -714,44 +714,24 @@ namespace ReaLTaiizor.Controls
 
         private static HorizontalAlignment GetHorizontalAlignment(System.Drawing.ContentAlignment align)
         {
-            switch (align)
+            return align switch
             {
-                case System.Drawing.ContentAlignment.BottomLeft:
-                case System.Drawing.ContentAlignment.MiddleLeft:
-                case System.Drawing.ContentAlignment.TopLeft:
-                    return HorizontalAlignment.Left;
-                case System.Drawing.ContentAlignment.BottomCenter:
-                case System.Drawing.ContentAlignment.MiddleCenter:
-                case System.Drawing.ContentAlignment.TopCenter:
-                    return HorizontalAlignment.Center;
-                case System.Drawing.ContentAlignment.BottomRight:
-                case System.Drawing.ContentAlignment.MiddleRight:
-                case System.Drawing.ContentAlignment.TopRight:
-                    return HorizontalAlignment.Right;
-            }
-
-            return HorizontalAlignment.Left;
+                System.Drawing.ContentAlignment.BottomLeft or System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.TopLeft => HorizontalAlignment.Left,
+                System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.TopCenter => HorizontalAlignment.Center,
+                System.Drawing.ContentAlignment.BottomRight or System.Drawing.ContentAlignment.MiddleRight or System.Drawing.ContentAlignment.TopRight => HorizontalAlignment.Right,
+                _ => HorizontalAlignment.Left,
+            };
         }
 
         private static VerticalAlignment GetVerticalAlignment(System.Drawing.ContentAlignment align)
         {
-            switch (align)
+            return align switch
             {
-                case System.Drawing.ContentAlignment.TopLeft:
-                case System.Drawing.ContentAlignment.TopCenter:
-                case System.Drawing.ContentAlignment.TopRight:
-                    return VerticalAlignment.Top;
-                case System.Drawing.ContentAlignment.MiddleLeft:
-                case System.Drawing.ContentAlignment.MiddleCenter:
-                case System.Drawing.ContentAlignment.MiddleRight:
-                    return VerticalAlignment.Center;
-                case System.Drawing.ContentAlignment.BottomLeft:
-                case System.Drawing.ContentAlignment.BottomCenter:
-                case System.Drawing.ContentAlignment.BottomRight:
-                    return VerticalAlignment.Bottom;
-            }
-
-            return VerticalAlignment.Top;
+                System.Drawing.ContentAlignment.TopLeft or System.Drawing.ContentAlignment.TopCenter or System.Drawing.ContentAlignment.TopRight => VerticalAlignment.Top,
+                System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.MiddleRight => VerticalAlignment.Center,
+                System.Drawing.ContentAlignment.BottomLeft or System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.BottomRight => VerticalAlignment.Bottom,
+                _ => VerticalAlignment.Top,
+            };
         }
 
         internal static Rectangle AlignInRectangle(Rectangle outer, Size inner, System.Drawing.ContentAlignment align)

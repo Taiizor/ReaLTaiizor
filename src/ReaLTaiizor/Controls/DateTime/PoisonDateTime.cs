@@ -267,7 +267,7 @@ namespace ReaLTaiizor.Controls
 
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
-            MinimumSize = new Size(0, GetPreferredSize(Size.Empty).Height);
+            MinimumSize = new(0, GetPreferredSize(Size.Empty).Height);
 
             Color borderColor, foreColor;
 
@@ -472,7 +472,7 @@ namespace ReaLTaiizor.Controls
             using (Graphics g = CreateGraphics())
             {
                 string measureText = Text.Length > 0 ? Text : "MeasureText";
-                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.DateTime(poisonDateTimeSize, poisonDateTimeWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
                 preferredSize.Height += 10;
             }

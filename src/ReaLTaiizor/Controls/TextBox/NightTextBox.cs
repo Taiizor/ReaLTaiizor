@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Controls
             {
                 _Image = value;
                 ImageSize = value == null ? Size.Empty : value.Size;
-                tbCtrl.Location = new Point(24, 14);
+                tbCtrl.Location = new(24, 14);
 
                 Invalidate();
             }
@@ -326,7 +326,7 @@ namespace ReaLTaiizor.Controls
         private void WatermarkContainer_Paint(object sender, PaintEventArgs e)
         {
             // X has to be >=1, otherwise the cursor won't show
-            watermarkContainer.Location = new Point(1, -1);
+            watermarkContainer.Location = new(1, -1);
             watermarkContainer.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             watermarkContainer.Width = tbCtrl.Width - 25;
             watermarkContainer.Height = tbCtrl.Height;
@@ -412,13 +412,13 @@ namespace ReaLTaiizor.Controls
 
             Text = string.Empty;
             Font = new("Segoe UI", 10);
-            Size = new Size(145, 49);
+            Size = new(145, 49);
         }
 
         private void AddTextBox()
         {
-            tbCtrl.Size = new Size(Width - 10, 49);
-            tbCtrl.Location = new Point(24, 14);
+            tbCtrl.Size = new(Width - 10, 49);
+            tbCtrl.Location = new(24, 14);
             tbCtrl.BorderStyle = BorderStyle.None;
             tbCtrl.TextAlign = HorizontalAlignment.Left;
             tbCtrl.Font = new("Segoe UI", 10);
@@ -493,7 +493,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                tbCtrl.Location = new Point(48, tbCtrl.Location.Y);
+                tbCtrl.Location = new(48, tbCtrl.Location.Y);
                 tbCtrl.Width = Width - 59;
 
                 g.DrawImage(_Image, 23, 14, 16, 16);

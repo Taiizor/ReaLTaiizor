@@ -343,32 +343,32 @@ namespace ReaLTaiizor.Util
             /*
                 if (Dock == DockStyle.Top)
                 {
-                    Size = new Size(Parent.ClientRectangle.Width - Parent.Padding.Top * 2, Height);
-                    Location = new Point(Parent.Padding.Left, Parent.Padding.Top);
+                    Size = new(Parent.ClientRectangle.Width - Parent.Padding.Top * 2, Height);
+                    Location = new(Parent.Padding.Left, Parent.Padding.Top);
                     AnimateWindow(Handle, 200, AW_VER_POSITIVE);
                 }
                 else if (Dock == DockStyle.Bottom)
                 {
-                    Size = new Size(Parent.ClientRectangle.Width - Parent.Padding.Left * 2, Height);
-                    Location = new Point(Parent.Padding.Left, Parent.ClientRectangle.Height - Height - Parent.Padding.Bottom);
+                    Size = new(Parent.ClientRectangle.Width - Parent.Padding.Left * 2, Height);
+                    Location = new(Parent.Padding.Left, Parent.ClientRectangle.Height - Height - Parent.Padding.Bottom);
                     AnimateWindow(Handle, 200, AW_VER_NEGATIVE);
                 }
                 else if (Dock == DockStyle.Left)
                 {
-                    Size = new Size(Width, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
-                    Location = new Point(Parent.Padding.Left, Parent.Padding.Top);
+                    Size = new(Width, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
+                    Location = new(Parent.Padding.Left, Parent.Padding.Top);
                     AnimateWindow(Handle, 200, AW_HOR_POSITIVE);
                 }
                 else if (Dock == DockStyle.Right)
                 {
-                    Size = new Size(Width, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
-                    Location = new Point(Parent.ClientRectangle.Width - Width, Parent.Padding.Top);
+                    Size = new(Width, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
+                    Location = new(Parent.ClientRectangle.Width - Width, Parent.Padding.Top);
                     AnimateWindow(Handle, 200, AW_HOR_NEGATIVE);
                 }
                 else if (Dock == DockStyle.Fill)
                 {
-                    Size = new Size(Parent.ClientRectangle.Width - Parent.Padding.Left * 2, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
-                    Location = new Point(Parent.Padding.Left, Parent.Padding.Top);
+                    Size = new(Parent.ClientRectangle.Width - Parent.Padding.Left * 2, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
+                    Location = new(Parent.Padding.Left, Parent.Padding.Top);
                     AnimateWindow(Handle, 200, AW_HOR_POSITIVE);
                 }
             */

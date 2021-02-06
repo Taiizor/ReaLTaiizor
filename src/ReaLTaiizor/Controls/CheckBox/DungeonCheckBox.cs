@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             // Reduce control flicker
             Font = new("Segoe UI", 12);
-            Size = new Size(160, 26);
+            Size = new(160, 26);
             ForeColor = Color.FromArgb(76, 76, 95);
             Cursor = Cursors.Hand;
         }

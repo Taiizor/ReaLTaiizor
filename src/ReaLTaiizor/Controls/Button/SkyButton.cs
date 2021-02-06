@@ -242,7 +242,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(27, 94, 137);
             DoubleBuffered = true;
-            Size = new Size(75, 23);
+            Size = new(75, 23);
             Font = new("Verdana", 6.75f, FontStyle.Bold);
             Cursor = Cursors.Hand;
         }
