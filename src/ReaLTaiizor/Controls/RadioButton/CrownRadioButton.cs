@@ -279,18 +279,16 @@ namespace ReaLTaiizor.Controls
 
             if (Checked)
             {
-                using (SolidBrush b = new(fillColor))
-                {
-                    Rectangle boxRect = new(3, (rect.Height / 2) - ((size - 7) / 2) - 1, size - 6, size - 6);
-                    g.FillEllipse(b, boxRect);
-                }
+                using SolidBrush b = new(fillColor);
+                Rectangle boxRect = new(3, (rect.Height / 2) - ((size - 7) / 2) - 1, size - 6, size - 6);
+                g.FillEllipse(b, boxRect);
             }
 
             g.SmoothingMode = SmoothingMode.Default;
 
             using (SolidBrush b = new(textColor))
             {
-                StringFormat stringFormat = new StringFormat
+                StringFormat stringFormat = new()
                 {
                     LineAlignment = StringAlignment.Center,
                     Alignment = StringAlignment.Near

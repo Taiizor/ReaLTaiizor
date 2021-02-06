@@ -13,11 +13,11 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalMessageBox : Forms.RoyalForm
     {
-        private readonly RoyalButton okButton = new RoyalButton();
-        private readonly RoyalButton yesButton = new RoyalButton();
-        private readonly RoyalButton noButton = new RoyalButton();
-        private readonly RoyalButton cancelButton = new RoyalButton();
-        private readonly RoyalButton retryButton = new RoyalButton();
+        private readonly RoyalButton okButton = new();
+        private readonly RoyalButton yesButton = new();
+        private readonly RoyalButton noButton = new();
+        private readonly RoyalButton cancelButton = new();
+        private readonly RoyalButton retryButton = new();
         private Form parent;
         public Form FormParent
         {
@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Controls
                 throw new ArgumentNullException("RoyalMessageBox requires a valid form object in the first argument.");
             }
 
-            RoyalMessageBox msgBox = new RoyalMessageBox
+            RoyalMessageBox msgBox = new()
             {
                 parent = form,
                 content = content,
@@ -237,7 +237,7 @@ namespace ReaLTaiizor.Controls
         {
             e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(150, Color.DarkGray)), e.ClipRectangle);
 
-            Rectangle messageRect = new Rectangle
+            Rectangle messageRect = new()
             {
                 Size = new(Width, (Height / 3)),
                 Location = new(0, ((Height - (Height / 3)) / 2))

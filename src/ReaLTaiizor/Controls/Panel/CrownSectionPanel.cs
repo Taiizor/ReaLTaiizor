@@ -121,7 +121,7 @@ namespace ReaLTaiizor.Controls
             {
                 Rectangle textRect = new(xOffset, 0, rect.Width - 4 - xOffset, 25);
 
-                StringFormat format = new StringFormat
+                StringFormat format = new()
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Center,

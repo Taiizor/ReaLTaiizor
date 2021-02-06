@@ -227,7 +227,7 @@ namespace ReaLTaiizor.Controls
         public static DialogResult Show(MetroForm form, string content, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
             const string message = @"MetroMessageBox requires a form, use 'this' as the first parameter in the place you use MetroMessageBox.";
-            MetroMessageBox msgBox = new MetroMessageBox
+            MetroMessageBox msgBox = new()
             {
                 OwnerForm = form ?? throw new ArgumentNullException(message),
                 Content = content,
@@ -335,19 +335,13 @@ namespace ReaLTaiizor.Controls
 
             Rectangle rect = new(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
 
-            using (SolidBrush bg = new(BackgroundColor))
-            {
-                using (SolidBrush CTNT = new(ForegroundColor))
-                {
-                    using (Pen p = new(BorderColor))
-                    {
-                        G.FillRectangle(bg, rect);
-                        G.DrawString(Caption, Font, CTNT, new PointF(rect.X + 10, rect.Y + 10));
-                        G.DrawString(Content, Font, CTNT, new PointF(rect.X + 10, rect.Y + 50));
-                        G.DrawRectangle(p, rect);
-                    }
-                }
-            }
+            using SolidBrush bg = new(BackgroundColor);
+            using SolidBrush CTNT = new(ForegroundColor);
+            using Pen p = new(BorderColor);
+            G.FillRectangle(bg, rect);
+            G.DrawString(Caption, Font, CTNT, new PointF(rect.X + 10, rect.Y + 10));
+            G.DrawString(Content, Font, CTNT, new PointF(rect.X + 10, rect.Y + 50));
+            G.DrawRectangle(p, rect);
         }
 
         #endregion

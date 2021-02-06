@@ -530,7 +530,7 @@ namespace ReaLTaiizor.Forms
 
                     Size = _previousSize;
                     ReleaseCapture();
-                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                    _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                 }
             }
             // Status bar buttons
@@ -539,7 +539,7 @@ namespace ReaLTaiizor.Forms
                 if (!_maximized)
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                    _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                 }
                 else
                 {
@@ -558,7 +558,7 @@ namespace ReaLTaiizor.Forms
                     int id = TrackPopupMenuEx(GetSystemMenu(Handle, false), TPM_LEFTALIGN | TPM_RETURNCMD, Cursor.Position.X, Cursor.Position.Y, Handle, IntPtr.Zero);
 
                     // Pass the command as a WM_SYSCOMMAND message
-                    SendMessage(Handle, WM_SYSCOMMAND, id, 0);
+                    _ = SendMessage(Handle, WM_SYSCOMMAND, id, 0);
                 }
             }
             else if (m.Msg == WM_NCLBUTTONDOWN)
@@ -580,7 +580,7 @@ namespace ReaLTaiizor.Forms
 
                 if (bFlag != 0)
                 {
-                    SendMessage(Handle, WM_SYSCOMMAND, 0xF000 | bFlag, (int)m.LParam);
+                    _ = SendMessage(Handle, WM_SYSCOMMAND, 0xF000 | bFlag, (int)m.LParam);
                 }
             }
             else if (m.Msg == WM_LBUTTONUP)
@@ -849,7 +849,7 @@ namespace ReaLTaiizor.Forms
             ReleaseCapture();
             if (dir != -1)
             {
-                SendMessage(Handle, WM_NCLBUTTONDOWN, dir, 0);
+                _ = SendMessage(Handle, WM_NCLBUTTONDOWN, dir, 0);
             }
         }
 

@@ -266,69 +266,55 @@ namespace ReaLTaiizor.Controls
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             Rectangle mainRect = new(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
 
-            using (SolidBrush bg = new(Enabled ? BackColor : DisabledBackColor))
+            using SolidBrush bg = new(Enabled ? BackColor : DisabledBackColor);
+            using SolidBrush usic = new(Enabled ? ForeColor : DisabledForeColor);
+            using SolidBrush sic = new(SelectedItemColor);
+            using SolidBrush sibc = new(SelectedItemBackColor);
+            using SolidBrush hic = new(HoveredItemColor);
+            using SolidBrush hibc = new(HoveredItemBackColor);
+            using StringFormat sf = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+            int firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
+            int lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
+
+            g.FillRectangle(bg, mainRect);
+
+            for (int i = firstItem; i < lastItem; i++)
             {
-                using (SolidBrush usic = new(Enabled ? ForeColor : DisabledForeColor))
+                string itemText = (string)Items[i];
+
+                Rectangle rect = new(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
+                g.DrawString(itemText, Font, usic, rect, sf);
+                if (MultiSelect && _indicates.Count != 0)
                 {
-                    using (SolidBrush sic = new(SelectedItemColor))
+                    if (i == _hoveredItem && !_indicates.Contains(i))
                     {
-                        using (SolidBrush sibc = new(SelectedItemBackColor))
-                        {
-                            using (SolidBrush hic = new(HoveredItemColor))
-                            {
-                                using (SolidBrush hibc = new(HoveredItemBackColor))
-                                {
-                                    using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
-                                    {
-                                        int firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
-                                        int lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
-
-                                        g.FillRectangle(bg, mainRect);
-
-                                        for (int i = firstItem; i < lastItem; i++)
-                                        {
-                                            string itemText = (string)Items[i];
-
-                                            Rectangle rect = new(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
-                                            g.DrawString(itemText, Font, usic, rect, sf);
-                                            if (MultiSelect && _indicates.Count != 0)
-                                            {
-                                                if (i == _hoveredItem && !_indicates.Contains(i))
-                                                {
-                                                    g.FillRectangle(hibc, rect);
-                                                    g.DrawString(itemText, Font, hic, rect, sf);
-                                                }
-                                                else if (_indicates.Contains(i))
-                                                {
-                                                    g.FillRectangle(sibc, rect);
-                                                    g.DrawString(itemText, Font, sic, rect, sf);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                if (i == _hoveredItem && i != SelectedIndex)
-                                                {
-                                                    g.FillRectangle(hibc, rect);
-                                                    g.DrawString(itemText, Font, hic, rect, sf);
-                                                }
-                                                else if (i == SelectedIndex)
-                                                {
-                                                    g.FillRectangle(sibc, rect);
-                                                    g.DrawString(itemText, Font, sic, rect, sf);
-                                                }
-                                            }
-
-                                        }
-                                        if (ShowBorder)
-                                        {
-                                            g.DrawRectangle(Pens.LightGray, mainRect);
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        g.FillRectangle(hibc, rect);
+                        g.DrawString(itemText, Font, hic, rect, sf);
+                    }
+                    else if (_indicates.Contains(i))
+                    {
+                        g.FillRectangle(sibc, rect);
+                        g.DrawString(itemText, Font, sic, rect, sf);
                     }
                 }
+                else
+                {
+                    if (i == _hoveredItem && i != SelectedIndex)
+                    {
+                        g.FillRectangle(hibc, rect);
+                        g.DrawString(itemText, Font, hic, rect, sf);
+                    }
+                    else if (i == SelectedIndex)
+                    {
+                        g.FillRectangle(sibc, rect);
+                        g.DrawString(itemText, Font, sic, rect, sf);
+                    }
+                }
+
+            }
+            if (ShowBorder)
+            {
+                g.DrawRectangle(Pens.LightGray, mainRect);
             }
         }
 

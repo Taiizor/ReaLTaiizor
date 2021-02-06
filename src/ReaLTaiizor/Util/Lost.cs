@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Util
         public bool MouseOver = false;
         public bool IsMouseDown = false;
 
-        private readonly Timer _ticker = new Timer();
+        private readonly Timer _ticker = new();
 
         public ControlLostBase()
         {
@@ -228,7 +228,7 @@ namespace ReaLTaiizor.Util
             if (e.Button == MouseButtons.Left && Parent != null && !(Parent is ToolFrameLost) && e.X <= Width && e.Y <= 30)
             {
                 ReleaseCapture();
-                SendMessage(Parent.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                _ = SendMessage(Parent.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 

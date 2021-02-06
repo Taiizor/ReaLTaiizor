@@ -210,33 +210,25 @@ namespace ReaLTaiizor.Controls
 
             using (SolidBrush backBrush = new(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
             {
-                using (SolidBrush checkMarkBrush = new(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Checked || _animator.Active ? Color.FromArgb(alpha, DisabledBorderColor) : Color.FromArgb(238, 238, 238)))
+                using SolidBrush checkMarkBrush = new(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Checked || _animator.Active ? Color.FromArgb(alpha, DisabledBorderColor) : Color.FromArgb(238, 238, 238));
+                using Pen p = new(Enabled ? BorderColor : DisabledBorderColor);
+                g.FillEllipse(backBrush, rect);
+                if (Enabled)
                 {
-                    using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor))
-                    {
-                        g.FillEllipse(backBrush, rect);
-                        if (Enabled)
-                        {
-                            g.DrawEllipse(p, rect);
-                            g.FillEllipse(checkMarkBrush, new Rectangle(3, 3, 11, 10));
-                        }
-                        else
-                        {
-                            g.FillEllipse(checkMarkBrush, new Rectangle(3, 3, 11, 10));
-                            g.DrawEllipse(p, rect);
-                        }
-                    }
+                    g.DrawEllipse(p, rect);
+                    g.FillEllipse(checkMarkBrush, new Rectangle(3, 3, 11, 10));
+                }
+                else
+                {
+                    g.FillEllipse(checkMarkBrush, new Rectangle(3, 3, 11, 10));
+                    g.DrawEllipse(p, rect);
                 }
 
             }
             g.SmoothingMode = SmoothingMode.Default;
-            using (SolidBrush tb = new(ForeColor))
-            {
-                using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
-                {
-                    g.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
-                }
-            }
+            using SolidBrush tb = new(ForeColor);
+            using StringFormat sf = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+            g.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
         }
 
         #endregion Draw Control
@@ -269,9 +261,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control c in Parent.Controls)
             {
-                if (!ReferenceEquals(c, this) && c is MetroRadioButton && ((MetroRadioButton)c).Group == Group)
+                if (!ReferenceEquals(c, this) && c is MetroRadioButton button && button.Group == Group)
                 {
-                    ((MetroRadioButton)c).Checked = false;
+                    button.Checked = false;
                 }
             }
             CheckedChanged?.Invoke(this);

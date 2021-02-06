@@ -26,10 +26,8 @@ namespace ReaLTaiizor.Util
         public static void CenterString(Graphics G, string T, Font F, Color C, Rectangle R)
         {
             SizeF sizeF = G.MeasureString(T, F);
-            using (SolidBrush solidBrush = new(C))
-            {
-                G.DrawString(T, F, solidBrush, checked(new Point((int)Math.Round(unchecked((double)R.Width / 2.0 - (double)(sizeF.Width / 2f))), (int)Math.Round(unchecked((double)R.Height / 2.0 - (double)(sizeF.Height / 2f))))));
-            }
+            using SolidBrush solidBrush = new(C);
+            G.DrawString(T, F, solidBrush, checked(new Point((int)Math.Round(unchecked((double)R.Width / 2.0 - (double)(sizeF.Width / 2f))), (int)Math.Round(unchecked((double)R.Height / 2.0 - (double)(sizeF.Height / 2f))))));
         }
 
         public static Color ColorFromHex(string Hex)

@@ -16,13 +16,13 @@ namespace ReaLTaiizor.Util
     {
         public static Color ForeverColor = Color.FromArgb(35, 168, 109);
 
-        public static readonly StringFormat NearSF = new StringFormat
+        public static readonly StringFormat NearSF = new()
         {
             Alignment = StringAlignment.Near,
             LineAlignment = StringAlignment.Near
         };
 
-        public static readonly StringFormat CenterSF = new StringFormat
+        public static readonly StringFormat CenterSF = new()
         {
             Alignment = StringAlignment.Center,
             LineAlignment = StringAlignment.Center

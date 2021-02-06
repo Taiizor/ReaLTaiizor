@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Util
 
         public new void Move(Point location, double seconds)
         {
-            animationThread = new Thread(new ThreadStart(delegate ()
+            animationThread = new(new ThreadStart(delegate ()
             {
                 MoveControl(location, seconds);
             }));
@@ -66,7 +66,7 @@ namespace ReaLTaiizor.Util
 
         public new void Resize(Size size, double seconds)
         {
-            animationThread = new Thread(new ThreadStart(delegate ()
+            animationThread = new(new ThreadStart(delegate ()
             {
                 ResizeControl(size, seconds);
             }));
@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Util
 
         public void SetBackgroundColor(Color backColor, double seconds)
         {
-            animationThread = new Thread(new ThreadStart(delegate ()
+            animationThread = new(new ThreadStart(delegate ()
             {
                 FadeToColor(backColor, seconds);
             }));

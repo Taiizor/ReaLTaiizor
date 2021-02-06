@@ -82,7 +82,7 @@ namespace ReaLTaiizor.Controls
 
             using (SolidBrush b = new(textColor))
             {
-                StringFormat stringFormat = new StringFormat
+                StringFormat stringFormat = new()
                 {
                     LineAlignment = StringAlignment.Center,
                     Alignment = StringAlignment.Near,

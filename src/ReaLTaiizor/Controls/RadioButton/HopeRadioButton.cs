@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedColor = HopeColors.PrimaryColor;
         private int SizeAnimationNum = 0;
         private int PointAnimationNum = 10;
-        private readonly Timer SizeAnimationTimer = new Timer { Interval = 35 };
+        private readonly Timer SizeAnimationTimer = new() { Interval = 35 };
         private bool enterFalg = false;
         private bool _Enable = true;
         #endregion

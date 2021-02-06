@@ -247,7 +247,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 Rectangle rect = new(0, ((i - firstVisibleItem) * ItemHeight), Width, ItemHeight);
-                DrawItemEventArgs de = new DrawItemEventArgs(e.Graphics, Font, rect, i, state);
+                DrawItemEventArgs de = new(e.Graphics, Font, rect, i, state);
 
                 DrawItem(de);
             }

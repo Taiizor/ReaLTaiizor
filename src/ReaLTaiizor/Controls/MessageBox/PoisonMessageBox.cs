@@ -100,7 +100,7 @@ namespace ReaLTaiizor.Controls
                         SystemSounds.Asterisk.Play(); break;
                 }
 
-                PoisonMessageBoxControl _control = new PoisonMessageBoxControl
+                PoisonMessageBoxControl _control = new()
                 {
                     BackColor = _owner.BackColor
                 };
@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
                 _control.BringToFront();
                 _control.SetDefaultButton();
 
-                Action<PoisonMessageBoxControl> _delegate = new Action<PoisonMessageBoxControl>(ModalState);
+                Action<PoisonMessageBoxControl> _delegate = new(ModalState);
                 IAsyncResult _asyncresult = _delegate.BeginInvoke(_control, null, _delegate);
                 bool _cancelled = false;
 

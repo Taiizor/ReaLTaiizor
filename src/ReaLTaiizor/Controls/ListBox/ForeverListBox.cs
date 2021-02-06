@@ -16,8 +16,8 @@ namespace ReaLTaiizor.Controls
 
     public class ForeverListBox : Control
     {
-        private System.Windows.Forms.ListBox withEventsField_ListBx = new System.Windows.Forms.ListBox();
-        private System.Windows.Forms.ListBox ListBx
+        private ListBox withEventsField_ListBx = new();
+        private ListBox ListBx
         {
             get => withEventsField_ListBx;
             set

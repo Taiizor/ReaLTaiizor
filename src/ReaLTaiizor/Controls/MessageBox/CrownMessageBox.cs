@@ -93,11 +93,9 @@ namespace ReaLTaiizor.Controls
 
         private static DialogResult ShowDialog(string message, string caption, DialogMessageBox icon, DialogButton buttons)
         {
-            using (CrownMessageBox dlg = new CrownMessageBox(message, caption, icon, buttons))
-            {
-                DialogResult result = dlg.ShowDialog();
-                return result;
-            }
+            using CrownMessageBox dlg = new(message, caption, icon, buttons);
+            DialogResult result = dlg.ShowDialog();
+            return result;
         }
 
         #endregion

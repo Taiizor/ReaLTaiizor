@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private bool enterFlag = false;
-        private readonly TextBox textBox = new TextBox();
+        private readonly TextBox textBox = new();
         private RectangleF upRectangleF = new();
         private RectangleF downRectangleF = new();
         private Point mousePoint = new();

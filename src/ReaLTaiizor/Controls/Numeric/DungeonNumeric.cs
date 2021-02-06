@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
         private bool KeyboardNum;
         private _TextAlignment MyStringAlignment;
 
-        private readonly Timer LongPressTimer = new Timer();
+        private readonly Timer LongPressTimer = new();
 
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Color _BackColorA = Color.FromArgb(246, 246, 246);

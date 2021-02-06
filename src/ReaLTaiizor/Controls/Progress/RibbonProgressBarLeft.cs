@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
         protected override void CreateHandle()
         {
             base.CreateHandle();
-            Thread T = new Thread(Animate)
+            Thread T = new(Animate)
             {
                 IsBackground = true
             };

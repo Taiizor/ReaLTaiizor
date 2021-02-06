@@ -172,7 +172,7 @@ namespace ReaLTaiizor.Controls
 
         protected void DrawTriangle(Color Clr, Point FirstPoint, Point SecondPoint, Point ThirdPoint, Graphics G)
         {
-            List<Point> points = new List<Point>
+            List<Point> points = new()
             {
                 FirstPoint,
                 SecondPoint,

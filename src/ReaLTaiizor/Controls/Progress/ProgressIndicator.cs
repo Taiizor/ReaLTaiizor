@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
         private readonly SolidBrush BaseColor = new(Color.DarkGray);
         private readonly SolidBrush AnimationColor = new(Color.DimGray);
 
-        private readonly Timer AnimationSpeed = new Timer();
+        private readonly Timer AnimationSpeed = new();
         private PointF[] FloatPoint;
         private BufferedGraphics BuffGraphics;
         private int IndicatorIndex;
@@ -107,7 +107,7 @@ namespace ReaLTaiizor.Controls
 
         private void SetPoints()
         {
-            Stack<PointF> stack = new Stack<PointF>();
+            Stack<PointF> stack = new();
             PointF startingFloatPoint = new(((float)Width) / 2f, ((float)Height) / 2f);
             for (float i = 0f; i < 360f; i += 45f)
             {

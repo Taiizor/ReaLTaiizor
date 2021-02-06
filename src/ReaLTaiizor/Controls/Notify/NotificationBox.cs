@@ -396,9 +396,9 @@ namespace ReaLTaiizor.Controls
             // Declare Graphics to draw the control
             Graphics GFX = e.Graphics;
             // Declare Color to paint the control's Text, Background and Border
-            Color ForeColor = new Color();
-            Color BackgroundColor = new Color();
-            Color BorderColor = new Color();
+            Color ForeColor = new();
+            Color BackgroundColor = new();
+            Color BorderColor = new();
             // Determine the header Notification Type font
             Font TypeFont = new(Font.FontFamily, Font.Size, FontStyle.Bold);
             // Decalre a new rectangle to draw the control inside it

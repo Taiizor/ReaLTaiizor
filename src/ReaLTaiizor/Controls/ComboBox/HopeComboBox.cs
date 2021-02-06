@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
 
                 graphics.DrawString("6", new Font("Marlett", 12), new SolidBrush(SystemColors.ControlDark), new Rectangle(Width - 22, (Height - 18) / 2, 18, 18));
 
-                ReleaseDC(m.HWnd, hDC);
+                _ = ReleaseDC(m.HWnd, hDC);
             }
         }
 

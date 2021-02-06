@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
 
-        public System.Windows.Forms.RichTextBox RT_RTB = new System.Windows.Forms.RichTextBox();
+        public RichTextBox RT_RTB = new();
         private bool _ReadOnly;
         private bool _WordWrap;
         private bool _AutoWordSelection;
