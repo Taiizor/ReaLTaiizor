@@ -356,12 +356,10 @@ namespace ReaLTaiizor.Controls
 
             if (isPressed || ((isHovered || isFocused) && displayFocusBorder))
             {
-                using (Pen p = new(borderColor))
-                {
-                    p.Width = 3;
-                    Rectangle borderRect = new(1, 1, Width - 3, Height - 3);
-                    e.Graphics.DrawRectangle(p, borderRect);
-                }
+                using Pen p = new(borderColor);
+                p.Width = 3;
+                Rectangle borderRect = new(1, 1, Width - 3, Height - 3);
+                e.Graphics.DrawRectangle(p, borderRect);
             }
 
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;

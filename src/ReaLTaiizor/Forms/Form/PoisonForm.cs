@@ -491,7 +491,7 @@ namespace ReaLTaiizor.Forms
             if (shadowType == FormShadowType.AeroShadow && IsAeroThemeEnabled() && IsDropShadowSupported())
             {
                 int val = 2;
-                DwmApi.DwmSetWindowAttribute(Handle, 2, ref val, 4);
+                _ = DwmApi.DwmSetWindowAttribute(Handle, 2, ref val, 4);
                 DwmApi.MARGINS m = new()
                 {
                     cyBottomHeight = 1,
@@ -500,7 +500,7 @@ namespace ReaLTaiizor.Forms
                     cyTopHeight = 0
                 };
 
-                DwmApi.DwmExtendFrameIntoClientArea(Handle, ref m);
+                _ = DwmApi.DwmExtendFrameIntoClientArea(Handle, ref m);
             }
         }
 
@@ -671,7 +671,7 @@ namespace ReaLTaiizor.Forms
         private void MoveControl()
         {
             WinApi.ReleaseCapture();
-            WinApi.SendMessage(Handle, (int)WinApi.Messages.WM_NCLBUTTONDOWN, (int)WinApi.HitTest.HTCAPTION, 0);
+            _ = WinApi.SendMessage(Handle, (int)WinApi.Messages.WM_NCLBUTTONDOWN, (int)WinApi.HitTest.HTCAPTION, 0);
         }
 
         [SecuritySafeCritical]

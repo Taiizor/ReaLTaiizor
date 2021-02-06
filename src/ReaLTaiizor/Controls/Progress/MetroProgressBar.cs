@@ -197,31 +197,25 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             Rectangle rect = new(0, 0, Width - 1, Height - 1);
 
-            using (SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor))
+            using SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor);
+            using Pen p = new(Enabled ? BorderColor : DisabledBorderColor);
+            using SolidBrush ps = new(Enabled ? ProgressColor : DisabledProgressColor);
+            g.FillRectangle(bg, rect);
+            if (_currentValue != 0)
             {
-                using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor))
+                switch (Orientation)
                 {
-                    using (SolidBrush ps = new(Enabled ? ProgressColor : DisabledProgressColor))
-                    {
-                        g.FillRectangle(bg, rect);
-                        if (_currentValue != 0)
-                        {
-                            switch (Orientation)
-                            {
-                                case ProgressOrientation.Horizontal:
-                                    g.FillRectangle(ps, new Rectangle(0, 0, _currentValue - 1, Height - 1));
-                                    break;
-                                case ProgressOrientation.Vertical:
-                                    g.FillRectangle(ps, new Rectangle(0, Height - _currentValue, Width - 1, _currentValue - 1));
-                                    break;
-                                default:
-                                    throw new ArgumentOutOfRangeException();
-                            }
-                        }
-                        g.DrawRectangle(p, rect);
-                    }
+                    case ProgressOrientation.Horizontal:
+                        g.FillRectangle(ps, new Rectangle(0, 0, _currentValue - 1, Height - 1));
+                        break;
+                    case ProgressOrientation.Vertical:
+                        g.FillRectangle(ps, new Rectangle(0, Height - _currentValue, Width - 1, _currentValue - 1));
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
+            g.DrawRectangle(p, rect);
         }
 
         #endregion

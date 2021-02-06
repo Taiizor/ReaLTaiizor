@@ -93,10 +93,8 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                using (SolidBrush TextColor = new(ForeColor))
-                {
-                    G.DrawString(Text, Font, TextColor, new Point(27, 1));
-                }
+                using SolidBrush TextColor = new(ForeColor);
+                G.DrawString(Text, Font, TextColor, new Point(27, 1));
             }
             else
             {
@@ -105,27 +103,21 @@ namespace ReaLTaiizor.Controls
                     G.DrawEllipse(Border, new Rectangle(0, 0, 20, 20));
                 }
 
-                using (SolidBrush TextColor = new(_DisabledTextColor))
-                {
-                    G.DrawString(Text, Font, TextColor, new Point(27, 1));
-                }
+                using SolidBrush TextColor = new(_DisabledTextColor);
+                G.DrawString(Text, Font, TextColor, new Point(27, 1));
             }
 
             if (Checked)
             {
                 if (Enabled)
                 {
-                    using (SolidBrush FillColor = new(_CheckedColor))
-                    {
-                        G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
-                    }
+                    using SolidBrush FillColor = new(_CheckedColor);
+                    G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
                 }
                 else
                 {
-                    using (SolidBrush FillColor = new(_DisabledCheckedColor))
-                    {
-                        G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
-                    }
+                    using SolidBrush FillColor = new(_DisabledCheckedColor);
+                    G.FillEllipse(FillColor, new Rectangle(4, 4, 12, 12));
                 }
             }
 

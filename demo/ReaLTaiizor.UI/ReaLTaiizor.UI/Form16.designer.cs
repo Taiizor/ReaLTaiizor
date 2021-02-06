@@ -245,12 +245,13 @@
             royalMenuStrip1.Name = "royalMenuStrip1";
             royalMenuStrip1.Padding = new System.Windows.Forms.Padding(1);
             royalMenuStrip1.SelectedColor = System.Drawing.Color.Empty;
-            royalMenuStrip1.Size = new System.Drawing.Size(288, 30);
+            royalMenuStrip1.Size = new System.Drawing.Size(174, 30);
             royalMenuStrip1.TabIndex = 12;
             royalMenuStrip1.Text = "royalMenuStrip1";
             // 
             // dosyaToolStripMenuItem
             // 
+            dosyaToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             dosyaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             yeniToolStripMenuItem,
             açToolStripMenuItem,
@@ -262,6 +263,7 @@
             baskıÖnizlemeToolStripMenuItem,
             toolStripSeparator2,
             çıkışToolStripMenuItem});
+            dosyaToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             dosyaToolStripMenuItem.Name = "dosyaToolStripMenuItem";
             dosyaToolStripMenuItem.Size = new System.Drawing.Size(37, 28);
             dosyaToolStripMenuItem.Text = "&File";
@@ -339,6 +341,7 @@
             // 
             // düzenToolStripMenuItem
             // 
+            düzenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             düzenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             geriAlToolStripMenuItem,
             yineleToolStripMenuItem,
@@ -348,6 +351,7 @@
             yapıştırToolStripMenuItem,
             toolStripSeparator4,
             tümünüSeçToolStripMenuItem});
+            düzenToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             düzenToolStripMenuItem.Name = "düzenToolStripMenuItem";
             düzenToolStripMenuItem.Size = new System.Drawing.Size(39, 28);
             düzenToolStripMenuItem.Text = "&Edit";
@@ -411,9 +415,11 @@
             // 
             // araçlarToolStripMenuItem
             // 
+            araçlarToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             araçlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             özelleştirToolStripMenuItem,
             seçeneklerToolStripMenuItem});
+            araçlarToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             araçlarToolStripMenuItem.Name = "araçlarToolStripMenuItem";
             araçlarToolStripMenuItem.Size = new System.Drawing.Size(46, 28);
             araçlarToolStripMenuItem.Text = "&Tools";
@@ -432,12 +438,14 @@
             // 
             // yardımToolStripMenuItem
             // 
+            yardımToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             yardımToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             içindekilerToolStripMenuItem,
             dizinToolStripMenuItem,
             araToolStripMenuItem,
             toolStripSeparator5,
             hakkındaToolStripMenuItem});
+            yardımToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
             yardımToolStripMenuItem.Size = new System.Drawing.Size(44, 28);
             yardımToolStripMenuItem.Text = "&Help";

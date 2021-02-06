@@ -445,12 +445,10 @@ namespace ReaLTaiizor.Controls
                         }
 
                         Color col = Color.FromArgb(alpha, forePen.Color);
-                        using (Pen gradPen = new(col, forePen.Width))
-                        {
-                            float startAngle = angle + (offset - (ensureVisible ? 30 : 0)) * (backwards ? 1 : -1);
-                            float sweepAngle = 15 * (backwards ? 1 : -1);
-                            e.Graphics.DrawArc(gradPen, padding, padding, Width - 2 * padding - 1, Height - 2 * padding - 1, startAngle, sweepAngle);
-                        }
+                        using Pen gradPen = new(col, forePen.Width);
+                        float startAngle = angle + (offset - (ensureVisible ? 30 : 0)) * (backwards ? 1 : -1);
+                        float sweepAngle = 15 * (backwards ? 1 : -1);
+                        e.Graphics.DrawArc(gradPen, padding, padding, Width - 2 * padding - 1, Height - 2 * padding - 1, startAngle, sweepAngle);
                     }
                 }
             }

@@ -223,22 +223,14 @@ namespace ReaLTaiizor.Controls
             Rectangle rect = new(1, 1, 56, 20);
             Rectangle rect2 = new(3, 3, 52, 16);
 
-            using (SolidBrush backBrush = new(BackgroundColor))
-            {
-                using (SolidBrush checkback = new(Enabled ? Switched ? CheckColor : UnCheckColor : Switched ? DisabledCheckColor : DisabledUnCheckColor))
-                {
-                    using (SolidBrush checkMarkBrush = new(SymbolColor))
-                    {
-                        using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor, 2))
-                        {
-                            g.FillRectangle(backBrush, rect);
-                            g.FillRectangle(checkback, rect2);
-                            g.DrawRectangle(p, rect);
-                            g.FillRectangle(checkMarkBrush, new Rectangle((Convert.ToInt32(rect.Width * (_switchLocation / 180.0))), 0, 16, 22));
-                        }
-                    }
-                }
-            }
+            using SolidBrush backBrush = new(BackgroundColor);
+            using SolidBrush checkback = new(Enabled ? Switched ? CheckColor : UnCheckColor : Switched ? DisabledCheckColor : DisabledUnCheckColor);
+            using SolidBrush checkMarkBrush = new(SymbolColor);
+            using Pen p = new(Enabled ? BorderColor : DisabledBorderColor, 2);
+            g.FillRectangle(backBrush, rect);
+            g.FillRectangle(checkback, rect2);
+            g.DrawRectangle(p, rect);
+            g.FillRectangle(checkMarkBrush, new Rectangle((Convert.ToInt32(rect.Width * (_switchLocation / 180.0))), 0, 16, 22));
         }
 
         #endregion Draw Control

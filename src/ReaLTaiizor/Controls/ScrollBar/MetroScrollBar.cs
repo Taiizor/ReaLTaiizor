@@ -201,14 +201,10 @@ namespace ReaLTaiizor.Controls
 
             Rectangle r = new(0, 0, Width, Height);
 
-            using (SolidBrush bg = new(Enabled ? BackColor : DisabledBackColor))
-            {
-                using (SolidBrush thumbBrush = new(Enabled ? ForeColor : DisabledForeColor))
-                {
-                    g.FillRectangle(bg, r);
-                    g.FillRectangle(thumbBrush, _thumb);
-                }
-            }
+            using SolidBrush bg = new(Enabled ? BackColor : DisabledBackColor);
+            using SolidBrush thumbBrush = new(Enabled ? ForeColor : DisabledForeColor);
+            g.FillRectangle(bg, r);
+            g.FillRectangle(thumbBrush, _thumb);
         }
 
         #endregion

@@ -59,11 +59,9 @@ namespace ReaLTaiizor.Forms
 
             Graphics g = e.Graphics;
 
-            using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder))
-            {
-                Rectangle modRect = new(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, ClientRectangle.Height - 1));
-                g.DrawRectangle(p, modRect);
-            }
+            using Pen p = new(ThemeProvider.Theme.Colors.DarkBorder);
+            Rectangle modRect = new(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, ClientRectangle.Height - 1));
+            g.DrawRectangle(p, modRect);
         }
 
         #endregion

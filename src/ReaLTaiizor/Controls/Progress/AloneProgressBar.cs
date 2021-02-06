@@ -107,10 +107,8 @@ namespace ReaLTaiizor.Controls
             bool flag = Value != 0;
             if (flag)
             {
-                using (HatchBrush hatchBrush = new(HatchStyle.LightUpwardDiagonal, Stripes, BackgroundColor))
-                {
-                    graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked((double)Value / (double)Maximum * (double)base.Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
-                }
+                using HatchBrush hatchBrush = new(HatchStyle.LightUpwardDiagonal, Stripes, BackgroundColor);
+                graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked((double)Value / (double)Maximum * (double)base.Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
             }
         }
     }

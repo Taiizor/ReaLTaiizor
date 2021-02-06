@@ -359,15 +359,11 @@ namespace ReaLTaiizor.Controls
 
                         if (i == SelectedIndex)
                         {
-                            using (SolidBrush sb = new(ForegroundColor))
-                            {
-                                g.FillRectangle(sb, r);
-                            }
+                            using SolidBrush sb = new(ForegroundColor);
+                            g.FillRectangle(sb, r);
                         }
-                        using (SolidBrush tb = new(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor))
-                        {
-                            g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
-                        }
+                        using SolidBrush tb = new(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor);
+                        g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
                     }
                     break;
                 case TabStyle.Style2:
@@ -377,15 +373,11 @@ namespace ReaLTaiizor.Controls
 
                         if (i == SelectedIndex)
                         {
-                            using (Pen sb = new(ForegroundColor, 2))
-                            {
-                                g.DrawLine(sb, r.X, r.Height, r.X + r.Width, r.Height);
-                            }
+                            using Pen sb = new(ForegroundColor, 2);
+                            g.DrawLine(sb, r.X, r.Height, r.X + r.Width, r.Height);
                         }
-                        using (SolidBrush tb = new(UnselectedTextColor))
-                        {
-                            g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
-                        }
+                        using SolidBrush tb = new(UnselectedTextColor);
+                        g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
                     }
                     break;
             }

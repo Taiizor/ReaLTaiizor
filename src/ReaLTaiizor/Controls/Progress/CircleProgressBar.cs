@@ -156,43 +156,37 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            using (Bitmap bitmap = new(Width, Height))
+            using Bitmap bitmap = new(Width, Height);
+            using Graphics graphics = Graphics.FromImage(bitmap);
+            graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            graphics.Clear(BackColor);
+            using (LinearGradientBrush brush = new(ClientRectangle, _ProgressColor1, _ProgressColor2, LinearGradientMode.ForwardDiagonal))
             {
-                using (Graphics graphics = Graphics.FromImage(bitmap))
+                using Pen pen = new(brush, 14f);
+                switch (ProgressShapeVal)
                 {
-                    graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    graphics.Clear(BackColor);
-                    using (LinearGradientBrush brush = new(ClientRectangle, _ProgressColor1, _ProgressColor2, LinearGradientMode.ForwardDiagonal))
-                    {
-                        using (Pen pen = new(brush, 14f))
-                        {
-                            switch (ProgressShapeVal)
-                            {
-                                case _ProgressShape.Round:
-                                    pen.StartCap = LineCap.Round;
-                                    pen.EndCap = LineCap.Round;
-                                    break;
+                    case _ProgressShape.Round:
+                        pen.StartCap = LineCap.Round;
+                        pen.EndCap = LineCap.Round;
+                        break;
 
-                                case _ProgressShape.Flat:
-                                    pen.StartCap = LineCap.Flat;
-                                    pen.EndCap = LineCap.Flat;
-                                    break;
-                            }
-                            graphics.DrawArc(pen, 0x12, 0x12, (Width - 0x23) - 2, (Height - 0x23) - 2, -90, (int)Math.Round((double)((360.0 / ((double)_Maximum)) * _Value)));
-                        }
-                    }
-                    using (LinearGradientBrush brush2 = new(ClientRectangle, Color.FromArgb(0x34, 0x34, 0x34), Color.FromArgb(0x34, 0x34, 0x34), LinearGradientMode.Vertical))
-                    {
-                        graphics.FillEllipse(brush2, 0x18, 0x18, (Width - 0x30) - 1, (Height - 0x30) - 1);
-                    }
-
-                    SizeF MS = graphics.MeasureString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font);
-                    graphics.DrawString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font, new SolidBrush(_PercentColor), Convert.ToInt32(Width / 2 - MS.Width / 2), Convert.ToInt32(Height / 2 - MS.Height / 2));
-                    e.Graphics.DrawImage(bitmap, 0, 0);
-                    graphics.Dispose();
-                    bitmap.Dispose();
+                    case _ProgressShape.Flat:
+                        pen.StartCap = LineCap.Flat;
+                        pen.EndCap = LineCap.Flat;
+                        break;
                 }
+                graphics.DrawArc(pen, 0x12, 0x12, (Width - 0x23) - 2, (Height - 0x23) - 2, -90, (int)Math.Round((double)((360.0 / ((double)_Maximum)) * _Value)));
             }
+            using (LinearGradientBrush brush2 = new(ClientRectangle, Color.FromArgb(0x34, 0x34, 0x34), Color.FromArgb(0x34, 0x34, 0x34), LinearGradientMode.Vertical))
+            {
+                graphics.FillEllipse(brush2, 0x18, 0x18, (Width - 0x30) - 1, (Height - 0x30) - 1);
+            }
+
+            SizeF MS = graphics.MeasureString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font);
+            graphics.DrawString(Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)), Font, new SolidBrush(_PercentColor), Convert.ToInt32(Width / 2 - MS.Width / 2), Convert.ToInt32(Height / 2 - MS.Height / 2));
+            e.Graphics.DrawImage(bitmap, 0, 0);
+            graphics.Dispose();
+            bitmap.Dispose();
         }
     }
 

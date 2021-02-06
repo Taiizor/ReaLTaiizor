@@ -204,22 +204,16 @@ namespace ReaLTaiizor.Controls
 
             Cursor = Cursors.Hand;
 
-            using (SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor))
+            using SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor);
+            using SolidBrush v = new(Enabled ? ValueColor : DisabledValueColor);
+            using SolidBrush vc = new(Enabled ? HandlerColor : DisabledHandlerColor);
+            g.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
+            if (_currentValue != 0)
             {
-                using (SolidBrush v = new(Enabled ? ValueColor : DisabledValueColor))
-                {
-                    using (SolidBrush vc = new(Enabled ? HandlerColor : DisabledHandlerColor))
-                    {
-                        g.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
-                        if (_currentValue != 0)
-                        {
-                            g.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
-                        }
-
-                        g.FillRectangle(vc, _track);
-                    }
-                }
+                g.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
             }
+
+            g.FillRectangle(vc, _track);
         }
 
         #endregion

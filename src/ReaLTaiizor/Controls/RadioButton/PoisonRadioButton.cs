@@ -326,11 +326,9 @@ namespace ReaLTaiizor.Controls
             {
                 Color fillColor = PoisonPaint.GetStyleColor(Style);
 
-                using (SolidBrush b = new(fillColor))
-                {
-                    Rectangle boxRect = new(3, Height / 2 - 3, 6, 6);
-                    e.Graphics.FillEllipse(b, boxRect);
-                }
+                using SolidBrush b = new(fillColor);
+                Rectangle boxRect = new(3, Height / 2 - 3, 6, 6);
+                e.Graphics.FillEllipse(b, boxRect);
             }
 
             e.Graphics.SmoothingMode = SmoothingMode.Default;

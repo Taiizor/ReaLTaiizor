@@ -198,7 +198,7 @@ namespace ReaLTaiizor.Forms
                                 if (e.X <= Width && e.Y <= 30)
                                 {
                                     ReleaseCapture();
-                                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                                    _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                                 }
                             }
                         }
@@ -209,7 +209,7 @@ namespace ReaLTaiizor.Forms
                     if (e.X <= Width && e.Y <= 30)
                     {
                         ReleaseCapture();
-                        SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                        _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                     }
                 }
             }

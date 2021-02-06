@@ -267,10 +267,8 @@ namespace ReaLTaiizor.Controls
             {
                 e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
                 Rectangle textRect = new(25, e.Item.ContentRectangle.Y, e.Item.ContentRectangle.Width - (24 + 16), e.Item.ContentRectangle.Height - 4);
-                using (SolidBrush b = new(e.Item.Enabled ? e.Item.Selected ? SelectedItemColor : ForegroundColor : DisabledForeColor))
-                {
-                    e.Graphics.DrawString(e.Text, Font, b, textRect);
-                }
+                using SolidBrush b = new(e.Item.Enabled ? e.Item.Selected ? SelectedItemColor : ForegroundColor : DisabledForeColor);
+                e.Graphics.DrawString(e.Text, Font, b, textRect);
             }
 
             #endregion Drawing Text
@@ -288,10 +286,8 @@ namespace ReaLTaiizor.Controls
                 e.Graphics.InterpolationMode = InterpolationMode.High;
                 e.Graphics.Clear(BackgroundColor);
                 Rectangle r = new(0, e.Item.ContentRectangle.Y - 2, e.Item.ContentRectangle.Width + 4, e.Item.ContentRectangle.Height + 3);
-                using (SolidBrush b = new(e.Item.Selected && e.Item.Enabled ? SelectedItemBackColor : BackgroundColor))
-                {
-                    e.Graphics.FillRectangle(b, r);
-                }
+                using SolidBrush b = new(e.Item.Selected && e.Item.Enabled ? SelectedItemBackColor : BackgroundColor);
+                e.Graphics.FillRectangle(b, r);
             }
 
             #endregion Drawing Backgrounds
@@ -310,10 +306,8 @@ namespace ReaLTaiizor.Controls
 
             protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
             {
-                using (Pen p = new(SeparatorColor))
-                {
-                    e.Graphics.DrawLine(p, new Point(e.Item.Bounds.Left, e.Item.Bounds.Height / 2), new Point(e.Item.Bounds.Right - 5, e.Item.Bounds.Height / 2));
-                }
+                using Pen p = new(SeparatorColor);
+                e.Graphics.DrawLine(p, new Point(e.Item.Bounds.Left, e.Item.Bounds.Height / 2), new Point(e.Item.Bounds.Right - 5, e.Item.Bounds.Height / 2));
             }
 
             #endregion Drawing Seperators & Borders
@@ -331,10 +325,8 @@ namespace ReaLTaiizor.Controls
                     new Point(arrowX - 5, arrowY + 5)
                 };
 
-                using (SolidBrush arrowBrush = new(e.Item.Enabled ? ArrowColor : DisabledForeColor))
-                {
-                    e.Graphics.FillPolygon(arrowBrush, arrowPoints);
-                }
+                using SolidBrush arrowBrush = new(e.Item.Enabled ? ArrowColor : DisabledForeColor);
+                e.Graphics.FillPolygon(arrowBrush, arrowPoints);
             }
 
             #endregion Drawing DropDown Arrows

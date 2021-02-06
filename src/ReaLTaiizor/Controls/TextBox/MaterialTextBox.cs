@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Controls
                     Height / 5, // not tall
                     ClientSize.Width - (SkinManager.FORM_PADDING * 2), LINE_Y);
             RECT rc = new(rect);
-            SendMessageRefRect(Handle, EM_SETRECT, 0, ref rc);
+            _ = SendMessageRefRect(Handle, EM_SETRECT, 0, ref rc);
 
             // events
             MouseState = MaterialMouseState.OUT;

@@ -144,82 +144,65 @@ namespace ReaLTaiizor.Controls
                 case MouseMode.Normal:
                     using (SolidBrush bg = new(NormalColor))
                     {
-                        using (Pen p = new(NormalBorderColor, 2))
+                        using Pen p = new(NormalBorderColor, 2);
+                        using SolidBrush tb = new(NormalTextColor);
+                        if (BackgroundImage != null)
                         {
-                            using (SolidBrush tb = new(NormalTextColor))
-                            {
-                                if (BackgroundImage != null)
-                                {
-                                    g.DrawImage(BackgroundImage, r);
-                                }
-                                else
-                                {
-                                    g.FillRectangle(bg, r);
-                                    g.DrawRectangle(p, r);
-                                }
-                                g.DrawString(Text, Font, tb, r, sf);
-                            }
+                            g.DrawImage(BackgroundImage, r);
                         }
+                        else
+                        {
+                            g.FillRectangle(bg, r);
+                            g.DrawRectangle(p, r);
+                        }
+                        g.DrawString(Text, Font, tb, r, sf);
                     }
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
                     using (SolidBrush bg = new(HoverColor))
                     {
-                        using (Pen p = new(HoverBorderColor, 2))
+                        using Pen p = new(HoverBorderColor, 2);
+                        using SolidBrush tb = new(HoverTextColor);
+                        if (BackgroundImage != null)
                         {
-                            using (SolidBrush tb = new(HoverTextColor))
-                            {
-                                if (BackgroundImage != null)
-                                {
-                                    g.DrawImage(BackgroundImage, r);
-                                }
-                                else
-                                {
-                                    g.FillRectangle(bg, r);
-                                }
-
-                                g.DrawString(Text, Font, tb, r, sf);
-                                g.DrawRectangle(p, r);
-                            }
+                            g.DrawImage(BackgroundImage, r);
                         }
+                        else
+                        {
+                            g.FillRectangle(bg, r);
+                        }
+
+                        g.DrawString(Text, Font, tb, r, sf);
+                        g.DrawRectangle(p, r);
                     }
                     break;
                 case MouseMode.Pushed:
                     using (SolidBrush bg = new(PressColor))
                     {
-                        using (Pen p = new(PressBorderColor, 2))
+                        using Pen p = new(PressBorderColor, 2);
+                        using SolidBrush tb = new(PressTextColor);
+                        if (BackgroundImage != null)
                         {
-                            using (SolidBrush tb = new(PressTextColor))
-                            {
-                                if (BackgroundImage != null)
-                                {
-                                    g.DrawImage(BackgroundImage, r);
-                                }
-                                else
-                                {
-                                    g.FillRectangle(bg, r);
-                                }
-
-                                g.DrawString(Text, Font, tb, r, sf);
-                                g.DrawRectangle(p, r);
-
-                            }
+                            g.DrawImage(BackgroundImage, r);
                         }
+                        else
+                        {
+                            g.FillRectangle(bg, r);
+                        }
+
+                        g.DrawString(Text, Font, tb, r, sf);
+                        g.DrawRectangle(p, r);
                     }
                     break;
                 case MouseMode.Disabled:
                     using (SolidBrush bg = new(DisabledBackColor))
                     {
-                        using (Pen p = new(DisabledBorderColor))
-                        {
-                            using (SolidBrush tb = new(DisabledForeColor))
-                            {
-                                g.FillRectangle(bg, r);
-                                g.DrawString(Text, Font, tb, r, sf);
-                                g.DrawRectangle(p, r);
-                            }
-                        }
+                        using Pen p = new(DisabledBorderColor);
+                        using SolidBrush tb = new(DisabledForeColor);
+                        g.FillRectangle(bg, r);
+                        g.DrawString(Text, Font, tb, r, sf);
+                        g.DrawRectangle(p, r);
                     }
                     break;
                 default:
