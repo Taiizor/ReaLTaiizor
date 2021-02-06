@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Controls
                     if (_Pattern)
                     {
                         //-- Hatch Brush
-                        HatchBrush HB = new HatchBrush(HatchStyle.Plaid, _DarkerProgress, _ProgressColor);
+                        HatchBrush HB = new(HatchStyle.Plaid, _DarkerProgress, _ProgressColor);
                         _with15.FillRectangle(HB, new Rectangle(0, 24, iValue - 1, H - 1));
                     }
 

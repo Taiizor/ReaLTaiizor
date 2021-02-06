@@ -18,10 +18,7 @@ namespace ReaLTaiizor.Animate.Poison
         public event EventHandler AnimationCompleted;
         private void OnAnimationCompleted()
         {
-            if (AnimationCompleted != null)
-            {
-                AnimationCompleted(this, EventArgs.Empty);
-            }
+            AnimationCompleted?.Invoke(this, EventArgs.Empty);
         }
 
         private DelayedCall timer;
@@ -114,7 +111,7 @@ namespace ReaLTaiizor.Animate.Poison
                     return (int)(c * (t /= d) * t + b);
                 case TransitionType.EaseOutQuad:
                     // quadratic (t^2) easing out - decelerating to zero velocity
-                    return (int)(-c * (t = t / d) * (t - 2) + b);
+                    return (int)(-c * (t /= d) * (t - 2) + b);
                 case TransitionType.EaseInOutQuad:
                     // quadratic easing in/out - acceleration until halfway, then deceleration
                     if ((t /= d / 2) < 1)

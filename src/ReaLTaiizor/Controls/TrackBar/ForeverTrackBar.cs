@@ -274,7 +274,7 @@ namespace ReaLTaiizor.Controls
             _with20.ResetClip();
 
             //-- Hatch Brush
-            HatchBrush HB = new HatchBrush(HatchStyle.Plaid, HatchColor, _TrackColor);
+            HatchBrush HB = new(HatchStyle.Plaid, HatchColor, _TrackColor);
             _with20.FillRectangle(HB, new Rectangle(-10, 7, Track.X + Track.Width, 8));
 
             //-- Slider/Knob

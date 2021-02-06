@@ -245,7 +245,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
             Graphics G = e.Graphics;
-            HatchBrush Hatch = new HatchBrush(HatchStyle.WideDownwardDiagonal, Color.FromArgb(20, Color.Black), Color.Transparent);
+            HatchBrush Hatch = new(HatchStyle.WideDownwardDiagonal, Color.FromArgb(20, Color.Black), Color.Transparent);
             G.Clear(Parent.BackColor);
             G.SmoothingMode = SmoothingMode.AntiAlias;
             checked

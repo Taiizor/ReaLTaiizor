@@ -284,16 +284,15 @@ namespace ReaLTaiizor.Forms
         {
             int buttonTextArrayIndex = Convert.ToInt32(buttonID);
 
-            switch (languageID)
+            return languageID switch
             {
-                case TwoLetterISOLanguageID.de: return BUTTON_TEXTS_GERMAN_DE[buttonTextArrayIndex];
-                case TwoLetterISOLanguageID.es: return BUTTON_TEXTS_SPANISH_ES[buttonTextArrayIndex];
-                case TwoLetterISOLanguageID.it: return BUTTON_TEXTS_ITALIAN_IT[buttonTextArrayIndex];
-                case TwoLetterISOLanguageID.tr: return BUTTON_TEXTS_TURKISH_TR[buttonTextArrayIndex];
-                case TwoLetterISOLanguageID.zh: return BUTTON_TEXTS_CHINA_ZH[buttonTextArrayIndex];
-
-                default: return BUTTON_TEXTS_ENGLISH_EN[buttonTextArrayIndex];
-            }
+                TwoLetterISOLanguageID.de => BUTTON_TEXTS_GERMAN_DE[buttonTextArrayIndex],
+                TwoLetterISOLanguageID.es => BUTTON_TEXTS_SPANISH_ES[buttonTextArrayIndex],
+                TwoLetterISOLanguageID.it => BUTTON_TEXTS_ITALIAN_IT[buttonTextArrayIndex],
+                TwoLetterISOLanguageID.tr => BUTTON_TEXTS_TURKISH_TR[buttonTextArrayIndex],
+                TwoLetterISOLanguageID.zh => BUTTON_TEXTS_CHINA_ZH[buttonTextArrayIndex],
+                _ => BUTTON_TEXTS_ENGLISH_EN[buttonTextArrayIndex],
+            };
         }
 
         private static double GetCorrectedWorkingAreaFactor(double workingAreaFactor)
@@ -479,20 +478,12 @@ namespace ReaLTaiizor.Forms
             System.Windows.Forms.Button buttonToFocus;
 
             //Set the default button...
-            switch (defaultButton)
+            buttonIndexToFocus = defaultButton switch
             {
-                case MessageBoxDefaultButton.Button1:
-                default:
-                    buttonIndexToFocus = 1;
-                    break;
-                case MessageBoxDefaultButton.Button2:
-                    buttonIndexToFocus = 2;
-                    break;
-                case MessageBoxDefaultButton.Button3:
-                    buttonIndexToFocus = 3;
-                    break;
-            }
-
+                MessageBoxDefaultButton.Button2 => 2,
+                MessageBoxDefaultButton.Button3 => 3,
+                _ => 1,
+            };
             if (buttonIndexToFocus > visibleButtonsCount)
             {
                 buttonIndexToFocus = visibleButtonsCount;

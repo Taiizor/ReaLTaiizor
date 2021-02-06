@@ -116,7 +116,7 @@ namespace ReaLTaiizor.Manager
 
         public object Clone()
         {
-            PoisonStyleManager newStyleManager = new PoisonStyleManager
+            PoisonStyleManager newStyleManager = new()
             {
                 poisonTheme = Theme,
                 poisonStyle = Style
@@ -128,10 +128,10 @@ namespace ReaLTaiizor.Manager
         {
             PoisonStyleManager clonedManager = Clone() as PoisonStyleManager;
 
-            if (owner is IPoisonForm)
+            if (owner is IPoisonForm form)
             {
                 clonedManager.Owner = owner;
-                ((IPoisonForm)owner).StyleManager = clonedManager;
+                form.StyleManager = clonedManager;
 
                 Type parentForm = owner.GetType();
                 FieldInfo fieldInfo = parentForm.GetField("components",
@@ -152,9 +152,9 @@ namespace ReaLTaiizor.Manager
                 // Check for a helper component
                 foreach (Component obj in mother.Components)
                 {
-                    if (obj is IPoisonComponent)
+                    if (obj is IPoisonComponent component)
                     {
-                        ApplyTheme((IPoisonComponent)obj);
+                        ApplyTheme(component);
                     }
 
                     if (obj.GetType() == typeof(PoisonContextMenuStrip))
@@ -210,9 +210,9 @@ namespace ReaLTaiizor.Manager
 
             foreach (object obj in parentContainer.Components)
             {
-                if (obj is IPoisonComponent)
+                if (obj is IPoisonComponent component)
                 {
-                    ApplyTheme((IPoisonComponent)obj);
+                    ApplyTheme(component);
                 }
 
                 if (obj.GetType() == typeof(PoisonContextMenuStrip))
@@ -229,20 +229,17 @@ namespace ReaLTaiizor.Manager
                 return;
             }
 
-            IPoisonControl poisonControl = ctrl as IPoisonControl;
-            if (poisonControl != null)
+            if (ctrl is IPoisonControl poisonControl)
             {
                 ApplyTheme(poisonControl);
             }
 
-            IPoisonComponent poisonComponent = ctrl as IPoisonComponent;
-            if (poisonComponent != null)
+            if (ctrl is IPoisonComponent poisonComponent)
             {
                 ApplyTheme(poisonComponent);
             }
 
-            TabControl tabControl = ctrl as TabControl;
-            if (tabControl != null)
+            if (ctrl is TabControl tabControl)
             {
                 foreach (System.Windows.Forms.TabPage tp in ((TabControl)ctrl).TabPages)
                 {

@@ -106,15 +106,12 @@ namespace ReaLTaiizor.Controls
         #region Functions
         private string TitleText(string Text)
         {
-            switch (TitleTextState)
+            return TitleTextState switch
             {
-                case TextState.Upper:
-                    return Text.ToUpperInvariant();
-                case TextState.Lower:
-                    return Text.ToLowerInvariant();
-                default:
-                    return Text;
-            }
+                TextState.Upper => Text.ToUpperInvariant(),
+                TextState.Lower => Text.ToLowerInvariant(),
+                _ => Text,
+            };
         }
         #endregion
 

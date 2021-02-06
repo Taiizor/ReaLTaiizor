@@ -711,12 +711,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private readonly Dictionary<string, Color> Items = new Dictionary<string, Color>();
+        private readonly Dictionary<string, Color> Items = new();
         public BloomSpace[] Colors
         {
             get
             {
-                List<BloomSpace> T = new List<BloomSpace>();
+                List<BloomSpace> T = new();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
@@ -1782,12 +1782,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private readonly Dictionary<string, Color> Items = new Dictionary<string, Color>();
+        private readonly Dictionary<string, Color> Items = new();
         public BloomSpace[] Colors
         {
             get
             {
-                List<BloomSpace> T = new List<BloomSpace>();
+                List<BloomSpace> T = new();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
@@ -2457,14 +2457,14 @@ namespace ReaLTaiizor.Util
         private static int Frames;
         private static bool Invalidate;
 
-        public static PrecisionTimerSpace ThemeTimer = new PrecisionTimerSpace();
+        public static PrecisionTimerSpace ThemeTimer = new();
         //1000 / 50 = 20 FPS
         private const int FPS = 50;
 
         private const int Rate = 10;
 
         public delegate void AnimationDelegate(bool invalidate);
-        private static readonly List<AnimationDelegate> Callbacks = new List<AnimationDelegate>();
+        private static readonly List<AnimationDelegate> Callbacks = new();
 
         private static void HandleCallbacks(IntPtr state, bool reserve)
         {
@@ -2626,7 +2626,7 @@ namespace ReaLTaiizor.Util
             _Enabled = !Success;
         }
 
-        private void ThrowNewException(string name)
+        private static void ThrowNewException(string name)
         {
             throw new Exception(string.Format("{0} failed. Win32Error: {1}", name, Marshal.GetLastWin32Error()));
         }

@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath GP3 = DrawThunder.RoundRect(R3, 1);
             LinearGradientBrush gB = new(R1, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
             LinearGradientBrush g1 = new(new Rectangle(2, 2, intValue - 1, Height - 2), C1, C2, 90);
-            HatchBrush h1 = new HatchBrush(HatchStyle.DarkUpwardDiagonal, Color.FromArgb(50, C1), Color.FromArgb(25, C2));
+            HatchBrush h1 = new(HatchStyle.DarkUpwardDiagonal, Color.FromArgb(50, C1), Color.FromArgb(25, C2));
             Pen P1 = new(Color.Black);
 
             G.FillPath(gB, GP1);

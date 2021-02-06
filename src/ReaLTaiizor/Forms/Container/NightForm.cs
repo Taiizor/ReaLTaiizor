@@ -228,10 +228,8 @@ namespace ReaLTaiizor.Forms
 
         private void DrawTitleBar(Graphics g)
         {
-            using (SolidBrush brush = new(HeadColor))
-            {
-                g.FillRectangle(brush, new Rectangle(0, 0, Width, 31));
-            }
+            using SolidBrush brush = new(HeadColor);
+            g.FillRectangle(brush, new Rectangle(0, 0, Width, 31));
 
             // ========== FOR TESTING PURPOSES ONLY! ==========
             // PLACEMENT BACKGROUNDS FOR THE CONTROLBOX BUTTONS
@@ -269,7 +267,7 @@ namespace ReaLTaiizor.Forms
             {
                 case Alignment.Left:
                     using (SolidBrush stringColor = new(_TitleBarTextColor))
-                    using (StringFormat sf = new StringFormat
+                    using (StringFormat sf = new()
                     {
                         Alignment = StringAlignment.Near,
                         LineAlignment = StringAlignment.Near
@@ -280,7 +278,7 @@ namespace ReaLTaiizor.Forms
                     break;
                 case Alignment.Center:
                     using (SolidBrush stringColor = new(_TitleBarTextColor))
-                    using (StringFormat sf = new StringFormat
+                    using (StringFormat sf = new()
                     {
                         Alignment = StringAlignment.Center,
                         LineAlignment = StringAlignment.Near

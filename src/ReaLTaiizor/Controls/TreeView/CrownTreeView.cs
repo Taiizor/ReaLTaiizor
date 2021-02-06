@@ -265,10 +265,7 @@ namespace ReaLTaiizor.Controls
 
         private void SelectedNodes_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (SelectedNodesChanged != null)
-            {
-                SelectedNodesChanged(this, null);
-            }
+            SelectedNodesChanged?.Invoke(this, null);
         }
 
         private void Nodes_TextChanged(object sender, EventArgs e)
@@ -280,20 +277,14 @@ namespace ReaLTaiizor.Controls
         {
             UpdateNodes();
 
-            if (AfterNodeExpand != null)
-            {
-                AfterNodeExpand(this, null);
-            }
+            AfterNodeExpand?.Invoke(this, null);
         }
 
         private void Nodes_NodeCollapsed(object sender, EventArgs e)
         {
             UpdateNodes();
 
-            if (AfterNodeCollapse != null)
-            {
-                AfterNodeCollapse(this, null);
-            }
+            AfterNodeCollapse?.Invoke(this, null);
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -538,7 +529,7 @@ namespace ReaLTaiizor.Controls
                         difference = ItemHeight;
                     }
 
-                    _vScrollBar.Value = _vScrollBar.Value - difference;
+                    _vScrollBar.Value -= difference;
                 }
 
                 // Scroll down
@@ -551,7 +542,7 @@ namespace ReaLTaiizor.Controls
                         difference = ItemHeight;
                     }
 
-                    _vScrollBar.Value = _vScrollBar.Value + difference;
+                    _vScrollBar.Value += difference;
                 }
             }
 
@@ -567,7 +558,7 @@ namespace ReaLTaiizor.Controls
                         difference = ItemHeight;
                     }
 
-                    _hScrollBar.Value = _hScrollBar.Value - difference;
+                    _hScrollBar.Value -= difference;
                 }
 
                 // Scroll right
@@ -580,7 +571,7 @@ namespace ReaLTaiizor.Controls
                         difference = ItemHeight;
                     }
 
-                    _hScrollBar.Value = _hScrollBar.Value + difference;
+                    _hScrollBar.Value += difference;
                 }
             }
         }
@@ -927,7 +918,7 @@ namespace ReaLTaiizor.Controls
 
         public void SelectNodes(CrownTreeNode startNode, CrownTreeNode endNode)
         {
-            List<CrownTreeNode> nodes = new List<CrownTreeNode>();
+            List<CrownTreeNode> nodes = new();
 
             if (startNode == endNode)
             {
@@ -1470,7 +1461,7 @@ namespace ReaLTaiizor.Controls
             // 4. Draw text
             using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText))
             {
-                StringFormat stringFormat = new StringFormat
+                StringFormat stringFormat = new()
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Center

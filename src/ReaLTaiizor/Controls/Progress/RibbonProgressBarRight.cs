@@ -270,7 +270,7 @@ namespace ReaLTaiizor.Controls
 
             LinearGradientBrush g1 = new(new Rectangle(2, 2, intValue - 1, Height - 2), ProgressColorA, ProgressColorB, 90);
             G.FillPath(g1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
-            HatchBrush h1 = new HatchBrush(HatchType, ProgressLineColorA, ProgressLineColorB);
+            HatchBrush h1 = new(HatchType, ProgressLineColorA, ProgressLineColorB);
             G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
 
             if (ShowEdge)

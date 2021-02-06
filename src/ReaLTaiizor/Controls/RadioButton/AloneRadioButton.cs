@@ -124,52 +124,36 @@ namespace ReaLTaiizor.Controls
             {
                 using (SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#F3F4F7")))
                 {
-                    using (Pen pen = new(AloneLibrary.ColorFromHex("#D0D5D9")))
-                    {
-                        using (SolidBrush solidBrush2 = new(ForeColor))
-                        {
-                            using (Font font = new("Segoe UI", 9f))
-                            {
-                                G.FillEllipse(solidBrush, new Rectangle(0, 0, 16, 16));
-                                G.DrawEllipse(pen, new Rectangle(0, 0, 16, 16));
-                                G.DrawString(Text, font, solidBrush2, new Point(25, 0));
-                            }
-                        }
-                    }
+                    using Pen pen = new(AloneLibrary.ColorFromHex("#D0D5D9"));
+                    using SolidBrush solidBrush2 = new(ForeColor);
+                    using Font font = new("Segoe UI", 9f);
+                    G.FillEllipse(solidBrush, new Rectangle(0, 0, 16, 16));
+                    G.DrawEllipse(pen, new Rectangle(0, 0, 16, 16));
+                    G.DrawString(Text, font, solidBrush2, new Point(25, 0));
                 }
                 bool @checked = Checked;
                 if (@checked)
                 {
-                    using (SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#575C62")))
-                    {
-                        G.FillEllipse(solidBrush3, new Rectangle(4, 4, 8, 8));
-                    }
+                    using SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#575C62"));
+                    G.FillEllipse(solidBrush3, new Rectangle(4, 4, 8, 8));
                 }
             }
             else
             {
                 using (SolidBrush solidBrush4 = new(AloneLibrary.ColorFromHex("#F5F5F8")))
                 {
-                    using (Pen pen2 = new(AloneLibrary.ColorFromHex("#E1E1E2")))
-                    {
-                        using (SolidBrush solidBrush5 = new(AloneLibrary.ColorFromHex("#D0D3D7")))
-                        {
-                            using (Font font2 = new("Segoe UI", 9f))
-                            {
-                                G.FillEllipse(solidBrush4, new Rectangle(0, 0, 16, 16));
-                                G.DrawEllipse(pen2, new Rectangle(0, 0, 16, 16));
-                                G.DrawString(Text, font2, solidBrush5, new Point(25, 0));
-                            }
-                        }
-                    }
+                    using Pen pen2 = new(AloneLibrary.ColorFromHex("#E1E1E2"));
+                    using SolidBrush solidBrush5 = new(AloneLibrary.ColorFromHex("#D0D3D7"));
+                    using Font font2 = new("Segoe UI", 9f);
+                    G.FillEllipse(solidBrush4, new Rectangle(0, 0, 16, 16));
+                    G.DrawEllipse(pen2, new Rectangle(0, 0, 16, 16));
+                    G.DrawString(Text, font2, solidBrush5, new Point(25, 0));
                 }
                 bool checked2 = Checked;
                 if (checked2)
                 {
-                    using (SolidBrush solidBrush6 = new(AloneLibrary.ColorFromHex("#BCC1C6")))
-                    {
-                        G.FillEllipse(solidBrush6, new Rectangle(4, 4, 8, 8));
-                    }
+                    using SolidBrush solidBrush6 = new(AloneLibrary.ColorFromHex("#BCC1C6"));
+                    G.FillEllipse(solidBrush6, new Rectangle(4, 4, 8, 8));
                 }
             }
         }
@@ -198,11 +182,7 @@ namespace ReaLTaiizor.Controls
 
                 }
                 Checked = !Checked;
-                AloneRadioButton.CheckedChangedEventHandler checkedChangedEvent = CheckedChangedEvent;
-                if (checkedChangedEvent != null)
-                {
-                    checkedChangedEvent(this, e);
-                }
+                CheckedChangedEvent?.Invoke(this, e);
             }
         }
 

@@ -162,19 +162,13 @@ namespace ReaLTaiizor.Controls
         public event EventHandler ValueChanged;
         private void OnValueChanged()
         {
-            if (ValueChanged != null)
-            {
-                ValueChanged(this, EventArgs.Empty);
-            }
+            ValueChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public event ScrollEventHandler Scroll;
         private void OnScroll(ScrollEventType scrollType, int newValue)
         {
-            if (Scroll != null)
-            {
-                Scroll(this, new ScrollEventArgs(scrollType, newValue));
-            }
+            Scroll?.Invoke(this, new ScrollEventArgs(scrollType, newValue));
         }
 
 
@@ -224,10 +218,7 @@ namespace ReaLTaiizor.Controls
                     if (trackerValue < barMinimum)
                     {
                         trackerValue = barMinimum;
-                        if (ValueChanged != null)
-                        {
-                            ValueChanged(this, new EventArgs());
-                        }
+                        ValueChanged?.Invoke(this, new EventArgs());
                     }
                     Invalidate();
                 }
@@ -252,10 +243,7 @@ namespace ReaLTaiizor.Controls
                     if (trackerValue > barMaximum)
                     {
                         trackerValue = barMaximum;
-                        if (ValueChanged != null)
-                        {
-                            ValueChanged(this, new EventArgs());
-                        }
+                        ValueChanged?.Invoke(this, new EventArgs());
                     }
                     Invalidate();
                 }

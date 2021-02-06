@@ -97,10 +97,7 @@ namespace ReaLTaiizor.Controls
 
                 UpdateThumb(true);
 
-                if (ValueChanged != null)
-                {
-                    ValueChanged(this, new ScrollValueEventArgs(Value));
-                }
+                ValueChanged?.Invoke(this, new ScrollValueEventArgs(Value));
             }
         }
 
@@ -587,10 +584,8 @@ namespace ReaLTaiizor.Controls
                     scrollColor = ThemeProvider.Theme.Colors.ActiveControl;
                 }
 
-                using (SolidBrush b = new(scrollColor))
-                {
-                    g.FillRectangle(b, _thumbArea);
-                }
+                using SolidBrush b = new(scrollColor);
+                g.FillRectangle(b, _thumbArea);
             }
         }
 

@@ -52,10 +52,7 @@ namespace ReaLTaiizor.Child.Crown
             {
                 _viewport = value;
 
-                if (ViewportChanged != null)
-                {
-                    ViewportChanged(this, null);
-                }
+                ViewportChanged?.Invoke(this, null);
             }
         }
 
@@ -69,10 +66,7 @@ namespace ReaLTaiizor.Child.Crown
                 _contentSize = value;
                 UpdateScrollBars();
 
-                if (ContentSizeChanged != null)
-                {
-                    ContentSizeChanged(this, null);
-                }
+                ContentSizeChanged?.Invoke(this, null);
             }
         }
 
@@ -429,7 +423,7 @@ namespace ReaLTaiizor.Child.Crown
                         difference = MaxDragChange;
                     }
 
-                    _vScrollBar.Value = _vScrollBar.Value - difference;
+                    _vScrollBar.Value -= difference;
                 }
 
                 // Scroll down
@@ -442,7 +436,7 @@ namespace ReaLTaiizor.Child.Crown
                         difference = MaxDragChange;
                     }
 
-                    _vScrollBar.Value = _vScrollBar.Value + difference;
+                    _vScrollBar.Value += difference;
                 }
             }
 
@@ -458,7 +452,7 @@ namespace ReaLTaiizor.Child.Crown
                         difference = MaxDragChange;
                     }
 
-                    _hScrollBar.Value = _hScrollBar.Value - difference;
+                    _hScrollBar.Value -= difference;
                 }
 
                 // Scroll right
@@ -471,7 +465,7 @@ namespace ReaLTaiizor.Child.Crown
                         difference = MaxDragChange;
                     }
 
-                    _hScrollBar.Value = _hScrollBar.Value + difference;
+                    _hScrollBar.Value += difference;
                 }
             }
         }

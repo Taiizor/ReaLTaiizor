@@ -162,8 +162,8 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        public PoisonScrollBar VerticalPoisonScrollbar = new PoisonScrollBar(ScrollOrientationType.Vertical);
-        private readonly PoisonScrollBar HorizontalPoisonScrollbar = new PoisonScrollBar(ScrollOrientationType.Horizontal);
+        public PoisonScrollBar VerticalPoisonScrollbar = new(ScrollOrientationType.Vertical);
+        private readonly PoisonScrollBar HorizontalPoisonScrollbar = new(ScrollOrientationType.Horizontal);
 
         private bool showHorizontalScrollbar = false;
         [DefaultValue(false)]
@@ -274,20 +274,14 @@ namespace ReaLTaiizor.Controls
         {
             AutoScrollPosition = new(e.NewValue, VerticalPoisonScrollbar.Value);
             UpdateScrollBarPositions();
-            if (HorizontalScrolled != null)
-            {
-                HorizontalScrolled(this, e);
-            }
+            HorizontalScrolled?.Invoke(this, e);
         }
 
         private void VerticalScrollbarScroll(object sender, ScrollEventArgs e)
         {
             AutoScrollPosition = new(HorizontalPoisonScrollbar.Value, e.NewValue);
             UpdateScrollBarPositions();
-            if (VerticalScrolled != null)
-            {
-                VerticalScrolled(this, e);
-            }
+            VerticalScrolled?.Invoke(this, e);
         }
 
         #endregion

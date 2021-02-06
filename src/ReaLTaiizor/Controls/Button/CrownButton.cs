@@ -376,12 +376,10 @@ namespace ReaLTaiizor.Controls
 
             if (ButtonStyle == ButtonStyle.Normal)
             {
-                using (Pen p = new(borderColor, 1))
-                {
-                    Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                using Pen p = new(borderColor, 1);
+                Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
 
-                    g.DrawRectangle(p, modRect);
-                }
+                g.DrawRectangle(p, modRect);
             }
 
             int textOffsetX = 0;
@@ -398,18 +396,18 @@ namespace ReaLTaiizor.Controls
                 {
                     case TextImageRelation.ImageAboveText:
                         textOffsetY = (Image.Size.Height / 2) + (ImagePadding / 2);
-                        y = y - ((int)(stringSize.Height / 2) + (ImagePadding / 2));
+                        y -= ((int)(stringSize.Height / 2) + (ImagePadding / 2));
                         break;
                     case TextImageRelation.TextAboveImage:
                         textOffsetY = ((Image.Size.Height / 2) + (ImagePadding / 2)) * -1;
-                        y = y + ((int)(stringSize.Height / 2) + (ImagePadding / 2));
+                        y += ((int)(stringSize.Height / 2) + (ImagePadding / 2));
                         break;
                     case TextImageRelation.ImageBeforeText:
                         textOffsetX = Image.Size.Width + (ImagePadding * 2);
                         x = ImagePadding;
                         break;
                     case TextImageRelation.TextBeforeImage:
-                        x = x + (int)stringSize.Width;
+                        x += (int)stringSize.Width;
                         break;
                 }
 

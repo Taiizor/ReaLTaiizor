@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Native
 
             public int Height => (bottom - top);
 
-            public Size Size => new Size(Width, Height);
+            public Size Size => new(Width, Height);
 
             public int Width => (right - left);
             private static T InlineAssignHelper<T>(ref T target, T value)
@@ -98,8 +98,8 @@ namespace ReaLTaiizor.Native
                 fTransitionOnMaximized = 0;
             }
 
-            public static DWM_BLURBEHIND Enable = new DWM_BLURBEHIND(true);
-            public static DWM_BLURBEHIND Disable = new DWM_BLURBEHIND(false);
+            public static DWM_BLURBEHIND Enable = new(true);
+            public static DWM_BLURBEHIND Disable = new(false);
 
             public const int DWM_BB_ENABLE = 1;
             public const int DWM_BB_BLURREGION = 2;

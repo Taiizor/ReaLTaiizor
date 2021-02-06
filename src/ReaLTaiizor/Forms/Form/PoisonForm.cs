@@ -111,7 +111,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        protected override Padding DefaultPadding => new Padding(20, DisplayHeader ? 60 : 20, 20, 20);
+        protected override Padding DefaultPadding => new(20, DisplayHeader ? 60 : 20, 20, 20);
 
         private bool displayHeader = true;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -329,19 +329,17 @@ namespace ReaLTaiizor.Forms
             {
                 Color c = PoisonPaint.BorderColor.Form(Theme);
 
-                using (Pen pen = new(c))
-                {
-                    e.Graphics.DrawLines
-                    (
-                        pen,
-                        new[]
-                        {
+                using Pen pen = new(c);
+                e.Graphics.DrawLines
+                (
+                    pen,
+                    new[]
+                    {
                             new Point(0, borderWidth),
                             new Point(0, Height - 1),
                             new Point(Width - 1, Height - 1),
                             new Point(Width - 1, borderWidth)
-                        });
-                }
+                    });
             }
 
             if (backImage != null && backMaxSize != 0)
@@ -378,22 +376,20 @@ namespace ReaLTaiizor.Forms
 
             if (Resizable && (SizeGripStyle == SizeGripStyle.Auto || SizeGripStyle == SizeGripStyle.Show))
             {
-                using (SolidBrush b = new(PoisonPaint.ForeColor.Button.Disabled(Theme)))
-                {
-                    Size resizeHandleSize = new(2, 2);
-                    e.Graphics.FillRectangles
-                    (
-                        b, new Rectangle[]
-                        {
+                using SolidBrush b = new(PoisonPaint.ForeColor.Button.Disabled(Theme));
+                Size resizeHandleSize = new(2, 2);
+                e.Graphics.FillRectangles
+                (
+                    b, new Rectangle[]
+                    {
                             new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-6), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-10,ClientRectangle.Height-10), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-10,ClientRectangle.Height-6), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-10), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-14,ClientRectangle.Height-6), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-14), resizeHandleSize)
-                        }
-                   );
-                }
+                    }
+               );
             }
         }
 
@@ -496,7 +492,7 @@ namespace ReaLTaiizor.Forms
             {
                 int val = 2;
                 DwmApi.DwmSetWindowAttribute(Handle, 2, ref val, 4);
-                DwmApi.MARGINS m = new DwmApi.MARGINS
+                DwmApi.MARGINS m = new()
                 {
                     cyBottomHeight = 1,
                     cxLeftWidth = 0,
@@ -686,7 +682,7 @@ namespace ReaLTaiizor.Forms
                 return false;
             }
 
-            DwmApi.DwmIsCompositionEnabled(out bool aeroEnabled);
+            _ = DwmApi.DwmIsCompositionEnabled(out bool aeroEnabled);
             return aeroEnabled;
         }
 
@@ -720,7 +716,7 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            PoisonFormButton newButton = new PoisonFormButton();
+            PoisonFormButton newButton = new();
 
             if (button == WindowButtons.Close)
             {
@@ -756,8 +752,7 @@ namespace ReaLTaiizor.Forms
 
         private void WindowButton_Click(object sender, EventArgs e)
         {
-            PoisonFormButton btn = sender as PoisonFormButton;
-            if (btn != null)
+            if (sender is PoisonFormButton btn)
             {
                 WindowButtons btnFlag = (WindowButtons)btn.Tag;
                 if (btnFlag == WindowButtons.Close)
@@ -791,7 +786,7 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            Dictionary<int, WindowButtons> priorityOrder = new Dictionary<int, WindowButtons>(3) { { 0, WindowButtons.Close }, { 1, WindowButtons.Maximize }, { 2, WindowButtons.Minimize } };
+            Dictionary<int, WindowButtons> priorityOrder = new(3) { { 0, WindowButtons.Close }, { 1, WindowButtons.Maximize }, { 2, WindowButtons.Minimize } };
 
             Point firstButtonLocation = new(ClientRectangle.Width - borderWidth - 25, borderWidth);
             int lastDrawedButtonPosition = firstButtonLocation.X - 25;
@@ -824,7 +819,7 @@ namespace ReaLTaiizor.Forms
                     }
 
                     windowButtonList[button.Value].Location = new(lastDrawedButtonPosition, borderWidth);
-                    lastDrawedButtonPosition = lastDrawedButtonPosition - 25;
+                    lastDrawedButtonPosition -= 25;
                 }
             }
 
@@ -998,9 +993,9 @@ namespace ReaLTaiizor.Forms
                 ThemeStyle _Theme = Theme;
                 if (Parent != null)
                 {
-                    if (Parent is IPoisonForm)
+                    if (Parent is IPoisonForm form)
                     {
-                        _Theme = ((IPoisonForm)Parent).Theme;
+                        _Theme = form.Theme;
                         backColor = PoisonPaint.BackColor.Form(_Theme);
                     }
                     else if (Parent is IPoisonControl)
@@ -1351,10 +1346,8 @@ namespace ReaLTaiizor.Forms
 
             protected override void PaintShadow()
             {
-                using (Bitmap getShadow = DrawBlurBorder())
-                {
-                    SetBitmap(getShadow, 255);
-                }
+                using Bitmap getShadow = DrawBlurBorder();
+                SetBitmap(getShadow, 255);
             }
 
             protected override void ClearShadow()
@@ -1388,10 +1381,10 @@ namespace ReaLTaiizor.Forms
                     hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));
                     oldBitmap = WinApi.SelectObject(memDc, hBitmap);
 
-                    WinApi.SIZE size = new WinApi.SIZE(bitmap.Width, bitmap.Height);
-                    WinApi.POINT pointSource = new WinApi.POINT(0, 0);
-                    WinApi.POINT topPos = new WinApi.POINT(Left, Top);
-                    WinApi.BLENDFUNCTION blend = new WinApi.BLENDFUNCTION
+                    WinApi.SIZE size = new(bitmap.Width, bitmap.Height);
+                    WinApi.POINT pointSource = new(0, 0);
+                    WinApi.POINT topPos = new(Left, Top);
+                    WinApi.BLENDFUNCTION blend = new()
                     {
                         BlendOp = WinApi.AC_SRC_OVER,
                         BlendFlags = 0,
@@ -1471,10 +1464,8 @@ namespace ReaLTaiizor.Forms
 
             protected override void PaintShadow()
             {
-                using (Bitmap getShadow = DrawBlurBorder())
-                {
-                    SetBitmap(getShadow, 255);
-                }
+                using Bitmap getShadow = DrawBlurBorder();
+                SetBitmap(getShadow, 255);
             }
 
             protected override void ClearShadow()
@@ -1508,10 +1499,10 @@ namespace ReaLTaiizor.Forms
                     hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));
                     oldBitmap = WinApi.SelectObject(memDc, hBitmap);
 
-                    WinApi.SIZE size = new WinApi.SIZE(bitmap.Width, bitmap.Height);
-                    WinApi.POINT pointSource = new WinApi.POINT(0, 0);
-                    WinApi.POINT topPos = new WinApi.POINT(Left, Top);
-                    WinApi.BLENDFUNCTION blend = new WinApi.BLENDFUNCTION
+                    WinApi.SIZE size = new(bitmap.Width, bitmap.Height);
+                    WinApi.POINT pointSource = new(0, 0);
+                    WinApi.POINT topPos = new(Left, Top);
+                    WinApi.BLENDFUNCTION blend = new()
                     {
                         BlendOp = WinApi.AC_SRC_OVER,
                         BlendFlags = 0,
@@ -1538,7 +1529,7 @@ namespace ReaLTaiizor.Forms
                 return (Bitmap)DrawOutsetShadow(0, 0, 40, 1, Color.Black, new Rectangle(1, 1, ClientRectangle.Width, ClientRectangle.Height));
             }
 
-            private Image DrawOutsetShadow(int hShadow, int vShadow, int blur, int spread, Color color, Rectangle shadowCanvasArea)
+            private static Image DrawOutsetShadow(int hShadow, int vShadow, int blur, int spread, Color color, Rectangle shadowCanvasArea)
             {
                 Rectangle rOuter = shadowCanvasArea;
                 Rectangle rInner = shadowCanvasArea;
@@ -1574,7 +1565,7 @@ namespace ReaLTaiizor.Forms
                 return img;
             }
 
-            private void DrawRoundedRectangle(Graphics g, Rectangle bounds, int cornerRadius, Pen drawPen, Color fillColor)
+            private static void DrawRoundedRectangle(Graphics g, Rectangle bounds, int cornerRadius, Pen drawPen, Color fillColor)
             {
                 int strokeOffset = Convert.ToInt32(Math.Ceiling(drawPen.Width));
                 bounds = Rectangle.Inflate(bounds, -strokeOffset, -strokeOffset);
@@ -1597,18 +1588,14 @@ namespace ReaLTaiizor.Forms
 
                 if (cornerRadius > 5)
                 {
-                    using (SolidBrush b = new(fillColor))
-                    {
-                        g.FillPath(b, gfxPath);
-                    }
+                    using SolidBrush b = new(fillColor);
+                    g.FillPath(b, gfxPath);
                 }
                 if (drawPen != Pens.Transparent)
                 {
-                    using (Pen p = new(drawPen.Color))
-                    {
-                        p.EndCap = p.StartCap = LineCap.Round;
-                        g.DrawPath(p, gfxPath);
-                    }
+                    using Pen p = new(drawPen.Color);
+                    p.EndCap = p.StartCap = LineCap.Round;
+                    g.DrawPath(p, gfxPath);
                 }
             }
 
@@ -1641,7 +1628,7 @@ namespace ReaLTaiizor.Forms
             WinApi.DrawMenuBar(Handle);
         }
 
-        private Rectangle MeasureText(Graphics g, Rectangle clientRectangle, Font font, string text, TextFormatFlags flags)
+        private static Rectangle MeasureText(Graphics g, Rectangle clientRectangle, Font font, string text, TextFormatFlags flags)
         {
             Size proposedSize = new(int.MaxValue, int.MinValue);
             Size actualSize = TextRenderer.MeasureText(g, text, font, proposedSize, flags);

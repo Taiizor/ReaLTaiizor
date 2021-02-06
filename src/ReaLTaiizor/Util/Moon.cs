@@ -1785,12 +1785,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private readonly Dictionary<string, Color> Items = new Dictionary<string, Color>();
+        private readonly Dictionary<string, Color> Items = new();
         public BloomMoon[] Colors
         {
             get
             {
-                List<BloomMoon> T = new List<BloomMoon>();
+                List<BloomMoon> T = new();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
@@ -2460,14 +2460,14 @@ namespace ReaLTaiizor.Util
         private static int Frames;
         private static bool Invalidate;
 
-        public static PrecisionTimerMoon ThemeTimer = new PrecisionTimerMoon();
+        public static PrecisionTimerMoon ThemeTimer = new();
         //1000 / 50 = 20 FPS
         private const int FPS = 50;
 
         private const int Rate = 50;
 
         public delegate void AnimationDelegate(bool invalidate);
-        private static readonly List<AnimationDelegate> Callbacks = new List<AnimationDelegate>();
+        private static readonly List<AnimationDelegate> Callbacks = new();
 
         private static void HandleCallbacks(IntPtr state, bool reserve)
         {
@@ -2628,7 +2628,7 @@ namespace ReaLTaiizor.Util
         }
 
 
-        private void ThrowNewException(string name)
+        private static void ThrowNewException(string name)
         {
         }
 

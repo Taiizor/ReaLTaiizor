@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Design.Poison
     {
         #region Fields
 
-        private readonly DesignerVerbCollection designerVerbs = new DesignerVerbCollection();
+        private readonly DesignerVerbCollection designerVerbs = new();
 
         private IDesignerHost designerHost;
 
@@ -39,9 +39,9 @@ namespace ReaLTaiizor.Design.Poison
             }
         }
 
-        public IDesignerHost DesignerHost => designerHost ?? (designerHost = (IDesignerHost)(GetService(typeof(IDesignerHost))));
+        public IDesignerHost DesignerHost => designerHost ??= (IDesignerHost)(GetService(typeof(IDesignerHost)));
 
-        public ISelectionService SelectionService => selectionService ?? (selectionService = (ISelectionService)(GetService(typeof(ISelectionService))));
+        public ISelectionService SelectionService => selectionService ??= (ISelectionService)(GetService(typeof(ISelectionService)));
 
         #endregion
 
@@ -49,8 +49,8 @@ namespace ReaLTaiizor.Design.Poison
 
         public PoisonTabControlDesigner()
         {
-            DesignerVerb verb1 = new DesignerVerb("Add Tab", OnAddPage);
-            DesignerVerb verb2 = new DesignerVerb("Remove Tab", OnRemovePage);
+            DesignerVerb verb1 = new("Add Tab", OnAddPage);
+            DesignerVerb verb2 = new("Remove Tab", OnRemovePage);
             designerVerbs.AddRange
             (
                 new[]
@@ -114,15 +114,11 @@ namespace ReaLTaiizor.Design.Poison
         {
             PoisonTabControl parentControl = (PoisonTabControl)Control;
 
-            switch (parentControl.TabPages.Count)
+            Verbs[1].Enabled = parentControl.TabPages.Count switch
             {
-                case 0:
-                    Verbs[1].Enabled = false;
-                    break;
-                default:
-                    Verbs[1].Enabled = true;
-                    break;
-            }
+                0 => false,
+                _ => true,
+            };
         }
 
         #endregion
@@ -148,13 +144,13 @@ namespace ReaLTaiizor.Design.Poison
         {
             if (SelectionService.PrimarySelection == Control)
             {
-                WinApi.TCHITTESTINFO hti = new WinApi.TCHITTESTINFO
+                WinApi.TCHITTESTINFO hti = new()
                 {
                     pt = Control.PointToClient(point),
                     flags = 0
                 };
 
-                Message m = new Message
+                Message m = new()
                 {
                     HWnd = Control.Handle,
                     Msg = WinApi.TCM_HITTEST

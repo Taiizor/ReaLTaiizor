@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
 
         private bool _readOnly;
 
-        public virtual System.Windows.Forms.TextBox TB
+        public virtual TextBox TB
         {
             [CompilerGenerated]
             get => _TB;
@@ -55,11 +55,11 @@ namespace ReaLTaiizor.Controls
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                EventHandler value2 = delegate (object a0, EventArgs a1)
+                void value2(object a0, EventArgs a1)
                 {
                     TextChangeTb();
-                };
-                System.Windows.Forms.TextBox tB = _TB;
+                }
+                TextBox tB = _TB;
                 if (tB != null)
                 {
                     tB.TextChanged -= value2;
@@ -246,26 +246,20 @@ namespace ReaLTaiizor.Controls
                 bool flag = State == AloneTextBox.MouseState.Down;
                 if (flag)
                 {
-                    using (Pen pen = new(AloneLibrary.ColorFromHex("#78B7E6")))
-                    {
-                        G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
-                    }
+                    using Pen pen = new(AloneLibrary.ColorFromHex("#78B7E6"));
+                    G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
                 }
                 else
                 {
-                    using (Pen pen2 = new(AloneLibrary.ColorFromHex("#D0D5D9")))
-                    {
-                        G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
-                    }
+                    using Pen pen2 = new(AloneLibrary.ColorFromHex("#D0D5D9"));
+                    G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
                 }
             }
             else
             {
                 TB.ForeColor = ForeColor;
-                using (Pen pen3 = new(AloneLibrary.ColorFromHex("#E1E1E2")))
-                {
-                    G.DrawPath(pen3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
-                }
+                using Pen pen3 = new(AloneLibrary.ColorFromHex("#E1E1E2"));
+                G.DrawPath(pen3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
             }
             TB.TextAlign = TextAlign;
             TB.UseSystemPasswordChar = UseSystemPasswordChar;

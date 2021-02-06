@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Forms
         private const int WMSZ_BOTTOMLEFT = 7;
         private const int WMSZ_BOTTOMRIGHT = 8;
 
-        private readonly Dictionary<int, int> _resizingLocationsToCmd = new Dictionary<int, int>
+        private readonly Dictionary<int, int> _resizingLocationsToCmd = new()
         {
             {HTTOP,         WMSZ_TOP},
             {HTTOPLEFT,     WMSZ_TOPLEFT},
@@ -112,8 +112,8 @@ namespace ReaLTaiizor.Forms
         public class MONITORINFOEX
         {
             public int cbSize = Marshal.SizeOf(typeof(MONITORINFOEX));
-            public RECT rcMonitor = new RECT();
-            public RECT rcWork = new RECT();
+            public RECT rcMonitor = new();
+            public RECT rcWork = new();
             public int dwFlags = 0;
 
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -167,7 +167,7 @@ namespace ReaLTaiizor.Forms
         private Rectangle _xButtonBounds;
         private Rectangle _actionBarBounds;
 
-        public Rectangle UserArea => new Rectangle(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
+        public Rectangle UserArea => new(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
 
         private Rectangle _statusBarBounds;
         private bool _maximized;
@@ -321,7 +321,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private readonly MaterialDrawer drawerControl = new MaterialDrawer();
+        private readonly MaterialDrawer drawerControl = new();
 
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
@@ -330,8 +330,8 @@ namespace ReaLTaiizor.Forms
 
         protected void AddDrawerOverlayForm()
         {
-            Form drawerOverlay = new Form();
-            Form drawerForm = new Form();
+            Form drawerOverlay = new();
+            Form drawerForm = new();
 
             if (DrawerTabControl == null)
             {
@@ -692,7 +692,7 @@ namespace ReaLTaiizor.Forms
             }
             // Convert to client position and pass to Form.MouseMove
             Point clientCursorPos = PointToClient(e.Location);
-            MouseEventArgs newE = new MouseEventArgs(MouseButtons.None, 0, clientCursorPos.X, clientCursorPos.Y, 0);
+            MouseEventArgs newE = new(MouseButtons.None, 0, clientCursorPos.X, clientCursorPos.Y, 0);
             OnMouseMove(newE);
         }
 
@@ -792,7 +792,7 @@ namespace ReaLTaiizor.Forms
             if (maximize)
             {
                 IntPtr monitorHandle = MonitorFromWindow(Handle, MONITOR_DEFAULTTONEAREST);
-                MONITORINFOEX monitorInfo = new MONITORINFOEX();
+                MONITORINFOEX monitorInfo = new();
                 GetMonitorInfo(new HandleRef(null, monitorHandle), monitorInfo);
                 _previousSize = Size;
                 _previousLocation = Location;
@@ -985,32 +985,30 @@ namespace ReaLTaiizor.Forms
                     rippleBrush.Dispose();
                 }
 
-                using (Pen formButtonsPen = new(SkinManager.ColorScheme.TextColor, 2))
-                {
-                    // Middle line
-                    g.DrawLine(
-                       formButtonsPen,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2),
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2));
+                using Pen formButtonsPen = new(SkinManager.ColorScheme.TextColor, 2);
+                // Middle line
+                g.DrawLine(
+                   formButtonsPen,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2),
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2));
 
-                    // Bottom line
-                    g.DrawLine(
-                       formButtonsPen,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6);
+                // Bottom line
+                g.DrawLine(
+                   formButtonsPen,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6);
 
-                    // Top line
-                    g.DrawLine(
-                       formButtonsPen,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
-                }
+                // Top line
+                g.DrawLine(
+                   formButtonsPen,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
             }
 
             //Form title

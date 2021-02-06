@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Design.Metro
     {
         private DesignerActionListCollection _actionListCollection;
 
-        public override DesignerActionListCollection ActionLists => _actionListCollection ?? (_actionListCollection = new DesignerActionListCollection { new MetroStyleManagerActionList(Component) });
+        public override DesignerActionListCollection ActionLists => _actionListCollection ??= new DesignerActionListCollection { new MetroStyleManagerActionList(Component) };
     }
 
     #endregion

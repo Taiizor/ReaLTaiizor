@@ -106,18 +106,12 @@ namespace ReaLTaiizor.Helper
 
             public void OnPropertyChangedInstance(string name)
             {
-                if (PropertyChangedInstance != null)
-                {
-                    PropertyChangedInstance(this, new PropertyChangedEventArgs(name));
-                }
+                PropertyChangedInstance?.Invoke(this, new PropertyChangedEventArgs(name));
             }
 
             public static void OnPropertyChanged(string name)
             {
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(null, new PropertyChangedEventArgs(name));
-                }
+                PropertyChanged?.Invoke(null, new PropertyChangedEventArgs(name));
             }
 
             private static ITheme _Theme;

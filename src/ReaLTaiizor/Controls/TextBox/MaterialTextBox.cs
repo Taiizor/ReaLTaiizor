@@ -133,7 +133,7 @@ namespace ReaLTaiizor.Controls
                     (int)(LINE_Y / 3.5) : // No hint and tall
                     Height / 5, // not tall
                     ClientSize.Width - (SkinManager.FORM_PADDING * 2), LINE_Y);
-            RECT rc = new RECT(rect);
+            RECT rc = new(rect);
             SendMessageRefRect(Handle, EM_SETRECT, 0, ref rc);
 
             // events
@@ -300,16 +300,14 @@ namespace ReaLTaiizor.Controls
                 g.FillRectangle(UseAccent ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.DarkPrimaryBrush, textSelectRect);
 
                 // Draw Selected Text
-                using (MaterialNativeTextRenderer NativeText = new(g))
-                {
-                    NativeText.DrawTransparentText(
-                        textSelected,
-                        SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1),
-                        SkinManager.ColorScheme.TextColor,
-                        textSelectRect.Location,
-                        textSelectRect.Size,
-                        MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                }
+                using MaterialNativeTextRenderer NativeText = new(g);
+                NativeText.DrawTransparentText(
+                    textSelected,
+                    SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1),
+                    SkinManager.ColorScheme.TextColor,
+                    textSelectRect.Location,
+                    textSelectRect.Size,
+                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
 
             g.Clip = new(ClientRectangle);
@@ -317,20 +315,18 @@ namespace ReaLTaiizor.Controls
             // Draw hint text
             if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))
             {
-                using (MaterialNativeTextRenderer NativeText = new(g))
-                {
-                    NativeText.DrawTransparentText(
-                    Hint,
-                    SkinManager.getTextBoxFontBySize(hintTextSize),
-                    Enabled ? Focused ? UseAccent ?
-                    SkinManager.ColorScheme.AccentColor : // Focus Accent
-                    SkinManager.ColorScheme.PrimaryColor : // Focus Primary
-                    SkinManager.TextMediumEmphasisColor : // not focused
-                    SkinManager.TextDisabledOrHintColor, // Disabled
-                    hintRect.Location,
-                    hintRect.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                }
+                using MaterialNativeTextRenderer NativeText = new(g);
+                NativeText.DrawTransparentText(
+                Hint,
+                SkinManager.getTextBoxFontBySize(hintTextSize),
+                Enabled ? Focused ? UseAccent ?
+                SkinManager.ColorScheme.AccentColor : // Focus Accent
+                SkinManager.ColorScheme.PrimaryColor : // Focus Primary
+                SkinManager.TextMediumEmphasisColor : // not focused
+                SkinManager.TextDisabledOrHintColor, // Disabled
+                hintRect.Location,
+                hintRect.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
         }
 

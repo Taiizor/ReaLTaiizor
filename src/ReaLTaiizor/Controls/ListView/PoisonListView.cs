@@ -262,7 +262,7 @@ namespace ReaLTaiizor.Controls
 
         private int _disableChangeEvents = 0;
 
-        private readonly PoisonScrollBar _vScrollbar = new PoisonScrollBar();
+        private readonly PoisonScrollBar _vScrollbar = new();
 
         private void BeginDisableChangeEvents()
         {
@@ -366,10 +366,7 @@ namespace ReaLTaiizor.Controls
 
             UpdateScrollbar();
 
-            if (ItemAdded != null)
-            {
-                ItemAdded(this);
-            }
+            ItemAdded?.Invoke(this);
         }
 
         protected void OnItemsRemoved()
@@ -381,10 +378,7 @@ namespace ReaLTaiizor.Controls
 
             UpdateScrollbar();
 
-            if (ItemsRemoved != null)
-            {
-                ItemsRemoved(this);
-            }
+            ItemsRemoved?.Invoke(this);
         }
 
         protected override void OnMouseWheel(MouseEventArgs e)
@@ -403,10 +397,7 @@ namespace ReaLTaiizor.Controls
             {
                 GetScrollPosition(out int min, out int max, out int pos, out int smallchange, out int largechange);
 
-                if (ScrollPositionChanged != null)
-                {
-                    ScrollPositionChanged(this, pos);
-                }
+                ScrollPositionChanged?.Invoke(this, pos);
 
                 if (_vScrollbar != null)
                 {
@@ -602,18 +593,15 @@ namespace ReaLTaiizor.Controls
                             fillColor = Color.White;
                         }
 
-                        using (SolidBrush b = new(fillColor))
-                        {
-                            _top = (e.Bounds.Height / 2) - 4;
-                            Rectangle boxRect = new(e.Bounds.X + 4, e.Bounds.Y + _top, 9, 9);
-                            e.Graphics.FillRectangle(b, boxRect);
-                        }
+                        using SolidBrush b = new(fillColor);
+                        _top = (e.Bounds.Height / 2) - 4;
+                        Rectangle boxRect = new(e.Bounds.X + 4, e.Bounds.Y + _top, 9, 9);
+                        e.Graphics.FillRectangle(b, boxRect);
                     }
                 }
 
                 if (SmallImageList != null)
                 {
-                    int _top = 0;
                     Image _img = null;
                     if (e.Item.ImageIndex > -1)
                     {
@@ -628,7 +616,7 @@ namespace ReaLTaiizor.Controls
                     if (_img != null)
                     {
                         _left += _left > 0 ? 4 : 2;
-                        _top = (e.Item.Bounds.Height - _img.Height) / 2;
+                        int _top = (e.Item.Bounds.Height - _img.Height) / 2;
                         e.Graphics.DrawImage(_img, new Rectangle(e.Item.Bounds.Left + _left, e.Item.Bounds.Top + _top, _img.Width, _img.Height));
 
                         _left += SmallImageList.ImageSize.Width;
@@ -642,37 +630,25 @@ namespace ReaLTaiizor.Controls
                     _colWidth = Columns[e.ColumnIndex].Width;
                 }
 
-                using (StringFormat sf = new())
+                using StringFormat sf = new();
+                //TextFormatFlags flags = TextFormatFlags.Left;
+
+                sf.Alignment = e.Header.TextAlign switch
                 {
-                    //TextFormatFlags flags = TextFormatFlags.Left;
-
-                    switch (e.Header.TextAlign)
-                    {
-                        case HorizontalAlignment.Center:
-                            sf.Alignment = StringAlignment.Center;
-                            //flags = TextFormatFlags.HorizontalCenter;
-                            break;
-                        case HorizontalAlignment.Right:
-                            sf.Alignment = StringAlignment.Far;
-                            //flags = TextFormatFlags.Right;
-                            break;
-                        default:
-                            sf.Alignment = StringAlignment.Near;
-                            //flags = TextFormatFlags.Left;
-                            break;
-                    }
-
-                    if (e.ColumnIndex > 0 && double.TryParse(e.SubItem.Text, NumberStyles.Currency, NumberFormatInfo.CurrentInfo, out double subItemValue))
-                    {
-                        sf.Alignment = StringAlignment.Far;
-                        //flags = TextFormatFlags.Right;
-                    }
-
-
-                    //TextFormatFlags align = TextFormatFlags.Left;
-                    Rectangle rect = new(e.Bounds.X + _left, e.Bounds.Y, _colWidth - _ded, e.Item.Bounds.Height);
-                    TextRenderer.DrawText(e.Graphics, e.SubItem.Text, stdFont, rect, itemForeColor, align | TextFormatFlags.SingleLine | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.VerticalCenter | TextFormatFlags.WordEllipsis);
+                    HorizontalAlignment.Center => StringAlignment.Center,
+                    HorizontalAlignment.Right => StringAlignment.Far,
+                    _ => StringAlignment.Near,
+                };
+                if (e.ColumnIndex > 0 && double.TryParse(e.SubItem.Text, NumberStyles.Currency, NumberFormatInfo.CurrentInfo, out double subItemValue))
+                {
+                    sf.Alignment = StringAlignment.Far;
+                    //flags = TextFormatFlags.Right;
                 }
+
+
+                //TextFormatFlags align = TextFormatFlags.Left;
+                Rectangle rect = new(e.Bounds.X + _left, e.Bounds.Y, _colWidth - _ded, e.Item.Bounds.Height);
+                TextRenderer.DrawText(e.Graphics, e.SubItem.Text, stdFont, rect, itemForeColor, align | TextFormatFlags.SingleLine | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.VerticalCenter | TextFormatFlags.WordEllipsis);
             }
             else
             {
@@ -709,12 +685,10 @@ namespace ReaLTaiizor.Controls
 
                     if (e.Item.Checked)
                     {
-                        using (SolidBrush b = new(fillColor))
-                        {
-                            _top = (e.Bounds.Height / 2) - 4;
-                            Rectangle boxRect = new(e.Bounds.X + 4, e.Bounds.Y + _top, 9, 9);
-                            e.Graphics.FillRectangle(b, boxRect);
-                        }
+                        using SolidBrush b = new(fillColor);
+                        _top = (e.Bounds.Height / 2) - 4;
+                        Rectangle boxRect = new(e.Bounds.X + 4, e.Bounds.Y + _top, 9, 9);
+                        e.Graphics.FillRectangle(b, boxRect);
                     }
                 }
 
@@ -827,13 +801,11 @@ namespace ReaLTaiizor.Controls
                             fillColor = Color.White;
                         }
 
-                        using (SolidBrush b = new(fillColor))
-                        {
-                            _top = (e.Bounds.Height / 2) - 4;
+                        using SolidBrush b = new(fillColor);
+                        _top = (e.Bounds.Height / 2) - 4;
 
-                            Rectangle boxRect = new(e.Bounds.X + 8, e.Bounds.Y + _top, 9, 9);
-                            e.Graphics.FillRectangle(b, boxRect);
-                        }
+                        Rectangle boxRect = new(e.Bounds.X + 8, e.Bounds.Y + _top, 9, 9);
+                        e.Graphics.FillRectangle(b, boxRect);
                     }
 
                     Rectangle rect = new(e.Bounds.X + 23, e.Bounds.Y + 1, e.Bounds.Width, e.Bounds.Height);
@@ -851,11 +823,9 @@ namespace ReaLTaiizor.Controls
             Color _headColor = PoisonPaint.ForeColor.Button.Press(Theme);
             e.Graphics.FillRectangle(new SolidBrush(PoisonPaint.GetStyleColor(Style)), e.Bounds);
 
-            using (StringFormat sf = new())
-            {
-                sf.Alignment = StringAlignment.Center;
-                e.Graphics.DrawString(e.Header.Text, stdFont, new SolidBrush(_headColor), e.Bounds, sf);
-            }
+            using StringFormat sf = new();
+            sf.Alignment = StringAlignment.Center;
+            e.Graphics.DrawString(e.Header.Text, stdFont, new SolidBrush(_headColor), e.Bounds, sf);
         }
     }
 

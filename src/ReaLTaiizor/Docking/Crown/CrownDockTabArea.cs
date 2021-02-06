@@ -16,10 +16,10 @@ namespace ReaLTaiizor.Docking.Crown
     {
         #region Field Region
 
-        private readonly Dictionary<CrownDockContent, CrownDockTab> _tabs = new Dictionary<CrownDockContent, CrownDockTab>();
+        private readonly Dictionary<CrownDockContent, CrownDockTab> _tabs = new();
 
-        private readonly List<ToolStripMenuItem> _menuItems = new List<ToolStripMenuItem>();
-        private readonly CrownContextMenuStrip _tabMenu = new CrownContextMenuStrip();
+        private readonly List<ToolStripMenuItem> _menuItems = new();
+        private readonly CrownContextMenuStrip _tabMenu = new();
 
         #endregion
 
@@ -95,7 +95,7 @@ namespace ReaLTaiizor.Docking.Crown
         {
             _tabMenu.Items.Clear();
 
-            List<ToolStripMenuItem> orderedItems = new List<ToolStripMenuItem>();
+            List<ToolStripMenuItem> orderedItems = new();
 
             int index = 0;
             for (int i = 0; i < _menuItems.Count; i++)

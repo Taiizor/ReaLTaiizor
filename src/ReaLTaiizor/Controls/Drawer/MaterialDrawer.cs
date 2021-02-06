@@ -211,11 +211,11 @@ namespace ReaLTaiizor.Controls
                     new float[] {   0,   0,   0,   1,  0}, // alpha scale factor
                     new float[] {   r,   g,   b,   0,  1}};// offset
 
-            ColorMatrix colorMatrixGray = new ColorMatrix(matrixGray);
-            ColorMatrix colorMatrixColor = new ColorMatrix(matrixColor);
+            ColorMatrix colorMatrixGray = new(matrixGray);
+            ColorMatrix colorMatrixColor = new(matrixColor);
 
-            ImageAttributes grayImageAttributes = new ImageAttributes();
-            ImageAttributes colorImageAttributes = new ImageAttributes();
+            ImageAttributes grayImageAttributes = new();
+            ImageAttributes colorImageAttributes = new();
 
             // Set color matrices
             grayImageAttributes.SetColorMatrix(colorMatrixGray, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
@@ -264,8 +264,8 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // added processed image to brush for drawing
-                TextureBrush textureBrushGray = new TextureBrush(bgray);
-                TextureBrush textureBrushColor = new TextureBrush(bcolor);
+                TextureBrush textureBrushGray = new(bgray);
+                TextureBrush textureBrushColor = new(bcolor);
 
                 textureBrushGray.WrapMode = WrapMode.Clamp;
                 textureBrushColor.WrapMode = WrapMode.Clamp;
@@ -515,10 +515,8 @@ namespace ReaLTaiizor.Controls
             // Draw divider if not using colors
             if (!UseColors)
             {
-                using (Pen dividerPen = new(SkinManager.DividersColor, 1))
-                {
-                    g.DrawLine(dividerPen, Width - 1, 0, Width - 1, Height);
-                }
+                using Pen dividerPen = new(SkinManager.DividersColor, 1);
+                g.DrawLine(dividerPen, Width - 1, 0, Width - 1, Height);
             }
 
             // Animate tab indicator

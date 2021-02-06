@@ -838,155 +838,68 @@ namespace ReaLTaiizor.Drawing.Poison
 
         public static Color GetStyleColor(ColorStyle style)
         {
-            switch (style)
+            return style switch
             {
-                case ColorStyle.Black:
-                    return PoisonColors.Black;
-
-                case ColorStyle.White:
-                    return PoisonColors.White;
-
-                case ColorStyle.Silver:
-                    return PoisonColors.Silver;
-
-                case ColorStyle.Blue:
-                    return PoisonColors.Blue;
-
-                case ColorStyle.Green:
-                    return PoisonColors.Green;
-
-                case ColorStyle.Lime:
-                    return PoisonColors.Lime;
-
-                case ColorStyle.Teal:
-                    return PoisonColors.Teal;
-
-                case ColorStyle.Orange:
-                    return PoisonColors.Orange;
-
-                case ColorStyle.Brown:
-                    return PoisonColors.Brown;
-
-                case ColorStyle.Pink:
-                    return PoisonColors.Pink;
-
-                case ColorStyle.Magenta:
-                    return PoisonColors.Magenta;
-
-                case ColorStyle.Purple:
-                    return PoisonColors.Purple;
-
-                case ColorStyle.Red:
-                    return PoisonColors.Red;
-
-                case ColorStyle.Yellow:
-                    return PoisonColors.Yellow;
-
-                default:
-                    return PoisonColors.Blue;
-            }
+                ColorStyle.Black => PoisonColors.Black,
+                ColorStyle.White => PoisonColors.White,
+                ColorStyle.Silver => PoisonColors.Silver,
+                ColorStyle.Blue => PoisonColors.Blue,
+                ColorStyle.Green => PoisonColors.Green,
+                ColorStyle.Lime => PoisonColors.Lime,
+                ColorStyle.Teal => PoisonColors.Teal,
+                ColorStyle.Orange => PoisonColors.Orange,
+                ColorStyle.Brown => PoisonColors.Brown,
+                ColorStyle.Pink => PoisonColors.Pink,
+                ColorStyle.Magenta => PoisonColors.Magenta,
+                ColorStyle.Purple => PoisonColors.Purple,
+                ColorStyle.Red => PoisonColors.Red,
+                ColorStyle.Yellow => PoisonColors.Yellow,
+                _ => PoisonColors.Blue,
+            };
         }
 
         public static SolidBrush GetStyleBrush(ColorStyle style)
         {
-            switch (style)
+            return style switch
             {
-                case ColorStyle.Black:
-                    return PoisonBrushes.Black;
-
-                case ColorStyle.White:
-                    return PoisonBrushes.White;
-
-                case ColorStyle.Silver:
-                    return PoisonBrushes.Silver;
-
-                case ColorStyle.Blue:
-                    return PoisonBrushes.Blue;
-
-                case ColorStyle.Green:
-                    return PoisonBrushes.Green;
-
-                case ColorStyle.Lime:
-                    return PoisonBrushes.Lime;
-
-                case ColorStyle.Teal:
-                    return PoisonBrushes.Teal;
-
-                case ColorStyle.Orange:
-                    return PoisonBrushes.Orange;
-
-                case ColorStyle.Brown:
-                    return PoisonBrushes.Brown;
-
-                case ColorStyle.Pink:
-                    return PoisonBrushes.Pink;
-
-                case ColorStyle.Magenta:
-                    return PoisonBrushes.Magenta;
-
-                case ColorStyle.Purple:
-                    return PoisonBrushes.Purple;
-
-                case ColorStyle.Red:
-                    return PoisonBrushes.Red;
-
-                case ColorStyle.Yellow:
-                    return PoisonBrushes.Yellow;
-
-                default:
-                    return PoisonBrushes.Blue;
-            }
+                ColorStyle.Black => PoisonBrushes.Black,
+                ColorStyle.White => PoisonBrushes.White,
+                ColorStyle.Silver => PoisonBrushes.Silver,
+                ColorStyle.Blue => PoisonBrushes.Blue,
+                ColorStyle.Green => PoisonBrushes.Green,
+                ColorStyle.Lime => PoisonBrushes.Lime,
+                ColorStyle.Teal => PoisonBrushes.Teal,
+                ColorStyle.Orange => PoisonBrushes.Orange,
+                ColorStyle.Brown => PoisonBrushes.Brown,
+                ColorStyle.Pink => PoisonBrushes.Pink,
+                ColorStyle.Magenta => PoisonBrushes.Magenta,
+                ColorStyle.Purple => PoisonBrushes.Purple,
+                ColorStyle.Red => PoisonBrushes.Red,
+                ColorStyle.Yellow => PoisonBrushes.Yellow,
+                _ => PoisonBrushes.Blue,
+            };
         }
 
         public static Pen GetStylePen(ColorStyle style)
         {
-            switch (style)
+            return style switch
             {
-                case ColorStyle.Black:
-                    return PoisonPens.Black;
-
-                case ColorStyle.White:
-                    return PoisonPens.White;
-
-                case ColorStyle.Silver:
-                    return PoisonPens.Silver;
-
-                case ColorStyle.Blue:
-                    return PoisonPens.Blue;
-
-                case ColorStyle.Green:
-                    return PoisonPens.Green;
-
-                case ColorStyle.Lime:
-                    return PoisonPens.Lime;
-
-                case ColorStyle.Teal:
-                    return PoisonPens.Teal;
-
-                case ColorStyle.Orange:
-                    return PoisonPens.Orange;
-
-                case ColorStyle.Brown:
-                    return PoisonPens.Brown;
-
-                case ColorStyle.Pink:
-                    return PoisonPens.Pink;
-
-                case ColorStyle.Magenta:
-                    return PoisonPens.Magenta;
-
-                case ColorStyle.Purple:
-                    return PoisonPens.Purple;
-
-                case ColorStyle.Red:
-                    return PoisonPens.Red;
-
-                case ColorStyle.Yellow:
-                    return PoisonPens.Yellow;
-
-                default:
-                    return PoisonPens.Blue;
-            }
+                ColorStyle.Black => PoisonPens.Black,
+                ColorStyle.White => PoisonPens.White,
+                ColorStyle.Silver => PoisonPens.Silver,
+                ColorStyle.Blue => PoisonPens.Blue,
+                ColorStyle.Green => PoisonPens.Green,
+                ColorStyle.Lime => PoisonPens.Lime,
+                ColorStyle.Teal => PoisonPens.Teal,
+                ColorStyle.Orange => PoisonPens.Orange,
+                ColorStyle.Brown => PoisonPens.Brown,
+                ColorStyle.Pink => PoisonPens.Pink,
+                ColorStyle.Magenta => PoisonPens.Magenta,
+                ColorStyle.Purple => PoisonPens.Purple,
+                ColorStyle.Red => PoisonPens.Red,
+                ColorStyle.Yellow => PoisonPens.Yellow,
+                _ => PoisonPens.Blue,
+            };
         }
 
         public static StringFormat GetStringFormat(ContentAlignment textAlign)

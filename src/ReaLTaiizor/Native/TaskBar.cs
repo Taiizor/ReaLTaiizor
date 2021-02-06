@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Native
         {
             IntPtr taskbarHandle = WinApi.FindWindow(ClassName, null);
 
-            WinApi.APPBARDATA data = new WinApi.APPBARDATA
+            WinApi.APPBARDATA data = new()
             {
                 cbSize = (uint)Marshal.SizeOf(typeof(WinApi.APPBARDATA)),
                 hWnd = taskbarHandle

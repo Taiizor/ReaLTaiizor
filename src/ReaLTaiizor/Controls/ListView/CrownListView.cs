@@ -153,10 +153,7 @@ namespace ReaLTaiizor.Controls
                 {
                     _selectedIndices.Clear();
 
-                    if (SelectedIndicesChanged != null)
-                    {
-                        SelectedIndicesChanged(this, null);
-                    }
+                    SelectedIndicesChanged?.Invoke(this, null);
                 }
             }
 
@@ -288,10 +285,7 @@ namespace ReaLTaiizor.Controls
             _selectedIndices.Clear();
             _selectedIndices.Add(index);
 
-            if (SelectedIndicesChanged != null)
-            {
-                SelectedIndicesChanged(this, null);
-            }
+            SelectedIndicesChanged?.Invoke(this, null);
 
             _anchoredItemStart = index;
             _anchoredItemEnd = index;
@@ -315,10 +309,7 @@ namespace ReaLTaiizor.Controls
                 _selectedIndices.Add(index);
             }
 
-            if (SelectedIndicesChanged != null)
-            {
-                SelectedIndicesChanged(this, null);
-            }
+            SelectedIndicesChanged?.Invoke(this, null);
 
             _anchoredItemStart = list[list.Count - 1];
             _anchoredItemEnd = list[list.Count - 1];
@@ -388,10 +379,7 @@ namespace ReaLTaiizor.Controls
                 _anchoredItemEnd = index;
             }
 
-            if (SelectedIndicesChanged != null)
-            {
-                SelectedIndicesChanged(this, null);
-            }
+            SelectedIndicesChanged?.Invoke(this, null);
 
             Invalidate();
         }
@@ -420,10 +408,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            if (SelectedIndicesChanged != null)
-            {
-                SelectedIndicesChanged(this, null);
-            }
+            SelectedIndicesChanged?.Invoke(this, null);
 
             Invalidate();
         }
@@ -451,10 +436,8 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateItemSize(CrownListItem item)
         {
-            using (Graphics g = CreateGraphics())
-            {
-                UpdateItemSize(item, g);
-            }
+            using Graphics g = CreateGraphics();
+            UpdateItemSize(item, g);
         }
 
         private void UpdateItemSize(CrownListItem item, Graphics g)
@@ -622,7 +605,7 @@ namespace ReaLTaiizor.Controls
                 // Text
                 using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText)) //Items[i].TextColor
                 {
-                    StringFormat stringFormat = new StringFormat
+                    StringFormat stringFormat = new()
                     {
                         Alignment = StringAlignment.Near,
                         LineAlignment = StringAlignment.Center

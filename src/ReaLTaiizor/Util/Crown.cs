@@ -98,10 +98,7 @@ namespace ReaLTaiizor.Util
         {
             base.Add(item);
 
-            if (ItemsAdded != null)
-            {
-                ItemsAdded(this, new ObservableListModified<T>(new List<T> { item }));
-            }
+            ItemsAdded?.Invoke(this, new ObservableListModified<T>(new List<T> { item }));
         }
 
         public new void AddRange(IEnumerable<T> collection)
@@ -110,26 +107,20 @@ namespace ReaLTaiizor.Util
 
             base.AddRange(list);
 
-            if (ItemsAdded != null)
-            {
-                ItemsAdded(this, new ObservableListModified<T>(list));
-            }
+            ItemsAdded?.Invoke(this, new ObservableListModified<T>(list));
         }
 
         public new void Remove(T item)
         {
             base.Remove(item);
 
-            if (ItemsRemoved != null)
-            {
-                ItemsRemoved(this, new ObservableListModified<T>(new List<T> { item }));
-            }
+            ItemsRemoved?.Invoke(this, new ObservableListModified<T>(new List<T> { item }));
         }
 
         public new void Clear()
         {
             ObservableList<T> thisis = this;
-            ObservableListModified<T> removed = new ObservableListModified<T>(thisis.ToList<T>());
+            ObservableListModified<T> removed = new(thisis.ToList<T>());
             base.Clear();
 
             if (removed.Items.Count() > 0 && ItemsRemoved != null)
@@ -173,10 +164,8 @@ namespace ReaLTaiizor.Util
         protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
         {
             Graphics g = e.Graphics;
-            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
-            {
-                g.FillRectangle(b, e.AffectedBounds);
-            }
+            using SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground);
+            g.FillRectangle(b, e.AffectedBounds);
         }
 
         protected override void OnRenderImageMargin(ToolStripRenderEventArgs e)
@@ -185,10 +174,8 @@ namespace ReaLTaiizor.Util
 
             Rectangle rect = new(0, 0, e.ToolStrip.Width - 1, e.ToolStrip.Height - 1);
 
-            using (Pen p = new(ThemeProvider.Theme.Colors.LightBorder))
-            {
-                g.DrawRectangle(p, rect);
-            }
+            using Pen p = new(ThemeProvider.Theme.Colors.LightBorder);
+            g.DrawRectangle(p, rect);
         }
 
         protected override void OnRenderItemCheck(ToolStripItemImageRenderEventArgs e)
@@ -221,10 +208,8 @@ namespace ReaLTaiizor.Util
 
             Rectangle rect = new(1, 3, e.Item.Width, 1);
 
-            using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightBorder))
-            {
-                g.FillRectangle(b, rect);
-            }
+            using SolidBrush b = new(ThemeProvider.Theme.Colors.LightBorder);
+            g.FillRectangle(b, rect);
         }
 
         protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
@@ -259,10 +244,8 @@ namespace ReaLTaiizor.Util
                 {
                     if (((ToolStripMenuItem)e.Item).DropDown.Visible && e.Item.IsOnDropDown == false)
                     {
-                        using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection))
-                        {
-                            g.FillRectangle(b, rect);
-                        }
+                        using SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection);
+                        g.FillRectangle(b, rect);
                     }
                 }
             }
@@ -307,11 +290,9 @@ namespace ReaLTaiizor.Util
 
             if (e.ToolStrip.GetType() == typeof(ToolStripOverflow))
             {
-                using (Pen p = new(ThemeProvider.Theme.Colors.GreyBackground))
-                {
-                    Rectangle rect = new(e.AffectedBounds.Left, e.AffectedBounds.Top, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
-                    g.DrawRectangle(p, rect);
-                }
+                using Pen p = new(ThemeProvider.Theme.Colors.GreyBackground);
+                Rectangle rect = new(e.AffectedBounds.Left, e.AffectedBounds.Top, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
+                g.DrawRectangle(p, rect);
             }
         }
 
@@ -331,10 +312,8 @@ namespace ReaLTaiizor.Util
 
             if (e.Item.Selected || e.Item.Pressed)
             {
-                using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection))
-                {
-                    g.FillRectangle(b, rect);
-                }
+                using SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection);
+                g.FillRectangle(b, rect);
             }
 
             if (e.Item.GetType() == typeof(ToolStripButton))
@@ -343,19 +322,15 @@ namespace ReaLTaiizor.Util
 
                 if (castItem.Checked)
                 {
-                    using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection))
-                    {
-                        g.FillRectangle(b, rect);
-                    }
+                    using SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection);
+                    g.FillRectangle(b, rect);
                 }
 
                 if (castItem.Checked && castItem.Selected)
                 {
                     Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
-                    using (Pen p = new(ThemeProvider.Theme.Colors.GreyHighlight))
-                    {
-                        g.DrawRectangle(p, modRect);
-                    }
+                    using Pen p = new(ThemeProvider.Theme.Colors.GreyHighlight);
+                    g.DrawRectangle(p, modRect);
                 }
             }
         }
@@ -368,10 +343,8 @@ namespace ReaLTaiizor.Util
 
             if (e.Item.Selected || e.Item.Pressed)
             {
-                using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection))
-                {
-                    g.FillRectangle(b, rect);
-                }
+                using SolidBrush b = new(ThemeProvider.Theme.Colors.GreySelection);
+                g.FillRectangle(b, rect);
             }
         }
 
@@ -384,10 +357,8 @@ namespace ReaLTaiizor.Util
 
             Graphics g = e.Graphics;
 
-            using (Bitmap img = Properties.Resources.grip.SetColor(ThemeProvider.Theme.Colors.LightBorder))
-            {
-                g.DrawImageUnscaled(img, new Point(e.AffectedBounds.Left, e.AffectedBounds.Top));
-            }
+            using Bitmap img = Properties.Resources.grip.SetColor(ThemeProvider.Theme.Colors.LightBorder);
+            g.DrawImageUnscaled(img, new Point(e.AffectedBounds.Left, e.AffectedBounds.Top));
         }
 
         protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
