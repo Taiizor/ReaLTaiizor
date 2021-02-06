@@ -254,7 +254,7 @@ namespace ReaLTaiizor.Controls
                     Size originalSize = textBoxIcon.Size;
                     double resizeFactor = _height / (double)originalSize.Height;
 
-                    Point iconLocation = new Point(1, 1);
+                    //Point iconLocation = new(1, 1);
                     return new Size((int)(originalSize.Width * resizeFactor), (int)(originalSize.Height * resizeFactor));
                 }
 
@@ -509,10 +509,7 @@ namespace ReaLTaiizor.Controls
         public event EventHandler AcceptsTabChanged;
         private void BaseTextBoxAcceptsTabChanged(object sender, EventArgs e)
         {
-            if (AcceptsTabChanged != null)
-            {
-                AcceptsTabChanged(this, e);
-            }
+            AcceptsTabChanged?.Invoke(this, e);
         }
 
         private void BaseTextBoxSizeChanged(object sender, EventArgs e)
@@ -819,10 +816,7 @@ namespace ReaLTaiizor.Controls
 
         private void _button_Click(object sender, EventArgs e)
         {
-            if (ButtonClick != null)
-            {
-                ButtonClick(this, e);
-            }
+            ButtonClick?.Invoke(this, e);
         }
 
         private void _button_MouseLeave(object sender, EventArgs e)
@@ -1010,10 +1004,8 @@ namespace ReaLTaiizor.Controls
 
             private void DrawTextPrompt()
             {
-                using (Graphics graphics = CreateGraphics())
-                {
-                    DrawTextPrompt(graphics);
-                }
+                using Graphics graphics = CreateGraphics();
+                DrawTextPrompt(graphics);
             }
 
             private void DrawTextPrompt(Graphics g)
@@ -1036,7 +1028,7 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                SolidBrush drawBrush = new(WaterMarkColor);
+                //SolidBrush drawBrush = new(WaterMarkColor);
 
                 TextRenderer.DrawText(g, promptText, _waterMarkFont, clientRectangle, _waterMarkColor, BackColor, flags);
             }
@@ -1130,10 +1122,7 @@ namespace ReaLTaiizor.Controls
             Clear();
             baseTextBox.Focus();
 
-            if (ClearClicked != null)
-            {
-                ClearClicked();
-            }
+            ClearClicked?.Invoke();
         }
 
         #region PoisonTextButton
@@ -1308,17 +1297,17 @@ namespace ReaLTaiizor.Controls
 
                 if (Parent != null)
                 {
-                    if (Parent is IPoisonForm)
+                    if (Parent is IPoisonForm form)
                     {
-                        _Theme = ((IPoisonForm)Parent).Theme;
-                        _Style = ((IPoisonForm)Parent).Style;
+                        _Theme = form.Theme;
+                        _Style = form.Style;
                         foreColor = PoisonPaint.ForeColor.Button.Press(_Theme);
                         backColor = PoisonPaint.GetStyleColor(_Style);
                     }
-                    else if (Parent is IPoisonControl)
+                    else if (Parent is IPoisonControl control)
                     {
-                        _Theme = ((IPoisonControl)Parent).Theme;
-                        _Style = ((IPoisonControl)Parent).Style;
+                        _Theme = control.Theme;
+                        _Style = control.Style;
                         foreColor = PoisonPaint.ForeColor.Button.Press(_Theme);
                         backColor = PoisonPaint.GetStyleColor(_Style);
                     }
@@ -1381,7 +1370,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            public Bitmap ApplyInvert(Bitmap bitmapImage)
+            public static Bitmap ApplyInvert(Bitmap bitmapImage)
             {
                 byte A, R, G, B;
                 Color pixelColor;
@@ -1411,7 +1400,7 @@ namespace ReaLTaiizor.Controls
                         Size originalSize = Image.Size;
                         double resizeFactor = 14 / (double)originalSize.Height;
 
-                        Point iconLocation = new Point(1, 1);
+                        //Point iconLocation = new Point(1, 1);
                         return new Size((int)(originalSize.Width * resizeFactor), (int)(originalSize.Height * resizeFactor));
                     }
 

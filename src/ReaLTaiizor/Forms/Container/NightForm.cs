@@ -209,7 +209,7 @@ namespace ReaLTaiizor.Forms
 
             BackColor = Color.FromArgb(40, 48, 51);
 
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
 
             draggableHeight = 28;
         }

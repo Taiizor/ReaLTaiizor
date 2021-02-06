@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private Font _SubTitleFont = new Font("Tahoma", 10, FontStyle.Bold);
+        private Font _SubTitleFont = new("Tahoma", 10, FontStyle.Bold);
         public Font SubTitleFont
         {
             get => _SubTitleFont;
@@ -187,7 +187,7 @@ namespace ReaLTaiizor.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle MainBox = new(0, 0, Width, 32);
             Rectangle SecondBox = new(0, 33, Width, Height);

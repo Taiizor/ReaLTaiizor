@@ -89,7 +89,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
             int V = Width * _Value / _Maximum;
-            using (Bitmap B = new Bitmap(Width, Height))
+            using (Bitmap B = new(Width, Height))
             {
                 using (Graphics G = Graphics.FromImage(B))
                 {

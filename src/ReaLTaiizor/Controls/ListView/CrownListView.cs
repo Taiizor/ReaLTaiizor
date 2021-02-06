@@ -628,7 +628,7 @@ namespace ReaLTaiizor.Controls
                         LineAlignment = StringAlignment.Center
                     };
 
-                    Font modFont = new Font(Font, Items[i].FontStyle);
+                    Font modFont = new(Font, Items[i].FontStyle);
 
                     Rectangle modRect = new(rect.Left + 2, rect.Top, rect.Width, rect.Height);
 

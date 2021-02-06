@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Controls
 
         public NightHeaderLabel()
         {
-            Font = new Font("Microsoft Sans Serif", 22, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new("Microsoft Sans Serif", 22, FontStyle.Regular, GraphicsUnit.Point);
             TextAlign = ContentAlignment.MiddleCenter;
             ForeColor = _RightSideForeColor;
             BackColor = Color.Transparent;

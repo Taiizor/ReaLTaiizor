@@ -52,12 +52,12 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle ClientRectangle = new(0, 0, Width - 1, Height - 1);
             base.OnPaint(e);
             G.Clear(BackColor);
-            Font drawFont = new Font("Tahoma", 8, FontStyle.Bold);
+            Font drawFont = new("Tahoma", 8, FontStyle.Bold);
             G.SmoothingMode = SmoothingMode.HighQuality;
             Rectangle R1 = new(0, 0, Width - 125, 35 / 2);
             Rectangle R2 = new(5, Height - 10, Width - 11, 5);
@@ -68,9 +68,9 @@ namespace ReaLTaiizor.Controls
             LinearGradientBrush lgb = new(ClientRectangle, Color.FromArgb(66, 67, 70), Color.FromArgb(43, 44, 48), 90);
             LinearGradientBrush botbar = new(R2, Color.FromArgb(44, 45, 49), Color.FromArgb(45, 46, 50), 90);
             LinearGradientBrush fill = new(R3, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
-            LinearGradientBrush gloss = null;
             Pen o = new(Color.FromArgb(50, 50, 50), 1);
-            StringFormat format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            StringFormat format = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            LinearGradientBrush gloss;
             if (State == MouseStateThunder.Over)
             {
                 gloss = new(R1, Color.FromArgb(15, Color.FromArgb(26, 26, 26)), Color.FromArgb(1, 255, 255, 255), 90);

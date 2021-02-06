@@ -132,7 +132,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor);
 
             // card rectangle path
-            RectangleF cardRectF = new RectangleF(ClientRectangle.Location, ClientRectangle.Size);
+            RectangleF cardRectF = new(ClientRectangle.Location, ClientRectangle.Size);
             cardRectF.X -= 0.5f;
             cardRectF.Y -= 0.5f;
             GraphicsPath cardPath = CreateRoundRect(cardRectF, 4);

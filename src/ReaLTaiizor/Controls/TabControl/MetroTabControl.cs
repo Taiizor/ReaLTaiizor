@@ -444,7 +444,7 @@ namespace ReaLTaiizor.Controls
             _utl.InitControlHandle(control1);
             _utl.InitControlHandle(control2);
             _slideGraphics = Graphics.FromHwnd(control2.Handle);
-            _slideBitmap = new Bitmap(control1.Width + control2.Width, control1.Height + control2.Height);
+            _slideBitmap = new(control1.Width + control2.Width, control1.Height + control2.Height);
 
             if (moveback)
             {
@@ -506,8 +506,8 @@ namespace ReaLTaiizor.Controls
         private void DoAnimationScrollRight(Control control1, Control control2)
         {
             Graphics g = control1.CreateGraphics();
-            Bitmap p1 = new Bitmap(control1.Width, control1.Height);
-            Bitmap p2 = new Bitmap(control2.Width, control2.Height);
+            Bitmap p1 = new(control1.Width, control1.Height);
+            Bitmap p2 = new(control2.Width, control2.Height);
             control1.DrawToBitmap(p1, new Rectangle(0, 0, control1.Width, control1.Height));
             control2.DrawToBitmap(p2, new Rectangle(0, 0, control2.Width, control2.Height));
 

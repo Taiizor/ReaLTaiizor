@@ -121,12 +121,12 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             BackColor = Color.FromArgb(60, 70, 73);
             Size = new Size(160, 80);
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;

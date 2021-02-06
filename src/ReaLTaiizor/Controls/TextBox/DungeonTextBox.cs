@@ -183,7 +183,7 @@ namespace ReaLTaiizor.Controls
                 Height = DungeonTB.Height + 10;
             }
 
-            Shape = new GraphicsPath();
+            Shape = new();
             GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -232,7 +232,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.DimGray;
 
             Text = null;
-            Font = new Font("Tahoma", 11);
+            Font = new("Tahoma", 11);
             Size = new Size(135, 33);
             DoubleBuffered = true;
         }
@@ -240,7 +240,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingMode.AntiAlias;

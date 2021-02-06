@@ -270,7 +270,7 @@ namespace ReaLTaiizor.Controls
             using (SolidBrush bg = new(itemState ? SelectedItemBackColor : BackgroundColor))
             using (SolidBrush tc = new(itemState ? SelectedItemForeColor : ForeColor))
             {
-                using (Font f = new Font(Font.Name, 9))
+                using (Font f = new(Font.Name, 9))
                 {
                     g.FillRectangle(bg, e.Bounds);
                     g.DrawString(GetItemText(Items[e.Index]), f, tc, e.Bounds, _mth.SetPosition(StringAlignment.Near));

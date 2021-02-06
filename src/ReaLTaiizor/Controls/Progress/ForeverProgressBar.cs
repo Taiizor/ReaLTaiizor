@@ -136,15 +136,15 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
 
             Rectangle Base = new(0, 24, W, H);
-            GraphicsPath GP = new GraphicsPath();
-            GraphicsPath GP2 = new GraphicsPath();
-            GraphicsPath GP3 = new GraphicsPath();
+            GraphicsPath GP = new();
+            GraphicsPath GP2 = new();
+            GraphicsPath GP3 = new();
 
             Graphics _with15 = G;
             _with15.SmoothingMode = SmoothingMode.HighQuality;

@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             BackColor = Color.FromArgb(60, 70, 73);
 
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             SizeMode = TabSizeMode.Fixed;
             ItemSize = new Size(120, 40);
         }
@@ -82,7 +82,7 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;

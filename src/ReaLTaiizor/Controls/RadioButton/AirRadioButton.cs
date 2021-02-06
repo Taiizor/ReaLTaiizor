@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
 
         public AirRadioButton()
         {
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
             LockHeight = 17;
             SetColor("Text", 60, 60, 60);
             SetColor("Gradient top", 237, 237, 237);
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
                 G.FillEllipse(SB, new Rectangle(new Point(0, 0), new Size(14, 14)));
             }
 
-            GraphicsPath P = new GraphicsPath();
+            GraphicsPath P = new();
             P.AddEllipse(new Rectangle(0, 0, 14, 14));
             G.SetClip(P);
 

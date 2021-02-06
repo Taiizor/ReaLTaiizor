@@ -15,7 +15,7 @@ namespace ReaLTaiizor.Controls
     {
         public AirButton()
         {
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
             SetColor("Gradient top normal", 237, 237, 237);
             SetColor("Gradient top over", 242, 242, 242);
             SetColor("Gradient top down", 235, 235, 235);
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
         protected override void PaintHook()
         {
             G.Clear(BackColor);
-            LinearGradientBrush LGB = default(LinearGradientBrush);
+            LinearGradientBrush LGB = default;
             G.SmoothingMode = SmoothingMode.HighQuality;
 
 

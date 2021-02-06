@@ -432,14 +432,14 @@ namespace ReaLTaiizor.Forms
             ForeColor = Color.FromArgb(142, 142, 142);
             BackColor = Color.FromArgb(32, 41, 50);
             StartPosition = FormStartPosition.CenterScreen;
-            Font = new Font("Segoe UI", 8, FontStyle.Regular);
+            Font = new("Segoe UI", 8, FontStyle.Regular);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle ClientRectangle = new(0, 0, Width - 1, Height - 1);
             Color TransparencyKey = ParentForm.TransparencyKey;

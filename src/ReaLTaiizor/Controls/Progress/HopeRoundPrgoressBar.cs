@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12f);
+            Font = new("Segoe UI", 12f);
             BackColor = Color.White;
             ForeColor = HopeColors.PrimaryColor;
         }

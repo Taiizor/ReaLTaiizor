@@ -227,7 +227,7 @@ namespace ReaLTaiizor.Controls
             TextAlign = HorizontalAlignment.Left;
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
             BackColor = Color.White;
-            Font = new Font("Segoe UI", 9f);
+            Font = new("Segoe UI", 9f);
             base.Size = new Size(97, 29);
             Enabled = true;
         }

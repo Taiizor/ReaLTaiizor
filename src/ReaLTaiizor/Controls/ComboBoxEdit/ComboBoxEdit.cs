@@ -99,7 +99,7 @@ namespace ReaLTaiizor.Controls
             Size = new Size(135, 26);
             ItemHeight = 20;
             DropDownHeight = 100;
-            Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            Font = new("Segoe UI", 10, FontStyle.Regular);
             DoubleBuffered = true;
         }
 

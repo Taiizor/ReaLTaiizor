@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Controls
         public CircleProgressBar()
         {
             Size = new Size(130, 130);
-            Font = new Font("Segoe UI", 15);
+            Font = new("Segoe UI", 15);
             MinimumSize = new Size(100, 100);
             DoubleBuffered = true;
         }
@@ -156,7 +156,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            using (Bitmap bitmap = new Bitmap(Width, Height))
+            using (Bitmap bitmap = new(Width, Height))
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {

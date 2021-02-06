@@ -279,7 +279,7 @@ namespace ReaLTaiizor.Forms
             Width = ParentForm.Width;
             ParentForm.MinimumSize = new Size(190, 40);
 
-            Bitmap bitmap = new Bitmap(Width, Height);
+            Bitmap bitmap = new(Width, Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 
             graphics.SmoothingMode = SmoothingMode.HighQuality;
@@ -287,7 +287,7 @@ namespace ReaLTaiizor.Forms
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(_themeColor);
 
-            Font icoFont = new Font("Marlett", 12);
+            Font icoFont = new("Marlett", 12);
 
             if (_Image != null)
             {
@@ -375,7 +375,7 @@ namespace ReaLTaiizor.Forms
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             ForeColor = HopeColors.FourLevelBorder;
             Height = 40;
             Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;

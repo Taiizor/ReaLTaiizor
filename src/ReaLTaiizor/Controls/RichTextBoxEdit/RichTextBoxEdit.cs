@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         private Color _EdgeColor = Color.White;
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Color _TextBackColor = Color.White;
-        private Font _TextFont = new Font("Tahoma", 10);
+        private Font _TextFont = new("Tahoma", 10);
         private BorderStyle _TextBorderStyle = BorderStyle.None;
 
         #endregion
@@ -183,7 +183,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
 
-            Shape = new GraphicsPath();
+            Shape = new();
             GraphicsPath _Shape = Shape;
             _Shape.AddArc(0, 0, 10, 10, 180, 90);
             _Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -223,7 +223,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.DimGray;
 
             Text = null;
-            Font = new Font("Tahoma", 10);
+            Font = new("Tahoma", 10);
             Size = new Size(150, 100);
             WordWrap = true;
             AutoWordSelection = false;
@@ -235,7 +235,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingType;
             G.Clear(BaseColor);

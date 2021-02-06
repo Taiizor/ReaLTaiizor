@@ -58,7 +58,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle Body = new(4, 25, Width - 9, Height - 30);
             Rectangle Body2 = new(0, 0, Width - 1, Height - 1);
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
             Pen P1 = new(Color.Black);
             LinearGradientBrush BodyBrush = new(Body2, _BodyColorA, _BodyColorB, 90);
             LinearGradientBrush BodyBrush2 = new(Body, _BodyColorC, _BodyColorD, 120);
-            Font drawFont = new Font("Tahoma", 9, FontStyle.Bold);
+            Font drawFont = new("Tahoma", 9, FontStyle.Bold);
             G.FillPath(BodyBrush, DrawThunder.RoundRect(Body2, 3));
             G.DrawPath(P1, DrawThunder.RoundRect(Body2, 3));
 

@@ -118,7 +118,7 @@ namespace ReaLTaiizor.Controls
 
             Height = 16;
 
-            Shape = new GraphicsPath();
+            Shape = new();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
             Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -133,7 +133,7 @@ namespace ReaLTaiizor.Controls
         {
             Width = 85;
             Height = 16;
-            Font = new Font("Microsoft Sans Serif", 9);
+            Font = new("Microsoft Sans Serif", 9);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
             ForeColor = Color.FromArgb(116, 125, 132);

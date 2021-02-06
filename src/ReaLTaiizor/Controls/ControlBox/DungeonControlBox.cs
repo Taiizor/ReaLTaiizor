@@ -177,7 +177,7 @@ namespace ReaLTaiizor.Controls
             SetStyle((ControlStyles)(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer), true);
             DoubleBuffered = true;
             BackColor = Color.Transparent;
-            Font = new Font("Marlett", 7);
+            Font = new("Marlett", 7);
             Anchor = (AnchorStyles)(AnchorStyles.Top | AnchorStyles.Left);
         }
 
@@ -213,7 +213,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             base.OnPaint(e);

@@ -198,7 +198,7 @@ namespace ReaLTaiizor.Controls
                 Height = ReaLTaiizorTB.Height + 23;
             }
 
-            Shape = new GraphicsPath();
+            Shape = new();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
             Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -256,7 +256,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(176, 183, 191);
 
             Text = null;
-            Font = new Font("Tahoma", 11);
+            Font = new("Tahoma", 11);
             Size = new Size(135, 43);
             DoubleBuffered = true;
         }
@@ -264,7 +264,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingMode.AntiAlias;

@@ -261,7 +261,7 @@ namespace ReaLTaiizor.Controls
                 ClientRectangle.Width - SkinManager.FORM_PADDING * 2 + scrollPos.X,
                 hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
-            g.Clip = new Region(textRect);
+            g.Clip = new(textRect);
             textRect.X -= scrollPos.X;
 
             using (MaterialNativeTextRenderer NativeText = new(g))
@@ -312,7 +312,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            g.Clip = new Region(ClientRectangle);
+            g.Clip = new(ClientRectangle);
 
             // Draw hint text
             if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))

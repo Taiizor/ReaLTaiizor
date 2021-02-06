@@ -184,14 +184,14 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.FromArgb(60, 70, 73);
             Size = new Size(215, 42);
             Location = new Point(10, 61);
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             Cursor = Cursors.Hand;
             Visible = true;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;

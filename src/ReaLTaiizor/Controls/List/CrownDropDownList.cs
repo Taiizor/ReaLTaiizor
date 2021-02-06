@@ -308,12 +308,12 @@ namespace ReaLTaiizor.Controls
                 if ((CrownDropDownItem)item.Tag == SelectedItem)
                 {
                     item.BackColor = ThemeProvider.Theme.Colors.DarkBlueBackground;
-                    item.Font = new Font(Font, FontStyle.Bold);
+                    item.Font = new(Font, FontStyle.Bold);
                 }
                 else
                 {
                     item.BackColor = ThemeProvider.Theme.Colors.GreyBackground;
-                    item.Font = new Font(Font, FontStyle.Regular);
+                    item.Font = new(Font, FontStyle.Regular);
                 }
             }
 

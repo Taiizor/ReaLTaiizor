@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
 
         public FoxLabel()
         {
-            Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            Font = new("Segoe UI", 10, FontStyle.Bold);
             ForeColor = FoxLibrary.ColorFromHex("#4C5864");
             DoubleBuffered = true;
             Size = new Size(65, 19);

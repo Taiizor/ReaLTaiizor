@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.White
         };
 
-        private RectangleF arrowRectangleF = new RectangleF()
+        private RectangleF arrowRectangleF = new()
         {
             Width = 20,
             Height = 20
@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
             Height = 50;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             ForeColor = HopeColors.MainText;
 
             if (!Controls.Contains(_baseTextBox) && !DesignMode)

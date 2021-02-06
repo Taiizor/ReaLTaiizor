@@ -225,7 +225,7 @@ namespace ReaLTaiizor.Controls
             DrawMode = DrawMode.OwnerDrawFixed;
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(27, 94, 137);
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
             DropDownStyle = ComboBoxStyle.DropDownList;
             DoubleBuffered = true;
             Size = new Size(75, 21);
@@ -236,7 +236,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingType;
 

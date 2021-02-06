@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Controls
                     {
                         using (SolidBrush solidBrush2 = new(ForeColor))
                         {
-                            using (Font font = new Font("Segoe UI", 9f))
+                            using (Font font = new("Segoe UI", 9f))
                             {
                                 G.FillEllipse(solidBrush, new Rectangle(0, 0, 16, 16));
                                 G.DrawEllipse(pen, new Rectangle(0, 0, 16, 16));
@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
                     {
                         using (SolidBrush solidBrush5 = new(AloneLibrary.ColorFromHex("#D0D3D7")))
                         {
-                            using (Font font2 = new Font("Segoe UI", 9f))
+                            using (Font font2 = new("Segoe UI", 9f))
                             {
                                 G.FillEllipse(solidBrush4, new Rectangle(0, 0, 16, 16));
                                 G.DrawEllipse(pen2, new Rectangle(0, 0, 16, 16));

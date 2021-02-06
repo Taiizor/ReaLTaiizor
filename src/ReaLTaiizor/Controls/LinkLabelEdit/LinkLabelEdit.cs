@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
     {
         public LinkLabelEdit()
         {
-            Font = new Font("Microsoft Sans Serif", 9, FontStyle.Regular);
+            Font = new("Microsoft Sans Serif", 9, FontStyle.Regular);
             BackColor = Color.Transparent;
             LinkColor = Color.FromArgb(32, 34, 37);
             ActiveLinkColor = Color.FromArgb(153, 34, 34);

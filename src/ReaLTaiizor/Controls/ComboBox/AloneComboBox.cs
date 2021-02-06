@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
                     {
                         using (SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#7C858E")))
                         {
-                            using (Font font = new Font("Marlett", 13f))
+                            using (Font font = new("Marlett", 13f))
                             {
                                 G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
                                 G.DrawString("6", font, solidBrush, new Point(base.Width - 22, 3));
@@ -94,7 +94,7 @@ namespace ReaLTaiizor.Controls
                     {
                         using (SolidBrush solidBrush2 = new(AloneLibrary.ColorFromHex("#D0D3D7")))
                         {
-                            using (Font font2 = new Font("Marlett", 13f))
+                            using (Font font2 = new("Marlett", 13f))
                             {
                                 G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
                                 G.DrawString("6", font2, solidBrush2, new Point(base.Width - 22, 3));
@@ -105,7 +105,7 @@ namespace ReaLTaiizor.Controls
                 bool flag = !Information.IsNothing(base.Items);
                 if (flag)
                 {
-                    using (Font font3 = new Font("Segoe UI", 9f))
+                    using (Font font3 = new("Segoe UI", 9f))
                     {
                         using (SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#7C858E")))
                         {

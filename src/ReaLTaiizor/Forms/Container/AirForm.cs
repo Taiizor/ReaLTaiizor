@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Forms
             TransparencyKey = Color.Fuchsia;
             StartPosition = FormStartPosition.CenterScreen;
             BackColor = Color.White;
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
             SetColor("Title color", Color.Black);
             SetColor("X-color", 90, 90, 90);
             SetColor("X-ellipse", 114, 114, 114);

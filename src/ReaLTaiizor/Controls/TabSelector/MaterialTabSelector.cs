@@ -264,7 +264,7 @@ namespace ReaLTaiizor.Controls
             }
 
             //Calculate the bounds of each tab header specified in the base tab control
-            using (Bitmap b = new Bitmap(1, 1))
+            using (Bitmap b = new(1, 1))
             {
                 using (Graphics g = Graphics.FromImage(b))
                 {

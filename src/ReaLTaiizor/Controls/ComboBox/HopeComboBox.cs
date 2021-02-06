@@ -27,7 +27,7 @@ namespace ReaLTaiizor.Controls
 
             Cursor = Cursors.Hand;
 
-            Font = new Font("Segoe UI", 12F);
+            Font = new("Segoe UI", 12F);
             ItemHeight = 30;
         }
 

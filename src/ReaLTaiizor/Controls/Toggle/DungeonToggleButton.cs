@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Controls
         private bool _Toggled;
         private _Type ToggleType;
         private Rectangle Bar;
-        private Size cHandle = new Size(15, 20);
+        //private Size cHandle = new(15, 20);
 
         private Color _ToggledBackColorA = Color.FromArgb(253, 253, 253);
         private Color _ToggledBackColorB = Color.FromArgb(240, 238, 237);
@@ -223,7 +223,7 @@ namespace ReaLTaiizor.Controls
             Rectangle ControlRectangle = new(0, 0, Width - 1, Height - 1);
             GraphicsPath ControlPath = RoundRectangle.RoundRect(ControlRectangle, 4);
 
-            LinearGradientBrush BackgroundLGB = default(LinearGradientBrush);
+            LinearGradientBrush BackgroundLGB = default;
             if (_Toggled)
             {
                 SwitchXLoc = 37;

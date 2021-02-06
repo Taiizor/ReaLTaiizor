@@ -137,13 +137,13 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.White;
             Size = new Size(18, 18);
             Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Font = new Font("Marlett", 10);
+            Font = new("Marlett", 10);
             Cursor = Cursors.Hand;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             Rectangle Base = new(0, 0, Width, Height);

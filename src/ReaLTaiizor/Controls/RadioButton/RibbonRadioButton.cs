@@ -177,12 +177,12 @@ namespace ReaLTaiizor.Controls
             Size = new Size(133, 16);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
-            Font = new Font("Tahoma", 8, FontStyle.Bold);
+            Font = new("Tahoma", 8, FontStyle.Bold);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle radioBtnRectangle = new(0, 0, Height, Height - 1);
             Rectangle Inner = new(1, 1, Height - 2, Height - 3);

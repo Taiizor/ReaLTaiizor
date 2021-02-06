@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Util
 
         public static GraphicsPath RoundRect(Rectangle Rect, int Rounding, RoundingStyle Style = RoundingStyle.All)
         {
-            GraphicsPath graphicsPath = new GraphicsPath();
+            GraphicsPath graphicsPath = new();
             checked
             {
                 int num = Rounding * 2;

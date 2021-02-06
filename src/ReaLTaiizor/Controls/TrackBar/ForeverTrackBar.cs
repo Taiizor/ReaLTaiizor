@@ -239,21 +239,21 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.FromArgb(60, 70, 73);
             ForeColor = Color.White;
-            Font = new Font("Segoe UI", 8);
+            Font = new("Segoe UI", 8);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
 
             Rectangle Base = new(1, 6, W - 2, 8);
-            GraphicsPath GP = new GraphicsPath();
-            GraphicsPath GP2 = new GraphicsPath();
+            GraphicsPath GP = new();
+            GraphicsPath GP2 = new();
 
             Graphics _with20 = G;
             _with20.SmoothingMode = SmoothingMode.HighQuality;

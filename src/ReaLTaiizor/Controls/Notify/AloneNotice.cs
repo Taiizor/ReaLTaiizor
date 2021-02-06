@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Controls
                 {
                     using (SolidBrush solidBrush2 = new(ForeColor))
                     {
-                        using (Font font = new Font("Segoe UI", 9f))
+                        using (Font font = new("Segoe UI", 9f))
                         {
                             G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
                             G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));

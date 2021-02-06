@@ -210,7 +210,7 @@ namespace ReaLTaiizor.Controls
 
         private Bitmap DrawCheckMarkBitmap()
         {
-            Bitmap checkMark = new Bitmap(CHECKBOX_SIZE, CHECKBOX_SIZE);
+            Bitmap checkMark = new(CHECKBOX_SIZE, CHECKBOX_SIZE);
             Graphics g = Graphics.FromImage(checkMark);
 
             // clear everything, transparent

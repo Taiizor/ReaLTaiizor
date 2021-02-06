@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
                 txtbox.TextAlign = HorizontalAlignment.Center;
                 txtbox.BorderStyle = BorderStyle.None;
                 txtbox.Location = new Point(5, 4);
-                txtbox.Font = new Font("Trebuchet MS", 8.25f, FontStyle.Bold);
+                txtbox.Font = new("Trebuchet MS", 8.25f, FontStyle.Bold);
                 txtbox.Size = new Size(Width - 10, Height - 11);
                 txtbox.UseSystemPasswordChar = UseSystemPasswordChar;
             }
@@ -192,7 +192,7 @@ namespace ReaLTaiizor.Controls
             Text = "";
             BackColor = Color.FromArgb(233, 233, 233);
             ForeColor = Color.FromArgb(27, 94, 137);
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
             Size = new Size(75, 35);
             DoubleBuffered = true;
             txtbox.TextChanged += new EventHandler(TextChngTxtBox);
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingType;
 

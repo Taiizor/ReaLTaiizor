@@ -411,7 +411,7 @@ namespace ReaLTaiizor.Controls
             BackColor = ColorTranslator.FromHtml("#2B3043");
 
             Text = string.Empty;
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             Size = new Size(145, 49);
         }
 
@@ -421,7 +421,7 @@ namespace ReaLTaiizor.Controls
             tbCtrl.Location = new Point(24, 14);
             tbCtrl.BorderStyle = BorderStyle.None;
             tbCtrl.TextAlign = HorizontalAlignment.Left;
-            tbCtrl.Font = new Font("Segoe UI", 10);
+            tbCtrl.Font = new("Segoe UI", 10);
             tbCtrl.UseSystemPasswordChar = _UseSystemPasswordChar;
             tbCtrl.ShortcutsEnabled = _ShortcutsEnabled;
             tbCtrl.Multiline = false;

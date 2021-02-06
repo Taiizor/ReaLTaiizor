@@ -89,15 +89,15 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.CompositingQuality = CompositingQuality.HighQuality;
             Rectangle checkBoxRectangle = new(0, 0, Height - 1, Height - 1);
             LinearGradientBrush bodyGrad = new(checkBoxRectangle, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
             SolidBrush nb = new(ForeColor);
-            StringFormat format = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
-            Font drawFont = new Font("Tahoma", 9, FontStyle.Bold);
+            StringFormat format = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+            Font drawFont = new("Tahoma", 9, FontStyle.Bold);
             G.Clear(BackColor);
             G.FillRectangle(bodyGrad, bodyGrad.Rectangle);
             G.DrawRectangle(new(Color.Black), checkBoxRectangle);

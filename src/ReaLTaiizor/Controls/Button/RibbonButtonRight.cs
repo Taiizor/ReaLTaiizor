@@ -192,13 +192,13 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.Black;
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
-            Font = new Font("Tahoma", 8, FontStyle.Bold);
+            Font = new("Tahoma", 8, FontStyle.Bold);
             Size = new Size(140, 40);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle ClientRectangle = new(0, 0, Width - 1, Height - 1);
             Rectangle InnerRect = new(1, 1, Width - 3, Height - 3);

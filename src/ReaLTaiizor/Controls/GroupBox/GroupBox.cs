@@ -96,13 +96,13 @@ namespace ReaLTaiizor.Controls
             MinimumSize = new Size(136, 50);
             Padding = new Padding(5, 28, 5, 5);
             ForeColor = Color.FromArgb(53, 53, 53);
-            Font = new Font("Tahoma", 9, FontStyle.Regular);
+            Font = new("Tahoma", 9, FontStyle.Regular);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle TitleBox = new(51, 3, Width - 103, 18);
             Rectangle box = new(0, 0, Width - 1, Height - 10);

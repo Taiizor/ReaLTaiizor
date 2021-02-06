@@ -108,13 +108,13 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             DoubleBuffered = true;
             ForeColor = Color.Black;
-            Font = new Font("Tahoma", 10, FontStyle.Bold);
+            Font = new("Tahoma", 10, FontStyle.Bold);
             Size = new Size(170, 90);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             Rectangle Body = new(0, 0, Width - 1, Height - 1);
 

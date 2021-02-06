@@ -196,7 +196,7 @@ namespace ReaLTaiizor.Controls
 
             Point arrowMiddle = new Point(e.ArrowRectangle.X + e.ArrowRectangle.Width / 2, e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2);
             Brush arrowBrush = e.Item.Enabled ? SkinManager.TextHighEmphasisBrush : SkinManager.TextDisabledOrHintBrush;
-            using (GraphicsPath arrowPath = new GraphicsPath())
+            using (GraphicsPath arrowPath = new())
             {
                 arrowPath.AddLines(
                     new[] {

@@ -208,7 +208,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // draw Thumb Shadow
-            RectangleF thumbBounds = new RectangleF(TRACK_CENTER_X_BEGIN + OffsetX - THUMB_SIZE_HALF, TRACK_CENTER_Y - THUMB_SIZE_HALF, THUMB_SIZE, THUMB_SIZE);
+            RectangleF thumbBounds = new(TRACK_CENTER_X_BEGIN + OffsetX - THUMB_SIZE_HALF, TRACK_CENTER_Y - THUMB_SIZE_HALF, THUMB_SIZE, THUMB_SIZE);
             using (SolidBrush shadowBrush = new(Color.FromArgb(12, 0, 0, 0)))
             {
                 g.FillEllipse(shadowBrush, new RectangleF(thumbBounds.X - 2, thumbBounds.Y - 1, thumbBounds.Width + 4, thumbBounds.Height + 6));
@@ -240,7 +240,7 @@ namespace ReaLTaiizor.Controls
 
         private Bitmap DrawCheckMarkBitmap()
         {
-            Bitmap checkMark = new Bitmap(THUMB_SIZE, THUMB_SIZE);
+            Bitmap checkMark = new(THUMB_SIZE, THUMB_SIZE);
             Graphics g = Graphics.FromImage(checkMark);
 
             // clear everything, transparent

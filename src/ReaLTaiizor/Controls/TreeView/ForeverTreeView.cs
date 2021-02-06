@@ -64,12 +64,12 @@ namespace ReaLTaiizor.Controls
             LineColor = _LineColor;
             DrawMode = TreeViewDrawMode.OwnerDrawAll;
 
-            Font = new Font("Segoe UI", 8);
+            Font = new("Segoe UI", 8);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             Rectangle Base = new(0, 0, Width, Height);

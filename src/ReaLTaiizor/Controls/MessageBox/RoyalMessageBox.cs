@@ -62,7 +62,7 @@ namespace ReaLTaiizor.Controls
 
         public RoyalMessageBox() : base()
         {
-            Font = new Font(new FontFamily("Segoe UI"), 9.75f, FontStyle.Regular);
+            Font = new(new FontFamily("Segoe UI"), 9.75f, FontStyle.Regular);
             Moveable = false;
             ControlBox = false;
             ShowInTaskbar = false;
@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Controls
                 Location = new Point(0, ((Height - (Height / 3)) / 2))
             };
 
-            Font messageFont = new Font(Font.FontFamily, 12.75f, FontStyle.Regular);
+            Font messageFont = new(Font.FontFamily, 12.75f, FontStyle.Regular);
 
             if (mode)
             {
@@ -274,7 +274,7 @@ namespace ReaLTaiizor.Controls
             }
 
             SolidBrush textBrush = new(parent.ForeColor);
-            SolidBrush backBrush = new(parent.BackColor);
+            //SolidBrush backBrush = new(parent.BackColor);
 
             if (!string.IsNullOrEmpty(caption))
             {

@@ -193,7 +193,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12F);
+            Font = new("Segoe UI", 12F);
             SizeMode = TabSizeMode.Fixed;
             ItemSize = new Size(120, 40);
         }

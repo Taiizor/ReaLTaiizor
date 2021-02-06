@@ -362,7 +362,7 @@ namespace ReaLTaiizor.Controls
             // Draw a border radius
             try
             {
-                CreateRoundPath = new GraphicsPath(FillMode.Winding);
+                CreateRoundPath = new(FillMode.Winding);
                 CreateRoundPath.AddArc(r.X, r.Y, curve, curve, 180.0F, 90.0F);
                 CreateRoundPath.AddArc(r.Right - curve, r.Y, curve, curve, 270.0F, 90.0F);
                 CreateRoundPath.AddArc(r.Right - curve, r.Bottom - curve, curve, curve, 0.0F, 90.0F);
@@ -382,7 +382,7 @@ namespace ReaLTaiizor.Controls
         public NotificationBox()
         {
             SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw), true);
-            Font = new Font("Tahoma", 9);
+            Font = new("Tahoma", 9);
             MinimumSize = new Size(100, 40);
             RoundCorners = false;
             Size = new Size(130, 40);
@@ -400,7 +400,7 @@ namespace ReaLTaiizor.Controls
             Color BackgroundColor = new Color();
             Color BorderColor = new Color();
             // Determine the header Notification Type font
-            Font TypeFont = new Font(Font.FontFamily, Font.Size, FontStyle.Bold);
+            Font TypeFont = new(Font.FontFamily, Font.Size, FontStyle.Bold);
             // Decalre a new rectangle to draw the control inside it
             Rectangle MainRectangle = new(0, 0, Width - 1, Height - 1);
             // Declare a GraphicsPath to create a border radius

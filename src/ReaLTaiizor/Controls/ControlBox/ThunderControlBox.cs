@@ -118,14 +118,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             base.OnPaint(e);
             G.Clear(BackColor);
             G.SmoothingMode = SmoothingMode.HighQuality;
 
             LinearGradientBrush mlgb = null;
-            Font mf = new Font("Marlett", 9);
+            Font mf = new("Marlett", 9);
             SolidBrush mfb = new(ForeColor);
             Pen P1 = new(Color.FromArgb(21, 21, 21), 1);
             Color C1 = Color.FromArgb(66, 67, 70);

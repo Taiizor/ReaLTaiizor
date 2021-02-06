@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
         public FoxNotification() : base()
         {
             Size = new Size(130, 40);
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         public Styles Style { get; set; }

@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
 
-            Shape = new GraphicsPath();
+            Shape = new();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
             Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingType;

@@ -132,7 +132,7 @@ namespace ReaLTaiizor.Controls
 
         private static PointF ImageLocation(StringFormat SF, SizeF Area, SizeF ImageArea)
         {
-            PointF MyPoint = new PointF();
+            PointF MyPoint = new();
             switch (SF.Alignment)
             {
                 case StringAlignment.Center:
@@ -151,7 +151,7 @@ namespace ReaLTaiizor.Controls
 
         private static StringFormat GetStringFormat(ContentAlignment _ContentAlignment)
         {
-            StringFormat SF = new StringFormat();
+            StringFormat SF = new();
             switch (_ContentAlignment)
             {
                 case ContentAlignment.MiddleCenter:

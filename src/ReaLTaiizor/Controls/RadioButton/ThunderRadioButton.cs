@@ -109,18 +109,18 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.Clear(BackColor);
             Rectangle radioBtnRectangle = new(0, 0, Height - 1, Height - 1);
             Rectangle R1 = new(4, 4, Height - 9, Height - 9);
-            StringFormat format = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
+            StringFormat format = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
             LinearGradientBrush bgGrad = new(radioBtnRectangle, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
             Color C1 = Color.FromArgb(250, 15, 15, 15);
             SolidBrush nb = new(ForeColor);
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.CompositingQuality = CompositingQuality.HighQuality;
-            Font drawFont = new Font("Tahoma", 10, FontStyle.Bold);
+            Font drawFont = new("Tahoma", 10, FontStyle.Bold);
 
             G.FillEllipse(bgGrad, radioBtnRectangle);
             G.DrawEllipse(new(Color.Black), radioBtnRectangle);

@@ -42,8 +42,8 @@ namespace ReaLTaiizor.Controls
 
             using (Pen p = new(ThemeProvider.Theme.Colors.GreyHighlight))
             {
-                PointF p1 = new PointF(textSize.Width + 5, textSize.Height / 2);
-                PointF p2 = new PointF(rect.Width, textSize.Height / 2);
+                PointF p1 = new(textSize.Width + 5, textSize.Height / 2);
+                PointF p2 = new(rect.Width, textSize.Height / 2);
                 g.DrawLine(p, p1, p2);
             }
         }

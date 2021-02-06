@@ -68,7 +68,7 @@ namespace ReaLTaiizor.Controls
 
         public FoxButton() : base()
         {
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)

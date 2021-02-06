@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Controls
             SetColor("G2", Color.LightGray);
             SetColor("BG", Color.FromArgb(240, 240, 240));
             SetColor("FC", Color.Gray);
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
             Cursor = Cursors.Hand;
         }
 
@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Controls
             DrawBorders(Pens.LightGray);
             DrawCorners(Color.Transparent);
 
-            StringFormat SF = new StringFormat
+            StringFormat SF = new()
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center

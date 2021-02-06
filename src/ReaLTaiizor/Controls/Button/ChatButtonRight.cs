@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
 
         private static PointF ImageLocation(StringFormat SF, SizeF Area, SizeF ImageArea)
         {
-            PointF MyPoint = default(PointF);
+            PointF MyPoint = default;
             switch (SF.Alignment)
             {
                 case StringAlignment.Center:
@@ -69,9 +69,9 @@ namespace ReaLTaiizor.Controls
             return MyPoint;
         }
 
-        private StringFormat GetStringFormat(ContentAlignment _ContentAlignment)
+        private static StringFormat GetStringFormat(ContentAlignment _ContentAlignment)
         {
-            StringFormat SF = new StringFormat();
+            StringFormat SF = new();
             switch (_ContentAlignment)
             {
                 case ContentAlignment.MiddleCenter:
@@ -233,7 +233,7 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.Transparent;
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             ForeColor = Color.FromArgb(234, 234, 234);
             Size = new Size(166, 40);
             _TextAlignment = StringAlignment.Center;
@@ -246,7 +246,7 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             if (Width > 0 && Height > 0)
             {
-                Shape = new GraphicsPath();
+                Shape = new();
                 R1 = new(0, 0, Width, Height);
 
                 InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);

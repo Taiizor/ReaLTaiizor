@@ -211,9 +211,9 @@ namespace ReaLTaiizor.Controls
 
             if (_animationManager.IsAnimating())
             {
-                GraphicsPath regionPath = new GraphicsPath();
+                GraphicsPath regionPath = new();
                 regionPath.AddEllipse(new Rectangle(fabBounds.X - 1, fabBounds.Y - 1, fabBounds.Width + 3, fabBounds.Height + 2));
-                Region fabRegion = new Region(regionPath);
+                Region fabRegion = new(regionPath);
 
                 GraphicsContainer gcont = g.BeginContainer();
                 g.SetClip(fabRegion, CombineMode.Replace);
@@ -245,9 +245,9 @@ namespace ReaLTaiizor.Controls
             }
 
             // Clip to a round shape with a 1px padding
-            GraphicsPath clipPath = new GraphicsPath();
+            GraphicsPath clipPath = new();
             clipPath.AddEllipse(new Rectangle(fabBounds.X - 1, fabBounds.Y - 1, fabBounds.Width + 3, fabBounds.Height + 3));
-            Region = new Region(clipPath);
+            Region = new(clipPath);
         }
 
         protected override void OnMouseClick(MouseEventArgs mevent)

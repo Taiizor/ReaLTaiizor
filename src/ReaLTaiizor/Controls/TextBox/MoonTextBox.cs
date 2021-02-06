@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
 
         public MoonTextBox()
         {
-            Font = new Font("Microsoft Sans Serif", 8);
+            Font = new("Microsoft Sans Serif", 8);
             ForeColor = Color.Gray;
             BackColor = Color.FromArgb(235, 235, 235);
             BorderStyle = BorderStyle.FixedSingle;

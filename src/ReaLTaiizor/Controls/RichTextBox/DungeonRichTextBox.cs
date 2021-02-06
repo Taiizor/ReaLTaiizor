@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
 
-            Shape = new GraphicsPath();
+            Shape = new();
             GraphicsPath _Shape = Shape;
             _Shape.AddArc(0, 0, 10, 10, 180, 90);
             _Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -176,7 +176,7 @@ namespace ReaLTaiizor.Controls
 
             P1 = new(_BorderColor);
             Text = null;
-            Font = new Font("Tahoma", 10);
+            Font = new("Tahoma", 10);
             Size = new Size(150, 100);
             WordWrap = true;
             AutoWordSelection = false;
@@ -190,7 +190,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingMode.AntiAlias;
             G.Clear(BackColor);

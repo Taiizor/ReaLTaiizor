@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
             Text = null;
             DoubleBuffered = true;
             ForeColor = Color.FromArgb(255, 255, 253);
-            Font = new Font("Segoe UI", 8, FontStyle.Bold);
+            Font = new("Segoe UI", 8, FontStyle.Bold);
         }
 
         protected override void OnResize(EventArgs e)

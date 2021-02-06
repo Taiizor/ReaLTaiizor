@@ -29,12 +29,12 @@ namespace ReaLTaiizor.Util
             SetStyle((ControlStyles)139270, true);
 
             _ImageSize = Size.Empty;
-            Font = new Font("Verdana", 8);
+            Font = new("Verdana", 8);
 
-            MeasureBitmap = new Bitmap(1, 1);
+            MeasureBitmap = new(1, 1);
             MeasureGraphics = Graphics.FromImage(MeasureBitmap);
 
-            DrawRadialPath = new GraphicsPath();
+            DrawRadialPath = new();
 
             InvalidateCustimization();
         }
@@ -953,7 +953,7 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                B = new Bitmap(Width, Height, PixelFormat.Format32bppPArgb);
+                B = new(Width, Height, PixelFormat.Format32bppPArgb);
                 G = Graphics.FromImage(B);
             }
             else
@@ -1451,7 +1451,7 @@ namespace ReaLTaiizor.Util
 
         public GraphicsPath CreateRound(Rectangle r, int slope)
         {
-            CreateRoundPath = new GraphicsPath(FillMode.Winding);
+            CreateRoundPath = new(FillMode.Winding);
             CreateRoundPath.AddArc(r.X, r.Y, slope, slope, 180f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Y, slope, slope, 270f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Bottom - slope, slope, slope, 0f, 90f);
@@ -1483,12 +1483,12 @@ namespace ReaLTaiizor.Util
             SetStyle((ControlStyles)139270, true);
 
             _ImageSize = Size.Empty;
-            Font = new Font("Verdana", 8);
+            Font = new("Verdana", 8);
 
-            MeasureBitmap = new Bitmap(1, 1);
+            MeasureBitmap = new(1, 1);
             MeasureGraphics = Graphics.FromImage(MeasureBitmap);
 
-            DrawRadialPath = new GraphicsPath();
+            DrawRadialPath = new();
 
             InvalidateCustimization();
             //Remove?
@@ -1952,7 +1952,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            B = new Bitmap(Width, Height, PixelFormat.Format32bppPArgb);
+            B = new(Width, Height, PixelFormat.Format32bppPArgb);
             G = Graphics.FromImage(B);
         }
 
@@ -2443,7 +2443,7 @@ namespace ReaLTaiizor.Util
 
         public GraphicsPath CreateRound(Rectangle r, int slope)
         {
-            CreateRoundPath = new GraphicsPath(FillMode.Winding);
+            CreateRoundPath = new(FillMode.Winding);
             CreateRoundPath.AddArc(r.X, r.Y, slope, slope, 180f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Y, slope, slope, 270f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Bottom - slope, slope, slope, 0f, 90f);

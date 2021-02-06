@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
             DrawMode = DrawMode.OwnerDrawFixed;
             IntegralHeight = false;
             ItemHeight = 18;
-            Font = new Font("Seoge UI", 11, FontStyle.Regular);
+            Font = new("Seoge UI", 11, FontStyle.Regular);
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)
@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Region MyRegion = new Region(e.ClipRectangle);
+            Region MyRegion = new(e.ClipRectangle);
             e.Graphics.FillRegion(new SolidBrush(BackColor), MyRegion);
 
             if (Items.Count > 0)

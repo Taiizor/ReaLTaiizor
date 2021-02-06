@@ -161,7 +161,7 @@ namespace ReaLTaiizor.Controls
             ListBx.BackColor = BaseColor;
             ListBx.ForeColor = Color.White;
             ListBx.Location = new Point(3, 3);
-            ListBx.Font = new Font("Segoe UI", 8);
+            ListBx.Font = new("Segoe UI", 8);
             ListBx.ItemHeight = 20;
             ListBx.Items.Clear();
             ListBx.IntegralHeight = false;
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             Rectangle Base = new(0, 0, Width, Height);

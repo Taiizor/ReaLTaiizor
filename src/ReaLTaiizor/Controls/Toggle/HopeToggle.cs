@@ -92,7 +92,7 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BaseColor);
 
-            GraphicsPath roundRectangle = new GraphicsPath();
+            GraphicsPath roundRectangle = new();
             int radius = 9;
             roundRectangle.AddArc(11, 5, radius - 1, radius, 180, 90);
             roundRectangle.AddArc(Width - 21, 5, radius - 1, radius, -90, 90);

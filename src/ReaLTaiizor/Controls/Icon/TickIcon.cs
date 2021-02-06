@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
 
     public class TickIcon : Control
     {
-        #region Variables
+        #region Settings
 
         private Color _BaseColor = Color.FromArgb(246, 246, 246);
         public Color BaseColor
@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
         }
 
         private string _String = "ü";
-        private string String
+        public string String
         {
             get => _String;
             set => _String = value;
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.DimGray;
             BackColor = Color.FromArgb(246, 246, 246);
             ForeColor = Color.Gray;
-            Font = new Font("Wingdings", 25, FontStyle.Bold);
+            Font = new("Wingdings", 25, FontStyle.Bold);
             Size = new Size(33, 33);
             DoubleBuffered = true;
         }

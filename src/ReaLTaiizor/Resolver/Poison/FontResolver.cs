@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Resolver.Poison
     {
         public Font ResolveFont(string familyName, float emSize, FontStyle fontStyle, GraphicsUnit unit)
         {
-            Font fontTester = new Font(familyName, emSize, fontStyle, unit);
+            Font fontTester = new(familyName, emSize, fontStyle, unit);
             if (fontTester.Name == familyName || !TryResolve(ref familyName, ref fontStyle))
             {
                 return fontTester;

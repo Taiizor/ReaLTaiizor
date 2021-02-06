@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            using (Bitmap B = new Bitmap(Width, Height))
+            using (Bitmap B = new(Width, Height))
             {
                 using (Graphics G = Graphics.FromImage(B))
                 {

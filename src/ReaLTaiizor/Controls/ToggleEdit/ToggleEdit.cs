@@ -27,7 +27,7 @@ namespace ReaLTaiizor.Controls
         public GraphicsPath Pill(Rectangle Rectangle, PillStyle PillStyle)
         {
             GraphicsPath functionReturnValue = default(GraphicsPath);
-            functionReturnValue = new GraphicsPath();
+            functionReturnValue = new();
 
             if (PillStyle.Left)
             {

@@ -215,7 +215,7 @@ namespace ReaLTaiizor.Controls
             BackgroundColor = PoisonPaint.BackColor.Form(Theme);
             GridColor = PoisonPaint.BackColor.Form(Theme);
             ForeColor = PoisonPaint.ForeColor.Button.Disabled(Theme);
-            Font = new Font("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
+            Font = new("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
 
             RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             AllowUserToResizeRows = false;

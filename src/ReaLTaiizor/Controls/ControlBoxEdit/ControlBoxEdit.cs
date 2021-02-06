@@ -122,10 +122,10 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            GraphicsPath GP_MinimizeRect = new GraphicsPath();
-            GraphicsPath GP_CloseRect = new GraphicsPath();
+            GraphicsPath GP_MinimizeRect = new();
+            GraphicsPath GP_CloseRect = new();
 
             GP_MinimizeRect.AddRectangle(MinimizeRect);
             GP_CloseRect.AddRectangle(CloseRect);

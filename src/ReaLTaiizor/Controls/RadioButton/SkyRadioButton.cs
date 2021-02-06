@@ -151,7 +151,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(27, 94, 137);
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
             Size = new Size(105, 14);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
@@ -159,7 +159,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingType;

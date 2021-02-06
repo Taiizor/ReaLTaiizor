@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
         public ForeverLabel()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            Font = new Font("Segoe UI", 8);
+            Font = new("Segoe UI", 8);
             ForeColor = Color.LightGray;
             BackColor = Color.Transparent;
             Text = Text;

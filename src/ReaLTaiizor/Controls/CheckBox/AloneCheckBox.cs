@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
                     {
                         using (SolidBrush solidBrush2 = new(ForeColor))
                         {
-                            using (Font font = new Font("Segoe UI", 9f))
+                            using (Font font = new("Segoe UI", 9f))
                             {
                                 G.FillPath(solidBrush, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
                                 G.DrawPath(pen, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
@@ -161,7 +161,7 @@ namespace ReaLTaiizor.Controls
                     {
                         using (SolidBrush solidBrush4 = new(AloneLibrary.ColorFromHex("#D0D3D7")))
                         {
-                            using (Font font2 = new Font("Segoe UI", 9f))
+                            using (Font font2 = new("Segoe UI", 9f))
                             {
                                 G.FillPath(solidBrush3, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
                                 G.DrawPath(pen2, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));

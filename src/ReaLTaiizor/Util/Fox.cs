@@ -62,7 +62,7 @@ namespace ReaLTaiizor.Util
         public static GraphicsPath RoundRect(Rectangle Rect, int Rounding, RoundingStyle Style = RoundingStyle.All)
         {
 
-            GraphicsPath GP = new GraphicsPath();
+            GraphicsPath GP = new();
             int AW = Rounding * 2;
 
             GP.StartFigure();

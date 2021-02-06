@@ -386,7 +386,7 @@ namespace ReaLTaiizor.Controls
             Size btnBackgroundSize = new Size(46, Height);
 
             // Minimize button
-            Font minimizeBtnFont = new Font("Tahoma", 12);
+            Font minimizeBtnFont = new("Tahoma", 12);
             Point minimizeBtnPoint = new Point(15, 5);
             SolidBrush minimizeBtnBrush = new(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
 
@@ -405,7 +405,7 @@ namespace ReaLTaiizor.Controls
             minimizeBtnFont.Dispose();
 
             // Maxmize button
-            Font maximizeBtnFont = new Font("Marlett", 9);
+            Font maximizeBtnFont = new("Marlett", 9);
             Point maximizeBtnPoint = new Point(63, 10);
             SolidBrush maximizeBtnBrush = new(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
 
@@ -425,7 +425,7 @@ namespace ReaLTaiizor.Controls
             maximizeBtnFont.Dispose();
 
             // Close button
-            Font closeBtnFont = new Font("Tahoma", 11);
+            Font closeBtnFont = new("Tahoma", 11);
             Point closeBtnPoint = new Point(107, 6);
             SolidBrush closeBtnBrush = new(_EnableCloseColor);
 

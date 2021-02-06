@@ -192,7 +192,7 @@ namespace ReaLTaiizor.Controls
                 Height = RT_TB.Height + 10;
             }
 
-            Shape = new GraphicsPath();
+            Shape = new();
             GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -217,7 +217,7 @@ namespace ReaLTaiizor.Controls
             _TB.Text = string.Empty;
             _TB.BorderStyle = BorderStyle.None;
             _TB.TextAlign = HorizontalAlignment.Left;
-            _TB.Font = new Font("Tahoma", 11);
+            _TB.Font = new("Tahoma", 11);
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;
             _TB.Multiline = false;
             RT_TB.KeyDown += _OnKeyDown;
@@ -238,7 +238,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.DimGray;
 
             Text = null;
-            Font = new Font("Tahoma", 11);
+            Font = new("Tahoma", 11);
             Size = new Size(110, 33);
             DoubleBuffered = true;
         }
@@ -246,7 +246,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingType;

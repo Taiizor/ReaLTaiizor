@@ -389,7 +389,7 @@ namespace ReaLTaiizor.Controls
 
             using (SolidBrush closeBoxState = new(CloseHovered ? CloseHoverBackColor : Color.Transparent))
             {
-                using (Font f = new Font(@"Marlett", 12))
+                using (Font f = new(@"Marlett", 12))
                 {
                     using (SolidBrush tb = new(CloseHovered ? CloseHoverForeColor : CloseNormalForeColor))
                     {
@@ -403,7 +403,7 @@ namespace ReaLTaiizor.Controls
             }
             using (SolidBrush maximizeBoxState = new(MaximizeBox ? MaximizeHovered ? MaximizeHoverBackColor : Color.Transparent : Color.Transparent))
             {
-                using (Font f = new Font(@"Marlett", 12))
+                using (Font f = new(@"Marlett", 12))
                 {
                     using (SolidBrush tb = new(MaximizeBox ? MaximizeHovered ? MaximizeHoverForeColor : MaximizeNormalForeColor : DisabledForeColor))
                     {
@@ -418,7 +418,7 @@ namespace ReaLTaiizor.Controls
             }
             using (SolidBrush minimizeBoxState = new(MinimizeBox ? MinimizeHovered ? MinimizeHoverBackColor : Color.Transparent : Color.Transparent))
             {
-                using (Font f = new Font(@"Marlett", 12))
+                using (Font f = new(@"Marlett", 12))
                 {
                     using (SolidBrush tb = new(MinimizeBox ? MinimizeHovered ? MinimizeHoverForeColor : MinimizeNormalForeColor : DisabledForeColor))
                     {

@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Controls
             _Height = Height - 1;
 
             GraphicsPath GP = default;
-            GraphicsPath GP2 = new GraphicsPath();
+            GraphicsPath GP2 = new();
             Rectangle BaseRect = new(0, 0, _Width, _Height);
             Rectangle ThumbRect = new(_Width / 2, 0, 38, _Height);
 

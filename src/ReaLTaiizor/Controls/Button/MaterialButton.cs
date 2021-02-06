@@ -297,7 +297,7 @@ namespace ReaLTaiizor.Controls
             //Ripple
             if (_animationManager.IsAnimating())
             {
-                g.Clip = new Region(buttonRectF);
+                g.Clip = new(buttonRectF);
                 for (int i = 0; i < _animationManager.GetAnimationCount(); i++)
                 {
                     double animationValue = _animationManager.GetProgress(i);

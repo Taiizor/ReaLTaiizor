@@ -95,12 +95,12 @@ namespace ReaLTaiizor.Controls
             Size = new Size(120, 40);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(52, 52, 52);
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         protected override void OnResize(System.EventArgs e)
         {
-            Shape = new GraphicsPath();
+            Shape = new();
 
             GraphicsPath _Shape = Shape;
             _Shape.AddArc(9, 0, 10, 10, 180, 90);
@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             Graphics _G = G;

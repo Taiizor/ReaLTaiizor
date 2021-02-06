@@ -34,7 +34,7 @@ namespace ReaLTaiizor.Controls
         public FoxLinkLabel() : base()
         {
             Size = new Size(82, 18);
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             ForeColor = FoxLibrary.ColorFromHex("#0095DD");
         }
 
@@ -49,7 +49,7 @@ namespace ReaLTaiizor.Controls
                 case FoxLibrary.MouseState.Over:
                     using (SolidBrush TextColor = new(_OverColor))
                     {
-                        using (Font TextFont = new Font(Font.FontFamily, Font.Size, FontStyle.Underline))
+                        using (Font TextFont = new(Font.FontFamily, Font.Size, FontStyle.Underline))
                         {
                             G.DrawString(Text, TextFont, TextColor, new Point(0, 0));
                         }

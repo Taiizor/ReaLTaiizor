@@ -275,7 +275,7 @@ namespace ReaLTaiizor.Forms
 
         #region Paint Methods
 
-        public Bitmap ApplyInvert(Bitmap bitmapImage)
+        public static Bitmap ApplyInvert(Bitmap bitmapImage)
         {
             byte A, R, G, B;
             Color pixelColor;
@@ -285,7 +285,7 @@ namespace ReaLTaiizor.Forms
                 for (int x = 0; x < bitmapImage.Width; x++)
                 {
                     pixelColor = bitmapImage.GetPixel(x, y);
-                    A = pixelColor.A;
+                    //A = pixelColor.A;
                     R = (byte)(255 - pixelColor.R);
                     G = (byte)(255 - pixelColor.G);
                     B = (byte)(255 - pixelColor.B);
@@ -1038,7 +1038,7 @@ namespace ReaLTaiizor.Forms
                 }
 
                 e.Graphics.Clear(backColor);
-                Font buttonFont = new Font("Webdings", 9.25f);
+                Font buttonFont = new("Webdings", 9.25f);
                 TextRenderer.DrawText(e.Graphics, Text, buttonFont, ClientRectangle, foreColor, backColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
             }
 
@@ -1359,7 +1359,7 @@ namespace ReaLTaiizor.Forms
 
             protected override void ClearShadow()
             {
-                Bitmap img = new Bitmap(Width, Height, PixelFormat.Format32bppArgb);
+                Bitmap img = new(Width, Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
                 g.Clear(Color.Transparent);
                 g.Flush();
@@ -1423,7 +1423,7 @@ namespace ReaLTaiizor.Forms
                 Rectangle rOuter = shadowCanvasArea;
                 Rectangle rInner = new(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - (-Offset.X * 2 - 1), shadowCanvasArea.Height - (-Offset.Y * 2 - 1));
 
-                Bitmap img = new Bitmap(rOuter.Width, rOuter.Height, PixelFormat.Format32bppArgb);
+                Bitmap img = new(rOuter.Width, rOuter.Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
@@ -1479,7 +1479,7 @@ namespace ReaLTaiizor.Forms
 
             protected override void ClearShadow()
             {
-                Bitmap img = new Bitmap(Width, Height, PixelFormat.Format32bppArgb);
+                Bitmap img = new(Width, Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
                 g.Clear(Color.Transparent);
                 g.Flush();
@@ -1549,7 +1549,7 @@ namespace ReaLTaiizor.Forms
 
                 Rectangle originalOuter = rOuter;
 
-                Bitmap img = new Bitmap(originalOuter.Width, originalOuter.Height, PixelFormat.Format32bppArgb);
+                Bitmap img = new(originalOuter.Width, originalOuter.Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
@@ -1579,7 +1579,7 @@ namespace ReaLTaiizor.Forms
                 int strokeOffset = Convert.ToInt32(Math.Ceiling(drawPen.Width));
                 bounds = Rectangle.Inflate(bounds, -strokeOffset, -strokeOffset);
 
-                GraphicsPath gfxPath = new GraphicsPath();
+                GraphicsPath gfxPath = new();
 
                 if (cornerRadius > 0)
                 {

@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
     {
         public BigLabel()
         {
-            Font = new Font("Segoe UI", 25, FontStyle.Regular);
+            Font = new("Segoe UI", 25, FontStyle.Regular);
             ForeColor = Color.FromArgb(80, 80, 80);
             BackColor = Color.Transparent;
         }

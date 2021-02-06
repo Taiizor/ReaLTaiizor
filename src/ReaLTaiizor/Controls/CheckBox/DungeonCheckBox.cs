@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             DoubleBuffered = true;
             // Reduce control flicker
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             Size = new Size(160, 26);
             ForeColor = Color.FromArgb(76, 76, 95);
             Cursor = Cursors.Hand;
@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Controls
         {
             if (Width > 0 && Height > 0)
             {
-                Shape = new GraphicsPath();
+                Shape = new();
 
                 R1 = new(17, 0, Width, Height + 1);
                 R2 = new(0, 0, Width, Height);

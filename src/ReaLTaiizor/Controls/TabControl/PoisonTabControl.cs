@@ -403,7 +403,7 @@ namespace ReaLTaiizor.Controls
 
             using (Brush b = new SolidBrush(PoisonPaint.BorderColor.TabControl.Normal(Theme)))
             {
-                GraphicsPath gp = new GraphicsPath(FillMode.Winding);
+                GraphicsPath gp = new(FillMode.Winding);
                 PointF[] pts = { new PointF(6, 6), new PointF(16, 0), new PointF(16, 12) };
                 gp.AddLines(pts);
 

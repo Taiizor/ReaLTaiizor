@@ -129,7 +129,7 @@ namespace ReaLTaiizor.Controls
         {
             if (_buffer == null)
             {
-                _buffer = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
+                _buffer = new(ClientRectangle.Width, ClientRectangle.Height);
             }
 
             using (Graphics g = Graphics.FromImage(_buffer))

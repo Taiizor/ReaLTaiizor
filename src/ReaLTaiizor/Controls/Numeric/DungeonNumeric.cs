@@ -146,7 +146,7 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             Height = 28;
             MinimumSize = new Size(93, 28);
-            Shape = new GraphicsPath();
+            Shape = new();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
             Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -294,7 +294,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(76, 76, 76);
             _Minimum = 0;
             _Maximum = 100;
-            Font = new Font("Tahoma", 11);
+            Font = new("Tahoma", 11);
             Size = new Size(70, 28);
             MinimumSize = new Size(62, 28);
             DoubleBuffered = true;
@@ -318,12 +318,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            LinearGradientBrush BackgroundLGB = default(LinearGradientBrush);
-
-            BackgroundLGB = new(ClientRectangle, _BackColorA, _BackColorB, 90.0F);
-
+            LinearGradientBrush BackgroundLGB = new(ClientRectangle, _BackColorA, _BackColorB, 90.0F);
             G.SmoothingMode = SmoothingMode.AntiAlias;
 
             G.Clear(Color.Transparent); // Set control background color

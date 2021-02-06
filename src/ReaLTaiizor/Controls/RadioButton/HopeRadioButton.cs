@@ -191,7 +191,7 @@ namespace ReaLTaiizor.Controls
         {
             SizeAnimationTimer.Tick += new EventHandler(AnimationTick);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             ForeColor = Color.Black;
             Cursor = Cursors.Hand;
         }

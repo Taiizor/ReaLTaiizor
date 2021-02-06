@@ -110,7 +110,7 @@ namespace ReaLTaiizor.Forms
             richTextBoxMessage.BorderStyle = BorderStyle.None;
             richTextBoxMessage.DataBindings.Add(new Binding("Text", MaterialFlexibleFormBindingSource, "MessageText", true, DataSourceUpdateMode.OnPropertyChanged));
             richTextBoxMessage.Depth = 0;
-            richTextBoxMessage.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            richTextBoxMessage.Font = new("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             richTextBoxMessage.ForeColor = Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             richTextBoxMessage.Hint = "";
             richTextBoxMessage.Location = new Point(47, 2);

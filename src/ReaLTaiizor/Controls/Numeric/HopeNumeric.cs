@@ -19,10 +19,10 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private bool enterFlag = false;
-        private readonly System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
-        private RectangleF upRectangleF = new RectangleF();
-        private RectangleF downRectangleF = new RectangleF();
-        private Point mousePoint = new Point();
+        private readonly TextBox textBox = new TextBox();
+        private RectangleF upRectangleF = new();
+        private RectangleF downRectangleF = new();
+        private Point mousePoint = new();
 
         private Color _BaseColor = HopeColors.FourLevelBorder;
         private Color _BorderColorA = HopeColors.PlaceholderText;
@@ -50,13 +50,13 @@ namespace ReaLTaiizor.Controls
                 _style = value;
                 if (_style == NumericStyle.LeftRight)
                 {
-                    downRectangleF = new RectangleF(0, 0, Height, Height);
-                    upRectangleF = new RectangleF(Width - Height, 0, Height, Height);
+                    downRectangleF = new(0, 0, Height, Height);
+                    upRectangleF = new(Width - Height, 0, Height, Height);
                 }
                 else
                 {
-                    downRectangleF = new RectangleF(Width - Height, Height / 2, Height, Height / 2);
-                    upRectangleF = new RectangleF(Width - Height, 0, Height, Height / 2);
+                    downRectangleF = new(Width - Height, Height / 2, Height, Height / 2);
+                    upRectangleF = new(Width - Height, 0, Height, Height / 2);
                 }
                 Invalidate();
             }
@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
 
             Width = 120;
             Height = 30;

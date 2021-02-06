@@ -138,7 +138,7 @@ namespace ReaLTaiizor.Controls
             Enabled = true;
             DoubleBuffered = true;
             ForeColor = FoxLibrary.ColorFromHex("#424E5A");
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -162,7 +162,7 @@ namespace ReaLTaiizor.Controls
 
                 using (SolidBrush SignColor = new(_ButtonTextColor))
                 {
-                    using (Font SignFont = new Font("Marlett", 10))
+                    using (Font SignFont = new("Marlett", 10))
                     {
                         G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
                         G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
@@ -184,7 +184,7 @@ namespace ReaLTaiizor.Controls
 
                 using (SolidBrush SignColor = new(_DisabledButtonTextColor))
                 {
-                    using (Font SignFont = new Font("Marlett", 10))
+                    using (Font SignFont = new("Marlett", 10))
                     {
                         G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
                         G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));

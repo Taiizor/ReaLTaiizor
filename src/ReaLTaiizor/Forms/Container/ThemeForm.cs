@@ -462,7 +462,7 @@ namespace ReaLTaiizor.Forms
             Dock = DockStyle.Fill;
             MoveHeight = 66;
             StartPosition = FormStartPosition.CenterScreen;
-            Font = new Font("Microsoft Sans Serif", 9);
+            Font = new("Microsoft Sans Serif", 9);
         }
 
         protected override void OnPaint(PaintEventArgs e)

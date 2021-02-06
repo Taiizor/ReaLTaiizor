@@ -112,21 +112,21 @@ namespace ReaLTaiizor.Forms
                     switch (TextAlign)
                     {
                         case TextAlign.Left:
-                            using (StringFormat stringFormat = new StringFormat() { LineAlignment = StringAlignment.Center })
+                            using (StringFormat stringFormat = new() { LineAlignment = StringAlignment.Center })
                             {
                                 e.Graphics.DrawString(Text, Font, textBrush, new Rectangle(20, 0, Width, HeaderHeight), stringFormat);
                             }
 
                             break;
                         case TextAlign.Center:
-                            using (StringFormat stringFormat = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+                            using (StringFormat stringFormat = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
                             {
                                 e.Graphics.DrawString(Text, Font, textBrush, new Rectangle(20, 0, Width - 21, HeaderHeight), stringFormat);
                             }
 
                             break;
                         case TextAlign.Right:
-                            using (StringFormat stringFormat = new StringFormat() { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center })
+                            using (StringFormat stringFormat = new() { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center })
                             {
                                 e.Graphics.DrawString(Text, Font, textBrush, new Rectangle(20, 0, Width - 26, HeaderHeight), stringFormat);
                             }

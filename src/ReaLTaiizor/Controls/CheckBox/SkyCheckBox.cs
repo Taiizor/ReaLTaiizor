@@ -124,7 +124,7 @@ namespace ReaLTaiizor.Controls
         public SkyCheckBox() : base()
         {
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(27, 94, 137);
             Size = new Size(90, 16);
@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             Rectangle checkBoxRectangle = new(0, 0, Height - 1, Height - 1);

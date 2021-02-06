@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             Width = 180;
             ForeColor = Color.FromArgb(76, 76, 95);
             Cursor = Cursors.Hand;
@@ -142,7 +142,7 @@ namespace ReaLTaiizor.Controls
             LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(14, 14)), _CheckedBackColorA, _CheckedBackColorB, 90);
             MyDrawer.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(14, 14)));
 
-            GraphicsPath GP = new GraphicsPath();
+            GraphicsPath GP = new();
             GP.AddEllipse(new Rectangle(0, 0, 14, 14));
             MyDrawer.SetClip(GP);
             MyDrawer.ResetClip();

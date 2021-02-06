@@ -248,7 +248,7 @@ namespace ReaLTaiizor.Forms
         private Color _ForeverColor = ForeverLibrary.ForeverColor;
         private Color _TextColor = Color.FromArgb(234, 234, 234);
 
-        private Font _HeaderTextFont = new Font("Segoe UI", 12);
+        private Font _HeaderTextFont = new("Segoe UI", 12);
 
         private readonly Color _HeaderLight = Color.FromArgb(171, 171, 172);
         private readonly Color _BaseLight = Color.FromArgb(196, 199, 200);
@@ -260,14 +260,14 @@ namespace ReaLTaiizor.Forms
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             BackColor = Color.White;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             MinimumSize = new Size(210, 50);
             Padding = new Padding(1, 51, 1, 1);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width;
             H = Height;

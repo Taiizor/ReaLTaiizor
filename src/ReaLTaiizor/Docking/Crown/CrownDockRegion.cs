@@ -217,7 +217,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void PositionGroups()
         {
-            var dockStyle = DockArea switch
+            DockStyle dockStyle = DockArea switch
             {
                 DockArea.Left or DockArea.Right => DockStyle.Top,
                 DockArea.Bottom => DockStyle.Left,

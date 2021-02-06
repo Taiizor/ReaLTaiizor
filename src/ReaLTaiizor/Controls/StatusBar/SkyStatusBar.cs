@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Controls
 
         public SkyStatusBar() : base()
         {
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
             ForeColor = Color.FromArgb(27, 94, 137);
             Size = new Size(Width, 20);
             DoubleBuffered = true;
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             base.OnPaint(e);
 

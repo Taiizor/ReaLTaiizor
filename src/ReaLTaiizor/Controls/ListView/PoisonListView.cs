@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
     public partial class PoisonListView : ListView, IPoisonControl
     {
         private ListViewColumnSorter lvwColumnSorter;
-        private readonly Font stdFont = new Font("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
+        private readonly Font stdFont = new("Segoe UI", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
         private readonly float _offset = 0.2F;
 
         #region Interface
@@ -476,7 +476,7 @@ namespace ReaLTaiizor.Controls
 
         public PoisonListView()
         {
-            Font = new Font("Segoe UI", 12.0f);
+            Font = new("Segoe UI", 12.0f);
             HideSelection = true;
 
             OwnerDraw = true;
@@ -642,30 +642,30 @@ namespace ReaLTaiizor.Controls
                     _colWidth = Columns[e.ColumnIndex].Width;
                 }
 
-                using (StringFormat sf = new StringFormat())
+                using (StringFormat sf = new())
                 {
-                    TextFormatFlags flags = TextFormatFlags.Left;
+                    //TextFormatFlags flags = TextFormatFlags.Left;
 
                     switch (e.Header.TextAlign)
                     {
                         case HorizontalAlignment.Center:
                             sf.Alignment = StringAlignment.Center;
-                            flags = TextFormatFlags.HorizontalCenter;
+                            //flags = TextFormatFlags.HorizontalCenter;
                             break;
                         case HorizontalAlignment.Right:
                             sf.Alignment = StringAlignment.Far;
-                            flags = TextFormatFlags.Right;
+                            //flags = TextFormatFlags.Right;
                             break;
                         default:
                             sf.Alignment = StringAlignment.Near;
-                            flags = TextFormatFlags.Left;
+                            //flags = TextFormatFlags.Left;
                             break;
                     }
 
                     if (e.ColumnIndex > 0 && double.TryParse(e.SubItem.Text, NumberStyles.Currency, NumberFormatInfo.CurrentInfo, out double subItemValue))
                     {
                         sf.Alignment = StringAlignment.Far;
-                        flags = TextFormatFlags.Right;
+                        //flags = TextFormatFlags.Right;
                     }
 
 
@@ -851,7 +851,7 @@ namespace ReaLTaiizor.Controls
             Color _headColor = PoisonPaint.ForeColor.Button.Press(Theme);
             e.Graphics.FillRectangle(new SolidBrush(PoisonPaint.GetStyleColor(Style)), e.Bounds);
 
-            using (StringFormat sf = new StringFormat())
+            using (StringFormat sf = new())
             {
                 sf.Alignment = StringAlignment.Center;
                 e.Graphics.DrawString(e.Header.Text, stdFont, new SolidBrush(_headColor), e.Bounds, sf);

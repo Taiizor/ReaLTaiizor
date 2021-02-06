@@ -131,7 +131,7 @@ namespace ReaLTaiizor.Helper
     {
         public static GraphicsPath CreateRoundRect(float x, float y, float width, float height, float radius)
         {
-            GraphicsPath gp = new GraphicsPath();
+            GraphicsPath gp = new();
             gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
             gp.AddArc(x + width - (radius * 2), y + height - (radius * 2), radius * 2, radius * 2, 0, 90);
             gp.AddArc(x, y + height - (radius * 2), radius * 2, radius * 2, 90, 90);

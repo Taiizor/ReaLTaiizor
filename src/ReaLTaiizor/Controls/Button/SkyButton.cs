@@ -243,13 +243,13 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(27, 94, 137);
             DoubleBuffered = true;
             Size = new Size(75, 23);
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
             Cursor = Cursors.Hand;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             //object ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
             base.OnPaint(e);

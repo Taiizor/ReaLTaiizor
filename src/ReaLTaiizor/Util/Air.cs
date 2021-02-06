@@ -28,14 +28,14 @@ namespace ReaLTaiizor.Util
             SetStyle((ControlStyles)139270, true);
 
             _ImageSize = Size.Empty;
-            Font = new Font("Verdana", 8);
+            Font = new("Verdana", 8);
 
-            MeasureBitmap = new Bitmap(1, 1);
+            MeasureBitmap = new(1, 1);
             MeasureGraphics = Graphics.FromImage(MeasureBitmap);
 
             StartPosition = FormStartPosition.CenterScreen;
 
-            DrawRadialPath = new GraphicsPath();
+            DrawRadialPath = new();
 
             InvalidateCustimization();
         }
@@ -758,12 +758,11 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                byte[] Data = null;
                 BloomAir[] Items = Colors;
 
                 try
                 {
-                    Data = Convert.FromBase64String(value);
+                    byte[] Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
                     {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
@@ -960,7 +959,7 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                B = new Bitmap(Width, Height, PixelFormat.Format32bppPArgb);
+                B = new(Width, Height, PixelFormat.Format32bppPArgb);
                 G = Graphics.FromImage(B);
             }
             else
@@ -1457,7 +1456,7 @@ namespace ReaLTaiizor.Util
 
         public GraphicsPath CreateRound(Rectangle r, int slope)
         {
-            CreateRoundPath = new GraphicsPath(FillMode.Winding);
+            CreateRoundPath = new(FillMode.Winding);
             CreateRoundPath.AddArc(r.X, r.Y, slope, slope, 180f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Y, slope, slope, 270f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Bottom - slope, slope, slope, 0f, 90f);
@@ -1482,12 +1481,12 @@ namespace ReaLTaiizor.Util
             SetStyle((ControlStyles)139270, true);
 
             _ImageSize = Size.Empty;
-            Font = new Font("Verdana", 8);
+            Font = new("Verdana", 8);
 
-            MeasureBitmap = new Bitmap(1, 1);
+            MeasureBitmap = new(1, 1);
             MeasureGraphics = Graphics.FromImage(MeasureBitmap);
 
-            DrawRadialPath = new GraphicsPath();
+            DrawRadialPath = new();
 
             InvalidateCustimization();
             //Remove?
@@ -1827,12 +1826,11 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                byte[] Data = null;
                 BloomAir[] Items = Colors;
 
                 try
                 {
-                    Data = Convert.FromBase64String(value);
+                    byte[] Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
                     {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
@@ -1951,7 +1949,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            B = new Bitmap(Width, Height, PixelFormat.Format32bppPArgb);
+            B = new(Width, Height, PixelFormat.Format32bppPArgb);
             G = Graphics.FromImage(B);
         }
 
@@ -2436,7 +2434,7 @@ namespace ReaLTaiizor.Util
 
         public GraphicsPath CreateRound(Rectangle r, int slope)
         {
-            CreateRoundPath = new GraphicsPath(FillMode.Winding);
+            CreateRoundPath = new(FillMode.Winding);
             CreateRoundPath.AddArc(r.X, r.Y, slope, slope, 180f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Y, slope, slope, 270f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Bottom - slope, slope, slope, 0f, 90f);

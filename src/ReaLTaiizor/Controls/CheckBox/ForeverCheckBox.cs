@@ -121,7 +121,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.FromArgb(60, 70, 73);
             ForeColor = Color.FromArgb(243, 243, 243);
             Cursor = Cursors.Hand;
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             Size = new Size(130, 22);
         }
 
@@ -129,7 +129,7 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;

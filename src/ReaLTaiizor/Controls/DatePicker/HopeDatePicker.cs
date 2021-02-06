@@ -392,13 +392,13 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.White;
 
             DateRectDefaultSize = (Width - 20) / 7;
-            TopDateRect = new RectangleF(20, 5, Width - 40, DateRectDefaultSize);
-            WeekRect = new RectangleF(0, TopDateRect.Y + TopDateRect.Height, DateRectDefaultSize, DateRectDefaultSize);
+            TopDateRect = new(20, 5, Width - 40, DateRectDefaultSize);
+            WeekRect = new(0, TopDateRect.Y + TopDateRect.Height, DateRectDefaultSize, DateRectDefaultSize);
 
-            PreviousYearRect = new RectangleF(10, TopDateRect.Y, 20, DateRectDefaultSize);
-            PreviousMonthRect = new RectangleF(35, TopDateRect.Y + 1, 20, DateRectDefaultSize);
-            NextMonthRect = new RectangleF(Width - 55, TopDateRect.Y + 1, 20, DateRectDefaultSize);
-            NextYearRect = new RectangleF(Width - 30, TopDateRect.Y, 20, DateRectDefaultSize);
+            PreviousYearRect = new(10, TopDateRect.Y, 20, DateRectDefaultSize);
+            PreviousMonthRect = new(35, TopDateRect.Y + 1, 20, DateRectDefaultSize);
+            NextMonthRect = new(Width - 55, TopDateRect.Y + 1, 20, DateRectDefaultSize);
+            NextYearRect = new(Width - 30, TopDateRect.Y, 20, DateRectDefaultSize);
 
             CurrentDate = DateTime.Now;
 
@@ -436,7 +436,7 @@ namespace ReaLTaiizor.Controls
 
             graphics.DrawLine(new(_HeadLineColor, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);
 
-            DateTime FirstDay = FirstDayOfMonth(CurrentDate);
+            //DateTime FirstDay = FirstDayOfMonth(CurrentDate);
             for (int i = 0; i < 42; i++)
             {
                 Util.HopeBase.DateRectHopeBase tempDate = DateRectangles[i / 7][i % 7];
@@ -468,7 +468,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public DateTime FirstDayOfMonth(DateTime value)
+        public static DateTime FirstDayOfMonth(DateTime value)
         {
             return new DateTime(value.Year, value.Month, 1);
         }

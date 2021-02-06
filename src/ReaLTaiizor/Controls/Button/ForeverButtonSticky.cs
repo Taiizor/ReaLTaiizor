@@ -74,7 +74,7 @@ namespace ReaLTaiizor.Controls
             return Bool;
         }
 
-        private Rectangle Rect => new Rectangle(Left, Top, Width, Height);
+        private Rectangle Rect => new(Left, Top, Width, Height);
 
         [Category("Colors")]
         public Color BaseColor
@@ -118,7 +118,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Size = new Size(160, 40);
             BackColor = Color.Transparent;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             Cursor = Cursors.Hand;
         }
 
@@ -126,12 +126,12 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width;
             H = Height;
 
-            GraphicsPath GP = new GraphicsPath();
+            GraphicsPath GP = new();
 
             bool[] GCS = GetConnectedSides();
             // dynamic RoundedBase = ForeverLibrary.RoundRect(0, 0, W, H, ???, !(GCS(2) | GCS(1)), !(GCS(1) | GCS(0)), !(GCS(3) | GCS(0)), !(GCS(3) | GCS(2)));

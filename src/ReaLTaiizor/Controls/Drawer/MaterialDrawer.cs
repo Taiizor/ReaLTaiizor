@@ -238,7 +238,7 @@ namespace ReaLTaiizor.Controls
                 Rectangle destRect = new(0, 0, _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
 
                 // Create a pre-processed copy of the image (GRAY)
-                Bitmap bgray = new Bitmap(destRect.Width, destRect.Height);
+                Bitmap bgray = new(destRect.Width, destRect.Height);
                 using (Graphics gGray = Graphics.FromImage(bgray))
                 {
                     gGray.DrawImage(_baseTabControl.ImageList.Images[tabPage.ImageKey],
@@ -251,7 +251,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Create a pre-processed copy of the image (PRIMARY COLOR)
-                Bitmap bcolor = new Bitmap(destRect.Width, destRect.Height);
+                Bitmap bcolor = new(destRect.Width, destRect.Height);
                 using (Graphics gColor = Graphics.FromImage(bcolor))
                 {
                     gColor.DrawImage(_baseTabControl.ImageList.Images[tabPage.ImageKey],

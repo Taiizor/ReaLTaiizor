@@ -482,7 +482,7 @@ namespace ReaLTaiizor.Forms
             DoubleBuffered = true;
             Dock = DockStyle.Fill;
             MoveHeight = 48;
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
             StartPosition = FormStartPosition.CenterScreen;
         }
 

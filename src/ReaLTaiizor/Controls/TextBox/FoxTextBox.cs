@@ -195,7 +195,7 @@ namespace ReaLTaiizor.Controls
             TextAlign = HorizontalAlignment.Left;
             BackColor = Color.White;
             ForeColor = Color.FromArgb(66, 78, 90);
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             Size = new Size(90, 29);
             Enabled = true;
         }

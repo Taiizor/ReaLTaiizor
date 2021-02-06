@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Controls
             SetColor("BG", Color.FromArgb(240, 240, 240));
             SetColor("FC", Color.Gray);
             Cursor = Cursors.Hand;
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
         }
 
         protected override void ColorHook()

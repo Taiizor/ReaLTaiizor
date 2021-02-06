@@ -158,10 +158,10 @@ namespace ReaLTaiizor.Controls
                 , ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, LINE_Y);
 
             // Create and Draw the arrow
-            GraphicsPath pth = new GraphicsPath();
-            PointF TopRight = new PointF(Width - 0.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
-            PointF MidBottom = new PointF(Width - 4.5f - SkinManager.FORM_PADDING, (Height >> 1) + 2.5f);
-            PointF TopLeft = new PointF(Width - 8.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
+            GraphicsPath pth = new();
+            PointF TopRight = new(Width - 0.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
+            PointF MidBottom = new(Width - 4.5f - SkinManager.FORM_PADDING, (Height >> 1) + 2.5f);
+            PointF TopLeft = new(Width - 8.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
             pth.AddLine(TopLeft, TopRight);
             pth.AddLine(TopRight, MidBottom);
 
@@ -222,7 +222,7 @@ namespace ReaLTaiizor.Controls
                 ClientRectangle.Width - SkinManager.FORM_PADDING * 3 - 8,
                 hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
-            g.Clip = new Region(textRect);
+            g.Clip = new(textRect);
 
             using (MaterialNativeTextRenderer NativeText = new(g))
             {

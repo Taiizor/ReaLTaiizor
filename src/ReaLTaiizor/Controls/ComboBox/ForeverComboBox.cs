@@ -184,20 +184,20 @@ namespace ReaLTaiizor.Controls
             Cursor = Cursors.Hand;
             StartIndex = 0;
             ItemHeight = 18;
-            Font = new Font("Segoe UI", 8, FontStyle.Regular);
+            Font = new("Segoe UI", 8, FontStyle.Regular);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width;
             H = Height;
 
             Rectangle Base = new(0, 0, W, H);
             Rectangle Button = new(Convert.ToInt32(W - 40), 0, W, H);
-            GraphicsPath GP = new GraphicsPath();
-            GraphicsPath GP2 = new GraphicsPath();
+            GraphicsPath GP = new();
+            GraphicsPath GP2 = new();
 
             Graphics _with16 = G;
             _with16.Clear(Color.FromArgb(45, 45, 48));

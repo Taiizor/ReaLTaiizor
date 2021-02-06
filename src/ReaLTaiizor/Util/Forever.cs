@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Util
 
         public static GraphicsPath RoundRec(Rectangle Rectangle, int Curve)
         {
-            GraphicsPath P = new GraphicsPath();
+            GraphicsPath P = new();
             int ArcRectangleWidth = Curve * 2;
             P.AddArc(new Rectangle(Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -180, 90);
             P.AddArc(new Rectangle(Rectangle.Width - ArcRectangleWidth + Rectangle.X, Rectangle.Y, ArcRectangleWidth, ArcRectangleWidth), -90, 90);
@@ -42,11 +42,10 @@ namespace ReaLTaiizor.Util
 
         public static GraphicsPath RoundRect(float x, float y, float w, float h, double r = 0.3, bool TL = true, bool TR = true, bool BR = true, bool BL = true)
         {
-            GraphicsPath functionReturnValue = null;
             float d = Math.Min(w, h) * (float)r;
             float xw = x + w;
             float yh = y + h;
-            functionReturnValue = new GraphicsPath();
+            GraphicsPath functionReturnValue = new();
 
             GraphicsPath _with1 = functionReturnValue;
             if (TL)
@@ -91,7 +90,7 @@ namespace ReaLTaiizor.Util
 
         public static GraphicsPath DrawArrow(int x, int y, bool flip)
         {
-            GraphicsPath GP = new GraphicsPath();
+            GraphicsPath GP = new();
 
             int W = 12;
             int H = 6;
@@ -118,7 +117,7 @@ namespace ReaLTaiizor.Util
                 throw new ArgumentNullException();
             }
 
-            ForeverColors colors = new ForeverColors();
+            ForeverColors colors = new();
 
             while (control != null && (control.GetType() != typeof(Forms.ForeverForm)))
             {

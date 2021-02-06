@@ -298,12 +298,12 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.FromArgb(233, 233, 233);
             ForeColor = Color.FromArgb(27, 94, 137);
             DoubleBuffered = true;
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.Clear(BackColor);

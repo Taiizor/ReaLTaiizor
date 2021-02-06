@@ -74,21 +74,21 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             BackColor = Color.Transparent;
             Size = new Size(240, 180);
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
 
-            GraphicsPath GP = new GraphicsPath();
-            GraphicsPath GP2 = new GraphicsPath();
-            GraphicsPath GP3 = new GraphicsPath();
+            GraphicsPath GP = new();
+            GraphicsPath GP2 = new();
+            GraphicsPath GP3 = new();
             Rectangle Base = new(8, 8, W - 16, H - 16);
 
             Graphics _with7 = G;

@@ -219,7 +219,7 @@ namespace ReaLTaiizor.Controls
                     {
                         using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor))
                         {
-                            using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
+                            using (StringFormat sf = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
                             {
                                 using (SolidBrush tb = new(ForeColor))
                                 {

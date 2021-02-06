@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             Size = new Size(44, Height + 1);
             Cursor = Cursors.Hand;
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             Size = new Size(76, 33);
         }
 
@@ -152,13 +152,13 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
 
-            GraphicsPath GP = new GraphicsPath();
-            GraphicsPath GP2 = new GraphicsPath();
+            GraphicsPath GP = new();
+            GraphicsPath GP2 = new();
             Rectangle Base = new(0, 0, W, H);
             Rectangle Toggle = new(Convert.ToInt32(W / 2), 0, 38, H);
 

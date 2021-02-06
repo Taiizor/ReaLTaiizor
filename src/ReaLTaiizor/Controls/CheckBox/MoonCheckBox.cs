@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
             SetColor("TCN", Color.Gray);
             SetColor("TCH", Color.Gray);
             Cursor = Cursors.Hand;
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
             Size = new Size(118, Height);
         }
 

@@ -255,7 +255,7 @@ namespace ReaLTaiizor.Controls
 
             TB = new System.Windows.Forms.TextBox
             {
-                Font = new Font("Segoe UI", 10),
+                Font = new("Segoe UI", 10),
                 Text = Text,
                 BackColor = _BaseColor,
                 ForeColor = ForeColor,
@@ -291,7 +291,7 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.Transparent;
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 2;
             H = Height - 2;

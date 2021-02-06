@@ -69,7 +69,7 @@ namespace ReaLTaiizor.Forms
             SetColor("BG", Color.FromArgb(240, 240, 240));
             StartPosition = FormStartPosition.CenterScreen;
             Padding = new Padding(0, 0, 0, 0);
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
             ForeColor = Color.Gray;
             TitleColor = _TitleColor;
             MinimumSize = new Size(100, 50);
