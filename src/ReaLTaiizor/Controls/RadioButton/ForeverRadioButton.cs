@@ -58,9 +58,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is ForeverRadioButton)
+                if (!object.ReferenceEquals(C, this) && C is ForeverRadioButton button)
                 {
-                    ((ForeverRadioButton)C).Checked = false;
+                    button.Checked = false;
                     Invalidate();
                 }
             }

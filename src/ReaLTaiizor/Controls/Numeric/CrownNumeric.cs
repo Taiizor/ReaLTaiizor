@@ -176,11 +176,9 @@ namespace ReaLTaiizor.Controls
                 borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
             }
 
-            using (Pen p = new(borderColor, 1))
-            {
-                Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
-                g.DrawRectangle(p, modRect);
-            }
+            using Pen p = new(borderColor, 1);
+            Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+            g.DrawRectangle(p, modRect);
         }
 
         #endregion

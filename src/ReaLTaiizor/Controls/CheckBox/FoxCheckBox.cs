@@ -117,90 +117,58 @@ namespace ReaLTaiizor.Controls
             {
                 if (Checked)
                 {
-                    using (Pen Border = new(_CheckedBorderColorA))
-                    {
-                        using (SolidBrush Background = new(_CheckedColor))
-                        {
-                            using (Pen BackBorder = new(_CheckedBorderColorB))
-                            {
-                                using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64C))))
-                                {
-                                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                    using Pen Border = new(_CheckedBorderColorA);
+                    using SolidBrush Background = new(_CheckedColor);
+                    using Pen BackBorder = new(_CheckedBorderColorB);
+                    using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64C)));
+                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
 
-                                    G.FillPath(Background, FoxLibrary.RoundRect(new Rectangle(5, 5, 17, 17), 2));
-                                    G.DrawPath(BackBorder, FoxLibrary.RoundRect(new Rectangle(5, 5, 17, 17), 2));
+                    G.FillPath(Background, FoxLibrary.RoundRect(new Rectangle(5, 5, 17, 17), 2));
+                    G.DrawPath(BackBorder, FoxLibrary.RoundRect(new Rectangle(5, 5, 17, 17), 2));
 
-                                    G.DrawImage(I, new Point(9, 9));
-                                }
-                            }
-                        }
-                    }
+                    G.DrawImage(I, new Point(9, 9));
                 }
                 else
                 {
-                    using (Pen Border = new(_UncheckedBorderColorA))
-                    {
-                        using (SolidBrush Background = new(_UncheckedColor))
-                        {
-                            using (Pen BackBorder = new(_UncheckedBorderColorB))
-                            {
-                                using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64U))))
-                                {
-                                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                    using Pen Border = new(_UncheckedBorderColorA);
+                    using SolidBrush Background = new(_UncheckedColor);
+                    using Pen BackBorder = new(_UncheckedBorderColorB);
+                    using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64U)));
+                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
 
-                                    G.FillPath(Background, FoxLibrary.RoundRect(new Rectangle(Width - 23, 5, 17, 17), 2));
-                                    G.DrawPath(BackBorder, FoxLibrary.RoundRect(new Rectangle(Width - 23, 5, 17, 17), 2));
+                    G.FillPath(Background, FoxLibrary.RoundRect(new Rectangle(Width - 23, 5, 17, 17), 2));
+                    G.DrawPath(BackBorder, FoxLibrary.RoundRect(new Rectangle(Width - 23, 5, 17, 17), 2));
 
-                                    G.DrawImage(I, new Point(Width - 19, 9));
-                                }
-                            }
-                        }
-                    }
+                    G.DrawImage(I, new Point(Width - 19, 9));
                 }
             }
             else
             {
                 if (Checked)
                 {
-                    using (Pen Border = new(_DisabledCheckedBorderColorA))
-                    {
-                        using (SolidBrush Background = new(_DisabledCheckedColor))
-                        {
-                            using (Pen BackBorder = new(_DisabledCheckedBorderColorB))
-                            {
-                                using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64C))))
-                                {
-                                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                    using Pen Border = new(_DisabledCheckedBorderColorA);
+                    using SolidBrush Background = new(_DisabledCheckedColor);
+                    using Pen BackBorder = new(_DisabledCheckedBorderColorB);
+                    using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64C)));
+                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
 
-                                    G.FillPath(Background, FoxLibrary.RoundRect(new Rectangle(5, 5, 17, 17), 2));
-                                    G.DrawPath(BackBorder, FoxLibrary.RoundRect(new Rectangle(5, 5, 17, 17), 2));
+                    G.FillPath(Background, FoxLibrary.RoundRect(new Rectangle(5, 5, 17, 17), 2));
+                    G.DrawPath(BackBorder, FoxLibrary.RoundRect(new Rectangle(5, 5, 17, 17), 2));
 
-                                    G.DrawImage(I, new Point(9, 9));
-                                }
-                            }
-                        }
-                    }
+                    G.DrawImage(I, new Point(9, 9));
                 }
                 else
                 {
-                    using (Pen Border = new(_DisabledUncheckedBorderColorA))
-                    {
-                        using (SolidBrush Background = new(_DisabledUncheckedColor))
-                        {
-                            using (Pen BackBorder = new(_DisabledUncheckedBorderColorB))
-                            {
-                                using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64U))))
-                                {
-                                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
+                    using Pen Border = new(_DisabledUncheckedBorderColorA);
+                    using SolidBrush Background = new(_DisabledUncheckedColor);
+                    using Pen BackBorder = new(_DisabledUncheckedBorderColorB);
+                    using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64U)));
+                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
 
-                                    G.FillPath(Background, FoxLibrary.RoundRect(new Rectangle(Width - 23, 5, 17, 17), 2));
-                                    G.DrawPath(BackBorder, FoxLibrary.RoundRect(new Rectangle(Width - 23, 5, 17, 17), 2));
+                    G.FillPath(Background, FoxLibrary.RoundRect(new Rectangle(Width - 23, 5, 17, 17), 2));
+                    G.DrawPath(BackBorder, FoxLibrary.RoundRect(new Rectangle(Width - 23, 5, 17, 17), 2));
 
-                                    G.DrawImage(I, new Point(Width - 19, 9));
-                                }
-                            }
-                        }
-                    }
+                    G.DrawImage(I, new Point(Width - 19, 9));
                 }
             }
 

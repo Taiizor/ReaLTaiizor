@@ -123,9 +123,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control _Control in Parent.Controls)
             {
-                if (!object.ReferenceEquals(_Control, this) && _Control is DungeonRadioButton)
+                if (!object.ReferenceEquals(_Control, this) && _Control is DungeonRadioButton button)
                 {
-                    ((DungeonRadioButton)_Control).Checked = false;
+                    button.Checked = false;
                 }
             }
         }

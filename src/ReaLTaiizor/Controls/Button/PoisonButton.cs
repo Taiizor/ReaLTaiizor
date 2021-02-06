@@ -322,13 +322,11 @@ namespace ReaLTaiizor.Controls
 
             if (Highlight && !isHovered && !isPressed && Enabled)
             {
-                using (Pen p = PoisonPaint.GetStylePen(Style))
-                {
-                    Rectangle borderRect = new(0, 0, Width - 1, Height - 1);
-                    e.Graphics.DrawRectangle(p, borderRect);
-                    borderRect = new(1, 1, Width - 3, Height - 3);
-                    e.Graphics.DrawRectangle(p, borderRect);
-                }
+                using Pen p = PoisonPaint.GetStylePen(Style);
+                Rectangle borderRect = new(0, 0, Width - 1, Height - 1);
+                e.Graphics.DrawRectangle(p, borderRect);
+                borderRect = new(1, 1, Width - 3, Height - 3);
+                e.Graphics.DrawRectangle(p, borderRect);
             }
 
             TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Button(poisonButtonSize, poisonButtonWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));

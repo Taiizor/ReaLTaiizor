@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        public TextBox RT_TB = new TextBox();
+        public TextBox RT_TB = new();
         private GraphicsPath Shape;
         private int _maxchars = 32767;
         private bool _ReadOnly;

@@ -259,7 +259,7 @@ namespace ReaLTaiizor.Forms
             InitializeComponent();
 
             //Try to evaluate the language. If this fails, the fallback language English will be used
-            System.Enum.TryParse<TwoLetterISOLanguageID>(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, out languageID);
+            _ = System.Enum.TryParse<TwoLetterISOLanguageID>(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, out languageID);
 
             KeyPreview = true;
             KeyUp += MaterialFlexibleForm_KeyUp;
@@ -553,7 +553,7 @@ namespace ReaLTaiizor.Forms
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton)
         {
             //Create a new instance of the FlexibleMessageBox form
-            MaterialFlexibleForm MaterialFlexibleForm = new MaterialFlexibleForm
+            MaterialFlexibleForm MaterialFlexibleForm = new()
             {
                 ShowInTaskbar = false,
 

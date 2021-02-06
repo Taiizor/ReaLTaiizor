@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("TextChanged")]
     public class FoxTextBox : Control
     {
-        private TextBox withEventsField_TB = new TextBox();
+        private TextBox withEventsField_TB = new();
 
         private TextBox TB
         {
@@ -218,25 +218,19 @@ namespace ReaLTaiizor.Controls
             {
                 if (State == FoxLibrary.MouseState.Down)
                 {
-                    using (Pen Border = new(FoxLibrary.ColorFromHex("#2C9CDA")))
-                    {
-                        G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-                    }
+                    using Pen Border = new(FoxLibrary.ColorFromHex("#2C9CDA"));
+                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                 }
                 else
                 {
-                    using (Pen Border = new(FoxLibrary.ColorFromHex("#C8C8C8")))
-                    {
-                        G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-                    }
+                    using Pen Border = new(FoxLibrary.ColorFromHex("#C8C8C8"));
+                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                 }
             }
             else
             {
-                using (Pen Border = new(FoxLibrary.ColorFromHex("#E6E6E6")))
-                {
-                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-                }
+                using Pen Border = new(FoxLibrary.ColorFromHex("#E6E6E6"));
+                G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
             }
 
             TB.TextAlign = TextAlign;

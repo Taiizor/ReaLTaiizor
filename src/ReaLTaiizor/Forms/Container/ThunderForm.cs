@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Forms
             base.OnMouseMove(e);
             if (cap)
             {
-                Point p = new Point
+                Point p = new()
                 {
                     X = MousePosition.X - MouseP.X,
                     Y = MousePosition.Y - MouseP.Y

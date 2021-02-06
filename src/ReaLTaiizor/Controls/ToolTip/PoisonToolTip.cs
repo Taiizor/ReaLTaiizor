@@ -148,17 +148,17 @@ namespace ReaLTaiizor.Controls
 
         private void PoisonToolTip_Popup(object sender, PopupEventArgs e)
         {
-            if (e.AssociatedWindow is IPoisonForm)
+            if (e.AssociatedWindow is IPoisonForm form)
             {
-                Style = ((IPoisonForm)e.AssociatedWindow).Style;
-                Theme = ((IPoisonForm)e.AssociatedWindow).Theme;
-                StyleManager = ((IPoisonForm)e.AssociatedWindow).StyleManager;
+                Style = form.Style;
+                Theme = form.Theme;
+                StyleManager = form.StyleManager;
             }
-            else if (e.AssociatedControl is IPoisonControl)
+            else if (e.AssociatedControl is IPoisonControl control)
             {
-                Style = ((IPoisonControl)e.AssociatedControl).Style;
-                Theme = ((IPoisonControl)e.AssociatedControl).Theme;
-                StyleManager = ((IPoisonControl)e.AssociatedControl).StyleManager;
+                Style = control.Style;
+                Theme = control.Theme;
+                StyleManager = control.StyleManager;
             }
 
             e.ToolTipSize = new(e.ToolTipSize.Width + 24, e.ToolTipSize.Height + 9);

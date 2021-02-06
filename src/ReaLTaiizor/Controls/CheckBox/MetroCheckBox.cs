@@ -211,28 +211,16 @@ namespace ReaLTaiizor.Controls
             Rectangle rect = new(0, 0, 16, 15);
             int alpha = _animator.Value;
 
-            using (SolidBrush backBrush = new(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238)))
-            {
-                using (Pen checkMarkPen = new(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Color.FromArgb(alpha, DisabledBorderColor), 2))
-                {
-                    using (SolidBrush checkMarkBrush = new(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : DisabledBorderColor))
-                    {
-                        using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor))
-                        {
-                            using (StringFormat sf = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
-                            {
-                                using (SolidBrush tb = new(ForeColor))
-                                {
-                                    g.FillRectangle(backBrush, rect);
-                                    g.DrawRectangle(Enabled ? p : checkMarkPen, rect);
-                                    DrawSymbol(g, checkMarkPen, checkMarkBrush);
-                                    g.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            using SolidBrush backBrush = new(Enabled ? BackgroundColor : Color.FromArgb(238, 238, 238));
+            using Pen checkMarkPen = new(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : Color.FromArgb(alpha, DisabledBorderColor), 2);
+            using SolidBrush checkMarkBrush = new(Enabled ? Checked || _animator.Active ? Color.FromArgb(alpha, CheckSignColor) : BackgroundColor : DisabledBorderColor);
+            using Pen p = new(Enabled ? BorderColor : DisabledBorderColor);
+            using StringFormat sf = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+            using SolidBrush tb = new(ForeColor);
+            g.FillRectangle(backBrush, rect);
+            g.DrawRectangle(Enabled ? p : checkMarkPen, rect);
+            DrawSymbol(g, checkMarkPen, checkMarkBrush);
+            g.DrawString(Text, Font, tb, new Rectangle(19, 2, Width, Height - 4), sf);
         }
 
         private void DrawSymbol(Graphics g, Pen pen, SolidBrush solidBrush)

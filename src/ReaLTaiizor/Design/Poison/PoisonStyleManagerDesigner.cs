@@ -85,8 +85,7 @@ namespace ReaLTaiizor.Design.Poison
 
         private void ResetStyles(PoisonStyleManager styleManager, Control control)
         {
-            IPoisonForm container = control as IPoisonForm;
-            if (container != null && !ReferenceEquals(styleManager, container.StyleManager))
+            if (control is IPoisonForm container && !ReferenceEquals(styleManager, container.StyleManager))
             {
                 return;
             }
@@ -107,8 +106,7 @@ namespace ReaLTaiizor.Design.Poison
                 ResetStyles(styleManager, control.ContextMenuStrip);
             }
 
-            TabControl tabControl = control as TabControl;
-            if (tabControl != null)
+            if (control is TabControl tabControl)
             {
                 foreach (TabPage tp in tabControl.TabPages)
                 {

@@ -158,8 +158,8 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private readonly PoisonScrollBar verticalScrollbar = new PoisonScrollBar(ScrollOrientationType.Vertical);
-        private readonly PoisonScrollBar horizontalScrollbar = new PoisonScrollBar(ScrollOrientationType.Horizontal);
+        private readonly PoisonScrollBar verticalScrollbar = new(ScrollOrientationType.Vertical);
+        private readonly PoisonScrollBar horizontalScrollbar = new(ScrollOrientationType.Horizontal);
 
         private bool showHorizontalScrollbar = false;
         [DefaultValue(false)]

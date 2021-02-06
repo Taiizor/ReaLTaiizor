@@ -160,14 +160,10 @@ namespace ReaLTaiizor.Controls
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
                 }
 
-                using (SolidBrush SignColor = new(_ButtonTextColor))
-                {
-                    using (Font SignFont = new("Marlett", 10))
-                    {
-                        G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
-                        G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
-                    }
-                }
+                using SolidBrush SignColor = new(_ButtonTextColor);
+                using Font SignFont = new("Marlett", 10);
+                G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
+                G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
             }
             else
             {
@@ -182,14 +178,10 @@ namespace ReaLTaiizor.Controls
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
                 }
 
-                using (SolidBrush SignColor = new(_DisabledButtonTextColor))
-                {
-                    using (Font SignFont = new("Marlett", 10))
-                    {
-                        G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
-                        G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
-                    }
-                }
+                using SolidBrush SignColor = new(_DisabledButtonTextColor);
+                using Font SignFont = new("Marlett", 10);
+                G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
+                G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
             }
 
             base.OnPaint(e);

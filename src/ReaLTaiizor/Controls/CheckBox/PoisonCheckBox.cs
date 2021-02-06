@@ -360,11 +360,9 @@ namespace ReaLTaiizor.Controls
             {
                 Color fillColor = CheckState == CheckState.Indeterminate ? borderColor : PoisonPaint.GetStyleColor(Style);
 
-                using (SolidBrush b = new(fillColor))
-                {
-                    Rectangle boxCheck = new(boxRect.Left + 2, boxRect.Top + 2, 9, 9);
-                    e.Graphics.FillRectangle(b, boxCheck);
-                }
+                using SolidBrush b = new(fillColor);
+                Rectangle boxCheck = new(boxRect.Left + 2, boxRect.Top + 2, 9, 9);
+                e.Graphics.FillRectangle(b, boxCheck);
             }
 
 

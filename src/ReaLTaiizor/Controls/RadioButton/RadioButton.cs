@@ -142,9 +142,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control _Control in Parent.Controls)
             {
-                if (_Control != this && _Control is RadioButton)
+                if (_Control != this && _Control is RadioButton button)
                 {
-                    ((RadioButton)_Control).Checked = false;
+                    button.Checked = false;
                 }
             }
         }

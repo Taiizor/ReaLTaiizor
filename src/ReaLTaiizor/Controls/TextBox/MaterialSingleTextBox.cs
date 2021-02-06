@@ -1153,8 +1153,7 @@ namespace ReaLTaiizor.Controls
 
             private void ContextMenuStripOnOpening(object sender, CancelEventArgs cancelEventArgs)
             {
-                TextBoxContextMenuStrip strip = sender as TextBoxContextMenuStrip;
-                if (strip != null)
+                if (sender is TextBoxContextMenuStrip strip)
                 {
                     strip.Undo.Enabled = CanUndo;
                     strip.Cut.Enabled = !string.IsNullOrEmpty(SelectedText);

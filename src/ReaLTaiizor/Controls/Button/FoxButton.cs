@@ -112,10 +112,8 @@ namespace ReaLTaiizor.Controls
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                 }
 
-                using (SolidBrush TextColor = new(ForeColor))
-                {
-                    FoxLibrary.CenterString(G, Text, Font, TextColor.Color, new Rectangle(3, 0, Width, Height));
-                }
+                using SolidBrush TextColor = new(ForeColor);
+                FoxLibrary.CenterString(G, Text, Font, TextColor.Color, new Rectangle(3, 0, Width, Height));
             }
             else
             {
@@ -129,10 +127,8 @@ namespace ReaLTaiizor.Controls
                     FoxLibrary.CenterString(G, Text, Font, TextColor.Color, new Rectangle(3, 0, Width, Height));
                 }
 
-                using (Pen Border = new(_DisabledBorderColor))
-                {
-                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-                }
+                using Pen Border = new(_DisabledBorderColor);
+                G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
             }
 
             base.OnPaint(e);

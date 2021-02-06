@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Manager
                 string themePath = Properties.Settings.Default.ThemeFile;
                 if (File.Exists(themePath))
                 {
-                    FileInfo FI = new FileInfo(themePath);
+                    FileInfo FI = new(themePath);
                     if (FI.Length > 0)
                     {
                         _customTheme = themePath;
@@ -243,15 +243,13 @@ namespace ReaLTaiizor.Manager
         public void OpenTheme()
         {
             Style = Style.Custom;
-            using (OpenFileDialog ofd = new OpenFileDialog { Filter = @"Xml File (*.xml)|*.xml" })
+            using OpenFileDialog ofd = new() { Filter = @"Xml File (*.xml)|*.xml" };
+            if (ofd.ShowDialog() != DialogResult.OK)
             {
-                if (ofd.ShowDialog() != DialogResult.OK)
-                {
-                    return;
-                }
-
-                CustomTheme = ofd.FileName;
+                return;
             }
+
+            CustomTheme = ofd.FileName;
         }
 
         public void SetTheme(string path)
@@ -447,8 +445,8 @@ namespace ReaLTaiizor.Manager
         {
             try
             {
-                Dictionary<string, object> dict = new Dictionary<string, object>();
-                XmlDocument doc = new XmlDocument();
+                Dictionary<string, object> dict = new();
+                XmlDocument doc = new();
                 if (File.Exists(path))
                 {
                     doc.Load(path);

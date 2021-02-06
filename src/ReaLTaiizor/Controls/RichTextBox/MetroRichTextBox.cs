@@ -97,7 +97,7 @@ namespace ReaLTaiizor.Controls
 
         #region Base RichTextBox
 
-        private readonly RichTextBox _richTextBox = new RichTextBox();
+        private readonly RichTextBox _richTextBox = new();
 
         #endregion Base RichTextBox
 
@@ -168,41 +168,31 @@ namespace ReaLTaiizor.Controls
 
             if (Enabled)
             {
-                using (SolidBrush bg = new(BackColor))
+                using SolidBrush bg = new(BackColor);
+                using Pen p = new(BorderColor);
+                using Pen ph = new(HoverColor);
+                g.FillRectangle(bg, rect);
+                switch (_state)
                 {
-                    using (Pen p = new(BorderColor))
-                    {
-                        using (Pen ph = new(HoverColor))
-                        {
-                            g.FillRectangle(bg, rect);
-                            switch (_state)
-                            {
-                                case MouseMode.Normal:
-                                    g.DrawRectangle(p, rect);
-                                    break;
-                                case MouseMode.Hovered:
-                                    g.DrawRectangle(ph, rect);
-                                    break;
-                            }
-
-                            _richTextBox.BackColor = BackColor;
-                            _richTextBox.ForeColor = ForeColor;
-                        }
-                    }
+                    case MouseMode.Normal:
+                        g.DrawRectangle(p, rect);
+                        break;
+                    case MouseMode.Hovered:
+                        g.DrawRectangle(ph, rect);
+                        break;
                 }
+
+                _richTextBox.BackColor = BackColor;
+                _richTextBox.ForeColor = ForeColor;
             }
             else
             {
-                using (SolidBrush bg = new(DisabledBackColor))
-                {
-                    using (Pen p = new(DisabledBorderColor))
-                    {
-                        g.FillRectangle(bg, rect);
-                        g.DrawRectangle(p, rect);
-                        _richTextBox.BackColor = DisabledBackColor;
-                        _richTextBox.ForeColor = DisabledForeColor;
-                    }
-                }
+                using SolidBrush bg = new(DisabledBackColor);
+                using Pen p = new(DisabledBorderColor);
+                g.FillRectangle(bg, rect);
+                g.DrawRectangle(p, rect);
+                _richTextBox.BackColor = DisabledBackColor;
+                _richTextBox.ForeColor = DisabledForeColor;
             }
 
             _richTextBox.Location = new(7, 4);

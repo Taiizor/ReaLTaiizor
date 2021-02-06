@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Extension.Poison
 
     public sealed class PoisonPens
     {
-        private static readonly Dictionary<string, Pen> poisonPens = new Dictionary<string, Pen>();
+        private static readonly Dictionary<string, Pen> poisonPens = new();
         private static Pen GetSavePen(string key, Color color)
         {
             lock (poisonPens)

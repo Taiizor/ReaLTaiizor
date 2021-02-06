@@ -76,8 +76,7 @@ namespace ReaLTaiizor.Docking.Crown
             ToolStripMenuItem menuItem = null;
             foreach (ToolStripMenuItem item in _menuItems)
             {
-                CrownDockContent menuContent = item.Tag as CrownDockContent;
-                if (menuContent == null)
+                if (item.Tag is not CrownDockContent menuContent)
                 {
                     continue;
                 }

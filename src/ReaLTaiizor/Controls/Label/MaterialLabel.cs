@@ -109,20 +109,18 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor);
 
             // Draw Text
-            using (MaterialNativeTextRenderer NativeText = new(g))
-            {
-                NativeText.DrawMultilineTransparentText(
-                    Text,
-                    SkinManager.getLogFontByType(_fontType),
-                    Enabled ? HighEmphasis ? UseAccent ?
-                    SkinManager.ColorScheme.AccentColor : // High emphasis, accent
-                    SkinManager.ColorScheme.PrimaryColor : // High emphasis, primary
-                    SkinManager.TextHighEmphasisColor : // Normal
-                    SkinManager.TextDisabledOrHintColor, // Disabled
-                    ClientRectangle.Location,
-                    ClientRectangle.Size,
-                    Alignment);
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            NativeText.DrawMultilineTransparentText(
+                Text,
+                SkinManager.getLogFontByType(_fontType),
+                Enabled ? HighEmphasis ? UseAccent ?
+                SkinManager.ColorScheme.AccentColor : // High emphasis, accent
+                SkinManager.ColorScheme.PrimaryColor : // High emphasis, primary
+                SkinManager.TextHighEmphasisColor : // Normal
+                SkinManager.TextDisabledOrHintColor, // Disabled
+                ClientRectangle.Location,
+                ClientRectangle.Size,
+                Alignment);
         }
 
         protected override void InitLayout()

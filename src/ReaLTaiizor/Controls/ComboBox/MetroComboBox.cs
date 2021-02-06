@@ -267,15 +267,11 @@ namespace ReaLTaiizor.Controls
             }
 
             bool itemState = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
-            using (SolidBrush bg = new(itemState ? SelectedItemBackColor : BackgroundColor))
-            using (SolidBrush tc = new(itemState ? SelectedItemForeColor : ForeColor))
-            {
-                using (Font f = new(Font.Name, 9))
-                {
-                    g.FillRectangle(bg, e.Bounds);
-                    g.DrawString(GetItemText(Items[e.Index]), f, tc, e.Bounds, _mth.SetPosition(StringAlignment.Near));
-                }
-            }
+            using SolidBrush bg = new(itemState ? SelectedItemBackColor : BackgroundColor);
+            using SolidBrush tc = new(itemState ? SelectedItemForeColor : ForeColor);
+            using Font f = new(Font.Name, 9);
+            g.FillRectangle(bg, e.Bounds);
+            g.DrawString(GetItemText(Items[e.Index]), f, tc, e.Bounds, _mth.SetPosition(StringAlignment.Near));
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -285,27 +281,17 @@ namespace ReaLTaiizor.Controls
             char downArrow = '▼';
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            using (SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor))
-            {
-                using (Pen p = new(Enabled ? BorderColor : DisabledBorderColor))
-                {
-                    using (SolidBrush s = new(Enabled ? ArrowColor : DisabledForeColor))
-                    {
-                        using (SolidBrush tb = new(Enabled ? ForeColor : DisabledForeColor))
-                        {
-                            using (Font f = MetroFonts.SemiBold(8))
-                            {
-                                g.FillRectangle(bg, rect);
-                                g.TextRenderingHint = TextRenderingHint.AntiAlias;
-                                g.DrawString(downArrow.ToString(), f, s, new Point(Width - 22, 8));
-                                g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-                                g.DrawString(Text, f, tb, new Rectangle(7, 0, Width - 1, Height - 1), _mth.SetPosition(StringAlignment.Near));
-                                g.DrawRectangle(p, rect);
-                            }
-                        }
-                    }
-                }
-            }
+            using SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor);
+            using Pen p = new(Enabled ? BorderColor : DisabledBorderColor);
+            using SolidBrush s = new(Enabled ? ArrowColor : DisabledForeColor);
+            using SolidBrush tb = new(Enabled ? ForeColor : DisabledForeColor);
+            using Font f = MetroFonts.SemiBold(8);
+            g.FillRectangle(bg, rect);
+            g.TextRenderingHint = TextRenderingHint.AntiAlias;
+            g.DrawString(downArrow.ToString(), f, s, new Point(Width - 22, 8));
+            g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            g.DrawString(Text, f, tb, new Rectangle(7, 0, Width - 1, Height - 1), _mth.SetPosition(StringAlignment.Near));
+            g.DrawRectangle(p, rect);
         }
 
         #endregion

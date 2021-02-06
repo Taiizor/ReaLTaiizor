@@ -373,8 +373,7 @@ namespace ReaLTaiizor.Controls
 
         private void ContextMenuStripOnOpening(object sender, CancelEventArgs cancelEventArgs)
         {
-            MaterialTextBoxContextMenuStrip strip = sender as MaterialTextBoxContextMenuStrip;
-            if (strip != null)
+            if (sender is MaterialTextBoxContextMenuStrip strip)
             {
                 strip.Cut.Enabled = !string.IsNullOrEmpty(SelectedText);
                 strip.Copy.Enabled = !string.IsNullOrEmpty(SelectedText);

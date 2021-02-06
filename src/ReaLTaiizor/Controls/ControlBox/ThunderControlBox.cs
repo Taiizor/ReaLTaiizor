@@ -123,8 +123,6 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
             G.Clear(BackColor);
             G.SmoothingMode = SmoothingMode.HighQuality;
-
-            LinearGradientBrush mlgb = null;
             Font mf = new("Marlett", 9);
             SolidBrush mfb = new(ForeColor);
             Pen P1 = new(Color.FromArgb(21, 21, 21), 1);
@@ -134,6 +132,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath GP2 = DrawThunder.RoundRect(MaxBtn, 4);
             GraphicsPath GP3 = DrawThunder.RoundRect(ClsBtn, 4);
 
+            LinearGradientBrush mlgb;
             switch (State)
             {
                 case MouseStateThunder.None:

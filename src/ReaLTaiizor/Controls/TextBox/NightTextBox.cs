@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Fields
 
-        private readonly TextBox tbCtrl = new TextBox();
+        private readonly TextBox tbCtrl = new();
         private Color BorderColor;
         private Panel watermarkContainer;
 
@@ -331,10 +331,8 @@ namespace ReaLTaiizor.Controls
             watermarkContainer.Width = tbCtrl.Width - 25;
             watermarkContainer.Height = tbCtrl.Height;
 
-            using (SolidBrush watermark = new(_WatermarkColor))
-            {
-                e.Graphics.DrawString(_Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
-            }
+            using SolidBrush watermark = new(_WatermarkColor);
+            e.Graphics.DrawString(_Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -467,21 +465,19 @@ namespace ReaLTaiizor.Controls
 
         private void DrawBorder(Graphics g)
         {
-            using (Pen border = new(BorderColor))
+            using Pen border = new(BorderColor);
+            // Top border
+            if (_ShowTopBorder)
             {
-                // Top border
-                if (_ShowTopBorder)
-                {
-                    g.DrawLine(border, 0, 0, Width - 1, 0);
-                    g.DrawLine(border, 0, 1, Width - 1, 1);
-                }
+                g.DrawLine(border, 0, 0, Width - 1, 0);
+                g.DrawLine(border, 0, 1, Width - 1, 1);
+            }
 
-                // Bottom border
-                if (_ShowBottomBorder)
-                {
-                    g.DrawLine(border, 0, Height - 2, Width - 1, Height - 2);
-                    g.DrawLine(border, 0, Height - 1, Width - 1, Height - 1);
-                }
+            // Bottom border
+            if (_ShowBottomBorder)
+            {
+                g.DrawLine(border, 0, Height - 2, Width - 1, Height - 2);
+                g.DrawLine(border, 0, Height - 1, Width - 1, Height - 1);
             }
         }
 

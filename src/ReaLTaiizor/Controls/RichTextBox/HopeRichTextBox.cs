@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
 
     public class HopeRichTextBox : Control
     {
-        private readonly BaseTextBox _baseTextBox = new BaseTextBox
+        private readonly BaseTextBox _baseTextBox = new()
         {
             BorderStyle = BorderStyle.None,
             ForeColor = HopeColors.MainText,

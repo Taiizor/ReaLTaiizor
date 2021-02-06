@@ -411,10 +411,8 @@ namespace ReaLTaiizor.Controls
 
         private void FillButton(Graphics g)
         {
-            using (SolidBrush animBrush = new(Color.FromArgb(buttonGlow, ForeColor)))
-            {
-                g.FillPath(animBrush, roundRectPath);
-            }
+            using SolidBrush animBrush = new(Color.FromArgb(buttonGlow, ForeColor));
+            g.FillPath(animBrush, roundRectPath);
         }
 
         private void DrawButton(Graphics g)
@@ -438,20 +436,16 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            using (Pen pathPen = new(penColor, 2f))
-            using (SolidBrush stringBrush = new(brushColor))
+            using Pen pathPen = new(penColor, 2f);
+            using SolidBrush stringBrush = new(brushColor);
             using
-            (
                 StringFormat sf = new()
                 {
                     Alignment = StringAlignment.Center,
                     LineAlignment = StringAlignment.Center
-                }
-            )
-            {
-                g.DrawPath(pathPen, roundRectPath);
-                g.DrawString(Text, Font, stringBrush, stringRect, sf);
-            }
+                };
+            g.DrawPath(pathPen, roundRectPath);
+            g.DrawString(Text, Font, stringBrush, stringRect, sf);
         }
 
         protected override void OnPaint(PaintEventArgs e)

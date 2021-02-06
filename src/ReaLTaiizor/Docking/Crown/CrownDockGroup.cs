@@ -20,9 +20,9 @@ namespace ReaLTaiizor.Docking.Crown
     {
         #region Field Region
 
-        private readonly List<CrownDockContent> _contents = new List<CrownDockContent>();
+        private readonly List<CrownDockContent> _contents = new();
 
-        private readonly Dictionary<CrownDockContent, CrownDockTab> _tabs = new Dictionary<CrownDockContent, CrownDockTab>();
+        private readonly Dictionary<CrownDockContent, CrownDockTab> _tabs = new();
 
         private readonly CrownDockTabArea _tabArea;
 
@@ -107,7 +107,7 @@ namespace ReaLTaiizor.Docking.Crown
                 dockContent.Visible = false;
             }
 
-            ToolStripMenuItem menuItem = new ToolStripMenuItem(dockContent.DockText)
+            ToolStripMenuItem menuItem = new(dockContent.DockText)
             {
                 Tag = dockContent
             };
@@ -638,14 +638,13 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void TabMenuItem_Select(object sender, EventArgs e)
         {
-            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
+            using ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
             if (menuItem == null)
             {
                 return;
             }
 
-            CrownDockContent content = menuItem.Tag as CrownDockContent;
-            if (content == null)
+            if (menuItem.Tag is not CrownDockContent content)
             {
                 return;
             }
@@ -748,10 +747,8 @@ namespace ReaLTaiizor.Docking.Crown
                     g.FillRectangle(b, dropdownRect);
                 }
 
-                using (Bitmap img = Properties.Resources.arrow)
-                {
-                    g.DrawImageUnscaled(img, dropdownRect.Left + (dropdownRect.Width / 2) - (img.Width / 2), dropdownRect.Top + (dropdownRect.Height / 2) - (img.Height / 2) + 1);
-                }
+                using Bitmap img = Properties.Resources.arrow;
+                g.DrawImageUnscaled(img, dropdownRect.Left + (dropdownRect.Width / 2) - (img.Width / 2), dropdownRect.Top + (dropdownRect.Height / 2) - (img.Height / 2) + 1);
             }
         }
 
@@ -782,10 +779,8 @@ namespace ReaLTaiizor.Docking.Crown
             // Draw separators
             if (tab.ShowSeparator)
             {
-                using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder))
-                {
-                    g.DrawLine(p, tabRect.Right - 1, tabRect.Top, tabRect.Right - 1, tabRect.Bottom);
-                }
+                using Pen p = new(ThemeProvider.Theme.Colors.DarkBorder);
+                g.DrawLine(p, tabRect.Right - 1, tabRect.Top, tabRect.Right - 1, tabRect.Bottom);
             }
 
             int xOffset = 0;
@@ -797,7 +792,7 @@ namespace ReaLTaiizor.Docking.Crown
                 xOffset += tab.DockContent.Icon.Width + 2;
             }
 
-            StringFormat tabTextFormat = new StringFormat
+            StringFormat tabTextFormat = new()
             {
                 Alignment = StringAlignment.Near,
                 LineAlignment = StringAlignment.Center,
@@ -853,13 +848,11 @@ namespace ReaLTaiizor.Docking.Crown
             // Draw separators
             if (tab.ShowSeparator)
             {
-                using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder))
-                {
-                    g.DrawLine(p, tabRect.Right - 1, tabRect.Top, tabRect.Right - 1, tabRect.Bottom);
-                }
+                using Pen p = new(ThemeProvider.Theme.Colors.DarkBorder);
+                g.DrawLine(p, tabRect.Right - 1, tabRect.Top, tabRect.Right - 1, tabRect.Bottom);
             }
 
-            StringFormat tabTextFormat = new StringFormat
+            StringFormat tabTextFormat = new()
             {
                 Alignment = StringAlignment.Near,
                 LineAlignment = StringAlignment.Center,

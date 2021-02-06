@@ -153,17 +153,13 @@ namespace ReaLTaiizor.Controls
 
             using (SolidBrush Back = new(Background))
             {
-                using (SolidBrush TC = new(TextColor))
-                {
-                    using (SolidBrush LB = new(LeftBar))
-                    {
-                        G.FillRectangle(Back, FoxLibrary.FullRectangle(Size, true));
-                        G.SmoothingMode = SmoothingMode.None;
-                        G.FillRectangle(LB, new Rectangle(0, 1, 6, Height - 2));
-                        G.SmoothingMode = SmoothingMode.HighQuality;
-                        G.DrawString(Text, Font, TC, new Point(20, 11));
-                    }
-                }
+                using SolidBrush TC = new(TextColor);
+                using SolidBrush LB = new(LeftBar);
+                G.FillRectangle(Back, FoxLibrary.FullRectangle(Size, true));
+                G.SmoothingMode = SmoothingMode.None;
+                G.FillRectangle(LB, new Rectangle(0, 1, 6, Height - 2));
+                G.SmoothingMode = SmoothingMode.HighQuality;
+                G.DrawString(Text, Font, TC, new Point(20, 11));
             }
 
             base.OnPaint(e);

@@ -241,20 +241,18 @@ namespace ReaLTaiizor.Controls
             // Draw hint text
             if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))
             {
-                using (MaterialNativeTextRenderer NativeText = new(g))
-                {
-                    NativeText.DrawTransparentText(
-                    Hint,
-                    SkinManager.getTextBoxFontBySize(hintTextSize),
-                    Enabled ? DroppedDown || Focused ? UseAccent ?
-                    SkinManager.ColorScheme.AccentColor : // Focus Accent
-                    SkinManager.ColorScheme.PrimaryColor : // Focus Primary
-                    SkinManager.TextMediumEmphasisColor : // not focused
-                    SkinManager.TextDisabledOrHintColor, // Disabled
-                    hintRect.Location,
-                    hintRect.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                }
+                using MaterialNativeTextRenderer NativeText = new(g);
+                NativeText.DrawTransparentText(
+                Hint,
+                SkinManager.getTextBoxFontBySize(hintTextSize),
+                Enabled ? DroppedDown || Focused ? UseAccent ?
+                SkinManager.ColorScheme.AccentColor : // Focus Accent
+                SkinManager.ColorScheme.PrimaryColor : // Focus Primary
+                SkinManager.TextMediumEmphasisColor : // not focused
+                SkinManager.TextDisabledOrHintColor, // Disabled
+                hintRect.Location,
+                hintRect.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
         }
 
@@ -291,16 +289,14 @@ namespace ReaLTaiizor.Controls
                 Text = Items[e.Index].ToString();
             }
 
-            using (MaterialNativeTextRenderer NativeText = new(g))
-            {
-                NativeText.DrawTransparentText(
-                Text,
-                SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
-                SkinManager.TextHighEmphasisColor,
-                new Point(e.Bounds.Location.X + SkinManager.FORM_PADDING, e.Bounds.Location.Y),
-                new Size(e.Bounds.Size.Width - SkinManager.FORM_PADDING * 2, e.Bounds.Size.Height),
-                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle); ;
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            NativeText.DrawTransparentText(
+            Text,
+            SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
+            SkinManager.TextHighEmphasisColor,
+            new Point(e.Bounds.Location.X + SkinManager.FORM_PADDING, e.Bounds.Location.Y),
+            new Size(e.Bounds.Size.Width - SkinManager.FORM_PADDING * 2, e.Bounds.Size.Height),
+            MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle); ;
         }
 
         protected override void OnCreateControl()

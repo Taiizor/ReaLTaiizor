@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
 
         #region Base TextBox
 
-        private readonly TextBox _textBox = new TextBox();
+        private readonly TextBox _textBox = new();
 
         #endregion
 
@@ -188,37 +188,27 @@ namespace ReaLTaiizor.Controls
 
             if (Enabled)
             {
-                using (SolidBrush bg = new(BackColor))
+                using SolidBrush bg = new(BackColor);
+                using Pen p = new(BorderColor);
+                using Pen ph = new(HoverColor);
+                g.FillRectangle(bg, rect);
+                if (_state == MouseMode.Normal)
                 {
-                    using (Pen p = new(BorderColor))
-                    {
-                        using (Pen ph = new(HoverColor))
-                        {
-                            g.FillRectangle(bg, rect);
-                            if (_state == MouseMode.Normal)
-                            {
-                                g.DrawRectangle(p, rect);
-                            }
-                            else if (_state == MouseMode.Hovered)
-                            {
-                                g.DrawRectangle(ph, rect);
-                            }
-                        }
-                    }
+                    g.DrawRectangle(p, rect);
+                }
+                else if (_state == MouseMode.Hovered)
+                {
+                    g.DrawRectangle(ph, rect);
                 }
             }
             else
             {
-                using (SolidBrush bg = new(DisabledBackColor))
-                {
-                    using (Pen p = new(DisabledBorderColor))
-                    {
-                        g.FillRectangle(bg, rect);
-                        g.DrawRectangle(p, rect);
-                        _textBox.BackColor = DisabledBackColor;
-                        _textBox.ForeColor = DisabledForeColor;
-                    }
-                }
+                using SolidBrush bg = new(DisabledBackColor);
+                using Pen p = new(DisabledBorderColor);
+                g.FillRectangle(bg, rect);
+                g.DrawRectangle(p, rect);
+                _textBox.BackColor = DisabledBackColor;
+                _textBox.ForeColor = DisabledForeColor;
             }
             if (Image != null)
             {

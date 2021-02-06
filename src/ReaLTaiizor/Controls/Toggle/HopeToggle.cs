@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private readonly Timer AnimationTimer = new Timer { Interval = 1 };
+        private readonly Timer AnimationTimer = new() { Interval = 1 };
         private int PointAnimationNum = 4;
 
         private Color _BaseColor = Color.FromArgb(44, 55, 66);

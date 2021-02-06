@@ -320,11 +320,9 @@ namespace ReaLTaiizor.Controls
 
                     Color fillColor = PoisonPaint.GetStyleColor(Style);
 
-                    using (SolidBrush b = new(fillColor))
-                    {
-                        Rectangle boxRect = new(5, Height / 2 - 4, 9, 9);
-                        e.Graphics.FillRectangle(b, boxRect);
-                    }
+                    using SolidBrush b = new(fillColor);
+                    Rectangle boxRect = new(5, Height / 2 - 4, 9, 9);
+                    e.Graphics.FillRectangle(b, boxRect);
                 }
                 else
                 {

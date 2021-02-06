@@ -141,10 +141,8 @@ namespace ReaLTaiizor.Controls
             DrawSquareShadow(g, ClientRectangle);
 
             // Draw card
-            using (SolidBrush normalBrush = new(BackColor))
-            {
-                g.FillPath(normalBrush, cardPath);
-            }
+            using SolidBrush normalBrush = new(BackColor);
+            g.FillPath(normalBrush, cardPath);
         }
     }
 

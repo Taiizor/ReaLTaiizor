@@ -37,11 +37,11 @@ namespace ReaLTaiizor.Controls
                 StartPosition = FormStartPosition.Manual
             };
 
-            if (parent != null && parent is IPoisonForm)
+            if (parent != null && parent is IPoisonForm form)
             {
-                singletonWindow.Theme = ((IPoisonForm)parent).Theme;
-                singletonWindow.Style = ((IPoisonForm)parent).Style;
-                singletonWindow.StyleManager = ((IPoisonForm)parent).StyleManager.Clone(singletonWindow) as PoisonStyleManager;
+                singletonWindow.Theme = form.Theme;
+                singletonWindow.Style = form.Style;
+                singletonWindow.StyleManager = form.StyleManager.Clone(singletonWindow) as PoisonStyleManager;
             }
 
             singletonWindow.Show();
@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
 
                 Size = new(400, 200);
 
-                TaskBar myTaskbar = new TaskBar();
+                TaskBar myTaskbar = new();
                 Location = myTaskbar.Position switch
                 {
                     TaskBarPosition.Left => new Point(myTaskbar.Bounds.Width + 5, myTaskbar.Bounds.Height - Height - 5),
@@ -161,7 +161,7 @@ namespace ReaLTaiizor.Controls
 
                 isInitialized = true;
 
-                MoveAnimation myMoveAnim = new MoveAnimation();
+                MoveAnimation myMoveAnim = new();
                 myMoveAnim.Start(controlContainer, new Point(20, 60), TransitionType.EaseInOutCubic, 15);
             }
 
@@ -172,10 +172,8 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
-            using (SolidBrush b = new(PoisonPaint.BackColor.Form(Theme)))
-            {
-                e.Graphics.FillRectangle(b, new Rectangle(Width - progressWidth, 0, progressWidth, 5));
-            }
+            using SolidBrush b = new(PoisonPaint.BackColor.Form(Theme));
+            e.Graphics.FillRectangle(b, new Rectangle(Width - progressWidth, 0, progressWidth, 5));
         }
 
         private void UpdateProgress()

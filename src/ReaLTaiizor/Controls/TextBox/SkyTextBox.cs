@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
 
     public class SkyTextBox : Control
     {
-        private readonly TextBox txtbox = new TextBox();
+        private readonly TextBox txtbox = new();
 
         #region " Control Help - Properties & Flicker Control "
 

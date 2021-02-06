@@ -49,7 +49,7 @@ namespace ReaLTaiizor.Design.Metro
                     _verbs = new();
                     _verbs.AddRange(addVerbs);
 
-                    if (!(Control is MetroTabControl parentControl))
+                    if (Control is not MetroTabControl parentControl)
                     {
                         return _verbs;
                     }
@@ -192,7 +192,7 @@ namespace ReaLTaiizor.Design.Metro
 
         private void OnComponentChanged(object sender, ComponentChangedEventArgs e)
         {
-            if (!(e.Component is MetroTabControl parentControl) || e.Member.Name != "TabPages")
+            if (e.Component is not MetroTabControl parentControl || e.Member.Name != "TabPages")
             {
                 return;
             }

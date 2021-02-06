@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        public System.Windows.Forms.TextBox ReaLTaiizorTB = new System.Windows.Forms.TextBox();
+        public TextBox ReaLTaiizorTB = new();
         private int _maxchars = 32767;
         private bool _ReadOnly;
         private bool _Multiline;

@@ -168,14 +168,10 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             Rectangle r = new(BorderThickness, BorderThickness, Width - (BorderThickness * 2 + 1), Height - ((BorderThickness * 2) + 1));
 
-            using (SolidBrush bg = new(BackgroundColor))
-            {
-                using (Pen p = new(BorderColor, BorderThickness))
-                {
-                    g.FillRectangle(bg, r);
-                    g.DrawRectangle(p, r);
-                }
-            }
+            using SolidBrush bg = new(BackgroundColor);
+            using Pen p = new(BorderColor, BorderThickness);
+            g.FillRectangle(bg, r);
+            g.DrawRectangle(p, r);
 
         }
 

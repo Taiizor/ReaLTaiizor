@@ -102,14 +102,12 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             Rectangle rect = new(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
-            using (SolidBrush bg = new(BackColor))
-            using (Pen stroke = new(BorderColor))
-            using (SolidBrush tb = new(ForeColor))
-            {
-                g.FillRectangle(bg, rect);
-                g.DrawString(e.ToolTipText, MetroFonts.Light(11), tb, rect, _mth.SetPosition());
-                g.DrawRectangle(stroke, rect);
-            }
+            using SolidBrush bg = new(BackColor);
+            using Pen stroke = new(BorderColor);
+            using SolidBrush tb = new(ForeColor);
+            g.FillRectangle(bg, rect);
+            g.DrawString(e.ToolTipText, MetroFonts.Light(11), tb, rect, _mth.SetPosition());
+            g.DrawRectangle(stroke, rect);
         }
 
         #endregion
@@ -236,12 +234,12 @@ namespace ReaLTaiizor.Controls
                 ThemeName = iControl.ThemeName;
                 StyleManager = iControl.StyleManager;
             }
-            else if (control is IMetroForm)
+            else if (control is IMetroForm form)
             {
-                Style = ((IMetroForm)control).Style;
-                ThemeAuthor = ((IMetroForm)control).ThemeAuthor;
-                ThemeName = ((IMetroForm)control).ThemeName;
-                StyleManager = ((IMetroForm)control).StyleManager;
+                Style = form.Style;
+                ThemeAuthor = form.ThemeAuthor;
+                ThemeName = form.ThemeName;
+                StyleManager = form.StyleManager;
             }
             e.ToolTipSize = new(e.ToolTipSize.Width + 30, e.ToolTipSize.Height + 6);
         }

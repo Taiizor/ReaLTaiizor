@@ -73,9 +73,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is RibbonRadioButton)
+                if (!object.ReferenceEquals(C, this) && C is RibbonRadioButton button)
                 {
-                    ((RibbonRadioButton)C).Checked = false;
+                    button.Checked = false;
                 }
             }
         }

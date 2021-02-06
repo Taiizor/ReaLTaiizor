@@ -89,9 +89,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control C in Parent.Controls)
             {
-                if (C is ThunderRadioButton && C != this)
+                if (C is ThunderRadioButton button && C != this)
                 {
-                    ((ThunderRadioButton)C).Checked = false;
+                    button.Checked = false;
                 }
             }
         }

@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
 
     public class HopeTextBox : Control
     {
-        private readonly TextBoxHopeBase _baseTextBox = new TextBoxHopeBase
+        private readonly TextBoxHopeBase _baseTextBox = new()
         {
             BorderStyle = BorderStyle.None,
             ForeColor = HopeColors.MainText,

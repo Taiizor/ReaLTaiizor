@@ -103,7 +103,7 @@ namespace ReaLTaiizor.Controls
                 return baseDropDown;
             }
 
-            MaterialContextMenuStrip defaultDropDown = new MaterialContextMenuStrip();
+            MaterialContextMenuStrip defaultDropDown = new();
             defaultDropDown.Items.AddRange(baseDropDown.Items);
 
             return defaultDropDown;
@@ -127,14 +127,12 @@ namespace ReaLTaiizor.Controls
             Rectangle itemRect = GetItemRect(e.Item);
             Rectangle textRect = new(24, itemRect.Y, itemRect.Width - (24 + 16), itemRect.Height);
 
-            using (MaterialNativeTextRenderer NativeText = new(g))
-            {
-                NativeText.DrawTransparentText(e.Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body2),
-                    e.Item.Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
-                    textRect.Location,
-                    textRect.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            NativeText.DrawTransparentText(e.Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body2),
+                e.Item.Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
+                textRect.Location,
+                textRect.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
         protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
@@ -147,8 +145,7 @@ namespace ReaLTaiizor.Controls
             g.FillRectangle(e.Item.Selected && e.Item.Enabled ? SkinManager.BackgroundFocusBrush : SkinManager.BackdropBrush, itemRect);
 
             //Ripple animation
-            MaterialContextMenuStrip toolStrip = e.ToolStrip as MaterialContextMenuStrip;
-            if (toolStrip != null)
+            if (e.ToolStrip is MaterialContextMenuStrip toolStrip)
             {
                 AnimationManager animationManager = toolStrip.AnimationManager;
                 Point animationSource = toolStrip.AnimationSource;
@@ -196,17 +193,15 @@ namespace ReaLTaiizor.Controls
 
             Point arrowMiddle = new(e.ArrowRectangle.X + e.ArrowRectangle.Width / 2, e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2);
             Brush arrowBrush = e.Item.Enabled ? SkinManager.TextHighEmphasisBrush : SkinManager.TextDisabledOrHintBrush;
-            using (GraphicsPath arrowPath = new())
-            {
-                arrowPath.AddLines(
-                    new[] {
+            using GraphicsPath arrowPath = new();
+            arrowPath.AddLines(
+                new[] {
                         new Point(arrowMiddle.X - ARROW_SIZE, arrowMiddle.Y - ARROW_SIZE),
                         new Point(arrowMiddle.X, arrowMiddle.Y),
                         new Point(arrowMiddle.X - ARROW_SIZE, arrowMiddle.Y + ARROW_SIZE) });
-                arrowPath.CloseFigure();
+            arrowPath.CloseFigure();
 
-                g.FillPath(arrowBrush, arrowPath);
-            }
+            g.FillPath(arrowBrush, arrowPath);
         }
 
         private Rectangle GetItemRect(ToolStripItem item)

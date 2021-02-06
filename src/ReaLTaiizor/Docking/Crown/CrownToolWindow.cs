@@ -212,7 +212,7 @@ namespace ReaLTaiizor.Docking.Crown
             {
                 Rectangle textRect = new(xOffset, 0, ClientRectangle.Width - 4 - xOffset, ThemeProvider.Theme.Sizes.ToolWindowHeaderSize);
 
-                StringFormat format = new StringFormat
+                StringFormat format = new()
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Center,

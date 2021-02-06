@@ -155,9 +155,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is AirRadioButton)
+                if (!object.ReferenceEquals(C, this) && C is AirRadioButton button)
                 {
-                    ((AirRadioButton)C).Checked = false;
+                    button.Checked = false;
                 }
             }
         }

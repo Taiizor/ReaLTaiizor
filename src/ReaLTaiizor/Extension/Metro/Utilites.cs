@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Extension.Metro
     {
         public static PathGradientBrush GlowBrush(Color CenterColor, Color SurroundColor, Point P, Rectangle Rect)
         {
-            GraphicsPath GP = new GraphicsPath { FillMode = FillMode.Winding };
+            GraphicsPath GP = new() { FillMode = FillMode.Winding };
             GP.AddRectangle(Rect);
             return new PathGradientBrush(GP)
             {

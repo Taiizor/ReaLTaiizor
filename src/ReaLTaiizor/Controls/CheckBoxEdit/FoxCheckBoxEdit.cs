@@ -85,10 +85,8 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                using (SolidBrush TextColor = new(ForeColor))
-                {
-                    G.DrawString(Text, Font, TextColor, new Point(27, 1));
-                }
+                using SolidBrush TextColor = new(ForeColor);
+                G.DrawString(Text, Font, TextColor, new Point(27, 1));
             }
             else
             {
@@ -97,10 +95,8 @@ namespace ReaLTaiizor.Controls
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(0, 0, 20, 20), 2));
                 }
 
-                using (SolidBrush TextColor = new(_DisabledTextColor))
-                {
-                    G.DrawString(Text, Font, TextColor, new Point(27, 1));
-                }
+                using SolidBrush TextColor = new(_DisabledTextColor);
+                G.DrawString(Text, Font, TextColor, new Point(27, 1));
             }
 
             if (Checked)
@@ -108,17 +104,13 @@ namespace ReaLTaiizor.Controls
 
                 if (Enabled)
                 {
-                    using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64E))))
-                    {
-                        G.DrawImage(I, new Rectangle(5, 4, 12, 12));
-                    }
+                    using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64E)));
+                    G.DrawImage(I, new Rectangle(5, 4, 12, 12));
                 }
                 else
                 {
-                    using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64D))))
-                    {
-                        G.DrawImage(I, new Rectangle(5, 4, 12, 12));
-                    }
+                    using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64D)));
+                    G.DrawImage(I, new Rectangle(5, 4, 12, 12));
                 }
             }
 

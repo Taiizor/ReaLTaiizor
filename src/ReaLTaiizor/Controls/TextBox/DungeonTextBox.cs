@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        public System.Windows.Forms.TextBox DungeonTB = new System.Windows.Forms.TextBox();
+        public TextBox DungeonTB = new();
         private GraphicsPath Shape;
         private int _maxchars = 32767;
         private bool _ReadOnly;
