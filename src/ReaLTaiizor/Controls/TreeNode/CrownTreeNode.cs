@@ -87,17 +87,11 @@ namespace ReaLTaiizor.Controls
 
                 if (_expanded)
                 {
-                    if (NodeExpanded != null)
-                    {
-                        NodeExpanded(this, null);
-                    }
+                    NodeExpanded?.Invoke(this, null);
                 }
                 else
                 {
-                    if (NodeCollapsed != null)
-                    {
-                        NodeCollapsed(this, null);
-                    }
+                    NodeCollapsed?.Invoke(this, null);
                 }
             }
         }
@@ -255,10 +249,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            if (TextChanged != null)
-            {
-                TextChanged(this, null);
-            }
+            TextChanged?.Invoke(this, null);
         }
 
         private void Nodes_ItemsAdded(object sender, ObservableListModified<CrownTreeNode> e)
@@ -274,10 +265,7 @@ namespace ReaLTaiizor.Controls
                 Nodes.Sort(ParentTree.TreeViewNodeSorter);
             }
 
-            if (ItemsAdded != null)
-            {
-                ItemsAdded(this, e);
-            }
+            ItemsAdded?.Invoke(this, e);
         }
 
         private void Nodes_ItemsRemoved(object sender, ObservableListModified<CrownTreeNode> e)
@@ -287,10 +275,7 @@ namespace ReaLTaiizor.Controls
                 Expanded = false;
             }
 
-            if (ItemsRemoved != null)
-            {
-                ItemsRemoved(this, e);
-            }
+            ItemsRemoved?.Invoke(this, e);
         }
 
         #endregion

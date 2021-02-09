@@ -381,10 +381,10 @@ namespace ReaLTaiizor.Controls
             Rectangle bounds = ClientRectangle;
 
             // calculate the current dropdown rectangle.
-            dropDownRectangle = new Rectangle(bounds.Right - SplitSectionWidth, 0, SplitSectionWidth, bounds.Height);
+            dropDownRectangle = new(bounds.Right - SplitSectionWidth, 0, SplitSectionWidth, bounds.Height);
 
             int internalBorder = BorderSize;
-            Rectangle focusRect = new Rectangle(internalBorder - 1, internalBorder - 1, bounds.Width - dropDownRectangle.Width - internalBorder, bounds.Height - (internalBorder * 2) + 2);
+            Rectangle focusRect = new(internalBorder - 1, internalBorder - 1, bounds.Width - dropDownRectangle.Width - internalBorder, bounds.Height - (internalBorder * 2) + 2);
 
             bool drawSplitLine = (State == PushButtonState.Hot || State == PushButtonState.Pressed || !Application.RenderWithVisualStyles);
 
@@ -469,7 +469,7 @@ namespace ReaLTaiizor.Controls
 
         private void PaintArrow(Graphics g, Rectangle dropDownRect)
         {
-            Point middle = new Point(Convert.ToInt32(dropDownRect.Left + dropDownRect.Width / 2), Convert.ToInt32(dropDownRect.Top + dropDownRect.Height / 2));
+            Point middle = new(Convert.ToInt32(dropDownRect.Left + dropDownRect.Width / 2), Convert.ToInt32(dropDownRect.Top + dropDownRect.Height / 2));
 
             //if the width is odd - favor pushing it over one pixel right.
             middle.X += (dropDownRect.Width % 2);
@@ -631,13 +631,13 @@ namespace ReaLTaiizor.Controls
 
             if (textFirst)
             {
-                final_text_rect = new Rectangle(totalArea.Left + offset, AlignInRectangle(totalArea, textSize, TextAlign).Top, textSize.Width, textSize.Height);
-                final_image_rect = new Rectangle(final_text_rect.Right + element_spacing, AlignInRectangle(totalArea, imageSize, ImageAlign).Top, imageSize.Width, imageSize.Height);
+                final_text_rect = new(totalArea.Left + offset, AlignInRectangle(totalArea, textSize, TextAlign).Top, textSize.Width, textSize.Height);
+                final_image_rect = new(final_text_rect.Right + element_spacing, AlignInRectangle(totalArea, imageSize, ImageAlign).Top, imageSize.Width, imageSize.Height);
             }
             else
             {
-                final_image_rect = new Rectangle(totalArea.Left + offset, AlignInRectangle(totalArea, imageSize, ImageAlign).Top, imageSize.Width, imageSize.Height);
-                final_text_rect = new Rectangle(final_image_rect.Right + element_spacing, AlignInRectangle(totalArea, textSize, TextAlign).Top, textSize.Width, textSize.Height);
+                final_image_rect = new(totalArea.Left + offset, AlignInRectangle(totalArea, imageSize, ImageAlign).Top, imageSize.Width, imageSize.Height);
+                final_text_rect = new(final_image_rect.Right + element_spacing, AlignInRectangle(totalArea, textSize, TextAlign).Top, textSize.Width, textSize.Height);
             }
 
             textRect = final_text_rect;
@@ -694,13 +694,13 @@ namespace ReaLTaiizor.Controls
 
             if (textFirst)
             {
-                final_text_rect = new Rectangle(AlignInRectangle(totalArea, textSize, TextAlign).Left, totalArea.Top + offset, textSize.Width, textSize.Height);
-                final_image_rect = new Rectangle(AlignInRectangle(totalArea, imageSize, ImageAlign).Left, final_text_rect.Bottom + element_spacing, imageSize.Width, imageSize.Height);
+                final_text_rect = new(AlignInRectangle(totalArea, textSize, TextAlign).Left, totalArea.Top + offset, textSize.Width, textSize.Height);
+                final_image_rect = new(AlignInRectangle(totalArea, imageSize, ImageAlign).Left, final_text_rect.Bottom + element_spacing, imageSize.Width, imageSize.Height);
             }
             else
             {
-                final_image_rect = new Rectangle(AlignInRectangle(totalArea, imageSize, ImageAlign).Left, totalArea.Top + offset, imageSize.Width, imageSize.Height);
-                final_text_rect = new Rectangle(AlignInRectangle(totalArea, textSize, TextAlign).Left, final_image_rect.Bottom + element_spacing, textSize.Width, textSize.Height);
+                final_image_rect = new(AlignInRectangle(totalArea, imageSize, ImageAlign).Left, totalArea.Top + offset, imageSize.Width, imageSize.Height);
+                final_text_rect = new(AlignInRectangle(totalArea, textSize, TextAlign).Left, final_image_rect.Bottom + element_spacing, textSize.Width, textSize.Height);
 
                 if (final_text_rect.Bottom > totalArea.Bottom)
                 {
@@ -714,44 +714,24 @@ namespace ReaLTaiizor.Controls
 
         private static HorizontalAlignment GetHorizontalAlignment(System.Drawing.ContentAlignment align)
         {
-            switch (align)
+            return align switch
             {
-                case System.Drawing.ContentAlignment.BottomLeft:
-                case System.Drawing.ContentAlignment.MiddleLeft:
-                case System.Drawing.ContentAlignment.TopLeft:
-                    return HorizontalAlignment.Left;
-                case System.Drawing.ContentAlignment.BottomCenter:
-                case System.Drawing.ContentAlignment.MiddleCenter:
-                case System.Drawing.ContentAlignment.TopCenter:
-                    return HorizontalAlignment.Center;
-                case System.Drawing.ContentAlignment.BottomRight:
-                case System.Drawing.ContentAlignment.MiddleRight:
-                case System.Drawing.ContentAlignment.TopRight:
-                    return HorizontalAlignment.Right;
-            }
-
-            return HorizontalAlignment.Left;
+                System.Drawing.ContentAlignment.BottomLeft or System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.TopLeft => HorizontalAlignment.Left,
+                System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.TopCenter => HorizontalAlignment.Center,
+                System.Drawing.ContentAlignment.BottomRight or System.Drawing.ContentAlignment.MiddleRight or System.Drawing.ContentAlignment.TopRight => HorizontalAlignment.Right,
+                _ => HorizontalAlignment.Left,
+            };
         }
 
         private static VerticalAlignment GetVerticalAlignment(System.Drawing.ContentAlignment align)
         {
-            switch (align)
+            return align switch
             {
-                case System.Drawing.ContentAlignment.TopLeft:
-                case System.Drawing.ContentAlignment.TopCenter:
-                case System.Drawing.ContentAlignment.TopRight:
-                    return VerticalAlignment.Top;
-                case System.Drawing.ContentAlignment.MiddleLeft:
-                case System.Drawing.ContentAlignment.MiddleCenter:
-                case System.Drawing.ContentAlignment.MiddleRight:
-                    return VerticalAlignment.Center;
-                case System.Drawing.ContentAlignment.BottomLeft:
-                case System.Drawing.ContentAlignment.BottomCenter:
-                case System.Drawing.ContentAlignment.BottomRight:
-                    return VerticalAlignment.Bottom;
-            }
-
-            return VerticalAlignment.Top;
+                System.Drawing.ContentAlignment.TopLeft or System.Drawing.ContentAlignment.TopCenter or System.Drawing.ContentAlignment.TopRight => VerticalAlignment.Top,
+                System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.MiddleRight => VerticalAlignment.Center,
+                System.Drawing.ContentAlignment.BottomLeft or System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.BottomRight => VerticalAlignment.Bottom,
+                _ => VerticalAlignment.Top,
+            };
         }
 
         internal static Rectangle AlignInRectangle(Rectangle outer, Size inner, System.Drawing.ContentAlignment align)

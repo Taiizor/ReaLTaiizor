@@ -316,9 +316,9 @@ namespace ReaLTaiizor.Controls
 
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
 
-            using (Pen p = new Pen(borderColor))
+            using (Pen p = new(borderColor))
             {
-                Rectangle boxRect = new Rectangle(0, Height / 2 - 6, 12, 12);
+                Rectangle boxRect = new(0, Height / 2 - 6, 12, 12);
                 e.Graphics.DrawEllipse(p, boxRect);
             }
 
@@ -326,16 +326,14 @@ namespace ReaLTaiizor.Controls
             {
                 Color fillColor = PoisonPaint.GetStyleColor(Style);
 
-                using (SolidBrush b = new SolidBrush(fillColor))
-                {
-                    Rectangle boxRect = new Rectangle(3, Height / 2 - 3, 6, 6);
-                    e.Graphics.FillEllipse(b, boxRect);
-                }
+                using SolidBrush b = new(fillColor);
+                Rectangle boxRect = new(3, Height / 2 - 3, 6, 6);
+                e.Graphics.FillEllipse(b, boxRect);
             }
 
             e.Graphics.SmoothingMode = SmoothingMode.Default;
 
-            Rectangle textRect = new Rectangle(16, 0, Width - 16, Height);
+            Rectangle textRect = new(16, 0, Width - 16, Height);
             TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), textRect, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
@@ -480,7 +478,7 @@ namespace ReaLTaiizor.Controls
 
             using (Graphics g = CreateGraphics())
             {
-                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
                 preferredSize.Width += 16;
             }

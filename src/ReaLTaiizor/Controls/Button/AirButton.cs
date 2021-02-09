@@ -15,7 +15,7 @@ namespace ReaLTaiizor.Controls
     {
         public AirButton()
         {
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
             SetColor("Gradient top normal", 237, 237, 237);
             SetColor("Gradient top over", 242, 242, 242);
             SetColor("Gradient top down", 235, 235, 235);
@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
             SetColor("Text normal", 60, 60, 60);
             SetColor("Text down/over", 20, 20, 20);
             SetColor("Text disabled", Color.Gray);
-            Size = new Size(100, 45);
+            Size = new(100, 45);
             Cursor = Cursors.Hand;
         }
 
@@ -57,26 +57,19 @@ namespace ReaLTaiizor.Controls
         protected override void PaintHook()
         {
             G.Clear(BackColor);
-            LinearGradientBrush LGB = default(LinearGradientBrush);
+            LinearGradientBrush LGB = default;
             G.SmoothingMode = SmoothingMode.HighQuality;
 
 
-            switch (State)
+            LGB = State switch
             {
-                case MouseStateAir.None:
-                    LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f);
-                    break;
-                case MouseStateAir.Over:
-                    LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTO, GBO, 90f);
-                    break;
-                default:
-                    LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTD, GBD, 90f);
-                    break;
-            }
-
+                MouseStateAir.None => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f),
+                MouseStateAir.Over => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTO, GBO, 90f),
+                _ => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTD, GBD, 90f),
+            };
             if (!Enabled)
             {
-                LGB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f);
+                LGB = new(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f);
             }
 
             GraphicsPath buttonpath = CreateRound(Rectangle.Round(LGB.Rectangle), 3);
@@ -87,11 +80,11 @@ namespace ReaLTaiizor.Controls
             }
 
             G.SetClip(buttonpath);
-            LGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height / 6), Color.FromArgb(80, Color.White), Color.Transparent, 90f);
+            LGB = new(new Rectangle(0, 0, Width, Height / 6), Color.FromArgb(80, Color.White), Color.Transparent, 90f);
             G.FillRectangle(LGB, Rectangle.Round(LGB.Rectangle));
 
             G.ResetClip();
-            G.DrawPath(new Pen(Bo), buttonpath);
+            G.DrawPath(new(Bo), buttonpath);
 
             if (Enabled)
             {

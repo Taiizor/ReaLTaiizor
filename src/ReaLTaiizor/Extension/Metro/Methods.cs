@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Extension.Metro
         public void DrawImageFromBase64(Graphics graphics, string base64Image, Rectangle rect)
         {
             Image im;
-            using (System.IO.MemoryStream ms = new System.IO.MemoryStream(Convert.FromBase64String(base64Image)))
+            using (System.IO.MemoryStream ms = new(Convert.FromBase64String(base64Image)))
             {
                 im = Image.FromStream(ms);
                 ms.Close();
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Extension.Metro
                     Convert.ToSingle( c.A/255.0)
                 }
             };
-            ImageAttributes imageAttributes = new ImageAttributes();
+            ImageAttributes imageAttributes = new();
             imageAttributes.SetColorMatrix(new ColorMatrix(ptsArray), ColorMatrixFlag.Default, ColorAdjustType.Default);
             G.DrawImage(image, r, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes);
             image.Dispose();
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Extension.Metro
                     Convert.ToSingle( c.A/255.0)
                 }
             };
-            ImageAttributes imageAttributes = new ImageAttributes();
+            ImageAttributes imageAttributes = new();
             imageAttributes.SetColorMatrix(new ColorMatrix(ptsArray), ColorMatrixFlag.Default, ColorAdjustType.Default);
             G.DrawImage(im, r, 0, 0, im.Width, im.Height, GraphicsUnit.Pixel, imageAttributes);
         }
@@ -98,8 +98,8 @@ namespace ReaLTaiizor.Extension.Metro
 
         public void DrawImageWithTransparency(Graphics G, float alpha, Image image, Rectangle rect)
         {
-            ColorMatrix colorMatrix = new ColorMatrix { Matrix33 = alpha };
-            ImageAttributes imageAttributes = new ImageAttributes();
+            ColorMatrix colorMatrix = new() { Matrix33 = alpha };
+            ImageAttributes imageAttributes = new();
             imageAttributes.SetColorMatrix(colorMatrix);
             G.DrawImage(image, new Rectangle(rect.X, rect.Y, image.Width, image.Height), rect.X, rect.Y, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes);
             imageAttributes.Dispose();
@@ -107,15 +107,13 @@ namespace ReaLTaiizor.Extension.Metro
 
         public Image ImageFromBase64(string base64Image)
         {
-            using (System.IO.MemoryStream ms = new System.IO.MemoryStream(Convert.FromBase64String(base64Image)))
-            {
-                return Image.FromStream(ms);
-            }
+            using System.IO.MemoryStream ms = new(Convert.FromBase64String(base64Image));
+            return Image.FromStream(ms);
         }
 
         public GraphicsPath RoundRec(Rectangle r, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
         {
-            GraphicsPath createRoundPath = new GraphicsPath(FillMode.Winding);
+            GraphicsPath createRoundPath = new(FillMode.Winding);
             if (topLeft)
             {
                 createRoundPath.AddArc(r.X, r.Y, curve, curve, 180f, 90f);
@@ -158,8 +156,8 @@ namespace ReaLTaiizor.Extension.Metro
 
         public GraphicsPath RoundRec(int x, int y, int width, int height, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
         {
-            Rectangle r = new Rectangle(x, y, width, height);
-            GraphicsPath createRoundPath = new GraphicsPath(FillMode.Winding);
+            Rectangle r = new(x, y, width, height);
+            GraphicsPath createRoundPath = new(FillMode.Winding);
             if (topLeft)
             {
                 createRoundPath.AddArc(r.X, r.Y, curve, curve, 180f, 90f);

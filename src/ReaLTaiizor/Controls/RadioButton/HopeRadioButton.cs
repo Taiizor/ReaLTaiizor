@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Controls
         private Color _CheckedColor = HopeColors.PrimaryColor;
         private int SizeAnimationNum = 0;
         private int PointAnimationNum = 10;
-        private readonly Timer SizeAnimationTimer = new Timer { Interval = 35 };
+        private readonly Timer SizeAnimationTimer = new() { Interval = 35 };
         private bool enterFalg = false;
         private bool _Enable = true;
         #endregion
@@ -157,8 +157,8 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BackColor);
 
-            Rectangle BGEllipse = new Rectangle(1, 1, 18, 18);
-            SolidBrush BG = new SolidBrush(_Enable ? (Checked || enterFalg ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
+            Rectangle BGEllipse = new(1, 1, 18, 18);
+            SolidBrush BG = new(_Enable ? (Checked || enterFalg ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
 
             graphics.FillEllipse(BG, BGEllipse);
             graphics.FillEllipse(new SolidBrush(Color.White), new Rectangle(3, 3, 14, 14));
@@ -191,7 +191,7 @@ namespace ReaLTaiizor.Controls
         {
             SizeAnimationTimer.Tick += new EventHandler(AnimationTick);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             ForeColor = Color.Black;
             Cursor = Cursors.Hand;
         }

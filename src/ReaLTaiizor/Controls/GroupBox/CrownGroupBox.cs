@@ -55,34 +55,34 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            Rectangle rect = new(0, 0, ClientSize.Width, ClientSize.Height);
             SizeF stringSize = g.MeasureString(Text, Font);
 
             Color textColor = ThemeProvider.Theme.Colors.LightText;
             Color fillColor = ThemeProvider.Theme.Colors.GreyBackground;
 
-            using (SolidBrush b = new SolidBrush(fillColor))
+            using (SolidBrush b = new(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
 
-            using (Pen p = new Pen(BorderColor, 1))
+            using (Pen p = new(BorderColor, 1))
             {
-                Rectangle borderRect = new Rectangle(0, (int)stringSize.Height / 2, rect.Width - 1, rect.Height - ((int)stringSize.Height / 2) - 1);
+                Rectangle borderRect = new(0, (int)stringSize.Height / 2, rect.Width - 1, rect.Height - ((int)stringSize.Height / 2) - 1);
                 g.DrawRectangle(p, borderRect);
             }
 
-            Rectangle textRect = new Rectangle(rect.Left + ThemeProvider.Theme.Sizes.Padding, rect.Top, rect.Width - (ThemeProvider.Theme.Sizes.Padding * 2), (int)stringSize.Height);
+            Rectangle textRect = new(rect.Left + ThemeProvider.Theme.Sizes.Padding, rect.Top, rect.Width - (ThemeProvider.Theme.Sizes.Padding * 2), (int)stringSize.Height);
 
-            using (SolidBrush b2 = new SolidBrush(fillColor))
+            using (SolidBrush b2 = new(fillColor))
             {
-                Rectangle modRect = new Rectangle(textRect.Left, textRect.Top, Math.Min(textRect.Width, (int)stringSize.Width), textRect.Height);
+                Rectangle modRect = new(textRect.Left, textRect.Top, Math.Min(textRect.Width, (int)stringSize.Width), textRect.Height);
                 g.FillRectangle(b2, modRect);
             }
 
-            using (SolidBrush b = new SolidBrush(textColor))
+            using (SolidBrush b = new(textColor))
             {
-                StringFormat stringFormat = new StringFormat
+                StringFormat stringFormat = new()
                 {
                     LineAlignment = StringAlignment.Center,
                     Alignment = StringAlignment.Near,

@@ -97,10 +97,7 @@ namespace ReaLTaiizor.Controls
 
                 UpdateThumb(true);
 
-                if (ValueChanged != null)
-                {
-                    ValueChanged(this, new ScrollValueEventArgs(Value));
-                }
+                ValueChanged?.Invoke(this, new ScrollValueEventArgs(Value));
             }
         }
 
@@ -236,7 +233,7 @@ namespace ReaLTaiizor.Controls
                 // Step 1. Check if our input is at least aligned with the thumb
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
                 {
-                    Rectangle modRect = new Rectangle(_thumbArea.Left, _trackArea.Top, _thumbArea.Width, _trackArea.Height);
+                    Rectangle modRect = new(_thumbArea.Left, _trackArea.Top, _thumbArea.Width, _trackArea.Height);
                     if (!modRect.Contains(e.Location))
                     {
                         return;
@@ -244,7 +241,7 @@ namespace ReaLTaiizor.Controls
                 }
                 else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
                 {
-                    Rectangle modRect = new Rectangle(_trackArea.Left, _thumbArea.Top, _trackArea.Width, _thumbArea.Height);
+                    Rectangle modRect = new(_trackArea.Left, _thumbArea.Top, _trackArea.Width, _thumbArea.Height);
                     if (!modRect.Contains(e.Location))
                     {
                         return;
@@ -335,7 +332,7 @@ namespace ReaLTaiizor.Controls
                     return;
                 }
 
-                Point difference = new Point(e.Location.X - _initialContact.X, e.Location.Y - _initialContact.Y);
+                Point difference = new(e.Location.X - _initialContact.X, e.Location.Y - _initialContact.Y);
 
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
                 {
@@ -431,23 +428,23 @@ namespace ReaLTaiizor.Controls
             // Arrow buttons
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
             {
-                _upArrowArea = new Rectangle(area.Left, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
-                _downArrowArea = new Rectangle(area.Left, area.Bottom - ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
+                _upArrowArea = new(area.Left, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
+                _downArrowArea = new(area.Left, area.Bottom - ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
             }
             else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
             {
-                _upArrowArea = new Rectangle(area.Left, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
-                _downArrowArea = new Rectangle(area.Right - ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
+                _upArrowArea = new(area.Left, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
+                _downArrowArea = new(area.Right - ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Top, ThemeProvider.Theme.Sizes.ArrowButtonSize, ThemeProvider.Theme.Sizes.ArrowButtonSize);
             }
 
             // Track
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
             {
-                _trackArea = new Rectangle(area.Left, area.Top + ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Width, area.Height - (ThemeProvider.Theme.Sizes.ArrowButtonSize * 2));
+                _trackArea = new(area.Left, area.Top + ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Width, area.Height - (ThemeProvider.Theme.Sizes.ArrowButtonSize * 2));
             }
             else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
             {
-                _trackArea = new Rectangle(area.Left + ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Top, area.Width - (ThemeProvider.Theme.Sizes.ArrowButtonSize * 2), area.Height);
+                _trackArea = new(area.Left + ThemeProvider.Theme.Sizes.ArrowButtonSize, area.Top, area.Width - (ThemeProvider.Theme.Sizes.ArrowButtonSize * 2), area.Height);
             }
 
             // Thumb
@@ -488,7 +485,7 @@ namespace ReaLTaiizor.Controls
                 int trackAreaSize = _trackArea.Height - thumbSize;
                 int thumbPosition = (int)(trackAreaSize * positionRatio);
 
-                _thumbArea = new Rectangle(_trackArea.Left + 3, _trackArea.Top + thumbPosition, ThemeProvider.Theme.Sizes.ScrollBarSize - 6, thumbSize);
+                _thumbArea = new(_trackArea.Left + 3, _trackArea.Top + thumbPosition, ThemeProvider.Theme.Sizes.ScrollBarSize - 6, thumbSize);
             }
             else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
             {
@@ -502,7 +499,7 @@ namespace ReaLTaiizor.Controls
                 int trackAreaSize = _trackArea.Width - thumbSize;
                 int thumbPosition = (int)(trackAreaSize * positionRatio);
 
-                _thumbArea = new Rectangle(_trackArea.Left + thumbPosition, _trackArea.Top + 3, thumbSize, ThemeProvider.Theme.Sizes.ScrollBarSize - 6);
+                _thumbArea = new(_trackArea.Left + thumbPosition, _trackArea.Top + 3, thumbSize, ThemeProvider.Theme.Sizes.ScrollBarSize - 6);
             }
 
             if (forceRefresh)
@@ -521,13 +518,13 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
 
             // DEBUG: Scrollbar bg
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }/**/
 
             // DEBUG: Arrow backgrounds
-            /*using (var b = new SolidBrush(Color.White))
+            /*using (var b = new(Color.White))
             {
                 g.FillRectangle(b, _upArrowArea);
                 g.FillRectangle(b, _downArrowArea);
@@ -587,10 +584,8 @@ namespace ReaLTaiizor.Controls
                     scrollColor = ThemeProvider.Theme.Colors.ActiveControl;
                 }
 
-                using (SolidBrush b = new SolidBrush(scrollColor))
-                {
-                    g.FillRectangle(b, _thumbArea);
-                }
+                using SolidBrush b = new(scrollColor);
+                g.FillRectangle(b, _thumbArea);
             }
         }
 

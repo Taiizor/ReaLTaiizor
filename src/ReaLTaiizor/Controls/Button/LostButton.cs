@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
         public LostButton() : base()
         {
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             Font = ThemeLost.BodyFont;
             ForeColor = Color.White;
         }

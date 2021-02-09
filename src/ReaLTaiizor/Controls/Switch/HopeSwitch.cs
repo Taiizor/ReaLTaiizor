@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private readonly Timer AnimationTimer = new Timer { Interval = 1 };
+        private readonly Timer AnimationTimer = new() { Interval = 1 };
         private int PointAnimationNum = 3;
         private Color _BaseColor = Color.White;
         private Color _BaseOnColor = HopeColors.PrimaryColor;
@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
             graphics.InterpolationMode = InterpolationMode.High;
             graphics.Clear(Parent.BackColor);
 
-            GraphicsPath backRect = new GraphicsPath();
+            GraphicsPath backRect = new();
             backRect.AddArc(new RectangleF(0.5f, 0.5f, Height - 1, Height - 1), 90, 180);
             backRect.AddArc(new RectangleF(Width - Height + 0.5f, 0.5f, Height - 1, Height - 1), 270, 180);
             backRect.CloseAllFigures();

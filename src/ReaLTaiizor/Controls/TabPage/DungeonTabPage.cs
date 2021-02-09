@@ -76,14 +76,14 @@ namespace ReaLTaiizor.Controls
         {
             base.CreateHandle();
 
-            ItemSize = new Size(80, 24);
+            ItemSize = new(80, 24);
             Alignment = TabAlignment.Top;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics G = e.Graphics;
-            Rectangle ItemBoundsRect = new Rectangle();
+            Rectangle ItemBoundsRect = new();
             G.Clear(_BaseColor);
             for (int TabIndex = 0; TabIndex <= TabCount - 1; TabIndex++)
             {
@@ -100,7 +100,7 @@ namespace ReaLTaiizor.Controls
 
             // Draw container rectangle
             G.FillPath(new SolidBrush(_PageEdgeColor), RoundRectangle.RoundRect(0, 23, Width - 1, Height - 24, 2));
-            G.DrawPath(new Pen(_PageEdgeBorderColor), RoundRectangle.RoundRect(0, 23, Width - 1, Height - 24, 2));
+            G.DrawPath(new(_PageEdgeBorderColor), RoundRectangle.RoundRect(0, 23, Width - 1, Height - 24, 2));
 
             for (int ItemIndex = 0; ItemIndex <= TabCount - 1; ItemIndex++)
             {
@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Controls
                 {
 
                     // Draw header tabs
-                    G.DrawPath(new Pen(_ActivePageBorderColor), RoundRectangle.RoundedTopRect(new Rectangle(new Point(ItemBoundsRect.X - 2, ItemBoundsRect.Y - 2), new Size(ItemBoundsRect.Width + 3, ItemBoundsRect.Height)), 7));
+                    G.DrawPath(new(_ActivePageBorderColor), RoundRectangle.RoundedTopRect(new Rectangle(new Point(ItemBoundsRect.X - 2, ItemBoundsRect.Y - 2), new Size(ItemBoundsRect.Width + 3, ItemBoundsRect.Height)), 7));
                     G.FillPath(new SolidBrush(_ActivePageBackColor), RoundRectangle.RoundedTopRect(new Rectangle(new Point(ItemBoundsRect.X - 1, ItemBoundsRect.Y - 1), new Size(ItemBoundsRect.Width + 2, ItemBoundsRect.Height)), 7));
 
                     try

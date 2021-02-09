@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Controls
                 if (TB != null)
                 {
                     TB.Font = value;
-                    TB.Location = new Point(3, 5);
+                    TB.Location = new(3, 5);
                     TB.Width = Width - 6;
 
                     if (!_Multiline)
@@ -181,7 +181,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnResize(EventArgs e)
         {
-            TB.Location = new Point(5, 5);
+            TB.Location = new(5, 5);
             TB.Width = Width - 10;
 
             if (_Multiline)
@@ -255,7 +255,7 @@ namespace ReaLTaiizor.Controls
 
             TB = new System.Windows.Forms.TextBox
             {
-                Font = new Font("Segoe UI", 10),
+                Font = new("Segoe UI", 10),
                 Text = Text,
                 BackColor = _BaseColor,
                 ForeColor = ForeColor,
@@ -264,7 +264,7 @@ namespace ReaLTaiizor.Controls
                 ReadOnly = _ReadOnly,
                 UseSystemPasswordChar = _UseSystemPasswordChar,
                 BorderStyle = BorderStyle.None,
-                Location = new Point(6, 6),
+                Location = new(6, 6),
                 Width = Width - 10,
 
                 Cursor = Cursors.IBeam
@@ -291,12 +291,12 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.Transparent;
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 2;
             H = Height - 2;
 
-            Rectangle Base = new Rectangle(1, 1, W, H);
+            Rectangle Base = new(1, 1, W, H);
 
             Graphics _with12 = G;
             _with12.SmoothingMode = SmoothingMode.HighQuality;

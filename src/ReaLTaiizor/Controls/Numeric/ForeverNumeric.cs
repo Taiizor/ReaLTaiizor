@@ -197,7 +197,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             _Min = 0;
             _Max = 100;
             ForeColor = Color.Silver;
@@ -207,12 +207,12 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width;
             H = Height;
 
-            Rectangle Base = new Rectangle(0, 0, W, H);
+            Rectangle Base = new(0, 0, W, H);
 
             Graphics _with18 = G;
             _with18.SmoothingMode = SmoothingMode.HighQuality;

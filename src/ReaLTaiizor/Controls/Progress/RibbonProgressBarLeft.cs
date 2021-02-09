@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
         protected override void CreateHandle()
         {
             base.CreateHandle();
-            Thread T = new Thread(Animate)
+            Thread T = new(Animate)
             {
                 IsBackground = true
             };
@@ -256,7 +256,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingType;
@@ -264,24 +264,24 @@ namespace ReaLTaiizor.Controls
             int intValue = Convert.ToInt32((Convert.ToDouble(_Value) / Convert.ToDouble(_Maximum)) * Width);
             G.Clear(BackColor);
 
-            LinearGradientBrush gB = new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), ColorA, ColorB, 90);
+            LinearGradientBrush gB = new(new Rectangle(0, 0, Width - 1, Height - 1), ColorA, ColorB, 90);
             G.FillPath(gB, DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 1));
-            G.DrawPath(new Pen(new SolidBrush(BaseColor)), DrawRibbon.RoundRect(new Rectangle(1, 1, Width - 3, Height - 3), 1));
+            G.DrawPath(new(new SolidBrush(BaseColor)), DrawRibbon.RoundRect(new Rectangle(1, 1, Width - 3, Height - 3), 1));
 
-            LinearGradientBrush g1 = new LinearGradientBrush(new Rectangle(2, 2, intValue - 1, Height - 2), ProgressColorA, ProgressColorB, 90);
+            LinearGradientBrush g1 = new(new Rectangle(2, 2, intValue - 1, Height - 2), ProgressColorA, ProgressColorB, 90);
             G.FillPath(g1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
-            HatchBrush h1 = new HatchBrush(HatchType, ProgressLineColorA, ProgressLineColorB);
+            HatchBrush h1 = new(HatchType, ProgressLineColorA, ProgressLineColorB);
             G.FillPath(h1, DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 2), 1));
 
             if (ShowEdge)
             {
-                G.DrawPath(new Pen(EdgeColor), DrawRibbon.RoundRect(new Rectangle(0, 1, Width - 1, Height - 3), 2));
+                G.DrawPath(new(EdgeColor), DrawRibbon.RoundRect(new Rectangle(0, 1, Width - 1, Height - 3), 2));
             }
 
-            G.DrawPath(new Pen(BorderColor), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
+            G.DrawPath(new(BorderColor), DrawRibbon.RoundRect(new Rectangle(0, 0, Width - 1, Height - 1), 2));
 
-            G.DrawPath(new Pen(ProgressBorderColorA), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
-            G.DrawPath(new Pen(ProgressBorderColorB), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
+            G.DrawPath(new(ProgressBorderColorA), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
+            G.DrawPath(new(ProgressBorderColorB), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
             //colored bar outline
 
             if (_ShowPercentage)

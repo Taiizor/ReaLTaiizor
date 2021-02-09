@@ -20,20 +20,20 @@ namespace ReaLTaiizor.Controls
             DrawMode = DrawMode.OwnerDrawFixed;
             IntegralHeight = false;
             ItemHeight = 18;
-            Font = new Font("Seoge UI", 11, FontStyle.Regular);
+            Font = new("Seoge UI", 11, FontStyle.Regular);
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
             base.OnDrawItem(e);
             e.DrawBackground();
-            LinearGradientBrush LGB = new LinearGradientBrush(e.Bounds, Color.FromArgb(246, 132, 85), Color.FromArgb(231, 108, 57), 90.0F);
+            LinearGradientBrush LGB = new(e.Bounds, Color.FromArgb(246, 132, 85), Color.FromArgb(231, 108, 57), 90.0F);
             if (Convert.ToInt32((e.State & DrawItemState.Selected)) == (int)DrawItemState.Selected)
             {
                 e.Graphics.FillRectangle(LGB, e.Bounds);
             }
 
-            using (SolidBrush b = new SolidBrush(e.ForeColor))
+            using (SolidBrush b = new(e.ForeColor))
             {
                 if (base.Items.Count == 0)
                 {
@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Region MyRegion = new Region(e.ClipRectangle);
+            Region MyRegion = new(e.ClipRectangle);
             e.Graphics.FillRegion(new SolidBrush(BackColor), MyRegion);
 
             if (Items.Count > 0)

@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(76, 33);
+            Size = new(76, 33);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -109,9 +109,9 @@ namespace ReaLTaiizor.Controls
             _Height = Height - 1;
 
             GraphicsPath GP = default;
-            GraphicsPath GP2 = new GraphicsPath();
-            Rectangle BaseRect = new Rectangle(0, 0, _Width, _Height);
-            Rectangle ThumbRect = new Rectangle(_Width / 2, 0, 38, _Height);
+            GraphicsPath GP2 = new();
+            Rectangle BaseRect = new(0, 0, _Width, _Height);
+            Rectangle ThumbRect = new(_Width / 2, 0, 38, _Height);
 
             G.SmoothingMode = (SmoothingMode)2;
             G.PixelOffsetMode = (PixelOffsetMode)2;
@@ -119,7 +119,7 @@ namespace ReaLTaiizor.Controls
             G.Clear(BackColor);
 
             GP = RoundRectangle.RoundRect(BaseRect, 4);
-            ThumbRect = new Rectangle(4, 4, 36, _Height - 8);
+            ThumbRect = new(4, 4, 36, _Height - 8);
             GP2 = RoundRectangle.RoundRect(ThumbRect, 4);
             G.FillPath(new SolidBrush(Color.FromArgb(66, 76, 85)), GP);
             G.FillPath(new SolidBrush(Color.FromArgb(32, 41, 50)), GP2);
@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Controls
             if (_Toggled)
             {
                 GP = RoundRectangle.RoundRect(BaseRect, 4);
-                ThumbRect = new Rectangle((_Width / 2) - 2, 4, 36, _Height - 8);
+                ThumbRect = new((_Width / 2) - 2, 4, 36, _Height - 8);
                 GP2 = RoundRectangle.RoundRect(ThumbRect, 4);
                 G.FillPath(new SolidBrush(Color.FromArgb(32, 34, 37)), GP);
                 G.FillPath(new SolidBrush(Color.FromArgb(32, 41, 50)), GP2);

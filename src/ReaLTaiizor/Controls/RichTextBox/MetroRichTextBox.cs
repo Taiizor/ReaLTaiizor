@@ -97,7 +97,7 @@ namespace ReaLTaiizor.Controls
 
         #region Base RichTextBox
 
-        private readonly RichTextBox _richTextBox = new RichTextBox();
+        private readonly RichTextBox _richTextBox = new();
 
         #endregion Base RichTextBox
 
@@ -144,9 +144,9 @@ namespace ReaLTaiizor.Controls
             _lines = null;
             _richTextBox.Cursor = Cursors.IBeam;
             _richTextBox.BorderStyle = BorderStyle.None;
-            _richTextBox.Location = new Point(7, 8);
+            _richTextBox.Location = new(7, 8);
             _richTextBox.Font = Font;
-            _richTextBox.Size = new Size(Width, Height);
+            _richTextBox.Size = new(Width, Height);
 
             _richTextBox.MouseHover += T_MouseHover;
             _richTextBox.MouseUp += T_MouseUp;
@@ -163,49 +163,39 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle rect = new(0, 0, Width - 1, Height - 1);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             if (Enabled)
             {
-                using (SolidBrush bg = new SolidBrush(BackColor))
+                using SolidBrush bg = new(BackColor);
+                using Pen p = new(BorderColor);
+                using Pen ph = new(HoverColor);
+                g.FillRectangle(bg, rect);
+                switch (_state)
                 {
-                    using (Pen p = new Pen(BorderColor))
-                    {
-                        using (Pen ph = new Pen(HoverColor))
-                        {
-                            g.FillRectangle(bg, rect);
-                            switch (_state)
-                            {
-                                case MouseMode.Normal:
-                                    g.DrawRectangle(p, rect);
-                                    break;
-                                case MouseMode.Hovered:
-                                    g.DrawRectangle(ph, rect);
-                                    break;
-                            }
-
-                            _richTextBox.BackColor = BackColor;
-                            _richTextBox.ForeColor = ForeColor;
-                        }
-                    }
+                    case MouseMode.Normal:
+                        g.DrawRectangle(p, rect);
+                        break;
+                    case MouseMode.Hovered:
+                        g.DrawRectangle(ph, rect);
+                        break;
                 }
+
+                _richTextBox.BackColor = BackColor;
+                _richTextBox.ForeColor = ForeColor;
             }
             else
             {
-                using (SolidBrush bg = new SolidBrush(DisabledBackColor))
-                {
-                    using (Pen p = new Pen(DisabledBorderColor))
-                    {
-                        g.FillRectangle(bg, rect);
-                        g.DrawRectangle(p, rect);
-                        _richTextBox.BackColor = DisabledBackColor;
-                        _richTextBox.ForeColor = DisabledForeColor;
-                    }
-                }
+                using SolidBrush bg = new(DisabledBackColor);
+                using Pen p = new(DisabledBorderColor);
+                g.FillRectangle(bg, rect);
+                g.DrawRectangle(p, rect);
+                _richTextBox.BackColor = DisabledBackColor;
+                _richTextBox.ForeColor = DisabledForeColor;
             }
 
-            _richTextBox.Location = new Point(7, 4);
+            _richTextBox.Location = new(7, 4);
             _richTextBox.Width = Width - 10;
 
         }
@@ -385,7 +375,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            _richTextBox.Size = new Size(Width - 10, Height - 10);
+            _richTextBox.Size = new(Width - 10, Height - 10);
         }
 
         public void T_Enter(object sender, EventArgs e)
@@ -793,7 +783,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 _richTextBox.Font = value;
-                _richTextBox.Location = new Point(5, 5);
+                _richTextBox.Location = new(5, 5);
                 _richTextBox.Width = Width - 8;
             }
         }

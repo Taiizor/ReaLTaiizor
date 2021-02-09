@@ -17,8 +17,8 @@ namespace ReaLTaiizor.Controls
     {
         public FoxNotification() : base()
         {
-            Size = new Size(130, 40);
-            Font = new Font("Segoe UI", 10);
+            Size = new(130, 40);
+            Font = new("Segoe UI", 10);
         }
 
         public Styles Style { get; set; }
@@ -151,19 +151,15 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            using (SolidBrush Back = new SolidBrush(Background))
+            using (SolidBrush Back = new(Background))
             {
-                using (SolidBrush TC = new SolidBrush(TextColor))
-                {
-                    using (SolidBrush LB = new SolidBrush(LeftBar))
-                    {
-                        G.FillRectangle(Back, FoxLibrary.FullRectangle(Size, true));
-                        G.SmoothingMode = SmoothingMode.None;
-                        G.FillRectangle(LB, new Rectangle(0, 1, 6, Height - 2));
-                        G.SmoothingMode = SmoothingMode.HighQuality;
-                        G.DrawString(Text, Font, TC, new Point(20, 11));
-                    }
-                }
+                using SolidBrush TC = new(TextColor);
+                using SolidBrush LB = new(LeftBar);
+                G.FillRectangle(Back, FoxLibrary.FullRectangle(Size, true));
+                G.SmoothingMode = SmoothingMode.None;
+                G.FillRectangle(LB, new Rectangle(0, 1, 6, Height - 2));
+                G.SmoothingMode = SmoothingMode.HighQuality;
+                G.DrawString(Text, Font, TC, new Point(20, 11));
             }
 
             base.OnPaint(e);
@@ -172,7 +168,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(Width, 40);
+            Size = new(Width, 40);
         }
 
     }

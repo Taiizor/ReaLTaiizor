@@ -69,7 +69,7 @@ namespace ReaLTaiizor.Docking.Crown
             {
                 case DockArea.Left:
 
-                    Rectangle leftRect = new Rectangle
+                    Rectangle leftRect = new()
                     {
                         X = DockPanel.PointToScreen(Point.Empty).X,
                         Y = DockPanel.PointToScreen(Point.Empty).Y,
@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Docking.Crown
 
                 case DockArea.Right:
 
-                    Rectangle rightRect = new Rectangle
+                    Rectangle rightRect = new()
                     {
                         X = DockPanel.PointToScreen(Point.Empty).X + DockPanel.Width - 50,
                         Y = DockPanel.PointToScreen(Point.Empty).Y,
@@ -113,7 +113,7 @@ namespace ReaLTaiizor.Docking.Crown
                         width -= DockPanel.Regions[DockArea.Right].Width;
                     }
 
-                    Rectangle bottomRect = new Rectangle
+                    Rectangle bottomRect = new()
                     {
                         X = x,
                         Y = DockPanel.PointToScreen(Point.Empty).Y + DockPanel.Height - 50,
@@ -133,7 +133,7 @@ namespace ReaLTaiizor.Docking.Crown
             switch (InsertType)
             {
                 case DockInsertType.None:
-                    Rectangle dropRect = new Rectangle
+                    Rectangle dropRect = new()
                     {
                         X = DockGroup.PointToScreen(Point.Empty).X,
                         Y = DockGroup.PointToScreen(Point.Empty).Y,
@@ -162,7 +162,7 @@ namespace ReaLTaiizor.Docking.Crown
                             break;
                     }
 
-                    Rectangle beforeDropRect = new Rectangle
+                    Rectangle beforeDropRect = new()
                     {
                         X = DockGroup.PointToScreen(Point.Empty).X,
                         Y = DockGroup.PointToScreen(Point.Empty).Y,
@@ -195,7 +195,7 @@ namespace ReaLTaiizor.Docking.Crown
                             break;
                     }
 
-                    Rectangle afterDropRect = new Rectangle
+                    Rectangle afterDropRect = new()
                     {
                         X = afterDropX,
                         Y = afterDropY,

@@ -41,10 +41,7 @@ namespace ReaLTaiizor.Docking.Crown
 
                 _dockText = value;
 
-                if (DockTextChanged != null)
-                {
-                    DockTextChanged(this, null);
-                }
+                DockTextChanged?.Invoke(this, null);
 
                 Invalidate();
             }

@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
 
             // Draw background
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -52,12 +52,10 @@ namespace ReaLTaiizor.Controls
             // Draw the bit where the scrollbars meet
             if (_vScrollBar.Visible && _hScrollBar.Visible)
             {
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
-                {
-                    Rectangle rect = new Rectangle(_hScrollBar.Right, _vScrollBar.Bottom, _vScrollBar.Width, _hScrollBar.Height);
+                using SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground);
+                Rectangle rect = new(_hScrollBar.Right, _vScrollBar.Bottom, _vScrollBar.Width, _hScrollBar.Height);
 
-                    g.FillRectangle(b, rect);
-                }
+                g.FillRectangle(b, rect);
             }
         }
 

@@ -114,7 +114,7 @@ namespace ReaLTaiizor.Controls
             _mth = new Methods();
             _utl = new Utilites();
             ApplyTheme();
-            _point = new Point(0, 0);
+            _point = new(0, 0);
             _holdTimer = new Timer()
             {
                 Interval = 10,
@@ -132,34 +132,22 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle rect = new(0, 0, Width - 1, Height - 1);
 
             const char plus = '+';
             const char minus = '-';
 
-            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
-            {
-                using (Pen p = new Pen(Enabled ? BorderColor : DisabledBorderColor))
-                {
-                    using (SolidBrush s = new SolidBrush(Enabled ? SymbolsColor : DisabledForeColor))
-                    {
-                        using (SolidBrush tb = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
-                        {
-                            using (Font f2 = MetroFonts.SemiBold(18))
-                            {
-                                using (StringFormat sf = new StringFormat { LineAlignment = StringAlignment.Center })
-                                {
-                                    g.FillRectangle(bg, rect);
-                                    g.DrawString(plus.ToString(), f2, s, new Rectangle(Width - 45, 1, 25, Height - 1), sf);
-                                    g.DrawString(minus.ToString(), f2, s, new Rectangle(Width - 25, -1, 20, Height - 1), sf);
-                                    g.DrawString(Value.ToString(), Font, tb, new Rectangle(0, 0, Width - 50, Height - 1), _mth.SetPosition(StringAlignment.Far));
-                                    g.DrawRectangle(p, rect);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            using SolidBrush bg = new(Enabled ? BackColor : DisabledBackColor);
+            using Pen p = new(Enabled ? BorderColor : DisabledBorderColor);
+            using SolidBrush s = new(Enabled ? SymbolsColor : DisabledForeColor);
+            using SolidBrush tb = new(Enabled ? ForeColor : DisabledForeColor);
+            using Font f2 = MetroFonts.SemiBold(18);
+            using StringFormat sf = new() { LineAlignment = StringAlignment.Center };
+            g.FillRectangle(bg, rect);
+            g.DrawString(plus.ToString(), f2, s, new Rectangle(Width - 45, 1, 25, Height - 1), sf);
+            g.DrawString(minus.ToString(), f2, s, new Rectangle(Width - 25, -1, 20, Height - 1), sf);
+            g.DrawString(Value.ToString(), Font, tb, new Rectangle(0, 0, Width - 50, Height - 1), _mth.SetPosition(StringAlignment.Far));
+            g.DrawRectangle(p, rect);
 
         }
 

@@ -15,9 +15,8 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     public class SkyRadioButton : Control
     {
-
         #region " Control Help - MouseState & Flicker Control"
-        private Point mouse = new Point(0, 0);
+        private Point mouse = new(0, 0);
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
@@ -81,11 +80,69 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is SkyRadioButton)
+                if (!object.ReferenceEquals(C, this) && C is SkyRadioButton button)
                 {
-                    ((SkyRadioButton)C).Checked = false;
+                    button.Checked = false;
                 }
             }
+        }
+        #endregion
+
+        #region Variables
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        private Color _EllipseBorderColorA = Color.FromArgb(168, 168, 168);
+        private Color _EllipseBorderColorB = Color.FromArgb(252, 252, 252);
+        private Color _EllipseBackColorA = Color.FromArgb(245, 245, 245);
+        private Color _EllipseBackColorB = Color.FromArgb(231, 231, 231);
+        private Color _CheckedColorA = Color.FromArgb(27, 94, 137);
+        private Color _CheckedColorB = Color.FromArgb(150, 118, 177, 211);
+        #endregion
+
+        #region Settings
+        public SmoothingMode SmoothingType
+        {
+            get => _SmoothingType;
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public Color EllipseBorderColorA
+        {
+            get => _EllipseBorderColorA;
+            set => _EllipseBorderColorA = value;
+        }
+
+        public Color EllipseBorderColorB
+        {
+            get => _EllipseBorderColorB;
+            set => _EllipseBorderColorB = value;
+        }
+
+        public Color EllipseBackColorA
+        {
+            get => _EllipseBackColorA;
+            set => _EllipseBackColorA = value;
+        }
+
+        public Color EllipseBackColorB
+        {
+            get => _EllipseBackColorB;
+            set => _EllipseBackColorB = value;
+        }
+
+        public Color CheckedColorA
+        {
+            get => _CheckedColorA;
+            set => _CheckedColorA = value;
+        }
+
+        public Color CheckedColorB
+        {
+            get => _CheckedColorB;
+            set => _CheckedColorB = value;
         }
         #endregion
 
@@ -94,29 +151,29 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(27, 94, 137);
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
-            Size = new Size(105, 14);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
+            Size = new(105, 14);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.SmoothingMode = SmoothingType;
             G.Clear(Parent.FindForm().BackColor);
 
-            G.DrawEllipse(new Pen(Color.FromArgb(168, 168, 168)), new Rectangle(0, 0, Height - 2, Height - 1));
-            LinearGradientBrush bgGrad = new LinearGradientBrush(new Rectangle(0, 0, Height - 2, Height - 2), Color.FromArgb(245, 245, 245), Color.FromArgb(231, 231, 231), 90);
+            G.DrawEllipse(new(EllipseBorderColorA), new Rectangle(0, 0, Height - 2, Height - 1));
+            LinearGradientBrush bgGrad = new(new Rectangle(0, 0, Height - 2, Height - 2), EllipseBackColorA, EllipseBackColorB, 90);
             G.FillEllipse(bgGrad, new Rectangle(0, 0, Height - 2, Height - 2));
-            G.DrawEllipse(new Pen(Color.FromArgb(252, 252, 252)), new Rectangle(1, 1, Height - 4, Height - 4));
+            G.DrawEllipse(new(EllipseBorderColorB), new Rectangle(1, 1, Height - 4, Height - 4));
 
             if (Checked)
             {
-                G.FillEllipse(new SolidBrush(Color.FromArgb(27, 94, 137)), new Rectangle(3, 3, Height - 8, Height - 8));
-                G.FillEllipse(new SolidBrush(Color.FromArgb(150, 118, 177, 211)), new Rectangle(4, 4, Height - 10, Height - 10));
+                G.FillEllipse(new SolidBrush(CheckedColorA), new Rectangle(3, 3, Height - 8, Height - 8));
+                G.FillEllipse(new SolidBrush(CheckedColorB), new Rectangle(4, 4, Height - 10, Height - 10));
             }
 
             G.DrawString(Text, Font, new SolidBrush(ForeColor), new Point(16, 1), new StringFormat
@@ -129,7 +186,6 @@ namespace ReaLTaiizor.Controls
             G.Dispose();
             B.Dispose();
         }
-
     }
 
     #endregion

@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
         public LostPanel()
         {
             DoubleBuffered = true;
-            Size = new Size(222, 111);
+            Size = new(222, 111);
             Font = ThemeLost.TitleFont;
             BackColor = ThemeLost.ForeBrush.Color;
             ForeColor = ThemeLost.FontBrush.Color;
@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
         {
             for (int i = 0; i < ThemeLost.ShadowSize; i++)
             {
-                g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
+                g.DrawRectangle(new(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
             }
         }
 

@@ -199,16 +199,12 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
 
-            Rectangle r = new Rectangle(0, 0, Width, Height);
+            Rectangle r = new(0, 0, Width, Height);
 
-            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
-            {
-                using (SolidBrush thumbBrush = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
-                {
-                    g.FillRectangle(bg, r);
-                    g.FillRectangle(thumbBrush, _thumb);
-                }
-            }
+            using SolidBrush bg = new(Enabled ? BackColor : DisabledBackColor);
+            using SolidBrush thumbBrush = new(Enabled ? ForeColor : DisabledForeColor);
+            g.FillRectangle(bg, r);
+            g.FillRectangle(thumbBrush, _thumb);
         }
 
         #endregion
@@ -378,21 +374,21 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateLayout()
         {
-            _bar = new Rectangle(0, 0, Width, Height);
+            _bar = new(0, 0, Width, Height);
             _showThumb = Maximum - Minimum > 0;
             switch (Orientation)
             {
                 case ScrollOrientate.Vertical:
                     if (_showThumb)
                     {
-                        _thumb = new Rectangle(0, 0, Width, _thumbSize);
+                        _thumb = new(0, 0, Width, _thumbSize);
                     }
 
                     break;
                 case ScrollOrientate.Horizontal:
                     if (_showThumb)
                     {
-                        _thumb = new Rectangle(0, 0, Width, _thumbSize);
+                        _thumb = new(0, 0, Width, _thumbSize);
                     }
 
                     break;
@@ -435,18 +431,12 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
                 return;
             }
-            switch (Orientation)
+            _val = Orientation switch
             {
-                case ScrollOrientate.Vertical:
-                    _val = e.Y < _thumb.Y ? Value - LargeChange : Value + LargeChange;
-                    break;
-                case ScrollOrientate.Horizontal:
-                    _val = e.X < _thumb.X ? Value - LargeChange : Value + LargeChange;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
+                ScrollOrientate.Vertical => e.Y < _thumb.Y ? Value - LargeChange : Value + LargeChange,
+                ScrollOrientate.Horizontal => e.X < _thumb.X ? Value - LargeChange : Value + LargeChange,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
             Value = Math.Min(Math.Max(_val, Minimum), Maximum);
             InvalidatePosition();
         }
@@ -484,17 +474,12 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseUp(MouseEventArgs e)
         {
             _thumbState = _thumb.Contains(e.Location) ? MouseMode.Hovered : MouseMode.Normal;
-            switch (Orientation)
+            _thumbState = Orientation switch
             {
-                case ScrollOrientate.Vertical:
-                    _thumbState = (e.Location.Y < 16) | (e.Location.Y > Width - 16) ? MouseMode.Hovered : MouseMode.Normal;
-                    break;
-                case ScrollOrientate.Horizontal:
-                    _thumbState = e.Location.X < 16 | e.Location.X > Width - 16 ? MouseMode.Hovered : MouseMode.Normal;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                ScrollOrientate.Vertical => (e.Location.Y < 16) | (e.Location.Y > Width - 16) ? MouseMode.Hovered : MouseMode.Normal,
+                ScrollOrientate.Horizontal => e.Location.X < 16 | e.Location.X > Width - 16 ? MouseMode.Hovered : MouseMode.Normal,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
             Invalidate();
         }
 

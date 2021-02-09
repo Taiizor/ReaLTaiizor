@@ -48,7 +48,7 @@
             // 
             materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             materialTextBox1.Depth = 0;
-            materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            materialTextBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             materialTextBox1.Hint = "53X";
             materialTextBox1.Location = new System.Drawing.Point(12, 85);
             materialTextBox1.MaxLength = 50;
@@ -63,7 +63,7 @@
             // 
             materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             materialTextBox2.Depth = 0;
-            materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            materialTextBox2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             materialTextBox2.Hint = "53X";
             materialTextBox2.Location = new System.Drawing.Point(12, 141);
             materialTextBox2.MaxLength = 50;
@@ -178,7 +178,7 @@
             // 
             materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             materialTextBox3.Depth = 0;
-            materialTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            materialTextBox3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             materialTextBox3.ForeColor = System.Drawing.SystemColors.WindowText;
             materialTextBox3.Hint = "53X";
             materialTextBox3.Location = new System.Drawing.Point(322, 205);
@@ -249,6 +249,7 @@
             Controls.Add(materialTextBox1);
             Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
             MaximizeBox = false;
+            MessageFilter = false;
             Name = "Material";
             Sizable = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -58,9 +58,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is ForeverRadioButton)
+                if (!object.ReferenceEquals(C, this) && C is ForeverRadioButton button)
                 {
-                    ((ForeverRadioButton)C).Checked = false;
+                    button.Checked = false;
                     Invalidate();
                 }
             }
@@ -142,23 +142,23 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
-            Size = new Size(145, 22);
+            Size = new(145, 22);
             BackColor = Color.FromArgb(60, 70, 73);
             ForeColor = Color.FromArgb(243, 243, 243);
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
 
-            Rectangle Base = new Rectangle(0, 2, Height - 5, Height - 5);
-            Rectangle Dot = new Rectangle(4, 6, H - 12, H - 12);
+            Rectangle Base = new(0, 2, Height - 5, Height - 5);
+            Rectangle Dot = new(4, 6, H - 12, H - 12);
 
             Graphics _with10 = G;
             _with10.SmoothingMode = SmoothingMode.HighQuality;
@@ -174,10 +174,10 @@ namespace ReaLTaiizor.Controls
                     switch (State)
                     {
                         case MouseStateForever.Over:
-                            _with10.DrawEllipse(new Pen(_BorderColor), Base);
+                            _with10.DrawEllipse(new(_BorderColor), Base);
                             break;
                         case MouseStateForever.Down:
-                            _with10.DrawEllipse(new Pen(_BorderColor), Base);
+                            _with10.DrawEllipse(new(_BorderColor), Base);
                             break;
                     }
 
@@ -195,12 +195,12 @@ namespace ReaLTaiizor.Controls
                     {
                         case MouseStateForever.Over:
                             //-- Base
-                            _with10.DrawEllipse(new Pen(_BorderColor), Base);
+                            _with10.DrawEllipse(new(_BorderColor), Base);
                             _with10.FillEllipse(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                         case MouseStateForever.Down:
                             //-- Base
-                            _with10.DrawEllipse(new Pen(_BorderColor), Base);
+                            _with10.DrawEllipse(new(_BorderColor), Base);
                             _with10.FillEllipse(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                     }

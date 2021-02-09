@@ -26,11 +26,11 @@ namespace ReaLTaiizor.Controls
         {
             if (Horizontal)
             {
-                e.Graphics.DrawLine(new Pen(ForeColor), 0, Height / 2, Width, Height / 2);
+                e.Graphics.DrawLine(new(ForeColor), 0, Height / 2, Width, Height / 2);
             }
             else
             {
-                e.Graphics.DrawLine(new Pen(ForeColor), Width / 2, 0, Width / 2, Height);
+                e.Graphics.DrawLine(new(ForeColor), Width / 2, 0, Width / 2, Height);
             }
         }
 

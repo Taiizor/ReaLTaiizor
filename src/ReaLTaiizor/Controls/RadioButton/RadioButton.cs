@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Controls
 
         public RadioButton()
         {
-            Size = new Size(120, 17);
+            Size = new(120, 17);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
             ForeColor = Color.FromArgb(116, 125, 132);
@@ -142,9 +142,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control _Control in Parent.Controls)
             {
-                if (_Control != this && _Control is RadioButton)
+                if (_Control != this && _Control is RadioButton button)
                 {
-                    ((RadioButton)_Control).Checked = false;
+                    button.Checked = false;
                 }
             }
         }

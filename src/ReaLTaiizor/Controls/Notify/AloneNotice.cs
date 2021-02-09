@@ -53,25 +53,17 @@ namespace ReaLTaiizor.Controls
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
             G.Clear(_BorderColor);
-            using (SolidBrush solidBrush = new SolidBrush(BackColor))
+            using (SolidBrush solidBrush = new(BackColor))
             {
-                using (Pen pen = new Pen(_BorderColor))
-                {
-                    using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
-                    {
-                        using (Font font = new Font("Segoe UI", 9f))
-                        {
-                            G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                            G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                            G.DrawString(Text, font, solidBrush2, new Point(30, 6));
-                        }
-                    }
-                }
+                using Pen pen = new(_BorderColor);
+                using SolidBrush solidBrush2 = new(ForeColor);
+                using Font font = new("Segoe UI", 9f);
+                G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
+                G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
+                G.DrawString(Text, font, solidBrush2, new Point(30, 6));
             }
-            using (Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64))))
-            {
-                G.DrawImage(image, new Rectangle(8, checked((int)Math.Round(unchecked((double)base.Height / 2.0 - 8.0))), 16, 16));
-            }
+            using Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64)));
+            G.DrawImage(image, new Rectangle(8, checked((int)Math.Round(unchecked((double)base.Height / 2.0 - 8.0))), 16, 16));
         }
 
         protected override void OnMouseUp(MouseEventArgs e)

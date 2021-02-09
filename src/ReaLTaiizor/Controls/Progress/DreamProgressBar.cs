@@ -89,34 +89,30 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
             int V = Width * _Value / _Maximum;
-            using (Bitmap B = new Bitmap(Width, Height))
-            {
-                using (Graphics G = Graphics.FromImage(B))
-                {
-                    Rectangle R1 = new Rectangle(1, 1, Width - 2, Height - 2);
-                    Rectangle R2 = new Rectangle(2, 2, V - 4, Height - 4);
-                    Brush GB1 = new LinearGradientBrush(R1, _ColorB, _ColorC, 90.0F);
-                    Brush GB2 = new LinearGradientBrush(R2, _ColorC, _ColorB, 30.0F);
-                    G.FillRectangle(GB1, R1);
-                    G.FillRectangle(GB2, R2);
-                    // Draw.Gradient(G, _ColorB, _ColorC, 1, 1, Width - 2, Height - 2)
-                    G.DrawRectangle(new Pen(_ColorB), 1, 1, V - 3, Height - 3);
-                    // Draw.Gradient(G, _ColorC, _ColorB, 2, 2, V - 4, Height - 4)
+            using Bitmap B = new(Width, Height);
+            using Graphics G = Graphics.FromImage(B);
+            Rectangle R1 = new(1, 1, Width - 2, Height - 2);
+            Rectangle R2 = new(2, 2, V - 4, Height - 4);
+            Brush GB1 = new LinearGradientBrush(R1, _ColorB, _ColorC, 90.0F);
+            Brush GB2 = new LinearGradientBrush(R2, _ColorC, _ColorB, 30.0F);
+            G.FillRectangle(GB1, R1);
+            G.FillRectangle(GB2, R2);
+            // Draw.Gradient(G, _ColorB, _ColorC, 1, 1, Width - 2, Height - 2)
+            G.DrawRectangle(new(_ColorB), 1, 1, V - 3, Height - 3);
+            // Draw.Gradient(G, _ColorC, _ColorB, 2, 2, V - 4, Height - 4)
 
-                    G.DrawRectangle(new Pen(_ColorA), 0, 0, Width - 1, Height - 1);
-                    Bitmap B1 = B;
-                    e.Graphics.DrawImage(B1, 0, 0);
-                    /*
-                        Draw.Gradient(G, _ColorB, _ColorC, 1, 1, Width - 2, Height - 2)
-                        G.DrawRectangle(New Pen(_ColorB), 1, 1, V - 3, Height - 3)
-                        Draw.Gradient(G, _ColorC, _ColorB, 2, 2, V - 4, Height - 4)
+            G.DrawRectangle(new(_ColorA), 0, 0, Width - 1, Height - 1);
+            Bitmap B1 = B;
+            e.Graphics.DrawImage(B1, 0, 0);
+            /*
+                Draw.Gradient(G, _ColorB, _ColorC, 1, 1, Width - 2, Height - 2)
+                G.DrawRectangle(new(_ColorB), 1, 1, V - 3, Height - 3)
+                Draw.Gradient(G, _ColorC, _ColorB, 2, 2, V - 4, Height - 4)
 
-                        G.DrawRectangle(New Pen(_ColorA), 0, 0, Width - 1, Height - 1)
+                G.DrawRectangle(new(_ColorA), 0, 0, Width - 1, Height - 1)
 
-                        e.Graphics.DrawImage(B.Clone, 0, 0)
-                    */
-                }
-            }
+                e.Graphics.DrawImage(B.Clone, 0, 0)
+            */
         }
     }
 

@@ -93,11 +93,9 @@ namespace ReaLTaiizor.Controls
 
         private static DialogResult ShowDialog(string message, string caption, DialogMessageBox icon, DialogButton buttons)
         {
-            using (CrownMessageBox dlg = new CrownMessageBox(message, caption, icon, buttons))
-            {
-                DialogResult result = dlg.ShowDialog();
-                return result;
-            }
+            using CrownMessageBox dlg = new(message, caption, icon, buttons);
+            DialogResult result = dlg.ShowDialog();
+            return result;
         }
 
         #endregion
@@ -129,7 +127,7 @@ namespace ReaLTaiizor.Controls
             int width = 260; int height = 124;
 
             // Reset form back to original size
-            Size = new Size(width, height);
+            Size = new(width, height);
 
             lblText.Text = string.Empty;
             lblText.AutoSize = true;
@@ -168,7 +166,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Set the new size of the dialog
-            Size = new Size(width, height);
+            Size = new(width, height);
         }
 
         #endregion

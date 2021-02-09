@@ -37,11 +37,11 @@ namespace ReaLTaiizor.Controls
                 StartPosition = FormStartPosition.Manual
             };
 
-            if (parent != null && parent is IPoisonForm)
+            if (parent != null && parent is IPoisonForm form)
             {
-                singletonWindow.Theme = ((IPoisonForm)parent).Theme;
-                singletonWindow.Style = ((IPoisonForm)parent).Style;
-                singletonWindow.StyleManager = ((IPoisonForm)parent).StyleManager.Clone(singletonWindow) as PoisonStyleManager;
+                singletonWindow.Theme = form.Theme;
+                singletonWindow.Style = form.Style;
+                singletonWindow.StyleManager = form.StyleManager.Clone(singletonWindow) as PoisonStyleManager;
             }
 
             singletonWindow.Show();
@@ -134,31 +134,19 @@ namespace ReaLTaiizor.Controls
 
                 TopMost = true;
 
-                Size = new Size(400, 200);
+                Size = new(400, 200);
 
-                TaskBar myTaskbar = new TaskBar();
-                switch (myTaskbar.Position)
+                TaskBar myTaskbar = new();
+                Location = myTaskbar.Position switch
                 {
-                    case TaskBarPosition.Left:
-                        Location = new Point(myTaskbar.Bounds.Width + 5, myTaskbar.Bounds.Height - Height - 5);
-                        break;
-                    case TaskBarPosition.Top:
-                        Location = new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Height + 5);
-                        break;
-                    case TaskBarPosition.Right:
-                        Location = new Point(myTaskbar.Bounds.X - Width - 5, myTaskbar.Bounds.Height - Height - 5);
-                        break;
-                    case TaskBarPosition.Bottom:
-                        Location = new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Y - Height - 5);
-                        break;
-                    case TaskBarPosition.Unknown:
-                    default:
-                        Location = new Point(Screen.PrimaryScreen.Bounds.Width - Width - 5, Screen.PrimaryScreen.Bounds.Height - Height - 5);
-                        break;
-                }
-
-                controlContainer.Location = new Point(0, 60);
-                controlContainer.Size = new Size(Width - 40, Height - 80);
+                    TaskBarPosition.Left => new Point(myTaskbar.Bounds.Width + 5, myTaskbar.Bounds.Height - Height - 5),
+                    TaskBarPosition.Top => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Height + 5),
+                    TaskBarPosition.Right => new Point(myTaskbar.Bounds.X - Width - 5, myTaskbar.Bounds.Height - Height - 5),
+                    TaskBarPosition.Bottom => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Y - Height - 5),
+                    _ => new Point(Screen.PrimaryScreen.Bounds.Width - Width - 5, Screen.PrimaryScreen.Bounds.Height - Height - 5),
+                };
+                controlContainer.Location = new(0, 60);
+                controlContainer.Size = new(Width - 40, Height - 80);
                 controlContainer.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;
 
                 controlContainer.AutoScroll = false;
@@ -173,7 +161,7 @@ namespace ReaLTaiizor.Controls
 
                 isInitialized = true;
 
-                MoveAnimation myMoveAnim = new MoveAnimation();
+                MoveAnimation myMoveAnim = new();
                 myMoveAnim.Start(controlContainer, new Point(20, 60), TransitionType.EaseInOutCubic, 15);
             }
 
@@ -184,10 +172,8 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
-            using (SolidBrush b = new SolidBrush(PoisonPaint.BackColor.Form(Theme)))
-            {
-                e.Graphics.FillRectangle(b, new Rectangle(Width - progressWidth, 0, progressWidth, 5));
-            }
+            using SolidBrush b = new(PoisonPaint.BackColor.Form(Theme));
+            e.Graphics.FillRectangle(b, new Rectangle(Width - progressWidth, 0, progressWidth, 5));
         }
 
         private void UpdateProgress()

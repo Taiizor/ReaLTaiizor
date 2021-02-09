@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Controls
             Enabled = true;
             base.DrawMode = DrawMode.OwnerDrawFixed;
             base.ItemHeight = 20;
-            Size = new Size(64, 26);
+            Size = new(64, 26);
         }
 
         protected override void OnCreateControl()
@@ -76,75 +76,57 @@ namespace ReaLTaiizor.Controls
             {
                 if (enabled)
                 {
-                    using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
-                    {
-                        using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
-                        {
-                            using (Font font = new Font("Marlett", 13f))
-                            {
-                                G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
-                                G.DrawString("6", font, solidBrush, new Point(base.Width - 22, 3));
-                            }
-                        }
-                    }
+                    using Pen pen = new(AloneLibrary.ColorFromHex("#D0D5D9"));
+                    using SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#7C858E"));
+                    using Font font = new("Marlett", 13f);
+                    G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
+                    G.DrawString("6", font, solidBrush, new Point(base.Width - 22, 3));
                 }
                 else
                 {
-                    using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#E1E1E2")))
-                    {
-                        using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#D0D3D7")))
-                        {
-                            using (Font font2 = new Font("Marlett", 13f))
-                            {
-                                G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
-                                G.DrawString("6", font2, solidBrush2, new Point(base.Width - 22, 3));
-                            }
-                        }
-                    }
+                    using Pen pen2 = new(AloneLibrary.ColorFromHex("#E1E1E2"));
+                    using SolidBrush solidBrush2 = new(AloneLibrary.ColorFromHex("#D0D3D7"));
+                    using Font font2 = new("Marlett", 13f);
+                    G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
+                    G.DrawString("6", font2, solidBrush2, new Point(base.Width - 22, 3));
                 }
                 bool flag = !Information.IsNothing(base.Items);
                 if (flag)
                 {
-                    using (Font font3 = new Font("Segoe UI", 9f))
+                    using Font font3 = new("Segoe UI", 9f);
+                    using SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#7C858E"));
+                    bool enabled2 = Enabled;
+                    if (enabled2)
                     {
-                        using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
+                        bool flag2 = SelectedIndex != -1;
+                        if (flag2)
                         {
-                            bool enabled2 = Enabled;
-                            if (enabled2)
+                            G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[SelectedIndex])), font3, solidBrush3, new Point(7, 4));
+                        }
+                        else
+                        {
+                            try
                             {
-                                bool flag2 = SelectedIndex != -1;
-                                if (flag2)
-                                {
-                                    G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[SelectedIndex])), font3, solidBrush3, new Point(7, 4));
-                                }
-                                else
-                                {
-                                    try
-                                    {
-                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[0])), font3, solidBrush3, new Point(7, 4));
-                                    }
-                                    catch (Exception arg_272_0)
-                                    {
-                                        ProjectData.SetProjectError(arg_272_0);
-                                        ProjectData.ClearProjectError();
-                                    }
-                                }
+                                G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[0])), font3, solidBrush3, new Point(7, 4));
                             }
-                            else
+                            catch (Exception arg_272_0)
                             {
-                                using (SolidBrush solidBrush4 = new SolidBrush(AloneLibrary.ColorFromHex("#D0D3D7")))
-                                {
-                                    bool flag3 = SelectedIndex != -1;
-                                    if (flag3)
-                                    {
-                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[SelectedIndex])), font3, solidBrush4, new Point(7, 4));
-                                    }
-                                    else
-                                    {
-                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[0])), font3, solidBrush4, new Point(7, 4));
-                                    }
-                                }
+                                ProjectData.SetProjectError(arg_272_0);
+                                ProjectData.ClearProjectError();
                             }
+                        }
+                    }
+                    else
+                    {
+                        using SolidBrush solidBrush4 = new(AloneLibrary.ColorFromHex("#D0D3D7"));
+                        bool flag3 = SelectedIndex != -1;
+                        if (flag3)
+                        {
+                            G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[SelectedIndex])), font3, solidBrush4, new Point(7, 4));
+                        }
+                        else
+                        {
+                            G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[0])), font3, solidBrush4, new Point(7, 4));
                         }
                     }
                 }
@@ -175,20 +157,16 @@ namespace ReaLTaiizor.Controls
                                 {
                                     using (new SolidBrush(Color.White))
                                     {
-                                        using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#78B7E6")))
-                                        {
-                                            G.FillRectangle(solidBrush2, Rect);
-                                            G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), Brushes.White, new Point(Rect.X + 5, Rect.Y + 1));
-                                        }
+                                        using SolidBrush solidBrush2 = new(AloneLibrary.ColorFromHex("#78B7E6"));
+                                        G.FillRectangle(solidBrush2, Rect);
+                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), Brushes.White, new Point(Rect.X + 5, Rect.Y + 1));
                                     }
                                 }
                                 else
                                 {
-                                    using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#7C858E")))
-                                    {
-                                        G.FillRectangle(Brushes.White, Rect);
-                                        G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), solidBrush3, new Point(Rect.X + 5, Rect.Y + 1));
-                                    }
+                                    using SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#7C858E"));
+                                    G.FillRectangle(Brushes.White, Rect);
+                                    G.DrawString(base.GetItemText(RuntimeHelpers.GetObjectValue(base.Items[e.Index])), new Font("Segoe UI", 9f), solidBrush3, new Point(Rect.X + 5, Rect.Y + 1));
                                 }
                             }
                         }

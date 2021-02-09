@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Extension.Crown
     {
         internal static Bitmap SetColor(this Bitmap bitmap, Color color)
         {
-            Bitmap newBitmap = new Bitmap(bitmap.Width, bitmap.Height);
+            Bitmap newBitmap = new(bitmap.Width, bitmap.Height);
             for (int i = 0; i < bitmap.Width; i++)
             {
                 for (int j = 0; j < bitmap.Height; j++)
@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Extension.Crown
 
         internal static Bitmap ChangeColor(this Bitmap bitmap, Color oldColor, Color newColor)
         {
-            Bitmap newBitmap = new Bitmap(bitmap.Width, bitmap.Height);
+            Bitmap newBitmap = new(bitmap.Width, bitmap.Height);
             for (int i = 0; i < bitmap.Width; i++)
             {
                 for (int j = 0; j < bitmap.Height; j++)

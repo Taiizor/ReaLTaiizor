@@ -93,8 +93,8 @@ namespace ReaLTaiizor.Controls
             {
                 GutterColor = RoyalColors.HotTrackColor,
                 ThumbColor = RoyalColors.AccentColor,
-                Location = new Point(Width - 5, 0),
-                Size = new Size(5, Height),
+                Location = new(Width - 5, 0),
+                Size = new(5, Height),
                 Orientation = Orientation.Vertical
             };
             scrollBar.ValueChanged += new EventHandler(ScrollBar_ValueChanged);
@@ -177,8 +177,8 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnResize(EventArgs e)
         {
-            scrollBar.Location = new Point(Width - 8, 0);
-            scrollBar.Size = new Size(8, Height);
+            scrollBar.Location = new(Width - 8, 0);
+            scrollBar.Size = new(8, Height);
 
             base.OnResize(e);
         }
@@ -246,8 +246,8 @@ namespace ReaLTaiizor.Controls
                     }
                 }
 
-                Rectangle rect = new Rectangle(0, ((i - firstVisibleItem) * ItemHeight), Width, ItemHeight);
-                DrawItemEventArgs de = new DrawItemEventArgs(e.Graphics, Font, rect, i, state);
+                Rectangle rect = new(0, ((i - firstVisibleItem) * ItemHeight), Width, ItemHeight);
+                DrawItemEventArgs de = new(e.Graphics, Font, rect, i, state);
 
                 DrawItem(de);
             }

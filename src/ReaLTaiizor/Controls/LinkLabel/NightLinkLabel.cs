@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
 
         public NightLinkLabel()
         {
-            Font = new Font("Segoe UI", 9, FontStyle.Regular);
+            Font = new("Segoe UI", 9, FontStyle.Regular);
             BackColor = Color.Transparent;
             LinkColor = ColorTranslator.FromHtml("#F25D59"); ;
             ActiveLinkColor = ColorTranslator.FromHtml("#DE5954");

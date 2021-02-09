@@ -138,7 +138,7 @@ namespace ReaLTaiizor.Controls
             {
                 GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, _DefaultColor) : _DefaultColor), BG);
-                graphics.DrawPath(new Pen(clickFlag ? _DefaultColor : _BorderColor, 1), BG);
+                graphics.DrawPath(new(clickFlag ? _DefaultColor : _BorderColor, 1), BG);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
@@ -166,7 +166,7 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                SolidBrush brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
+                SolidBrush brush = new(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
                 graphics.FillPath(brush, BG);
                 if (!Enabled)
                 {
@@ -181,8 +181,8 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
-            Size = new Size(120, 40);
+            Font = new("Segoe UI", 12);
+            Size = new(120, 40);
             Cursor = Cursors.Hand;
         }
     }

@@ -148,20 +148,20 @@ namespace ReaLTaiizor.Controls
 
         private void PoisonToolTip_Popup(object sender, PopupEventArgs e)
         {
-            if (e.AssociatedWindow is IPoisonForm)
+            if (e.AssociatedWindow is IPoisonForm form)
             {
-                Style = ((IPoisonForm)e.AssociatedWindow).Style;
-                Theme = ((IPoisonForm)e.AssociatedWindow).Theme;
-                StyleManager = ((IPoisonForm)e.AssociatedWindow).StyleManager;
+                Style = form.Style;
+                Theme = form.Theme;
+                StyleManager = form.StyleManager;
             }
-            else if (e.AssociatedControl is IPoisonControl)
+            else if (e.AssociatedControl is IPoisonControl control)
             {
-                Style = ((IPoisonControl)e.AssociatedControl).Style;
-                Theme = ((IPoisonControl)e.AssociatedControl).Theme;
-                StyleManager = ((IPoisonControl)e.AssociatedControl).StyleManager;
+                Style = control.Style;
+                Theme = control.Theme;
+                StyleManager = control.StyleManager;
             }
 
-            e.ToolTipSize = new Size(e.ToolTipSize.Width + 24, e.ToolTipSize.Height + 9);
+            e.ToolTipSize = new(e.ToolTipSize.Width + 24, e.ToolTipSize.Height + 9);
         }
 
         private void PoisonToolTip_Draw(object sender, DrawToolTipEventArgs e)
@@ -172,12 +172,12 @@ namespace ReaLTaiizor.Controls
             Color borderColor = PoisonPaint.BorderColor.Button.Normal(displayTheme);
             Color foreColor = PoisonPaint.ForeColor.Label.Normal(displayTheme);
 
-            using (SolidBrush b = new SolidBrush(backColor))
+            using (SolidBrush b = new(backColor))
             {
                 e.Graphics.FillRectangle(b, e.Bounds);
             }
 
-            using (Pen p = new Pen(borderColor))
+            using (Pen p = new(borderColor))
             {
                 e.Graphics.DrawRectangle(p, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
             }

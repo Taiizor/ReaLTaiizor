@@ -104,16 +104,16 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
             DoubleBuffered = true;
-            Size = new Size(130, 40);
+            Size = new(130, 40);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(52, 52, 52);
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         protected override void OnResize(System.EventArgs e)
         {
             base.OnResize(e);
-            Shape = new GraphicsPath();
+            Shape = new();
 
             GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
@@ -138,7 +138,7 @@ namespace ReaLTaiizor.Controls
                     Height = TextRenderer.MeasureText(Text, Font).Height + 15;
                     if (_SizeWidthLeft)
                     {
-                        Location = new Point(Location.X - (Width - WW), Location.Y);
+                        Location = new(Location.X - (Width - WW), Location.Y);
                     }
                 }
                 else if (_SizeAutoW)
@@ -146,7 +146,7 @@ namespace ReaLTaiizor.Controls
                     Width = TextRenderer.MeasureText(Text, Font).Width + 15;
                     if (_SizeWidthLeft)
                     {
-                        Location = new Point(Location.X - (Width - WW), Location.Y);
+                        Location = new(Location.X - (Width - WW), Location.Y);
                     }
                 }
                 else
@@ -155,7 +155,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             Graphics _G = G;
@@ -178,7 +178,7 @@ namespace ReaLTaiizor.Controls
                     new Point(Width - 8, Height - 30)
                 };
                 _G.FillPolygon(new SolidBrush(_BubbleColor), p);
-                _G.DrawPolygon(new Pen(new SolidBrush(_BubbleColor)), p);
+                _G.DrawPolygon(new(new SolidBrush(_BubbleColor)), p);
             }
 
             G.Dispose();

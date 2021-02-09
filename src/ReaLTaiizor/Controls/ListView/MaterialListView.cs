@@ -55,13 +55,13 @@ namespace ReaLTaiizor.Controls
             OwnerDraw = true;
             ResizeRedraw = true;
             BorderStyle = BorderStyle.None;
-            MinimumSize = new Size(200, 100);
+            MinimumSize = new(200, 100);
 
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
             BackColor = SkinManager.BackgroundColor;
 
             // Fix for hovers, by default it doesn't redraw
-            MouseLocation = new Point(-1, -1);
+            MouseLocation = new(-1, -1);
             MouseState = MaterialMouseState.OUT;
             MouseEnter += delegate
             {
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
             MouseLeave += delegate
             {
                 MouseState = MaterialMouseState.OUT;
-                MouseLocation = new Point(-1, -1);
+                MouseLocation = new(-1, -1);
                 HoveredItem = null;
                 Invalidate();
             };
@@ -102,16 +102,14 @@ namespace ReaLTaiizor.Controls
 
             g.FillRectangle(new SolidBrush(BackColor), e.Bounds);
             // Draw Text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-            {
-                NativeText.DrawTransparentText(
-                    e.Header.Text,
-                    SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle2),
-                    Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
-                    new Point(e.Bounds.Location.X + PAD, e.Bounds.Location.Y),
-                    new Size(e.Bounds.Size.Width - PAD * 2, e.Bounds.Size.Height),
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            NativeText.DrawTransparentText(
+                e.Header.Text,
+                SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle2),
+                Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
+                new Point(e.Bounds.Location.X + PAD, e.Bounds.Location.Y),
+                new Size(e.Bounds.Size.Width - PAD * 2, e.Bounds.Size.Height),
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
         protected override void OnDrawItem(DrawListViewItemEventArgs e)
@@ -135,21 +133,19 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw separator line
-            g.DrawLine(new Pen(SkinManager.DividersColor), e.Bounds.Left, e.Bounds.Y, e.Bounds.Right, e.Bounds.Y);
+            g.DrawLine(new(SkinManager.DividersColor), e.Bounds.Left, e.Bounds.Y, e.Bounds.Right, e.Bounds.Y);
 
             foreach (ListViewItem.ListViewSubItem subItem in e.Item.SubItems)
             {
                 // Draw Text
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-                {
-                    NativeText.DrawTransparentText(
-                        subItem.Text,
-                        SkinManager.getLogFontByType(MaterialManager.fontType.Body2),
-                        Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
-                        new Point(subItem.Bounds.X + PAD, subItem.Bounds.Y),
-                        new Size(subItem.Bounds.Width - PAD * 2, subItem.Bounds.Height),
-                        MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                }
+                using MaterialNativeTextRenderer NativeText = new(g);
+                NativeText.DrawTransparentText(
+                    subItem.Text,
+                    SkinManager.getLogFontByType(MaterialManager.fontType.Body2),
+                    Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
+                    new Point(subItem.Bounds.X + PAD, subItem.Bounds.Y),
+                    new Size(subItem.Bounds.Width - PAD * 2, subItem.Bounds.Height),
+                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
         }
 
@@ -198,7 +194,7 @@ namespace ReaLTaiizor.Controls
                 h += item.Bounds.Height;
             }
 
-            Size = new Size(w, h);
+            Size = new(w, h);
         }
 
         protected override void InitLayout()

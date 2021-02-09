@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
     {
         public LabelEdit()
         {
-            Font = new Font("Microsoft Sans Serif", 9);
+            Font = new("Microsoft Sans Serif", 9);
             ForeColor = Color.FromArgb(116, 125, 132);
             BackColor = Color.Transparent;
         }

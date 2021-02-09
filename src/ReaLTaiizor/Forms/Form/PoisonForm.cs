@@ -111,7 +111,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        protected override Padding DefaultPadding => new Padding(20, DisplayHeader ? 60 : 20, 20, 20);
+        protected override Padding DefaultPadding => new(20, DisplayHeader ? 60 : 20, 20, 20);
 
         private bool displayHeader = true;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -275,7 +275,7 @@ namespace ReaLTaiizor.Forms
 
         #region Paint Methods
 
-        public Bitmap ApplyInvert(Bitmap bitmapImage)
+        public static Bitmap ApplyInvert(Bitmap bitmapImage)
         {
             byte A, R, G, B;
             Color pixelColor;
@@ -285,7 +285,7 @@ namespace ReaLTaiizor.Forms
                 for (int x = 0; x < bitmapImage.Width; x++)
                 {
                     pixelColor = bitmapImage.GetPixel(x, y);
-                    A = pixelColor.A;
+                    //A = pixelColor.A;
                     R = (byte)(255 - pixelColor.R);
                     G = (byte)(255 - pixelColor.G);
                     B = (byte)(255 - pixelColor.B);
@@ -321,7 +321,7 @@ namespace ReaLTaiizor.Forms
 
             using (SolidBrush b = PoisonPaint.GetStyleBrush(Style))
             {
-                Rectangle topRect = new Rectangle(0, 0, Width, borderWidth);
+                Rectangle topRect = new(0, 0, Width, borderWidth);
                 e.Graphics.FillRectangle(b, topRect);
             }
 
@@ -329,19 +329,17 @@ namespace ReaLTaiizor.Forms
             {
                 Color c = PoisonPaint.BorderColor.Form(Theme);
 
-                using (Pen pen = new Pen(c))
-                {
-                    e.Graphics.DrawLines
-                    (
-                        pen,
-                        new[]
-                        {
+                using Pen pen = new(c);
+                e.Graphics.DrawLines
+                (
+                    pen,
+                    new[]
+                    {
                             new Point(0, borderWidth),
                             new Point(0, Height - 1),
                             new Point(Width - 1, Height - 1),
                             new Point(Width - 1, borderWidth)
-                        });
-                }
+                    });
             }
 
             if (backImage != null && backMaxSize != 0)
@@ -371,42 +369,39 @@ namespace ReaLTaiizor.Forms
 
             if (displayHeader)
             {
-                Rectangle bounds = new Rectangle(20, 20, ClientRectangle.Width - 2 * 20, 40);
+                Rectangle bounds = new(20, 20, ClientRectangle.Width - 2 * 20, 40);
                 TextFormatFlags flags = TextFormatFlags.EndEllipsis | GetTextFormatFlags();
                 TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Title, bounds, foreColor, flags);
             }
 
             if (Resizable && (SizeGripStyle == SizeGripStyle.Auto || SizeGripStyle == SizeGripStyle.Show))
             {
-                using (SolidBrush b = new SolidBrush(PoisonPaint.ForeColor.Button.Disabled(Theme)))
-                {
-                    Size resizeHandleSize = new Size(2, 2);
-                    e.Graphics.FillRectangles
-                    (
-                        b, new Rectangle[]
-                        {
+                using SolidBrush b = new(PoisonPaint.ForeColor.Button.Disabled(Theme));
+                Size resizeHandleSize = new(2, 2);
+                e.Graphics.FillRectangles
+                (
+                    b, new Rectangle[]
+                    {
                             new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-6), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-10,ClientRectangle.Height-10), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-10,ClientRectangle.Height-6), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-10), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-14,ClientRectangle.Height-6), resizeHandleSize),
                             new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-14), resizeHandleSize)
-                        }
-                   );
-                }
+                    }
+               );
             }
         }
 
         private TextFormatFlags GetTextFormatFlags()
         {
-            switch (TextAlign)
+            return TextAlign switch
             {
-                case FormTextAlignType.Left: return TextFormatFlags.Left;
-                case FormTextAlignType.Center: return TextFormatFlags.HorizontalCenter;
-                case FormTextAlignType.Right: return TextFormatFlags.Right;
-            }
-
-            throw new InvalidOperationException();
+                FormTextAlignType.Left => TextFormatFlags.Left,
+                FormTextAlignType.Center => TextFormatFlags.HorizontalCenter,
+                FormTextAlignType.Right => TextFormatFlags.Right,
+                _ => throw new InvalidOperationException(),
+            };
         }
 
         #endregion
@@ -496,8 +491,8 @@ namespace ReaLTaiizor.Forms
             if (shadowType == FormShadowType.AeroShadow && IsAeroThemeEnabled() && IsDropShadowSupported())
             {
                 int val = 2;
-                DwmApi.DwmSetWindowAttribute(Handle, 2, ref val, 4);
-                DwmApi.MARGINS m = new DwmApi.MARGINS
+                _ = DwmApi.DwmSetWindowAttribute(Handle, 2, ref val, 4);
+                DwmApi.MARGINS m = new()
                 {
                     cyBottomHeight = 1,
                     cxLeftWidth = 0,
@@ -505,7 +500,7 @@ namespace ReaLTaiizor.Forms
                     cyTopHeight = 0
                 };
 
-                DwmApi.DwmExtendFrameIntoClientArea(Handle, ref m);
+                _ = DwmApi.DwmExtendFrameIntoClientArea(Handle, ref m);
             }
         }
 
@@ -634,7 +629,7 @@ namespace ReaLTaiizor.Forms
         {
             //Point vPoint = PointToClient(new Point((int)lparam & 0xFFFF, (int)lparam >> 16 & 0xFFFF));
             //Point vPoint = PointToClient(new Point((Int16)lparam, (Int16)((int)lparam >> 16)));
-            Point vPoint = new Point((short)lparam, (short)((int)lparam >> 16));
+            Point vPoint = new((short)lparam, (short)((int)lparam >> 16));
             int vPadding = Math.Max(Padding.Right, Padding.Bottom);
 
             if (Resizable)
@@ -676,7 +671,7 @@ namespace ReaLTaiizor.Forms
         private void MoveControl()
         {
             WinApi.ReleaseCapture();
-            WinApi.SendMessage(Handle, (int)WinApi.Messages.WM_NCLBUTTONDOWN, (int)WinApi.HitTest.HTCAPTION, 0);
+            _ = WinApi.SendMessage(Handle, (int)WinApi.Messages.WM_NCLBUTTONDOWN, (int)WinApi.HitTest.HTCAPTION, 0);
         }
 
         [SecuritySafeCritical]
@@ -687,7 +682,7 @@ namespace ReaLTaiizor.Forms
                 return false;
             }
 
-            DwmApi.DwmIsCompositionEnabled(out bool aeroEnabled);
+            _ = DwmApi.DwmIsCompositionEnabled(out bool aeroEnabled);
             return aeroEnabled;
         }
 
@@ -721,7 +716,7 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            PoisonFormButton newButton = new PoisonFormButton();
+            PoisonFormButton newButton = new();
 
             if (button == WindowButtons.Close)
             {
@@ -746,7 +741,7 @@ namespace ReaLTaiizor.Forms
             newButton.Style = Style;
             newButton.Theme = Theme;
             newButton.Tag = button;
-            newButton.Size = new Size(25, 20);
+            newButton.Size = new(25, 20);
             newButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             newButton.TabStop = false; //remove the form controls from the tab stop
             newButton.Click += WindowButton_Click;
@@ -757,8 +752,7 @@ namespace ReaLTaiizor.Forms
 
         private void WindowButton_Click(object sender, EventArgs e)
         {
-            PoisonFormButton btn = sender as PoisonFormButton;
-            if (btn != null)
+            if (sender is PoisonFormButton btn)
             {
                 WindowButtons btnFlag = (WindowButtons)btn.Tag;
                 if (btnFlag == WindowButtons.Close)
@@ -792,9 +786,9 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            Dictionary<int, WindowButtons> priorityOrder = new Dictionary<int, WindowButtons>(3) { { 0, WindowButtons.Close }, { 1, WindowButtons.Maximize }, { 2, WindowButtons.Minimize } };
+            Dictionary<int, WindowButtons> priorityOrder = new(3) { { 0, WindowButtons.Close }, { 1, WindowButtons.Maximize }, { 2, WindowButtons.Minimize } };
 
-            Point firstButtonLocation = new Point(ClientRectangle.Width - borderWidth - 25, borderWidth);
+            Point firstButtonLocation = new(ClientRectangle.Width - borderWidth - 25, borderWidth);
             int lastDrawedButtonPosition = firstButtonLocation.X - 25;
 
             PoisonFormButton firstButton = null;
@@ -824,8 +818,8 @@ namespace ReaLTaiizor.Forms
                         continue;
                     }
 
-                    windowButtonList[button.Value].Location = new Point(lastDrawedButtonPosition, borderWidth);
-                    lastDrawedButtonPosition = lastDrawedButtonPosition - 25;
+                    windowButtonList[button.Value].Location = new(lastDrawedButtonPosition, borderWidth);
+                    lastDrawedButtonPosition -= 25;
                 }
             }
 
@@ -999,9 +993,9 @@ namespace ReaLTaiizor.Forms
                 ThemeStyle _Theme = Theme;
                 if (Parent != null)
                 {
-                    if (Parent is IPoisonForm)
+                    if (Parent is IPoisonForm form)
                     {
-                        _Theme = ((IPoisonForm)Parent).Theme;
+                        _Theme = form.Theme;
                         backColor = PoisonPaint.BackColor.Form(_Theme);
                     }
                     else if (Parent is IPoisonControl)
@@ -1039,7 +1033,7 @@ namespace ReaLTaiizor.Forms
                 }
 
                 e.Graphics.Clear(backColor);
-                Font buttonFont = new Font("Webdings", 9.25f);
+                Font buttonFont = new("Webdings", 9.25f);
                 TextRenderer.DrawText(e.Graphics, Text, buttonFont, ClientRectangle, foreColor, backColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
             }
 
@@ -1332,7 +1326,7 @@ namespace ReaLTaiizor.Forms
 
         protected class PoisonFlatDropShadow : PoisonShadowBase
         {
-            private Point Offset = new Point(-6, -6);
+            private Point Offset = new(-6, -6);
 
             public PoisonFlatDropShadow(Form targetForm) : base(targetForm, 6, WS_EX_LAYERED | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE)
             {
@@ -1352,15 +1346,13 @@ namespace ReaLTaiizor.Forms
 
             protected override void PaintShadow()
             {
-                using (Bitmap getShadow = DrawBlurBorder())
-                {
-                    SetBitmap(getShadow, 255);
-                }
+                using Bitmap getShadow = DrawBlurBorder();
+                SetBitmap(getShadow, 255);
             }
 
             protected override void ClearShadow()
             {
-                Bitmap img = new Bitmap(Width, Height, PixelFormat.Format32bppArgb);
+                Bitmap img = new(Width, Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
                 g.Clear(Color.Transparent);
                 g.Flush();
@@ -1389,10 +1381,10 @@ namespace ReaLTaiizor.Forms
                     hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));
                     oldBitmap = WinApi.SelectObject(memDc, hBitmap);
 
-                    WinApi.SIZE size = new WinApi.SIZE(bitmap.Width, bitmap.Height);
-                    WinApi.POINT pointSource = new WinApi.POINT(0, 0);
-                    WinApi.POINT topPos = new WinApi.POINT(Left, Top);
-                    WinApi.BLENDFUNCTION blend = new WinApi.BLENDFUNCTION
+                    WinApi.SIZE size = new(bitmap.Width, bitmap.Height);
+                    WinApi.POINT pointSource = new(0, 0);
+                    WinApi.POINT topPos = new(Left, Top);
+                    WinApi.BLENDFUNCTION blend = new()
                     {
                         BlendOp = WinApi.AC_SRC_OVER,
                         BlendFlags = 0,
@@ -1422,9 +1414,9 @@ namespace ReaLTaiizor.Forms
             private Image DrawOutsetShadow(Color color, Rectangle shadowCanvasArea)
             {
                 Rectangle rOuter = shadowCanvasArea;
-                Rectangle rInner = new Rectangle(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - (-Offset.X * 2 - 1), shadowCanvasArea.Height - (-Offset.Y * 2 - 1));
+                Rectangle rInner = new(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - (-Offset.X * 2 - 1), shadowCanvasArea.Height - (-Offset.Y * 2 - 1));
 
-                Bitmap img = new Bitmap(rOuter.Width, rOuter.Height, PixelFormat.Format32bppArgb);
+                Bitmap img = new(rOuter.Width, rOuter.Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
@@ -1472,15 +1464,13 @@ namespace ReaLTaiizor.Forms
 
             protected override void PaintShadow()
             {
-                using (Bitmap getShadow = DrawBlurBorder())
-                {
-                    SetBitmap(getShadow, 255);
-                }
+                using Bitmap getShadow = DrawBlurBorder();
+                SetBitmap(getShadow, 255);
             }
 
             protected override void ClearShadow()
             {
-                Bitmap img = new Bitmap(Width, Height, PixelFormat.Format32bppArgb);
+                Bitmap img = new(Width, Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
                 g.Clear(Color.Transparent);
                 g.Flush();
@@ -1509,10 +1499,10 @@ namespace ReaLTaiizor.Forms
                     hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));
                     oldBitmap = WinApi.SelectObject(memDc, hBitmap);
 
-                    WinApi.SIZE size = new WinApi.SIZE(bitmap.Width, bitmap.Height);
-                    WinApi.POINT pointSource = new WinApi.POINT(0, 0);
-                    WinApi.POINT topPos = new WinApi.POINT(Left, Top);
-                    WinApi.BLENDFUNCTION blend = new WinApi.BLENDFUNCTION
+                    WinApi.SIZE size = new(bitmap.Width, bitmap.Height);
+                    WinApi.POINT pointSource = new(0, 0);
+                    WinApi.POINT topPos = new(Left, Top);
+                    WinApi.BLENDFUNCTION blend = new()
                     {
                         BlendOp = WinApi.AC_SRC_OVER,
                         BlendFlags = 0,
@@ -1539,7 +1529,7 @@ namespace ReaLTaiizor.Forms
                 return (Bitmap)DrawOutsetShadow(0, 0, 40, 1, Color.Black, new Rectangle(1, 1, ClientRectangle.Width, ClientRectangle.Height));
             }
 
-            private Image DrawOutsetShadow(int hShadow, int vShadow, int blur, int spread, Color color, Rectangle shadowCanvasArea)
+            private static Image DrawOutsetShadow(int hShadow, int vShadow, int blur, int spread, Color color, Rectangle shadowCanvasArea)
             {
                 Rectangle rOuter = shadowCanvasArea;
                 Rectangle rInner = shadowCanvasArea;
@@ -1550,7 +1540,7 @@ namespace ReaLTaiizor.Forms
 
                 Rectangle originalOuter = rOuter;
 
-                Bitmap img = new Bitmap(originalOuter.Width, originalOuter.Height, PixelFormat.Format32bppArgb);
+                Bitmap img = new(originalOuter.Width, originalOuter.Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
@@ -1575,12 +1565,12 @@ namespace ReaLTaiizor.Forms
                 return img;
             }
 
-            private void DrawRoundedRectangle(Graphics g, Rectangle bounds, int cornerRadius, Pen drawPen, Color fillColor)
+            private static void DrawRoundedRectangle(Graphics g, Rectangle bounds, int cornerRadius, Pen drawPen, Color fillColor)
             {
                 int strokeOffset = Convert.ToInt32(Math.Ceiling(drawPen.Width));
                 bounds = Rectangle.Inflate(bounds, -strokeOffset, -strokeOffset);
 
-                GraphicsPath gfxPath = new GraphicsPath();
+                GraphicsPath gfxPath = new();
 
                 if (cornerRadius > 0)
                 {
@@ -1598,18 +1588,14 @@ namespace ReaLTaiizor.Forms
 
                 if (cornerRadius > 5)
                 {
-                    using (SolidBrush b = new SolidBrush(fillColor))
-                    {
-                        g.FillPath(b, gfxPath);
-                    }
+                    using SolidBrush b = new(fillColor);
+                    g.FillPath(b, gfxPath);
                 }
                 if (drawPen != Pens.Transparent)
                 {
-                    using (Pen p = new Pen(drawPen.Color))
-                    {
-                        p.EndCap = p.StartCap = LineCap.Round;
-                        g.DrawPath(p, gfxPath);
-                    }
+                    using Pen p = new(drawPen.Color);
+                    p.EndCap = p.StartCap = LineCap.Round;
+                    g.DrawPath(p, gfxPath);
                 }
             }
 
@@ -1642,9 +1628,9 @@ namespace ReaLTaiizor.Forms
             WinApi.DrawMenuBar(Handle);
         }
 
-        private Rectangle MeasureText(Graphics g, Rectangle clientRectangle, Font font, string text, TextFormatFlags flags)
+        private static Rectangle MeasureText(Graphics g, Rectangle clientRectangle, Font font, string text, TextFormatFlags flags)
         {
-            Size proposedSize = new Size(int.MaxValue, int.MinValue);
+            Size proposedSize = new(int.MaxValue, int.MinValue);
             Size actualSize = TextRenderer.MeasureText(g, text, font, proposedSize, flags);
             return new Rectangle(clientRectangle.X, clientRectangle.Y, actualSize.Width, actualSize.Height);
         }

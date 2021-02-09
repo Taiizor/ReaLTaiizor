@@ -29,10 +29,10 @@ namespace ReaLTaiizor.Controls
 
         private ControlState _controlState = ControlState.Normal;
 
-        private readonly ObservableCollection<CrownDropDownItem> _items = new ObservableCollection<CrownDropDownItem>();
+        private readonly ObservableCollection<CrownDropDownItem> _items = new();
         private CrownDropDownItem _selectedItem;
 
-        private readonly CrownContextMenuStrip _menu = new CrownContextMenuStrip();
+        private readonly CrownContextMenuStrip _menu = new();
         private bool _menuOpen = false;
 
         private bool _showBorder = true;
@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        protected override Size DefaultSize => new Size(100, 26);
+        protected override Size DefaultSize => new(100, 26);
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -185,7 +185,7 @@ namespace ReaLTaiizor.Controls
 
             _menuOpen = true;
 
-            Point pos = new Point(0, ClientRectangle.Bottom);
+            Point pos = new(0, ClientRectangle.Bottom);
 
             if (_dropdownDirection == ToolStripDropDownDirection.AboveLeft || _dropdownDirection == ToolStripDropDownDirection.AboveRight)
             {
@@ -227,10 +227,10 @@ namespace ReaLTaiizor.Controls
             // Force the size
             foreach (ToolStripMenuItem item in _menu.Items)
             {
-                item.Size = new Size(width - 1, _itemHeight);
+                item.Size = new(width - 1, _itemHeight);
             }
 
-            _menu.Size = new Size(width, height);
+            _menu.Size = new(width, height);
         }
 
         #endregion
@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Controls
             {
                 foreach (CrownDropDownItem item in e.NewItems)
                 {
-                    ToolStripMenuItem menuItem = new ToolStripMenuItem(item.Text)
+                    ToolStripMenuItem menuItem = new(item.Text)
                     {
                         Image = item.Icon,
                         AutoSize = false,
@@ -288,8 +288,7 @@ namespace ReaLTaiizor.Controls
 
         private void Item_Select(object sender, EventArgs e)
         {
-            ToolStripMenuItem menuItem = sender as ToolStripMenuItem;
-            if (menuItem == null)
+            if (sender is not ToolStripMenuItem menuItem)
             {
                 return;
             }
@@ -308,12 +307,12 @@ namespace ReaLTaiizor.Controls
                 if ((CrownDropDownItem)item.Tag == SelectedItem)
                 {
                     item.BackColor = ThemeProvider.Theme.Colors.DarkBlueBackground;
-                    item.Font = new Font(Font, FontStyle.Bold);
+                    item.Font = new(Font, FontStyle.Bold);
                 }
                 else
                 {
                     item.BackColor = ThemeProvider.Theme.Colors.GreyBackground;
-                    item.Font = new Font(Font, FontStyle.Regular);
+                    item.Font = new(Font, FontStyle.Regular);
                 }
             }
 
@@ -437,7 +436,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
 
             // Draw background
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.MediumBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.MediumBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -447,46 +446,42 @@ namespace ReaLTaiizor.Controls
             {
                 if (ShowBorder)
                 {
-                    using (Pen p = new Pen(ThemeProvider.Theme.Colors.LightBorder, 1))
-                    {
-                        Rectangle modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
-                        g.DrawRectangle(p, modRect);
-                    }
+                    using Pen p = new(ThemeProvider.Theme.Colors.LightBorder, 1);
+                    Rectangle modRect = new(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
+                    g.DrawRectangle(p, modRect);
                 }
             }
 
             // Draw hover state
             if (ControlState == ControlState.Hover)
             {
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.DarkBorder))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.DarkBorder))
                 {
                     g.FillRectangle(b, ClientRectangle);
                 }
 
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.DarkBackground))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.DarkBackground))
                 {
-                    Rectangle arrowRect = new Rectangle(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
+                    Rectangle arrowRect = new(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
                     g.FillRectangle(b, arrowRect);
                 }
 
-                using (Pen p = new Pen(ThemeProvider.Theme.Colors.BlueSelection, 1))
-                {
-                    Rectangle modRect = new Rectangle(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1 - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Height - 1);
-                    g.DrawRectangle(p, modRect);
-                }
+                using Pen p = new(ThemeProvider.Theme.Colors.BlueSelection, 1);
+                Rectangle modRect = new(ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width - 1 - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Height - 1);
+                g.DrawRectangle(p, modRect);
             }
 
             // Draw pressed state
             if (ControlState == ControlState.Pressed)
             {
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.DarkBorder))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.DarkBorder))
                 {
                     g.FillRectangle(b, ClientRectangle);
                 }
 
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.BlueSelection))
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.BlueSelection))
                 {
-                    Rectangle arrowRect = new Rectangle(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
+                    Rectangle arrowRect = new(ClientRectangle.Right - Properties.Resources.small_arrow.Width - 8, ClientRectangle.Top, Properties.Resources.small_arrow.Width + 8, ClientRectangle.Height);
                     g.FillRectangle(b, arrowRect);
                 }
             }
@@ -509,24 +504,22 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Draw Text
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
+                using SolidBrush b = new(ThemeProvider.Theme.Colors.LightText);
+                StringFormat stringFormat = new()
                 {
-                    StringFormat stringFormat = new StringFormat
-                    {
-                        Alignment = StringAlignment.Near,
-                        LineAlignment = StringAlignment.Center
-                    };
+                    Alignment = StringAlignment.Near,
+                    LineAlignment = StringAlignment.Center
+                };
 
-                    Rectangle rect = new Rectangle(ClientRectangle.Left + 2, ClientRectangle.Top, ClientRectangle.Width - 16, ClientRectangle.Height);
+                Rectangle rect = new(ClientRectangle.Left + 2, ClientRectangle.Top, ClientRectangle.Width - 16, ClientRectangle.Height);
 
-                    if (hasIcon)
-                    {
-                        rect.X += _iconSize + 7;
-                        rect.Width -= _iconSize + 7;
-                    }
-
-                    g.DrawString(SelectedItem.Text, Font, b, rect, stringFormat);
+                if (hasIcon)
+                {
+                    rect.X += _iconSize + 7;
+                    rect.Width -= _iconSize + 7;
                 }
+
+                g.DrawString(SelectedItem.Text, Font, b, rect, stringFormat);
             }
         }
 

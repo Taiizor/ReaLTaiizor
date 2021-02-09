@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
     {
         public SmallLabel()
         {
-            Font = new Font("Segoe UI", 8);
+            Font = new("Segoe UI", 8);
             ForeColor = Color.FromArgb(142, 142, 142);
             BackColor = Color.Transparent;
         }

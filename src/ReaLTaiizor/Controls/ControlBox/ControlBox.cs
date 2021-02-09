@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(90, 25);
+            Size = new(90, 25);
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -221,7 +221,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (DefaultLocation)
                 {
-                    Location = new Point(Parent.Width - 100, 18);
+                    Location = new(Parent.Width - 100, 18);
                 }
             }
             catch (Exception)

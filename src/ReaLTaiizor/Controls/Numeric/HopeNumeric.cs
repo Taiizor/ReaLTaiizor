@@ -19,10 +19,10 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private bool enterFlag = false;
-        private readonly System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
-        private RectangleF upRectangleF = new RectangleF();
-        private RectangleF downRectangleF = new RectangleF();
-        private Point mousePoint = new Point();
+        private readonly TextBox textBox = new();
+        private RectangleF upRectangleF = new();
+        private RectangleF downRectangleF = new();
+        private Point mousePoint = new();
 
         private Color _BaseColor = HopeColors.FourLevelBorder;
         private Color _BorderColorA = HopeColors.PlaceholderText;
@@ -50,13 +50,13 @@ namespace ReaLTaiizor.Controls
                 _style = value;
                 if (_style == NumericStyle.LeftRight)
                 {
-                    downRectangleF = new RectangleF(0, 0, Height, Height);
-                    upRectangleF = new RectangleF(Width - Height, 0, Height, Height);
+                    downRectangleF = new(0, 0, Height, Height);
+                    upRectangleF = new(Width - Height, 0, Height, Height);
                 }
                 else
                 {
-                    downRectangleF = new RectangleF(Width - Height, Height / 2, Height, Height / 2);
-                    upRectangleF = new RectangleF(Width - Height, 0, Height, Height / 2);
+                    downRectangleF = new(Width - Height, Height / 2, Height, Height / 2);
+                    upRectangleF = new(Width - Height, 0, Height, Height / 2);
                 }
                 Invalidate();
             }
@@ -214,7 +214,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             graphics.FillPath(new SolidBrush(_BaseColor), bg);
-            graphics.DrawPath(new Pen(enterFlag ? _BorderHoverColorA : _BorderColorA, 1f), bg);
+            graphics.DrawPath(new(enterFlag ? _BorderHoverColorA : _BorderColorA, 1f), bg);
 
             textBox.Text = Math.Round(_value, Precision).ToString();
             textBox.BackColor = BackColor;
@@ -222,19 +222,19 @@ namespace ReaLTaiizor.Controls
             switch (_style)
             {
                 case NumericStyle.LeftRight:
-                    textBox.Size = new Size(Width - 2 * Height, Height - 2);
-                    textBox.Location = new Point(Height, 5);
-                    graphics.DrawLine(new Pen(_BorderColorB, 0.5f), textBox.Location.X - 0.5f, 1, textBox.Location.X - 0.5f, Height - 1);
+                    textBox.Size = new(Width - 2 * Height, Height - 2);
+                    textBox.Location = new(Height, 5);
+                    graphics.DrawLine(new(_BorderColorB, 0.5f), textBox.Location.X - 0.5f, 1, textBox.Location.X - 0.5f, Height - 1);
                     break;
                 case NumericStyle.TopDown:
-                    textBox.Size = new Size(Width - Height - 2, Height - 2);
-                    textBox.Location = new Point(2, 5);
-                    graphics.DrawLine(new Pen(_BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, Height / 2, Width - 1, Height / 2);
+                    textBox.Size = new(Width - Height - 2, Height - 2);
+                    textBox.Location = new(2, 5);
+                    graphics.DrawLine(new(_BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, Height / 2, Width - 1, Height / 2);
                     break;
             }
             graphics.DrawString("+", new Font("Segoe UI", 14f), new SolidBrush((upRectangleF.Contains(mousePoint) && enterFlag) ? _HoverButtonTextColorA : _ButtonTextColorA), upRectangleF, HopeStringAlign.Center);
             graphics.DrawString("-", new Font("Segoe UI", 14f), new SolidBrush((downRectangleF.Contains(mousePoint) && enterFlag) ? _HoverButtonTextColorB : _ButtonTextColorB), downRectangleF, HopeStringAlign.Center);
-            graphics.DrawLine(new Pen(_BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, 1, textBox.Location.X + textBox.Width + 0.5f, Height - 1);
+            graphics.DrawLine(new(_BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, 1, textBox.Location.X + textBox.Width + 0.5f, Height - 1);
             graphics.FillRectangle(new SolidBrush(BackColor), textBox.Location.X, 1, textBox.Width, Height - 2);
             base.Controls.Add(textBox);
         }
@@ -243,7 +243,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
 
             Width = 120;
             Height = 30;

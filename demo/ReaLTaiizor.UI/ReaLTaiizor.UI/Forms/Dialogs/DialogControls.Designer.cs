@@ -110,13 +110,11 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             pnlTreeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
             pnlTreeView.Controls.Add(treeTest);
             pnlTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            pnlTreeView.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             pnlTreeView.Location = new System.Drawing.Point(469, 0);
             pnlTreeView.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             pnlTreeView.Name = "pnlTreeView";
             pnlTreeView.SectionHeader = "Tree view test";
             pnlTreeView.Size = new System.Drawing.Size(224, 518);
-            pnlTreeView.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnlTreeView.TabIndex = 14;
             // 
             // treeTest
@@ -137,13 +135,11 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             pnlListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
             pnlListView.Controls.Add(lstTest);
             pnlListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            pnlListView.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             pnlListView.Location = new System.Drawing.Point(237, 0);
             pnlListView.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             pnlListView.Name = "pnlListView";
             pnlListView.SectionHeader = "List view test";
             pnlListView.Size = new System.Drawing.Size(222, 518);
-            pnlListView.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnlListView.TabIndex = 13;
             // 
             // lstTest
@@ -161,13 +157,11 @@ namespace ReaLTaiizor.UI.Forms.Dialogs
             pnlMessageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
             pnlMessageBox.Controls.Add(panel1);
             pnlMessageBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            pnlMessageBox.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             pnlMessageBox.Location = new System.Drawing.Point(5, 0);
             pnlMessageBox.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             pnlMessageBox.Name = "pnlMessageBox";
             pnlMessageBox.SectionHeader = "Controls test";
             pnlMessageBox.Size = new System.Drawing.Size(222, 518);
-            pnlMessageBox.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnlMessageBox.TabIndex = 12;
             // 
             // panel1

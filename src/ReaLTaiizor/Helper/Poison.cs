@@ -159,7 +159,7 @@ namespace ReaLTaiizor.Helper
                     _scrollbar.Minimum = hScrollbar.Minimum;
                     _scrollbar.SmallChange = hScrollbar.SmallChange;
                     _scrollbar.LargeChange = hScrollbar.LargeChange;
-                    _scrollbar.Location = new Point(0, _grid.Height - _scrollbar.ScrollbarSize);
+                    _scrollbar.Location = new(0, _grid.Height - _scrollbar.ScrollbarSize);
                     _scrollbar.Width = _grid.Width - (vScrollbar.Visible ? _scrollbar.ScrollbarSize : 0);
                     _scrollbar.BringToFront();
                     _scrollbar.Visible = hScrollbar.Visible;
@@ -178,7 +178,7 @@ namespace ReaLTaiizor.Helper
                         _scrollbar.Value = _grid.RowCount;
                     }
 
-                    _scrollbar.Location = new Point(_grid.Width - _scrollbar.ScrollbarSize, 0);
+                    _scrollbar.Location = new(_grid.Width - _scrollbar.ScrollbarSize, 0);
                     _scrollbar.Height = _grid.Height - (hScrollbar.Visible ? _scrollbar.ScrollbarSize : 0);
                     _scrollbar.BringToFront();
                     _scrollbar.Visible = vScrollbar.Visible;

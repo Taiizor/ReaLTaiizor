@@ -16,8 +16,8 @@ namespace ReaLTaiizor.Controls
 
     public class ForeverListBox : Control
     {
-        private System.Windows.Forms.ListBox withEventsField_ListBx = new System.Windows.Forms.ListBox();
-        private System.Windows.Forms.ListBox ListBx
+        private ListBox withEventsField_ListBx = new();
+        private ListBox ListBx
         {
             get => withEventsField_ListBx;
             set
@@ -160,13 +160,13 @@ namespace ReaLTaiizor.Controls
             ListBx.BorderStyle = BorderStyle.None;
             ListBx.BackColor = BaseColor;
             ListBx.ForeColor = Color.White;
-            ListBx.Location = new Point(3, 3);
-            ListBx.Font = new Font("Segoe UI", 8);
+            ListBx.Location = new(3, 3);
+            ListBx.Font = new("Segoe UI", 8);
             ListBx.ItemHeight = 20;
             ListBx.Items.Clear();
             ListBx.IntegralHeight = false;
 
-            Size = new Size(131, 101);
+            Size = new(131, 101);
             BackColor = BaseColor;
         }
 
@@ -174,10 +174,10 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            Rectangle Base = new Rectangle(0, 0, Width, Height);
+            Rectangle Base = new(0, 0, Width, Height);
 
             Graphics _with19 = G;
             _with19.SmoothingMode = SmoothingMode.HighQuality;
@@ -186,7 +186,7 @@ namespace ReaLTaiizor.Controls
             _with19.Clear(BackColor);
 
             //-- Size
-            ListBx.Size = new Size(Width - 6, Height - 2);
+            ListBx.Size = new(Width - 6, Height - 2);
 
             //-- Base
             _with19.FillRectangle(new SolidBrush(BaseColor), Base);

@@ -182,21 +182,21 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             BackColor = Color.FromArgb(60, 70, 73);
-            Size = new Size(215, 42);
-            Location = new Point(10, 61);
-            Font = new Font("Segoe UI", 10);
+            Size = new(215, 42);
+            Location = new(10, 61);
+            Font = new("Segoe UI", 10);
             Cursor = Cursors.Hand;
             Visible = true;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
 
-            Rectangle Base = new Rectangle(0, 0, W, H);
+            Rectangle Base = new(0, 0, W, H);
 
             Graphics _with14 = G;
             _with14.SmoothingMode = SmoothingMode.HighQuality;

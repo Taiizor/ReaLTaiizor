@@ -140,14 +140,14 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            GraphicsPath backPath = new GraphicsPath();
+            GraphicsPath backPath = new();
             backPath.AddArc(new RectangleF(0.5f, 0.5f, Height - 1, Height - 1), 90, 180);
             backPath.AddArc(new RectangleF(Width - Height + 0.5f, 0.5f, Height - 1, Height - 1), 270, 180);
             backPath.CloseAllFigures();
 
             if (_buttonType == HopeButtonType.Default)
             {
-                graphics.DrawPath(new Pen(clickFlag ? _DefaultColor : _BorderColor, 1), backPath);
+                graphics.DrawPath(new(clickFlag ? _DefaultColor : _BorderColor, 1), backPath);
                 graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, _DefaultColor) : _DefaultColor), backPath);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : _textColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
                     default:
                         break;
                 }
-                SolidBrush brush = new SolidBrush(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
+                SolidBrush brush = new(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
                 graphics.FillPath(brush, backPath);
                 graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : _textColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }
@@ -185,9 +185,9 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             Cursor = Cursors.Hand;
-            Size = new Size(190, 40);
+            Size = new(190, 40);
         }
     }
 

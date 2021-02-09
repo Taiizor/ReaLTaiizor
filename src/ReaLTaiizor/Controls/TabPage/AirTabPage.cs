@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             DoubleBuffered = true;
             SizeMode = TabSizeMode.Fixed;
-            ItemSize = new Size(30, 115);
+            ItemSize = new(30, 115);
         }
         protected override void CreateHandle()
         {
@@ -48,7 +48,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             try
             {
@@ -60,8 +60,8 @@ namespace ReaLTaiizor.Controls
             G.Clear(Color.White);
             for (int i = 0; i <= TabCount - 1; i++)
             {
-                Rectangle x2 = new Rectangle(new Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2), new Size(GetTabRect(i).Width + 3, GetTabRect(i).Height - 1));
-                Rectangle textrectangle = new Rectangle(x2.Location.X + 20, x2.Location.Y, x2.Width - 20, x2.Height);
+                Rectangle x2 = new(new Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2), new Size(GetTabRect(i).Width + 3, GetTabRect(i).Height - 1));
+                Rectangle textrectangle = new(x2.Location.X + 20, x2.Location.Y, x2.Width - 20, x2.Height);
                 if (i == SelectedIndex)
                 {
                     G.FillRectangle(new SolidBrush(C1), new Rectangle(x2.Location, new Size(9, x2.Height)));

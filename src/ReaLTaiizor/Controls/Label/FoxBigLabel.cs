@@ -39,16 +39,16 @@ namespace ReaLTaiizor.Controls
 
         public FoxBigLabel()
         {
-            Font = new Font("Segoe UI Semibold", 20);
+            Font = new("Segoe UI Semibold", 20);
             ForeColor = FoxLibrary.ColorFromHex("#4C5864");
             DoubleBuffered = true;
-            Size = new Size(165, 51);
+            Size = new(165, 51);
         }
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            //Size = new Size(Width, 51);
+            //Size = new(Width, 51);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -58,12 +58,12 @@ namespace ReaLTaiizor.Controls
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             G.Clear(Parent.BackColor);
-            using (SolidBrush HColor = new SolidBrush(ForeColor))
+            using (SolidBrush HColor = new(ForeColor))
             {
                 G.DrawString(Text, Font, HColor, new Point(0, 0));
             }
 
-            using (Pen BottomLine = new Pen(_LineColor))
+            using (Pen BottomLine = new(_LineColor))
             {
                 if (_Line == Direction.Bottom)
                 {

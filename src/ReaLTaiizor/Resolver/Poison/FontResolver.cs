@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Resolver.Poison
     {
         public Font ResolveFont(string familyName, float emSize, FontStyle fontStyle, GraphicsUnit unit)
         {
-            Font fontTester = new Font(familyName, emSize, fontStyle, unit);
+            Font fontTester = new(familyName, emSize, fontStyle, unit);
             if (fontTester.Name == familyName || !TryResolve(ref familyName, ref fontStyle))
             {
                 return fontTester;
@@ -34,7 +34,7 @@ namespace ReaLTaiizor.Resolver.Poison
         private const string OPEN_SANS_LIGHT = "Open Sans Light";
         private const string OPEN_SANS_BOLD = "Open Sans Bold";
 
-        private readonly PrivateFontCollection fontCollection = new PrivateFontCollection();
+        private readonly PrivateFontCollection fontCollection = new();
 
         private static bool TryResolve(ref string familyName, ref FontStyle fontStyle)
         {

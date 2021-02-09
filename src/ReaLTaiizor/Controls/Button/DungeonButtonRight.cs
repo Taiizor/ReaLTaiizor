@@ -42,7 +42,7 @@ namespace ReaLTaiizor.Controls
 
         private static PointF ImageLocation(StringFormat SF, SizeF Area, SizeF ImageArea)
         {
-            PointF MyPoint = default(PointF);
+            PointF MyPoint = default;
             switch (SF.Alignment)
             {
                 case StringAlignment.Center:
@@ -72,9 +72,9 @@ namespace ReaLTaiizor.Controls
             return MyPoint;
         }
 
-        private StringFormat GetStringFormat(ContentAlignment _ContentAlignment)
+        private static StringFormat GetStringFormat(ContentAlignment _ContentAlignment)
         {
-            StringFormat SF = new StringFormat();
+            StringFormat SF = new();
             switch (_ContentAlignment)
             {
                 case ContentAlignment.MiddleCenter:
@@ -251,11 +251,11 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.Transparent;
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 11f, FontStyle.Bold);
+            Font = new("Segoe UI", 11f, FontStyle.Bold);
             ForeColor = Color.FromArgb(76, 76, 76);
-            Size = new Size(177, 30);
+            Size = new(177, 30);
             _TextAlignment = StringAlignment.Center;
-            P1 = new Pen(_BorderColor);
+            P1 = new(_BorderColor);
             // P1 = Border color
             Cursor = Cursors.Hand;
         }
@@ -265,14 +265,14 @@ namespace ReaLTaiizor.Controls
 
             if (Width > 0 && Height > 0)
             {
-                Shape = new GraphicsPath();
-                R1 = new Rectangle(0, 0, Width, Height);
+                Shape = new();
+                R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
-                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
-                PressedContourGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
+                PressedContourGB = new(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
 
-                P3 = new Pen(PressedContourGB);
+                P3 = new(PressedContourGB);
             }
 
             GraphicsPath MyDrawer = Shape;

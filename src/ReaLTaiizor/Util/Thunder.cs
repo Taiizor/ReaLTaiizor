@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Util
     {
         public static GraphicsPath RoundRect(Rectangle rect, int Curve)
         {
-            GraphicsPath P = new GraphicsPath();
+            GraphicsPath P = new();
             int ArcRectWidth = Curve * 2;
             P.AddArc(new Rectangle(rect.X, rect.Y, ArcRectWidth, ArcRectWidth), -180, 90);
             P.AddArc(new Rectangle(rect.Width - ArcRectWidth + rect.X, rect.Y, ArcRectWidth, ArcRectWidth), -90, 90);

@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
     {
         public DungeonLinkLabel()
         {
-            Font = new Font("Segoe UI", 11, FontStyle.Regular);
+            Font = new("Segoe UI", 11, FontStyle.Regular);
             BackColor = Color.Transparent;
             LinkColor = Color.FromArgb(240, 119, 70);
             ActiveLinkColor = Color.FromArgb(221, 72, 20);

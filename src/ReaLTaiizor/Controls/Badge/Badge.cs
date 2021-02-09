@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
             Text = null;
             DoubleBuffered = true;
             ForeColor = Color.FromArgb(255, 255, 253);
-            Font = new Font("Segoe UI", 8, FontStyle.Bold);
+            Font = new("Segoe UI", 8, FontStyle.Bold);
         }
 
         protected override void OnResize(EventArgs e)
@@ -108,12 +108,12 @@ namespace ReaLTaiizor.Controls
             string myString = _Value.ToString();
             _G.Clear(BackColor);
             _G.SmoothingMode = SmoothingMode.AntiAlias;
-            LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(18, 20)), _BGColorA, _BGColorB, 90f);
+            LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(18, 20)), _BGColorA, _BGColorB, 90f);
 
             // Fills the body with LGB gradient
             _G.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(18, 18)));
             // Draw border
-            _G.DrawEllipse(new Pen(_BorderColor), new Rectangle(new Point(0, 0), new Size(18, 18)));
+            _G.DrawEllipse(new(_BorderColor), new Rectangle(new Point(0, 0), new Size(18, 18)));
             _G.DrawString(myString, Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 2, Height), new StringFormat
             {
                 Alignment = StringAlignment.Center,

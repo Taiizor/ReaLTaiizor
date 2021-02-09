@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        public System.Windows.Forms.TextBox RT_TB = new System.Windows.Forms.TextBox();
+        public TextBox RT_TB = new();
         private GraphicsPath Shape;
         private int _maxchars = 32767;
         private bool _ReadOnly;
@@ -115,11 +115,11 @@ namespace ReaLTaiizor.Controls
 
                 if (Image == null)
                 {
-                    RT_TB.Location = new Point(8, 10);
+                    RT_TB.Location = new(8, 10);
                 }
                 else
                 {
-                    RT_TB.Location = new Point(35, 11);
+                    RT_TB.Location = new(35, 11);
                 }
                 Invalidate();
             }
@@ -186,7 +186,7 @@ namespace ReaLTaiizor.Controls
                 Height = RT_TB.Height + 23;
             }
 
-            Shape = new GraphicsPath();
+            Shape = new();
             GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -205,11 +205,11 @@ namespace ReaLTaiizor.Controls
         public void AddTextBox()
         {
             TextBox _TB = RT_TB;
-            _TB.Location = new Point(7, 10);
+            _TB.Location = new(7, 10);
             _TB.Text = string.Empty;
             _TB.BorderStyle = BorderStyle.None;
             _TB.TextAlign = HorizontalAlignment.Left;
-            _TB.Font = new Font("Tahoma", 11);
+            _TB.Font = new("Tahoma", 11);
             _TB.UseSystemPasswordChar = UseSystemPasswordChar;
             _TB.Multiline = false;
             RT_TB.KeyDown += _OnKeyDown;
@@ -224,21 +224,21 @@ namespace ReaLTaiizor.Controls
             AddTextBox();
             Controls.Add(RT_TB);
 
-            P1 = new Pen(Color.FromArgb(180, 180, 180)); // P1 = Border color
-            B1 = new SolidBrush(Color.White); // B1 = Rect Background color
+            P1 = new(Color.FromArgb(180, 180, 180)); // P1 = Border color
+            B1 = new(Color.White); // B1 = Rect Background color
             BackColor = Color.Transparent;
             ForeColor = Color.DimGray;
 
             Text = null;
-            Font = new Font("Tahoma", 11);
-            Size = new Size(100, 43);
+            Font = new("Tahoma", 11);
+            Size = new(100, 43);
             DoubleBuffered = true;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingMode.AntiAlias;

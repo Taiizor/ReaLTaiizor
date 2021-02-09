@@ -267,7 +267,7 @@ namespace ReaLTaiizor.Controls
 
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
-            MinimumSize = new Size(0, GetPreferredSize(Size.Empty).Height);
+            MinimumSize = new(0, GetPreferredSize(Size.Empty).Height);
 
             Color borderColor, foreColor;
 
@@ -292,13 +292,13 @@ namespace ReaLTaiizor.Controls
                 borderColor = PoisonPaint.BorderColor.ComboBox.Normal(Theme);
             }
 
-            using (Pen p = new Pen(borderColor))
+            using (Pen p = new(borderColor))
             {
-                Rectangle boxRect = new Rectangle(0, 0, Width - 1, Height - 1);
+                Rectangle boxRect = new(0, 0, Width - 1, Height - 1);
                 e.Graphics.DrawRectangle(p, boxRect);
             }
 
-            using (SolidBrush b = new SolidBrush(foreColor))
+            using (SolidBrush b = new(foreColor))
             {
                 e.Graphics.FillPolygon(b, new Point[] { new Point(Width - 20, (Height / 2) - 2), new Point(Width - 9, (Height / 2) - 2), new Point(Width - 15, (Height / 2) + 4) });
                 //e.Graphics.FillPolygon(b, new Point[] { new Point(Width - 15, (Height / 2) - 5), new Point(Width - 21, (Height / 2) + 2), new Point(Width - 9, (Height / 2) + 2) });
@@ -309,9 +309,9 @@ namespace ReaLTaiizor.Controls
             if (ShowCheckBox)
             {
                 _check = 15;
-                using (Pen p = new Pen(borderColor))
+                using (Pen p = new(borderColor))
                 {
-                    Rectangle boxRect = new Rectangle(3, Height / 2 - 6, 12, 12);
+                    Rectangle boxRect = new(3, Height / 2 - 6, 12, 12);
                     e.Graphics.DrawRectangle(p, boxRect);
                 }
 
@@ -320,11 +320,9 @@ namespace ReaLTaiizor.Controls
 
                     Color fillColor = PoisonPaint.GetStyleColor(Style);
 
-                    using (SolidBrush b = new SolidBrush(fillColor))
-                    {
-                        Rectangle boxRect = new Rectangle(5, Height / 2 - 4, 9, 9);
-                        e.Graphics.FillRectangle(b, boxRect);
-                    }
+                    using SolidBrush b = new(fillColor);
+                    Rectangle boxRect = new(5, Height / 2 - 4, 9, 9);
+                    e.Graphics.FillRectangle(b, boxRect);
                 }
                 else
                 {
@@ -332,7 +330,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            Rectangle textRect = new Rectangle(2 + _check, 2, Width - 20, Height - 4);
+            Rectangle textRect = new(2 + _check, 2, Width - 20, Height - 4);
 
             TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.DateTime(poisonDateTimeSize, poisonDateTimeWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
 
@@ -472,7 +470,7 @@ namespace ReaLTaiizor.Controls
             using (Graphics g = CreateGraphics())
             {
                 string measureText = Text.Length > 0 ? Text : "MeasureText";
-                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.DateTime(poisonDateTimeSize, poisonDateTimeWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
                 preferredSize.Height += 10;
             }

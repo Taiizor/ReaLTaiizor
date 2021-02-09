@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Native
 
             public TCHITTESTINFO(int x, int y, TabControlHitTest hitTest) : this(hitTest)
             {
-                Point pt = new Point(x, y);
+                Point pt = new(x, y);
             }
         }
 

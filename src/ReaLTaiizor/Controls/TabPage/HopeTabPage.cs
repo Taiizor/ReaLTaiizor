@@ -82,8 +82,38 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
+        public enum TextState
+        {
+            Upper,
+            Lower,
+            Normal
+        }
+
+        private TextState _TitleTextState = TextState.Normal;
+        public TextState TitleTextState
+        {
+            get => _TitleTextState;
+            set
+            {
+                _TitleTextState = value;
+                Invalidate();
+            }
+        }
+
         #endregion
 
+        #region Functions
+        private string TitleText(string Text)
+        {
+            return TitleTextState switch
+            {
+                TextState.Upper => Text.ToUpperInvariant(),
+                TextState.Lower => Text.ToLowerInvariant(),
+                _ => Text,
+            };
+        }
+        #endregion
 
         public override Rectangle DisplayRectangle
         {
@@ -139,18 +169,18 @@ namespace ReaLTaiizor.Controls
                 if (i == SelectedIndex)
                 {
                     graphics.FillRectangle(new SolidBrush(_themeColorA), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
-                    graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorA), GetTabRect(i), HopeStringAlign.Center);
+                    graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorA), GetTabRect(i), HopeStringAlign.Center);
                 }
                 else
                 {
                     if (i == enterIndex && enterFlag)
                     {
                         graphics.FillRectangle(new SolidBrush(_themeColorB), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
-                        graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorC), GetTabRect(i), HopeStringAlign.Center);
+                        graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorC), GetTabRect(i), HopeStringAlign.Center);
                     }
                     else
                     {
-                        graphics.DrawString(TabPages[i].Text.ToUpper(), Font, new SolidBrush(_foreColorB), GetTabRect(i), HopeStringAlign.Center);
+                        graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorB), GetTabRect(i), HopeStringAlign.Center);
                     }
                 }
             }
@@ -160,9 +190,9 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12F);
+            Font = new("Segoe UI", 12F);
             SizeMode = TabSizeMode.Fixed;
-            ItemSize = new Size(120, 40);
+            ItemSize = new(120, 40);
         }
     }
 

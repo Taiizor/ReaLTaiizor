@@ -13,10 +13,9 @@ namespace ReaLTaiizor.Controls
     {
         public NightLabel()
         {
-            Font = new Font("Segoe UI", 9, FontStyle.Regular);
+            Font = new("Segoe UI", 9, FontStyle.Regular);
             BackColor = Color.Transparent;
             ForeColor = ColorTranslator.FromHtml("#72767F");
-            Cursor = Cursors.Arrow;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)

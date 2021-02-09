@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Controls
         private bool _Toggled;
         private _Type ToggleType;
         private Rectangle Bar;
-        private Size cHandle = new Size(15, 20);
+        //private Size cHandle = new(15, 20);
 
         private Color _ToggledBackColorA = Color.FromArgb(253, 253, 253);
         private Color _ToggledBackColorB = Color.FromArgb(240, 238, 237);
@@ -220,19 +220,19 @@ namespace ReaLTaiizor.Controls
             G.Clear(Parent.BackColor);
 
             int SwitchXLoc = 3;
-            Rectangle ControlRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle ControlRectangle = new(0, 0, Width - 1, Height - 1);
             GraphicsPath ControlPath = RoundRectangle.RoundRect(ControlRectangle, 4);
 
-            LinearGradientBrush BackgroundLGB = default(LinearGradientBrush);
+            LinearGradientBrush BackgroundLGB;
             if (_Toggled)
             {
                 SwitchXLoc = 37;
-                BackgroundLGB = new LinearGradientBrush(ControlRectangle, _ToggledColorA, _ToggledColorB, 90.0F);
+                BackgroundLGB = new(ControlRectangle, _ToggledColorA, _ToggledColorB, 90.0F);
             }
             else
             {
                 SwitchXLoc = 0;
-                BackgroundLGB = new LinearGradientBrush(ControlRectangle, _ToggledColorC, _ToggledColorD, 90.0F);
+                BackgroundLGB = new(ControlRectangle, _ToggledColorC, _ToggledColorD, 90.0F);
             }
 
             // Fill inside background gradient
@@ -276,9 +276,9 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            Rectangle SwitchRectangle = new Rectangle(SwitchXLoc, 0, Width - 38, Height);
+            Rectangle SwitchRectangle = new(SwitchXLoc, 0, Width - 38, Height);
             GraphicsPath SwitchPath = RoundRectangle.RoundRect(SwitchRectangle, 4);
-            LinearGradientBrush SwitchButtonLGB = new LinearGradientBrush(SwitchRectangle, _ToggledBackColorA, _ToggledBackColorB, LinearGradientMode.Vertical);
+            LinearGradientBrush SwitchButtonLGB = new(SwitchRectangle, _ToggledBackColorA, _ToggledBackColorB, LinearGradientMode.Vertical);
 
             // Fill switch background gradient
             G.FillPath(SwitchButtonLGB, SwitchPath);
@@ -286,13 +286,13 @@ namespace ReaLTaiizor.Controls
             // Draw borders
             if (_Toggled == true)
             {
-                G.DrawPath(new Pen(_ToggledBorderColorA), SwitchPath);
-                G.DrawPath(new Pen(_ToggledBorderColorB), ControlPath);
+                G.DrawPath(new(_ToggledBorderColorA), SwitchPath);
+                G.DrawPath(new(_ToggledBorderColorB), ControlPath);
             }
             else
             {
-                G.DrawPath(new Pen(_ToggledBorderColorC), SwitchPath);
-                G.DrawPath(new Pen(_ToggledBorderColorD), ControlPath);
+                G.DrawPath(new(_ToggledBorderColorC), SwitchPath);
+                G.DrawPath(new(_ToggledBorderColorD), ControlPath);
             }
         }
     }

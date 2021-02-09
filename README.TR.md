@@ -5,6 +5,7 @@
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2019-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
+[![FuGet-Version](https://www.fuget.org/packages/ReaLTaiizor/badge.svg)](https://www.fuget.org/packages/ReaLTaiizor)
 [![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
 # ReaLTaiizor'a Hoşgeldiniz
@@ -125,6 +126,17 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 		<br/>
 		<a href="https://github.com/RobinPerris" target="_blank" title="Kodlama">💻</a>
 	</td>
+	<td align="center">
+		<a href="https://github.com/VPKSoft">
+			<img src="https://avatars3.githubusercontent.com/u/40712699?s=200&v=4" width="80px;" alt="VPKSoft"/>
+			<br/>
+			<sub>
+				<b>VPKSoft</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/VPKSoft" target="_blank" title="İçerik">🖋</a>
+	</td>
   </tr>
 </table>
 
@@ -149,6 +161,10 @@ Adım 2：Tasarlamanın tadını çıkarın
 ### XAMPP
 
 ![XAMPPSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/XAMPP.png)
+
+### Rufus
+
+![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)
 
 ### MP3 Oynatıcı
 

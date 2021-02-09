@@ -265,10 +265,7 @@ namespace ReaLTaiizor.Controls
 
         private void SelectedNodes_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (SelectedNodesChanged != null)
-            {
-                SelectedNodesChanged(this, null);
-            }
+            SelectedNodesChanged?.Invoke(this, null);
         }
 
         private void Nodes_TextChanged(object sender, EventArgs e)
@@ -280,20 +277,14 @@ namespace ReaLTaiizor.Controls
         {
             UpdateNodes();
 
-            if (AfterNodeExpand != null)
-            {
-                AfterNodeExpand(this, null);
-            }
+            AfterNodeExpand?.Invoke(this, null);
         }
 
         private void Nodes_NodeCollapsed(object sender, EventArgs e)
         {
             UpdateNodes();
 
-            if (AfterNodeCollapse != null)
-            {
-                AfterNodeCollapse(this, null);
-            }
+            AfterNodeCollapse?.Invoke(this, null);
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -538,7 +529,7 @@ namespace ReaLTaiizor.Controls
                         difference = ItemHeight;
                     }
 
-                    _vScrollBar.Value = _vScrollBar.Value - difference;
+                    _vScrollBar.Value -= difference;
                 }
 
                 // Scroll down
@@ -551,7 +542,7 @@ namespace ReaLTaiizor.Controls
                         difference = ItemHeight;
                     }
 
-                    _vScrollBar.Value = _vScrollBar.Value + difference;
+                    _vScrollBar.Value += difference;
                 }
             }
 
@@ -567,7 +558,7 @@ namespace ReaLTaiizor.Controls
                         difference = ItemHeight;
                     }
 
-                    _hScrollBar.Value = _hScrollBar.Value - difference;
+                    _hScrollBar.Value -= difference;
                 }
 
                 // Scroll right
@@ -580,7 +571,7 @@ namespace ReaLTaiizor.Controls
                         difference = ItemHeight;
                     }
 
-                    _hScrollBar.Value = _hScrollBar.Value + difference;
+                    _hScrollBar.Value += difference;
                 }
             }
         }
@@ -626,7 +617,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            ContentSize = new Size(0, 0);
+            ContentSize = new(0, 0);
 
             if (Nodes.Count == 0)
             {
@@ -644,7 +635,7 @@ namespace ReaLTaiizor.Controls
                 UpdateNode(node, ref prevNode, 0, ref yOffset, ref isOdd, ref index);
             }
 
-            ContentSize = new Size(ContentSize.Width, yOffset);
+            ContentSize = new(ContentSize.Width, yOffset);
 
             VisibleNodeCount = index;
 
@@ -685,30 +676,30 @@ namespace ReaLTaiizor.Controls
         private void UpdateNodeBounds(CrownTreeNode node, int yOffset, int indent)
         {
             int expandTop = yOffset + (ItemHeight / 2) - (_expandAreaSize / 2);
-            node.ExpandArea = new Rectangle(indent + 3, expandTop, _expandAreaSize, _expandAreaSize);
+            node.ExpandArea = new(indent + 3, expandTop, _expandAreaSize, _expandAreaSize);
 
             int iconTop = yOffset + (ItemHeight / 2) - (_iconSize / 2);
 
             if (ShowIcons)
             {
-                node.IconArea = new Rectangle(node.ExpandArea.Right + 2, iconTop, _iconSize, _iconSize);
+                node.IconArea = new(node.ExpandArea.Right + 2, iconTop, _iconSize, _iconSize);
             }
             else
             {
-                node.IconArea = new Rectangle(node.ExpandArea.Right, iconTop, 0, 0);
+                node.IconArea = new(node.ExpandArea.Right, iconTop, 0, 0);
             }
 
             using (Graphics g = CreateGraphics())
             {
                 int textSize = (int)(g.MeasureString(node.Text, Font).Width);
-                node.TextArea = new Rectangle(node.IconArea.Right + 2, yOffset, textSize + 1, ItemHeight);
+                node.TextArea = new(node.IconArea.Right + 2, yOffset, textSize + 1, ItemHeight);
             }
 
-            node.FullArea = new Rectangle(indent, yOffset, (node.TextArea.Right - indent), ItemHeight);
+            node.FullArea = new(indent, yOffset, (node.TextArea.Right - indent), ItemHeight);
 
             if (ContentSize.Width < node.TextArea.Right + 2)
             {
-                ContentSize = new Size(node.TextArea.Right + 2, ContentSize.Height);
+                ContentSize = new(node.TextArea.Right + 2, ContentSize.Height);
             }
         }
 
@@ -927,7 +918,7 @@ namespace ReaLTaiizor.Controls
 
         public void SelectNodes(CrownTreeNode startNode, CrownTreeNode endNode)
         {
-            List<CrownTreeNode> nodes = new List<CrownTreeNode>();
+            List<CrownTreeNode> nodes = new();
 
             if (startNode == endNode)
             {
@@ -1056,7 +1047,7 @@ namespace ReaLTaiizor.Controls
             }
 
             int width = Math.Max(ContentSize.Width, Viewport.Width);
-            Rectangle rect = new Rectangle(0, node.FullArea.Top, width, ItemHeight);
+            Rectangle rect = new(0, node.FullArea.Top, width, ItemHeight);
             return rect;
         }
 
@@ -1386,7 +1377,7 @@ namespace ReaLTaiizor.Controls
         protected override void PaintContent(Graphics g)
         {
             // Fill body
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
@@ -1414,7 +1405,7 @@ namespace ReaLTaiizor.Controls
                 bgColor = Focused ? ThemeProvider.Theme.Colors.BlueSelection : ThemeProvider.Theme.Colors.GreySelection;
             }
 
-            using (SolidBrush b = new SolidBrush(bgColor))
+            using (SolidBrush b = new(bgColor))
             {
                 g.FillRectangle(b, rect);
             }
@@ -1422,7 +1413,7 @@ namespace ReaLTaiizor.Controls
             // 2. Draw plus/minus icon
             if (node.Nodes.Count > 0)
             {
-                Point pos = new Point(node.ExpandArea.Location.X - 1, node.ExpandArea.Location.Y - 1);
+                Point pos = new(node.ExpandArea.Location.X - 1, node.ExpandArea.Location.Y - 1);
 
                 Bitmap icon = _nodeOpen;
 
@@ -1468,9 +1459,9 @@ namespace ReaLTaiizor.Controls
             }
 
             // 4. Draw text
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText))
             {
-                StringFormat stringFormat = new StringFormat
+                StringFormat stringFormat = new()
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Center

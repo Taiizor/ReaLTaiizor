@@ -93,8 +93,8 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Enabled = true;
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
-            Font = new Font("Segoe UI", 9f);
+            Size = new(120, 40);
+            Font = new("Segoe UI", 9f);
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
         }
 
@@ -111,27 +111,21 @@ namespace ReaLTaiizor.Controls
                 {
                     if (state != AloneButton.MouseState.Down)
                     {
-                        using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#F6F6F6")))
-                        {
-                            G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                        }
+                        using SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#F6F6F6"));
+                        G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
                     }
                     else
                     {
-                        using (SolidBrush solidBrush2 = new SolidBrush(AloneLibrary.ColorFromHex("#F0F0F0")))
-                        {
-                            G.FillPath(solidBrush2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                        }
+                        using SolidBrush solidBrush2 = new(AloneLibrary.ColorFromHex("#F0F0F0"));
+                        G.FillPath(solidBrush2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
                     }
                 }
                 else
                 {
-                    using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#FDFDFD")))
-                    {
-                        G.FillPath(solidBrush3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                    }
+                    using SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#FDFDFD"));
+                    G.FillPath(solidBrush3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
                 }
-                using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#C3C3C3")))
+                using (Pen pen = new(AloneLibrary.ColorFromHex("#C3C3C3")))
                 {
                     G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
                     AloneLibrary.CenterString(G, Text, Font, ForeColor, AloneLibrary.FullRectangle(base.Size, false));
@@ -140,14 +134,12 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                using (SolidBrush solidBrush4 = new SolidBrush(AloneLibrary.ColorFromHex("#F3F4F7")))
+                using (SolidBrush solidBrush4 = new(AloneLibrary.ColorFromHex("#F3F4F7")))
                 {
-                    using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#DCDCDC")))
-                    {
-                        G.FillPath(solidBrush4, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                        G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
-                        AloneLibrary.CenterString(G, Text, Font, AloneLibrary.ColorFromHex("#D0D3D7"), AloneLibrary.FullRectangle(base.Size, false));
-                    }
+                    using Pen pen2 = new(AloneLibrary.ColorFromHex("#DCDCDC"));
+                    G.FillPath(solidBrush4, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
+                    G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
+                    AloneLibrary.CenterString(G, Text, Font, AloneLibrary.ColorFromHex("#D0D3D7"), AloneLibrary.FullRectangle(base.Size, false));
                 }
                 Cursor = Cursors.Default;
             }

@@ -162,8 +162,8 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        public PoisonScrollBar VerticalPoisonScrollbar = new PoisonScrollBar(ScrollOrientationType.Vertical);
-        private readonly PoisonScrollBar HorizontalPoisonScrollbar = new PoisonScrollBar(ScrollOrientationType.Horizontal);
+        public PoisonScrollBar VerticalPoisonScrollbar = new(ScrollOrientationType.Vertical);
+        private readonly PoisonScrollBar HorizontalPoisonScrollbar = new(ScrollOrientationType.Horizontal);
 
         private bool showHorizontalScrollbar = false;
         [DefaultValue(false)]
@@ -272,22 +272,16 @@ namespace ReaLTaiizor.Controls
 
         private void HorizontalScrollbarScroll(object sender, ScrollEventArgs e)
         {
-            AutoScrollPosition = new Point(e.NewValue, VerticalPoisonScrollbar.Value);
+            AutoScrollPosition = new(e.NewValue, VerticalPoisonScrollbar.Value);
             UpdateScrollBarPositions();
-            if (HorizontalScrolled != null)
-            {
-                HorizontalScrolled(this, e);
-            }
+            HorizontalScrolled?.Invoke(this, e);
         }
 
         private void VerticalScrollbarScroll(object sender, ScrollEventArgs e)
         {
-            AutoScrollPosition = new Point(HorizontalPoisonScrollbar.Value, e.NewValue);
+            AutoScrollPosition = new(HorizontalPoisonScrollbar.Value, e.NewValue);
             UpdateScrollBarPositions();
-            if (VerticalScrolled != null)
-            {
-                VerticalScrolled(this, e);
-            }
+            VerticalScrolled?.Invoke(this, e);
         }
 
         #endregion
@@ -419,7 +413,7 @@ namespace ReaLTaiizor.Controls
             int _horizontalScrollHeight = HorizontalPoisonScrollbar.Height;
             int _verticalScrollWidth = VerticalPoisonScrollbar.Width;
 
-            VerticalPoisonScrollbar.Location = new Point(ClientRectangle.Width - VerticalPoisonScrollbar.Width, ClientRectangle.Y);
+            VerticalPoisonScrollbar.Location = new(ClientRectangle.Width - VerticalPoisonScrollbar.Width, ClientRectangle.Y);
 
             if (!VerticalScrollbar || !VerticalScroll.Visible)
             {
@@ -427,7 +421,7 @@ namespace ReaLTaiizor.Controls
                 _verticalScrollWidth = 0;
             }
 
-            HorizontalPoisonScrollbar.Location = new Point(ClientRectangle.X, ClientRectangle.Height - HorizontalPoisonScrollbar.Height);
+            HorizontalPoisonScrollbar.Location = new(ClientRectangle.X, ClientRectangle.Height - HorizontalPoisonScrollbar.Height);
 
             if (!HorizontalScrollbar || !HorizontalScroll.Visible)
             {

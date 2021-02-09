@@ -19,16 +19,16 @@ namespace ReaLTaiizor.Controls
 
         public FoxLabel()
         {
-            Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            Font = new("Segoe UI", 10, FontStyle.Bold);
             ForeColor = FoxLibrary.ColorFromHex("#4C5864");
             DoubleBuffered = true;
-            Size = new Size(65, 19);
+            Size = new(65, 19);
         }
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            //Size = new Size(65, 19);
+            //Size = new(65, 19);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(BackColor);
 
-            using (SolidBrush HColor = new SolidBrush(ForeColor))
+            using (SolidBrush HColor = new(ForeColor))
             {
                 G.DrawString(Text, Font, HColor, new Point(0, 0));
             }

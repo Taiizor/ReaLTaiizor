@@ -17,8 +17,8 @@ namespace ReaLTaiizor.Controls
     public class HopeTrackBar : Control
     {
         #region Variables
-        private RectangleF valueBar = new RectangleF(7, 5, 0, 6);
-        private RectangleF valueRect = new RectangleF(0, 1, 14, 14);
+        private RectangleF valueBar = new(7, 5, 0, 6);
+        private RectangleF valueRect = new(0, 1, 14, 14);
         private bool mouseFlat = false;
         #endregion
 
@@ -260,7 +260,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             Height = 45;
-            Font = new Font("Segoe UI", 8F);
+            Font = new("Segoe UI", 8F);
             ForeColor = Color.White;
             Cursor = Cursors.Hand;
         }

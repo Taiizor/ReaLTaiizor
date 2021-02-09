@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Controls
 
         private static PointF ImageLocation(StringFormat SF, SizeF Area, SizeF ImageArea)
         {
-            PointF MyPoint = new PointF();
+            PointF MyPoint = new();
             switch (SF.Alignment)
             {
                 case StringAlignment.Center:
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
 
         private StringFormat GetStringFormat(ContentAlignment _ContentAlignment)
         {
-            StringFormat SF = new StringFormat();
+            StringFormat SF = new();
             switch (_ContentAlignment)
             {
                 case ContentAlignment.MiddleCenter:
@@ -241,12 +241,12 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             Cursor = Cursors.Hand;
             DoubleBuffered = true;
-            Font = new Font("Microsoft Sans Serif", 12);
+            Font = new("Microsoft Sans Serif", 12);
             ForeColor = Color.FromArgb(255, 255, 255);
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             _TextAlignment = StringAlignment.Center;
-            P1 = new Pen(Color.FromArgb(32, 34, 37)); // P1 = Border color
-            P3 = new Pen(Color.FromArgb(165, 37, 37)); // P3 = Border color when pressed
+            P1 = new(Color.FromArgb(32, 34, 37)); // P1 = Border color
+            P3 = new(Color.FromArgb(165, 37, 37)); // P3 = Border color when pressed
         }
 
         protected override void OnResize(EventArgs e)
@@ -254,12 +254,12 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             if (Width > 0 && Height > 0)
             {
-                Shape = new GraphicsPath();
-                R1 = new Rectangle(0, 0, Width, Height);
+                Shape = new();
+                R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _InactiveColor, _InactiveColor, 90.0F);
-                PressedGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _PressedColor, _PressedColor, 90.0F);
-                EnteredGB = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), _EnteredColor, _EnteredColor, 90.0F);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColor, _InactiveColor, 90.0F);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColor, _PressedColor, 90.0F);
+                EnteredGB = new(new Rectangle(0, 0, Width, Height), _EnteredColor, _EnteredColor, 90.0F);
             }
 
             Shape.AddArc(0, 0, 10, 10, 180, 90);

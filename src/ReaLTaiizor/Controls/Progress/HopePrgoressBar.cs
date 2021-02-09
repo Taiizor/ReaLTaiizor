@@ -152,7 +152,7 @@ namespace ReaLTaiizor.Controls
                     break;
 
                 case Style.ValueInSide:
-                    GraphicsPath path1 = new GraphicsPath();
+                    GraphicsPath path1 = new();
                     path1.AddArc(new RectangleF(0, 0, Height, Height), 90, 180);
                     path1.AddArc(new RectangleF(Width - Height, 0, Height, Height), -90, 180);
                     path1.CloseAllFigures();
@@ -164,7 +164,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        GraphicsPath path2 = new GraphicsPath();
+                        GraphicsPath path2 = new();
                         path2.AddArc(new RectangleF(0, 0, Height, Height), 90, 180);
                         path2.AddArc(new RectangleF(_valueNumber * (Width - Height) / 100, 0, Height, Height), -90, 180);
                         path2.CloseAllFigures();
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case Style.ValueOutSide:
-                    GraphicsPath path3 = new GraphicsPath();
+                    GraphicsPath path3 = new();
                     path3.AddArc(new RectangleF(0, 4, Height - 8, Height - 8), 90, 180);
                     path3.AddArc(new RectangleF(Width - 50, 4, Height - 8, Height - 8), -90, 180);
                     path3.CloseAllFigures();
@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Controls
 
                     if (_valueNumber != 0)
                     {
-                        GraphicsPath path4 = new GraphicsPath();
+                        GraphicsPath path4 = new();
                         path4.AddArc(new RectangleF(0, 4, Height - 8, Height - 8), 90, 180);
                         path4.AddArc(new RectangleF(_valueNumber * (Width - 50) / 100, 4, Height - 8, Height - 8), -90, 180);
                         path4.CloseAllFigures();
@@ -194,8 +194,8 @@ namespace ReaLTaiizor.Controls
                         graphics.FillEllipse(new SolidBrush(_DangerColor), new RectangleF(Width - 40, 0, Height, Height));
                         int a = Width - 40 + 4;
                         int b = Height - 4;
-                        graphics.DrawLine(new Pen(ForeColor), a, b - 6, a + 6, b);
-                        graphics.DrawLine(new Pen(ForeColor), a + 6, b - 6, a, b);
+                        graphics.DrawLine(new(ForeColor), a, b - 6, a + 6, b);
+                        graphics.DrawLine(new(ForeColor), a + 6, b - 6, a, b);
                     }
                     else
                     {
@@ -204,8 +204,8 @@ namespace ReaLTaiizor.Controls
                             graphics.FillEllipse(new SolidBrush(_FullBarColor), new RectangleF(Width - 40, 0, Height, Height));
                             int a = Width - 40 + 4;
                             int b = Height - 4;
-                            graphics.DrawLine(new Pen(ForeColor), a, b - 3, a + 3, b);
-                            graphics.DrawLine(new Pen(ForeColor), a + 3, b, a + 6, b - 6);
+                            graphics.DrawLine(new(ForeColor), a, b - 3, a + 3, b);
+                            graphics.DrawLine(new(ForeColor), a + 3, b, a + 6, b - 6);
                         }
                         else
                         {
@@ -220,7 +220,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             ForeColor = HopeColors.FourLevelBorder;
         }
     }

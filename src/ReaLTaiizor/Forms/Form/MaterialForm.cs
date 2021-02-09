@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Forms
         private const int WMSZ_BOTTOMLEFT = 7;
         private const int WMSZ_BOTTOMRIGHT = 8;
 
-        private readonly Dictionary<int, int> _resizingLocationsToCmd = new Dictionary<int, int>
+        private readonly Dictionary<int, int> _resizingLocationsToCmd = new()
         {
             {HTTOP,         WMSZ_TOP},
             {HTTOPLEFT,     WMSZ_TOPLEFT},
@@ -112,8 +112,8 @@ namespace ReaLTaiizor.Forms
         public class MONITORINFOEX
         {
             public int cbSize = Marshal.SizeOf(typeof(MONITORINFOEX));
-            public RECT rcMonitor = new RECT();
-            public RECT rcWork = new RECT();
+            public RECT rcMonitor = new();
+            public RECT rcWork = new();
             public int dwFlags = 0;
 
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -167,7 +167,7 @@ namespace ReaLTaiizor.Forms
         private Rectangle _xButtonBounds;
         private Rectangle _actionBarBounds;
 
-        public Rectangle UserArea => new Rectangle(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
+        public Rectangle UserArea => new(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
 
         private Rectangle _statusBarBounds;
         private bool _maximized;
@@ -176,6 +176,15 @@ namespace ReaLTaiizor.Forms
         private bool _headerMouseDown;
 
         private Padding originalPadding;
+
+        private bool _MessageFilter = true;
+
+        [Category("Mouse")]
+        public bool MessageFilter
+        {
+            get => _MessageFilter;
+            set => _MessageFilter = value;
+        }
 
         public MaterialForm()
         {
@@ -191,10 +200,6 @@ namespace ReaLTaiizor.Forms
             Sizable = true;
             DoubleBuffered = true;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
-
-            // This enables the form to trigger the MouseMove event even when mouse is over another control
-            Application.AddMessageFilter(new MouseMessageFilter());
-            MouseMessageFilter.MouseMove += OnGlobalMouseMove;
 
             _clickAnimManager = new AnimationManager()
             {
@@ -316,7 +321,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private readonly MaterialDrawer drawerControl = new MaterialDrawer();
+        private readonly MaterialDrawer drawerControl = new();
 
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
@@ -325,8 +330,8 @@ namespace ReaLTaiizor.Forms
 
         protected void AddDrawerOverlayForm()
         {
-            Form drawerOverlay = new Form();
-            Form drawerForm = new Form();
+            Form drawerOverlay = new();
+            Form drawerForm = new();
 
             if (DrawerTabControl == null)
             {
@@ -358,16 +363,16 @@ namespace ReaLTaiizor.Forms
             drawerForm.ControlBox = false;
             drawerForm.FormBorderStyle = FormBorderStyle.None;
             drawerForm.Visible = true;
-            drawerForm.Size = new Size(DrawerWidth, H);
-            drawerForm.Location = new Point(Location.X, Y);
+            drawerForm.Size = new(DrawerWidth, H);
+            drawerForm.Location = new(Location.X, Y);
             drawerForm.ShowInTaskbar = false;
             drawerForm.Owner = drawerOverlay;
             drawerForm.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
 
             // Add drawer to overlay form
             drawerForm.Controls.Add(drawerControl);
-            drawerControl.Location = new Point(0, 0);
-            drawerControl.Size = new Size(DrawerWidth, H);
+            drawerControl.Location = new(0, 0);
+            drawerControl.Size = new(DrawerWidth, H);
             drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
             drawerControl.BaseTabControl = DrawerTabControl;
             drawerControl.ShowIconsWhenHidden = true;
@@ -399,8 +404,8 @@ namespace ReaLTaiizor.Forms
             drawerOverlay.ControlBox = false;
             drawerOverlay.FormBorderStyle = FormBorderStyle.None;
             drawerOverlay.Visible = true;
-            drawerOverlay.Size = new Size(Size.Width, H);
-            drawerOverlay.Location = new Point(Location.X, Y);
+            drawerOverlay.Size = new(Size.Width, H);
+            drawerOverlay.Location = new(Location.X, Y);
             drawerOverlay.ShowInTaskbar = false;
             drawerOverlay.Owner = this;
             drawerOverlay.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
@@ -415,13 +420,13 @@ namespace ReaLTaiizor.Forms
             Resize += (sender, e) =>
             {
                 H = Size.Height - _statusBarBounds.Height - _actionBarBounds.Height;
-                drawerForm.Size = new Size(DrawerWidth, H);
-                drawerOverlay.Size = new Size(Size.Width, H);
+                drawerForm.Size = new(DrawerWidth, H);
+                drawerOverlay.Size = new(Size.Width, H);
             };
 
             Move += (sender, e) =>
             {
-                Point pos = new Point(Location.X, Location.Y + _statusBarBounds.Height + _actionBarBounds.Height);
+                Point pos = new(Location.X, Location.Y + _statusBarBounds.Height + _actionBarBounds.Height);
                 drawerForm.Location = pos;
                 drawerOverlay.Location = pos;
             };
@@ -525,7 +530,7 @@ namespace ReaLTaiizor.Forms
 
                     Size = _previousSize;
                     ReleaseCapture();
-                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                    _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                 }
             }
             // Status bar buttons
@@ -534,7 +539,7 @@ namespace ReaLTaiizor.Forms
                 if (!_maximized)
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                    _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                 }
                 else
                 {
@@ -553,7 +558,7 @@ namespace ReaLTaiizor.Forms
                     int id = TrackPopupMenuEx(GetSystemMenu(Handle, false), TPM_LEFTALIGN | TPM_RETURNCMD, Cursor.Position.X, Cursor.Position.Y, Handle, IntPtr.Zero);
 
                     // Pass the command as a WM_SYSCOMMAND message
-                    SendMessage(Handle, WM_SYSCOMMAND, id, 0);
+                    _ = SendMessage(Handle, WM_SYSCOMMAND, id, 0);
                 }
             }
             else if (m.Msg == WM_NCLBUTTONDOWN)
@@ -575,7 +580,7 @@ namespace ReaLTaiizor.Forms
 
                 if (bFlag != 0)
                 {
-                    SendMessage(Handle, WM_SYSCOMMAND, 0xF000 | bFlag, (int)m.LParam);
+                    _ = SendMessage(Handle, WM_SYSCOMMAND, 0xF000 | bFlag, (int)m.LParam);
                 }
             }
             else if (m.Msg == WM_LBUTTONUP)
@@ -687,7 +692,7 @@ namespace ReaLTaiizor.Forms
             }
             // Convert to client position and pass to Form.MouseMove
             Point clientCursorPos = PointToClient(e.Location);
-            MouseEventArgs newE = new MouseEventArgs(MouseButtons.None, 0, clientCursorPos.X, clientCursorPos.Y, 0);
+            MouseEventArgs newE = new(MouseButtons.None, 0, clientCursorPos.X, clientCursorPos.Y, 0);
             OnMouseMove(newE);
         }
 
@@ -787,12 +792,12 @@ namespace ReaLTaiizor.Forms
             if (maximize)
             {
                 IntPtr monitorHandle = MonitorFromWindow(Handle, MONITOR_DEFAULTTONEAREST);
-                MONITORINFOEX monitorInfo = new MONITORINFOEX();
+                MONITORINFOEX monitorInfo = new();
                 GetMonitorInfo(new HandleRef(null, monitorHandle), monitorInfo);
                 _previousSize = Size;
                 _previousLocation = Location;
-                Size = new Size(monitorInfo.rcWork.Width(), monitorInfo.rcWork.Height());
-                Location = new Point(monitorInfo.rcWork.left, monitorInfo.rcWork.top);
+                Size = new(monitorInfo.rcWork.Width(), monitorInfo.rcWork.Height());
+                Location = new(monitorInfo.rcWork.left, monitorInfo.rcWork.top);
             }
             else
             {
@@ -844,7 +849,7 @@ namespace ReaLTaiizor.Forms
             ReleaseCapture();
             if (dir != -1)
             {
-                SendMessage(Handle, WM_NCLBUTTONDOWN, dir, 0);
+                _ = SendMessage(Handle, WM_NCLBUTTONDOWN, dir, 0);
             }
         }
 
@@ -852,11 +857,11 @@ namespace ReaLTaiizor.Forms
         {
             base.OnResize(e);
 
-            _minButtonBounds = new Rectangle((Width) - 3 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
-            _maxButtonBounds = new Rectangle((Width) - 2 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
-            _xButtonBounds = new Rectangle((Width) - STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
-            _statusBarBounds = new Rectangle(0, 0, Width, STATUS_BAR_HEIGHT);
-            _actionBarBounds = new Rectangle(0, STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
+            _minButtonBounds = new((Width) - 3 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _maxButtonBounds = new((Width) - 2 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _xButtonBounds = new((Width) - STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _statusBarBounds = new(0, 0, Width, STATUS_BAR_HEIGHT);
+            _actionBarBounds = new(0, STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -869,7 +874,7 @@ namespace ReaLTaiizor.Forms
             g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, _actionBarBounds);
 
             //Draw border
-            using (Pen borderPen = new Pen(SkinManager.DividersColor, 1))
+            using (Pen borderPen = new(SkinManager.DividersColor, 1))
             {
                 g.DrawLine(borderPen, new Point(0, _actionBarBounds.Bottom), new Point(0, Height - 2));
                 g.DrawLine(borderPen, new Point(Width - 1, _actionBarBounds.Bottom), new Point(Width - 1, Height - 2));
@@ -913,7 +918,7 @@ namespace ReaLTaiizor.Forms
                 g.FillRectangle(downBrush, _xButtonBounds);
             }
 
-            using (Pen formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
+            using (Pen formButtonsPen = new(SkinManager.ColorScheme.TextColor, 2))
             {
                 // Minimize button.
                 if (showMin)
@@ -965,13 +970,13 @@ namespace ReaLTaiizor.Forms
             // Drawer Icon
             if (DrawerTabControl != null)
             {
-                _drawerIconRect = new Rectangle(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + SkinManager.FORM_PADDING / 2, ACTION_BAR_HEIGHT);
+                _drawerIconRect = new(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + SkinManager.FORM_PADDING / 2, ACTION_BAR_HEIGHT);
                 // Ripple
                 if (_clickAnimManager.IsAnimating())
                 {
                     double clickAnimProgress = _clickAnimManager.GetProgress();
 
-                    SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (clickAnimProgress * 50)), Color.White));
+                    SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (clickAnimProgress * 50)), Color.White));
                     int rippleSize = (int)(clickAnimProgress * _drawerIconRect.Width * 1.75);
 
                     g.SetClip(_drawerIconRect);
@@ -980,43 +985,53 @@ namespace ReaLTaiizor.Forms
                     rippleBrush.Dispose();
                 }
 
-                using (Pen formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
-                {
-                    // Middle line
-                    g.DrawLine(
-                       formButtonsPen,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2),
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2));
+                using Pen formButtonsPen = new(SkinManager.ColorScheme.TextColor, 2);
+                // Middle line
+                g.DrawLine(
+                   formButtonsPen,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2),
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2));
 
-                    // Bottom line
-                    g.DrawLine(
-                       formButtonsPen,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6);
+                // Bottom line
+                g.DrawLine(
+                   formButtonsPen,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6);
 
-                    // Top line
-                    g.DrawLine(
-                       formButtonsPen,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6,
-                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                       _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
-                }
+                // Top line
+                g.DrawLine(
+                   formButtonsPen,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6,
+                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
+                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
             }
 
             //Form title
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
-                Rectangle textLocation = new Rectangle(SkinManager.FORM_PADDING + (DrawerTabControl != null ? 24 + (int)(SkinManager.FORM_PADDING * 1.5) : 0), STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
+                Rectangle textLocation = new(SkinManager.FORM_PADDING + (DrawerTabControl != null ? 24 + (int)(SkinManager.FORM_PADDING * 1.5) : 0), STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
                 NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.H6),
                     SkinManager.ColorScheme.TextColor,
                     textLocation.Location,
                     textLocation.Size,
                     MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
+            }
+
+            // This enables the form to trigger the MouseMove event even when mouse is over another control
+            if (MessageFilter)
+            {
+                Application.AddMessageFilter(new MaterialMouseMessageFilter());
+                MaterialMouseMessageFilter.MouseMove += OnGlobalMouseMove;
+            }
+            else
+            {
+                Application.RemoveMessageFilter(new MaterialMouseMessageFilter());
+                MaterialMouseMessageFilter.MouseMove += null;
             }
         }
 
@@ -1032,8 +1047,8 @@ namespace ReaLTaiizor.Forms
             //
             // MaterialForm
             //
-            ClientSize = new Size(284, 261);
-            MinimumSize = new Size(300, 200);
+            ClientSize = new(284, 261);
+            MinimumSize = new(300, 200);
             Name = "MaterialForm";
             Padding = new Padding(3, 64, 3, 3);
             Load += new EventHandler(MaterialForm_Load);
@@ -1042,27 +1057,6 @@ namespace ReaLTaiizor.Forms
 
         private void MaterialForm_Load(object sender, EventArgs e)
         {
-        }
-    }
-
-    public class MouseMessageFilter : IMessageFilter
-    {
-        private const int WM_MOUSEMOVE = 0x0200;
-
-        public static event MouseEventHandler MouseMove;
-
-        public bool PreFilterMessage(ref Message m)
-        {
-            if (m.Msg == WM_MOUSEMOVE)
-            {
-                if (MouseMove != null)
-                {
-                    int x = Control.MousePosition.X, y = Control.MousePosition.Y;
-
-                    MouseMove(null, new MouseEventArgs(MouseButtons.None, 0, x, y, 0));
-                }
-            }
-            return false;
         }
     }
 

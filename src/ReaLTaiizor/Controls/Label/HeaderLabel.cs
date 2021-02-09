@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
     {
         public HeaderLabel()
         {
-            Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
+            Font = new("Microsoft Sans Serif", 11, FontStyle.Bold);
             ForeColor = Color.FromArgb(255, 255, 255);
             BackColor = Color.Transparent;
         }

@@ -1,6 +1,5 @@
 ﻿#region Imports
 
-using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
@@ -11,7 +10,7 @@ namespace ReaLTaiizor.Controls
 {
     #region DreamTextBox
 
-    public class DreamTextBox : System.Windows.Forms.TextBox
+    public class DreamTextBox : TextBox
     {
         public DreamTextBox()
         {
@@ -71,30 +70,26 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            using (Bitmap B = new Bitmap(Width, Height))
-            {
-                using (Graphics G = Graphics.FromImage(B))
-                {
-                    Rectangle R1 = new Rectangle(0, 0, Width, Height / 2);
-                    Rectangle R2 = new Rectangle(0, Height / 2, Width, Height);
-                    G.DrawRectangle(new Pen(_ColorA), 0, 0, Width - 1, Height - 1);
+            using Bitmap B = new(Width, Height);
+            using Graphics G = Graphics.FromImage(B);
+            Rectangle R1 = new(0, 0, Width, Height / 2);
+            Rectangle R2 = new(0, Height / 2, Width, Height);
+            G.DrawRectangle(new(_ColorA), 0, 0, Width - 1, Height - 1);
 
-                    Brush GB1 = new LinearGradientBrush(R1, _ColorC, _ColorB, 40.0F);
-                    Brush GB2 = new LinearGradientBrush(R2, _ColorB, _ColorC, 90.0F);
-                    G.FillRectangle(GB1, R1);
-                    G.FillRectangle(GB2, R2);
-                    //Draw.Gradient(G, _ColorB, _ColorC, 1, 1, Width - 2, Height - 2);
+            Brush GB1 = new LinearGradientBrush(R1, _ColorC, _ColorB, 40.0F);
+            Brush GB2 = new LinearGradientBrush(R2, _ColorB, _ColorC, 90.0F);
+            G.FillRectangle(GB1, R1);
+            G.FillRectangle(GB2, R2);
+            //Draw.Gradient(G, _ColorB, _ColorC, 1, 1, Width - 2, Height - 2);
 
-                    Pen P2 = new Pen(_ColorF, 2);
-                    G.DrawRectangle(P2, 0, 0, Width, Height);
-                    SizeF O = G.MeasureString(Text, Font);
-                    G.DrawString(Text, Font, new SolidBrush(ForeColor), Width / 2 - O.Width / 2, Height / 2 - O.Height / 2);
+            Pen P2 = new(_ColorF, 2);
+            G.DrawRectangle(P2, 0, 0, Width, Height);
+            SizeF O = G.MeasureString(Text, Font);
+            G.DrawString(Text, Font, new SolidBrush(ForeColor), Width / 2 - O.Width / 2, Height / 2 - O.Height / 2);
 
-                    //Draw.Blend(G, _ColorD, _ColorE, _ColorD, 0.5, 0, 1, 1, Width - 2, 1);
-                    Bitmap B1 = B;
-                    e.Graphics.DrawImage(B1, 0, 0);
-                }
-            }
+            //Draw.Blend(G, _ColorD, _ColorE, _ColorD, 0.5, 0, 1, 1, Width - 2, 1);
+            Bitmap B1 = B;
+            e.Graphics.DrawImage(B1, 0, 0);
         }
     }
 

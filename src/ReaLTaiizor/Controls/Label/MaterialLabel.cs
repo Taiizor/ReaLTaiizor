@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
             if (AutoSize)
             {
                 Size strSize;
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+                using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
                 {
                     strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(_fontType));
                     strSize.Width += 1; // necessary to avoid a bug when autosize = true
@@ -88,39 +88,19 @@ namespace ReaLTaiizor.Controls
 
         private void updateAligment()
         {
-            switch (_TextAlign)
+            Alignment = _TextAlign switch
             {
-                case ContentAlignment.TopLeft:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Top | MaterialNativeTextRenderer.TextAlignFlags.Left;
-                    break;
-                case ContentAlignment.TopCenter:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Top | MaterialNativeTextRenderer.TextAlignFlags.Center;
-                    break;
-                case ContentAlignment.TopRight:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Top | MaterialNativeTextRenderer.TextAlignFlags.Right;
-                    break;
-                case ContentAlignment.MiddleLeft:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Middle | MaterialNativeTextRenderer.TextAlignFlags.Left;
-                    break;
-                case ContentAlignment.MiddleCenter:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Middle | MaterialNativeTextRenderer.TextAlignFlags.Center;
-                    break;
-                case ContentAlignment.MiddleRight:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Middle | MaterialNativeTextRenderer.TextAlignFlags.Right;
-                    break;
-                case ContentAlignment.BottomLeft:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Bottom | MaterialNativeTextRenderer.TextAlignFlags.Left;
-                    break;
-                case ContentAlignment.BottomCenter:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Bottom | MaterialNativeTextRenderer.TextAlignFlags.Center;
-                    break;
-                case ContentAlignment.BottomRight:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Bottom | MaterialNativeTextRenderer.TextAlignFlags.Right;
-                    break;
-                default:
-                    Alignment = MaterialNativeTextRenderer.TextAlignFlags.Top | MaterialNativeTextRenderer.TextAlignFlags.Left;
-                    break;
-            }
+                ContentAlignment.TopLeft => MaterialNativeTextRenderer.TextAlignFlags.Top | MaterialNativeTextRenderer.TextAlignFlags.Left,
+                ContentAlignment.TopCenter => MaterialNativeTextRenderer.TextAlignFlags.Top | MaterialNativeTextRenderer.TextAlignFlags.Center,
+                ContentAlignment.TopRight => MaterialNativeTextRenderer.TextAlignFlags.Top | MaterialNativeTextRenderer.TextAlignFlags.Right,
+                ContentAlignment.MiddleLeft => MaterialNativeTextRenderer.TextAlignFlags.Middle | MaterialNativeTextRenderer.TextAlignFlags.Left,
+                ContentAlignment.MiddleCenter => MaterialNativeTextRenderer.TextAlignFlags.Middle | MaterialNativeTextRenderer.TextAlignFlags.Center,
+                ContentAlignment.MiddleRight => MaterialNativeTextRenderer.TextAlignFlags.Middle | MaterialNativeTextRenderer.TextAlignFlags.Right,
+                ContentAlignment.BottomLeft => MaterialNativeTextRenderer.TextAlignFlags.Bottom | MaterialNativeTextRenderer.TextAlignFlags.Left,
+                ContentAlignment.BottomCenter => MaterialNativeTextRenderer.TextAlignFlags.Bottom | MaterialNativeTextRenderer.TextAlignFlags.Center,
+                ContentAlignment.BottomRight => MaterialNativeTextRenderer.TextAlignFlags.Bottom | MaterialNativeTextRenderer.TextAlignFlags.Right,
+                _ => MaterialNativeTextRenderer.TextAlignFlags.Top | MaterialNativeTextRenderer.TextAlignFlags.Left,
+            };
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -129,20 +109,18 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor);
 
             // Draw Text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-            {
-                NativeText.DrawMultilineTransparentText(
-                    Text,
-                    SkinManager.getLogFontByType(_fontType),
-                    Enabled ? HighEmphasis ? UseAccent ?
-                    SkinManager.ColorScheme.AccentColor : // High emphasis, accent
-                    SkinManager.ColorScheme.PrimaryColor : // High emphasis, primary
-                    SkinManager.TextHighEmphasisColor : // Normal
-                    SkinManager.TextDisabledOrHintColor, // Disabled
-                    ClientRectangle.Location,
-                    ClientRectangle.Size,
-                    Alignment);
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            NativeText.DrawMultilineTransparentText(
+                Text,
+                SkinManager.getLogFontByType(_fontType),
+                Enabled ? HighEmphasis ? UseAccent ?
+                SkinManager.ColorScheme.AccentColor : // High emphasis, accent
+                SkinManager.ColorScheme.PrimaryColor : // High emphasis, primary
+                SkinManager.TextHighEmphasisColor : // Normal
+                SkinManager.TextDisabledOrHintColor, // Disabled
+                ClientRectangle.Location,
+                ClientRectangle.Size,
+                Alignment);
         }
 
         protected override void InitLayout()

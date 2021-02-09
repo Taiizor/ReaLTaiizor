@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Native
                 return;
             }
 
-            Point difference = new Point(_initialContact.X - Cursor.Position.X, _initialContact.Y - Cursor.Position.Y);
+            Point difference = new(_initialContact.X - Cursor.Position.X, _initialContact.Y - Cursor.Position.Y);
             _activeSplitter.UpdateOverlay(difference);
         }
 
@@ -159,7 +159,7 @@ namespace ReaLTaiizor.Native
             _dragTimer.Stop();
             _activeSplitter.HideOverlay();
 
-            Point difference = new Point(_initialContact.X - Cursor.Position.X, _initialContact.Y - Cursor.Position.Y);
+            Point difference = new(_initialContact.X - Cursor.Position.X, _initialContact.Y - Cursor.Position.Y);
             _activeSplitter.Move(difference);
 
             _isDragging = false;

@@ -136,15 +136,15 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
 
-            Rectangle Base = new Rectangle(0, 24, W, H);
-            GraphicsPath GP = new GraphicsPath();
-            GraphicsPath GP2 = new GraphicsPath();
-            GraphicsPath GP3 = new GraphicsPath();
+            Rectangle Base = new(0, 24, W, H);
+            GraphicsPath GP = new();
+            GraphicsPath GP2 = new();
+            GraphicsPath GP3 = new();
 
             Graphics _with15 = G;
             _with15.SmoothingMode = SmoothingMode.HighQuality;
@@ -182,14 +182,14 @@ namespace ReaLTaiizor.Controls
                     if (_Pattern)
                     {
                         //-- Hatch Brush
-                        HatchBrush HB = new HatchBrush(HatchStyle.Plaid, _DarkerProgress, _ProgressColor);
+                        HatchBrush HB = new(HatchStyle.Plaid, _DarkerProgress, _ProgressColor);
                         _with15.FillRectangle(HB, new Rectangle(0, 24, iValue - 1, H - 1));
                     }
 
                     if (_ShowBalloon)
                     {
                         //-- Balloon
-                        Rectangle Balloon = new Rectangle(iValue - 18, 0, 34, 16);
+                        Rectangle Balloon = new(iValue - 18, 0, 34, 16);
                         GP2 = ForeverLibrary.RoundRec(Balloon, 4);
                         _with15.FillPath(new SolidBrush(_BaseColor), GP2);
 

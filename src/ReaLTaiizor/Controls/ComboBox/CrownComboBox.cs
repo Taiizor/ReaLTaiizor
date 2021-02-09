@@ -129,55 +129,53 @@ namespace ReaLTaiizor.Controls
         {
             if (_buffer == null)
             {
-                _buffer = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
+                _buffer = new(ClientRectangle.Width, ClientRectangle.Height);
             }
 
-            using (Graphics g = Graphics.FromImage(_buffer))
+            using Graphics g = Graphics.FromImage(_buffer);
+            Rectangle rect = new(0, 0, ClientSize.Width, ClientSize.Height);
+
+            Color textColor = Enabled ? ThemeProvider.Theme.Colors.LightText : ThemeProvider.Theme.Colors.DisabledText;
+
+            Color borderColor = ThemeProvider.Theme.Colors.GreySelection;
+            Color fillColor = ThemeProvider.Theme.Colors.LightBackground;
+
+            if (Focused && TabStop)
             {
-                Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+                borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
+            }
 
-                Color textColor = Enabled ? ThemeProvider.Theme.Colors.LightText : ThemeProvider.Theme.Colors.DisabledText;
+            using (SolidBrush b = new(fillColor))
+            {
+                g.FillRectangle(b, rect);
+            }
 
-                Color borderColor = ThemeProvider.Theme.Colors.GreySelection;
-                Color fillColor = ThemeProvider.Theme.Colors.LightBackground;
+            using (Pen p = new(borderColor, 1))
+            {
+                Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                g.DrawRectangle(p, modRect);
+            }
 
-                if (Focused && TabStop)
+            Bitmap icon = Properties.Resources.scrollbar_arrow_hot;
+            g.DrawImageUnscaled(icon, rect.Right - icon.Width - (ThemeProvider.Theme.Sizes.Padding / 2), (rect.Height / 2) - (icon.Height / 2));
+
+            string text = SelectedItem != null ? SelectedItem.ToString() : Text;
+
+            using (SolidBrush b = new(textColor))
+            {
+                int padding = 2;
+
+                Rectangle modRect = new(rect.Left + padding, rect.Top + padding, rect.Width - icon.Width - (ThemeProvider.Theme.Sizes.Padding / 2) - (padding * 2), rect.Height - (padding * 2));
+
+                StringFormat stringFormat = new()
                 {
-                    borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
-                }
+                    LineAlignment = StringAlignment.Center,
+                    Alignment = StringAlignment.Near,
+                    FormatFlags = StringFormatFlags.NoWrap,
+                    Trimming = StringTrimming.EllipsisCharacter
+                };
 
-                using (SolidBrush b = new SolidBrush(fillColor))
-                {
-                    g.FillRectangle(b, rect);
-                }
-
-                using (Pen p = new Pen(borderColor, 1))
-                {
-                    Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
-                    g.DrawRectangle(p, modRect);
-                }
-
-                Bitmap icon = Properties.Resources.scrollbar_arrow_hot;
-                g.DrawImageUnscaled(icon, rect.Right - icon.Width - (ThemeProvider.Theme.Sizes.Padding / 2), (rect.Height / 2) - (icon.Height / 2));
-
-                string text = SelectedItem != null ? SelectedItem.ToString() : Text;
-
-                using (SolidBrush b = new SolidBrush(textColor))
-                {
-                    int padding = 2;
-
-                    Rectangle modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - icon.Width - (ThemeProvider.Theme.Sizes.Padding / 2) - (padding * 2), rect.Height - (padding * 2));
-
-                    StringFormat stringFormat = new StringFormat
-                    {
-                        LineAlignment = StringAlignment.Center,
-                        Alignment = StringAlignment.Near,
-                        FormatFlags = StringFormatFlags.NoWrap,
-                        Trimming = StringTrimming.EllipsisCharacter
-                    };
-
-                    g.DrawString(text, Font, b, modRect, stringFormat);
-                }
+                g.DrawString(text, Font, b, modRect, stringFormat);
             }
         }
 
@@ -205,7 +203,7 @@ namespace ReaLTaiizor.Controls
                 fillColor = ThemeProvider.Theme.Colors.BlueSelection;
             }
 
-            using (SolidBrush b = new SolidBrush(fillColor))
+            using (SolidBrush b = new(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
@@ -214,22 +212,20 @@ namespace ReaLTaiizor.Controls
             {
                 string text = Items[e.Index].ToString();
 
-                using (SolidBrush b = new SolidBrush(textColor))
+                using SolidBrush b = new(textColor);
+                int padding = 2;
+
+                Rectangle modRect = new(rect.Left + padding, rect.Top + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
+
+                StringFormat stringFormat = new()
                 {
-                    int padding = 2;
+                    LineAlignment = StringAlignment.Center,
+                    Alignment = StringAlignment.Near,
+                    FormatFlags = StringFormatFlags.NoWrap,
+                    Trimming = StringTrimming.EllipsisCharacter
+                };
 
-                    Rectangle modRect = new Rectangle(rect.Left + padding, rect.Top + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
-
-                    StringFormat stringFormat = new StringFormat
-                    {
-                        LineAlignment = StringAlignment.Center,
-                        Alignment = StringAlignment.Near,
-                        FormatFlags = StringFormatFlags.NoWrap,
-                        Trimming = StringTrimming.EllipsisCharacter
-                    };
-
-                    g.DrawString(text, Font, b, modRect, stringFormat);
-                }
+                g.DrawString(text, Font, b, modRect, stringFormat);
             }
         }
     }

@@ -45,8 +45,8 @@ namespace ReaLTaiizor.Localization.Poison
         private void importManifestResource(string ctrlName)
         {
             Assembly callingAssembly = Assembly.GetEntryAssembly();
-            string localizationFilename = "";
             Stream xmlStream = null;
+            string localizationFilename;
             if (callingAssembly != null)
             {
                 localizationFilename = callingAssembly.GetName().Name + ".Localization.Poison." + CurrentLanguage() + "." + ctrlName + ".xml";
@@ -68,12 +68,12 @@ namespace ReaLTaiizor.Localization.Poison
 
             if (languageDataset == null)
             {
-                languageDataset = new DataSet();
+                languageDataset = new();
             }
 
             if (xmlStream != null)
             {
-                DataSet importDataset = new DataSet();
+                DataSet importDataset = new();
                 importDataset.ReadXml(xmlStream);
 
                 languageDataset.Merge(importDataset);

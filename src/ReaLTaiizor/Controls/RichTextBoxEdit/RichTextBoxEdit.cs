@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
 
-        public System.Windows.Forms.RichTextBox RT_RTB = new System.Windows.Forms.RichTextBox();
+        public RichTextBox RT_RTB = new();
         private bool _ReadOnly;
         private bool _WordWrap;
         private bool _AutoWordSelection;
@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         private Color _EdgeColor = Color.White;
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Color _TextBackColor = Color.White;
-        private Font _TextFont = new Font("Tahoma", 10);
+        private Font _TextFont = new("Tahoma", 10);
         private BorderStyle _TextBorderStyle = BorderStyle.None;
 
         #endregion
@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            RT_RTB.Size = new Size(Width - 13, Height - 11);
+            RT_RTB.Size = new(Width - 13, Height - 11);
         }
 
 
@@ -183,7 +183,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
 
-            Shape = new GraphicsPath();
+            Shape = new();
             GraphicsPath _Shape = Shape;
             _Shape.AddArc(0, 0, 10, 10, 180, 90);
             _Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -203,8 +203,8 @@ namespace ReaLTaiizor.Controls
         {
             RichTextBox _RTB = RT_RTB;
             _RTB.BackColor = TextBackColor;
-            _RTB.Size = new Size(Width - 10, 100);
-            _RTB.Location = new Point(7, 5);
+            _RTB.Size = new(Width - 10, 100);
+            _RTB.Location = new(7, 5);
             _RTB.Text = string.Empty;
             _RTB.BorderStyle = TextBorderStyle;
             _RTB.Font = TextFont;
@@ -223,8 +223,8 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.DimGray;
 
             Text = null;
-            Font = new Font("Tahoma", 10);
-            Size = new Size(150, 100);
+            Font = new("Tahoma", 10);
+            Size = new(150, 100);
             WordWrap = true;
             AutoWordSelection = false;
             DoubleBuffered = true;
@@ -235,12 +235,12 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingType;
             G.Clear(BaseColor);
             G.FillPath(new SolidBrush(EdgeColor), Shape);
-            G.DrawPath(new Pen(BorderColor), Shape);
+            G.DrawPath(new(BorderColor), Shape);
             G.Dispose();
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             B.Dispose();

@@ -262,7 +262,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(139, 31);
+            Size = new(139, 31);
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -368,7 +368,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (DefaultLocation)
                 {
-                    Location = new Point(Parent.Width - 139, 0); //Location = new Point(FindForm().Width - 139, 0);
+                    Location = new(Parent.Width - 139, 0); //Location = new(FindForm().Width - 139, 0);
                 }
             }
             catch (Exception)
@@ -383,21 +383,21 @@ namespace ReaLTaiizor.Controls
 
             // This defines the size of the background that is drawn when
             // the mouse moves over one of the three ControlBox buttons
-            Size btnBackgroundSize = new Size(46, Height);
+            Size btnBackgroundSize = new(46, Height);
 
             // Minimize button
-            Font minimizeBtnFont = new Font("Tahoma", 12);
-            Point minimizeBtnPoint = new Point(15, 5);
-            SolidBrush minimizeBtnBrush = new SolidBrush(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
+            Font minimizeBtnFont = new("Tahoma", 12);
+            Point minimizeBtnPoint = new(15, 5);
+            SolidBrush minimizeBtnBrush = new(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
 
             if (hover_min && _EnableMinimize)
             {
-                using (SolidBrush backColor = new SolidBrush(_MinimizeHoverColor))
+                using (SolidBrush backColor = new(_MinimizeHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(1, 0), btnBackgroundSize));
                 }
 
-                minimizeBtnBrush = new SolidBrush(_MinimizeHoverForeColor);
+                minimizeBtnBrush = new(_MinimizeHoverForeColor);
             }
 
             g.DrawString("\u2212", minimizeBtnFont, minimizeBtnBrush, minimizeBtnPoint);
@@ -405,18 +405,18 @@ namespace ReaLTaiizor.Controls
             minimizeBtnFont.Dispose();
 
             // Maxmize button
-            Font maximizeBtnFont = new Font("Marlett", 9);
-            Point maximizeBtnPoint = new Point(63, 10);
-            SolidBrush maximizeBtnBrush = new SolidBrush(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
+            Font maximizeBtnFont = new("Marlett", 9);
+            Point maximizeBtnPoint = new(63, 10);
+            SolidBrush maximizeBtnBrush = new(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
 
             if (hover_max && _EnableMaximize)
             {
-                using (SolidBrush backColor = new SolidBrush(_MaximizeHoverColor))
+                using (SolidBrush backColor = new(_MaximizeHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(47, 0), btnBackgroundSize));
                 }
 
-                maximizeBtnBrush = new SolidBrush(_MaximizeHoverForeColor);
+                maximizeBtnBrush = new(_MaximizeHoverForeColor);
             }
 
             g.DrawString(FindForm().WindowState != FormWindowState.Maximized ? "1" : "2", maximizeBtnFont, maximizeBtnBrush, maximizeBtnPoint);
@@ -425,18 +425,18 @@ namespace ReaLTaiizor.Controls
             maximizeBtnFont.Dispose();
 
             // Close button
-            Font closeBtnFont = new Font("Tahoma", 11);
-            Point closeBtnPoint = new Point(107, 6);
-            SolidBrush closeBtnBrush = new SolidBrush(_EnableCloseColor);
+            Font closeBtnFont = new("Tahoma", 11);
+            Point closeBtnPoint = new(107, 6);
+            SolidBrush closeBtnBrush = new(_EnableCloseColor);
 
             if (hover_close)
             {
-                using (SolidBrush backColor = new SolidBrush(_CloseHoverColor))
+                using (SolidBrush backColor = new(_CloseHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(93, 0), btnBackgroundSize));
                 }
 
-                closeBtnBrush = new SolidBrush(_CloseHoverForeColor);
+                closeBtnBrush = new(_CloseHoverForeColor);
             }
 
             g.DrawString("\u2A09", closeBtnFont, closeBtnBrush, closeBtnPoint);

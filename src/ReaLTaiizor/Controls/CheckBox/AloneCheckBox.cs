@@ -116,7 +116,7 @@ namespace ReaLTaiizor.Controls
             Enabled = true;
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
             BackColor = Color.White;
-            Size = new Size(118, 18);
+            Size = new(118, 18);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -129,54 +129,38 @@ namespace ReaLTaiizor.Controls
             bool enabled = Enabled;
             if (enabled)
             {
-                using (SolidBrush solidBrush = new SolidBrush(AloneLibrary.ColorFromHex("#F3F4F7")))
+                using (SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#F3F4F7")))
                 {
-                    using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
-                    {
-                        using (SolidBrush solidBrush2 = new SolidBrush(ForeColor))
-                        {
-                            using (Font font = new Font("Segoe UI", 9f))
-                            {
-                                G.FillPath(solidBrush, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
-                                G.DrawPath(pen, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
-                                G.DrawString(Text, font, solidBrush2, new Point(25, 0));
-                            }
-                        }
-                    }
+                    using Pen pen = new(AloneLibrary.ColorFromHex("#D0D5D9"));
+                    using SolidBrush solidBrush2 = new(ForeColor);
+                    using Font font = new("Segoe UI", 9f);
+                    G.FillPath(solidBrush, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
+                    G.DrawPath(pen, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
+                    G.DrawString(Text, font, solidBrush2, new Point(25, 0));
                 }
                 bool @checked = Checked;
                 if (@checked)
                 {
-                    using (Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Enabled))))
-                    {
-                        G.DrawImage(image, new Rectangle(3, 3, 11, 11));
-                    }
+                    using Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Enabled)));
+                    G.DrawImage(image, new Rectangle(3, 3, 11, 11));
                 }
             }
             else
             {
-                using (SolidBrush solidBrush3 = new SolidBrush(AloneLibrary.ColorFromHex("#F5F5F8")))
+                using (SolidBrush solidBrush3 = new(AloneLibrary.ColorFromHex("#F5F5F8")))
                 {
-                    using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#E1E1E2")))
-                    {
-                        using (SolidBrush solidBrush4 = new SolidBrush(AloneLibrary.ColorFromHex("#D0D3D7")))
-                        {
-                            using (Font font2 = new Font("Segoe UI", 9f))
-                            {
-                                G.FillPath(solidBrush3, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
-                                G.DrawPath(pen2, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
-                                G.DrawString(Text, font2, solidBrush4, new Point(25, 0));
-                            }
-                        }
-                    }
+                    using Pen pen2 = new(AloneLibrary.ColorFromHex("#E1E1E2"));
+                    using SolidBrush solidBrush4 = new(AloneLibrary.ColorFromHex("#D0D3D7"));
+                    using Font font2 = new("Segoe UI", 9f);
+                    G.FillPath(solidBrush3, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
+                    G.DrawPath(pen2, AloneLibrary.RoundRect(new Rectangle(0, 0, 16, 16), 3, AloneLibrary.RoundingStyle.All));
+                    G.DrawString(Text, font2, solidBrush4, new Point(25, 0));
                 }
                 bool checked2 = Checked;
                 if (checked2)
                 {
-                    using (Image image2 = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Disabled))))
-                    {
-                        G.DrawImage(image2, new Rectangle(3, 3, 11, 11));
-                    }
+                    using Image image2 = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64Disabled)));
+                    G.DrawImage(image2, new Rectangle(3, 3, 11, 11));
                 }
             }
         }
@@ -195,7 +179,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            base.Size = new Size(base.Width, 18);
+            base.Size = new(base.Width, 18);
         }
     }
 

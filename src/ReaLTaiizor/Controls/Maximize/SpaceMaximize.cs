@@ -14,6 +14,29 @@ namespace ReaLTaiizor.Controls
     public class SpaceMaximize : SpaceControl // A Normal Size, Max Sze Button for the App
     {
         public FormWindowState WindowState { get; set; }
+
+        private bool _DefaultLocation = true;
+        public bool DefaultLocation
+        {
+            get => _DefaultLocation;
+            set
+            {
+                _DefaultLocation = value;
+                Invalidate();
+            }
+        }
+
+        private bool _DefaultAnchor = true;
+        public bool DefaultAnchor
+        {
+            get => _DefaultAnchor;
+            set
+            {
+                _DefaultAnchor = value;
+                Invalidate();
+            }
+        }
+
         public SpaceMaximize()
         {
             SetColor("DownGradient1", 140, 138, 27); // Basic Gradients Used to Shade the Button
@@ -26,12 +49,13 @@ namespace ReaLTaiizor.Controls
             SetColor("Border1", 35, 35, 35); // The Inside Border
             SetColor("Border2", 42, 42, 42); // The Outside Border
             Cursor = Cursors.Hand;
-            Size = new Size(23, 22);
+            Size = new(23, 21);
         }
 
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
+
             if (Parent.FindForm().WindowState == FormWindowState.Normal)
             {
                 Text = "+";
@@ -39,6 +63,16 @@ namespace ReaLTaiizor.Controls
             else if (Parent.FindForm().WindowState == FormWindowState.Maximized)
             {
                 Text = "-";
+            }
+
+            if (DefaultLocation)
+            {
+                Location = new(Parent.Width - (Width * 2) - 4, 3);
+            }
+
+            if (DefaultAnchor)
+            {
+                Anchor = AnchorStyles.Top | AnchorStyles.Right;
             }
         }
 
@@ -60,9 +94,9 @@ namespace ReaLTaiizor.Controls
             C4 = GetColor("NoneGradient2");
             C5 = GetColor("ClickedGradient1");
             C6 = GetColor("ClickedGradient2");
-            B1 = new SolidBrush(GetColor("Text")); // Set up Color for the Text
-            P1 = new Pen(GetColor("Border1")); // Get and create the borders for the Buttons
-            P2 = new Pen(GetColor("Border2"));
+            B1 = new(GetColor("Text")); // Set up Color for the Text
+            P1 = new(GetColor("Border1")); // Get and create the borders for the Buttons
+            P2 = new(GetColor("Border2"));
         }
 
         protected override void PaintHook()

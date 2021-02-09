@@ -58,11 +58,11 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath BG = RoundRectangle.CreateRoundRect(1, 1, Width - 2, Height - 2, 3);
             graphics.FillPath(new SolidBrush(ThemeColor), BG);
-            graphics.DrawPath(new Pen(_BorderColor), BG);
+            graphics.DrawPath(new(_BorderColor), BG);
 
             if (ShowText)
             {
-                graphics.DrawLine(new Pen(_LineColor, 1), 0, 38, Width, 38);
+                graphics.DrawLine(new(_LineColor, 1), 0, 38, Width, 38);
                 graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(15, 0, Width - 50, 38), HopeStringAlign.Left);
             }
         }
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             ForeColor = HopeColors.MainText;
         }
     }

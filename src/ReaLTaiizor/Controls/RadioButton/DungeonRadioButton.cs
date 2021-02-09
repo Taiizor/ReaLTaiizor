@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             Width = 180;
             ForeColor = Color.FromArgb(76, 76, 95);
             Cursor = Cursors.Hand;
@@ -123,9 +123,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control _Control in Parent.Controls)
             {
-                if (!object.ReferenceEquals(_Control, this) && _Control is DungeonRadioButton)
+                if (!object.ReferenceEquals(_Control, this) && _Control is DungeonRadioButton button)
                 {
-                    ((DungeonRadioButton)_Control).Checked = false;
+                    button.Checked = false;
                 }
             }
         }
@@ -139,21 +139,21 @@ namespace ReaLTaiizor.Controls
             MyDrawer.SmoothingMode = SmoothingMode.AntiAlias;
 
             // Fill the body of the ellipse with a gradient
-            LinearGradientBrush LGB = new LinearGradientBrush(new Rectangle(new Point(0, 0), new Size(14, 14)), _CheckedBackColorA, _CheckedBackColorB, 90);
+            LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(14, 14)), _CheckedBackColorA, _CheckedBackColorB, 90);
             MyDrawer.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(14, 14)));
 
-            GraphicsPath GP = new GraphicsPath();
+            GraphicsPath GP = new();
             GP.AddEllipse(new Rectangle(0, 0, 14, 14));
             MyDrawer.SetClip(GP);
             MyDrawer.ResetClip();
 
             // Draw ellipse border
-            MyDrawer.DrawEllipse(new Pen(_BorderColor), new Rectangle(new Point(0, 0), new Size(14, 14)));
+            MyDrawer.DrawEllipse(new(_BorderColor), new Rectangle(new Point(0, 0), new Size(14, 14)));
 
             // Draw an ellipse inside the body
             if (_Checked)
             {
-                SolidBrush EllipseColor = new SolidBrush(_CheckedColor);
+                SolidBrush EllipseColor = new(_CheckedColor);
                 MyDrawer.FillEllipse(EllipseColor, new Rectangle(new Point(4, 4), new Size(6, 6)));
             }
             MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), 16, 7, new StringFormat { LineAlignment = StringAlignment.Center });

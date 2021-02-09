@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
 
         private bool _readOnly;
 
-        public virtual System.Windows.Forms.TextBox TB
+        public virtual TextBox TB
         {
             [CompilerGenerated]
             get => _TB;
@@ -55,11 +55,11 @@ namespace ReaLTaiizor.Controls
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                EventHandler value2 = delegate (object a0, EventArgs a1)
+                void value2(object a0, EventArgs a1)
                 {
                     TextChangeTb();
-                };
-                System.Windows.Forms.TextBox tB = _TB;
+                }
+                TextBox tB = _TB;
                 if (tB != null)
                 {
                     tB.TextChanged -= value2;
@@ -203,7 +203,7 @@ namespace ReaLTaiizor.Controls
             tB.ForeColor = ForeColor;
             tB.TextAlign = HorizontalAlignment.Left;
             tB.BorderStyle = BorderStyle.None;
-            tB.Location = new Point(3, 3);
+            tB.Location = new(3, 3);
             tB.Font = Font;
             tB.Size = checked(new Size(base.Width - 3, base.Height - 3));
             tB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -227,8 +227,8 @@ namespace ReaLTaiizor.Controls
             TextAlign = HorizontalAlignment.Left;
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
             BackColor = Color.White;
-            Font = new Font("Segoe UI", 9f);
-            base.Size = new Size(97, 29);
+            Font = new("Segoe UI", 9f);
+            base.Size = new(97, 29);
             Enabled = true;
         }
 
@@ -246,26 +246,20 @@ namespace ReaLTaiizor.Controls
                 bool flag = State == AloneTextBox.MouseState.Down;
                 if (flag)
                 {
-                    using (Pen pen = new Pen(AloneLibrary.ColorFromHex("#78B7E6")))
-                    {
-                        G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
-                    }
+                    using Pen pen = new(AloneLibrary.ColorFromHex("#78B7E6"));
+                    G.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
                 }
                 else
                 {
-                    using (Pen pen2 = new Pen(AloneLibrary.ColorFromHex("#D0D5D9")))
-                    {
-                        G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
-                    }
+                    using Pen pen2 = new(AloneLibrary.ColorFromHex("#D0D5D9"));
+                    G.DrawPath(pen2, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
                 }
             }
             else
             {
                 TB.ForeColor = ForeColor;
-                using (Pen pen3 = new Pen(AloneLibrary.ColorFromHex("#E1E1E2")))
-                {
-                    G.DrawPath(pen3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
-                }
+                using Pen pen3 = new(AloneLibrary.ColorFromHex("#E1E1E2"));
+                G.DrawPath(pen3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
             }
             TB.TextAlign = TextAlign;
             TB.UseSystemPasswordChar = UseSystemPasswordChar;
@@ -280,13 +274,13 @@ namespace ReaLTaiizor.Controls
                 if (flag)
                 {
                     int height = TB.Height;
-                    TB.Location = new Point(10, (int)Math.Round(unchecked((double)base.Height / 2.0 - (double)height / 2.0 - 0.0)));
-                    TB.Size = new Size(base.Width - 20, height);
+                    TB.Location = new(10, (int)Math.Round(unchecked((double)base.Height / 2.0 - (double)height / 2.0 - 0.0)));
+                    TB.Size = new(base.Width - 20, height);
                 }
                 else
                 {
-                    TB.Location = new Point(10, 10);
-                    TB.Size = new Size(base.Width - 20, base.Height - 20);
+                    TB.Location = new(10, 10);
+                    TB.Size = new(base.Width - 20, base.Height - 20);
                 }
             }
         }

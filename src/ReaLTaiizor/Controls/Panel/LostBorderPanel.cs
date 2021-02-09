@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            e.Graphics.DrawRectangle(new Pen(_bordercolor), 0, 0, Width - 1, Height - 1);
+            e.Graphics.DrawRectangle(new(_bordercolor), 0, 0, Width - 1, Height - 1);
         }
     }
 

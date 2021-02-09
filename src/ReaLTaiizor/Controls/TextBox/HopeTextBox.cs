@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
 
     public class HopeTextBox : Control
     {
-        private readonly TextBoxHopeBase _baseTextBox = new TextBoxHopeBase
+        private readonly TextBoxHopeBase _baseTextBox = new()
         {
             BorderStyle = BorderStyle.None,
             ForeColor = HopeColors.MainText,
@@ -114,7 +114,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            _baseTextBox.Location = new Point(12, 8);
+            _baseTextBox.Location = new(12, 8);
             _baseTextBox.Width = Width - 24;
             _baseTextBox.Height = (Height - 16) > 0 ? (Height - 16) : 0;
             Height = _baseTextBox.Height + 16;
@@ -127,14 +127,14 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(BackColor), bg);
-            g.DrawPath(new Pen(_baseTextBox.Focused ? _BorderColorA : _BorderColorB, 0.5f), bg);
+            g.DrawPath(new(_baseTextBox.Focused ? _BorderColorA : _BorderColorB, 0.5f), bg);
         }
 
         public HopeTextBox()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             ForeColor = HopeColors.MainText;
             BackColor = Color.White;
 

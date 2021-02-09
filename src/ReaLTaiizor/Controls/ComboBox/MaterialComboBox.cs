@@ -158,10 +158,10 @@ namespace ReaLTaiizor.Controls
                 , ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, LINE_Y);
 
             // Create and Draw the arrow
-            GraphicsPath pth = new GraphicsPath();
-            PointF TopRight = new PointF(Width - 0.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
-            PointF MidBottom = new PointF(Width - 4.5f - SkinManager.FORM_PADDING, (Height >> 1) + 2.5f);
-            PointF TopLeft = new PointF(Width - 8.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
+            GraphicsPath pth = new();
+            PointF TopRight = new(Width - 0.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
+            PointF MidBottom = new(Width - 4.5f - SkinManager.FORM_PADDING, (Height >> 1) + 2.5f);
+            PointF TopLeft = new(Width - 8.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
             pth.AddLine(TopLeft, TopRight);
             pth.AddLine(TopRight, MidBottom);
 
@@ -171,7 +171,7 @@ namespace ReaLTaiizor.Controls
 
             // HintText
             bool userTextPresent = SelectedIndex >= 0;
-            Rectangle hintRect = new Rectangle(SkinManager.FORM_PADDING, ClientRectangle.Y, Width, LINE_Y);
+            Rectangle hintRect = new(SkinManager.FORM_PADDING, ClientRectangle.Y, Width, LINE_Y);
             int hintTextSize = 16;
 
             // bottom line base
@@ -183,7 +183,7 @@ namespace ReaLTaiizor.Controls
                 if (hasHint && UseTallSize && (DroppedDown || Focused || SelectedIndex >= 0))
                 {
                     // hint text
-                    hintRect = new Rectangle(SkinManager.FORM_PADDING, TEXT_SMALL_Y, Width, TEXT_SMALL_SIZE);
+                    hintRect = new(SkinManager.FORM_PADDING, TEXT_SMALL_Y, Width, TEXT_SMALL_SIZE);
                     hintTextSize = 12;
                 }
 
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Controls
                 // hint Animation
                 if (hasHint && UseTallSize)
                 {
-                    hintRect = new Rectangle(
+                    hintRect = new(
                         SkinManager.FORM_PADDING,
                         userTextPresent && !_animationManager.IsAnimating() ? (TEXT_SMALL_Y) : ClientRectangle.Y + (int)((TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
                         Width,
@@ -216,15 +216,15 @@ namespace ReaLTaiizor.Controls
             }
 
             // Calc text Rect
-            Rectangle textRect = new Rectangle(
+            Rectangle textRect = new(
                 SkinManager.FORM_PADDING,
                 hasHint && UseTallSize ? (hintRect.Y + hintRect.Height) - 2 : ClientRectangle.Y,
                 ClientRectangle.Width - SkinManager.FORM_PADDING * 3 - 8,
                 hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
-            g.Clip = new Region(textRect);
+            g.Clip = new(textRect);
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 // Draw user text
                 NativeText.DrawTransparentText(
@@ -241,20 +241,18 @@ namespace ReaLTaiizor.Controls
             // Draw hint text
             if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))
             {
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-                {
-                    NativeText.DrawTransparentText(
-                    Hint,
-                    SkinManager.getTextBoxFontBySize(hintTextSize),
-                    Enabled ? DroppedDown || Focused ? UseAccent ?
-                    SkinManager.ColorScheme.AccentColor : // Focus Accent
-                    SkinManager.ColorScheme.PrimaryColor : // Focus Primary
-                    SkinManager.TextMediumEmphasisColor : // not focused
-                    SkinManager.TextDisabledOrHintColor, // Disabled
-                    hintRect.Location,
-                    hintRect.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                }
+                using MaterialNativeTextRenderer NativeText = new(g);
+                NativeText.DrawTransparentText(
+                Hint,
+                SkinManager.getTextBoxFontBySize(hintTextSize),
+                Enabled ? DroppedDown || Focused ? UseAccent ?
+                SkinManager.ColorScheme.AccentColor : // Focus Accent
+                SkinManager.ColorScheme.PrimaryColor : // Focus Primary
+                SkinManager.TextMediumEmphasisColor : // not focused
+                SkinManager.TextDisabledOrHintColor, // Disabled
+                hintRect.Location,
+                hintRect.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
         }
 
@@ -291,16 +289,14 @@ namespace ReaLTaiizor.Controls
                 Text = Items[e.Index].ToString();
             }
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-            {
-                NativeText.DrawTransparentText(
-                Text,
-                SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
-                SkinManager.TextHighEmphasisColor,
-                new Point(e.Bounds.Location.X + SkinManager.FORM_PADDING, e.Bounds.Location.Y),
-                new Size(e.Bounds.Size.Width - SkinManager.FORM_PADDING * 2, e.Bounds.Size.Height),
-                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle); ;
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            NativeText.DrawTransparentText(
+            Text,
+            SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
+            SkinManager.TextHighEmphasisColor,
+            new Point(e.Bounds.Location.X + SkinManager.FORM_PADDING, e.Bounds.Location.Y),
+            new Size(e.Bounds.Size.Width - SkinManager.FORM_PADDING * 2, e.Bounds.Size.Height),
+            MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle); ;
         }
 
         protected override void OnCreateControl()
@@ -325,7 +321,7 @@ namespace ReaLTaiizor.Controls
         private void setHeightVars()
         {
             HEIGHT = UseTallSize ? 50 : 36;
-            Size = new Size(Size.Width, HEIGHT);
+            Size = new(Size.Width, HEIGHT);
             LINE_Y = HEIGHT - BOTTOM_PADDING;
             ItemHeight = HEIGHT - 7;
             DropDownHeight = ItemHeight * MaxDropDownItems + 2;
@@ -343,7 +339,7 @@ namespace ReaLTaiizor.Controls
             int vertScrollBarWidth = (Items.Count > MaxDropDownItems) ? SystemInformation.VerticalScrollBarWidth : 0;
 
             Graphics g = CreateGraphics();
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 System.Collections.Generic.IEnumerable<string> itemsList = Items.Cast<object>().Select(item => item.ToString());
                 foreach (string s in itemsList)

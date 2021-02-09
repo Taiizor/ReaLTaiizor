@@ -12,14 +12,13 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceSeparatorHorizantal : SpaceControl // A Horizontal Separator
     {
-
         public SpaceSeparatorHorizantal()
         {
             SetColor("DownGradient1", 42, 42, 42); // Basic Gradients Used to Shade the Button
             SetColor("DownGradient2", 42, 42, 42); // The Gradients are reversed, depending on if Button is Pressed or not
             SetColor("Border1", 35, 35, 35); // The Inside Border
             SetColor("Border2", 42, 42, 42); // The Outside Border
-            Size = new Size(50, 4);
+            Size = new(50, 4);
         }
 
         private Color C1; // Set up Simple Colors
@@ -31,8 +30,8 @@ namespace ReaLTaiizor.Controls
         { // Assign Variables
             C1 = GetColor("DownGradient1"); // Get the Colors for the Button Shading
             C2 = GetColor("DownGradient2");
-            P1 = new Pen(GetColor("Border1")); // Get and create the borders for the Buttons
-            P2 = new Pen(GetColor("Border2"));
+            P1 = new(GetColor("Border1")); // Get and create the borders for the Buttons
+            P2 = new(GetColor("Border2"));
         }
 
         protected override void PaintHook()

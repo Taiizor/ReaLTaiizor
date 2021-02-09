@@ -169,10 +169,7 @@ namespace ReaLTaiizor.Controls
         {
             if (oldValue != newValue)
             {
-                if (ValueChanged != null)
-                {
-                    ValueChanged(this, curValue);
-                }
+                ValueChanged?.Invoke(this, curValue);
             }
 
             if (Scroll == null)
@@ -232,7 +229,7 @@ namespace ReaLTaiizor.Controls
 
         private int trackPosition;
 
-        private readonly Timer progressTimer = new Timer();
+        private readonly Timer progressTimer = new();
 
         private int mouseWheelBarPartitions = 10;
 
@@ -315,7 +312,7 @@ namespace ReaLTaiizor.Controls
                     scrollOrientation = ScrollOrientation.HorizontalScroll;
                 }
 
-                Size = new Size(Height, Width);
+                Size = new(Height, Width);
                 SetupScrollBar();
             }
         }
@@ -681,19 +678,17 @@ namespace ReaLTaiizor.Controls
         {
             if (useBarColor)
             {
-                using (SolidBrush b = new SolidBrush(barColor))
-                {
-                    g.FillRectangle(b, ClientRectangle);
-                }
+                using SolidBrush b = new(barColor);
+                g.FillRectangle(b, ClientRectangle);
             }
 
-            using (SolidBrush b = new SolidBrush(backColor))
+            using (SolidBrush b = new(backColor))
             {
-                Rectangle thumbRect = new Rectangle(thumbRectangle.X - 1, thumbRectangle.Y - 1, thumbRectangle.Width + 2, thumbRectangle.Height + 2);
+                Rectangle thumbRect = new(thumbRectangle.X - 1, thumbRectangle.Y - 1, thumbRectangle.Width + 2, thumbRectangle.Height + 2);
                 g.FillRectangle(b, thumbRect);
             }
 
-            using (SolidBrush b = new SolidBrush(thumbColor))
+            using (SolidBrush b = new(thumbColor))
             {
                 g.FillRectangle(b, thumbRectangle);
             }
@@ -1048,7 +1043,7 @@ namespace ReaLTaiizor.Controls
                 clickedBarRectangle = ClientRectangle;
                 clickedBarRectangle.Inflate(-1, -1);
 
-                thumbRectangle = new Rectangle(ClientRectangle.X, ClientRectangle.Y, thumbWidth, thumbHeight);
+                thumbRectangle = new(ClientRectangle.X, ClientRectangle.Y, thumbWidth, thumbHeight);
 
                 thumbPosition = thumbRectangle.Height / 2;
                 thumbBottomLimitBottom = ClientRectangle.Bottom;
@@ -1063,7 +1058,7 @@ namespace ReaLTaiizor.Controls
                 clickedBarRectangle = ClientRectangle;
                 clickedBarRectangle.Inflate(-1, -1);
 
-                thumbRectangle = new Rectangle(ClientRectangle.X, ClientRectangle.Y, thumbWidth, thumbHeight);
+                thumbRectangle = new(ClientRectangle.X, ClientRectangle.Y, thumbWidth, thumbHeight);
 
                 thumbPosition = thumbRectangle.Width / 2;
                 thumbBottomLimitBottom = ClientRectangle.Right;

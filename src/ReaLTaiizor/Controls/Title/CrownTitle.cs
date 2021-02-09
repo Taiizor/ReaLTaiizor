@@ -26,26 +26,24 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            Rectangle rect = new(0, 0, ClientSize.Width, ClientSize.Height);
 
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, rect);
             }
 
             SizeF textSize = g.MeasureString(Text, Font);
 
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText))
             {
                 g.DrawString(Text, Font, b, new PointF(-2, 0));
             }
 
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.GreyHighlight))
-            {
-                PointF p1 = new PointF(textSize.Width + 5, textSize.Height / 2);
-                PointF p2 = new PointF(rect.Width, textSize.Height / 2);
-                g.DrawLine(p, p1, p2);
-            }
+            using Pen p = new(ThemeProvider.Theme.Colors.GreyHighlight);
+            PointF p1 = new(textSize.Width + 5, textSize.Height / 2);
+            PointF p2 = new(rect.Width, textSize.Height / 2);
+            g.DrawLine(p, p1, p2);
         }
 
         #endregion

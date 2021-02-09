@@ -32,10 +32,7 @@ namespace ReaLTaiizor.Child.Crown
             {
                 _text = value;
 
-                if (TextChanged != null)
-                {
-                    TextChanged(this, new EventArgs());
-                }
+                TextChanged?.Invoke(this, new EventArgs());
             }
         }
 

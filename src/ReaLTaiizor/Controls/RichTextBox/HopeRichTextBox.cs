@@ -17,20 +17,20 @@ namespace ReaLTaiizor.Controls
 
     public class HopeRichTextBox : Control
     {
-        private readonly BaseTextBox _baseTextBox = new BaseTextBox
+        private readonly BaseTextBox _baseTextBox = new()
         {
             BorderStyle = BorderStyle.None,
             ForeColor = HopeColors.MainText,
             BackColor = Color.White
         };
 
-        private RectangleF arrowRectangleF = new RectangleF()
+        private RectangleF arrowRectangleF = new()
         {
             Width = 20,
             Height = 20
         };
 
-        private Point mousePoint = new Point();
+        private Point mousePoint = new();
         private static Size _currentControlStartSize;
         private bool _resizing = false;
         private Point _cursorStartPoint;
@@ -113,7 +113,7 @@ namespace ReaLTaiizor.Controls
                 _currentControlStartSize = Size;
                 _resizing = true;
             }
-            _cursorStartPoint = new Point(e.X, e.Y);
+            _cursorStartPoint = new(e.X, e.Y);
             Capture = true;
         }
 
@@ -125,7 +125,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            _baseTextBox.Location = new Point(12, 8);
+            _baseTextBox.Location = new(12, 8);
             _baseTextBox.Width = Width - 24;
             _baseTextBox.Height = (Height - 16) > 0 ? (Height - 16) : 0;
             _baseTextBox.ForeColor = ForeColor;
@@ -139,7 +139,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(Color.White), bg);
-            g.DrawPath(new Pen(_baseTextBox.Focused ? _HoverBorderColor : _BorderColor, 0.5f), bg);
+            g.DrawPath(new(_baseTextBox.Focused ? _HoverBorderColor : _BorderColor, 0.5f), bg);
 
             arrowRectangleF.X = Width - 22;
             arrowRectangleF.Y = Height - 20;
@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
             Height = 50;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             ForeColor = HopeColors.MainText;
 
             if (!Controls.Contains(_baseTextBox) && !DesignMode)

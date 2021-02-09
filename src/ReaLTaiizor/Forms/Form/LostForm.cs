@@ -94,7 +94,7 @@ namespace ReaLTaiizor.Forms
             //FormBorderStyle = FormBorderStyle.Sizable;
             Padding = new Padding(2, 36, 2, 2);
             ResizeRedraw = true;
-            MinimumSize = new Size(160, 160);
+            MinimumSize = new(160, 160);
             Font = ThemeLost.TitleFont;
         }
 
@@ -198,7 +198,7 @@ namespace ReaLTaiizor.Forms
                                 if (e.X <= Width && e.Y <= 30)
                                 {
                                     ReleaseCapture();
-                                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                                    _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                                 }
                             }
                         }
@@ -209,7 +209,7 @@ namespace ReaLTaiizor.Forms
                     if (e.X <= Width && e.Y <= 30)
                     {
                         ReleaseCapture();
-                        SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                        _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
                     }
                 }
             }
@@ -267,7 +267,7 @@ namespace ReaLTaiizor.Forms
                                 }
                                 else
                                 {
-                                    MaximizedBounds = new Rectangle(0, 0, workingArea.Width, workingArea.Height);
+                                    MaximizedBounds = new(0, 0, workingArea.Width, workingArea.Height);
                                 }
 
                                 WindowState = FormWindowState.Maximized;

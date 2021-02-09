@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
                     true
             );
             UpdateStyles();
-            ItemSize = new Size(100, 38);
+            ItemSize = new(100, 38);
             Font = MetroFonts.UIRegular(8);
             _mth = new Methods();
             _utl = new Utilites();
@@ -348,7 +348,7 @@ namespace ReaLTaiizor.Controls
             switch (TabStyle)
             {
                 case TabStyle.Style1:
-                    using (Pen sb = new Pen(ForegroundColor, 2))
+                    using (Pen sb = new(ForegroundColor, 2))
                     {
                         g.DrawLine(sb, 2, h, Width - 3, h);
                     }
@@ -359,15 +359,11 @@ namespace ReaLTaiizor.Controls
 
                         if (i == SelectedIndex)
                         {
-                            using (SolidBrush sb = new SolidBrush(ForegroundColor))
-                            {
-                                g.FillRectangle(sb, r);
-                            }
+                            using SolidBrush sb = new(ForegroundColor);
+                            g.FillRectangle(sb, r);
                         }
-                        using (SolidBrush tb = new SolidBrush(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor))
-                        {
-                            g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
-                        }
+                        using SolidBrush tb = new(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor);
+                        g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
                     }
                     break;
                 case TabStyle.Style2:
@@ -377,15 +373,11 @@ namespace ReaLTaiizor.Controls
 
                         if (i == SelectedIndex)
                         {
-                            using (Pen sb = new Pen(ForegroundColor, 2))
-                            {
-                                g.DrawLine(sb, r.X, r.Height, r.X + r.Width, r.Height);
-                            }
+                            using Pen sb = new(ForegroundColor, 2);
+                            g.DrawLine(sb, r.X, r.Height, r.X + r.Width, r.Height);
                         }
-                        using (SolidBrush tb = new SolidBrush(UnselectedTextColor))
-                        {
-                            g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
-                        }
+                        using SolidBrush tb = new(UnselectedTextColor);
+                        g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
                     }
                     break;
             }
@@ -444,7 +436,7 @@ namespace ReaLTaiizor.Controls
             _utl.InitControlHandle(control1);
             _utl.InitControlHandle(control2);
             _slideGraphics = Graphics.FromHwnd(control2.Handle);
-            _slideBitmap = new Bitmap(control1.Width + control2.Width, control1.Height + control2.Height);
+            _slideBitmap = new(control1.Width + control2.Width, control1.Height + control2.Height);
 
             if (moveback)
             {
@@ -506,8 +498,8 @@ namespace ReaLTaiizor.Controls
         private void DoAnimationScrollRight(Control control1, Control control2)
         {
             Graphics g = control1.CreateGraphics();
-            Bitmap p1 = new Bitmap(control1.Width, control1.Height);
-            Bitmap p2 = new Bitmap(control2.Width, control2.Height);
+            Bitmap p1 = new(control1.Width, control1.Height);
+            Bitmap p2 = new(control2.Width, control2.Height);
             control1.DrawToBitmap(p1, new Rectangle(0, 0, control1.Width, control1.Height));
             control2.DrawToBitmap(p2, new Rectangle(0, 0, control2.Width, control2.Height));
 

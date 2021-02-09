@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Controls
             DrawShadows = true;
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
 
-            Size = new Size(FAB_SIZE, FAB_SIZE);
+            Size = new(FAB_SIZE, FAB_SIZE);
             _animationManager = new AnimationManager(false)
             {
                 Increment = 0.03,
@@ -189,7 +189,7 @@ namespace ReaLTaiizor.Controls
 
             // paint shadow on parent
             Graphics gp = e.Graphics;
-            Rectangle rect = new Rectangle(Location, fabBounds.Size);
+            Rectangle rect = new(Location, fabBounds.Size);
             gp.SmoothingMode = SmoothingMode.AntiAlias;
             DrawRoundShadow(gp, rect);
         }
@@ -211,9 +211,9 @@ namespace ReaLTaiizor.Controls
 
             if (_animationManager.IsAnimating())
             {
-                GraphicsPath regionPath = new GraphicsPath();
+                GraphicsPath regionPath = new();
                 regionPath.AddEllipse(new Rectangle(fabBounds.X - 1, fabBounds.Y - 1, fabBounds.Width + 3, fabBounds.Height + 2));
-                Region fabRegion = new Region(regionPath);
+                Region fabRegion = new(regionPath);
 
                 GraphicsContainer gcont = g.BeginContainer();
                 g.SetClip(fabRegion, CombineMode.Replace);
@@ -222,7 +222,7 @@ namespace ReaLTaiizor.Controls
                 {
                     double animationValue = _animationManager.GetProgress(i);
                     Point animationSource = _animationManager.GetSource(i);
-                    SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationValue * 50)), Color.White));
+                    SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationValue * 50)), Color.White));
                     int rippleSize = (int)(animationValue * Width * 2);
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
                 }
@@ -245,9 +245,9 @@ namespace ReaLTaiizor.Controls
             }
 
             // Clip to a round shape with a 1px padding
-            GraphicsPath clipPath = new GraphicsPath();
+            GraphicsPath clipPath = new();
             clipPath.AddEllipse(new Rectangle(fabBounds.X - 1, fabBounds.Y - 1, fabBounds.Width + 3, fabBounds.Height + 3));
-            Region = new Region(clipPath);
+            Region = new(clipPath);
         }
 
         protected override void OnMouseClick(MouseEventArgs mevent)

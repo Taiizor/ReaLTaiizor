@@ -2,8 +2,8 @@
 
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 #endregion
 
@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
 
     public class SkyTextBox : Control
     {
-        private readonly System.Windows.Forms.TextBox txtbox = new System.Windows.Forms.TextBox();
+        private readonly TextBox txtbox = new();
 
         #region " Control Help - Properties & Flicker Control "
 
@@ -109,23 +109,80 @@ namespace ReaLTaiizor.Controls
         {
             {
                 txtbox.Multiline = false;
-                txtbox.BackColor = Color.FromArgb(43, 43, 43);
+                txtbox.BackColor = UnknownBackColor;
                 txtbox.ForeColor = ForeColor;
                 txtbox.Text = string.Empty;
                 txtbox.TextAlign = HorizontalAlignment.Center;
                 txtbox.BorderStyle = BorderStyle.None;
-                txtbox.Location = new Point(5, 4);
-                txtbox.Font = new Font("Trebuchet MS", 8.25f, FontStyle.Bold);
-                txtbox.Size = new Size(Width - 10, Height - 11);
+                txtbox.Location = new(5, 4);
+                txtbox.Font = new("Trebuchet MS", 8.25f, FontStyle.Bold);
+                txtbox.Size = new(Width - 10, Height - 11);
                 txtbox.UseSystemPasswordChar = UseSystemPasswordChar;
             }
 
         }
         #endregion
 
+        #region Variables
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        private Color _BorderColorA = Color.FromArgb(220, 220, 220);
+        private Color _BorderColorB = Color.FromArgb(228, 228, 228);
+        private Color _BorderColorC = Color.FromArgb(191, 191, 191);
+        private Color _BorderColorD = Color.FromArgb(254, 254, 254);
+        private Color _BaseColor = Color.Transparent;
+        private Color _UnknownBackColor = Color.FromArgb(43, 43, 43);
+        #endregion
+
+        #region Settings
+        public SmoothingMode SmoothingType
+        {
+            get => _SmoothingType;
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public Color BorderColorA
+        {
+            get => _BorderColorA;
+            set => _BorderColorA = value;
+        }
+
+        public Color BorderColorB
+        {
+            get => _BorderColorB;
+            set => _BorderColorB = value;
+        }
+
+        public Color BorderColorC
+        {
+            get => _BorderColorC;
+            set => _BorderColorC = value;
+        }
+
+        public Color BorderColorD
+        {
+            get => _BorderColorD;
+            set => _BorderColorD = value;
+        }
+
+        public Color BaseColor
+        {
+            get => _BaseColor;
+            set => _BaseColor = value;
+        }
+
+        public Color UnknownBackColor
+        {
+            get => _UnknownBackColor;
+            set => _UnknownBackColor = value;
+        }
+        #endregion
+
         public SkyTextBox() : base()
         {
-
             NewTextBox();
             Controls.Add(txtbox);
 
@@ -135,8 +192,8 @@ namespace ReaLTaiizor.Controls
             Text = "";
             BackColor = Color.FromArgb(233, 233, 233);
             ForeColor = Color.FromArgb(27, 94, 137);
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
-            Size = new Size(75, 35);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
+            Size = new(75, 35);
             DoubleBuffered = true;
             txtbox.TextChanged += new EventHandler(TextChngTxtBox);
             base.TextChanged += new EventHandler(TextChng);
@@ -144,9 +201,9 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            G.SmoothingMode = SmoothingMode.HighQuality;
+            G.SmoothingMode = SmoothingType;
 
             Height = txtbox.Height + 10;
             {
@@ -155,14 +212,14 @@ namespace ReaLTaiizor.Controls
                 txtbox.UseSystemPasswordChar = UseSystemPasswordChar;
             }
 
-            G.Clear(Color.Transparent);
+            G.Clear(BaseColor);
 
-            LinearGradientBrush innerBorderBrush = new LinearGradientBrush(new Rectangle(1, 1, Width - 3, Height - 3), Color.FromArgb(220, 220, 220), Color.FromArgb(228, 228, 228), 90);
-            Pen innerBorderPen = new Pen(innerBorderBrush);
+            LinearGradientBrush innerBorderBrush = new(new Rectangle(1, 1, Width - 3, Height - 3), BorderColorA, BorderColorB, 90);
+            Pen innerBorderPen = new(innerBorderBrush);
             G.DrawRectangle(innerBorderPen, new Rectangle(1, 1, Width - 3, Height - 3));
-            G.DrawLine(new Pen(Color.FromArgb(191, 191, 191)), new Point(1, 1), new Point(Width - 3, 1));
+            G.DrawLine(new(BorderColorC), new Point(1, 1), new Point(Width - 3, 1));
 
-            G.DrawRectangle(new Pen(Color.FromArgb(254, 254, 254)), new Rectangle(0, 0, Width - 1, Height - 1));
+            G.DrawRectangle(new(BorderColorD), new Rectangle(0, 0, Width - 1, Height - 1));
             e.Graphics.DrawImage(B, 0, 0);
             G.Dispose();
             B.Dispose();

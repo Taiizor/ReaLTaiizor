@@ -176,19 +176,19 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer, true);
             BackColor = Color.Transparent;
             ForeColor = Color.Black;
-            Size = new Size(120, 16);
+            Size = new(120, 16);
             DoubleBuffered = true;
-            Font = new Font("Tahoma", 8, FontStyle.Bold);
+            Font = new("Tahoma", 8, FontStyle.Bold);
             Cursor = Cursors.Hand;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle checkBoxRectangle = new Rectangle(0, 0, Height, Height - 1);
-            Rectangle Inner = new Rectangle(1, 1, Height - 2, Height - 3);
+            Rectangle checkBoxRectangle = new(0, 0, Height, Height - 1);
+            Rectangle Inner = new(1, 1, Height - 2, Height - 3);
 
             G.SmoothingMode = SmoothingType;
             G.CompositingQuality = CompositingQualityType;
@@ -196,14 +196,14 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(BaseColor);
 
-            LinearGradientBrush bodyGrad = new LinearGradientBrush(checkBoxRectangle, CheckBackColorA, CheckBackColorB, 90);
+            LinearGradientBrush bodyGrad = new(checkBoxRectangle, CheckBackColorA, CheckBackColorB, 90);
             G.FillRectangle(bodyGrad, bodyGrad.Rectangle);
-            G.DrawRectangle(new Pen(CheckBorderColorA), checkBoxRectangle);
-            G.DrawRectangle(new Pen(CheckBorderColorB), Inner);
+            G.DrawRectangle(new(CheckBorderColorA), checkBoxRectangle);
+            G.DrawRectangle(new(CheckBorderColorB), Inner);
 
             if (Checked)
             {
-                Font t = new Font("Marlett", 10, FontStyle.Regular);
+                Font t = new("Marlett", 10, FontStyle.Regular);
                 G.DrawString("a", t, new SolidBrush(CheckedColor), -1.5F, 0F);
             }
 

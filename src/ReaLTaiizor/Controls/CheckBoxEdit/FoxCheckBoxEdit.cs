@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
 
         public FoxCheckBoxEdit() : base()
         {
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -70,14 +70,14 @@ namespace ReaLTaiizor.Controls
                 switch (State)
                 {
                     case FoxLibrary.MouseState.None:
-                        using (Pen Border = new Pen(_BorderColor))
+                        using (Pen Border = new(_BorderColor))
                         {
                             G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(0, 0, 20, 20), 2));
                         }
 
                         break;
                     default:
-                        using (Pen Border = new Pen(_HoverBorderColor))
+                        using (Pen Border = new(_HoverBorderColor))
                         {
                             G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(0, 0, 20, 20), 2));
                         }
@@ -85,22 +85,18 @@ namespace ReaLTaiizor.Controls
                         break;
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(ForeColor))
-                {
-                    G.DrawString(Text, Font, TextColor, new Point(27, 1));
-                }
+                using SolidBrush TextColor = new(ForeColor);
+                G.DrawString(Text, Font, TextColor, new Point(27, 1));
             }
             else
             {
-                using (Pen Border = new Pen(_DisabledBorderColor))
+                using (Pen Border = new(_DisabledBorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(0, 0, 20, 20), 2));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
-                {
-                    G.DrawString(Text, Font, TextColor, new Point(27, 1));
-                }
+                using SolidBrush TextColor = new(_DisabledTextColor);
+                G.DrawString(Text, Font, TextColor, new Point(27, 1));
             }
 
             if (Checked)
@@ -108,17 +104,13 @@ namespace ReaLTaiizor.Controls
 
                 if (Enabled)
                 {
-                    using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64E))))
-                    {
-                        G.DrawImage(I, new Rectangle(5, 4, 12, 12));
-                    }
+                    using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64E)));
+                    G.DrawImage(I, new Rectangle(5, 4, 12, 12));
                 }
                 else
                 {
-                    using (Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64D))))
-                    {
-                        G.DrawImage(I, new Rectangle(5, 4, 12, 12));
-                    }
+                    using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64D)));
+                    G.DrawImage(I, new Rectangle(5, 4, 12, 12));
                 }
             }
 

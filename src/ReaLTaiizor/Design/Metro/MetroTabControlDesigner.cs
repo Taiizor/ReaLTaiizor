@@ -46,23 +46,19 @@ namespace ReaLTaiizor.Design.Metro
                         new DesignerVerb("Remove Tab", OnRemoveTab)
                     };
 
-                    _verbs = new DesignerVerbCollection();
+                    _verbs = new();
                     _verbs.AddRange(addVerbs);
 
-                    if (!(Control is MetroTabControl parentControl))
+                    if (Control is not MetroTabControl parentControl)
                     {
                         return _verbs;
                     }
 
-                    switch (parentControl.TabPages.Count)
+                    _verbs[1].Enabled = parentControl.TabPages.Count switch
                     {
-                        case 0:
-                            _verbs[1].Enabled = false;
-                            break;
-                        default:
-                            _verbs[1].Enabled = true;
-                            break;
-                    }
+                        0 => false,
+                        _ => true,
+                    };
                 }
 
                 return _verbs;
@@ -121,9 +117,9 @@ namespace ReaLTaiizor.Design.Metro
             {
                 Point p = Control.PointToClient(point);
 
-                User32.TCHITTESTINFO hti = new User32.TCHITTESTINFO(p, User32.TabControlHitTest.TCHT_ONITEM);
+                User32.TCHITTESTINFO hti = new(p, User32.TabControlHitTest.TCHT_ONITEM);
 
-                Message m = new Message
+                Message m = new()
                 {
                     HWnd = Control.Handle,
                     Msg = User32._TCM_HITTEST
@@ -196,7 +192,7 @@ namespace ReaLTaiizor.Design.Metro
 
         private void OnComponentChanged(object sender, ComponentChangedEventArgs e)
         {
-            if (!(e.Component is MetroTabControl parentControl) || e.Member.Name != "TabPages")
+            if (e.Component is not MetroTabControl parentControl || e.Member.Name != "TabPages")
             {
                 return;
             }
@@ -208,16 +204,11 @@ namespace ReaLTaiizor.Design.Metro
                     continue;
                 }
 
-                switch (parentControl.TabPages.Count)
+                verb.Enabled = parentControl.TabPages.Count switch
                 {
-                    case 0:
-                        verb.Enabled = false;
-                        break;
-                    default:
-                        verb.Enabled = true;
-                        break;
-                }
-
+                    0 => false,
+                    _ => true,
+                };
                 break;
             }
         }

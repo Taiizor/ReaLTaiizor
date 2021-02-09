@@ -29,8 +29,8 @@ namespace ReaLTaiizor.Native
         private CrownDockGroup _targetGroup;
         private DockInsertType _insertType = DockInsertType.None;
 
-        private Dictionary<CrownDockRegion, DockDropArea> _regionDropAreas = new Dictionary<CrownDockRegion, DockDropArea>();
-        private Dictionary<CrownDockGroup, DockDropCollection> _groupDropAreas = new Dictionary<CrownDockGroup, DockDropCollection>();
+        private Dictionary<CrownDockRegion, DockDropArea> _regionDropAreas = new();
+        private Dictionary<CrownDockGroup, DockDropCollection> _groupDropAreas = new();
 
         #endregion
 
@@ -122,14 +122,14 @@ namespace ReaLTaiizor.Native
                 {
                     foreach (CrownDockGroup group in region.Groups)
                     {
-                        DockDropCollection collection = new DockDropCollection(_dockPanel, group);
+                        DockDropCollection collection = new(_dockPanel, group);
                         _groupDropAreas.Add(group, collection);
                     }
                 }
                 // If the region is NOT visible then build the drop area for the region itself.
                 else
                 {
-                    DockDropArea area = new DockDropArea(_dockPanel, region);
+                    DockDropArea area = new(_dockPanel, region);
                     _regionDropAreas.Add(region, area);
                 }
             }
@@ -153,8 +153,8 @@ namespace ReaLTaiizor.Native
 
             _highlightForm.SuspendLayout();
 
-            _highlightForm.Size = new Size(rect.Width, rect.Height);
-            _highlightForm.Location = new Point(rect.X, rect.Y);
+            _highlightForm.Size = new(rect.Width, rect.Height);
+            _highlightForm.Location = new(rect.X, rect.Y);
 
             _highlightForm.ResumeLayout();
 

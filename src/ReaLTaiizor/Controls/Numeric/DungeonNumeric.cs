@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
         private bool KeyboardNum;
         private _TextAlignment MyStringAlignment;
 
-        private readonly Timer LongPressTimer = new Timer();
+        private readonly Timer LongPressTimer = new();
 
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Color _BackColorA = Color.FromArgb(246, 246, 246);
@@ -145,8 +145,8 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             Height = 28;
-            MinimumSize = new Size(93, 28);
-            Shape = new GraphicsPath();
+            MinimumSize = new(93, 28);
+            Shape = new();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
             Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -289,14 +289,14 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.UserPaint, true);
 
-            P1 = new Pen(_BorderColor);
+            P1 = new(_BorderColor);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(76, 76, 76);
             _Minimum = 0;
             _Maximum = 100;
-            Font = new Font("Tahoma", 11);
-            Size = new Size(70, 28);
-            MinimumSize = new Size(62, 28);
+            Font = new("Tahoma", 11);
+            Size = new(70, 28);
+            MinimumSize = new(62, 28);
             DoubleBuffered = true;
 
             LongPressTimer.Tick += LongPressTimer_Tick;
@@ -318,12 +318,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            LinearGradientBrush BackgroundLGB = default(LinearGradientBrush);
-
-            BackgroundLGB = new LinearGradientBrush(ClientRectangle, _BackColorA, _BackColorB, 90.0F);
-
+            LinearGradientBrush BackgroundLGB = new(ClientRectangle, _BackColorA, _BackColorB, 90.0F);
             G.SmoothingMode = SmoothingMode.AntiAlias;
 
             G.Clear(Color.Transparent); // Set control background color
@@ -331,9 +328,9 @@ namespace ReaLTaiizor.Controls
             G.DrawPath(P1, Shape); // Draw border
 
             G.DrawString("+", new Font("Tahoma", 14), new SolidBrush(_ButtonForeColorA), new Rectangle(Width - 25, 1, 19, 30));
-            G.DrawLine(new Pen(_BorderColor), Width - 28, 1, Width - 28, Height - 2);
+            G.DrawLine(new(_BorderColor), Width - 28, 1, Width - 28, Height - 2);
             G.DrawString("-", new Font("Tahoma", 14), new SolidBrush(_ButtonForeColorB), new Rectangle(Width - 44, 1, 19, 30));
-            G.DrawLine(new Pen(_BorderColor), Width - 48, 1, Width - 48, Height - 2);
+            G.DrawLine(new(_BorderColor), Width - 48, 1, Width - 48, Height - 2);
 
             switch (MyStringAlignment)
             {

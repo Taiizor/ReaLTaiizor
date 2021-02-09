@@ -84,20 +84,20 @@ namespace ReaLTaiizor.Forms
             BorderThickness = 1;
             Moveable = true;
             StartPosition = FormStartPosition.CenterScreen;
-            MinimumSize = new Size(250, 250);
+            MinimumSize = new(250, 250);
         }
 
         protected override void OnResize(EventArgs e)
         {
-            closeButton.Location = new Point(Width - 34, 1);
-            maximizeButton.Location = new Point(Width - 68, 1);
+            closeButton.Location = new(Width - 34, 1);
+            maximizeButton.Location = new(Width - 68, 1);
             if (MaximizeBox)
             {
-                minimizeButton.Location = new Point(Width - 102, 1);
+                minimizeButton.Location = new(Width - 102, 1);
             }
             else
             {
-                minimizeButton.Location = new Point(Width - 68, 1);
+                minimizeButton.Location = new(Width - 68, 1);
             }
 
             base.OnResize(e);
@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Forms
 
             if (DrawBorder)
             {
-                e.Graphics.DrawRectangle(new Pen(RoyalColors.BorderColor, BorderThickness), new Rectangle(0, 0, Width - BorderThickness, Height - BorderThickness));
+                e.Graphics.DrawRectangle(new(RoyalColors.BorderColor, BorderThickness), new Rectangle(0, 0, Width - BorderThickness, Height - BorderThickness));
             }
         }
 
@@ -245,12 +245,12 @@ namespace ReaLTaiizor.Forms
             minimizeButton.HotTrackColor = Color.Gainsboro;
             minimizeButton.Image = Properties.Resources.Minimize;
             minimizeButton.LayoutFlags = RoyalLayoutFlags.ImageOnly;
-            minimizeButton.Location = new Point(900, 1);
+            minimizeButton.Location = new(900, 1);
             minimizeButton.Margin = new Padding(1);
             minimizeButton.Name = "minimizeButton";
             minimizeButton.PressedColor = Color.CornflowerBlue;
             minimizeButton.PressedForeColor = Color.White;
-            minimizeButton.Size = new Size(33, 30);
+            minimizeButton.Size = new(33, 30);
             minimizeButton.TabIndex = 2;
             minimizeButton.Text = "minimizeButton";
             minimizeButton.Click += new EventHandler(MinimizeButton_Click);
@@ -265,12 +265,12 @@ namespace ReaLTaiizor.Forms
             maximizeButton.HotTrackColor = Color.Gainsboro;
             maximizeButton.Image = Properties.Resources.Maximize;
             maximizeButton.LayoutFlags = RoyalLayoutFlags.ImageOnly;
-            maximizeButton.Location = new Point(935, 1);
+            maximizeButton.Location = new(935, 1);
             maximizeButton.Margin = new Padding(1);
             maximizeButton.Name = "maximizeButton";
             maximizeButton.PressedColor = Color.CornflowerBlue;
             maximizeButton.PressedForeColor = Color.White;
-            maximizeButton.Size = new Size(33, 30);
+            maximizeButton.Size = new(33, 30);
             maximizeButton.TabIndex = 1;
             maximizeButton.Text = "maximizeButton";
             maximizeButton.Click += new EventHandler(MaximizeButton_Click);
@@ -285,12 +285,12 @@ namespace ReaLTaiizor.Forms
             closeButton.HotTrackColor = Color.Gainsboro;
             closeButton.Image = Properties.Resources.Close;
             closeButton.LayoutFlags = RoyalLayoutFlags.ImageOnly;
-            closeButton.Location = new Point(970, 1);
+            closeButton.Location = new(970, 1);
             closeButton.Margin = new Padding(1);
             closeButton.Name = "closeButton";
             closeButton.PressedColor = Color.Crimson;
             maximizeButton.PressedForeColor = Color.White;
-            closeButton.Size = new Size(33, 30);
+            closeButton.Size = new(33, 30);
             closeButton.TabIndex = 0;
             closeButton.Text = "closeButton";
             closeButton.Click += new EventHandler(CloseButton_Click);
@@ -299,7 +299,7 @@ namespace ReaLTaiizor.Forms
             // 
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(512, 512);
+            ClientSize = new(512, 512);
             Controls.Add(minimizeButton);
             Controls.Add(maximizeButton);
             Controls.Add(closeButton);

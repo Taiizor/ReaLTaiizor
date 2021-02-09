@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
     public class PoisonComboBox : ComboBox, IPoisonControl
     {
         #region Edit Control
-        private readonly PoisonTextBox textBox = new PoisonTextBox();
+        private readonly PoisonTextBox textBox = new();
         #endregion
 
         #region Interface
@@ -464,21 +464,21 @@ namespace ReaLTaiizor.Controls
                 borderColor = PoisonPaint.BorderColor.ComboBox.Normal(Theme);
             }
 
-            using (Pen p = new Pen(borderColor))
+            using (Pen p = new(borderColor))
             {
-                Rectangle boxRect = new Rectangle(0, 0, Width - 1, Height - 1);
+                Rectangle boxRect = new(0, 0, Width - 1, Height - 1);
                 e.Graphics.DrawRectangle(p, boxRect);
             }
 
 
             if (DropDownStyle != ComboBoxStyle.Simple)
             {
-                using (SolidBrush b = new SolidBrush(foreColor))
+                using (SolidBrush b = new(foreColor))
                 {
                     e.Graphics.FillPolygon(b, new Point[] { new Point(Width - 20, (Height / 2) - 2), new Point(Width - 9, (Height / 2) - 2), new Point(Width - 15, (Height / 2) + 4) });
                 }
 
-                Rectangle textRect = new Rectangle(2, 2, Width - 40, Height - 4);
+                Rectangle textRect = new(2, 2, Width - 40, Height - 4);
 
                 if (Enabled)
                 {
@@ -516,7 +516,7 @@ namespace ReaLTaiizor.Controls
 
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                 {
-                    using (SolidBrush b = new SolidBrush(PoisonPaint.GetStyleColor(Style)))
+                    using (SolidBrush b = new(PoisonPaint.GetStyleColor(Style)))
                     {
                         e.Graphics.FillRectangle(b, new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height));
                     }
@@ -525,20 +525,18 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    using (SolidBrush b = new SolidBrush(backColor))
-                    {
-                        e.Graphics.FillRectangle(b, new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height));
-                    }
+                    using SolidBrush b = new(backColor);
+                    e.Graphics.FillRectangle(b, new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height));
                 }
 
                 if (DropDownStyle != ComboBoxStyle.DropDown)
                 {
-                    Rectangle textRect = new Rectangle(0, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height);
+                    Rectangle textRect = new(0, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height);
                     TextRenderer.DrawText(e.Graphics, GetItemText(Items[e.Index]), PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
                 }
                 else
                 {
-                    Rectangle textRect = new Rectangle(0, e.Bounds.Top, textBox.Width, e.Bounds.Height);
+                    Rectangle textRect = new(0, e.Bounds.Top, textBox.Width, e.Bounds.Height);
                     TextRenderer.DrawText(e.Graphics, GetItemText(Items[e.Index]), PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
                 }
             }
@@ -551,10 +549,8 @@ namespace ReaLTaiizor.Controls
         private void DrawTextPrompt()
         {
 
-            using (Graphics graphics = CreateGraphics())
-            {
-                DrawTextPrompt(graphics);
-            }
+            using Graphics graphics = CreateGraphics();
+            DrawTextPrompt(graphics);
         }
 
         private void DrawTextPrompt(Graphics g)
@@ -566,7 +562,7 @@ namespace ReaLTaiizor.Controls
                 backColor = PoisonPaint.BackColor.Form(Theme);
             }
 
-            Rectangle textRect = new Rectangle(2, 2, Width - 20, Height - 4);
+            Rectangle textRect = new(2, 2, Width - 20, Height - 4);
             TextRenderer.DrawText(g, promptText, PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), textRect, SystemColors.GrayText, backColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
         }
 
@@ -704,7 +700,7 @@ namespace ReaLTaiizor.Controls
             using (Graphics g = CreateGraphics())
             {
                 string measureText = Text.Length > 0 ? Text : "MeasureText";
-                proposedSize = new Size(int.MaxValue, int.MaxValue);
+                proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
                 preferredSize.Height += 4;
             }

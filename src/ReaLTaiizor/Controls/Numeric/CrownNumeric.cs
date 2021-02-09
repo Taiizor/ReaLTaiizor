@@ -121,14 +121,14 @@ namespace ReaLTaiizor.Controls
 
             Color fillColor = ThemeProvider.Theme.Colors.HeaderBackground;
 
-            using (SolidBrush b = new SolidBrush(fillColor))
+            using (SolidBrush b = new(fillColor))
             {
                 g.FillRectangle(b, rect);
             }
 
             Point mousePos = Controls[0].PointToClient(Cursor.Position);
 
-            Rectangle upArea = new Rectangle(0, 0, rect.Width, rect.Height / 2);
+            Rectangle upArea = new(0, 0, rect.Width, rect.Height / 2);
             bool upHot = upArea.Contains(mousePos);
 
             Bitmap upIcon = upHot ? Properties.Resources.scrollbar_arrow_small_hot : Properties.Resources.scrollbar_arrow_small_standard;
@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Controls
             upIcon.RotateFlip(RotateFlipType.RotateNoneFlipY);
             g.DrawImageUnscaled(upIcon, (upArea.Width / 2) - (upIcon.Width / 2), (upArea.Height / 2) - (upIcon.Height / 2));
 
-            Rectangle downArea = new Rectangle(0, rect.Height / 2, rect.Width, rect.Height / 2);
+            Rectangle downArea = new(0, rect.Height / 2, rect.Width, rect.Height / 2);
             bool downHot = downArea.Contains(mousePos);
 
             Bitmap downIcon = downHot ? Properties.Resources.scrollbar_arrow_small_hot : Properties.Resources.scrollbar_arrow_small_standard;
@@ -167,7 +167,7 @@ namespace ReaLTaiizor.Controls
             }
 
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            Rectangle rect = new(0, 0, ClientSize.Width, ClientSize.Height);
 
             Color borderColor = ThemeProvider.Theme.Colors.GreySelection;
 
@@ -176,11 +176,9 @@ namespace ReaLTaiizor.Controls
                 borderColor = ThemeProvider.Theme.Colors.BlueHighlight;
             }
 
-            using (Pen p = new Pen(borderColor, 1))
-            {
-                Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
-                g.DrawRectangle(p, modRect);
-            }
+            using Pen p = new(borderColor, 1);
+            Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+            g.DrawRectangle(p, modRect);
         }
 
         #endregion

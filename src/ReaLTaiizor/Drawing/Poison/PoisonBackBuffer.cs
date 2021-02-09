@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Drawing.Poison
 
         public PoisonBackBuffer(Size bufferSize)
         {
-            backBuffer = new Bitmap(bufferSize.Width, bufferSize.Height, PixelFormat.Format32bppArgb);
+            backBuffer = new(bufferSize.Width, bufferSize.Height, PixelFormat.Format32bppArgb);
         }
 
         public Graphics CreateGraphics()

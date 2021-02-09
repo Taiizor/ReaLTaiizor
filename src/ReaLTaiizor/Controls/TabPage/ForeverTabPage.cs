@@ -73,16 +73,16 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             BackColor = Color.FromArgb(60, 70, 73);
 
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             SizeMode = TabSizeMode.Fixed;
-            ItemSize = new Size(120, 40);
+            ItemSize = new(120, 40);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
@@ -103,8 +103,8 @@ namespace ReaLTaiizor.Controls
 
             for (int i = 0; i <= TabCount - 1; i++)
             {
-                Rectangle Base = new Rectangle(new Point(GetTabRect(i).Location.X + 2, GetTabRect(i).Location.Y), new Size(GetTabRect(i).Width, GetTabRect(i).Height));
-                Rectangle BaseSize = new Rectangle(Base.Location, new Size(Base.Width, Base.Height));
+                Rectangle Base = new(new Point(GetTabRect(i).Location.X + 2, GetTabRect(i).Location.Y), new Size(GetTabRect(i).Width, GetTabRect(i).Height));
+                Rectangle BaseSize = new(Base.Location, new Size(Base.Width, Base.Height));
 
                 if (i == SelectedIndex)
                 {

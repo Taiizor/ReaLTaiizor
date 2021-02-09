@@ -88,7 +88,7 @@ namespace ReaLTaiizor.Controls
             Rectangle rect = ClientRectangle;
 
             // Fill body
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, rect);
             }
@@ -98,30 +98,30 @@ namespace ReaLTaiizor.Controls
             Color darkColor = ContainsFocus ? ThemeProvider.Theme.Colors.DarkBlueBorder : ThemeProvider.Theme.Colors.DarkBorder;
             Color lightColor = ContainsFocus ? ThemeProvider.Theme.Colors.LightBlueBorder : ThemeProvider.Theme.Colors.LightBorder;
 
-            using (SolidBrush b = new SolidBrush(bgColor))
+            using (SolidBrush b = new(bgColor))
             {
-                Rectangle bgRect = new Rectangle(0, 0, rect.Width, 25);
+                Rectangle bgRect = new(0, 0, rect.Width, 25);
                 g.FillRectangle(b, bgRect);
             }
 
-            using (Pen p = new Pen(darkColor))
+            using (Pen p = new(darkColor))
             {
                 g.DrawLine(p, rect.Left, 0, rect.Right, 0);
                 g.DrawLine(p, rect.Left, 25 - 1, rect.Right, 25 - 1);
             }
 
-            using (Pen p = new Pen(lightColor))
+            using (Pen p = new(lightColor))
             {
                 g.DrawLine(p, rect.Left, 1, rect.Right, 1);
             }
 
             int xOffset = 3;
 
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText))
             {
-                Rectangle textRect = new Rectangle(xOffset, 0, rect.Width - 4 - xOffset, 25);
+                Rectangle textRect = new(xOffset, 0, rect.Width - 4 - xOffset, 25);
 
-                StringFormat format = new StringFormat
+                StringFormat format = new()
                 {
                     Alignment = StringAlignment.Near,
                     LineAlignment = StringAlignment.Center,
@@ -133,9 +133,9 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw border
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder, 1))
+            using (Pen p = new(ThemeProvider.Theme.Colors.DarkBorder, 1))
             {
-                Rectangle modRect = new Rectangle(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+                Rectangle modRect = new(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
 
                 g.DrawRectangle(p, modRect);
             }

@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
 
     public class InfoIcon : Control
     {
-        #region Variables
+        #region Settings
 
         private Color _BaseColor = Color.FromArgb(246, 246, 246);
         public Color BaseColor
@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
         }
 
         private string _String = "¡";
-        private string String
+        public string String
         {
             get => _String;
             set => _String = value;
@@ -43,8 +43,8 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.DimGray;
             BackColor = Color.FromArgb(246, 246, 246);
             ForeColor = Color.Gray;
-            Font = new Font("Segoe UI", 25, FontStyle.Bold);
-            Size = new Size(33, 33);
+            Font = new("Segoe UI", 25, FontStyle.Bold);
+            Size = new(33, 33);
             DoubleBuffered = true;
         }
 

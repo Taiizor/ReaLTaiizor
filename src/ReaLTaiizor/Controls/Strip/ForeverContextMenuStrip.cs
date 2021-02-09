@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
             Renderer = new ToolStripProfessionalRenderer(new TColorTable());
             ShowImageMargin = false;
             ForeColor = Color.White;
-            Font = new Font("Segoe UI", 8);
+            Font = new("Segoe UI", 8);
         }
 
         protected override void OnPaint(PaintEventArgs e)

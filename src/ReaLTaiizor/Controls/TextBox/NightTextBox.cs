@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Fields
 
-        private readonly TextBox tbCtrl = new TextBox();
+        private readonly TextBox tbCtrl = new();
         private Color BorderColor;
         private Panel watermarkContainer;
 
@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Controls
             {
                 _Image = value;
                 ImageSize = value == null ? Size.Empty : value.Size;
-                tbCtrl.Location = new Point(24, 14);
+                tbCtrl.Location = new(24, 14);
 
                 Invalidate();
             }
@@ -326,15 +326,13 @@ namespace ReaLTaiizor.Controls
         private void WatermarkContainer_Paint(object sender, PaintEventArgs e)
         {
             // X has to be >=1, otherwise the cursor won't show
-            watermarkContainer.Location = new Point(1, -1);
+            watermarkContainer.Location = new(1, -1);
             watermarkContainer.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             watermarkContainer.Width = tbCtrl.Width - 25;
             watermarkContainer.Height = tbCtrl.Height;
 
-            using (SolidBrush watermark = new SolidBrush(_WatermarkColor))
-            {
-                e.Graphics.DrawString(_Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
-            }
+            using SolidBrush watermark = new(_WatermarkColor);
+            e.Graphics.DrawString(_Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -411,17 +409,17 @@ namespace ReaLTaiizor.Controls
             BackColor = ColorTranslator.FromHtml("#2B3043");
 
             Text = string.Empty;
-            Font = new Font("Segoe UI", 10);
-            Size = new Size(145, 49);
+            Font = new("Segoe UI", 10);
+            Size = new(145, 49);
         }
 
         private void AddTextBox()
         {
-            tbCtrl.Size = new Size(Width - 10, 49);
-            tbCtrl.Location = new Point(24, 14);
+            tbCtrl.Size = new(Width - 10, 49);
+            tbCtrl.Location = new(24, 14);
             tbCtrl.BorderStyle = BorderStyle.None;
             tbCtrl.TextAlign = HorizontalAlignment.Left;
-            tbCtrl.Font = new Font("Segoe UI", 10);
+            tbCtrl.Font = new("Segoe UI", 10);
             tbCtrl.UseSystemPasswordChar = _UseSystemPasswordChar;
             tbCtrl.ShortcutsEnabled = _ShortcutsEnabled;
             tbCtrl.Multiline = false;
@@ -467,21 +465,19 @@ namespace ReaLTaiizor.Controls
 
         private void DrawBorder(Graphics g)
         {
-            using (Pen border = new Pen(BorderColor))
+            using Pen border = new(BorderColor);
+            // Top border
+            if (_ShowTopBorder)
             {
-                // Top border
-                if (_ShowTopBorder)
-                {
-                    g.DrawLine(border, 0, 0, Width - 1, 0);
-                    g.DrawLine(border, 0, 1, Width - 1, 1);
-                }
+                g.DrawLine(border, 0, 0, Width - 1, 0);
+                g.DrawLine(border, 0, 1, Width - 1, 1);
+            }
 
-                // Bottom border
-                if (_ShowBottomBorder)
-                {
-                    g.DrawLine(border, 0, Height - 2, Width - 1, Height - 2);
-                    g.DrawLine(border, 0, Height - 1, Width - 1, Height - 1);
-                }
+            // Bottom border
+            if (_ShowBottomBorder)
+            {
+                g.DrawLine(border, 0, Height - 2, Width - 1, Height - 2);
+                g.DrawLine(border, 0, Height - 1, Width - 1, Height - 1);
             }
         }
 
@@ -493,7 +489,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                tbCtrl.Location = new Point(48, tbCtrl.Location.Y);
+                tbCtrl.Location = new(48, tbCtrl.Location.Y);
                 tbCtrl.Width = Width - 59;
 
                 g.DrawImage(_Image, 23, 14, 16, 16);

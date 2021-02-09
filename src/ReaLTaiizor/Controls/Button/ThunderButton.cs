@@ -47,41 +47,41 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.WhiteSmoke;
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle ClientRectangle = new(0, 0, Width - 1, Height - 1);
             base.OnPaint(e);
             G.Clear(BackColor);
-            Font drawFont = new Font("Tahoma", 8, FontStyle.Bold);
+            Font drawFont = new("Tahoma", 8, FontStyle.Bold);
             G.SmoothingMode = SmoothingMode.HighQuality;
-            Rectangle R1 = new Rectangle(0, 0, Width - 125, 35 / 2);
-            Rectangle R2 = new Rectangle(5, Height - 10, Width - 11, 5);
-            Rectangle R3 = new Rectangle(6, Height - 9, Width - 13, 3);
-            Rectangle R4 = new Rectangle(1, 1, Width - 3, Height - 3);
-            Rectangle R5 = new Rectangle(1, 0, Width - 1, Height - 1);
-            Rectangle R6 = new Rectangle(0, -1, Width - 1, Height - 1);
-            LinearGradientBrush lgb = new LinearGradientBrush(ClientRectangle, Color.FromArgb(66, 67, 70), Color.FromArgb(43, 44, 48), 90);
-            LinearGradientBrush botbar = new LinearGradientBrush(R2, Color.FromArgb(44, 45, 49), Color.FromArgb(45, 46, 50), 90);
-            LinearGradientBrush fill = new LinearGradientBrush(R3, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
-            LinearGradientBrush gloss = null;
-            Pen o = new Pen(Color.FromArgb(50, 50, 50), 1);
-            StringFormat format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            Rectangle R1 = new(0, 0, Width - 125, 35 / 2);
+            Rectangle R2 = new(5, Height - 10, Width - 11, 5);
+            Rectangle R3 = new(6, Height - 9, Width - 13, 3);
+            Rectangle R4 = new(1, 1, Width - 3, Height - 3);
+            Rectangle R5 = new(1, 0, Width - 1, Height - 1);
+            Rectangle R6 = new(0, -1, Width - 1, Height - 1);
+            LinearGradientBrush lgb = new(ClientRectangle, Color.FromArgb(66, 67, 70), Color.FromArgb(43, 44, 48), 90);
+            LinearGradientBrush botbar = new(R2, Color.FromArgb(44, 45, 49), Color.FromArgb(45, 46, 50), 90);
+            LinearGradientBrush fill = new(R3, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
+            Pen o = new(Color.FromArgb(50, 50, 50), 1);
+            StringFormat format = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            LinearGradientBrush gloss;
             if (State == MouseStateThunder.Over)
             {
-                gloss = new LinearGradientBrush(R1, Color.FromArgb(15, Color.FromArgb(26, 26, 26)), Color.FromArgb(1, 255, 255, 255), 90);
+                gloss = new(R1, Color.FromArgb(15, Color.FromArgb(26, 26, 26)), Color.FromArgb(1, 255, 255, 255), 90);
             }
             else if (State == MouseStateThunder.Down)
             {
-                gloss = new LinearGradientBrush(R1, Color.FromArgb(100, Color.FromArgb(26, 26, 26)), Color.FromArgb(1, 255, 255, 255), 90);
+                gloss = new(R1, Color.FromArgb(100, Color.FromArgb(26, 26, 26)), Color.FromArgb(1, 255, 255, 255), 90);
             }
             else
             {
-                gloss = new LinearGradientBrush(R1, Color.FromArgb(75, Color.FromArgb(26, 26, 26)), Color.FromArgb(3, 255, 255, 255), 90);
+                gloss = new(R1, Color.FromArgb(75, Color.FromArgb(26, 26, 26)), Color.FromArgb(3, 255, 255, 255), 90);
             }
 
             G.FillPath(lgb, DrawThunder.RoundRect(ClientRectangle, 2));

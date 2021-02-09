@@ -15,23 +15,23 @@ namespace ReaLTaiizor.Util
 
     public static class HopeStringAlign
     {
-        public static StringFormat TopLeft => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
+        public static StringFormat TopLeft => new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
 
-        public static StringFormat TopCenter => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near };
+        public static StringFormat TopCenter => new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near };
 
-        public static StringFormat TopRight => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Near };
+        public static StringFormat TopRight => new() { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Near };
 
-        public static StringFormat Left => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+        public static StringFormat Left => new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
 
-        public static StringFormat Center => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+        public static StringFormat Center => new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 
-        public static StringFormat Right => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center };
+        public static StringFormat Right => new() { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center };
 
-        public static StringFormat BottomLeft => new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Far };
+        public static StringFormat BottomLeft => new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Far };
 
-        public static StringFormat BottomCenter => new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far };
+        public static StringFormat BottomCenter => new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far };
 
-        public static StringFormat BottomRight => new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far };
+        public static StringFormat BottomRight => new() { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far };
     }
 
     public enum HopeButtonType
@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Util
                     g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
                     g.Clear(Color.White);
                     GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1, 3);
-                    g.DrawPath(new Pen(HopeColors.OneLevelBorder, 1), bg);
+                    g.DrawPath(new(HopeColors.OneLevelBorder, 1), bg);
                     g.FillPath(new SolidBrush(Color.White), bg);
                 }
                 else
@@ -101,7 +101,7 @@ namespace ReaLTaiizor.Util
 
             protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
             {
-                e.Graphics.DrawLine(new Pen(HopeColors.OneLevelBorder, 1.5f), 5, 2.75f, e.Item.Width - 5, 2.75f);
+                e.Graphics.DrawLine(new(HopeColors.OneLevelBorder, 1.5f), 5, 2.75f, e.Item.Width - 5, 2.75f);
             }
 
             protected override void OnRenderImageMargin(ToolStripRenderEventArgs e)
@@ -115,14 +115,14 @@ namespace ReaLTaiizor.Util
                 g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
                 Rectangle itemRect = GetItemRect(e.Item);
-                Rectangle textRect = new Rectangle(0, itemRect.Y, itemRect.Width, itemRect.Height);
+                Rectangle textRect = new(0, itemRect.Y, itemRect.Width, itemRect.Height);
                 g.DrawString(e.Text, new Font("Segoe UI", 11f), new SolidBrush(e.Item.Selected ? HopeColors.PrimaryColor : HopeColors.RegularText), textRect, HopeStringAlign.Center);
             }
 
             protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
             {
                 Graphics g = e.Graphics;
-                g.DrawRectangle(new Pen(HopeColors.OneLevelBorder), new Rectangle(e.AffectedBounds.X, e.AffectedBounds.Y, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1));
+                g.DrawRectangle(new(HopeColors.OneLevelBorder), new Rectangle(e.AffectedBounds.X, e.AffectedBounds.Y, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1));
             }
 
             protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)

@@ -12,7 +12,7 @@ namespace ReaLTaiizor.Extension.Poison
 
     public sealed class PoisonBrushes
     {
-        private static readonly Dictionary<string, SolidBrush> poisonBrushes = new Dictionary<string, SolidBrush>();
+        private static readonly Dictionary<string, SolidBrush> poisonBrushes = new();
         private static SolidBrush GetSaveBrush(string key, Color color)
         {
             lock (poisonBrushes)

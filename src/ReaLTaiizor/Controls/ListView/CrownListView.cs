@@ -153,10 +153,7 @@ namespace ReaLTaiizor.Controls
                 {
                     _selectedIndices.Clear();
 
-                    if (SelectedIndicesChanged != null)
-                    {
-                        SelectedIndicesChanged(this, null);
-                    }
+                    SelectedIndicesChanged?.Invoke(this, null);
                 }
             }
 
@@ -196,7 +193,7 @@ namespace ReaLTaiizor.Controls
 
             for (int i = top; i <= bottom; i++)
             {
-                Rectangle rect = new Rectangle(0, i * ItemHeight, width, ItemHeight);
+                Rectangle rect = new(0, i * ItemHeight, width, ItemHeight);
 
                 if (rect.Contains(pos))
                 {
@@ -288,10 +285,7 @@ namespace ReaLTaiizor.Controls
             _selectedIndices.Clear();
             _selectedIndices.Add(index);
 
-            if (SelectedIndicesChanged != null)
-            {
-                SelectedIndicesChanged(this, null);
-            }
+            SelectedIndicesChanged?.Invoke(this, null);
 
             _anchoredItemStart = index;
             _anchoredItemEnd = index;
@@ -315,10 +309,7 @@ namespace ReaLTaiizor.Controls
                 _selectedIndices.Add(index);
             }
 
-            if (SelectedIndicesChanged != null)
-            {
-                SelectedIndicesChanged(this, null);
-            }
+            SelectedIndicesChanged?.Invoke(this, null);
 
             _anchoredItemStart = list[list.Count - 1];
             _anchoredItemEnd = list[list.Count - 1];
@@ -388,10 +379,7 @@ namespace ReaLTaiizor.Controls
                 _anchoredItemEnd = index;
             }
 
-            if (SelectedIndicesChanged != null)
-            {
-                SelectedIndicesChanged(this, null);
-            }
+            SelectedIndicesChanged?.Invoke(this, null);
 
             Invalidate();
         }
@@ -420,10 +408,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            if (SelectedIndicesChanged != null)
-            {
-                SelectedIndicesChanged(this, null);
-            }
+            SelectedIndicesChanged?.Invoke(this, null);
 
             Invalidate();
         }
@@ -451,10 +436,8 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateItemSize(CrownListItem item)
         {
-            using (Graphics g = CreateGraphics())
-            {
-                UpdateItemSize(item, g);
-            }
+            using Graphics g = CreateGraphics();
+            UpdateItemSize(item, g);
         }
 
         private void UpdateItemSize(CrownListItem item, Graphics g)
@@ -467,12 +450,12 @@ namespace ReaLTaiizor.Controls
                 size.Width += _iconSize + 8;
             }
 
-            item.Area = new Rectangle(item.Area.Left, item.Area.Top, (int)size.Width, item.Area.Height);
+            item.Area = new(item.Area.Left, item.Area.Top, (int)size.Width, item.Area.Height);
         }
 
         private void UpdateItemPosition(CrownListItem item, int index)
         {
-            item.Area = new Rectangle(2, (index * ItemHeight), item.Area.Width, ItemHeight);
+            item.Area = new(2, (index * ItemHeight), item.Area.Width, ItemHeight);
         }
 
         private void UpdateContentSize()
@@ -492,7 +475,7 @@ namespace ReaLTaiizor.Controls
 
             if (ContentSize.Width != width || ContentSize.Height != height)
             {
-                ContentSize = new Size(width, height);
+                ContentSize = new(width, height);
                 Invalidate();
             }
         }
@@ -509,7 +492,7 @@ namespace ReaLTaiizor.Controls
 
             if (itemWidth > ContentSize.Width)
             {
-                ContentSize = new Size(itemWidth, ContentSize.Height);
+                ContentSize = new(itemWidth, ContentSize.Height);
                 Invalidate();
             }
         }
@@ -591,7 +574,7 @@ namespace ReaLTaiizor.Controls
             for (int i = top; i <= bottom; i++)
             {
                 int width = Math.Max(ContentSize.Width, Viewport.Width);
-                Rectangle rect = new Rectangle(0, i * ItemHeight, width, ItemHeight);
+                Rectangle rect = new(0, i * ItemHeight, width, ItemHeight);
 
                 // Background
                 bool odd = i % 2 != 0;
@@ -602,13 +585,13 @@ namespace ReaLTaiizor.Controls
                     bgColor = Focused ? ThemeProvider.Theme.Colors.BlueSelection : ThemeProvider.Theme.Colors.GreySelection;
                 }
 
-                using (SolidBrush b = new SolidBrush(bgColor))
+                using (SolidBrush b = new(bgColor))
                 {
                     g.FillRectangle(b, rect);
                 }
 
                 // DEBUG: Border
-                /*using (var p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
+                /*using (var p = new(ThemeProvider.Theme.Colors.DarkBorder))
                 {
                     g.DrawLine(p, new Point(rect.Left, rect.Bottom - 1), new Point(rect.Right, rect.Bottom - 1));
                 }*/
@@ -620,17 +603,17 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Text
-                using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.LightText)) //Items[i].TextColor
+                using (SolidBrush b = new(ThemeProvider.Theme.Colors.LightText)) //Items[i].TextColor
                 {
-                    StringFormat stringFormat = new StringFormat
+                    StringFormat stringFormat = new()
                     {
                         Alignment = StringAlignment.Near,
                         LineAlignment = StringAlignment.Center
                     };
 
-                    Font modFont = new Font(Font, Items[i].FontStyle);
+                    Font modFont = new(Font, Items[i].FontStyle);
 
-                    Rectangle modRect = new Rectangle(rect.Left + 2, rect.Top, rect.Width, rect.Height);
+                    Rectangle modRect = new(rect.Left + 2, rect.Top, rect.Width, rect.Height);
 
                     if (ShowIcons)
                     {

@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
 
         #region Base TextBox
 
-        private readonly TextBox _textBox = new TextBox();
+        private readonly TextBox _textBox = new();
 
         #endregion
 
@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Controls
             T_Defaults();
             if (!Multiline)
             {
-                Size = new Size(135, 30);
+                Size = new(135, 30);
             }
         }
 
@@ -156,7 +156,7 @@ namespace ReaLTaiizor.Controls
             _textBox.BackColor = BackColor;
             _textBox.ForeColor = ForeColor;
             _textBox.BorderStyle = BorderStyle.None;
-            _textBox.Location = new Point(7, 8);
+            _textBox.Location = new(7, 8);
             _textBox.Font = Font;
             _textBox.UseSystemPasswordChar = UseSystemPasswordChar;
             if (Multiline)
@@ -183,53 +183,43 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle rect = new(0, 0, Width - 1, Height - 1);
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             if (Enabled)
             {
-                using (SolidBrush bg = new SolidBrush(BackColor))
+                using SolidBrush bg = new(BackColor);
+                using Pen p = new(BorderColor);
+                using Pen ph = new(HoverColor);
+                g.FillRectangle(bg, rect);
+                if (_state == MouseMode.Normal)
                 {
-                    using (Pen p = new Pen(BorderColor))
-                    {
-                        using (Pen ph = new Pen(HoverColor))
-                        {
-                            g.FillRectangle(bg, rect);
-                            if (_state == MouseMode.Normal)
-                            {
-                                g.DrawRectangle(p, rect);
-                            }
-                            else if (_state == MouseMode.Hovered)
-                            {
-                                g.DrawRectangle(ph, rect);
-                            }
-                        }
-                    }
+                    g.DrawRectangle(p, rect);
+                }
+                else if (_state == MouseMode.Hovered)
+                {
+                    g.DrawRectangle(ph, rect);
                 }
             }
             else
             {
-                using (SolidBrush bg = new SolidBrush(DisabledBackColor))
-                {
-                    using (Pen p = new Pen(DisabledBorderColor))
-                    {
-                        g.FillRectangle(bg, rect);
-                        g.DrawRectangle(p, rect);
-                        _textBox.BackColor = DisabledBackColor;
-                        _textBox.ForeColor = DisabledForeColor;
-                    }
-                }
+                using SolidBrush bg = new(DisabledBackColor);
+                using Pen p = new(DisabledBorderColor);
+                g.FillRectangle(bg, rect);
+                g.DrawRectangle(p, rect);
+                _textBox.BackColor = DisabledBackColor;
+                _textBox.ForeColor = DisabledForeColor;
             }
             if (Image != null)
             {
-                _textBox.Location = new Point(31, 4);
+                _textBox.Location = new(31, 4);
                 _textBox.Width = Width - 60;
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 g.DrawImage(Image, new Rectangle(7, 6, 18, 18));
             }
             else
             {
-                _textBox.Location = new Point(7, 4);
+                _textBox.Location = new(7, 4);
                 _textBox.Width = Width - 10;
             }
 
@@ -377,7 +367,7 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             //if (!Multiline)
             //{
-            _textBox.Size = new Size(Width - 10, Height - 10);
+            _textBox.Size = new(Width - 10, Height - 10);
             //}
         }
 
@@ -737,7 +727,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 _textBox.Font = value;
-                _textBox.Location = new Point(5, 5);
+                _textBox.Location = new(5, 5);
                 _textBox.Width = Width - 8;
                 if (!Multiline)
                 {

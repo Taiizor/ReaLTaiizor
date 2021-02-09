@@ -185,97 +185,97 @@ namespace ReaLTaiizor.Controls
         private GraphicsPath RoundedRect(RectangleF rect, float x_radius, float y_radius, bool round_upperLeft, bool round_upperRight, bool round_lowerRight, bool round_lowerLeft)
         {
             PointF point1, point2;
-            GraphicsPath path = new GraphicsPath();
+            GraphicsPath path = new();
 
             // Upper left corner
             if (round_upperLeft)
             {
-                RectangleF corner = new RectangleF(rect.X, rect.Y, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new(rect.X, rect.Y, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 180, 90);
-                point1 = new PointF(rect.X + x_radius, rect.Y);
+                point1 = new(rect.X + x_radius, rect.Y);
             }
             else
             {
-                point1 = new PointF(rect.X, rect.Y);
+                point1 = new(rect.X, rect.Y);
             }
 
             // Top side
             if (round_upperRight)
             {
-                point2 = new PointF(rect.Right - x_radius, rect.Y);
+                point2 = new(rect.Right - x_radius, rect.Y);
             }
             else
             {
-                point2 = new PointF(rect.Right, rect.Y);
+                point2 = new(rect.Right, rect.Y);
                 path.AddLine(point1, point2);
             }
 
             // Upper right corner
             if (round_upperRight)
             {
-                RectangleF corner = new RectangleF(rect.Right - 2 * x_radius, rect.Y, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new(rect.Right - 2 * x_radius, rect.Y, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 270, 90);
-                point1 = new PointF(rect.Right, rect.Y + y_radius);
+                point1 = new(rect.Right, rect.Y + y_radius);
             }
             else
             {
-                point1 = new PointF(rect.Right, rect.Y);
+                point1 = new(rect.Right, rect.Y);
             }
 
             // Right side
             if (round_lowerRight)
             {
-                point2 = new PointF(rect.Right, rect.Bottom - y_radius);
+                point2 = new(rect.Right, rect.Bottom - y_radius);
             }
             else
             {
-                point2 = new PointF(rect.Right, rect.Bottom);
+                point2 = new(rect.Right, rect.Bottom);
                 path.AddLine(point1, point2);
             }
 
             // Lower right corner
             if (round_lowerRight)
             {
-                RectangleF corner = new RectangleF(rect.Right - 2 * x_radius, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new(rect.Right - 2 * x_radius, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 0, 90);
-                point1 = new PointF(rect.Right - x_radius, rect.Bottom);
+                point1 = new(rect.Right - x_radius, rect.Bottom);
             }
             else
             {
-                point1 = new PointF(rect.Right, rect.Bottom);
+                point1 = new(rect.Right, rect.Bottom);
             }
 
             // Bottom side
             if (round_lowerLeft)
             {
-                point2 = new PointF(rect.X + x_radius, rect.Bottom);
+                point2 = new(rect.X + x_radius, rect.Bottom);
             }
             else
             {
-                point2 = new PointF(rect.X, rect.Bottom);
+                point2 = new(rect.X, rect.Bottom);
                 path.AddLine(point1, point2);
             }
 
             // Lower left corner
             if (round_lowerLeft)
             {
-                RectangleF corner = new RectangleF(rect.X, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new(rect.X, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 90, 90);
-                point1 = new PointF(rect.X, rect.Bottom - y_radius);
+                point1 = new(rect.X, rect.Bottom - y_radius);
             }
             else
             {
-                point1 = new PointF(rect.X, rect.Bottom);
+                point1 = new(rect.X, rect.Bottom);
             }
 
             // Left side
             if (round_upperLeft)
             {
-                point2 = new PointF(rect.X, rect.Y + y_radius);
+                point2 = new(rect.X, rect.Y + y_radius);
             }
             else
             {
-                point2 = new PointF(rect.X, rect.Y);
+                point2 = new(rect.X, rect.Y);
                 path.AddLine(point1, point2);
             }
 
@@ -332,7 +332,7 @@ namespace ReaLTaiizor.Controls
         {
             if (Width > 0 && Height > 0)
             {
-                stringRect = new Rectangle(0, 0, Width, Height);
+                stringRect = new(0, 0, Width, Height);
             }
 
             Invalidate();
@@ -399,10 +399,10 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.Transparent;
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
             ForeColor = ColorTranslator.FromHtml("#F25D59");
-            Size = new Size(144, 47);
-            MinimumSize = new Size(144, 47);
+            Size = new(144, 47);
+            MinimumSize = new(144, 47);
             Cursor = Cursors.Hand;
 
             animationTimer = new Timer { Interval = 1 };
@@ -411,10 +411,8 @@ namespace ReaLTaiizor.Controls
 
         private void FillButton(Graphics g)
         {
-            using (SolidBrush animBrush = new SolidBrush(Color.FromArgb(buttonGlow, ForeColor)))
-            {
-                g.FillPath(animBrush, roundRectPath);
-            }
+            using SolidBrush animBrush = new(Color.FromArgb(buttonGlow, ForeColor));
+            g.FillPath(animBrush, roundRectPath);
         }
 
         private void DrawButton(Graphics g)
@@ -438,20 +436,16 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            using (Pen pathPen = new Pen(penColor, 2f))
-            using (SolidBrush stringBrush = new SolidBrush(brushColor))
+            using Pen pathPen = new(penColor, 2f);
+            using SolidBrush stringBrush = new(brushColor);
             using
-            (
-                StringFormat sf = new StringFormat
+                StringFormat sf = new()
                 {
                     Alignment = StringAlignment.Center,
                     LineAlignment = StringAlignment.Center
-                }
-            )
-            {
-                g.DrawPath(pathPen, roundRectPath);
-                g.DrawString(Text, Font, stringBrush, stringRect, sf);
-            }
+                };
+            g.DrawPath(pathPen, roundRectPath);
+            g.DrawString(Text, Font, stringBrush, stringRect, sf);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -465,7 +459,7 @@ namespace ReaLTaiizor.Controls
             width = ClientSize.Width - 2 * margin;
             height = ClientSize.Height - 6;
 
-            buttonRect = new RectangleF(margin, margin, width, height);
+            buttonRect = new(margin, margin, width, height);
             roundRectPath = RoundedRect(buttonRect, _Radius, _Radius, false, true, true, false);
 
             FillButton(g);

@@ -12,14 +12,14 @@ namespace ReaLTaiizor.Extension.Poison
 
     public sealed class PoisonPens
     {
-        private static readonly Dictionary<string, Pen> poisonPens = new Dictionary<string, Pen>();
+        private static readonly Dictionary<string, Pen> poisonPens = new();
         private static Pen GetSavePen(string key, Color color)
         {
             lock (poisonPens)
             {
                 if (!poisonPens.ContainsKey(key))
                 {
-                    poisonPens.Add(key, new Pen(color, 1f));
+                    poisonPens.Add(key, new(color, 1f));
                 }
 
                 return poisonPens[key].Clone() as Pen;

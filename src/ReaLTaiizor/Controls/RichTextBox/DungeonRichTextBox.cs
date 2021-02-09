@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
 
-        public System.Windows.Forms.RichTextBox DungeonRTB = new System.Windows.Forms.RichTextBox();
+        public RichTextBox DungeonRTB = new();
         private bool _ReadOnly;
         private bool _WordWrap;
         private bool _AutoWordSelection;
@@ -117,18 +117,18 @@ namespace ReaLTaiizor.Controls
         protected override void OnSizeChanged(System.EventArgs e)
         {
             base.OnSizeChanged(e);
-            DungeonRTB.Size = new Size(Width - 13, Height - 11);
+            DungeonRTB.Size = new(Width - 13, Height - 11);
         }
 
         private void _Enter(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(205, 87, 40));
+            P1 = new(Color.FromArgb(205, 87, 40));
             Refresh();
         }
 
         private void _Leave(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(180, 180, 180));
+            P1 = new(Color.FromArgb(180, 180, 180));
             Refresh();
         }
 
@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
 
-            Shape = new GraphicsPath();
+            Shape = new();
             GraphicsPath _Shape = Shape;
             _Shape.AddArc(0, 0, 10, 10, 180, 90);
             _Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -156,8 +156,8 @@ namespace ReaLTaiizor.Controls
         {
             RichTextBox _RTB = DungeonRTB;
             _RTB.BackColor = _TextBackColor;
-            _RTB.Size = new Size(Width - 10, 100);
-            _RTB.Location = new Point(7, 5);
+            _RTB.Size = new(Width - 10, 100);
+            _RTB.Location = new(7, 5);
             _RTB.Text = string.Empty;
             _RTB.BorderStyle = BorderStyle.None;
             _RTB.Font = Font;
@@ -174,10 +174,10 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(76, 76, 76);
 
-            P1 = new Pen(_BorderColor);
+            P1 = new(_BorderColor);
             Text = null;
-            Font = new Font("Tahoma", 10);
-            Size = new Size(150, 100);
+            Font = new("Tahoma", 10);
+            Size = new(150, 100);
             WordWrap = true;
             AutoWordSelection = false;
             DoubleBuffered = true;
@@ -190,7 +190,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingMode.AntiAlias;
             G.Clear(BackColor);

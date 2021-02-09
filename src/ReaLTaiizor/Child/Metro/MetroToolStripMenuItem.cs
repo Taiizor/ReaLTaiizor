@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Child.Metro
         public MetroToolStripMenuItem()
         {
             AutoSize = false;
-            Size = new Size(160, 30);
+            Size = new(160, 30);
         }
 
         #endregion Constructors
@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Child.Metro
                 return base.CreateDefaultDropDown();
             }
 
-            MetroContextMenuStrip dp = new MetroContextMenuStrip();
+            MetroContextMenuStrip dp = new();
             dp.Items.AddRange(base.CreateDefaultDropDown().Items);
             return dp;
         }

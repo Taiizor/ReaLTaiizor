@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
 
             public void Add(string text, bool defaultValue)
             {
-                MaterialCheckBox cb = new MaterialCheckBox();
+                MaterialCheckBox cb = new();
                 Add(cb);
                 cb.Checked = defaultValue;
                 cb.Text = text;

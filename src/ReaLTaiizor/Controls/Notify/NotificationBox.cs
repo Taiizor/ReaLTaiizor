@@ -362,7 +362,7 @@ namespace ReaLTaiizor.Controls
             // Draw a border radius
             try
             {
-                CreateRoundPath = new GraphicsPath(FillMode.Winding);
+                CreateRoundPath = new(FillMode.Winding);
                 CreateRoundPath.AddArc(r.X, r.Y, curve, curve, 180.0F, 90.0F);
                 CreateRoundPath.AddArc(r.Right - curve, r.Y, curve, curve, 270.0F, 90.0F);
                 CreateRoundPath.AddArc(r.Right - curve, r.Bottom - curve, curve, curve, 0.0F, 90.0F);
@@ -382,10 +382,10 @@ namespace ReaLTaiizor.Controls
         public NotificationBox()
         {
             SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw), true);
-            Font = new Font("Tahoma", 9);
-            MinimumSize = new Size(100, 40);
+            Font = new("Tahoma", 9);
+            MinimumSize = new(100, 40);
             RoundCorners = false;
-            Size = new Size(130, 40);
+            Size = new(130, 40);
             ShowCloseButton = true;
         }
 
@@ -396,13 +396,13 @@ namespace ReaLTaiizor.Controls
             // Declare Graphics to draw the control
             Graphics GFX = e.Graphics;
             // Declare Color to paint the control's Text, Background and Border
-            Color ForeColor = new Color();
-            Color BackgroundColor = new Color();
-            Color BorderColor = new Color();
+            Color ForeColor = new();
+            Color BackgroundColor = new();
+            Color BorderColor = new();
             // Determine the header Notification Type font
-            Font TypeFont = new Font(Font.FontFamily, Font.Size, FontStyle.Bold);
+            Font TypeFont = new(Font.FontFamily, Font.Size, FontStyle.Bold);
             // Decalre a new rectangle to draw the control inside it
-            Rectangle MainRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            Rectangle MainRectangle = new(0, 0, Width - 1, Height - 1);
             // Declare a GraphicsPath to create a border radius
             GraphicsPath CrvBorderPath = CreateRoundRect(MainRectangle, _BorderCurve);
 
@@ -441,12 +441,12 @@ namespace ReaLTaiizor.Controls
             if (_RoundedCorners)
             {
                 GFX.FillPath(new SolidBrush(BackgroundColor), CrvBorderPath);
-                GFX.DrawPath(new Pen(BorderColor), CrvBorderPath);
+                GFX.DrawPath(new(BorderColor), CrvBorderPath);
             }
             else
             {
                 GFX.FillRectangle(new SolidBrush(BackgroundColor), MainRectangle);
-                GFX.DrawRectangle(new Pen(BorderColor), MainRectangle);
+                GFX.DrawRectangle(new(BorderColor), MainRectangle);
             }
 
             if (Image == null)
@@ -461,7 +461,7 @@ namespace ReaLTaiizor.Controls
                 GFX.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(10, 21, Width - 17, Height - 5));
             }
 
-            CloseCoordinates = new Point(Width - 26, 4);
+            CloseCoordinates = new(Width - 26, 4);
 
             if (_ShowCloseButton)
             {

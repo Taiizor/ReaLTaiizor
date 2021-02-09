@@ -77,8 +77,8 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             DoubleBuffered = true;
             // Reduce control flicker
-            Font = new Font("Segoe UI", 12);
-            Size = new Size(160, 26);
+            Font = new("Segoe UI", 12);
+            Size = new(160, 26);
             ForeColor = Color.FromArgb(76, 76, 95);
             Cursor = Cursors.Hand;
         }
@@ -102,11 +102,11 @@ namespace ReaLTaiizor.Controls
         {
             if (Width > 0 && Height > 0)
             {
-                Shape = new GraphicsPath();
+                Shape = new();
 
-                R1 = new Rectangle(17, 0, Width, Height + 1);
-                R2 = new Rectangle(0, 0, Width, Height);
-                GB = new LinearGradientBrush(new Rectangle(0, 0, 25, 25), _CheckedBackColorA, _CheckedBackColorB, 90);
+                R1 = new(17, 0, Width, Height + 1);
+                R2 = new(0, 0, Width, Height);
+                GB = new(new Rectangle(0, 0, 25, 25), _CheckedBackColorA, _CheckedBackColorB, 90);
 
                 GraphicsPath MyDrawer = Shape;
                 MyDrawer.AddArc(0, 0, 7, 7, 180, 90);
@@ -131,7 +131,7 @@ namespace ReaLTaiizor.Controls
 
             MyDrawer.FillPath(GB, Shape);
             // Fill the body of the CheckBox
-            MyDrawer.DrawPath(new Pen(_CheckedBorderColor), Shape);
+            MyDrawer.DrawPath(new(_CheckedBorderColor), Shape);
             // Draw the border
 
             MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(17, 0, Width, Height - 1), new StringFormat { LineAlignment = StringAlignment.Center });

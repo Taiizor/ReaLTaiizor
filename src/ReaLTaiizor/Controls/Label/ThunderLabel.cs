@@ -19,18 +19,18 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             ForeColor = Color.WhiteSmoke;
             DoubleBuffered = true;
-            Size = new Size(96, 16);
+            Size = new(96, 16);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle ClientRectangle = new Rectangle(0, 0, Width - 1, Height - 1);
+            //Rectangle ClientRectangle = new(0, 0, Width - 1, Height - 1);
             base.OnPaint(e);
             G.Clear(BackColor);
-            Font drawFont = new Font("Tahoma", 9, FontStyle.Bold);
-            StringFormat format = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+            Font drawFont = new("Tahoma", 9, FontStyle.Bold);
+            StringFormat format = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
             G.CompositingQuality = CompositingQuality.HighQuality;
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.DrawString(Text, drawFont, new SolidBrush(Color.FromArgb(5, 5, 5)), new Rectangle(1, 0, Width - 1, Height - 1), format);

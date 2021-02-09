@@ -28,11 +28,11 @@ namespace ReaLTaiizor.Colors
             TextColor = ((int)textShade).ToColor();
 
             //Pen
-            PrimaryPen = new Pen(PrimaryColor);
-            DarkPrimaryPen = new Pen(DarkPrimaryColor);
-            LightPrimaryPen = new Pen(LightPrimaryColor);
-            AccentPen = new Pen(AccentColor);
-            TextPen = new Pen(TextColor);
+            PrimaryPen = new(PrimaryColor);
+            DarkPrimaryPen = new(DarkPrimaryColor);
+            LightPrimaryPen = new(LightPrimaryColor);
+            AccentPen = new(AccentColor);
+            TextPen = new(TextColor);
 
             //Brush
             PrimaryBrush = new SolidBrush(PrimaryColor);
@@ -52,11 +52,11 @@ namespace ReaLTaiizor.Colors
             TextColor = ((int)textShade).ToColor();
 
             //Pen
-            PrimaryPen = new Pen(PrimaryColor);
-            DarkPrimaryPen = new Pen(DarkPrimaryColor);
-            LightPrimaryPen = new Pen(LightPrimaryColor);
-            AccentPen = new Pen(AccentColor);
-            TextPen = new Pen(TextColor);
+            PrimaryPen = new(PrimaryColor);
+            DarkPrimaryPen = new(DarkPrimaryColor);
+            LightPrimaryPen = new(LightPrimaryColor);
+            AccentPen = new(AccentColor);
+            TextPen = new(TextColor);
 
             //Brush
             PrimaryBrush = new SolidBrush(PrimaryColor);

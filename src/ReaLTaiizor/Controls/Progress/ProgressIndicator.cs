@@ -16,10 +16,10 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private readonly SolidBrush BaseColor = new SolidBrush(Color.DarkGray);
-        private readonly SolidBrush AnimationColor = new SolidBrush(Color.DimGray);
+        private readonly SolidBrush BaseColor = new(Color.DarkGray);
+        private readonly SolidBrush AnimationColor = new(Color.DimGray);
 
-        private readonly Timer AnimationSpeed = new Timer();
+        private readonly Timer AnimationSpeed = new();
         private PointF[] FloatPoint;
         private BufferedGraphics BuffGraphics;
         private int IndicatorIndex;
@@ -92,9 +92,9 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
 
-            Size = new Size(80, 80);
+            Size = new(80, 80);
             Text = string.Empty;
-            MinimumSize = new Size(50, 50);
+            MinimumSize = new(50, 50);
             SetPoints();
             AnimationSpeed.Interval = 100;
         }
@@ -102,18 +102,18 @@ namespace ReaLTaiizor.Controls
         private void SetStandardSize()
         {
             int _Size = Math.Max(Width, Height);
-            Size = new Size(_Size, _Size);
+            Size = new(_Size, _Size);
         }
 
         private void SetPoints()
         {
-            Stack<PointF> stack = new Stack<PointF>();
-            PointF startingFloatPoint = new PointF(((float)Width) / 2f, ((float)Height) / 2f);
+            Stack<PointF> stack = new();
+            PointF startingFloatPoint = new(((float)Width) / 2f, ((float)Height) / 2f);
             for (float i = 0f; i < 360f; i += 45f)
             {
                 SetValue(startingFloatPoint, (int)Math.Round((double)((((double)Width) / 2.0) - 15.0)), (double)i);
                 PointF endPoint = EndPoint;
-                endPoint = new PointF(endPoint.X - 7.5f, endPoint.Y - 7.5f);
+                endPoint = new(endPoint.X - 7.5f, endPoint.Y - 7.5f);
                 stack.Push(endPoint);
             }
             FloatPoint = stack.ToArray();
@@ -123,7 +123,7 @@ namespace ReaLTaiizor.Controls
         {
             if (Width > 0 && Height > 0)
             {
-                Size size2 = new Size(Width + 1, Height + 1);
+                Size size2 = new(Width + 1, Height + 1);
                 GraphicsContext.MaximumBuffer = size2;
                 BuffGraphics = GraphicsContext.Allocate(CreateGraphics(), ClientRectangle);
                 BuffGraphics.Graphics.SmoothingMode = SmoothingMode.AntiAlias;

@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (DefaultLocation)
                 {
-                    Location = new Point(Parent.Width - Width - 12, 16);
+                    Location = new(Parent.Width - Width - 12, 16);
                 }
             }
             catch (Exception)
@@ -94,7 +94,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(18, 18);
+            Size = new(18, 18);
         }
 
         [Category("Colors")]
@@ -135,18 +135,18 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             BackColor = Color.White;
-            Size = new Size(18, 18);
+            Size = new(18, 18);
             Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Font = new Font("Marlett", 10);
+            Font = new("Marlett", 10);
             Cursor = Cursors.Hand;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            Rectangle Base = new Rectangle(0, 0, Width, Height);
+            Rectangle Base = new(0, 0, Width, Height);
 
             Graphics _with3 = G;
             _with3.SmoothingMode = SmoothingMode.HighQuality;

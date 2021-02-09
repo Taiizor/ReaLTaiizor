@@ -138,7 +138,7 @@ namespace ReaLTaiizor.Controls
             Enabled = true;
             DoubleBuffered = true;
             ForeColor = FoxLibrary.ColorFromHex("#424E5A");
-            Font = new Font("Segoe UI", 10);
+            Font = new("Segoe UI", 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -149,47 +149,39 @@ namespace ReaLTaiizor.Controls
 
             if (Enabled)
             {
-                using (Pen Border = new Pen(_BorderColor))
+                using (Pen Border = new(_BorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(ForeColor))
+                using (SolidBrush TextColor = new(ForeColor))
                 {
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
                 }
 
-                using (SolidBrush SignColor = new SolidBrush(_ButtonTextColor))
-                {
-                    using (Font SignFont = new Font("Marlett", 10))
-                    {
-                        G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
-                        G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
-                    }
-                }
+                using SolidBrush SignColor = new(_ButtonTextColor);
+                using Font SignFont = new("Marlett", 10);
+                G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
+                G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
             }
             else
             {
-                using (Pen Border = new Pen(_DisabledBorderColor))
+                using (Pen Border = new(_DisabledBorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
                 }
 
-                using (SolidBrush TextColor = new SolidBrush(_DisabledTextColor))
+                using (SolidBrush TextColor = new(_DisabledTextColor))
                 {
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
                 }
 
-                using (SolidBrush SignColor = new SolidBrush(_DisabledButtonTextColor))
-                {
-                    using (Font SignFont = new Font("Marlett", 10))
-                    {
-                        G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
-                        G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
-                    }
-                }
+                using SolidBrush SignColor = new(_DisabledButtonTextColor);
+                using Font SignFont = new("Marlett", 10);
+                G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
+                G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
             }
 
             base.OnPaint(e);
@@ -236,7 +228,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(Width, 27);
+            Size = new(Width, 27);
         }
     }
 

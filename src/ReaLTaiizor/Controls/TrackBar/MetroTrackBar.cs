@@ -204,22 +204,16 @@ namespace ReaLTaiizor.Controls
 
             Cursor = Cursors.Hand;
 
-            using (SolidBrush bg = new SolidBrush(Enabled ? BackgroundColor : DisabledBackColor))
+            using SolidBrush bg = new(Enabled ? BackgroundColor : DisabledBackColor);
+            using SolidBrush v = new(Enabled ? ValueColor : DisabledValueColor);
+            using SolidBrush vc = new(Enabled ? HandlerColor : DisabledHandlerColor);
+            g.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
+            if (_currentValue != 0)
             {
-                using (SolidBrush v = new SolidBrush(Enabled ? ValueColor : DisabledValueColor))
-                {
-                    using (SolidBrush vc = new SolidBrush(Enabled ? HandlerColor : DisabledHandlerColor))
-                    {
-                        g.FillRectangle(bg, new Rectangle(0, 6, Width, 4));
-                        if (_currentValue != 0)
-                        {
-                            g.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
-                        }
-
-                        g.FillRectangle(vc, _track);
-                    }
-                }
+                g.FillRectangle(v, new Rectangle(0, 6, _currentValue, 4));
             }
+
+            g.FillRectangle(vc, _track);
         }
 
         #endregion
@@ -388,7 +382,7 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Left && Height > 0)
             {
                 RenewCurrentValue();
-                _track = new Rectangle(_currentValue, 0, 6, 16);
+                _track = new(_currentValue, 0, 6, 16);
                 _variable = new Rectangle(_currentValue, 0, 6, 16).Contains(e.Location);
             }
             base.OnMouseDown(e);
@@ -430,7 +424,7 @@ namespace ReaLTaiizor.Controls
 
         private void MoveTrack()
         {
-            _track = new Rectangle(_currentValue, 0, 6, 16);
+            _track = new(_currentValue, 0, 6, 16);
         }
 
         public void RenewCurrentValue()

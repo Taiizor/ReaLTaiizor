@@ -158,8 +158,8 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private readonly PoisonScrollBar verticalScrollbar = new PoisonScrollBar(ScrollOrientationType.Vertical);
-        private readonly PoisonScrollBar horizontalScrollbar = new PoisonScrollBar(ScrollOrientationType.Horizontal);
+        private readonly PoisonScrollBar verticalScrollbar = new(ScrollOrientationType.Vertical);
+        private readonly PoisonScrollBar horizontalScrollbar = new(ScrollOrientationType.Horizontal);
 
         private bool showHorizontalScrollbar = false;
         [DefaultValue(false)]
@@ -269,13 +269,13 @@ namespace ReaLTaiizor.Controls
 
         private void HorizontalScrollbarScroll(object sender, ScrollEventArgs e)
         {
-            AutoScrollPosition = new Point(e.NewValue, verticalScrollbar.Value);
+            AutoScrollPosition = new(e.NewValue, verticalScrollbar.Value);
             UpdateScrollBarPositions();
         }
 
         private void VerticalScrollbarScroll(object sender, ScrollEventArgs e)
         {
-            AutoScrollPosition = new Point(horizontalScrollbar.Value, e.NewValue);
+            AutoScrollPosition = new(horizontalScrollbar.Value, e.NewValue);
             UpdateScrollBarPositions();
         }
 
@@ -407,7 +407,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            verticalScrollbar.Location = new Point(ClientRectangle.Width - verticalScrollbar.Width, ClientRectangle.Y);
+            verticalScrollbar.Location = new(ClientRectangle.Width - verticalScrollbar.Width, ClientRectangle.Y);
             verticalScrollbar.Height = ClientRectangle.Height;
 
             if (!VerticalScrollbar)
@@ -415,7 +415,7 @@ namespace ReaLTaiizor.Controls
                 verticalScrollbar.Visible = false;
             }
 
-            horizontalScrollbar.Location = new Point(ClientRectangle.X, ClientRectangle.Height - horizontalScrollbar.Height);
+            horizontalScrollbar.Location = new(ClientRectangle.X, ClientRectangle.Height - horizontalScrollbar.Height);
             horizontalScrollbar.Width = ClientRectangle.Width;
 
             if (!HorizontalScrollbar)

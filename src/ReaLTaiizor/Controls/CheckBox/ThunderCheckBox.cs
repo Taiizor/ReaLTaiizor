@@ -82,38 +82,38 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint, true);
             BackColor = Color.Transparent;
             ForeColor = Color.WhiteSmoke;
-            Size = new Size(135, 16);
+            Size = new(135, 16);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.CompositingQuality = CompositingQuality.HighQuality;
-            Rectangle checkBoxRectangle = new Rectangle(0, 0, Height - 1, Height - 1);
-            LinearGradientBrush bodyGrad = new LinearGradientBrush(checkBoxRectangle, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
-            SolidBrush nb = new SolidBrush(ForeColor);
-            StringFormat format = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
-            Font drawFont = new Font("Tahoma", 9, FontStyle.Bold);
+            Rectangle checkBoxRectangle = new(0, 0, Height - 1, Height - 1);
+            LinearGradientBrush bodyGrad = new(checkBoxRectangle, Color.FromArgb(174, 195, 30), Color.FromArgb(141, 153, 16), 90);
+            SolidBrush nb = new(ForeColor);
+            StringFormat format = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+            Font drawFont = new("Tahoma", 9, FontStyle.Bold);
             G.Clear(BackColor);
             G.FillRectangle(bodyGrad, bodyGrad.Rectangle);
-            G.DrawRectangle(new Pen(Color.Black), checkBoxRectangle);
+            G.DrawRectangle(new(Color.Black), checkBoxRectangle);
             G.DrawString(Text, drawFont, Brushes.Black, new Point(17, 9), format);
             G.DrawString(Text, drawFont, nb, new Point(16, 8), format);
 
             if (_Checked)
             {
-                Rectangle chkPoly = new Rectangle(checkBoxRectangle.X + checkBoxRectangle.Width / 4, checkBoxRectangle.Y + checkBoxRectangle.Height / 4, checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
+                Rectangle chkPoly = new(checkBoxRectangle.X + checkBoxRectangle.Width / 4, checkBoxRectangle.Y + checkBoxRectangle.Height / 4, checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
                 Point[] p = new Point[]
                 {
                     new Point(chkPoly.X, chkPoly.Y + chkPoly.Height /2),
                     new Point(chkPoly.X + chkPoly.Width / 2, chkPoly.Y + chkPoly.Height),
                     new Point(chkPoly.X + chkPoly.Width, chkPoly.Y)
                 };
-                Pen P1 = new Pen(Color.FromArgb(12, 12, 12), 2);
+                Pen P1 = new(Color.FromArgb(12, 12, 12), 2);
                 for (int i = 0; i <= p.Length - 2; i++)
                 {
                     G.DrawLine(P1, p[i], p[i + 1]);

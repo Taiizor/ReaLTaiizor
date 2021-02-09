@@ -52,10 +52,7 @@ namespace ReaLTaiizor.Child.Crown
             {
                 _viewport = value;
 
-                if (ViewportChanged != null)
-                {
-                    ViewportChanged(this, null);
-                }
+                ViewportChanged?.Invoke(this, null);
             }
         }
 
@@ -69,10 +66,7 @@ namespace ReaLTaiizor.Child.Crown
                 _contentSize = value;
                 UpdateScrollBars();
 
-                if (ContentSizeChanged != null)
-                {
-                    ContentSizeChanged(this, null);
-                }
+                ContentSizeChanged?.Invoke(this, null);
             }
         }
 
@@ -160,11 +154,11 @@ namespace ReaLTaiizor.Child.Crown
 
             int scrollSize = ThemeProvider.Theme.Sizes.ScrollBarSize;
 
-            _vScrollBar.Location = new Point(ClientSize.Width - scrollSize, 0);
-            _vScrollBar.Size = new Size(scrollSize, ClientSize.Height);
+            _vScrollBar.Location = new(ClientSize.Width - scrollSize, 0);
+            _vScrollBar.Size = new(scrollSize, ClientSize.Height);
 
-            _hScrollBar.Location = new Point(0, ClientSize.Height - scrollSize);
-            _hScrollBar.Size = new Size(ClientSize.Width, scrollSize);
+            _hScrollBar.Location = new(0, ClientSize.Height - scrollSize);
+            _hScrollBar.Size = new(ClientSize.Width, scrollSize);
 
             if (DesignMode)
             {
@@ -211,7 +205,7 @@ namespace ReaLTaiizor.Child.Crown
         {
             int scrollSize = ThemeProvider.Theme.Sizes.ScrollBarSize;
 
-            _visibleSize = new Size(ClientSize.Width, ClientSize.Height);
+            _visibleSize = new(ClientSize.Width, ClientSize.Height);
 
             if (_vScrollBar.Visible)
             {
@@ -243,10 +237,10 @@ namespace ReaLTaiizor.Child.Crown
                 width -= _vScrollBar.Width;
             }
 
-            Viewport = new Rectangle(left, top, width, height);
+            Viewport = new(left, top, width, height);
 
             Point pos = PointToClient(MousePosition);
-            _offsetMousePosition = new Point(pos.X + Viewport.Left, pos.Y + Viewport.Top);
+            _offsetMousePosition = new(pos.X + Viewport.Left, pos.Y + Viewport.Top);
 
             Invalidate();
         }
@@ -331,7 +325,7 @@ namespace ReaLTaiizor.Child.Crown
         {
             base.OnMouseMove(e);
 
-            _offsetMousePosition = new Point(e.X + Viewport.Left, e.Y + Viewport.Top);
+            _offsetMousePosition = new(e.X + Viewport.Left, e.Y + Viewport.Top);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -429,7 +423,7 @@ namespace ReaLTaiizor.Child.Crown
                         difference = MaxDragChange;
                     }
 
-                    _vScrollBar.Value = _vScrollBar.Value - difference;
+                    _vScrollBar.Value -= difference;
                 }
 
                 // Scroll down
@@ -442,7 +436,7 @@ namespace ReaLTaiizor.Child.Crown
                         difference = MaxDragChange;
                     }
 
-                    _vScrollBar.Value = _vScrollBar.Value + difference;
+                    _vScrollBar.Value += difference;
                 }
             }
 
@@ -458,7 +452,7 @@ namespace ReaLTaiizor.Child.Crown
                         difference = MaxDragChange;
                     }
 
-                    _hScrollBar.Value = _hScrollBar.Value - difference;
+                    _hScrollBar.Value -= difference;
                 }
 
                 // Scroll right
@@ -471,7 +465,7 @@ namespace ReaLTaiizor.Child.Crown
                         difference = MaxDragChange;
                     }
 
-                    _hScrollBar.Value = _hScrollBar.Value + difference;
+                    _hScrollBar.Value += difference;
                 }
             }
         }

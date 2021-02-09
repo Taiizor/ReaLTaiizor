@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Controls
             {
                 _UseTallSize = value;
                 HEIGHT = UseTallSize ? 50 : 36;
-                Size = new Size(Size.Width, HEIGHT);
+                Size = new(Size.Width, HEIGHT);
                 Invalidate();
             }
         }
@@ -124,17 +124,17 @@ namespace ReaLTaiizor.Controls
 
             // Size and padding
             HEIGHT = UseTallSize ? 50 : 36;
-            Size = new Size(Size.Width, HEIGHT);
+            Size = new(Size.Width, HEIGHT);
             LINE_Y = HEIGHT - BOTTOM_PADDING;
 
             // Position the "real" text field
-            Rectangle rect = new Rectangle(SkinManager.FORM_PADDING, UseTallSize ? hasHint ?
+            Rectangle rect = new(SkinManager.FORM_PADDING, UseTallSize ? hasHint ?
                     (HINT_TEXT_SMALL_Y + HINT_TEXT_SMALL_SIZE) : // Has hint and it's tall
                     (int)(LINE_Y / 3.5) : // No hint and tall
                     Height / 5, // not tall
                     ClientSize.Width - (SkinManager.FORM_PADDING * 2), LINE_Y);
-            RECT rc = new RECT(rect);
-            SendMessageRefRect(Handle, EM_SETRECT, 0, ref rc);
+            RECT rc = new(rect);
+            _ = SendMessageRefRect(Handle, EM_SETRECT, 0, ref rc);
 
             // events
             MouseState = MaterialMouseState.OUT;
@@ -190,7 +190,7 @@ namespace ReaLTaiizor.Controls
 
             g.Clear(Parent.BackColor);
 
-            SolidBrush backBrush = new SolidBrush(BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A));
+            SolidBrush backBrush = new(BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A));
 
             g.FillRectangle(
                 !Enabled ? SkinManager.BackgroundDisabledBrush : // Disabled
@@ -205,7 +205,7 @@ namespace ReaLTaiizor.Controls
                             UseAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : // Focused
                             SkinManager.TextHighEmphasisColor : // Inactive
                             SkinManager.TextDisabledOrHintColor; // Disabled
-            Rectangle hintRect = new Rectangle(SkinManager.FORM_PADDING, ClientRectangle.Y, Width, LINE_Y);
+            Rectangle hintRect = new(SkinManager.FORM_PADDING, ClientRectangle.Y, Width, LINE_Y);
             int hintTextSize = 16;
 
             // bottom line base
@@ -217,7 +217,7 @@ namespace ReaLTaiizor.Controls
                 if (hasHint && UseTallSize && (Focused || userTextPresent))
                 {
                     // hint text
-                    hintRect = new Rectangle(SkinManager.FORM_PADDING, HINT_TEXT_SMALL_Y, Width, HINT_TEXT_SMALL_SIZE);
+                    hintRect = new(SkinManager.FORM_PADDING, HINT_TEXT_SMALL_Y, Width, HINT_TEXT_SMALL_SIZE);
                     hintTextSize = 12;
                 }
 
@@ -235,7 +235,7 @@ namespace ReaLTaiizor.Controls
                 // hint Animation
                 if (hasHint && UseTallSize)
                 {
-                    hintRect = new Rectangle(
+                    hintRect = new(
                         SkinManager.FORM_PADDING,
                         userTextPresent ? (HINT_TEXT_SMALL_Y) : ClientRectangle.Y + (int)((HINT_TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
                         Width,
@@ -255,16 +255,16 @@ namespace ReaLTaiizor.Controls
             Rectangle textSelectRect;
 
             // Calc text Rect
-            Rectangle textRect = new Rectangle(
+            Rectangle textRect = new(
                 SkinManager.FORM_PADDING,
                 hasHint && UseTallSize ? (hintRect.Y + hintRect.Height) - 2 : ClientRectangle.Y,
                 ClientRectangle.Width - SkinManager.FORM_PADDING * 2 + scrollPos.X,
                 hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
-            g.Clip = new Region(textRect);
+            g.Clip = new(textRect);
             textRect.X -= scrollPos.X;
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 // Selection rects calc
                 string textBeforeSelection = textToDisplay.Substring(0, SelectionStart);
@@ -273,7 +273,7 @@ namespace ReaLTaiizor.Controls
                 int selectX = NativeText.MeasureLogString(textBeforeSelection, SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1)).Width;
                 int selectWidth = NativeText.MeasureLogString(textSelected, SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1)).Width;
 
-                textSelectRect = new Rectangle(
+                textSelectRect = new(
                     textRect.X + selectX, UseTallSize ? hasHint ?
                      textRect.Y + BOTTOM_PADDING : // tall and hint
                      LINE_Y / 3 - BOTTOM_PADDING : // tall and no hint
@@ -300,37 +300,33 @@ namespace ReaLTaiizor.Controls
                 g.FillRectangle(UseAccent ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.DarkPrimaryBrush, textSelectRect);
 
                 // Draw Selected Text
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-                {
-                    NativeText.DrawTransparentText(
-                        textSelected,
-                        SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1),
-                        SkinManager.ColorScheme.TextColor,
-                        textSelectRect.Location,
-                        textSelectRect.Size,
-                        MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                }
+                using MaterialNativeTextRenderer NativeText = new(g);
+                NativeText.DrawTransparentText(
+                    textSelected,
+                    SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1),
+                    SkinManager.ColorScheme.TextColor,
+                    textSelectRect.Location,
+                    textSelectRect.Size,
+                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
 
-            g.Clip = new Region(ClientRectangle);
+            g.Clip = new(ClientRectangle);
 
             // Draw hint text
             if (hasHint && (UseTallSize || string.IsNullOrEmpty(Text)))
             {
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-                {
-                    NativeText.DrawTransparentText(
-                    Hint,
-                    SkinManager.getTextBoxFontBySize(hintTextSize),
-                    Enabled ? Focused ? UseAccent ?
-                    SkinManager.ColorScheme.AccentColor : // Focus Accent
-                    SkinManager.ColorScheme.PrimaryColor : // Focus Primary
-                    SkinManager.TextMediumEmphasisColor : // not focused
-                    SkinManager.TextDisabledOrHintColor, // Disabled
-                    hintRect.Location,
-                    hintRect.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                }
+                using MaterialNativeTextRenderer NativeText = new(g);
+                NativeText.DrawTransparentText(
+                Hint,
+                SkinManager.getTextBoxFontBySize(hintTextSize),
+                Enabled ? Focused ? UseAccent ?
+                SkinManager.ColorScheme.AccentColor : // Focus Accent
+                SkinManager.ColorScheme.PrimaryColor : // Focus Primary
+                SkinManager.TextMediumEmphasisColor : // not focused
+                SkinManager.TextDisabledOrHintColor, // Disabled
+                hintRect.Location,
+                hintRect.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
         }
 
@@ -349,7 +345,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Size = new Size(Width, HEIGHT);
+            Size = new(Width, HEIGHT);
             LINE_Y = HEIGHT - BOTTOM_PADDING;
         }
 
@@ -377,8 +373,7 @@ namespace ReaLTaiizor.Controls
 
         private void ContextMenuStripOnOpening(object sender, CancelEventArgs cancelEventArgs)
         {
-            MaterialTextBoxContextMenuStrip strip = sender as MaterialTextBoxContextMenuStrip;
-            if (strip != null)
+            if (sender is MaterialTextBoxContextMenuStrip strip)
             {
                 strip.Cut.Enabled = !string.IsNullOrEmpty(SelectedText);
                 strip.Copy.Enabled = !string.IsNullOrEmpty(SelectedText);

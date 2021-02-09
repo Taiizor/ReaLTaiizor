@@ -39,16 +39,16 @@ namespace ReaLTaiizor.Controls
 
         public MoonTextBox()
         {
-            Font = new Font("Microsoft Sans Serif", 8);
+            Font = new("Microsoft Sans Serif", 8);
             ForeColor = Color.Gray;
             BackColor = Color.FromArgb(235, 235, 235);
             BorderStyle = BorderStyle.FixedSingle;
-            Size = new Size(76, 20);
+            Size = new(76, 20);
         }
 
         private void CustomPaint()
         {
-            Pen p = new Pen(new SolidBrush(BorderColor));
+            Pen p = new(new SolidBrush(BorderColor));
             CreateGraphics().DrawLine(p, 0, 0, Width, 0);
             CreateGraphics().DrawLine(p, 0, Height - 1, Width, Height - 1);
             CreateGraphics().DrawLine(p, 0, 0, 0, Height - 1);

@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Controls
     {
         public SkyLabel() : base()
         {
-            Font = new Font("Verdana", 6.75f, FontStyle.Bold);
+            Font = new("Verdana", 6.75f, FontStyle.Bold);
             ForeColor = Color.FromArgb(27, 94, 137);
         }
     }

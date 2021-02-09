@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Util
     {
         private static MaterialManager _instance;
 
-        private readonly List<MaterialForm> _formsToManage = new List<MaterialForm>();
+        private readonly List<MaterialForm> _formsToManage = new();
 
         public delegate void SkinManagerEventHandler(object sender);
 
@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Util
 
         public bool EnforceBackcolorOnAllComponents = true;
 
-        public static MaterialManager Instance => _instance ?? (_instance = new MaterialManager());
+        public static MaterialManager Instance => _instance ??= new MaterialManager();
 
         public int FORM_PADDING = 14;
 
@@ -276,48 +276,23 @@ namespace ReaLTaiizor.Util
 
         public Font getFontByType(fontType type)
         {
-            switch (type)
+            return type switch
             {
-                case fontType.H1:
-                    return new Font(RobotoFontFamilies["Roboto_Light"], 96f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.H2:
-                    return new Font(RobotoFontFamilies["Roboto_Light"], 60f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.H3:
-                    return new Font(RobotoFontFamilies["Roboto"], 48f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.H4:
-                    return new Font(RobotoFontFamilies["Roboto"], 34f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.H5:
-                    return new Font(RobotoFontFamilies["Roboto"], 24f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.H6:
-                    return new Font(RobotoFontFamilies["Roboto_Medium"], 20f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.Subtitle1:
-                    return new Font(RobotoFontFamilies["Roboto"], 16f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.Subtitle2:
-                    return new Font(RobotoFontFamilies["Roboto_Medium"], 14f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.Body1:
-                    return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.Body2:
-                    return new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.Button:
-                    return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                case fontType.Caption:
-                    return new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel);
-
-                case fontType.Overline:
-                    return new Font(RobotoFontFamilies["Roboto"], 10f, FontStyle.Regular, GraphicsUnit.Pixel);
-            }
-            return new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel);
+                fontType.H1 => new Font(RobotoFontFamilies["Roboto_Light"], 96f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.H2 => new Font(RobotoFontFamilies["Roboto_Light"], 60f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.H3 => new Font(RobotoFontFamilies["Roboto"], 48f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.H4 => new Font(RobotoFontFamilies["Roboto"], 34f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.H5 => new Font(RobotoFontFamilies["Roboto"], 24f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.H6 => new Font(RobotoFontFamilies["Roboto_Medium"], 20f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.Subtitle1 => new Font(RobotoFontFamilies["Roboto"], 16f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.Subtitle2 => new Font(RobotoFontFamilies["Roboto_Medium"], 14f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.Body1 => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.Body2 => new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.Button => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Bold, GraphicsUnit.Pixel),
+                fontType.Caption => new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel),
+                fontType.Overline => new Font(RobotoFontFamilies["Roboto"], 10f, FontStyle.Regular, GraphicsUnit.Pixel),
+                _ => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel),
+            };
         }
 
         public IntPtr getTextBoxFontBySize(int size)
@@ -336,7 +311,7 @@ namespace ReaLTaiizor.Util
 
         private readonly Dictionary<string, FontFamily> RobotoFontFamilies;
 
-        private readonly PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+        private readonly PrivateFontCollection privateFontCollection = new();
 
         private void addFont(byte[] fontdata)
         {
@@ -347,7 +322,7 @@ namespace ReaLTaiizor.Util
             Marshal.Copy(fontdata, 0, ptrFont, dataLength);
 
             // GDI Font
-            uint cFonts = 0;
+            //uint cFonts = 0;
             MaterialNativeTextRenderer.AddFontMemResourceEx(fontdata, dataLength, IntPtr.Zero, out _);
 
             // GDI+ Font
@@ -357,7 +332,7 @@ namespace ReaLTaiizor.Util
         private IntPtr createLogicalFont(string fontName, int size, MaterialNativeTextRenderer.logFontWeight weight)
         {
             // Logical font:
-            MaterialNativeTextRenderer.LogFont lfont = new MaterialNativeTextRenderer.LogFont
+            MaterialNativeTextRenderer.LogFont lfont = new()
             {
                 lfFaceName = fontName,
                 lfHeight = -size,
@@ -409,9 +384,9 @@ namespace ReaLTaiizor.Util
             }
 
             // Material Tabcontrol pages
-            if (controlToUpdate is System.Windows.Forms.TabPage)
+            if (controlToUpdate is System.Windows.Forms.TabPage page)
             {
-                ((System.Windows.Forms.TabPage)controlToUpdate).BackColor = newBackColor;
+                page.BackColor = newBackColor;
             }
 
             // Material Divider
@@ -469,7 +444,7 @@ namespace ReaLTaiizor.Util
 
         private static readonly int[] _charFitWidth = new int[1000];
 
-        private static readonly Dictionary<string, Dictionary<float, Dictionary<FontStyle, IntPtr>>> _fontsCache = new Dictionary<string, Dictionary<float, Dictionary<FontStyle, IntPtr>>>(StringComparer.InvariantCultureIgnoreCase);
+        private static readonly Dictionary<string, Dictionary<float, Dictionary<FontStyle, IntPtr>>> _fontsCache = new(StringComparer.InvariantCultureIgnoreCase);
 
         private readonly Graphics _g;
 
@@ -484,9 +459,9 @@ namespace ReaLTaiizor.Util
             IntPtr clip = _g.Clip.GetHrgn(_g);
 
             _hdc = _g.GetHdc();
-            SetBkMode(_hdc, 1);
+            _ = SetBkMode(_hdc, 1);
 
-            SelectClipRgn(_hdc, clip);
+            _ = SelectClipRgn(_hdc, clip);
 
             DeleteObject(clip);
         }
@@ -495,8 +470,8 @@ namespace ReaLTaiizor.Util
         {
             SetFont(font);
 
-            Size size = new Size();
-            GetTextExtentPoint32(_hdc, str, str.Length, ref size);
+            Size size = new();
+            _ = GetTextExtentPoint32(_hdc, str, str.Length, ref size);
             return size;
         }
 
@@ -504,8 +479,8 @@ namespace ReaLTaiizor.Util
         {
             SelectObject(_hdc, LogFont);
 
-            Size size = new Size();
-            GetTextExtentPoint32(_hdc, str, str.Length, ref size);
+            Size size = new();
+            _ = GetTextExtentPoint32(_hdc, str, str.Length, ref size);
             return size;
         }
 
@@ -513,7 +488,7 @@ namespace ReaLTaiizor.Util
         {
             SetFont(font);
 
-            Size size = new Size();
+            Size size = new();
             GetTextExtentExPoint(_hdc, str, str.Length, (int)Math.Round(maxWidth), _charFit, _charFitWidth, ref size);
             charFit = _charFit[0];
             charFitWidth = charFit > 0 ? _charFitWidth[charFit - 1] : 0;
@@ -533,8 +508,8 @@ namespace ReaLTaiizor.Util
             SetFont(font);
             SetTextColor(color);
 
-            Rect rect2 = new Rect(rect);
-            DrawText(_hdc, str, str.Length, ref rect2, (uint)flags);
+            Rect rect2 = new(rect);
+            _ = DrawText(_hdc, str, str.Length, ref rect2, (uint)flags);
         }
 
         public void DrawTransparentText(string str, Font font, Color color, Point point, Size size, TextAlignFlags flags)
@@ -561,10 +536,10 @@ namespace ReaLTaiizor.Util
         {
             // Create a memory DC so we can work off-screen
             IntPtr memoryHdc = CreateCompatibleDC(_hdc);
-            SetBkMode(memoryHdc, 1);
+            _ = SetBkMode(memoryHdc, 1);
 
             // Create a device-independent bitmap and select it into our DC
-            BitMapInfo info = new BitMapInfo();
+            BitMapInfo info = new();
             info.biSize = Marshal.SizeOf(info);
             info.biWidth = size.Width;
             info.biHeight = -size.Height;
@@ -581,10 +556,10 @@ namespace ReaLTaiizor.Util
 
                 // Create and select font
                 SelectObject(memoryHdc, fontHandle);
-                SetTextColor(memoryHdc, (color.B & 0xFF) << 16 | (color.G & 0xFF) << 8 | color.R);
+                _ = SetTextColor(memoryHdc, (color.B & 0xFF) << 16 | (color.G & 0xFF) << 8 | color.R);
 
-                Size strSize = new Size();
-                Point pos = new Point();
+                Size strSize = new();
+                Point pos = new();
 
                 if (multilineSupport)
                 {
@@ -601,8 +576,8 @@ namespace ReaLTaiizor.Util
                     }
 
                     // Calculate the string size
-                    Rect strRect = new Rect(new Rectangle(point, size));
-                    DrawText(memoryHdc, str, str.Length, ref strRect, TextFormatFlags.CalcRect | fmtFlags);
+                    Rect strRect = new(new Rectangle(point, size));
+                    _ = DrawText(memoryHdc, str, str.Length, ref strRect, TextFormatFlags.CalcRect | fmtFlags);
 
                     if (flags.HasFlag(TextAlignFlags.Middle))
                     {
@@ -615,14 +590,14 @@ namespace ReaLTaiizor.Util
                     }
 
                     // Draw Text for multiline format
-                    Rect region = new Rect(new Rectangle(pos, size));
+                    Rect region = new(new Rectangle(pos, size));
                     //DrawText(memoryHdc, str, str.Length, ref region, fmtFlags);
-                    DrawText(memoryHdc, str, -1, ref region, fmtFlags);
+                    _ = DrawText(memoryHdc, str, -1, ref region, fmtFlags);
                 }
                 else
                 {
                     // Calculate the string size
-                    GetTextExtentPoint32(memoryHdc, str, str.Length, ref strSize);
+                    _ = GetTextExtentPoint32(memoryHdc, str, str.Length, ref strSize);
                     // Aligment
                     if (flags.HasFlag(TextAlignFlags.Center))
                     {
@@ -1058,7 +1033,7 @@ namespace ReaLTaiizor.Util
 
             private const double MAX_VALUE = 1.00;
 
-            private readonly Timer _animationTimer = new Timer
+            private readonly Timer _animationTimer = new()
             {
                 Interval = 5,
                 Enabled = false
@@ -1468,19 +1443,14 @@ namespace ReaLTaiizor.Util
                     throw new IndexOutOfRangeException("Invalid animation index");
                 }
 
-                switch (AnimationType)
+                return AnimationType switch
                 {
-                    case AnimationType.Linear:
-                        return AnimationLinear.CalculateProgress(_animationProgresses[index]);
-                    case AnimationType.EaseInOut:
-                        return AnimationEaseInOut.CalculateProgress(_animationProgresses[index]);
-                    case AnimationType.EaseOut:
-                        return AnimationEaseOut.CalculateProgress(_animationProgresses[index]);
-                    case AnimationType.CustomQuadratic:
-                        return AnimationCustomQuadratic.CalculateProgress(_animationProgresses[index]);
-                    default:
-                        throw new NotImplementedException("The given AnimationType is not implemented");
-                }
+                    AnimationType.Linear => AnimationLinear.CalculateProgress(_animationProgresses[index]),
+                    AnimationType.EaseInOut => AnimationEaseInOut.CalculateProgress(_animationProgresses[index]),
+                    AnimationType.EaseOut => AnimationEaseOut.CalculateProgress(_animationProgresses[index]),
+                    AnimationType.CustomQuadratic => AnimationCustomQuadratic.CalculateProgress(_animationProgresses[index]),
+                    _ => throw new NotImplementedException("The given AnimationType is not implemented"),
+                };
             }
 
             public Point GetSource(int index)
@@ -1607,6 +1577,27 @@ namespace ReaLTaiizor.Util
 
                 _animationDatas[0] = data;
             }
+        }
+    }
+
+    public class MaterialMouseMessageFilter : IMessageFilter
+    {
+        private const int WM_MOUSEMOVE = 0x0200;
+
+        public static event MouseEventHandler MouseMove;
+
+        public bool PreFilterMessage(ref Message m)
+        {
+            if (m.Msg == WM_MOUSEMOVE)
+            {
+                if (MouseMove != null)
+                {
+                    int x = Control.MousePosition.X, y = Control.MousePosition.Y;
+
+                    MouseMove(null, new MouseEventArgs(MouseButtons.None, 0, x, y, 0));
+                }
+            }
+            return false;
         }
     }
 

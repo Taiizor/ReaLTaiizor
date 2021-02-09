@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
         public LostCancelButton() : base()
         {
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
             Font = ThemeLost.BodyFont;
         }
 
@@ -74,7 +74,7 @@ namespace ReaLTaiizor.Controls
                 for (int i = 0; i < ShadowLevel; i++)
                 {
                     g.DrawRectangle(
-                        new Pen(Color.IndianRed.Shade(Theme.ShadowSize, i)),
+                        new(Color.IndianRed.Shade(Theme.ShadowSize, i)),
                         ShadeRect(i));
                 }
             }

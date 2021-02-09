@@ -29,13 +29,13 @@ namespace ReaLTaiizor.Controls
         public Separator()
         {
             SetStyle(ControlStyles.ResizeRedraw, true);
-            Size = new Size(120, 10);
+            Size = new(120, 10);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            e.Graphics.DrawLine(new Pen(LineColor), 0, 5, Width, 5);
+            e.Graphics.DrawLine(new(LineColor), 0, 5, Width, 5);
         }
     }
 

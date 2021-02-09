@@ -128,8 +128,8 @@ namespace ReaLTaiizor.Controls
                 graphics.FillPie(new SolidBrush(_DangerColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
 
                 graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - _roundWidth * 2, Width - _roundWidth * 2));
-                graphics.DrawLine(new Pen(_DangerTextColorA, 2f), Width / 2 - 6, Height / 2 - 6, Width / 2 + 6, Height / 2 + 6);
-                graphics.DrawLine(new Pen(_DangerTextColorB, 2f), Width / 2 - 6, Height / 2 + 6, Width / 2 + 6, Height / 2 - 6);
+                graphics.DrawLine(new(_DangerTextColorA, 2f), Width / 2 - 6, Height / 2 - 6, Width / 2 + 6, Height / 2 + 6);
+                graphics.DrawLine(new(_DangerTextColorB, 2f), Width / 2 - 6, Height / 2 + 6, Width / 2 + 6, Height / 2 - 6);
             }
             else
             {
@@ -137,8 +137,8 @@ namespace ReaLTaiizor.Controls
                 {
                     graphics.FillPie(new SolidBrush(_FullBarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
                     graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - _roundWidth * 2, Width - _roundWidth * 2));
-                    graphics.DrawLine(new Pen(_FullTextColorA, 2f), Width / 2 - 6, Height / 2, Width / 2 - 3, Height / 2 + 6);
-                    graphics.DrawLine(new Pen(_FullTextColorB, 2f), Width / 2 + 6, Height / 2 - 6, Width / 2 - 3, Height / 2 + 6);
+                    graphics.DrawLine(new(_FullTextColorA, 2f), Width / 2 - 6, Height / 2, Width / 2 - 3, Height / 2 + 6);
+                    graphics.DrawLine(new(_FullTextColorB, 2f), Width / 2 + 6, Height / 2 - 6, Width / 2 - 3, Height / 2 + 6);
                 }
                 else
                 {
@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 12f);
+            Font = new("Segoe UI", 12f);
             BackColor = Color.White;
             ForeColor = HopeColors.PrimaryColor;
         }

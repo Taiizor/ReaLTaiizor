@@ -36,10 +36,8 @@ namespace ReaLTaiizor.Util
         {
             SizeF TS = G.MeasureString(T, F);
 
-            using (SolidBrush B = new SolidBrush(C))
-            {
-                G.DrawString(T, F, B, new Point((int)(R.X + R.Width / 2 - (TS.Width / 2)), (int)(R.Y + R.Height / 2 - (TS.Height / 2))));
-            }
+            using SolidBrush B = new(C);
+            G.DrawString(T, F, B, new Point((int)(R.X + R.Width / 2 - (TS.Width / 2)), (int)(R.Y + R.Height / 2 - (TS.Height / 2))));
         }
 
         public static Color ColorFromHex(string Hex)
@@ -62,7 +60,7 @@ namespace ReaLTaiizor.Util
         public static GraphicsPath RoundRect(Rectangle Rect, int Rounding, RoundingStyle Style = RoundingStyle.All)
         {
 
-            GraphicsPath GP = new GraphicsPath();
+            GraphicsPath GP = new();
             int AW = Rounding * 2;
 
             GP.StartFigure();
@@ -274,7 +272,7 @@ namespace ReaLTaiizor.Util
             {
                 Enabled = true;
                 DoubleBuffered = true;
-                Size = new Size(115, 23);
+                Size = new(115, 23);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
@@ -370,7 +368,7 @@ namespace ReaLTaiizor.Util
             {
                 Enabled = true;
                 DoubleBuffered = true;
-                Size = new Size(130, 23);
+                Size = new(130, 23);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
@@ -402,9 +400,9 @@ namespace ReaLTaiizor.Util
                     {
                         foreach (Control C in Parent.Controls)
                         {
-                            if (C is FoxBaseRadioButton)
+                            if (C is FoxBaseRadioButton button)
                             {
-                                ((FoxBaseRadioButton)C).Checked = false;
+                                button.Checked = false;
                             }
                         }
 
@@ -468,7 +466,7 @@ namespace ReaLTaiizor.Util
             {
                 DoubleBuffered = true;
                 Enabled = true;
-                Size = new Size(120, 40);
+                Size = new(120, 40);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
@@ -551,7 +549,7 @@ namespace ReaLTaiizor.Util
                 DoubleBuffered = true;
                 Enabled = true;
                 Cursor = Cursors.Default;
-                Size = new Size(120, 40);
+                Size = new(120, 40);
             }
 
             protected override void OnMouseEnter(EventArgs e)
@@ -632,7 +630,7 @@ namespace ReaLTaiizor.Util
             {
                 DoubleBuffered = true;
                 Enabled = true;
-                Size = new Size(85, 19);
+                Size = new(85, 19);
             }
 
             protected override void OnMouseEnter(EventArgs e)

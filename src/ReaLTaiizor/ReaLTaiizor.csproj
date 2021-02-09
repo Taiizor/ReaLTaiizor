@@ -15,9 +15,9 @@
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
     <Description>Best with more than 250 WinForm components.
 C# WinForm UI/UX Component Library - $(PackageId)</Description>
-    <PackageLicenseFile></PackageLicenseFile>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Minor changes have been made.
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageReleaseNotes>Major changes have been made.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
     <PackageTags>ReaL Taiizor Soferity ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet Component</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
@@ -98,6 +98,10 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 

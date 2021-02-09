@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
             base.Font = MetroFonts.Regular(9.5f);
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
-            _buttonSize = new Size(95, 32);
+            _buttonSize = new(95, 32);
             ApplyTheme();
             EvaluateControls();
             AddControls();
@@ -227,14 +227,14 @@ namespace ReaLTaiizor.Controls
         public static DialogResult Show(MetroForm form, string content, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
             const string message = @"MetroMessageBox requires a form, use 'this' as the first parameter in the place you use MetroMessageBox.";
-            MetroMessageBox msgBox = new MetroMessageBox
+            MetroMessageBox msgBox = new()
             {
                 OwnerForm = form ?? throw new ArgumentNullException(message),
                 Content = content,
                 Caption = caption,
                 Buttons = buttons,
-                Size = new Size(form.Width - 2, (form.Height / 3) - 1),
-                Location = new Point(form.Location.X, (form.Height / 2) - 1)
+                Size = new(form.Width - 2, (form.Height / 3) - 1),
+                Location = new(form.Location.X, (form.Height / 2) - 1)
             };
             if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Stop)
             {
@@ -279,45 +279,45 @@ namespace ReaLTaiizor.Controls
             switch (Buttons)
             {
                 case MessageBoxButtons.OK:
-                    _okButton.Location = new Point(firstButton, buttonHeight);
+                    _okButton.Location = new(firstButton, buttonHeight);
                     _okButton.Visible = true;
                     break;
                 case MessageBoxButtons.OKCancel:
-                    _okButton.Location = new Point(secondButoon, buttonHeight);
+                    _okButton.Location = new(secondButoon, buttonHeight);
                     _okButton.Visible = true;
-                    _cancelButton.Location = new Point(firstButton, buttonHeight);
+                    _cancelButton.Location = new(firstButton, buttonHeight);
                     _cancelButton.Visible = true;
                     break;
                 case MessageBoxButtons.YesNo:
-                    _yesButton.Location = new Point(secondButoon, buttonHeight);
+                    _yesButton.Location = new(secondButoon, buttonHeight);
                     _yesButton.Visible = true;
-                    _noButton.Location = new Point(firstButton, buttonHeight);
+                    _noButton.Location = new(firstButton, buttonHeight);
                     _noButton.Visible = true;
                     break;
                 case MessageBoxButtons.YesNoCancel:
-                    _yesButton.Location = new Point((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
+                    _yesButton.Location = new((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
                     _yesButton.Visible = true;
-                    _noButton.Location = new Point(secondButoon, buttonHeight);
+                    _noButton.Location = new(secondButoon, buttonHeight);
                     _noButton.Visible = true;
-                    _cancelButton.Location = new Point(firstButton, buttonHeight);
+                    _cancelButton.Location = new(firstButton, buttonHeight);
                     _cancelButton.Visible = true;
                     break;
                 case MessageBoxButtons.RetryCancel:
-                    _retryButton.Location = new Point(secondButoon, buttonHeight);
+                    _retryButton.Location = new(secondButoon, buttonHeight);
                     _retryButton.Visible = true;
-                    _cancelButton.Location = new Point(firstButton, buttonHeight);
+                    _cancelButton.Location = new(firstButton, buttonHeight);
                     _cancelButton.Visible = true;
                     break;
                 case MessageBoxButtons.AbortRetryIgnore:
-                    _abortButton.Location = new Point((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
+                    _abortButton.Location = new((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
                     _abortButton.Visible = true;
-                    _retryButton.Location = new Point(secondButoon, buttonHeight);
+                    _retryButton.Location = new(secondButoon, buttonHeight);
                     _retryButton.Visible = true;
-                    _ignoreButton.Location = new Point(firstButton, buttonHeight);
+                    _ignoreButton.Location = new(firstButton, buttonHeight);
                     _ignoreButton.Visible = true;
                     break;
                 default:
-                    _okButton.Location = new Point(firstButton, buttonHeight);
+                    _okButton.Location = new(firstButton, buttonHeight);
                     _okButton.Visible = true;
                     break;
             }
@@ -333,21 +333,15 @@ namespace ReaLTaiizor.Controls
             Graphics G = e.Graphics;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            Rectangle rect = new Rectangle(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
+            Rectangle rect = new(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
 
-            using (SolidBrush bg = new SolidBrush(BackgroundColor))
-            {
-                using (SolidBrush CTNT = new SolidBrush(ForegroundColor))
-                {
-                    using (Pen p = new Pen(BorderColor))
-                    {
-                        G.FillRectangle(bg, rect);
-                        G.DrawString(Caption, Font, CTNT, new PointF(rect.X + 10, rect.Y + 10));
-                        G.DrawString(Content, Font, CTNT, new PointF(rect.X + 10, rect.Y + 50));
-                        G.DrawRectangle(p, rect);
-                    }
-                }
-            }
+            using SolidBrush bg = new(BackgroundColor);
+            using SolidBrush CTNT = new(ForegroundColor);
+            using Pen p = new(BorderColor);
+            G.FillRectangle(bg, rect);
+            G.DrawString(Caption, Font, CTNT, new PointF(rect.X + 10, rect.Y + 10));
+            G.DrawString(Content, Font, CTNT, new PointF(rect.X + 10, rect.Y + 50));
+            G.DrawRectangle(p, rect);
         }
 
         #endregion

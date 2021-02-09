@@ -12,7 +12,6 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceButton : SpaceControl // A Simple Button
     {
-
         public SpaceButton()
         {
             SetColor("DownGradient1", 42, 42, 42); // Basic Gradients Used to Shade the Button
@@ -25,7 +24,7 @@ namespace ReaLTaiizor.Controls
             SetColor("Border1", 35, 35, 35); // The Inside Border
             SetColor("Border2", 42, 42, 42); // The Outside Border
             Cursor = Cursors.Hand;
-            Size = new Size(120, 40);
+            Size = new(120, 40);
         }
 
         private Color C1; // Set up Simple Colors
@@ -37,6 +36,17 @@ namespace ReaLTaiizor.Controls
         private SolidBrush B1; // A Brush to use text
         private Pen P1; // A Pen used to create borders
         private Pen P2;
+        private HorizontalAlignment _TextAlignment = HorizontalAlignment.Center;
+
+        public HorizontalAlignment TextAlignment
+        {
+            get => _TextAlignment;
+            set
+            {
+                _TextAlignment = value;
+                Invalidate();
+            }
+        }
 
         protected override void ColorHook()
         {
@@ -46,9 +56,9 @@ namespace ReaLTaiizor.Controls
             C4 = GetColor("NoneGradient2");
             C5 = GetColor("ClickedGradient1");
             C6 = GetColor("ClickedGradient2");
-            B1 = new SolidBrush(GetColor("Text")); // Set up Color for the Text
-            P1 = new Pen(GetColor("Border1")); // Get and create the borders for the Buttons
-            P2 = new Pen(GetColor("Border2"));
+            B1 = new(GetColor("Text")); // Set up Color for the Text
+            P1 = new(GetColor("Border1")); // Get and create the borders for the Buttons
+            P2 = new(GetColor("Border2"));
         }
 
         protected override void PaintHook()
@@ -66,7 +76,7 @@ namespace ReaLTaiizor.Controls
                 DrawGradient(C3, C4, ClientRectangle, 90f); // else change the shading
             }
 
-            DrawText(B1, HorizontalAlignment.Center, 0, 0); // Draw the Text Smack dab in the middle of the button
+            DrawText(B1, TextAlignment, 0, 0); // Draw the Text Smack dab in the middle of the button
             DrawBorders(P1, 1); // Create the Inner Border
             DrawBorders(P2); // Create the Outer Border
             DrawCorners(BackColor); // Draw the Corners

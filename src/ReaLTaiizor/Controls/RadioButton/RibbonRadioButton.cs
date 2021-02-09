@@ -73,9 +73,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is RibbonRadioButton)
+                if (!object.ReferenceEquals(C, this) && C is RibbonRadioButton button)
                 {
-                    ((RibbonRadioButton)C).Checked = false;
+                    button.Checked = false;
                 }
             }
         }
@@ -174,18 +174,18 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(40, 40, 40);
-            Size = new Size(133, 16);
+            Size = new(133, 16);
             DoubleBuffered = true;
             Cursor = Cursors.Hand;
-            Font = new Font("Tahoma", 8, FontStyle.Bold);
+            Font = new("Tahoma", 8, FontStyle.Bold);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            Rectangle radioBtnRectangle = new Rectangle(0, 0, Height, Height - 1);
-            Rectangle Inner = new Rectangle(1, 1, Height - 2, Height - 3);
+            Rectangle radioBtnRectangle = new(0, 0, Height, Height - 1);
+            Rectangle Inner = new(1, 1, Height - 2, Height - 3);
 
             G.SmoothingMode = SmoothingType;
             G.CompositingQuality = CompositingQualityType;
@@ -193,11 +193,11 @@ namespace ReaLTaiizor.Controls
 
             G.Clear(BackColor);
 
-            LinearGradientBrush bgGrad = new LinearGradientBrush(radioBtnRectangle, CheckedBorderColorA, CheckedBorderColorB, 90F);
+            LinearGradientBrush bgGrad = new(radioBtnRectangle, CheckedBorderColorA, CheckedBorderColorB, 90F);
             G.FillEllipse(bgGrad, radioBtnRectangle);
 
-            G.DrawEllipse(new Pen(CircleBorderColor), radioBtnRectangle);
-            G.DrawEllipse(new Pen(CircleEdgeColor), Inner);
+            G.DrawEllipse(new(CircleBorderColor), radioBtnRectangle);
+            G.DrawEllipse(new(CircleEdgeColor), Inner);
 
             if (Checked)
             {

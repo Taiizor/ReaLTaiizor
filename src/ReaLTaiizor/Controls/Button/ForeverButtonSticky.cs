@@ -74,7 +74,7 @@ namespace ReaLTaiizor.Controls
             return Bool;
         }
 
-        private Rectangle Rect => new Rectangle(Left, Top, Width, Height);
+        private Rectangle Rect => new(Left, Top, Width, Height);
 
         [Category("Colors")]
         public Color BaseColor
@@ -106,7 +106,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            //Size = New Size(112, 32)
+            //Size = new(112, 32)
         }
 
         private Color _BaseColor = ForeverLibrary.ForeverColor;
@@ -116,9 +116,9 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
-            Size = new Size(160, 40);
+            Size = new(160, 40);
             BackColor = Color.Transparent;
-            Font = new Font("Segoe UI", 12);
+            Font = new("Segoe UI", 12);
             Cursor = Cursors.Hand;
         }
 
@@ -126,17 +126,17 @@ namespace ReaLTaiizor.Controls
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width;
             H = Height;
 
-            GraphicsPath GP = new GraphicsPath();
+            GraphicsPath GP = new();
 
             bool[] GCS = GetConnectedSides();
             // dynamic RoundedBase = ForeverLibrary.RoundRect(0, 0, W, H, ???, !(GCS(2) | GCS(1)), !(GCS(1) | GCS(0)), !(GCS(3) | GCS(0)), !(GCS(3) | GCS(2)));
             GraphicsPath RoundedBase = ForeverLibrary.RoundRect(0, 0, W, H, 0.3, !(GCS[2] || GCS[1]), !(GCS[1] || GCS[0]), !(GCS[3] || GCS[0]), !(GCS[3] || GCS[2]));
-            Rectangle Base = new Rectangle(0, 0, W, H);
+            Rectangle Base = new(0, 0, W, H);
 
             Graphics _with17 = G;
             _with17.SmoothingMode = SmoothingMode.HighQuality;

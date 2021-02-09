@@ -120,7 +120,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnDrawItem(DrawItemEventArgs e)
         {
             base.OnDrawItem(e);
-            LinearGradientBrush LGB = new LinearGradientBrush(e.Bounds, _ColorA, _ColorB, 90.0F);
+            LinearGradientBrush LGB = new(e.Bounds, _ColorA, _ColorB, 90.0F);
 
             if (Convert.ToInt32((e.State & DrawItemState.Selected)) == (int)DrawItemState.Selected)
             {
@@ -175,18 +175,18 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.FromArgb(246, 246, 246);
             ForeColor = Color.FromArgb(76, 76, 97);
-            Size = new Size(135, 26);
+            Size = new(135, 26);
             ItemHeight = 20;
             DropDownHeight = 100;
-            Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            Font = new("Segoe UI", 10, FontStyle.Regular);
             Cursor = Cursors.Hand;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            LinearGradientBrush LGB = default(LinearGradientBrush);
-            GraphicsPath GP = default(GraphicsPath);
+            LinearGradientBrush LGB = default;
+            GraphicsPath GP = default;
 
             e.Graphics.Clear(Parent.BackColor);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -194,14 +194,14 @@ namespace ReaLTaiizor.Controls
             // Create a curvy border
             GP = RoundRectangle.RoundRect(0, 0, Width - 1, Height - 1, 5);
             // Fills the body of the rectangle with a gradient
-            LGB = new LinearGradientBrush(ClientRectangle, _ColorD, _ColorE, 90.0F);
+            LGB = new(ClientRectangle, _ColorD, _ColorE, 90.0F);
 
             e.Graphics.SetClip(GP);
             e.Graphics.FillRectangle(LGB, ClientRectangle);
             e.Graphics.ResetClip();
 
             // Draw rectangle border
-            e.Graphics.DrawPath(new Pen(_ColorF), GP);
+            e.Graphics.DrawPath(new(_ColorF), GP);
             // Draw string
             e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(3, 0, Width - 20, Height), new StringFormat
             {
@@ -213,8 +213,8 @@ namespace ReaLTaiizor.Controls
                 LineAlignment = StringAlignment.Center,
                 Alignment = StringAlignment.Far
             });
-            e.Graphics.DrawLine(new Pen(_ColorH), Width - 24, 4, Width - 24, Height - 5);
-            e.Graphics.DrawLine(new Pen(_ColorI), Width - 25, 4, Width - 25, Height - 5);
+            e.Graphics.DrawLine(new(_ColorH), Width - 24, 4, Width - 24, Height - 5);
+            e.Graphics.DrawLine(new(_ColorI), Width - 25, 4, Width - 25, Height - 5);
 
             GP.Dispose();
             LGB.Dispose();

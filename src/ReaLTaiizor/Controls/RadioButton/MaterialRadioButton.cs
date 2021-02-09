@@ -110,20 +110,20 @@ namespace ReaLTaiizor.Controls
             SizeChanged += OnSizeChanged;
 
             Ripple = true;
-            MouseLocation = new Point(-1, -1);
+            MouseLocation = new(-1, -1);
         }
 
         private void OnSizeChanged(object sender, EventArgs eventArgs)
         {
             _boxOffset = Height / 2 - (int)(RADIOBUTTON_SIZE / 2);
-            _radioButtonBounds = new Rectangle(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE);
+            _radioButtonBounds = new(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE);
         }
 
         public override Size GetPreferredSize(Size proposedSize)
         {
             Size strSize;
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+            using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
                 strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
             }
@@ -142,7 +142,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor);
 
             int RADIOBUTTON_CENTER = _boxOffset + RADIOBUTTON_SIZE_HALF;
-            Point animationSource = new Point(RADIOBUTTON_CENTER, RADIOBUTTON_CENTER);
+            Point animationSource = new(RADIOBUTTON_CENTER, RADIOBUTTON_CENTER);
 
             double animationProgress = _checkAM.GetProgress();
 
@@ -160,10 +160,8 @@ namespace ReaLTaiizor.Controls
                 double animationValue = _hoverAM.GetProgress();
                 int rippleSize = (int)(rippleHeight * (0.7 + (0.3 * animationValue)));
 
-                using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * animationValue), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor)))
-                {
-                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
-                }
+                using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * animationValue), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
+                g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
             }
 
             // draw ripple animation
@@ -174,45 +172,37 @@ namespace ReaLTaiizor.Controls
                     double animationValue = _rippleAM.GetProgress(i);
                     int rippleSize = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleHeight * (0.7 + (0.3 * animationValue))) : rippleHeight;
 
-                    using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)((animationValue * 40)), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor)))
-                    {
-                        g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
-                    }
+                    using SolidBrush rippleBrush = new(Color.FromArgb((int)((animationValue * 40)), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
+                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
                 }
             }
 
             // draw radiobutton circle
-            using (Pen pen = new Pen(MaterialDrawHelper.BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
+            using (Pen pen = new(MaterialDrawHelper.BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
             {
                 g.DrawEllipse(pen, new Rectangle(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE));
             }
 
             if (Enabled)
             {
-                using (Pen pen = new Pen(RadioColor, 2))
-                {
-                    g.DrawEllipse(pen, new Rectangle(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE));
-                }
+                using Pen pen = new(RadioColor, 2);
+                g.DrawEllipse(pen, new Rectangle(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE));
             }
 
             if (Checked)
             {
-                using (SolidBrush brush = new SolidBrush(RadioColor))
-                {
-                    g.FillEllipse(brush, new RectangleF(RADIOBUTTON_CENTER - animationSizeHalf, RADIOBUTTON_CENTER - animationSizeHalf, animationSize, animationSize));
-                }
+                using SolidBrush brush = new(RadioColor);
+                g.FillEllipse(brush, new RectangleF(RADIOBUTTON_CENTER - animationSizeHalf, RADIOBUTTON_CENTER - animationSizeHalf, animationSize, animationSize));
             }
 
             // Text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-            {
-                Rectangle textLocation = new Rectangle(_boxOffset + TEXT_OFFSET, 0, Width, Height);
-                NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1),
-                    Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
-                    textLocation.Location,
-                    textLocation.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            Rectangle textLocation = new(_boxOffset + TEXT_OFFSET, 0, Width, Height);
+            NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1),
+                Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
+                textLocation.Location,
+                textLocation.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
         private bool IsMouseInCheckArea()
@@ -263,7 +253,7 @@ namespace ReaLTaiizor.Controls
 
             MouseLeave += (sender, args) =>
             {
-                MouseLocation = new Point(-1, -1);
+                MouseLocation = new(-1, -1);
                 MouseState = MaterialMouseState.OUT;
                 //if (Ripple && hovered)
                 //{

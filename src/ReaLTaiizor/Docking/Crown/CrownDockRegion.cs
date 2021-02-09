@@ -149,7 +149,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public List<CrownDockContent> GetContents()
         {
-            List<CrownDockContent> result = new List<CrownDockContent>();
+            List<CrownDockContent> result = new();
 
             foreach (CrownDockGroup group in _groups)
             {
@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Docking.Crown
                 }
             }
 
-            CrownDockGroup newGroup = new CrownDockGroup(DockPanel, this, order);
+            CrownDockGroup newGroup = new(DockPanel, this, order);
             _groups.Add(newGroup);
             Controls.Add(newGroup);
 
@@ -192,7 +192,7 @@ namespace ReaLTaiizor.Docking.Crown
                 }
             }
 
-            CrownDockGroup newGroup = new CrownDockGroup(DockPanel, this, order);
+            CrownDockGroup newGroup = new(DockPanel, this, order);
             _groups.Add(newGroup);
             Controls.Add(newGroup);
 
@@ -217,23 +217,12 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void PositionGroups()
         {
-            DockStyle dockStyle;
-
-            switch (DockArea)
+            DockStyle dockStyle = DockArea switch
             {
-                default:
-                case DockArea.Document:
-                    dockStyle = DockStyle.Fill;
-                    break;
-                case DockArea.Left:
-                case DockArea.Right:
-                    dockStyle = DockStyle.Top;
-                    break;
-                case DockArea.Bottom:
-                    dockStyle = DockStyle.Left;
-                    break;
-            }
-
+                DockArea.Left or DockArea.Right => DockStyle.Top,
+                DockArea.Bottom => DockStyle.Left,
+                _ => DockStyle.Fill,
+            };
             if (_groups.Count == 1)
             {
                 _groups[0].Dock = DockStyle.Fill;
@@ -269,7 +258,7 @@ namespace ReaLTaiizor.Docking.Crown
                 return;
             }
 
-            Size size = new Size(0, 0);
+            Size size = new(0, 0);
 
             switch (DockArea)
             {
@@ -278,10 +267,10 @@ namespace ReaLTaiizor.Docking.Crown
                     return;
                 case DockArea.Left:
                 case DockArea.Right:
-                    size = new Size(ClientRectangle.Width, ClientRectangle.Height / _groups.Count);
+                    size = new(ClientRectangle.Width, ClientRectangle.Height / _groups.Count);
                     break;
                 case DockArea.Bottom:
-                    size = new Size(ClientRectangle.Width / _groups.Count, ClientRectangle.Height);
+                    size = new(ClientRectangle.Width / _groups.Count, ClientRectangle.Height);
                     break;
             }
 
@@ -293,7 +282,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         private void BuildProperties()
         {
-            MinimumSize = new Size(50, 50);
+            MinimumSize = new(50, 50);
 
             switch (DockArea)
             {
@@ -414,31 +403,29 @@ namespace ReaLTaiizor.Docking.Crown
             }
 
             // Fill body
-            using (SolidBrush b = new SolidBrush(ThemeProvider.Theme.Colors.GreyBackground))
+            using (SolidBrush b = new(ThemeProvider.Theme.Colors.GreyBackground))
             {
                 g.FillRectangle(b, ClientRectangle);
             }
 
             // Draw border
-            using (Pen p = new Pen(ThemeProvider.Theme.Colors.DarkBorder))
+            using Pen p = new(ThemeProvider.Theme.Colors.DarkBorder);
+            // Top border
+            if (DockArea == DockArea.Document)
             {
-                // Top border
-                if (DockArea == DockArea.Document)
-                {
-                    g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
-                }
+                g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Right, 0);
+            }
 
-                // Left border
-                if (DockArea == DockArea.Right)
-                {
-                    g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Left, ClientRectangle.Height);
-                }
+            // Left border
+            if (DockArea == DockArea.Right)
+            {
+                g.DrawLine(p, ClientRectangle.Left, 0, ClientRectangle.Left, ClientRectangle.Height);
+            }
 
-                // Right border
-                if (DockArea == DockArea.Left)
-                {
-                    g.DrawLine(p, ClientRectangle.Right - 1, 0, ClientRectangle.Right - 1, ClientRectangle.Height);
-                }
+            // Right border
+            if (DockArea == DockArea.Left)
+            {
+                g.DrawLine(p, ClientRectangle.Right - 1, 0, ClientRectangle.Right - 1, ClientRectangle.Height);
             }
         }
 

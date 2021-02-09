@@ -27,7 +27,7 @@ namespace ReaLTaiizor.Controls
 
             Cursor = Cursors.Hand;
 
-            Font = new Font("Segoe UI", 12F);
+            Font = new("Segoe UI", 12F);
             ItemHeight = 30;
         }
 
@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Controls
 
                 GraphicsPath backPath = RoundRectangle.CreateRoundRect(1, 1, Width - 2, Height - 2, 2);
                 graphics.FillPath(new SolidBrush(Color.White), backPath);
-                graphics.DrawPath(new Pen(HopeColors.OneLevelBorder, 2), backPath);
+                graphics.DrawPath(new(HopeColors.OneLevelBorder, 2), backPath);
 
                 graphics.FillRectangle(new SolidBrush(Color.White), new RectangleF(1, 1, Width - 2, Height - 2));
 
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
 
                 graphics.DrawString("6", new Font("Marlett", 12), new SolidBrush(SystemColors.ControlDark), new Rectangle(Width - 22, (Height - 18) / 2, 18, 18));
 
-                ReleaseDC(m.HWnd, hDC);
+                _ = ReleaseDC(m.HWnd, hDC);
             }
         }
 

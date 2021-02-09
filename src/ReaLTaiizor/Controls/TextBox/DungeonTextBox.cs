@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        public System.Windows.Forms.TextBox DungeonTB = new System.Windows.Forms.TextBox();
+        public TextBox DungeonTB = new();
         private GraphicsPath Shape;
         private int _maxchars = 32767;
         private bool _ReadOnly;
@@ -161,13 +161,13 @@ namespace ReaLTaiizor.Controls
 
         private void _Enter(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(205, 87, 40));
+            P1 = new(Color.FromArgb(205, 87, 40));
             Refresh();
         }
 
         private void _Leave(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(180, 180, 180));
+            P1 = new(Color.FromArgb(180, 180, 180));
             Refresh();
         }
 
@@ -183,7 +183,7 @@ namespace ReaLTaiizor.Controls
                 Height = DungeonTB.Height + 10;
             }
 
-            Shape = new GraphicsPath();
+            Shape = new();
             GraphicsPath _with1 = Shape;
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 11, 0, 10, 10, -90, 90);
@@ -203,8 +203,8 @@ namespace ReaLTaiizor.Controls
         public void AddTextBox()
         {
             TextBox _TB = DungeonTB;
-            _TB.Size = new Size(Width - 10, 33);
-            _TB.Location = new Point(7, 4);
+            _TB.Size = new(Width - 10, 33);
+            _TB.Location = new(7, 4);
             _TB.Text = string.Empty;
             _TB.BorderStyle = BorderStyle.None;
             _TB.TextAlign = HorizontalAlignment.Left;
@@ -226,21 +226,21 @@ namespace ReaLTaiizor.Controls
             AddTextBox();
             Controls.Add(DungeonTB);
 
-            P1 = new Pen(_BorderColor); // P1 = Border color
-            B1 = new SolidBrush(_EdgeColor); // B1 = Rect Background color
+            P1 = new(_BorderColor); // P1 = Border color
+            B1 = new(_EdgeColor); // B1 = Rect Background color
             BackColor = Color.Transparent;
             ForeColor = Color.DimGray;
 
             Text = null;
-            Font = new Font("Tahoma", 11);
-            Size = new Size(135, 33);
+            Font = new("Tahoma", 11);
+            Size = new(135, 33);
             DoubleBuffered = true;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingMode.AntiAlias;

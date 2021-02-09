@@ -14,62 +14,62 @@ namespace ReaLTaiizor.Util
 
     public static class ThemeLost
     {
-        public static Font TitleFont = new Font("Segoe UI", 12);
-        public static Font HeaderFont = new Font("Segoe UI", 9, FontStyle.Bold);
-        public static Font BodyFont = new Font("Segoe UI", 9);
+        public static Font TitleFont = new("Segoe UI", 12);
+        public static Font HeaderFont = new("Segoe UI", 9, FontStyle.Bold);
+        public static Font BodyFont = new("Segoe UI", 9);
 
         public static Color FontColor = Color.White;
-        public static SolidBrush FontBrush = new SolidBrush(FontColor);
-        public static Pen FontPen = new Pen(FontColor);
+        public static SolidBrush FontBrush = new(FontColor);
+        public static Pen FontPen = new(FontColor);
 
         public static Color ForeColor = Color.FromArgb(63, 63, 70);
-        public static SolidBrush ForeBrush = new SolidBrush(ForeColor);
-        public static Pen ForePen = new Pen(ForeColor);
+        public static SolidBrush ForeBrush = new(ForeColor);
+        public static Pen ForePen = new(ForeColor);
 
         public static Color BackColor = Color.FromArgb(45, 45, 48);
-        public static SolidBrush BackBrush = new SolidBrush(BackColor);
-        public static Pen BackPen = new Pen(BackColor);
+        public static SolidBrush BackBrush = new(BackColor);
+        public static Pen BackPen = new(BackColor);
 
         public static Color AccentColor = Color.DodgerBlue;
-        public static SolidBrush AccentBrush = new SolidBrush(AccentColor);
-        public static Pen AccentPen = new Pen(AccentColor);
+        public static SolidBrush AccentBrush = new(AccentColor);
+        public static Pen AccentPen = new(AccentColor);
 
         public static int ShadowSize = 8;
         public static Color ShadowColor = Color.FromArgb(30, 30, 30);
 
         public static void SetFont(string fontName, int bodySize, int titleSize)
         {
-            TitleFont = new Font(fontName, titleSize);
-            HeaderFont = new Font(fontName, bodySize, FontStyle.Bold);
-            BodyFont = new Font(fontName, bodySize);
+            TitleFont = new(fontName, titleSize);
+            HeaderFont = new(fontName, bodySize, FontStyle.Bold);
+            BodyFont = new(fontName, bodySize);
         }
 
         public static void SetFontColor(Color c)
         {
             FontColor = c;
-            FontBrush = new SolidBrush(c);
-            FontPen = new Pen(c);
+            FontBrush = new(c);
+            FontPen = new(c);
         }
 
         public static void SetForeColor(Color c)
         {
             ForeColor = c;
-            ForeBrush = new SolidBrush(c);
-            ForePen = new Pen(c);
+            ForeBrush = new(c);
+            ForePen = new(c);
         }
 
         public static void SetBackColor(Color c)
         {
             BackColor = c;
-            BackBrush = new SolidBrush(c);
-            BackPen = new Pen(c);
+            BackBrush = new(c);
+            BackPen = new(c);
         }
 
         public static void SetAccentColor(Color c)
         {
             AccentColor = c;
-            AccentBrush = new SolidBrush(c);
-            AccentPen = new Pen(c);
+            AccentBrush = new(c);
+            AccentPen = new(c);
         }
 
         public static void SetShadowSize(int size)
@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Util
         public bool MouseOver = false;
         public bool IsMouseDown = false;
 
-        private readonly System.Windows.Forms.Timer _ticker = new System.Windows.Forms.Timer();
+        private readonly Timer _ticker = new();
 
         public ControlLostBase()
         {
@@ -112,7 +112,7 @@ namespace ReaLTaiizor.Util
             {
                 for (int i = 0; i < ShadowLevel; i++)
                 {
-                    g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
+                    g.DrawRectangle(new(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
                 }
             }
         }
@@ -178,7 +178,7 @@ namespace ReaLTaiizor.Util
         {
             for (int i = 0; i < ThemeLost.ShadowSize; i++)
             {
-                g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
+                g.DrawRectangle(new(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(i));
             }
         }
 
@@ -228,7 +228,7 @@ namespace ReaLTaiizor.Util
             if (e.Button == MouseButtons.Left && Parent != null && !(Parent is ToolFrameLost) && e.X <= Width && e.Y <= 30)
             {
                 ReleaseCapture();
-                SendMessage(Parent.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                _ = SendMessage(Parent.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 
@@ -253,7 +253,7 @@ namespace ReaLTaiizor.Util
         {
             for (int i = 0; i < ThemeLost.ShadowSize; i++)
             {
-                g.DrawRectangle(new Pen(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(rect, i));
+                g.DrawRectangle(new(ThemeLost.ShadowColor.Shade(ThemeLost.ShadowSize, i)), ShadeRect(rect, i));
             }
         }
     }
@@ -340,36 +340,38 @@ namespace ReaLTaiizor.Util
         private void Animate()
         {
             return;
-            if (Dock == DockStyle.Top)
-            {
-                Size = new Size(Parent.ClientRectangle.Width - Parent.Padding.Top * 2, Height);
-                Location = new Point(Parent.Padding.Left, Parent.Padding.Top);
-                AnimateWindow(Handle, 200, AW_VER_POSITIVE);
-            }
-            else if (Dock == DockStyle.Bottom)
-            {
-                Size = new Size(Parent.ClientRectangle.Width - Parent.Padding.Left * 2, Height);
-                Location = new Point(Parent.Padding.Left, Parent.ClientRectangle.Height - Height - Parent.Padding.Bottom);
-                AnimateWindow(Handle, 200, AW_VER_NEGATIVE);
-            }
-            else if (Dock == DockStyle.Left)
-            {
-                Size = new Size(Width, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
-                Location = new Point(Parent.Padding.Left, Parent.Padding.Top);
-                AnimateWindow(Handle, 200, AW_HOR_POSITIVE);
-            }
-            else if (Dock == DockStyle.Right)
-            {
-                Size = new Size(Width, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
-                Location = new Point(Parent.ClientRectangle.Width - Width, Parent.Padding.Top);
-                AnimateWindow(Handle, 200, AW_HOR_NEGATIVE);
-            }
-            else if (Dock == DockStyle.Fill)
-            {
-                Size = new Size(Parent.ClientRectangle.Width - Parent.Padding.Left * 2, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
-                Location = new Point(Parent.Padding.Left, Parent.Padding.Top);
-                AnimateWindow(Handle, 200, AW_HOR_POSITIVE);
-            }
+            /*
+                if (Dock == DockStyle.Top)
+                {
+                    Size = new(Parent.ClientRectangle.Width - Parent.Padding.Top * 2, Height);
+                    Location = new(Parent.Padding.Left, Parent.Padding.Top);
+                    AnimateWindow(Handle, 200, AW_VER_POSITIVE);
+                }
+                else if (Dock == DockStyle.Bottom)
+                {
+                    Size = new(Parent.ClientRectangle.Width - Parent.Padding.Left * 2, Height);
+                    Location = new(Parent.Padding.Left, Parent.ClientRectangle.Height - Height - Parent.Padding.Bottom);
+                    AnimateWindow(Handle, 200, AW_VER_NEGATIVE);
+                }
+                else if (Dock == DockStyle.Left)
+                {
+                    Size = new(Width, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
+                    Location = new(Parent.Padding.Left, Parent.Padding.Top);
+                    AnimateWindow(Handle, 200, AW_HOR_POSITIVE);
+                }
+                else if (Dock == DockStyle.Right)
+                {
+                    Size = new(Width, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
+                    Location = new(Parent.ClientRectangle.Width - Width, Parent.Padding.Top);
+                    AnimateWindow(Handle, 200, AW_HOR_NEGATIVE);
+                }
+                else if (Dock == DockStyle.Fill)
+                {
+                    Size = new(Parent.ClientRectangle.Width - Parent.Padding.Left * 2, Parent.ClientRectangle.Height - Parent.Padding.Top - Parent.Padding.Bottom);
+                    Location = new(Parent.Padding.Left, Parent.Padding.Top);
+                    AnimateWindow(Handle, 200, AW_HOR_POSITIVE);
+                }
+            */
         }
 
         protected override void OnResize(EventArgs e)

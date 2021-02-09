@@ -102,22 +102,22 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
-            Font = new Font("Segoe UI", 8);
+            Font = new("Segoe UI", 8);
             ForeColor = Color.White;
             TimeFormat = _TimeFormat;
-            Size = new Size(Width, 20);
+            Size = new(Width, 20);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width;
             H = Height;
 
-            Rectangle Base = new Rectangle(0, 0, W, H);
+            Rectangle Base = new(0, 0, W, H);
 
             Graphics _with21 = G;
             _with21.SmoothingMode = SmoothingMode.HighQuality;

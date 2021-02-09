@@ -13,11 +13,11 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalMessageBox : Forms.RoyalForm
     {
-        private readonly RoyalButton okButton = new RoyalButton();
-        private readonly RoyalButton yesButton = new RoyalButton();
-        private readonly RoyalButton noButton = new RoyalButton();
-        private readonly RoyalButton cancelButton = new RoyalButton();
-        private readonly RoyalButton retryButton = new RoyalButton();
+        private readonly RoyalButton okButton = new();
+        private readonly RoyalButton yesButton = new();
+        private readonly RoyalButton noButton = new();
+        private readonly RoyalButton cancelButton = new();
+        private readonly RoyalButton retryButton = new();
         private Form parent;
         public Form FormParent
         {
@@ -62,30 +62,30 @@ namespace ReaLTaiizor.Controls
 
         public RoyalMessageBox() : base()
         {
-            Font = new Font(new FontFamily("Segoe UI"), 9.75f, FontStyle.Regular);
+            Font = new(new FontFamily("Segoe UI"), 9.75f, FontStyle.Regular);
             Moveable = false;
             ControlBox = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
 
             okButton.Text = "Ok";
-            okButton.Size = new Size(100, 35);
+            okButton.Size = new(100, 35);
             okButton.Click += OkButton_Click;
 
             yesButton.Text = "Yes";
-            yesButton.Size = new Size(100, 35);
+            yesButton.Size = new(100, 35);
             yesButton.Click += YesButton_Click;
 
             noButton.Text = "No";
-            noButton.Size = new Size(100, 35);
+            noButton.Size = new(100, 35);
             noButton.Click += NoButton_Click;
 
             cancelButton.Text = "Cancel";
-            cancelButton.Size = new Size(100, 35);
+            cancelButton.Size = new(100, 35);
             cancelButton.Click += CancelButton_Click;
 
             retryButton.Text = "Retry";
-            retryButton.Size = new Size(100, 35);
+            retryButton.Size = new(100, 35);
             retryButton.Click += RetryButton_Click;
 
             Controls.Add(okButton);
@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Controls
                 throw new ArgumentNullException("RoyalMessageBox requires a valid form object in the first argument.");
             }
 
-            RoyalMessageBox msgBox = new RoyalMessageBox
+            RoyalMessageBox msgBox = new()
             {
                 parent = form,
                 content = content,
@@ -186,47 +186,47 @@ namespace ReaLTaiizor.Controls
 
             if (buttons == MessageBoxButtons.OK)
             {
-                okButton.Location = new Point(oneButtonRight, buttonHeight);
+                okButton.Location = new(oneButtonRight, buttonHeight);
                 okButton.Show();
             }
             else if (buttons == MessageBoxButtons.OKCancel)
             {
-                okButton.Location = new Point(twoButtonRight, buttonHeight);
+                okButton.Location = new(twoButtonRight, buttonHeight);
                 okButton.Show();
 
-                cancelButton.Location = new Point(oneButtonRight, buttonHeight);
+                cancelButton.Location = new(oneButtonRight, buttonHeight);
                 cancelButton.Show();
             }
             else if (buttons == MessageBoxButtons.YesNo)
             {
-                yesButton.Location = new Point(twoButtonRight, buttonHeight);
+                yesButton.Location = new(twoButtonRight, buttonHeight);
                 yesButton.Show();
 
-                noButton.Location = new Point(oneButtonRight, buttonHeight);
+                noButton.Location = new(oneButtonRight, buttonHeight);
                 noButton.Show();
             }
             else if (buttons == MessageBoxButtons.YesNoCancel)
             {
-                yesButton.Location = new Point(threeButtonRight, buttonHeight);
+                yesButton.Location = new(threeButtonRight, buttonHeight);
                 yesButton.Show();
 
-                noButton.Location = new Point(twoButtonRight, buttonHeight);
+                noButton.Location = new(twoButtonRight, buttonHeight);
                 noButton.Show();
 
-                cancelButton.Location = new Point(oneButtonRight, buttonHeight);
+                cancelButton.Location = new(oneButtonRight, buttonHeight);
                 cancelButton.Show();
             }
             else if (buttons == MessageBoxButtons.RetryCancel)
             {
-                retryButton.Location = new Point(twoButtonRight, buttonHeight);
+                retryButton.Location = new(twoButtonRight, buttonHeight);
                 retryButton.Show();
 
-                cancelButton.Location = new Point(oneButtonRight, buttonHeight);
+                cancelButton.Location = new(oneButtonRight, buttonHeight);
                 cancelButton.Show();
             }
             else
             {
-                okButton.Location = new Point(oneButtonRight, buttonHeight);
+                okButton.Location = new(oneButtonRight, buttonHeight);
                 okButton.Show();
             }
 
@@ -237,13 +237,13 @@ namespace ReaLTaiizor.Controls
         {
             e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(150, Color.DarkGray)), e.ClipRectangle);
 
-            Rectangle messageRect = new Rectangle
+            Rectangle messageRect = new()
             {
-                Size = new Size(Width, (Height / 3)),
-                Location = new Point(0, ((Height - (Height / 3)) / 2))
+                Size = new(Width, (Height / 3)),
+                Location = new(0, ((Height - (Height / 3)) / 2))
             };
 
-            Font messageFont = new Font(Font.FontFamily, 12.75f, FontStyle.Regular);
+            Font messageFont = new(Font.FontFamily, 12.75f, FontStyle.Regular);
 
             if (mode)
             {
@@ -273,8 +273,8 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            SolidBrush textBrush = new SolidBrush(parent.ForeColor);
-            SolidBrush backBrush = new SolidBrush(parent.BackColor);
+            SolidBrush textBrush = new(parent.ForeColor);
+            //SolidBrush backBrush = new(parent.BackColor);
 
             if (!string.IsNullOrEmpty(caption))
             {

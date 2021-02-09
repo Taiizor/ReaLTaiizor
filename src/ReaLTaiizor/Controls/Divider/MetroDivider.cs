@@ -176,16 +176,14 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            using (Pen p = new Pen(ForeColor, Thickness))
+            using Pen p = new(ForeColor, Thickness);
+            if (Orientation == DividerStyle.Horizontal)
             {
-                if (Orientation == DividerStyle.Horizontal)
-                {
-                    g.DrawLine(p, 0, Thickness, Width, Thickness);
-                }
-                else
-                {
-                    g.DrawLine(p, Thickness, 0, Thickness, Height);
-                }
+                g.DrawLine(p, 0, Thickness, Width, Thickness);
+            }
+            else
+            {
+                g.DrawLine(p, Thickness, 0, Thickness, Height);
             }
         }
 

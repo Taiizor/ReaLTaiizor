@@ -164,9 +164,9 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
         //Additional variables to be used by HideTab and ShowTab
-        private readonly List<string> tabDisable = new List<string>();
-        private readonly List<string> tabOrder = new List<string>();
-        private readonly List<HiddenTabs> hidTabs = new List<HiddenTabs>();
+        private readonly List<string> tabDisable = new();
+        private readonly List<string> tabOrder = new();
+        private readonly List<HiddenTabs> hidTabs = new();
 
         private SubClass scUpDown = null;
         private bool bUpDown = false;
@@ -238,7 +238,7 @@ namespace ReaLTaiizor.Controls
                     true
             );
 
-            Padding = new Point(6, 8);
+            Padding = new(6, 8);
             Selecting += PoisonTabControl_Selecting;
         }
 
@@ -314,21 +314,17 @@ namespace ReaLTaiizor.Controls
 
         private void DrawTabBottomBorder(int index, Graphics graphics)
         {
-            using (Brush bgBrush = new SolidBrush(PoisonPaint.BorderColor.TabControl.Normal(Theme)))
-            {
-                Rectangle borderRectangle = new Rectangle(DisplayRectangle.X, GetTabRect(index).Bottom + 2 - TabBottomBorderHeight, DisplayRectangle.Width, TabBottomBorderHeight);
-                graphics.FillRectangle(bgBrush, borderRectangle);
-            }
+            using Brush bgBrush = new SolidBrush(PoisonPaint.BorderColor.TabControl.Normal(Theme));
+            Rectangle borderRectangle = new(DisplayRectangle.X, GetTabRect(index).Bottom + 2 - TabBottomBorderHeight, DisplayRectangle.Width, TabBottomBorderHeight);
+            graphics.FillRectangle(bgBrush, borderRectangle);
         }
 
         private void DrawTabSelected(int index, Graphics graphics)
         {
-            using (Brush selectionBrush = new SolidBrush(PoisonPaint.GetStyleColor(Style)))
-            {
-                Rectangle selectedTabRect = GetTabRect(index);
-                Rectangle borderRectangle = new Rectangle(selectedTabRect.X + ((index == 0) ? 2 : 0), GetTabRect(index).Bottom + 2 - TabBottomBorderHeight, selectedTabRect.Width + ((index == 0) ? 0 : 2), TabBottomBorderHeight);
-                graphics.FillRectangle(selectionBrush, borderRectangle);
-            }
+            using Brush selectionBrush = new SolidBrush(PoisonPaint.GetStyleColor(Style));
+            Rectangle selectedTabRect = GetTabRect(index);
+            Rectangle borderRectangle = new(selectedTabRect.X + ((index == 0) ? 2 : 0), GetTabRect(index).Bottom + 2 - TabBottomBorderHeight, selectedTabRect.Width + ((index == 0) ? 0 : 2), TabBottomBorderHeight);
+            graphics.FillRectangle(selectionBrush, borderRectangle);
         }
 
         private Size MeasureText(string text)
@@ -336,7 +332,7 @@ namespace ReaLTaiizor.Controls
             Size preferredSize;
             using (Graphics g = CreateGraphics())
             {
-                Size proposedSize = new Size(int.MaxValue, int.MaxValue);
+                Size proposedSize = new(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(g, text, PoisonFonts.TabControl(poisonLabelSize, poisonLabelWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign) | TextFormatFlags.NoPadding);
             }
             return preferredSize;
@@ -393,31 +389,29 @@ namespace ReaLTaiizor.Controls
         {
             Color backColor = Parent != null ? Parent.BackColor : PoisonPaint.BackColor.Form(Theme);
 
-            Rectangle borderRect = new Rectangle();
-            WinApi.GetClientRect(scUpDown.Handle, ref borderRect);
+            Rectangle borderRect = new();
+            _ = WinApi.GetClientRect(scUpDown.Handle, ref borderRect);
 
             graphics.CompositingQuality = CompositingQuality.HighQuality;
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
             graphics.Clear(backColor);
 
-            using (Brush b = new SolidBrush(PoisonPaint.BorderColor.TabControl.Normal(Theme)))
-            {
-                GraphicsPath gp = new GraphicsPath(FillMode.Winding);
-                PointF[] pts = { new PointF(6, 6), new PointF(16, 0), new PointF(16, 12) };
-                gp.AddLines(pts);
+            using Brush b = new SolidBrush(PoisonPaint.BorderColor.TabControl.Normal(Theme));
+            GraphicsPath gp = new(FillMode.Winding);
+            PointF[] pts = { new PointF(6, 6), new PointF(16, 0), new PointF(16, 12) };
+            gp.AddLines(pts);
 
-                graphics.FillPath(b, gp);
+            graphics.FillPath(b, gp);
 
-                gp.Reset();
+            gp.Reset();
 
-                PointF[] pts2 = { new PointF(borderRect.Width - 15, 0), new PointF(borderRect.Width - 5, 6), new PointF(borderRect.Width - 15, 12) };
-                gp.AddLines(pts2);
+            PointF[] pts2 = { new PointF(borderRect.Width - 15, 0), new PointF(borderRect.Width - 5, 6), new PointF(borderRect.Width - 15, 12) };
+            gp.AddLines(pts2);
 
-                graphics.FillPath(b, gp);
+            graphics.FillPath(b, gp);
 
-                gp.Dispose();
-            }
+            gp.Dispose();
         }
 
         #endregion
@@ -578,7 +572,7 @@ namespace ReaLTaiizor.Controls
 
                     int length = WinApi.GetClassName(pWnd, className, 32);
 
-                    string s = new string(className, 0, length);
+                    string s = new(className, 0, length);
 
                     if (s == "msctls_updown32")
                     {
@@ -611,9 +605,9 @@ namespace ReaLTaiizor.Controls
             {
                 if (WinApi.IsWindowVisible(scUpDown.Handle))
                 {
-                    Rectangle rect = new Rectangle();
-                    WinApi.GetClientRect(scUpDown.Handle, ref rect);
-                    WinApi.InvalidateRect(scUpDown.Handle, ref rect, true);
+                    Rectangle rect = new();
+                    _ = WinApi.GetClientRect(scUpDown.Handle, ref rect);
+                    _ = WinApi.InvalidateRect(scUpDown.Handle, ref rect, true);
                 }
             }
         }
@@ -628,11 +622,11 @@ namespace ReaLTaiizor.Controls
                     Graphics g = Graphics.FromHdc(hDC);
                     DrawUpDown(g);
                     g.Dispose();
-                    WinApi.ReleaseDC(scUpDown.Handle, hDC);
+                    _ = WinApi.ReleaseDC(scUpDown.Handle, hDC);
                     m.Result = IntPtr.Zero;
-                    Rectangle rect = new Rectangle();
-                    WinApi.GetClientRect(scUpDown.Handle, ref rect);
-                    WinApi.ValidateRect(scUpDown.Handle, ref rect);
+                    Rectangle rect = new();
+                    _ = WinApi.GetClientRect(scUpDown.Handle, ref rect);
+                    _ = WinApi.ValidateRect(scUpDown.Handle, ref rect);
                     return 1;
             }
             return 0;

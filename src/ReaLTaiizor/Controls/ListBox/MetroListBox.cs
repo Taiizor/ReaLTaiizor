@@ -149,7 +149,7 @@ namespace ReaLTaiizor.Controls
             _svs = new MetroScrollBar()
             {
                 Orientation = ScrollOrientate.Vertical,
-                Size = new Size(12, Height),
+                Size = new(12, Height),
                 Maximum = _items.Count * ItemHeight,
                 SmallChange = 1,
                 LargeChange = 5
@@ -264,71 +264,57 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            Rectangle mainRect = new Rectangle(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
+            Rectangle mainRect = new(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
 
-            using (SolidBrush bg = new SolidBrush(Enabled ? BackColor : DisabledBackColor))
+            using SolidBrush bg = new(Enabled ? BackColor : DisabledBackColor);
+            using SolidBrush usic = new(Enabled ? ForeColor : DisabledForeColor);
+            using SolidBrush sic = new(SelectedItemColor);
+            using SolidBrush sibc = new(SelectedItemBackColor);
+            using SolidBrush hic = new(HoveredItemColor);
+            using SolidBrush hibc = new(HoveredItemBackColor);
+            using StringFormat sf = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+            int firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
+            int lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
+
+            g.FillRectangle(bg, mainRect);
+
+            for (int i = firstItem; i < lastItem; i++)
             {
-                using (SolidBrush usic = new SolidBrush(Enabled ? ForeColor : DisabledForeColor))
+                string itemText = (string)Items[i];
+
+                Rectangle rect = new(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
+                g.DrawString(itemText, Font, usic, rect, sf);
+                if (MultiSelect && _indicates.Count != 0)
                 {
-                    using (SolidBrush sic = new SolidBrush(SelectedItemColor))
+                    if (i == _hoveredItem && !_indicates.Contains(i))
                     {
-                        using (SolidBrush sibc = new SolidBrush(SelectedItemBackColor))
-                        {
-                            using (SolidBrush hic = new SolidBrush(HoveredItemColor))
-                            {
-                                using (SolidBrush hibc = new SolidBrush(HoveredItemBackColor))
-                                {
-                                    using (StringFormat sf = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center })
-                                    {
-                                        int firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
-                                        int lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
-
-                                        g.FillRectangle(bg, mainRect);
-
-                                        for (int i = firstItem; i < lastItem; i++)
-                                        {
-                                            string itemText = (string)Items[i];
-
-                                            Rectangle rect = new Rectangle(5, (i - firstItem) * ItemHeight, Width - 1, ItemHeight);
-                                            g.DrawString(itemText, Font, usic, rect, sf);
-                                            if (MultiSelect && _indicates.Count != 0)
-                                            {
-                                                if (i == _hoveredItem && !_indicates.Contains(i))
-                                                {
-                                                    g.FillRectangle(hibc, rect);
-                                                    g.DrawString(itemText, Font, hic, rect, sf);
-                                                }
-                                                else if (_indicates.Contains(i))
-                                                {
-                                                    g.FillRectangle(sibc, rect);
-                                                    g.DrawString(itemText, Font, sic, rect, sf);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                if (i == _hoveredItem && i != SelectedIndex)
-                                                {
-                                                    g.FillRectangle(hibc, rect);
-                                                    g.DrawString(itemText, Font, hic, rect, sf);
-                                                }
-                                                else if (i == SelectedIndex)
-                                                {
-                                                    g.FillRectangle(sibc, rect);
-                                                    g.DrawString(itemText, Font, sic, rect, sf);
-                                                }
-                                            }
-
-                                        }
-                                        if (ShowBorder)
-                                        {
-                                            g.DrawRectangle(Pens.LightGray, mainRect);
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        g.FillRectangle(hibc, rect);
+                        g.DrawString(itemText, Font, hic, rect, sf);
+                    }
+                    else if (_indicates.Contains(i))
+                    {
+                        g.FillRectangle(sibc, rect);
+                        g.DrawString(itemText, Font, sic, rect, sf);
                     }
                 }
+                else
+                {
+                    if (i == _hoveredItem && i != SelectedIndex)
+                    {
+                        g.FillRectangle(hibc, rect);
+                        g.DrawString(itemText, Font, hic, rect, sf);
+                    }
+                    else if (i == SelectedIndex)
+                    {
+                        g.FillRectangle(sibc, rect);
+                        g.DrawString(itemText, Font, sic, rect, sf);
+                    }
+                }
+
+            }
+            if (ShowBorder)
+            {
+                g.DrawRectangle(Pens.LightGray, mainRect);
             }
         }
 
@@ -674,8 +660,8 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateLayout()
         {
-            _svs.Size = new Size(12, Height - (ShowBorder ? 2 : 0));
-            _svs.Location = new Point(Width - (_svs.Width + (ShowBorder ? 2 : 0)), ShowBorder ? 1 : 0);
+            _svs.Size = new(12, Height - (ShowBorder ? 2 : 0));
+            _svs.Location = new(Width - (_svs.Width + (ShowBorder ? 2 : 0)), ShowBorder ? 1 : 0);
             Invalidate();
         }
 
@@ -749,7 +735,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            _svs.Location = new Point(Width - (_svs.Width + (ShowBorder ? 2 : 0)), ShowBorder ? 1 : 0);
+            _svs.Location = new(Width - (_svs.Width + (ShowBorder ? 2 : 0)), ShowBorder ? 1 : 0);
             InvalidateScroll(this, e);
         }
 

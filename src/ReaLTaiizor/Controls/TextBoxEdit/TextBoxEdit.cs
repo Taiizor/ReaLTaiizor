@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        public System.Windows.Forms.TextBox ReaLTaiizorTB = new System.Windows.Forms.TextBox();
+        public TextBox ReaLTaiizorTB = new();
         private int _maxchars = 32767;
         private bool _ReadOnly;
         private bool _Multiline;
@@ -114,11 +114,11 @@ namespace ReaLTaiizor.Controls
 
                 if (Image == null)
                 {
-                    ReaLTaiizorTB.Location = new Point(8, 10);
+                    ReaLTaiizorTB.Location = new(8, 10);
                 }
                 else
                 {
-                    ReaLTaiizorTB.Location = new Point(35, 11);
+                    ReaLTaiizorTB.Location = new(35, 11);
                 }
 
                 Invalidate();
@@ -132,13 +132,13 @@ namespace ReaLTaiizor.Controls
 
         private void _Enter(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(32, 34, 37));
+            P1 = new(Color.FromArgb(32, 34, 37));
             Refresh();
         }
 
         private void _Leave(object Obj, EventArgs e)
         {
-            P1 = new Pen(Color.FromArgb(32, 41, 50));
+            P1 = new(Color.FromArgb(32, 41, 50));
             Refresh();
         }
 
@@ -198,7 +198,7 @@ namespace ReaLTaiizor.Controls
                 Height = ReaLTaiizorTB.Height + 23;
             }
 
-            Shape = new GraphicsPath();
+            Shape = new();
             Shape.AddArc(0, 0, 10, 10, 180, 90);
             Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
@@ -226,7 +226,7 @@ namespace ReaLTaiizor.Controls
 
         public void AddTextBox()
         {
-            ReaLTaiizorTB.Location = new Point(8, 10);
+            ReaLTaiizorTB.Location = new(8, 10);
             ReaLTaiizorTB.Text = string.Empty;
             ReaLTaiizorTB.BorderStyle = BorderStyle.None;
             ReaLTaiizorTB.TextAlign = HorizontalAlignment.Left;
@@ -250,21 +250,21 @@ namespace ReaLTaiizor.Controls
             AddTextBox();
             Controls.Add(ReaLTaiizorTB);
 
-            P1 = new Pen(Color.FromArgb(32, 41, 50));
-            B1 = new SolidBrush(Color.FromArgb(66, 76, 85));
+            P1 = new(Color.FromArgb(32, 41, 50));
+            B1 = new(Color.FromArgb(66, 76, 85));
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(176, 183, 191);
 
             Text = null;
-            Font = new Font("Tahoma", 11);
-            Size = new Size(135, 43);
+            Font = new("Tahoma", 11);
+            Size = new(135, 43);
             DoubleBuffered = true;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
             G.SmoothingMode = SmoothingMode.AntiAlias;

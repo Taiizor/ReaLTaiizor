@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Util
 
         public new void Move(Point location, double seconds)
         {
-            animationThread = new Thread(new ThreadStart(delegate ()
+            animationThread = new(new ThreadStart(delegate ()
             {
                 MoveControl(location, seconds);
             }));
@@ -66,7 +66,7 @@ namespace ReaLTaiizor.Util
 
         public new void Resize(Size size, double seconds)
         {
-            animationThread = new Thread(new ThreadStart(delegate ()
+            animationThread = new(new ThreadStart(delegate ()
             {
                 ResizeControl(size, seconds);
             }));
@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Util
 
         public void SetBackgroundColor(Color backColor, double seconds)
         {
-            animationThread = new Thread(new ThreadStart(delegate ()
+            animationThread = new(new ThreadStart(delegate ()
             {
                 FadeToColor(backColor, seconds);
             }));
@@ -100,7 +100,7 @@ namespace ReaLTaiizor.Util
                     ox += xStepDist;
                     oy += yStepDist;
 
-                    Point p = new Point((int)ox, (int)oy);
+                    Point p = new((int)ox, (int)oy);
 
                     if (InvokeRequired)
                     {
@@ -140,7 +140,7 @@ namespace ReaLTaiizor.Util
                     ox += xStepDist;
                     oy += yStepDist;
 
-                    Size s = new Size((int)ox, (int)oy);
+                    Size s = new((int)ox, (int)oy);
 
                     if (InvokeRequired)
                     {
@@ -351,7 +351,7 @@ namespace ReaLTaiizor.Util
         {
             base.OnRenderButtonBackground(e);
 
-            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Rectangle rect = new(0, 0, e.Item.Width, e.Item.Height);
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
@@ -370,7 +370,7 @@ namespace ReaLTaiizor.Util
         {
             base.OnRenderDropDownButtonBackground(e);
 
-            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Rectangle rect = new(0, 0, e.Item.Width, e.Item.Height);
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
@@ -389,7 +389,7 @@ namespace ReaLTaiizor.Util
         {
             base.OnRenderItemBackground(e);
 
-            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Rectangle rect = new(0, 0, e.Item.Width, e.Item.Height);
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
@@ -408,7 +408,7 @@ namespace ReaLTaiizor.Util
         {
             base.OnRenderMenuItemBackground(e);
 
-            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Rectangle rect = new(0, 0, e.Item.Width, e.Item.Height);
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
@@ -427,7 +427,7 @@ namespace ReaLTaiizor.Util
         {
             base.OnRenderLabelBackground(e);
 
-            Rectangle rect = new Rectangle(0, 0, e.Item.Width, e.Item.Height);
+            Rectangle rect = new(0, 0, e.Item.Width, e.Item.Height);
             Color color = BackColor;
 
             if (e.Item.Selected && !e.Item.Pressed)
@@ -520,7 +520,7 @@ namespace ReaLTaiizor.Util
             {
                 //e.Graphics.DrawLine(Pens.Gainsboro, new Point(0, 0), new Point(itemRect.Width, 0));
                 //e.Graphics.DrawLine(Pens.WhiteSmoke, new Point(0, 1), new Point(itemRect.Width, 1));
-                e.Graphics.DrawLine(new Pen(Color.Gainsboro, 2), new Point(0, 0), new Point(itemRect.Width, 0));
+                e.Graphics.DrawLine(new(Color.Gainsboro, 2), new Point(0, 0), new Point(itemRect.Width, 0));
             }
         }
 
@@ -553,7 +553,7 @@ namespace ReaLTaiizor.Util
 
             if (e.ToolStrip.IsDropDown)
             {
-                Rectangle rect = new Rectangle(0, 0, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
+                Rectangle rect = new(0, 0, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1);
                 e.Graphics.DrawRectangle(Pens.Gainsboro, rect);
             }
         }

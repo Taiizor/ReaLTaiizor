@@ -28,14 +28,14 @@ namespace ReaLTaiizor.Util
             SetStyle((ControlStyles)139270, true);
 
             _ImageSize = Size.Empty;
-            Font = new Font("Verdana", 8);
+            Font = new("Verdana", 8);
 
-            MeasureBitmap = new Bitmap(1, 1);
+            MeasureBitmap = new(1, 1);
             MeasureGraphics = Graphics.FromImage(MeasureBitmap);
 
             StartPosition = FormStartPosition.CenterScreen;
 
-            DrawRadialPath = new GraphicsPath();
+            DrawRadialPath = new();
 
             InvalidateCustimization();
         }
@@ -157,7 +157,7 @@ namespace ReaLTaiizor.Util
             {
                 Rectangle SB = Screen.PrimaryScreen.Bounds;
                 Rectangle CB = ParentForm.Bounds;
-                ParentForm.Location = new Point(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
+                ParentForm.Location = new(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
             }
 
             HasShown = true;
@@ -170,7 +170,7 @@ namespace ReaLTaiizor.Util
         {
             if (_Movable && !_ControlMode)
             {
-                Frame = new Rectangle(7, 7, Width - 14, _Header - 7);
+                Frame = new(7, 7, Width - 14, _Header - 7);
             }
 
             InvalidateBitmap();
@@ -451,7 +451,7 @@ namespace ReaLTaiizor.Util
                 Y = Height - Parent.Height;
             }
 
-            Parent.Location = new Point(X, Y);
+            Parent.Location = new(X, Y);
         }
 
         #endregion
@@ -711,12 +711,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private readonly Dictionary<string, Color> Items = new Dictionary<string, Color>();
+        private readonly Dictionary<string, Color> Items = new();
         public BloomSpace[] Colors
         {
             get
             {
-                List<BloomSpace> T = new List<BloomSpace>();
+                List<BloomSpace> T = new();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
@@ -753,12 +753,11 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                byte[] Data = null;
                 BloomSpace[] Items = Colors;
 
                 try
                 {
-                    Data = Convert.FromBase64String(value);
+                    byte[] Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
                     {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
@@ -863,7 +862,7 @@ namespace ReaLTaiizor.Util
 
                 if (!_ControlMode)
                 {
-                    Frame = new Rectangle(7, 7, Width - 14, value - 7);
+                    Frame = new(7, 7, Width - 14, value - 7);
                     Invalidate();
                 }
             }
@@ -905,11 +904,11 @@ namespace ReaLTaiizor.Util
 
         protected Pen GetPen(string name)
         {
-            return new Pen(Items[name]);
+            return new(Items[name]);
         }
         protected Pen GetPen(string name, float width)
         {
-            return new Pen(Items[name], width);
+            return new(Items[name], width);
         }
 
         protected SolidBrush GetBrush(string name)
@@ -955,7 +954,7 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                B = new Bitmap(Width, Height, PixelFormat.Format32bppPArgb);
+                B = new(Width, Height, PixelFormat.Format32bppPArgb);
                 G = Graphics.FromImage(B);
             }
             else
@@ -967,7 +966,7 @@ namespace ReaLTaiizor.Util
 
         private void InvalidateCustimization()
         {
-            MemoryStream M = new MemoryStream(Items.Count * 4);
+            MemoryStream M = new(Items.Count * 4);
 
             foreach (BloomSpace B in Colors)
             {
@@ -1017,21 +1016,21 @@ namespace ReaLTaiizor.Util
         private Rectangle OffsetReturnRectangle;
         protected Rectangle Offset(Rectangle r, int amount)
         {
-            OffsetReturnRectangle = new Rectangle(r.X + amount, r.Y + amount, r.Width - (amount * 2), r.Height - (amount * 2));
+            OffsetReturnRectangle = new(r.X + amount, r.Y + amount, r.Width - (amount * 2), r.Height - (amount * 2));
             return OffsetReturnRectangle;
         }
 
         private Size OffsetReturnSize;
         protected Size Offset(Size s, int amount)
         {
-            OffsetReturnSize = new Size(s.Width + amount, s.Height + amount);
+            OffsetReturnSize = new(s.Width + amount, s.Height + amount);
             return OffsetReturnSize;
         }
 
         private Point OffsetReturnPoint;
         protected Point Offset(Point p, int amount)
         {
-            OffsetReturnPoint = new Point(p.X + amount, p.Y + amount);
+            OffsetReturnPoint = new(p.X + amount, p.Y + amount);
             return OffsetReturnPoint;
         }
 
@@ -1043,12 +1042,12 @@ namespace ReaLTaiizor.Util
         private Point CenterReturn;
         protected Point Center(Rectangle p, Rectangle c)
         {
-            CenterReturn = new Point((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
+            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
             return CenterReturn;
         }
         protected Point Center(Rectangle p, Size c)
         {
-            CenterReturn = new Point((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
+            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
             return CenterReturn;
         }
 
@@ -1072,7 +1071,7 @@ namespace ReaLTaiizor.Util
 
         protected Point Center(int pWidth, int pHeight, int cWidth, int cHeight)
         {
-            CenterReturn = new Point(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
+            CenterReturn = new(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
             return CenterReturn;
         }
 
@@ -1111,7 +1110,7 @@ namespace ReaLTaiizor.Util
             }
             else
             {
-                DrawPixelBrush = new SolidBrush(c1);
+                DrawPixelBrush = new(c1);
                 G.FillRectangle(DrawPixelBrush, x, y, 1, 1);
             }
         }
@@ -1158,7 +1157,7 @@ namespace ReaLTaiizor.Util
             }
             else
             {
-                DrawCornersBrush = new SolidBrush(c1);
+                DrawCornersBrush = new(c1);
                 G.FillRectangle(DrawCornersBrush, x, y, 1, 1);
                 G.FillRectangle(DrawCornersBrush, x + (width - 1), y, 1, 1);
                 G.FillRectangle(DrawCornersBrush, x, y + (height - 1), 1, 1);
@@ -1215,7 +1214,7 @@ namespace ReaLTaiizor.Util
             }
 
             DrawTextSize = Measure(text);
-            DrawTextPoint = new Point(Width / 2 - DrawTextSize.Width / 2, Header / 2 - DrawTextSize.Height / 2);
+            DrawTextPoint = new(Width / 2 - DrawTextSize.Width / 2, Header / 2 - DrawTextSize.Height / 2);
 
             switch (a)
             {
@@ -1266,7 +1265,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            DrawImagePoint = new Point(Width / 2 - image.Width / 2, Header / 2 - image.Height / 2);
+            DrawImagePoint = new(Width / 2 - image.Width / 2, Header / 2 - image.Height / 2);
 
             switch (a)
             {
@@ -1314,18 +1313,18 @@ namespace ReaLTaiizor.Util
         private Rectangle DrawGradientRectangle;
         protected void DrawGradient(ColorBlend blend, int x, int y, int width, int height)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(blend, DrawGradientRectangle);
         }
         protected void DrawGradient(ColorBlend blend, int x, int y, int width, int height, float angle)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(blend, DrawGradientRectangle, angle);
         }
 
         protected void DrawGradient(ColorBlend blend, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f)
+            DrawGradientBrush = new(r, Color.Empty, Color.Empty, 90f)
             {
                 InterpolationColors = blend
             };
@@ -1333,7 +1332,7 @@ namespace ReaLTaiizor.Util
         }
         protected void DrawGradient(ColorBlend blend, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle)
+            DrawGradientBrush = new(r, Color.Empty, Color.Empty, angle)
             {
                 InterpolationColors = blend
             };
@@ -1343,23 +1342,23 @@ namespace ReaLTaiizor.Util
 
         protected void DrawGradient(Color c1, Color c2, int x, int y, int width, int height)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(c1, c2, DrawGradientRectangle);
         }
         protected void DrawGradient(Color c1, Color c2, int x, int y, int width, int height, float angle)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(c1, c2, DrawGradientRectangle, angle);
         }
 
         protected void DrawGradient(Color c1, Color c2, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, c1, c2, 90f);
+            DrawGradientBrush = new(r, c1, c2, 90f);
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawGradient(Color c1, Color c2, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, c1, c2, angle);
+            DrawGradientBrush = new(r, c1, c2, angle);
             G.FillRectangle(DrawGradientBrush, r);
         }
 
@@ -1374,17 +1373,17 @@ namespace ReaLTaiizor.Util
         private Rectangle DrawRadialRectangle;
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, width / 2, height / 2);
         }
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height, Point center)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, center.X, center.Y);
         }
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height, int cx, int cy)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, cx, cy);
         }
 
@@ -1403,7 +1402,7 @@ namespace ReaLTaiizor.Util
 
             DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath)
             {
-                CenterPoint = new Point(r.X + cx, r.Y + cy),
+                CenterPoint = new(r.X + cx, r.Y + cy),
                 InterpolationColors = blend
             };
 
@@ -1420,23 +1419,23 @@ namespace ReaLTaiizor.Util
 
         protected void DrawRadial(Color c1, Color c2, int x, int y, int width, int height)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(c1, c2, DrawGradientRectangle);
         }
         protected void DrawRadial(Color c1, Color c2, int x, int y, int width, int height, float angle)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(c1, c2, DrawGradientRectangle, angle);
         }
 
         protected void DrawRadial(Color c1, Color c2, Rectangle r)
         {
-            DrawRadialBrush2 = new LinearGradientBrush(r, c1, c2, 90f);
+            DrawRadialBrush2 = new(r, c1, c2, 90f);
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawRadial(Color c1, Color c2, Rectangle r, float angle)
         {
-            DrawRadialBrush2 = new LinearGradientBrush(r, c1, c2, angle);
+            DrawRadialBrush2 = new(r, c1, c2, angle);
             G.FillEllipse(DrawGradientBrush, r);
         }
 
@@ -1449,13 +1448,13 @@ namespace ReaLTaiizor.Util
         private Rectangle CreateRoundRectangle;
         public GraphicsPath CreateRound(int x, int y, int width, int height, int slope)
         {
-            CreateRoundRectangle = new Rectangle(x, y, width, height);
+            CreateRoundRectangle = new(x, y, width, height);
             return CreateRound(CreateRoundRectangle, slope);
         }
 
         public GraphicsPath CreateRound(Rectangle r, int slope)
         {
-            CreateRoundPath = new GraphicsPath(FillMode.Winding);
+            CreateRoundPath = new(FillMode.Winding);
             CreateRoundPath.AddArc(r.X, r.Y, slope, slope, 180f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Y, slope, slope, 270f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Bottom - slope, slope, slope, 0f, 90f);
@@ -1479,12 +1478,12 @@ namespace ReaLTaiizor.Util
             SetStyle((ControlStyles)139270, true);
 
             _ImageSize = Size.Empty;
-            Font = new Font("Verdana", 8);
+            Font = new("Verdana", 8);
 
-            MeasureBitmap = new Bitmap(1, 1);
+            MeasureBitmap = new(1, 1);
             MeasureGraphics = Graphics.FromImage(MeasureBitmap);
 
-            DrawRadialPath = new GraphicsPath();
+            DrawRadialPath = new();
 
             InvalidateCustimization();
             //Remove?
@@ -1515,6 +1514,7 @@ namespace ReaLTaiizor.Util
         }
 
         private bool DoneCreation;
+
         protected sealed override void OnParentChanged(EventArgs e)
         {
             if (Parent != null)
@@ -1782,12 +1782,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private readonly Dictionary<string, Color> Items = new Dictionary<string, Color>();
+        private readonly Dictionary<string, Color> Items = new();
         public BloomSpace[] Colors
         {
             get
             {
-                List<BloomSpace> T = new List<BloomSpace>();
+                List<BloomSpace> T = new();
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
@@ -1824,12 +1824,11 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                byte[] Data = null;
                 BloomSpace[] Items = Colors;
 
                 try
                 {
-                    Data = Convert.FromBase64String(value);
+                    byte[] Data = Convert.FromBase64String(value);
                     for (int I = 0; I <= Items.Length - 1; I++)
                     {
                         Items[I].Value = Color.FromArgb(BitConverter.ToInt32(Data, I * 4));
@@ -1900,11 +1899,11 @@ namespace ReaLTaiizor.Util
 
         protected Pen GetPen(string name)
         {
-            return new Pen(Items[name]);
+            return new(Items[name]);
         }
         protected Pen GetPen(string name, float width)
         {
-            return new Pen(Items[name], width);
+            return new(Items[name], width);
         }
 
         protected SolidBrush GetBrush(string name)
@@ -1948,13 +1947,13 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            B = new Bitmap(Width, Height, PixelFormat.Format32bppPArgb);
+            B = new(Width, Height, PixelFormat.Format32bppPArgb);
             G = Graphics.FromImage(B);
         }
 
         private void InvalidateCustimization()
         {
-            MemoryStream M = new MemoryStream(Items.Count * 4);
+            MemoryStream M = new(Items.Count * 4);
 
             foreach (BloomSpace B in Colors)
             {
@@ -2003,21 +2002,21 @@ namespace ReaLTaiizor.Util
         private Rectangle OffsetReturnRectangle;
         protected Rectangle Offset(Rectangle r, int amount)
         {
-            OffsetReturnRectangle = new Rectangle(r.X + amount, r.Y + amount, r.Width - (amount * 2), r.Height - (amount * 2));
+            OffsetReturnRectangle = new(r.X + amount, r.Y + amount, r.Width - (amount * 2), r.Height - (amount * 2));
             return OffsetReturnRectangle;
         }
 
         private Size OffsetReturnSize;
         protected Size Offset(Size s, int amount)
         {
-            OffsetReturnSize = new Size(s.Width + amount, s.Height + amount);
+            OffsetReturnSize = new(s.Width + amount, s.Height + amount);
             return OffsetReturnSize;
         }
 
         private Point OffsetReturnPoint;
         protected Point Offset(Point p, int amount)
         {
-            OffsetReturnPoint = new Point(p.X + amount, p.Y + amount);
+            OffsetReturnPoint = new(p.X + amount, p.Y + amount);
             return OffsetReturnPoint;
         }
 
@@ -2029,12 +2028,12 @@ namespace ReaLTaiizor.Util
         private Point CenterReturn;
         protected Point Center(Rectangle p, Rectangle c)
         {
-            CenterReturn = new Point((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
+            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
             return CenterReturn;
         }
         protected Point Center(Rectangle p, Size c)
         {
-            CenterReturn = new Point((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
+            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
             return CenterReturn;
         }
 
@@ -2058,7 +2057,7 @@ namespace ReaLTaiizor.Util
 
         protected Point Center(int pWidth, int pHeight, int cWidth, int cHeight)
         {
-            CenterReturn = new Point(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
+            CenterReturn = new(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
             return CenterReturn;
         }
 
@@ -2093,7 +2092,7 @@ namespace ReaLTaiizor.Util
             }
             else
             {
-                DrawPixelBrush = new SolidBrush(c1);
+                DrawPixelBrush = new(c1);
                 G.FillRectangle(DrawPixelBrush, x, y, 1, 1);
             }
         }
@@ -2140,7 +2139,7 @@ namespace ReaLTaiizor.Util
             }
             else
             {
-                DrawCornersBrush = new SolidBrush(c1);
+                DrawCornersBrush = new(c1);
                 G.FillRectangle(DrawCornersBrush, x, y, 1, 1);
                 G.FillRectangle(DrawCornersBrush, x + (width - 1), y, 1, 1);
                 G.FillRectangle(DrawCornersBrush, x, y + (height - 1), 1, 1);
@@ -2297,18 +2296,18 @@ namespace ReaLTaiizor.Util
         private Rectangle DrawGradientRectangle;
         protected void DrawGradient(ColorBlend blend, int x, int y, int width, int height)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(blend, DrawGradientRectangle);
         }
         protected void DrawGradient(ColorBlend blend, int x, int y, int width, int height, float angle)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(blend, DrawGradientRectangle, angle);
         }
 
         protected void DrawGradient(ColorBlend blend, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, 90f)
+            DrawGradientBrush = new(r, Color.Empty, Color.Empty, 90f)
             {
                 InterpolationColors = blend
             };
@@ -2316,7 +2315,7 @@ namespace ReaLTaiizor.Util
         }
         protected void DrawGradient(ColorBlend blend, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, Color.Empty, Color.Empty, angle)
+            DrawGradientBrush = new(r, Color.Empty, Color.Empty, angle)
             {
                 InterpolationColors = blend
             };
@@ -2326,23 +2325,23 @@ namespace ReaLTaiizor.Util
 
         protected void DrawGradient(Color c1, Color c2, int x, int y, int width, int height)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(c1, c2, DrawGradientRectangle);
         }
         protected void DrawGradient(Color c1, Color c2, int x, int y, int width, int height, float angle)
         {
-            DrawGradientRectangle = new Rectangle(x, y, width, height);
+            DrawGradientRectangle = new(x, y, width, height);
             DrawGradient(c1, c2, DrawGradientRectangle, angle);
         }
 
         protected void DrawGradient(Color c1, Color c2, Rectangle r)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, c1, c2, 90f);
+            DrawGradientBrush = new(r, c1, c2, 90f);
             G.FillRectangle(DrawGradientBrush, r);
         }
         protected void DrawGradient(Color c1, Color c2, Rectangle r, float angle)
         {
-            DrawGradientBrush = new LinearGradientBrush(r, c1, c2, angle);
+            DrawGradientBrush = new(r, c1, c2, angle);
             G.FillRectangle(DrawGradientBrush, r);
         }
 
@@ -2357,17 +2356,17 @@ namespace ReaLTaiizor.Util
         private Rectangle DrawRadialRectangle;
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, width / 2, height / 2);
         }
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height, Point center)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, center.X, center.Y);
         }
         public void DrawRadial(ColorBlend blend, int x, int y, int width, int height, int cx, int cy)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(blend, DrawRadialRectangle, cx, cy);
         }
 
@@ -2386,7 +2385,7 @@ namespace ReaLTaiizor.Util
 
             DrawRadialBrush1 = new PathGradientBrush(DrawRadialPath)
             {
-                CenterPoint = new Point(r.X + cx, r.Y + cy),
+                CenterPoint = new(r.X + cx, r.Y + cy),
                 InterpolationColors = blend
             };
 
@@ -2403,23 +2402,23 @@ namespace ReaLTaiizor.Util
 
         protected void DrawRadial(Color c1, Color c2, int x, int y, int width, int height)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(c1, c2, DrawRadialRectangle);
         }
         protected void DrawRadial(Color c1, Color c2, int x, int y, int width, int height, float angle)
         {
-            DrawRadialRectangle = new Rectangle(x, y, width, height);
+            DrawRadialRectangle = new(x, y, width, height);
             DrawRadial(c1, c2, DrawRadialRectangle, angle);
         }
 
         protected void DrawRadial(Color c1, Color c2, Rectangle r)
         {
-            DrawRadialBrush2 = new LinearGradientBrush(r, c1, c2, 90f);
+            DrawRadialBrush2 = new(r, c1, c2, 90f);
             G.FillEllipse(DrawRadialBrush2, r);
         }
         protected void DrawRadial(Color c1, Color c2, Rectangle r, float angle)
         {
-            DrawRadialBrush2 = new LinearGradientBrush(r, c1, c2, angle);
+            DrawRadialBrush2 = new(r, c1, c2, angle);
             G.FillEllipse(DrawRadialBrush2, r);
         }
 
@@ -2432,13 +2431,13 @@ namespace ReaLTaiizor.Util
         private Rectangle CreateRoundRectangle;
         public GraphicsPath CreateRound(int x, int y, int width, int height, int slope)
         {
-            CreateRoundRectangle = new Rectangle(x, y, width, height);
+            CreateRoundRectangle = new(x, y, width, height);
             return CreateRound(CreateRoundRectangle, slope);
         }
 
         public GraphicsPath CreateRound(Rectangle r, int slope)
         {
-            CreateRoundPath = new GraphicsPath(FillMode.Winding);
+            CreateRoundPath = new(FillMode.Winding);
             CreateRoundPath.AddArc(r.X, r.Y, slope, slope, 180f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Y, slope, slope, 270f, 90f);
             CreateRoundPath.AddArc(r.Right - slope, r.Bottom - slope, slope, slope, 0f, 90f);
@@ -2458,14 +2457,14 @@ namespace ReaLTaiizor.Util
         private static int Frames;
         private static bool Invalidate;
 
-        public static PrecisionTimerSpace ThemeTimer = new PrecisionTimerSpace();
+        public static PrecisionTimerSpace ThemeTimer = new();
         //1000 / 50 = 20 FPS
         private const int FPS = 50;
 
         private const int Rate = 10;
 
         public delegate void AnimationDelegate(bool invalidate);
-        private static readonly List<AnimationDelegate> Callbacks = new List<AnimationDelegate>();
+        private static readonly List<AnimationDelegate> Callbacks = new();
 
         private static void HandleCallbacks(IntPtr state, bool reserve)
         {
@@ -2627,7 +2626,7 @@ namespace ReaLTaiizor.Util
             _Enabled = !Success;
         }
 
-        private void ThrowNewException(string name)
+        private static void ThrowNewException(string name)
         {
             throw new Exception(string.Format("{0} failed. Win32Error: {1}", name, Marshal.GetLastWin32Error()));
         }

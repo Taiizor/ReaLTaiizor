@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("TextChanged")]
     public class FoxTextBox : Control
     {
-        private TextBox withEventsField_TB = new TextBox();
+        private TextBox withEventsField_TB = new();
 
         private TextBox TB
         {
@@ -179,9 +179,9 @@ namespace ReaLTaiizor.Controls
             _with1.ForeColor = ForeColor;
             _with1.TextAlign = HorizontalAlignment.Left;
             _with1.BorderStyle = BorderStyle.None;
-            _with1.Location = new Point(3, 3);
+            _with1.Location = new(3, 3);
             _with1.Font = Font;
-            _with1.Size = new Size(Width - 3, Height - 3);
+            _with1.Size = new(Width - 3, Height - 3);
             _with1.UseSystemPasswordChar = UseSystemPasswordChar;
         }
 
@@ -195,8 +195,8 @@ namespace ReaLTaiizor.Controls
             TextAlign = HorizontalAlignment.Left;
             BackColor = Color.White;
             ForeColor = Color.FromArgb(66, 78, 90);
-            Font = new Font("Segoe UI", 10);
-            Size = new Size(90, 29);
+            Font = new("Segoe UI", 10);
+            Size = new(90, 29);
             Enabled = true;
         }
 
@@ -218,25 +218,19 @@ namespace ReaLTaiizor.Controls
             {
                 if (State == FoxLibrary.MouseState.Down)
                 {
-                    using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#2C9CDA")))
-                    {
-                        G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-                    }
+                    using Pen Border = new(FoxLibrary.ColorFromHex("#2C9CDA"));
+                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                 }
                 else
                 {
-                    using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#C8C8C8")))
-                    {
-                        G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-                    }
+                    using Pen Border = new(FoxLibrary.ColorFromHex("#C8C8C8"));
+                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                 }
             }
             else
             {
-                using (Pen Border = new Pen(FoxLibrary.ColorFromHex("#E6E6E6")))
-                {
-                    G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
-                }
+                using Pen Border = new(FoxLibrary.ColorFromHex("#E6E6E6"));
+                G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
             }
 
             TB.TextAlign = TextAlign;
@@ -251,13 +245,13 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             if (!MultiLine)
             {
-                TB.Location = new Point(10, (Height / 2) - (TB.Height / 2) - 0);
-                TB.Size = new Size(Width - 20, TB.Height);
+                TB.Location = new(10, (Height / 2) - (TB.Height / 2) - 0);
+                TB.Size = new(Width - 20, TB.Height);
             }
             else
             {
-                TB.Location = new Point(10, 10);
-                TB.Size = new Size(Width - 20, Height - 20);
+                TB.Location = new(10, 10);
+                TB.Size = new(Width - 20, Height - 20);
             }
         }
 

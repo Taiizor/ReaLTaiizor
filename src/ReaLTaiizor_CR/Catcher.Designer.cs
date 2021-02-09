@@ -68,7 +68,10 @@
             foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
-            skyButton1 = new ReaLTaiizor.Controls.SkyButton();
+            tabPage1 = new ReaLTaiizor.Controls.TabPage();
+            tabPage2 = new System.Windows.Forms.TabPage();
+            tabPage3 = new System.Windows.Forms.TabPage();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // aloneTextBox1
@@ -386,17 +389,40 @@
             royalScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             royalScrollBar1.Value = 5;
             // 
-            // skyButton1
+            // tabPage1
             // 
-            skyButton1.BackColor = System.Drawing.Color.Transparent;
-            skyButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            skyButton1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            skyButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            skyButton1.Location = new System.Drawing.Point(716, 289);
-            skyButton1.Name = "skyButton1";
-            skyButton1.Size = new System.Drawing.Size(75, 23);
-            skyButton1.TabIndex = 18;
-            skyButton1.Text = "skyButton1";
+            tabPage1.Alignment = System.Windows.Forms.TabAlignment.Left;
+            tabPage1.Controls.Add(tabPage2);
+            tabPage1.Controls.Add(tabPage3);
+            tabPage1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            tabPage1.ItemSize = new System.Drawing.Size(44, 135);
+            tabPage1.Location = new System.Drawing.Point(591, 213);
+            tabPage1.Multiline = true;
+            tabPage1.Name = "tabPage1";
+            tabPage1.SelectedIndex = 0;
+            tabPage1.Size = new System.Drawing.Size(200, 100);
+            tabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            tabPage1.TabIndex = 18;
+            // 
+            // tabPage2
+            // 
+            tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(63)))), ((int)(((byte)(74)))));
+            tabPage2.Location = new System.Drawing.Point(139, 4);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            tabPage2.Size = new System.Drawing.Size(57, 92);
+            tabPage2.TabIndex = 0;
+            tabPage2.Text = "tabPage2";
+            // 
+            // tabPage3
+            // 
+            tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(63)))), ((int)(((byte)(74)))));
+            tabPage3.Location = new System.Drawing.Point(139, 4);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            tabPage3.Size = new System.Drawing.Size(57, 92);
+            tabPage3.TabIndex = 1;
+            tabPage3.Text = "tabPage3";
             // 
             // Catcher
             // 
@@ -404,7 +430,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             ClientSize = new System.Drawing.Size(796, 318);
-            Controls.Add(skyButton1);
+            Controls.Add(tabPage1);
             Controls.Add(royalScrollBar1);
             Controls.Add(hopeComboBox1);
             Controls.Add(foxTextBox1);
@@ -429,6 +455,7 @@
             Name = "Catcher";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Catcher";
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -454,6 +481,8 @@
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
-        private ReaLTaiizor.Controls.SkyButton skyButton1;
+        private ReaLTaiizor.Controls.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }

@@ -120,9 +120,9 @@ namespace ReaLTaiizor.Controls
 
             foreach (Control C in Parent.Controls)
             {
-                if (!object.ReferenceEquals(C, this) && C is MoonRadioButton)
+                if (!object.ReferenceEquals(C, this) && C is MoonRadioButton button)
                 {
-                    ((MoonRadioButton)C).Checked = false;
+                    button.Checked = false;
                 }
             }
         }
@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Controls
             SetColor("BG", Color.FromArgb(240, 240, 240));
             SetColor("FC", Color.Gray);
             Cursor = Cursors.Hand;
-            Font = new Font("Segoe UI", 9);
+            Font = new("Segoe UI", 9);
         }
 
         protected override void ColorHook()
@@ -173,9 +173,9 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            G.DrawEllipse(new Pen(new SolidBrush(CircleColorA)), new Rectangle(new Point(3, 3), new Size(16, 16)));
-            G.DrawEllipse(new Pen(new SolidBrush(CircleColorB)), new Rectangle(new Point(2, 2), new Size(18, 18)));
-            G.DrawEllipse(new Pen(new SolidBrush(CircleColorC)), new Rectangle(new Point(4, 4), new Size(14, 14)));
+            G.DrawEllipse(new(new SolidBrush(CircleColorA)), new Rectangle(new Point(3, 3), new Size(16, 16)));
+            G.DrawEllipse(new(new SolidBrush(CircleColorB)), new Rectangle(new Point(2, 2), new Size(18, 18)));
+            G.DrawEllipse(new(new SolidBrush(CircleColorC)), new Rectangle(new Point(4, 4), new Size(14, 14)));
 
             G.DrawString(Text, Font, new SolidBrush(FC), 23, 3);
         }

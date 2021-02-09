@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Left)
             {
                 Val = Convert.ToInt32((float)(_Value - _Minimum) / (float)(_Maximum - _Minimum) * (float)(Width - 11));
-                Track = new Rectangle(Val, 0, 10, 20);
+                Track = new(Val, 0, 10, 20);
 
                 Bool = Track.Contains(e.Location);
             }
@@ -239,21 +239,21 @@ namespace ReaLTaiizor.Controls
 
             BackColor = Color.FromArgb(60, 70, 73);
             ForeColor = Color.White;
-            Font = new Font("Segoe UI", 8);
+            Font = new("Segoe UI", 8);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             //UpdateColors();
 
-            Bitmap B = new Bitmap(Width, Height);
+            Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
             W = Width - 1;
             H = Height - 1;
 
-            Rectangle Base = new Rectangle(1, 6, W - 2, 8);
-            GraphicsPath GP = new GraphicsPath();
-            GraphicsPath GP2 = new GraphicsPath();
+            Rectangle Base = new(1, 6, W - 2, 8);
+            GraphicsPath GP = new();
+            GraphicsPath GP2 = new();
 
             Graphics _with20 = G;
             _with20.SmoothingMode = SmoothingMode.HighQuality;
@@ -263,8 +263,8 @@ namespace ReaLTaiizor.Controls
 
             //-- Value
             Val = Convert.ToInt32((float)(_Value - _Minimum) / (float)(_Maximum - _Minimum) * (float)(W - 10));
-            Track = new Rectangle(Val, 0, 10, 20);
-            Knob = new Rectangle(Val, 4, 11, 14);
+            Track = new(Val, 0, 10, 20);
+            Knob = new(Val, 4, 11, 14);
 
             //-- Base
             GP.AddRectangle(Base);
@@ -274,7 +274,7 @@ namespace ReaLTaiizor.Controls
             _with20.ResetClip();
 
             //-- Hatch Brush
-            HatchBrush HB = new HatchBrush(HatchStyle.Plaid, HatchColor, _TrackColor);
+            HatchBrush HB = new(HatchStyle.Plaid, HatchColor, _TrackColor);
             _with20.FillRectangle(HB, new Rectangle(-10, 7, Track.X + Track.Width, 8));
 
             //-- Slider/Knob

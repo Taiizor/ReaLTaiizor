@@ -65,15 +65,12 @@ namespace ReaLTaiizor.Controls
 
         private string TitleText(string Text)
         {
-            switch (TitleTextState)
+            return TitleTextState switch
             {
-                case TextState.Upper:
-                    return Text.ToUpperInvariant();
-                case TextState.Lower:
-                    return Text.ToLowerInvariant();
-                default:
-                    return Text;
-            }
+                TextState.Upper => Text.ToUpperInvariant(),
+                TextState.Lower => Text.ToLowerInvariant(),
+                _ => Text,
+            };
         }
 
         private MaterialTabControl _baseTabControl;
@@ -166,7 +163,7 @@ namespace ReaLTaiizor.Controls
                 //Click feedback
                 if (_animationManager.IsAnimating())
                 {
-                    SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (animationProgress * 50)), Color.White));
+                    SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationProgress * 50)), Color.White));
                     int rippleSize = (int)(animationProgress * _tabRects[_baseTabControl.SelectedIndex].Width * 1.75);
 
                     g.SetClip(_tabRects[_baseTabControl.SelectedIndex]);
@@ -180,17 +177,15 @@ namespace ReaLTaiizor.Controls
                 {
                     int currentTabIndex = _baseTabControl.TabPages.IndexOf(tabPage);
 
-                    using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-                    {
-                        Rectangle textLocation = _tabRects[currentTabIndex];
-                        NativeText.DrawTransparentText(
-                            TitleText(tabPage.Text),
-                            SkinManager.getLogFontByType(MaterialManager.fontType.Button),
-                            Color.FromArgb(CalculateTextAlpha(currentTabIndex, animationProgress), SkinManager.ColorScheme.TextColor),
-                            textLocation.Location,
-                            textLocation.Size,
-                            MaterialNativeTextRenderer.TextAlignFlags.Center | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                    }
+                    using MaterialNativeTextRenderer NativeText = new(g);
+                    Rectangle textLocation = _tabRects[currentTabIndex];
+                    NativeText.DrawTransparentText(
+                        TitleText(tabPage.Text),
+                        SkinManager.getLogFontByType(MaterialManager.fontType.Button),
+                        Color.FromArgb(CalculateTextAlpha(currentTabIndex, animationProgress), SkinManager.ColorScheme.TextColor),
+                        textLocation.Location,
+                        textLocation.Size,
+                        MaterialNativeTextRenderer.TextAlignFlags.Center | MaterialNativeTextRenderer.TextAlignFlags.Middle);
                 }
 
                 try
@@ -267,47 +262,43 @@ namespace ReaLTaiizor.Controls
             }
 
             //Calculate the bounds of each tab header specified in the base tab control
-            using (Bitmap b = new Bitmap(1, 1))
+            using Bitmap b = new(1, 1);
+            using Graphics g = Graphics.FromImage(b);
+            if (_baseTabControl.TabPages.Count > 0)
             {
-                using (Graphics g = Graphics.FromImage(b))
+                int TitleLenght = 0;
+                foreach (System.Windows.Forms.TabPage TP in _baseTabControl.TabPages)
                 {
-                    if (_baseTabControl.TabPages.Count > 0)
-                    {
-                        int TitleLenght = 0;
-                        foreach (System.Windows.Forms.TabPage TP in _baseTabControl.TabPages)
+                    TitleLenght += TAB_HEADER_PADDING * 2 + (int)g.MeasureString(TP.Text, Font).Width;
+                }
+
+                switch (HeadAlignment)
+                {
+                    case Alignment.Center:
+                        int CenterLocation = (Width / 2) - (TitleLenght / 2);
+                        _tabRects.Add(new Rectangle(CenterLocation, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                        for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
                         {
-                            TitleLenght += TAB_HEADER_PADDING * 2 + (int)g.MeasureString(TP.Text, Font).Width;
+                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
                         }
 
-                        switch (HeadAlignment)
+                        break;
+                    case Alignment.Right:
+                        _tabRects.Add(new Rectangle(Width - TitleLenght - SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                        for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
                         {
-                            case Alignment.Center:
-                                int CenterLocation = (Width / 2) - (TitleLenght / 2);
-                                _tabRects.Add(new Rectangle(CenterLocation, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
-                                for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
-                                {
-                                    _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
-                                }
-
-                                break;
-                            case Alignment.Right:
-                                _tabRects.Add(new Rectangle(Width - TitleLenght - SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
-                                for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
-                                {
-                                    _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
-                                }
-
-                                break;
-                            default:
-                                _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
-                                for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
-                                {
-                                    _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
-                                }
-
-                                break;
+                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
                         }
-                    }
+
+                        break;
+                    default:
+                        _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                        for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
+                        {
+                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
+                        }
+
+                        break;
                 }
             }
         }

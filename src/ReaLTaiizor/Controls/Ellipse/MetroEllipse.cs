@@ -90,7 +90,7 @@ namespace ReaLTaiizor.Controls
         private bool _isDerivedStyle = true;
         private int _borderThickness = 7;
         private Image _image;
-        private Size _imageSize = new Size(64, 64);
+        private Size _imageSize = new(64, 64);
         private Color _normalColor;
         private Color _normalBorderColor;
         private Color _normalTextColor;
@@ -132,16 +132,16 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle r = new Rectangle(BorderThickness, BorderThickness, Width - ((BorderThickness * 2) + 1), Height - ((BorderThickness * 2) + 1));
+            Rectangle r = new(BorderThickness, BorderThickness, Width - ((BorderThickness * 2) + 1), Height - ((BorderThickness * 2) + 1));
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             switch (_state)
             {
                 case MouseMode.Normal:
-                    using (SolidBrush bg = new SolidBrush(NormalColor))
-                    using (Pen p = new Pen(NormalBorderColor, BorderThickness))
-                    using (SolidBrush tb = new SolidBrush(NormalTextColor))
+                    using (SolidBrush bg = new(NormalColor))
+                    using (Pen p = new(NormalBorderColor, BorderThickness))
+                    using (SolidBrush tb = new(NormalTextColor))
                     {
                         g.FillEllipse(bg, r);
                         g.DrawEllipse(p, r);
@@ -150,9 +150,9 @@ namespace ReaLTaiizor.Controls
                     break;
                 case MouseMode.Hovered:
                     Cursor = Cursors.Hand;
-                    using (SolidBrush bg = new SolidBrush(HoverColor))
-                    using (Pen p = new Pen(HoverBorderColor, BorderThickness))
-                    using (SolidBrush tb = new SolidBrush(HoverTextColor))
+                    using (SolidBrush bg = new(HoverColor))
+                    using (Pen p = new(HoverBorderColor, BorderThickness))
+                    using (SolidBrush tb = new(HoverTextColor))
                     {
                         g.FillEllipse(bg, r);
                         g.DrawEllipse(p, r);
@@ -160,9 +160,9 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Pushed:
-                    using (SolidBrush bg = new SolidBrush(PressColor))
-                    using (Pen p = new Pen(PressBorderColor, BorderThickness))
-                    using (SolidBrush tb = new SolidBrush(PressTextColor))
+                    using (SolidBrush bg = new(PressColor))
+                    using (Pen p = new(PressBorderColor, BorderThickness))
+                    using (SolidBrush tb = new(PressTextColor))
                     {
                         g.FillEllipse(bg, r);
                         g.DrawEllipse(p, r);
@@ -170,9 +170,9 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
                 case MouseMode.Disabled:
-                    using (SolidBrush bg = new SolidBrush(DisabledBackColor))
-                    using (Pen p = new Pen(DisabledBorderColor, BorderThickness))
-                    using (SolidBrush tb = new SolidBrush(DisabledForeColor))
+                    using (SolidBrush bg = new(DisabledBackColor))
+                    using (Pen p = new(DisabledBorderColor, BorderThickness))
+                    using (SolidBrush tb = new(DisabledForeColor))
                     {
                         g.FillEllipse(bg, r);
                         g.DrawEllipse(p, r);
@@ -188,7 +188,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            Rectangle imgRect = new Rectangle(new Point((Width - ImageSize.Width) / 2, (Height - ImageSize.Height) / 2), ImageSize);
+            Rectangle imgRect = new(new Point((Width - ImageSize.Width) / 2, (Height - ImageSize.Height) / 2), ImageSize);
             g.DrawImage(Image, imgRect);
         }
 
