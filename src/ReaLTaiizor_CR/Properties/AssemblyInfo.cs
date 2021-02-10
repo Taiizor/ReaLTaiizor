@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
 // bu öznitelik değerlerini değiştirin.
 [assembly: AssemblyTitle("ReaLTaiizor CR")]
-[assembly: AssemblyDescription("ReaLTaiizor CR v1.4.3.3")]
+[assembly: AssemblyDescription("ReaLTaiizor CR v1.4.3.4")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Taiizor")]
 [assembly: AssemblyProduct("ReaLTaiizor CR")]
