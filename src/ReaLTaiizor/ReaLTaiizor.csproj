@@ -55,7 +55,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net5.0-windows'">
     <PackageReference Include="System.Drawing.Common">
-      <Version>5.0.0</Version>
+      <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="System.Resources.Extensions">
       <Version>5.0.0</Version>
@@ -69,7 +69,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Reference Include="System.Design" />
     <Reference Include="System.Windows.Forms" />
     <PackageReference Include="System.Drawing.Common">
-      <Version>5.0.0</Version>
+      <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="System.Resources.Extensions">
       <Version>5.0.0</Version>
