@@ -40,6 +40,17 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="Reviewed Pull Requests">👀</a>
 	</td>
+    <td align="center">
+		<a href="https://github.com/HideakiAtsuyo">
+			<img src="https://avatars3.githubusercontent.com/u/53636771?s=460&v=4" width="80px;" alt="HideakiAtsuyo"/>
+			<br/>
+			<sub>
+				<b>HideakiAtsuyo</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=HideakiAtsuyo" title="Reviewed Pull Requests">👀</a>
+	</td>
   </tr>
 </table>
 
@@ -152,41 +163,41 @@ Step 2：Enjoy designing
 
 ### Windows Defender
 
-[![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Defender "WindowsDefenderSample")
+[![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Defender "Windows Defender Sample")
 
 ### Kaspersky Security Cloud
 
-[![KasperskySecurityCloudSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Kaspersky_Security_Cloud.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Kaspersky "KasperskySecurityCloudSample")
+[![KasperskySecurityCloudSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Kaspersky_Security_Cloud.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Kaspersky "Kaspersky Security Cloud Sample")
 
 ### XAMPP
 
-[![XAMPPSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/XAMPP.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.XAMPP "XAMPPSample")
+[![XAMPPSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/XAMPP.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.XAMPP "XAMPP Sample")
 
 ### Rufus
 
-[![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Rufus "RufusSample")
+[![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Rufus "Rufus Sample")
 
 ### MP3 Player
 
-[![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Player "MP3PlayerSample")
+[![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Player "MP3 Player Sample")
 
 ### Payment
 
-[![PaymentSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Payment.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Payment "PaymentSample")
+[![PaymentSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Payment.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Payment "Payment Sample")
 
 ### Login
 
-[![LoginSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Login.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Login "LoginSample")
+[![LoginSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Login.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Login "Login Sample")
 
 ### Instagram
 
-[![InstagramSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Instagram.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Instagram "InstagramSample")
+[![InstagramSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Instagram.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Instagram "Instagram Sample")
 
 ## Prepared
 
 ### Translate
 
-![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)
+[![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Translate "Translate Ready")
 
 ## Overview
 
