@@ -252,7 +252,7 @@ namespace ReaLTaiizor.Controls
             G.DrawLine(new(LineColorA), new Point(Width - 22, 1), new Point(Width - 22, Height - 3));
             G.DrawLine(new(LineColorB), new Point(Width - 21, 1), new Point(Width - 21, Height - 3));
             G.DrawLine(new(LineColorC), new Point(Width - 20, 1), new Point(Width - 20, Height - 3));
-            
+
             try
             {
                 G.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(5, -1, Width - 20, Height), new StringFormat

@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
         private bool isPasswordMasked = false;
         private readonly Pen P1;
         private readonly SolidBrush B1;
-        
+
         private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Color _CustomBGColor = Color.White;

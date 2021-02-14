@@ -88,14 +88,14 @@ namespace ReaLTaiizor.Forms
 
         private readonly Dictionary<int, int> _resizingLocationsToCmd = new()
         {
-            {HTTOP,         WMSZ_TOP},
-            {HTTOPLEFT,     WMSZ_TOPLEFT},
-            {HTTOPRIGHT,    WMSZ_TOPRIGHT},
-            {HTLEFT,        WMSZ_LEFT},
-            {HTRIGHT,       WMSZ_RIGHT},
-            {HTBOTTOM,      WMSZ_BOTTOM},
-            {HTBOTTOMLEFT,  WMSZ_BOTTOMLEFT},
-            {HTBOTTOMRIGHT, WMSZ_BOTTOMRIGHT}
+            { HTTOP, WMSZ_TOP },
+            { HTTOPLEFT, WMSZ_TOPLEFT },
+            { HTTOPRIGHT, WMSZ_TOPRIGHT },
+            { HTLEFT, WMSZ_LEFT },
+            { HTRIGHT, WMSZ_RIGHT },
+            { HTBOTTOM, WMSZ_BOTTOM },
+            { HTBOTTOMLEFT, WMSZ_BOTTOMLEFT },
+            { HTBOTTOMRIGHT, WMSZ_BOTTOMRIGHT }
         };
 
         private const int STATUS_BAR_BUTTON_WIDTH = STATUS_BAR_HEIGHT;
