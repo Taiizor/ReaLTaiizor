@@ -39,7 +39,7 @@ namespace ReaLTaiizor_CR
             this.materialButton1.DrawShadows = true;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(82, 133);
+            this.materialButton1.Location = new System.Drawing.Point(13, 72);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -55,7 +55,7 @@ namespace ReaLTaiizor_CR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 256);
+            this.ClientSize = new System.Drawing.Size(155, 116);
             this.Controls.Add(this.materialButton1);
             this.Name = "Issue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

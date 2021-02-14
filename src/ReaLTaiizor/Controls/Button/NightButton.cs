@@ -154,6 +154,8 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         private bool IsDefault => _IsDefault;
 
+        /// <summary>
+        /// 
         /// </summary>
         public DialogResult DialogResult
         {

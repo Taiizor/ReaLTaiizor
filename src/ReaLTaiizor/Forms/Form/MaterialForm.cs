@@ -154,9 +154,11 @@ namespace ReaLTaiizor.Forms
             XOver,
             MaxOver,
             MinOver,
+            DrawerOver,
             XDown,
             MaxDown,
             MinDown,
+            DrawerDown,
             None
         }
 
@@ -166,6 +168,7 @@ namespace ReaLTaiizor.Forms
         private Rectangle _maxButtonBounds;
         private Rectangle _xButtonBounds;
         private Rectangle _actionBarBounds;
+        private Rectangle _drawerButtonBounds;
 
         public Rectangle UserArea => new(0, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Width, Height - (STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT));
 
@@ -725,6 +728,10 @@ namespace ReaLTaiizor.Forms
                 {
                     _buttonState = ButtonState.XDown;
                 }
+                else if (_drawerButtonBounds.Contains(e.Location))
+                {
+                    _buttonState = ButtonState.DrawerDown;
+                }
                 else
                 {
                     _buttonState = ButtonState.None;
@@ -768,8 +775,14 @@ namespace ReaLTaiizor.Forms
                         Close();
                     }
                 }
+                else if (_drawerButtonBounds.Contains(e.Location))
+                {
+                    _buttonState = ButtonState.DrawerOver;
+                    //Cursor = Cursors.Hand;
+                }
                 else
                 {
+                    //Cursor = Cursors.Default;
                     _buttonState = ButtonState.None;
                 }
             }
@@ -862,6 +875,7 @@ namespace ReaLTaiizor.Forms
             _xButtonBounds = new((Width) - STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
             _statusBarBounds = new(0, 0, Width, STATUS_BAR_HEIGHT);
             _actionBarBounds = new(0, STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
+            _drawerButtonBounds = new Rectangle(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + SkinManager.FORM_PADDING / 2, ACTION_BAR_HEIGHT);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -970,6 +984,17 @@ namespace ReaLTaiizor.Forms
             // Drawer Icon
             if (DrawerTabControl != null)
             {
+
+                if (_buttonState == ButtonState.DrawerOver)
+                {
+                    g.FillRectangle(hoverBrush, _drawerButtonBounds);
+                }
+
+                if (_buttonState == ButtonState.DrawerDown)
+                {
+                    g.FillRectangle(downBrush, _drawerButtonBounds);
+                }
+
                 _drawerIconRect = new(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + SkinManager.FORM_PADDING / 2, ACTION_BAR_HEIGHT);
                 // Ripple
                 if (_clickAnimManager.IsAnimating())
