@@ -1,12 +1,12 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
+using ReaLTaiizor.Extension.Metro;
 using ReaLTaiizor.Forms;
+using System;
+using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using System.ComponentModel;
-using ReaLTaiizor.Extension.Metro;
 
 #endregion
 

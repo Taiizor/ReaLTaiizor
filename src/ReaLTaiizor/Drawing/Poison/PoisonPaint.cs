@@ -1,11 +1,11 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
 using ReaLTaiizor.Colors;
-using System.Windows.Forms;
 using ReaLTaiizor.Enum.Poison;
 using ReaLTaiizor.Extension.Poison;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 #endregion
 

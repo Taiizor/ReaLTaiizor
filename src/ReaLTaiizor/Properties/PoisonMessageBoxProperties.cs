@@ -1,8 +1,8 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Child.Poison;
 using System.Diagnostics;
 using System.Windows.Forms;
-using ReaLTaiizor.Child.Poison;
 
 #endregion
 

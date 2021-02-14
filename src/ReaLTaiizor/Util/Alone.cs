@@ -2,8 +2,8 @@
 
 using System;
 using System.Drawing;
-using System.Globalization;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 #endregion
 
 namespace ReaLTaiizor.Util

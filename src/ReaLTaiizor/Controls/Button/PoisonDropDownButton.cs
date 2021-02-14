@@ -1,10 +1,10 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Design.Poison;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using ReaLTaiizor.Design.Poison;
 using System.Windows.Forms.VisualStyles;
 
 #endregion

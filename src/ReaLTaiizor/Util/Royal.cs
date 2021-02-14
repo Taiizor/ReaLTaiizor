@@ -1,12 +1,12 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
-using System.Threading;
 using ReaLTaiizor.Colors;
-using System.Windows.Forms;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
 
 #endregion
 

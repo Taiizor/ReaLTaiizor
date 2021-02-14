@@ -1,13 +1,13 @@
 ﻿#region Imports
 
-using System;
-using ReaLTaiizor.Native;
-using System.Collections;
-using System.Windows.Forms;
 using ReaLTaiizor.Controls;
+using ReaLTaiizor.Native;
+using System;
+using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms.Design;
 using System.ComponentModel.Design;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 #endregion
 

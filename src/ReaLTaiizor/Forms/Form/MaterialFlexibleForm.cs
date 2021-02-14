@@ -1,14 +1,14 @@
 ﻿#region Imports
 
-using System;
-using System.Linq;
-using System.Drawing;
-using ReaLTaiizor.Util;
-using System.Diagnostics;
 using ReaLTaiizor.Controls;
-using System.Windows.Forms;
-using System.Globalization;
+using ReaLTaiizor.Util;
+using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Forms;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
 
 #endregion

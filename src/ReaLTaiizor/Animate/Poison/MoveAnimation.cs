@@ -1,8 +1,8 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Enum.Poison;
 using System.Drawing;
 using System.Windows.Forms;
-using ReaLTaiizor.Enum.Poison;
 
 #endregion
 

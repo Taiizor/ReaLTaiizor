@@ -1,19 +1,19 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
-using ReaLTaiizor.Native;
-using System.Drawing.Text;
-using ReaLTaiizor.Manager;
-using System.Windows.Forms;
-using System.ComponentModel;
-using ReaLTaiizor.Enum.Metro;
-using ReaLTaiizor.Design.Metro;
-using System.Drawing.Drawing2D;
 using ReaLTaiizor.Animate.Metro;
-using ReaLTaiizor.Interface.Metro;
+using ReaLTaiizor.Design.Metro;
+using ReaLTaiizor.Enum.Metro;
 using ReaLTaiizor.Extension.Metro;
+using ReaLTaiizor.Interface.Metro;
+using ReaLTaiizor.Manager;
+using ReaLTaiizor.Native;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 #endregion
 

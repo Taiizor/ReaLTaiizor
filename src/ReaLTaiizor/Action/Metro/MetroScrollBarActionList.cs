@@ -1,9 +1,9 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Manager;
 using ReaLTaiizor.Controls;
-using System.ComponentModel;
 using ReaLTaiizor.Enum.Metro;
+using ReaLTaiizor.Manager;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 
 #endregion

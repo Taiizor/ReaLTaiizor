@@ -1,11 +1,11 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Manager;
-using System.Windows.Forms;
-using System.ComponentModel;
-using System.Drawing.Design;
 using ReaLTaiizor.Enum.Metro;
+using ReaLTaiizor.Manager;
+using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Drawing.Design;
+using System.Windows.Forms;
 
 #endregion
 

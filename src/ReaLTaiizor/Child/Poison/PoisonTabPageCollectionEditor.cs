@@ -1,7 +1,7 @@
 ﻿#region Imports
 
-using System;
 using ReaLTaiizor.Controls;
+using System;
 using System.ComponentModel.Design;
 
 #endregion

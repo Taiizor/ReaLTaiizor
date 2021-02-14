@@ -1,7 +1,7 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Util;
 using ReaLTaiizor.Colors;
+using ReaLTaiizor.Util;
 
 #endregion
 

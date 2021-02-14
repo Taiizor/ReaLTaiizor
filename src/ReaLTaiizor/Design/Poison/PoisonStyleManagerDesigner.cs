@@ -1,12 +1,12 @@
 ﻿#region Imports
 
-using System;
-using ReaLTaiizor.Manager;
-using System.Windows.Forms;
-using System.ComponentModel;
 using ReaLTaiizor.Enum.Poison;
-using System.ComponentModel.Design;
 using ReaLTaiizor.Interface.Poison;
+using ReaLTaiizor.Manager;
+using System;
+using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Windows.Forms;
 
 #endregion
 

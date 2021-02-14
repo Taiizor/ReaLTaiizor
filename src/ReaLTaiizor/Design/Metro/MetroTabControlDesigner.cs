@@ -1,16 +1,16 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
-using ReaLTaiizor.Native;
-using System.Collections;
-using ReaLTaiizor.Controls;
-using System.Windows.Forms;
-using System.ComponentModel;
 using ReaLTaiizor.Child.Metro;
-using System.Windows.Forms.Design;
+using ReaLTaiizor.Controls;
+using ReaLTaiizor.Native;
+using System;
+using System.Collections;
+using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 #endregion
 

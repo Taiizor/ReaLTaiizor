@@ -1,17 +1,17 @@
 ﻿#region Imports
 
-using System;
-using System.IO;
-using System.Xml;
-using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
-using System.Drawing.Design;
-using ReaLTaiizor.Enum.Metro;
 using ReaLTaiizor.Design.Metro;
-using System.Collections.Generic;
-using System.Windows.Forms.Design;
+using ReaLTaiizor.Enum.Metro;
 using ReaLTaiizor.Interface.Metro;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Design;
+using System.IO;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
+using System.Xml;
 
 #endregion
 

@@ -1,17 +1,17 @@
 ﻿#region Imports
 
-using System;
-using System.Linq;
-using System.Drawing;
-using ReaLTaiizor.Util;
-using System.Drawing.Text;
 using ReaLTaiizor.Controls;
-using System.Windows.Forms;
-using System.ComponentModel;
+using ReaLTaiizor.Util;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Text;
+using System.Linq;
 using System.Runtime.InteropServices;
-using static ReaLTaiizor.Util.MaterialAnimations;
+using System.Windows.Forms;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
 
 #endregion
 

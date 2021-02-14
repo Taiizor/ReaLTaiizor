@@ -1,11 +1,11 @@
 ﻿#region Imports
 
-using System.Drawing;
-using ReaLTaiizor.Forms;
-using System.Windows.Forms;
-using ReaLTaiizor.Enum.Crown;
 using ReaLTaiizor.Docking.Crown;
+using ReaLTaiizor.Enum.Crown;
+using ReaLTaiizor.Forms;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion

@@ -1,15 +1,15 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
-using ReaLTaiizor.Util;
 using ReaLTaiizor.Helper;
+using ReaLTaiizor.Util;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Drawing.Drawing2D;
-using static ReaLTaiizor.Util.MaterialAnimations;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
 
 #endregion
 

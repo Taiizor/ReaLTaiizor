@@ -1,10 +1,10 @@
 ﻿#region Imports
 
-using System.Drawing;
-using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 using ReaLTaiizor.Enum.Crown;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 #endregion
 

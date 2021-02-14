@@ -1,12 +1,12 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
-using System.Diagnostics;
-using System.Windows.Forms;
 using ReaLTaiizor.Controls;
-using ReaLTaiizor.Properties;
 using ReaLTaiizor.Localization.Poison;
+using ReaLTaiizor.Properties;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
 
 #endregion
 

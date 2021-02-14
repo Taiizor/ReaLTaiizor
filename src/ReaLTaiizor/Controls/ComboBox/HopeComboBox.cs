@@ -1,13 +1,13 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Colors;
+using ReaLTaiizor.Util;
 using System;
 using System.Drawing;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Colors;
-using System.Drawing.Text;
-using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 #endregion
 

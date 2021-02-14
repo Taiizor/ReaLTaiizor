@@ -1,9 +1,9 @@
 ﻿#region Imports
 
-using System.Collections;
 using ReaLTaiizor.Action.Metro;
-using System.Windows.Forms.Design;
+using System.Collections;
 using System.ComponentModel.Design;
+using System.Windows.Forms.Design;
 
 #endregion
 
