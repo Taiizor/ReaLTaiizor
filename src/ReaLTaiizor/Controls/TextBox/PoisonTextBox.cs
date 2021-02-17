@@ -341,7 +341,7 @@ namespace ReaLTaiizor.Controls
 
         #region Routing Fields
 
-#if !NET5_0
+#if !NET5_0 && !NET6_0
         public override ContextMenu ContextMenu
         {
             get => baseTextBox.ContextMenu;
@@ -529,7 +529,7 @@ namespace ReaLTaiizor.Controls
 
         private void BaseTextBoxContextMenuChanged(object sender, EventArgs e)
         {
-#if !NET5_0
+#if !NET5_0 && !NET6_0
             base.OnContextMenuChanged(e);
 #endif
         }
@@ -844,7 +844,7 @@ namespace ReaLTaiizor.Controls
             baseTextBox.ChangeUICues += BaseTextBoxChangeUiCues;
             baseTextBox.Click += BaseTextBoxClick;
             baseTextBox.ClientSizeChanged += BaseTextBoxClientSizeChanged;
-#if !NET5_0
+#if !NET5_0 && !NET6_0
             baseTextBox.ContextMenuChanged += BaseTextBoxContextMenuChanged;
 #endif
             baseTextBox.ContextMenuStripChanged += BaseTextBoxContextMenuStripChanged;

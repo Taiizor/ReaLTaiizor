@@ -1140,7 +1140,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-#if NET5_0
+#if NET5_0 || NET6_0
             //public EventHandler ContextMenuChanged { get; internal set; }
             public event EventHandler ContextMenuChanged;
 #endif
