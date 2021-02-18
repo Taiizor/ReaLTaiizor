@@ -32,8 +32,8 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <PackageIcon>Taiizor.png</PackageIcon>
     <Company>$(Authors)</Company>
     <Owners>$(Authors)</Owners>
-    <AnalysisLevel>latest</AnalysisLevel>
-    <LangVersion>latest</LangVersion>
+    <AnalysisLevel>preview</AnalysisLevel>
+    <LangVersion>preview</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
