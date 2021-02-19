@@ -1,8 +1,8 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Enum.Metro;
 using System;
 using System.Windows.Forms;
-using ReaLTaiizor.Enum.Metro;
 
 #endregion
 

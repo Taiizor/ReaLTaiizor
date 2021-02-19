@@ -1,14 +1,14 @@
 ﻿#region Imports
 
-using System;
-using System.Linq;
-using System.Drawing;
 using ReaLTaiizor.Util;
-using System.Windows.Forms;
+using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Drawing2D;
-using static ReaLTaiizor.Util.MaterialAnimations;
+using System.Linq;
+using System.Windows.Forms;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
 
 #endregion
 
@@ -69,6 +69,24 @@ namespace ReaLTaiizor.Controls
             {
                 _hint = value;
                 hasHint = !string.IsNullOrEmpty(Hint);
+                Invalidate();
+            }
+        }
+
+        private int _startIndex;
+        public int StartIndex
+        {
+            get => _startIndex;
+            set
+            {
+                _startIndex = value;
+                try
+                {
+                    base.SelectedIndex = value;
+                }
+                catch
+                {
+                }
                 Invalidate();
             }
         }

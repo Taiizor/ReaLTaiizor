@@ -1,10 +1,10 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
 using ReaLTaiizor.Util;
-using System.Windows.Forms;
+using System;
 using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion
@@ -552,7 +552,7 @@ namespace ReaLTaiizor.Controls
                 upIcon.RotateFlip(RotateFlipType.Rotate90FlipNone);
             }
 
-            g.DrawImageUnscaled(upIcon,  _upArrowArea.Left + (_upArrowArea.Width / 2) - (upIcon.Width / 2), _upArrowArea.Top + (_upArrowArea.Height / 2) - (upIcon.Height / 2));
+            g.DrawImageUnscaled(upIcon, _upArrowArea.Left + (_upArrowArea.Width / 2) - (upIcon.Width / 2), _upArrowArea.Top + (_upArrowArea.Height / 2) - (upIcon.Height / 2));
 
             // Down arrow
             Bitmap downIcon = _downArrowHot ? Properties.Resources.scrollbar_arrow_hot : Properties.Resources.scrollbar_arrow_standard;

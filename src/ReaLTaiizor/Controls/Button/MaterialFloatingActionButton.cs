@@ -1,13 +1,14 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
+using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
-using System.Windows.Forms;
+using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Drawing2D;
-using static ReaLTaiizor.Util.MaterialAnimations;
+using System.Windows.Forms;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
 
 #endregion
 
@@ -32,8 +33,16 @@ namespace ReaLTaiizor.Controls
         private const int FAB_MINI_ICON_MARGIN = 8;
         private const int FAB_ICON_SIZE = 24;
 
+        private bool _mouseHover = false;
+
+        [DefaultValue(true)]
+        [Category("Material"), DisplayName("Draw Shadows")]
+        [Description("Draw Shadows around control")]
         public bool DrawShadows { get; set; }
 
+        [DefaultValue(false)]
+        [Category("Material"), DisplayName("Size Mini")]
+        [Description("Set control size to default or mini")]
         public bool Mini
         {
             get => _mini;
@@ -48,12 +57,18 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _mini = false;
+        private bool _mini;
 
+        [DefaultValue(false)]
+        [Category("Material"), DisplayName("Animate Show HideButton")]
         public bool AnimateShowHideButton
         {
             get => _animateShowButton;
-            set => _animateShowButton = value;
+            set
+            {
+                _animateShowButton = value;
+                Refresh();
+            }
         }
 
         private bool _animateShowButton;
@@ -61,7 +76,7 @@ namespace ReaLTaiizor.Controls
         public Image Icon
         {
             get => _icon;
-            set => _icon = value;
+            set { _icon = value; Refresh(); }
         }
 
         private Image _icon;
@@ -74,6 +89,8 @@ namespace ReaLTaiizor.Controls
 
         public MaterialFloatingActionButton()
         {
+            AnimateShowHideButton = false;
+            Mini = false;
             DrawShadows = true;
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
 
@@ -207,7 +224,7 @@ namespace ReaLTaiizor.Controls
             DrawRoundShadow(g, fabBounds);
 
             // draw fab
-            g.FillEllipse(SkinManager.ColorScheme.AccentBrush, fabBounds);
+            g.FillEllipse(_mouseHover ? new SolidBrush(SkinManager.ColorScheme.AccentColor.Lighten(0.25f)) : SkinManager.ColorScheme.AccentBrush, fabBounds);
 
             if (_animationManager.IsAnimating())
             {
@@ -254,6 +271,42 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseClick(mevent);
             _animationManager.StartNewAnimation(AnimationDirection.In, mevent.Location);
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+
+            if (DesignMode)
+            {
+                return;
+            }
+
+            _mouseHover = ClientRectangle.Contains(e.Location);
+            Invalidate();
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            if (DesignMode)
+            {
+                return;
+            }
+
+            _mouseHover = false;
+            Invalidate();
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            if (DrawShadows && Parent != null)
+            {
+                RemoveShadowPaintEvent(Parent, drawShadowOnParent);
+                AddShadowPaintEvent(Parent, drawShadowOnParent);
+            }
         }
 
         private Point origin;

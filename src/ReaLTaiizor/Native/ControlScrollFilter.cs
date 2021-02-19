@@ -1,8 +1,8 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Enum.Crown;
 using System.Drawing;
 using System.Windows.Forms;
-using ReaLTaiizor.Enum.Crown;
 
 #endregion
 

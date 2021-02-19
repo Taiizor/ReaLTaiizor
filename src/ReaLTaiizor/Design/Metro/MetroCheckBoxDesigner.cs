@@ -1,8 +1,8 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Action.Metro;
-using System.Windows.Forms.Design;
 using System.ComponentModel.Design;
+using System.Windows.Forms.Design;
 
 #endregion
 

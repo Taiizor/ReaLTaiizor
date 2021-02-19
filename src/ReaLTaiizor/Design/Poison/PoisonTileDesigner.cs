@@ -1,7 +1,7 @@
 ﻿#region Imports
 
-using System.Collections;
 using ReaLTaiizor.Controls;
+using System.Collections;
 using System.Windows.Forms.Design;
 
 #endregion

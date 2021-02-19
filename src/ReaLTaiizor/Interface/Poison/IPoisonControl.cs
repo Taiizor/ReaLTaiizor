@@ -1,9 +1,9 @@
 ﻿#region Imports
 
-using System;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Enum.Poison;
 using ReaLTaiizor.Drawing.Poison;
+using ReaLTaiizor.Enum.Poison;
+using ReaLTaiizor.Manager;
+using System;
 
 #endregion
 

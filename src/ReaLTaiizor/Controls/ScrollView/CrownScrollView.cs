@@ -1,8 +1,8 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Child.Crown;
 using System.Drawing;
 using System.Windows.Forms;
-using ReaLTaiizor.Child.Crown;
 using static ReaLTaiizor.Helper.CrownHelper;
 
 #endregion

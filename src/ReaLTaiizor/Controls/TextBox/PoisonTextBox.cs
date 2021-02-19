@@ -1,17 +1,17 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
-using ReaLTaiizor.Util;
 using ReaLTaiizor.Colors;
-using ReaLTaiizor.Manager;
-using System.Windows.Forms;
-using System.ComponentModel;
-using ReaLTaiizor.Enum.Poison;
 using ReaLTaiizor.Design.Poison;
 using ReaLTaiizor.Drawing.Poison;
-using ReaLTaiizor.Interface.Poison;
+using ReaLTaiizor.Enum.Poison;
 using ReaLTaiizor.Extension.Poison;
+using ReaLTaiizor.Interface.Poison;
+using ReaLTaiizor.Manager;
+using ReaLTaiizor.Util;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 
 #endregion
 
@@ -341,7 +341,7 @@ namespace ReaLTaiizor.Controls
 
         #region Routing Fields
 
-        #if !NET5_0
+#if !NET5_0 && !NET6_0
         public override ContextMenu ContextMenu
         {
             get => baseTextBox.ContextMenu;
@@ -351,7 +351,7 @@ namespace ReaLTaiizor.Controls
                 baseTextBox.ContextMenu = value;
             }
         }
-        #endif
+#endif
 
         public override ContextMenuStrip ContextMenuStrip
         {
@@ -529,9 +529,9 @@ namespace ReaLTaiizor.Controls
 
         private void BaseTextBoxContextMenuChanged(object sender, EventArgs e)
         {
-            #if !NET5_0
+#if !NET5_0 && !NET6_0
             base.OnContextMenuChanged(e);
-            #endif
+#endif
         }
 
         private void BaseTextBoxClientSizeChanged(object sender, EventArgs e)
@@ -844,9 +844,9 @@ namespace ReaLTaiizor.Controls
             baseTextBox.ChangeUICues += BaseTextBoxChangeUiCues;
             baseTextBox.Click += BaseTextBoxClick;
             baseTextBox.ClientSizeChanged += BaseTextBoxClientSizeChanged;
-            #if !NET5_0
+#if !NET5_0 && !NET6_0
             baseTextBox.ContextMenuChanged += BaseTextBoxContextMenuChanged;
-            #endif
+#endif
             baseTextBox.ContextMenuStripChanged += BaseTextBoxContextMenuStripChanged;
             baseTextBox.CursorChanged += BaseTextBoxCursorChanged;
 

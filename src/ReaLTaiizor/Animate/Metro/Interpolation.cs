@@ -1,7 +1,7 @@
 ﻿#region Imports
 
-using System;
 using ReaLTaiizor.Enum.Metro;
+using System;
 
 #endregion
 

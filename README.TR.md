@@ -40,6 +40,17 @@ Bu harika insanlara teşekkürler ([emoji anahtarı](https://allcontributors.org
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="İncelenen Çekme İstekleri">👀</a>
 	</td>
+    <td align="center">
+		<a href="https://github.com/HideakiAtsuyo">
+			<img src="https://avatars3.githubusercontent.com/u/53636771?s=460&v=4" width="80px;" alt="HideakiAtsuyo"/>
+			<br/>
+			<sub>
+				<b>HideakiAtsuyo</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=HideakiAtsuyo" title="İncelenen Çekme İstekleri">👀</a>
+	</td>
   </tr>
 </table>
 
@@ -152,41 +163,41 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ### Windows Defender
 
-![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)
+[![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Defender "WindowsDefenderSample")
 
 ### Kaspersky Security Cloud
 
-![KasperskySecurityCloudSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Kaspersky_Security_Cloud.png)
+[![KasperskySecurityCloudSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Kaspersky_Security_Cloud.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Kaspersky "KasperskySecurityCloudSample")
 
 ### XAMPP
 
-![XAMPPSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/XAMPP.png)
+[![XAMPPSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/XAMPP.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.XAMPP "XAMPPSample")
 
 ### Rufus
 
-![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)
+[![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Rufus "RufusSample")
 
 ### MP3 Oynatıcı
 
-![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)
+[![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Player "MP3PlayerSample")
 
 ### Ödeme
 
-![PaymentSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Payment.png)
+[![PaymentSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Payment.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Payment "PaymentSample")
 
 ### Oturum Aç
 
-![LoginSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Login.png)
+[![LoginSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Login.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Login "LoginSample")
 
 ### Instagram
 
-![InstagramSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Instagram.png)
+[![InstagramSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Instagram.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Instagram "InstagramSample")
 
 ## Hazırlanmış
 
 ### Çeviri
 
-![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)
+[![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Translate "TranslateReady")
 
 ## Genel Bakış
 

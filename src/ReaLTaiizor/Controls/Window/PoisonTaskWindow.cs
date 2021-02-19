@@ -1,15 +1,15 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Animate.Poison;
+using ReaLTaiizor.Drawing.Poison;
+using ReaLTaiizor.Enum.Poison;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Interface.Poison;
+using ReaLTaiizor.Manager;
+using ReaLTaiizor.Native;
 using System;
 using System.Drawing;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Native;
-using ReaLTaiizor.Manager;
 using System.Windows.Forms;
-using ReaLTaiizor.Enum.Poison;
-using ReaLTaiizor.Drawing.Poison;
-using ReaLTaiizor.Animate.Poison;
-using ReaLTaiizor.Interface.Poison;
 
 #endregion
 

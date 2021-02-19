@@ -1,7 +1,7 @@
-﻿using System;
-using ReaLTaiizor.Util;
+﻿using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Colors;
+using ReaLTaiizor.Util;
+using System;
 
 namespace ReaLTaiizor_CR
 {

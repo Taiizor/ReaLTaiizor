@@ -1,9 +1,9 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Colors;
+using ReaLTaiizor.Util;
 using System;
 using System.Drawing;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Colors;
 using System.Windows.Forms;
 
 #endregion

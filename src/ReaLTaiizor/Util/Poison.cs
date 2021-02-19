@@ -1,9 +1,9 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Enum.Poison;
 using System;
 using System.Collections;
 using System.Windows.Forms;
-using ReaLTaiizor.Enum.Poison;
 
 #endregion
 

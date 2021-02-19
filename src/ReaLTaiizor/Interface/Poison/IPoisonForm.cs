@@ -1,7 +1,7 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Manager;
 using ReaLTaiizor.Enum.Poison;
+using ReaLTaiizor.Manager;
 
 #endregion
 

@@ -1,13 +1,13 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
 using ReaLTaiizor.Colors;
-using System.Drawing.Text;
-using System.Windows.Forms;
+using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 #endregion
 
@@ -1140,7 +1140,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-#if NET5_0
+#if NET5_0 || NET6_0
             //public EventHandler ContextMenuChanged { get; internal set; }
             public event EventHandler ContextMenuChanged;
 #endif

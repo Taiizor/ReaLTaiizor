@@ -1,10 +1,10 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Design.Poison;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using System.ComponentModel;
-using ReaLTaiizor.Design.Poison;
 using System.Windows.Forms.VisualStyles;
 
 #endregion
@@ -31,9 +31,9 @@ namespace ReaLTaiizor.Controls
         private bool showSplit;
         private bool isSplitMenuVisible;
         private ContextMenuStrip m_SplitMenuStrip;
-        #if !NET5_0
+#if !NET5_0 && !NET6_0
         private ContextMenu m_SplitMenu;
-        #endif
+#endif
         private readonly TextFormatFlags textFormatFlags = TextFormatFlags.Default;
         #endregion
 
@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Controls
             set => SplitMenuStrip = value;
         }
 
-        #if !NET5_0
+#if !NET5_0 && !NET6_0
         [DefaultValue(null)]
         public ContextMenu SplitMenu
         {
@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
                 m_SplitMenu = value;
             }
         }
-        #endif
+#endif
 
         [DefaultValue(null)]
         public ContextMenuStrip SplitMenuStrip
@@ -307,13 +307,13 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            #if !NET5_0
+#if !NET5_0 && !NET6_0
             //handle ContextMenu re-clicking the drop-down region to close the menu
             if (m_SplitMenu != null && e.Button == MouseButtons.Left && !isMouseEntered)
             {
                 skipNextOpen = true;
             }
-            #endif
+#endif
 
             if (dropDownRectangle.Contains(e.Location) && !isSplitMenuVisible && e.Button == MouseButtons.Left)
             {
@@ -333,7 +333,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            #if !NET5_0
+#if !NET5_0 && !NET6_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
@@ -348,9 +348,9 @@ namespace ReaLTaiizor.Controls
                     OnClick(new EventArgs());
                 }
             }
-            #endif
+#endif
 
-            #if NET5_0
+#if NET5_0 || NET6_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
@@ -365,7 +365,7 @@ namespace ReaLTaiizor.Controls
                     OnClick(new EventArgs());
                 }
             }
-            #endif
+#endif
         }
 
         protected override void OnPaint(PaintEventArgs pevent)
@@ -784,7 +784,7 @@ namespace ReaLTaiizor.Controls
 
             State = PushButtonState.Pressed;
 
-            #if !NET5_0
+#if !NET5_0 && !NET6_0
             if (m_SplitMenu != null)
             {
                 m_SplitMenu.Show(this, new Point(0, Height));
@@ -793,14 +793,14 @@ namespace ReaLTaiizor.Controls
             {
                 m_SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);
             }
-            #endif
+#endif
 
-            #if NET5_0
+#if NET5_0 || NET6_0
             if (m_SplitMenuStrip != null)
             {
                 m_SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);
             }
-            #endif
+#endif
         }
 
         private void SetButtonDrawState()

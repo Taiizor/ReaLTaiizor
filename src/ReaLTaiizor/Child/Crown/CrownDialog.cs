@@ -1,12 +1,12 @@
 ﻿#region Imports
 
-using System;
-using ReaLTaiizor.Forms;
-using System.Windows.Forms;
 using ReaLTaiizor.Controls;
-using System.ComponentModel;
 using ReaLTaiizor.Enum.Crown;
+using ReaLTaiizor.Forms;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 #endregion
 

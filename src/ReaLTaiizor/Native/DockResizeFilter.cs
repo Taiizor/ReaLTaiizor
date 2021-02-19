@@ -1,10 +1,10 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Docking.Crown;
+using ReaLTaiizor.Enum.Crown;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using ReaLTaiizor.Enum.Crown;
-using ReaLTaiizor.Docking.Crown;
 
 #endregion
 

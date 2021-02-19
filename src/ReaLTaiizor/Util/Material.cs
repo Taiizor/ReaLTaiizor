@@ -1,18 +1,18 @@
 ﻿#region Imports
 
-using System;
-using System.Linq;
-using System.Drawing;
-using ReaLTaiizor.Forms;
 using ReaLTaiizor.Colors;
-using System.Drawing.Text;
 using ReaLTaiizor.Controls;
-using System.Windows.Forms;
 using ReaLTaiizor.Extension;
-using System.Threading.Tasks;
+using ReaLTaiizor.Forms;
 using ReaLTaiizor.Properties;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Text;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 #endregion
 

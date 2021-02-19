@@ -1,14 +1,14 @@
 ﻿#region Imports
 
-using System;
-using System.Drawing;
 using ReaLTaiizor.Util;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using static ReaLTaiizor.Util.MaterialAnimations;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
+using static ReaLTaiizor.Util.MaterialAnimations;
 
 #endregion
 
@@ -75,6 +75,7 @@ namespace ReaLTaiizor.Controls
 
         private MaterialTabControl _baseTabControl;
 
+        [Category("Material"), Browsable(true)]
         public MaterialTabControl BaseTabControl
         {
             get => _baseTabControl;
@@ -117,12 +118,35 @@ namespace ReaLTaiizor.Controls
 
         private const int TAB_HEADER_PADDING = 24;
 
-        private const int TAB_INDICATOR_HEIGHT = 2;
+        private int _tab_over_index = -1;
+
+        private int _tab_indicator_height;
+
+        private Cursor _tab_over_cursor;
+
+        [Category("Material"), Browsable(true), DisplayName("Tab Indicator Height"), DefaultValue(2)]
+        public int TabIndicatorHeight
+        {
+            get => _tab_indicator_height;
+            set
+            {
+                if (value < 1)
+                {
+                    throw new ArgumentOutOfRangeException("Tab Indicator Height", value, "Value should be > 0");
+                }
+                else
+                {
+                    _tab_indicator_height = value;
+                    Refresh();
+                }
+            }
+        }
 
         public MaterialTabSelector()
         {
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
             Height = 48;
+            TabIndicatorHeight = 2;
 
             _animationManager = new AnimationManager
             {
@@ -177,6 +201,7 @@ namespace ReaLTaiizor.Controls
                 {
                     int currentTabIndex = _baseTabControl.TabPages.IndexOf(tabPage);
 
+                    ///Text
                     using MaterialNativeTextRenderer NativeText = new(g);
                     Rectangle textLocation = _tabRects[currentTabIndex];
                     NativeText.DrawTransparentText(
@@ -195,11 +220,11 @@ namespace ReaLTaiizor.Controls
                     Rectangle previousActiveTabRect = _tabRects[previousSelectedTabIndexIfHasOne];
                     Rectangle activeTabPageRect = _tabRects[_baseTabControl.SelectedIndex];
 
-                    int y = activeTabPageRect.Bottom - 2;
+                    int y = activeTabPageRect.Bottom - _tab_indicator_height;
                     int x = previousActiveTabRect.X + (int)((activeTabPageRect.X - previousActiveTabRect.X) * animationProgress);
                     int width = previousActiveTabRect.Width + (int)((activeTabPageRect.Width - previousActiveTabRect.Width) * animationProgress);
 
-                    g.FillRectangle(SkinManager.ColorScheme.AccentBrush, x, y, width, TAB_INDICATOR_HEIGHT);
+                    g.FillRectangle(SkinManager.ColorScheme.AccentBrush, x, y, width, _tab_indicator_height);
                 }
                 catch
                 {
@@ -249,6 +274,65 @@ namespace ReaLTaiizor.Controls
             }
 
             _animationSource = e.Location;
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+
+            if (_tab_over_cursor == null)
+            {
+                _tab_over_cursor = Cursor;
+            }
+
+            if (DesignMode)
+            {
+                return;
+            }
+
+            if (_tabRects == null)
+            {
+                UpdateTabRects();
+            }
+
+            int old_tab_over_index = _tab_over_index;
+            _tab_over_index = -1;
+            for (int i = 0; i < _tabRects.Count; i++)
+            {
+                if (_tabRects[i].Contains(e.Location))
+                {
+                    Cursor = _tab_over_cursor;
+                    _tab_over_index = i;
+                    break;
+                }
+            }
+            if (_tab_over_index == -1)
+            {
+                Cursor = Cursors.Default;
+            }
+
+            if (old_tab_over_index != _tab_over_index)
+            {
+                Invalidate();
+            }
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            if (DesignMode)
+            {
+                return;
+            }
+
+            if (_tabRects == null)
+            {
+                UpdateTabRects();
+            }
+
+            Cursor = Cursors.Default;
+            _tab_over_index = -1;
+            Invalidate();
         }
 
         private void UpdateTabRects()
