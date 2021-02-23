@@ -2,7 +2,6 @@
 
 using ReaLTaiizor.Child.Poison;
 using System;
-using System.Drawing;
 using System.Media;
 using System.Threading;
 using System.Windows.Forms;

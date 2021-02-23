@@ -30,6 +30,12 @@ namespace ReaLTaiizor.Forms
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
+        public override string Text
+        {
+            get => base.Text;
+            set { base.Text = value; Invalidate(); }
+        }
+
         public new FormBorderStyle FormBorderStyle
         {
             get => base.FormBorderStyle;
@@ -203,6 +209,9 @@ namespace ReaLTaiizor.Forms
             Sizable = true;
             DoubleBuffered = true;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
+
+            //Keep space for resize by mouse
+            Padding = new Padding(3, 3, 3, 3);
 
             _clickAnimManager = new AnimationManager()
             {
@@ -778,11 +787,15 @@ namespace ReaLTaiizor.Forms
                 else if (_drawerButtonBounds.Contains(e.Location))
                 {
                     _buttonState = ButtonState.DrawerOver;
-                    //Cursor = Cursors.Hand;
+                    Cursor = Cursors.Hand;
                 }
                 else
                 {
-                    //Cursor = Cursors.Default;
+                    if (_resizeDir == ResizeDirection.None)
+                    {
+                        Cursor = Cursors.Default;
+                    }
+
                     _buttonState = ButtonState.None;
                 }
             }
@@ -884,8 +897,11 @@ namespace ReaLTaiizor.Forms
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             g.Clear(SkinManager.BackdropColor);
-            g.FillRectangle(SkinManager.ColorScheme.DarkPrimaryBrush, _statusBarBounds);
-            g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, _actionBarBounds);
+            if (ControlBox)
+            {
+                g.FillRectangle(SkinManager.ColorScheme.DarkPrimaryBrush, _statusBarBounds);
+                g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, _actionBarBounds);
+            }
 
             //Draw border
             using (Pen borderPen = new(SkinManager.DividersColor, 1))
@@ -1036,9 +1052,10 @@ namespace ReaLTaiizor.Forms
                    _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
             }
 
-            //Form title
-            using (MaterialNativeTextRenderer NativeText = new(g))
+            if (ControlBox == true)
             {
+                //Form title
+                using MaterialNativeTextRenderer NativeText = new(g);
                 Rectangle textLocation = new(SkinManager.FORM_PADDING + (DrawerTabControl != null ? 24 + (int)(SkinManager.FORM_PADDING * 1.5) : 0), STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
                 NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.H6),
                     SkinManager.ColorScheme.TextColor,

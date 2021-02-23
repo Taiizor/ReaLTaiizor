@@ -311,7 +311,7 @@ namespace ReaLTaiizor.Controls
             NativeText.DrawTransparentText(
             Text,
             SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
-            SkinManager.TextHighEmphasisColor,
+            SkinManager.TextHighEmphasisNoAlphaColor,
             new Point(e.Bounds.Location.X + SkinManager.FORM_PADDING, e.Bounds.Location.Y),
             new Size(e.Bounds.Size.Width - SkinManager.FORM_PADDING * 2, e.Bounds.Size.Height),
             MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle); ;
