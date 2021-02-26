@@ -26,7 +26,9 @@ namespace ReaLTaiizor.Controls
 {
     #region PoisonTabControl
 
+#if !NET5_0 && !NET6_0
     [Designer(typeof(PoisonTabControlDesigner))]
+#endif
     [ToolboxBitmap(typeof(TabControl))]
     public class PoisonTabControl : TabControl, IPoisonControl
     {
