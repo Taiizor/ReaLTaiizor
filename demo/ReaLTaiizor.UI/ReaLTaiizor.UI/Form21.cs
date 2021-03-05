@@ -1,14 +1,14 @@
-﻿using System;
-using System.IO;
-using System.Drawing;
+﻿using ReaLTaiizor.Docking.Crown;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Native;
-using System.Windows.Forms;
-using ReaLTaiizor.UI.Helpers;
-using ReaLTaiizor.Docking.Crown;
-using System.Collections.Generic;
-using ReaLTaiizor.UI.Forms.Docking;
 using ReaLTaiizor.UI.Forms.Dialogs;
+using ReaLTaiizor.UI.Forms.Docking;
+using ReaLTaiizor.UI.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 using static ReaLTaiizor.Helper.CrownHelper;
 
 namespace ReaLTaiizor.UI
@@ -17,7 +17,7 @@ namespace ReaLTaiizor.UI
     {
         #region Field Region
 
-        private readonly List<CrownDockContent> _toolWindows = new List<CrownDockContent>();
+        private readonly List<CrownDockContent> _toolWindows = new();
 
         private readonly DockProject _dockProject;
         private readonly DockProperties _dockProperties;
@@ -162,7 +162,7 @@ namespace ReaLTaiizor.UI
 
         private void NewFile_Click(object sender, EventArgs e)
         {
-            DockDocument newFile = new DockDocument("New document", Properties.Resources.document_16xLG);
+            DockDocument newFile = new("New document", Properties.Resources.document_16xLG);
             DockPanel.AddContent(newFile);
         }
 
@@ -173,7 +173,7 @@ namespace ReaLTaiizor.UI
 
         private void Dialog_Click(object sender, EventArgs e)
         {
-            DialogControls test = new DialogControls();
+            DialogControls test = new();
             test.ShowDialog();
         }
 
@@ -250,7 +250,7 @@ namespace ReaLTaiizor.UI
             DockPanelState state = SerializerHelper.Deserialize<DockPanelState>(path);
             DockPanel.RestoreDockPanelState(state, GetContentBySerializationKey);
         }
-         
+
         private CrownDockContent GetContentBySerializationKey(string key)
         {
             foreach (CrownDockContent window in _toolWindows)

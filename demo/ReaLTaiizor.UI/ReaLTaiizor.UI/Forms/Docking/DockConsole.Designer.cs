@@ -30,32 +30,32 @@ namespace ReaLTaiizor.UI.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
-            lstConsole = new ReaLTaiizor.Controls.CrownListView();
-            SuspendLayout();
+            this.lstConsole = new ReaLTaiizor.Controls.CrownListView();
+            this.SuspendLayout();
             // 
             // lstConsole
             // 
-            lstConsole.Dock = System.Windows.Forms.DockStyle.Fill;
-            lstConsole.Location = new System.Drawing.Point(0, 25);
-            lstConsole.MultiSelect = true;
-            lstConsole.Name = "lstConsole";
-            lstConsole.Size = new System.Drawing.Size(500, 175);
-            lstConsole.TabIndex = 0;
-            lstConsole.Text = "crownListView1";
+            this.lstConsole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstConsole.Location = new System.Drawing.Point(0, 25);
+            this.lstConsole.MultiSelect = true;
+            this.lstConsole.Name = "lstConsole";
+            this.lstConsole.Size = new System.Drawing.Size(500, 175);
+            this.lstConsole.TabIndex = 0;
+            this.lstConsole.Text = "crownListView1";
             // 
             // DockConsole
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(lstConsole);
-            DefaultDockArea = Enum.Crown.DockArea.Bottom;
-            DockText = "Console";
-            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Icon = global::ReaLTaiizor.UI.Properties.Resources.Console;
-            Name = "DockConsole";
-            SerializationKey = "DockConsole";
-            Size = new System.Drawing.Size(500, 200);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.lstConsole);
+            this.DefaultDockArea = ReaLTaiizor.Enum.Crown.DockArea.Bottom;
+            this.DockText = "Console";
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = global::ReaLTaiizor.UI.Properties.Resources.Console;
+            this.Name = "DockConsole";
+            this.SerializationKey = "DockConsole";
+            this.Size = new System.Drawing.Size(500, 200);
+            this.ResumeLayout(false);
 
         }
 

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Text;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Colors;
-using System.Windows.Forms;
+﻿using ReaLTaiizor.Colors;
 using ReaLTaiizor.Controls;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Util;
+using System;
+using System.Text;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI
 {
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.UI
             //Add
             foreach (string[] version in data)
             {
-                ListViewItem item = new ListViewItem(version);
+                ListViewItem item = new(version);
                 materialListView1.Items.Add(item);
             }
         }
@@ -143,8 +143,8 @@ namespace ReaLTaiizor.UI
 
         private void MaterialButton3_Click(object sender, EventArgs e)
         {
-            StringBuilder builder = new StringBuilder("Batch operation report:\n\n");
-            Random random = new Random();
+            StringBuilder builder = new("Batch operation report:\n\n");
+            Random random = new();
             int result = 0;
 
             for (int i = 0; i < 200; i++)

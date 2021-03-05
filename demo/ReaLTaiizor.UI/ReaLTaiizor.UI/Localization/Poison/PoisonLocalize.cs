@@ -1,7 +1,7 @@
-﻿using System.IO;
-using System.Data;
-using System.Threading;
+﻿using System.Data;
+using System.IO;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI.Localization.Poison
@@ -33,14 +33,14 @@ namespace ReaLTaiizor.UI.Localization.Poison
 
         public PoisonLocalize(Control ctrl)
         {
-            importManifestResource(ctrl.Name);            
+            importManifestResource(ctrl.Name);
         }
 
         private void importManifestResource(string ctrlName)
         {
             Assembly callingAssembly = Assembly.GetCallingAssembly();
 
-            string localizationFilename = callingAssembly.GetName().Name + ".Localization.Poison." + CurrentLanguage()  + "." + ctrlName + ".xml";
+            string localizationFilename = callingAssembly.GetName().Name + ".Localization.Poison." + CurrentLanguage() + "." + ctrlName + ".xml";
             Stream xmlStream = callingAssembly.GetManifestResourceStream(localizationFilename);
 
             if (xmlStream == null)
@@ -52,12 +52,12 @@ namespace ReaLTaiizor.UI.Localization.Poison
 
             if (languageDataset == null)
             {
-                languageDataset = new DataSet();
+                languageDataset = new();
             }
 
             if (xmlStream != null)
             {
-                DataSet importDataset = new DataSet();
+                DataSet importDataset = new();
                 importDataset.ReadXml(xmlStream);
 
                 languageDataset.Merge(importDataset);

@@ -30,31 +30,31 @@ namespace ReaLTaiizor.UI.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
-            lstHistory = new ReaLTaiizor.Controls.CrownListView();
-            SuspendLayout();
+            this.lstHistory = new ReaLTaiizor.Controls.CrownListView();
+            this.SuspendLayout();
             // 
             // lstHistory
             // 
-            lstHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            lstHistory.Location = new System.Drawing.Point(0, 25);
-            lstHistory.Name = "lstHistory";
-            lstHistory.Size = new System.Drawing.Size(280, 425);
-            lstHistory.TabIndex = 0;
-            lstHistory.Text = "CrownListView1";
+            this.lstHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstHistory.Location = new System.Drawing.Point(0, 25);
+            this.lstHistory.Name = "lstHistory";
+            this.lstHistory.Size = new System.Drawing.Size(280, 425);
+            this.lstHistory.TabIndex = 0;
+            this.lstHistory.Text = "CrownListView1";
             // 
             // DockHistory
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(lstHistory);
-            DefaultDockArea = Enum.Crown.DockArea.Right;
-            DockText = "History";
-            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Icon = global::ReaLTaiizor.UI.Properties.Resources.RefactoringLog_12810;
-            Name = "DockHistory";
-            SerializationKey = "DockHistory";
-            Size = new System.Drawing.Size(280, 450);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.lstHistory);
+            this.DefaultDockArea = ReaLTaiizor.Enum.Crown.DockArea.Right;
+            this.DockText = "History";
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = global::ReaLTaiizor.UI.Properties.Resources.RefactoringLog_12810;
+            this.Name = "DockHistory";
+            this.SerializationKey = "DockHistory";
+            this.Size = new System.Drawing.Size(280, 450);
+            this.ResumeLayout(false);
 
         }
 

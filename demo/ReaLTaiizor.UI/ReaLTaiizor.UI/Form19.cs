@@ -1,8 +1,8 @@
-﻿using System;
-using ReaLTaiizor.Forms;
-using System.Windows.Forms;
-using ReaLTaiizor.Controls;
+﻿using ReaLTaiizor.Controls;
 using ReaLTaiizor.Enum.Metro;
+using ReaLTaiizor.Forms;
+using System;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI
 {

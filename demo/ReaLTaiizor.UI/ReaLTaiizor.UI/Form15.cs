@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ReaLTaiizor.Forms;
 using ReaLTaiizor.Util;
-using ReaLTaiizor.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI
@@ -14,7 +14,7 @@ namespace ReaLTaiizor.UI
 
         private void LostAcceptButton1_Click(object sender, EventArgs e)
         {
-            FrameLost FL = new FrameLost
+            FrameLost FL = new()
             {
                 Width = 150
             };
@@ -23,7 +23,7 @@ namespace ReaLTaiizor.UI
 
         private void LostCancelButton1_Click(object sender, EventArgs e)
         {
-            ToolFrameLost TFL = new ToolFrameLost
+            ToolFrameLost TFL = new()
             {
                 Width = 150,
                 Text = "ToolFrameLost1"

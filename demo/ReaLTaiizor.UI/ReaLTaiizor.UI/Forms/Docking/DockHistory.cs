@@ -14,7 +14,7 @@ namespace ReaLTaiizor.UI.Forms.Docking
             // Build dummy list data
             for (int i = 0; i < 100; i++)
             {
-                CrownListItem item = new CrownListItem($"List item #{i}");
+                CrownListItem item = new($"List item #{i}");
                 lstHistory.Items.Add(item);
             }
         }
