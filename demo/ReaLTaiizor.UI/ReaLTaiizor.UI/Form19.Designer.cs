@@ -216,7 +216,7 @@
             // 
             // metroStyleManager1
             // 
-            this.metroStyleManager1.CustomTheme = "C:\\Users\\Taiizor\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
+            this.metroStyleManager1.CustomTheme = "";
             this.metroStyleManager1.OwnerForm = this;
             this.metroStyleManager1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             this.metroStyleManager1.ThemeAuthor = "Taiizor";
