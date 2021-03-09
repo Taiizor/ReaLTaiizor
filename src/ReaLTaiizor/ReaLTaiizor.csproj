@@ -55,25 +55,10 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0-windows' OR '$(TargetFramework)' == 'net6.0-windows'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>6.0.0-preview.1.21102.12</Version>
-    </PackageReference>
-    <PackageReference Include="System.Resources.Extensions">
-      <Version>6.0.0-preview.1.21102.12</Version>
-    </PackageReference>
-    <PackageReference Include="System.Configuration.ConfigurationManager">
-      <Version>6.0.0-preview.1.21102.12</Version>
-    </PackageReference>
-  </ItemGroup>
-
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="System.Design" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.VisualBasic" />
   </ItemGroup>
 

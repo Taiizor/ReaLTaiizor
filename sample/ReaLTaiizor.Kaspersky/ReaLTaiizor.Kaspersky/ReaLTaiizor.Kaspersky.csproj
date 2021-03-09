@@ -20,17 +20,6 @@
       <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\$(TargetFramework)\ReaLTaiizor.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0-windows' OR '$(TargetFramework)' == 'net6.0-windows'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>6.0.0-preview.1.21102.12</Version>
-    </PackageReference>
-    <PackageReference Include="System.Resources.Extensions">
-      <Version>6.0.0-preview.1.21102.12</Version>
-    </PackageReference>
-    <PackageReference Include="System.Configuration.ConfigurationManager">
-      <Version>6.0.0-preview.1.21102.12</Version>
-    </PackageReference>
-  </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Clean.png" />
     <Content Include="Resources\Close.png" />
