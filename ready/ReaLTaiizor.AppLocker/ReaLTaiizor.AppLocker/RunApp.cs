@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor.AppLocker
@@ -12,7 +12,7 @@ namespace ReaLTaiizor.AppLocker
         public RunApp(Image I, string N, string T, string D)
         {
             InitializeComponent();
-            ICO.Image = I == null ? Properties.Resources.application_window_96px : I;
+            ICO.Image = I ?? Properties.Resources.application_window_96px;
             NAME.Text = N + " - " + T;
             PTT.SetToolTip(NAME, T);
             ANAME = N;
@@ -23,7 +23,7 @@ namespace ReaLTaiizor.AppLocker
         {
             if (!AppLocker.PProcs.ContainsKey(ANAME))
             {
-                AppPassword AP = new AppPassword(ANAME, null, AppPassword.Type.S);
+                AppPassword AP = new(ANAME, null, AppPassword.Type.S);
                 AP.ShowDialog();
             }
         }

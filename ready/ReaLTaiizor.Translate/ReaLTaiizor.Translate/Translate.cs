@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using ReaLTaiizor.Controls;
+using System;
+using System.Collections.Specialized;
 using System.Net;
 using System.Text;
-using Newtonsoft.Json;
-using ReaLTaiizor.Controls;
-using System.Windows.Forms;
 using System.Threading.Tasks;
-using System.Collections.Specialized;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor.Translate
 {
@@ -63,41 +63,39 @@ namespace ReaLTaiizor.Translate
                 }
 
                 ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
-                using (WebClient Client = new WebClient())
-                {
-                    NameValueCollection Post = new NameValueCollection()
+                using WebClient Client = new();
+                NameValueCollection Post = new()
                     {
                         { "" , "" }
                     };
-                    string JSON;
-                    if (!string.IsNullOrEmpty(Lang1))
-                    {
-                        JSON = Encoding.UTF8.GetString(await Client.UploadValuesTaskAsync(URL + APIKey + "&text=" + Text + "&lang=" + Lang1 + "-" + Lang2, Post));
-                    }
-                    else
-                    {
-                        JSON = Encoding.UTF8.GetString(await Client.UploadValuesTaskAsync(URL + APIKey + "&text=" + Text + "&lang=" + Lang2, Post));
-                    }
+                string JSON;
+                if (!string.IsNullOrEmpty(Lang1))
+                {
+                    JSON = Encoding.UTF8.GetString(await Client.UploadValuesTaskAsync(URL + APIKey + "&text=" + Text + "&lang=" + Lang1 + "-" + Lang2, Post));
+                }
+                else
+                {
+                    JSON = Encoding.UTF8.GetString(await Client.UploadValuesTaskAsync(URL + APIKey + "&text=" + Text + "&lang=" + Lang2, Post));
+                }
 
-                    dynamic DJSON = JsonConvert.DeserializeObject(JSON);
-                    int i = 0;
-                    foreach (dynamic FJSON in DJSON)
+                dynamic DJSON = JsonConvert.DeserializeObject(JSON);
+                int i = 0;
+                foreach (dynamic FJSON in DJSON)
+                {
+                    foreach (dynamic CJSON in FJSON)
                     {
-                        foreach (dynamic CJSON in FJSON)
+                        if (i == 2)
                         {
-                            if (i == 2)
-                            {
-                                string Result = CJSON.ToString();
-                                return Result.Substring(6, Result.Length - 10).Replace(" \\n", Environment.NewLine).Replace("\\n", Environment.NewLine).Replace(" \\r", "").Replace("\\r", "");
-                            }
-                            else
-                            {
-                                i++;
-                            }
+                            string Result = CJSON.ToString();
+                            return Result.Substring(6, Result.Length - 10).Replace(" \\n", Environment.NewLine).Replace("\\n", Environment.NewLine).Replace(" \\r", "").Replace("\\r", "");
+                        }
+                        else
+                        {
+                            i++;
                         }
                     }
-                    return "null";
                 }
+                return "null";
             }
             catch (Exception Ex)
             {

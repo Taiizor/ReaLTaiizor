@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Linq;
-using System.Diagnostics;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor.AppLocker
 {
@@ -11,14 +11,15 @@ namespace ReaLTaiizor.AppLocker
     {
         [DllImport("User32.dll")]
         private static extern bool ShowWindow(IntPtr hWnd, uint nCmdShow);
+
         [DllImport("User32.dll")]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
 
-        public static Dictionary<string, string> Procs = new Dictionary<string, string>();
-        private readonly Dictionary<string, string> LProcs = new Dictionary<string, string>();
-        public static Dictionary<string, bool> PProcs = new Dictionary<string, bool>();
-        public Dictionary<string, bool> MBProcs = new Dictionary<string, bool>();
-        public static Dictionary<string, bool> BPProcs = new Dictionary<string, bool>();
+        public static Dictionary<string, string> Procs = new();
+        private readonly Dictionary<string, string> LProcs = new();
+        public static Dictionary<string, bool> PProcs = new();
+        public Dictionary<string, bool> MBProcs = new();
+        public static Dictionary<string, bool> BPProcs = new();
 
         public AppLocker()
         {
@@ -36,7 +37,7 @@ namespace ReaLTaiizor.AppLocker
                     {
                         PProcs[Process.ProcessName] = false;
                         MBProcs[Process.ProcessName] = true;
-                        AppPassword AP = new AppPassword(Process.ProcessName, Procs[Process.ProcessName], AppPassword.Type.G);
+                        AppPassword AP = new(Process.ProcessName, Procs[Process.ProcessName], AppPassword.Type.G);
                         AP.Show();
                     }
                 }

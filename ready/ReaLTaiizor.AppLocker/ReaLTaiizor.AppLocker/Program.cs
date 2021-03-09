@@ -6,7 +6,7 @@ namespace ReaLTaiizor.AppLocker
 {
     internal static class Program
     {
-        private static readonly Mutex MTX = new Mutex(true, "{ReaLTaiizor AppLocker - Application Locker}");
+        private static readonly Mutex MTX = new(true, "{ReaLTaiizor AppLocker - Application Locker}");
 
         /// <summary>
         /// Uygulamanın ana girdi noktası.
@@ -15,6 +15,9 @@ namespace ReaLTaiizor.AppLocker
         private static void Main()
         {
             Application.EnableVisualStyles();
+#if NET5_0 || NET6_0
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+#endif
             Application.SetCompatibleTextRenderingDefault(false);
             if (MTX.WaitOne(TimeSpan.Zero, true))
             {
