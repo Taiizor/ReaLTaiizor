@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor.Kaspersky
 {
@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Kaspersky
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 

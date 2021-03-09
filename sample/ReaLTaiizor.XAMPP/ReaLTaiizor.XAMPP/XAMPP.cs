@@ -1,6 +1,6 @@
-﻿using ReaLTaiizor.Util;
+﻿using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Colors;
+using ReaLTaiizor.Util;
 
 namespace ReaLTaiizor.XAMPP
 {
@@ -14,7 +14,7 @@ namespace ReaLTaiizor.XAMPP
             MM = MaterialManager.Instance;
             MM.EnforceBackcolorOnAllComponents = true;
             MM.Theme = MaterialManager.Themes.DARK;
-            MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Orange400, MaterialTextShade.WHITE);
+            MM.ColorScheme = new(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Orange400, MaterialTextShade.WHITE);
         }
     }
 }

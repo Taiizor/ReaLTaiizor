@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ReaLTaiizor.Forms;
+using System;
 using System.Drawing;
-using ReaLTaiizor.Forms;
 
 namespace ReaLTaiizor.Defender
 {

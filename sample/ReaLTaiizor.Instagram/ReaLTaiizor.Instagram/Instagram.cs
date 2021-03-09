@@ -1,5 +1,5 @@
-﻿using System;
-using ReaLTaiizor.Forms;
+﻿using ReaLTaiizor.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor.Instagram
