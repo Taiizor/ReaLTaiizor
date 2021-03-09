@@ -29,41 +29,41 @@ namespace ReaLTaiizor_CR
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Poison));
-            poisonStyleExtender1 = new ReaLTaiizor.Controls.PoisonStyleExtender(components);
-            poisonToolTip1 = new ReaLTaiizor.Controls.PoisonToolTip();
-            poisonStyleManager1 = new ReaLTaiizor.Manager.PoisonStyleManager(components);
-            ((System.ComponentModel.ISupportInitialize)(poisonStyleManager1)).BeginInit();
-            SuspendLayout();
+            this.poisonStyleExtender1 = new ReaLTaiizor.Controls.PoisonStyleExtender(this.components);
+            this.poisonToolTip1 = new ReaLTaiizor.Controls.PoisonToolTip();
+            this.poisonStyleManager1 = new ReaLTaiizor.Manager.PoisonStyleManager(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager1)).BeginInit();
+            this.SuspendLayout();
             // 
             // poisonStyleExtender1
             // 
-            poisonStyleExtender1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.poisonStyleExtender1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
             // poisonToolTip1
             // 
-            poisonToolTip1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
-            poisonToolTip1.StyleManager = null;
-            poisonToolTip1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.poisonToolTip1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            this.poisonToolTip1.StyleManager = null;
+            this.poisonToolTip1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             // 
             // poisonStyleManager1
             // 
-            poisonStyleManager1.Owner = this;
-            poisonStyleManager1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.poisonStyleManager1.Owner = this;
+            this.poisonStyleManager1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
             // Poison
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(488, 321);
-            Icon = ((System.Drawing.Icon)(resources.GetObject("$Icon")));
-            Name = "Poison";
-            ShadowType = ReaLTaiizor.Enum.Poison.FormShadowType.AeroShadow;
-            Text = "Poison";
-            Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            ((System.ComponentModel.ISupportInitialize)(poisonStyleManager1)).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(488, 321);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Poison";
+            this.ShadowType = ReaLTaiizor.Enum.Poison.FormShadowType.AeroShadow;
+            this.Text = "Poison";
+            this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager1)).EndInit();
+            this.ResumeLayout(false);
 
         }
 

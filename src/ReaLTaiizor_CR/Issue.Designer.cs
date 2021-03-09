@@ -43,7 +43,7 @@ namespace ReaLTaiizor_CR
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
-            this.materialButton1.Size = new System.Drawing.Size(55, 36);
+            this.materialButton1.Size = new System.Drawing.Size(56, 36);
             this.materialButton1.TabIndex = 0;
             this.materialButton1.Text = "TEST";
             this.materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -53,8 +53,8 @@ namespace ReaLTaiizor_CR
             // 
             // Issue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(155, 116);
             this.Controls.Add(this.materialButton1);
             this.Name = "Issue";
