@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Helper
 
                 if (_ishorizontal)
                 {
-                    int visibleCols = VisibleFlexGridCols();
+                    //int visibleCols = VisibleFlexGridCols();
                     _scrollbar.Maximum = hScrollbar.Maximum;
                     _scrollbar.Minimum = hScrollbar.Minimum;
                     _scrollbar.SmallChange = hScrollbar.SmallChange;
