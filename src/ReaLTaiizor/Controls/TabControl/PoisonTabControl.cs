@@ -654,13 +654,13 @@ namespace ReaLTaiizor.Controls
             (
                  delegate (HiddenTabs bk)
                  {
-                     return bk.tabpage == tabpage.Name;
+                     return bk.Tabpage == tabpage.Name;
                  }
              );
 
             if (result != null)
             {
-                TabPages.Insert(result.index, tabpage);
+                TabPages.Insert(result.Index, tabpage);
                 hidTabs.Remove(result);
             }
         }
@@ -716,7 +716,7 @@ namespace ReaLTaiizor.Controls
             (
                 delegate (HiddenTabs bk)
                 {
-                    return bk.tabpage == tabpage.Name;
+                    return bk.Tabpage == tabpage.Name;
                 }
             );
 

@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Util
 
     public class ImageToCodeClassRibbon
     {
-        public string ImageToCode(Bitmap Img)
+        public static string ImageToCode(Bitmap Img)
         {
             return Convert.ToBase64String((byte[])TypeDescriptor.GetConverter(Img).ConvertTo(Img, typeof(byte[])));
         }

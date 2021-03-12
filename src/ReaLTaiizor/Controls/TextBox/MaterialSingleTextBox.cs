@@ -974,7 +974,7 @@ namespace ReaLTaiizor.Controls
             _baseTextBox = new BaseTextBox
             {
                 BorderStyle = BorderStyle.None,
-                Font = SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
+                Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1),
                 Location = new(0, 0),
                 Width = Width,
                 Height = Height - 5

@@ -131,7 +131,7 @@ namespace ReaLTaiizor.Util
                 base.OnRenderArrow(e);
             }
 
-            private Rectangle GetItemRect(ToolStripItem item)
+            private static Rectangle GetItemRect(ToolStripItem item)
             {
                 return new Rectangle(0, item.ContentRectangle.Y, item.ContentRectangle.Width + 4, item.ContentRectangle.Height);
             }

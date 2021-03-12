@@ -123,7 +123,7 @@ namespace ReaLTaiizor.Util
             ObservableListModified<T> removed = new(thisis.ToList<T>());
             base.Clear();
 
-            if (removed.Items.Count() > 0 && ItemsRemoved != null)
+            if (removed.Items.Any() && ItemsRemoved != null)
             {
                 ItemsRemoved(this, removed);
             }

@@ -266,7 +266,7 @@ namespace ReaLTaiizor.Forms
 
             MaterialManager = MaterialManager.Instance;
             MaterialManager.AddFormToManage(this);
-            FONT = MaterialManager.getFontByType(MaterialManager.fontType.Body1);
+            FONT = MaterialManager.GetFontByType(MaterialManager.FontType.Body1);
         }
 
         private static string[] GetStringRows(string message)

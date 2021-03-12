@@ -51,12 +51,12 @@ namespace ReaLTaiizor.Util
             ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
 
             // Add font to system table in memory and save the font family
-            addFont(Resources.Roboto_Thin);
-            addFont(Resources.Roboto_Light);
-            addFont(Resources.Roboto_Regular);
-            addFont(Resources.Roboto_Medium);
-            addFont(Resources.Roboto_Bold);
-            addFont(Resources.Roboto_Black);
+            AddFont(Resources.Roboto_Thin);
+            AddFont(Resources.Roboto_Light);
+            AddFont(Resources.Roboto_Regular);
+            AddFont(Resources.Roboto_Medium);
+            AddFont(Resources.Roboto_Bold);
+            AddFont(Resources.Roboto_Black);
 
             RobotoFontFamilies = new Dictionary<string, FontFamily>();
             foreach (FontFamily ff in privateFontCollection.Families.ToArray())
@@ -67,25 +67,25 @@ namespace ReaLTaiizor.Util
             // create and save font handles for GDI
             logicalFonts = new Dictionary<string, IntPtr>(18)
             {
-                { "H1", createLogicalFont("Roboto Light", 96, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT) },
-                { "H2", createLogicalFont("Roboto Light", 60, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT) },
-                { "H3", createLogicalFont("Roboto", 48, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "H4", createLogicalFont("Roboto", 34, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "H5", createLogicalFont("Roboto", 24, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "H6", createLogicalFont("Roboto Medium", 20, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
-                { "Subtitle1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "Subtitle2", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
-                { "Body1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "Body2", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "Button", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
-                { "Caption", createLogicalFont("Roboto", 12, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "Overline", createLogicalFont("Roboto", 10, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "H1", CreateLogicalFont("Roboto Light", 96, MaterialNativeTextRenderer.LogFontWeight.FW_LIGHT) },
+                { "H2", CreateLogicalFont("Roboto Light", 60, MaterialNativeTextRenderer.LogFontWeight.FW_LIGHT) },
+                { "H3", CreateLogicalFont("Roboto", 48, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "H4", CreateLogicalFont("Roboto", 34, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "H5", CreateLogicalFont("Roboto", 24, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "H6", CreateLogicalFont("Roboto Medium", 20, MaterialNativeTextRenderer.LogFontWeight.FW_MEDIUM) },
+                { "Subtitle1", CreateLogicalFont("Roboto", 16, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "Subtitle2", CreateLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.LogFontWeight.FW_MEDIUM) },
+                { "Body1", CreateLogicalFont("Roboto", 16, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "Body2", CreateLogicalFont("Roboto", 14, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "Button", CreateLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.LogFontWeight.FW_MEDIUM) },
+                { "Caption", CreateLogicalFont("Roboto", 12, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "Overline", CreateLogicalFont("Roboto", 10, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
                 // Logical fonts for textbox animation
-                { "textBox16", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "textBox15", createLogicalFont("Roboto", 15, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "textBox14", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
-                { "textBox13", createLogicalFont("Roboto Medium", 13, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
-                { "textBox12", createLogicalFont("Roboto Medium", 12, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) }
+                { "textBox16", CreateLogicalFont("Roboto", 16, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "textBox15", CreateLogicalFont("Roboto", 15, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "textBox14", CreateLogicalFont("Roboto", 14, MaterialNativeTextRenderer.LogFontWeight.FW_REGULAR) },
+                { "textBox13", CreateLogicalFont("Roboto Medium", 13, MaterialNativeTextRenderer.LogFontWeight.FW_MEDIUM) },
+                { "textBox12", CreateLogicalFont("Roboto Medium", 12, MaterialNativeTextRenderer.LogFontWeight.FW_MEDIUM) }
             };
         }
 
@@ -264,7 +264,7 @@ namespace ReaLTaiizor.Util
         public Brush BackdropBrush => Theme == Themes.LIGHT ? BACKDROP_LIGHT_BRUSH : BACKDROP_DARK_BRUSH;
 
         // Font Handling
-        public enum fontType
+        public enum FontType
         {
             H1,
             H2,
@@ -281,36 +281,36 @@ namespace ReaLTaiizor.Util
             Overline
         }
 
-        public Font getFontByType(fontType type)
+        public Font GetFontByType(FontType type)
         {
             return type switch
             {
-                fontType.H1 => new Font(RobotoFontFamilies["Roboto_Light"], 96f, FontStyle.Regular, GraphicsUnit.Pixel),
-                fontType.H2 => new Font(RobotoFontFamilies["Roboto_Light"], 60f, FontStyle.Regular, GraphicsUnit.Pixel),
-                fontType.H3 => new Font(RobotoFontFamilies["Roboto"], 48f, FontStyle.Bold, GraphicsUnit.Pixel),
-                fontType.H4 => new Font(RobotoFontFamilies["Roboto"], 34f, FontStyle.Bold, GraphicsUnit.Pixel),
-                fontType.H5 => new Font(RobotoFontFamilies["Roboto"], 24f, FontStyle.Bold, GraphicsUnit.Pixel),
-                fontType.H6 => new Font(RobotoFontFamilies["Roboto_Medium"], 20f, FontStyle.Bold, GraphicsUnit.Pixel),
-                fontType.Subtitle1 => new Font(RobotoFontFamilies["Roboto"], 16f, FontStyle.Regular, GraphicsUnit.Pixel),
-                fontType.Subtitle2 => new Font(RobotoFontFamilies["Roboto_Medium"], 14f, FontStyle.Bold, GraphicsUnit.Pixel),
-                fontType.Body1 => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel),
-                fontType.Body2 => new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel),
-                fontType.Button => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Bold, GraphicsUnit.Pixel),
-                fontType.Caption => new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel),
-                fontType.Overline => new Font(RobotoFontFamilies["Roboto"], 10f, FontStyle.Regular, GraphicsUnit.Pixel),
+                FontType.H1 => new Font(RobotoFontFamilies["Roboto_Light"], 96f, FontStyle.Regular, GraphicsUnit.Pixel),
+                FontType.H2 => new Font(RobotoFontFamilies["Roboto_Light"], 60f, FontStyle.Regular, GraphicsUnit.Pixel),
+                FontType.H3 => new Font(RobotoFontFamilies["Roboto"], 48f, FontStyle.Bold, GraphicsUnit.Pixel),
+                FontType.H4 => new Font(RobotoFontFamilies["Roboto"], 34f, FontStyle.Bold, GraphicsUnit.Pixel),
+                FontType.H5 => new Font(RobotoFontFamilies["Roboto"], 24f, FontStyle.Bold, GraphicsUnit.Pixel),
+                FontType.H6 => new Font(RobotoFontFamilies["Roboto_Medium"], 20f, FontStyle.Bold, GraphicsUnit.Pixel),
+                FontType.Subtitle1 => new Font(RobotoFontFamilies["Roboto"], 16f, FontStyle.Regular, GraphicsUnit.Pixel),
+                FontType.Subtitle2 => new Font(RobotoFontFamilies["Roboto_Medium"], 14f, FontStyle.Bold, GraphicsUnit.Pixel),
+                FontType.Body1 => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel),
+                FontType.Body2 => new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel),
+                FontType.Button => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Bold, GraphicsUnit.Pixel),
+                FontType.Caption => new Font(RobotoFontFamilies["Roboto"], 12f, FontStyle.Regular, GraphicsUnit.Pixel),
+                FontType.Overline => new Font(RobotoFontFamilies["Roboto"], 10f, FontStyle.Regular, GraphicsUnit.Pixel),
                 _ => new Font(RobotoFontFamilies["Roboto"], 14f, FontStyle.Regular, GraphicsUnit.Pixel),
             };
         }
 
-        public IntPtr getTextBoxFontBySize(int size)
+        public IntPtr GetTextBoxFontBySize(int size)
         {
             string name = "textBox" + Math.Min(16, Math.Max(12, size)).ToString();
             return logicalFonts[name];
         }
 
-        public IntPtr getLogFontByType(fontType type)
+        public IntPtr GetLogFontByType(FontType type)
         {
-            return logicalFonts[System.Enum.GetName(typeof(fontType), type)];
+            return logicalFonts[System.Enum.GetName(typeof(FontType), type)];
         }
 
         // Font stuff
@@ -320,7 +320,7 @@ namespace ReaLTaiizor.Util
 
         private readonly PrivateFontCollection privateFontCollection = new();
 
-        private void addFont(byte[] fontdata)
+        private void AddFont(byte[] fontdata)
         {
             // Add font to system table in memory
             int dataLength = fontdata.Length;
@@ -336,7 +336,7 @@ namespace ReaLTaiizor.Util
             privateFontCollection.AddMemoryFont(ptrFont, dataLength);
         }
 
-        private IntPtr createLogicalFont(string fontName, int size, MaterialNativeTextRenderer.logFontWeight weight)
+        private static IntPtr CreateLogicalFont(string fontName, int size, MaterialNativeTextRenderer.LogFontWeight weight)
         {
             // Logical font:
             MaterialNativeTextRenderer.LogFont lfont = new()
@@ -414,7 +414,7 @@ namespace ReaLTaiizor.Util
             {
                 controlToUpdate.BackColor = controlToUpdate.Parent.BackColor;
                 controlToUpdate.ForeColor = TextHighEmphasisColor;
-                controlToUpdate.Font = getFontByType(fontType.Body1);
+                controlToUpdate.Font = GetFontByType(FontType.Body1);
             }
 
             // Recursive call to control's children
@@ -644,7 +644,7 @@ namespace ReaLTaiizor.Util
         {
             if (_hdc != IntPtr.Zero)
             {
-                SelectClipRgn(_hdc, IntPtr.Zero);
+                _ = SelectClipRgn(_hdc, IntPtr.Zero);
                 _g.ReleaseHdc(_hdc);
                 _hdc = IntPtr.Zero;
             }
@@ -690,7 +690,7 @@ namespace ReaLTaiizor.Util
         private void SetTextColor(Color color)
         {
             int rgb = (color.B & 0xFF) << 16 | (color.G & 0xFF) << 8 | color.R;
-            SetTextColor(_hdc, rgb);
+            _ = SetTextColor(_hdc, rgb);
         }
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
@@ -911,7 +911,7 @@ namespace ReaLTaiizor.Util
             Bottom = 1 << 5
         }
 
-        public enum logFontWeight : int
+        public enum LogFontWeight : int
         {
             FW_DONTCARE = 0,
             FW_THIN = 100,
@@ -1238,11 +1238,11 @@ namespace ReaLTaiizor.Util
 
                     if (Singular && _animationDatas.Count > 0)
                     {
-                        _animationDatas[0] = data ?? new object[] { };
+                        _animationDatas[0] = data ?? Array.Empty<object>();
                     }
                     else
                     {
-                        _animationDatas.Add(data ?? new object[] { });
+                        _animationDatas.Add(data ?? Array.Empty<object>());
                     }
                 }
 

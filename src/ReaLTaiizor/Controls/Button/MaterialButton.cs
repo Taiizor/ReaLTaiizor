@@ -199,7 +199,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Text = value;
-                _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.getFontByType(MaterialManager.fontType.Button));
+                _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.GetFontByType(MaterialManager.FontType.Button));
                 if (AutoSize)
                 {
                     Refresh();
@@ -346,7 +346,7 @@ namespace ReaLTaiizor.Controls
                 SkinManager.TextDisabledOrHintColor; // Disabled
 
             using MaterialNativeTextRenderer NativeText = new(g);
-            NativeText.DrawTransparentText(Text.ToUpper(), SkinManager.getLogFontByType(MaterialManager.fontType.Button),
+            NativeText.DrawTransparentText(Text.ToUpper(), SkinManager.GetLogFontByType(MaterialManager.FontType.Button),
                 textColor,
                 textRect.Location,
                 textRect.Size,

@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
 
             using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
-                strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
+                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1));
             }
 
             int w = _boxOffset + TEXT_OFFSET + strSize.Width;
@@ -192,7 +192,7 @@ namespace ReaLTaiizor.Controls
             using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 Rectangle textLocation = new(_boxOffset + TEXT_OFFSET, 0, Width - (_boxOffset + TEXT_OFFSET), HEIGHT_RIPPLE);
-                NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1),
+                NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textLocation.Location,
                     textLocation.Size,

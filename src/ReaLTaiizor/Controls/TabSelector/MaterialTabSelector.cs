@@ -159,7 +159,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            Font = SkinManager.getFontByType(MaterialManager.fontType.Body1);
+            Font = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
         }
 
         protected override void OnResize(EventArgs e)
@@ -206,7 +206,7 @@ namespace ReaLTaiizor.Controls
                     Rectangle textLocation = _tabRects[currentTabIndex];
                     NativeText.DrawTransparentText(
                         TitleText(tabPage.Text),
-                        SkinManager.getLogFontByType(MaterialManager.fontType.Button),
+                        SkinManager.GetLogFontByType(MaterialManager.FontType.Button),
                         Color.FromArgb(CalculateTextAlpha(currentTabIndex, animationProgress), SkinManager.ColorScheme.TextColor),
                         textLocation.Location,
                         textLocation.Size,

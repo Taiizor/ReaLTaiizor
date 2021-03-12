@@ -2631,8 +2631,9 @@ namespace ReaLTaiizor.Util
             throw new Exception(string.Format("{0} failed. Win32Error: {1}", name, Marshal.GetLastWin32Error()));
         }
 
-        public void Dispose()
+        void IDisposable.Dispose()
         {
+            GC.SuppressFinalize(this);
             Delete();
         }
     }

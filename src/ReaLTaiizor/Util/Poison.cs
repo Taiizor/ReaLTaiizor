@@ -39,9 +39,9 @@ namespace ReaLTaiizor.Util
         private readonly int _index;
         private readonly string _tabpage;
 
-        public int index => _index;
+        public int Index => _index;
 
-        public string tabpage => _tabpage;
+        public string Tabpage => _tabpage;
     }
     #endregion HiddenTabClass
 

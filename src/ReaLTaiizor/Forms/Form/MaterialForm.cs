@@ -1057,7 +1057,7 @@ namespace ReaLTaiizor.Forms
                 //Form title
                 using MaterialNativeTextRenderer NativeText = new(g);
                 Rectangle textLocation = new(SkinManager.FORM_PADDING + (DrawerTabControl != null ? 24 + (int)(SkinManager.FORM_PADDING * 1.5) : 0), STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
-                NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.H6),
+                NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.H6),
                     SkinManager.ColorScheme.TextColor,
                     textLocation.Location,
                     textLocation.Size,

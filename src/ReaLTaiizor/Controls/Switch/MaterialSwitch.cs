@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Controls
             Size strSize;
             using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
-                strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
+                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1));
             }
 
             int w = TRACK_SIZE_WIDTH + THUMB_SIZE + strSize.Width;
@@ -223,7 +223,7 @@ namespace ReaLTaiizor.Controls
             Rectangle textLocation = new(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
             NativeText.DrawTransparentText(
                 Text,
-                SkinManager.getLogFontByType(MaterialManager.fontType.Body1),
+                SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
                 Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 textLocation.Location,
                 textLocation.Size,
