@@ -247,6 +247,7 @@ namespace ReaLTaiizor.Forms
                     drawerControl.ShowIconsWhenHidden = _drawerShowIconsWhenHidden;
                     drawerControl.Refresh();
                 }
+                Invalidate();
             }
         }
 
@@ -786,14 +787,18 @@ namespace ReaLTaiizor.Forms
                 }
                 else if (_drawerButtonBounds.Contains(e.Location))
                 {
-                    _buttonState = ButtonState.DrawerOver;
-                    Cursor = Cursors.Hand;
+                    if (DrawerShowIconsWhenHidden || DrawerTabControl != null)
+                    {
+                        _buttonState = ButtonState.DrawerOver;
+                        Cursor = Cursors.Hand;
+                    }
                 }
                 else
                 {
-                    if (_resizeDir == ResizeDirection.None)
+                    if (_resizeDir == ResizeDirection.None || !_drawerButtonBounds.Contains(e.Location))
                     {
-                        Cursor = Cursors.Default;
+                        if (Cursor != Cursors.Default)
+                            Cursor = Cursors.Default;
                     }
 
                     _buttonState = ButtonState.None;
