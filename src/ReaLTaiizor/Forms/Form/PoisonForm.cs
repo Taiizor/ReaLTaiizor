@@ -277,7 +277,7 @@ namespace ReaLTaiizor.Forms
 
         public static Bitmap ApplyInvert(Bitmap bitmapImage)
         {
-            byte A, R, G, B;
+            byte R, G, B;
             Color pixelColor;
 
             for (int y = 0; y < bitmapImage.Height; y++)

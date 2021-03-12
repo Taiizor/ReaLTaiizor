@@ -94,7 +94,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public static MouseButtons MouseButtonState
+        public MouseButtons MouseButtonState
         {
             get
             {

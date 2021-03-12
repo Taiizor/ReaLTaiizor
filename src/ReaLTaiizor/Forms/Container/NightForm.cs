@@ -118,7 +118,7 @@ namespace ReaLTaiizor.Forms
         /// <summary>
         /// Returns true if the mouse is over the title bar icon.
         /// </summary>
-        private bool IsOverTitleBarIcon(MouseEventArgs e)
+        private static bool IsOverTitleBarIcon(MouseEventArgs e)
         {
             bool point = (e.X > 8 && e.X < 26) && (e.Y > 6 && e.Y < 22);
             return point;

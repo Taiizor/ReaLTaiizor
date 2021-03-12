@@ -48,7 +48,7 @@ namespace ReaLTaiizor.Forms
         protected override void OnHandleCreated(EventArgs e)
         {
             Dock = (DockStyle)5;
-            if (Parent.GetType() == typeof(System.Windows.Forms.Form))
+            if (Parent.GetType() == typeof(Form))
             {//.FormBorderStyle = 0;
              //(ParentForm)Parent;
                 FindForm().FormBorderStyle = 0;
