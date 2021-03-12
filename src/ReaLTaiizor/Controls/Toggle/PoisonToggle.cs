@@ -217,10 +217,10 @@ namespace ReaLTaiizor.Controls
             {
                 if (Checked)
                 {
-                    return poisonLocalize.translate("StatusOn");
+                    return poisonLocalize.Translate("StatusOn");
                 }
 
-                return poisonLocalize.translate("StatusOff");
+                return poisonLocalize.Translate("StatusOff");
             }
         }
 
