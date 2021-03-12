@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Extension.Metro
             };
         }
 
-        public SolidBrush SolidBrushRGBColor(int R, int G, int B, int A = 0)
+        public static SolidBrush SolidBrushRGBColor(int R, int G, int B, int A = 0)
         {
             return new SolidBrush(Color.FromArgb(A, R, G, B));
         }
@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Extension.Metro
             return new SolidBrush(HexColor(C_WithoutHash));
         }
 
-        public Pen PenRGBColor(int red, int green, int blue, int alpha, float size)
+        public static Pen PenRGBColor(int red, int green, int blue, int alpha, float size)
         {
             return new(Color.FromArgb(alpha, red, green, blue), size);
         }
@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Extension.Metro
             return ColorTranslator.FromHtml(hexColor);
         }
 
-        public Color GetAlphaHexColor(int alpha, string hexColor)
+        public static Color GetAlphaHexColor(int alpha, string hexColor)
         {
             return Color.FromArgb(alpha, ColorTranslator.FromHtml(hexColor));
         }
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Extension.Metro
                 return;
             }
 
-            IntPtr unused = ctrl.Handle;
+            //IntPtr unused = ctrl.Handle;
             foreach (Control child in ctrl.Controls)
             {
                 InitControlHandle(child);
@@ -92,7 +92,7 @@ namespace ReaLTaiizor.Extension.Metro
             message.Result = IntPtr.Zero;
         }
 
-        public void NormalCursor(ref Message message, Cursor Cursor)
+        public static void NormalCursor(ref Message message, Cursor Cursor)
         {
             if (message.Msg == User32.WM_SETCURSOR && Cursor == Cursors.Hand)
             {

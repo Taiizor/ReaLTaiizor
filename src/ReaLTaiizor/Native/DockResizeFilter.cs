@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Native
             }
 
             // Return out early if we're dragging something that's not a splitter.
-            if (m.Msg == (int)WM.MOUSEMOVE && !_isDragging && _dockPanel.MouseButtonState != MouseButtons.None)
+            if (m.Msg == (int)WM.MOUSEMOVE && !_isDragging && CrownDockPanel.MouseButtonState != MouseButtons.None)
             {
                 return false;
             }
@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Native
 
         private void DragTimer_Tick(object sender, EventArgs e)
         {
-            if (_dockPanel.MouseButtonState != MouseButtons.Left)
+            if (CrownDockPanel.MouseButtonState != MouseButtons.Left)
             {
                 StopDrag();
                 return;

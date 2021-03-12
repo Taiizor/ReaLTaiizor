@@ -175,6 +175,7 @@ namespace ReaLTaiizor.Animate.Metro
         #region Dispose
         void IDisposable.Dispose()
         {
+            GC.SuppressFinalize(this);
             _animateTimer.Dispose();
         }
         #endregion
