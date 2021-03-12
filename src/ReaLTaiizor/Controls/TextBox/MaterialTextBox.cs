@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Controls
 
         private string _hint = string.Empty;
 
-        [Category("Material"), DefaultValue("")]
+        [Category("Material"), DefaultValue(""), Localizable(true)]
         public string Hint
         {
             get => _hint;

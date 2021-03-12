@@ -1,6 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net40;net48;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <TargetFramework>net48</TargetFramework>
+    <!--<TargetFramework>net5.0-windows</TargetFramework>-->
+    <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
+    <!--<TargetFrameworks>net40;net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
