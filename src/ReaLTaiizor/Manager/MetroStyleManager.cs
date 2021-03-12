@@ -258,7 +258,7 @@ namespace ReaLTaiizor.Manager
             CustomTheme = path;
         }
 
-        private string ThemeFilePath(string str)
+        private static string ThemeFilePath(string str)
         {
             string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Templates) + @"\ThemeFile.xml"}";
             File.WriteAllText(path, str);
@@ -441,7 +441,7 @@ namespace ReaLTaiizor.Manager
             }
         }
 
-        private Dictionary<string, object> GetValues(string path, string nodename)
+        private static Dictionary<string, object> GetValues(string path, string nodename)
         {
             try
             {

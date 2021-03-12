@@ -47,11 +47,11 @@ namespace ReaLTaiizor.Native
         {
             ShowCaret(controlHandle);
         }
-        public bool SetPosition(int x, int y)
+        public static bool SetPosition(int x, int y)
         {
             return SetCaretPos(x, y);
         }
-        public void Destroy()
+        public static void Destroy()
         {
             DestroyCaret();
         }
