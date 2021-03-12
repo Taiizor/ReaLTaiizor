@@ -173,7 +173,7 @@ namespace ReaLTaiizor.Animate.Metro
         #endregion
 
         #region Dispose
-        public void Dispose()
+        void IDisposable.Dispose()
         {
             _animateTimer.Dispose();
         }

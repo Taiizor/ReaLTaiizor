@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Animate.Poison
     {
         public void Start(Control control, Point targetPoint, TransitionType transitionType, int duration)
         {
-            base.Start(control, transitionType, duration,
+            Start(control, transitionType, duration,
                 delegate
                 {
                     int x = DoMoveAnimation(control.Location.X, targetPoint.X);

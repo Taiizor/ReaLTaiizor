@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Animate.Poison
                 duration = 1;
             }
 
-            base.Start(control, transitionType, 2 * duration,
+            Start(control, transitionType, 2 * duration,
                 delegate
                 {
                     Color controlColor = GetPropertyValue(property, control);
@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Animate.Poison
             return Color.FromArgb(a, r, g, b);
         }
 
-        private Color GetPropertyValue(string pName, Control control)
+        private static Color GetPropertyValue(string pName, Control control)
         {
             Type type = control.GetType();
             string propertyName = pName;

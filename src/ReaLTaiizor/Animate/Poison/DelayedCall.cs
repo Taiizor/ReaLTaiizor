@@ -148,7 +148,7 @@ namespace ReaLTaiizor.Animate.Poison
         {
             if (milliseconds < 0)
             {
-                throw new ArgumentOutOfRangeException("milliseconds", "The new timeout must be 0 or greater.");
+                throw new ArgumentOutOfRangeException(nameof(milliseconds), "The new timeout must be 0 or greater.");
             }
 
             dc.context = null;

@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
         public new int MaxLength { get => _baseTextBox.MaxLength; set => _baseTextBox.MaxLength = value; }
 
         public string SelectedText { get => _baseTextBox.SelectedText; set => _baseTextBox.SelectedText = value; }
-		
+
         [DefaultValue(""), Localizable(true)]
         public string Hint { get => _baseTextBox.Hint; set => _baseTextBox.Hint = value; }
 

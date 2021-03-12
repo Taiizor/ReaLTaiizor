@@ -28,9 +28,9 @@ namespace ReaLTaiizor.Child.Poison
             StylizeButton(poisonButton2);
             StylizeButton(poisonButton3);
 
-            poisonButton1.Click += new EventHandler(button_Click);
-            poisonButton2.Click += new EventHandler(button_Click);
-            poisonButton3.Click += new EventHandler(button_Click);
+            poisonButton1.Click += new EventHandler(Button_Click);
+            poisonButton2.Click += new EventHandler(Button_Click);
+            poisonButton3.Click += new EventHandler(Button_Click);
 
             poisonLocalize = new PoisonLocalize(this);
         }
@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Child.Poison
             };
         }
 
-        private void EnableButton(PoisonButton button)
+        private static void EnableButton(PoisonButton button)
         {
             EnableButton(button, true);
         }
@@ -231,7 +231,7 @@ namespace ReaLTaiizor.Child.Poison
             }
         }
 
-        private void button_MouseClick(object sender, MouseEventArgs e)
+        private void Button_MouseClick(object sender, MouseEventArgs e)
         {
             //PoisonButton button = (PoisonButton)sender;
             //button.BackColor = PoisonPaint.BackColor.Button.Press(ThemeStyle.Light);
@@ -239,12 +239,12 @@ namespace ReaLTaiizor.Child.Poison
             //button.ForeColor = PoisonPaint.ForeColor.Button.Press(ThemeStyle.Light);
         }
 
-        private void button_MouseEnter(object sender, EventArgs e)
+        private void Button_MouseEnter(object sender, EventArgs e)
         {
             StylizeButton((PoisonButton)sender, true);
         }
 
-        private void button_MouseLeave(object sender, EventArgs e)
+        private void Button_MouseLeave(object sender, EventArgs e)
         {
             StylizeButton((PoisonButton)sender);
         }
@@ -258,14 +258,14 @@ namespace ReaLTaiizor.Child.Poison
         {
             button.Cursor = Cursors.Hand;
 
-            button.MouseClick -= button_MouseClick;
-            button.MouseClick += button_MouseClick;
+            button.MouseClick -= Button_MouseClick;
+            button.MouseClick += Button_MouseClick;
 
-            button.MouseEnter -= button_MouseEnter;
-            button.MouseEnter += button_MouseEnter;
+            button.MouseEnter -= Button_MouseEnter;
+            button.MouseEnter += Button_MouseEnter;
 
-            button.MouseLeave -= button_MouseLeave;
-            button.MouseLeave += button_MouseLeave;
+            button.MouseLeave -= Button_MouseLeave;
+            button.MouseLeave += Button_MouseLeave;
 
             //if (hovered)
             //{
@@ -282,7 +282,7 @@ namespace ReaLTaiizor.Child.Poison
             //}
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             PoisonButton button = (PoisonButton)sender;
             if (!button.Enabled)

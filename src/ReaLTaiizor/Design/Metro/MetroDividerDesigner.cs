@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Design.Metro
     internal class MetroDividerDesigner : ControlDesigner
     {
         private readonly string[] _propertiesToRemove =
-{
+        {
             "BackgroundImage", "BackgroundImageLayout",
             "RightToLeft","ImeMode"
         };
