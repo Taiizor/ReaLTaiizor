@@ -27,15 +27,15 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        public enum TextState
+        public enum TextStateType
         {
             Upper,
             Lower,
             Normal
         }
 
-        private TextState _TitleTextState = TextState.Normal;
-        public TextState TitleTextState
+        private TextStateType _TitleTextState = TextStateType.Normal;
+        public TextStateType TitleTextState
         {
             get => _TitleTextState;
             set
@@ -67,8 +67,8 @@ namespace ReaLTaiizor.Controls
         {
             return TitleTextState switch
             {
-                TextState.Upper => Text.ToUpperInvariant(),
-                TextState.Lower => Text.ToLowerInvariant(),
+                TextStateType.Upper => Text.ToUpperInvariant(),
+                TextStateType.Lower => Text.ToLowerInvariant(),
                 _ => Text,
             };
         }

@@ -29,6 +29,34 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
+        public enum TextStateType
+        {
+            Upper,
+            Lower,
+            Normal
+        }
+
+        private TextStateType _TextState = TextStateType.Normal;
+        public TextStateType TextState
+        {
+            get => _TextState;
+            set
+            {
+                _TextState = value;
+                Invalidate();
+            }
+        }
+
+        private string ButtonText(string Text)
+        {
+            return TextState switch
+            {
+                TextStateType.Upper => Text.ToUpperInvariant(),
+                TextStateType.Lower => Text.ToLowerInvariant(),
+                _ => Text,
+            };
+        }
+
         public enum MaterialButtonType
         {
             Text,
@@ -198,8 +226,8 @@ namespace ReaLTaiizor.Controls
             get => base.Text;
             set
             {
-                base.Text = value;
-                _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.GetFontByType(MaterialManager.FontType.Button));
+                base.Text = ButtonText(value);
+                _textSize = CreateGraphics().MeasureString(ButtonText(value), SkinManager.GetFontByType(MaterialManager.FontType.Button));
                 if (AutoSize)
                 {
                     Refresh();
@@ -346,11 +374,20 @@ namespace ReaLTaiizor.Controls
                 SkinManager.TextDisabledOrHintColor; // Disabled
 
             using MaterialNativeTextRenderer NativeText = new(g);
-            NativeText.DrawTransparentText(Text.ToUpper(), SkinManager.GetLogFontByType(MaterialManager.FontType.Button),
+            NativeText.DrawTransparentText(ButtonText(Text), SkinManager.GetLogFontByType(MaterialManager.FontType.Button),
                 textColor,
                 textRect.Location,
                 textRect.Size,
                 MaterialNativeTextRenderer.TextAlignFlags.Center | MaterialNativeTextRenderer.TextAlignFlags.Middle);
+
+            if (Size != PreferredSize)
+            {
+                Size = PreferredSize;
+                Refresh();
+                Invalidate();
+                Parent.Refresh();
+                Parent.Invalidate();
+            }
         }
 
         private Size PreferredSize => GetPreferredSize(Size);
@@ -361,6 +398,12 @@ namespace ReaLTaiizor.Controls
 
             // Provides extra space for proper padding for content
             int extra = 16;
+
+            extra += TextState switch
+            {
+                TextStateType.Upper => 30,
+                _ => 0,
+            };
 
             if (Icon != null)
             {
