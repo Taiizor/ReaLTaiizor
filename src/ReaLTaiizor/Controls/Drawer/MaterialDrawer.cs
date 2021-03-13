@@ -9,9 +9,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
+using System.Linq;
 using System.Windows.Forms;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
 using static ReaLTaiizor.Util.MaterialAnimations;
+using static System.Windows.Forms.TabControl;
 
 #endregion
 
@@ -151,6 +153,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _baseTabControl = value;
+
                 if (_baseTabControl == null)
                 {
                     return;
@@ -181,11 +184,50 @@ namespace ReaLTaiizor.Controls
                 };
             }
         }
+        
+        private int[] _HideTabPageIndex = Array.Empty<int>();
+        private string[] _DrawerHideTabName = Array.Empty<string>();
+
+        [Category("Behavior")]
+        public string[] DrawerHideTabName
+        {
+            get
+            {
+                return _DrawerHideTabName;
+            }
+            set
+            {
+                _DrawerHideTabName = value;
+                System.Windows.Forms.TabPage _ETP = null;
+
+                if (_baseTabControl != null)
+                {
+                    foreach (System.Windows.Forms.TabPage TB in _baseTabControl.TabPages)
+                    {
+                        if (_DrawerHideTabName.Contains(TB.Name))
+                        {
+                            //_baseTabControl.TabPages.Remove(TB);
+                            _CountHideTab++;
+                        }
+                        else
+                        {
+                            _ETP = TB;
+                        }
+                    }
+
+                    if (_ETP != null && _CountHideTab > 0)
+                        _baseTabControl.SelectedTab = _ETP;
+                }
+
+                Refresh();
+                Invalidate();
+            }
+        }
 
         private void preProcessIcons()
         {
             // pre-process and pre-allocate texture brushes (icons)
-            if (_baseTabControl == null || _baseTabControl.TabCount == 0 || _baseTabControl.ImageList == null || _drawerItemRects == null || _drawerItemRects.Count == 0)
+            if (_baseTabControl == null || _baseTabControl.TabCount == 0 || _baseTabControl.ImageList == null || _drawerItemRects == null || _drawerItemRects.Count == 0 || _HideTabPageIndex.Count() == _baseTabControl.TabCount)
             {
                 return;
             }
@@ -229,7 +271,7 @@ namespace ReaLTaiizor.Controls
             foreach (System.Windows.Forms.TabPage tabPage in _baseTabControl.TabPages)
             {
                 // skip items without image
-                if (string.IsNullOrEmpty(tabPage.ImageKey) || _drawerItemRects == null)
+                if (string.IsNullOrEmpty(tabPage.ImageKey) || _drawerItemRects == null || _DrawerHideTabName.Contains(tabPage.Name))
                 {
                     continue;
                 }
@@ -651,14 +693,14 @@ namespace ReaLTaiizor.Controls
                     return;
                 }
             }
-            Cursor = Cursors.Arrow;
+            Cursor = Cursors.Default;
         }
 
         private void UpdateTabRects()
         {
             //If there isn't a base tab control, the rects shouldn't be calculated
             //or if there aren't tab pages in the base tab control, the list should just be empty
-            if (_baseTabControl == null || _baseTabControl.TabCount == 0 || SkinManager == null || _drawerItemRects == null)
+            if (_baseTabControl == null || _baseTabControl.TabCount == 0 || SkinManager == null || _drawerItemRects == null || _HideTabPageIndex.Count() == _baseTabControl.TabCount)
             {
                 _drawerItemRects = new List<Rectangle>();
                 _drawerItemPaths = new List<GraphicsPath>();
@@ -686,7 +728,7 @@ namespace ReaLTaiizor.Controls
                     (Width + (ShowIconsWhenHidden ? Location.X : 0)) - (int)(SkinManager.FORM_PADDING * 1.5) - 1,
                     drawerItemHeight));
 
-                _drawerItemPaths[i] = MaterialDrawHelper.CreateRoundRect(new RectangleF(_drawerItemRects[i].X - 0.5f, _drawerItemRects[i].Y - 0.5f, _drawerItemRects[i].Width, _drawerItemRects[i].Height), 4);
+                _drawerItemPaths[i] = CreateRoundRect(new RectangleF(_drawerItemRects[i].X - 0.5f, _drawerItemRects[i].Y - 0.5f, _drawerItemRects[i].Width, _drawerItemRects[i].Height), 4);
             }
         }
     }

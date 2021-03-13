@@ -339,6 +339,22 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
 
+        private MaterialTabControl _HideTabControl { get; set; }
+        private string[] _DrawerHideTabName = Array.Empty<string>();
+
+        [Category("Drawer")]
+        public string[] DrawerHideTabName
+        {
+            get => _DrawerHideTabName;
+            set
+            {
+                _DrawerHideTabName = value;
+                drawerControl.DrawerHideTabName = _DrawerHideTabName;
+
+
+            }
+        }
+
         private AnimationManager _drawerShowHideAnimManager;
 
         protected void AddDrawerOverlayForm()
@@ -349,6 +365,20 @@ namespace ReaLTaiizor.Forms
             if (DrawerTabControl == null)
             {
                 return;
+            }
+
+            if (DrawerHideTabName.Any())
+            {
+                int countHideTab = 0;
+
+                foreach (System.Windows.Forms.TabPage TP in DrawerTabControl.TabPages)
+                {
+                    if (DrawerHideTabName.Contains(TP.Name))
+                        countHideTab++;
+                }
+
+                if (countHideTab >= DrawerTabControl.TabCount)
+                    return;
             }
 
             // Form opacity fade animation;
@@ -388,6 +418,7 @@ namespace ReaLTaiizor.Forms
             drawerControl.Size = new(DrawerWidth, H);
             drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
             drawerControl.BaseTabControl = DrawerTabControl;
+            drawerControl.DrawerHideTabName = DrawerHideTabName;
             drawerControl.ShowIconsWhenHidden = true;
             // Init Options
             drawerControl.IsOpen = DrawerIsOpen;
@@ -798,7 +829,9 @@ namespace ReaLTaiizor.Forms
                     if (_resizeDir == ResizeDirection.None || !_drawerButtonBounds.Contains(e.Location))
                     {
                         if (Cursor != Cursors.Default)
+                        {
                             Cursor = Cursors.Default;
+                        }
                     }
 
                     _buttonState = ButtonState.None;
@@ -1005,7 +1038,6 @@ namespace ReaLTaiizor.Forms
             // Drawer Icon
             if (DrawerTabControl != null)
             {
-
                 if (_buttonState == ButtonState.DrawerOver)
                 {
                     g.FillRectangle(hoverBrush, _drawerButtonBounds);
