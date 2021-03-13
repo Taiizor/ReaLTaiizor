@@ -352,6 +352,19 @@ namespace ReaLTaiizor.Forms
             }
         }
 
+        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+
+        [Category("Drawer")]
+        public System.Windows.Forms.TabPage[] DrawerNonClickTabPage
+        {
+            get => _DrawerNonClickTabPage;
+            set
+            {
+                _DrawerNonClickTabPage = value;
+                drawerControl.DrawerNonClickTabPage = _DrawerNonClickTabPage;
+            }
+        }
+
         private AnimationManager _drawerShowHideAnimManager;
 
         protected void AddDrawerOverlayForm()
@@ -371,11 +384,15 @@ namespace ReaLTaiizor.Forms
                 foreach (System.Windows.Forms.TabPage TP in DrawerTabControl.TabPages)
                 {
                     if (DrawerHideTabName.Contains(TP.Name))
+                    {
                         countHideTab++;
+                    }
                 }
 
                 if (countHideTab >= DrawerTabControl.TabCount)
+                {
                     return;
+                }
             }
 
             // Form opacity fade animation;
@@ -416,6 +433,7 @@ namespace ReaLTaiizor.Forms
             drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
             drawerControl.BaseTabControl = DrawerTabControl;
             drawerControl.DrawerHideTabName = DrawerHideTabName;
+            drawerControl.DrawerNonClickTabPage = DrawerNonClickTabPage;
             drawerControl.ShowIconsWhenHidden = true;
             // Init Options
             drawerControl.IsOpen = DrawerIsOpen;

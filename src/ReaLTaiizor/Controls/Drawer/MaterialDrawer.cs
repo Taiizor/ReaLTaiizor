@@ -1,6 +1,5 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,6 @@ using System.Linq;
 using System.Windows.Forms;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
 using static ReaLTaiizor.Util.MaterialAnimations;
-using static System.Windows.Forms.TabControl;
 
 #endregion
 
@@ -144,17 +142,44 @@ namespace ReaLTaiizor.Controls
 
         private int rippleSize = 0;
 
-        private MaterialTabControl _baseTabControl;
+        private MaterialTabControl _BaseTabControl;
 
-        [Category("Behavior")]
+        [Category("Behavior"), Browsable(false)]
         public MaterialTabControl BaseTabControl
         {
-            get => _baseTabControl;
+            get => _BaseTabControl;
             set
             {
-                _baseTabControl = value;
+                if (value == null)
+                {
+                    return;
+                }
+                else
+                {
+                    if (_ShowTabControl == null || _ShowTabControl != value)
+                    {
+                        ShowTabControl = value;
+                    }
 
-                if (_baseTabControl == null)
+                    if (_BaseTabControl == null || _BaseTabControl != value)
+                    {
+                        _BaseTabControl = value;
+                    }
+                }
+            }
+        }
+
+        private MaterialTabControl _ShowTabControl;
+
+        [Category("Behavior")]
+        public MaterialTabControl ShowTabControl
+        {
+            get => _ShowTabControl;
+            set
+            {
+                _ShowTabControl = value;
+
+                if (_ShowTabControl == null)
                 {
                     return;
                 }
@@ -164,70 +189,86 @@ namespace ReaLTaiizor.Controls
 
                 // Other helpers
 
-                _previousSelectedTabIndex = _baseTabControl.SelectedIndex;
-                _baseTabControl.Deselected += (sender, args) =>
+                _previousSelectedTabIndex = _ShowTabControl.SelectedIndex;
+                _ShowTabControl.Deselected += (sender, args) =>
                 {
-                    _previousSelectedTabIndex = _baseTabControl.SelectedIndex;
+                    _previousSelectedTabIndex = _ShowTabControl.SelectedIndex;
                 };
-                _baseTabControl.SelectedIndexChanged += (sender, args) =>
+                _ShowTabControl.SelectedIndexChanged += (sender, args) =>
                 {
                     _clickAnimManager.SetProgress(0);
                     _clickAnimManager.StartNewAnimation(AnimationDirection.In);
                 };
-                _baseTabControl.ControlAdded += delegate
+                _ShowTabControl.ControlAdded += delegate
                 {
                     Invalidate();
                 };
-                _baseTabControl.ControlRemoved += delegate
+                _ShowTabControl.ControlRemoved += delegate
                 {
                     Invalidate();
                 };
             }
         }
-        
-        private int[] _HideTabPageIndex = Array.Empty<int>();
+
         private string[] _DrawerHideTabName = Array.Empty<string>();
 
         [Category("Behavior")]
         public string[] DrawerHideTabName
         {
-            get
-            {
-                return _DrawerHideTabName;
-            }
+            get => _DrawerHideTabName;
             set
             {
                 _DrawerHideTabName = value;
-                System.Windows.Forms.TabPage _ETP = null;
 
-                if (_baseTabControl != null)
+                if (_BaseTabControl != null)
                 {
-                    foreach (System.Windows.Forms.TabPage TB in _baseTabControl.TabPages)
+                    foreach (System.Windows.Forms.TabPage TB in _BaseTabControl.TabPages)
                     {
-                        if (_DrawerHideTabName.Contains(TB.Name))
+                        if (!_ShowTabControl.TabPages.Contains(TB))
                         {
-                            //_baseTabControl.TabPages.Remove(TB);
-                            _CountHideTab++;
-                        }
-                        else
-                        {
-                            _ETP = TB;
+                            _ShowTabControl.TabPages.Add(TB);
                         }
                     }
 
-                    if (_ETP != null && _CountHideTab > 0)
-                        _baseTabControl.SelectedTab = _ETP;
-                }
+                    if (_DrawerHideTabName.Any())
+                    {
+                        foreach (System.Windows.Forms.TabPage TB in _BaseTabControl.TabPages)
+                        {
+                            if (_DrawerHideTabName.Contains(TB.Name))
+                            {
+                                if (_ShowTabControl.TabPages.Contains(TB))
+                                {
+                                    _ShowTabControl.TabPages.Remove(TB);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        _DrawerHideTabName = Array.Empty<string>();
+                    }
 
-                Refresh();
-                Invalidate();
+                    UpdateTabRects();
+                    preProcessIcons();
+
+                    Refresh();
+                    Invalidate();
+                }
             }
+        }
+
+        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+        [Category("Behavior")]
+        public System.Windows.Forms.TabPage[] DrawerNonClickTabPage
+        {
+            get => _DrawerNonClickTabPage;
+            set => _DrawerNonClickTabPage = value;
         }
 
         private void preProcessIcons()
         {
             // pre-process and pre-allocate texture brushes (icons)
-            if (_baseTabControl == null || _baseTabControl.TabCount == 0 || _baseTabControl.ImageList == null || _drawerItemRects == null || _drawerItemRects.Count == 0 || _HideTabPageIndex.Count() == _baseTabControl.TabCount)
+            if (_ShowTabControl == null || _ShowTabControl.TabCount == 0 || _ShowTabControl.ImageList == null || _drawerItemRects == null || _drawerItemRects.Count == 0)
             {
                 return;
             }
@@ -264,11 +305,11 @@ namespace ReaLTaiizor.Controls
             colorImageAttributes.SetColorMatrix(colorMatrixColor, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
 
             // Create brushes
-            iconsBrushes = new Dictionary<string, TextureBrush>(_baseTabControl.TabPages.Count);
-            iconsSelectedBrushes = new Dictionary<string, TextureBrush>(_baseTabControl.TabPages.Count);
-            iconsSize = new Dictionary<string, Rectangle>(_baseTabControl.TabPages.Count);
+            iconsBrushes = new Dictionary<string, TextureBrush>(_ShowTabControl.TabPages.Count);
+            iconsSelectedBrushes = new Dictionary<string, TextureBrush>(_ShowTabControl.TabPages.Count);
+            iconsSize = new Dictionary<string, Rectangle>(_ShowTabControl.TabPages.Count);
 
-            foreach (System.Windows.Forms.TabPage tabPage in _baseTabControl.TabPages)
+            foreach (System.Windows.Forms.TabPage tabPage in _ShowTabControl.TabPages)
             {
                 // skip items without image
                 if (string.IsNullOrEmpty(tabPage.ImageKey) || _drawerItemRects == null || _DrawerHideTabName.Contains(tabPage.Name))
@@ -277,13 +318,13 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Image Rect
-                Rectangle destRect = new(0, 0, _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
+                Rectangle destRect = new(0, 0, _ShowTabControl.ImageList.Images[tabPage.ImageKey].Width, _ShowTabControl.ImageList.Images[tabPage.ImageKey].Height);
 
                 // Create a pre-processed copy of the image (GRAY)
                 Bitmap bgray = new(destRect.Width, destRect.Height);
                 using (Graphics gGray = Graphics.FromImage(bgray))
                 {
-                    gGray.DrawImage(_baseTabControl.ImageList.Images[tabPage.ImageKey],
+                    gGray.DrawImage(_ShowTabControl.ImageList.Images[tabPage.ImageKey],
                         new Point[] {
                                 new Point(0, 0),
                                 new Point(destRect.Width, 0),
@@ -296,7 +337,7 @@ namespace ReaLTaiizor.Controls
                 Bitmap bcolor = new(destRect.Width, destRect.Height);
                 using (Graphics gColor = Graphics.FromImage(bcolor))
                 {
-                    gColor.DrawImage(_baseTabControl.ImageList.Images[tabPage.ImageKey],
+                    gColor.DrawImage(_ShowTabControl.ImageList.Images[tabPage.ImageKey],
                         new Point[] {
                                 new Point(0, 0),
                                 new Point(destRect.Width, 0),
@@ -313,17 +354,17 @@ namespace ReaLTaiizor.Controls
                 textureBrushColor.WrapMode = WrapMode.Clamp;
 
                 // Translate the brushes to the correct positions
-                int currentTabIndex = _baseTabControl.TabPages.IndexOf(tabPage);
+                int currentTabIndex = _ShowTabControl.TabPages.IndexOf(tabPage);
 
                 Rectangle iconRect = new(
-                   _drawerItemRects[currentTabIndex].X + (drawerItemHeight / 2) - (_baseTabControl.ImageList.Images[tabPage.ImageKey].Width / 2),
-                   _drawerItemRects[currentTabIndex].Y + (drawerItemHeight / 2) - (_baseTabControl.ImageList.Images[tabPage.ImageKey].Height / 2),
-                   _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
+                   _drawerItemRects[currentTabIndex].X + (drawerItemHeight / 2) - (_ShowTabControl.ImageList.Images[tabPage.ImageKey].Width / 2),
+                   _drawerItemRects[currentTabIndex].Y + (drawerItemHeight / 2) - (_ShowTabControl.ImageList.Images[tabPage.ImageKey].Height / 2),
+                   _ShowTabControl.ImageList.Images[tabPage.ImageKey].Width, _ShowTabControl.ImageList.Images[tabPage.ImageKey].Height);
 
-                textureBrushGray.TranslateTransform(iconRect.X + iconRect.Width / 2 - _baseTabControl.ImageList.Images[tabPage.ImageKey].Width / 2,
-                                                    iconRect.Y + iconRect.Height / 2 - _baseTabControl.ImageList.Images[tabPage.ImageKey].Height / 2);
-                textureBrushColor.TranslateTransform(iconRect.X + iconRect.Width / 2 - _baseTabControl.ImageList.Images[tabPage.ImageKey].Width / 2,
-                                                     iconRect.Y + iconRect.Height / 2 - _baseTabControl.ImageList.Images[tabPage.ImageKey].Height / 2);
+                textureBrushGray.TranslateTransform(iconRect.X + iconRect.Width / 2 - _ShowTabControl.ImageList.Images[tabPage.ImageKey].Width / 2,
+                                                    iconRect.Y + iconRect.Height / 2 - _ShowTabControl.ImageList.Images[tabPage.ImageKey].Height / 2);
+                textureBrushColor.TranslateTransform(iconRect.X + iconRect.Width / 2 - _ShowTabControl.ImageList.Images[tabPage.ImageKey].Width / 2,
+                                                     iconRect.Y + iconRect.Height / 2 - _ShowTabControl.ImageList.Images[tabPage.ImageKey].Height / 2);
 
                 // add to dictionary
                 iconsBrushes.Add(tabPage.ImageKey, textureBrushGray);
@@ -373,9 +414,9 @@ namespace ReaLTaiizor.Controls
             };
             _showHideAnimManager.OnAnimationFinished += sender =>
             {
-                if (_baseTabControl != null && _drawerItemRects.Count > 0)
+                if (_ShowTabControl != null && _drawerItemRects.Count > 0)
                 {
-                    rippleSize = _drawerItemRects[_baseTabControl.SelectedIndex].Width;
+                    rippleSize = _drawerItemRects[_ShowTabControl.SelectedIndex].Width;
                 }
 
                 if (_isOpen)
@@ -466,17 +507,17 @@ namespace ReaLTaiizor.Controls
             // redraw stuff
             g.Clear(UseColors ? SkinManager.ColorScheme.PrimaryColor : SkinManager.BackdropColor);
 
-            if (_baseTabControl == null)
+            if (_ShowTabControl == null)
             {
                 return;
             }
 
-            if (!_clickAnimManager.IsAnimating() || _drawerItemRects == null || _drawerItemRects.Count != _baseTabControl.TabCount)
+            if (!_clickAnimManager.IsAnimating() || _drawerItemRects == null || _drawerItemRects.Count != _ShowTabControl.TabCount)
             {
                 UpdateTabRects();
             }
 
-            if (_drawerItemRects == null || _drawerItemRects.Count != _baseTabControl.TabCount)
+            if (_drawerItemRects == null || _drawerItemRects.Count != _ShowTabControl.TabCount)
             {
                 return;
             }
@@ -498,16 +539,16 @@ namespace ReaLTaiizor.Controls
                     SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : // light theme
                     SkinManager.ColorScheme.LightPrimaryColor)); // dark theme
 
-                g.SetClip(_drawerItemPaths[_baseTabControl.SelectedIndex]);
+                g.SetClip(_drawerItemPaths[_ShowTabControl.SelectedIndex]);
                 g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X + dx - (rSize / 2), _animationSource.Y - rSize / 2, rSize, rSize));
                 g.ResetClip();
                 rippleBrush.Dispose();
             }
 
             // Draw menu items
-            foreach (System.Windows.Forms.TabPage tabPage in _baseTabControl.TabPages)
+            foreach (System.Windows.Forms.TabPage tabPage in _ShowTabControl.TabPages)
             {
-                int currentTabIndex = _baseTabControl.TabPages.IndexOf(tabPage);
+                int currentTabIndex = _ShowTabControl.TabPages.IndexOf(tabPage);
 
                 // Background
                 Brush bgBrush = new SolidBrush(Color.FromArgb(CalculateAlpha(60, 0, currentTabIndex, clickAnimProgress, 1 - showHideAnimProgress),
@@ -520,15 +561,15 @@ namespace ReaLTaiizor.Controls
 
                 // Text
                 Color textColor = Color.FromArgb(CalculateAlphaZeroWhenClosed(SkinManager.TextHighEmphasisColor.A, UseColors ? SkinManager.TextMediumEmphasisColor.A : 255, currentTabIndex, clickAnimProgress, 1 - showHideAnimProgress), // alpha
-                    UseColors ? (currentTabIndex == _baseTabControl.SelectedIndex ? (_highlightWithAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor) // Use colors - selected
+                    UseColors ? (currentTabIndex == _ShowTabControl.SelectedIndex ? (_highlightWithAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor) // Use colors - selected
                     : SkinManager.ColorScheme.TextColor) :  // Use colors - not selected
-                    (currentTabIndex == _baseTabControl.SelectedIndex ? (_highlightWithAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor) : // selected
+                    (currentTabIndex == _ShowTabControl.SelectedIndex ? (_highlightWithAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor) : // selected
                     SkinManager.TextHighEmphasisColor));
 
                 IntPtr textFont = SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle2);
 
                 Rectangle textRect = _drawerItemRects[currentTabIndex];
-                textRect.X += _baseTabControl.ImageList != null ? drawerItemHeight : (int)(SkinManager.FORM_PADDING * 0.75);
+                textRect.X += _ShowTabControl.ImageList != null ? drawerItemHeight : (int)(SkinManager.FORM_PADDING * 0.75);
                 textRect.Width -= SkinManager.FORM_PADDING << 2;
 
                 using (MaterialNativeTextRenderer NativeText = new(g))
@@ -537,7 +578,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Icons
-                if (_baseTabControl.ImageList != null && !string.IsNullOrEmpty(tabPage.ImageKey))
+                if (_ShowTabControl.ImageList != null && !string.IsNullOrEmpty(tabPage.ImageKey))
                 {
                     Rectangle iconRect = new(
                         _drawerItemRects[currentTabIndex].X + (drawerItemHeight >> 1) - (iconsSize[tabPage.ImageKey].Width >> 1),
@@ -550,7 +591,7 @@ namespace ReaLTaiizor.Controls
                         iconsSelectedBrushes[tabPage.ImageKey].TranslateTransform(dx, 0);
                     }
 
-                    g.FillRectangle(currentTabIndex == _baseTabControl.SelectedIndex ? iconsSelectedBrushes[tabPage.ImageKey] : iconsBrushes[tabPage.ImageKey], iconRect);
+                    g.FillRectangle(currentTabIndex == _ShowTabControl.SelectedIndex ? iconsSelectedBrushes[tabPage.ImageKey] : iconsBrushes[tabPage.ImageKey], iconRect);
                 }
             }
 
@@ -562,9 +603,9 @@ namespace ReaLTaiizor.Controls
             }
 
             // Animate tab indicator
-            int previousSelectedTabIndexIfHasOne = _previousSelectedTabIndex == -1 ? _baseTabControl.SelectedIndex : _previousSelectedTabIndex;
+            int previousSelectedTabIndexIfHasOne = _previousSelectedTabIndex == -1 ? _ShowTabControl.SelectedIndex : _previousSelectedTabIndex;
             Rectangle previousActiveTabRect = _drawerItemRects[previousSelectedTabIndexIfHasOne];
-            Rectangle activeTabPageRect = _drawerItemRects[_baseTabControl.SelectedIndex];
+            Rectangle activeTabPageRect = _drawerItemRects[_ShowTabControl.SelectedIndex];
 
             int y = previousActiveTabRect.Y + (int)((activeTabPageRect.Y - previousActiveTabRect.Y) * clickAnimProgress);
             int x = ShowIconsWhenHidden ? -Location.X : 0;
@@ -609,7 +650,7 @@ namespace ReaLTaiizor.Controls
                 return 0;
             }
             // Active menu (no change)
-            if (tabIndex == _baseTabControl.SelectedIndex && (!_clickAnimManager.IsAnimating() || _showHideAnimManager.IsAnimating()))
+            if (tabIndex == _ShowTabControl.SelectedIndex && (!_clickAnimManager.IsAnimating() || _showHideAnimManager.IsAnimating()))
             {
                 return (int)(primaryA * showHideAnimProgress);
             }
@@ -619,7 +660,7 @@ namespace ReaLTaiizor.Controls
                 return primaryA - (int)((primaryA - secondaryA) * clickAnimProgress);
             }
             // Inactive menu (no change)
-            if (tabIndex != _baseTabControl.SelectedIndex)
+            if (tabIndex != _ShowTabControl.SelectedIndex)
             {
                 return (int)(secondaryA * showHideAnimProgress);
             }
@@ -629,12 +670,12 @@ namespace ReaLTaiizor.Controls
 
         private int CalculateAlpha(int primaryA, int secondaryA, int tabIndex, double clickAnimProgress, double showHideAnimProgress)
         {
-            if (tabIndex == _baseTabControl.SelectedIndex && !_clickAnimManager.IsAnimating())
+            if (tabIndex == _ShowTabControl.SelectedIndex && !_clickAnimManager.IsAnimating())
             {
                 return (int)(primaryA);
             }
 
-            if (tabIndex != _previousSelectedTabIndex && tabIndex != _baseTabControl.SelectedIndex)
+            if (tabIndex != _previousSelectedTabIndex && tabIndex != _ShowTabControl.SelectedIndex)
             {
                 return secondaryA;
             }
@@ -660,10 +701,13 @@ namespace ReaLTaiizor.Controls
             {
                 if (_drawerItemRects[i].Contains(e.Location))
                 {
-                    _baseTabControl.SelectedIndex = i;
-                    if (AutoHide)
+                    if (!_DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
                     {
-                        Hide();
+                        _ShowTabControl.SelectedIndex = i;
+                        if (AutoHide)
+                        {
+                            Hide();
+                        }
                     }
                 }
             }
@@ -689,8 +733,16 @@ namespace ReaLTaiizor.Controls
             {
                 if (_drawerItemRects[i].Contains(e.Location))
                 {
-                    Cursor = Cursors.Hand;
-                    return;
+                    if (!_DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
+                    {
+                        Cursor = Cursors.Hand;
+                        return;
+                    }
+                    else
+                    {
+                        Cursor = Cursors.No;
+                        return;
+                    }
                 }
             }
             Cursor = Cursors.Default;
@@ -700,19 +752,19 @@ namespace ReaLTaiizor.Controls
         {
             //If there isn't a base tab control, the rects shouldn't be calculated
             //or if there aren't tab pages in the base tab control, the list should just be empty
-            if (_baseTabControl == null || _baseTabControl.TabCount == 0 || SkinManager == null || _drawerItemRects == null || _HideTabPageIndex.Count() == _baseTabControl.TabCount)
+            if (_ShowTabControl == null || _ShowTabControl.TabCount == 0 || SkinManager == null || _drawerItemRects == null)
             {
                 _drawerItemRects = new List<Rectangle>();
                 _drawerItemPaths = new List<GraphicsPath>();
                 return;
             }
 
-            if (_drawerItemRects.Count != _baseTabControl.TabCount)
+            if (_drawerItemRects.Count != _ShowTabControl.TabCount)
             {
-                _drawerItemRects = new List<Rectangle>(_baseTabControl.TabCount);
-                _drawerItemPaths = new List<GraphicsPath>(_baseTabControl.TabCount);
+                _drawerItemRects = new List<Rectangle>(_ShowTabControl.TabCount);
+                _drawerItemPaths = new List<GraphicsPath>(_ShowTabControl.TabCount);
 
-                for (int i = 0; i < _baseTabControl.TabCount; i++)
+                for (int i = 0; i < _ShowTabControl.TabCount; i++)
                 {
                     _drawerItemRects.Add(new Rectangle());
                     _drawerItemPaths.Add(new GraphicsPath());
@@ -720,7 +772,7 @@ namespace ReaLTaiizor.Controls
             }
 
             //Calculate the bounds of each tab header specified in the base tab control
-            for (int i = 0; i < _baseTabControl.TabPages.Count; i++)
+            for (int i = 0; i < _ShowTabControl.TabPages.Count; i++)
             {
                 _drawerItemRects[i] = (new Rectangle(
                     (int)(SkinManager.FORM_PADDING * 0.75) - (ShowIconsWhenHidden ? Location.X : 0),
