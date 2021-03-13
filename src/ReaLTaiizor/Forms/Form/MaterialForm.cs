@@ -186,7 +186,7 @@ namespace ReaLTaiizor.Forms
 
         private Padding originalPadding;
 
-        private bool _MessageFilter = true;
+        private bool _MessageFilter = false;
 
         [Category("Mouse")]
         public bool MessageFilter
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Forms
             DrawerIsOpen = false;
             DrawerShowIconsWhenHidden = false;
             DrawerAutoHide = true;
-            DrawerIndicatorWidth = 0;
+            DrawerIndicatorWidth = 4;
             DrawerHighlightWithAccent = true;
             DrawerBackgroundWithAccent = false;
 
@@ -686,6 +686,11 @@ namespace ReaLTaiizor.Forms
             }
 
             _buttonState = ButtonState.None;
+            if (Sizable && _resizeCursors.Contains(Cursor))
+            {
+                Cursor = Cursors.Default;
+            }
+
             Invalidate();
         }
 
@@ -833,7 +838,7 @@ namespace ReaLTaiizor.Forms
                 }
                 else if (_drawerButtonBounds.Contains(e.Location))
                 {
-                    if (DrawerShowIconsWhenHidden || DrawerTabControl != null)
+                    if (DrawerTabControl != null)
                     {
                         _buttonState = ButtonState.DrawerOver;
                         Cursor = Cursors.Hand;
