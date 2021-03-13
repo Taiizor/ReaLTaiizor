@@ -1000,7 +1000,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs pevent)
         {
             Graphics g = pevent.Graphics;
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
             int lineY = _baseTextBox.Bottom + 3;
 
@@ -1038,7 +1038,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
 
-            _baseTextBox.BackColor = Parent.BackColor;
+            _baseTextBox.BackColor = Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor;
         }
 
         private class BaseTextBox : TextBox

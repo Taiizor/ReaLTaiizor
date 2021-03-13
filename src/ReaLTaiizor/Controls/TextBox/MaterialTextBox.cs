@@ -188,9 +188,9 @@ namespace ReaLTaiizor.Controls
 
             Graphics g = pevent.Graphics;
 
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
-            SolidBrush backBrush = new(BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A));
+            SolidBrush backBrush = new(BlendColor(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A));
 
             g.FillRectangle(
                 !Enabled ? SkinManager.BackgroundDisabledBrush : // Disabled

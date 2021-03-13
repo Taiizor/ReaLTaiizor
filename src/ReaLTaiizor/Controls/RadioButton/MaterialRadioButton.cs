@@ -139,7 +139,7 @@ namespace ReaLTaiizor.Controls
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             // clear the control
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
             int RADIOBUTTON_CENTER = _boxOffset + RADIOBUTTON_SIZE_HALF;
             Point animationSource = new(RADIOBUTTON_CENTER, RADIOBUTTON_CENTER);

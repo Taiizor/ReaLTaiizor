@@ -147,7 +147,7 @@ namespace ReaLTaiizor.Controls
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
             double animationProgress = _checkAM.GetProgress();
 
@@ -239,7 +239,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Color.Transparent);
 
             // draw the checkmark lines
-            using (Pen pen = new(Parent.BackColor, 2))
+            using (Pen pen = new(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor, 2))
             {
                 g.DrawLines(pen, CheckmarkLine);
             }

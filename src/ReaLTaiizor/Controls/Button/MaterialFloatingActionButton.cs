@@ -217,7 +217,7 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = pevent.Graphics;
 
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             // Paint shadow on element to blend with the parent shadow

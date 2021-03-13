@@ -266,7 +266,7 @@ namespace ReaLTaiizor.Controls
 
             double hoverAnimProgress = _hoverAnimationManager.GetProgress();
 
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
             // button rectand path
             RectangleF buttonRectF = new(ClientRectangle.Location, ClientRectangle.Size);
@@ -380,7 +380,7 @@ namespace ReaLTaiizor.Controls
                 textRect.Size,
                 MaterialNativeTextRenderer.TextAlignFlags.Center | MaterialNativeTextRenderer.TextAlignFlags.Middle);
 
-            if (Size != PreferredSize)
+            if (Size != PreferredSize && AutoSize)
             {
                 Size = PreferredSize;
                 Refresh();
