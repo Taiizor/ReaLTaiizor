@@ -339,7 +339,6 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
 
-        private MaterialTabControl _HideTabControl { get; set; }
         private string[] _DrawerHideTabName = Array.Empty<string>();
 
         [Category("Drawer")]
@@ -350,8 +349,6 @@ namespace ReaLTaiizor.Forms
             {
                 _DrawerHideTabName = value;
                 drawerControl.DrawerHideTabName = _DrawerHideTabName;
-
-
             }
         }
 
