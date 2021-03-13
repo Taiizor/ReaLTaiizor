@@ -1,5 +1,7 @@
 ﻿using ReaLTaiizor.Forms;
 using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor_CR
 {
@@ -10,15 +12,27 @@ namespace ReaLTaiizor_CR
             InitializeComponent();
         }
 
-        private void MaterialButton1_Click(object sender, EventArgs e)
+        private void materialButton1_Click(object sender, EventArgs e)
         {
-            if (materialButton1.Text == "TEST")
+            if (materialTabSelector1.SelectorHideTabName.Any())
             {
-                materialButton1.Text = "TESTER MORUQ";
+                materialTabSelector1.SelectorHideTabName = Array.Empty<string>();
             }
             else
             {
-                materialButton1.Text = "TEST";
+                materialTabSelector1.SelectorHideTabName = new string[] { tabPage2.Name };
+            }
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            if (materialTabSelector1.SelectorNonClickTabPage.Any())
+            {
+                materialTabSelector1.SelectorNonClickTabPage = Array.Empty<TabPage>();
+            }
+            else
+            {
+                materialTabSelector1.SelectorNonClickTabPage = new TabPage[] { tabPage3 };
             }
         }
     }

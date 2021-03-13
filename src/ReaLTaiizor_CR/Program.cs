@@ -12,14 +12,21 @@ namespace ReaLTaiizor_CR
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
+            try
+            {
+                Application.EnableVisualStyles();
 #if NET5_0 || NET6_0
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
-            CultureInfo cultureInfo = new CultureInfo(CultureInfo.CurrentCulture.TextInfo.CultureName);
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.CurrentCulture = cultureInfo;
-            Application.Run(new Issue());
+                CultureInfo cultureInfo = new CultureInfo(CultureInfo.CurrentCulture.TextInfo.CultureName);
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.CurrentCulture = cultureInfo;
+                Application.Run(new Issue());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\n" + ex.StackTrace);
+            }
         }
     }
 }
