@@ -16,7 +16,7 @@ namespace ReaLTaiizor_CR
             {
                 Application.EnableVisualStyles();
 #if NET5_0 || NET6_0
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
                 CultureInfo cultureInfo = new CultureInfo(CultureInfo.CurrentCulture.TextInfo.CultureName);
                 Application.SetCompatibleTextRenderingDefault(false);
