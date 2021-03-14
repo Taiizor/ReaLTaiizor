@@ -49,7 +49,6 @@
             treeNode9,
             treeNode10,
             treeNode11});
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Catcher));
             this.aloneTextBox1 = new ReaLTaiizor.Controls.AloneTextBox();
             this.bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
             this.comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit();
@@ -449,7 +448,7 @@
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.bigTextBox1);
             this.Controls.Add(this.aloneTextBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::ReaLTaiizor_CR.Properties.Resources.ICO;
             this.Image = global::ReaLTaiizor_CR.Properties.Resources.FORK;
             this.MaximizeBox = false;
             this.Name = "Catcher";

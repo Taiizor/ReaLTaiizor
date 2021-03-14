@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <!--<TargetFramework>net48</TargetFramework>-->
     <!--<TargetFramework>net5.0-windows</TargetFramework>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
-    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
+    <!--<TargetFrameworks>net461;net462;net47;net471;net472;net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
+    <TargetFrameworks>net461;net462;net47;net471;net472;net48;netcoreapp3.0-windows;netcoreapp3.1-windows;net5.0-windows;net6.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
     <Version>3.7.8.4</Version>
@@ -42,11 +43,20 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <NoWarn>1587,1591</NoWarn>
+    <Configurations>Debug;Release;GitHub</Configurations>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='GitHub|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.2.21154.6" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
@@ -58,7 +68,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="System.Design" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.VisualBasic" />
   </ItemGroup>
 

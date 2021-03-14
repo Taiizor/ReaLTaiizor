@@ -156,6 +156,7 @@ namespace ReaLTaiizor_CR
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
+            this.Icon = global::ReaLTaiizor_CR.Properties.Resources.ICO;
             this.DrawerIndicatorWidth = 4;
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;

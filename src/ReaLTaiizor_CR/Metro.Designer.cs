@@ -77,7 +77,7 @@ namespace ReaLTaiizor_CR
             this.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(632, 296);
             this.Controls.Add(this.metroControlBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::ReaLTaiizor_CR.Properties.Resources.ICO;
             this.Name = "Metro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Style = ReaLTaiizor.Enum.Metro.Style.Dark;

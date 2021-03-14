@@ -1238,19 +1238,11 @@ namespace ReaLTaiizor.Util
 
                     if (Singular && _animationDatas.Count > 0)
                     {
-#if NET40 || NET45 || NET451 || NET452
-                        _animationDatas[0] = data ?? new object[999];
-#else
                         _animationDatas[0] = data ?? Array.Empty<object>();
-#endif
                     }
                     else
                     {
-#if NET40 || NET45 || NET451 || NET452
-                        _animationDatas.Add(data ?? new object[999]);
-#else
                         _animationDatas.Add(data ?? Array.Empty<object>());
-#endif
                     }
                 }
 

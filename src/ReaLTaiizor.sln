@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor", "ReaLTaiizor\ReaLTaiizor.csproj", "{2E57199F-0C03-4D03-9C2B-A4EE805FA173}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor_CR", "ReaLTaiizor_CR\ReaLTaiizor_CR.csproj", "{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor_CR", "ReaLTaiizor_CR\ReaLTaiizor_CR.csproj", "{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2E57199F-0C03-4D03-9C2B-A4EE805FA173} = {2E57199F-0C03-4D03-9C2B-A4EE805FA173}
 	EndProjectSection
@@ -13,15 +13,20 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		GitHub|Any CPU = GitHub|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2E57199F-0C03-4D03-9C2B-A4EE805FA173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E57199F-0C03-4D03-9C2B-A4EE805FA173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E57199F-0C03-4D03-9C2B-A4EE805FA173}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{2E57199F-0C03-4D03-9C2B-A4EE805FA173}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
 		{2E57199F-0C03-4D03-9C2B-A4EE805FA173}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E57199F-0C03-4D03-9C2B-A4EE805FA173}.Release|Any CPU.Build.0 = Release|Any CPU
 		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
 		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{264ABA7C-7A3F-4E8C-8EBB-6C6F1F031128}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

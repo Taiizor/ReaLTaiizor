@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net461;net462;net47;net471;net472;net48;net5.0-windows;net6.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -17,5 +17,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ReaLTaiizor" Version="3.7.8.3" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.2.21154.6" />
   </ItemGroup>
 </Project>

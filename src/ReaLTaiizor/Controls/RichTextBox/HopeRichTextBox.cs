@@ -309,6 +309,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+#if !NETCOREAPP3_1
         public new event EventHandler ContextMenuChanged
         {
             add
@@ -320,6 +321,7 @@ namespace ReaLTaiizor.Controls
                 _baseTextBox.ContextMenuChanged -= value;
             }
         }
+#endif
 
         public new event EventHandler ContextMenuStripChanged
         {
@@ -1158,7 +1160,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-#if NET5_0 || NET6_0
+#if NETCOREAPP3_1 || NET5_0 || NET6_0
             //public EventHandler ContextMenuChanged { get; internal set; }
             public event EventHandler ContextMenuChanged;
 #endif
