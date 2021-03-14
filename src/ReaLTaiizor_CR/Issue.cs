@@ -26,6 +26,20 @@ namespace ReaLTaiizor_CR
             {
                 materialTabSelector1.SelectorHideTabName = new string[] { tabPage2.Name };
             }
+
+
+            if (DrawerHideTabName.Any())
+            {
+#if NET40
+                DrawerHideTabName = new string[0];
+#else
+                DrawerHideTabName = Array.Empty<string>();
+#endif
+            }
+            else
+            {
+                DrawerHideTabName = new string[] { tabPage2.Name };
+            }
         }
 
         private void materialButton2_Click(object sender, EventArgs e)
@@ -41,6 +55,20 @@ namespace ReaLTaiizor_CR
             else
             {
                 materialTabSelector1.SelectorNonClickTabPage = new TabPage[] { tabPage3 };
+            }
+
+
+            if (DrawerNonClickTabPage.Any())
+            {
+#if NET40
+                DrawerNonClickTabPage = new TabPage[0];
+#else
+                DrawerNonClickTabPage = Array.Empty<TabPage>();
+#endif
+            }
+            else
+            {
+                DrawerNonClickTabPage = new TabPage[] { tabPage3 };
             }
         }
     }
