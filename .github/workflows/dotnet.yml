@@ -3,6 +3,7 @@ name: .NET
 on:
   push:
     branches: [ develop ]
+
   pull_request:
     branches: [ develop ]
 
@@ -16,10 +17,11 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
-    - name: Restore dependencies
+        dotnet-version: 6.0.x
+
+    - name: Restore ReaLTaiizor
       run: dotnet restore src
-    - name: Build
+    - name: Build ReaLTaiizor
       run: dotnet build src --no-restore
-    - name: Test
+    - name: Test ReaLTaiizor
       run: dotnet test src --no-build --verbosity normal
