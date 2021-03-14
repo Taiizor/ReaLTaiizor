@@ -18,7 +18,8 @@ jobs:
             GitHub
         ]
         solution: [
-            src/ReaLTaiizor.sln
+            src/ReaLTaiizor.sln,
+            sample/ReaLTaiizor.Defender/ReaLTaiizor.Defender.sln
         ]
 
     steps:
