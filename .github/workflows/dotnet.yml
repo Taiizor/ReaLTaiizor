@@ -17,12 +17,12 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.100-preview.1.21103.13
+        dotnet-version: 6.0.100-preview.2.21155.3
 
     - name: Restore ReaLTaiizor
       run: dotnet restore src
     - name: Build ReaLTaiizor
-      run: dotnet build src --no-restore /nowarn:CS0109,CS0414,CA1416
+      run: dotnet build src --no-restore /nowarn:CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416
     - name: Test ReaLTaiizor
       run: dotnet test src --no-build --verbosity normal
 
