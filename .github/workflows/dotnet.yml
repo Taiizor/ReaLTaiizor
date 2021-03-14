@@ -12,6 +12,27 @@ jobs:
 
     runs-on: windows-latest
 
+    strategy:
+      matrix:
+        configuration: [
+            GitHub
+        ]
+        solution: [
+            src,
+            sample/ReaLTaiizor.Defender,
+            sample/ReaLTaiizor.Instagram,
+            sample/ReaLTaiizor.Kaspersky,
+            sample/ReaLTaiizor.Login,
+            sample/ReaLTaiizor.Payment,
+            sample/ReaLTaiizor.Player,
+            sample/ReaLTaiizor.Rufus,
+            sample/ReaLTaiizor.XAMPP,
+            ready/ReaLTaiizor.AppLocker,
+            ready/ReaLTaiizor.Translate,
+            demo/ReaLTaiizor.UI,
+            demo/ReaLTaiizor.UX
+        ]
+
     steps:
     - uses: actions/checkout@v2
 
@@ -20,93 +41,11 @@ jobs:
       with:
         dotnet-version: 6.0.100-preview.1.21103.13
 
-    - name: Restore ReaLTaiizor
-      run: dotnet restore src
-    - name: Build ReaLTaiizor
-      run: dotnet build src -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor
-      run: dotnet test src --no-build --verbosity normal
+    - name: Restore the ReaLTaiizor
+      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }}
 
-    - name: Restore ReaLTaiizor.Defender
-      run: dotnet restore sample/ReaLTaiizor.Defender
-    - name: Build ReaLTaiizor.Defender
-      run: dotnet build sample/ReaLTaiizor.Defender -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.Defender
-      run: dotnet test sample/ReaLTaiizor.Defender --no-build --verbosity normal
+    - name: Build the ReaLTaiizor
+      run: dotnet build ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-restore /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
 
-    - name: Restore ReaLTaiizor.Instagram
-      run: dotnet restore sample/ReaLTaiizor.Instagram
-    - name: Build ReaLTaiizor.Instagram
-      run: dotnet build sample/ReaLTaiizor.Instagram -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.Instagram
-      run: dotnet test sample/ReaLTaiizor.Instagram --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.Kaspersky
-      run: dotnet restore sample/ReaLTaiizor.Kaspersky
-    - name: Build ReaLTaiizor.Kaspersky
-      run: dotnet build sample/ReaLTaiizor.Kaspersky -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.Kaspersky
-      run: dotnet test sample/ReaLTaiizor.Kaspersky --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.Login
-      run: dotnet restore sample/ReaLTaiizor.Login
-    - name: Build ReaLTaiizor.Login
-      run: dotnet build sample/ReaLTaiizor.Login -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.Login
-      run: dotnet test sample/ReaLTaiizor.Login --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.Payment
-      run: dotnet restore sample/ReaLTaiizor.Payment
-    - name: Build ReaLTaiizor.Payment
-      run: dotnet build sample/ReaLTaiizor.Payment -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.Payment
-      run: dotnet test sample/ReaLTaiizor.Payment --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.Player
-      run: dotnet restore sample/ReaLTaiizor.Player
-    - name: Build ReaLTaiizor.Player
-      run: dotnet build sample/ReaLTaiizor.Player -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.Player
-      run: dotnet test sample/ReaLTaiizor.Player --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.Rufus
-      run: dotnet restore sample/ReaLTaiizor.Rufus
-    - name: Build ReaLTaiizor.Rufus
-      run: dotnet build sample/ReaLTaiizor.Rufus -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.Rufus
-      run: dotnet test sample/ReaLTaiizor.Rufus --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.XAMPP
-      run: dotnet restore sample/ReaLTaiizor.XAMPP
-    - name: Build ReaLTaiizor.XAMPP
-      run: dotnet build sample/ReaLTaiizor.XAMPP -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.XAMPP
-      run: dotnet test sample/ReaLTaiizor.XAMPP --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.AppLocker
-      run: dotnet restore ready/ReaLTaiizor.AppLocker
-    - name: Build ReaLTaiizor.AppLocker
-      run: dotnet build ready/ReaLTaiizor.AppLocker -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.AppLocker
-      run: dotnet test ready/ReaLTaiizor.AppLocker --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.Translate
-      run: dotnet restore ready/ReaLTaiizor.Translate
-    - name: Build ReaLTaiizor.Translate
-      run: dotnet build ready/ReaLTaiizor.Translate -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.Translate
-      run: dotnet test ready/ReaLTaiizor.Translate --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.UI
-      run: dotnet restore demo/ReaLTaiizor.UI
-    - name: Build ReaLTaiizor.UI
-      run: dotnet build demo/ReaLTaiizor.UI -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.UI
-      run: dotnet test demo/ReaLTaiizor.UI --no-build --verbosity normal
-
-    - name: Restore ReaLTaiizor.UX
-      run: dotnet restore demo/ReaLTaiizor.UX
-    - name: Build ReaLTaiizor.UX
-      run: dotnet build demo/ReaLTaiizor.UX -c GitHub /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-    - name: Test ReaLTaiizor.UX
-      run: dotnet test demo/ReaLTaiizor.UX --no-build --verbosity normal
+    - name: Test the ReaLTaiizor
+      run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-build --verbosity normal
