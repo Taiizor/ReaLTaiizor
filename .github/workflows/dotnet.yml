@@ -14,8 +14,24 @@ jobs:
 
     strategy:
       matrix:
-        configuration: [GitHub]
-        solution: [src, sample.ReaLTaiizor]
+        configuration: [
+            GitHub
+        ]
+        solution: [
+            src,
+            sample/ReaLTaiizor.Defender,
+            sammple/ReaLTaiizor.Instagram,
+            sample/ReaLTaiizor.Kaspersky,
+            sample/ReaLTaiizor.Login,
+            sample/ReaLTaiizor.Payment,
+            sample/ReaLTaiizor.Player,
+            sample/ReaLTaiizor.Rufus,
+            sample/ReaLTaiizor.XAMPP,
+            ready/ReaLTaiizor.AppLocker
+            ready/ReaLTaiizor.Translate
+            demo/ReaLTaiizor.UI
+            demo/ReaLTaiizor.UX
+        ]
 
     steps:
     - uses: actions/checkout@v2
