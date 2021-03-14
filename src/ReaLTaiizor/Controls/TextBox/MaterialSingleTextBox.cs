@@ -55,7 +55,6 @@ namespace ReaLTaiizor.Controls
         public void Clear() { _baseTextBox.Clear(); }
         public void Focus() { _baseTextBox.Focus(); }
 
-
         # region Forwarding events to baseTextBox
         public event EventHandler AcceptsTabChanged
         {
@@ -177,6 +176,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+#if !NETCOREAPP3_1
         public new event EventHandler ContextMenuChanged
         {
             add
@@ -188,6 +188,7 @@ namespace ReaLTaiizor.Controls
                 _baseTextBox.ContextMenuChanged -= value;
             }
         }
+#endif
 
         public new event EventHandler ContextMenuStripChanged
         {
@@ -956,8 +957,7 @@ namespace ReaLTaiizor.Controls
                 _baseTextBox.VisibleChanged -= value;
             }
         }
-        #endregion
-
+#endregion
 
         public MaterialSingleTextBox()
         {
@@ -1109,7 +1109,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-#if NET5_0 || NET6_0
+#if NETCOREAPP3_1 || NET5_0 || NET6_0
             //public EventHandler ContextMenuChanged { get; internal set; }
             public event EventHandler ContextMenuChanged;
 #endif
@@ -1195,5 +1195,5 @@ namespace ReaLTaiizor.Controls
         }
     }
 
-    #endregion
+#endregion
 }
