@@ -627,6 +627,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton1.Size = new System.Drawing.Size(102, 36);
             this.materialButton1.TabIndex = 1;
             this.materialButton1.Text = "CONFIG";
+            this.materialButton1.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
@@ -646,6 +647,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton2.Size = new System.Drawing.Size(113, 36);
             this.materialButton2.TabIndex = 2;
             this.materialButton2.Text = "NETSTAT";
+            this.materialButton2.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton2.UseAccentColor = false;
             this.materialButton2.UseVisualStyleBackColor = true;
@@ -665,6 +667,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton3.Size = new System.Drawing.Size(93, 36);
             this.materialButton3.TabIndex = 3;
             this.materialButton3.Text = "SHELL";
+            this.materialButton3.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton3.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton3.UseAccentColor = false;
             this.materialButton3.UseVisualStyleBackColor = true;
@@ -684,6 +687,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton4.Size = new System.Drawing.Size(121, 36);
             this.materialButton4.TabIndex = 4;
             this.materialButton4.Text = "EXPLORER";
+            this.materialButton4.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton4.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton4.UseAccentColor = false;
             this.materialButton4.UseVisualStyleBackColor = true;
@@ -703,6 +707,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton5.Size = new System.Drawing.Size(116, 36);
             this.materialButton5.TabIndex = 5;
             this.materialButton5.Text = "SERVICES";
+            this.materialButton5.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton5.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton5.UseAccentColor = false;
             this.materialButton5.UseVisualStyleBackColor = true;
@@ -722,6 +727,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton6.Size = new System.Drawing.Size(86, 36);
             this.materialButton6.TabIndex = 6;
             this.materialButton6.Text = "HELP";
+            this.materialButton6.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton6.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton6.UseAccentColor = false;
             this.materialButton6.UseVisualStyleBackColor = true;
