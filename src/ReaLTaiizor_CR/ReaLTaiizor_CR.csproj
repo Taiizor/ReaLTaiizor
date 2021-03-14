@@ -3,7 +3,7 @@
     <!--<TargetFramework>net48</TargetFramework>-->
     <!--<TargetFramework>net5.0-windows</TargetFramework>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net40;net48;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -19,5 +19,11 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReaLTaiizor\ReaLTaiizor.csproj" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.2.21154.6" />
   </ItemGroup>
 </Project>

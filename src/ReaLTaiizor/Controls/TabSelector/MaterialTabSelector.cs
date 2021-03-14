@@ -109,11 +109,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-#if NET40 || NET45 || NET451 || NET452
-        private string[] _SelectorHideTabName = new string[999];
-#else
         private string[] _SelectorHideTabName = Array.Empty<string>();
-#endif
 
         [Category("Behavior")]
         public string[] SelectorHideTabName
@@ -139,11 +135,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-#if NET40 || NET45 || NET451 || NET452
-        private System.Windows.Forms.TabPage[] _SelectorNonClickTabPage = new System.Windows.Forms.TabPage[999];
-#else
         private System.Windows.Forms.TabPage[] _SelectorNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
-#endif
 
         [Category("Behavior")]
         public System.Windows.Forms.TabPage[] SelectorNonClickTabPage
