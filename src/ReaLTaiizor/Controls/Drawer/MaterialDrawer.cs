@@ -210,7 +210,11 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+#if NET40 || NET45 || NET451 || NET452
+        private string[] _DrawerHideTabName = new string[999];
+#else
         private string[] _DrawerHideTabName = Array.Empty<string>();
+#endif
 
         [Category("Behavior")]
         public string[] DrawerHideTabName
@@ -245,7 +249,11 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
+#if NET40 || NET45 || NET451 || NET452
+                        _DrawerHideTabName = new string[999];
+#else
                         _DrawerHideTabName = Array.Empty<string>();
+#endif
                     }
 
                     UpdateTabRects();
@@ -257,7 +265,12 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+#if NET40 || NET45 || NET451 || NET452
+        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = new System.Windows.Forms.TabPage[999];
+#else
         private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+#endif
+
         [Category("Behavior")]
         public System.Windows.Forms.TabPage[] DrawerNonClickTabPage
         {
@@ -701,7 +714,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (_drawerItemRects[i].Contains(e.Location))
                 {
-                    if (!_DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
+                    if (_DrawerNonClickTabPage == null || !_DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
                     {
                         _ShowTabControl.SelectedIndex = i;
                         if (AutoHide)
@@ -733,7 +746,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (_drawerItemRects[i].Contains(e.Location))
                 {
-                    if (!_DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
+                    if (_DrawerNonClickTabPage == null || !_DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
                     {
                         Cursor = Cursors.Hand;
                         return;
@@ -785,5 +798,5 @@ namespace ReaLTaiizor.Controls
         }
     }
 
-    #endregion
+#endregion
 }

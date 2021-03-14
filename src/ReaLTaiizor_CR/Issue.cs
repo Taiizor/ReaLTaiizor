@@ -16,7 +16,11 @@ namespace ReaLTaiizor_CR
         {
             if (materialTabSelector1.SelectorHideTabName.Any())
             {
+#if NET40
+                materialTabSelector1.SelectorHideTabName = new string[0];
+#else
                 materialTabSelector1.SelectorHideTabName = Array.Empty<string>();
+#endif
             }
             else
             {
@@ -28,7 +32,11 @@ namespace ReaLTaiizor_CR
         {
             if (materialTabSelector1.SelectorNonClickTabPage.Any())
             {
+#if NET40
+                materialTabSelector1.SelectorNonClickTabPage = new TabPage[0];
+#else
                 materialTabSelector1.SelectorNonClickTabPage = Array.Empty<TabPage>();
+#endif
             }
             else
             {
