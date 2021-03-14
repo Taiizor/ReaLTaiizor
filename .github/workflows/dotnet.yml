@@ -20,7 +20,7 @@ jobs:
         solution: [
             src,
             sample/ReaLTaiizor.Defender,
-            sammple/ReaLTaiizor.Instagram,
+            sample/ReaLTaiizor.Instagram,
             sample/ReaLTaiizor.Kaspersky,
             sample/ReaLTaiizor.Login,
             sample/ReaLTaiizor.Payment,
@@ -43,15 +43,9 @@ jobs:
 
     - name: Restore the ReaLTaiizor
       run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }}
-      env:
-        Configuration: ${{ matrix.configuration }}
 
     - name: Build the ReaLTaiizor
       run: dotnet build ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-restore /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
-      env:
-        Configuration: ${{ matrix.configuration }}
 
     - name: Test the ReaLTaiizor
       run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-build --verbosity normal
-      env:
-        Configuration: ${{ matrix.configuration }}

@@ -20,7 +20,7 @@ jobs:
         solution: [
             src/ReaLTaiizor.sln,
             sample/ReaLTaiizor.Defender/ReaLTaiizor.Defender.sln,
-            sammple/ReaLTaiizor.Instagram/ReaLTaiizor.Instagram.sln,
+            sample/ReaLTaiizor.Instagram/ReaLTaiizor.Instagram.sln,
             sample/ReaLTaiizor.Kaspersky/ReaLTaiizor.Kaspersky.sln,
             sample/ReaLTaiizor.Login/ReaLTaiizor.Login.sln,
             sample/ReaLTaiizor.Payment/ReaLTaiizor.Payment.sln,
