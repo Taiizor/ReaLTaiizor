@@ -8,6 +8,9 @@
 [![FuGet-Version](https://www.fuget.org/packages/ReaLTaiizor/badge.svg)](https://www.fuget.org/packages/ReaLTaiizor)
 [![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
+[![.NET](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml)
+[![.NET Core Desktop](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml)
+
 # Welcome to ReaLTaiizor
 ReaLTaiizor is a UI/UX component library. It allows you to make modern designs using the various components it offers.
 
