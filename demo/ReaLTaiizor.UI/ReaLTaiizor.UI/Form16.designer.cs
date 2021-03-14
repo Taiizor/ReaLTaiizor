@@ -245,7 +245,8 @@
             this.royalMenuStrip1.Name = "royalMenuStrip1";
             this.royalMenuStrip1.Padding = new System.Windows.Forms.Padding(1);
             this.royalMenuStrip1.SelectedColor = System.Drawing.Color.Empty;
-            this.royalMenuStrip1.Size = new System.Drawing.Size(168, 30);
+            this.royalMenuStrip1.Size = new System.Drawing.Size(169, 30);
+            this.royalMenuStrip1.Stretch = false;
             this.royalMenuStrip1.TabIndex = 12;
             this.royalMenuStrip1.Text = "royalMenuStrip1";
             // 

@@ -84,7 +84,7 @@
     <Content Include="Resources\Twitter.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1-beta1" />
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1-beta2" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.3" />
   </ItemGroup>
 </Project>

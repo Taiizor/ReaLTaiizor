@@ -36,6 +36,8 @@ namespace ReaLTaiizor.UI
             this.materialCheckbox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialButton27 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton26 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton25 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton6 = new ReaLTaiizor.Controls.MaterialButton();
             this.MaterialButton3 = new ReaLTaiizor.Controls.MaterialButton();
@@ -134,6 +136,7 @@ namespace ReaLTaiizor.UI
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.materialProgressBar2 = new ReaLTaiizor.Controls.MaterialProgressBar();
             this.materialFlatButton2 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
             this.MaterialButton2 = new ReaLTaiizor.Controls.MaterialButton();
@@ -165,6 +168,8 @@ namespace ReaLTaiizor.UI
             this.item2ToolStripMenuItem = new ReaLTaiizor.Controls.MaterialToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.item3ToolStripMenuItem = new ReaLTaiizor.Controls.MaterialToolStripMenuItem();
+            this.materialButton28 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton29 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -239,6 +244,8 @@ namespace ReaLTaiizor.UI
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.materialButton27);
+            this.tabPage1.Controls.Add(this.materialButton26);
             this.tabPage1.Controls.Add(this.materialButton25);
             this.tabPage1.Controls.Add(this.materialButton6);
             this.tabPage1.Controls.Add(this.MaterialButton3);
@@ -258,6 +265,48 @@ namespace ReaLTaiizor.UI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
             // 
+            // materialButton27
+            // 
+            this.materialButton27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialButton27.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton27.Depth = 0;
+            this.materialButton27.DrawShadows = true;
+            this.materialButton27.HighEmphasis = true;
+            this.materialButton27.Icon = null;
+            this.materialButton27.Location = new System.Drawing.Point(533, 478);
+            this.materialButton27.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton27.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton27.Name = "materialButton27";
+            this.materialButton27.Size = new System.Drawing.Size(155, 36);
+            this.materialButton27.TabIndex = 41;
+            this.materialButton27.Text = "UNLOCK CONTAINS";
+            this.materialButton27.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton27.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton27.UseAccentColor = true;
+            this.materialButton27.UseVisualStyleBackColor = true;
+            this.materialButton27.Click += new System.EventHandler(this.MaterialButton27_Click);
+            // 
+            // materialButton26
+            // 
+            this.materialButton26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialButton26.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton26.Depth = 0;
+            this.materialButton26.DrawShadows = true;
+            this.materialButton26.HighEmphasis = true;
+            this.materialButton26.Icon = null;
+            this.materialButton26.Location = new System.Drawing.Point(390, 478);
+            this.materialButton26.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton26.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton26.Name = "materialButton26";
+            this.materialButton26.Size = new System.Drawing.Size(135, 36);
+            this.materialButton26.TabIndex = 40;
+            this.materialButton26.Text = "LOCK CONTAINS";
+            this.materialButton26.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton26.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton26.UseAccentColor = true;
+            this.materialButton26.UseVisualStyleBackColor = true;
+            this.materialButton26.Click += new System.EventHandler(this.MaterialButton26_Click);
+            // 
             // materialButton25
             // 
             this.materialButton25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -273,6 +322,7 @@ namespace ReaLTaiizor.UI
             this.materialButton25.Size = new System.Drawing.Size(166, 36);
             this.materialButton25.TabIndex = 39;
             this.materialButton25.Text = "NORMAL ANIMATION";
+            this.materialButton25.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton25.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton25.UseAccentColor = false;
             this.materialButton25.UseVisualStyleBackColor = true;
@@ -293,6 +343,7 @@ namespace ReaLTaiizor.UI
             this.materialButton6.Size = new System.Drawing.Size(141, 36);
             this.materialButton6.TabIndex = 38;
             this.materialButton6.Text = "FAST ANIMATION";
+            this.materialButton6.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton6.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton6.UseAccentColor = false;
             this.materialButton6.UseVisualStyleBackColor = true;
@@ -309,9 +360,10 @@ namespace ReaLTaiizor.UI
             this.MaterialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MaterialButton3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.MaterialButton3.Name = "MaterialButton3";
-            this.MaterialButton3.Size = new System.Drawing.Size(163, 36);
+            this.MaterialButton3.Size = new System.Drawing.Size(148, 36);
             this.MaterialButton3.TabIndex = 36;
             this.MaterialButton3.Text = "Open Message box";
+            this.MaterialButton3.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.MaterialButton3.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.MaterialButton3.UseAccentColor = false;
             this.MaterialButton3.UseVisualStyleBackColor = true;
@@ -342,7 +394,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel24.AutoSize = true;
             this.materialLabel24.Depth = 0;
             this.materialLabel24.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel24.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel24.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel24.Location = new System.Drawing.Point(21, 17);
             this.materialLabel24.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialLabel24.Name = "materialLabel24";
@@ -426,9 +478,10 @@ namespace ReaLTaiizor.UI
             this.materialButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton7.Name = "materialButton7";
-            this.materialButton7.Size = new System.Drawing.Size(133, 36);
+            this.materialButton7.Size = new System.Drawing.Size(121, 36);
             this.materialButton7.TabIndex = 0;
             this.materialButton7.Text = "Change Theme";
+            this.materialButton7.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton7.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton7.UseAccentColor = false;
             this.materialButton7.UseVisualStyleBackColor = true;
@@ -463,9 +516,10 @@ namespace ReaLTaiizor.UI
             this.MaterialButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MaterialButton4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.MaterialButton4.Name = "MaterialButton4";
-            this.MaterialButton4.Size = new System.Drawing.Size(140, 36);
+            this.MaterialButton4.Size = new System.Drawing.Size(119, 36);
             this.MaterialButton4.TabIndex = 22;
             this.MaterialButton4.Text = "Change Colors";
+            this.MaterialButton4.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.MaterialButton4.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.MaterialButton4.UseAccentColor = false;
             this.MaterialButton4.UseVisualStyleBackColor = true;
@@ -522,6 +576,7 @@ namespace ReaLTaiizor.UI
             this.materialButton23.Size = new System.Drawing.Size(168, 36);
             this.materialButton23.TabIndex = 7;
             this.materialButton23.Text = "CONT - ICON";
+            this.materialButton23.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton23.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton23.UseAccentColor = false;
             this.materialButton23.UseVisualStyleBackColor = true;
@@ -572,11 +627,9 @@ namespace ReaLTaiizor.UI
             // 
             this.materialFloatingActionButton1.AnimateShowHideButton = true;
             this.materialFloatingActionButton1.Depth = 0;
-            this.materialFloatingActionButton1.DrawShadows = true;
             this.materialFloatingActionButton1.Icon = global::ReaLTaiizor.UI.Properties.Resources.plus;
             this.materialFloatingActionButton1.Location = new System.Drawing.Point(761, 221);
             this.materialFloatingActionButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.materialFloatingActionButton1.Mini = false;
             this.materialFloatingActionButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialFloatingActionButton1.Name = "materialFloatingActionButton1";
             this.materialFloatingActionButton1.Size = new System.Drawing.Size(56, 56);
@@ -603,7 +656,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel25.AutoSize = true;
             this.materialLabel25.Depth = 0;
             this.materialLabel25.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel25.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel25.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel25.Location = new System.Drawing.Point(22, 13);
             this.materialLabel25.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialLabel25.Name = "materialLabel25";
@@ -626,6 +679,7 @@ namespace ReaLTaiizor.UI
             this.materialButton24.Size = new System.Drawing.Size(189, 36);
             this.materialButton24.TabIndex = 13;
             this.materialButton24.Text = "OUTLINE - ICON";
+            this.materialButton24.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton24.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton24.UseAccentColor = false;
             this.materialButton24.UseVisualStyleBackColor = true;
@@ -645,6 +699,7 @@ namespace ReaLTaiizor.UI
             this.materialButton22.Size = new System.Drawing.Size(174, 36);
             this.materialButton22.TabIndex = 1;
             this.materialButton22.Text = "TEXT - ICON";
+            this.materialButton22.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton22.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Text;
             this.materialButton22.UseAccentColor = false;
             this.materialButton22.UseVisualStyleBackColor = true;
@@ -676,6 +731,7 @@ namespace ReaLTaiizor.UI
             this.materialButton19.Size = new System.Drawing.Size(189, 36);
             this.materialButton19.TabIndex = 16;
             this.materialButton19.Text = "OUTLINE - LOW - NORMAL";
+            this.materialButton19.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton19.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton19.UseAccentColor = false;
             this.materialButton19.UseVisualStyleBackColor = true;
@@ -695,6 +751,7 @@ namespace ReaLTaiizor.UI
             this.materialButton20.Size = new System.Drawing.Size(174, 36);
             this.materialButton20.TabIndex = 4;
             this.materialButton20.Text = "TEXT - LOW - NORMAL";
+            this.materialButton20.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton20.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Text;
             this.materialButton20.UseAccentColor = false;
             this.materialButton20.UseVisualStyleBackColor = true;
@@ -714,6 +771,7 @@ namespace ReaLTaiizor.UI
             this.materialButton21.Size = new System.Drawing.Size(168, 36);
             this.materialButton21.TabIndex = 10;
             this.materialButton21.Text = "CONT - LOW - NORMAL";
+            this.materialButton21.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton21.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton21.UseAccentColor = false;
             this.materialButton21.UseVisualStyleBackColor = true;
@@ -733,6 +791,7 @@ namespace ReaLTaiizor.UI
             this.materialButton5.Size = new System.Drawing.Size(189, 36);
             this.materialButton5.TabIndex = 14;
             this.materialButton5.Text = "OUTLINE - HIGH - NORMAL";
+            this.materialButton5.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton5.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton5.UseAccentColor = false;
             this.materialButton5.UseVisualStyleBackColor = true;
@@ -752,6 +811,7 @@ namespace ReaLTaiizor.UI
             this.materialButton8.Size = new System.Drawing.Size(174, 36);
             this.materialButton8.TabIndex = 2;
             this.materialButton8.Text = "TEXT - HIGH - NORMAL";
+            this.materialButton8.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton8.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Text;
             this.materialButton8.UseAccentColor = false;
             this.materialButton8.UseVisualStyleBackColor = true;
@@ -771,6 +831,7 @@ namespace ReaLTaiizor.UI
             this.materialButton9.Size = new System.Drawing.Size(168, 36);
             this.materialButton9.TabIndex = 8;
             this.materialButton9.Text = "CONT - HIGH - NORMAL";
+            this.materialButton9.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton9.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton9.UseAccentColor = false;
             this.materialButton9.UseVisualStyleBackColor = true;
@@ -791,6 +852,7 @@ namespace ReaLTaiizor.UI
             this.materialButton18.Size = new System.Drawing.Size(189, 36);
             this.materialButton18.TabIndex = 18;
             this.materialButton18.Text = "OUTLINE - DISABLED";
+            this.materialButton18.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton18.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton18.UseAccentColor = false;
             this.materialButton18.UseVisualStyleBackColor = true;
@@ -810,6 +872,7 @@ namespace ReaLTaiizor.UI
             this.materialButton17.Size = new System.Drawing.Size(189, 36);
             this.materialButton17.TabIndex = 17;
             this.materialButton17.Text = "OUTLINE - LOW - ACCENT";
+            this.materialButton17.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton17.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton17.UseAccentColor = true;
             this.materialButton17.UseVisualStyleBackColor = true;
@@ -829,6 +892,7 @@ namespace ReaLTaiizor.UI
             this.materialButton16.Size = new System.Drawing.Size(189, 36);
             this.materialButton16.TabIndex = 15;
             this.materialButton16.Text = "OUTLINE - HIGH - ACCENT";
+            this.materialButton16.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton16.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton16.UseAccentColor = true;
             this.materialButton16.UseVisualStyleBackColor = true;
@@ -848,6 +912,7 @@ namespace ReaLTaiizor.UI
             this.materialButton15.Size = new System.Drawing.Size(174, 36);
             this.materialButton15.TabIndex = 5;
             this.materialButton15.Text = "TEXT - LOW - ACCENT";
+            this.materialButton15.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton15.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Text;
             this.materialButton15.UseAccentColor = true;
             this.materialButton15.UseVisualStyleBackColor = true;
@@ -867,6 +932,7 @@ namespace ReaLTaiizor.UI
             this.materialButton14.Size = new System.Drawing.Size(174, 36);
             this.materialButton14.TabIndex = 3;
             this.materialButton14.Text = "TEXT - HIGH - ACCENT";
+            this.materialButton14.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton14.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Text;
             this.materialButton14.UseAccentColor = true;
             this.materialButton14.UseVisualStyleBackColor = true;
@@ -887,6 +953,7 @@ namespace ReaLTaiizor.UI
             this.materialButton13.Size = new System.Drawing.Size(168, 36);
             this.materialButton13.TabIndex = 12;
             this.materialButton13.Text = "CONT - DISABLED";
+            this.materialButton13.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton13.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton13.UseAccentColor = false;
             this.materialButton13.UseVisualStyleBackColor = true;
@@ -907,6 +974,7 @@ namespace ReaLTaiizor.UI
             this.materialButton12.Size = new System.Drawing.Size(174, 36);
             this.materialButton12.TabIndex = 6;
             this.materialButton12.Text = "TEXT - DISABLED";
+            this.materialButton12.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton12.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Text;
             this.materialButton12.UseAccentColor = false;
             this.materialButton12.UseVisualStyleBackColor = true;
@@ -926,6 +994,7 @@ namespace ReaLTaiizor.UI
             this.materialButton11.Size = new System.Drawing.Size(168, 36);
             this.materialButton11.TabIndex = 11;
             this.materialButton11.Text = "CONT - LOW - ACCENT";
+            this.materialButton11.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton11.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton11.UseAccentColor = true;
             this.materialButton11.UseVisualStyleBackColor = true;
@@ -945,6 +1014,7 @@ namespace ReaLTaiizor.UI
             this.materialButton10.Size = new System.Drawing.Size(168, 36);
             this.materialButton10.TabIndex = 9;
             this.materialButton10.Text = "CONT - HIGH - ACCENT";
+            this.materialButton10.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton10.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton10.UseAccentColor = true;
             this.materialButton10.UseVisualStyleBackColor = true;
@@ -1009,6 +1079,7 @@ namespace ReaLTaiizor.UI
             this.materialComboBox6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialComboBox6.Name = "materialComboBox6";
             this.materialComboBox6.Size = new System.Drawing.Size(190, 49);
+            this.materialComboBox6.StartIndex = 0;
             this.materialComboBox6.TabIndex = 74;
             // 
             // materialComboBox2
@@ -1034,6 +1105,7 @@ namespace ReaLTaiizor.UI
             this.materialComboBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialComboBox2.Name = "materialComboBox2";
             this.materialComboBox2.Size = new System.Drawing.Size(435, 49);
+            this.materialComboBox2.StartIndex = 0;
             this.materialComboBox2.TabIndex = 73;
             // 
             // materialComboBox5
@@ -1127,6 +1199,7 @@ namespace ReaLTaiizor.UI
             this.materialComboBox5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialComboBox5.Name = "materialComboBox5";
             this.materialComboBox5.Size = new System.Drawing.Size(190, 49);
+            this.materialComboBox5.StartIndex = 0;
             this.materialComboBox5.TabIndex = 72;
             // 
             // materialComboBox4
@@ -1221,6 +1294,7 @@ namespace ReaLTaiizor.UI
             this.materialComboBox4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialComboBox4.Name = "materialComboBox4";
             this.materialComboBox4.Size = new System.Drawing.Size(190, 49);
+            this.materialComboBox4.StartIndex = 0;
             this.materialComboBox4.TabIndex = 71;
             this.materialComboBox4.UseAccent = false;
             // 
@@ -1252,6 +1326,7 @@ namespace ReaLTaiizor.UI
             this.materialComboBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialComboBox3.Name = "materialComboBox3";
             this.materialComboBox3.Size = new System.Drawing.Size(190, 35);
+            this.materialComboBox3.StartIndex = 0;
             this.materialComboBox3.TabIndex = 70;
             this.materialComboBox3.UseTallSize = false;
             // 
@@ -1311,6 +1386,7 @@ namespace ReaLTaiizor.UI
             this.materialComboBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialComboBox1.Name = "materialComboBox1";
             this.materialComboBox1.Size = new System.Drawing.Size(190, 49);
+            this.materialComboBox1.StartIndex = 0;
             this.materialComboBox1.TabIndex = 17;
             // 
             // materialLabel34
@@ -1409,7 +1485,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel26.AutoSize = true;
             this.materialLabel26.Depth = 0;
             this.materialLabel26.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel26.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel26.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel26.Location = new System.Drawing.Point(21, 12);
             this.materialLabel26.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialLabel26.Name = "materialLabel26";
@@ -1696,7 +1772,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel42.Depth = 0;
             this.materialLabel42.Enabled = false;
             this.materialLabel42.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel42.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Subtitle2;
+            this.materialLabel42.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle2;
             this.materialLabel42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel42.Location = new System.Drawing.Point(629, 468);
             this.materialLabel42.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1710,7 +1786,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel41.AutoSize = true;
             this.materialLabel41.Depth = 0;
             this.materialLabel41.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel41.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Subtitle2;
+            this.materialLabel41.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle2;
             this.materialLabel41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel41.HighEmphasis = true;
             this.materialLabel41.Location = new System.Drawing.Point(629, 441);
@@ -1726,7 +1802,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel40.AutoSize = true;
             this.materialLabel40.Depth = 0;
             this.materialLabel40.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel40.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Subtitle2;
+            this.materialLabel40.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle2;
             this.materialLabel40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel40.HighEmphasis = true;
             this.materialLabel40.Location = new System.Drawing.Point(629, 415);
@@ -1741,7 +1817,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel27.AutoSize = true;
             this.materialLabel27.Depth = 0;
             this.materialLabel27.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel27.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel27.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel27.Location = new System.Drawing.Point(28, 18);
             this.materialLabel27.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialLabel27.Name = "materialLabel27";
@@ -1818,7 +1894,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel22.AutoSize = true;
             this.materialLabel22.Depth = 0;
             this.materialLabel22.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel22.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Overline;
+            this.materialLabel22.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Overline;
             this.materialLabel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel22.Location = new System.Drawing.Point(478, 468);
             this.materialLabel22.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1832,7 +1908,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel21.AutoSize = true;
             this.materialLabel21.Depth = 0;
             this.materialLabel21.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel21.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Caption;
+            this.materialLabel21.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Caption;
             this.materialLabel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel21.Location = new System.Drawing.Point(478, 448);
             this.materialLabel21.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1846,7 +1922,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel20.AutoSize = true;
             this.materialLabel20.Depth = 0;
             this.materialLabel20.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel20.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Button;
+            this.materialLabel20.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Button;
             this.materialLabel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel20.Location = new System.Drawing.Point(478, 428);
             this.materialLabel20.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1860,7 +1936,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel19.AutoSize = true;
             this.materialLabel19.Depth = 0;
             this.materialLabel19.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel19.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Body2;
+            this.materialLabel19.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Body2;
             this.materialLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel19.Location = new System.Drawing.Point(478, 407);
             this.materialLabel19.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1887,7 +1963,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel17.AutoSize = true;
             this.materialLabel17.Depth = 0;
             this.materialLabel17.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel17.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Subtitle2;
+            this.materialLabel17.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle2;
             this.materialLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel17.Location = new System.Drawing.Point(478, 365);
             this.materialLabel17.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1901,7 +1977,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = ReaLTaiizor.Util.MaterialManager.fontType.Subtitle1;
+            this.materialLabel1.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle1;
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(477, 342);
             this.materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1915,7 +1991,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel16.AutoSize = true;
             this.materialLabel16.Depth = 0;
             this.materialLabel16.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel16.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H6;
+            this.materialLabel16.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H6;
             this.materialLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel16.Location = new System.Drawing.Point(477, 314);
             this.materialLabel16.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1929,7 +2005,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel15.AutoSize = true;
             this.materialLabel15.Depth = 0;
             this.materialLabel15.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel15.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H5;
+            this.materialLabel15.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H5;
             this.materialLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel15.Location = new System.Drawing.Point(476, 283);
             this.materialLabel15.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1943,7 +2019,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel14.AutoSize = true;
             this.materialLabel14.Depth = 0;
             this.materialLabel14.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel14.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H4;
+            this.materialLabel14.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H4;
             this.materialLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel14.Location = new System.Drawing.Point(474, 242);
             this.materialLabel14.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1957,7 +2033,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel13.AutoSize = true;
             this.materialLabel13.Depth = 0;
             this.materialLabel13.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel13.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel13.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel13.Location = new System.Drawing.Point(471, 185);
             this.materialLabel13.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1971,7 +2047,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H2;
+            this.materialLabel12.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H2;
             this.materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel12.Location = new System.Drawing.Point(468, 114);
             this.materialLabel12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1985,7 +2061,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel11.AutoSize = true;
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Roboto Light", 96F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel11.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H1;
+            this.materialLabel11.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H1;
             this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel11.Location = new System.Drawing.Point(461, 18);
             this.materialLabel11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -2026,7 +2102,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel28.AutoSize = true;
             this.materialLabel28.Depth = 0;
             this.materialLabel28.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel28.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel28.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel28.Location = new System.Drawing.Point(28, 18);
             this.materialLabel28.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialLabel28.Name = "materialLabel28";
@@ -2084,6 +2160,7 @@ namespace ReaLTaiizor.UI
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.White;
+            this.tabPage5.Controls.Add(this.materialProgressBar2);
             this.tabPage5.Controls.Add(this.materialFlatButton2);
             this.tabPage5.Controls.Add(this.materialLabel2);
             this.tabPage5.Controls.Add(this.MaterialButton2);
@@ -2097,6 +2174,18 @@ namespace ReaLTaiizor.UI
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Progress Bar";
             // 
+            // materialProgressBar2
+            // 
+            this.materialProgressBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialProgressBar2.Depth = 0;
+            this.materialProgressBar2.Location = new System.Drawing.Point(29, 201);
+            this.materialProgressBar2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialProgressBar2.Name = "materialProgressBar2";
+            this.materialProgressBar2.Size = new System.Drawing.Size(804, 30);
+            this.materialProgressBar2.TabIndex = 65;
+            this.materialProgressBar2.Value = 45;
+            // 
             // materialFlatButton2
             // 
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -2108,9 +2197,10 @@ namespace ReaLTaiizor.UI
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
-            this.materialFlatButton2.Size = new System.Drawing.Size(108, 36);
+            this.materialFlatButton2.Size = new System.Drawing.Size(103, 36);
             this.materialFlatButton2.TabIndex = 1;
             this.materialFlatButton2.Text = "Remove";
+            this.materialFlatButton2.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialFlatButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialFlatButton2.UseAccentColor = false;
             this.materialFlatButton2.UseVisualStyleBackColor = true;
@@ -2139,13 +2229,14 @@ namespace ReaLTaiizor.UI
             this.MaterialButton2.DrawShadows = true;
             this.MaterialButton2.HighEmphasis = true;
             this.MaterialButton2.Icon = global::ReaLTaiizor.UI.Properties.Resources.plus;
-            this.MaterialButton2.Location = new System.Drawing.Point(755, 156);
+            this.MaterialButton2.Location = new System.Drawing.Point(757, 156);
             this.MaterialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MaterialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.MaterialButton2.Name = "MaterialButton2";
-            this.MaterialButton2.Size = new System.Drawing.Size(78, 36);
+            this.MaterialButton2.Size = new System.Drawing.Size(76, 36);
             this.MaterialButton2.TabIndex = 2;
             this.MaterialButton2.Text = "Add";
+            this.MaterialButton2.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.MaterialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.MaterialButton2.UseAccentColor = false;
             this.MaterialButton2.UseVisualStyleBackColor = true;
@@ -2168,7 +2259,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel29.AutoSize = true;
             this.materialLabel29.Depth = 0;
             this.materialLabel29.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel29.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel29.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel29.Location = new System.Drawing.Point(32, 14);
             this.materialLabel29.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialLabel29.Name = "materialLabel29";
@@ -2179,6 +2270,8 @@ namespace ReaLTaiizor.UI
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.White;
+            this.tabPage6.Controls.Add(this.materialButton28);
+            this.tabPage6.Controls.Add(this.materialButton29);
             this.tabPage6.Controls.Add(this.materialDivider3);
             this.tabPage6.Controls.Add(this.materialDivider2);
             this.tabPage6.Controls.Add(this.materialDivider1);
@@ -2233,7 +2326,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel7.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel7.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel7.Location = new System.Drawing.Point(34, 16);
             this.materialLabel7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
@@ -2265,13 +2358,14 @@ namespace ReaLTaiizor.UI
             this.materialButton1.DrawShadows = true;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(226, 131);
+            this.materialButton1.Location = new System.Drawing.Point(229, 131);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
-            this.materialButton1.Size = new System.Drawing.Size(58, 36);
+            this.materialButton1.Size = new System.Drawing.Size(55, 36);
             this.materialButton1.TabIndex = 1;
             this.materialButton1.Text = "Nice!";
+            this.materialButton1.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Text;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
@@ -2281,7 +2375,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H6;
+            this.materialLabel4.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H6;
             this.materialLabel4.HighEmphasis = true;
             this.materialLabel4.Location = new System.Drawing.Point(17, 14);
             this.materialLabel4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -2335,7 +2429,7 @@ namespace ReaLTaiizor.UI
             this.materialLabel45.AutoSize = true;
             this.materialLabel45.Depth = 0;
             this.materialLabel45.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel45.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H6;
+            this.materialLabel45.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H6;
             this.materialLabel45.HighEmphasis = true;
             this.materialLabel45.Location = new System.Drawing.Point(15, 14);
             this.materialLabel45.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -2368,14 +2462,14 @@ namespace ReaLTaiizor.UI
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage9.Size = new System.Drawing.Size(483, 252);
             this.tabPage9.TabIndex = 1;
-            this.tabPage9.Text = "Second";
+            this.tabPage9.Text = "SECOND";
             // 
             // materialLabel10
             // 
             this.materialLabel10.AutoSize = true;
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel10.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel10.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel10.HighEmphasis = true;
             this.materialLabel10.Location = new System.Drawing.Point(6, 7);
@@ -2396,17 +2490,2017 @@ namespace ReaLTaiizor.UI
             this.materialTabSelector1.Margin = new System.Windows.Forms.Padding(0);
             this.materialTabSelector1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
+            this.materialTabSelector1.SelectorHideTabName = new string[] {
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null};
+            this.materialTabSelector1.SelectorNonClickTabPage = new System.Windows.Forms.TabPage[] {
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null};
             this.materialTabSelector1.Size = new System.Drawing.Size(491, 38);
             this.materialTabSelector1.TabIndex = 24;
             this.materialTabSelector1.Text = "materialTabSelector1";
-            this.materialTabSelector1.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextState.Normal;
+            this.materialTabSelector1.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextStateType.Normal;
             // 
             // materialLabel30
             // 
             this.materialLabel30.AutoSize = true;
             this.materialLabel30.Depth = 0;
             this.materialLabel30.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel30.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H3;
+            this.materialLabel30.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H3;
             this.materialLabel30.Location = new System.Drawing.Point(562, 16);
             this.materialLabel30.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialLabel30.Name = "materialLabel30";
@@ -2497,6 +4591,46 @@ namespace ReaLTaiizor.UI
             this.item3ToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
             this.item3ToolStripMenuItem.Text = "Item 3";
             // 
+            // materialButton28
+            // 
+            this.materialButton28.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton28.Depth = 0;
+            this.materialButton28.DrawShadows = true;
+            this.materialButton28.HighEmphasis = true;
+            this.materialButton28.Icon = null;
+            this.materialButton28.Location = new System.Drawing.Point(733, 290);
+            this.materialButton28.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton28.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton28.Name = "materialButton28";
+            this.materialButton28.Size = new System.Drawing.Size(140, 36);
+            this.materialButton28.TabIndex = 72;
+            this.materialButton28.Text = "UNLOCK SECOND";
+            this.materialButton28.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton28.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton28.UseAccentColor = false;
+            this.materialButton28.UseVisualStyleBackColor = true;
+            this.materialButton28.Click += new System.EventHandler(this.MaterialButton28_Click);
+            // 
+            // materialButton29
+            // 
+            this.materialButton29.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton29.Depth = 0;
+            this.materialButton29.DrawShadows = true;
+            this.materialButton29.HighEmphasis = true;
+            this.materialButton29.Icon = null;
+            this.materialButton29.Location = new System.Drawing.Point(572, 290);
+            this.materialButton29.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton29.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton29.Name = "materialButton29";
+            this.materialButton29.Size = new System.Drawing.Size(120, 36);
+            this.materialButton29.TabIndex = 71;
+            this.materialButton29.Text = "LOCK SECOND";
+            this.materialButton29.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton29.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton29.UseAccentColor = false;
+            this.materialButton29.UseVisualStyleBackColor = true;
+            this.materialButton29.Click += new System.EventHandler(this.MaterialButton29_Click);
+            // 
             // Form17
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -2508,9 +4642,10 @@ namespace ReaLTaiizor.UI
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(300, 200);
+            this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "Form17";
             this.Padding = new System.Windows.Forms.Padding(3, 64, 3, 3);
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Material Demo";
             this.materialTabControl1.ResumeLayout(false);
@@ -2674,5 +4809,10 @@ namespace ReaLTaiizor.UI
         private Controls.MaterialButton materialButton25;
         private Controls.MaterialButton materialButton6;
         private Controls.MaterialSingleTextBox materialSingleTextBox1;
+        private Controls.MaterialProgressBar materialProgressBar2;
+        private Controls.MaterialButton materialButton27;
+        private Controls.MaterialButton materialButton26;
+        private Controls.MaterialButton materialButton28;
+        private Controls.MaterialButton materialButton29;
     }
 }

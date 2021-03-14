@@ -32,9 +32,9 @@ namespace ReaLTaiizor.AppLocker
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppLocker));
             this.nightForm1 = new ReaLTaiizor.Forms.NightForm();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.RAL = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.nightForm1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,14 @@ namespace ReaLTaiizor.AppLocker
             this.nightForm1.Text = "AppLocker";
             this.nightForm1.TextAlignment = ReaLTaiizor.Forms.NightForm.Alignment.Left;
             this.nightForm1.TitleBarTextColor = System.Drawing.Color.Gainsboro;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Location = new System.Drawing.Point(3, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(281, 150);
+            this.panel1.TabIndex = 2;
             // 
             // nightControlBox1
             // 
@@ -85,14 +93,6 @@ namespace ReaLTaiizor.AppLocker
             // 
             this.RAL.Enabled = true;
             this.RAL.Tick += new System.EventHandler(this.RAL_Tick);
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(3, 37);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(281, 150);
-            this.panel1.TabIndex = 2;
             // 
             // AppLocker
             // 

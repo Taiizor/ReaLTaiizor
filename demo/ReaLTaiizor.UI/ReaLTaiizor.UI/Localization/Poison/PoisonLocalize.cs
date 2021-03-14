@@ -10,12 +10,12 @@ namespace ReaLTaiizor.UI.Localization.Poison
     {
         private DataSet languageDataset;
 
-        public string DefaultLanguage()
+        public static string DefaultLanguage()
         {
             return "en";
         }
 
-        public string CurrentLanguage()
+        public static string CurrentLanguage()
         {
             string language = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
             if (language.Length == 0)
@@ -28,15 +28,15 @@ namespace ReaLTaiizor.UI.Localization.Poison
 
         public PoisonLocalize(string ctrlName)
         {
-            importManifestResource(ctrlName);
+            ImportManifestResource(ctrlName);
         }
 
         public PoisonLocalize(Control ctrl)
         {
-            importManifestResource(ctrl.Name);
+            ImportManifestResource(ctrl.Name);
         }
 
-        private void importManifestResource(string ctrlName)
+        private void ImportManifestResource(string ctrlName)
         {
             Assembly callingAssembly = Assembly.GetCallingAssembly();
 
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.UI.Localization.Poison
             }
         }
 
-        private string convertVar(object var)
+        private static string ConvertVar(object var)
         {
             if (var == null)
             {
@@ -75,7 +75,7 @@ namespace ReaLTaiizor.UI.Localization.Poison
             return var.ToString();
         }
 
-        public string translate(string key)
+        public string Translate(string key)
         {
             if ((string.IsNullOrEmpty(key)))
             {
@@ -101,44 +101,44 @@ namespace ReaLTaiizor.UI.Localization.Poison
             return languageRows[0]["Value"].ToString();
         }
 
-        public string translate(string key, object var1)
+        public string Translate(string key, object var1)
         {
-            string str = translate(key);
-            return str.Replace("#1", convertVar(var1));
+            string str = Translate(key);
+            return str.Replace("#1", ConvertVar(var1));
         }
 
-        public string translate(string key, object var1, object var2)
+        public string Translate(string key, object var1, object var2)
         {
-            string str = translate(key);
-            str = str.Replace("#1", convertVar(var1));
-            return str.Replace("#2", convertVar(var2));
+            string str = Translate(key);
+            str = str.Replace("#1", ConvertVar(var1));
+            return str.Replace("#2", ConvertVar(var2));
         }
 
-        public string getValue(string key, object var1, object var2, object var3)
+        public string GetValue(string key, object var1, object var2, object var3)
         {
-            string str = translate(key);
-            str = str.Replace("#1", convertVar(var1));
-            str = str.Replace("#2", convertVar(var2));
-            return str.Replace("#3", convertVar(var3));
+            string str = Translate(key);
+            str = str.Replace("#1", ConvertVar(var1));
+            str = str.Replace("#2", ConvertVar(var2));
+            return str.Replace("#3", ConvertVar(var3));
         }
 
-        public string getValue(string key, object var1, object var2, object var3, object var4)
+        public string GetValue(string key, object var1, object var2, object var3, object var4)
         {
-            string str = translate(key);
-            str = str.Replace("#1", convertVar(var1));
-            str = str.Replace("#2", convertVar(var2));
-            str = str.Replace("#3", convertVar(var3));
-            return str.Replace("#4", convertVar(var4));
+            string str = Translate(key);
+            str = str.Replace("#1", ConvertVar(var1));
+            str = str.Replace("#2", ConvertVar(var2));
+            str = str.Replace("#3", ConvertVar(var3));
+            return str.Replace("#4", ConvertVar(var4));
         }
 
-        public string getValue(string key, object var1, object var2, object var3, object var4, object var5)
+        public string GetValue(string key, object var1, object var2, object var3, object var4, object var5)
         {
-            string str = translate(key);
-            str = str.Replace("#1", convertVar(var1));
-            str = str.Replace("#2", convertVar(var2));
-            str = str.Replace("#3", convertVar(var3));
-            str = str.Replace("#4", convertVar(var4));
-            return str.Replace("#5", convertVar(var5));
+            string str = Translate(key);
+            str = str.Replace("#1", ConvertVar(var1));
+            str = str.Replace("#2", ConvertVar(var2));
+            str = str.Replace("#3", ConvertVar(var3));
+            str = str.Replace("#4", ConvertVar(var4));
+            return str.Replace("#5", ConvertVar(var5));
         }
     }
 }
