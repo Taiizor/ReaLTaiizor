@@ -22,7 +22,7 @@ jobs:
     - name: Restore ReaLTaiizor
       run: dotnet restore src
     - name: Build ReaLTaiizor
-      run: dotnet build src --no-restore
+      run: dotnet build src --no-restore /nowarn:CS0109,CS0414,CA1416
     - name: Test ReaLTaiizor
       run: dotnet test src --no-build --verbosity normal
 

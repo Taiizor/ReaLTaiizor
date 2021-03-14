@@ -87,4 +87,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1-beta2" />
     <PackageReference Include="ReaLTaiizor" Version="3.7.8.3" />
   </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.2.21154.6" />
+  </ItemGroup>
 </Project>

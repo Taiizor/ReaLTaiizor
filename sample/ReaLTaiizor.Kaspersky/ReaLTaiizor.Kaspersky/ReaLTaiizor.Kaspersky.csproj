@@ -48,4 +48,10 @@
     <Content Include="Resources\TOPBG.png" />
     <Content Include="Resources\Update.png" />
   </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.2.21154.6" />
+  </ItemGroup>
 </Project>
