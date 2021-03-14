@@ -77,7 +77,7 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test
+      run: dotnet test src /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,SYSLIB0003
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
