@@ -244,7 +244,7 @@ namespace ReaLTaiizor.Util
             base.OnPaint(e);
         }
 
-        private Rectangle ShadeRect(Rectangle origin, int index)
+        private static Rectangle ShadeRect(Rectangle origin, int index)
         {
             return new Rectangle(origin.X - index, origin.Y - index, origin.Width + index * 2, origin.Height + index * 2);
         }
@@ -312,8 +312,8 @@ namespace ReaLTaiizor.Util
             //Animate();
 
             (this as Control).Show();
-            (this as Control).BringToFront();
-            (this as Control).Parent.Invalidate(ShadeRect(ThemeLost.ShadowSize), false);
+            BringToFront();
+            Parent.Invalidate(ShadeRect(ThemeLost.ShadowSize), false);
         }
 
         public void Hide()
@@ -337,7 +337,7 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private void Animate()
+        private static void Animate()
         {
             return;
             /*

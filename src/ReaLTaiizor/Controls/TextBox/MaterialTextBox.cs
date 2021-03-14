@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Controls
 
         private string _hint = string.Empty;
 
-        [Category("Material"), DefaultValue("")]
+        [Category("Material"), DefaultValue(""), Localizable(true)]
         public string Hint
         {
             get => _hint;
@@ -111,8 +111,8 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            base.Font = SkinManager.getFontByType(MaterialManager.fontType.Subtitle1);
-            Font = SkinManager.getFontByType(MaterialManager.fontType.Subtitle1);
+            base.Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1);
+            Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1);
             base.AutoSize = false;
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
@@ -188,9 +188,9 @@ namespace ReaLTaiizor.Controls
 
             Graphics g = pevent.Graphics;
 
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
-            SolidBrush backBrush = new(BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A));
+            SolidBrush backBrush = new(BlendColor(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A));
 
             g.FillRectangle(
                 !Enabled ? SkinManager.BackgroundDisabledBrush : // Disabled
@@ -270,8 +270,8 @@ namespace ReaLTaiizor.Controls
                 string textBeforeSelection = textToDisplay.Substring(0, SelectionStart);
                 textSelected = textToDisplay.Substring(SelectionStart, SelectionLength);
 
-                int selectX = NativeText.MeasureLogString(textBeforeSelection, SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1)).Width;
-                int selectWidth = NativeText.MeasureLogString(textSelected, SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1)).Width;
+                int selectX = NativeText.MeasureLogString(textBeforeSelection, SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1)).Width;
+                int selectWidth = NativeText.MeasureLogString(textSelected, SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1)).Width;
 
                 textSelectRect = new(
                     textRect.X + selectX, UseTallSize ? hasHint ?
@@ -287,7 +287,7 @@ namespace ReaLTaiizor.Controls
                 // Draw user text
                 NativeText.DrawTransparentText(
                     textToDisplay,
-                    SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1),
+                    SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textRect.Location,
                     textRect.Size,
@@ -303,7 +303,7 @@ namespace ReaLTaiizor.Controls
                 using MaterialNativeTextRenderer NativeText = new(g);
                 NativeText.DrawTransparentText(
                     textSelected,
-                    SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle1),
+                    SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1),
                     SkinManager.ColorScheme.TextColor,
                     textSelectRect.Location,
                     textSelectRect.Size,
@@ -318,7 +318,7 @@ namespace ReaLTaiizor.Controls
                 using MaterialNativeTextRenderer NativeText = new(g);
                 NativeText.DrawTransparentText(
                 Hint,
-                SkinManager.getTextBoxFontBySize(hintTextSize),
+                SkinManager.GetTextBoxFontBySize(hintTextSize),
                 Enabled ? Focused ? UseAccent ?
                 SkinManager.ColorScheme.AccentColor : // Focus Accent
                 SkinManager.ColorScheme.PrimaryColor : // Focus Primary

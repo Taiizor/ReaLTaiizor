@@ -45,24 +45,24 @@ namespace ReaLTaiizor.Controls
         DefaultValue(false)]
         public bool UseAccent { get; set; }
 
-        private MaterialManager.fontType _fontType = MaterialManager.fontType.Body1;
+        private MaterialManager.FontType _fontType = MaterialManager.FontType.Body1;
 
         [Category("Material"),
-        DefaultValue(typeof(MaterialManager.fontType), "Body1")]
-        public MaterialManager.fontType FontType
+        DefaultValue(typeof(MaterialManager.FontType), "Body1")]
+        public MaterialManager.FontType FontType
         {
             get => _fontType;
             set
             {
                 _fontType = value;
-                Font = SkinManager.getFontByType(_fontType);
+                Font = SkinManager.GetFontByType(_fontType);
                 Refresh();
             }
         }
 
         public MaterialLabel()
         {
-            FontType = MaterialManager.fontType.Body1;
+            FontType = MaterialManager.FontType.Body1;
             TextAlign = ContentAlignment.TopLeft;
         }
 
@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
                 Size strSize;
                 using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
                 {
-                    strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(_fontType));
+                    strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(_fontType));
                     strSize.Width += 1; // necessary to avoid a bug when autosize = true
                 }
                 return strSize;
@@ -106,13 +106,13 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
             // Draw Text
             using MaterialNativeTextRenderer NativeText = new(g);
             NativeText.DrawMultilineTransparentText(
                 Text,
-                SkinManager.getLogFontByType(_fontType),
+                SkinManager.GetLogFontByType(_fontType),
                 Enabled ? HighEmphasis ? UseAccent ?
                 SkinManager.ColorScheme.AccentColor : // High emphasis, accent
                 SkinManager.ColorScheme.PrimaryColor : // High emphasis, primary
@@ -125,7 +125,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void InitLayout()
         {
-            Font = SkinManager.getFontByType(_fontType);
+            Font = SkinManager.GetFontByType(_fontType);
             BackColorChanged += (sender, args) => Refresh();
         }
     }

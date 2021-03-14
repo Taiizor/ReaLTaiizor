@@ -30,37 +30,36 @@ namespace ReaLTaiizor.UI.Forms.Docking
         /// </summary>
         private void InitializeComponent()
         {
-            treeProject = new ReaLTaiizor.Controls.CrownTreeView();
-            SuspendLayout();
+            this.treeProject = new ReaLTaiizor.Controls.CrownTreeView();
+            this.SuspendLayout();
             // 
             // treeProject
             // 
-            treeProject.AllowMoveNodes = true;
-            treeProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            treeProject.Location = new System.Drawing.Point(0, 25);
-            treeProject.MaxDragChange = 20;
-            treeProject.MultiSelect = true;
-            treeProject.Name = "treeProject";
-            treeProject.ShowIcons = true;
-            treeProject.Size = new System.Drawing.Size(280, 425);
-            treeProject.TabIndex = 0;
-            treeProject.Text = "crownTreeView1";
+            this.treeProject.AllowMoveNodes = true;
+            this.treeProject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeProject.Location = new System.Drawing.Point(0, 25);
+            this.treeProject.MaxDragChange = 20;
+            this.treeProject.MultiSelect = true;
+            this.treeProject.Name = "treeProject";
+            this.treeProject.ShowIcons = true;
+            this.treeProject.Size = new System.Drawing.Size(280, 425);
+            this.treeProject.TabIndex = 0;
+            this.treeProject.Text = "crownTreeView1";
             // 
             // DockProject
             // 
-            BackColor = System.Drawing.Color.Transparent;
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(treeProject);
-            DefaultDockArea = Enum.Crown.DockArea.Left;
-            DockText = "Project Explorer";
-			BackColor = System.Drawing.Color.Transparent;
-            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Icon = global::ReaLTaiizor.UI.Properties.Resources.application_16x;
-            Name = "DockProject";
-            SerializationKey = "DockProject";
-            Size = new System.Drawing.Size(280, 450);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.treeProject);
+            this.DefaultDockArea = ReaLTaiizor.Enum.Crown.DockArea.Left;
+            this.DockText = "Project Explorer";
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = global::ReaLTaiizor.UI.Properties.Resources.application_16x;
+            this.Name = "DockProject";
+            this.SerializationKey = "DockProject";
+            this.Size = new System.Drawing.Size(280, 450);
+            this.ResumeLayout(false);
 
         }
 

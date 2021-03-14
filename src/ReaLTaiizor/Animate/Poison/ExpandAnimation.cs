@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Animate.Poison
     {
         public void Start(Control control, Size targetSize, TransitionType transitionType, int duration)
         {
-            base.Start(control, transitionType, duration,
+            Start(control, transitionType, duration,
                 delegate
                 {
                     int width = DoExpandAnimation(control.Width, targetSize.Width);

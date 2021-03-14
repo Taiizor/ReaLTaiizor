@@ -160,7 +160,7 @@ namespace ReaLTaiizor.Child.Crown
             SetFlowSize();
         }
 
-        private void ShowButton(CrownButton button, bool isLast = false)
+        private static void ShowButton(CrownButton button, bool isLast = false)
         {
             button.SendToBack();
 

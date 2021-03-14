@@ -28,202 +28,203 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel3 = new System.Windows.Forms.Panel();
-            cmbList = new ReaLTaiizor.Controls.CrownDropDownList();
-            crownTitle3 = new ReaLTaiizor.Controls.CrownTitle();
-            panel1 = new System.Windows.Forms.Panel();
-            crownRadioButton3 = new ReaLTaiizor.Controls.CrownRadioButton();
-            crownRadioButton2 = new ReaLTaiizor.Controls.CrownRadioButton();
-            crownRadioButton1 = new ReaLTaiizor.Controls.CrownRadioButton();
-            crownTitle1 = new ReaLTaiizor.Controls.CrownTitle();
-            panel2 = new System.Windows.Forms.Panel();
-            crownCheckBox3 = new ReaLTaiizor.Controls.CrownCheckBox();
-            crownCheckBox2 = new ReaLTaiizor.Controls.CrownCheckBox();
-            crownCheckBox1 = new ReaLTaiizor.Controls.CrownCheckBox();
-            crownTitle2 = new ReaLTaiizor.Controls.CrownTitle();
-            crownScrollBar1 = new ReaLTaiizor.Controls.CrownScrollBar();
-            panel3.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cmbList = new ReaLTaiizor.Controls.CrownDropDownList();
+            this.crownTitle3 = new ReaLTaiizor.Controls.CrownTitle();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.crownRadioButton3 = new ReaLTaiizor.Controls.CrownRadioButton();
+            this.crownRadioButton2 = new ReaLTaiizor.Controls.CrownRadioButton();
+            this.crownRadioButton1 = new ReaLTaiizor.Controls.CrownRadioButton();
+            this.crownTitle1 = new ReaLTaiizor.Controls.CrownTitle();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.crownCheckBox3 = new ReaLTaiizor.Controls.CrownCheckBox();
+            this.crownCheckBox2 = new ReaLTaiizor.Controls.CrownCheckBox();
+            this.crownCheckBox1 = new ReaLTaiizor.Controls.CrownCheckBox();
+            this.crownTitle2 = new ReaLTaiizor.Controls.CrownTitle();
+            this.crownScrollBar1 = new ReaLTaiizor.Controls.CrownScrollBar();
+            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.SuspendLayout();
             // 
             // panel3
             // 
-            panel3.AutoSize = true;
-            panel3.Controls.Add(cmbList);
-            panel3.Controls.Add(crownTitle3);
-            panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            panel3.Location = new System.Drawing.Point(10, 196);
-            panel3.Name = "panel3";
-            panel3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            panel3.Size = new System.Drawing.Size(250, 62);
-            panel3.TabIndex = 3;
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.cmbList);
+            this.panel3.Controls.Add(this.crownTitle3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 211);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel3.Size = new System.Drawing.Size(265, 62);
+            this.panel3.TabIndex = 3;
             // 
             // cmbList
             // 
-            cmbList.Dock = System.Windows.Forms.DockStyle.Top;
-            cmbList.Location = new System.Drawing.Point(0, 26);
-            cmbList.Name = "cmbList";
-            cmbList.Size = new System.Drawing.Size(250, 26);
-            cmbList.TabIndex = 8;
-            cmbList.Text = "crownDropdownList1";
+            this.cmbList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmbList.Location = new System.Drawing.Point(0, 26);
+            this.cmbList.Name = "cmbList";
+            this.cmbList.Size = new System.Drawing.Size(265, 26);
+            this.cmbList.TabIndex = 8;
+            this.cmbList.Text = "crownDropdownList1";
             // 
             // crownTitle3
             // 
-            crownTitle3.Dock = System.Windows.Forms.DockStyle.Top;
-            crownTitle3.Location = new System.Drawing.Point(0, 0);
-            crownTitle3.Name = "crownTitle3";
-            crownTitle3.Size = new System.Drawing.Size(250, 26);
-            crownTitle3.TabIndex = 7;
-            crownTitle3.Text = "Lists";
+            this.crownTitle3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownTitle3.Location = new System.Drawing.Point(0, 0);
+            this.crownTitle3.Name = "crownTitle3";
+            this.crownTitle3.Size = new System.Drawing.Size(265, 26);
+            this.crownTitle3.TabIndex = 7;
+            this.crownTitle3.Text = "Lists";
             // 
             // panel1
             // 
-            panel1.AutoSize = true;
-            panel1.Controls.Add(crownRadioButton3);
-            panel1.Controls.Add(crownRadioButton2);
-            panel1.Controls.Add(crownRadioButton1);
-            panel1.Controls.Add(crownTitle1);
-            panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            panel1.Location = new System.Drawing.Point(10, 103);
-            panel1.Name = "panel1";
-            panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            panel1.Size = new System.Drawing.Size(250, 93);
-            panel1.TabIndex = 2;
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.crownRadioButton3);
+            this.panel1.Controls.Add(this.crownRadioButton2);
+            this.panel1.Controls.Add(this.crownRadioButton1);
+            this.panel1.Controls.Add(this.crownTitle1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 118);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel1.Size = new System.Drawing.Size(265, 93);
+            this.panel1.TabIndex = 2;
             // 
             // crownRadioButton3
             // 
-            crownRadioButton3.AutoSize = true;
-            crownRadioButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            crownRadioButton3.Enabled = false;
-            crownRadioButton3.Location = new System.Drawing.Point(0, 64);
-            crownRadioButton3.Name = "crownRadioButton3";
-            crownRadioButton3.Size = new System.Drawing.Size(250, 19);
-            crownRadioButton3.TabIndex = 6;
-            crownRadioButton3.TabStop = true;
-            crownRadioButton3.Text = "Disabled radiobutton";
+            this.crownRadioButton3.AutoSize = true;
+            this.crownRadioButton3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownRadioButton3.Enabled = false;
+            this.crownRadioButton3.Location = new System.Drawing.Point(0, 64);
+            this.crownRadioButton3.Name = "crownRadioButton3";
+            this.crownRadioButton3.Size = new System.Drawing.Size(265, 19);
+            this.crownRadioButton3.TabIndex = 6;
+            this.crownRadioButton3.TabStop = true;
+            this.crownRadioButton3.Text = "Disabled radiobutton";
             // 
             // crownRadioButton2
             // 
-            crownRadioButton2.AutoSize = true;
-            crownRadioButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            crownRadioButton2.Location = new System.Drawing.Point(0, 45);
-            crownRadioButton2.Name = "crownRadioButton2";
-            crownRadioButton2.Size = new System.Drawing.Size(250, 19);
-            crownRadioButton2.TabIndex = 5;
-            crownRadioButton2.TabStop = true;
-            crownRadioButton2.Text = "Radiobutton";
+            this.crownRadioButton2.AutoSize = true;
+            this.crownRadioButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownRadioButton2.Location = new System.Drawing.Point(0, 45);
+            this.crownRadioButton2.Name = "crownRadioButton2";
+            this.crownRadioButton2.Size = new System.Drawing.Size(265, 19);
+            this.crownRadioButton2.TabIndex = 5;
+            this.crownRadioButton2.TabStop = true;
+            this.crownRadioButton2.Text = "Radiobutton";
             // 
             // crownRadioButton1
             // 
-            crownRadioButton1.AutoSize = true;
-            crownRadioButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            crownRadioButton1.Location = new System.Drawing.Point(0, 26);
-            crownRadioButton1.Name = "crownRadioButton1";
-            crownRadioButton1.Size = new System.Drawing.Size(250, 19);
-            crownRadioButton1.TabIndex = 4;
-            crownRadioButton1.TabStop = true;
-            crownRadioButton1.Text = "Radiobutton";
+            this.crownRadioButton1.AutoSize = true;
+            this.crownRadioButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownRadioButton1.Location = new System.Drawing.Point(0, 26);
+            this.crownRadioButton1.Name = "crownRadioButton1";
+            this.crownRadioButton1.Size = new System.Drawing.Size(265, 19);
+            this.crownRadioButton1.TabIndex = 4;
+            this.crownRadioButton1.TabStop = true;
+            this.crownRadioButton1.Text = "Radiobutton";
             // 
             // crownTitle1
             // 
-            crownTitle1.Dock = System.Windows.Forms.DockStyle.Top;
-            crownTitle1.Location = new System.Drawing.Point(0, 0);
-            crownTitle1.Name = "crownTitle1";
-            crownTitle1.Size = new System.Drawing.Size(250, 26);
-            crownTitle1.TabIndex = 7;
-            crownTitle1.Text = "Radio buttons";
+            this.crownTitle1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownTitle1.Location = new System.Drawing.Point(0, 0);
+            this.crownTitle1.Name = "crownTitle1";
+            this.crownTitle1.Size = new System.Drawing.Size(265, 26);
+            this.crownTitle1.TabIndex = 7;
+            this.crownTitle1.Text = "Radio buttons";
             // 
             // panel2
             // 
-            panel2.AutoSize = true;
-            panel2.Controls.Add(crownCheckBox3);
-            panel2.Controls.Add(crownCheckBox2);
-            panel2.Controls.Add(crownCheckBox1);
-            panel2.Controls.Add(crownTitle2);
-            panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            panel2.Location = new System.Drawing.Point(10, 10);
-            panel2.Name = "panel2";
-            panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            panel2.Size = new System.Drawing.Size(250, 93);
-            panel2.TabIndex = 1;
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.crownCheckBox3);
+            this.panel2.Controls.Add(this.crownCheckBox2);
+            this.panel2.Controls.Add(this.crownCheckBox1);
+            this.panel2.Controls.Add(this.crownTitle2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel2.Size = new System.Drawing.Size(265, 93);
+            this.panel2.TabIndex = 1;
             // 
             // crownCheckBox3
             // 
-            crownCheckBox3.AutoSize = true;
-            crownCheckBox3.Checked = true;
-            crownCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            crownCheckBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            crownCheckBox3.Enabled = false;
-            crownCheckBox3.Location = new System.Drawing.Point(0, 64);
-            crownCheckBox3.Name = "crownCheckBox3";
-            crownCheckBox3.Size = new System.Drawing.Size(250, 19);
-            crownCheckBox3.TabIndex = 6;
-            crownCheckBox3.Text = "Disabled checked checkbox";
+            this.crownCheckBox3.AutoSize = true;
+            this.crownCheckBox3.Checked = true;
+            this.crownCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.crownCheckBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownCheckBox3.Enabled = false;
+            this.crownCheckBox3.Location = new System.Drawing.Point(0, 64);
+            this.crownCheckBox3.Name = "crownCheckBox3";
+            this.crownCheckBox3.Size = new System.Drawing.Size(265, 19);
+            this.crownCheckBox3.TabIndex = 6;
+            this.crownCheckBox3.Text = "Disabled checked checkbox";
             // 
             // crownCheckBox2
             // 
-            crownCheckBox2.AutoSize = true;
-            crownCheckBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            crownCheckBox2.Enabled = false;
-            crownCheckBox2.Location = new System.Drawing.Point(0, 45);
-            crownCheckBox2.Name = "crownCheckBox2";
-            crownCheckBox2.Size = new System.Drawing.Size(250, 19);
-            crownCheckBox2.TabIndex = 5;
-            crownCheckBox2.Text = "Disabled checkbox";
+            this.crownCheckBox2.AutoSize = true;
+            this.crownCheckBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownCheckBox2.Enabled = false;
+            this.crownCheckBox2.Location = new System.Drawing.Point(0, 45);
+            this.crownCheckBox2.Name = "crownCheckBox2";
+            this.crownCheckBox2.Size = new System.Drawing.Size(265, 19);
+            this.crownCheckBox2.TabIndex = 5;
+            this.crownCheckBox2.Text = "Disabled checkbox";
             // 
             // crownCheckBox1
             // 
-            crownCheckBox1.AutoSize = true;
-            crownCheckBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            crownCheckBox1.Location = new System.Drawing.Point(0, 26);
-            crownCheckBox1.Name = "crownCheckBox1";
-            crownCheckBox1.Size = new System.Drawing.Size(250, 19);
-            crownCheckBox1.TabIndex = 4;
-            crownCheckBox1.Text = "Checkbox";
+            this.crownCheckBox1.AutoSize = true;
+            this.crownCheckBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownCheckBox1.Location = new System.Drawing.Point(0, 26);
+            this.crownCheckBox1.Name = "crownCheckBox1";
+            this.crownCheckBox1.Size = new System.Drawing.Size(265, 19);
+            this.crownCheckBox1.TabIndex = 4;
+            this.crownCheckBox1.Text = "Checkbox";
             // 
             // crownTitle2
             // 
-            crownTitle2.Dock = System.Windows.Forms.DockStyle.Top;
-            crownTitle2.Location = new System.Drawing.Point(0, 0);
-            crownTitle2.Name = "crownTitle2";
-            crownTitle2.Size = new System.Drawing.Size(250, 26);
-            crownTitle2.TabIndex = 8;
-            crownTitle2.Text = "Check boxes";
+            this.crownTitle2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.crownTitle2.Location = new System.Drawing.Point(0, 0);
+            this.crownTitle2.Name = "crownTitle2";
+            this.crownTitle2.Size = new System.Drawing.Size(265, 26);
+            this.crownTitle2.TabIndex = 8;
+            this.crownTitle2.Text = "Check boxes";
             // 
             // crownScrollBar1
             // 
-            crownScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
-            crownScrollBar1.Enabled = false;
-            crownScrollBar1.Location = new System.Drawing.Point(265, 25);
-            crownScrollBar1.Maximum = 5;
-            crownScrollBar1.Minimum = 1;
-            crownScrollBar1.Name = "crownScrollBar1";
-            crownScrollBar1.Size = new System.Drawing.Size(15, 425);
-            crownScrollBar1.TabIndex = 1;
-            crownScrollBar1.Text = "crownScrollBar1";
+            this.crownScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.crownScrollBar1.Enabled = false;
+            this.crownScrollBar1.Location = new System.Drawing.Point(265, 25);
+            this.crownScrollBar1.Maximum = 5;
+            this.crownScrollBar1.Minimum = 1;
+            this.crownScrollBar1.Name = "crownScrollBar1";
+            this.crownScrollBar1.Size = new System.Drawing.Size(15, 425);
+            this.crownScrollBar1.TabIndex = 1;
+            this.crownScrollBar1.Text = "crownScrollBar1";
             // 
             // DockProperties
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(panel3);
-            Controls.Add(panel1);
-            Controls.Add(panel2);
-            Controls.Add(crownScrollBar1);
-            DefaultDockArea = Enum.Crown.DockArea.Right;
-            DockText = "Properties";
-            Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Icon = global::ReaLTaiizor.UI.Properties.Resources.properties_16xLG;
-            Name = "DockProperties";
-            SerializationKey = "DockProperties";
-            Size = new System.Drawing.Size(280, 450);
-            panel3.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.crownScrollBar1);
+            this.DefaultDockArea = ReaLTaiizor.Enum.Crown.DockArea.Right;
+            this.DockText = "Properties";
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = global::ReaLTaiizor.UI.Properties.Resources.properties_16xLG;
+            this.Name = "DockProperties";
+            this.SerializationKey = "DockProperties";
+            this.Size = new System.Drawing.Size(280, 450);
+            this.panel3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

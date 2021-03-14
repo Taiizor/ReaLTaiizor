@@ -676,7 +676,7 @@ namespace ReaLTaiizor.Controls
 
         #region Methods
 
-        private void SmoothingType(Graphics e, SmoothingMode state = SmoothingMode.AntiAlias)
+        private static void SmoothingType(Graphics e, SmoothingMode state = SmoothingMode.AntiAlias)
         {
             e.SmoothingMode = state;
         }

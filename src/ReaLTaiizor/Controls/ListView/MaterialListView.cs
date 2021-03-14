@@ -105,7 +105,7 @@ namespace ReaLTaiizor.Controls
             using MaterialNativeTextRenderer NativeText = new(g);
             NativeText.DrawTransparentText(
                 e.Header.Text,
-                SkinManager.getLogFontByType(MaterialManager.fontType.Subtitle2),
+                SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle2),
                 Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 new Point(e.Bounds.Location.X + PAD, e.Bounds.Location.Y),
                 new Size(e.Bounds.Size.Width - PAD * 2, e.Bounds.Size.Height),
@@ -141,7 +141,7 @@ namespace ReaLTaiizor.Controls
                 using MaterialNativeTextRenderer NativeText = new(g);
                 NativeText.DrawTransparentText(
                     subItem.Text,
-                    SkinManager.getLogFontByType(MaterialManager.fontType.Body2),
+                    SkinManager.GetLogFontByType(MaterialManager.FontType.Body2),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     new Point(subItem.Bounds.X + PAD, subItem.Bounds.Y),
                     new Size(subItem.Bounds.Width - PAD * 2, subItem.Bounds.Height),

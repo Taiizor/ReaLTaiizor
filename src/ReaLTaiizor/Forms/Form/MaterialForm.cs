@@ -30,6 +30,12 @@ namespace ReaLTaiizor.Forms
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
+        public override string Text
+        {
+            get => base.Text;
+            set { base.Text = value; Invalidate(); }
+        }
+
         public new FormBorderStyle FormBorderStyle
         {
             get => base.FormBorderStyle;
@@ -180,7 +186,7 @@ namespace ReaLTaiizor.Forms
 
         private Padding originalPadding;
 
-        private bool _MessageFilter = true;
+        private bool _MessageFilter = false;
 
         [Category("Mouse")]
         public bool MessageFilter
@@ -195,7 +201,7 @@ namespace ReaLTaiizor.Forms
             DrawerIsOpen = false;
             DrawerShowIconsWhenHidden = false;
             DrawerAutoHide = true;
-            DrawerIndicatorWidth = 0;
+            DrawerIndicatorWidth = 4;
             DrawerHighlightWithAccent = true;
             DrawerBackgroundWithAccent = false;
 
@@ -203,6 +209,9 @@ namespace ReaLTaiizor.Forms
             Sizable = true;
             DoubleBuffered = true;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
+
+            //Keep space for resize by mouse
+            Padding = new Padding(3, 3, 3, 3);
 
             _clickAnimManager = new AnimationManager()
             {
@@ -238,6 +247,7 @@ namespace ReaLTaiizor.Forms
                     drawerControl.ShowIconsWhenHidden = _drawerShowIconsWhenHidden;
                     drawerControl.Refresh();
                 }
+                Invalidate();
             }
         }
 
@@ -329,6 +339,40 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
 
+#if NET40 || NET45 || NET451 || NET452
+        private string[] _DrawerHideTabName = new string[999];
+#else
+        private string[] _DrawerHideTabName = Array.Empty<string>();
+#endif
+
+        [Category("Drawer")]
+        public string[] DrawerHideTabName
+        {
+            get => _DrawerHideTabName;
+            set
+            {
+                _DrawerHideTabName = value;
+                drawerControl.DrawerHideTabName = _DrawerHideTabName;
+            }
+        }
+
+#if NET40 || NET45 || NET451 || NET452
+        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = new System.Windows.Forms.TabPage[999];
+#else
+        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+#endif
+
+        [Category("Drawer")]
+        public System.Windows.Forms.TabPage[] DrawerNonClickTabPage
+        {
+            get => _DrawerNonClickTabPage;
+            set
+            {
+                _DrawerNonClickTabPage = value;
+                drawerControl.DrawerNonClickTabPage = _DrawerNonClickTabPage;
+            }
+        }
+
         private AnimationManager _drawerShowHideAnimManager;
 
         protected void AddDrawerOverlayForm()
@@ -339,6 +383,24 @@ namespace ReaLTaiizor.Forms
             if (DrawerTabControl == null)
             {
                 return;
+            }
+
+            if (DrawerHideTabName.Any())
+            {
+                int countHideTab = 0;
+
+                foreach (System.Windows.Forms.TabPage TP in DrawerTabControl.TabPages)
+                {
+                    if (DrawerHideTabName.Contains(TP.Name))
+                    {
+                        countHideTab++;
+                    }
+                }
+
+                if (countHideTab >= DrawerTabControl.TabCount)
+                {
+                    return;
+                }
             }
 
             // Form opacity fade animation;
@@ -378,6 +440,8 @@ namespace ReaLTaiizor.Forms
             drawerControl.Size = new(DrawerWidth, H);
             drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
             drawerControl.BaseTabControl = DrawerTabControl;
+            drawerControl.DrawerHideTabName = DrawerHideTabName;
+            drawerControl.DrawerNonClickTabPage = DrawerNonClickTabPage;
             drawerControl.ShowIconsWhenHidden = true;
             // Init Options
             drawerControl.IsOpen = DrawerIsOpen;
@@ -630,6 +694,11 @@ namespace ReaLTaiizor.Forms
             }
 
             _buttonState = ButtonState.None;
+            if (Sizable && _resizeCursors.Contains(Cursor))
+            {
+                Cursor = Cursors.Default;
+            }
+
             Invalidate();
         }
 
@@ -777,12 +846,22 @@ namespace ReaLTaiizor.Forms
                 }
                 else if (_drawerButtonBounds.Contains(e.Location))
                 {
-                    _buttonState = ButtonState.DrawerOver;
-                    //Cursor = Cursors.Hand;
+                    if (DrawerTabControl != null)
+                    {
+                        _buttonState = ButtonState.DrawerOver;
+                        Cursor = Cursors.Hand;
+                    }
                 }
                 else
                 {
-                    //Cursor = Cursors.Default;
+                    if (_resizeDir == ResizeDirection.None || !_drawerButtonBounds.Contains(e.Location))
+                    {
+                        if (Cursor != Cursors.Default)
+                        {
+                            Cursor = Cursors.Default;
+                        }
+                    }
+
                     _buttonState = ButtonState.None;
                 }
             }
@@ -884,8 +963,11 @@ namespace ReaLTaiizor.Forms
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             g.Clear(SkinManager.BackdropColor);
-            g.FillRectangle(SkinManager.ColorScheme.DarkPrimaryBrush, _statusBarBounds);
-            g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, _actionBarBounds);
+            if (ControlBox)
+            {
+                g.FillRectangle(SkinManager.ColorScheme.DarkPrimaryBrush, _statusBarBounds);
+                g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, _actionBarBounds);
+            }
 
             //Draw border
             using (Pen borderPen = new(SkinManager.DividersColor, 1))
@@ -984,7 +1066,6 @@ namespace ReaLTaiizor.Forms
             // Drawer Icon
             if (DrawerTabControl != null)
             {
-
                 if (_buttonState == ButtonState.DrawerOver)
                 {
                     g.FillRectangle(hoverBrush, _drawerButtonBounds);
@@ -1036,11 +1117,12 @@ namespace ReaLTaiizor.Forms
                    _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
             }
 
-            //Form title
-            using (MaterialNativeTextRenderer NativeText = new(g))
+            if (ControlBox == true)
             {
+                //Form title
+                using MaterialNativeTextRenderer NativeText = new(g);
                 Rectangle textLocation = new(SkinManager.FORM_PADDING + (DrawerTabControl != null ? 24 + (int)(SkinManager.FORM_PADDING * 1.5) : 0), STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
-                NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialManager.fontType.H6),
+                NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.H6),
                     SkinManager.ColorScheme.TextColor,
                     textLocation.Location,
                     textLocation.Size,

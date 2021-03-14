@@ -3,7 +3,6 @@
 using ReaLTaiizor.Controls;
 using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 
 #endregion
@@ -154,7 +153,7 @@ namespace ReaLTaiizor.Helper
 
                 if (_ishorizontal)
                 {
-                    int visibleCols = VisibleFlexGridCols();
+                    //int visibleCols = VisibleFlexGridCols();
                     _scrollbar.Maximum = hScrollbar.Maximum;
                     _scrollbar.Minimum = hScrollbar.Minimum;
                     _scrollbar.SmallChange = hScrollbar.SmallChange;

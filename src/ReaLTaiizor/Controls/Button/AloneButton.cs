@@ -30,38 +30,38 @@ namespace ReaLTaiizor.Controls
 
         private Graphics G;
 
-        private AloneButton.MouseState State;
+        private MouseState State;
 
         private bool _EnabledCalc;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), CompilerGenerated]
-        private AloneButton.ClickEventHandler ClickEvent;
+        private ClickEventHandler ClickEvent;
 
-        public new event AloneButton.ClickEventHandler Click
+        public new event ClickEventHandler Click
         {
             [CompilerGenerated]
             add
             {
-                AloneButton.ClickEventHandler clickEventHandler = ClickEvent;
-                AloneButton.ClickEventHandler clickEventHandler2;
+                ClickEventHandler clickEventHandler = ClickEvent;
+                ClickEventHandler clickEventHandler2;
                 do
                 {
                     clickEventHandler2 = clickEventHandler;
-                    AloneButton.ClickEventHandler value2 = (AloneButton.ClickEventHandler)Delegate.Combine(clickEventHandler2, value);
-                    clickEventHandler = Interlocked.CompareExchange<AloneButton.ClickEventHandler>(ref ClickEvent, value2, clickEventHandler2);
+                    ClickEventHandler value2 = (ClickEventHandler)Delegate.Combine(clickEventHandler2, value);
+                    clickEventHandler = Interlocked.CompareExchange(ref ClickEvent, value2, clickEventHandler2);
                 }
                 while (clickEventHandler != clickEventHandler2);
             }
             [CompilerGenerated]
             remove
             {
-                AloneButton.ClickEventHandler clickEventHandler = ClickEvent;
-                AloneButton.ClickEventHandler clickEventHandler2;
+                ClickEventHandler clickEventHandler = ClickEvent;
+                ClickEventHandler clickEventHandler2;
                 do
                 {
                     clickEventHandler2 = clickEventHandler;
-                    AloneButton.ClickEventHandler value2 = (AloneButton.ClickEventHandler)Delegate.Remove(clickEventHandler2, value);
-                    clickEventHandler = Interlocked.CompareExchange<AloneButton.ClickEventHandler>(ref ClickEvent, value2, clickEventHandler2);
+                    ClickEventHandler value2 = (ClickEventHandler)Delegate.Remove(clickEventHandler2, value);
+                    clickEventHandler = Interlocked.CompareExchange(ref ClickEvent, value2, clickEventHandler2);
                 }
                 while (clickEventHandler != clickEventHandler2);
             }
@@ -106,10 +106,10 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
             if (Enabled)
             {
-                AloneButton.MouseState state = State;
-                if (state != AloneButton.MouseState.Over)
+                MouseState state = State;
+                if (state != MouseState.Over)
                 {
-                    if (state != AloneButton.MouseState.Down)
+                    if (state != MouseState.Down)
                     {
                         using SolidBrush solidBrush = new(AloneLibrary.ColorFromHex("#F6F6F6"));
                         G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));
@@ -148,14 +148,14 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            State = AloneButton.MouseState.Over;
+            State = MouseState.Over;
             base.Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            State = AloneButton.MouseState.None;
+            State = MouseState.None;
             base.Invalidate();
         }
 
@@ -168,14 +168,14 @@ namespace ReaLTaiizor.Controls
                 ClickEvent?.Invoke(this, e);
             }
 
-            State = AloneButton.MouseState.Over;
+            State = MouseState.Over;
             base.Invalidate();
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            State = AloneButton.MouseState.Down;
+            State = MouseState.Down;
             base.Invalidate();
         }
     }

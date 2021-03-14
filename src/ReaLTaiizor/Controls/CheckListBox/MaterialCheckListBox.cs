@@ -76,12 +76,12 @@ namespace ReaLTaiizor.Controls
             if (DesignMode)
             {
                 BackColorChanged += (sender, args) => BackColor = Parent.BackColor;
-                BackColor = Parent.BackColor;
+                BackColor = Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor;
             }
             else
             {
                 BackColorChanged += (sender, args) => BackColor = BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A);
-                BackColor = BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A);
+                BackColor = BlendColor(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A);
             }
         }
 

@@ -73,18 +73,18 @@ namespace ReaLTaiizor.Helper
                 Colors.LightBackground = Color.FromArgb(192, 193, 194); //Color.FromArgb(189, 193, 194);
                 Colors.LighterBackground = Color.FromArgb(182, 183, 184); //Color.FromArgb(100, 101, 102);
                 Colors.LightestBackground = Color.FromArgb(128, 128, 128); //Color.FromArgb(178, 178, 178);
-                Colors.LightBorder = Color.FromArgb(201, 201, 201); //Color.FromArgb(201, 201, 201);
-                Colors.DarkBorder = Color.FromArgb(171, 171, 171); //Color.FromArgb(171, 171, 171);
+                Colors.LightBorder = Color.FromArgb(201, 201, 201);
+                Colors.DarkBorder = Color.FromArgb(171, 171, 171);
                 Colors.LightText = Color.FromArgb(50, 50, 50); //Color.FromArgb(20, 20, 20);
                 Colors.DisabledText = Color.FromArgb(113, 113, 113); //Color.FromArgb(103, 103, 103);
                 Colors.BlueHighlight = Color.DodgerBlue; //Color.FromArgb(104, 151, 187);
-                Colors.BlueSelection = Color.FromArgb(75, 110, 175); //Color.FromArgb(75, 110, 175);
-                Colors.GreyHighlight = Color.FromArgb(182, 188, 182); //Color.FromArgb(182, 188, 182);
-                Colors.GreySelection = Color.FromArgb(160, 160, 160); //Color.FromArgb(160, 160, 160);
-                Colors.DarkGreySelection = Color.FromArgb(202, 202, 202); //Color.FromArgb(202, 202, 202);
-                Colors.DarkBlueBorder = Color.FromArgb(171, 181, 198); //Color.FromArgb(171, 181, 198);
-                Colors.LightBlueBorder = Color.FromArgb(206, 217, 114); //Color.FromArgb(206, 217, 114);
-                Colors.ActiveControl = Color.FromArgb(159, 178, 196); //Color.FromArgb(159, 178, 196);
+                Colors.BlueSelection = Color.FromArgb(75, 110, 175);
+                Colors.GreyHighlight = Color.FromArgb(182, 188, 182);
+                Colors.GreySelection = Color.FromArgb(160, 160, 160);
+                Colors.DarkGreySelection = Color.FromArgb(202, 202, 202);
+                Colors.DarkBlueBorder = Color.FromArgb(171, 181, 198);
+                Colors.LightBlueBorder = Color.FromArgb(206, 217, 114);
+                Colors.ActiveControl = Color.FromArgb(159, 178, 196);
 
                 Sizes.Padding = 10;
                 Sizes.ScrollBarSize = 15;

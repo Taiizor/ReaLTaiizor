@@ -26,7 +26,9 @@ namespace ReaLTaiizor.Controls
 {
     #region PoisonTabControl
 
+#if !NET5_0 && !NET6_0
     [Designer(typeof(PoisonTabControlDesigner))]
+#endif
     [ToolboxBitmap(typeof(TabControl))]
     public class PoisonTabControl : TabControl, IPoisonControl
     {
@@ -652,13 +654,13 @@ namespace ReaLTaiizor.Controls
             (
                  delegate (HiddenTabs bk)
                  {
-                     return bk.tabpage == tabpage.Name;
+                     return bk.Tabpage == tabpage.Name;
                  }
              );
 
             if (result != null)
             {
-                TabPages.Insert(result.index, tabpage);
+                TabPages.Insert(result.Index, tabpage);
                 hidTabs.Remove(result);
             }
         }
@@ -714,7 +716,7 @@ namespace ReaLTaiizor.Controls
             (
                 delegate (HiddenTabs bk)
                 {
-                    return bk.tabpage == tabpage.Name;
+                    return bk.Tabpage == tabpage.Name;
                 }
             );
 

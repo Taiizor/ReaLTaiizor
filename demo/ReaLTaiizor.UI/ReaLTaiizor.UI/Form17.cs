@@ -1,10 +1,10 @@
-﻿using System;
-using System.Text;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Colors;
-using System.Windows.Forms;
+﻿using ReaLTaiizor.Colors;
 using ReaLTaiizor.Controls;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Util;
+using System;
+using System.Text;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI
 {
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.UI
             //Add
             foreach (string[] version in data)
             {
-                ListViewItem item = new ListViewItem(version);
+                ListViewItem item = new(version);
                 materialListView1.Items.Add(item);
             }
         }
@@ -114,11 +114,13 @@ namespace ReaLTaiizor.UI
         private void MaterialButton2_Click(object sender, EventArgs e)
         {
             materialProgressBar1.Value = Math.Min(materialProgressBar1.Value + 10, 100);
+            materialProgressBar2.Value = Math.Min(materialProgressBar2.Value + 10, 100);
         }
 
         private void materialFlatButton4_Click(object sender, EventArgs e)
         {
             materialProgressBar1.Value = Math.Max(materialProgressBar1.Value - 10, 0);
+            materialProgressBar2.Value = Math.Max(materialProgressBar2.Value - 10, 0);
         }
 
         private void materialSwitch4_CheckedChanged(object sender, EventArgs e)
@@ -143,8 +145,8 @@ namespace ReaLTaiizor.UI
 
         private void MaterialButton3_Click(object sender, EventArgs e)
         {
-            StringBuilder builder = new StringBuilder("Batch operation report:\n\n");
-            Random random = new Random();
+            StringBuilder builder = new("Batch operation report:\n\n");
+            Random random = new();
             int result = 0;
 
             for (int i = 0; i < 200; i++)
@@ -174,6 +176,34 @@ namespace ReaLTaiizor.UI
         private void MaterialButton6_Click(object sender, EventArgs e)
         {
             MaterialAnimations.AnimationRun = MaterialAnimations.AnimationRunType.Fast;
+        }
+
+        private void MaterialButton26_Click(object sender, EventArgs e)
+        {
+            DrawerNonClickTabPage = new System.Windows.Forms.TabPage[] { tabPage6 };
+        }
+
+        private void MaterialButton27_Click(object sender, EventArgs e)
+        {
+#if NET40 || NET45 || NET451 || NET452
+            DrawerNonClickTabPage = new System.Windows.Forms.TabPage[0];
+#else
+            DrawerNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+#endif
+        }
+
+        private void MaterialButton29_Click(object sender, EventArgs e)
+        {
+            materialTabSelector1.SelectorNonClickTabPage = new System.Windows.Forms.TabPage[] { tabPage9 };
+        }
+
+        private void MaterialButton28_Click(object sender, EventArgs e)
+        {
+#if NET40 || NET45 || NET451 || NET452
+            materialTabSelector1.SelectorNonClickTabPage = new System.Windows.Forms.TabPage[0];
+#else
+            materialTabSelector1.SelectorNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+#endif
         }
     }
 }

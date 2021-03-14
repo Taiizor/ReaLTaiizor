@@ -40,6 +40,8 @@ namespace ReaLTaiizor.Controls
         public new int MaxLength { get => _baseTextBox.MaxLength; set => _baseTextBox.MaxLength = value; }
 
         public string SelectedText { get => _baseTextBox.SelectedText; set => _baseTextBox.SelectedText = value; }
+
+        [DefaultValue(""), Localizable(true)]
         public string Hint { get => _baseTextBox.Hint; set => _baseTextBox.Hint = value; }
 
         public int SelectionStart { get => _baseTextBox.SelectionStart; set => _baseTextBox.SelectionStart = value; }
@@ -972,7 +974,7 @@ namespace ReaLTaiizor.Controls
             _baseTextBox = new BaseTextBox
             {
                 BorderStyle = BorderStyle.None,
-                Font = SkinManager.getFontByType(MaterialManager.fontType.Subtitle1),
+                Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1),
                 Location = new(0, 0),
                 Width = Width,
                 Height = Height - 5
@@ -998,7 +1000,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs pevent)
         {
             Graphics g = pevent.Graphics;
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
             int lineY = _baseTextBox.Bottom + 3;
 
@@ -1036,7 +1038,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnCreateControl();
 
-            _baseTextBox.BackColor = Parent.BackColor;
+            _baseTextBox.BackColor = Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor;
         }
 
         private class BaseTextBox : TextBox

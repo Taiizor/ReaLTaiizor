@@ -239,9 +239,9 @@ namespace ReaLTaiizor.Manager
                 ApplyTheme(poisonComponent);
             }
 
-            if (ctrl is TabControl tabControl)
+            if (ctrl is TabControl control)
             {
-                foreach (System.Windows.Forms.TabPage tp in ((TabControl)ctrl).TabPages)
+                foreach (System.Windows.Forms.TabPage tp in control.TabPages)
                 {
                     UpdateControl(tp);
                 }

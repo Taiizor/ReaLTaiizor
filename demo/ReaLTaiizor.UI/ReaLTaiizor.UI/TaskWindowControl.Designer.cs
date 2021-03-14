@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            poisonTile1 = new ReaLTaiizor.Controls.PoisonTile();
-            SuspendLayout();
+            this.poisonTile1 = new ReaLTaiizor.Controls.PoisonTile();
+            this.SuspendLayout();
             // 
             // poisonTile1
             // 
-            poisonTile1.ActiveControl = null;
-            poisonTile1.Location = new System.Drawing.Point(3, 3);
-            poisonTile1.Name = "poisonTile1";
-            poisonTile1.Size = new System.Drawing.Size(130, 83);
-            poisonTile1.TabIndex = 0;
-            poisonTile1.Text = "poisonTile1";
-            poisonTile1.UseSelectable = true;
+            this.poisonTile1.ActiveControl = null;
+            this.poisonTile1.Location = new System.Drawing.Point(3, 3);
+            this.poisonTile1.Name = "poisonTile1";
+            this.poisonTile1.Size = new System.Drawing.Size(130, 83);
+            this.poisonTile1.TabIndex = 0;
+            this.poisonTile1.Text = "poisonTile1";
+            this.poisonTile1.UseSelectable = true;
             // 
             // TaskWindowControl
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(poisonTile1);
-            Name = "TaskWindowControl";
-            Size = new System.Drawing.Size(227, 136);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.poisonTile1);
+            this.Name = "TaskWindowControl";
+            this.Size = new System.Drawing.Size(227, 136);
+            this.ResumeLayout(false);
 
         }
 

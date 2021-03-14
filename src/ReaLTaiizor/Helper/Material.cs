@@ -55,22 +55,22 @@ namespace ReaLTaiizor.Helper
         {
             if (0 > alpha || 255 < alpha)
             {
-                throw new ArgumentOutOfRangeException("alpha");
+                throw new ArgumentOutOfRangeException(nameof(alpha));
             }
 
             if (0f > hue || 360f < hue)
             {
-                throw new ArgumentOutOfRangeException("hue");
+                throw new ArgumentOutOfRangeException(nameof(hue));
             }
 
             if (0f > saturation || 1f < saturation)
             {
-                throw new ArgumentOutOfRangeException("saturation");
+                throw new ArgumentOutOfRangeException(nameof(saturation));
             }
 
             if (0f > lighting || 1f < lighting)
             {
-                throw new ArgumentOutOfRangeException("lighting");
+                throw new ArgumentOutOfRangeException(nameof(lighting));
             }
 
             if (0 == saturation)

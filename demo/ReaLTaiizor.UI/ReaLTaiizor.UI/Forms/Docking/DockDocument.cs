@@ -1,9 +1,9 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
+﻿using ReaLTaiizor.Child.Crown;
 using ReaLTaiizor.Controls;
-using ReaLTaiizor.Enum.Crown;
-using ReaLTaiizor.Child.Crown;
 using ReaLTaiizor.Docking.Crown;
+using ReaLTaiizor.Enum.Crown;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI.Forms.Docking
 {

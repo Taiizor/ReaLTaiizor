@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Controls
             Rectangle textRect = new(24, itemRect.Y, itemRect.Width - (24 + 16), itemRect.Height);
 
             using MaterialNativeTextRenderer NativeText = new(g);
-            NativeText.DrawTransparentText(e.Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body2),
+            NativeText.DrawTransparentText(e.Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body2),
                 e.Item.Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 textRect.Location,
                 textRect.Size,

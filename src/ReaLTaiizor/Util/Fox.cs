@@ -520,11 +520,7 @@ namespace ReaLTaiizor.Util
                 {
                     IsEnabled = value;
 
-                    if (Enabled)
-                    {
-                        Cursor = Cursor;
-                    }
-                    else
+                    if (!Enabled)
                     {
                         Cursor = Cursors.Default;
                     }

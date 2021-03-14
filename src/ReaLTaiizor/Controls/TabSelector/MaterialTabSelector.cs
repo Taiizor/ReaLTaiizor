@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Linq;
 using System.Windows.Forms;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
 using static ReaLTaiizor.Util.MaterialAnimations;
@@ -27,15 +28,15 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        public enum TextState
+        public enum TextStateType
         {
             Upper,
             Lower,
             Normal
         }
 
-        private TextState _TitleTextState = TextState.Normal;
-        public TextState TitleTextState
+        private TextStateType _TitleTextState = TextStateType.Normal;
+        public TextStateType TitleTextState
         {
             get => _TitleTextState;
             set
@@ -67,8 +68,8 @@ namespace ReaLTaiizor.Controls
         {
             return TitleTextState switch
             {
-                TextState.Upper => Text.ToUpperInvariant(),
-                TextState.Lower => Text.ToLowerInvariant(),
+                TextStateType.Upper => Text.ToUpperInvariant(),
+                TextStateType.Lower => Text.ToLowerInvariant(),
                 _ => Text,
             };
         }
@@ -106,6 +107,49 @@ namespace ReaLTaiizor.Controls
                     Invalidate();
                 };
             }
+        }
+
+#if NET40 || NET45 || NET451 || NET452
+        private string[] _SelectorHideTabName = new string[999];
+#else
+        private string[] _SelectorHideTabName = Array.Empty<string>();
+#endif
+
+        [Category("Behavior")]
+        public string[] SelectorHideTabName
+        {
+            get => _SelectorHideTabName;
+            set
+            {
+                _SelectorHideTabName = value;
+
+                if (_baseTabControl != null && _SelectorHideTabName.Any())
+                {
+                    foreach (System.Windows.Forms.TabPage TB in _baseTabControl.TabPages)
+                    {
+                        if (_SelectorHideTabName.Contains(TB.Name))
+                        {
+                            _baseTabControl.TabPages.Remove(TB);
+                        }
+                    }
+
+                    Refresh();
+                    Invalidate();
+                }
+            }
+        }
+
+#if NET40 || NET45 || NET451 || NET452
+        private System.Windows.Forms.TabPage[] _SelectorNonClickTabPage = new System.Windows.Forms.TabPage[999];
+#else
+        private System.Windows.Forms.TabPage[] _SelectorNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+#endif
+
+        [Category("Behavior")]
+        public System.Windows.Forms.TabPage[] SelectorNonClickTabPage
+        {
+            get => _SelectorNonClickTabPage;
+            set => _SelectorNonClickTabPage = value;
         }
 
         private int _previousSelectedTabIndex;
@@ -159,7 +203,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            Font = SkinManager.getFontByType(MaterialManager.fontType.Body1);
+            Font = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
         }
 
         protected override void OnResize(EventArgs e)
@@ -206,7 +250,7 @@ namespace ReaLTaiizor.Controls
                     Rectangle textLocation = _tabRects[currentTabIndex];
                     NativeText.DrawTransparentText(
                         TitleText(tabPage.Text),
-                        SkinManager.getLogFontByType(MaterialManager.fontType.Button),
+                        SkinManager.GetLogFontByType(MaterialManager.FontType.Button),
                         Color.FromArgb(CalculateTextAlpha(currentTabIndex, animationProgress), SkinManager.ColorScheme.TextColor),
                         textLocation.Location,
                         textLocation.Size,
@@ -269,7 +313,10 @@ namespace ReaLTaiizor.Controls
             {
                 if (_tabRects[i].Contains(e.Location))
                 {
-                    _baseTabControl.SelectedIndex = i;
+                    if (_SelectorNonClickTabPage == null || !_SelectorNonClickTabPage.Contains(_baseTabControl.TabPages[i]))
+                    {
+                        _baseTabControl.SelectedIndex = i;
+                    }
                 }
             }
 
@@ -301,9 +348,17 @@ namespace ReaLTaiizor.Controls
             {
                 if (_tabRects[i].Contains(e.Location))
                 {
-                    Cursor = _tab_over_cursor;
-                    _tab_over_index = i;
-                    break;
+                    if (_SelectorNonClickTabPage == null || !_SelectorNonClickTabPage.Contains(_baseTabControl.TabPages[i]))
+                    {
+                        Cursor = _tab_over_cursor;
+                        _tab_over_index = i;
+                        break;
+                    }
+                    else
+                    {
+                        Cursor = Cursors.No;
+                        return;
+                    }
                 }
             }
             if (_tab_over_index == -1)

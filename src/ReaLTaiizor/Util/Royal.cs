@@ -297,31 +297,31 @@ namespace ReaLTaiizor.Util
 
     public class RoyalToolStripRenderer : ToolStripRenderer
     {
-        public Color ForeColor
+        public static Color ForeColor
         {
             get => RoyalColors.ForeColor;
             set => RoyalColors.ForeColor = value;
         }
 
-        public Color PressedForeColor
+        public static Color PressedForeColor
         {
             get => RoyalColors.PressedForeColor;
             set => RoyalColors.PressedForeColor = value;
         }
 
-        public Color BackColor
+        public static Color BackColor
         {
             get => RoyalColors.BackColor;
             set => RoyalColors.BackColor = value;
         }
 
-        public Color SelectedColor
+        public static Color SelectedColor
         {
             get => RoyalColors.HotTrackColor;
             set => RoyalColors.HotTrackColor = value;
         }
 
-        public Color PressedColor
+        public static Color PressedColor
         {
             get => RoyalColors.AccentColor;
             set => RoyalColors.AccentColor = value;

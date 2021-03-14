@@ -28,9 +28,9 @@ namespace ReaLTaiizor.Child.Poison
             StylizeButton(poisonButton2);
             StylizeButton(poisonButton3);
 
-            poisonButton1.Click += new EventHandler(button_Click);
-            poisonButton2.Click += new EventHandler(button_Click);
-            poisonButton3.Click += new EventHandler(button_Click);
+            poisonButton1.Click += new EventHandler(Button_Click);
+            poisonButton2.Click += new EventHandler(Button_Click);
+            poisonButton3.Click += new EventHandler(Button_Click);
 
             poisonLocalize = new PoisonLocalize(this);
         }
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Child.Poison
                 case MessageBoxButtons.OK:
                     EnableButton(poisonButton1);
 
-                    poisonButton1.Text = poisonLocalize.translate("Ok");
+                    poisonButton1.Text = poisonLocalize.Translate("Ok");
                     poisonButton1.Location = poisonButton3.Location;
                     poisonButton1.Tag = DialogResult.OK;
 
@@ -93,13 +93,13 @@ namespace ReaLTaiizor.Child.Poison
                 case MessageBoxButtons.OKCancel:
                     EnableButton(poisonButton1);
 
-                    poisonButton1.Text = poisonLocalize.translate("Ok");
+                    poisonButton1.Text = poisonLocalize.Translate("Ok");
                     poisonButton1.Location = poisonButton2.Location;
                     poisonButton1.Tag = DialogResult.OK;
 
                     EnableButton(poisonButton2);
 
-                    poisonButton2.Text = poisonLocalize.translate("Cancel");
+                    poisonButton2.Text = poisonLocalize.Translate("Cancel");
                     poisonButton2.Location = poisonButton3.Location;
                     poisonButton2.Tag = DialogResult.Cancel;
 
@@ -108,13 +108,13 @@ namespace ReaLTaiizor.Child.Poison
                 case MessageBoxButtons.RetryCancel:
                     EnableButton(poisonButton1);
 
-                    poisonButton1.Text = poisonLocalize.translate("Retry");
+                    poisonButton1.Text = poisonLocalize.Translate("Retry");
                     poisonButton1.Location = poisonButton2.Location;
                     poisonButton1.Tag = DialogResult.Retry;
 
                     EnableButton(poisonButton2);
 
-                    poisonButton2.Text = poisonLocalize.translate("Cancel");
+                    poisonButton2.Text = poisonLocalize.Translate("Cancel");
                     poisonButton2.Location = poisonButton3.Location;
                     poisonButton2.Tag = DialogResult.Cancel;
 
@@ -123,13 +123,13 @@ namespace ReaLTaiizor.Child.Poison
                 case MessageBoxButtons.YesNo:
                     EnableButton(poisonButton1);
 
-                    poisonButton1.Text = poisonLocalize.translate("Yes");
+                    poisonButton1.Text = poisonLocalize.Translate("Yes");
                     poisonButton1.Location = poisonButton2.Location;
                     poisonButton1.Tag = DialogResult.Yes;
 
                     EnableButton(poisonButton2);
 
-                    poisonButton2.Text = poisonLocalize.translate("No");
+                    poisonButton2.Text = poisonLocalize.Translate("No");
                     poisonButton2.Location = poisonButton3.Location;
                     poisonButton2.Tag = DialogResult.No;
 
@@ -138,34 +138,34 @@ namespace ReaLTaiizor.Child.Poison
                 case MessageBoxButtons.YesNoCancel:
                     EnableButton(poisonButton1);
 
-                    poisonButton1.Text = poisonLocalize.translate("Yes");
+                    poisonButton1.Text = poisonLocalize.Translate("Yes");
                     poisonButton1.Tag = DialogResult.Yes;
 
                     EnableButton(poisonButton2);
 
-                    poisonButton2.Text = poisonLocalize.translate("No");
+                    poisonButton2.Text = poisonLocalize.Translate("No");
                     poisonButton2.Tag = DialogResult.No;
 
                     EnableButton(poisonButton3);
 
-                    poisonButton3.Text = poisonLocalize.translate("Cancel");
+                    poisonButton3.Text = poisonLocalize.Translate("Cancel");
                     poisonButton3.Tag = DialogResult.Cancel;
 
                     break;
                 case MessageBoxButtons.AbortRetryIgnore:
                     EnableButton(poisonButton1);
 
-                    poisonButton1.Text = poisonLocalize.translate("Abort");
+                    poisonButton1.Text = poisonLocalize.Translate("Abort");
                     poisonButton1.Tag = DialogResult.Abort;
 
                     EnableButton(poisonButton2);
 
-                    poisonButton2.Text = poisonLocalize.translate("Retry");
+                    poisonButton2.Text = poisonLocalize.Translate("Retry");
                     poisonButton2.Tag = DialogResult.Retry;
 
                     EnableButton(poisonButton3);
 
-                    poisonButton3.Text = poisonLocalize.translate("Ignore");
+                    poisonButton3.Text = poisonLocalize.Translate("Ignore");
                     poisonButton3.Tag = DialogResult.Ignore;
 
                     break;
@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Child.Poison
             };
         }
 
-        private void EnableButton(PoisonButton button)
+        private static void EnableButton(PoisonButton button)
         {
             EnableButton(button, true);
         }
@@ -231,7 +231,7 @@ namespace ReaLTaiizor.Child.Poison
             }
         }
 
-        private void button_MouseClick(object sender, MouseEventArgs e)
+        private void Button_MouseClick(object sender, MouseEventArgs e)
         {
             //PoisonButton button = (PoisonButton)sender;
             //button.BackColor = PoisonPaint.BackColor.Button.Press(ThemeStyle.Light);
@@ -239,12 +239,12 @@ namespace ReaLTaiizor.Child.Poison
             //button.ForeColor = PoisonPaint.ForeColor.Button.Press(ThemeStyle.Light);
         }
 
-        private void button_MouseEnter(object sender, EventArgs e)
+        private void Button_MouseEnter(object sender, EventArgs e)
         {
             StylizeButton((PoisonButton)sender, true);
         }
 
-        private void button_MouseLeave(object sender, EventArgs e)
+        private void Button_MouseLeave(object sender, EventArgs e)
         {
             StylizeButton((PoisonButton)sender);
         }
@@ -258,14 +258,14 @@ namespace ReaLTaiizor.Child.Poison
         {
             button.Cursor = Cursors.Hand;
 
-            button.MouseClick -= button_MouseClick;
-            button.MouseClick += button_MouseClick;
+            button.MouseClick -= Button_MouseClick;
+            button.MouseClick += Button_MouseClick;
 
-            button.MouseEnter -= button_MouseEnter;
-            button.MouseEnter += button_MouseEnter;
+            button.MouseEnter -= Button_MouseEnter;
+            button.MouseEnter += Button_MouseEnter;
 
-            button.MouseLeave -= button_MouseLeave;
-            button.MouseLeave += button_MouseLeave;
+            button.MouseLeave -= Button_MouseLeave;
+            button.MouseLeave += Button_MouseLeave;
 
             //if (hovered)
             //{
@@ -282,7 +282,7 @@ namespace ReaLTaiizor.Child.Poison
             //}
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             PoisonButton button = (PoisonButton)sender;
             if (!button.Enabled)

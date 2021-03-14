@@ -11,13 +11,13 @@ namespace ReaLTaiizor.UI.Forms.Docking
         {
             InitializeComponent();
 
-			BackColor = System.Drawing.Color.Transparent;
+            BackColor = System.Drawing.Color.Transparent;
 
             // Build dummy nodes
             int childCount = 0;
             for (int i = 0; i < 20; i++)
             {
-                CrownTreeNode node = new CrownTreeNode($"Root node #{i}")
+                CrownTreeNode node = new($"Root node #{i}")
                 {
                     ExpandedIcon = Properties.Resources.folder_16x,
                     Icon = Properties.Resources.folder_Closed_16xLG
@@ -25,7 +25,7 @@ namespace ReaLTaiizor.UI.Forms.Docking
 
                 for (int x = 0; x < 10; x++)
                 {
-                    CrownTreeNode childNode = new CrownTreeNode($"Child node #{childCount}")
+                    CrownTreeNode childNode = new($"Child node #{childCount}")
                     {
                         Icon = Properties.Resources.Files_7954
                     };

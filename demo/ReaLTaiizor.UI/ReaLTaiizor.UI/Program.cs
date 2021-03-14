@@ -15,7 +15,10 @@ namespace ReaLTaiizor.UI
             try
             {
                 Application.EnableVisualStyles();
-                CultureInfo cultureInfo = new CultureInfo(CultureInfo.CurrentCulture.TextInfo.CultureName);
+#if NET5_0 || NET6_0
+                Application.SetHighDpiMode(HighDpiMode.SystemAware);
+#endif
+                CultureInfo cultureInfo = new(CultureInfo.CurrentCulture.TextInfo.CultureName);
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.CurrentCulture = cultureInfo;
                 Application.Run(new Form17());

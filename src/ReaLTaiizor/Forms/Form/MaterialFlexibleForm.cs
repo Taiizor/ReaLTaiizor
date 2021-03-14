@@ -123,7 +123,7 @@ namespace ReaLTaiizor.Forms
             richTextBoxMessage.TabIndex = 0;
             richTextBoxMessage.TabStop = false;
             richTextBoxMessage.Text = "<Message>";
-            richTextBoxMessage.LinkClicked += new LinkClickedEventHandler(richTextBoxMessage_LinkClicked);
+            richTextBoxMessage.LinkClicked += new LinkClickedEventHandler(RichTextBoxMessage_LinkClicked);
             //
             // middleButton
             //
@@ -266,7 +266,7 @@ namespace ReaLTaiizor.Forms
 
             MaterialManager = MaterialManager.Instance;
             MaterialManager.AddFormToManage(this);
-            FONT = MaterialManager.getFontByType(MaterialManager.fontType.Body1);
+            FONT = MaterialManager.GetFontByType(MaterialManager.FontType.Body1);
         }
 
         private static string[] GetStringRows(string message)
@@ -474,11 +474,10 @@ namespace ReaLTaiizor.Forms
 
         private void MaterialFlexibleForm_Shown(object sender, EventArgs e)
         {
-            int buttonIndexToFocus = 1;
             System.Windows.Forms.Button buttonToFocus;
 
             //Set the default button...
-            buttonIndexToFocus = defaultButton switch
+            int buttonIndexToFocus = defaultButton switch
             {
                 MessageBoxDefaultButton.Button2 => 2,
                 MessageBoxDefaultButton.Button3 => 3,
@@ -505,7 +504,7 @@ namespace ReaLTaiizor.Forms
             buttonToFocus.Focus();
         }
 
-        private void richTextBoxMessage_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void RichTextBoxMessage_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             try
             {

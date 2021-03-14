@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Extension.Metro
 
     internal class Methods
     {
-        public void DrawImageFromBase64(Graphics graphics, string base64Image, Rectangle rect)
+        public static void DrawImageFromBase64(Graphics graphics, string base64Image, Rectangle rect)
         {
             Image im;
             using (System.IO.MemoryStream ms = new(Convert.FromBase64String(base64Image)))
@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Extension.Metro
             graphics.DrawImage(im, rect);
         }
 
-        public void DrawImageWithColor(Graphics G, Rectangle r, Image image, Color c)
+        public static void DrawImageWithColor(Graphics G, Rectangle r, Image image, Color c)
         {
             float[][] ptsArray = new[]
             {
@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Extension.Metro
             image.Dispose();
         }
 
-        public void DrawImageWithColor(Graphics G, Rectangle r, string image, Color c)
+        public static void DrawImageWithColor(Graphics G, Rectangle r, string image, Color c)
         {
             Image im = ImageFromBase64(image);
             float[][] ptsArray = new[]
@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Extension.Metro
             };
         }
 
-        public float[][] ColorToMatrix(float alpha, Color c)
+        public static float[][] ColorToMatrix(float alpha, Color c)
         {
             return new[]
             {
@@ -105,13 +105,13 @@ namespace ReaLTaiizor.Extension.Metro
             imageAttributes.Dispose();
         }
 
-        public Image ImageFromBase64(string base64Image)
+        public static Image ImageFromBase64(string base64Image)
         {
             using System.IO.MemoryStream ms = new(Convert.FromBase64String(base64Image));
             return Image.FromStream(ms);
         }
 
-        public GraphicsPath RoundRec(Rectangle r, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
+        public static GraphicsPath RoundRec(Rectangle r, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
         {
             GraphicsPath createRoundPath = new(FillMode.Winding);
             if (topLeft)
@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Extension.Metro
             return createRoundPath;
         }
 
-        public GraphicsPath RoundRec(int x, int y, int width, int height, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
+        public static GraphicsPath RoundRec(int x, int y, int width, int height, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
         {
             Rectangle r = new(x, y, width, height);
             GraphicsPath createRoundPath = new(FillMode.Winding);

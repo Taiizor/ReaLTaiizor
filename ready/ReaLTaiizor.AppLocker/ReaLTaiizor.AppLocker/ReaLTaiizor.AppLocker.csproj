@@ -1,39 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F449A115-C9D0-4A19-BD25-29000478DCBF}</ProjectGuid>
+    <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
+    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0-windows;net6.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ReaLTaiizor.AppLocker</RootNamespace>
-    <AssemblyName>ReaLTaiizor.AppLocker</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AnalysisLevel>preview</AnalysisLevel>
+    <LangVersion>preview</LangVersion>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>ReaLTaiizor.AppLocker.Program</StartupObject>
@@ -42,144 +16,18 @@
     <ApplicationIcon>Resources\ICO5.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="ReaLTaiizor, Version=3.7.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReaLTaiizor.3.7.8.1\lib\net48\ReaLTaiizor.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AppLocker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppLocker.Designer.cs">
-      <DependentUpon>AppLocker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppPassword.Designer.cs">
-      <DependentUpon>AppPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunApp.cs">
+    <Compile Update="RunApp.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RunApp.Designer.cs">
-      <DependentUpon>RunApp.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AppLocker.resx">
-      <DependentUpon>AppLocker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppPassword.resx">
-      <DependentUpon>AppPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="RunApp.resx">
-      <DependentUpon>RunApp.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <PackageReference Include="Costura.Fody" Version="5.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.3" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO5.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO6.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO7.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO8.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO9.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lock_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lock_96px_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\padlock_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\prisoner_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\privacy_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\protect_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\secure_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\touch_id_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\unlock_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO2.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO3.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ICO4.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\folder_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\application_window_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\eye_96px.png" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props'))" />
-    <Error Condition="!Exists('..\packages\Fody.6.3.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.3.0\build\Fody.targets'))" />
-  </Target>
-  <Import Project="..\packages\Fody.6.3.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.3.0\build\Fody.targets')" />
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0-windows' OR '$(TargetFramework)'=='net6.0-windows'">
+    <DisableFody>true</DisableFody>
+  </PropertyGroup>
 </Project>

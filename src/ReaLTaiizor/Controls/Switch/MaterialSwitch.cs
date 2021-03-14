@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Controls
             Size strSize;
             using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
-                strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialManager.fontType.Body1));
+                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1));
             }
 
             int w = TRACK_SIZE_WIDTH + THUMB_SIZE + strSize.Width;
@@ -147,7 +147,7 @@ namespace ReaLTaiizor.Controls
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
 
             double animationProgress = _checkAM.GetProgress();
 
@@ -223,7 +223,7 @@ namespace ReaLTaiizor.Controls
             Rectangle textLocation = new(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
             NativeText.DrawTransparentText(
                 Text,
-                SkinManager.getLogFontByType(MaterialManager.fontType.Body1),
+                SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
                 Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 textLocation.Location,
                 textLocation.Size,
@@ -239,7 +239,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Color.Transparent);
 
             // draw the checkmark lines
-            using (Pen pen = new(Parent.BackColor, 2))
+            using (Pen pen = new(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor, 2))
             {
                 g.DrawLines(pen, CheckmarkLine);
             }

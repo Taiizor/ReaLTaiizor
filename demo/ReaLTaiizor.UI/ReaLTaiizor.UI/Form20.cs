@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ReaLTaiizor.Controls;
+using ReaLTaiizor.Enum.Poison;
+using ReaLTaiizor.Forms;
+using System;
 using System.Data;
 using System.Drawing;
-using ReaLTaiizor.Forms;
 using System.Windows.Forms;
-using ReaLTaiizor.Controls;
-using ReaLTaiizor.Enum.Poison;
 
 namespace ReaLTaiizor.UI
 {
@@ -17,7 +17,7 @@ namespace ReaLTaiizor.UI
             BorderStyle = Enum.Poison.FormBorderStyle.FixedSingle;
             ShadowType = FormShadowType.AeroShadow;
 
-            DataTable _table = new DataTable();
+            DataTable _table = new();
             _table.ReadXml(Application.StartupPath + @"\Data\Books.xml");
             poisonGrid1.DataSource = _table;
 
@@ -31,7 +31,7 @@ namespace ReaLTaiizor.UI
 
         private void poisonTileSwitch_Click(object sender, EventArgs e)
         {
-            Random m = new Random();
+            Random m = new();
             int next = m.Next(0, 13);
             poisonStyleManager.Style = (ColorStyle)next;
         }
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.UI
 
         private void poisonButton1_Click(object sender, EventArgs e)
         {
-            PoisonTaskWindow.ShowTaskWindow(this,"SubControl in TaskWindow", new TaskWindowControl(), 10);
+            PoisonTaskWindow.ShowTaskWindow(this, "SubControl in TaskWindow", new TaskWindowControl(), 10);
         }
 
         private void poisonButton2_Click(object sender, EventArgs e)
@@ -94,6 +94,6 @@ namespace ReaLTaiizor.UI
         private void poisonButton4_Click(object sender, EventArgs e)
         {
             poisonTextBox2.Focus();
-        } 
+        }
     }
 }

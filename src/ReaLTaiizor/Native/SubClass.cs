@@ -48,7 +48,7 @@ namespace ReaLTaiizor.Native
 
         #region HiWord Message Cracker
 
-        public int HiWord(int Number)
+        public static int HiWord(int Number)
         {
             return ((Number >> 16) & 0xffff);
         }
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Native
 
         #region LoWord Message Cracker
 
-        public int LoWord(int Number)
+        public static int LoWord(int Number)
         {
             return (Number & 0xffff);
         }
@@ -66,7 +66,7 @@ namespace ReaLTaiizor.Native
 
         #region MakeLong Message Cracker
 
-        public int MakeLong(int LoWord, int HiWord)
+        public static int MakeLong(int LoWord, int HiWord)
         {
             return (HiWord << 16) | (LoWord & 0xffff);
         }
@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Native
 
         #region MakeLParam Message Cracker
 
-        public IntPtr MakeLParam(int LoWord, int HiWord)
+        public static IntPtr MakeLParam(int LoWord, int HiWord)
         {
             return (IntPtr)((HiWord << 16) | (LoWord & 0xffff));
         }

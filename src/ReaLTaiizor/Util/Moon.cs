@@ -1465,7 +1465,6 @@ namespace ReaLTaiizor.Util
         {
             SuspendLayout();
             ResumeLayout(false);
-
         }
 
     }
@@ -2632,8 +2631,9 @@ namespace ReaLTaiizor.Util
         {
         }
 
-        public void Dispose()
+        void IDisposable.Dispose()
         {
+            GC.SuppressFinalize(this);
             Delete();
         }
     }

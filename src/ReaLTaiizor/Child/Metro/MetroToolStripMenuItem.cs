@@ -1,7 +1,6 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Controls;
-using System.Drawing;
 using System.Windows.Forms;
 
 #endregion
