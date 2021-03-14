@@ -3,16 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReaLTaiizor.UI", "ReaLTaiizor.UI\ReaLTaiizor.UI.csproj", "{4421C624-4FB3-4A5B-B4F2-AEEB5DD9DB85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor.UI", "ReaLTaiizor.UI\ReaLTaiizor.UI.csproj", "{4421C624-4FB3-4A5B-B4F2-AEEB5DD9DB85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		GitHub|Any CPU = GitHub|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4421C624-4FB3-4A5B-B4F2-AEEB5DD9DB85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4421C624-4FB3-4A5B-B4F2-AEEB5DD9DB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4421C624-4FB3-4A5B-B4F2-AEEB5DD9DB85}.GitHub|Any CPU.ActiveCfg = Release|Any CPU
+		{4421C624-4FB3-4A5B-B4F2-AEEB5DD9DB85}.GitHub|Any CPU.Build.0 = Release|Any CPU
 		{4421C624-4FB3-4A5B-B4F2-AEEB5DD9DB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4421C624-4FB3-4A5B-B4F2-AEEB5DD9DB85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
