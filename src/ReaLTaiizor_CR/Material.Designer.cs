@@ -247,7 +247,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.materialTextBox2);
             this.Controls.Add(this.materialTextBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::ReaLTaiizor_CR.Properties.Resources.ICO;
             this.MaximizeBox = false;
             this.MessageFilter = false;
             this.Name = "Material";
