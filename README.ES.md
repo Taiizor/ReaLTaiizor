@@ -9,7 +9,7 @@
 [![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
 [![.NET](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml)
-[![.NET Core Desktop](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml)
+[![.NET Desktop](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml)
 
 # Bienvenido a ReaLTaiizor
 ReaLTaiizor es una biblioteca de componente interfaz de UI/UX. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
