@@ -10,7 +10,6 @@
     <AnalysisLevel>preview</AnalysisLevel>
     <LangVersion>preview</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
-    <Configurations>Debug;Release;GitHub</Configurations>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>ReaLTaiizor_CR.Program</StartupObject>
