@@ -27,9 +27,9 @@ jobs:
             sample/ReaLTaiizor.Player,
             sample/ReaLTaiizor.Rufus,
             sample/ReaLTaiizor.XAMPP,
-            ready/ReaLTaiizor.AppLocker
-            ready/ReaLTaiizor.Translate
-            demo/ReaLTaiizor.UI
+            ready/ReaLTaiizor.AppLocker,
+            ready/ReaLTaiizor.Translate,
+            demo/ReaLTaiizor.UI,
             demo/ReaLTaiizor.UX
         ]
 
