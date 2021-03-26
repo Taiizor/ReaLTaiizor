@@ -13,7 +13,6 @@ namespace ReaLTaiizor.Controls
 
     public class Button : Control
     {
-
         #region Variables
 
         private int MouseState;
@@ -34,6 +33,7 @@ namespace ReaLTaiizor.Controls
         private ContentAlignment _ImageAlign = ContentAlignment.MiddleLeft;
 
         #endregion
+
         #region Image Designer
 
         private static PointF ImageLocation(StringFormat SF, SizeF Area, SizeF ImageArea)
@@ -114,6 +114,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region Properties
 
         public Image Image
@@ -186,6 +187,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region EventArgs
 
         protected override void OnMouseUp(MouseEventArgs e)
