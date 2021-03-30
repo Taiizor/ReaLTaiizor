@@ -957,7 +957,7 @@ namespace ReaLTaiizor.Controls
                 _baseTextBox.VisibleChanged -= value;
             }
         }
-#endregion
+        #endregion
 
         public MaterialSingleTextBox()
         {
@@ -1195,5 +1195,5 @@ namespace ReaLTaiizor.Controls
         }
     }
 
-#endregion
+    #endregion
 }

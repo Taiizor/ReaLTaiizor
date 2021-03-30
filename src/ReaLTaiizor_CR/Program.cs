@@ -18,10 +18,10 @@ namespace ReaLTaiizor_CR
 #if NETCOREAPP3_0 || NETCOREAPP3_1 || NET5_0 || NET6_0
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
-                CultureInfo cultureInfo = new CultureInfo(CultureInfo.CurrentCulture.TextInfo.CultureName);
+                CultureInfo cultureInfo = new(CultureInfo.CurrentCulture.TextInfo.CultureName);
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.CurrentCulture = cultureInfo;
-                Application.Run(new Issue());
+                Application.Run(new Catcher());
             }
             catch (Exception ex)
             {
