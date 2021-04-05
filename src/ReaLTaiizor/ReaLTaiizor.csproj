@@ -17,13 +17,13 @@
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
     <Summary>Best with more than 250 WinForm components.</Summary>
     <Description>$(Summary)
-C# WinForm UI/UX Component Library - $(PackageId)</Description>
+.NET WinForm UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
-    <PackageTags>ReaL Taiizor Soferity ReaLTaiizor C# UI UX Design Theme Forms WinForm WinForms DotNet Component</PackageTags>
+    <PackageTags>ReaL Taiizor Soferity ReaLTaiizor C# CSharp VBC VB VisualBasic UI UX Design Theme Forms WinForm WinForms DotNET NET Component</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!--<DocumentationFile>..\$(PackageId)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>-->
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>

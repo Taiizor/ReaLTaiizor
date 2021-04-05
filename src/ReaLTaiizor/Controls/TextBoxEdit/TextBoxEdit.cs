@@ -30,6 +30,7 @@ namespace ReaLTaiizor.Controls
         private GraphicsPath Shape;
 
         #endregion
+
         #region Properties
 
         public HorizontalAlignment TextAlignment
@@ -128,6 +129,7 @@ namespace ReaLTaiizor.Controls
         protected Size ImageSize => _ImageSize;
 
         #endregion
+
         #region EventArgs
 
         private void _Enter(object Obj, EventArgs e)
