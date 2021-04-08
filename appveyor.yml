@@ -1,0 +1,17 @@
+version: 2.0.{build}
+image: Visual Studio 2019
+configuration: Release
+platform: Any CPU
+build:
+  project: src/ReaLTaiizor.sln
+  verbosity: minimal
+
+after_build:
+  - 7z a ReaLTaiizor.zip %APPVEYOR_BUILD_FOLDER%/src/ReaLTaiizor/bin/Release/*
+  - 7z a ReaLTaiizor.7z %APPVEYOR_BUILD_FOLDER%/src/ReaLTaiizor/bin/Release/*
+
+artifacts:
+  - path: ReaLTaiizor.zip
+    name: ReaLTaiizor
+  - path: ReaLTaiizor.7z
+    name: ReaLTaiizor
