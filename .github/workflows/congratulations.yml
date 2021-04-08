@@ -5,7 +5,7 @@ on: [pull_request, issues]
 jobs:
   Congratulation:
 
-    runs-on: windows-latest
+    runs-on: linux-latest
 
     steps:
     - uses: actions/first-interaction@v1
