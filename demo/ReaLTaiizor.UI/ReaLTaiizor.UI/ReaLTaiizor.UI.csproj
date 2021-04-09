@@ -48,6 +48,8 @@
     <EmbeddedResource Include="Localization\Poison\es\PoisonToggle.xml" />
     <EmbeddedResource Include="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
     <EmbeddedResource Include="Localization\Poison\tr\PoisonToggle.xml" />
+    <EmbeddedResource Include="Localization\Poison\zh\PoisonMessageBoxControl.xml" />
+    <EmbeddedResource Include="Localization\Poison\zh\PoisonToggle.xml" />
     <Content Include="Resources\application_16x.png" />
     <Content Include="Resources\AttachOrDetach_7014.png" />
     <Content Include="Resources\baseline_thumb_up_black_24dp.png" />
@@ -84,7 +86,7 @@
     <Content Include="Resources\Twitter.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1-beta2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="ReaLTaiizor" Version="3.7.8.3" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">

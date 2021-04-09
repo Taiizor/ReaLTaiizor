@@ -282,6 +282,8 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <None Remove="Localization\Poison\es\PoisonToggle.xml" />
     <None Remove="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
     <None Remove="Localization\Poison\tr\PoisonToggle.xml" />
+    <None Remove="Localization\Poison\zh\PoisonMessageBoxControl.xml" />
+    <None Remove="Localization\Poison\zh\PoisonToggle.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -291,6 +293,8 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <EmbeddedResource Include="Localization\Poison\es\PoisonToggle.xml" />
     <EmbeddedResource Include="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
     <EmbeddedResource Include="Localization\Poison\tr\PoisonToggle.xml" />
+    <EmbeddedResource Include="Localization\Poison\zh\PoisonMessageBoxControl.xml" />
+    <EmbeddedResource Include="Localization\Poison\zh\PoisonToggle.xml" />
   </ItemGroup>
 
 </Project>
