@@ -54,7 +54,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </PropertyGroup>
 
   <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.2.21154.6" />
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.3.21201.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -172,34 +172,34 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <None Remove="Resources\Poison\Minimize.png" />
     <None Remove="Resources\Poison\TextBox\lnkClear.Image.png" />
     <None Remove="Resources\Poison\TextBox\lnkClear.NoFocusImage.png" />
-    <None Remove="Nones\Crown\active-inactive-close.png" />
-    <None Remove="Nones\Crown\arrow.png" />
-    <None Remove="Nones\Crown\close-normal.png" />
-    <None Remove="Nones\Crown\close-selected.png" />
-    <None Remove="Nones\Crown\err.png" />
-    <None Remove="Nones\Crown\grip.png" />
-    <None Remove="Nones\Crown\inactive-close-selected.png" />
-    <None Remove="Nones\Crown\inactive-close.png" />
-    <None Remove="Nones\Crown\info.png" />
-    <None Remove="Nones\Crown\node_closed_empty.png" />
-    <None Remove="Nones\Crown\node_closed_full.png" />
-    <None Remove="Nones\Crown\node_open.png" />
-    <None Remove="Nones\Crown\node_open_empty.png" />
-    <None Remove="Nones\Crown\scrollbar_arrow.png" />
-    <None Remove="Nones\Crown\scrollbar_arrow_clicked.png" />
-    <None Remove="Nones\Crown\scrollbar_arrow_hot.png" />
-    <None Remove="Nones\Crown\scrollbar_arrow_small_clicked.png" />
-    <None Remove="Nones\Crown\scrollbar_arrow_small_hot.png" />
-    <None Remove="Nones\Crown\scrollbar_arrow_small_standard.png" />
-    <None Remove="Nones\Crown\scrollbar_arrow_standard.png" />
-    <None Remove="Nones\Crown\scrollbar_disabled.png" />
-    <None Remove="Nones\Crown\small_arrow.png" />
-    <None Remove="Nones\Crown\tick.png" />
-    <None Remove="Nones\Crown\tw_active_close.png" />
-    <None Remove="Nones\Crown\tw_active_close_selected.png" />
-    <None Remove="Nones\Crown\tw_close.png" />
-    <None Remove="Nones\Crown\tw_close_selected.png" />
-    <None Remove="Nones\Crown\warn.png" />
+    <None Remove="Resources\Crown\active-inactive-close.png" />
+    <None Remove="Resources\Crown\arrow.png" />
+    <None Remove="Resources\Crown\close-normal.png" />
+    <None Remove="Resources\Crown\close-selected.png" />
+    <None Remove="Resources\Crown\err.png" />
+    <None Remove="Resources\Crown\grip.png" />
+    <None Remove="Resources\Crown\inactive-close-selected.png" />
+    <None Remove="Resources\Crown\inactive-close.png" />
+    <None Remove="Resources\Crown\info.png" />
+    <None Remove="Resources\Crown\node_closed_empty.png" />
+    <None Remove="Resources\Crown\node_closed_full.png" />
+    <None Remove="Resources\Crown\node_open.png" />
+    <None Remove="Resources\Crown\node_open_empty.png" />
+    <None Remove="Resources\Crown\scrollbar_arrow.png" />
+    <None Remove="Resources\Crown\scrollbar_arrow_clicked.png" />
+    <None Remove="Resources\Crown\scrollbar_arrow_hot.png" />
+    <None Remove="Resources\Crown\scrollbar_arrow_small_clicked.png" />
+    <None Remove="Resources\Crown\scrollbar_arrow_small_hot.png" />
+    <None Remove="Resources\Crown\scrollbar_arrow_small_standard.png" />
+    <None Remove="Resources\Crown\scrollbar_arrow_standard.png" />
+    <None Remove="Resources\Crown\scrollbar_disabled.png" />
+    <None Remove="Resources\Crown\small_arrow.png" />
+    <None Remove="Resources\Crown\tick.png" />
+    <None Remove="Resources\Crown\tw_active_close.png" />
+    <None Remove="Resources\Crown\tw_active_close_selected.png" />
+    <None Remove="Resources\Crown\tw_close.png" />
+    <None Remove="Resources\Crown\tw_close_selected.png" />
+    <None Remove="Resources\Crown\warn.png" />
     <None Remove="Resources\Taiizor.ico" />
     <None Remove="Resources\Twitter.png" />
   </ItemGroup>
