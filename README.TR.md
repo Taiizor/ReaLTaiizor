@@ -255,6 +255,10 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ![ForeverTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Forever.png)
 
+### Tilki
+
+![FoxTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Fox.png)
+
 ### Umut
 
 ![HopeTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hope.png)

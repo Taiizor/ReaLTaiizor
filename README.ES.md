@@ -255,6 +255,10 @@ Paso 2：Disfruta diseñando
 
 ![ForeverTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Forever.png)
 
+### Zorro
+
+![FoxTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Fox.png)
+
 ### Esperanza
 
 ![HopeTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hope.png)

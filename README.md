@@ -255,6 +255,10 @@ Step 2：Enjoy designing
 
 ![ForeverTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Forever.png)
 
+### Fox
+
+![FoxTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Fox.png)
+
 ### Hope
 
 ![HopeTheme](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hope.png)

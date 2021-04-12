@@ -8,6 +8,7 @@
     <AnalysisLevel>preview</AnalysisLevel>
     <LangVersion>preview</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
+    <NoWarn>CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>ReaLTaiizor.UI.Program</StartupObject>
