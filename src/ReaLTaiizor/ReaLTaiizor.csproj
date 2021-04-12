@@ -30,7 +30,6 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/ReaLTaiizor</RepositoryUrl>
     <PackageDescription>$(Description)</PackageDescription>
-    <RepositoryUrl>https://github.com/Taiizor/ReaLTaiizor</RepositoryUrl>
     <PackageIcon>Taiizor.png</PackageIcon>
     <Company>$(Authors)</Company>
     <Owners>$(Authors)</Owners>
