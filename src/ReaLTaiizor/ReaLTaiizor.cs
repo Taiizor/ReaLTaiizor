@@ -13,7 +13,7 @@ using System.Windows.Forms;
 //     Creator: Taiizor
 //     Website: www.Taiizor.com
 //     Created: 15.May.2019
-//     Changed: 11.Apr.2021
+//     Changed: 15.Apr.2021
 //     Version: 3.7.8.4
 //
 // |---------DO-NOT-REMOVE---------|
