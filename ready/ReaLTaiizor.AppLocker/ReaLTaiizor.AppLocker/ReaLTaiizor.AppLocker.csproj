@@ -26,7 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.3" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.4" />
   </ItemGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0-windows' OR '$(TargetFramework)'=='net6.0-windows'">
     <DisableFody>true</DisableFody>

@@ -168,17 +168,32 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.ActiveForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage1.ActiveLineTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(169)))), ((int)(((byte)(222)))));
+            this.tabPage1.ActiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.tabPage1.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabPage1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
+            this.tabPage1.CompositingType = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+            this.tabPage1.ControlBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
             this.tabPage1.Controls.Add(this.tabPage2);
             this.tabPage1.Controls.Add(this.tabPage3);
             this.tabPage1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabPage1.FrameColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(50)))), ((int)(((byte)(63)))));
+            this.tabPage1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             this.tabPage1.ItemSize = new System.Drawing.Size(44, 135);
+            this.tabPage1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
+            this.tabPage1.LineTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
             this.tabPage1.Location = new System.Drawing.Point(11, 452);
             this.tabPage1.Multiline = true;
             this.tabPage1.Name = "tabPage1";
+            this.tabPage1.NormalForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(162)))), ((int)(((byte)(167)))));
+            this.tabPage1.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(63)))), ((int)(((byte)(74)))));
             this.tabPage1.SelectedIndex = 0;
             this.tabPage1.Size = new System.Drawing.Size(599, 191);
             this.tabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+            this.tabPage1.StringType = System.Drawing.StringAlignment.Near;
+            this.tabPage1.TabColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
             this.tabPage1.TabIndex = 54;
             // 
             // tabPage2

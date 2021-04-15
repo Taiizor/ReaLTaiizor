@@ -23,9 +23,9 @@ namespace ReaLTaiizor.UI
                 Application.CurrentCulture = cultureInfo;
                 Application.Run(new Form17());
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message + "\n" + Ex.StackTrace + "\n" + Ex.Source + "\n" + Ex.InnerException + "\n" + Ex.Data + "\n" + Ex.TargetSite);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace + "\n" + ex.Source + "\n" + ex.InnerException + "\n" + ex.Data + "\n" + ex.TargetSite);
             }
         }
     }

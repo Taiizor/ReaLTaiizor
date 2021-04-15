@@ -365,7 +365,7 @@
             this.foreverRadioButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.foreverRadioButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             this.foreverRadioButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverRadioButton1.Checked = false;
+            this.foreverRadioButton1.Checked = true;
             this.foreverRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverRadioButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.foreverRadioButton1.ForeColor = System.Drawing.Color.Silver;
