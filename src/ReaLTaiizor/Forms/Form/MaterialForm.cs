@@ -339,7 +339,7 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
 
-        private string[] _DrawerHideTabName = Array.Empty<string>();
+        private string[] _DrawerHideTabName = new List<string>().ToArray();
 
         [Category("Drawer")]
         public string[] DrawerHideTabName
@@ -352,7 +352,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = new List<System.Windows.Forms.TabPage>().ToArray();
 
         [Category("Drawer")]
         public System.Windows.Forms.TabPage[] DrawerNonClickTabPage

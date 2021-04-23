@@ -1238,11 +1238,11 @@ namespace ReaLTaiizor.Util
 
                     if (Singular && _animationDatas.Count > 0)
                     {
-                        _animationDatas[0] = data ?? Array.Empty<object>();
+                        _animationDatas[0] = data ?? new List<object>().ToArray();
                     }
                     else
                     {
-                        _animationDatas.Add(data ?? Array.Empty<object>());
+                        _animationDatas.Add(data ?? new List<object>().ToArray());
                     }
                 }
 
