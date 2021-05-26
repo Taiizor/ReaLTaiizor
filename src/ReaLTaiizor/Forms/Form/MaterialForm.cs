@@ -526,6 +526,7 @@ namespace ReaLTaiizor.Forms
 
         private void TerminateOnClose(object sender, FormClosedEventArgs e)
         {
+            //Application.Exit();
             Environment.Exit(0);
             //FindForm().Close();
             //Close();
