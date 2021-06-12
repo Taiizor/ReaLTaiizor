@@ -15,7 +15,7 @@ namespace ReaLTaiizor.UI
             try
             {
                 Application.EnableVisualStyles();
-#if NET5_0 || NET6_0
+#if NETCOREAPP3_1 || NET5_0 || NET6_0
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
                 CultureInfo cultureInfo = new(CultureInfo.CurrentCulture.TextInfo.CultureName);
@@ -23,9 +23,9 @@ namespace ReaLTaiizor.UI
                 Application.CurrentCulture = cultureInfo;
                 Application.Run(new Form17());
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message + "\n" + Ex.StackTrace + "\n" + Ex.Source + "\n" + Ex.InnerException + "\n" + Ex.Data + "\n" + Ex.TargetSite);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace + "\n" + ex.Source + "\n" + ex.InnerException + "\n" + ex.Data + "\n" + ex.TargetSite);
             }
         }
     }

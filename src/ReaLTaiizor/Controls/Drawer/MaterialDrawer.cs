@@ -210,7 +210,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private string[] _DrawerHideTabName = Array.Empty<string>();
+        private string[] _DrawerHideTabName = new List<string>().ToArray();
 
         [Category("Behavior")]
         public string[] DrawerHideTabName
@@ -245,7 +245,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        _DrawerHideTabName = Array.Empty<string>();
+                        _DrawerHideTabName = new List<string>().ToArray();
                     }
 
                     UpdateTabRects();
@@ -257,7 +257,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = new List<System.Windows.Forms.TabPage>().ToArray();
 
         [Category("Behavior")]
         public System.Windows.Forms.TabPage[] DrawerNonClickTabPage
@@ -786,5 +786,5 @@ namespace ReaLTaiizor.Controls
         }
     }
 
-#endregion
+    #endregion
 }

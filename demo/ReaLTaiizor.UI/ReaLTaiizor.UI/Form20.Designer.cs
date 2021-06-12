@@ -1120,7 +1120,6 @@ namespace ReaLTaiizor.UI
             this.poisonTextBox1.MaxLength = 32767;
             this.poisonTextBox1.Name = "poisonTextBox1";
             this.poisonTextBox1.PasswordChar = '\0';
-            this.poisonTextBox1.WaterMark = "With Placeholder support!";
             this.poisonTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.poisonTextBox1.SelectedText = "";
             this.poisonTextBox1.SelectionLength = 0;

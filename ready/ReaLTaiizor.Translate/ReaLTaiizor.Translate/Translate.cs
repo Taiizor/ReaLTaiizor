@@ -11,14 +11,13 @@ namespace ReaLTaiizor.Translate
 {
     public partial class Translate : Form
     {
-        private const string URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=";
+        private static readonly string URL = "https://translate.yandex.net/api/v1.5/" + Lang + ".json/translate?key=";
         private const string APIKey = "";
         private static string Lang = "tr";
 
         public Translate()
         {
             InitializeComponent();
-            foreverRadioButton1.Checked = true;
         }
 
         private async void Language_CheckedChanged(object sender)
@@ -65,9 +64,9 @@ namespace ReaLTaiizor.Translate
                 ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
                 using WebClient Client = new();
                 NameValueCollection Post = new()
-                    {
-                        { "" , "" }
-                    };
+                {
+                    { "", "" }
+                };
                 string JSON;
                 if (!string.IsNullOrEmpty(Lang1))
                 {
@@ -97,9 +96,9 @@ namespace ReaLTaiizor.Translate
                 }
                 return "null";
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                return Ex.Message;
+                return ex.Message;
             }
         }
     }

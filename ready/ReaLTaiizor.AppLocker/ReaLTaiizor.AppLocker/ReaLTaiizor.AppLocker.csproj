@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net461;net462;net47;net471;net472;net48;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net461;net462;net47;net471;net472;net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <AnalysisLevel>preview</AnalysisLevel>
     <LangVersion>preview</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
+    <NoWarn>CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>ReaLTaiizor.AppLocker.Program</StartupObject>
@@ -21,11 +22,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Costura.Fody" Version="5.0.2">
+    <PackageReference Include="Costura.Fody" Version="5.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.3" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.4" />
   </ItemGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0-windows' OR '$(TargetFramework)'=='net6.0-windows'">
     <DisableFody>true</DisableFody>
@@ -34,6 +35,6 @@
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.2.21154.6" />
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.4.21253.7" />
   </ItemGroup>
 </Project>

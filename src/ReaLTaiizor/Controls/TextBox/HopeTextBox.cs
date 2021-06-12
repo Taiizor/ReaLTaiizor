@@ -1072,7 +1072,7 @@ namespace ReaLTaiizor.Controls
                 _baseTextBox.VisibleChanged -= value;
             }
         }
-#endregion
+        #endregion
 
         private class TextBoxHopeBase : TextBox
         {
@@ -1159,5 +1159,5 @@ namespace ReaLTaiizor.Controls
         }
     }
 
-#endregion
+    #endregion
 }

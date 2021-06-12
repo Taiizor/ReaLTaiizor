@@ -143,6 +143,8 @@ namespace ReaLTaiizor.UI
             this.materialProgressBar1 = new ReaLTaiizor.Controls.MaterialProgressBar();
             this.materialLabel29 = new ReaLTaiizor.Controls.MaterialLabel();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.materialButton28 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton29 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialDivider3 = new ReaLTaiizor.Controls.MaterialDivider();
             this.materialDivider2 = new ReaLTaiizor.Controls.MaterialDivider();
             this.materialDivider1 = new ReaLTaiizor.Controls.MaterialDivider();
@@ -168,8 +170,6 @@ namespace ReaLTaiizor.UI
             this.item2ToolStripMenuItem = new ReaLTaiizor.Controls.MaterialToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.item3ToolStripMenuItem = new ReaLTaiizor.Controls.MaterialToolStripMenuItem();
-            this.materialButton28 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialButton29 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -2179,7 +2179,7 @@ namespace ReaLTaiizor.UI
             this.materialProgressBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialProgressBar2.Depth = 0;
-            this.materialProgressBar2.Location = new System.Drawing.Point(29, 201);
+            this.materialProgressBar2.Location = new System.Drawing.Point(29, 153);
             this.materialProgressBar2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialProgressBar2.Name = "materialProgressBar2";
             this.materialProgressBar2.Size = new System.Drawing.Size(804, 30);
@@ -2193,7 +2193,7 @@ namespace ReaLTaiizor.UI
             this.materialFlatButton2.DrawShadows = true;
             this.materialFlatButton2.HighEmphasis = false;
             this.materialFlatButton2.Icon = global::ReaLTaiizor.UI.Properties.Resources.minus;
-            this.materialFlatButton2.Location = new System.Drawing.Point(29, 156);
+            this.materialFlatButton2.Location = new System.Drawing.Point(29, 191);
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
@@ -2229,7 +2229,7 @@ namespace ReaLTaiizor.UI
             this.MaterialButton2.DrawShadows = true;
             this.MaterialButton2.HighEmphasis = true;
             this.MaterialButton2.Icon = global::ReaLTaiizor.UI.Properties.Resources.plus;
-            this.MaterialButton2.Location = new System.Drawing.Point(757, 156);
+            this.MaterialButton2.Location = new System.Drawing.Point(757, 191);
             this.MaterialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MaterialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.MaterialButton2.Name = "MaterialButton2";
@@ -2287,6 +2287,46 @@ namespace ReaLTaiizor.UI
             this.tabPage6.Size = new System.Drawing.Size(1015, 520);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Containers";
+            // 
+            // materialButton28
+            // 
+            this.materialButton28.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton28.Depth = 0;
+            this.materialButton28.DrawShadows = true;
+            this.materialButton28.HighEmphasis = true;
+            this.materialButton28.Icon = null;
+            this.materialButton28.Location = new System.Drawing.Point(733, 290);
+            this.materialButton28.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton28.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton28.Name = "materialButton28";
+            this.materialButton28.Size = new System.Drawing.Size(140, 36);
+            this.materialButton28.TabIndex = 72;
+            this.materialButton28.Text = "UNLOCK SECOND";
+            this.materialButton28.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton28.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton28.UseAccentColor = false;
+            this.materialButton28.UseVisualStyleBackColor = true;
+            this.materialButton28.Click += new System.EventHandler(this.MaterialButton28_Click);
+            // 
+            // materialButton29
+            // 
+            this.materialButton29.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton29.Depth = 0;
+            this.materialButton29.DrawShadows = true;
+            this.materialButton29.HighEmphasis = true;
+            this.materialButton29.Icon = null;
+            this.materialButton29.Location = new System.Drawing.Point(572, 290);
+            this.materialButton29.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton29.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton29.Name = "materialButton29";
+            this.materialButton29.Size = new System.Drawing.Size(120, 36);
+            this.materialButton29.TabIndex = 71;
+            this.materialButton29.Text = "LOCK SECOND";
+            this.materialButton29.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton29.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton29.UseAccentColor = false;
+            this.materialButton29.UseVisualStyleBackColor = true;
+            this.materialButton29.Click += new System.EventHandler(this.MaterialButton29_Click);
             // 
             // materialDivider3
             // 
@@ -4590,46 +4630,6 @@ namespace ReaLTaiizor.UI
             this.item3ToolStripMenuItem.Name = "item3ToolStripMenuItem";
             this.item3ToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
             this.item3ToolStripMenuItem.Text = "Item 3";
-            // 
-            // materialButton28
-            // 
-            this.materialButton28.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton28.Depth = 0;
-            this.materialButton28.DrawShadows = true;
-            this.materialButton28.HighEmphasis = true;
-            this.materialButton28.Icon = null;
-            this.materialButton28.Location = new System.Drawing.Point(733, 290);
-            this.materialButton28.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton28.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton28.Name = "materialButton28";
-            this.materialButton28.Size = new System.Drawing.Size(140, 36);
-            this.materialButton28.TabIndex = 72;
-            this.materialButton28.Text = "UNLOCK SECOND";
-            this.materialButton28.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
-            this.materialButton28.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.materialButton28.UseAccentColor = false;
-            this.materialButton28.UseVisualStyleBackColor = true;
-            this.materialButton28.Click += new System.EventHandler(this.MaterialButton28_Click);
-            // 
-            // materialButton29
-            // 
-            this.materialButton29.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton29.Depth = 0;
-            this.materialButton29.DrawShadows = true;
-            this.materialButton29.HighEmphasis = true;
-            this.materialButton29.Icon = null;
-            this.materialButton29.Location = new System.Drawing.Point(572, 290);
-            this.materialButton29.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton29.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton29.Name = "materialButton29";
-            this.materialButton29.Size = new System.Drawing.Size(120, 36);
-            this.materialButton29.TabIndex = 71;
-            this.materialButton29.Text = "LOCK SECOND";
-            this.materialButton29.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
-            this.materialButton29.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.materialButton29.UseAccentColor = false;
-            this.materialButton29.UseVisualStyleBackColor = true;
-            this.materialButton29.Click += new System.EventHandler(this.MaterialButton29_Click);
             // 
             // Form17
             // 

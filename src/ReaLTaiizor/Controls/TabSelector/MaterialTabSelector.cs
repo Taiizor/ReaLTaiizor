@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private string[] _SelectorHideTabName = Array.Empty<string>();
+        private string[] _SelectorHideTabName = new List<string>().ToArray();
 
         [Category("Behavior")]
         public string[] SelectorHideTabName
@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private System.Windows.Forms.TabPage[] _SelectorNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
+        private System.Windows.Forms.TabPage[] _SelectorNonClickTabPage = new List<System.Windows.Forms.TabPage>().ToArray();
 
         [Category("Behavior")]
         public System.Windows.Forms.TabPage[] SelectorNonClickTabPage

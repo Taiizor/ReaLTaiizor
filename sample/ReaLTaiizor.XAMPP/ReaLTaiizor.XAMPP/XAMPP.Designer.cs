@@ -624,7 +624,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
-            this.materialButton1.Size = new System.Drawing.Size(102, 36);
+            this.materialButton1.Size = new System.Drawing.Size(44, 36);
             this.materialButton1.TabIndex = 1;
             this.materialButton1.Text = "CONFIG";
             this.materialButton1.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
@@ -644,7 +644,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
-            this.materialButton2.Size = new System.Drawing.Size(113, 36);
+            this.materialButton2.Size = new System.Drawing.Size(44, 36);
             this.materialButton2.TabIndex = 2;
             this.materialButton2.Text = "NETSTAT";
             this.materialButton2.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
@@ -664,7 +664,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton3.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton3.Name = "materialButton3";
-            this.materialButton3.Size = new System.Drawing.Size(93, 36);
+            this.materialButton3.Size = new System.Drawing.Size(44, 36);
             this.materialButton3.TabIndex = 3;
             this.materialButton3.Text = "SHELL";
             this.materialButton3.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
@@ -684,7 +684,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton4.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton4.Name = "materialButton4";
-            this.materialButton4.Size = new System.Drawing.Size(121, 36);
+            this.materialButton4.Size = new System.Drawing.Size(44, 36);
             this.materialButton4.TabIndex = 4;
             this.materialButton4.Text = "EXPLORER";
             this.materialButton4.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
@@ -704,7 +704,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton5.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton5.Name = "materialButton5";
-            this.materialButton5.Size = new System.Drawing.Size(116, 36);
+            this.materialButton5.Size = new System.Drawing.Size(44, 36);
             this.materialButton5.TabIndex = 5;
             this.materialButton5.Text = "SERVICES";
             this.materialButton5.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
@@ -724,7 +724,7 @@ namespace ReaLTaiizor.XAMPP
             this.materialButton6.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton6.Name = "materialButton6";
-            this.materialButton6.Size = new System.Drawing.Size(86, 36);
+            this.materialButton6.Size = new System.Drawing.Size(44, 36);
             this.materialButton6.TabIndex = 6;
             this.materialButton6.Text = "HELP";
             this.materialButton6.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
