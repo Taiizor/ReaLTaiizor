@@ -206,6 +206,17 @@ namespace ReaLTaiizor.UI
         {
             ThemeProvider.Theme = new DarkTheme();
             BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+
+            foreach (ToolStripMenuItem Control in mnuMain.Items)
+            {
+                Control.BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            }
+
+            foreach (ToolStripLabel Control in stripMain.Items)
+            {
+                Control.ForeColor = ThemeProvider.Theme.Colors.LightText;
+            }
+
             foreach (Control Control in DockPanel.ActiveDocument.Controls)
             {
                 if (Control.Name == "txtDocument")
@@ -214,6 +225,7 @@ namespace ReaLTaiizor.UI
                     Control.BackColor = Color.FromArgb(43, 43, 43);
                 }
             }
+
             Invalidate();
             Refresh();
         }
@@ -222,6 +234,17 @@ namespace ReaLTaiizor.UI
         {
             ThemeProvider.Theme = new LightTheme();
             BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+
+            foreach (ToolStripMenuItem Control in mnuMain.Items)
+            {
+                Control.BackColor = ThemeProvider.Theme.Colors.GreyBackground;
+            }
+
+            foreach (ToolStripLabel Control in stripMain.Items)
+            {
+                Control.ForeColor = ThemeProvider.Theme.Colors.LightText;
+            }
+
             foreach (Control Control in DockPanel.ActiveDocument.Controls)
             {
                 if (Control.Name == "txtDocument")
@@ -231,6 +254,7 @@ namespace ReaLTaiizor.UI
                     break;
                 }
             }
+
             Invalidate();
             Refresh();
         }
