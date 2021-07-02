@@ -247,40 +247,41 @@ namespace ReaLTaiizor.Controls
             BufferedGraphicsContext bufferedGraphicsContext = BufferedGraphicsManager.Current;
             bufferedGraphicsContext.MaximumBuffer = new Size(base.Width + 1, base.Height + 1);
             bufferedGraphics = bufferedGraphicsContext.Allocate(base.CreateGraphics(), base.ClientRectangle);
+
             bufferedGraphics.Graphics.SmoothingMode = SmoothingType;
             bufferedGraphics.Graphics.InterpolationMode = InterpolationType;
             bufferedGraphics.Graphics.CompositingQuality = CompositingQualityType;
             bufferedGraphics.Graphics.PixelOffsetMode = PixelOffsetType;
             bufferedGraphics.Graphics.TextRenderingHint = TextRenderingType;
+
             bufferedGraphics.Graphics.Clear(BackColor);
 
-            if (Positions.Count == Colors.Count)
+            if (barStyle == Style.Flat)
             {
-                if (barStyle == Style.Flat)
-                {
-                    bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), 0, 0, base.Width, base.Height);
-                    bufferedGraphics.Graphics.FillRectangle(new SolidBrush(completeColor), 0, 0, value * base.Width / maxValue, base.Height);
-                }
-                if (barStyle == Style.IOS)
-                {
-                    bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedBackColor), 0, 0, base.Width, base.Height);
-                    bufferedGraphics.Graphics.FillRectangle(new SolidBrush(completeBackColor), 0, 0, value * base.Width / maxValue, base.Height);
-                }
-                if (barStyle == Style.Material)
-                {
-                    LinearGradientBrush linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), Color.Black, Color.Black, 0f, false)
-                    {
-                        InterpolationColors = new ColorBlend
-                        {
-                            Positions = Positions.ToArray(),
-                            Colors = Colors.ToArray()
-                        }
-                    };
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), 0, 0, base.Width, base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(completeColor), 0, 0, value * base.Width / maxValue, base.Height);
+            }
 
-                    linearGradientBrush.RotateTransform(1f);
-                    bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, new Rectangle(0, 0, base.Width, base.Height));
-                    bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), value * base.Width / maxValue, 0, base.Width - value * base.Width / maxValue, base.Height);
-                }
+            if (barStyle == Style.IOS)
+            {
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedBackColor), 0, 0, base.Width, base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(completeBackColor), 0, 0, value * base.Width / maxValue, base.Height);
+            }
+
+            if (barStyle == Style.Material && Positions.Count == Colors.Count)
+            {
+                LinearGradientBrush linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), Color.Black, Color.Black, 0f, false)
+                {
+                    InterpolationColors = new ColorBlend
+                    {
+                        Positions = Positions.ToArray(),
+                        Colors = Colors.ToArray()
+                    }
+                };
+
+                linearGradientBrush.RotateTransform(1f);
+                bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, new Rectangle(0, 0, base.Width, base.Height));
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), value * base.Width / maxValue, 0, base.Width - value * base.Width / maxValue, base.Height);
             }
 
             if (ShowBorder)

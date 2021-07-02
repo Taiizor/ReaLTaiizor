@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode157 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode158 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode157});
-            System.Windows.Forms.TreeNode treeNode159 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode158});
-            System.Windows.Forms.TreeNode treeNode160 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode161 = new System.Windows.Forms.TreeNode("Düğüm3");
-            System.Windows.Forms.TreeNode treeNode162 = new System.Windows.Forms.TreeNode("Düğüm4");
-            System.Windows.Forms.TreeNode treeNode163 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode160,
-            treeNode161,
-            treeNode162});
-            System.Windows.Forms.TreeNode treeNode164 = new System.Windows.Forms.TreeNode("Düğüm5");
-            System.Windows.Forms.TreeNode treeNode165 = new System.Windows.Forms.TreeNode("Düğüm6");
-            System.Windows.Forms.TreeNode treeNode166 = new System.Windows.Forms.TreeNode("Düğüm7");
-            System.Windows.Forms.TreeNode treeNode167 = new System.Windows.Forms.TreeNode("Düğüm8");
-            System.Windows.Forms.TreeNode treeNode168 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode164,
-            treeNode165,
-            treeNode166,
-            treeNode167});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Düğüm3");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Düğüm4");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Düğüm5");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Düğüm6");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Düğüm7");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Düğüm8");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
             this.aloneTextBox1 = new ReaLTaiizor.Controls.AloneTextBox();
             this.bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
             this.comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit();
@@ -302,34 +302,34 @@
             this.foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
             this.foreverTreeView1.Location = new System.Drawing.Point(5, 248);
             this.foreverTreeView1.Name = "foreverTreeView1";
-            treeNode157.Name = "Düğüm2";
-            treeNode157.Text = "Düğüm2";
-            treeNode158.Name = "Düğüm1";
-            treeNode158.Text = "Düğüm1";
-            treeNode159.Name = "Düğüm0";
-            treeNode159.Text = "Düğüm0";
-            treeNode160.Name = "Düğüm2";
-            treeNode160.Text = "Düğüm2";
-            treeNode161.Name = "Düğüm3";
-            treeNode161.Text = "Düğüm3";
-            treeNode162.Name = "Düğüm4";
-            treeNode162.Text = "Düğüm4";
-            treeNode163.Name = "Düğüm0";
-            treeNode163.Text = "Düğüm0";
-            treeNode164.Name = "Düğüm5";
-            treeNode164.Text = "Düğüm5";
-            treeNode165.Name = "Düğüm6";
-            treeNode165.Text = "Düğüm6";
-            treeNode166.Name = "Düğüm7";
-            treeNode166.Text = "Düğüm7";
-            treeNode167.Name = "Düğüm8";
-            treeNode167.Text = "Düğüm8";
-            treeNode168.Name = "Düğüm1";
-            treeNode168.Text = "Düğüm1";
+            treeNode1.Name = "Düğüm2";
+            treeNode1.Text = "Düğüm2";
+            treeNode2.Name = "Düğüm1";
+            treeNode2.Text = "Düğüm1";
+            treeNode3.Name = "Düğüm0";
+            treeNode3.Text = "Düğüm0";
+            treeNode4.Name = "Düğüm2";
+            treeNode4.Text = "Düğüm2";
+            treeNode5.Name = "Düğüm3";
+            treeNode5.Text = "Düğüm3";
+            treeNode6.Name = "Düğüm4";
+            treeNode6.Text = "Düğüm4";
+            treeNode7.Name = "Düğüm0";
+            treeNode7.Text = "Düğüm0";
+            treeNode8.Name = "Düğüm5";
+            treeNode8.Text = "Düğüm5";
+            treeNode9.Name = "Düğüm6";
+            treeNode9.Text = "Düğüm6";
+            treeNode10.Name = "Düğüm7";
+            treeNode10.Text = "Düğüm7";
+            treeNode11.Name = "Düğüm8";
+            treeNode11.Text = "Düğüm8";
+            treeNode12.Name = "Düğüm1";
+            treeNode12.Text = "Düğüm1";
             this.foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode159,
-            treeNode163,
-            treeNode168});
+            treeNode3,
+            treeNode7,
+            treeNode12});
             this.foreverTreeView1.Size = new System.Drawing.Size(388, 22);
             this.foreverTreeView1.TabIndex = 14;
             // 
