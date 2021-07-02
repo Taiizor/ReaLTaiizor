@@ -19,6 +19,7 @@ namespace ReaLTaiizor.Controls
             base.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
             base.Size = new Size(60, 30);
+            Cursor = Cursors.Hand;
         }
 
         [Category("Parrot")]

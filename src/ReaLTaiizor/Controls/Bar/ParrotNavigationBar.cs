@@ -187,6 +187,19 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("The navigation bar interaction")]
+        public bool Interaction
+        {
+            get => interaction;
+            set
+            {
+                interaction = value;
+                base.Invalidate();
+            }
+        }
+
         private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBilinear;
         [Category("Parrot")]
         [Browsable(true)]
@@ -229,6 +242,11 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
+            if (interaction && cursor == null)
+            {
+                cursor = Cursor;
+            }
 
             e.Graphics.InterpolationMode = InterpolationType;
             e.Graphics.CompositingQuality = CompositingQualityType;
@@ -324,13 +342,32 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            if (e.X < base.Width / 3)
+            if (interaction)
             {
-                OnLeftItemClick();
+                if (e.X < base.Width / 3)
+                {
+                    OnLeftItemClick();
+                }
+                if (e.X > base.Width / 3 * 2)
+                {
+                    OnRightItemClick();
+                }
             }
-            if (e.X > base.Width / 3 * 2)
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            if (interaction)
             {
-                OnRightItemClick();
+                if (e.X < base.Width / 3 || e.X > base.Width / 3 * 2)
+                {
+                    Cursor = Cursors.Hand;
+                }
+                else
+                {
+                    Cursor = cursor;
+                }
             }
         }
 
@@ -355,6 +392,10 @@ namespace ReaLTaiizor.Controls
         private Image leftCustomImage;
 
         private Image rightCustomImage;
+
+        private Cursor cursor;
+
+        private bool interaction = true;
 
         public enum NavigationItem
         {
