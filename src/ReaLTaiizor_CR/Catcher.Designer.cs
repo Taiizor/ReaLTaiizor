@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode26});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Düğüm3");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Düğüm4");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode28,
-            treeNode29,
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Düğüm5");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Düğüm6");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Düğüm7");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Düğüm8");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33,
-            treeNode34,
-            treeNode35});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Düğüm3");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Düğüm4");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Düğüm5");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Düğüm6");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Düğüm7");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Düğüm8");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
             this.aloneTextBox1 = new ReaLTaiizor.Controls.AloneTextBox();
             this.bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
             this.comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit();
@@ -68,20 +68,6 @@
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
             this.textBoxEdit1 = new ReaLTaiizor.Controls.TextBoxEdit();
-            this.parrotClock1 = new ReaLTaiizor.Controls.ParrotClock();
-            this.parrotSwitch1 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch2 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch3 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch4 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch5 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch6 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch7 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch8 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch9 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotSwitch10 = new ReaLTaiizor.Controls.ParrotSwitch();
-            this.parrotNavigationBar1 = new ReaLTaiizor.Controls.ParrotNavigationBar();
-            this.parrotNavigationBar2 = new ReaLTaiizor.Controls.ParrotNavigationBar();
-            this.parrotGradientPanel1 = new ReaLTaiizor.Controls.ParrotGradientPanel();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -316,34 +302,34 @@
             this.foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
             this.foreverTreeView1.Location = new System.Drawing.Point(5, 248);
             this.foreverTreeView1.Name = "foreverTreeView1";
-            treeNode25.Name = "Düğüm2";
-            treeNode25.Text = "Düğüm2";
-            treeNode26.Name = "Düğüm1";
-            treeNode26.Text = "Düğüm1";
-            treeNode27.Name = "Düğüm0";
-            treeNode27.Text = "Düğüm0";
-            treeNode28.Name = "Düğüm2";
-            treeNode28.Text = "Düğüm2";
-            treeNode29.Name = "Düğüm3";
-            treeNode29.Text = "Düğüm3";
-            treeNode30.Name = "Düğüm4";
-            treeNode30.Text = "Düğüm4";
-            treeNode31.Name = "Düğüm0";
-            treeNode31.Text = "Düğüm0";
-            treeNode32.Name = "Düğüm5";
-            treeNode32.Text = "Düğüm5";
-            treeNode33.Name = "Düğüm6";
-            treeNode33.Text = "Düğüm6";
-            treeNode34.Name = "Düğüm7";
-            treeNode34.Text = "Düğüm7";
-            treeNode35.Name = "Düğüm8";
-            treeNode35.Text = "Düğüm8";
-            treeNode36.Name = "Düğüm1";
-            treeNode36.Text = "Düğüm1";
+            treeNode1.Name = "Düğüm2";
+            treeNode1.Text = "Düğüm2";
+            treeNode2.Name = "Düğüm1";
+            treeNode2.Text = "Düğüm1";
+            treeNode3.Name = "Düğüm0";
+            treeNode3.Text = "Düğüm0";
+            treeNode4.Name = "Düğüm2";
+            treeNode4.Text = "Düğüm2";
+            treeNode5.Name = "Düğüm3";
+            treeNode5.Text = "Düğüm3";
+            treeNode6.Name = "Düğüm4";
+            treeNode6.Text = "Düğüm4";
+            treeNode7.Name = "Düğüm0";
+            treeNode7.Text = "Düğüm0";
+            treeNode8.Name = "Düğüm5";
+            treeNode8.Text = "Düğüm5";
+            treeNode9.Name = "Düğüm6";
+            treeNode9.Text = "Düğüm6";
+            treeNode10.Name = "Düğüm7";
+            treeNode10.Text = "Düğüm7";
+            treeNode11.Name = "Düğüm8";
+            treeNode11.Text = "Düğüm8";
+            treeNode12.Name = "Düğüm1";
+            treeNode12.Text = "Düğüm1";
             this.foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode31,
-            treeNode36});
+            treeNode3,
+            treeNode7,
+            treeNode12});
             this.foreverTreeView1.Size = new System.Drawing.Size(388, 22);
             this.foreverTreeView1.TabIndex = 14;
             // 
@@ -416,278 +402,12 @@
             this.textBoxEdit1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.textBoxEdit1.UseSystemPasswordChar = false;
             // 
-            // parrotClock1
-            // 
-            this.parrotClock1.CircleThickness = 6;
-            this.parrotClock1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            this.parrotClock1.DisplayFormat = ReaLTaiizor.Controls.ParrotClock.HourFormat.TwentyFourHour;
-            this.parrotClock1.FilledHourColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(190)))), ((int)(((byte)(155)))));
-            this.parrotClock1.FilledMinuteColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.parrotClock1.FilledSecondColor = System.Drawing.Color.DarkOrchid;
-            this.parrotClock1.Font = new System.Drawing.Font("Impact", 15F);
-            this.parrotClock1.HexagonColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.parrotClock1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            this.parrotClock1.Location = new System.Drawing.Point(399, 39);
-            this.parrotClock1.Name = "parrotClock1";
-            this.parrotClock1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            this.parrotClock1.ShowAmPm = true;
-            this.parrotClock1.ShowHexagon = true;
-            this.parrotClock1.ShowMinutesCircle = true;
-            this.parrotClock1.ShowSecondsCircle = true;
-            this.parrotClock1.Size = new System.Drawing.Size(120, 130);
-            this.parrotClock1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            this.parrotClock1.TabIndex = 19;
-            this.parrotClock1.Text = "parrotClock1";
-            this.parrotClock1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.parrotClock1.TimeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.parrotClock1.UnfilledHourColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(70)))), ((int)(((byte)(85)))));
-            this.parrotClock1.UnfilledMinuteColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.parrotClock1.UnfilledSecondColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            // 
-            // parrotSwitch1
-            // 
-            this.parrotSwitch1.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch1.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
-            this.parrotSwitch1.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(180)))), ((int)(((byte)(120)))));
-            this.parrotSwitch1.Location = new System.Drawing.Point(525, 39);
-            this.parrotSwitch1.Name = "parrotSwitch1";
-            this.parrotSwitch1.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(129)))), ((int)(((byte)(136)))));
-            this.parrotSwitch1.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(217)))), ((int)(((byte)(174)))));
-            this.parrotSwitch1.Size = new System.Drawing.Size(60, 30);
-            this.parrotSwitch1.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.On;
-            this.parrotSwitch1.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.Horizontal;
-            this.parrotSwitch1.TabIndex = 20;
-            this.parrotSwitch1.Text = "parrotSwitch1";
-            // 
-            // parrotSwitch2
-            // 
-            this.parrotSwitch2.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch2.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
-            this.parrotSwitch2.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(180)))), ((int)(((byte)(120)))));
-            this.parrotSwitch2.Location = new System.Drawing.Point(525, 75);
-            this.parrotSwitch2.Name = "parrotSwitch2";
-            this.parrotSwitch2.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(129)))), ((int)(((byte)(136)))));
-            this.parrotSwitch2.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(217)))), ((int)(((byte)(174)))));
-            this.parrotSwitch2.Size = new System.Drawing.Size(30, 60);
-            this.parrotSwitch2.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.On;
-            this.parrotSwitch2.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.Vertical;
-            this.parrotSwitch2.TabIndex = 21;
-            this.parrotSwitch2.Text = "parrotSwitch2";
-            // 
-            // parrotSwitch3
-            // 
-            this.parrotSwitch3.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch3.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
-            this.parrotSwitch3.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(180)))), ((int)(((byte)(120)))));
-            this.parrotSwitch3.Location = new System.Drawing.Point(561, 75);
-            this.parrotSwitch3.Name = "parrotSwitch3";
-            this.parrotSwitch3.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(129)))), ((int)(((byte)(136)))));
-            this.parrotSwitch3.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(217)))), ((int)(((byte)(174)))));
-            this.parrotSwitch3.Size = new System.Drawing.Size(30, 60);
-            this.parrotSwitch3.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.Off;
-            this.parrotSwitch3.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.Vertical;
-            this.parrotSwitch3.TabIndex = 22;
-            this.parrotSwitch3.Text = "parrotSwitch3";
-            // 
-            // parrotSwitch4
-            // 
-            this.parrotSwitch4.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch4.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
-            this.parrotSwitch4.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(180)))), ((int)(((byte)(120)))));
-            this.parrotSwitch4.Location = new System.Drawing.Point(591, 38);
-            this.parrotSwitch4.Name = "parrotSwitch4";
-            this.parrotSwitch4.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(129)))), ((int)(((byte)(136)))));
-            this.parrotSwitch4.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(217)))), ((int)(((byte)(174)))));
-            this.parrotSwitch4.Size = new System.Drawing.Size(60, 30);
-            this.parrotSwitch4.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.Off;
-            this.parrotSwitch4.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.Horizontal;
-            this.parrotSwitch4.TabIndex = 23;
-            this.parrotSwitch4.Text = "parrotSwitch4";
-            // 
-            // parrotSwitch5
-            // 
-            this.parrotSwitch5.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch5.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch5.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch5.Location = new System.Drawing.Point(597, 110);
-            this.parrotSwitch5.Name = "parrotSwitch5";
-            this.parrotSwitch5.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch5.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(217)))), ((int)(((byte)(100)))));
-            this.parrotSwitch5.Size = new System.Drawing.Size(60, 30);
-            this.parrotSwitch5.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.Off;
-            this.parrotSwitch5.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.iOS;
-            this.parrotSwitch5.TabIndex = 25;
-            this.parrotSwitch5.Text = "parrotSwitch5";
-            // 
-            // parrotSwitch6
-            // 
-            this.parrotSwitch6.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch6.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch6.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch6.Location = new System.Drawing.Point(597, 74);
-            this.parrotSwitch6.Name = "parrotSwitch6";
-            this.parrotSwitch6.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch6.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(217)))), ((int)(((byte)(100)))));
-            this.parrotSwitch6.Size = new System.Drawing.Size(60, 30);
-            this.parrotSwitch6.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.On;
-            this.parrotSwitch6.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.iOS;
-            this.parrotSwitch6.TabIndex = 24;
-            this.parrotSwitch6.Text = "parrotSwitch6";
-            // 
-            // parrotSwitch7
-            // 
-            this.parrotSwitch7.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch7.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.parrotSwitch7.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(199)))), ((int)(((byte)(192)))));
-            this.parrotSwitch7.Location = new System.Drawing.Point(663, 75);
-            this.parrotSwitch7.Name = "parrotSwitch7";
-            this.parrotSwitch7.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.parrotSwitch7.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(239)))), ((int)(((byte)(237)))));
-            this.parrotSwitch7.Size = new System.Drawing.Size(58, 30);
-            this.parrotSwitch7.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.Off;
-            this.parrotSwitch7.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.Android;
-            this.parrotSwitch7.TabIndex = 27;
-            this.parrotSwitch7.Text = "parrotSwitch7";
-            // 
-            // parrotSwitch8
-            // 
-            this.parrotSwitch8.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch8.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.parrotSwitch8.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(199)))), ((int)(((byte)(192)))));
-            this.parrotSwitch8.Location = new System.Drawing.Point(663, 38);
-            this.parrotSwitch8.Name = "parrotSwitch8";
-            this.parrotSwitch8.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.parrotSwitch8.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(239)))), ((int)(((byte)(237)))));
-            this.parrotSwitch8.Size = new System.Drawing.Size(58, 30);
-            this.parrotSwitch8.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.On;
-            this.parrotSwitch8.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.Android;
-            this.parrotSwitch8.TabIndex = 26;
-            this.parrotSwitch8.Text = "parrotSwitch8";
-            // 
-            // parrotSwitch9
-            // 
-            this.parrotSwitch9.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch9.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch9.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch9.Location = new System.Drawing.Point(727, 74);
-            this.parrotSwitch9.Name = "parrotSwitch9";
-            this.parrotSwitch9.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.parrotSwitch9.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.parrotSwitch9.Size = new System.Drawing.Size(58, 30);
-            this.parrotSwitch9.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.Off;
-            this.parrotSwitch9.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.Dark;
-            this.parrotSwitch9.TabIndex = 29;
-            this.parrotSwitch9.Text = "parrotSwitch9";
-            // 
-            // parrotSwitch10
-            // 
-            this.parrotSwitch10.BackColor = System.Drawing.Color.Transparent;
-            this.parrotSwitch10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotSwitch10.HandleOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch10.HandleOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.parrotSwitch10.Location = new System.Drawing.Point(727, 39);
-            this.parrotSwitch10.Name = "parrotSwitch10";
-            this.parrotSwitch10.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.parrotSwitch10.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.parrotSwitch10.Size = new System.Drawing.Size(58, 30);
-            this.parrotSwitch10.SwitchState = ReaLTaiizor.Controls.ParrotSwitch.State.On;
-            this.parrotSwitch10.SwitchStyle = ReaLTaiizor.Controls.ParrotSwitch.Style.Dark;
-            this.parrotSwitch10.TabIndex = 28;
-            this.parrotSwitch10.Text = "parrotSwitch10";
-            // 
-            // parrotNavigationBar1
-            // 
-            this.parrotNavigationBar1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(135)))));
-            this.parrotNavigationBar1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            this.parrotNavigationBar1.Interaction = true;
-            this.parrotNavigationBar1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            this.parrotNavigationBar1.ItemColor = System.Drawing.Color.White;
-            this.parrotNavigationBar1.LeftCustomImage = null;
-            this.parrotNavigationBar1.LeftCustomText = "⫷⩶";
-            this.parrotNavigationBar1.LeftItem = ReaLTaiizor.Controls.ParrotNavigationBar.NavigationItem.Menu;
-            this.parrotNavigationBar1.Location = new System.Drawing.Point(399, 175);
-            this.parrotNavigationBar1.Name = "parrotNavigationBar1";
-            this.parrotNavigationBar1.NavBarStyle = ReaLTaiizor.Controls.ParrotNavigationBar.Style.Android;
-            this.parrotNavigationBar1.RightCustomImage = global::ReaLTaiizor_CR.Properties.Resources.FORK;
-            this.parrotNavigationBar1.RightCustomText = "⩶⫸";
-            this.parrotNavigationBar1.RightItem = ReaLTaiizor.Controls.ParrotNavigationBar.NavigationItem.CustomImage;
-            this.parrotNavigationBar1.Size = new System.Drawing.Size(300, 40);
-            this.parrotNavigationBar1.TabIndex = 31;
-            this.parrotNavigationBar1.Text = "parrotNavigationBar1";
-            this.parrotNavigationBar1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.parrotNavigationBar1.Title = "Navigation Bar";
-            this.parrotNavigationBar1.TitleColor = System.Drawing.Color.White;
-            // 
-            // parrotNavigationBar2
-            // 
-            this.parrotNavigationBar2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
-            this.parrotNavigationBar2.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            this.parrotNavigationBar2.Interaction = true;
-            this.parrotNavigationBar2.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            this.parrotNavigationBar2.ItemColor = System.Drawing.Color.White;
-            this.parrotNavigationBar2.LeftCustomImage = null;
-            this.parrotNavigationBar2.LeftCustomText = "⫷⩶";
-            this.parrotNavigationBar2.LeftItem = ReaLTaiizor.Controls.ParrotNavigationBar.NavigationItem.CustomText;
-            this.parrotNavigationBar2.Location = new System.Drawing.Point(399, 221);
-            this.parrotNavigationBar2.Name = "parrotNavigationBar2";
-            this.parrotNavigationBar2.NavBarStyle = ReaLTaiizor.Controls.ParrotNavigationBar.Style.Material;
-            this.parrotNavigationBar2.RightCustomImage = null;
-            this.parrotNavigationBar2.RightCustomText = "⩶⫸";
-            this.parrotNavigationBar2.RightItem = ReaLTaiizor.Controls.ParrotNavigationBar.NavigationItem.CustomText;
-            this.parrotNavigationBar2.Size = new System.Drawing.Size(300, 40);
-            this.parrotNavigationBar2.TabIndex = 32;
-            this.parrotNavigationBar2.Text = "parrotNavigationBar2";
-            this.parrotNavigationBar2.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.parrotNavigationBar2.Title = "Navigation Bar";
-            this.parrotNavigationBar2.TitleColor = System.Drawing.Color.White;
-            // 
-            // parrotGradientPanel1
-            // 
-            this.parrotGradientPanel1.BottomLeft = System.Drawing.Color.Yellow;
-            this.parrotGradientPanel1.BottomRight = System.Drawing.Color.Orange;
-            this.parrotGradientPanel1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            this.parrotGradientPanel1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            this.parrotGradientPanel1.Location = new System.Drawing.Point(705, 110);
-            this.parrotGradientPanel1.Name = "parrotGradientPanel1";
-            this.parrotGradientPanel1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            this.parrotGradientPanel1.PrimerColor = System.Drawing.Color.Green;
-            this.parrotGradientPanel1.Size = new System.Drawing.Size(86, 151);
-            this.parrotGradientPanel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            this.parrotGradientPanel1.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
-            this.parrotGradientPanel1.TabIndex = 33;
-            this.parrotGradientPanel1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.parrotGradientPanel1.TopLeft = System.Drawing.Color.Yellow;
-            this.parrotGradientPanel1.TopRight = System.Drawing.Color.Orange;
-            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 318);
-            this.Controls.Add(this.parrotGradientPanel1);
-            this.Controls.Add(this.parrotNavigationBar2);
-            this.Controls.Add(this.parrotNavigationBar1);
-            this.Controls.Add(this.parrotSwitch9);
-            this.Controls.Add(this.parrotSwitch10);
-            this.Controls.Add(this.parrotSwitch7);
-            this.Controls.Add(this.parrotSwitch8);
-            this.Controls.Add(this.parrotSwitch5);
-            this.Controls.Add(this.parrotSwitch6);
-            this.Controls.Add(this.parrotSwitch4);
-            this.Controls.Add(this.parrotSwitch3);
-            this.Controls.Add(this.parrotSwitch2);
-            this.Controls.Add(this.parrotSwitch1);
-            this.Controls.Add(this.parrotClock1);
             this.Controls.Add(this.textBoxEdit1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
@@ -739,19 +459,5 @@
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
         private ReaLTaiizor.Controls.TextBoxEdit textBoxEdit1;
-        private ReaLTaiizor.Controls.ParrotClock parrotClock1;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch1;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch2;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch3;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch4;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch5;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch6;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch7;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch8;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch9;
-        private ReaLTaiizor.Controls.ParrotSwitch parrotSwitch10;
-        private ReaLTaiizor.Controls.ParrotNavigationBar parrotNavigationBar1;
-        private ReaLTaiizor.Controls.ParrotNavigationBar parrotNavigationBar2;
-        private ReaLTaiizor.Controls.ParrotGradientPanel parrotGradientPanel1;
     }
 }
