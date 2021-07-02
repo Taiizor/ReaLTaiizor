@@ -38,9 +38,9 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        [Description("The width of the border")]
         [Category("Parrot")]
         [Browsable(true)]
+        [Description("The width of the border")]
         public int BorderWidth
         {
             get => borderWidth;
@@ -51,9 +51,9 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        [Description("Show the text of the groupbox")]
         [Category("Parrot")]
         [Browsable(true)]
+        [Description("Show the text of the groupbox")]
         public bool ShowText
         {
             get => showText;
