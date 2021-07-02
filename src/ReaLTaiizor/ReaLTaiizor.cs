@@ -14,7 +14,7 @@ using System.Windows.Forms;
 //     Website: www.Taiizor.com
 //     Created: 15.May.2019
 //     Changed: 02.Jul.2021
-//     Version: 3.7.8.5
+//     Version: 3.7.8.6
 //
 // |---------DO-NOT-REMOVE---------|
 
