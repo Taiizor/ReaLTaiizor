@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         public PixelOffsetMode PixelOffsetType
         {
-            get { return _PixelOffsetType; }
+            get => _PixelOffsetType;
             set
             {
                 _PixelOffsetType = value;
@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
         private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         public TextRenderingHint TextRenderingType
         {
-            get { return _TextRenderingType; }
+            get => _TextRenderingType;
             set
             {
                 _TextRenderingType = value;

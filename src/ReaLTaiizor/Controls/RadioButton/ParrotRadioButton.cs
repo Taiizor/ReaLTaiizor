@@ -82,7 +82,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;

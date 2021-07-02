@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get { return _SmoothingType; }
+            get => _SmoothingType;
             set
             {
                 _SmoothingType = value;
@@ -148,7 +148,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get { return _PixelOffsetType; }
+            get => _PixelOffsetType;
             set
             {
                 _PixelOffsetType = value;
@@ -161,7 +161,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get { return _TextRenderingType; }
+            get => _TextRenderingType;
             set
             {
                 _TextRenderingType = value;
