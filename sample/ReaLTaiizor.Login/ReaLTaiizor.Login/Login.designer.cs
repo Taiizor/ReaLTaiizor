@@ -63,10 +63,13 @@
             this.hopePictureBox1.Image = global::ReaLTaiizor.Login.Properties.Resources.Login;
             this.hopePictureBox1.Location = new System.Drawing.Point(132, 46);
             this.hopePictureBox1.Name = "hopePictureBox1";
+            this.hopePictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.hopePictureBox1.Size = new System.Drawing.Size(100, 100);
             this.hopePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hopePictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.hopePictureBox1.TabIndex = 1;
             this.hopePictureBox1.TabStop = false;
+            this.hopePictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // hopeForm1
             // 
@@ -163,10 +166,13 @@
             this.hopePictureBox2.Image = global::ReaLTaiizor.Login.Properties.Resources.Twitter;
             this.hopePictureBox2.Location = new System.Drawing.Point(70, 415);
             this.hopePictureBox2.Name = "hopePictureBox2";
+            this.hopePictureBox2.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.hopePictureBox2.Size = new System.Drawing.Size(40, 40);
             this.hopePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hopePictureBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.hopePictureBox2.TabIndex = 15;
             this.hopePictureBox2.TabStop = false;
+            this.hopePictureBox2.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // hopePictureBox3
             // 
@@ -176,10 +182,13 @@
             this.hopePictureBox3.Image = global::ReaLTaiizor.Login.Properties.Resources.Skype;
             this.hopePictureBox3.Location = new System.Drawing.Point(116, 415);
             this.hopePictureBox3.Name = "hopePictureBox3";
+            this.hopePictureBox3.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.hopePictureBox3.Size = new System.Drawing.Size(40, 40);
             this.hopePictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hopePictureBox3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.hopePictureBox3.TabIndex = 16;
             this.hopePictureBox3.TabStop = false;
+            this.hopePictureBox3.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // hopePictureBox4
             // 
@@ -189,10 +198,13 @@
             this.hopePictureBox4.Image = global::ReaLTaiizor.Login.Properties.Resources.Vimeo;
             this.hopePictureBox4.Location = new System.Drawing.Point(162, 415);
             this.hopePictureBox4.Name = "hopePictureBox4";
+            this.hopePictureBox4.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.hopePictureBox4.Size = new System.Drawing.Size(40, 40);
             this.hopePictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.hopePictureBox4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.hopePictureBox4.TabIndex = 17;
             this.hopePictureBox4.TabStop = false;
+            this.hopePictureBox4.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // hopePictureBox5
             // 
@@ -202,10 +214,13 @@
             this.hopePictureBox5.Image = global::ReaLTaiizor.Login.Properties.Resources.Dropbox;
             this.hopePictureBox5.Location = new System.Drawing.Point(208, 415);
             this.hopePictureBox5.Name = "hopePictureBox5";
+            this.hopePictureBox5.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.hopePictureBox5.Size = new System.Drawing.Size(40, 40);
             this.hopePictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hopePictureBox5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.hopePictureBox5.TabIndex = 18;
             this.hopePictureBox5.TabStop = false;
+            this.hopePictureBox5.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // foreverToggle1
             // 
@@ -245,10 +260,13 @@
             this.hopePictureBox6.Image = global::ReaLTaiizor.Login.Properties.Resources.Howcast;
             this.hopePictureBox6.Location = new System.Drawing.Point(254, 415);
             this.hopePictureBox6.Name = "hopePictureBox6";
+            this.hopePictureBox6.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.hopePictureBox6.Size = new System.Drawing.Size(40, 40);
             this.hopePictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hopePictureBox6.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.hopePictureBox6.TabIndex = 26;
             this.hopePictureBox6.TabStop = false;
+            this.hopePictureBox6.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // pictureBox1
             // 
