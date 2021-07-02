@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Düğüm3");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Düğüm4");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Düğüm5");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Düğüm6");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Düğüm7");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Düğüm8");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11});
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode26});
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Düğüm3");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Düğüm4");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode28,
+            treeNode29,
+            treeNode30});
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Düğüm5");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Düğüm6");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Düğüm7");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Düğüm8");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33,
+            treeNode34,
+            treeNode35});
             this.aloneTextBox1 = new ReaLTaiizor.Controls.AloneTextBox();
             this.bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
             this.comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit();
@@ -302,34 +302,34 @@
             this.foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
             this.foreverTreeView1.Location = new System.Drawing.Point(5, 248);
             this.foreverTreeView1.Name = "foreverTreeView1";
-            treeNode1.Name = "Düğüm2";
-            treeNode1.Text = "Düğüm2";
-            treeNode2.Name = "Düğüm1";
-            treeNode2.Text = "Düğüm1";
-            treeNode3.Name = "Düğüm0";
-            treeNode3.Text = "Düğüm0";
-            treeNode4.Name = "Düğüm2";
-            treeNode4.Text = "Düğüm2";
-            treeNode5.Name = "Düğüm3";
-            treeNode5.Text = "Düğüm3";
-            treeNode6.Name = "Düğüm4";
-            treeNode6.Text = "Düğüm4";
-            treeNode7.Name = "Düğüm0";
-            treeNode7.Text = "Düğüm0";
-            treeNode8.Name = "Düğüm5";
-            treeNode8.Text = "Düğüm5";
-            treeNode9.Name = "Düğüm6";
-            treeNode9.Text = "Düğüm6";
-            treeNode10.Name = "Düğüm7";
-            treeNode10.Text = "Düğüm7";
-            treeNode11.Name = "Düğüm8";
-            treeNode11.Text = "Düğüm8";
-            treeNode12.Name = "Düğüm1";
-            treeNode12.Text = "Düğüm1";
+            treeNode25.Name = "Düğüm2";
+            treeNode25.Text = "Düğüm2";
+            treeNode26.Name = "Düğüm1";
+            treeNode26.Text = "Düğüm1";
+            treeNode27.Name = "Düğüm0";
+            treeNode27.Text = "Düğüm0";
+            treeNode28.Name = "Düğüm2";
+            treeNode28.Text = "Düğüm2";
+            treeNode29.Name = "Düğüm3";
+            treeNode29.Text = "Düğüm3";
+            treeNode30.Name = "Düğüm4";
+            treeNode30.Text = "Düğüm4";
+            treeNode31.Name = "Düğüm0";
+            treeNode31.Text = "Düğüm0";
+            treeNode32.Name = "Düğüm5";
+            treeNode32.Text = "Düğüm5";
+            treeNode33.Name = "Düğüm6";
+            treeNode33.Text = "Düğüm6";
+            treeNode34.Name = "Düğüm7";
+            treeNode34.Text = "Düğüm7";
+            treeNode35.Name = "Düğüm8";
+            treeNode35.Text = "Düğüm8";
+            treeNode36.Name = "Düğüm1";
+            treeNode36.Text = "Düğüm1";
             this.foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode7,
-            treeNode12});
+            treeNode27,
+            treeNode31,
+            treeNode36});
             this.foreverTreeView1.Size = new System.Drawing.Size(388, 22);
             this.foreverTreeView1.TabIndex = 14;
             // 
