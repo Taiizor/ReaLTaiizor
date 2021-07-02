@@ -245,7 +245,7 @@
             this.royalMenuStrip1.Name = "royalMenuStrip1";
             this.royalMenuStrip1.Padding = new System.Windows.Forms.Padding(1);
             this.royalMenuStrip1.SelectedColor = System.Drawing.Color.Empty;
-            this.royalMenuStrip1.Size = new System.Drawing.Size(169, 30);
+            this.royalMenuStrip1.Size = new System.Drawing.Size(168, 30);
             this.royalMenuStrip1.Stretch = false;
             this.royalMenuStrip1.TabIndex = 12;
             this.royalMenuStrip1.Text = "royalMenuStrip1";
@@ -276,7 +276,7 @@
             this.yeniToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.yeniToolStripMenuItem.Name = "yeniToolStripMenuItem";
             this.yeniToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.yeniToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yeniToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.yeniToolStripMenuItem.Text = "New";
             // 
             // açToolStripMenuItem
@@ -286,13 +286,13 @@
             this.açToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.açToolStripMenuItem.Name = "açToolStripMenuItem";
             this.açToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.açToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.açToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.açToolStripMenuItem.Text = "Open";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(144, 6);
             // 
             // kaydetToolStripMenuItem
             // 
@@ -301,20 +301,20 @@
             this.kaydetToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.kaydetToolStripMenuItem.Name = "kaydetToolStripMenuItem";
             this.kaydetToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.kaydetToolStripMenuItem.Text = "Save";
             // 
             // farklıKaydetToolStripMenuItem
             // 
             this.farklıKaydetToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.farklıKaydetToolStripMenuItem.Name = "farklıKaydetToolStripMenuItem";
-            this.farklıKaydetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.farklıKaydetToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.farklıKaydetToolStripMenuItem.Text = "Different Save";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
             // 
             // yazdırToolStripMenuItem
             // 
@@ -323,7 +323,7 @@
             this.yazdırToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.yazdırToolStripMenuItem.Name = "yazdırToolStripMenuItem";
             this.yazdırToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.yazdırToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yazdırToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.yazdırToolStripMenuItem.Text = "Print";
             // 
             // baskıÖnizlemeToolStripMenuItem
@@ -332,19 +332,19 @@
             this.baskıÖnizlemeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("baskıÖnizlemeToolStripMenuItem.Image")));
             this.baskıÖnizlemeToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.baskıÖnizlemeToolStripMenuItem.Name = "baskıÖnizlemeToolStripMenuItem";
-            this.baskıÖnizlemeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.baskıÖnizlemeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.baskıÖnizlemeToolStripMenuItem.Text = "View";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(144, 6);
             // 
             // çıkışToolStripMenuItem
             // 
             this.çıkışToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
-            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.çıkışToolStripMenuItem.Text = "Exit";
             // 
             // düzenToolStripMenuItem
@@ -436,14 +436,14 @@
             // 
             this.özelleştirToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.özelleştirToolStripMenuItem.Name = "özelleştirToolStripMenuItem";
-            this.özelleştirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.özelleştirToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.özelleştirToolStripMenuItem.Text = "Special";
             // 
             // seçeneklerToolStripMenuItem
             // 
             this.seçeneklerToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.seçeneklerToolStripMenuItem.Name = "seçeneklerToolStripMenuItem";
-            this.seçeneklerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.seçeneklerToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.seçeneklerToolStripMenuItem.Text = "Options";
             // 
             // yardımToolStripMenuItem
@@ -464,33 +464,33 @@
             // 
             this.içindekilerToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.içindekilerToolStripMenuItem.Name = "içindekilerToolStripMenuItem";
-            this.içindekilerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.içindekilerToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.içindekilerToolStripMenuItem.Text = "In";
             // 
             // dizinToolStripMenuItem
             // 
             this.dizinToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.dizinToolStripMenuItem.Name = "dizinToolStripMenuItem";
-            this.dizinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dizinToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.dizinToolStripMenuItem.Text = "Path";
             // 
             // araToolStripMenuItem
             // 
             this.araToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.araToolStripMenuItem.Name = "araToolStripMenuItem";
-            this.araToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.araToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.araToolStripMenuItem.Text = "Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(113, 6);
             // 
             // hakkındaToolStripMenuItem
             // 
             this.hakkındaToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.hakkındaToolStripMenuItem.Name = "hakkındaToolStripMenuItem";
-            this.hakkındaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hakkındaToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.hakkındaToolStripMenuItem.Text = "About...";
             // 
             // Form16

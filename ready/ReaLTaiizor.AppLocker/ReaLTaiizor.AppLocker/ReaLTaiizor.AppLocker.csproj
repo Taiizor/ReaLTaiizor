@@ -26,7 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.4" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.5" />
   </ItemGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0-windows' OR '$(TargetFramework)'=='net6.0-windows'">
     <DisableFody>true</DisableFody>
@@ -35,6 +35,6 @@
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.4.21253.7" />
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.5.21301.5" />
   </ItemGroup>
 </Project>
