@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Controls
             watcher.Deleted += OnDeleted;
             watcher.Renamed += OnRenamed;
             watcher.EnableRaisingEvents = false;
-            watcher.InternalBufferSize = 20480;
+            watcher.InternalBufferSize = 131072;
         }
 
         public event EventHandler ServiceStarted;
