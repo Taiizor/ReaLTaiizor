@@ -478,7 +478,7 @@ namespace ReaLTaiizor.Controls
         private int pointSize = 7;
 
         private Color backgroundColor = Color.FromArgb(102, 217, 174);
-        
+
         private Color backColor = Color.FromArgb(40, 40, 40);
 
         private Color belowLineColor = Color.FromArgb(24, 202, 142);

@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotFormDropShadow()
         {
-            RefreshUI.Interval = 100;
+            RefreshUI.Interval = 250;
             RefreshUI.Tick += RefreshUI_Tick;
             RefreshUI.Enabled = true;
         }
