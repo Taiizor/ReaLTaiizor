@@ -219,9 +219,9 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
             get => _SmoothingType;
@@ -232,9 +232,9 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         public TextRenderingHint TextRenderingType
         {
             get => _TextRenderingType;
