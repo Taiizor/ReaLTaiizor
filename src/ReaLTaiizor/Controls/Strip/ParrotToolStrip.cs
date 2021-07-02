@@ -10,9 +10,9 @@ namespace ReaLTaiizor.Controls
 {
     #region ParrotCustomToolStrip
 
-    public class ParrotCustomToolStrip : ToolStrip
+    public class ParrotToolStrip : ToolStrip
     {
-        public ParrotCustomToolStrip()
+        public ParrotToolStrip()
         {
             Dock = DockStyle.Top;
             base.Renderer = new StripeRemoval(borderColor);
