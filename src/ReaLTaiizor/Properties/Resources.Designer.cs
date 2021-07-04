@@ -525,6 +525,30 @@ namespace ReaLTaiizor.Properties {
         }
 
         /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+		internal static System.Drawing.Bitmap color_picker
+        {
+            get
+            {
+				object obj = ResourceManager.GetObject("color_picker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap mini_button
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("mini_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
         ///   System.String türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         public static string Metro_Theme

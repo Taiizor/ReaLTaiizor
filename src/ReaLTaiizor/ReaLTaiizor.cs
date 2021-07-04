@@ -13,8 +13,8 @@ using System.Windows.Forms;
 //     Creator: Taiizor
 //     Website: www.Taiizor.com
 //     Created: 15.May.2019
-//     Changed: 29.May.2021
-//     Version: 3.7.8.5
+//     Changed: 02.Jul.2021
+//     Version: 3.7.8.6
 //
 // |---------DO-NOT-REMOVE---------|
 

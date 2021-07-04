@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Controls
             switch (State)
             {
                 case MouseState.None:
-                    NonePoint:
+                NonePoint:
                     LinearGradientBrush MinimizeGradient = new(MinimizeRect, Color.FromArgb(73, 73, 73), Color.FromArgb(58, 58, 58), 90);
                     G.FillPath(MinimizeGradient, GP_MinimizeRect);
                     G.DrawPath(new(Color.FromArgb(40, 40, 40)), GP_MinimizeRect);

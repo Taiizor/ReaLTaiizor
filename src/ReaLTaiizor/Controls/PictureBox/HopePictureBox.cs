@@ -12,14 +12,47 @@ namespace ReaLTaiizor.Controls
 {
     #region HopePictureBox
 
-    public class HopePictureBox : System.Windows.Forms.PictureBox
+    public class HopePictureBox : PictureBox
     {
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        public SmoothingMode SmoothingType
+        {
+            get => _SmoothingType;
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
+        public PixelOffsetMode PixelOffsetType
+        {
+            get => _PixelOffsetType;
+            set
+            {
+                _PixelOffsetType = value;
+                Invalidate();
+            }
+        }
+
+        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
+        public TextRenderingHint TextRenderingType
+        {
+            get => _TextRenderingType;
+            set
+            {
+                _TextRenderingType = value;
+                Invalidate();
+            }
+        }
+
         protected override void OnPaint(PaintEventArgs pe)
         {
             Graphics graphics = pe.Graphics;
-            graphics.SmoothingMode = SmoothingMode.HighQuality;
-            graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            graphics.SmoothingMode = SmoothingType;
+            graphics.PixelOffsetMode = PixelOffsetType;
+            graphics.TextRenderingHint = TextRenderingType;
             graphics.Clear(Parent.BackColor);
 
             if (Image == null)
