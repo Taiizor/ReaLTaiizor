@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net461;net462;net47;net471;net472;net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net6.0-windows</TargetFrameworks>
+    <!--<TargetFrameworks>net461;net462;net47;net471;net472;net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows</TargetFrameworks>-->
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -11,13 +11,13 @@
     <NoWarn>CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ReaLTaiizor.AppLocker.Program</StartupObject>
+    <StartupObject>ReaLTaiizor.Stopwatch.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\ICO5.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Costura.Fody" Version="5.1.0">
+    <PackageReference Include="Costura.Fody" Version="5.4.0-alpha0042">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
