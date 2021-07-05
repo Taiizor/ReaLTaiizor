@@ -30,102 +30,258 @@ namespace ReaLTaiizor.Stopwatch
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.spaceCheckBox1 = new ReaLTaiizor.Controls.SpaceCheckBox();
-            this.spaceCheckBox2 = new ReaLTaiizor.Controls.SpaceCheckBox();
-            this.spaceCheckBox3 = new ReaLTaiizor.Controls.SpaceCheckBox();
-            this.spaceCheckBox4 = new ReaLTaiizor.Controls.SpaceCheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialLabel7 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialLabel3 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialLabel4 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialLabel5 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.parrotGroupBox1 = new ReaLTaiizor.Controls.ParrotGroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
+            this.parrotGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // spaceCheckBox1
+            // timer1
             // 
-            this.spaceCheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.spaceCheckBox1.Checked = true;
-            this.spaceCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceCheckBox1.Customization = "+fn5/yPJzP8bioz/6+vr//n5+f8=";
-            this.spaceCheckBox1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceCheckBox1.Image = null;
-            this.spaceCheckBox1.Location = new System.Drawing.Point(0, 0);
-            this.spaceCheckBox1.Name = "spaceCheckBox1";
-            this.spaceCheckBox1.NoRounding = false;
-            this.spaceCheckBox1.Size = new System.Drawing.Size(75, 75);
-            this.spaceCheckBox1.TabIndex = 0;
-            this.spaceCheckBox1.Text = "spaceCheckBox1";
-            this.spaceCheckBox1.Transparent = true;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // spaceCheckBox2
+            // materialLabel1
             // 
-            this.spaceCheckBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.spaceCheckBox2.BackColor = System.Drawing.Color.Transparent;
-            this.spaceCheckBox2.Checked = true;
-            this.spaceCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceCheckBox2.Customization = "+fn5/yPJzP8bioz/6+vr//n5+f8=";
-            this.spaceCheckBox2.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceCheckBox2.Image = null;
-            this.spaceCheckBox2.Location = new System.Drawing.Point(190, 0);
-            this.spaceCheckBox2.Name = "spaceCheckBox2";
-            this.spaceCheckBox2.NoRounding = false;
-            this.spaceCheckBox2.Size = new System.Drawing.Size(75, 75);
-            this.spaceCheckBox2.TabIndex = 1;
-            this.spaceCheckBox2.Text = "spaceCheckBox2";
-            this.spaceCheckBox2.Transparent = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = ReaLTaiizor.Util.MaterialManager.FontType.H4;
+            this.materialLabel1.HighEmphasis = true;
+            this.materialLabel1.Location = new System.Drawing.Point(0, 0);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(262, 41);
+            this.materialLabel1.TabIndex = 0;
+            this.materialLabel1.Text = "00:00:00:00.00";
+            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // spaceCheckBox3
+            // materialLabel2
             // 
-            this.spaceCheckBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.spaceCheckBox3.BackColor = System.Drawing.Color.Transparent;
-            this.spaceCheckBox3.Checked = true;
-            this.spaceCheckBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceCheckBox3.Customization = "+fn5/yPJzP8bioz/6+vr//n5+f8=";
-            this.spaceCheckBox3.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceCheckBox3.Image = null;
-            this.spaceCheckBox3.Location = new System.Drawing.Point(0, 296);
-            this.spaceCheckBox3.Name = "spaceCheckBox3";
-            this.spaceCheckBox3.NoRounding = false;
-            this.spaceCheckBox3.Size = new System.Drawing.Size(75, 75);
-            this.spaceCheckBox3.TabIndex = 2;
-            this.spaceCheckBox3.Text = "spaceCheckBox3";
-            this.spaceCheckBox3.Transparent = true;
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle1;
+            this.materialLabel2.HighEmphasis = true;
+            this.materialLabel2.Location = new System.Drawing.Point(33, 34);
+            this.materialLabel2.Margin = new System.Windows.Forms.Padding(0);
+            this.materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(12, 19);
+            this.materialLabel2.TabIndex = 1;
+            this.materialLabel2.Text = "D";
+            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.materialLabel2.UseAccent = true;
             // 
-            // spaceCheckBox4
+            // materialLabel7
             // 
-            this.spaceCheckBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.spaceCheckBox4.BackColor = System.Drawing.Color.Transparent;
-            this.spaceCheckBox4.Checked = true;
-            this.spaceCheckBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spaceCheckBox4.Customization = "+fn5/yPJzP8bioz/6+vr//n5+f8=";
-            this.spaceCheckBox4.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceCheckBox4.Image = null;
-            this.spaceCheckBox4.Location = new System.Drawing.Point(190, 296);
-            this.spaceCheckBox4.Name = "spaceCheckBox4";
-            this.spaceCheckBox4.NoRounding = false;
-            this.spaceCheckBox4.Size = new System.Drawing.Size(75, 75);
-            this.spaceCheckBox4.TabIndex = 3;
-            this.spaceCheckBox4.Text = "spaceCheckBox4";
-            this.spaceCheckBox4.Transparent = true;
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle1;
+            this.materialLabel7.HighEmphasis = true;
+            this.materialLabel7.Location = new System.Drawing.Point(79, 34);
+            this.materialLabel7.Margin = new System.Windows.Forms.Padding(0);
+            this.materialLabel7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(12, 19);
+            this.materialLabel7.TabIndex = 2;
+            this.materialLabel7.Text = "H";
+            this.materialLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.materialLabel7.UseAccent = true;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle1;
+            this.materialLabel3.HighEmphasis = true;
+            this.materialLabel3.Location = new System.Drawing.Point(124, 34);
+            this.materialLabel3.Margin = new System.Windows.Forms.Padding(0);
+            this.materialLabel3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(15, 19);
+            this.materialLabel3.TabIndex = 3;
+            this.materialLabel3.Text = "M";
+            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.materialLabel3.UseAccent = true;
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle1;
+            this.materialLabel4.HighEmphasis = true;
+            this.materialLabel4.Location = new System.Drawing.Point(172, 34);
+            this.materialLabel4.Margin = new System.Windows.Forms.Padding(0);
+            this.materialLabel4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(11, 19);
+            this.materialLabel4.TabIndex = 4;
+            this.materialLabel4.Text = "S";
+            this.materialLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.materialLabel4.UseAccent = true;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Subtitle1;
+            this.materialLabel5.HighEmphasis = true;
+            this.materialLabel5.Location = new System.Drawing.Point(211, 34);
+            this.materialLabel5.Margin = new System.Windows.Forms.Padding(0);
+            this.materialLabel5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(25, 19);
+            this.materialLabel5.TabIndex = 5;
+            this.materialLabel5.Text = "MS";
+            this.materialLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.materialLabel5.UseAccent = true;
+            // 
+            // parrotGroupBox1
+            // 
+            this.parrotGroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.parrotGroupBox1.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.parrotGroupBox1.BorderWidth = 1;
+            this.parrotGroupBox1.Controls.Add(this.panel1);
+            this.parrotGroupBox1.Location = new System.Drawing.Point(3, 104);
+            this.parrotGroupBox1.Name = "parrotGroupBox1";
+            this.parrotGroupBox1.ShowText = false;
+            this.parrotGroupBox1.Size = new System.Drawing.Size(259, 264);
+            this.parrotGroupBox1.TabIndex = 9;
+            this.parrotGroupBox1.TabStop = false;
+            this.parrotGroupBox1.Text = "parrotGroupBox1";
+            this.parrotGroupBox1.TextColor = System.Drawing.Color.DodgerBlue;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Location = new System.Drawing.Point(6, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(247, 252);
+            this.panel1.TabIndex = 3;
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1;
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.DrawShadows = true;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = global::ReaLTaiizor.Stopwatch.Properties.Resources.Start;
+            this.materialButton1.Location = new System.Drawing.Point(57, 59);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.Size = new System.Drawing.Size(44, 36);
+            this.materialButton1.TabIndex = 6;
+            this.materialButton1.TabStop = false;
+            this.materialButton1.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.MaterialButton1_Click);
+            // 
+            // materialButton3
+            // 
+            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialButton3.Depth = 0;
+            this.materialButton3.DrawShadows = true;
+            this.materialButton3.Enabled = false;
+            this.materialButton3.HighEmphasis = true;
+            this.materialButton3.Icon = global::ReaLTaiizor.Stopwatch.Properties.Resources.Reset;
+            this.materialButton3.Location = new System.Drawing.Point(161, 59);
+            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton3.Name = "materialButton3";
+            this.materialButton3.Size = new System.Drawing.Size(44, 36);
+            this.materialButton3.TabIndex = 8;
+            this.materialButton3.TabStop = false;
+            this.materialButton3.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton3.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton3.UseAccentColor = false;
+            this.materialButton3.UseVisualStyleBackColor = true;
+            this.materialButton3.Click += new System.EventHandler(this.MaterialButton3_Click);
+            // 
+            // materialButton2
+            // 
+            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialButton2.Depth = 0;
+            this.materialButton2.DrawShadows = true;
+            this.materialButton2.Enabled = false;
+            this.materialButton2.HighEmphasis = true;
+            this.materialButton2.Icon = global::ReaLTaiizor.Stopwatch.Properties.Resources.Splits;
+            this.materialButton2.Location = new System.Drawing.Point(109, 59);
+            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton2.Name = "materialButton2";
+            this.materialButton2.Size = new System.Drawing.Size(44, 36);
+            this.materialButton2.TabIndex = 7;
+            this.materialButton2.TabStop = false;
+            this.materialButton2.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton2.UseAccentColor = false;
+            this.materialButton2.UseVisualStyleBackColor = true;
+            this.materialButton2.Click += new System.EventHandler(this.MaterialButton2_Click);
             // 
             // Area
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.spaceCheckBox4);
-            this.Controls.Add(this.spaceCheckBox3);
-            this.Controls.Add(this.spaceCheckBox2);
-            this.Controls.Add(this.spaceCheckBox1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.Controls.Add(this.parrotGroupBox1);
+            this.Controls.Add(this.materialLabel5);
+            this.Controls.Add(this.materialLabel4);
+            this.Controls.Add(this.materialLabel3);
+            this.Controls.Add(this.materialLabel7);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.materialButton1);
+            this.Controls.Add(this.materialButton3);
+            this.Controls.Add(this.materialButton2);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Area";
             this.Size = new System.Drawing.Size(265, 371);
+            this.parrotGroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Controls.SpaceCheckBox spaceCheckBox1;
-        private Controls.SpaceCheckBox spaceCheckBox2;
-        private Controls.SpaceCheckBox spaceCheckBox3;
-        private Controls.SpaceCheckBox spaceCheckBox4;
         private System.Windows.Forms.Timer timer1;
+        private Controls.MaterialLabel materialLabel1;
+        private Controls.MaterialButton materialButton1;
+        private Controls.MaterialButton materialButton2;
+        private Controls.MaterialButton materialButton3;
+        private Controls.MaterialLabel materialLabel2;
+        private Controls.MaterialLabel materialLabel7;
+        private Controls.MaterialLabel materialLabel3;
+        private Controls.MaterialLabel materialLabel4;
+        private Controls.MaterialLabel materialLabel5;
+        private Controls.ParrotGroupBox parrotGroupBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
