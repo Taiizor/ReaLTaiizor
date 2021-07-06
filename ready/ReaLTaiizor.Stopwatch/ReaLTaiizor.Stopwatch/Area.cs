@@ -88,6 +88,7 @@ namespace ReaLTaiizor.Stopwatch
                 timer2.Stop();
 
                 materialButton1.Icon = Resources.Start;
+                metroToolTip1.SetToolTip(materialButton1, "Start");
 
                 materialButton2.Enabled = false;
 
@@ -105,6 +106,7 @@ namespace ReaLTaiizor.Stopwatch
                 timer2.Start();
 
                 materialButton1.Icon = Resources.Pause;
+                metroToolTip1.SetToolTip(materialButton1, "Pause");
 
                 materialButton2.Enabled = true;
 
@@ -145,6 +147,7 @@ namespace ReaLTaiizor.Stopwatch
             timer2.Stop();
 
             materialButton1.Icon = Resources.Start;
+            metroToolTip1.SetToolTip(materialButton1, "Start");
 
             materialButton2.Enabled = false;
             materialButton3.Enabled = false;

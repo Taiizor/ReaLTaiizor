@@ -43,6 +43,7 @@ namespace ReaLTaiizor.Stopwatch
             this.materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
+            this.metroToolTip1 = new ReaLTaiizor.Controls.MetroToolTip();
             this.parrotGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,6 +197,7 @@ namespace ReaLTaiizor.Stopwatch
             this.materialButton1.TabIndex = 6;
             this.materialButton1.TabStop = false;
             this.materialButton1.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.metroToolTip1.SetToolTip(this.materialButton1, "Start");
             this.materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
@@ -218,6 +220,7 @@ namespace ReaLTaiizor.Stopwatch
             this.materialButton3.TabIndex = 8;
             this.materialButton3.TabStop = false;
             this.materialButton3.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.metroToolTip1.SetToolTip(this.materialButton3, "Reset");
             this.materialButton3.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton3.UseAccentColor = false;
             this.materialButton3.UseVisualStyleBackColor = true;
@@ -240,10 +243,23 @@ namespace ReaLTaiizor.Stopwatch
             this.materialButton2.TabIndex = 7;
             this.materialButton2.TabStop = false;
             this.materialButton2.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.metroToolTip1.SetToolTip(this.materialButton2, "Laps / Splits");
             this.materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton2.UseAccentColor = false;
             this.materialButton2.UseVisualStyleBackColor = true;
             this.materialButton2.Click += new System.EventHandler(this.MaterialButton2_Click);
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.BackColor = System.Drawing.Color.White;
+            this.metroToolTip1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.metroToolTip1.IsDerivedStyle = true;
+            this.metroToolTip1.OwnerDraw = true;
+            this.metroToolTip1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.ThemeAuthor = "Taiizor";
+            this.metroToolTip1.ThemeName = "MetroLight";
             // 
             // Area
             // 
@@ -283,5 +299,6 @@ namespace ReaLTaiizor.Stopwatch
         private Controls.ParrotGroupBox parrotGroupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer2;
+        private Controls.MetroToolTip metroToolTip1;
     }
 }
