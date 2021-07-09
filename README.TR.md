@@ -10,6 +10,7 @@
 [![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
 [![.NET](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml)
+[![CodeQL](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml)
 [![.NET Desktop](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml)
 
 # ReaLTaiizor'a Hoşgeldiniz
