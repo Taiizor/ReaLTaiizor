@@ -30,7 +30,7 @@ on:
 
 jobs:
   rest-api-static-security-testing:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
