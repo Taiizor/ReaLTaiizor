@@ -54,7 +54,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </PropertyGroup>
 
   <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.1-mauipre.1.21616.2" />
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
