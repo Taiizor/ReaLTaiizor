@@ -28,6 +28,7 @@ jobs:
             sample/ReaLTaiizor.Rufus,
             sample/ReaLTaiizor.XAMPP,
             ready/ReaLTaiizor.AppLocker,
+            ready/ReaLTaiizor.Stopwatch,
             ready/ReaLTaiizor.Translate,
             demo/ReaLTaiizor.UI,
             demo/ReaLTaiizor.UX
@@ -39,7 +40,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.100-preview.1.21103.13
+        dotnet-version: 6.0.101
 
     - name: Restore the ReaLTaiizor
       run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }}

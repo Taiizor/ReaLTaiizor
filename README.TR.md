@@ -1,15 +1,16 @@
 ![Logo](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.images/Logo.png)
 
-![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
+![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.5.2-blue)
 ![Dot-Net-Core-Version](https://img.shields.io/badge/.NET%20Core-%3E%3D3.0-blue)
 ![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D5.0-blue)
-![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
-![IDE-Version](https://img.shields.io/badge/IDE-VS2019-blue.svg)
+![C-Sharp-Version](https://img.shields.io/badge/C%23-10.0-blue.svg)
+![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
 [![FuGet-Version](https://www.fuget.org/packages/ReaLTaiizor/badge.svg)](https://www.fuget.org/packages/ReaLTaiizor)
 [![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
 [![.NET](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml)
+[![CodeQL](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml)
 [![.NET Desktop](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml)
 
 # ReaLTaiizor'a Hoşgeldiniz
@@ -198,6 +199,10 @@ Adım 2：Tasarlamanın tadını çıkarın
 [![InstagramSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Instagram.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Instagram "InstagramSample")
 
 ## Hazırlanmış
+
+### Kronometre
+
+[![StopwatchReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Stopwatch.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Stopwatch "StopwatchReady")
 
 ### Çeviri
 
