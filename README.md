@@ -13,6 +13,8 @@
 [![CodeQL](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml)
 [![.NET Desktop](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet-desktop.yml)
 
+[![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
+
 # Welcome to ReaLTaiizor
 ReaLTaiizor is a UI/UX component library. It allows you to make modern designs using the various components it offers.
 
