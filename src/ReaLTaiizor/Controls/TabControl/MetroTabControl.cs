@@ -86,6 +86,7 @@ namespace ReaLTaiizor.Controls
         private Graphics _slideGraphics;
         private Bitmap _slideBitmap;
 
+        private bool _controlVisible = false;
         private Cursor _MCursor = Cursors.Hand;
         private bool _isDerivedStyle = true;
         private bool _useAnimation = true;
@@ -265,6 +266,12 @@ namespace ReaLTaiizor.Controls
         public override DockStyle Dock
         {
             get => base.Dock; set => base.Dock = value;
+        }
+
+        [Category("Metro"), Description("Gets or sets the visible of control.")]
+        public bool ControlVisible
+        {
+            get => _controlVisible; set => _controlVisible = value;
         }
 
         [Category("Metro"), Description("Gets or sets the cursor of control.")]
@@ -451,9 +458,12 @@ namespace ReaLTaiizor.Controls
                 control2.DrawToBitmap(_slideBitmap, new Rectangle(control1.Width, 0, control2.Width, control2.Height));
             }
 
-            foreach (Control c in control2.Controls)
+            if (_controlVisible)
             {
-                c.Hide();
+                foreach (Control c in control2.Controls)
+                {
+                    c.Hide();
+                }
             }
 
             _slideAnimator.Update = (alpha) =>
@@ -463,9 +473,12 @@ namespace ReaLTaiizor.Controls
             _slideAnimator.Complete = () =>
             {
                 SelectedTab = control2;
-                foreach (Control c in control2.Controls)
+                if (_controlVisible)
                 {
-                    c.Show();
+                    foreach (Control c in control2.Controls)
+                    {
+                        c.Show();
+                    }
                 }
             };
             _slideAnimator.Start
@@ -505,9 +518,12 @@ namespace ReaLTaiizor.Controls
             control1.DrawToBitmap(p1, new Rectangle(0, 0, control1.Width, control1.Height));
             control2.DrawToBitmap(p2, new Rectangle(0, 0, control2.Width, control2.Height));
 
-            foreach (Control c in control1.Controls)
+            if (_controlVisible)
             {
-                c.Hide();
+                foreach (Control c in control1.Controls)
+                {
+                    c.Hide();
+                }
             }
 
             int slide = control1.Width - (control1.Width % Speed);
@@ -524,14 +540,17 @@ namespace ReaLTaiizor.Controls
 
             SelectedTab = (System.Windows.Forms.TabPage)control2;
 
-            foreach (Control c in control2.Controls)
+            if (_controlVisible)
             {
-                c.Show();
-            }
+                foreach (Control c in control2.Controls)
+                {
+                    c.Show();
+                }
 
-            foreach (Control c in control1.Controls)
-            {
-                c.Show();
+                foreach (Control c in control1.Controls)
+                {
+                    c.Show();
+                }
             }
         }
 

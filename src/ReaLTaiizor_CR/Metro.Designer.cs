@@ -29,7 +29,6 @@ namespace ReaLTaiizor_CR
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Metro));
             this.metroControlBox1 = new ReaLTaiizor.Controls.MetroControlBox();
             this.metroStyleManager1 = new ReaLTaiizor.Manager.MetroStyleManager();
             this.SuspendLayout();
