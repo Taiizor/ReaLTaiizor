@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Controls
         private Graphics _slideGraphics;
         private Bitmap _slideBitmap;
 
-        private bool _controlVisible = false;
+        private bool _controlsVisible = true;
         private Cursor _MCursor = Cursors.Hand;
         private bool _isDerivedStyle = true;
         private bool _useAnimation = true;
@@ -268,10 +268,10 @@ namespace ReaLTaiizor.Controls
             get => base.Dock; set => base.Dock = value;
         }
 
-        [Category("Metro"), Description("Gets or sets the visible of control.")]
-        public bool ControlVisible
+        [Category("Metro"), Description("Gets or sets the visible of page controls.")]
+        public bool ControlsVisible
         {
-            get => _controlVisible; set => _controlVisible = value;
+            get => _controlsVisible; set => _controlsVisible = value;
         }
 
         [Category("Metro"), Description("Gets or sets the cursor of control.")]
@@ -458,7 +458,7 @@ namespace ReaLTaiizor.Controls
                 control2.DrawToBitmap(_slideBitmap, new Rectangle(control1.Width, 0, control2.Width, control2.Height));
             }
 
-            if (_controlVisible)
+            if (_controlsVisible)
             {
                 foreach (Control c in control2.Controls)
                 {
@@ -473,7 +473,7 @@ namespace ReaLTaiizor.Controls
             _slideAnimator.Complete = () =>
             {
                 SelectedTab = control2;
-                if (_controlVisible)
+                if (_controlsVisible)
                 {
                     foreach (Control c in control2.Controls)
                     {
@@ -518,7 +518,7 @@ namespace ReaLTaiizor.Controls
             control1.DrawToBitmap(p1, new Rectangle(0, 0, control1.Width, control1.Height));
             control2.DrawToBitmap(p2, new Rectangle(0, 0, control2.Width, control2.Height));
 
-            if (_controlVisible)
+            if (_controlsVisible)
             {
                 foreach (Control c in control1.Controls)
                 {
@@ -540,7 +540,7 @@ namespace ReaLTaiizor.Controls
 
             SelectedTab = (System.Windows.Forms.TabPage)control2;
 
-            if (_controlVisible)
+            if (_controlsVisible)
             {
                 foreach (Control c in control2.Controls)
                 {
