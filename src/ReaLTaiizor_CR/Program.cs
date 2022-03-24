@@ -15,7 +15,7 @@ namespace ReaLTaiizor_CR
             try
             {
                 Application.EnableVisualStyles();
-#if NETCOREAPP3_0 || NETCOREAPP3_1 || NET5_0 || NET6_0
+#if NETCOREAPP3_1 || NET5_0 || NET6_0 || NET1_0
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
                 CultureInfo cultureInfo = new(CultureInfo.CurrentCulture.TextInfo.CultureName);
