@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!--<TargetFramework>net48</TargetFramework>-->
+    <TargetFramework>net48</TargetFramework>
     <!--<TargetFramework>net5.0-windows</TargetFramework>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <!--<TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
