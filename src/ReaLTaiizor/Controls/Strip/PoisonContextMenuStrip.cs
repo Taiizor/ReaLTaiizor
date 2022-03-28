@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
         private class PoisonCTXRenderer : ToolStripProfessionalRenderer
         {
             private readonly ThemeStyle _theme;
-            public PoisonCTXRenderer(ThemeStyle Theme, ColorStyle Style) : base(new contextcolors(Theme, Style))
+            public PoisonCTXRenderer(ThemeStyle Theme, ColorStyle Style) : base(new ContextColors(Theme, Style))
             {
                 _theme = Theme;
             }
@@ -186,12 +186,12 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private class contextcolors : ProfessionalColorTable
+        private class ContextColors : ProfessionalColorTable
         {
             private readonly ThemeStyle _theme = ThemeStyle.Light;
             private readonly ColorStyle _style = ColorStyle.Blue;
 
-            public contextcolors(ThemeStyle Theme, ColorStyle Style)
+            public ContextColors(ThemeStyle Theme, ColorStyle Style)
             {
                 _theme = Theme;
                 _style = Style;

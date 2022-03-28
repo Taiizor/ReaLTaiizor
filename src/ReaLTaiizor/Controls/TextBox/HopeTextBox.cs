@@ -291,7 +291,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-#if !NETCOREAPP3_1
+#if !NETCOREAPP3_1 && !NET7_0
         public new event EventHandler ContextMenuChanged
         {
             add

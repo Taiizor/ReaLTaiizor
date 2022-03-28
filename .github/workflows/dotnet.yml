@@ -40,7 +40,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.101
+        dotnet-version: 7.0.100-preview.2.22153.17
 
     - name: Restore the ReaLTaiizor
       run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }}

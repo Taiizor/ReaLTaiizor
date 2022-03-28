@@ -4,8 +4,8 @@
     <TargetFramework>net48</TargetFramework>
     <!--<TargetFramework>net5.0-windows</TargetFramework>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
-    <!--<TargetFrameworks>net452;net46;net461;net462;net47;net471;net472;net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
-    <!--<TargetFrameworks>net452;net46;net461;net462;net47;net471;net472;net48;netcoreapp3.0-windows;netcoreapp3.1-windows;net5.0-windows;net6.0-windows</TargetFrameworks>-->
+    <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
+    <!--<TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
     <Version>3.7.8.6</Version>
@@ -23,7 +23,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
-    <PackageTags>ReaL Taiizor Soferity ReaLTaiizor C# CSharp VBC VB VisualBasic UI UX Design Theme Forms WinForm WinForms DotNET .NET NET Component</PackageTags>
+    <PackageTags>ReaL Taiizor Soferity Vegalya ReaLTaiizor C# CSharp VBC VB VisualBasic UI UX Design Theme Forms WinForm WinForms DotNET .NET NET Component Fluent</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!--<DocumentationFile>..\$(PackageId)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>-->
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>
