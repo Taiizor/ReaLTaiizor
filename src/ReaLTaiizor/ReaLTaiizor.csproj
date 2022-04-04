@@ -35,7 +35,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <Owners>$(Authors)</Owners>
     <AnalysisLevel>preview</AnalysisLevel>
     <LangVersion>preview</LangVersion>
-    <NeutralLanguage>en</NeutralLanguage>
+    <NeutralLanguage>en-GB</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>

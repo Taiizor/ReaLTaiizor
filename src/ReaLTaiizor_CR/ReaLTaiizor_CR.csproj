@@ -10,7 +10,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <AnalysisLevel>preview</AnalysisLevel>
     <LangVersion>preview</LangVersion>
-    <NeutralLanguage>en</NeutralLanguage>
+    <NeutralLanguage>en-GB</NeutralLanguage>
     <NoWarn>CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
