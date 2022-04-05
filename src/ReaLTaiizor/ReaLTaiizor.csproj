@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!--<TargetFramework>net48</TargetFramework>-->
+    <TargetFramework>net48</TargetFramework>
     <!--<TargetFramework>net5.0-windows</TargetFramework>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <!--<TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-    <Version>3.7.8.6</Version>
+    <Version>3.7.8.7</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
@@ -21,7 +21,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Major changes have been made.
+    <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
     <PackageTags>ReaL Taiizor Soferity Vegalya ReaLTaiizor C# CSharp VBC VB VisualBasic UI UX Design Theme Forms WinForm WinForms DotNET .NET NET Component Fluent</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
