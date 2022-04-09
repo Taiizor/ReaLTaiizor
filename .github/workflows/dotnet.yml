@@ -26,6 +26,7 @@ jobs:
             sample/ReaLTaiizor.Payment,
             sample/ReaLTaiizor.Player,
             sample/ReaLTaiizor.Rufus,
+            sample/ReaLTaiizor.Splash,
             sample/ReaLTaiizor.XAMPP,
             ready/ReaLTaiizor.AppLocker,
             ready/ReaLTaiizor.Stopwatch,

@@ -184,6 +184,10 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 [![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Rufus "RufusSample")
 
+### Başlangıç Ekranı
+
+[![SplashSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Splash.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Splash "SplashSample")
+
 ### MP3 Oynatıcı
 
 [![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Player "MP3PlayerSample")
