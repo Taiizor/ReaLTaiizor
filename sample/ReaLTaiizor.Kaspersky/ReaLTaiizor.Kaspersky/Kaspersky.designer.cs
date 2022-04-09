@@ -210,7 +210,7 @@
             this.MAILLLE.Size = new System.Drawing.Size(126, 32);
             this.MAILLLE.TabIndex = 4;
             this.MAILLLE.TabStop = true;
-            this.MAILLLE.Text = "taiizor@soferity.com";
+            this.MAILLLE.Text = "taiizor@vegalya.com";
             this.MAILLLE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MAILLLE.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             // 
