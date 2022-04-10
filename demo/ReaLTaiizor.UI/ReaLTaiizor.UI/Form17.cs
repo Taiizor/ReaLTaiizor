@@ -185,11 +185,7 @@ namespace ReaLTaiizor.UI
 
         private void MaterialButton27_Click(object sender, EventArgs e)
         {
-#if NET40 || NET45 || NET451 || NET452
-            DrawerNonClickTabPage = new System.Windows.Forms.TabPage[0];
-#else
             DrawerNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
-#endif
         }
 
         private void MaterialButton29_Click(object sender, EventArgs e)
@@ -199,11 +195,7 @@ namespace ReaLTaiizor.UI
 
         private void MaterialButton28_Click(object sender, EventArgs e)
         {
-#if NET40 || NET45 || NET451 || NET452
-            materialTabSelector1.SelectorNonClickTabPage = new System.Windows.Forms.TabPage[0];
-#else
             materialTabSelector1.SelectorNonClickTabPage = Array.Empty<System.Windows.Forms.TabPage>();
-#endif
         }
     }
 }
