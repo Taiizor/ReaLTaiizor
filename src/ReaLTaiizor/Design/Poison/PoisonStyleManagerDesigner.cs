@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Design.Poison
                 }
             }
 
-            ResetStyles(styleManager, styleManager.Owner as Control);
+            ResetStyles(styleManager, styleManager.Owner);
         }
 
         private void ResetStyles(PoisonStyleManager styleManager, Control control)

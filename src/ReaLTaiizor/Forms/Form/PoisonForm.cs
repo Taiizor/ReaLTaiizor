@@ -305,7 +305,7 @@ namespace ReaLTaiizor.Forms
                         B = 17;
                     }
                     //bitmapImage.SetPixel(x, y, Color.FromArgb((int)A, (int)R, (int)G, (int)B));
-                    bitmapImage.SetPixel(x, y, Color.FromArgb((int)R, (int)G, (int)B));
+                    bitmapImage.SetPixel(x, y, Color.FromArgb(R, G, B));
                 }
             }
 
@@ -1555,7 +1555,7 @@ namespace ReaLTaiizor.Forms
 
                     DrawRoundedRectangle(g, rOutput, currentBlur, Pens.Transparent, shadowColor);
                     rInner.Inflate(1, 1);
-                    currentBlur = (int)((double)blur * (1 - (transparency * transparency)));
+                    currentBlur = (int)(blur * (1 - (transparency * transparency)));
 
                 } while (rOuter.Contains(rInner));
 

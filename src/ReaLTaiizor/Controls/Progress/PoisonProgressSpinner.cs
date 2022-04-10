@@ -409,7 +409,7 @@ namespace ReaLTaiizor.Controls
                 if (progress != -1)
                 {
                     float sweepAngle;
-                    float progFrac = (float)(progress - minimum) / (float)(maximum - minimum);
+                    float progFrac = (progress - minimum) / (float)(maximum - minimum);
 
                     if (ensureVisible)
                     {

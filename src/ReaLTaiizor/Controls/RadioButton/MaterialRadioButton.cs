@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
 
         private void OnSizeChanged(object sender, EventArgs eventArgs)
         {
-            _boxOffset = Height / 2 - (int)(RADIOBUTTON_SIZE / 2);
+            _boxOffset = Height / 2 - RADIOBUTTON_SIZE / 2;
             _radioButtonBounds = new(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE);
         }
 

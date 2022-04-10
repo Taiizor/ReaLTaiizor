@@ -214,7 +214,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             if (mouseFlat && e.X > -1 && e.X < (Width + 1))
             {
-                _value = _minValue + Convert.ToInt32((float)(_maxValue - _minValue) * ((float)e.X / (float)Width));
+                _value = _minValue + Convert.ToInt32((_maxValue - _minValue) * (e.X / (float)Width));
                 Invalidate();
             }
         }

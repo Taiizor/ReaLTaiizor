@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
                 Alignment = StringAlignment.Center
             };
             SolidBrush brush2 = new(ForeColor);
-            RectangleF layoutRectangle = new(0f, 0f, (float)base.Width, (float)base.Height);
+            RectangleF layoutRectangle = new(0f, 0f, Width, Height);
             e.Graphics.PixelOffsetMode = PixelOffsetType;
             e.Graphics.TextRenderingHint = TextRenderingType;
             e.Graphics.DrawString(Text, Font, brush2, layoutRectangle, stringFormat);

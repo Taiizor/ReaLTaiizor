@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Controls
                 {
                     if (max > Height)
                     {
-                        thumbSize = (double)Height * ((double)Height / (double)max);
+                        thumbSize = Height * (Height / (double)max);
                     }
                     else
                     {
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Controls
                 {
                     if (max > Width)
                     {
-                        thumbSize = (double)Width * ((double)Width / (double)max);
+                        thumbSize = Width * (Width / (double)max);
                     }
                     else
                     {
@@ -156,15 +156,15 @@ namespace ReaLTaiizor.Controls
 
             if (Orientation == Orientation.Vertical)
             {
-                thumbSize = (double)Height * ((double)Height / (double)max);
-                double y = (double)(Height - thumbSize) * ((double)Value / (double)max);
+                thumbSize = Height * (Height / (double)max);
+                double y = (double)(Height - thumbSize) * (Value / (double)max);
 
                 rect = new(new Point(0, (int)y), new Size(Width, (int)thumbSize));
             }
             else if (Orientation == Orientation.Horizontal)
             {
-                thumbSize = (double)Width * ((double)Width / (double)max);
-                double x = (double)(Width - thumbSize) * ((double)Value / (double)max);
+                thumbSize = Width * (Width / (double)max);
+                double x = (double)(Width - thumbSize) * (Value / (double)max);
 
                 rect = new(new Point((int)x, 0), new Size((int)thumbSize, Height));
             }
@@ -217,15 +217,15 @@ namespace ReaLTaiizor.Controls
 
             if (Orientation == Orientation.Vertical)
             {
-                thumbSize = (double)Height * ((double)Height / (double)max);
-                double y = (double)(Height - thumbSize) * ((double)Value / (double)max);
+                thumbSize = Height * (Height / (double)max);
+                double y = (double)(Height - thumbSize) * (Value / (double)max);
 
                 thumbRect = new(0, (int)y, Width, (int)thumbSize);
             }
             else if (Orientation == Orientation.Horizontal)
             {
-                thumbSize = (double)Width * ((double)Width / (double)max);
-                double x = (double)(Width - thumbSize) * ((double)Value / (double)max);
+                thumbSize = Width * (Width / (double)max);
+                double x = (double)(Width - thumbSize) * (Value / (double)max);
 
                 thumbRect = new((int)x, 0, (int)thumbSize, Height);
             }
@@ -281,11 +281,11 @@ namespace ReaLTaiizor.Controls
                 {
                     if (e.Y != lastMousePos.Y)
                     {
-                        double y = (double)e.Y - (thumbSize / 2);
+                        double y = e.Y - (thumbSize / 2);
                         y = Math.Min(y, (Height - thumbSize));
                         y = Math.Max(y, 0);
 
-                        double v = (double)Max * (y / ((double)Height - thumbSize));
+                        double v = Max * (y / (Height - thumbSize));
                         Value = (int)v;
                     }
                 }
@@ -293,11 +293,11 @@ namespace ReaLTaiizor.Controls
                 {
                     if (e.X != lastMousePos.X)
                     {
-                        double x = (double)e.X - (thumbSize / 2);
+                        double x = e.X - (thumbSize / 2);
                         x = Math.Min(x, (Width - thumbSize));
                         x = Math.Max(x, 0);
 
-                        double v = (double)Max * (x / ((double)Width - thumbSize));
+                        double v = Max * (x / (Width - thumbSize));
                         Value = (int)v;
                     }
                 }

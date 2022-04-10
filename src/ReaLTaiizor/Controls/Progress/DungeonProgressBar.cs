@@ -231,7 +231,7 @@ namespace ReaLTaiizor.Controls
             G.FillPath(new SolidBrush(_BackColorB), RoundRectangle.RoundRect(new Rectangle(1, 1, Width - 3, Height / 2 - 2), 4));
 
 
-            I1 = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 3));
+            I1 = (int)Math.Round(((_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (Width - 3));
             if (I1 > 1)
             {
                 GP3 = RoundRectangle.RoundRect(new Rectangle(1, 1, I1, Height - 3), 4);
@@ -247,7 +247,7 @@ namespace ReaLTaiizor.Controls
                 {
                     for (int i = 0; i <= (Width - 1) * _Maximum / _Value; i += 20)
                     {
-                        G.DrawLine(new(new SolidBrush(_ProgressHatchColor), 10.0F), new Point(Convert.ToInt32(i), 0), new Point((int)(i - 10), Height));
+                        G.DrawLine(new(new SolidBrush(_ProgressHatchColor), 10.0F), new Point(Convert.ToInt32(i), 0), new Point(i - 10, Height));
                     }
                 }
 

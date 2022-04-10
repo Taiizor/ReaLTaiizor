@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Animate.Poison
         private int DoExpandAnimation(int startSize, int targetSize)
         {
             float t = (float)counter - startTime;
-            float b = (float)startSize;
+            float b = startSize;
             float c = (float)targetSize - startSize;
             float d = (float)targetTime - startTime;
 

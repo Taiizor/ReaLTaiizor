@@ -235,7 +235,7 @@ namespace ReaLTaiizor.Controls
 
                         foreach (int value in list)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(filledColor), new RectangleF(0f, (float)num, (float)((int)(value * d)), (float)num2));
+                            e.Graphics.FillRectangle(new SolidBrush(filledColor), new RectangleF(0f, num, (int)(value * d), num2));
 
                             StringFormat stringFormat = new()
                             {
@@ -258,7 +258,7 @@ namespace ReaLTaiizor.Controls
                             }
 
                             SolidBrush brush = new(textColor);
-                            RectangleF layoutRectangle = new(5f, (float)num, (float)(base.Width - 5), (float)num2);
+                            RectangleF layoutRectangle = new(5f, num, base.Width - 5, num2);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
                             e.Graphics.TextRenderingHint = TextRenderingType;
@@ -288,7 +288,7 @@ namespace ReaLTaiizor.Controls
 
                         foreach (int value2 in list)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(filledColor), new RectangleF((float)num, (float)(base.Height - (int)(value2 * d2)), (float)num4, (float)base.Height));
+                            e.Graphics.FillRectangle(new SolidBrush(filledColor), new RectangleF(num, base.Height - (int)(value2 * d2), num4, Height));
 
                             StringFormat stringFormat2 = new()
                             {
@@ -311,7 +311,7 @@ namespace ReaLTaiizor.Controls
                             }
 
                             SolidBrush brush2 = new(textColor);
-                            RectangleF layoutRectangle2 = new((float)num, 5f, (float)num4, (float)(base.Height - 5));
+                            RectangleF layoutRectangle2 = new(num, 5f, num4, base.Height - 5);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
                             e.Graphics.TextRenderingHint = TextRenderingType;
@@ -390,7 +390,7 @@ namespace ReaLTaiizor.Controls
 
                         foreach (int num10 in list2)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(list3[num7]), new RectangleF((float)num6, (float)(base.Height - num10 * num9), (float)num8, (float)base.Height));
+                            e.Graphics.FillRectangle(new SolidBrush(list3[num7]), new RectangleF(num6, base.Height - num10 * num9, num8, Height));
                             StringFormat stringFormat3 = new()
                             {
                                 Alignment = StringAlignment.Center
@@ -399,7 +399,7 @@ namespace ReaLTaiizor.Controls
                             SolidBrush brush3 = new(list3[num7]);
                             RectangleF layoutRectangle3 = default;
 
-                            layoutRectangle3 = new RectangleF((float)num6, (float)(base.Height - num10 * num9) - Font.Size / 2f * 3f, (float)num8, Font.Size * 2f);
+                            layoutRectangle3 = new RectangleF(num6, base.Height - num10 * num9 - Font.Size / 2f * 3f, num8, Font.Size * 2f);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
                             e.Graphics.TextRenderingHint = TextRenderingType;
@@ -424,7 +424,7 @@ namespace ReaLTaiizor.Controls
 
                         foreach (int num13 in list2)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(list3[num7]), new RectangleF(0f, (float)num6, (float)(num13 * num12), (float)num11));
+                            e.Graphics.FillRectangle(new SolidBrush(list3[num7]), new RectangleF(0f, num6, num13 * num12, num11));
 
                             StringFormat stringFormat4 = new()
                             {
@@ -435,7 +435,7 @@ namespace ReaLTaiizor.Controls
                             SolidBrush brush4 = new(list3[num7]);
                             RectangleF layoutRectangle4 = default;
 
-                            layoutRectangle4 = new RectangleF((float)(num13 * num12), (float)num6, (float)(base.Width - num13 * num12), (float)num11);
+                            layoutRectangle4 = new RectangleF(num13 * num12, num6, base.Width - num13 * num12, num11);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
                             e.Graphics.TextRenderingHint = TextRenderingType;
@@ -488,7 +488,7 @@ namespace ReaLTaiizor.Controls
 
                         foreach (int value3 in list4)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, 35, 40)), new RectangleF(0f, (float)num14, (float)((int)(value3 * d3)), (float)num15));
+                            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, 35, 40)), new RectangleF(0f, num14, (int)(value3 * d3), num15));
 
                             StringFormat stringFormat5 = new()
                             {
@@ -497,7 +497,7 @@ namespace ReaLTaiizor.Controls
                             };
 
                             SolidBrush brush5 = new(Color.FromArgb(115, 120, 125));
-                            RectangleF layoutRectangle5 = new(5f, (float)num14, (float)(base.Width - 5), (float)num15);
+                            RectangleF layoutRectangle5 = new(5f, num14, base.Width - 5, num15);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
                             e.Graphics.TextRenderingHint = TextRenderingType;
@@ -523,7 +523,7 @@ namespace ReaLTaiizor.Controls
                         decimal d4 = base.Height / Items.Max();
                         foreach (int value4 in list4)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, 35, 40)), new RectangleF((float)num14, (float)(base.Height - (int)(value4 * d4)), (float)num17, (float)base.Height));
+                            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, 35, 40)), new RectangleF(num14, base.Height - (int)(value4 * d4), num17, Height));
 
                             StringFormat stringFormat6 = new()
                             {
@@ -532,7 +532,7 @@ namespace ReaLTaiizor.Controls
                             };
 
                             SolidBrush brush6 = new(Color.FromArgb(115, 120, 125));
-                            RectangleF layoutRectangle6 = new((float)num14, 5f, (float)num17, (float)(base.Height - 5));
+                            RectangleF layoutRectangle6 = new(num14, 5f, num17, base.Height - 5);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
                             e.Graphics.TextRenderingHint = TextRenderingType;

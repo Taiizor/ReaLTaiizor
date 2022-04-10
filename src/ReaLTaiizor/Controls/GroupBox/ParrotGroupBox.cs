@@ -75,18 +75,18 @@ namespace ReaLTaiizor.Controls
                 groupName.AutoSize = true;
                 groupName.ForeColor = textColor;
                 base.Controls.Add(groupName);
-                e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), 1, 6, 6, 6);
-                e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), base.Width - 2, 6, groupName.Location.X + groupName.Width, 6);
-                e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), 1, base.Height - 2, base.Width - 2, base.Height - 2);
-                e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), 1, 6, 1, base.Height - 2);
-                e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), base.Width - 2, 6, base.Width - 2, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, 6, 6, 6);
+                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), base.Width - 2, 6, groupName.Location.X + groupName.Width, 6);
+                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, base.Height - 2, base.Width - 2, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, 6, 1, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), base.Width - 2, 6, base.Width - 2, base.Height - 2);
                 return;
             }
             base.Controls.Remove(groupName);
-            e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), 1, 1, base.Width - 2, 1);
-            e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), 1, base.Height - 2, base.Width - 2, base.Height - 2);
-            e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), 1, 1, 1, base.Height - 2);
-            e.Graphics.DrawLine(new Pen(borderColor, (float)borderWidth), base.Width - 2, 1, base.Width - 2, base.Height - 2);
+            e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, 1, base.Width - 2, 1);
+            e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, base.Height - 2, base.Width - 2, base.Height - 2);
+            e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, 1, 1, base.Height - 2);
+            e.Graphics.DrawLine(new Pen(borderColor, borderWidth), base.Width - 2, 1, base.Width - 2, base.Height - 2);
         }
 
         private readonly Label groupName = new();

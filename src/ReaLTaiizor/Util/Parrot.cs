@@ -16,12 +16,12 @@ namespace ReaLTaiizor.Util
     {
         public static int IntToPercent(int number, int total)
         {
-            return Convert.ToInt32(Math.Round((double)(100 * number) / (double)total));
+            return Convert.ToInt32(Math.Round(100 * number / (double)total));
         }
 
         public static int PercentToInt(int number, int total)
         {
-            return Convert.ToInt32(Math.Round((double)(total / 100) * (double)number));
+            return Convert.ToInt32(Math.Round(total / 100 * (double)number));
         }
     }
 

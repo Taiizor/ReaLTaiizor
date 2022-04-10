@@ -94,7 +94,7 @@ namespace ReaLTaiizor.Controls
 
         public ToggleButton()
         {
-            SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
             Cursor = Cursors.Hand;
         }
 

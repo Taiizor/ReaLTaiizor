@@ -174,11 +174,11 @@ namespace ReaLTaiizor.Controls
 
         public DungeonControlBox()
         {
-            SetStyle((ControlStyles)(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer), true);
+            SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer, true);
             DoubleBuffered = true;
             BackColor = Color.Transparent;
             Font = new("Marlett", 7);
-            Anchor = (AnchorStyles)(AnchorStyles.Top | AnchorStyles.Left);
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
         }
 
         protected override void OnResize(EventArgs e)

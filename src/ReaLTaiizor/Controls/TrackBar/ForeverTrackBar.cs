@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
-                Val = Convert.ToInt32((float)(_Value - _Minimum) / (float)(_Maximum - _Minimum) * (float)(Width - 11));
+                Val = Convert.ToInt32((_Value - _Minimum) / (float)(_Maximum - _Minimum) * (Width - 11));
                 Track = new(Val, 0, 10, 20);
 
                 Bool = Track.Contains(e.Location);
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             if (Bool && e.X > -1 && e.X < (Width + 1))
             {
-                Value = _Minimum + Convert.ToInt32((float)(_Maximum - _Minimum) * ((float)e.X / (float)Width));
+                Value = _Minimum + Convert.ToInt32((_Maximum - _Minimum) * (e.X / (float)Width));
             }
         }
 
@@ -262,7 +262,7 @@ namespace ReaLTaiizor.Controls
             _with20.Clear(BackColor);
 
             //-- Value
-            Val = Convert.ToInt32((float)(_Value - _Minimum) / (float)(_Maximum - _Minimum) * (float)(W - 10));
+            Val = Convert.ToInt32((_Value - _Minimum) / (float)(_Maximum - _Minimum) * (W - 10));
             Track = new(Val, 0, 10, 20);
             Knob = new(Val, 4, 11, 14);
 

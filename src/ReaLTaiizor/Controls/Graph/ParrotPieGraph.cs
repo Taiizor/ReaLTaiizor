@@ -107,7 +107,7 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    e.Graphics.FillPie(new SolidBrush(Colors[num2]), 0, 0, base.Width, base.Height, num, (int)((double)num4 * 3.6));
+                    e.Graphics.FillPie(new SolidBrush(Colors[num2]), 0, 0, base.Width, base.Height, num, (int)(num4 * 3.6));
                 }
                 num2++;
                 if (num2 == Numbers.Count + 1)
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
                     Colors.Reverse();
                     num2 = 0;
                 }
-                num += (int)((double)num4 * 3.6);
+                num += (int)(num4 * 3.6);
             }
             base.OnPaint(e);
         }

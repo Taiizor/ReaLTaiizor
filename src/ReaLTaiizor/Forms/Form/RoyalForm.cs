@@ -237,9 +237,9 @@ namespace ReaLTaiizor.Forms
             // 
             // minimizeButton
             // 
-            minimizeButton.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            minimizeButton.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             minimizeButton.BackColor = BackColor;
-            minimizeButton.BorderColor = Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            minimizeButton.BorderColor = Color.FromArgb(180, 180, 180);
             minimizeButton.BorderThickness = 3;
             minimizeButton.DrawBorder = false;
             minimizeButton.HotTrackColor = Color.Gainsboro;
@@ -257,9 +257,9 @@ namespace ReaLTaiizor.Forms
             // 
             // maximizeButton
             // 
-            maximizeButton.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            maximizeButton.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             maximizeButton.BackColor = BackColor;
-            maximizeButton.BorderColor = Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            maximizeButton.BorderColor = Color.FromArgb(180, 180, 180);
             maximizeButton.BorderThickness = 3;
             maximizeButton.DrawBorder = false;
             maximizeButton.HotTrackColor = Color.Gainsboro;
@@ -277,9 +277,9 @@ namespace ReaLTaiizor.Forms
             // 
             // closeButton
             // 
-            closeButton.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
+            closeButton.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             closeButton.BackColor = BackColor;
-            closeButton.BorderColor = Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            closeButton.BorderColor = Color.FromArgb(180, 180, 180);
             closeButton.BorderThickness = 3;
             closeButton.DrawBorder = false;
             closeButton.HotTrackColor = Color.Gainsboro;

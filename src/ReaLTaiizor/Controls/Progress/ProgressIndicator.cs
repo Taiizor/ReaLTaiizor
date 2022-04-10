@@ -108,10 +108,10 @@ namespace ReaLTaiizor.Controls
         private void SetPoints()
         {
             Stack<PointF> stack = new();
-            PointF startingFloatPoint = new(((float)Width) / 2f, ((float)Height) / 2f);
+            PointF startingFloatPoint = new(Width / 2f, Height / 2f);
             for (float i = 0f; i < 360f; i += 45f)
             {
-                SetValue(startingFloatPoint, (int)Math.Round((double)((((double)Width) / 2.0) - 15.0)), (double)i);
+                SetValue(startingFloatPoint, (int)Math.Round((double)((Width / 2.0) - 15.0)), (double)i);
                 PointF endPoint = EndPoint;
                 endPoint = new(endPoint.X - 7.5f, endPoint.Y - 7.5f);
                 stack.Push(endPoint);

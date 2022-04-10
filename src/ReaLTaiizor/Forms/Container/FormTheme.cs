@@ -453,8 +453,8 @@ namespace ReaLTaiizor.Forms
             G.FillPath(new SolidBrush(Color.FromArgb(32, 41, 50)), RoundRectangle.RoundRect(new Rectangle(2, 20, Width - 5, Height - 42), BorderCurve));
 
             // Patch the header with a rectangle that has a curve so its border will remain within container bounds
-            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(2, 2, (int)(Width / 2 + 2), 16), BorderCurve));
-            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle((int)(Width / 2 - 3), 2, (int)(Width / 2), 16), BorderCurve));
+            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(2, 2, Width / 2 + 2, 16), BorderCurve));
+            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(Width / 2 - 3, 2, Width / 2, 16), BorderCurve));
             // Fill the header rectangle below the patch
             G.FillRectangle(new SolidBrush(Color.FromArgb(52, 52, 52)), new Rectangle(2, 15, Width - 5, 10));
 

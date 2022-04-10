@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls
                         pen.EndCap = LineCap.Flat;
                         break;
                 }
-                graphics.DrawArc(pen, 0x12, 0x12, (Width - 0x23) - 2, (Height - 0x23) - 2, -90, (int)Math.Round((double)((360.0 / ((double)_Maximum)) * _Value)));
+                graphics.DrawArc(pen, 0x12, 0x12, (Width - 0x23) - 2, (Height - 0x23) - 2, -90, (int)Math.Round((double)((360.0 / _Maximum) * _Value)));
             }
             using (LinearGradientBrush brush2 = new(ClientRectangle, Color.FromArgb(0x34, 0x34, 0x34), Color.FromArgb(0x34, 0x34, 0x34), LinearGradientMode.Vertical))
             {

@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
             if (flag)
             {
                 using HatchBrush hatchBrush = new(HatchStyle.LightUpwardDiagonal, Stripes, BackgroundColor);
-                graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked((double)Value / (double)Maximum * (double)base.Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
+                graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked(Value / (double)Maximum * Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
             }
         }
     }

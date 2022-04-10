@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Animate.Poison
         private int DoMoveAnimation(int startPos, int targetPos)
         {
             float t = (float)counter - startTime;
-            float b = (float)startPos;
+            float b = startPos;
             float c = (float)targetPos - startPos;
             float d = (float)targetTime - startTime;
 

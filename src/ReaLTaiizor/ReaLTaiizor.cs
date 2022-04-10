@@ -13,7 +13,7 @@ using System.Windows.Forms;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 15.May.2019
-//     Changed: 06.Apr.2022
+//     Changed: 10.Apr.2022
 //     Version: 3.7.8.7
 //
 // |---------DO-NOT-REMOVE---------|
@@ -481,7 +481,7 @@ namespace ReaLTaiizor
                         flag = (b != null);
                         if (flag)
                         {
-                            ((IDisposable)b).Dispose();
+                            b.Dispose();
                         }
                     }
                 }
@@ -507,7 +507,7 @@ namespace ReaLTaiizor
                         flag = (b2 != null);
                         if (flag)
                         {
-                            ((IDisposable)b2).Dispose();
+                            b2.Dispose();
                         }
                     }
                 }
@@ -529,7 +529,7 @@ namespace ReaLTaiizor
                         flag = (p != null);
                         if (flag)
                         {
-                            ((IDisposable)p).Dispose();
+                            p.Dispose();
                         }
                     }
                     DrawCustomArrow(e.Graphics, item);

@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Forms
             {
                 Capture = false;
                 //Message  M = Message.Create(Parent.Handle, 161, 2, 0);
-                Message M = Message.Create((IntPtr)Parent.Handle, 161, (IntPtr)2, (IntPtr)0);
+                Message M = Message.Create(Parent.Handle, 161, (IntPtr)2, (IntPtr)0);
                 //DefWndProc(M);
                 DefWndProc(ref M);
             }

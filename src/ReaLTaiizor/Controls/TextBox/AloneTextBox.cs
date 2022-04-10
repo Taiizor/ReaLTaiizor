@@ -274,7 +274,7 @@ namespace ReaLTaiizor.Controls
                 if (flag)
                 {
                     int height = TB.Height;
-                    TB.Location = new(10, (int)Math.Round(unchecked((double)base.Height / 2.0 - (double)height / 2.0 - 0.0)));
+                    TB.Location = new(10, (int)Math.Round(unchecked(Height / 2.0 - height / 2.0 - 0.0)));
                     TB.Size = new(base.Width - 20, height);
                 }
                 else

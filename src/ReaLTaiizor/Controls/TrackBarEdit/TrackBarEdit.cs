@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public float ValueToSet
         {
-            get => (float)(((double)_Value) / ((double)DividedValue));
+            get => (float)(_Value / ((double)DividedValue));
             set => Value = (int)Math.Round((double)(value * ((float)DividedValue)));
         }
 
@@ -191,7 +191,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             if ((Cap && (e.X > -1)) && (e.X < (Width + 1)))
             {
-                Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (((double)e.X) / ((double)Width)))));
+                Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (e.X / ((double)Width)))));
             }
         }
 
@@ -200,12 +200,12 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
-                ValueDrawer = (int)Math.Round((double)((((double)(_Value - _Minimum)) / ((double)(_Maximum - _Minimum))) * (Width - 11)));
+                ValueDrawer = (int)Math.Round((double)(((_Value - _Minimum) / ((double)(_Maximum - _Minimum))) * (Width - 11)));
                 TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
                 Cap = TrackBarHandleRect.Contains(e.Location);
                 if (_JumpToMouse)
                 {
-                    Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (((double)e.X) / ((double)Width)))));
+                    Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (e.X / ((double)Width)))));
                 }
             }
         }
@@ -253,7 +253,7 @@ namespace ReaLTaiizor.Controls
                 PipeBorder = RoundRectangle.RoundRect(1, 6, Width - 3, 8, 3);
                 try
                 {
-                    ValueDrawer = (int)Math.Round(unchecked(checked((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)checked(Width - 11)));
+                    ValueDrawer = (int)Math.Round(unchecked(checked((_Value - _Minimum) / (double)(_Maximum - _Minimum)) * checked(Width - 11)));
                 }
                 catch (Exception)
                 {

@@ -397,7 +397,7 @@ namespace ReaLTaiizor.Controls
 
             int trackAreaSize = isVert ? _trackArea.Height - _thumbArea.Height : _trackArea.Width - _thumbArea.Width;
 
-            float positionRatio = (float)positionInPixels / (float)trackAreaSize;
+            float positionRatio = positionInPixels / (float)trackAreaSize;
             int viewScrollSize = (Maximum - ViewSize);
 
             int newValue = (int)(positionRatio * viewScrollSize);
@@ -468,9 +468,9 @@ namespace ReaLTaiizor.Controls
             }
 
             // Calculate size ratio
-            _viewContentRatio = (float)ViewSize / (float)Maximum;
+            _viewContentRatio = ViewSize / (float)Maximum;
             int viewAreaSize = Maximum - ViewSize;
-            float positionRatio = (float)Value / (float)viewAreaSize;
+            float positionRatio = Value / (float)viewAreaSize;
 
             // Update area
             if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)

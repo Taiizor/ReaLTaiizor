@@ -166,36 +166,36 @@ namespace ReaLTaiizor.Controls
                 if (gaugeStyle == Style.Standard)
                 {
                     Rectangle rect = new(1 + thickness / 2, 1 + thickness / 2, base.Width - 2 - thickness, base.Height * 2 - thickness);
-                    e.Graphics.DrawArc(new Pen(BarColor[0], (float)(thickness / 4)), rect, 180f, 44f);
-                    e.Graphics.DrawArc(new Pen(BarColor[1], (float)(thickness / 4 * 2)), rect, 226f, 44f);
-                    e.Graphics.DrawArc(new Pen(BarColor[2], (float)(thickness / 4 * 3)), rect, 272f, 44f);
-                    e.Graphics.DrawArc(new Pen(BarColor[3], (float)thickness), rect, 318f, 44f);
+                    e.Graphics.DrawArc(new Pen(BarColor[0], thickness / 4), rect, 180f, 44f);
+                    e.Graphics.DrawArc(new Pen(BarColor[1], thickness / 4 * 2), rect, 226f, 44f);
+                    e.Graphics.DrawArc(new Pen(BarColor[2], thickness / 4 * 3), rect, 272f, 44f);
+                    e.Graphics.DrawArc(new Pen(BarColor[3], thickness), rect, 318f, 44f);
                     rect.Inflate(0 - thickness, 0 - thickness);
                     e.Graphics.FillPie(new SolidBrush(dialColor), new Rectangle(base.Width / 2 - thickness, base.Height - thickness, thickness * 2, thickness * 2), 0f, 360f);
                     if (percentage <= 5)
                     {
-                        e.Graphics.FillPie(new SolidBrush(ConsumptionColor), rect, (float)(180 + dialThickness * 2 - 2), (float)dialThickness);
+                        e.Graphics.FillPie(new SolidBrush(ConsumptionColor), rect, 180 + dialThickness * 2 - 2, dialThickness);
                     }
                     else if (percentage >= 95)
                     {
-                        e.Graphics.FillPie(new SolidBrush(ConsumptionColor), rect, (float)(360 - dialThickness * 2), (float)dialThickness);
+                        e.Graphics.FillPie(new SolidBrush(ConsumptionColor), rect, 360 - dialThickness * 2, dialThickness);
                     }
                     else
                     {
-                        e.Graphics.FillPie(new SolidBrush(dialColor), rect, (float)(180 + (int)((double)percentage * 1.8) - dialThickness / 2), (float)dialThickness);
+                        e.Graphics.FillPie(new SolidBrush(dialColor), rect, 180 + (int)(percentage * 1.8) - dialThickness / 2, dialThickness);
                     }
                 }
                 if (gaugeStyle == Style.Material)
                 {
                     Rectangle rect2 = new(1 + thickness / 2, 1 + thickness / 2, base.Width - 2 - thickness, base.Height * 2 - thickness);
-                    e.Graphics.DrawArc(new Pen(new LinearGradientBrush(new Rectangle(0, 0, base.Width, base.Height), BarColor[4], BarColor[5], 1f), (float)thickness), rect2, 180f, (float)((int)((double)percentage * 1.8) - 1));
-                    e.Graphics.DrawArc(new Pen(BarColor[6], (float)thickness), rect2, (float)(180 + (int)((double)percentage * 1.8) + 1), (float)(180 - (int)((double)percentage * 1.8) + 5));
+                    e.Graphics.DrawArc(new Pen(new LinearGradientBrush(new Rectangle(0, 0, base.Width, base.Height), BarColor[4], BarColor[5], 1f), thickness), rect2, 180f, (int)(percentage * 1.8) - 1);
+                    e.Graphics.DrawArc(new Pen(BarColor[6], thickness), rect2, 180 + (int)(percentage * 1.8) + 1, 180 - (int)(percentage * 1.8) + 5);
                 }
                 if (gaugeStyle == Style.Flat)
                 {
                     Rectangle rect3 = new(1 + thickness / 2, 1 + thickness / 2, base.Width - 2 - thickness, base.Height * 2 - thickness);
-                    e.Graphics.DrawArc(new Pen(filledColor, (float)thickness), rect3, 180f, (float)((int)((double)percentage * 1.8) - 1));
-                    e.Graphics.DrawArc(new Pen(unfilledColor, (float)thickness), rect3, (float)(180 + (int)((double)percentage * 1.8) + 1), (float)(180 - (int)((double)percentage * 1.8) + 5));
+                    e.Graphics.DrawArc(new Pen(filledColor, thickness), rect3, 180f, (int)(percentage * 1.8) - 1);
+                    e.Graphics.DrawArc(new Pen(unfilledColor, thickness), rect3, 180 + (int)(percentage * 1.8) + 1, 180 - (int)(percentage * 1.8) + 5);
                 }
             }
             base.OnPaint(e);

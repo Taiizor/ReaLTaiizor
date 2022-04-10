@@ -1384,7 +1384,7 @@ namespace ReaLTaiizor.Controls
                         R = (byte)(255 - pixelColor.R);
                         G = (byte)(255 - pixelColor.G);
                         B = (byte)(255 - pixelColor.B);
-                        bitmapImage.SetPixel(x, y, Color.FromArgb((int)A, (int)R, (int)G, (int)B));
+                        bitmapImage.SetPixel(x, y, Color.FromArgb(A, R, G, B));
                     }
                 }
 

@@ -312,8 +312,8 @@ namespace ReaLTaiizor.Controls
             }
 
             Rectangle rect = new Rectangle(filledThickness / 2 + 1, filledThickness / 2 + 1, base.Width - filledThickness - 2, base.Height - filledThickness - 2);
-            bufferedGraphics.Graphics.DrawArc(new Pen(unFilledColor, (float)unfilledThickness), rect, (float)StartPoint, 360f);
-            bufferedGraphics.Graphics.DrawArc(new Pen(Color.FromArgb(filledColorAlpha, (int)filledColor.R, (int)filledColor.G, (int)filledColor.B), (float)filledThickness), rect, (float)StartPoint, (float)((int)((double)Percentage * 3.6)));
+            bufferedGraphics.Graphics.DrawArc(new Pen(unFilledColor, unfilledThickness), rect, StartPoint, 360f);
+            bufferedGraphics.Graphics.DrawArc(new Pen(Color.FromArgb(filledColorAlpha, filledColor.R, filledColor.G, filledColor.B), filledThickness), rect, StartPoint, (int)(Percentage * 3.6));
 
             if (ShowText)
             {
@@ -324,7 +324,7 @@ namespace ReaLTaiizor.Controls
                     Alignment = StringAlignment.Center
                 };
                 bufferedGraphics.Graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
-                bufferedGraphics.Graphics.DrawString(Percentage.ToString() + "%", new Font("Ariel", (float)textSize), new SolidBrush(textColor), r, stringFormat);
+                bufferedGraphics.Graphics.DrawString(Percentage.ToString() + "%", new Font("Ariel", textSize), new SolidBrush(textColor), r, stringFormat);
             }
 
             bufferedGraphics.Render(e.Graphics);

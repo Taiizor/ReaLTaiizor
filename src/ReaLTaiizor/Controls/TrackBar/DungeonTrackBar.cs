@@ -230,7 +230,7 @@ namespace ReaLTaiizor.Controls
                 bool flag = Cap && e.X > -1 && e.X < Width + 1;
                 if (flag)
                 {
-                    Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
+                    Value = _Minimum + (int)Math.Round((_Maximum - _Minimum) * (e.X / (double)Width));
                 }
             }
         }
@@ -243,14 +243,14 @@ namespace ReaLTaiizor.Controls
             {
                 if (flag)
                 {
-                    ValueDrawer = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 11));
+                    ValueDrawer = (int)Math.Round(((_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (Width - 11));
                     TrackBarHandleRect = new(ValueDrawer, 0, 25, 25);
                     Cap = TrackBarHandleRect.Contains(e.Location);
                     Focus();
                     flag = _JumpToMouse;
                     if (flag)
                     {
-                        Value = _Minimum + (int)Math.Round((double)(_Maximum - _Minimum) * ((double)e.X / (double)Width));
+                        Value = _Minimum + (int)Math.Round((_Maximum - _Minimum) * (e.X / (double)Width));
                     }
                 }
             }
@@ -266,7 +266,7 @@ namespace ReaLTaiizor.Controls
 
         public DungeonTrackBar()
         {
-            SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer), true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer, true);
 
             Cursor = Cursors.Hand;
             Size = new(80, 22);
@@ -298,7 +298,7 @@ namespace ReaLTaiizor.Controls
 
             try
             {
-                ValueDrawer = (int)Math.Round(((double)(_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (double)(Width - 11));
+                ValueDrawer = (int)Math.Round(((_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (Width - 11));
             }
             catch (Exception)
             {
@@ -316,8 +316,8 @@ namespace ReaLTaiizor.Controls
             G.DrawPath(new(_BorderColor), PipeBorder); // Draw pipe border
             G.FillPath(new SolidBrush(_FillBackColor), FillValue);
 
-            G.FillEllipse(new SolidBrush(_ThumbBackColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
-            G.DrawEllipse(new(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked((double)TrackThumb.Width * ((double)Value / (double)Maximum))) - (int)Math.Round((double)ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round((double)TrackThumb.Height / 2.0) - (int)Math.Round((double)ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.FillEllipse(new SolidBrush(_ThumbBackColor), TrackThumb.X + (int)Math.Round(unchecked(TrackThumb.Width * (Value / (double)Maximum))) - (int)Math.Round(ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round(TrackThumb.Height / 2.0) - (int)Math.Round(ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.DrawEllipse(new(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked(TrackThumb.Width * (Value / (double)Maximum))) - (int)Math.Round(ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round(TrackThumb.Height / 2.0) - (int)Math.Round(ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)
             {
