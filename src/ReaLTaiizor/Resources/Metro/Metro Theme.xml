@@ -7,14 +7,14 @@
   <Form>
     <ForeColor>#293955</ForeColor>
     <BackColor>#FFFFFF</BackColor>
-    <BorderColor>#ffc40d</BorderColor>
-    <SmallLineColor1>#ffc40d</SmallLineColor1>
-    <SmallLineColor2>#ffc40d</SmallLineColor2>
+    <BorderColor>#FFC40D</BorderColor>
+    <SmallLineColor1>#FFC40D</SmallLineColor1>
+    <SmallLineColor2>#FFC40D</SmallLineColor2>
     <TextColor>#293955</TextColor>
-    <HeaderColor>#ffc40d</HeaderColor>
+    <HeaderColor>#FFC40D</HeaderColor>
   </Form>
   <DefaultButton>
-    <NormalColor>#ffc40d</NormalColor>
+    <NormalColor>#FFC40D</NormalColor>
     <NormalBorderColor>#000000</NormalBorderColor>
     <NormalTextColor>#FFFFFF</NormalTextColor>
     <HoverColor>#293A56</HoverColor>
@@ -28,8 +28,8 @@
     <DisabledForeColor>#6D6D6D</DisabledForeColor>
   </DefaultButton>
   <Button>
-    <NormalColor>#ffc40d</NormalColor>
-    <NormalBorderColor>#ffc40d</NormalBorderColor>
+    <NormalColor>#FFC40D</NormalColor>
+    <NormalBorderColor>#FFC40D</NormalBorderColor>
     <NormalTextColor>#FFFFFF</NormalTextColor>
     <HoverColor>#5FCFFF</HoverColor>
     <HoverBorderColor>#5FCFFF</HoverBorderColor>
@@ -42,8 +42,8 @@
     <DisabledForeColor>#808080</DisabledForeColor>
   </Button>
   <Tile>
-    <NormalColor>#ffc40d</NormalColor>
-    <NormalBorderColor>#ffc40d</NormalBorderColor>
+    <NormalColor>#FFC40D</NormalColor>
+    <NormalBorderColor>#FFC40D</NormalBorderColor>
     <NormalTextColor>#FFFFFF</NormalTextColor>
     <HoverColor>#293A56</HoverColor>
     <HoverBorderColor>#2B2B2B</HoverBorderColor>
@@ -56,7 +56,7 @@
     <DisabledForeColor>#6D6D6D</DisabledForeColor>
   </Tile>
   <Ellipse>
-    <NormalColor>#ffc40d</NormalColor>
+    <NormalColor>#FFC40D</NormalColor>
     <NormalBorderColor>#FFBA03</NormalBorderColor>
     <NormalTextColor>#FFFFFF</NormalTextColor>
     <HoverColor>#293A56</HoverColor>
@@ -70,7 +70,7 @@
     <DisabledForeColor>#6D6D6D</DisabledForeColor>
   </Ellipse>
   <Badge>
-    <NormalColor>#ffc40d</NormalColor>
+    <NormalColor>#FFC40D</NormalColor>
     <NormalBorderColor>#000000</NormalBorderColor>
     <NormalTextColor>#FFFFFF</NormalTextColor>
     <HoverColor>#293A56</HoverColor>
@@ -79,7 +79,7 @@
     <PressColor>#D6DBE9</PressColor>
     <PressBorderColor>#2B2B2B</PressBorderColor>
     <PressTextColor>#FFFFFF</PressTextColor>
-    <NormalBadgeColor>#ffc40d</NormalBadgeColor>
+    <NormalBadgeColor>#FFC40D</NormalBadgeColor>
     <NormalBadgeTextColor>#FFFFFF</NormalBadgeTextColor>
     <HoverBadgeColor>#cb2828</HoverBadgeColor>
     <HoverBadgeTextColor>#FFFFFF</HoverBadgeTextColor>
@@ -90,7 +90,7 @@
     <DisabledForeColor>#6D6D6D</DisabledForeColor>
   </Badge>
   <Label>
-    <ForeColor>#ffc40d</ForeColor>
+    <ForeColor>#FFC40D</ForeColor>
     <BackColor>#00FFFFFF</BackColor>
   </Label>
   <ComboBox>
@@ -98,7 +98,7 @@
     <BackColor>#FFFFFF</BackColor>
     <BorderColor>#6E6E6E</BorderColor>
     <ArrowColor>#6E6E6E</ArrowColor>
-    <SelectedItemBackColor>#ffc40d</SelectedItemBackColor>
+    <SelectedItemBackColor>#FFC40D</SelectedItemBackColor>
     <SelectedItemForeColor>#FFFFFF</SelectedItemForeColor>
     <DisabledBackColor>#EEEEEE</DisabledBackColor>
     <DisabledBorderColor>#505050</DisabledBorderColor>
@@ -107,9 +107,9 @@
   <TextBox>
     <ForeColor>#CCCCCC</ForeColor>
     <BackColor>#FFFFFF</BackColor>
-    <HoverColor>#ffc40d</HoverColor>
+    <HoverColor>#FFC40D</HoverColor>
     <BorderColor>#6E6E6E</BorderColor>
-    <WatermarkText>n</WatermarkText>
+    <WatermarkText>Custom Watermark</WatermarkText>
     <DisabledBackColor>#EEEEEE</DisabledBackColor>
     <DisabledBorderColor>#505050</DisabledBorderColor>
     <DisabledForeColor>#6D6D6D</DisabledForeColor>
@@ -117,7 +117,7 @@
   <RichTextBox>
     <ForeColor>#CCCCCC</ForeColor>
     <BackColor>#FFFFFF</BackColor>
-    <HoverColor>#ffc40d</HoverColor>
+    <HoverColor>#FFC40D</HoverColor>
     <BorderColor>#6E6E6E</BorderColor>
     <DisabledBackColor>#EEEEEE</DisabledBackColor>
     <DisabledBorderColor>#505050</DisabledBorderColor>
@@ -127,16 +127,16 @@
     <ForeColor>#CCCCCC</ForeColor>
     <BackColor>#FFFFFF</BackColor>
     <BorderColor>#6E6E6E</BorderColor>
-    <SymbolsColor>#ffc40d</SymbolsColor>
+    <SymbolsColor>#FFC40D</SymbolsColor>
     <DisabledBackColor>#EEEEEE</DisabledBackColor>
     <DisabledBorderColor>#505050</DisabledBorderColor>
     <DisabledForeColor>#6D6D6D</DisabledForeColor>
   </Numeric>
   <CheckBox>
-    <ForeColor>#ffc40d</ForeColor>
-    <CheckColor>#ffc40d</CheckColor>
+    <ForeColor>#FFC40D</ForeColor>
+    <CheckColor>#FFC40D</CheckColor>
     <BackColor>#00FFFFFF</BackColor>
-    <BordeColor>#ffc40d</BordeColor>
+    <BordeColor>#FFC40D</BordeColor>
     <DisabledBorderColor>#999999</DisabledBorderColor>
     <CheckedStyle>Shape</CheckedStyle>
     <!--Sign, Shape-->
@@ -147,25 +147,25 @@
     <BorderColor>#9B9B9B</BorderColor>
     <DisabledBorderColor>#555555</DisabledBorderColor>
     <UnCheckColor>#9B9B9B</UnCheckColor>
-    <CheckColor>#ffc40d</CheckColor>
+    <CheckColor>#FFC40D</CheckColor>
     <DisabledUnCheckColor>#CDCDCD</DisabledUnCheckColor>
     <DisabledCheckColor>#FFE235</DisabledCheckColor>
   </SwitchBox>
   <RadioButton>
-    <ForeColor>#ffc40d</ForeColor>
-    <CheckColor>#ffc40d</CheckColor>
+    <ForeColor>#FFC40D</ForeColor>
+    <CheckColor>#FFC40D</CheckColor>
     <BackColor>#00FFFFFF</BackColor>
-    <BordeColor>#ffc40d</BordeColor>
+    <BordeColor>#FFC40D</BordeColor>
     <DisabledBorderColor>#999999</DisabledBorderColor>
   </RadioButton>
   <Divider>
     <Orientation>Horizontal</Orientation>
     <!--Horizontal, Vertical-->
     <Thickness>1</Thickness>
-    <ForeColor>#ffc40d</ForeColor>
+    <ForeColor>#FFC40D</ForeColor>
   </Divider>
   <LinkLabel>
-    <ForeColor>#ffc40d</ForeColor>
+    <ForeColor>#FFC40D</ForeColor>
     <BackColor>#00FFFFFF</BackColor>
     <LinkColor>#41b1e1</LinkColor>
     <ActiveLinkColor>#55c5f5</ActiveLinkColor>
@@ -176,12 +176,12 @@
   <ToolTip>
     <ForeColor>#FFFFFF</ForeColor>
     <BackColor>#FFFFFF</BackColor>
-    <BorderColor>#ffc40d</BorderColor>
+    <BorderColor>#FFC40D</BorderColor>
   </ToolTip>
   <Progress>
     <BackColor>#EEEEEE</BackColor>
     <BorderColor>#EEEEEE</BorderColor>
-    <ProgressColor>#ffc40d</ProgressColor>
+    <ProgressColor>#FFC40D</ProgressColor>
     <DisabledBackColor>#EEEEEE</DisabledBackColor>
     <DisabledBorderColor>#EEEEEE</DisabledBorderColor>
     <DisabledProgressColor>#FFE235</DisabledProgressColor>
@@ -189,7 +189,7 @@
   <TrackBar>
     <BackColor>#EEEEEE</BackColor>
     <HandlerColor>#8F8F8F</HandlerColor>
-    <ValueColor>#ffc40d</ValueColor>
+    <ValueColor>#FFC40D</ValueColor>
     <DisabledBackColor>#EEEEEE</DisabledBackColor>
     <DisabledValueColor>#8F8F8F</DisabledValueColor>
     <DisabledHandlerColor>#FFE235</DisabledHandlerColor>
@@ -200,18 +200,18 @@
     <ArrowColor>#808080</ArrowColor>
     <SeparatorColor>#808080</SeparatorColor>
     <SelectedItemColor>#FFFFFF</SelectedItemColor>
-    <SelectedItemBackColor>#ffc40d</SelectedItemBackColor>
+    <SelectedItemBackColor>#FFC40D</SelectedItemBackColor>
     <DisabledForeColor>#C0C0C0</DisabledForeColor>
   </ContextMenu>
   <TabControl>
     <BackColor>#FFFFFF</BackColor>
-    <ForeColor>#ffc40d</ForeColor>
+    <ForeColor>#FFC40D</ForeColor>
     <UnselectedTextColor>#808080</UnselectedTextColor>
     <SelectedTextColor>#FFFFFF</SelectedTextColor>
   </TabControl>
   <ScrollBar>
     <BackColor>#FFFFFF</BackColor>
-    <ForeColor>#ffc40d</ForeColor>
+    <ForeColor>#FFC40D</ForeColor>
     <DisabledBackColor>#505050</DisabledBackColor>
     <DisabledForeColor>#6D6D6D</DisabledForeColor>
   </ScrollBar>
@@ -220,7 +220,7 @@
     <ForeColor>#808080</ForeColor>
     <BorderColor>#404040</BorderColor>
     <SelectedItemColor>#FFFFFF</SelectedItemColor>
-    <SelectedItemBackColor>#ffc40d</SelectedItemBackColor>
+    <SelectedItemBackColor>#FFC40D</SelectedItemBackColor>
     <HoveredItemColor>#000000</HoveredItemColor>
     <HoveredItemBackColor>#FFE235</HoveredItemBackColor>
     <DisabledBackColor>#505050</DisabledBackColor>
@@ -231,7 +231,7 @@
     <BorderColor>#6E6E6E</BorderColor>
   </Panel>
   <ControlBox>
-    <CloseHoverBackColor>#ffc40d</CloseHoverBackColor>
+    <CloseHoverBackColor>#FFC40D</CloseHoverBackColor>
     <CloseHoverForeColor>#FFFFFF</CloseHoverForeColor>
     <CloseNormalForeColor>#808080</CloseNormalForeColor>
     <MaximizeHoverBackColor>#EEEEEE</MaximizeHoverBackColor>
