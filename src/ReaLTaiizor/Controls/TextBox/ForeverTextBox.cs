@@ -322,38 +322,20 @@ namespace ReaLTaiizor.Controls
 
         public new event KeyEventHandler KeyUp
         {
-            add
-            {
-                TB.KeyUp += value;
-            }
-            remove
-            {
-                TB.KeyUp -= value;
-            }
+            add => TB.KeyUp += value;
+            remove => TB.KeyUp -= value;
         }
 
         public new event KeyEventHandler KeyDown
         {
-            add
-            {
-                TB.KeyDown += value;
-            }
-            remove
-            {
-                TB.KeyDown -= value;
-            }
+            add => TB.KeyDown += value;
+            remove => TB.KeyDown -= value;
         }
 
         public new event KeyPressEventHandler KeyPress
         {
-            add
-            {
-                TB.KeyPress += value;
-            }
-            remove
-            {
-                TB.KeyPress -= value;
-            }
+            add => TB.KeyPress += value;
+            remove => TB.KeyPress -= value;
         }
 
         #endregion

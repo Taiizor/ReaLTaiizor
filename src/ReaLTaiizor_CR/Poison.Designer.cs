@@ -30,10 +30,10 @@ namespace ReaLTaiizor_CR
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Poison));
             this.poisonStyleExtender1 = new ReaLTaiizor.Controls.PoisonStyleExtender(this.components);
             this.poisonToolTip1 = new ReaLTaiizor.Controls.PoisonToolTip();
             this.poisonStyleManager1 = new ReaLTaiizor.Manager.PoisonStyleManager(this.components);
+            this.poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
             ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,11 +52,22 @@ namespace ReaLTaiizor_CR
             this.poisonStyleManager1.Owner = this;
             this.poisonStyleManager1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
+            // poisonButton1
+            // 
+            this.poisonButton1.Location = new System.Drawing.Point(23, 87);
+            this.poisonButton1.Name = "poisonButton1";
+            this.poisonButton1.Size = new System.Drawing.Size(122, 34);
+            this.poisonButton1.TabIndex = 0;
+            this.poisonButton1.Text = "poisonButton1";
+            this.poisonButton1.UseSelectable = true;
+            this.poisonButton1.Click += new System.EventHandler(this.poisonButton1_Click);
+            // 
             // Poison
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(488, 321);
+            this.Controls.Add(this.poisonButton1);
             this.Icon = global::ReaLTaiizor_CR.Properties.Resources.ICO;
             this.Name = "Poison";
             this.ShadowType = ReaLTaiizor.Enum.Poison.FormShadowType.AeroShadow;
@@ -71,5 +82,6 @@ namespace ReaLTaiizor_CR
         private ReaLTaiizor.Controls.PoisonStyleExtender poisonStyleExtender1;
         private ReaLTaiizor.Controls.PoisonToolTip poisonToolTip1;
         private ReaLTaiizor.Manager.PoisonStyleManager poisonStyleManager1;
+        private ReaLTaiizor.Controls.PoisonButton poisonButton1;
     }
 }

@@ -134,14 +134,8 @@ namespace ReaLTaiizor.Controls
 
         public event ValueChangedEventHandler ValueChanged
         {
-            add
-            {
-                ValueChangedEvent = (ValueChangedEventHandler)System.Delegate.Combine(ValueChangedEvent, value);
-            }
-            remove
-            {
-                ValueChangedEvent = (ValueChangedEventHandler)System.Delegate.Remove(ValueChangedEvent, value);
-            }
+            add => ValueChangedEvent = (ValueChangedEventHandler)System.Delegate.Combine(ValueChangedEvent, value);
+            remove => ValueChangedEvent = (ValueChangedEventHandler)System.Delegate.Remove(ValueChangedEvent, value);
         }
 
         public int Value

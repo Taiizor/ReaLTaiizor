@@ -103,6 +103,7 @@ namespace ReaLTaiizor.Controls
                 {
                     BackColor = _owner.BackColor
                 };
+
                 _control.Properties.Buttons = buttons;
                 _control.Properties.DefaultButton = defaultbutton;
                 _control.Properties.Icon = icon;
@@ -112,6 +113,7 @@ namespace ReaLTaiizor.Controls
                 _control.ControlBox = false;
                 _control.ShowInTaskbar = false;
                 _control.TopMost = true;
+
                 //_owner.Controls.Add(_control);
                 //if (_owner is IPoisonForm)
                 //{
@@ -135,7 +137,15 @@ namespace ReaLTaiizor.Controls
                 _control.SetDefaultButton();
 
                 Action<PoisonMessageBoxControl> _delegate = new(ModalState);
-                IAsyncResult _asyncresult = _delegate.BeginInvoke(_control, null, _delegate);
+
+                IAsyncResult _asyncresult = null;
+
+                try
+                {
+                    _asyncresult = _delegate.BeginInvoke(_control, null, _delegate);
+                }
+                catch { }
+
                 bool _cancelled = false;
 
                 try
@@ -150,11 +160,15 @@ namespace ReaLTaiizor.Controls
                 {
                     _cancelled = true;
 
-                    if (!_asyncresult.IsCompleted)
+                    try
                     {
-                        try { _asyncresult = null; }
-                        catch { }
+                        if (!_asyncresult.IsCompleted)
+                        {
+                            try { _asyncresult = null; }
+                            catch { }
+                        }
                     }
+                    catch { _result = _control.Result; }
 
                     _delegate = null;
                 }
@@ -173,8 +187,12 @@ namespace ReaLTaiizor.Controls
 
         private static void ModalState(PoisonMessageBoxControl control)
         {
+            /*
             while (control.Visible)
-            { }
+            {
+
+            }
+            */
         }
 
     }

@@ -160,14 +160,8 @@ namespace ReaLTaiizor.Controls
 
         public event CheckedChangedEventHandler CheckedChanged
         {
-            add
-            {
-                CheckedChangedEvent = (CheckedChangedEventHandler)Delegate.Combine(CheckedChangedEvent, value);
-            }
-            remove
-            {
-                CheckedChangedEvent = (CheckedChangedEventHandler)Delegate.Remove(CheckedChangedEvent, value);
-            }
+            add => CheckedChangedEvent = (CheckedChangedEventHandler)Delegate.Combine(CheckedChangedEvent, value);
+            remove => CheckedChangedEvent = (CheckedChangedEventHandler)Delegate.Remove(CheckedChangedEvent, value);
         }
         #endregion
 
