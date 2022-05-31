@@ -66,9 +66,9 @@ namespace ReaLTaiizor.Controls
 
         private const int THUMB_SIZE_HALF = THUMB_SIZE / 2;
 
-        private const int TRACK_SIZE_HEIGHT = (int)(14);
-        private const int TRACK_SIZE_WIDTH = (int)(36);
-        private const int TRACK_RADIUS = (int)(TRACK_SIZE_HEIGHT / 2);
+        private const int TRACK_SIZE_HEIGHT = 14;
+        private const int TRACK_SIZE_WIDTH = 36;
+        private const int TRACK_RADIUS = TRACK_SIZE_HEIGHT / 2;
 
         private int TRACK_CENTER_Y;
         private int TRACK_CENTER_X_BEGIN;

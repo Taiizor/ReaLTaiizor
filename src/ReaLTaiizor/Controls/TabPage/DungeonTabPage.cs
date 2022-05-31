@@ -69,7 +69,7 @@ namespace ReaLTaiizor.Controls
 
         public DungeonTabPage()
         {
-            SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
         }
 
         protected override void CreateHandle()

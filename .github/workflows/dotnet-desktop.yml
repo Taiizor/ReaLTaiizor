@@ -26,6 +26,7 @@ jobs:
             sample/ReaLTaiizor.Payment/ReaLTaiizor.Payment.sln,
             sample/ReaLTaiizor.Player/ReaLTaiizor.Player.sln,
             sample/ReaLTaiizor.Rufus/ReaLTaiizor.Rufus.sln,
+            sample/ReaLTaiizor.Splash/ReaLTaiizor.Splash.sln,
             sample/ReaLTaiizor.XAMPP/ReaLTaiizor.XAMPP.sln,
             ready/ReaLTaiizor.AppLocker/ReaLTaiizor.AppLocker.sln,
             ready/ReaLTaiizor.Stopwatch/ReaLTaiizor.Stopwatch.sln,

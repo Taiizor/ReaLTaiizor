@@ -17,9 +17,8 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotObjectEllipse()
         {
-            RefreshUI.Interval = 100;
-            RefreshUI.Tick += RefreshUI_Tick;
-            RefreshUI.Enabled = true;
+            UpdateControl();
+            UpdateForm();
         }
 
         public override ISite Site
@@ -28,25 +27,40 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Site = value;
+
                 if (value == null)
                 {
                     return;
                 }
+
                 IDesignerHost designerHost = value.GetService(typeof(IDesignerHost)) as IDesignerHost;
+
                 if (designerHost != null)
                 {
                     IComponent rootComponent = designerHost.RootComponent;
-                    if (rootComponent is ContainerControl)
+
+                    if (rootComponent is ContainerControl && rootComponent is not Form)
                     {
                         effectedControl = rootComponent as ContainerControl;
+
                         DefaultControl = rootComponent as ContainerControl;
-                        DefaultRegion = DefaultControl.Region;
-                        try
+
+                        if (DefaultControl != null)
                         {
-                            DefaultStyle = ((Form)DefaultControl).FormBorderStyle;
+                            DefaultControlRegion = DefaultControl.Region;
                         }
-                        catch
+                    }
+
+                    if (rootComponent is Form)
+                    {
+                        effectedForm = rootComponent as Form;
+
+                        DefaultForm = rootComponent as Form;
+
+                        if (DefaultForm != null)
                         {
+                            DefaultFormRegion = DefaultForm.Region;
+                            DefaultStyle = DefaultForm.FormBorderStyle;
                         }
                     }
                 }
@@ -57,56 +71,53 @@ namespace ReaLTaiizor.Controls
         {
             if (effectedControl != null)
             {
-                try
-                {
-                    ((Form)effectedControl).FormBorderStyle = FormBorderStyle.None;
-                }
-                catch
-                {
-                }
                 effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, cornerRadius, cornerRadius));
                 effectedControl.SizeChanged += Container_SizeChanged;
             }
-        }
 
-        private void RefreshUI_Tick(object sender, EventArgs e)
-        {
-            UpdateControl();
-            RefreshUI.Enabled = false;
-            RefreshUI.Dispose();
+            if (effectedForm != null)
+            {
+                effectedForm.FormBorderStyle = FormBorderStyle.None;
+
+                effectedForm.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedForm.Width, effectedForm.Height, cornerRadius, cornerRadius));
+                effectedForm.SizeChanged += Container_SizeChanged;
+            }
         }
 
         private void UpdateControl()
         {
             if (DefaultControl != null)
             {
-                try
-                {
-                    ((Form)DefaultControl).FormBorderStyle = DefaultStyle;
-                }
-                catch
-                {
-                }
-                DefaultControl.Region = DefaultRegion;
+                DefaultControl.Region = DefaultControlRegion;
             }
+
             if (effectedControl != null)
             {
-                try
-                {
-                    DefaultControl = (Form)effectedControl;
-                }
-                catch
-                {
-                    DefaultControl = effectedControl;
-                }
-                DefaultRegion = effectedControl.Region;
-                try
-                {
-                    DefaultStyle = ((Form)effectedControl).FormBorderStyle;
-                }
-                catch
-                {
-                }
+                DefaultControl = effectedControl;
+
+                DefaultControlRegion = effectedControl.Region;
+
+                SetCustomRegion();
+            }
+        }
+
+        private void UpdateForm()
+        {
+            if (DefaultForm != null)
+            {
+                DefaultForm.FormBorderStyle = DefaultStyle;
+
+                DefaultForm.Region = DefaultFormRegion;
+            }
+
+            if (effectedForm != null)
+            {
+                DefaultForm = effectedForm;
+
+                DefaultFormRegion = effectedForm.Region;
+
+                DefaultStyle = effectedForm.FormBorderStyle;
+
                 SetCustomRegion();
             }
         }
@@ -114,22 +125,31 @@ namespace ReaLTaiizor.Controls
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
+
             if (effectedControl != null)
             {
-                try
-                {
-                    ((Form)effectedControl).FormBorderStyle = DefaultStyle;
-                }
-                catch
-                {
-                }
-                effectedControl.Region = DefaultRegion;
+                effectedControl.Region = DefaultControlRegion;
+            }
+
+            if (effectedForm != null)
+            {
+                effectedForm.FormBorderStyle = DefaultStyle;
+
+                effectedForm.Region = DefaultFormRegion;
             }
         }
 
         private void Container_SizeChanged(object sender, EventArgs e)
         {
-            effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, cornerRadius, cornerRadius));
+            if (effectedControl != null)
+            {
+                effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, cornerRadius, cornerRadius));
+            }
+
+            if (effectedForm != null)
+            {
+                effectedForm.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedForm.Width, effectedForm.Height, cornerRadius, cornerRadius));
+            }
         }
 
         [Category("Parrot")]
@@ -150,11 +170,24 @@ namespace ReaLTaiizor.Controls
         [Description("The effected control")]
         public Control EffectedControl
         {
-            get => effectedControl;
+            get
+            {
+                if (effectedControl != null)
+                {
+                    return effectedControl;
+                }
+                else
+                {
+                    return null;
+                }
+            }
             set
             {
-                effectedControl = value;
-                UpdateControl();
+                if (value != EffectedForm || value == null)
+                {
+                    effectedControl = value;
+                    UpdateControl();
+                }
             }
         }
 
@@ -165,38 +198,43 @@ namespace ReaLTaiizor.Controls
         {
             get
             {
-                Form result;
-                try
+                if (effectedForm != null)
                 {
-                    result = effectedControl as Form;
+                    return effectedForm;
                 }
-                catch
+                else
                 {
-                    result = null;
+                    return null;
                 }
-                return result;
             }
             set
             {
-                effectedControl = value;
-                UpdateControl();
+                if (value != EffectedControl || value == null)
+                {
+                    effectedForm = value;
+                    UpdateForm();
+                }
             }
         }
 
         [DllImport("Gdi32.dll")]
         private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
-        private readonly Timer RefreshUI = new();
+        private Control DefaultControl = null;
 
-        private Control DefaultControl;
+        private Form DefaultForm = null;
 
         private FormBorderStyle DefaultStyle;
 
-        private Region DefaultRegion;
+        private Region DefaultControlRegion = null;
+
+        private Region DefaultFormRegion = null;
 
         private int cornerRadius = 10;
 
-        private Control effectedControl;
+        private Control effectedControl = null;
+
+        private Form effectedForm = null;
     }
 
     #endregion

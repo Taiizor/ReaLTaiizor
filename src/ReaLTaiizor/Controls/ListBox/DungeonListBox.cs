@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Controls
 
         public DungeonListBox()
         {
-            SetStyle((ControlStyles)(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
             DrawMode = DrawMode.OwnerDrawFixed;
             IntegralHeight = false;
             ItemHeight = 18;

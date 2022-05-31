@@ -4,9 +4,16 @@ namespace ReaLTaiizor.Player
 {
     public partial class Player : Form
     {
+        private readonly Controls.ParrotObjectEllipse Ellipse1 = new();
+        private readonly Controls.ParrotObjectEllipse Ellipse2 = new();
+        private readonly Controls.ParrotObjectEllipse Ellipse3 = new();
+
         public Player()
         {
             InitializeComponent();
+            Ellipse1.EffectedControl = pictureBox7;
+            Ellipse2.EffectedControl = pictureBox8;
+            Ellipse3.EffectedControl = pictureBox9;
         }
 
         private void Timer1_Tick(object sender, System.EventArgs e)

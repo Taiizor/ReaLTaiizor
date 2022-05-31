@@ -198,7 +198,7 @@ namespace ReaLTaiizor.Util
 
             foreach (Control c in Controls)
             {
-                if ((c is ControlLostBase || c is FormLostBase) && (c as Control).Visible)
+                if ((c is ControlLostBase || c is FormLostBase) && c.Visible)
                 {
                     (c as dynamic).DrawShadow(e.Graphics);
                 }

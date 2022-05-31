@@ -350,7 +350,7 @@ namespace ReaLTaiizor.Controls
             }
 #endif
 
-#if NETCOREAPP3_1 || NET5_0 || NET6_0 && !NET7_0
+#if NETCOREAPP3_1 || NET5_0 || NET6_0 || NET7_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
@@ -795,7 +795,7 @@ namespace ReaLTaiizor.Controls
             }
 #endif
 
-#if NETCOREAPP3_1 || NET5_0 || NET6_0 && !NET7_0
+#if NETCOREAPP3_1 || NET5_0 || NET6_0 || NET7_0
             if (m_SplitMenuStrip != null)
             {
                 m_SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);

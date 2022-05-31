@@ -484,7 +484,7 @@ namespace ReaLTaiizor.Controls
                 {
                     if (ShowIconsWhenHidden)
                     {
-                        Location = new((int)(-Width + MinWidth), Location.Y);
+                        Location = new(-Width + MinWidth, Location.Y);
                     }
                     else
                     {
@@ -673,7 +673,7 @@ namespace ReaLTaiizor.Controls
         {
             if (tabIndex == _ShowTabControl.SelectedIndex && !_clickAnimManager.IsAnimating())
             {
-                return (int)(primaryA);
+                return primaryA;
             }
 
             if (tabIndex != _previousSelectedTabIndex && tabIndex != _ShowTabControl.SelectedIndex)
@@ -777,7 +777,7 @@ namespace ReaLTaiizor.Controls
             {
                 _drawerItemRects[i] = (new Rectangle(
                     (int)(SkinManager.FORM_PADDING * 0.75) - (ShowIconsWhenHidden ? Location.X : 0),
-                    (TAB_HEADER_PADDING * 2) * i + (int)(SkinManager.FORM_PADDING >> 1),
+                    (TAB_HEADER_PADDING * 2) * i + (SkinManager.FORM_PADDING >> 1),
                     (Width + (ShowIconsWhenHidden ? Location.X : 0)) - (int)(SkinManager.FORM_PADDING * 1.5) - 1,
                     drawerItemHeight));
 

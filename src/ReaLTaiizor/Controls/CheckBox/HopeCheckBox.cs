@@ -113,7 +113,7 @@ namespace ReaLTaiizor.Controls
         {
             Height = 20;
             //Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
-            Width = 25 + (int)TextRenderer.MeasureText(Text, Font).Width;
+            Width = 25 + TextRenderer.MeasureText(Text, Font).Width;
         }
 
         protected override void OnCreateControl()
@@ -121,7 +121,7 @@ namespace ReaLTaiizor.Controls
             base.OnCreateControl();
             Height = 20;
             //Width = 25 + (int)CreateGraphics().MeasureString(Text, Font).Width;
-            Width = 25 + (int)TextRenderer.MeasureText(Text, Font).Width;
+            Width = 25 + TextRenderer.MeasureText(Text, Font).Width;
         }
 
         protected override void OnMouseEnter(EventArgs eventargs)

@@ -395,15 +395,15 @@ namespace ReaLTaiizor.Controls
                     {
                         if (num5 - pointSize / 2 - 1 < 0)
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF((float)(num4 - pointSize / 2 - 1), -1f, (float)pointSize, (float)pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(num4 - pointSize / 2 - 1, -1f, pointSize, pointSize));
                         }
                         else if (num5 - pointSize / 2 - 1 + pointSize > base.Height)
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF((float)(num4 - pointSize / 2 - 1), (float)(base.Height - pointSize + 1), (float)pointSize, (float)pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(num4 - pointSize / 2 - 1, base.Height - pointSize + 1, pointSize, pointSize));
                         }
                         else
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF((float)(num4 - pointSize / 2 - 1), (float)(num5 - pointSize / 2 - 1), (float)pointSize, (float)pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(num4 - pointSize / 2 - 1, num5 - pointSize / 2 - 1, pointSize, pointSize));
                         }
                     }
 
@@ -420,17 +420,17 @@ namespace ReaLTaiizor.Controls
                 {
                     foreach (PointF pointF in list)
                     {
-                        if (pointF.Y - (float)(pointSize / 2) - 1f < 0f)
+                        if (pointF.Y - pointSize / 2 - 1f < 0f)
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - (float)(pointSize / 2) - 1f, -1f, (float)pointSize, (float)pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - pointSize / 2 - 1f, -1f, pointSize, pointSize));
                         }
-                        else if (pointF.Y - (float)(pointSize / 2) - 1f + (float)pointSize > (float)base.Height)
+                        else if (pointF.Y - pointSize / 2 - 1f + pointSize > Height)
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - (float)(pointSize / 2) - 1f, (float)(base.Height - pointSize + 1), (float)pointSize, (float)pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - pointSize / 2 - 1f, base.Height - pointSize + 1, pointSize, pointSize));
                         }
                         else
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - (float)(pointSize / 2) - 1f, pointF.Y - (float)(pointSize / 2) - 1f, (float)pointSize, (float)pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - pointSize / 2 - 1f, pointF.Y - pointSize / 2 - 1f, pointSize, pointSize));
                         }
                     }
                 }
@@ -453,7 +453,7 @@ namespace ReaLTaiizor.Controls
 
                 Font font = new("Arial", 14f);
                 SolidBrush brush3 = new(graphTitleColor);
-                RectangleF layoutRectangle = new(0f, 0f, (float)base.Width, (float)base.Height);
+                RectangleF layoutRectangle = new(0f, 0f, Width, Height);
 
                 e.Graphics.PixelOffsetMode = PixelOffsetType;
                 e.Graphics.TextRenderingHint = TextRenderingType;

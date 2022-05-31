@@ -211,14 +211,14 @@ namespace ReaLTaiizor.Controls
             updateProgress.Interval = secondsDisplayed / 100;
             updateProgress.Tick += UpdateLoader;
             text1.ForeColor = topTextColor;
-            text1.Font = new Font("Ariel", (float)topTextSize);
+            text1.Font = new Font("Ariel", topTextSize);
             text1.Text = topText;
             text1.BackColor = backColor;
             text1.AutoSize = true;
             text1.Location = new Point(0, splashForm.Height / 4);
             background.Controls.Add(text1);
             text2.ForeColor = bottomTextColor;
-            text2.Font = new Font("Ariel", (float)bottomTextSize);
+            text2.Font = new Font("Ariel", bottomTextSize);
             text2.Text = bottomText;
             text2.BackColor = backColor;
             text2.AutoSize = true;

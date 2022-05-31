@@ -193,8 +193,8 @@ namespace ReaLTaiizor.Controls
                 elapsedTime = 0;
             }
 
-            double perc = (double)elapsedTime / ((double)closeTime / 100);
-            progressWidth = (int)((double)Width * (perc / 100));
+            double perc = elapsedTime / ((double)closeTime / 100);
+            progressWidth = (int)(Width * (perc / 100));
             Invalidate(new Rectangle(0, 0, Width, 5));
 
             if (!cancelTimer)

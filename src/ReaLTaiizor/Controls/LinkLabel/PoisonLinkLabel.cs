@@ -495,7 +495,7 @@ namespace ReaLTaiizor.Controls
                     R = (byte)(255 - pixelColor.R);
                     G = (byte)(255 - pixelColor.G);
                     B = (byte)(255 - pixelColor.B);
-                    bitmapImage.SetPixel(x, y, Color.FromArgb((int)A, (int)R, (int)G, (int)B));
+                    bitmapImage.SetPixel(x, y, Color.FromArgb(A, R, G, B));
                 }
             }
 
@@ -519,10 +519,10 @@ namespace ReaLTaiizor.Controls
                         A = 90;
                     }
 
-                    R = (byte)(pixelColor.R);
-                    G = (byte)(pixelColor.G);
-                    B = (byte)(pixelColor.B);
-                    bitmapImage.SetPixel(x, y, Color.FromArgb((int)A, (int)R, (int)G, (int)B));
+                    R = pixelColor.R;
+                    G = pixelColor.G;
+                    B = pixelColor.B;
+                    bitmapImage.SetPixel(x, y, Color.FromArgb(A, R, G, B));
                 }
             }
 

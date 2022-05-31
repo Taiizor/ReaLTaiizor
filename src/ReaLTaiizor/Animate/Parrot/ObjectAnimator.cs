@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Animate.Parrot
     {
         private void WaitAnimation(int milliseconds)
         {
-            DateTime t = DateTime.Now.AddMilliseconds((double)milliseconds);
+            DateTime t = DateTime.Now.AddMilliseconds(milliseconds);
 
             while (DateTime.Now < t)
             {
@@ -42,7 +42,7 @@ namespace ReaLTaiizor.Animate.Parrot
 
                 while (animationForm.Opacity < 100.0)
                 {
-                    animationForm.Opacity = 0.01 * (double)animationSpeed + animationForm.Opacity;
+                    animationForm.Opacity = 0.01 * animationSpeed + animationForm.Opacity;
                     WaitAnimation(50);
                 }
             }
@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Animate.Parrot
 
                 while (animationForm.Opacity > 0.1)
                 {
-                    animationForm.Opacity -= 0.01 * (double)animationSpeed;
+                    animationForm.Opacity -= 0.01 * animationSpeed;
                     WaitAnimation(50);
                 }
             }

@@ -281,7 +281,7 @@ namespace ReaLTaiizor.Controls
                     selectWidth,
                     UseTallSize ? hasHint ?
                     textRect.Height - BOTTOM_PADDING * 2 : // tall and hint
-                    (int)(LINE_Y / 2) : // tall and no hint
+                    LINE_Y / 2 : // tall and no hint
                     LINE_Y - BOTTOM_PADDING * 2); // not tall
 
                 // Draw user text

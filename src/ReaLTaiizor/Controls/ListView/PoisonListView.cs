@@ -406,7 +406,7 @@ namespace ReaLTaiizor.Controls
             }
             else if (m.Msg == WM_NCCALCSIZE) // WM_NCCALCSIZE
             {
-                int style = (int)GetWindowLong(Handle, GWL_STYLE);
+                int style = GetWindowLong(Handle, GWL_STYLE);
                 if ((style & WS_VSCROLL) == WS_VSCROLL)
                 {
                     SetWindowLong(Handle, GWL_STYLE, style & ~WS_VSCROLL);

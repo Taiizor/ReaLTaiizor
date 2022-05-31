@@ -245,7 +245,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
             if (quickHopping)
             {
-                Percentage = (int)Math.Round((double)(max * e.X) / (double)base.Width);
+                Percentage = (int)Math.Round(max * e.X / (double)base.Width);
                 onHandle = true;
                 return;
             }
@@ -285,7 +285,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             if (onHandle)
             {
-                Percentage = (int)Math.Round((double)(max * e.X) / (double)base.Width);
+                Percentage = (int)Math.Round(max * e.X / (double)base.Width);
                 if (Percentage < 0)
                 {
                     Percentage = 0;

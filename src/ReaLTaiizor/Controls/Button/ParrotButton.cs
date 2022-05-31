@@ -296,7 +296,7 @@ namespace ReaLTaiizor.Controls
             graphicsPath.AddArc(0, base.Height - CornerRadius * 2 - 2, CornerRadius * 2 - 2, CornerRadius * 2, 90f, 90f);
             graphicsPath.AddArc(0, 0, CornerRadius * 2, CornerRadius * 2, 180f, 90f);
             graphicsPath.CloseFigure();
-            Gfx.DrawPath(new Pen(borderColor, (float)borderThickness), graphicsPath);
+            Gfx.DrawPath(new Pen(borderColor, borderThickness), graphicsPath);
         }
 
         protected override void OnPaint(PaintEventArgs e)

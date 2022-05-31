@@ -381,7 +381,7 @@ namespace ReaLTaiizor.Controls
 
         public NotificationBox()
         {
-            SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw), true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
             Font = new("Tahoma", 9);
             MinimumSize = new(100, 40);
             RoundCorners = false;

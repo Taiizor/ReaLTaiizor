@@ -58,7 +58,7 @@ namespace ReaLTaiizor.Forms
             //
             // leftButton
             //
-            leftButton.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
+            leftButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             leftButton.AutoSize = false;
             leftButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             leftButton.Depth = 0;
@@ -81,9 +81,9 @@ namespace ReaLTaiizor.Forms
             //
             // messageContainer
             //
-            messageContainer.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
+            messageContainer.Anchor = (((AnchorStyles.Top | AnchorStyles.Bottom)
             | AnchorStyles.Left)
-            | AnchorStyles.Right)));
+            | AnchorStyles.Right);
             messageContainer.BackColor = Color.White;
             messageContainer.Controls.Add(pictureBoxForIcon);
             messageContainer.Controls.Add(richTextBoxMessage);
@@ -103,15 +103,15 @@ namespace ReaLTaiizor.Forms
             //
             // richTextBoxMessage
             //
-            richTextBoxMessage.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
+            richTextBoxMessage.Anchor = (((AnchorStyles.Top | AnchorStyles.Bottom)
             | AnchorStyles.Left)
-            | AnchorStyles.Right)));
-            richTextBoxMessage.BackColor = Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            | AnchorStyles.Right);
+            richTextBoxMessage.BackColor = Color.FromArgb(237, 237, 237);
             richTextBoxMessage.BorderStyle = BorderStyle.None;
             richTextBoxMessage.DataBindings.Add(new Binding("Text", MaterialFlexibleFormBindingSource, "MessageText", true, DataSourceUpdateMode.OnPropertyChanged));
             richTextBoxMessage.Depth = 0;
-            richTextBoxMessage.Font = new("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            richTextBoxMessage.ForeColor = Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            richTextBoxMessage.Font = new("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            richTextBoxMessage.ForeColor = Color.FromArgb(180, 0, 0, 0);
             richTextBoxMessage.Hint = "";
             richTextBoxMessage.Location = new(47, 2);
             richTextBoxMessage.Margin = new Padding(0);
@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Forms
             //
             // middleButton
             //
-            middleButton.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
+            middleButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             middleButton.AutoSize = false;
             middleButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             middleButton.Depth = 0;
@@ -150,7 +150,7 @@ namespace ReaLTaiizor.Forms
             //
             // rightButton
             //
-            rightButton.Anchor = ((AnchorStyles)((AnchorStyles.Bottom | AnchorStyles.Right)));
+            rightButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             rightButton.AutoSize = false;
             rightButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             rightButton.Depth = 0;

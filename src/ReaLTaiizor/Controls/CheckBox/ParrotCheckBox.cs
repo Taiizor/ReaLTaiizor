@@ -209,8 +209,8 @@ namespace ReaLTaiizor.Controls
                 e.Graphics.FillRectangle(new SolidBrush(currentColor), 1, 1, base.Height - 2, base.Height - 2);
                 if (isChecked)
                 {
-                    e.Graphics.DrawLine(new Pen(checkboxCheckColor, (float)tickThickness), 2, base.Height / 3 * 2, base.Height / 2, base.Height - 2);
-                    e.Graphics.DrawLine(new Pen(checkboxCheckColor, (float)tickThickness), base.Height / 2, base.Height - 2, base.Height - 2, 1);
+                    e.Graphics.DrawLine(new Pen(checkboxCheckColor, tickThickness), 2, base.Height / 3 * 2, base.Height / 2, base.Height - 2);
+                    e.Graphics.DrawLine(new Pen(checkboxCheckColor, tickThickness), base.Height / 2, base.Height - 2, base.Height - 2, 1);
                 }
             }
             if (checkboxStyle == Style.iOS)
@@ -222,8 +222,8 @@ namespace ReaLTaiizor.Controls
                 if (isChecked)
                 {
                     e.Graphics.FillEllipse(new SolidBrush(BadgeColor), 1, 1, base.Height - 2, base.Height - 2);
-                    e.Graphics.DrawLine(new Pen(checkboxCheckColor, (float)tickThickness), base.Height / 5, base.Height / 2, base.Height / 2, base.Height / 4 * 3);
-                    e.Graphics.DrawLine(new Pen(checkboxCheckColor, (float)tickThickness), base.Height / 2, base.Height / 4 * 3, base.Height / 5 * 4, base.Height / 4);
+                    e.Graphics.DrawLine(new Pen(checkboxCheckColor, tickThickness), base.Height / 5, base.Height / 2, base.Height / 2, base.Height / 4 * 3);
+                    e.Graphics.DrawLine(new Pen(checkboxCheckColor, tickThickness), base.Height / 2, base.Height / 4 * 3, base.Height / 5 * 4, base.Height / 4);
                 }
             }
             StringFormat stringFormat = new()
@@ -232,7 +232,7 @@ namespace ReaLTaiizor.Controls
                 Alignment = StringAlignment.Near
             };
             SolidBrush brush = new(ForeColor);
-            RectangleF layoutRectangle = new((float)(base.Height + 3), 0f, (float)(base.Width - base.Height - 2), (float)base.Height);
+            RectangleF layoutRectangle = new(base.Height + 3, 0f, base.Width - base.Height - 2, Height);
             e.Graphics.PixelOffsetMode = PixelOffsetType;
             e.Graphics.TextRenderingHint = TextRenderingType;
             e.Graphics.DrawString(Text, Font, brush, layoutRectangle, stringFormat);

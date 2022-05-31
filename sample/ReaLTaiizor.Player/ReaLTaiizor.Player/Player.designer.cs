@@ -122,7 +122,7 @@
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox9.Image = global::ReaLTaiizor.Player.Properties.Resources.Album3;
-            this.pictureBox9.Location = new System.Drawing.Point(165, 8);
+            this.pictureBox9.Location = new System.Drawing.Point(165, 6);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(64, 64);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -146,7 +146,7 @@
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox7.Image = global::ReaLTaiizor.Player.Properties.Resources.Album1;
-            this.pictureBox7.Location = new System.Drawing.Point(25, 8);
+            this.pictureBox7.Location = new System.Drawing.Point(25, 6);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(64, 64);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

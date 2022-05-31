@@ -34,14 +34,8 @@ namespace ReaLTaiizor.Controls
 
         public event ToggledChangedEventHandler ToggledChanged
         {
-            add
-            {
-                ToggledChangedEvent = (ToggledChangedEventHandler)Delegate.Combine(ToggledChangedEvent, value);
-            }
-            remove
-            {
-                ToggledChangedEvent = (ToggledChangedEventHandler)Delegate.Remove(ToggledChangedEvent, value);
-            }
+            add => ToggledChangedEvent = (ToggledChangedEventHandler)Delegate.Combine(ToggledChangedEvent, value);
+            remove => ToggledChangedEvent = (ToggledChangedEventHandler)Delegate.Remove(ToggledChangedEvent, value);
         }
 
         private bool _Toggled;
@@ -94,7 +88,7 @@ namespace ReaLTaiizor.Controls
 
         public ToggleButton()
         {
-            SetStyle((ControlStyles)(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint), true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
             Cursor = Cursors.Hand;
         }
 

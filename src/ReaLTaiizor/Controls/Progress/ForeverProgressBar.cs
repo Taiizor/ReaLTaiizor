@@ -154,8 +154,8 @@ namespace ReaLTaiizor.Controls
 
             //-- Progress Value
             //int iValue = Convert.ToInt32(((float)_Value) / ((float)(_Maximum * Width)));
-            float percent = ((float)_Value) / ((float)_Maximum);
-            int iValue = (int)(percent * ((float)Width));
+            float percent = _Value / ((float)_Maximum);
+            int iValue = (int)(percent * Width);
 
             switch (Value)
             {

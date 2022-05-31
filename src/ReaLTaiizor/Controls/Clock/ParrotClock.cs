@@ -309,29 +309,29 @@ namespace ReaLTaiizor.Controls
                 bufferedGraphics.Graphics.FillPolygon(new SolidBrush(hexagonColor), list.ToArray());
             }
 
-            int num = (int)Math.Round((double)(DateTime.Now.Hour * 100) / 24.0);
-            int num2 = (int)Math.Round((double)(DateTime.Now.Minute * 100) / 60.0);
-            int num3 = (int)Math.Round((double)(DateTime.Now.Second * 100) / 60.0);
+            int num = (int)Math.Round(DateTime.Now.Hour * 100 / 24.0);
+            int num2 = (int)Math.Round(DateTime.Now.Minute * 100 / 60.0);
+            int num3 = (int)Math.Round(DateTime.Now.Second * 100 / 60.0);
 
             Rectangle rectangle;
 
             if (showSecondsCircle && showMinutesCircle)
             {
                 rectangle = new Rectangle(base.Width / 8 + circleThickness * 2 - 2, base.Height / 6 + circleThickness * 2 - 1, base.Width / 8 * 6 - circleThickness * 4 + 4, base.Height / 6 * 4 - circleThickness * 4 + 2);
-                bufferedGraphics.Graphics.DrawArc(new Pen(unfilledSecondColor, (float)circleThickness), rectangle, 270f, 360f);
-                bufferedGraphics.Graphics.DrawArc(new Pen(filledSecondColor, (float)circleThickness), rectangle, 270f, (float)((int)((double)num3 * 3.6)));
+                bufferedGraphics.Graphics.DrawArc(new Pen(unfilledSecondColor, circleThickness), rectangle, 270f, 360f);
+                bufferedGraphics.Graphics.DrawArc(new Pen(filledSecondColor, circleThickness), rectangle, 270f, (int)(num3 * 3.6));
             }
             if (showMinutesCircle)
             {
                 rectangle = new Rectangle(base.Width / 8 + circleThickness - 1, base.Height / 6 + circleThickness - 1, base.Width / 8 * 6 - circleThickness * 2 + 2, base.Height / 6 * 4 - circleThickness * 2 + 2);
-                bufferedGraphics.Graphics.DrawArc(new Pen(unfilledMinuteColor, (float)circleThickness), rectangle, 270f, 360f);
-                bufferedGraphics.Graphics.DrawArc(new Pen(filledMinuteColor, (float)circleThickness), rectangle, 270f, (float)((int)((double)num2 * 3.6)));
+                bufferedGraphics.Graphics.DrawArc(new Pen(unfilledMinuteColor, circleThickness), rectangle, 270f, 360f);
+                bufferedGraphics.Graphics.DrawArc(new Pen(filledMinuteColor, circleThickness), rectangle, 270f, (int)(num2 * 3.6));
             }
 
             rectangle = new Rectangle(base.Width / 8, base.Height / 6, base.Width / 8 * 6, base.Height / 6 * 4);
 
-            bufferedGraphics.Graphics.DrawArc(new Pen(unfilledHourColor, (float)circleThickness), rectangle, 270f, 360f);
-            bufferedGraphics.Graphics.DrawArc(new Pen(filledHourColor, (float)circleThickness), rectangle, 270f, (float)((int)((double)num * 3.6)));
+            bufferedGraphics.Graphics.DrawArc(new Pen(unfilledHourColor, circleThickness), rectangle, 270f, 360f);
+            bufferedGraphics.Graphics.DrawArc(new Pen(filledHourColor, circleThickness), rectangle, 270f, (int)(num * 3.6));
 
             rectangle.Inflate(0, -5);
 

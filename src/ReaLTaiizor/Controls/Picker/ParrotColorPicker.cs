@@ -123,7 +123,7 @@ namespace ReaLTaiizor.Controls
             bufferedGraphics.Graphics.DrawImage(new Bitmap(image, base.Width - 3, base.Height - 3), 1, 1);
             if (isSelectingColor && showColorPreview)
             {
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(selectedColor), new RectangleF((float)(x1 - 10), (float)(y1 - 10), 20f, 20f));
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(selectedColor), new RectangleF(x1 - 10, y1 - 10, 20f, 20f));
             }
             bufferedGraphics.Render(e.Graphics);
         }

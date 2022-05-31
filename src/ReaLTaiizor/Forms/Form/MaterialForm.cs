@@ -1088,26 +1088,26 @@ namespace ReaLTaiizor.Forms
                 // Middle line
                 g.DrawLine(
                    formButtonsPen,
-                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2),
-                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2));
+                   _drawerIconRect.X + SkinManager.FORM_PADDING,
+                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2,
+                   _drawerIconRect.X + SkinManager.FORM_PADDING + 18,
+                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2);
 
                 // Bottom line
                 g.DrawLine(
                    formButtonsPen,
-                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6,
-                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) - 6);
+                   _drawerIconRect.X + SkinManager.FORM_PADDING,
+                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2 - 6,
+                   _drawerIconRect.X + SkinManager.FORM_PADDING + 18,
+                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2 - 6);
 
                 // Top line
                 g.DrawLine(
                    formButtonsPen,
-                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
-                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6,
-                   _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 18,
-                   _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
+                   _drawerIconRect.X + SkinManager.FORM_PADDING,
+                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2 + 6,
+                   _drawerIconRect.X + SkinManager.FORM_PADDING + 18,
+                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2 + 6);
             }
 
             if (ControlBox == true)

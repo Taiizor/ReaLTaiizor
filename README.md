@@ -184,6 +184,10 @@ Step 2：Enjoy designing
 
 [![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Rufus "RufusSample")
 
+### Splash Screen
+
+[![SplashSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Splash.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Splash "SplashSample")
+
 ### MP3 Player
 
 [![MP3PlayerSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MP3_Player.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Player "MP3PlayerSample")
