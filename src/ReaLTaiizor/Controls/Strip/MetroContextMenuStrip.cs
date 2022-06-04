@@ -302,7 +302,7 @@ namespace ReaLTaiizor.Controls
 
             #endregion Set Image Margin
 
-            #region Drawing Seperators & Borders
+            #region Drawing Separators & Borders
 
             protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
             {
@@ -310,7 +310,7 @@ namespace ReaLTaiizor.Controls
                 e.Graphics.DrawLine(p, new Point(e.Item.Bounds.Left, e.Item.Bounds.Height / 2), new Point(e.Item.Bounds.Right - 5, e.Item.Bounds.Height / 2));
             }
 
-            #endregion Drawing Seperators & Borders
+            #endregion Drawing Separators & Borders
 
             #region Drawing DropDown Arrows
 
