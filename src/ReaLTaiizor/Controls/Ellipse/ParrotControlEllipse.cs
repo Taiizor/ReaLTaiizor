@@ -11,14 +11,13 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor.Controls
 {
-    #region ParrotObjectEllipse
+    #region ParrotControlEllipse
 
-    public class ParrotObjectEllipse : Component
+    public class ParrotControlEllipse : Component
     {
-        public ParrotObjectEllipse()
+        public ParrotControlEllipse()
         {
             UpdateControl();
-            UpdateForm();
         }
 
         public override ISite Site
@@ -48,19 +47,6 @@ namespace ReaLTaiizor.Controls
                             DefaultControlRegion = DefaultControl.Region;
                         }
                     }
-
-                    if (rootComponent is Form)
-                    {
-                        effectedForm = rootComponent as Form;
-
-                        DefaultForm = rootComponent as Form;
-
-                        if (DefaultForm != null)
-                        {
-                            DefaultFormRegion = DefaultForm.Region;
-                            DefaultStyle = DefaultForm.FormBorderStyle;
-                        }
-                    }
                 }
             }
         }
@@ -71,14 +57,6 @@ namespace ReaLTaiizor.Controls
             {
                 effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, cornerRadius, cornerRadius));
                 effectedControl.SizeChanged += Container_SizeChanged;
-            }
-
-            if (effectedForm != null)
-            {
-                effectedForm.FormBorderStyle = FormBorderStyle.None;
-
-                effectedForm.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedForm.Width, effectedForm.Height, cornerRadius, cornerRadius));
-                effectedForm.SizeChanged += Container_SizeChanged;
             }
         }
 
@@ -99,27 +77,6 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private void UpdateForm()
-        {
-            if (DefaultForm != null)
-            {
-                DefaultForm.FormBorderStyle = DefaultStyle;
-
-                DefaultForm.Region = DefaultFormRegion;
-            }
-
-            if (effectedForm != null)
-            {
-                DefaultForm = effectedForm;
-
-                DefaultFormRegion = effectedForm.Region;
-
-                DefaultStyle = effectedForm.FormBorderStyle;
-
-                SetCustomRegion();
-            }
-        }
-
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
@@ -128,13 +85,6 @@ namespace ReaLTaiizor.Controls
             {
                 effectedControl.Region = DefaultControlRegion;
             }
-
-            if (effectedForm != null)
-            {
-                effectedForm.FormBorderStyle = DefaultStyle;
-
-                effectedForm.Region = DefaultFormRegion;
-            }
         }
 
         private void Container_SizeChanged(object sender, EventArgs e)
@@ -142,11 +92,6 @@ namespace ReaLTaiizor.Controls
             if (effectedControl != null)
             {
                 effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, cornerRadius, cornerRadius));
-            }
-
-            if (effectedForm != null)
-            {
-                effectedForm.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedForm.Width, effectedForm.Height, cornerRadius, cornerRadius));
             }
         }
 
@@ -181,36 +126,10 @@ namespace ReaLTaiizor.Controls
             }
             set
             {
-                if (value != EffectedForm || value == null)
+                if (value != effectedControl && value is not Form)
                 {
                     effectedControl = value;
                     UpdateControl();
-                }
-            }
-        }
-
-        [Category("Parrot")]
-        [Browsable(true)]
-        [Description("The effected form(will remove ellipse from effected control)")]
-        public Form EffectedForm
-        {
-            get
-            {
-                if (effectedForm != null)
-                {
-                    return effectedForm;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            set
-            {
-                if (value != EffectedControl || value == null)
-                {
-                    effectedForm = value;
-                    UpdateForm();
                 }
             }
         }
@@ -220,19 +139,11 @@ namespace ReaLTaiizor.Controls
 
         private Control DefaultControl = null;
 
-        private Form DefaultForm = null;
-
-        private FormBorderStyle DefaultStyle;
-
         private Region DefaultControlRegion = null;
-
-        private Region DefaultFormRegion = null;
 
         private int cornerRadius = 10;
 
         private Control effectedControl = null;
-
-        private Form effectedForm = null;
     }
 
     #endregion
