@@ -29,15 +29,17 @@ namespace ReaLTaiizor_CR
                 MaximizeBox = false,
                 MinimizeBox = false,
 
-                StartLocation = true,
+                StartLocation = false,
                 StartPosition = FormStartPosition.CenterScreen,
 
                 Theme = ThemeStyle.Dark,
-                Style = ColorStyle.Magenta
+                Style = ColorStyle.Magenta,
+
+                CustomSize = true,
+                Size = new Size(300, 75)
             };
 
             PTW.Show();
-            PTW.Size = new Size(300, 75);
         }
 
         public enum LogType

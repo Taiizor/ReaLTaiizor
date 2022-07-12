@@ -106,6 +106,14 @@ namespace ReaLTaiizor.Controls
             set => startLocation = value;
         }
 
+        private bool customSize = false;
+
+        public bool CustomSize
+        {
+            get => customSize;
+            set => customSize = value;
+        }
+
         private readonly PoisonPanel controlContainer;
 
         public PoisonTaskWindow()
@@ -142,7 +150,10 @@ namespace ReaLTaiizor.Controls
 
                 TopMost = true;
 
-                Size = new(400, 200);
+                if (!CustomSize)
+                {
+                    Size = new(400, 200);
+                }
 
                 if (!StartLocation)
                 {
