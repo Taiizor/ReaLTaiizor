@@ -115,6 +115,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = global::ReaLTaiizor_CR.Properties.Resources.ICO;
             this.MaximizeBox = false;
             this.Name = "ParrotEllipse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -2,9 +2,9 @@
 
 namespace ReaLTaiizor_CR
 {
-    public partial class Parrot : Form
+    public partial class ParrotForm : Form
     {
-        public Parrot()
+        public ParrotForm()
         {
             InitializeComponent();
         }

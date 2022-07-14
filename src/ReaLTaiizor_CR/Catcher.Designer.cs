@@ -428,7 +428,7 @@
             this.Controls.Add(this.bigTextBox1);
             this.Controls.Add(this.aloneTextBox1);
             this.Icon = global::ReaLTaiizor_CR.Properties.Resources.ICO;
-            this.Image = global::ReaLTaiizor_CR.Properties.Resources.FORK;
+            this.Image = global::ReaLTaiizor_CR.Properties.Resources.VENONAT;
             this.MaximizeBox = false;
             this.Name = "Catcher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -63,9 +63,9 @@ namespace ReaLTaiizor_CR.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap FORK {
+        internal static System.Drawing.Bitmap VENONAT {
             get {
-                object obj = ResourceManager.GetObject("FORK", resourceCulture);
+                object obj = ResourceManager.GetObject("VENONAT", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
