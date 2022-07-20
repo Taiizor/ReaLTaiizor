@@ -31,7 +31,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</PackageReleaseNotes>
-    <PackageTags>ReaL Taiizor Soferity Vegalya ReaLTaiizor C# CSharp VBC VB VisualBasic UI UX Design Theme Forms WinForm WinForms DotNET .NET NET Component Fluent</PackageTags>
+    <PackageTags>ReaL Taiizor Soferity Vegalya ReaLTaiizor C# CSharp VBC VB VisualBasic GUI UI UX Design Theme Forms WinForm WinForms DotNET .NET NET Component Fluent</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!--<DocumentationFile>..\$(PackageId)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>-->
     <PackageProjectUrl>https://github.com/Taiizor/ReaLTaiizor</PackageProjectUrl>

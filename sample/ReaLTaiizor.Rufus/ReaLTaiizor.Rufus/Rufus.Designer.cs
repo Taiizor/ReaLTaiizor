@@ -29,6 +29,7 @@ namespace ReaLTaiizor.Rufus
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rufus));
             this.metroControlBox1 = new ReaLTaiizor.Controls.MetroControlBox();
             this.metroStyleManager1 = new ReaLTaiizor.Manager.MetroStyleManager();
@@ -61,6 +62,7 @@ namespace ReaLTaiizor.Rufus
             this.metroDefaultButton2 = new ReaLTaiizor.Controls.MetroDefaultButton();
             this.metroLabel13 = new ReaLTaiizor.Controls.MetroLabel();
             this.metroLabel14 = new ReaLTaiizor.Controls.MetroLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -643,6 +645,7 @@ namespace ReaLTaiizor.Rufus
             this.metroDefaultButton1.Text = "START";
             this.metroDefaultButton1.ThemeAuthor = "Taiizor";
             this.metroDefaultButton1.ThemeName = "MetroDark";
+            this.metroDefaultButton1.Click += new System.EventHandler(this.MetroDefaultButton1_Click);
             // 
             // metroDefaultButton2
             // 
@@ -699,6 +702,10 @@ namespace ReaLTaiizor.Rufus
             this.metroLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.metroLabel14.ThemeAuthor = "Taiizor";
             this.metroLabel14.ThemeName = "MetroDark";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Rufus
             // 
@@ -786,5 +793,6 @@ namespace ReaLTaiizor.Rufus
         private Controls.MetroDefaultButton metroDefaultButton1;
         private Controls.MetroLabel metroLabel14;
         private Controls.MetroLabel metroLabel13;
+        private System.Windows.Forms.Timer timer1;
     }
 }

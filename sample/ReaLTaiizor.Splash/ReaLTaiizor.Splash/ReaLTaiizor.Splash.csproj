@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
+    <!--<TargetFrameworks>net48;net7.0-windows</TargetFrameworks>-->
     <TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -26,7 +26,7 @@
     <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.6" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.7" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

@@ -49,6 +49,9 @@
             this.panel2 = new ReaLTaiizor.Controls.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.parrotControlEllipse1 = new ReaLTaiizor.Controls.ParrotControlEllipse();
+            this.parrotControlEllipse2 = new ReaLTaiizor.Controls.ParrotControlEllipse();
+            this.parrotControlEllipse3 = new ReaLTaiizor.Controls.ParrotControlEllipse();
             this.dreamForm1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -334,6 +337,21 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
+            // parrotControlEllipse1
+            // 
+            this.parrotControlEllipse1.CornerRadius = 10;
+            this.parrotControlEllipse1.EffectedControl = this.pictureBox7;
+            // 
+            // parrotControlEllipse2
+            // 
+            this.parrotControlEllipse2.CornerRadius = 10;
+            this.parrotControlEllipse2.EffectedControl = this.pictureBox8;
+            // 
+            // parrotControlEllipse3
+            // 
+            this.parrotControlEllipse3.CornerRadius = 10;
+            this.parrotControlEllipse3.EffectedControl = this.pictureBox9;
+            // 
             // Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -384,5 +402,8 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private Controls.ParrotControlEllipse parrotControlEllipse1;
+        private Controls.ParrotControlEllipse parrotControlEllipse2;
+        private Controls.ParrotControlEllipse parrotControlEllipse3;
     }
 }

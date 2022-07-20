@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!--<TargetFramework>net48</TargetFramework>-->
-    <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
+    <!--<TargetFrameworks>net48;net7.0-windows</TargetFrameworks>-->
     <TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -82,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta1" />
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.6" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.7" />
     <!--<Reference Include="ReaLTaiizor">
       <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\$(TargetFramework)\ReaLTaiizor.dll</HintPath>
     </Reference>-->
@@ -92,11 +92,5 @@
   </PropertyGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
     <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -384,7 +384,7 @@
             this.labelEdit10.Name = "labelEdit10";
             this.labelEdit10.Size = new System.Drawing.Size(76, 18);
             this.labelEdit10.TabIndex = 29;
-            this.labelEdit10.Text = "1.809 Posts";
+            this.labelEdit10.Text = "1.881 Posts";
             // 
             // labelEdit11
             // 
@@ -397,7 +397,7 @@
             this.labelEdit11.Name = "labelEdit11";
             this.labelEdit11.Size = new System.Drawing.Size(110, 18);
             this.labelEdit11.TabIndex = 30;
-            this.labelEdit11.Text = "16.1M Followers";
+            this.labelEdit11.Text = "18.1M Followers";
             // 
             // labelEdit12
             // 
