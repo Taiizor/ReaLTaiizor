@@ -1,6 +1,6 @@
 name: Bug report
 description: File a bug report
-labels: ["bug", "evaluation required"]
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
