@@ -36,8 +36,36 @@
             this.HomePage = new System.Windows.Forms.TabPage();
             this.nightHeaderLabel4 = new ReaLTaiizor.Controls.NightHeaderLabel();
             this.AppPage = new System.Windows.Forms.TabPage();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.nightHeaderLabel2 = new ReaLTaiizor.Controls.NightHeaderLabel();
+            this.AppPages = new ReaLTaiizor.Controls.MaterialTabControl();
+            this.Teams = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.nightLabel36 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightLabel37 = new ReaLTaiizor.Controls.NightLabel();
+            this.Photo = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.nightLabel39 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightLabel40 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightHeaderLabel9 = new ReaLTaiizor.Controls.NightHeaderLabel();
             this.GamePage = new System.Windows.Forms.TabPage();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.nightHeaderLabel8 = new ReaLTaiizor.Controls.NightHeaderLabel();
             this.GamePages = new ReaLTaiizor.Controls.MaterialTabControl();
             this.Witcher = new System.Windows.Forms.TabPage();
             this.nightLabel33 = new ReaLTaiizor.Controls.NightLabel();
@@ -133,20 +161,32 @@
             this.parrotControlEllipse3 = new ReaLTaiizor.Controls.ParrotControlEllipse();
             this.parrotControlEllipse4 = new ReaLTaiizor.Controls.ParrotControlEllipse();
             this.parrotControlEllipse5 = new ReaLTaiizor.Controls.ParrotControlEllipse();
-            this.GameChanger = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.nightHeaderLabel8 = new ReaLTaiizor.Controls.NightHeaderLabel();
+            this.PageChanger = new System.Windows.Forms.Timer(this.components);
             this.nightForm1.SuspendLayout();
             this.Pages.SuspendLayout();
             this.HomePage.SuspendLayout();
             this.AppPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            this.AppPages.SuspendLayout();
+            this.Teams.SuspendLayout();
+            this.Photo.SuspendLayout();
             this.GamePage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.GamePages.SuspendLayout();
             this.Witcher.SuspendLayout();
             this.Halo.SuspendLayout();
@@ -176,13 +216,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).BeginInit();
             this.HomeMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HomeIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // nightForm1
@@ -293,39 +326,315 @@
             // 
             // AppPage
             // 
-            this.AppPage.AutoScroll = true;
             this.AppPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.AppPage.Controls.Add(this.pictureBox22);
+            this.AppPage.Controls.Add(this.pictureBox21);
+            this.AppPage.Controls.Add(this.pictureBox14);
+            this.AppPage.Controls.Add(this.pictureBox15);
+            this.AppPage.Controls.Add(this.pictureBox16);
+            this.AppPage.Controls.Add(this.pictureBox17);
+            this.AppPage.Controls.Add(this.pictureBox18);
+            this.AppPage.Controls.Add(this.pictureBox19);
+            this.AppPage.Controls.Add(this.pictureBox20);
             this.AppPage.Controls.Add(this.nightHeaderLabel2);
+            this.AppPage.Controls.Add(this.AppPages);
             this.AppPage.Location = new System.Drawing.Point(4, 4);
             this.AppPage.Name = "AppPage";
-            this.AppPage.Padding = new System.Windows.Forms.Padding(20);
+            this.AppPage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.AppPage.Size = new System.Drawing.Size(1098, 761);
             this.AppPage.TabIndex = 1;
             this.AppPage.Text = "AppPage";
             // 
+            // pictureBox22
+            // 
+            this.pictureBox22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox22.Image = global::ReaLTaiizor.Store.Properties.Resources.Hotspot;
+            this.pictureBox22.Location = new System.Drawing.Point(823, 554);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(100, 188);
+            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox22.TabIndex = 38;
+            this.pictureBox22.TabStop = false;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox21.Image = global::ReaLTaiizor.Store.Properties.Resources.Pinterest;
+            this.pictureBox21.Location = new System.Drawing.Point(717, 554);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(100, 188);
+            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox21.TabIndex = 37;
+            this.pictureBox21.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox14.Image = global::ReaLTaiizor.Store.Properties.Resources.Bestseller;
+            this.pictureBox14.Location = new System.Drawing.Point(27, 580);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(254, 162);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 36;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox15.Image = global::ReaLTaiizor.Store.Properties.Resources.iCloud;
+            this.pictureBox15.Location = new System.Drawing.Point(929, 550);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(100, 188);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 35;
+            this.pictureBox15.TabStop = false;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox16.Image = global::ReaLTaiizor.Store.Properties.Resources.Telegram;
+            this.pictureBox16.Location = new System.Drawing.Point(1035, 554);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(100, 188);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 34;
+            this.pictureBox16.TabStop = false;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox17.Image = global::ReaLTaiizor.Store.Properties.Resources.Express;
+            this.pictureBox17.Location = new System.Drawing.Point(611, 554);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(100, 188);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox17.TabIndex = 33;
+            this.pictureBox17.TabStop = false;
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox18.Image = global::ReaLTaiizor.Store.Properties.Resources.Prime;
+            this.pictureBox18.Location = new System.Drawing.Point(505, 554);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(100, 188);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox18.TabIndex = 32;
+            this.pictureBox18.TabStop = false;
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox19.Image = global::ReaLTaiizor.Store.Properties.Resources.Spotify;
+            this.pictureBox19.Location = new System.Drawing.Point(399, 554);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(100, 188);
+            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox19.TabIndex = 31;
+            this.pictureBox19.TabStop = false;
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox20.Image = global::ReaLTaiizor.Store.Properties.Resources.Dolby;
+            this.pictureBox20.Location = new System.Drawing.Point(293, 554);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(100, 188);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox20.TabIndex = 30;
+            this.pictureBox20.TabStop = false;
+            // 
             // nightHeaderLabel2
             // 
+            this.nightHeaderLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nightHeaderLabel2.AutoSize = true;
             this.nightHeaderLabel2.BackColor = System.Drawing.Color.Transparent;
             this.nightHeaderLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.nightHeaderLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.nightHeaderLabel2.LeftSideForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.nightHeaderLabel2.Location = new System.Drawing.Point(23, 23);
+            this.nightHeaderLabel2.ForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel2.LeftSideForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel2.Location = new System.Drawing.Point(43, 534);
             this.nightHeaderLabel2.Margin = new System.Windows.Forms.Padding(3);
             this.nightHeaderLabel2.Name = "nightHeaderLabel2";
-            this.nightHeaderLabel2.RightSideForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(171)))), ((int)(((byte)(176)))));
+            this.nightHeaderLabel2.RightSideForeColor = System.Drawing.Color.Black;
             this.nightHeaderLabel2.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.LeftPanel;
-            this.nightHeaderLabel2.Size = new System.Drawing.Size(159, 40);
-            this.nightHeaderLabel2.TabIndex = 1;
-            this.nightHeaderLabel2.Text = "Application";
+            this.nightHeaderLabel2.Size = new System.Drawing.Size(223, 40);
+            this.nightHeaderLabel2.TabIndex = 29;
+            this.nightHeaderLabel2.Text = "Best selling app";
             this.nightHeaderLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.nightHeaderLabel2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.nightHeaderLabel2.UseCompatibleTextRendering = true;
+            // 
+            // AppPages
+            // 
+            this.AppPages.Alignment = System.Windows.Forms.TabAlignment.Right;
+            this.AppPages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AppPages.Controls.Add(this.Teams);
+            this.AppPages.Controls.Add(this.Photo);
+            this.AppPages.Depth = 0;
+            this.AppPages.ItemSize = new System.Drawing.Size(0, 20);
+            this.AppPages.Location = new System.Drawing.Point(0, 0);
+            this.AppPages.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.AppPages.Multiline = true;
+            this.AppPages.Name = "AppPages";
+            this.AppPages.Padding = new System.Drawing.Point(0, 0);
+            this.AppPages.SelectedIndex = 0;
+            this.AppPages.Size = new System.Drawing.Size(1098, 507);
+            this.AppPages.TabIndex = 28;
+            // 
+            // Teams
+            // 
+            this.Teams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.Teams.BackgroundImage = global::ReaLTaiizor.Store.Properties.Resources.Teams;
+            this.Teams.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Teams.Controls.Add(this.button3);
+            this.Teams.Controls.Add(this.nightLabel36);
+            this.Teams.Controls.Add(this.nightLabel37);
+            this.Teams.Location = new System.Drawing.Point(4, 4);
+            this.Teams.Name = "Teams";
+            this.Teams.Padding = new System.Windows.Forms.Padding(20);
+            this.Teams.Size = new System.Drawing.Size(1070, 499);
+            this.Teams.TabIndex = 0;
+            this.Teams.Text = "Teams";
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(29, 203);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(98, 38);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "See Details";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // nightLabel36
+            // 
+            this.nightLabel36.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel36.AutoSize = true;
+            this.nightLabel36.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel36.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.nightLabel36.ForeColor = System.Drawing.Color.Black;
+            this.nightLabel36.Location = new System.Drawing.Point(23, 127);
+            this.nightLabel36.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel36.Name = "nightLabel36";
+            this.nightLabel36.Size = new System.Drawing.Size(81, 28);
+            this.nightLabel36.TabIndex = 6;
+            this.nightLabel36.Text = "Ücretsiz";
+            // 
+            // nightLabel37
+            // 
+            this.nightLabel37.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel37.AutoSize = true;
+            this.nightLabel37.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel37.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Bold);
+            this.nightLabel37.ForeColor = System.Drawing.Color.Black;
+            this.nightLabel37.Location = new System.Drawing.Point(23, 161);
+            this.nightLabel37.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel37.Name = "nightLabel37";
+            this.nightLabel37.Size = new System.Drawing.Size(215, 36);
+            this.nightLabel37.TabIndex = 7;
+            this.nightLabel37.Text = "Microsoft Teams";
+            // 
+            // Photo
+            // 
+            this.Photo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.Photo.BackgroundImage = global::ReaLTaiizor.Store.Properties.Resources.Photo;
+            this.Photo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Photo.Controls.Add(this.button4);
+            this.Photo.Controls.Add(this.nightLabel39);
+            this.Photo.Controls.Add(this.nightLabel40);
+            this.Photo.Controls.Add(this.nightHeaderLabel9);
+            this.Photo.Location = new System.Drawing.Point(4, 4);
+            this.Photo.Name = "Photo";
+            this.Photo.Padding = new System.Windows.Forms.Padding(20);
+            this.Photo.Size = new System.Drawing.Size(1070, 499);
+            this.Photo.TabIndex = 1;
+            this.Photo.Text = "Photo";
+            // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(29, 203);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(98, 38);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "See Details";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // nightLabel39
+            // 
+            this.nightLabel39.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel39.AutoSize = true;
+            this.nightLabel39.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel39.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.nightLabel39.ForeColor = System.Drawing.Color.White;
+            this.nightLabel39.Location = new System.Drawing.Point(23, 127);
+            this.nightLabel39.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel39.Name = "nightLabel39";
+            this.nightLabel39.Size = new System.Drawing.Size(81, 28);
+            this.nightLabel39.TabIndex = 11;
+            this.nightLabel39.Text = "Ücretsiz";
+            // 
+            // nightLabel40
+            // 
+            this.nightLabel40.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel40.AutoSize = true;
+            this.nightLabel40.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel40.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Bold);
+            this.nightLabel40.ForeColor = System.Drawing.Color.White;
+            this.nightLabel40.Location = new System.Drawing.Point(23, 161);
+            this.nightLabel40.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel40.Name = "nightLabel40";
+            this.nightLabel40.Size = new System.Drawing.Size(224, 36);
+            this.nightLabel40.TabIndex = 12;
+            this.nightLabel40.Text = "Microsoft Photos";
+            // 
+            // nightHeaderLabel9
+            // 
+            this.nightHeaderLabel9.AutoSize = true;
+            this.nightHeaderLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.nightHeaderLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.nightHeaderLabel9.ForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel9.LeftSideForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel9.Location = new System.Drawing.Point(23, 23);
+            this.nightHeaderLabel9.Margin = new System.Windows.Forms.Padding(3);
+            this.nightHeaderLabel9.Name = "nightHeaderLabel9";
+            this.nightHeaderLabel9.RightSideForeColor = System.Drawing.Color.Black;
+            this.nightHeaderLabel9.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.LeftPanel;
+            this.nightHeaderLabel9.Size = new System.Drawing.Size(159, 40);
+            this.nightHeaderLabel9.TabIndex = 10;
+            this.nightHeaderLabel9.Text = "Application";
+            this.nightHeaderLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nightHeaderLabel9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.nightHeaderLabel9.UseCompatibleTextRendering = true;
             // 
             // GamePage
             // 
             this.GamePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.GamePage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.GamePage.Controls.Add(this.pictureBox23);
             this.GamePage.Controls.Add(this.pictureBox13);
             this.GamePage.Controls.Add(this.pictureBox12);
             this.GamePage.Controls.Add(this.pictureBox11);
@@ -341,6 +650,121 @@
             this.GamePage.Size = new System.Drawing.Size(1098, 761);
             this.GamePage.TabIndex = 2;
             this.GamePage.Text = "GamePage";
+            // 
+            // pictureBox23
+            // 
+            this.pictureBox23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox23.Image = global::ReaLTaiizor.Store.Properties.Resources.Truck;
+            this.pictureBox23.Location = new System.Drawing.Point(1025, 554);
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox23.TabIndex = 28;
+            this.pictureBox23.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox13.Image = global::ReaLTaiizor.Store.Properties.Resources.Bestseller;
+            this.pictureBox13.Location = new System.Drawing.Point(27, 580);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(254, 162);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 27;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox12.Image = global::ReaLTaiizor.Store.Properties.Resources.Angry;
+            this.pictureBox12.Location = new System.Drawing.Point(903, 554);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 26;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox11.Image = global::ReaLTaiizor.Store.Properties.Resources.Solitaire;
+            this.pictureBox11.Location = new System.Drawing.Point(781, 554);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 25;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox10.Image = global::ReaLTaiizor.Store.Properties.Resources.Roblox;
+            this.pictureBox10.Location = new System.Drawing.Point(659, 554);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 24;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox9.Image = global::ReaLTaiizor.Store.Properties.Resources.Forza;
+            this.pictureBox9.Location = new System.Drawing.Point(537, 554);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 23;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::ReaLTaiizor.Store.Properties.Resources.Asphalt;
+            this.pictureBox8.Location = new System.Drawing.Point(415, 554);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 22;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::ReaLTaiizor.Store.Properties.Resources.CandyCrushSaga;
+            this.pictureBox7.Location = new System.Drawing.Point(293, 554);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 21;
+            this.pictureBox7.TabStop = false;
+            // 
+            // nightHeaderLabel8
+            // 
+            this.nightHeaderLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nightHeaderLabel8.AutoSize = true;
+            this.nightHeaderLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.nightHeaderLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.nightHeaderLabel8.ForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel8.LeftSideForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel8.Location = new System.Drawing.Point(23, 534);
+            this.nightHeaderLabel8.Margin = new System.Windows.Forms.Padding(3);
+            this.nightHeaderLabel8.Name = "nightHeaderLabel8";
+            this.nightHeaderLabel8.RightSideForeColor = System.Drawing.Color.Black;
+            this.nightHeaderLabel8.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.LeftPanel;
+            this.nightHeaderLabel8.Size = new System.Drawing.Size(264, 40);
+            this.nightHeaderLabel8.TabIndex = 20;
+            this.nightHeaderLabel8.Text = "Best selling games";
+            this.nightHeaderLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nightHeaderLabel8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.nightHeaderLabel8.UseCompatibleTextRendering = true;
             // 
             // GamePages
             // 
@@ -1749,113 +2173,11 @@
             this.parrotControlEllipse5.CornerRadius = 10;
             this.parrotControlEllipse5.EffectedControl = this.HelpMenu;
             // 
-            // GameChanger
+            // PageChanger
             // 
-            this.GameChanger.Interval = 5005;
-            this.GameChanger.Tick += new System.EventHandler(this.GameChanger_Tick);
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox13.Image = global::ReaLTaiizor.Store.Properties.Resources.Bestseller;
-            this.pictureBox13.Location = new System.Drawing.Point(27, 580);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(254, 162);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox13.TabIndex = 27;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox12.Image = global::ReaLTaiizor.Store.Properties.Resources.Truck;
-            this.pictureBox12.Location = new System.Drawing.Point(903, 554);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(116, 188);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 26;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox11.Image = global::ReaLTaiizor.Store.Properties.Resources.Solitaire;
-            this.pictureBox11.Location = new System.Drawing.Point(781, 554);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(116, 188);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 25;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox10.Image = global::ReaLTaiizor.Store.Properties.Resources.Roblox;
-            this.pictureBox10.Location = new System.Drawing.Point(659, 554);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(116, 188);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 24;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Image = global::ReaLTaiizor.Store.Properties.Resources.Forza;
-            this.pictureBox9.Location = new System.Drawing.Point(537, 554);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(116, 188);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 23;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Image = global::ReaLTaiizor.Store.Properties.Resources.Asphalt;
-            this.pictureBox8.Location = new System.Drawing.Point(415, 554);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(116, 188);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 22;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = global::ReaLTaiizor.Store.Properties.Resources.CandyCrushSaga;
-            this.pictureBox7.Location = new System.Drawing.Point(293, 554);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(116, 188);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 21;
-            this.pictureBox7.TabStop = false;
-            // 
-            // nightHeaderLabel8
-            // 
-            this.nightHeaderLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nightHeaderLabel8.AutoSize = true;
-            this.nightHeaderLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.nightHeaderLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.nightHeaderLabel8.ForeColor = System.Drawing.Color.White;
-            this.nightHeaderLabel8.LeftSideForeColor = System.Drawing.Color.White;
-            this.nightHeaderLabel8.Location = new System.Drawing.Point(23, 534);
-            this.nightHeaderLabel8.Margin = new System.Windows.Forms.Padding(3);
-            this.nightHeaderLabel8.Name = "nightHeaderLabel8";
-            this.nightHeaderLabel8.RightSideForeColor = System.Drawing.Color.Black;
-            this.nightHeaderLabel8.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.LeftPanel;
-            this.nightHeaderLabel8.Size = new System.Drawing.Size(264, 40);
-            this.nightHeaderLabel8.TabIndex = 20;
-            this.nightHeaderLabel8.Text = "Best selling games";
-            this.nightHeaderLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.nightHeaderLabel8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.nightHeaderLabel8.UseCompatibleTextRendering = true;
+            this.PageChanger.Enabled = true;
+            this.PageChanger.Interval = 5005;
+            this.PageChanger.Tick += new System.EventHandler(this.PageChanger_Tick);
             // 
             // Store
             // 
@@ -1878,8 +2200,30 @@
             this.HomePage.PerformLayout();
             this.AppPage.ResumeLayout(false);
             this.AppPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            this.AppPages.ResumeLayout(false);
+            this.Teams.ResumeLayout(false);
+            this.Teams.PerformLayout();
+            this.Photo.ResumeLayout(false);
+            this.Photo.PerformLayout();
             this.GamePage.ResumeLayout(false);
             this.GamePage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.GamePages.ResumeLayout(false);
             this.Witcher.ResumeLayout(false);
             this.Witcher.PerformLayout();
@@ -1919,13 +2263,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).EndInit();
             this.HomeMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HomeIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2009,7 +2346,6 @@
         private Controls.MetroTextBox SearchBar;
         private Controls.DungeonComboBox dungeonComboBox1;
         private Controls.NightHeaderLabel nightHeaderLabel4;
-        private Controls.NightHeaderLabel nightHeaderLabel2;
         private Controls.NightHeaderLabel nightHeaderLabel5;
         private Controls.ForeverButton GetHelp;
         private Controls.NightLabel nightLabel23;
@@ -2025,7 +2361,7 @@
         private Controls.MaterialTabControl GamePages;
         private System.Windows.Forms.TabPage Witcher;
         private System.Windows.Forms.TabPage Halo;
-        private System.Windows.Forms.Timer GameChanger;
+        private System.Windows.Forms.Timer PageChanger;
         private Controls.NightLabel nightLabel33;
         private System.Windows.Forms.Button button2;
         private Controls.NightLabel nightLabel31;
@@ -2044,5 +2380,26 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private Controls.NightHeaderLabel nightHeaderLabel8;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.PictureBox pictureBox19;
+        private System.Windows.Forms.PictureBox pictureBox20;
+        private Controls.NightHeaderLabel nightHeaderLabel2;
+        private Controls.MaterialTabControl AppPages;
+        private System.Windows.Forms.TabPage Teams;
+        private System.Windows.Forms.Button button3;
+        private Controls.NightLabel nightLabel36;
+        private Controls.NightLabel nightLabel37;
+        private System.Windows.Forms.TabPage Photo;
+        private System.Windows.Forms.Button button4;
+        private Controls.NightLabel nightLabel39;
+        private Controls.NightLabel nightLabel40;
+        private Controls.NightHeaderLabel nightHeaderLabel9;
+        private System.Windows.Forms.PictureBox pictureBox21;
+        private System.Windows.Forms.PictureBox pictureBox22;
+        private System.Windows.Forms.PictureBox pictureBox23;
     }
 }

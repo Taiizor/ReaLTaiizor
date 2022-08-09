@@ -47,13 +47,11 @@ namespace ReaLTaiizor.Store
                 GameSeparator.Customization = "08aq/9PGqv/Txqr/08aq/w==";
                 Menu.Side = NightPanel.PanelSide.Right;
                 Pages.SelectedTab = GamePage;
-                GameChanger.Start();
             }
             else
             {
                 GameSeparator.Customization = "ICAg/yAgIP8gICD/ICAg/w==";
                 GameMenu.Side = NightPanel.PanelSide.Left;
-                GameChanger.Stop();
             }
 
             if (Menu.Name == "LibraryMenu")
@@ -115,7 +113,7 @@ namespace ReaLTaiizor.Store
             Process.Start("https://github.com/Taiizor/ReaLTaiizor");
         }
 
-        private void GameChanger_Tick(object sender, EventArgs e)
+        private void PageChanger_Tick(object sender, EventArgs e)
         {
             if (GamePages.SelectedTab == Halo)
             {
@@ -124,6 +122,15 @@ namespace ReaLTaiizor.Store
             else
             {
                 GamePages.SelectedTab = Halo;
+            }
+
+            if (AppPages.SelectedTab == Photo)
+            {
+                AppPages.SelectedTab = Teams;
+            }
+            else
+            {
+                AppPages.SelectedTab = Photo;
             }
         }
     }
