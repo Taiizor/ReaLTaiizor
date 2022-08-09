@@ -38,7 +38,27 @@
             this.AppPage = new System.Windows.Forms.TabPage();
             this.nightHeaderLabel2 = new ReaLTaiizor.Controls.NightHeaderLabel();
             this.GamePage = new System.Windows.Forms.TabPage();
+            this.GamePages = new ReaLTaiizor.Controls.MaterialTabControl();
+            this.Witcher = new System.Windows.Forms.TabPage();
+            this.nightLabel33 = new ReaLTaiizor.Controls.NightLabel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.nightLabel31 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightLabel32 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightHeaderLabel6 = new ReaLTaiizor.Controls.NightHeaderLabel();
+            this.Halo = new System.Windows.Forms.TabPage();
+            this.nightLabel29 = new ReaLTaiizor.Controls.NightLabel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.nightLabel30 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightLabel34 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightHeaderLabel3 = new ReaLTaiizor.Controls.NightHeaderLabel();
             this.LibraryPage = new System.Windows.Forms.TabPage();
+            this.panel6 = new ReaLTaiizor.Controls.Panel();
+            this.nightLabel25 = new ReaLTaiizor.Controls.NightLabel();
+            this.foreverButton1 = new ReaLTaiizor.Controls.ForeverButton();
+            this.nightLabel26 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightLabel27 = new ReaLTaiizor.Controls.NightLabel();
+            this.nightLabel28 = new ReaLTaiizor.Controls.NightLabel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.dungeonComboBox1 = new ReaLTaiizor.Controls.DungeonComboBox();
             this.panel5 = new ReaLTaiizor.Controls.Panel();
             this.nightLabel19 = new ReaLTaiizor.Controls.NightLabel();
@@ -113,34 +133,26 @@
             this.parrotControlEllipse3 = new ReaLTaiizor.Controls.ParrotControlEllipse();
             this.parrotControlEllipse4 = new ReaLTaiizor.Controls.ParrotControlEllipse();
             this.parrotControlEllipse5 = new ReaLTaiizor.Controls.ParrotControlEllipse();
-            this.panel6 = new ReaLTaiizor.Controls.Panel();
-            this.nightLabel25 = new ReaLTaiizor.Controls.NightLabel();
-            this.foreverButton1 = new ReaLTaiizor.Controls.ForeverButton();
-            this.nightLabel26 = new ReaLTaiizor.Controls.NightLabel();
-            this.nightLabel27 = new ReaLTaiizor.Controls.NightLabel();
-            this.nightLabel28 = new ReaLTaiizor.Controls.NightLabel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.GamePages = new ReaLTaiizor.Controls.MaterialTabControl();
-            this.Witcher = new System.Windows.Forms.TabPage();
-            this.Halo = new System.Windows.Forms.TabPage();
             this.GameChanger = new System.Windows.Forms.Timer(this.components);
-            this.nightHeaderLabel6 = new ReaLTaiizor.Controls.NightHeaderLabel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.nightLabel31 = new ReaLTaiizor.Controls.NightLabel();
-            this.nightLabel32 = new ReaLTaiizor.Controls.NightLabel();
-            this.nightLabel33 = new ReaLTaiizor.Controls.NightLabel();
-            this.nightLabel29 = new ReaLTaiizor.Controls.NightLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.nightLabel30 = new ReaLTaiizor.Controls.NightLabel();
-            this.nightLabel34 = new ReaLTaiizor.Controls.NightLabel();
-            this.nightHeaderLabel3 = new ReaLTaiizor.Controls.NightHeaderLabel();
-            this.nightHeaderLabel7 = new ReaLTaiizor.Controls.NightHeaderLabel();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.nightHeaderLabel8 = new ReaLTaiizor.Controls.NightHeaderLabel();
             this.nightForm1.SuspendLayout();
             this.Pages.SuspendLayout();
             this.HomePage.SuspendLayout();
             this.AppPage.SuspendLayout();
             this.GamePage.SuspendLayout();
+            this.GamePages.SuspendLayout();
+            this.Witcher.SuspendLayout();
+            this.Halo.SuspendLayout();
             this.LibraryPage.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel4.SuspendLayout();
@@ -164,11 +176,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).BeginInit();
             this.HomeMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HomeIcon)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.GamePages.SuspendLayout();
-            this.Witcher.SuspendLayout();
-            this.Halo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // nightForm1
@@ -226,14 +240,16 @@
             // 
             // Pages
             // 
-            this.Pages.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.Pages.Alignment = System.Windows.Forms.TabAlignment.Right;
+            this.Pages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Pages.Controls.Add(this.HomePage);
             this.Pages.Controls.Add(this.AppPage);
             this.Pages.Controls.Add(this.GamePage);
             this.Pages.Controls.Add(this.LibraryPage);
             this.Pages.Controls.Add(this.HelpPage);
             this.Pages.Depth = 0;
-            this.Pages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pages.ItemSize = new System.Drawing.Size(0, 20);
             this.Pages.Location = new System.Drawing.Point(75, 31);
             this.Pages.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -241,7 +257,7 @@
             this.Pages.Name = "Pages";
             this.Pages.Padding = new System.Drawing.Point(0, 0);
             this.Pages.SelectedIndex = 0;
-            this.Pages.Size = new System.Drawing.Size(1125, 769);
+            this.Pages.Size = new System.Drawing.Size(1126, 769);
             this.Pages.TabIndex = 5;
             // 
             // HomePage
@@ -252,7 +268,7 @@
             this.HomePage.Location = new System.Drawing.Point(4, 4);
             this.HomePage.Name = "HomePage";
             this.HomePage.Padding = new System.Windows.Forms.Padding(20);
-            this.HomePage.Size = new System.Drawing.Size(1117, 741);
+            this.HomePage.Size = new System.Drawing.Size(1098, 761);
             this.HomePage.TabIndex = 0;
             this.HomePage.Text = "HomePage";
             // 
@@ -283,7 +299,7 @@
             this.AppPage.Location = new System.Drawing.Point(4, 4);
             this.AppPage.Name = "AppPage";
             this.AppPage.Padding = new System.Windows.Forms.Padding(20);
-            this.AppPage.Size = new System.Drawing.Size(1117, 741);
+            this.AppPage.Size = new System.Drawing.Size(1098, 761);
             this.AppPage.TabIndex = 1;
             this.AppPage.Text = "AppPage";
             // 
@@ -308,16 +324,231 @@
             // 
             // GamePage
             // 
-            this.GamePage.AutoScroll = true;
             this.GamePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.GamePage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.GamePage.Controls.Add(this.nightHeaderLabel7);
+            this.GamePage.Controls.Add(this.pictureBox13);
+            this.GamePage.Controls.Add(this.pictureBox12);
+            this.GamePage.Controls.Add(this.pictureBox11);
+            this.GamePage.Controls.Add(this.pictureBox10);
+            this.GamePage.Controls.Add(this.pictureBox9);
+            this.GamePage.Controls.Add(this.pictureBox8);
+            this.GamePage.Controls.Add(this.pictureBox7);
+            this.GamePage.Controls.Add(this.nightHeaderLabel8);
             this.GamePage.Controls.Add(this.GamePages);
             this.GamePage.Location = new System.Drawing.Point(4, 4);
             this.GamePage.Name = "GamePage";
-            this.GamePage.Size = new System.Drawing.Size(1117, 741);
+            this.GamePage.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.GamePage.Size = new System.Drawing.Size(1098, 761);
             this.GamePage.TabIndex = 2;
             this.GamePage.Text = "GamePage";
+            // 
+            // GamePages
+            // 
+            this.GamePages.Alignment = System.Windows.Forms.TabAlignment.Right;
+            this.GamePages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GamePages.Controls.Add(this.Witcher);
+            this.GamePages.Controls.Add(this.Halo);
+            this.GamePages.Depth = 0;
+            this.GamePages.ItemSize = new System.Drawing.Size(0, 20);
+            this.GamePages.Location = new System.Drawing.Point(0, 0);
+            this.GamePages.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.GamePages.Multiline = true;
+            this.GamePages.Name = "GamePages";
+            this.GamePages.Padding = new System.Drawing.Point(0, 0);
+            this.GamePages.SelectedIndex = 0;
+            this.GamePages.Size = new System.Drawing.Size(1098, 507);
+            this.GamePages.TabIndex = 6;
+            // 
+            // Witcher
+            // 
+            this.Witcher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.Witcher.BackgroundImage = global::ReaLTaiizor.Store.Properties.Resources.Witcher;
+            this.Witcher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Witcher.Controls.Add(this.nightLabel33);
+            this.Witcher.Controls.Add(this.button2);
+            this.Witcher.Controls.Add(this.nightLabel31);
+            this.Witcher.Controls.Add(this.nightLabel32);
+            this.Witcher.Controls.Add(this.nightHeaderLabel6);
+            this.Witcher.Location = new System.Drawing.Point(4, 4);
+            this.Witcher.Name = "Witcher";
+            this.Witcher.Padding = new System.Windows.Forms.Padding(20);
+            this.Witcher.Size = new System.Drawing.Size(1070, 499);
+            this.Witcher.TabIndex = 0;
+            this.Witcher.Text = "Witcher";
+            // 
+            // nightLabel33
+            // 
+            this.nightLabel33.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel33.AutoSize = true;
+            this.nightLabel33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.nightLabel33.Font = new System.Drawing.Font("Segoe UI", 17F);
+            this.nightLabel33.ForeColor = System.Drawing.Color.White;
+            this.nightLabel33.Location = new System.Drawing.Point(23, 203);
+            this.nightLabel33.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel33.Name = "nightLabel33";
+            this.nightLabel33.Size = new System.Drawing.Size(494, 31);
+            this.nightLabel33.TabIndex = 9;
+            this.nightLabel33.Text = "You play as a bounty hunter, a man of the road.";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(29, 246);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(98, 38);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "See Details";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // nightLabel31
+            // 
+            this.nightLabel31.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel31.AutoSize = true;
+            this.nightLabel31.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel31.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.nightLabel31.ForeColor = System.Drawing.Color.Black;
+            this.nightLabel31.Location = new System.Drawing.Point(23, 127);
+            this.nightLabel31.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel31.Name = "nightLabel31";
+            this.nightLabel31.Size = new System.Drawing.Size(81, 28);
+            this.nightLabel31.TabIndex = 6;
+            this.nightLabel31.Text = "Ücretsiz";
+            // 
+            // nightLabel32
+            // 
+            this.nightLabel32.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel32.AutoSize = true;
+            this.nightLabel32.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel32.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Bold);
+            this.nightLabel32.ForeColor = System.Drawing.Color.Black;
+            this.nightLabel32.Location = new System.Drawing.Point(23, 161);
+            this.nightLabel32.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel32.Name = "nightLabel32";
+            this.nightLabel32.Size = new System.Drawing.Size(401, 36);
+            this.nightLabel32.TabIndex = 7;
+            this.nightLabel32.Text = "The Witcher 3 Complete Edition";
+            // 
+            // nightHeaderLabel6
+            // 
+            this.nightHeaderLabel6.AutoSize = true;
+            this.nightHeaderLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.nightHeaderLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.nightHeaderLabel6.ForeColor = System.Drawing.Color.Black;
+            this.nightHeaderLabel6.LeftSideForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel6.Location = new System.Drawing.Point(23, 23);
+            this.nightHeaderLabel6.Margin = new System.Windows.Forms.Padding(3);
+            this.nightHeaderLabel6.Name = "nightHeaderLabel6";
+            this.nightHeaderLabel6.RightSideForeColor = System.Drawing.Color.Black;
+            this.nightHeaderLabel6.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.RightPanel;
+            this.nightHeaderLabel6.Size = new System.Drawing.Size(93, 40);
+            this.nightHeaderLabel6.TabIndex = 3;
+            this.nightHeaderLabel6.Text = "Game";
+            this.nightHeaderLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nightHeaderLabel6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.nightHeaderLabel6.UseCompatibleTextRendering = true;
+            // 
+            // Halo
+            // 
+            this.Halo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.Halo.BackgroundImage = global::ReaLTaiizor.Store.Properties.Resources.Halo;
+            this.Halo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Halo.Controls.Add(this.nightLabel29);
+            this.Halo.Controls.Add(this.button1);
+            this.Halo.Controls.Add(this.nightLabel30);
+            this.Halo.Controls.Add(this.nightLabel34);
+            this.Halo.Controls.Add(this.nightHeaderLabel3);
+            this.Halo.Location = new System.Drawing.Point(4, 4);
+            this.Halo.Name = "Halo";
+            this.Halo.Padding = new System.Windows.Forms.Padding(20);
+            this.Halo.Size = new System.Drawing.Size(1070, 499);
+            this.Halo.TabIndex = 1;
+            this.Halo.Text = "Halo";
+            // 
+            // nightLabel29
+            // 
+            this.nightLabel29.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel29.AutoSize = true;
+            this.nightLabel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.nightLabel29.Font = new System.Drawing.Font("Segoe UI", 17F);
+            this.nightLabel29.ForeColor = System.Drawing.Color.White;
+            this.nightLabel29.Location = new System.Drawing.Point(23, 203);
+            this.nightLabel29.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel29.Name = "nightLabel29";
+            this.nightLabel29.Size = new System.Drawing.Size(524, 31);
+            this.nightLabel29.TabIndex = 14;
+            this.nightLabel29.Text = "Lone Wolves, gear up for Season 2 of Halo Infinite!";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(29, 246);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 38);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "See Details";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // nightLabel30
+            // 
+            this.nightLabel30.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel30.AutoSize = true;
+            this.nightLabel30.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel30.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.nightLabel30.ForeColor = System.Drawing.Color.White;
+            this.nightLabel30.Location = new System.Drawing.Point(23, 127);
+            this.nightLabel30.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel30.Name = "nightLabel30";
+            this.nightLabel30.Size = new System.Drawing.Size(81, 28);
+            this.nightLabel30.TabIndex = 11;
+            this.nightLabel30.Text = "Ücretsiz";
+            // 
+            // nightLabel34
+            // 
+            this.nightLabel34.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nightLabel34.AutoSize = true;
+            this.nightLabel34.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel34.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Bold);
+            this.nightLabel34.ForeColor = System.Drawing.Color.White;
+            this.nightLabel34.Location = new System.Drawing.Point(23, 161);
+            this.nightLabel34.Margin = new System.Windows.Forms.Padding(3);
+            this.nightLabel34.Name = "nightLabel34";
+            this.nightLabel34.Size = new System.Drawing.Size(167, 36);
+            this.nightLabel34.TabIndex = 12;
+            this.nightLabel34.Text = "Halo Infinite";
+            // 
+            // nightHeaderLabel3
+            // 
+            this.nightHeaderLabel3.AutoSize = true;
+            this.nightHeaderLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.nightHeaderLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.nightHeaderLabel3.ForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel3.LeftSideForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel3.Location = new System.Drawing.Point(23, 23);
+            this.nightHeaderLabel3.Margin = new System.Windows.Forms.Padding(3);
+            this.nightHeaderLabel3.Name = "nightHeaderLabel3";
+            this.nightHeaderLabel3.RightSideForeColor = System.Drawing.Color.Black;
+            this.nightHeaderLabel3.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.LeftPanel;
+            this.nightHeaderLabel3.Size = new System.Drawing.Size(93, 40);
+            this.nightHeaderLabel3.TabIndex = 10;
+            this.nightHeaderLabel3.Text = "Game";
+            this.nightHeaderLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nightHeaderLabel3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.nightHeaderLabel3.UseCompatibleTextRendering = true;
             // 
             // LibraryPage
             // 
@@ -342,9 +573,110 @@
             this.LibraryPage.Location = new System.Drawing.Point(4, 4);
             this.LibraryPage.Name = "LibraryPage";
             this.LibraryPage.Padding = new System.Windows.Forms.Padding(20);
-            this.LibraryPage.Size = new System.Drawing.Size(1117, 741);
+            this.LibraryPage.Size = new System.Drawing.Size(1098, 761);
             this.LibraryPage.TabIndex = 3;
             this.LibraryPage.Text = "LibraryPage";
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.panel6.Controls.Add(this.nightLabel25);
+            this.panel6.Controls.Add(this.foreverButton1);
+            this.panel6.Controls.Add(this.nightLabel26);
+            this.panel6.Controls.Add(this.nightLabel27);
+            this.panel6.Controls.Add(this.nightLabel28);
+            this.panel6.Controls.Add(this.pictureBox6);
+            this.panel6.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel6.Location = new System.Drawing.Point(31, 567);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(5);
+            this.panel6.Size = new System.Drawing.Size(1043, 66);
+            this.panel6.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel6.TabIndex = 21;
+            this.panel6.Text = "panel6";
+            this.panel6.MouseEnter += new System.EventHandler(this.LibraryApp_MouseEnter);
+            this.panel6.MouseLeave += new System.EventHandler(this.LibraryApp_MouseLeave);
+            // 
+            // nightLabel25
+            // 
+            this.nightLabel25.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nightLabel25.AutoSize = true;
+            this.nightLabel25.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel25.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.nightLabel25.ForeColor = System.Drawing.Color.White;
+            this.nightLabel25.Location = new System.Drawing.Point(590, 23);
+            this.nightLabel25.Name = "nightLabel25";
+            this.nightLabel25.Size = new System.Drawing.Size(171, 20);
+            this.nightLabel25.TabIndex = 20;
+            this.nightLabel25.Text = "Purchased on 07.21.2018";
+            this.nightLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // foreverButton1
+            // 
+            this.foreverButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.foreverButton1.BackColor = System.Drawing.Color.Transparent;
+            this.foreverButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.foreverButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.foreverButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.foreverButton1.ForeColor = System.Drawing.Color.White;
+            this.foreverButton1.Location = new System.Drawing.Point(925, 17);
+            this.foreverButton1.Name = "foreverButton1";
+            this.foreverButton1.Rounded = true;
+            this.foreverButton1.Size = new System.Drawing.Size(110, 32);
+            this.foreverButton1.TabIndex = 15;
+            this.foreverButton1.Text = "Install";
+            this.foreverButton1.TextColor = System.Drawing.Color.White;
+            // 
+            // nightLabel26
+            // 
+            this.nightLabel26.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nightLabel26.AutoSize = true;
+            this.nightLabel26.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel26.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.nightLabel26.ForeColor = System.Drawing.Color.White;
+            this.nightLabel26.Location = new System.Drawing.Point(385, 23);
+            this.nightLabel26.Name = "nightLabel26";
+            this.nightLabel26.Size = new System.Drawing.Size(48, 20);
+            this.nightLabel26.TabIndex = 18;
+            this.nightLabel26.Text = "Game";
+            this.nightLabel26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // nightLabel27
+            // 
+            this.nightLabel27.AutoSize = true;
+            this.nightLabel27.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel27.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nightLabel27.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.nightLabel27.Location = new System.Drawing.Point(64, 29);
+            this.nightLabel27.Name = "nightLabel27";
+            this.nightLabel27.Size = new System.Drawing.Size(100, 15);
+            this.nightLabel27.TabIndex = 17;
+            this.nightLabel27.Text = "Microsoft Studios";
+            // 
+            // nightLabel28
+            // 
+            this.nightLabel28.AutoSize = true;
+            this.nightLabel28.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.nightLabel28.ForeColor = System.Drawing.Color.White;
+            this.nightLabel28.Location = new System.Drawing.Point(64, 8);
+            this.nightLabel28.Name = "nightLabel28";
+            this.nightLabel28.Size = new System.Drawing.Size(130, 15);
+            this.nightLabel28.TabIndex = 16;
+            this.nightLabel28.Text = "Minecraft Java Edition";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Enabled = false;
+            this.pictureBox6.Image = global::ReaLTaiizor.Store.Properties.Resources.Minecraft;
+            this.pictureBox6.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 15;
+            this.pictureBox6.TabStop = false;
             // 
             // dungeonComboBox1
             // 
@@ -373,7 +705,7 @@
             "Sort by date",
             "Sort by name",
             "Sort by install"});
-            this.dungeonComboBox1.Location = new System.Drawing.Point(976, 153);
+            this.dungeonComboBox1.Location = new System.Drawing.Point(956, 153);
             this.dungeonComboBox1.Name = "dungeonComboBox1";
             this.dungeonComboBox1.Size = new System.Drawing.Size(118, 26);
             this.dungeonComboBox1.StartIndex = 0;
@@ -394,10 +726,12 @@
             this.panel5.Location = new System.Drawing.Point(31, 495);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(5);
-            this.panel5.Size = new System.Drawing.Size(1063, 66);
+            this.panel5.Size = new System.Drawing.Size(1043, 66);
             this.panel5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel5.TabIndex = 18;
             this.panel5.Text = "panel5";
+            this.panel5.MouseEnter += new System.EventHandler(this.LibraryApp_MouseEnter);
+            this.panel5.MouseLeave += new System.EventHandler(this.LibraryApp_MouseLeave);
             // 
             // nightLabel19
             // 
@@ -406,7 +740,7 @@
             this.nightLabel19.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel19.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel19.ForeColor = System.Drawing.Color.White;
-            this.nightLabel19.Location = new System.Drawing.Point(600, 23);
+            this.nightLabel19.Location = new System.Drawing.Point(590, 23);
             this.nightLabel19.Name = "nightLabel19";
             this.nightLabel19.Size = new System.Drawing.Size(171, 20);
             this.nightLabel19.TabIndex = 20;
@@ -421,7 +755,7 @@
             this.foreverButton6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverButton6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.foreverButton6.ForeColor = System.Drawing.Color.White;
-            this.foreverButton6.Location = new System.Drawing.Point(945, 17);
+            this.foreverButton6.Location = new System.Drawing.Point(925, 17);
             this.foreverButton6.Name = "foreverButton6";
             this.foreverButton6.Rounded = true;
             this.foreverButton6.Size = new System.Drawing.Size(110, 32);
@@ -436,7 +770,7 @@
             this.nightLabel20.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel20.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel20.ForeColor = System.Drawing.Color.White;
-            this.nightLabel20.Location = new System.Drawing.Point(395, 23);
+            this.nightLabel20.Location = new System.Drawing.Point(385, 23);
             this.nightLabel20.Name = "nightLabel20";
             this.nightLabel20.Size = new System.Drawing.Size(48, 20);
             this.nightLabel20.TabIndex = 18;
@@ -493,10 +827,12 @@
             this.panel4.Location = new System.Drawing.Point(31, 423);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(5);
-            this.panel4.Size = new System.Drawing.Size(1063, 66);
+            this.panel4.Size = new System.Drawing.Size(1043, 66);
             this.panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel4.TabIndex = 17;
             this.panel4.Text = "panel4";
+            this.panel4.MouseEnter += new System.EventHandler(this.LibraryApp_MouseEnter);
+            this.panel4.MouseLeave += new System.EventHandler(this.LibraryApp_MouseLeave);
             // 
             // nightLabel18
             // 
@@ -505,7 +841,7 @@
             this.nightLabel18.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel18.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel18.ForeColor = System.Drawing.Color.White;
-            this.nightLabel18.Location = new System.Drawing.Point(630, 23);
+            this.nightLabel18.Location = new System.Drawing.Point(620, 23);
             this.nightLabel18.Name = "nightLabel18";
             this.nightLabel18.Size = new System.Drawing.Size(110, 20);
             this.nightLabel18.TabIndex = 20;
@@ -520,7 +856,7 @@
             this.foreverButton5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverButton5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.foreverButton5.ForeColor = System.Drawing.Color.White;
-            this.foreverButton5.Location = new System.Drawing.Point(945, 17);
+            this.foreverButton5.Location = new System.Drawing.Point(925, 17);
             this.foreverButton5.Name = "foreverButton5";
             this.foreverButton5.Rounded = true;
             this.foreverButton5.Size = new System.Drawing.Size(110, 32);
@@ -535,7 +871,7 @@
             this.nightLabel12.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel12.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel12.ForeColor = System.Drawing.Color.White;
-            this.nightLabel12.Location = new System.Drawing.Point(401, 23);
+            this.nightLabel12.Location = new System.Drawing.Point(391, 23);
             this.nightLabel12.Name = "nightLabel12";
             this.nightLabel12.Size = new System.Drawing.Size(37, 20);
             this.nightLabel12.TabIndex = 18;
@@ -592,10 +928,12 @@
             this.panel3.Location = new System.Drawing.Point(31, 351);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.panel3.Size = new System.Drawing.Size(1063, 66);
+            this.panel3.Size = new System.Drawing.Size(1043, 66);
             this.panel3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel3.TabIndex = 16;
             this.panel3.Text = "panel3";
+            this.panel3.MouseEnter += new System.EventHandler(this.LibraryApp_MouseEnter);
+            this.panel3.MouseLeave += new System.EventHandler(this.LibraryApp_MouseLeave);
             // 
             // nightLabel17
             // 
@@ -604,7 +942,7 @@
             this.nightLabel17.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel17.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel17.ForeColor = System.Drawing.Color.White;
-            this.nightLabel17.Location = new System.Drawing.Point(630, 23);
+            this.nightLabel17.Location = new System.Drawing.Point(620, 23);
             this.nightLabel17.Name = "nightLabel17";
             this.nightLabel17.Size = new System.Drawing.Size(110, 20);
             this.nightLabel17.TabIndex = 20;
@@ -619,7 +957,7 @@
             this.foreverButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverButton4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.foreverButton4.ForeColor = System.Drawing.Color.White;
-            this.foreverButton4.Location = new System.Drawing.Point(945, 17);
+            this.foreverButton4.Location = new System.Drawing.Point(925, 17);
             this.foreverButton4.Name = "foreverButton4";
             this.foreverButton4.Rounded = true;
             this.foreverButton4.Size = new System.Drawing.Size(110, 32);
@@ -634,7 +972,7 @@
             this.nightLabel9.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel9.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel9.ForeColor = System.Drawing.Color.White;
-            this.nightLabel9.Location = new System.Drawing.Point(401, 23);
+            this.nightLabel9.Location = new System.Drawing.Point(391, 23);
             this.nightLabel9.Name = "nightLabel9";
             this.nightLabel9.Size = new System.Drawing.Size(37, 20);
             this.nightLabel9.TabIndex = 18;
@@ -691,7 +1029,7 @@
             this.panel2.Location = new System.Drawing.Point(31, 279);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(1063, 66);
+            this.panel2.Size = new System.Drawing.Size(1043, 66);
             this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel2.TabIndex = 15;
             this.panel2.Text = "panel2";
@@ -705,7 +1043,7 @@
             this.nightLabel16.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel16.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel16.ForeColor = System.Drawing.Color.White;
-            this.nightLabel16.Location = new System.Drawing.Point(630, 23);
+            this.nightLabel16.Location = new System.Drawing.Point(620, 23);
             this.nightLabel16.Name = "nightLabel16";
             this.nightLabel16.Size = new System.Drawing.Size(110, 20);
             this.nightLabel16.TabIndex = 20;
@@ -720,7 +1058,7 @@
             this.foreverButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverButton3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.foreverButton3.ForeColor = System.Drawing.Color.White;
-            this.foreverButton3.Location = new System.Drawing.Point(945, 17);
+            this.foreverButton3.Location = new System.Drawing.Point(925, 17);
             this.foreverButton3.Name = "foreverButton3";
             this.foreverButton3.Rounded = true;
             this.foreverButton3.Size = new System.Drawing.Size(110, 32);
@@ -735,7 +1073,7 @@
             this.nightLabel6.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel6.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel6.ForeColor = System.Drawing.Color.White;
-            this.nightLabel6.Location = new System.Drawing.Point(401, 23);
+            this.nightLabel6.Location = new System.Drawing.Point(391, 23);
             this.nightLabel6.Name = "nightLabel6";
             this.nightLabel6.Size = new System.Drawing.Size(37, 20);
             this.nightLabel6.TabIndex = 18;
@@ -792,7 +1130,7 @@
             this.panel1.Location = new System.Drawing.Point(31, 207);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(1063, 66);
+            this.panel1.Size = new System.Drawing.Size(1043, 66);
             this.panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel1.TabIndex = 14;
             this.panel1.Text = "panel1";
@@ -806,7 +1144,7 @@
             this.nightLabel15.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel15.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel15.ForeColor = System.Drawing.Color.White;
-            this.nightLabel15.Location = new System.Drawing.Point(630, 23);
+            this.nightLabel15.Location = new System.Drawing.Point(620, 23);
             this.nightLabel15.Name = "nightLabel15";
             this.nightLabel15.Size = new System.Drawing.Size(110, 20);
             this.nightLabel15.TabIndex = 19;
@@ -821,7 +1159,7 @@
             this.foreverButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.foreverButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.foreverButton2.ForeColor = System.Drawing.Color.White;
-            this.foreverButton2.Location = new System.Drawing.Point(945, 17);
+            this.foreverButton2.Location = new System.Drawing.Point(925, 17);
             this.foreverButton2.Name = "foreverButton2";
             this.foreverButton2.Rounded = true;
             this.foreverButton2.Size = new System.Drawing.Size(110, 32);
@@ -836,7 +1174,7 @@
             this.nightLabel5.BackColor = System.Drawing.Color.Transparent;
             this.nightLabel5.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nightLabel5.ForeColor = System.Drawing.Color.White;
-            this.nightLabel5.Location = new System.Drawing.Point(401, 23);
+            this.nightLabel5.Location = new System.Drawing.Point(391, 23);
             this.nightLabel5.Name = "nightLabel5";
             this.nightLabel5.Size = new System.Drawing.Size(37, 20);
             this.nightLabel5.TabIndex = 18;
@@ -960,7 +1298,7 @@
             this.GetUpdate.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(198)))), ((int)(((byte)(211)))));
             this.GetUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GetUpdate.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GetUpdate.Location = new System.Drawing.Point(961, 69);
+            this.GetUpdate.Location = new System.Drawing.Point(941, 69);
             this.GetUpdate.Name = "GetUpdate";
             this.GetUpdate.Rounded = true;
             this.GetUpdate.Size = new System.Drawing.Size(133, 44);
@@ -1027,7 +1365,7 @@
             this.HelpPage.Location = new System.Drawing.Point(4, 4);
             this.HelpPage.Name = "HelpPage";
             this.HelpPage.Padding = new System.Windows.Forms.Padding(20);
-            this.HelpPage.Size = new System.Drawing.Size(1117, 741);
+            this.HelpPage.Size = new System.Drawing.Size(1098, 761);
             this.HelpPage.TabIndex = 4;
             this.HelpPage.Text = "HelpPage";
             // 
@@ -1040,7 +1378,7 @@
             this.HelpImage.Image = global::ReaLTaiizor.Store.Properties.Resources.HelpBackground;
             this.HelpImage.Location = new System.Drawing.Point(31, 154);
             this.HelpImage.Name = "HelpImage";
-            this.HelpImage.Size = new System.Drawing.Size(1063, 564);
+            this.HelpImage.Size = new System.Drawing.Size(1043, 584);
             this.HelpImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.HelpImage.TabIndex = 8;
             this.HelpImage.TabStop = false;
@@ -1052,7 +1390,7 @@
             this.GetHelp.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(198)))), ((int)(((byte)(211)))));
             this.GetHelp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GetHelp.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GetHelp.Location = new System.Drawing.Point(961, 69);
+            this.GetHelp.Location = new System.Drawing.Point(941, 69);
             this.GetHelp.Name = "GetHelp";
             this.GetHelp.Rounded = true;
             this.GetHelp.Size = new System.Drawing.Size(133, 44);
@@ -1411,338 +1749,113 @@
             this.parrotControlEllipse5.CornerRadius = 10;
             this.parrotControlEllipse5.EffectedControl = this.HelpMenu;
             // 
-            // panel6
-            // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.panel6.Controls.Add(this.nightLabel25);
-            this.panel6.Controls.Add(this.foreverButton1);
-            this.panel6.Controls.Add(this.nightLabel26);
-            this.panel6.Controls.Add(this.nightLabel27);
-            this.panel6.Controls.Add(this.nightLabel28);
-            this.panel6.Controls.Add(this.pictureBox6);
-            this.panel6.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel6.Location = new System.Drawing.Point(31, 567);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(5);
-            this.panel6.Size = new System.Drawing.Size(1063, 66);
-            this.panel6.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel6.TabIndex = 21;
-            this.panel6.Text = "panel6";
-            // 
-            // nightLabel25
-            // 
-            this.nightLabel25.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nightLabel25.AutoSize = true;
-            this.nightLabel25.BackColor = System.Drawing.Color.Transparent;
-            this.nightLabel25.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.nightLabel25.ForeColor = System.Drawing.Color.White;
-            this.nightLabel25.Location = new System.Drawing.Point(600, 23);
-            this.nightLabel25.Name = "nightLabel25";
-            this.nightLabel25.Size = new System.Drawing.Size(171, 20);
-            this.nightLabel25.TabIndex = 20;
-            this.nightLabel25.Text = "Purchased on 07.21.2018";
-            this.nightLabel25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // foreverButton1
-            // 
-            this.foreverButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.foreverButton1.BackColor = System.Drawing.Color.Transparent;
-            this.foreverButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.foreverButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.foreverButton1.ForeColor = System.Drawing.Color.White;
-            this.foreverButton1.Location = new System.Drawing.Point(945, 17);
-            this.foreverButton1.Name = "foreverButton1";
-            this.foreverButton1.Rounded = true;
-            this.foreverButton1.Size = new System.Drawing.Size(110, 32);
-            this.foreverButton1.TabIndex = 15;
-            this.foreverButton1.Text = "Install";
-            this.foreverButton1.TextColor = System.Drawing.Color.White;
-            // 
-            // nightLabel26
-            // 
-            this.nightLabel26.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nightLabel26.AutoSize = true;
-            this.nightLabel26.BackColor = System.Drawing.Color.Transparent;
-            this.nightLabel26.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.nightLabel26.ForeColor = System.Drawing.Color.White;
-            this.nightLabel26.Location = new System.Drawing.Point(395, 23);
-            this.nightLabel26.Name = "nightLabel26";
-            this.nightLabel26.Size = new System.Drawing.Size(48, 20);
-            this.nightLabel26.TabIndex = 18;
-            this.nightLabel26.Text = "Game";
-            this.nightLabel26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // nightLabel27
-            // 
-            this.nightLabel27.AutoSize = true;
-            this.nightLabel27.BackColor = System.Drawing.Color.Transparent;
-            this.nightLabel27.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.nightLabel27.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.nightLabel27.Location = new System.Drawing.Point(64, 29);
-            this.nightLabel27.Name = "nightLabel27";
-            this.nightLabel27.Size = new System.Drawing.Size(100, 15);
-            this.nightLabel27.TabIndex = 17;
-            this.nightLabel27.Text = "Microsoft Studios";
-            // 
-            // nightLabel28
-            // 
-            this.nightLabel28.AutoSize = true;
-            this.nightLabel28.BackColor = System.Drawing.Color.Transparent;
-            this.nightLabel28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.nightLabel28.ForeColor = System.Drawing.Color.White;
-            this.nightLabel28.Location = new System.Drawing.Point(64, 8);
-            this.nightLabel28.Name = "nightLabel28";
-            this.nightLabel28.Size = new System.Drawing.Size(130, 15);
-            this.nightLabel28.TabIndex = 16;
-            this.nightLabel28.Text = "Minecraft Java Edition";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Enabled = false;
-            this.pictureBox6.Image = global::ReaLTaiizor.Store.Properties.Resources.Minecraft;
-            this.pictureBox6.Location = new System.Drawing.Point(8, 8);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 15;
-            this.pictureBox6.TabStop = false;
-            // 
-            // GamePages
-            // 
-            this.GamePages.Alignment = System.Windows.Forms.TabAlignment.Right;
-            this.GamePages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.GamePages.Controls.Add(this.Witcher);
-            this.GamePages.Controls.Add(this.Halo);
-            this.GamePages.Depth = 0;
-            this.GamePages.ItemSize = new System.Drawing.Size(0, 20);
-            this.GamePages.Location = new System.Drawing.Point(0, 0);
-            this.GamePages.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.GamePages.Multiline = true;
-            this.GamePages.Name = "GamePages";
-            this.GamePages.Padding = new System.Drawing.Point(0, 0);
-            this.GamePages.SelectedIndex = 0;
-            this.GamePages.Size = new System.Drawing.Size(1117, 507);
-            this.GamePages.TabIndex = 6;
-            // 
-            // Witcher
-            // 
-            this.Witcher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.Witcher.BackgroundImage = global::ReaLTaiizor.Store.Properties.Resources.Witcher;
-            this.Witcher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Witcher.Controls.Add(this.nightLabel33);
-            this.Witcher.Controls.Add(this.button2);
-            this.Witcher.Controls.Add(this.nightLabel31);
-            this.Witcher.Controls.Add(this.nightLabel32);
-            this.Witcher.Controls.Add(this.nightHeaderLabel6);
-            this.Witcher.Location = new System.Drawing.Point(4, 4);
-            this.Witcher.Name = "Witcher";
-            this.Witcher.Padding = new System.Windows.Forms.Padding(20);
-            this.Witcher.Size = new System.Drawing.Size(1089, 499);
-            this.Witcher.TabIndex = 0;
-            this.Witcher.Text = "Witcher";
-            // 
-            // Halo
-            // 
-            this.Halo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.Halo.BackgroundImage = global::ReaLTaiizor.Store.Properties.Resources.Halo;
-            this.Halo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Halo.Controls.Add(this.nightLabel29);
-            this.Halo.Controls.Add(this.button1);
-            this.Halo.Controls.Add(this.nightLabel30);
-            this.Halo.Controls.Add(this.nightLabel34);
-            this.Halo.Controls.Add(this.nightHeaderLabel3);
-            this.Halo.Location = new System.Drawing.Point(4, 4);
-            this.Halo.Name = "Halo";
-            this.Halo.Padding = new System.Windows.Forms.Padding(20);
-            this.Halo.Size = new System.Drawing.Size(1089, 499);
-            this.Halo.TabIndex = 1;
-            this.Halo.Text = "Halo";
-            // 
             // GameChanger
             // 
-            this.GameChanger.Enabled = true;
             this.GameChanger.Interval = 5005;
             this.GameChanger.Tick += new System.EventHandler(this.GameChanger_Tick);
             // 
-            // nightHeaderLabel6
+            // pictureBox13
             // 
-            this.nightHeaderLabel6.AutoSize = true;
-            this.nightHeaderLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.nightHeaderLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.nightHeaderLabel6.ForeColor = System.Drawing.Color.Black;
-            this.nightHeaderLabel6.LeftSideForeColor = System.Drawing.Color.White;
-            this.nightHeaderLabel6.Location = new System.Drawing.Point(23, 23);
-            this.nightHeaderLabel6.Margin = new System.Windows.Forms.Padding(3);
-            this.nightHeaderLabel6.Name = "nightHeaderLabel6";
-            this.nightHeaderLabel6.RightSideForeColor = System.Drawing.Color.Black;
-            this.nightHeaderLabel6.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.RightPanel;
-            this.nightHeaderLabel6.Size = new System.Drawing.Size(93, 40);
-            this.nightHeaderLabel6.TabIndex = 3;
-            this.nightHeaderLabel6.Text = "Game";
-            this.nightHeaderLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.nightHeaderLabel6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.nightHeaderLabel6.UseCompatibleTextRendering = true;
+            this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox13.Image = global::ReaLTaiizor.Store.Properties.Resources.Bestseller;
+            this.pictureBox13.Location = new System.Drawing.Point(27, 580);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(254, 162);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 27;
+            this.pictureBox13.TabStop = false;
             // 
-            // button2
+            // pictureBox12
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(29, 246);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 38);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "See Details";
-            this.button2.UseVisualStyleBackColor = false;
+            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox12.Image = global::ReaLTaiizor.Store.Properties.Resources.Truck;
+            this.pictureBox12.Location = new System.Drawing.Point(903, 554);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 26;
+            this.pictureBox12.TabStop = false;
             // 
-            // nightLabel31
+            // pictureBox11
             // 
-            this.nightLabel31.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nightLabel31.AutoSize = true;
-            this.nightLabel31.BackColor = System.Drawing.Color.Transparent;
-            this.nightLabel31.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.nightLabel31.ForeColor = System.Drawing.Color.Black;
-            this.nightLabel31.Location = new System.Drawing.Point(23, 127);
-            this.nightLabel31.Margin = new System.Windows.Forms.Padding(3);
-            this.nightLabel31.Name = "nightLabel31";
-            this.nightLabel31.Size = new System.Drawing.Size(81, 28);
-            this.nightLabel31.TabIndex = 6;
-            this.nightLabel31.Text = "Ücretsiz";
+            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox11.Image = global::ReaLTaiizor.Store.Properties.Resources.Solitaire;
+            this.pictureBox11.Location = new System.Drawing.Point(781, 554);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 25;
+            this.pictureBox11.TabStop = false;
             // 
-            // nightLabel32
+            // pictureBox10
             // 
-            this.nightLabel32.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nightLabel32.AutoSize = true;
-            this.nightLabel32.BackColor = System.Drawing.Color.Transparent;
-            this.nightLabel32.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Bold);
-            this.nightLabel32.ForeColor = System.Drawing.Color.Black;
-            this.nightLabel32.Location = new System.Drawing.Point(23, 161);
-            this.nightLabel32.Margin = new System.Windows.Forms.Padding(3);
-            this.nightLabel32.Name = "nightLabel32";
-            this.nightLabel32.Size = new System.Drawing.Size(401, 36);
-            this.nightLabel32.TabIndex = 7;
-            this.nightLabel32.Text = "The Witcher 3 Complete Edition";
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox10.Image = global::ReaLTaiizor.Store.Properties.Resources.Roblox;
+            this.pictureBox10.Location = new System.Drawing.Point(659, 554);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 24;
+            this.pictureBox10.TabStop = false;
             // 
-            // nightLabel33
+            // pictureBox9
             // 
-            this.nightLabel33.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nightLabel33.AutoSize = true;
-            this.nightLabel33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.nightLabel33.Font = new System.Drawing.Font("Segoe UI", 17F);
-            this.nightLabel33.ForeColor = System.Drawing.Color.White;
-            this.nightLabel33.Location = new System.Drawing.Point(23, 203);
-            this.nightLabel33.Margin = new System.Windows.Forms.Padding(3);
-            this.nightLabel33.Name = "nightLabel33";
-            this.nightLabel33.Size = new System.Drawing.Size(494, 31);
-            this.nightLabel33.TabIndex = 9;
-            this.nightLabel33.Text = "You play as a bounty hunter, a man of the road.";
+            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox9.Image = global::ReaLTaiizor.Store.Properties.Resources.Forza;
+            this.pictureBox9.Location = new System.Drawing.Point(537, 554);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 23;
+            this.pictureBox9.TabStop = false;
             // 
-            // nightLabel29
+            // pictureBox8
             // 
-            this.nightLabel29.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nightLabel29.AutoSize = true;
-            this.nightLabel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.nightLabel29.Font = new System.Drawing.Font("Segoe UI", 17F);
-            this.nightLabel29.ForeColor = System.Drawing.Color.White;
-            this.nightLabel29.Location = new System.Drawing.Point(23, 203);
-            this.nightLabel29.Margin = new System.Windows.Forms.Padding(3);
-            this.nightLabel29.Name = "nightLabel29";
-            this.nightLabel29.Size = new System.Drawing.Size(524, 31);
-            this.nightLabel29.TabIndex = 14;
-            this.nightLabel29.Text = "Lone Wolves, gear up for Season 2 of Halo Infinite!";
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::ReaLTaiizor.Store.Properties.Resources.Asphalt;
+            this.pictureBox8.Location = new System.Drawing.Point(415, 554);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 22;
+            this.pictureBox8.TabStop = false;
             // 
-            // button1
+            // pictureBox7
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(29, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 38);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "See Details";
-            this.button1.UseVisualStyleBackColor = false;
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::ReaLTaiizor.Store.Properties.Resources.CandyCrushSaga;
+            this.pictureBox7.Location = new System.Drawing.Point(293, 554);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(116, 188);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 21;
+            this.pictureBox7.TabStop = false;
             // 
-            // nightLabel30
+            // nightHeaderLabel8
             // 
-            this.nightLabel30.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nightLabel30.AutoSize = true;
-            this.nightLabel30.BackColor = System.Drawing.Color.Transparent;
-            this.nightLabel30.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.nightLabel30.ForeColor = System.Drawing.Color.White;
-            this.nightLabel30.Location = new System.Drawing.Point(23, 127);
-            this.nightLabel30.Margin = new System.Windows.Forms.Padding(3);
-            this.nightLabel30.Name = "nightLabel30";
-            this.nightLabel30.Size = new System.Drawing.Size(81, 28);
-            this.nightLabel30.TabIndex = 11;
-            this.nightLabel30.Text = "Ücretsiz";
-            // 
-            // nightLabel34
-            // 
-            this.nightLabel34.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nightLabel34.AutoSize = true;
-            this.nightLabel34.BackColor = System.Drawing.Color.Transparent;
-            this.nightLabel34.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Bold);
-            this.nightLabel34.ForeColor = System.Drawing.Color.White;
-            this.nightLabel34.Location = new System.Drawing.Point(23, 161);
-            this.nightLabel34.Margin = new System.Windows.Forms.Padding(3);
-            this.nightLabel34.Name = "nightLabel34";
-            this.nightLabel34.Size = new System.Drawing.Size(167, 36);
-            this.nightLabel34.TabIndex = 12;
-            this.nightLabel34.Text = "Halo Infinite";
-            // 
-            // nightHeaderLabel3
-            // 
-            this.nightHeaderLabel3.AutoSize = true;
-            this.nightHeaderLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.nightHeaderLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.nightHeaderLabel3.ForeColor = System.Drawing.Color.White;
-            this.nightHeaderLabel3.LeftSideForeColor = System.Drawing.Color.White;
-            this.nightHeaderLabel3.Location = new System.Drawing.Point(23, 23);
-            this.nightHeaderLabel3.Margin = new System.Windows.Forms.Padding(3);
-            this.nightHeaderLabel3.Name = "nightHeaderLabel3";
-            this.nightHeaderLabel3.RightSideForeColor = System.Drawing.Color.Black;
-            this.nightHeaderLabel3.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.LeftPanel;
-            this.nightHeaderLabel3.Size = new System.Drawing.Size(93, 40);
-            this.nightHeaderLabel3.TabIndex = 10;
-            this.nightHeaderLabel3.Text = "Game";
-            this.nightHeaderLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.nightHeaderLabel3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.nightHeaderLabel3.UseCompatibleTextRendering = true;
-            // 
-            // nightHeaderLabel7
-            // 
-            this.nightHeaderLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nightHeaderLabel7.AutoSize = true;
-            this.nightHeaderLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.nightHeaderLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.nightHeaderLabel7.ForeColor = System.Drawing.Color.White;
-            this.nightHeaderLabel7.LeftSideForeColor = System.Drawing.Color.White;
-            this.nightHeaderLabel7.Location = new System.Drawing.Point(23, 530);
-            this.nightHeaderLabel7.Margin = new System.Windows.Forms.Padding(3);
-            this.nightHeaderLabel7.Name = "nightHeaderLabel7";
-            this.nightHeaderLabel7.RightSideForeColor = System.Drawing.Color.Black;
-            this.nightHeaderLabel7.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.LeftPanel;
-            this.nightHeaderLabel7.Size = new System.Drawing.Size(264, 40);
-            this.nightHeaderLabel7.TabIndex = 11;
-            this.nightHeaderLabel7.Text = "Best selling games";
-            this.nightHeaderLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.nightHeaderLabel7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.nightHeaderLabel7.UseCompatibleTextRendering = true;
+            this.nightHeaderLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nightHeaderLabel8.AutoSize = true;
+            this.nightHeaderLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.nightHeaderLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.nightHeaderLabel8.ForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel8.LeftSideForeColor = System.Drawing.Color.White;
+            this.nightHeaderLabel8.Location = new System.Drawing.Point(23, 534);
+            this.nightHeaderLabel8.Margin = new System.Windows.Forms.Padding(3);
+            this.nightHeaderLabel8.Name = "nightHeaderLabel8";
+            this.nightHeaderLabel8.RightSideForeColor = System.Drawing.Color.Black;
+            this.nightHeaderLabel8.Side = ReaLTaiizor.Controls.NightHeaderLabel.PanelSide.LeftPanel;
+            this.nightHeaderLabel8.Size = new System.Drawing.Size(264, 40);
+            this.nightHeaderLabel8.TabIndex = 20;
+            this.nightHeaderLabel8.Text = "Best selling games";
+            this.nightHeaderLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nightHeaderLabel8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.nightHeaderLabel8.UseCompatibleTextRendering = true;
             // 
             // Store
             // 
@@ -1767,8 +1880,16 @@
             this.AppPage.PerformLayout();
             this.GamePage.ResumeLayout(false);
             this.GamePage.PerformLayout();
+            this.GamePages.ResumeLayout(false);
+            this.Witcher.ResumeLayout(false);
+            this.Witcher.PerformLayout();
+            this.Halo.ResumeLayout(false);
+            this.Halo.PerformLayout();
             this.LibraryPage.ResumeLayout(false);
             this.LibraryPage.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -1798,14 +1919,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).EndInit();
             this.HomeMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HomeIcon)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.GamePages.ResumeLayout(false);
-            this.Witcher.ResumeLayout(false);
-            this.Witcher.PerformLayout();
-            this.Halo.ResumeLayout(false);
-            this.Halo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1916,6 +2036,13 @@
         private Controls.NightLabel nightLabel30;
         private Controls.NightLabel nightLabel34;
         private Controls.NightHeaderLabel nightHeaderLabel3;
-        private Controls.NightHeaderLabel nightHeaderLabel7;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private Controls.NightHeaderLabel nightHeaderLabel8;
     }
 }

@@ -47,11 +47,13 @@ namespace ReaLTaiizor.Store
                 GameSeparator.Customization = "08aq/9PGqv/Txqr/08aq/w==";
                 Menu.Side = NightPanel.PanelSide.Right;
                 Pages.SelectedTab = GamePage;
+                GameChanger.Start();
             }
             else
             {
                 GameSeparator.Customization = "ICAg/yAgIP8gICD/ICAg/w==";
                 GameMenu.Side = NightPanel.PanelSide.Left;
+                GameChanger.Stop();
             }
 
             if (Menu.Name == "LibraryMenu")
