@@ -115,13 +115,13 @@ namespace ReaLTaiizor.Store
 
         private void PageChanger_Tick(object sender, EventArgs e)
         {
-            if (GamePages.SelectedTab == Halo)
+            if (HomePages.SelectedTab == Windows)
             {
-                GamePages.SelectedTab = Witcher;
+                HomePages.SelectedTab = Cloud;
             }
             else
             {
-                GamePages.SelectedTab = Halo;
+                HomePages.SelectedTab = Windows;
             }
 
             if (AppPages.SelectedTab == Photo)
@@ -131,6 +131,15 @@ namespace ReaLTaiizor.Store
             else
             {
                 AppPages.SelectedTab = Photo;
+            }
+
+            if (GamePages.SelectedTab == Halo)
+            {
+                GamePages.SelectedTab = Witcher;
+            }
+            else
+            {
+                GamePages.SelectedTab = Halo;
             }
         }
     }

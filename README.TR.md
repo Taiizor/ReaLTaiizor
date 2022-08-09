@@ -184,6 +184,10 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 [![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Rufus "RufusSample")
 
+### Store
+
+[![StoreSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Store.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Store "StoreSample")
+
 ### Başlangıç Ekranı
 
 [![SplashSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Splash.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Splash "SplashSample")

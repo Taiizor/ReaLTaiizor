@@ -153,6 +153,16 @@ namespace ReaLTaiizor.Store.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Edge {
+            get {
+                object obj = ResourceManager.GetObject("Edge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap Express {
             get {
                 object obj = ResourceManager.GetObject("Express", resourceCulture);
@@ -186,6 +196,16 @@ namespace ReaLTaiizor.Store.Properties {
         internal static System.Drawing.Bitmap Game {
             get {
                 object obj = ResourceManager.GetObject("Game", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap GamePass {
+            get {
+                object obj = ResourceManager.GetObject("GamePass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,6 +263,26 @@ namespace ReaLTaiizor.Store.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Highlight {
+            get {
+                object obj = ResourceManager.GetObject("Highlight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap HighlightHero {
+            get {
+                object obj = ResourceManager.GetObject("HighlightHero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap Home {
             get {
                 object obj = ResourceManager.GetObject("Home", resourceCulture);
@@ -293,6 +333,16 @@ namespace ReaLTaiizor.Store.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Kubernetes {
+            get {
+                object obj = ResourceManager.GetObject("Kubernetes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap Minecraft {
             get {
                 object obj = ResourceManager.GetObject("Minecraft", resourceCulture);
@@ -306,6 +356,16 @@ namespace ReaLTaiizor.Store.Properties {
         internal static System.Drawing.Bitmap Mylivn {
             get {
                 object obj = ResourceManager.GetObject("Mylivn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap OneDrive {
+            get {
+                object obj = ResourceManager.GetObject("OneDrive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -466,6 +526,16 @@ namespace ReaLTaiizor.Store.Properties {
         internal static System.Drawing.Bitmap Witcher {
             get {
                 object obj = ResourceManager.GetObject("Witcher", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap Xbox {
+            get {
+                object obj = ResourceManager.GetObject("Xbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
