@@ -1,5 +1,6 @@
 ﻿using ReaLTaiizor.Controls;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using Panel = ReaLTaiizor.Controls.Panel;
@@ -68,6 +69,7 @@ namespace ReaLTaiizor.Store
             if (Menu.Name == "HelpMenu")
             {
                 HelpSeparator.Customization = "08aq/9PGqv/Txqr/08aq/w==";
+                HelpImage.Image = Properties.Resources.HelpBackground;
                 Menu.Side = NightPanel.PanelSide.Right;
                 Pages.SelectedTab = HelpPage;
             }
@@ -103,6 +105,24 @@ namespace ReaLTaiizor.Store
             Panel App = sender as Panel;
 
             App.BackColor = Color.FromArgb(50, 50, 52);
+        }
+
+        private void GetHelp_Click(object sender, EventArgs e)
+        {
+            HelpImage.Image = Properties.Resources.HelpBackground2;
+            Process.Start("https://github.com/Taiizor/ReaLTaiizor");
+        }
+
+        private void GameChanger_Tick(object sender, EventArgs e)
+        {
+            if (GamePages.SelectedTab == Halo)
+            {
+                GamePages.SelectedTab = Witcher;
+            }
+            else
+            {
+                GamePages.SelectedTab = Halo;
+            }
         }
     }
 }
