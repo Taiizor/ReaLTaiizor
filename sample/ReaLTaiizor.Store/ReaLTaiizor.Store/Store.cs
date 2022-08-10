@@ -110,7 +110,30 @@ namespace ReaLTaiizor.Store
         private void GetHelp_Click(object sender, EventArgs e)
         {
             HelpImage.Image = Properties.Resources.HelpBackground2;
-            Process.Start("https://github.com/Taiizor/ReaLTaiizor");
+
+            string Uri = "https://github.com/Taiizor/ReaLTaiizor";
+
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = Uri,
+                UseShellExecute = true
+            });
+
+            //try
+            //{
+            //    Process.Start(Uri);
+            //}
+            //catch (System.ComponentModel.Win32Exception noBrowser)
+            //{
+            //    if (noBrowser.ErrorCode == -2147467259)
+            //    {
+            //        MessageBox.Show(noBrowser.Message);
+            //    }
+            //}
+            //catch (Exception other)
+            //{
+            //    MessageBox.Show(other.Message);
+            //}
         }
 
         private void PageChanger_Tick(object sender, EventArgs e)
