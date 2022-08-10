@@ -22,7 +22,9 @@ namespace ReaLTaiizor.Controls
 
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(MetroTabControl), "Bitmaps.TabControl.bmp")]
+#if NET48
     [Designer(typeof(MetroTabControlDesigner))]
+#endif
     [ComVisible(true)]
     public class MetroTabControl : TabControl, IMetroControl
     {
