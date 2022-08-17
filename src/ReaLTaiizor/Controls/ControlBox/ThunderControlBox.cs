@@ -28,6 +28,28 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        private bool _EnableMaximize = false;
+        public bool EnableMaximizeButton
+        {
+            get => _EnableMaximize;
+            set
+            {
+                _EnableMaximize = value;
+                Invalidate();
+            }
+        }
+
+        private bool _EnableMinimize = false;
+        public bool EnableMinimizeButton
+        {
+            get => _EnableMinimize;
+            set
+            {
+                _EnableMinimize = value;
+                Invalidate();
+            }
+        }
+
         #endregion
 
         private MouseStateThunder State = MouseStateThunder.None;
