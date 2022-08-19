@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace ReaLTaiizor.Controls
 {
-    #region SpaceSeparatorHorizantal
+    #region SpaceSeparatorHorizontal
 
-    public class SpaceSeparatorHorizantal : SpaceControl // A Horizontal Separator
+    public class SpaceSeparatorHorizontal : SpaceControl // A Horizontal Separator
     {
-        public SpaceSeparatorHorizantal()
+        public SpaceSeparatorHorizontal()
         {
             SetColor("DownGradient1", 42, 42, 42); // Basic Gradients Used to Shade the Button
             SetColor("DownGradient2", 42, 42, 42); // The Gradients are reversed, depending on if Button is Pressed or not
