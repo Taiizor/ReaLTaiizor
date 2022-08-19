@@ -305,7 +305,7 @@
             this.labelEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(196)))), ((int)(((byte)(150)))));
             this.labelEdit1.Location = new System.Drawing.Point(168, 89);
             this.labelEdit1.Name = "labelEdit1";
-            this.labelEdit1.Size = new System.Drawing.Size(464, 32);
+            this.labelEdit1.Size = new System.Drawing.Size(463, 32);
             this.labelEdit1.TabIndex = 6;
             this.labelEdit1.Text = "Your PC is being Monitored and Protected";
             // 
@@ -448,7 +448,7 @@
             this.Name = "Defender";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Windows Defender";
+            this.Text = "Taiizor Defender";
             this.lostPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
