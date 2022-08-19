@@ -33,9 +33,7 @@ namespace ReaLTaiizor.Controls
                     return;
                 }
 
-                IDesignerHost designerHost = value.GetService(typeof(IDesignerHost)) as IDesignerHost;
-
-                if (designerHost != null)
+                if (value.GetService(typeof(IDesignerHost)) is IDesignerHost designerHost)
                 {
                     IComponent rootComponent = designerHost.RootComponent;
 

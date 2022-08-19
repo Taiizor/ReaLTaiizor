@@ -15,13 +15,13 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotFlatMenuStrip()
         {
-            base.Renderer = new KitMenuStripRenderer(base.BackColor, backColor, selectedBackColor, hoverBackColor, textColor, hoverTextColor, selectedTextColor, seperatorColor);
+            base.Renderer = new KitMenuStripRenderer(base.BackColor, backColor, selectedBackColor, hoverBackColor, textColor, hoverTextColor, selectedTextColor, separatorColor);
             base.BackColor = Color.DodgerBlue;
         }
 
         private void RefreshUI()
         {
-            base.Renderer = new KitMenuStripRenderer(base.BackColor, backColor, selectedBackColor, hoverBackColor, textColor, hoverTextColor, selectedTextColor, seperatorColor);
+            base.Renderer = new KitMenuStripRenderer(base.BackColor, backColor, selectedBackColor, hoverBackColor, textColor, hoverTextColor, selectedTextColor, separatorColor);
         }
 
         [Category("Parrot")]
@@ -104,13 +104,13 @@ namespace ReaLTaiizor.Controls
 
         [Category("Parrot")]
         [Browsable(true)]
-        [Description("Seperator color")]
-        public Color SeperatorColor
+        [Description("Separator color")]
+        public Color SeparatorColor
         {
-            get => seperatorColor;
+            get => separatorColor;
             set
             {
-                seperatorColor = value;
+                separatorColor = value;
                 RefreshUI();
             }
         }
@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Controls
 
         private Color selectedTextColor = Color.White;
 
-        private Color seperatorColor = Color.White;
+        private Color separatorColor = Color.White;
     }
 
     #endregion

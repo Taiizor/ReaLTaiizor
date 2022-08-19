@@ -98,6 +98,22 @@ namespace ReaLTaiizor.Controls
         private int progressWidth = 0;
         private DelayedCall timer;
 
+        private bool startLocation = true;
+
+        public bool StartLocation
+        {
+            get => startLocation;
+            set => startLocation = value;
+        }
+
+        private bool customSize = false;
+
+        public bool CustomSize
+        {
+            get => customSize;
+            set => customSize = value;
+        }
+
         private readonly PoisonPanel controlContainer;
 
         public PoisonTaskWindow()
@@ -134,17 +150,24 @@ namespace ReaLTaiizor.Controls
 
                 TopMost = true;
 
-                Size = new(400, 200);
-
-                TaskBar myTaskbar = new();
-                Location = myTaskbar.Position switch
+                if (!CustomSize)
                 {
-                    TaskBarPosition.Left => new Point(myTaskbar.Bounds.Width + 5, myTaskbar.Bounds.Height - Height - 5),
-                    TaskBarPosition.Top => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Height + 5),
-                    TaskBarPosition.Right => new Point(myTaskbar.Bounds.X - Width - 5, myTaskbar.Bounds.Height - Height - 5),
-                    TaskBarPosition.Bottom => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Y - Height - 5),
-                    _ => new Point(Screen.PrimaryScreen.Bounds.Width - Width - 5, Screen.PrimaryScreen.Bounds.Height - Height - 5),
-                };
+                    Size = new(400, 200);
+                }
+
+                if (!StartLocation)
+                {
+                    TaskBar myTaskbar = new();
+                    Location = myTaskbar.Position switch
+                    {
+                        TaskBarPosition.Left => new Point(myTaskbar.Bounds.Width + 5, myTaskbar.Bounds.Height - Height - 5),
+                        TaskBarPosition.Top => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Height + 5),
+                        TaskBarPosition.Right => new Point(myTaskbar.Bounds.X - Width - 5, myTaskbar.Bounds.Height - Height - 5),
+                        TaskBarPosition.Bottom => new Point(myTaskbar.Bounds.Width - Width - 5, myTaskbar.Bounds.Y - Height - 5),
+                        _ => new Point(Screen.PrimaryScreen.Bounds.Width - Width - 5, Screen.PrimaryScreen.Bounds.Height - Height - 5),
+                    };
+                }
+
                 controlContainer.Location = new(0, 60);
                 controlContainer.Size = new(Width - 40, Height - 80);
                 controlContainer.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;

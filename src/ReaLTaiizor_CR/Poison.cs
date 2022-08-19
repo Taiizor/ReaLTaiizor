@@ -1,5 +1,7 @@
 ﻿using ReaLTaiizor.Controls;
+using ReaLTaiizor.Enum.Poison;
 using ReaLTaiizor.Forms;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor_CR
@@ -14,6 +16,30 @@ namespace ReaLTaiizor_CR
         private void poisonButton1_Click(object sender, System.EventArgs e)
         {
             ReportError(LogType.A, "Title", "Message", this, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Hand, null);
+        }
+
+        private void poisonButton2_Click(object sender, System.EventArgs e)
+        {
+            PoisonTaskWindow PTW = new()
+            {
+                Text = "Test",
+
+                Movable = true,
+                Resizable = false,
+                MaximizeBox = false,
+                MinimizeBox = false,
+
+                StartLocation = false,
+                StartPosition = FormStartPosition.CenterScreen,
+
+                Theme = ThemeStyle.Dark,
+                Style = ColorStyle.Magenta,
+
+                CustomSize = true,
+                Size = new Size(300, 75)
+            };
+
+            PTW.Show();
         }
 
         public enum LogType

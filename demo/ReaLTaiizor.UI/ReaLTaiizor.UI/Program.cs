@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReaLTaiizor.UI.Helpers;
+using System;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -10,7 +11,7 @@ namespace ReaLTaiizor.UI
         /// Uygulamanın ana girdi noktası.
         /// </summary>
         [STAThread]
-        private static void Main()
+        private static void Main(string[] Arg)
         {
             try
             {
@@ -21,7 +22,7 @@ namespace ReaLTaiizor.UI
                 CultureInfo cultureInfo = new(CultureInfo.CurrentCulture.TextInfo.CultureName);
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.CurrentCulture = cultureInfo;
-                Application.Run(new Form17());
+                Application.Run(FormHelper.Open(Arg));
             }
             catch (Exception ex)
             {

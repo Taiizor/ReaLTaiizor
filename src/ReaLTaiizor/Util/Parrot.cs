@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Util
             textColor = tc;
             hoverTextColor = htc;
             selectedTextColor = stc;
-            seperatorColor = sc;
+            separatorColor = sc;
         }
 
         protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
@@ -129,7 +129,7 @@ namespace ReaLTaiizor.Util
         protected override void OnRenderSeparator(ToolStripSeparatorRenderEventArgs e)
         {
             base.OnRenderSeparator(e);
-            SolidBrush brush = new SolidBrush(seperatorColor);
+            SolidBrush brush = new SolidBrush(separatorColor);
             Rectangle rect = new Rectangle(1, 3, e.Item.Width, 1);
             e.Graphics.FillRectangle(brush, rect);
         }
@@ -182,7 +182,7 @@ namespace ReaLTaiizor.Util
 
         public Color selectedTextColor;
 
-        public Color seperatorColor;
+        public Color separatorColor;
     }
 
     #endregion

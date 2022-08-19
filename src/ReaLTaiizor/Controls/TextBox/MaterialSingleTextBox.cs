@@ -720,12 +720,12 @@ namespace ReaLTaiizor.Controls
         private class TextBoxContextMenuStrip : MaterialContextMenuStrip
         {
             public readonly ToolStripItem Undo = new MaterialToolStripMenuItem { Text = "Undo" };
-            public readonly ToolStripItem Seperator1 = new ToolStripSeparator();
+            public readonly ToolStripItem Separator1 = new ToolStripSeparator();
             public readonly ToolStripItem Cut = new MaterialToolStripMenuItem { Text = "Cut" };
             public readonly ToolStripItem Copy = new MaterialToolStripMenuItem { Text = "Copy" };
             public readonly ToolStripItem Paste = new MaterialToolStripMenuItem { Text = "Paste" };
             public readonly ToolStripItem Delete = new MaterialToolStripMenuItem { Text = "Delete" };
-            public readonly ToolStripItem Seperator2 = new ToolStripSeparator();
+            public readonly ToolStripItem Separator2 = new ToolStripSeparator();
             public readonly ToolStripItem SelectAll = new MaterialToolStripMenuItem { Text = "Select All" };
 
             public TextBoxContextMenuStrip()
@@ -733,12 +733,12 @@ namespace ReaLTaiizor.Controls
                 Items.AddRange(new[]
                 {
                     Undo,
-                    Seperator1,
+                    Separator1,
                     Cut,
                     Copy,
                     Paste,
                     Delete,
-                    Seperator2,
+                    Separator2,
                     SelectAll
                 });
             }

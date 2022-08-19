@@ -58,6 +58,17 @@ Gracias a estas personas maravillosas ([emoji clave](https://allcontributors.org
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=HideakiAtsuyo" title="Solicitudes de Extracción Revisadas">👀</a>
 	</td>
+    <td align="center">
+		<a href="https://github.com/LandarXT">
+			<img src="https://avatars3.githubusercontent.com/u/104514709?s=460&v=4" width="80px;" alt="LandarXT"/>
+			<br/>
+			<sub>
+				<b>LandarXT</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=LandarXT" title="Solicitudes de Extracción Revisadas">👀</a>
+	</td>
   </tr>
 </table>
 
@@ -183,6 +194,10 @@ Paso 2：Disfruta diseñando
 ### Rufus
 
 [![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Rufus "RufusSample")
+
+### Store
+
+[![StoreSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Store.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Store "StoreSample")
 
 ### Pantalla de Bienvenida
 

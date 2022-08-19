@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net461;net462;net47;net471;net472;net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <!--<TargetFrameworks>net48;net7.0-windows</TargetFrameworks>-->
+    <TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -17,7 +17,7 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.5" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.8.7" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Account.png" />

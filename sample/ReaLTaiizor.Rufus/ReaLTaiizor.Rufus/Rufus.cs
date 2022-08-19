@@ -1,5 +1,6 @@
 ﻿using ReaLTaiizor.Enum.Metro;
 using ReaLTaiizor.Forms;
+using System;
 
 namespace ReaLTaiizor.Rufus
 {
@@ -26,6 +27,26 @@ namespace ReaLTaiizor.Rufus
             else
             {
                 metroStyleManager1.Style = Style.Light;
+            }
+        }
+
+        private void MetroDefaultButton1_Click(object sender, EventArgs e)
+        {
+            metroProgressBar1.Value = 0;
+            metroLabel11.Text = "READY";
+            timer1.Start();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            if (metroProgressBar1.Value < metroProgressBar1.Maximum)
+            {
+                metroProgressBar1.Value += 1;
+            }
+            else
+            {
+                timer1.Stop();
+                metroLabel11.Text = "FINISH";
             }
         }
     }
