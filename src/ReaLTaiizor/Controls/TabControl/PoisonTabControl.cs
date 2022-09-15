@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
 {
     #region PoisonTabControl
 
-#if NET48
+#if NET48_OR_GREATER
     [Designer(typeof(PoisonTabControlDesigner))]
 #endif
     [ToolboxBitmap(typeof(TabControl))]
