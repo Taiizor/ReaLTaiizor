@@ -69,6 +69,17 @@ Bu harika insanlara teşekkürler ([emoji anahtarı](https://allcontributors.org
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=LandarXT" title="İncelenen Çekme İstekleri">👀</a>
 	</td>
+    <td align="center">
+		<a href="https://github.com/edoardopirovano">
+			<img src="https://avatars3.githubusercontent.com/u/6748066?s=460&v=4" width="80px;" alt="edoardopirovano"/>
+			<br/>
+			<sub>
+				<b>edoardopirovano</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=edoardopirovano" title="İncelenen Çekme İstekleri">👀</a>
+	</td>
   </tr>
 </table>
 
