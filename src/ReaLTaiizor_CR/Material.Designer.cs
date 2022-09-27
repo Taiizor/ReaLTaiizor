@@ -41,6 +41,7 @@
             this.materialTextBox3 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
+            this.materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -131,7 +132,7 @@
             this.materialRichTextBox1.Location = new System.Drawing.Point(322, 85);
             this.materialRichTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialRichTextBox1.Name = "materialRichTextBox1";
-            this.materialRichTextBox1.Size = new System.Drawing.Size(291, 106);
+            this.materialRichTextBox1.Size = new System.Drawing.Size(303, 106);
             this.materialRichTextBox1.TabIndex = 8;
             this.materialRichTextBox1.Text = "This is a test message!";
             // 
@@ -189,7 +190,7 @@
             this.materialTextBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.materialTextBox3.Multiline = false;
             this.materialTextBox3.Name = "materialTextBox3";
-            this.materialTextBox3.Size = new System.Drawing.Size(291, 36);
+            this.materialTextBox3.Size = new System.Drawing.Size(303, 36);
             this.materialTextBox3.TabIndex = 11;
             this.materialTextBox3.Text = "testing";
             this.materialTextBox3.UseTallSize = false;
@@ -226,18 +227,36 @@
             this.materialSingleTextBox1.SelectedText = "";
             this.materialSingleTextBox1.SelectionLength = 0;
             this.materialSingleTextBox1.SelectionStart = 0;
-            this.materialSingleTextBox1.Size = new System.Drawing.Size(291, 25);
+            this.materialSingleTextBox1.Size = new System.Drawing.Size(303, 25);
             this.materialSingleTextBox1.TabIndex = 14;
             this.materialSingleTextBox1.TabStop = false;
             this.materialSingleTextBox1.Text = "materialSingleTextBox1";
             this.materialSingleTextBox1.UseAccentColor = true;
             this.materialSingleTextBox1.UseSystemPasswordChar = false;
             // 
+            // materialExpansionPanel1
+            // 
+            this.materialExpansionPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialExpansionPanel1.Depth = 0;
+            this.materialExpansionPanel1.ExpandHeight = 271;
+            this.materialExpansionPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialExpansionPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialExpansionPanel1.Location = new System.Drawing.Point(632, 85);
+            this.materialExpansionPanel1.Margin = new System.Windows.Forms.Padding(16);
+            this.materialExpansionPanel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialExpansionPanel1.Name = "materialExpansionPanel1";
+            this.materialExpansionPanel1.Padding = new System.Windows.Forms.Padding(24, 64, 24, 16);
+            this.materialExpansionPanel1.Size = new System.Drawing.Size(338, 271);
+            this.materialExpansionPanel1.TabIndex = 15;
+            this.materialExpansionPanel1.UseAccentColor = true;
+            this.materialExpansionPanel1.ValidationButtonEnable = true;
+            // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(976, 376);
+            this.Controls.Add(this.materialExpansionPanel1);
             this.Controls.Add(this.materialSingleTextBox1);
             this.Controls.Add(this.materialButton3);
             this.Controls.Add(this.materialTextBox3);
@@ -277,5 +296,6 @@
         private ReaLTaiizor.Controls.MaterialTextBox materialTextBox3;
         private ReaLTaiizor.Controls.MaterialButton materialButton3;
         private ReaLTaiizor.Controls.MaterialSingleTextBox materialSingleTextBox1;
+        private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
     }
 }

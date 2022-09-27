@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
                 {
                     string[] array = process.StandardOutput.ReadToEnd().Split(new char[]
                     {
-                    ' '
+                        ' '
                     });
                     SSID = array[0];
                     percentage = int.Parse(array[1].Remove(0, 2).Replace("%", ""));

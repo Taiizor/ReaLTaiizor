@@ -18,7 +18,7 @@ namespace ReaLTaiizor_CR
             MManager = MaterialManager.Instance;
             MManager.AddFormToManage(this);
             MManager.Theme = MaterialManager.Themes.DARK;
-            MManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.BlueGrey800, MaterialPrimary.BlueGrey900, MaterialPrimary.BlueGrey500, MaterialAccent.LightBlue200, MaterialTextShade.WHITE);
+            MManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
         }
 
         private void MaterialButton1_Click(object sender, EventArgs e)

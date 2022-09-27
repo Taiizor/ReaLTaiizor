@@ -75,6 +75,8 @@
     <Content Include="Resources\round_http_white_24dp.png" />
     <Content Include="Resources\round_report_problem_white_24dp.png" />
     <Content Include="Resources\round_swap_vert_white_24dp.png" />
+    <Content Include="Resources\round_add_black_24dp.png" />
+    <Content Include="Resources\round_phone_black_24dp.png" />
     <Content Include="Resources\StatusAnnotations_Information_16xLG_color.png" />
     <Content Include="Resources\StatusAnnotations_Information_16xMD_color.png" />
     <Content Include="Resources\Taiizor.ico" />
