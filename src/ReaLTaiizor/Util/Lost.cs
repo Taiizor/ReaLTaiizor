@@ -225,7 +225,7 @@ namespace ReaLTaiizor.Util
         {
             base.OnMouseDown(e);
 
-            if (e.Button == MouseButtons.Left && Parent != null && !(Parent is ToolFrameLost) && e.X <= Width && e.Y <= 30)
+            if (e.Button == MouseButtons.Left && Parent != null && Parent is not ToolFrameLost && e.X <= Width && e.Y <= 30)
             {
                 ReleaseCapture();
                 _ = SendMessage(Parent.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);

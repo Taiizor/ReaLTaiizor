@@ -739,28 +739,28 @@ namespace ReaLTaiizor.Controls
             int x = 0;
             int y = 0;
 
-            if (align == System.Drawing.ContentAlignment.BottomLeft || align == System.Drawing.ContentAlignment.MiddleLeft || align == System.Drawing.ContentAlignment.TopLeft)
+            if (align is System.Drawing.ContentAlignment.BottomLeft or System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.TopLeft)
             {
                 x = outer.X;
             }
-            else if (align == System.Drawing.ContentAlignment.BottomCenter || align == System.Drawing.ContentAlignment.MiddleCenter || align == System.Drawing.ContentAlignment.TopCenter)
+            else if (align is System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.TopCenter)
             {
                 x = Math.Max(outer.X + ((outer.Width - inner.Width) / 2), outer.Left);
             }
-            else if (align == System.Drawing.ContentAlignment.BottomRight || align == System.Drawing.ContentAlignment.MiddleRight || align == System.Drawing.ContentAlignment.TopRight)
+            else if (align is System.Drawing.ContentAlignment.BottomRight or System.Drawing.ContentAlignment.MiddleRight or System.Drawing.ContentAlignment.TopRight)
             {
                 x = outer.Right - inner.Width;
             }
 
-            if (align == System.Drawing.ContentAlignment.TopCenter || align == System.Drawing.ContentAlignment.TopLeft || align == System.Drawing.ContentAlignment.TopRight)
+            if (align is System.Drawing.ContentAlignment.TopCenter or System.Drawing.ContentAlignment.TopLeft or System.Drawing.ContentAlignment.TopRight)
             {
                 y = outer.Y;
             }
-            else if (align == System.Drawing.ContentAlignment.MiddleCenter || align == System.Drawing.ContentAlignment.MiddleLeft || align == System.Drawing.ContentAlignment.MiddleRight)
+            else if (align is System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.MiddleRight)
             {
                 y = outer.Y + (outer.Height - inner.Height) / 2;
             }
-            else if (align == System.Drawing.ContentAlignment.BottomCenter || align == System.Drawing.ContentAlignment.BottomRight || align == System.Drawing.ContentAlignment.BottomLeft)
+            else if (align is System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.BottomRight or System.Drawing.ContentAlignment.BottomLeft)
             {
                 y = outer.Bottom - inner.Height;
             }

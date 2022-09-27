@@ -118,7 +118,7 @@ namespace ReaLTaiizor.Manager
 
                 foreach (Control child in ctrl.Controls)
                 {
-                    if (!(child is IMetroControl))
+                    if (child is not IMetroControl)
                     {
                         continue;
                     } ((IMetroControl)child).Style = Style;

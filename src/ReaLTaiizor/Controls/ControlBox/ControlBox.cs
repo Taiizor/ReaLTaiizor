@@ -97,7 +97,7 @@ namespace ReaLTaiizor.Controls
             int Y = e.Location.Y;
             if (Y > 0 && Y < Height)
             {
-                if (X >= 0 && X <= 30)
+                if (X is >= 0 and <= 30)
                 {
                     ButtonHState = ButtonHoverState.Minimize;
                     if (_EnableMinimize == true)
@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Controls
                         Cursor = Cursors.No;
                     }
                 }
-                else if (X > 30 && X <= 60)
+                else if (X is > 30 and <= 60)
                 {
                     ButtonHState = ButtonHoverState.Maximize;
                     if (_EnableMaximize == true)

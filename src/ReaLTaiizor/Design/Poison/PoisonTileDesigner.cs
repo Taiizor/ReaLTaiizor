@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Design.Poison
 
         public override bool CanParent(System.Windows.Forms.Control control)
         {
-            return (control is PoisonLabel || control is PoisonProgressSpinner);
+            return (control is PoisonLabel or PoisonProgressSpinner);
         }
 
         protected override void PreFilterProperties(IDictionary properties)

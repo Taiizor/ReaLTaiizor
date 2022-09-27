@@ -366,7 +366,7 @@ namespace ReaLTaiizor.Controls
                 textRect.X += 8 + 24 + 4; // left padding + icon width + space between Icon and Text
             }
 
-            Color textColor = Enabled ? (HighEmphasis ? (Type == MaterialButtonType.Text || Type == MaterialButtonType.Outlined) ?
+            Color textColor = Enabled ? (HighEmphasis ? (Type is MaterialButtonType.Text or MaterialButtonType.Outlined) ?
                 (UseAccentColor ? SkinManager.ColorScheme.AccentColor : // Outline or Text and accent and emphasis
                 SkinManager.ColorScheme.PrimaryColor) : // Outline or Text and emphasis
                 SkinManager.ColorScheme.TextColor : // Contained and Emphasis
@@ -478,7 +478,7 @@ namespace ReaLTaiizor.Controls
 
             KeyDown += (object sender, KeyEventArgs e) =>
             {
-                if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Space)
+                if (e.KeyCode is Keys.Enter or Keys.Space)
                 {
                     _animationManager.StartNewAnimation(AnimationDirection.In, new Point(ClientRectangle.Width >> 1, ClientRectangle.Height >> 1));
                     Invalidate();

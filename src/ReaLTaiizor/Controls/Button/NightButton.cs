@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Controls
             get => _Radius;
             set
             {
-                if (!(value < 1 || value > 20))
+                if (value is not (< 1 or > 20))
                 {
                     _Radius = value;
                 }

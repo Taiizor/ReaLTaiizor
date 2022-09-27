@@ -153,7 +153,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            if (_StartPosition == FormStartPosition.CenterParent || _StartPosition == FormStartPosition.CenterScreen)
+            if (_StartPosition is FormStartPosition.CenterParent or FormStartPosition.CenterScreen)
             {
                 Rectangle SB = Screen.PrimaryScreen.Bounds;
                 Rectangle CB = ParentForm.Bounds;

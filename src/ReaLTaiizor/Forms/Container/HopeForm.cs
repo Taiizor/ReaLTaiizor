@@ -262,7 +262,7 @@ namespace ReaLTaiizor.Forms
         {
             base.OnPaint(e);
 
-            if (Dock == DockStyle.Left || Dock == DockStyle.Right || Dock == DockStyle.None)
+            if (Dock is DockStyle.Left or DockStyle.Right or DockStyle.None)
             {
                 Dock = DockStyle.Top;
             }

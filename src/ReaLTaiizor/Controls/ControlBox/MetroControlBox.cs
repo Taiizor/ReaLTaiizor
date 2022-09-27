@@ -447,13 +447,13 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             if (e.Location.Y > 0 && e.Location.Y < (Height - 2))
             {
-                if (e.Location.X > 0 && e.Location.X < 34)
+                if (e.Location.X is > 0 and < 34)
                 {
                     MinimizeHovered = true;
                     MaximizeHovered = false;
                     CloseHovered = false;
                 }
-                else if (e.Location.X > 33 && e.Location.X < 65)
+                else if (e.Location.X is > 33 and < 65)
                 {
                     MinimizeHovered = false;
                     MaximizeHovered = true;

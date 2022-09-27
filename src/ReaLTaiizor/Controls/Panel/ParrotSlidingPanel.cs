@@ -191,10 +191,7 @@ namespace ReaLTaiizor.Controls
 
         protected virtual void CollapsedStateChanged()
         {
-            if (OnCollapsedStateChanged != null)
-            {
-                OnCollapsedStateChanged(this, new EventArgs());
-            }
+            OnCollapsedStateChanged?.Invoke(this, new EventArgs());
         }
 
         private readonly ParrotSleeper sleeper = new();

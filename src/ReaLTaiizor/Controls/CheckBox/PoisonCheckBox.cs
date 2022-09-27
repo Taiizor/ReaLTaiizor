@@ -474,7 +474,7 @@ namespace ReaLTaiizor.Controls
                 preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.CheckBox(FontSize, FontWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
                 preferredSize.Width += 16;
 
-                if (CheckAlign == ContentAlignment.TopCenter || CheckAlign == ContentAlignment.BottomCenter)
+                if (CheckAlign is ContentAlignment.TopCenter or ContentAlignment.BottomCenter)
                 {
                     preferredSize.Height += 16;
                 }

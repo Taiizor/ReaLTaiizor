@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
         {
-            if (e.ClickedItem != null && !(e.ClickedItem is ToolStripSeparator))
+            if (e.ClickedItem is not null and not ToolStripSeparator)
             {
                 if (e == _delayesArgs)
                 {

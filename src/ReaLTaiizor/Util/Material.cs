@@ -1347,7 +1347,7 @@ namespace ReaLTaiizor.Util
             {
                 try
                 {
-                    _animationProgresses[index] -= (_animationDirections[index] == AnimationDirection.InOutOut || _animationDirections[index] == AnimationDirection.InOutRepeatingOut) ? SecondaryIncrement : Increment;
+                    _animationProgresses[index] -= (_animationDirections[index] is AnimationDirection.InOutOut or AnimationDirection.InOutRepeatingOut) ? SecondaryIncrement : Increment;
                     if (_animationProgresses[index] < MIN_VALUE)
                     {
                         _animationProgresses[index] = MIN_VALUE;

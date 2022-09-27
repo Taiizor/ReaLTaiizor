@@ -396,14 +396,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left)
+            if (e.KeyCode is Keys.Subtract or Keys.Down or Keys.Left)
             {
                 if (Value != 0)
                 {
                     Value -= 1;
                 }
             }
-            else if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Up || e.KeyCode == Keys.Right)
+            else if (e.KeyCode is Keys.Add or Keys.Up or Keys.Right)
             {
                 if (Value != Maximum)
                 {

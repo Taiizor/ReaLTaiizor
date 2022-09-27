@@ -231,7 +231,7 @@ namespace ReaLTaiizor.Controls
             get => speed;
             set
             {
-                if (value <= 0 || value > 10)
+                if (value is <= 0 or > 10)
                 {
                     throw new ArgumentOutOfRangeException("Speed value must be > 0 and <= 10.", (Exception)null);
                 }

@@ -234,7 +234,7 @@ namespace ReaLTaiizor.Controls
                     {
                         foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.ButtonDictionary)
                         {
-                            if ((varkey.Key == null) || varkey.Key == null)
+                            if (varkey.Key is null)
                             {
                                 return;
                             }

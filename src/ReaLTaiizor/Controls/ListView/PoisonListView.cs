@@ -318,7 +318,7 @@ namespace ReaLTaiizor.Controls
             SuspendLayout();
             EnsureVisible(pos);
 
-            if (View == View.Tile || View == View.LargeIcon || View == View.SmallIcon)
+            if (View is View.Tile or View.LargeIcon or View.SmallIcon)
             {
                 return;
             }
@@ -390,11 +390,11 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            else if (m.Msg == LVM_INSERTITEMA || m.Msg == LVM_INSERTITEMW)
+            else if (m.Msg is (int)LVM_INSERTITEMA or (int)LVM_INSERTITEMW)
             {
                 OnItemAdded();
             }
-            else if (m.Msg == LVM_DELETEITEM || m.Msg == LVM_DELETEALLITEMS)
+            else if (m.Msg is (int)LVM_DELETEITEM or (int)LVM_DELETEALLITEMS)
             {
                 OnItemsRemoved();
             }

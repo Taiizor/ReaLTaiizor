@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Controls
                 StartPosition = FormStartPosition.Manual
             };
 
-            if (parent != null && parent is IPoisonForm form)
+            if (parent is not null and IPoisonForm form)
             {
                 singletonWindow.Theme = form.Theme;
                 singletonWindow.Style = form.Style;

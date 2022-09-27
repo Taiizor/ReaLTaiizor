@@ -486,7 +486,7 @@ namespace ReaLTaiizor.Controls
                     pixelColor = bitmapImage.GetPixel(x, y);
 
                     A = pixelColor.A;
-                    if (pixelColor.A <= 255 && pixelColor.A >= 100)
+                    if (pixelColor.A is <= 255 and >= 100)
                     {
                         A = 90;
                     }

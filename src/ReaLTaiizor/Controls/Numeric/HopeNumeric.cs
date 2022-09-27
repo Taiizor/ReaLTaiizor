@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Controls
             get => _precision;
             set
             {
-                _precision = (value < 0 || value > 6) ? 0 : value;
+                _precision = (value is < 0 or > 6) ? 0 : value;
                 Invalidate();
             }
         }

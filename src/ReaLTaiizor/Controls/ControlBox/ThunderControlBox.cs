@@ -62,11 +62,11 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            if (e.Location.X > 0 && e.Location.X < 20)
+            if (e.Location.X is > 0 and < 20)
             {
                 FindForm().WindowState = FormWindowState.Minimized;
             }
-            else if (e.Location.X > 25 && e.Location.X < 45)
+            else if (e.Location.X is > 25 and < 45)
             {
                 if (FindForm().WindowState == FormWindowState.Normal)
                 {
@@ -77,7 +77,7 @@ namespace ReaLTaiizor.Controls
                     FindForm().WindowState = FormWindowState.Normal;
                 }
             }
-            else if (e.Location.X > 50 && e.Location.X < 70)
+            else if (e.Location.X is > 50 and < 70)
             {
                 FindForm().Close();
             }
@@ -159,7 +159,7 @@ namespace ReaLTaiizor.Controls
                     G.DrawString("r", mf, mfb, 52, 4);
                     break;
                 case MouseStateThunder.Over:
-                    if (x > 0 && x < 20)
+                    if (x is > 0 and < 20)
                     {
                         mlgb = new(MinBtn, Color.FromArgb(100, C1), Color.FromArgb(100, C2), 90);
                         G.FillPath(mlgb, GP1);
@@ -188,7 +188,7 @@ namespace ReaLTaiizor.Controls
 
                         Cursor = Cursors.Hand;
                     }
-                    else if (x > 25 && x < 45)
+                    else if (x is > 25 and < 45)
                     {
                         mlgb = new(MinBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP1);
@@ -217,7 +217,7 @@ namespace ReaLTaiizor.Controls
 
                         Cursor = Cursors.Hand;
                     }
-                    else if (x > 50 && x < 70)
+                    else if (x is > 50 and < 70)
                     {
                         mlgb = new(MinBtn, C1, C2, 90);
                         G.FillPath(mlgb, GP1);

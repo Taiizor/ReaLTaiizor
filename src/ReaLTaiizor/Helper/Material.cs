@@ -53,22 +53,22 @@ namespace ReaLTaiizor.Helper
 
         public static Color FromHsl(int alpha, float hue, float saturation, float lighting)
         {
-            if (0 > alpha || 255 < alpha)
+            if (alpha is < 0 or > 255)
             {
                 throw new ArgumentOutOfRangeException(nameof(alpha));
             }
 
-            if (0f > hue || 360f < hue)
+            if (hue is < 0f or > 360f)
             {
                 throw new ArgumentOutOfRangeException(nameof(hue));
             }
 
-            if (0f > saturation || 1f < saturation)
+            if (saturation is < 0f or > 1f)
             {
                 throw new ArgumentOutOfRangeException(nameof(saturation));
             }
 
-            if (0f > lighting || 1f < lighting)
+            if (lighting is < 0f or > 1f)
             {
                 throw new ArgumentOutOfRangeException(nameof(lighting));
             }

@@ -41,11 +41,11 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            if (X > 3 && X < 20)
+            if (X is > 3 and < 20)
             {
                 FindForm().Close();
             }
-            else if (X > 23 && X < 40)
+            else if (X is > 23 and < 40)
             {
                 if (_EnableMinimize == true)
                 {
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
                     }
                 }
             }
-            else if (X > 43 && X < 60)
+            else if (X is > 43 and < 60)
             {
                 if (_EnableMaximize == true)
                 {
@@ -288,14 +288,14 @@ namespace ReaLTaiizor.Controls
                     Cursor = Cursors.Hand;
                     break;
                 case MouseState.Over:
-                    if (X > 3 && X < 20)
+                    if (X is > 3 and < 20)
                     {
                         LinearGradientBrush xLGBClose = new(CloseBtn, Color.FromArgb(248, 152, 124), Color.FromArgb(231, 92, 45), 90);
                         G.FillEllipse(xLGBClose, CloseBtn);
                         G.DrawEllipse(new(Color.FromArgb(57, 56, 53)), CloseBtn);
                         G.DrawString("r", new Font("Marlett", 7), new SolidBrush(Color.FromArgb(52, 50, 46)), new Rectangle((int)6.5, 8, 0, 0));
                     }
-                    else if (X > 23 && X < 40)
+                    else if (X is > 23 and < 40)
                     {
                         if (_EnableMinimize == true)
                         {
@@ -312,7 +312,7 @@ namespace ReaLTaiizor.Controls
                             G.DrawString("1", new Font("Marlett", 7), new SolidBrush(Color.FromArgb(52, 50, 46)), new Rectangle(26, 7, 0, 0));
                         }
                     }
-                    else if (X > 43 && X < 60)
+                    else if (X is > 43 and < 60)
                     {
                         if (_EnableMaximize == true && _EnableMinimize == true)
                         {

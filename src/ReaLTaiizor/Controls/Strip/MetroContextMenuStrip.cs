@@ -225,7 +225,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
         {
-            if ((e.ClickedItem == null) || e.ClickedItem is ToolStripSeparator)
+            if (e.ClickedItem is null or ToolStripSeparator)
             {
                 return;
             }

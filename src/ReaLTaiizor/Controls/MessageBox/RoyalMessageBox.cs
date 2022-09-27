@@ -223,15 +223,15 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                if (Icon == MessageBoxIcon.Warning || Icon == MessageBoxIcon.Exclamation)
+                if (Icon is MessageBoxIcon.Warning or MessageBoxIcon.Exclamation)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 128, 0)), messageRect);
                 }
-                else if (Icon == MessageBoxIcon.Information || Icon == MessageBoxIcon.Asterisk)
+                else if (Icon is MessageBoxIcon.Information or MessageBoxIcon.Asterisk)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.Gray), messageRect);
                 }
-                else if (Icon == MessageBoxIcon.Error || Icon == MessageBoxIcon.Hand || Icon == MessageBoxIcon.Stop)
+                else if (Icon is MessageBoxIcon.Error or MessageBoxIcon.Hand or MessageBoxIcon.Stop)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.Crimson), messageRect);
                 }
@@ -257,7 +257,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (mode)
                 {
-                    if (Icon == MessageBoxIcon.Warning || Icon == MessageBoxIcon.Exclamation)
+                    if (Icon is MessageBoxIcon.Warning or MessageBoxIcon.Exclamation)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Warning, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(Content))
@@ -265,7 +265,7 @@ namespace ReaLTaiizor.Controls
                             e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
                         }
                     }
-                    else if (Icon == MessageBoxIcon.Information || Icon == MessageBoxIcon.Asterisk)
+                    else if (Icon is MessageBoxIcon.Information or MessageBoxIcon.Asterisk)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Information, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(Content))
@@ -273,7 +273,7 @@ namespace ReaLTaiizor.Controls
                             e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
                         }
                     }
-                    else if (Icon == MessageBoxIcon.Error || Icon == MessageBoxIcon.Hand || Icon == MessageBoxIcon.Stop)
+                    else if (Icon is MessageBoxIcon.Error or MessageBoxIcon.Hand or MessageBoxIcon.Stop)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Error, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
                         if (!string.IsNullOrEmpty(Content))

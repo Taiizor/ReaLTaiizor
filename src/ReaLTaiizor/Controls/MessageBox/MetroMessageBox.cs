@@ -236,7 +236,7 @@ namespace ReaLTaiizor.Controls
                 Size = new(form.Width - 2, (form.Height / 3) - 1),
                 Location = new(form.Location.X, (form.Height / 2) - 1)
             };
-            if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Stop)
+            if (icon is MessageBoxIcon.Error or MessageBoxIcon.Stop)
             {
                 BackgroundColor = Color.FromArgb(210, 50, 45);
                 BorderColor = Color.FromArgb(210, 50, 45);
@@ -254,13 +254,13 @@ namespace ReaLTaiizor.Controls
                 BorderColor = Color.FromArgb(70, 165, 70);
                 ForegroundColor = Color.White;
             }
-            else if (icon == MessageBoxIcon.Exclamation || icon == MessageBoxIcon.Warning)
+            else if (icon is MessageBoxIcon.Exclamation or MessageBoxIcon.Warning)
             {
                 BackgroundColor = Color.FromArgb(237, 156, 40);
                 BorderColor = Color.FromArgb(237, 156, 40);
                 ForegroundColor = Color.White;
             }
-            else if (icon == MessageBoxIcon.None || icon == MessageBoxIcon.Asterisk || icon == MessageBoxIcon.Hand)
+            else if (icon is MessageBoxIcon.None or MessageBoxIcon.Asterisk or MessageBoxIcon.Hand)
             {
                 BackgroundColor = Color.White;
                 BorderColor = Color.FromArgb(65, 177, 225);

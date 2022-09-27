@@ -179,7 +179,7 @@ namespace ReaLTaiizor.Controls
 
             Point pos = new(0, ClientRectangle.Bottom);
 
-            if (DropdownDirection == ToolStripDropDownDirection.AboveLeft || DropdownDirection == ToolStripDropDownDirection.AboveRight)
+            if (DropdownDirection is ToolStripDropDownDirection.AboveLeft or ToolStripDropDownDirection.AboveRight)
             {
                 pos.Y = 0;
             }

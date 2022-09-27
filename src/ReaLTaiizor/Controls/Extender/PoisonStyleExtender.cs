@@ -131,7 +131,7 @@ namespace ReaLTaiizor.Controls
 
         bool IExtenderProvider.CanExtend(object target)
         {
-            return target is Control && !(target is IPoisonControl || target is IPoisonForm);
+            return target is Control and not (IPoisonControl or IPoisonForm);
         }
 
         [DefaultValue(false)]

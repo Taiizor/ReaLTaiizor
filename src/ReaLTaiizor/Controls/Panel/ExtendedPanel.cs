@@ -66,7 +66,7 @@ namespace ReaLTaiizor.Controls
             get => _Opacity;
             set
             {
-                if (value < 0 || value > 100)
+                if (value is < 0 or > 100)
                 {
                     value = 0;
                 }

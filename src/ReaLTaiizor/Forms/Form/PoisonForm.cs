@@ -384,7 +384,7 @@ namespace ReaLTaiizor.Forms
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            if (!(this is ReaLTaiizor.Controls.PoisonTaskWindow))
+            if (this is not ReaLTaiizor.Controls.PoisonTaskWindow)
             {
                 ReaLTaiizor.Controls.PoisonTaskWindow.ForceClose();
             }

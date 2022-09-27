@@ -171,7 +171,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            if (e.Button != MouseButtons.Left && e.Button != MouseButtons.Right)
+            if (e.Button is not MouseButtons.Left and not MouseButtons.Right)
             {
                 return;
             }
@@ -215,7 +215,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            if (e.KeyCode != Keys.Down && e.KeyCode != Keys.Up)
+            if (e.KeyCode is not Keys.Down and not Keys.Up)
             {
                 return;
             }
