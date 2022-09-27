@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem1 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem2 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem3 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
             this.materialTextBox1 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.materialTextBox2 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -53,7 +50,8 @@
             this.materialCheckBox6 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox7 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox8 = new ReaLTaiizor.Controls.MaterialCheckBox();
-            this.materialListBox1 = new ReaLTaiizor.Controls.MaterialListBox();
+            this.materialTextBoxEdit1 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            this.materialTextBox4 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -391,38 +389,58 @@
             this.materialCheckBox8.UseAccentColor = false;
             this.materialCheckBox8.UseVisualStyleBackColor = true;
             // 
-            // materialListBox1
+            // materialTextBoxEdit1
             // 
-            this.materialListBox1.BackColor = System.Drawing.Color.White;
-            this.materialListBox1.BorderColor = System.Drawing.Color.LightGray;
-            this.materialListBox1.Depth = 0;
-            this.materialListBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialListBoxItem1.SecondaryText = "";
-            materialListBoxItem1.Tag = null;
-            materialListBoxItem1.Text = "ListBoxItem";
-            materialListBoxItem2.SecondaryText = "";
-            materialListBoxItem2.Tag = null;
-            materialListBoxItem2.Text = "ListBoxItem";
-            materialListBoxItem3.SecondaryText = "";
-            materialListBoxItem3.Tag = null;
-            materialListBoxItem3.Text = "ListBoxItem";
-            this.materialListBox1.Items.Add(materialListBoxItem1);
-            this.materialListBox1.Items.Add(materialListBoxItem2);
-            this.materialListBox1.Items.Add(materialListBoxItem3);
-            this.materialListBox1.Location = new System.Drawing.Point(12, 362);
-            this.materialListBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialListBox1.Name = "materialListBox1";
-            this.materialListBox1.SelectedIndex = -1;
-            this.materialListBox1.SelectedItem = null;
-            this.materialListBox1.Size = new System.Drawing.Size(291, 214);
-            this.materialListBox1.TabIndex = 16;
+            this.materialTextBoxEdit1.AnimateReadOnly = false;
+            this.materialTextBoxEdit1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.materialTextBoxEdit1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.materialTextBoxEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialTextBoxEdit1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.materialTextBoxEdit1.Depth = 0;
+            this.materialTextBoxEdit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBoxEdit1.HideSelection = true;
+            this.materialTextBoxEdit1.LeadingIcon = null;
+            this.materialTextBoxEdit1.Location = new System.Drawing.Point(12, 362);
+            this.materialTextBoxEdit1.MaxLength = 32767;
+            this.materialTextBoxEdit1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialTextBoxEdit1.Name = "materialTextBoxEdit1";
+            this.materialTextBoxEdit1.PasswordChar = '\0';
+            this.materialTextBoxEdit1.PrefixSuffixText = null;
+            this.materialTextBoxEdit1.ReadOnly = false;
+            this.materialTextBoxEdit1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.materialTextBoxEdit1.SelectedText = "";
+            this.materialTextBoxEdit1.SelectionLength = 0;
+            this.materialTextBoxEdit1.SelectionStart = 0;
+            this.materialTextBoxEdit1.ShortcutsEnabled = true;
+            this.materialTextBoxEdit1.Size = new System.Drawing.Size(250, 48);
+            this.materialTextBoxEdit1.TabIndex = 16;
+            this.materialTextBoxEdit1.TabStop = false;
+            this.materialTextBoxEdit1.Text = "materialTextBoxEdit1";
+            this.materialTextBoxEdit1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.materialTextBoxEdit1.TrailingIcon = null;
+            this.materialTextBoxEdit1.UseSystemPasswordChar = false;
+            // 
+            // materialTextBox4
+            // 
+            this.materialTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBox4.Depth = 0;
+            this.materialTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox4.Location = new System.Drawing.Point(268, 362);
+            this.materialTextBox4.MaxLength = 50;
+            this.materialTextBox4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialTextBox4.Multiline = false;
+            this.materialTextBox4.Name = "materialTextBox4";
+            this.materialTextBox4.Size = new System.Drawing.Size(357, 50);
+            this.materialTextBox4.TabIndex = 17;
+            this.materialTextBox4.Text = "fsdfdsfg";
             // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(976, 582);
-            this.Controls.Add(this.materialListBox1);
+            this.Controls.Add(this.materialTextBox4);
+            this.Controls.Add(this.materialTextBoxEdit1);
             this.Controls.Add(this.materialExpansionPanel1);
             this.Controls.Add(this.materialSingleTextBox1);
             this.Controls.Add(this.materialButton3);
@@ -472,6 +490,7 @@
         private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox6;
         private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox7;
         private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox8;
-        private ReaLTaiizor.Controls.MaterialListBox materialListBox1;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit1;
+        private ReaLTaiizor.Controls.MaterialTextBox materialTextBox4;
     }
 }
