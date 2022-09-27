@@ -465,7 +465,7 @@ namespace ReaLTaiizor.Controls
             double hoverAnimProgress = _hoverAnimationManager.GetProgress();
             double focusAnimProgress = _focusAnimationManager.GetProgress();
 
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
 
             // button rectand path
             RectangleF buttonRectF = new RectangleF(ClientRectangle.Location, ClientRectangle.Size);
