@@ -77,7 +77,7 @@ namespace ReaLTaiizor.UI.Localization.Poison
 
         public string Translate(string key)
         {
-            if ((string.IsNullOrEmpty(key)))
+            if (string.IsNullOrEmpty(key))
             {
                 return "";
             }
