@@ -1,6 +1,5 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
 using System;
 using System.ComponentModel;
@@ -133,7 +132,7 @@ namespace ReaLTaiizor.Controls
         {
             Size strSize;
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+            using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
                 strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1));
             }
@@ -152,15 +151,15 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
 
             int CHECKBOX_CENTER = _boxOffset + CHECKBOX_SIZE_HALF - 1;
-            Point animationSource = new Point(CHECKBOX_CENTER, CHECKBOX_CENTER);
+            Point animationSource = new(CHECKBOX_CENTER, CHECKBOX_CENTER);
             double animationProgress = _checkAM.GetProgress();
 
             int colorAlpha = Enabled ? (int)(animationProgress * 255.0) : SkinManager.CheckBoxOffDisabledColor.A;
             int backgroundAlpha = Enabled ? (int)(SkinManager.CheckboxOffColor.A * (1.0 - animationProgress)) : SkinManager.CheckBoxOffDisabledColor.A;
             int rippleHeight = (HEIGHT_RIPPLE % 2 == 0) ? HEIGHT_RIPPLE - 3 : HEIGHT_RIPPLE - 2;
 
-            SolidBrush brush = new SolidBrush(Color.FromArgb(colorAlpha, Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : SkinManager.CheckBoxOffDisabledColor));
-            Pen pen = new Pen(brush.Color, 2);
+            SolidBrush brush = new(Color.FromArgb(colorAlpha, Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : SkinManager.CheckBoxOffDisabledColor));
+            Pen pen = new(brush.Color, 2);
 
             // draw hover animation
             if (Ripple)
@@ -168,11 +167,9 @@ namespace ReaLTaiizor.Controls
                 double animationValue = _hoverAM.IsAnimating() ? _hoverAM.GetProgress() : hovered ? 1 : 0;
                 int rippleSize = (int)(rippleHeight * (0.7 + (0.3 * animationValue)));
 
-                using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * animationValue),
-                    !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : brush.Color))) // no animation
-                {
-                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
-                }
+                using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * animationValue),
+                    !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : brush.Color)); // no animation
+                g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
             }
 
             // draw ripple animation
@@ -183,19 +180,17 @@ namespace ReaLTaiizor.Controls
                     double animationValue = _rippleAM.GetProgress(i);
                     int rippleSize = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleHeight * (0.7 + (0.3 * animationValue))) : rippleHeight;
 
-                    using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(animationValue * 40), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : brush.Color)))
-                    {
-                        g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
-                    }
+                    using SolidBrush rippleBrush = new(Color.FromArgb((int)(animationValue * 40), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : brush.Color));
+                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
                 }
             }
 
-            Rectangle checkMarkLineFill = new Rectangle(_boxOffset, _boxOffset, (int)(CHECKBOX_SIZE * animationProgress), CHECKBOX_SIZE);
+            Rectangle checkMarkLineFill = new(_boxOffset, _boxOffset, (int)(CHECKBOX_SIZE * animationProgress), CHECKBOX_SIZE);
             using (GraphicsPath checkmarkPath = CreateRoundRect(_boxOffset - 0.5f, _boxOffset - 0.5f, CHECKBOX_SIZE, CHECKBOX_SIZE, 1))
             {
                 if (Enabled)
                 {
-                    using (Pen pen2 = new Pen(BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
+                    using (Pen pen2 = new(BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
                     {
                         g.DrawPath(pen2, checkmarkPath);
                     }
@@ -219,9 +214,9 @@ namespace ReaLTaiizor.Controls
             }
 
             // draw checkbox text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
-                Rectangle textLocation = new Rectangle(_boxOffset + TEXT_OFFSET, 0, Width - (_boxOffset + TEXT_OFFSET), HEIGHT_RIPPLE);
+                Rectangle textLocation = new(_boxOffset + TEXT_OFFSET, 0, Width - (_boxOffset + TEXT_OFFSET), HEIGHT_RIPPLE);
                 NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textLocation.Location,
@@ -364,14 +359,14 @@ namespace ReaLTaiizor.Controls
         #region Private events and methods
         private Bitmap DrawCheckMarkBitmap()
         {
-            Bitmap checkMark = new Bitmap(CHECKBOX_SIZE, CHECKBOX_SIZE);
+            Bitmap checkMark = new(CHECKBOX_SIZE, CHECKBOX_SIZE);
             Graphics g = Graphics.FromImage(checkMark);
 
             // clear everything, transparent
             g.Clear(Color.Transparent);
 
             // draw the checkmark lines
-            using (Pen pen = new Pen(Parent.BackColor, 2))
+            using (Pen pen = new(Parent.BackColor, 2))
             {
                 g.DrawLines(pen, CheckmarkLine);
             }

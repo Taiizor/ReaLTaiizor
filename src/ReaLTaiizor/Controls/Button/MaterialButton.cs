@@ -19,7 +19,7 @@ using static ReaLTaiizor.Util.MaterialAnimations;
 namespace ReaLTaiizor.Controls
 {
     #region MaterialButton
-    
+
     public class MaterialButton : System.Windows.Forms.Button, MaterialControlI
     {
         private const int ICON_SIZE = 24;
@@ -320,7 +320,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Text = value;
-                
+
                 if (!string.IsNullOrEmpty(value))
                 {
                     _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.GetFontByType(MaterialManager.FontType.Button));
@@ -355,7 +355,7 @@ namespace ReaLTaiizor.Controls
 
             // paint shadow on parent
             Graphics gp = e.Graphics;
-            Rectangle rect = new Rectangle(Location, ClientRectangle.Size);
+            Rectangle rect = new(Location, ClientRectangle.Size);
             gp.SmoothingMode = SmoothingMode.AntiAlias;
             MaterialDrawHelper.DrawSquareShadow(gp, rect);
         }
@@ -400,7 +400,7 @@ namespace ReaLTaiizor.Controls
                 newHeight = Icon.Height;
             }
 
-            Bitmap IconResized = new Bitmap(Icon, newWidth, newHeight);
+            Bitmap IconResized = new(Icon, newWidth, newHeight);
 
             // Calculate lightness and color
             float l = (SkinManager.Theme == MaterialManager.Themes.LIGHT & (highEmphasis == false | Enabled == false | Type != MaterialButtonType.Contained)) ? 0f : 1.5f;
@@ -414,18 +414,18 @@ namespace ReaLTaiizor.Controls
                     new float[] {   l,   l,   l,   0,  1}};// offset
 
 
-            ColorMatrix colorMatrixGray = new ColorMatrix(matrixGray);
+            ColorMatrix colorMatrixGray = new(matrixGray);
 
-            ImageAttributes grayImageAttributes = new ImageAttributes();
+            ImageAttributes grayImageAttributes = new();
 
             // Set color matrices
             grayImageAttributes.SetColorMatrix(colorMatrixGray, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
 
             // Image Rect
-            Rectangle destRect = new Rectangle(0, 0, ICON_SIZE, ICON_SIZE);
+            Rectangle destRect = new(0, 0, ICON_SIZE, ICON_SIZE);
 
             // Create a pre-processed copy of the image (GRAY)
-            Bitmap bgray = new Bitmap(destRect.Width, destRect.Height);
+            Bitmap bgray = new(destRect.Width, destRect.Height);
             using (Graphics gGray = Graphics.FromImage(bgray))
             {
                 gGray.DrawImage(IconResized,
@@ -438,12 +438,12 @@ namespace ReaLTaiizor.Controls
             }
 
             // added processed image to brush for drawing
-            TextureBrush textureBrushGray = new TextureBrush(bgray);
+            TextureBrush textureBrushGray = new(bgray);
 
             textureBrushGray.WrapMode = System.Drawing.Drawing2D.WrapMode.Clamp;
 
             // Translate the brushes to the correct positions
-            Rectangle iconRect = new Rectangle(8, (Height / 2) - (ICON_SIZE / 2), ICON_SIZE, ICON_SIZE);
+            Rectangle iconRect = new(8, (Height / 2) - (ICON_SIZE / 2), ICON_SIZE, ICON_SIZE);
 
             textureBrushGray.TranslateTransform(iconRect.X + (iconRect.Width / 2) - (IconResized.Width / 2),
                                                 iconRect.Y + (iconRect.Height / 2) - (IconResized.Height / 2));
@@ -468,7 +468,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
 
             // button rectand path
-            RectangleF buttonRectF = new RectangleF(ClientRectangle.Location, ClientRectangle.Size);
+            RectangleF buttonRectF = new(ClientRectangle.Location, ClientRectangle.Size);
             buttonRectF.X -= 0.5f;
             buttonRectF.Y -= 0.5f;
             GraphicsPath buttonPath = MaterialDrawHelper.CreateRoundRect(buttonRectF, 4);
@@ -482,10 +482,8 @@ namespace ReaLTaiizor.Controls
                 // Disabled
                 if (!Enabled)
                 {
-                    using (SolidBrush disabledBrush = new SolidBrush(MaterialDrawHelper.BlendColor(Parent.BackColor, SkinManager.BackgroundDisabledColor, SkinManager.BackgroundDisabledColor.A)))
-                    {
-                        g.FillPath(disabledBrush, buttonPath);
-                    }
+                    using SolidBrush disabledBrush = new(MaterialDrawHelper.BlendColor(Parent.BackColor, SkinManager.BackgroundDisabledColor, SkinManager.BackgroundDisabledColor.A));
+                    g.FillPath(disabledBrush, buttonPath);
                 }
                 // High emphasis
                 else if (HighEmphasis)
@@ -495,10 +493,8 @@ namespace ReaLTaiizor.Controls
                 // Mormal
                 else
                 {
-                    using (SolidBrush normalBrush = new SolidBrush(SkinManager.BackgroundColor))
-                    {
-                        g.FillPath(normalBrush, buttonPath);
-                    }
+                    using SolidBrush normalBrush = new(SkinManager.BackgroundColor);
+                    g.FillPath(normalBrush, buttonPath);
                 }
             }
             else
@@ -509,39 +505,33 @@ namespace ReaLTaiizor.Controls
             //Hover
             if (hoverAnimProgress > 0)
             {
-                using (SolidBrush hoverBrush = new SolidBrush(Color.FromArgb(
+                using SolidBrush hoverBrush = new(Color.FromArgb(
                     (int)(HighEmphasis && Type == MaterialButtonType.Contained ? hoverAnimProgress * 80 : hoverAnimProgress * SkinManager.BackgroundHoverColor.A), (UseAccentColor ? (HighEmphasis && Type == MaterialButtonType.Contained ?
                     SkinManager.ColorScheme.AccentColor.Lighten(0.5f) : // Contained with Emphasis - with accent
                     SkinManager.ColorScheme.AccentColor) : // Not Contained Or Low Emphasis - with accent
                     (Type == MaterialButtonType.Contained && HighEmphasis ? SkinManager.ColorScheme.LightPrimaryColor : // Contained with Emphasis without accent
-                    SkinManager.ColorScheme.PrimaryColor)).RemoveAlpha()))) // Normal or Emphasis without accent
-                {
-                    g.FillPath(hoverBrush, buttonPath);
-                }
+                    SkinManager.ColorScheme.PrimaryColor)).RemoveAlpha())); // Normal or Emphasis without accent
+                g.FillPath(hoverBrush, buttonPath);
             }
 
             //Focus
             if (focusAnimProgress > 0)
             {
-                using (SolidBrush focusBrush = new SolidBrush(Color.FromArgb(
+                using SolidBrush focusBrush = new(Color.FromArgb(
                     (int)(HighEmphasis && Type == MaterialButtonType.Contained ? focusAnimProgress * 80 : focusAnimProgress * SkinManager.BackgroundFocusColor.A), (UseAccentColor ? (HighEmphasis && Type == MaterialButtonType.Contained ?
                     SkinManager.ColorScheme.AccentColor.Lighten(0.5f) : // Contained with Emphasis - with accent
                     SkinManager.ColorScheme.AccentColor) : // Not Contained Or Low Emphasis - with accent
                     (Type == MaterialButtonType.Contained && HighEmphasis ? SkinManager.ColorScheme.LightPrimaryColor : // Contained with Emphasis without accent
-                    SkinManager.ColorScheme.PrimaryColor)).RemoveAlpha()))) // Normal or Emphasis without accent
-                {
-                    g.FillPath(focusBrush, buttonPath);
-                }
+                    SkinManager.ColorScheme.PrimaryColor)).RemoveAlpha())); // Normal or Emphasis without accent
+                g.FillPath(focusBrush, buttonPath);
             }
 
             if (Type == MaterialButtonType.Outlined)
             {
-                using (Pen outlinePen = new Pen(Enabled ? SkinManager.DividersAlternativeColor : SkinManager.DividersColor, 1))
-                {
-                    buttonRectF.X += 0.5f;
-                    buttonRectF.Y += 0.5f;
-                    g.DrawPath(outlinePen, buttonPath);
-                }
+                using Pen outlinePen = new(Enabled ? SkinManager.DividersAlternativeColor : SkinManager.DividersColor, 1);
+                buttonRectF.X += 0.5f;
+                buttonRectF.Y += 0.5f;
+                g.DrawPath(outlinePen, buttonPath);
             }
 
             //Ripple
@@ -553,17 +543,15 @@ namespace ReaLTaiizor.Controls
                     double animationValue = _animationManager.GetProgress(i);
                     Point animationSource = _animationManager.GetSource(i);
 
-                    using (Brush rippleBrush = new SolidBrush(
+                    using Brush rippleBrush = new SolidBrush(
                         Color.FromArgb((int)(100 - (animationValue * 100)), // Alpha animation
                         Type == MaterialButtonType.Contained && HighEmphasis ? (UseAccentColor ?
                             SkinManager.ColorScheme.AccentColor.Lighten(0.5f) : // Emphasis with accent
                             SkinManager.ColorScheme.LightPrimaryColor) : // Emphasis
                             (UseAccentColor ? SkinManager.ColorScheme.AccentColor : // Normal with accent
-                            SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor)))) // Normal
-                    {
-                        int rippleSize = (int)(animationValue * Width * 2);
-                        g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
-                    }
+                            SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor))); // Normal
+                    int rippleSize = (int)(animationValue * Width * 2);
+                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
                 }
                 g.ResetClip();
             }
@@ -576,7 +564,7 @@ namespace ReaLTaiizor.Controls
                 textRect.X += 8 + ICON_SIZE + 4; // left padding + icon width + space between Icon and Text
             }
 
-            Color textColor = Enabled ? (HighEmphasis ? (Type == MaterialButtonType.Text || Type == MaterialButtonType.Outlined) ?
+            Color textColor = Enabled ? (HighEmphasis ? (Type is MaterialButtonType.Text or MaterialButtonType.Outlined) ?
                 UseAccentColor ? SkinManager.ColorScheme.AccentColor : // Outline or Text and accent and emphasis
                 NoAccentTextColor == Color.Empty ?
                 SkinManager.ColorScheme.PrimaryColor :  // Outline or Text and emphasis
@@ -585,7 +573,7 @@ namespace ReaLTaiizor.Controls
                 SkinManager.TextHighEmphasisColor) : // Cointained and accent
                 SkinManager.TextDisabledOrHintColor; // Disabled
 
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+            using (MaterialNativeTextRenderer NativeText = new(g))
             {
                 NativeText.DrawMultilineTransparentText(
                     CharacterCasing == CharacterCasingEnum.Upper ? base.Text.ToUpper() : CharacterCasing == CharacterCasingEnum.Lower ? base.Text.ToLower() :
@@ -598,7 +586,7 @@ namespace ReaLTaiizor.Controls
             }
 
             //Icon
-            Rectangle iconRect = new Rectangle(8, (Height / 2) - (ICON_SIZE / 2), ICON_SIZE, ICON_SIZE);
+            Rectangle iconRect = new(8, (Height / 2) - (ICON_SIZE / 2), ICON_SIZE, ICON_SIZE);
 
             if (string.IsNullOrEmpty(Text))
             {
@@ -721,7 +709,7 @@ namespace ReaLTaiizor.Controls
 
             PreviewKeyDown += (object sender, PreviewKeyDownEventArgs e) =>
             {
-                if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Space)
+                if (e.KeyCode is Keys.Enter or Keys.Space)
                 {
                     _animationManager.StartNewAnimation(AnimationDirection.In, new Point(ClientRectangle.Width >> 1, ClientRectangle.Height >> 1));
                     Invalidate();

@@ -41,8 +41,8 @@
             this.materialTextBox3 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
-            this.materialSlider1 = new ReaLTaiizor.Controls.MaterialSlider();
-            this.materialSlider2 = new ReaLTaiizor.Controls.MaterialSlider();
+            this.materialMultiLineTextBox1 = new ReaLTaiizor.Controls.MaterialMultiLineTextBox();
+            this.materialMultiLineTextBoxEdit1 = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -235,39 +235,53 @@
             this.materialSingleTextBox1.UseAccentColor = true;
             this.materialSingleTextBox1.UseSystemPasswordChar = false;
             // 
-            // materialSlider1
+            // materialMultiLineTextBox1
             // 
-            this.materialSlider1.Depth = 0;
-            this.materialSlider1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialSlider1.Location = new System.Drawing.Point(619, 85);
-            this.materialSlider1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialSlider1.Name = "materialSlider1";
-            this.materialSlider1.Size = new System.Drawing.Size(277, 40);
-            this.materialSlider1.TabIndex = 15;
-            this.materialSlider1.Text = "materialSlider1";
+            this.materialMultiLineTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialMultiLineTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialMultiLineTextBox1.Depth = 0;
+            this.materialMultiLineTextBox1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialMultiLineTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialMultiLineTextBox1.Location = new System.Drawing.Point(619, 88);
+            this.materialMultiLineTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialMultiLineTextBox1.Name = "materialMultiLineTextBox1";
+            this.materialMultiLineTextBox1.Size = new System.Drawing.Size(340, 96);
+            this.materialMultiLineTextBox1.TabIndex = 15;
+            this.materialMultiLineTextBox1.Text = "fsdfsdfds\nfdsfsdf\nsdfdsfds\nfsd\nf\ndsf\nds\nfdsf";
             // 
-            // materialSlider2
+            // materialMultiLineTextBoxEdit1
             // 
-            this.materialSlider2.Depth = 0;
-            this.materialSlider2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialSlider2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialSlider2.Location = new System.Drawing.Point(619, 131);
-            this.materialSlider2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialSlider2.Name = "materialSlider2";
-            this.materialSlider2.Size = new System.Drawing.Size(277, 40);
-            this.materialSlider2.TabIndex = 16;
-            this.materialSlider2.Text = "materialSlider2";
-            this.materialSlider2.UseAccentColor = true;
-            this.materialSlider2.ValuePrefix = "P";
-            this.materialSlider2.ValueSuffix = "S";
+            this.materialMultiLineTextBoxEdit1.AnimateReadOnly = false;
+            this.materialMultiLineTextBoxEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialMultiLineTextBoxEdit1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.materialMultiLineTextBoxEdit1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.materialMultiLineTextBoxEdit1.Depth = 0;
+            this.materialMultiLineTextBoxEdit1.HideSelection = true;
+            this.materialMultiLineTextBoxEdit1.Location = new System.Drawing.Point(619, 190);
+            this.materialMultiLineTextBoxEdit1.MaxLength = 32767;
+            this.materialMultiLineTextBoxEdit1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialMultiLineTextBoxEdit1.Name = "materialMultiLineTextBoxEdit1";
+            this.materialMultiLineTextBoxEdit1.PasswordChar = '\0';
+            this.materialMultiLineTextBoxEdit1.ReadOnly = false;
+            this.materialMultiLineTextBoxEdit1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.materialMultiLineTextBoxEdit1.SelectedText = "";
+            this.materialMultiLineTextBoxEdit1.SelectionLength = 0;
+            this.materialMultiLineTextBoxEdit1.SelectionStart = 0;
+            this.materialMultiLineTextBoxEdit1.ShortcutsEnabled = true;
+            this.materialMultiLineTextBoxEdit1.Size = new System.Drawing.Size(340, 100);
+            this.materialMultiLineTextBoxEdit1.TabIndex = 16;
+            this.materialMultiLineTextBoxEdit1.TabStop = false;
+            this.materialMultiLineTextBoxEdit1.Text = "materialMultiLineTextBoxEdit1";
+            this.materialMultiLineTextBoxEdit1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.materialMultiLineTextBoxEdit1.UseSystemPasswordChar = false;
             // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(976, 376);
-            this.Controls.Add(this.materialSlider2);
-            this.Controls.Add(this.materialSlider1);
+            this.Controls.Add(this.materialMultiLineTextBoxEdit1);
+            this.Controls.Add(this.materialMultiLineTextBox1);
             this.Controls.Add(this.materialSingleTextBox1);
             this.Controls.Add(this.materialButton3);
             this.Controls.Add(this.materialTextBox3);
@@ -307,7 +321,7 @@
         private ReaLTaiizor.Controls.MaterialTextBox materialTextBox3;
         private ReaLTaiizor.Controls.MaterialButton materialButton3;
         private ReaLTaiizor.Controls.MaterialSingleTextBox materialSingleTextBox1;
-        private ReaLTaiizor.Controls.MaterialSlider materialSlider1;
-        private ReaLTaiizor.Controls.MaterialSlider materialSlider2;
+        private ReaLTaiizor.Controls.MaterialMultiLineTextBox materialMultiLineTextBox1;
+        private ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit materialMultiLineTextBoxEdit1;
     }
 }

@@ -1,7 +1,6 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Extension;
-using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
 using System;
 using System.ComponentModel;
@@ -31,7 +30,7 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         public Point MouseLocation { get; set; }
-        
+
         private bool useAccentColor;
 
         [Category("Material")]
@@ -148,7 +147,7 @@ namespace ReaLTaiizor.Controls
         public override Size GetPreferredSize(Size proposedSize)
         {
             Size strSize;
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(CreateGraphics()))
+            using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
                 strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1));
             }
@@ -178,16 +177,14 @@ namespace ReaLTaiizor.Controls
 
             using (GraphicsPath path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - (TRACK_SIZE_HEIGHT / 2), TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
             {
-                using (SolidBrush trackBrush = new SolidBrush(
+                using SolidBrush trackBrush = new(
                     Color.FromArgb(Enabled ? SkinManager.SwitchOffTrackColor.A : SkinManager.BackgroundDisabledColor.A, // Track alpha
                     BlendColor( // animate color
                         Enabled ? SkinManager.SwitchOffTrackColor : SkinManager.BackgroundDisabledColor, // Off color
                         UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, // On color
                         animationProgress * 255) // Blend amount
-                        .RemoveAlpha())))
-                {
-                    g.FillPath(trackBrush, path);
-                }
+                        .RemoveAlpha()));
+                g.FillPath(trackBrush, path);
             }
 
             // Calculate animation movement X position
@@ -207,10 +204,8 @@ namespace ReaLTaiizor.Controls
                     double rippleAnimProgress = _rippleAM.GetProgress(i);
                     int rippleAnimatedDiameter = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress))) : rippleSize;
 
-                    using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha())))
-                    {
-                        g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - (rippleAnimatedDiameter / 2), TRACK_CENTER_Y - (rippleAnimatedDiameter / 2), rippleAnimatedDiameter, rippleAnimatedDiameter));
-                    }
+                    using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha()));
+                    g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - (rippleAnimatedDiameter / 2), TRACK_CENTER_Y - (rippleAnimatedDiameter / 2), rippleAnimatedDiameter, rippleAnimatedDiameter));
                 }
             }
 
@@ -220,15 +215,13 @@ namespace ReaLTaiizor.Controls
                 double rippleAnimProgress = _hoverAM.GetProgress();
                 int rippleAnimatedDiameter = (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress)));
 
-                using (SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha())))
-                {
-                    g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - (rippleAnimatedDiameter / 2), TRACK_CENTER_Y - (rippleAnimatedDiameter / 2), rippleAnimatedDiameter, rippleAnimatedDiameter));
-                }
+                using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha()));
+                g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - (rippleAnimatedDiameter / 2), TRACK_CENTER_Y - (rippleAnimatedDiameter / 2), rippleAnimatedDiameter, rippleAnimatedDiameter));
             }
 
             // draw Thumb Shadow
-            RectangleF thumbBounds = new RectangleF(TRACK_CENTER_X_BEGIN + OffsetX - THUMB_SIZE_HALF, TRACK_CENTER_Y - THUMB_SIZE_HALF, THUMB_SIZE, THUMB_SIZE);
-            using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(12, 0, 0, 0)))
+            RectangleF thumbBounds = new(TRACK_CENTER_X_BEGIN + OffsetX - THUMB_SIZE_HALF, TRACK_CENTER_Y - THUMB_SIZE_HALF, THUMB_SIZE, THUMB_SIZE);
+            using (SolidBrush shadowBrush = new(Color.FromArgb(12, 0, 0, 0)))
             {
                 g.FillEllipse(shadowBrush, new RectangleF(thumbBounds.X - 2, thumbBounds.Y - 1, thumbBounds.Width + 4, thumbBounds.Height + 6));
                 g.FillEllipse(shadowBrush, new RectangleF(thumbBounds.X - 1, thumbBounds.Y - 1, thumbBounds.Width + 2, thumbBounds.Height + 4));
@@ -238,35 +231,33 @@ namespace ReaLTaiizor.Controls
             }
 
             // draw Thumb
-            using (SolidBrush thumbBrush = new SolidBrush(thumbColor))
+            using (SolidBrush thumbBrush = new(thumbColor))
             {
                 g.FillEllipse(thumbBrush, thumbBounds);
             }
 
             // draw text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-            {
-                Rectangle textLocation = new Rectangle(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
-                NativeText.DrawTransparentText(
-                    Text,
-                    SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
-                    Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
-                    textLocation.Location,
-                    textLocation.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            Rectangle textLocation = new(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
+            NativeText.DrawTransparentText(
+                Text,
+                SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
+                Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
+                textLocation.Location,
+                textLocation.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
         private Bitmap DrawCheckMarkBitmap()
         {
-            Bitmap checkMark = new Bitmap(THUMB_SIZE, THUMB_SIZE);
+            Bitmap checkMark = new(THUMB_SIZE, THUMB_SIZE);
             Graphics g = Graphics.FromImage(checkMark);
 
             // clear everything, transparent
             g.Clear(Color.Transparent);
 
             // draw the checkmark lines
-            using (Pen pen = new Pen(Parent.BackColor, 2))
+            using (Pen pen = new(Parent.BackColor, 2))
             {
                 g.DrawLines(pen, CheckmarkLine);
             }
