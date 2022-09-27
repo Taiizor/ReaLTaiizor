@@ -64,15 +64,14 @@ namespace ReaLTaiizor.Controls
         public bool AnimateShowHideButton
         {
             get => _animateShowButton;
-            set
-            {
-                _animateShowButton = value;
-                Refresh();
-            }
+            set { _animateShowButton = value; Refresh(); }
         }
 
         private bool _animateShowButton;
 
+        [DefaultValue(false)]
+        [Category("Material")]
+        [Description("Define icon to display")]
         public Image Icon
         {
             get => _icon;
@@ -94,7 +93,7 @@ namespace ReaLTaiizor.Controls
             DrawShadows = true;
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
 
-            Size = new(FAB_SIZE, FAB_SIZE);
+            Size = new Size(FAB_SIZE, FAB_SIZE);
             _animationManager = new AnimationManager(false)
             {
                 Increment = 0.03,
@@ -217,14 +216,18 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = pevent.Graphics;
 
-            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             // Paint shadow on element to blend with the parent shadow
             DrawRoundShadow(g, fabBounds);
 
             // draw fab
-            g.FillEllipse(_mouseHover ? new SolidBrush(SkinManager.ColorScheme.AccentColor.Lighten(0.25f)) : SkinManager.ColorScheme.AccentBrush, fabBounds);
+            g.FillEllipse(Enabled ? _mouseHover ?
+                new SolidBrush(SkinManager.ColorScheme.AccentColor.Lighten(0.25f)) :
+                SkinManager.ColorScheme.AccentBrush :
+                new SolidBrush(BlendColor(SkinManager.ColorScheme.AccentColor, SkinManager.SwitchOffDisabledThumbColor, 197)),
+                fabBounds);
 
             if (_animationManager.IsAnimating())
             {
@@ -264,7 +267,7 @@ namespace ReaLTaiizor.Controls
             // Clip to a round shape with a 1px padding
             GraphicsPath clipPath = new();
             clipPath.AddEllipse(new Rectangle(fabBounds.X - 1, fabBounds.Y - 1, fabBounds.Width + 3, fabBounds.Height + 3));
-            Region = new(clipPath);
+            Region = new Region(clipPath);
         }
 
         protected override void OnMouseClick(MouseEventArgs mevent)
@@ -328,12 +331,6 @@ namespace ReaLTaiizor.Controls
                 _showAnimationManager.StartNewAnimation(AnimationDirection.In);
                 Visible = true;
             }
-        }
-
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
-            Mini = _mini;
         }
     }
 

@@ -3,6 +3,7 @@
 using ReaLTaiizor.Util;
 using System;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -125,7 +126,7 @@ namespace ReaLTaiizor.Controls
                 AnimationType = AnimationType.EaseInOut
             };
             _animationManager.OnAnimationProgress += sender => Invalidate();
-
+            _animationManager.OnAnimationFinished += sender => _animationManager.SetProgress(0);
             DropDownClosed += (sender, args) =>
             {
                 MouseState = MaterialMouseState.OUT;
@@ -149,6 +150,7 @@ namespace ReaLTaiizor.Controls
             GotFocus += (sender, args) =>
             {
                 _animationManager.StartNewAnimation(AnimationDirection.In);
+                Invalidate();
             };
             MouseEnter += (sender, args) =>
             {
@@ -160,13 +162,25 @@ namespace ReaLTaiizor.Controls
                 MouseState = MaterialMouseState.OUT;
                 Invalidate();
             };
+            SelectedIndexChanged += (sender, args) =>
+            {
+                Invalidate();
+            };
+            KeyUp += (sender, args) =>
+            {
+                if (Enabled && DropDownStyle == ComboBoxStyle.DropDownList && (args.KeyCode == Keys.Delete || args.KeyCode == Keys.Back))
+                {
+                    SelectedIndex = -1;
+                    Invalidate();
+                }
+            };
         }
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
             Graphics g = pevent.Graphics;
 
-            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
             g.FillRectangle(Enabled ? Focused ?
                 SkinManager.BackgroundFocusBrush : // Focused
                 MouseState == MaterialMouseState.HOVER ?
@@ -175,16 +189,33 @@ namespace ReaLTaiizor.Controls
                 SkinManager.BackgroundDisabledBrush // Disabled
                 , ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, LINE_Y);
 
+            //Set color and brush
+            Color SelectedColor = new();
+            if (UseAccent)
+            {
+                SelectedColor = SkinManager.ColorScheme.AccentColor;
+            }
+            else
+            {
+                SelectedColor = SkinManager.ColorScheme.PrimaryColor;
+            }
+
+            SolidBrush SelectedBrush = new(SelectedColor);
+
             // Create and Draw the arrow
             GraphicsPath pth = new();
-            PointF TopRight = new(Width - 0.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
-            PointF MidBottom = new(Width - 4.5f - SkinManager.FORM_PADDING, (Height >> 1) + 2.5f);
-            PointF TopLeft = new(Width - 8.5f - SkinManager.FORM_PADDING, (Height >> 1) - 2.5f);
+            PointF TopRight = new(this.Width - 0.5f - SkinManager.FORM_PADDING, (this.Height >> 1) - 2.5f);
+            PointF MidBottom = new(this.Width - 4.5f - SkinManager.FORM_PADDING, (this.Height >> 1) + 2.5f);
+            PointF TopLeft = new(this.Width - 8.5f - SkinManager.FORM_PADDING, (this.Height >> 1) - 2.5f);
             pth.AddLine(TopLeft, TopRight);
             pth.AddLine(TopRight, MidBottom);
 
             g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.FillPath((SolidBrush)(DroppedDown || Focused ? UseAccent ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.PrimaryBrush : SkinManager.TextHighEmphasisBrush), pth);
+            g.FillPath((SolidBrush)(Enabled ? DroppedDown || Focused ?
+                SelectedBrush : //DroppedDown or Focused
+                SkinManager.TextHighEmphasisBrush : //Not DroppedDown and not Focused
+                new SolidBrush(BlendColor(SkinManager.TextHighEmphasisColor, SkinManager.SwitchOffDisabledThumbColor, 197))  //Disabled
+                ), pth);
             g.SmoothingMode = SmoothingMode.None;
 
             // HintText
@@ -201,14 +232,14 @@ namespace ReaLTaiizor.Controls
                 if (hasHint && UseTallSize && (DroppedDown || Focused || SelectedIndex >= 0))
                 {
                     // hint text
-                    hintRect = new(SkinManager.FORM_PADDING, TEXT_SMALL_Y, Width, TEXT_SMALL_SIZE);
+                    hintRect = new Rectangle(SkinManager.FORM_PADDING, TEXT_SMALL_Y, Width, TEXT_SMALL_SIZE);
                     hintTextSize = 12;
                 }
 
                 // bottom line
                 if (DroppedDown || Focused)
                 {
-                    g.FillRectangle(UseAccent ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.PrimaryBrush, 0, LINE_Y, Width, 2);
+                    g.FillRectangle(SelectedBrush, 0, LINE_Y, Width, 2);
                 }
             }
             else
@@ -219,7 +250,7 @@ namespace ReaLTaiizor.Controls
                 // hint Animation
                 if (hasHint && UseTallSize)
                 {
-                    hintRect = new(
+                    hintRect = new Rectangle(
                         SkinManager.FORM_PADDING,
                         userTextPresent && !_animationManager.IsAnimating() ? TEXT_SMALL_Y : ClientRectangle.Y + (int)((TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
                         Width,
@@ -230,7 +261,7 @@ namespace ReaLTaiizor.Controls
                 // Line Animation
                 int LineAnimationWidth = (int)(Width * animationProgress);
                 int LineAnimationX = (Width / 2) - (LineAnimationWidth / 2);
-                g.FillRectangle(UseAccent ? SkinManager.ColorScheme.AccentBrush : SkinManager.ColorScheme.PrimaryBrush, LineAnimationX, LINE_Y, LineAnimationWidth, 2);
+                g.FillRectangle(SelectedBrush, LineAnimationX, LINE_Y, LineAnimationWidth, 2);
             }
 
             // Calc text Rect
@@ -240,7 +271,7 @@ namespace ReaLTaiizor.Controls
                 ClientRectangle.Width - (SkinManager.FORM_PADDING * 3) - 8,
                 hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
-            g.Clip = new(textRect);
+            g.Clip = new Region(textRect);
 
             using (MaterialNativeTextRenderer NativeText = new(g))
             {
@@ -263,9 +294,8 @@ namespace ReaLTaiizor.Controls
                 NativeText.DrawTransparentText(
                 Hint,
                 SkinManager.GetTextBoxFontBySize(hintTextSize),
-                Enabled ? DroppedDown || Focused ? UseAccent ?
-                SkinManager.ColorScheme.AccentColor : // Focus Accent
-                SkinManager.ColorScheme.PrimaryColor : // Focus Primary
+                Enabled ? DroppedDown || Focused ?
+                SelectedColor : // Focus 
                 SkinManager.TextMediumEmphasisColor : // not focused
                 SkinManager.TextDisabledOrHintColor, // Disabled
                 hintRect.Location,
@@ -300,7 +330,16 @@ namespace ReaLTaiizor.Controls
             string Text = "";
             if (!string.IsNullOrWhiteSpace(DisplayMember))
             {
-                Text = Items[e.Index].GetType().GetProperty(DisplayMember).GetValue(Items[e.Index], null).ToString();
+                if (!Items[e.Index].GetType().Equals(typeof(DataRowView)))
+                {
+                    object item = Items[e.Index].GetType().GetProperty(DisplayMember).GetValue(Items[e.Index]);
+                    Text = item.ToString();
+                }
+                else
+                {
+                    DataTable table = ((DataRow)Items[e.Index].GetType().GetProperty("Row").GetValue(Items[e.Index])).Table;
+                    Text = table.Rows[e.Index][DisplayMember].ToString();
+                }
             }
             else
             {
@@ -339,7 +378,7 @@ namespace ReaLTaiizor.Controls
         private void setHeightVars()
         {
             HEIGHT = UseTallSize ? 50 : 36;
-            Size = new(Size.Width, HEIGHT);
+            Size = new Size(Size.Width, HEIGHT);
             LINE_Y = HEIGHT - BOTTOM_PADDING;
             ItemHeight = HEIGHT - 7;
             DropDownHeight = (ItemHeight * MaxDropDownItems) + 2;
@@ -359,7 +398,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = CreateGraphics();
             using (MaterialNativeTextRenderer NativeText = new(g))
             {
-                System.Collections.Generic.IEnumerable<string> itemsList = Items.Cast<object>().Select(item => item.ToString());
+                System.Collections.Generic.IEnumerable<string> itemsList = this.Items.Cast<object>().Select(item => item.ToString());
                 foreach (string s in itemsList)
                 {
                     int newWidth = NativeText.MeasureLogString(s, SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1)).Width + vertScrollBarWidth + padding;

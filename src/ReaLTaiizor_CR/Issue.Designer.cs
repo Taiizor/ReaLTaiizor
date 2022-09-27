@@ -98,12 +98,9 @@ namespace ReaLTaiizor_CR
             this.materialTabSelector1.Location = new System.Drawing.Point(6, 66);
             this.materialTabSelector1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.SelectorHideTabName = new string[0];
-            this.materialTabSelector1.SelectorNonClickTabPage = new System.Windows.Forms.TabPage[0];
             this.materialTabSelector1.Size = new System.Drawing.Size(466, 23);
             this.materialTabSelector1.TabIndex = 3;
             this.materialTabSelector1.Text = "materialTabSelector1";
-            this.materialTabSelector1.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextStateType.Normal;
             // 
             // materialButton1
             // 

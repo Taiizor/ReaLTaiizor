@@ -14,14 +14,14 @@ namespace ReaLTaiizor_CR
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            if (materialTabSelector1.SelectorHideTabName.Any())
-            {
-                materialTabSelector1.SelectorHideTabName = Array.Empty<string>();
-            }
-            else
-            {
-                materialTabSelector1.SelectorHideTabName = new string[] { tabPage2.Name };
-            }
+            //if (materialTabSelector1.SelectorHideTabName.Any())
+            //{
+            //    materialTabSelector1.SelectorHideTabName = Array.Empty<string>();
+            //}
+            //else
+            //{
+            //    materialTabSelector1.SelectorHideTabName = new string[] { tabPage2.Name };
+            //}
 
 
             //if (DrawerHideTabName.Any())
@@ -36,14 +36,14 @@ namespace ReaLTaiizor_CR
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
-            if (materialTabSelector1.SelectorNonClickTabPage.Any())
-            {
-                materialTabSelector1.SelectorNonClickTabPage = Array.Empty<TabPage>();
-            }
-            else
-            {
-                materialTabSelector1.SelectorNonClickTabPage = new TabPage[] { tabPage3 };
-            }
+            //if (materialTabSelector1.SelectorNonClickTabPage.Any())
+            //{
+            //    materialTabSelector1.SelectorNonClickTabPage = Array.Empty<TabPage>();
+            //}
+            //else
+            //{
+            //    materialTabSelector1.SelectorNonClickTabPage = new TabPage[] { tabPage3 };
+            //}
 
 
             //if (DrawerNonClickTabPage.Any())
