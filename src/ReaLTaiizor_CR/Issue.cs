@@ -24,14 +24,14 @@ namespace ReaLTaiizor_CR
             }
 
 
-            if (DrawerHideTabName.Any())
-            {
-                DrawerHideTabName = Array.Empty<string>();
-            }
-            else
-            {
-                DrawerHideTabName = new string[] { tabPage2.Name };
-            }
+            //if (DrawerHideTabName.Any())
+            //{
+            //    DrawerHideTabName = Array.Empty<string>();
+            //}
+            //else
+            //{
+            //    DrawerHideTabName = new string[] { tabPage2.Name };
+            //}
         }
 
         private void materialButton2_Click(object sender, EventArgs e)
@@ -46,14 +46,14 @@ namespace ReaLTaiizor_CR
             }
 
 
-            if (DrawerNonClickTabPage.Any())
-            {
-                DrawerNonClickTabPage = Array.Empty<TabPage>();
-            }
-            else
-            {
-                DrawerNonClickTabPage = new TabPage[] { tabPage3 };
-            }
+            //if (DrawerNonClickTabPage.Any())
+            //{
+            //    DrawerNonClickTabPage = Array.Empty<TabPage>();
+            //}
+            //else
+            //{
+            //    DrawerNonClickTabPage = new TabPage[] { tabPage3 };
+            //}
         }
     }
 }
