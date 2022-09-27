@@ -21,7 +21,7 @@ namespace ReaLTaiizor_CR
                 CultureInfo cultureInfo = new(CultureInfo.CurrentCulture.TextInfo.CultureName);
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.CurrentCulture = cultureInfo;
-                Application.Run(new Material());
+                Application.Run(new Catcher());
             }
             catch (Exception ex)
             {

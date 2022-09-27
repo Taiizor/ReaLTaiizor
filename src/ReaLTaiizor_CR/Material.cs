@@ -19,7 +19,7 @@ namespace ReaLTaiizor_CR
             MManager = MaterialSkinManager.Instance;
             MManager.AddFormToManage(this);
             MManager.Theme = MaterialSkinManager.Themes.DARK;
-            MManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
+            MManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.BlueGrey800, MaterialPrimary.BlueGrey900, MaterialPrimary.BlueGrey500, MaterialAccent.LightBlue200, MaterialTextShade.WHITE);
         }
 
         private void MaterialButton1_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace ReaLTaiizor_CR
 
         private void MaterialButton3_Click(object sender, EventArgs e)
         {
-            //MManager.Theme = MManager.Theme == MaterialManager.Themes.DARK ? MaterialManager.Themes.LIGHT : MaterialManager.Themes.DARK;
+            //MManager.Theme = MManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
 
             colorSchemeIndex++;
             if (colorSchemeIndex > 2)

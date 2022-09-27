@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using static ReaLTaiizor.Helper.MaterialDrawHelper;
 using static ReaLTaiizor.Util.MaterialAnimations;
@@ -48,6 +49,35 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
+        private string[] _SelectorHideTabName = new List<string>().ToArray();
+
+        [Category("Behavior")]
+        public string[] SelectorHideTabName
+        {
+            get => _SelectorHideTabName;
+            set
+            {
+                _SelectorHideTabName = value;
+
+                if (_baseTabControl != null && _SelectorHideTabName.Any())
+                {
+                    foreach (System.Windows.Forms.TabPage TB in _baseTabControl.TabPages)
+                    {
+                        if (_SelectorHideTabName.Contains(TB.Name))
+                        {
+                            _baseTabControl.TabPages.Remove(TB);
+                        }
+                    }
+
+                    Refresh();
+                    Invalidate();
+                }
+            }
+        }
+
+        [Category("Behavior")]
+        public System.Windows.Forms.TabPage[] SelectorNonClickTabPage { get; set; } = new List<System.Windows.Forms.TabPage>().ToArray();
 
         //[Browsable(false)]
         public enum CustomCharacterCasing
@@ -351,7 +381,10 @@ namespace ReaLTaiizor.Controls
             {
                 if (_tabRects[i].Contains(e.Location))
                 {
-                    _baseTabControl.SelectedIndex = i;
+                    if (SelectorNonClickTabPage == null || !SelectorNonClickTabPage.Contains(_baseTabControl.TabPages[i]))
+                    {
+                        _baseTabControl.SelectedIndex = i;
+                    }
                 }
             }
 
@@ -378,9 +411,17 @@ namespace ReaLTaiizor.Controls
             {
                 if (_tabRects[i].Contains(e.Location))
                 {
-                    Cursor = Cursors.Hand;
-                    _tab_over_index = i;
-                    break;
+                    if (SelectorNonClickTabPage == null || !SelectorNonClickTabPage.Contains(_baseTabControl.TabPages[i]))
+                    {
+                        Cursor = Cursors.Hand;
+                        _tab_over_index = i;
+                        break;
+                    }
+                    else
+                    {
+                        Cursor = Cursors.No;
+                        return;
+                    }
                 }
             }
             if (_tab_over_index == -1)

@@ -6,6 +6,7 @@ using ReaLTaiizor.Enum.Material;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Text;
@@ -191,6 +192,32 @@ namespace ReaLTaiizor.Forms
 
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
+
+        private string[] _DrawerHideTabName = new List<string>().ToArray();
+
+        [Category("Drawer")]
+        public string[] DrawerHideTabName
+        {
+            get => _DrawerHideTabName;
+            set
+            {
+                _DrawerHideTabName = value;
+                drawerControl.DrawerHideTabName = _DrawerHideTabName;
+            }
+        }
+
+        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = new List<System.Windows.Forms.TabPage>().ToArray();
+
+        [Category("Drawer")]
+        public System.Windows.Forms.TabPage[] DrawerNonClickTabPage
+        {
+            get => _DrawerNonClickTabPage;
+            set
+            {
+                _DrawerNonClickTabPage = value;
+                drawerControl.DrawerNonClickTabPage = _DrawerNonClickTabPage;
+            }
+        }
 
         public override string Text
         {
@@ -457,6 +484,24 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
+            if (DrawerHideTabName.Any())
+            {
+                int countHideTab = 0;
+
+                foreach (System.Windows.Forms.TabPage TP in DrawerTabControl.TabPages)
+                {
+                    if (DrawerHideTabName.Contains(TP.Name))
+                    {
+                        countHideTab++;
+                    }
+                }
+
+                if (countHideTab >= DrawerTabControl.TabCount)
+                {
+                    return;
+                }
+            }
+
             // Form opacity fade animation;
             _drawerShowHideAnimManager = new AnimationManager
             {
@@ -510,6 +555,8 @@ namespace ReaLTaiizor.Forms
             drawerControl.Size = new Size(DrawerWidth, H);
             drawerControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             drawerControl.BaseTabControl = DrawerTabControl;
+            drawerControl.DrawerHideTabName = DrawerHideTabName;
+            drawerControl.DrawerNonClickTabPage = DrawerNonClickTabPage;
             drawerControl.ShowIconsWhenHidden = true;
 
             // Init Options
