@@ -42,6 +42,8 @@
             this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
             this.materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            this.materialScrollBar3 = new ReaLTaiizor.Controls.MaterialScrollBar();
+            this.materialScrollBar4 = new ReaLTaiizor.Controls.MaterialScrollBar();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -251,11 +253,39 @@
             this.materialExpansionPanel1.UseAccentColor = true;
             this.materialExpansionPanel1.ValidationButtonEnable = true;
             // 
+            // materialScrollBar3
+            // 
+            this.materialScrollBar3.Depth = 0;
+            this.materialScrollBar3.Location = new System.Drawing.Point(174, 359);
+            this.materialScrollBar3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialScrollBar3.Name = "materialScrollBar3";
+            this.materialScrollBar3.Orientation = ReaLTaiizor.Enum.Material.MateScrollOrientation.Horizontal;
+            this.materialScrollBar3.ScrollbarSize = 200;
+            this.materialScrollBar3.Size = new System.Drawing.Size(200, 200);
+            this.materialScrollBar3.TabIndex = 19;
+            this.materialScrollBar3.Text = "materialScrollBar3";
+            this.materialScrollBar3.UseBarColor = true;
+            // 
+            // materialScrollBar4
+            // 
+            this.materialScrollBar4.Depth = 0;
+            this.materialScrollBar4.Location = new System.Drawing.Point(12, 362);
+            this.materialScrollBar4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialScrollBar4.Name = "materialScrollBar4";
+            this.materialScrollBar4.Orientation = ReaLTaiizor.Enum.Material.MateScrollOrientation.Vertical;
+            this.materialScrollBar4.ScrollbarSize = 156;
+            this.materialScrollBar4.Size = new System.Drawing.Size(156, 200);
+            this.materialScrollBar4.TabIndex = 18;
+            this.materialScrollBar4.Text = "materialScrollBar4";
+            this.materialScrollBar4.UseBarColor = true;
+            // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(976, 376);
+            this.ClientSize = new System.Drawing.Size(976, 582);
+            this.Controls.Add(this.materialScrollBar3);
+            this.Controls.Add(this.materialScrollBar4);
             this.Controls.Add(this.materialExpansionPanel1);
             this.Controls.Add(this.materialSingleTextBox1);
             this.Controls.Add(this.materialButton3);
@@ -297,5 +327,7 @@
         private ReaLTaiizor.Controls.MaterialButton materialButton3;
         private ReaLTaiizor.Controls.MaterialSingleTextBox materialSingleTextBox1;
         private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
+        private ReaLTaiizor.Controls.MaterialScrollBar materialScrollBar3;
+        private ReaLTaiizor.Controls.MaterialScrollBar materialScrollBar4;
     }
 }

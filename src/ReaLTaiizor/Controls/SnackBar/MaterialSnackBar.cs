@@ -222,7 +222,6 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
             UpdateRects();
-
         }
 
         protected override void OnLoad(EventArgs e)
@@ -243,12 +242,10 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
         {
-
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             e.Graphics.Clear(BackColor);
-
 
             // Calc text Rect
             Rectangle textRect = new Rectangle(
@@ -269,7 +266,6 @@ namespace ReaLTaiizor.Controls
                     textRect.Size,
                     MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
-
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -304,7 +300,6 @@ namespace ReaLTaiizor.Controls
             this.ClientSize = new System.Drawing.Size(344, 48);
             this.Name = "SnackBar";
             this.ResumeLayout(false);
-
         }
 
         protected override void WndProc(ref Message message)
@@ -334,7 +329,6 @@ namespace ReaLTaiizor.Controls
                 throw new Exception("Owner is null. Set Owner first.");
             }
         }
-
     }
 
     #endregion
