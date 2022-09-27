@@ -24,13 +24,7 @@ namespace ReaLTaiizor.Controls
         public Color BodyColorC { get; set; } = Color.FromArgb(46, 46, 46);
 
         [Category("Colors")]
-        public Color BodyColorD
-        {
-            get => _BodyColorD;
-            set => _BodyColorD = value;
-        }
-
-        private Color _BodyColorD = Color.FromArgb(50, 55, 58);
+        public Color BodyColorD { get; set; } = Color.FromArgb(50, 55, 58);
 
         public ThunderGroupBox()
         {
@@ -54,7 +48,7 @@ namespace ReaLTaiizor.Controls
 
             Pen P1 = new(Color.Black);
             LinearGradientBrush BodyBrush = new(Body2, BodyColorA, BodyColorB, 90);
-            LinearGradientBrush BodyBrush2 = new(Body, BodyColorC, _BodyColorD, 120);
+            LinearGradientBrush BodyBrush2 = new(Body, BodyColorC, BodyColorD, 120);
             Font drawFont = new("Tahoma", 9, FontStyle.Bold);
             G.FillPath(BodyBrush, DrawThunder.RoundRect(Body2, 3));
             G.DrawPath(P1, DrawThunder.RoundRect(Body2, 3));

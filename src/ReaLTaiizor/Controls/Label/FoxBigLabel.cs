@@ -16,15 +16,10 @@ namespace ReaLTaiizor.Controls
     public class FoxBigLabel : Control
     {
         private Graphics G;
-        private Direction _Line = Direction.Bottom;
 
         public Color LineColor { get; set; } = FoxLibrary.ColorFromHex("#C8C8C8");
 
-        public Direction Line
-        {
-            get => _Line;
-            set => _Line = value;
-        }
+        public Direction Line { get; set; } = Direction.Bottom;
 
         public enum Direction
         {
@@ -60,7 +55,7 @@ namespace ReaLTaiizor.Controls
 
             using (Pen BottomLine = new(LineColor))
             {
-                if (_Line == Direction.Bottom)
+                if (Line == Direction.Bottom)
                 {
                     G.DrawLine(BottomLine, new Point(0, Height - 1), new Point(Width, Height - 1));
                 }

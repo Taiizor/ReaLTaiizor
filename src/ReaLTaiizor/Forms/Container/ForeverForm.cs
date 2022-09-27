@@ -41,11 +41,7 @@ namespace ReaLTaiizor.Forms
         public Color BaseColor { get; set; } = Color.FromArgb(60, 70, 73);
 
         [Category("Colors")]
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.DodgerBlue;
 
         [Category("Colors")]
         public Color TextColor { get; set; } = Color.FromArgb(234, 234, 234);
@@ -62,9 +58,8 @@ namespace ReaLTaiizor.Forms
         {
             // get { return ForeverLibrary.ForeverColor; }
             // set { ForeverLibrary.ForeverColor = value; }
-            get => _ForeverColor;
-            set => _ForeverColor = value;
-        }
+            get; set;
+        } = ForeverLibrary.ForeverColor;
 
         [Category("Options")]
         public bool HeaderMaximize { get; set; } = false;
@@ -92,11 +87,7 @@ namespace ReaLTaiizor.Forms
         public bool Sizable { get; set; } = true;
 
         [Category("Options")]
-        public Font HeaderTextFont
-        {
-            get => _HeaderTextFont;
-            set => _HeaderTextFont = value;
-        }
+        public Font HeaderTextFont { get; set; } = new("Segoe UI", 12);
 
         protected override void WndProc(ref Message m)
         {
@@ -220,10 +211,6 @@ namespace ReaLTaiizor.Forms
             Invalidate();
         }
 
-        private Color _BorderColor = Color.DodgerBlue; //Color.FromArgb(53, 58, 60)
-        private Color _ForeverColor = ForeverLibrary.ForeverColor;
-        private Font _HeaderTextFont = new("Segoe UI", 12);
-
         private readonly Color _HeaderLight = Color.FromArgb(171, 171, 172);
         private readonly Color _BaseLight = Color.FromArgb(196, 199, 200);
         public Color _TextLight = Color.SeaGreen;
@@ -265,17 +252,17 @@ namespace ReaLTaiizor.Forms
             if (_Image == null)
             {
                 _with2.FillRectangle(new SolidBrush(_TextLight), new Rectangle(8, 16, 4, 18));
-                _with2.FillRectangle(new SolidBrush(_ForeverColor), 16, 16, 4, 18);
-                _with2.DrawString(Text, _HeaderTextFont, new SolidBrush(TextColor), new Rectangle(26, 15, W, H), ForeverLibrary.NearSF);
+                _with2.FillRectangle(new SolidBrush(ForeverColor), 16, 16, 4, 18);
+                _with2.DrawString(Text, HeaderTextFont, new SolidBrush(TextColor), new Rectangle(26, 15, W, H), ForeverLibrary.NearSF);
             }
             else
             {
                 _with2.DrawImage(_Image, 12, 12, 27, 27);
-                _with2.DrawString(Text, _HeaderTextFont, new SolidBrush(TextColor), new Rectangle(48, 15, W, H), ForeverLibrary.NearSF);
+                _with2.DrawString(Text, HeaderTextFont, new SolidBrush(TextColor), new Rectangle(48, 15, W, H), ForeverLibrary.NearSF);
             }
 
             //-- Border
-            _with2.DrawRectangle(new(_BorderColor), Base);
+            _with2.DrawRectangle(new(BorderColor), Base);
 
             base.OnPaint(e);
             G.Dispose();

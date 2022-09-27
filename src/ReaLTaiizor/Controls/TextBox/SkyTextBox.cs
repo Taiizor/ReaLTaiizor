@@ -125,7 +125,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _UnknownBackColor = Color.FromArgb(43, 43, 43);
         #endregion
 
         #region Settings
@@ -149,11 +148,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BaseColor { get; set; } = Color.Transparent;
 
-        public Color UnknownBackColor
-        {
-            get => _UnknownBackColor;
-            set => _UnknownBackColor = value;
-        }
+        public Color UnknownBackColor { get; set; } = Color.FromArgb(43, 43, 43);
         #endregion
 
         public SkyTextBox() : base()

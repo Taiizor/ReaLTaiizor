@@ -28,7 +28,6 @@ namespace ReaLTaiizor.Controls
         #region Field Region
 
 
-        private readonly ObservableCollection<CrownDropDownItem> _items = new();
         private CrownDropDownItem _selectedItem;
 
         private readonly CrownContextMenuStrip _menu = new();
@@ -47,7 +46,7 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ObservableCollection<CrownDropDownItem> Items => _items;
+        public ObservableCollection<CrownDropDownItem> Items { get; } = new();
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

@@ -52,11 +52,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the selected color preview")]
-        public bool ShowColorPreview
-        {
-            get => showColorPreview;
-            set => showColorPreview = value;
-        }
+        public bool ShowColorPreview { get; set; } = true;
 
         private void GetColor(int x, int y)
         {
@@ -117,7 +113,7 @@ namespace ReaLTaiizor.Controls
             bufferedGraphics.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             bufferedGraphics.Graphics.Clear(BackColor);
             bufferedGraphics.Graphics.DrawImage(new Bitmap(image, base.Width - 3, base.Height - 3), 1, 1);
-            if (isSelectingColor && showColorPreview)
+            if (isSelectingColor && ShowColorPreview)
             {
                 bufferedGraphics.Graphics.FillRectangle(new SolidBrush(SelectedColor), new RectangleF(x1 - 10, y1 - 10, 20f, 20f));
             }
@@ -134,8 +130,6 @@ namespace ReaLTaiizor.Controls
         private BufferedGraphics bufferedGraphics;
 
         public Image image = Resources.color_picker;
-        private bool showColorPreview = true;
-
         private int x1;
 
         private int y1;

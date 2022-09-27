@@ -23,7 +23,7 @@ namespace ReaLTaiizor.Controls
         private Rectangle R1;
         private Rectangle R2;
         private bool _Checked;
-        private Color _CheckedBorderColor = Color.FromArgb(182, 88, 55);
+
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
 
@@ -47,11 +47,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedBackColorB { get; set; } = Color.FromArgb(224, 123, 82);
 
-        public Color CheckedBorderColor
-        {
-            get => _CheckedBorderColor;
-            set => _CheckedBorderColor = value;
-        }
+        public Color CheckedBorderColor { get; set; } = Color.FromArgb(182, 88, 55);
 
         #endregion
 
@@ -116,7 +112,7 @@ namespace ReaLTaiizor.Controls
 
             MyDrawer.FillPath(GB, Shape);
             // Fill the body of the CheckBox
-            MyDrawer.DrawPath(new(_CheckedBorderColor), Shape);
+            MyDrawer.DrawPath(new(CheckedBorderColor), Shape);
             // Draw the border
 
             MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(17, 0, Width, Height - 1), new StringFormat { LineAlignment = StringAlignment.Center });

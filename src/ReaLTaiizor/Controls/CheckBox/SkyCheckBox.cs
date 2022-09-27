@@ -64,7 +64,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _CheckedColor = Color.FromArgb(220, 27, 94, 137);
         #endregion
 
         #region Settings
@@ -88,11 +87,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BoxBorderColorC { get; set; } = Color.FromArgb(168, 168, 168);
 
-        public Color CheckedColor
-        {
-            get => _CheckedColor;
-            set => _CheckedColor = value;
-        }
+        public Color CheckedColor { get; set; } = Color.FromArgb(220, 27, 94, 137);
         #endregion
 
         public SkyCheckBox() : base()

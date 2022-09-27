@@ -18,7 +18,6 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private Color _BorderColor = HopeColors.OneLevelBorder;
 
         #endregion
 
@@ -34,11 +33,7 @@ namespace ReaLTaiizor.Controls
         public Color LineColor { get; set; } = HopeColors.OneLevelBorder;
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = HopeColors.OneLevelBorder;
 
         #endregion
 
@@ -53,7 +48,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath BG = RoundRectangle.CreateRoundRect(1, 1, Width - 2, Height - 2, 3);
             graphics.FillPath(new SolidBrush(ThemeColor), BG);
-            graphics.DrawPath(new(_BorderColor), BG);
+            graphics.DrawPath(new(BorderColor), BG);
 
             if (ShowText)
             {

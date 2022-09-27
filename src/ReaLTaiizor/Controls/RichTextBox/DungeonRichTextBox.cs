@@ -24,7 +24,6 @@ namespace ReaLTaiizor.Controls
         private bool _AutoWordSelection;
         private GraphicsPath Shape;
         private Pen P1;
-        private Color _TextBackColor = Color.White;
 
         #endregion
         #region Properties
@@ -33,11 +32,7 @@ namespace ReaLTaiizor.Controls
 
         public Color EdgeColor { get; set; } = Color.White;
 
-        public Color TextBackColor
-        {
-            get => _TextBackColor;
-            set => _TextBackColor = value;
-        }
+        public Color TextBackColor { get; set; } = Color.White;
 
         public override string Text
         {
@@ -145,7 +140,7 @@ namespace ReaLTaiizor.Controls
         public void AddRichTextBox()
         {
             RichTextBox _RTB = DungeonRTB;
-            _RTB.BackColor = _TextBackColor;
+            _RTB.BackColor = TextBackColor;
             _RTB.Size = new(Width - 10, 100);
             _RTB.Location = new(7, 5);
             _RTB.Text = string.Empty;

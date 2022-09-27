@@ -68,11 +68,7 @@ namespace ReaLTaiizor.Controls
         public Color HatchColor { get; set; } = Color.FromArgb(23, 148, 92);
 
         [Category("Colors")]
-        public Color SliderColor
-        {
-            get => _SliderColor;
-            set => _SliderColor = value;
-        }
+        public Color SliderColor { get; set; } = Color.FromArgb(25, 27, 29);
 
         [Category("Colors")]
         public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
@@ -203,8 +199,6 @@ namespace ReaLTaiizor.Controls
             Height = 23;
         }
 
-        private Color _SliderColor = Color.FromArgb(25, 27, 29);
-
         public ForeverTrackBar()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
@@ -257,11 +251,11 @@ namespace ReaLTaiizor.Controls
             {
                 case _Style.Slider:
                     GP2.AddRectangle(Track);
-                    _with20.FillPath(new SolidBrush(_SliderColor), GP2);
+                    _with20.FillPath(new SolidBrush(SliderColor), GP2);
                     break;
                 case _Style.Knob:
                     GP2.AddEllipse(Knob);
-                    _with20.FillPath(new SolidBrush(_SliderColor), GP2);
+                    _with20.FillPath(new SolidBrush(SliderColor), GP2);
                     break;
             }
 

@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
                     IComponent rootComponent = designerHost.RootComponent;
                     if (rootComponent is ContainerControl)
                     {
-                        effectedForm = rootComponent as Form;
+                        EffectedForm = rootComponent as Form;
                     }
                 }
             }
@@ -47,9 +47,9 @@ namespace ReaLTaiizor.Controls
             try
             {
                 Mainform_Shown(null, null);
-                effectedForm.Shown += Mainform_Shown;
-                effectedForm.Resize += Mainform_Resize;
-                effectedForm.LocationChanged += Mainform_Resize;
+                EffectedForm.Shown += Mainform_Shown;
+                EffectedForm.Resize += Mainform_Resize;
+                EffectedForm.LocationChanged += Mainform_Resize;
                 RefreshUI.Enabled = false;
                 RefreshUI.Dispose();
             }
@@ -72,36 +72,30 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The effected form(will remove ellipse from effected control)")]
-        public Form EffectedForm
-        {
-            get => effectedForm;
-            set => effectedForm = value;
-        }
+        public Form EffectedForm { get; set; }
 
         private void Mainform_Shown(object sender, EventArgs e)
         {
-            Rectangle bounds = effectedForm.Bounds;
+            Rectangle bounds = EffectedForm.Bounds;
             ds.Bounds = bounds;
-            ds.Location = new Point(effectedForm.Location.X + ShadowAngle, effectedForm.Location.Y + ShadowAngle);
+            ds.Location = new Point(EffectedForm.Location.X + ShadowAngle, EffectedForm.Location.Y + ShadowAngle);
             ds.Show();
-            effectedForm.BringToFront();
+            EffectedForm.BringToFront();
         }
 
         private void Mainform_Resize(object sender, EventArgs e)
         {
-            ds.Visible = effectedForm.WindowState == FormWindowState.Normal;
+            ds.Visible = EffectedForm.WindowState == FormWindowState.Normal;
             if (ds.Visible)
             {
-                Rectangle bounds = effectedForm.Bounds;
+                Rectangle bounds = EffectedForm.Bounds;
                 ds.Bounds = bounds;
-                ds.Location = new Point(effectedForm.Location.X + ShadowAngle, effectedForm.Location.Y + ShadowAngle);
+                ds.Location = new Point(EffectedForm.Location.X + ShadowAngle, EffectedForm.Location.Y + ShadowAngle);
             }
-            effectedForm.BringToFront();
+            EffectedForm.BringToFront();
         }
 
         private readonly Timer RefreshUI = new();
-        private Form effectedForm;
-
         private readonly DropShadow ds = new();
 
         public class DropShadow : Form

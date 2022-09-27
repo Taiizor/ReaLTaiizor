@@ -19,7 +19,6 @@ namespace ReaLTaiizor.Controls
         #region Variables
         private bool enterFlag = false;
         private bool clickFlag = false;
-        private Color _HoverClickTextColor = HopeColors.DarkPrimary;
         #endregion
 
         #region Settings
@@ -63,11 +62,7 @@ namespace ReaLTaiizor.Controls
 
         public Color HoverTextColor { get; set; } = HopeColors.MainText;
 
-        public Color HoverClickTextColor
-        {
-            get => _HoverClickTextColor;
-            set => _HoverClickTextColor = value;
-        }
+        public Color HoverClickTextColor { get; set; } = HopeColors.DarkPrimary;
         #endregion
 
         #region Events
@@ -113,7 +108,7 @@ namespace ReaLTaiizor.Controls
             {
                 GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 graphics.DrawPath(new(enterFlag ? (clickFlag ? DefaultClickColor : DefaultColor) : BorderColor, 1), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? (clickFlag ? _HoverClickTextColor : HoverTextColor) : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? (clickFlag ? HoverClickTextColor : HoverTextColor) : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {

@@ -184,7 +184,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _ButtonBorderColorE = Color.FromArgb(252, 252, 252);
         #endregion
 
         #region Settings
@@ -222,11 +221,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ButtonBorderColorD { get; set; } = Color.FromArgb(188, 188, 188);
 
-        public Color ButtonBorderColorE
-        {
-            get => _ButtonBorderColorE;
-            set => _ButtonBorderColorE = value;
-        }
+        public Color ButtonBorderColorE { get; set; } = Color.FromArgb(252, 252, 252);
         #endregion
 
         public SkyNumeric()

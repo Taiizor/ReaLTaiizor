@@ -41,7 +41,6 @@ namespace ReaLTaiizor.Controls
         private readonly LinearGradientBrush GB1;
         private LinearGradientBrush GB2;
         private int I1;
-        private Color _ProgressHatchColor = Color.FromArgb(25, 255, 255, 255);
 
         #endregion
         #region Properties
@@ -56,11 +55,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ProgressColorB { get; set; } = Color.FromArgb(223, 118, 75);
 
-        public Color ProgressHatchColor
-        {
-            get => _ProgressHatchColor;
-            set => _ProgressHatchColor = value;
-        }
+        public Color ProgressHatchColor { get; set; } = Color.FromArgb(25, 255, 255, 255);
 
         public int Maximum
         {
@@ -221,7 +216,7 @@ namespace ReaLTaiizor.Controls
                 {
                     for (int i = 0; i <= (Width - 1) * _Maximum / _Value; i += 20)
                     {
-                        G.DrawLine(new(new SolidBrush(_ProgressHatchColor), 10.0F), new Point(Convert.ToInt32(i), 0), new Point(i - 10, Height));
+                        G.DrawLine(new(new SolidBrush(ProgressHatchColor), 10.0F), new Point(Convert.ToInt32(i), 0), new Point(i - 10, Height));
                     }
                 }
 

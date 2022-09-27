@@ -20,7 +20,6 @@ namespace ReaLTaiizor.Controls
         #region Variables
         private bool enterFlag = false;
         private bool clickFlag = false;
-        private Color _HoverTextColor = HopeColors.MainText;
         #endregion
 
         #region Settings
@@ -53,11 +52,7 @@ namespace ReaLTaiizor.Controls
         public Color BorderColor { get; set; } = HopeColors.OneLevelBorder;
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color HoverTextColor
-        {
-            get => _HoverTextColor;
-            set => _HoverTextColor = value;
-        }
+        public Color HoverTextColor { get; set; } = HopeColors.MainText;
 
         #endregion
 
@@ -104,7 +99,7 @@ namespace ReaLTaiizor.Controls
                 GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, DefaultColor) : DefaultColor), BG);
                 graphics.DrawPath(new(clickFlag ? DefaultColor : BorderColor, 1), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {
@@ -138,7 +133,7 @@ namespace ReaLTaiizor.Controls
                     graphics.FillPath(new SolidBrush(Color.FromArgb(125, BorderColor)), BG);
                 }
 
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
         }
 

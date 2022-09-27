@@ -16,13 +16,7 @@ namespace ReaLTaiizor.Colors
         public static Color HotTrackColor { get; set; } = Color.FromArgb(221, 221, 221);
         public static Color AccentColor { get; set; } = Color.FromArgb(51, 102, 255);
         public static Color PressedForeColor { get; set; } = Color.White;
-
-        private static Color pressedBackColor = AccentColor;
-        public static Color PressedBackColor
-        {
-            get => pressedBackColor;
-            set => pressedBackColor = value;
-        }
+        public static Color PressedBackColor { get; set; } = AccentColor;
     }
 
     #endregion

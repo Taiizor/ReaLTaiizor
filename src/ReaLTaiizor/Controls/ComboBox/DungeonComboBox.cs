@@ -17,7 +17,6 @@ namespace ReaLTaiizor.Controls
 
         private int _StartIndex = 0;
         private Color _HoverSelectionColor; // VBConversions Note: Initial value cannot be assigned here since it is non-static. Assignment has been moved to the class constructors.
-        private Color _ColorI = Color.FromArgb(250, 249, 249);
 
         #endregion
 
@@ -66,11 +65,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ColorH { get; set; } = Color.FromArgb(224, 222, 220);
 
-        public Color ColorI
-        {
-            get => _ColorI;
-            set => _ColorI = value;
-        }
+        public Color ColorI { get; set; } = Color.FromArgb(250, 249, 249);
 
         #endregion
 
@@ -173,7 +168,7 @@ namespace ReaLTaiizor.Controls
                 Alignment = StringAlignment.Far
             });
             e.Graphics.DrawLine(new(ColorH), Width - 24, 4, Width - 24, Height - 5);
-            e.Graphics.DrawLine(new(_ColorI), Width - 25, 4, Width - 25, Height - 5);
+            e.Graphics.DrawLine(new(ColorI), Width - 25, 4, Width - 25, Height - 5);
 
             GP.Dispose();
             LGB.Dispose();

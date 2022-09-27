@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         private bool _Checked;
-        private Color _CheckedColor = Color.FromArgb(255, 255, 255);
+
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
 
@@ -43,11 +43,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedBackColorB { get; set; } = Color.FromArgb(224, 123, 82);
 
-        public Color CheckedColor
-        {
-            get => _CheckedColor;
-            set => _CheckedColor = value;
-        }
+        public Color CheckedColor { get; set; } = Color.FromArgb(255, 255, 255);
 
         public bool Checked
         {
@@ -138,7 +134,7 @@ namespace ReaLTaiizor.Controls
             // Draw an ellipse inside the body
             if (_Checked)
             {
-                SolidBrush EllipseColor = new(_CheckedColor);
+                SolidBrush EllipseColor = new(CheckedColor);
                 MyDrawer.FillEllipse(EllipseColor, new Rectangle(new Point(4, 4), new Size(6, 6)));
             }
             MyDrawer.DrawString(Text, Font, new SolidBrush(ForeColor), 16, 7, new StringFormat { LineAlignment = StringAlignment.Center });

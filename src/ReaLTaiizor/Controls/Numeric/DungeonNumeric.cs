@@ -36,7 +36,6 @@ namespace ReaLTaiizor.Controls
         private _TextAlignment MyStringAlignment;
 
         private readonly Timer LongPressTimer = new();
-        private Color _ButtonForeColorB = Color.FromArgb(75, 75, 75);
 
         #endregion
         #region Properties
@@ -49,11 +48,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ButtonForeColorA { get; set; } = Color.FromArgb(75, 75, 75);
 
-        public Color ButtonForeColorB
-        {
-            get => _ButtonForeColorB;
-            set => _ButtonForeColorB = value;
-        }
+        public Color ButtonForeColorB { get; set; } = Color.FromArgb(75, 75, 75);
 
         public long Value
         {
@@ -308,7 +303,7 @@ namespace ReaLTaiizor.Controls
 
             G.DrawString("+", new Font("Tahoma", 14), new SolidBrush(ButtonForeColorA), new Rectangle(Width - 25, 1, 19, 30));
             G.DrawLine(new(BorderColor), Width - 28, 1, Width - 28, Height - 2);
-            G.DrawString("-", new Font("Tahoma", 14), new SolidBrush(_ButtonForeColorB), new Rectangle(Width - 44, 1, 19, 30));
+            G.DrawString("-", new Font("Tahoma", 14), new SolidBrush(ButtonForeColorB), new Rectangle(Width - 44, 1, 19, 30));
             G.DrawLine(new(BorderColor), Width - 48, 1, Width - 48, Height - 2);
 
             switch (MyStringAlignment)

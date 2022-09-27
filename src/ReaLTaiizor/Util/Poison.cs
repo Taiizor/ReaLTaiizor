@@ -33,14 +33,12 @@ namespace ReaLTaiizor.Util
         public HiddenTabs(int id, string page)
         {
             Index = id;
-            _tabpage = page;
+            Tabpage = page;
         }
-
-        private readonly string _tabpage;
 
         public int Index { get; }
 
-        public string Tabpage => _tabpage;
+        public string Tabpage { get; }
     }
     #endregion HiddenTabClass
 

@@ -23,7 +23,6 @@ namespace ReaLTaiizor.Controls
         private RectangleF upRectangleF = new();
         private RectangleF downRectangleF = new();
         private Point mousePoint = new();
-        private Color _ButtonTextColorB = HopeColors.SecondaryText;
 
         public enum NumericStyle
         {
@@ -113,11 +112,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ButtonTextColorA { get; set; } = HopeColors.SecondaryText;
 
-        public Color ButtonTextColorB
-        {
-            get => _ButtonTextColorB;
-            set => _ButtonTextColorB = value;
-        }
+        public Color ButtonTextColorB { get; set; } = HopeColors.SecondaryText;
 
         #endregion
 
@@ -192,7 +187,7 @@ namespace ReaLTaiizor.Controls
                     break;
             }
             graphics.DrawString("+", new Font("Segoe UI", 14f), new SolidBrush((upRectangleF.Contains(mousePoint) && enterFlag) ? HoverButtonTextColorA : ButtonTextColorA), upRectangleF, HopeStringAlign.Center);
-            graphics.DrawString("-", new Font("Segoe UI", 14f), new SolidBrush((downRectangleF.Contains(mousePoint) && enterFlag) ? HoverButtonTextColorB : _ButtonTextColorB), downRectangleF, HopeStringAlign.Center);
+            graphics.DrawString("-", new Font("Segoe UI", 14f), new SolidBrush((downRectangleF.Contains(mousePoint) && enterFlag) ? HoverButtonTextColorB : ButtonTextColorB), downRectangleF, HopeStringAlign.Center);
             graphics.DrawLine(new(BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, 1, textBox.Location.X + textBox.Width + 0.5f, Height - 1);
             graphics.FillRectangle(new SolidBrush(BackColor), textBox.Location.X, 1, textBox.Width, Height - 2);
             base.Controls.Add(textBox);

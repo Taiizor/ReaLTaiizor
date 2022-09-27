@@ -84,8 +84,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _ListBorderColor = Color.FromArgb(50, Color.Black);
-        private Color _ListSelectedBackColorB = Color.FromArgb(0, Color.White);
         #endregion
 
         #region Settings
@@ -125,21 +123,13 @@ namespace ReaLTaiizor.Controls
 
         public Color ListBackColor { get; set; } = Color.FromArgb(255, 255, 255, 255);
 
-        public Color ListBorderColor
-        {
-            get => _ListBorderColor;
-            set => _ListBorderColor = value;
-        }
+        public Color ListBorderColor { get; set; } = Color.FromArgb(50, Color.Black);
 
         public DashStyle ListDashType { get; set; } = DashStyle.Dot;
 
         public Color ListSelectedBackColorA { get; set; } = Color.FromArgb(15, Color.White);
 
-        public Color ListSelectedBackColorB
-        {
-            get => _ListSelectedBackColorB;
-            set => _ListSelectedBackColorB = value;
-        }
+        public Color ListSelectedBackColorB { get; set; } = Color.FromArgb(0, Color.White);
         #endregion
 
         public SkyComboBox() : base()

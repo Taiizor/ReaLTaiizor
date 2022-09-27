@@ -19,7 +19,6 @@ namespace ReaLTaiizor.Controls
 
         private readonly Timer AnimationTimer = new() { Interval = 1 };
         private int PointAnimationNum = 4;
-        private Color _HeadColorD = HopeColors.PrimaryColor;
 
         #endregion
 
@@ -30,11 +29,7 @@ namespace ReaLTaiizor.Controls
         public Color HeadColorA { get; set; } = HopeColors.OneLevelBorder;
         public Color HeadColorB { get; set; } = Color.White;
         public Color HeadColorC { get; set; } = HopeColors.PrimaryColor;
-        public Color HeadColorD
-        {
-            get => _HeadColorD;
-            set => _HeadColorD = value;
-        }
+        public Color HeadColorD { get; set; } = HopeColors.PrimaryColor;
         #endregion
 
         #region Events
@@ -72,7 +67,7 @@ namespace ReaLTaiizor.Controls
             graphics.FillPath(new SolidBrush(Checked ? BaseColorB : BaseColorA), roundRectangle);
 
             graphics.FillEllipse(new SolidBrush(Checked ? HeadColorC : HeadColorA), new RectangleF(PointAnimationNum, 1, 18, 18));
-            graphics.FillEllipse(new SolidBrush(Checked ? _HeadColorD : HeadColorB), new RectangleF(PointAnimationNum + 2, 3, 14, 14));
+            graphics.FillEllipse(new SolidBrush(Checked ? HeadColorD : HeadColorB), new RectangleF(PointAnimationNum + 2, 3, 14, 14));
         }
 
         public HopeToggle()

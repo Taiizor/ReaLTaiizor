@@ -90,7 +90,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _CheckedColorB = Color.FromArgb(150, 118, 177, 211);
         #endregion
 
         #region Settings
@@ -114,11 +113,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedColorA { get; set; } = Color.FromArgb(27, 94, 137);
 
-        public Color CheckedColorB
-        {
-            get => _CheckedColorB;
-            set => _CheckedColorB = value;
-        }
+        public Color CheckedColorB { get; set; } = Color.FromArgb(150, 118, 177, 211);
         #endregion
 
         public SkyRadioButton() : base()

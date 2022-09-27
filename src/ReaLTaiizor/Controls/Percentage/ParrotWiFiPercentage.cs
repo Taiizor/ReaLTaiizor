@@ -38,7 +38,7 @@ namespace ReaLTaiizor.Controls
                     }
                 };
                 process.Start();
-                ssid = "Not connected";
+                SSID = "Not connected";
                 int percentage = 0;
                 try
                 {
@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Controls
                     {
                     ' '
                     });
-                    ssid = array[0];
+                    SSID = array[0];
                     percentage = int.Parse(array[1].Remove(0, 2).Replace("%", ""));
                     process.WaitForExit();
                 }
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Returns the SSID")]
-        public string SSID => ssid;
+        public string SSID { get; private set; } = "Not connected";
 
         protected override void OnTick(EventArgs e)
         {
@@ -74,7 +74,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private readonly BackgroundWorker backgroundThread = new();
-        private string ssid = "Not connected";
     }
 
     #endregion

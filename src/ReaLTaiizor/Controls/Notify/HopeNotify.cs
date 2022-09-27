@@ -22,7 +22,6 @@ namespace ReaLTaiizor.Controls
 
         private readonly Color _DefaultBackColor = HopeColors.PrimaryColor;
         private readonly Color _DefaultTextColor = HopeColors.PrimaryColor;
-        private Color _CloseColor = RoundRectangle.DarkBackColor;
 
         public enum AlertType
         {
@@ -85,11 +84,7 @@ namespace ReaLTaiizor.Controls
         public Color ErrorTextColor { get; set; } = HopeColors.Danger;
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color CloseColor
-        {
-            get => _CloseColor;
-            set => _CloseColor = value;
-        }
+        public Color CloseColor { get; set; } = RoundRectangle.DarkBackColor;
 
         #endregion
 
@@ -151,7 +146,7 @@ namespace ReaLTaiizor.Controls
             if (Close)
             {
                 graphics.DrawString(Text, Font, textBrush, new RectangleF(20, 0, Width - 40, Height), HopeStringAlign.Left);
-                graphics.DrawString("r", new Font("Marlett", 10), new SolidBrush(_CloseColor), new Rectangle(Width - 34, 1, 34, 34), HopeStringAlign.Center);
+                graphics.DrawString("r", new Font("Marlett", 10), new SolidBrush(CloseColor), new Rectangle(Width - 34, 1, 34, 34), HopeStringAlign.Center);
             }
             else
             {

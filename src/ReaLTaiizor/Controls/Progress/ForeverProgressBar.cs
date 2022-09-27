@@ -21,7 +21,6 @@ namespace ReaLTaiizor.Controls
         private int H;
         private int _Value = 0;
         private int _Maximum = 100;
-        private bool _PercentSign = false;
 
         [Category("Control")]
         public int Maximum
@@ -72,21 +71,13 @@ namespace ReaLTaiizor.Controls
 
         public bool ShowBalloon { get; set; } = true;
 
-        public bool PercentSign
-        {
-            get => _PercentSign;
-            set => _PercentSign = value;
-        }
+        public bool PercentSign { get; set; } = false;
 
         [Category("Colors")]
         public Color ProgressColor { get; set; } = ForeverLibrary.ForeverColor;
 
         [Category("Colors")]
-        public Color DarkerProgress
-        {
-            get => _DarkerProgress;
-            set => _DarkerProgress = value;
-        }
+        public Color DarkerProgress { get; set; } = Color.FromArgb(23, 148, 92);
 
         protected override void OnResize(EventArgs e)
         {
@@ -106,7 +97,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private readonly Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _DarkerProgress = Color.FromArgb(23, 148, 92);
 
         public ForeverProgressBar()
         {
@@ -167,7 +157,7 @@ namespace ReaLTaiizor.Controls
                     if (Pattern)
                     {
                         //-- Hatch Brush
-                        HatchBrush HB = new(HatchStyle.Plaid, _DarkerProgress, ProgressColor);
+                        HatchBrush HB = new(HatchStyle.Plaid, DarkerProgress, ProgressColor);
                         _with15.FillRectangle(HB, new Rectangle(0, 24, iValue - 1, H - 1));
                     }
 
@@ -183,8 +173,8 @@ namespace ReaLTaiizor.Controls
                         _with15.FillPath(new SolidBrush(_BaseColor), GP3);
 
                         //-- Value > You can add "%" > value & "%"
-                        string text = (_PercentSign ? Value.ToString() + "%" : Value.ToString());
-                        int wOffset = (_PercentSign ? iValue - 15 : iValue - 11);
+                        string text = (PercentSign ? Value.ToString() + "%" : Value.ToString());
+                        int wOffset = (PercentSign ? iValue - 15 : iValue - 11);
                         _with15.DrawString(text, new Font("Segoe UI", 10), new SolidBrush(ForeColor), new Rectangle(wOffset, -2, W, H), ForeverLibrary.NearSF);
                     }
 

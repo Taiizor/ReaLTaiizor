@@ -42,11 +42,7 @@ namespace ReaLTaiizor.Controls
         public Color TimeColor { get; set; } = Color.White;
 
         [Category("Colors")]
-        public Color RectColor
-        {
-            get => _RectColor;
-            set => _RectColor = value;
-        }
+        public Color RectColor { get; set; } = ForeverLibrary.ForeverColor;
 
         [Category("Options")]
         public bool ShowTimeDate { get; set; } = false;
@@ -70,8 +66,6 @@ namespace ReaLTaiizor.Controls
                 return DateTime.Now.ToString(TimeFormatDefault);
             }
         }
-
-        private Color _RectColor = ForeverLibrary.ForeverColor;
 
         public ForeverStatusBar()
         {
@@ -107,7 +101,7 @@ namespace ReaLTaiizor.Controls
             _with21.DrawString(Text, Font, new SolidBrush(TextColor), new Rectangle(10, 4, W, H), ForeverLibrary.NearSF);
 
             //-- Rectangle
-            _with21.FillRectangle(new SolidBrush(_RectColor), new Rectangle(4, 4, 4, 14));
+            _with21.FillRectangle(new SolidBrush(RectColor), new Rectangle(4, 4, 4, 14));
 
             //-- TimeDate
             if (ShowTimeDate)
@@ -131,7 +125,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _RectColor = Colors.Forever;
+            RectColor = Colors.Forever;
         }
     }
 

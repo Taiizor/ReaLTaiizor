@@ -125,11 +125,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Remove WatchPath from output")]
-        public bool SlimOutput
-        {
-            get => slimOutput;
-            set => slimOutput = value;
-        }
+        public bool SlimOutput { get; set; } = true;
 
         public void StartService()
         {
@@ -155,7 +151,7 @@ namespace ReaLTaiizor.Controls
             if (lastWriteTime != lastRead && File.Exists(e.FullPath))
             {
                 lastRead = lastWriteTime;
-                if (slimOutput)
+                if (SlimOutput)
                 {
                     OutputControl.Invoke(new SysAction(delegate ()
                     {
@@ -177,7 +173,7 @@ namespace ReaLTaiizor.Controls
         {
             DateTime lastWriteTime = File.GetLastWriteTime(e.FullPath);
             lastRead = lastWriteTime;
-            if (slimOutput)
+            if (SlimOutput)
             {
                 if (OutputControl.InvokeRequired)
                 {
@@ -203,7 +199,7 @@ namespace ReaLTaiizor.Controls
             if (lastWriteTime != lastRead)
             {
                 lastRead = lastWriteTime;
-                if (slimOutput)
+                if (SlimOutput)
                 {
                     if (OutputControl.InvokeRequired)
                     {
@@ -230,7 +226,7 @@ namespace ReaLTaiizor.Controls
             if (lastWriteTime != lastRead)
             {
                 lastRead = lastWriteTime;
-                if (slimOutput)
+                if (SlimOutput)
                 {
                     if (OutputControl.InvokeRequired)
                     {
@@ -254,7 +250,6 @@ namespace ReaLTaiizor.Controls
         private readonly FileSystemWatcher watcher = new();
 
         private DateTime lastRead = DateTime.MinValue;
-        private bool slimOutput = true;
     }
 
     #endregion

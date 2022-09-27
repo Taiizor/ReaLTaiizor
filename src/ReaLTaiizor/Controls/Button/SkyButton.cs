@@ -53,7 +53,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _DownBorderColorD = Color.FromArgb(200, 25, 73, 109);
         #endregion
 
         #region Settings
@@ -113,11 +112,7 @@ namespace ReaLTaiizor.Controls
 
         public Color DownBorderColorC { get; set; } = Color.FromArgb(38, 93, 131);
 
-        public Color DownBorderColorD
-        {
-            get => _DownBorderColorD;
-            set => _DownBorderColorD = value;
-        }
+        public Color DownBorderColorD { get; set; } = Color.FromArgb(200, 25, 73, 109);
         #endregion
 
         public SkyButton() : base()

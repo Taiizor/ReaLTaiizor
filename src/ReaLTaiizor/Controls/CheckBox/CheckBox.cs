@@ -21,7 +21,6 @@ namespace ReaLTaiizor.Controls
         private bool _Enable = true;
         private bool _Checked = false;
         private GraphicsPath Shape;
-        private Color _CheckedBackColor = Color.FromArgb(66, 76, 85);
 
         #endregion
 
@@ -54,11 +53,7 @@ namespace ReaLTaiizor.Controls
 
         public Color CheckedBorderColor { get; set; } = Color.FromArgb(66, 76, 85);
 
-        public Color CheckedBackColor
-        {
-            get => _CheckedBackColor;
-            set => _CheckedBackColor = value;
-        }
+        public Color CheckedBackColor { get; set; } = Color.FromArgb(66, 76, 85);
 
         #endregion
 
@@ -127,12 +122,12 @@ namespace ReaLTaiizor.Controls
             if (_Checked)
             {
                 G.FillRectangle(new SolidBrush(CheckedBorderColor), new Rectangle(0, 0, 16, 16));
-                G.FillRectangle(new SolidBrush(_CheckedBackColor), new Rectangle(1, 1, 16 - 2, 16 - 2));
+                G.FillRectangle(new SolidBrush(CheckedBackColor), new Rectangle(1, 1, 16 - 2, 16 - 2));
             }
             else
             {
                 G.FillRectangle(new SolidBrush(CheckedBorderColor), new Rectangle(0, 0, 16, 16));
-                G.FillRectangle(new SolidBrush(_CheckedBackColor), new Rectangle(1, 1, 16 - 2, 16 - 2));
+                G.FillRectangle(new SolidBrush(CheckedBackColor), new Rectangle(1, 1, 16 - 2, 16 - 2));
             }
 
             if (_Enable)

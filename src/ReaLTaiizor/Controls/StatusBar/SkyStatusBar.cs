@@ -14,7 +14,6 @@ namespace ReaLTaiizor.Controls
     public class SkyStatusBar : Control
     {
         #region Variables
-        private Color _BorderColorC = Color.FromArgb(189, 189, 189);
         #endregion
 
         #region Settings
@@ -26,11 +25,7 @@ namespace ReaLTaiizor.Controls
 
         public Color BorderColorB { get; set; } = Color.FromArgb(200, 249, 249, 249);
 
-        public Color BorderColorC
-        {
-            get => _BorderColorC;
-            set => _BorderColorC = value;
-        }
+        public Color BorderColorC { get; set; } = Color.FromArgb(189, 189, 189);
         #endregion
 
         #region Events

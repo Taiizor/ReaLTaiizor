@@ -33,7 +33,6 @@ namespace ReaLTaiizor.Forms
         private Point MouseP = new(0, 0);
         private bool Cap = false;
         private bool HasShown;
-        private Color _FillEdgeColorB = Color.FromArgb(69, 68, 63);
 
         #endregion
 
@@ -51,11 +50,7 @@ namespace ReaLTaiizor.Forms
 
         public Color FillEdgeColorA { get; set; } = Color.FromArgb(69, 68, 63);
 
-        public Color FillEdgeColorB
-        {
-            get => _FillEdgeColorB;
-            set => _FillEdgeColorB = value;
-        }
+        public Color FillEdgeColorB { get; set; } = Color.FromArgb(69, 68, 63);
         public bool Sizable { get; set; } = true;
         public bool SmartBounds { get; set; } = true;
 
@@ -452,7 +447,7 @@ namespace ReaLTaiizor.Forms
             // Use [Color.FromArgb(87, 86, 81), Color.FromArgb(60, 59, 55)] for a darker taste
             // And replace each (60, 59, 55) with (69, 68, 63)
             G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, 36), HeaderEdgeColorA, HeaderEdgeColorB), new Rectangle(1, 1, Width - 2, 36));
-            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, Height), FillEdgeColorA, _FillEdgeColorB), new Rectangle(1, 36, Width - 2, Height - 46));
+            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, Height), FillEdgeColorA, FillEdgeColorB), new Rectangle(1, 36, Width - 2, Height - 46));
 
             G.DrawRectangle(new(BorderColor), new Rectangle(9, 47, Width - 19, Height - 55));
             G.FillRectangle(new SolidBrush(BackColor), new Rectangle(10, 48, Width - 20, Height - 56));

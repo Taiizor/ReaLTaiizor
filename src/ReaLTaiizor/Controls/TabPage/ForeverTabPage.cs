@@ -39,13 +39,7 @@ namespace ReaLTaiizor.Controls
         public Color ActiveFontColor { get; set; } = Color.White;
 
         [Category("Colors")]
-        public Color DeactiveFontColor
-        {
-            get => _DeactiveFontColor;
-            set => _DeactiveFontColor = value;
-        }
-
-        private Color _DeactiveFontColor = Color.White;
+        public Color DeactiveFontColor { get; set; } = Color.White;
 
         public ForeverTabPage()
         {
@@ -139,7 +133,7 @@ namespace ReaLTaiizor.Controls
                                 //-- Image
                                 _with13.DrawImage(ImageList.Images[TabPages[i].ImageIndex], new Point(BaseSize.Location.X + 8, BaseSize.Location.Y + 6));
                                 //-- Text
-                                _with13.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(_DeactiveFontColor), BaseSize, new StringFormat
+                                _with13.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(DeactiveFontColor), BaseSize, new StringFormat
                                 {
                                     LineAlignment = StringAlignment.Center,
                                     Alignment = StringAlignment.Center
@@ -148,7 +142,7 @@ namespace ReaLTaiizor.Controls
                             else
                             {
                                 //-- Text
-                                _with13.DrawString(TabPages[i].Text, Font, new SolidBrush(_DeactiveFontColor), BaseSize, new StringFormat
+                                _with13.DrawString(TabPages[i].Text, Font, new SolidBrush(DeactiveFontColor), BaseSize, new StringFormat
                                 {
                                     LineAlignment = StringAlignment.Center,
                                     Alignment = StringAlignment.Center
@@ -163,7 +157,7 @@ namespace ReaLTaiizor.Controls
                     else
                     {
                         //-- Text
-                        _with13.DrawString(TabPages[i].Text, Font, new SolidBrush(_DeactiveFontColor), BaseSize, new StringFormat
+                        _with13.DrawString(TabPages[i].Text, Font, new SolidBrush(DeactiveFontColor), BaseSize, new StringFormat
                         {
                             LineAlignment = StringAlignment.Center,
                             Alignment = StringAlignment.Center

@@ -86,8 +86,6 @@ namespace ReaLTaiizor.Controls
             CheckedChanged?.Invoke(this);
         }
 
-        private Color _TextColor = Color.FromArgb(243, 243, 243);
-
         [Category("Options")]
         public Color BaseColor { get; set; } = ForeverLibrary.ForeverColor;
 
@@ -101,11 +99,7 @@ namespace ReaLTaiizor.Controls
         public Color ToggleColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Options")]
-        public Color TextColor
-        {
-            get => _TextColor;
-            set => _TextColor = value;
-        }
+        public Color TextColor { get; set; } = Color.FromArgb(243, 243, 243);
 
         public ForeverToggle()
         {
@@ -178,7 +172,7 @@ namespace ReaLTaiizor.Controls
                     _with9.DrawLine(new(BGColor), 26, 20, 26, 12);
 
                     //-- Text
-                    _with9.DrawString("r", new Font("Marlett", 8), new SolidBrush(_TextColor), new Rectangle(19, 2, Width, Height), ForeverLibrary.CenterSF);
+                    _with9.DrawString("r", new Font("Marlett", 8), new SolidBrush(TextColor), new Rectangle(19, 2, Width, Height), ForeverLibrary.CenterSF);
 
                     if (Checked)
                     {
@@ -194,7 +188,7 @@ namespace ReaLTaiizor.Controls
                         _with9.DrawLine(new(BGColor), Convert.ToInt32(W / 2) + 20, 20, Convert.ToInt32(W / 2) + 20, 12);
 
                         //-- Text
-                        _with9.DrawString("ü", new Font("Wingdings", 14), new SolidBrush(_TextColor), new Rectangle(8, 7, Width, Height), ForeverLibrary.NearSF);
+                        _with9.DrawString("ü", new Font("Wingdings", 14), new SolidBrush(TextColor), new Rectangle(8, 7, Width, Height), ForeverLibrary.NearSF);
                     }
                     break;
                 case _Options.Style3:

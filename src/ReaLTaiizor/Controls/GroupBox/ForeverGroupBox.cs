@@ -18,7 +18,6 @@ namespace ReaLTaiizor.Controls
     {
         private int W;
         private int H;
-        private bool _ShowArrow = true;
 
         [Category("Colors")]
         public Color BaseColor { get; set; } = Color.FromArgb(60, 70, 73);
@@ -30,23 +29,13 @@ namespace ReaLTaiizor.Controls
         public Color ArrowColorH { get; set; } = Color.FromArgb(60, 70, 73);
 
         [Category("Colors")]
-        public Color ArrowColorF
-        {
-            get => _ArrowColorF;
-            set => _ArrowColorF = value;
-        }
+        public Color ArrowColorF { get; set; } = Color.FromArgb(60, 70, 73);
 
         [Category("Options")]
         public bool ShowText { get; set; } = true;
 
         [Category("Options")]
-        public bool ShowArrow
-        {
-            get => _ShowArrow;
-            set => _ShowArrow = value;
-        }
-
-        private Color _ArrowColorF = Color.FromArgb(60, 70, 73);
+        public bool ShowArrow { get; set; } = true;
 
         public ForeverGroupBox()
         {
@@ -82,12 +71,12 @@ namespace ReaLTaiizor.Controls
             _with7.FillPath(new SolidBrush(BaseColor), GP);
 
             //-- Arrows
-            if (_ShowArrow)
+            if (ShowArrow)
             {
                 GP2 = ForeverLibrary.DrawArrow(28, 2, false);
                 _with7.FillPath(new SolidBrush(ArrowColorH), GP2);
                 GP3 = ForeverLibrary.DrawArrow(28, 8, true);
-                _with7.FillPath(new SolidBrush(_ArrowColorF), GP3);
+                _with7.FillPath(new SolidBrush(ArrowColorF), GP3);
             }
 
             //-- if ShowText

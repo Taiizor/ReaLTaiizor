@@ -40,8 +40,6 @@ namespace ReaLTaiizor.Controls
         private bool _Toggled;
         private _Type ToggleType;
         private Rectangle Bar;
-        private Color _ToggledOnOffColorA = Color.WhiteSmoke;
-        private Color _ToggledIOColorB = Color.DimGray;
 
         #endregion
         #region Properties
@@ -66,11 +64,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ToggledBorderColorD { get; set; } = Color.FromArgb(181, 181, 181);
 
-        public Color ToggledOnOffColorA
-        {
-            get => _ToggledOnOffColorA;
-            set => _ToggledOnOffColorA = value;
-        }
+        public Color ToggledOnOffColorA { get; set; } = Color.WhiteSmoke;
 
         public Color ToggledOnOffColorB { get; set; } = Color.DimGray;
 
@@ -80,11 +74,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ToggledIOColorA { get; set; } = Color.WhiteSmoke;
 
-        public Color ToggledIOColorB
-        {
-            get => _ToggledIOColorB;
-            set => _ToggledIOColorB = value;
-        }
+        public Color ToggledIOColorB { get; set; } = Color.DimGray;
 
         public bool Toggled
         {
@@ -165,7 +155,7 @@ namespace ReaLTaiizor.Controls
                 case _Type.OnOff:
                     if (Toggled)
                     {
-                        G.DrawString("ON", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledOnOffColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                        G.DrawString("ON", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(ToggledOnOffColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                     }
                     else
                     {
@@ -191,7 +181,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        G.DrawString("O", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledIOColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                        G.DrawString("O", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(ToggledIOColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                     }
 
                     break;

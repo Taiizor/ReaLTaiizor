@@ -51,24 +51,13 @@ namespace ReaLTaiizor.Controls
         public Color Gray { get; set; } = Color.FromArgb(63, 70, 73);
 
         [Category("Colors")]
-        public Color White
-        {
-            get => _White;
-            set => _White = value;
-        }
+        public Color White { get; set; } = Color.FromArgb(243, 243, 243);
 
         [Category("Options")]
         public string String { get; set; } = "Color Palette";
 
         [Category("Colors")]
-        public Color StringColor
-        {
-            get => _StringColor;
-            set => _StringColor = value;
-        }
-
-        private Color _White = Color.FromArgb(243, 243, 243);
-        private Color _StringColor = Color.White;
+        public Color StringColor { get; set; } = Color.White;
 
         public ForeverPalette()
         {
@@ -101,10 +90,10 @@ namespace ReaLTaiizor.Controls
             _with6.FillRectangle(new SolidBrush(Purple), new Rectangle(100, 0, 20, 40));
             _with6.FillRectangle(new SolidBrush(Black), new Rectangle(120, 0, 20, 40));
             _with6.FillRectangle(new SolidBrush(Gray), new Rectangle(140, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_White), new Rectangle(160, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(White), new Rectangle(160, 0, 20, 40));
 
             //-- Text
-            _with6.DrawString(String, Font, new SolidBrush(_StringColor), new Rectangle(0, 22, W, H), ForeverLibrary.CenterSF);
+            _with6.DrawString(String, Font, new SolidBrush(StringColor), new Rectangle(0, 22, W, H), ForeverLibrary.CenterSF);
 
             base.OnPaint(e);
             G.Dispose();

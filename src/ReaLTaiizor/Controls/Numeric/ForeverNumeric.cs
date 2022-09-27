@@ -170,13 +170,7 @@ namespace ReaLTaiizor.Controls
         public Color ButtonColorB { get; set; } = Color.White;
 
         [Category("Colors")]
-        public Color ButtonColorC
-        {
-            get => _ButtonColorC;
-            set => _ButtonColorC = value;
-        }
-
-        private Color _ButtonColorC = Color.White;
+        public Color ButtonColorC { get; set; } = Color.White;
 
         public ForeverNumeric()
         {
@@ -212,7 +206,7 @@ namespace ReaLTaiizor.Controls
             //-- Add
             _with18.DrawString("+", new Font("Segoe UI", 12), new SolidBrush(ButtonColorB), new Point(Width - 12, 8), ForeverLibrary.CenterSF);
             //-- Subtract
-            _with18.DrawString("-", new Font("Segoe UI", 10, FontStyle.Bold), new SolidBrush(_ButtonColorC), new Point(Width - 12, 22), ForeverLibrary.CenterSF);
+            _with18.DrawString("-", new Font("Segoe UI", 10, FontStyle.Bold), new SolidBrush(ButtonColorC), new Point(Width - 12, 22), ForeverLibrary.CenterSF);
 
             //-- Text
             _with18.DrawString(Value.ToString(), Font, new SolidBrush(ForeColor), new Rectangle(5, 1, W, H), new StringFormat { LineAlignment = StringAlignment.Center });

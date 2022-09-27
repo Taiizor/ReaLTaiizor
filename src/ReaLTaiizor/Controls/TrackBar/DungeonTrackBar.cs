@@ -46,7 +46,6 @@ namespace ReaLTaiizor.Controls
         private bool _DrawValueString = false;
         private bool _JumpToMouse = false;
         private ValueDivisor DividedValue = ValueDivisor.By1;
-        private Color _ThumbBorderColor = Color.FromArgb(180, 180, 180);
 
         #endregion
 
@@ -60,11 +59,7 @@ namespace ReaLTaiizor.Controls
 
         public Color ThumbBackColor { get; set; } = Color.FromArgb(244, 244, 244);
 
-        public Color ThumbBorderColor
-        {
-            get => _ThumbBorderColor;
-            set => _ThumbBorderColor = value;
-        }
+        public Color ThumbBorderColor { get; set; } = Color.FromArgb(180, 180, 180);
 
         public int Minimum
         {
@@ -290,7 +285,7 @@ namespace ReaLTaiizor.Controls
             G.FillPath(new SolidBrush(FillBackColor), FillValue);
 
             G.FillEllipse(new SolidBrush(ThumbBackColor), TrackThumb.X + (int)Math.Round(unchecked(TrackThumb.Width * (Value / (double)Maximum))) - (int)Math.Round(ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round(TrackThumb.Height / 2.0) - (int)Math.Round(ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
-            G.DrawEllipse(new(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked(TrackThumb.Width * (Value / (double)Maximum))) - (int)Math.Round(ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round(TrackThumb.Height / 2.0) - (int)Math.Round(ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.DrawEllipse(new(ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked(TrackThumb.Width * (Value / (double)Maximum))) - (int)Math.Round(ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round(TrackThumb.Height / 2.0) - (int)Math.Round(ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)
             {

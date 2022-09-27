@@ -87,11 +87,7 @@ namespace ReaLTaiizor.Controls
         public Color HoverColor { get; set; } = Color.FromArgb(35, 168, 109);
 
         [Category("Colors")]
-        public Color HoverFontColor
-        {
-            get => _HoverFontColor;
-            set => _HoverFontColor = value;
-        }
+        public Color HoverFontColor { get; set; } = Color.White;
 
         [Category("Colors")]
         public Color BaseColor { get; set; } = Color.FromArgb(25, 27, 29);
@@ -144,7 +140,7 @@ namespace ReaLTaiizor.Controls
             }
 
             //-- Text
-            e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), new Font("Segoe UI", 8), new SolidBrush(_HoverFontColor), new Rectangle(e.Bounds.X + 2, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height));
+            e.Graphics.DrawString(base.GetItemText(base.Items[e.Index]), new Font("Segoe UI", 8), new SolidBrush(HoverFontColor), new Rectangle(e.Bounds.X + 2, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height));
 
             e.Graphics.Dispose();
         }
@@ -155,8 +151,6 @@ namespace ReaLTaiizor.Controls
             Height = 18;
         }
 
-        private Color _HoverFontColor = Color.White;
-
         public ForeverComboBox()
         {
             DrawItem += DrawItem_;
@@ -164,7 +158,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
 
             DrawMode = DrawMode.OwnerDrawFixed;
-            ForeColor = _HoverFontColor;
+            ForeColor = HoverFontColor;
             DropDownStyle = ComboBoxStyle.DropDownList;
             Cursor = Cursors.Hand;
             StartIndex = 0;

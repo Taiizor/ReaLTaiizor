@@ -44,13 +44,7 @@ namespace ReaLTaiizor.Controls
             public Color _CheckedColor { get; set; } = ForeverLibrary.ForeverColor;
 
             [Category("Colors")]
-            public Color _BorderColor
-            {
-                get => BorderColor;
-                set => BorderColor = value;
-            }
-
-            private Color BorderColor = Color.FromArgb(53, 58, 60);
+            public Color _BorderColor { get; set; } = Color.FromArgb(53, 58, 60);
 
             public override Color ButtonSelectedBorder => _BackColor;
 
@@ -66,13 +60,13 @@ namespace ReaLTaiizor.Controls
 
             public override Color ImageMarginGradientMiddle => _CheckedColor;
 
-            public override Color MenuBorder => BorderColor;
+            public override Color MenuBorder => _BorderColor;
 
-            public override Color MenuItemBorder => BorderColor;
+            public override Color MenuItemBorder => _BorderColor;
 
             public override Color MenuItemSelected => _CheckedColor;
 
-            public override Color SeparatorDark => BorderColor;
+            public override Color SeparatorDark => _BorderColor;
 
             public override Color ToolStripDropDownBackground => _BackColor;
         }

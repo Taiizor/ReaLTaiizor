@@ -109,19 +109,13 @@ namespace ReaLTaiizor.Controls
         public Color DownColor { get; set; } = Color.FromArgb(30, 0, 0, 0);
 
         [Category("Colors")]
-        public Color TextColor
-        {
-            get => _TextColor;
-            set => _TextColor = value;
-        }
+        public Color TextColor { get; set; } = Color.FromArgb(243, 243, 243);
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
             Size = new(18, 18);
         }
-
-        private Color _TextColor = Color.FromArgb(243, 243, 243);
 
         public ForeverMinimize()
         {
