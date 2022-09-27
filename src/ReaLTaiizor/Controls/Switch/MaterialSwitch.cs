@@ -2,6 +2,7 @@
 
 using ReaLTaiizor.Extension;
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -23,7 +24,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -149,7 +150,7 @@ namespace ReaLTaiizor.Controls
             Size strSize;
             using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
-                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1));
+                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1));
             }
             int w = TRACK_SIZE_WIDTH + THUMB_SIZE + strSize.Width;
             return Ripple ? new Size(w, RIPPLE_DIAMETER) : new Size(w, THUMB_SIZE);
@@ -195,7 +196,7 @@ namespace ReaLTaiizor.Controls
 
             Color rippleColor = Color.FromArgb(40, // color alpha
                 Checked ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : // On color
-                (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White)); // Off color
+                (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? Color.Black : Color.White)); // Off color
 
             if (Ripple && _rippleAM.IsAnimating())
             {
@@ -241,7 +242,7 @@ namespace ReaLTaiizor.Controls
             Rectangle textLocation = new(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
             NativeText.DrawTransparentText(
                 Text,
-                SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
+                SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1),
                 Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 textLocation.Location,
                 textLocation.Size,

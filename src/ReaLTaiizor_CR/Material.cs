@@ -1,5 +1,6 @@
 ﻿using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System;
 
@@ -7,7 +8,7 @@ namespace ReaLTaiizor_CR
 {
     public partial class Material : MaterialForm
     {
-        private readonly MaterialManager MManager;
+        private readonly MaterialSkinManager MManager;
 
         private int colorSchemeIndex;
 
@@ -15,9 +16,9 @@ namespace ReaLTaiizor_CR
         {
             InitializeComponent();
 
-            MManager = MaterialManager.Instance;
+            MManager = MaterialSkinManager.Instance;
             MManager.AddFormToManage(this);
-            MManager.Theme = MaterialManager.Themes.DARK;
+            MManager.Theme = MaterialSkinManager.Themes.DARK;
             MManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
         }
 
@@ -51,9 +52,9 @@ namespace ReaLTaiizor_CR
             {
                 case 0:
                     MManager.ColorScheme = new MaterialColorScheme(
-                        MManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
-                        MManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
-                        MManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
+                        MManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
+                        MManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
+                        MManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
                         MaterialAccent.Pink200,
                         MaterialTextShade.WHITE);
                     break;

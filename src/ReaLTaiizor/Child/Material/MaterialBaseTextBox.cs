@@ -2,6 +2,7 @@
 
 using ReaLTaiizor.Controls;
 using ReaLTaiizor.Helper;
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System;
 using System.ComponentModel;
@@ -25,7 +26,7 @@ namespace ReaLTaiizor.Child.Material
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -93,7 +94,7 @@ namespace ReaLTaiizor.Child.Material
                 using MaterialNativeTextRenderer NativeText = new(Graphics.FromHwnd(m.HWnd));
                 NativeText.DrawTransparentText(
                 Hint,
-                SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1),
+                SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1),
                 Enabled ?
                 MaterialColorHelper.RemoveAlpha(SkinManager.TextMediumEmphasisColor, BackColor) : // not focused
                 MaterialColorHelper.RemoveAlpha(SkinManager.TextDisabledOrHintColor, BackColor), // Disabled
@@ -128,7 +129,7 @@ namespace ReaLTaiizor.Child.Material
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -194,7 +195,7 @@ namespace ReaLTaiizor.Child.Material
                 using MaterialNativeTextRenderer NativeText = new(Graphics.FromHwnd(m.HWnd));
                 NativeText.DrawTransparentText(
                 Hint,
-                SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1),
+                SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1),
                 Enabled ?
                 MaterialColorHelper.RemoveAlpha(SkinManager.TextMediumEmphasisColor, BackColor) : // not focused
                 MaterialColorHelper.RemoveAlpha(SkinManager.TextDisabledOrHintColor, BackColor), // Disabled

@@ -2,6 +2,7 @@
 
 using ReaLTaiizor.Extension;
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -260,7 +261,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            base.Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1);
+            base.Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1);
             base.AutoSize = false;
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
@@ -366,7 +367,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Calculate lightness and color
-            float l = (SkinManager.Theme == MaterialManager.Themes.LIGHT) ? 0f : 1f;
+            float l = (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT) ? 0f : 1f;
 
             // Create matrices
             float[][] matrixGray = {
@@ -653,8 +654,8 @@ namespace ReaLTaiizor.Controls
                 string textBeforeSelection = textToDisplay.Substring(0, SelectionStart);
                 textSelected = textToDisplay.Substring(SelectionStart, SelectionLength);
 
-                int selectX = NativeText.MeasureLogString(textBeforeSelection, SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1)).Width;
-                int selectWidth = NativeText.MeasureLogString(textSelected, SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1)).Width;
+                int selectX = NativeText.MeasureLogString(textBeforeSelection, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1)).Width;
+                int selectWidth = NativeText.MeasureLogString(textSelected, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1)).Width;
 
                 textSelectRect = new Rectangle(
                     textRect.X + selectX, UseTallSize ? hasHint ?
@@ -670,7 +671,7 @@ namespace ReaLTaiizor.Controls
                 // Draw user text
                 NativeText.DrawTransparentText(
                     textToDisplay,
-                    SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1),
+                    SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textRect.Location,
                     textRect.Size,
@@ -686,7 +687,7 @@ namespace ReaLTaiizor.Controls
                 using MaterialNativeTextRenderer NativeText = new(g);
                 NativeText.DrawTransparentText(
                     textSelected,
-                    SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1),
+                    SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1),
                     SkinManager.ColorScheme.TextColor,
                     textSelectRect.Location,
                     textSelectRect.Size,

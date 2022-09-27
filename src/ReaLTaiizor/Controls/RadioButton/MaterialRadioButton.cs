@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -22,7 +23,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -137,7 +138,7 @@ namespace ReaLTaiizor.Controls
 
             using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
-                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1));
+                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1));
             }
 
             int w = _boxOffset + TEXT_OFFSET + strSize.Width;
@@ -173,7 +174,7 @@ namespace ReaLTaiizor.Controls
                 int rippleSize = (int)(rippleHeight * (0.7 + (0.3 * animationValue)));
 
                 using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * animationValue),
-                    !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
+                    !Checked ? (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
                 g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize - 1, rippleSize - 1));
             }
 
@@ -185,7 +186,7 @@ namespace ReaLTaiizor.Controls
                     double animationValue = _rippleAM.GetProgress(i);
                     int rippleSize = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleHeight * (0.7 + (0.3 * animationValue))) : rippleHeight;
 
-                    using SolidBrush rippleBrush = new(Color.FromArgb((int)(animationValue * 40), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
+                    using SolidBrush rippleBrush = new(Color.FromArgb((int)(animationValue * 40), !Checked ? (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize - 1, rippleSize - 1));
                 }
             }
@@ -211,7 +212,7 @@ namespace ReaLTaiizor.Controls
             // Text
             using MaterialNativeTextRenderer NativeText = new(g);
             Rectangle textLocation = new(_boxOffset + TEXT_OFFSET, 0, Width, Height);
-            NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
+            NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1),
                 Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 textLocation.Location,
                 textLocation.Size,

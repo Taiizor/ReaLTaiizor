@@ -4,6 +4,7 @@ using ReaLTaiizor.Child.Material;
 using ReaLTaiizor.Controls;
 using ReaLTaiizor.Enum.Material;
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -28,7 +29,7 @@ namespace ReaLTaiizor.Forms
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -1267,7 +1268,7 @@ namespace ReaLTaiizor.Forms
                 using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
                 {
                     Rectangle textLocation = new Rectangle(DrawerTabControl != null ? TITLE_LEFT_PADDING : TITLE_LEFT_PADDING - (ICON_SIZE + (ACTION_BAR_PADDING * 2)), STATUS_BAR_HEIGHT, ClientSize.Width, ACTION_BAR_HEIGHT);
-                    NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.H6),
+                    NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.H6),
                         SkinManager.ColorScheme.TextColor,
                         textLocation.Location,
                         textLocation.Size,

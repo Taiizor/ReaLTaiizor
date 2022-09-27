@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -75,7 +76,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
         
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
         
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -288,7 +289,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            Font = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
+            Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
         }
 
         protected override void InitLayout()
@@ -544,7 +545,7 @@ namespace ReaLTaiizor.Controls
                 // Draw header text
                 NativeText.DrawTransparentText(
                     _titleHeader,
-                    SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
+                    SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     headerRect.Location,
                     headerRect.Size,
@@ -565,7 +566,7 @@ namespace ReaLTaiizor.Controls
                 // Draw description header text 
                 NativeText.DrawTransparentText(
                 _descriptionHeader,
-                SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
+                SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1),
                  SkinManager.TextDisabledOrHintColor,
                 headerDescriptionRect.Location,
                 headerDescriptionRect.Size,
@@ -644,9 +645,9 @@ namespace ReaLTaiizor.Controls
         {
             if (!_collapse && _showValidationButtons)
             {
-                int _buttonWidth = TextRenderer.MeasureText(ValidationButtonText, SkinManager.GetFontByType(MaterialManager.FontType.Button)).Width + 32;
+                int _buttonWidth = TextRenderer.MeasureText(ValidationButtonText, SkinManager.GetFontByType(MaterialSkinManager.FontType.Button)).Width + 32;
                 _savebuttonBounds = new Rectangle(Width - _buttonPadding - _buttonWidth, Height - _expansionPanelDefaultPadding - _footerButtonHeight, _buttonWidth, _footerButtonHeight);
-                _buttonWidth = TextRenderer.MeasureText(CancelButtonText, SkinManager.GetFontByType(MaterialManager.FontType.Button)).Width + 32;
+                _buttonWidth = TextRenderer.MeasureText(CancelButtonText, SkinManager.GetFontByType(MaterialSkinManager.FontType.Button)).Width + 32;
                 _cancelbuttonBounds = new Rectangle(_savebuttonBounds.Left - _buttonPadding - _buttonWidth, Height - _expansionPanelDefaultPadding - _footerButtonHeight, _buttonWidth, _footerButtonHeight);
 
                 if (_validationButton != null)

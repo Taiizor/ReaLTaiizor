@@ -1,7 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Enum.Material;
-using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -25,7 +25,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -434,7 +434,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            DrawScrollBar(e.Graphics, MaterialManager.Instance.CardsColor, SkinManager.SwitchOffTrackColor, useAccentColor ? MaterialManager.Instance.ColorScheme.AccentColor : MaterialManager.Instance.ColorScheme.PrimaryColor);
+            DrawScrollBar(e.Graphics, MaterialSkinManager.Instance.CardsColor, SkinManager.SwitchOffTrackColor, useAccentColor ? MaterialSkinManager.Instance.ColorScheme.AccentColor : MaterialSkinManager.Instance.ColorScheme.PrimaryColor);
         }
 
         private void DrawScrollBar(Graphics g, Color backColor, Color thumbColor, Color barColor)

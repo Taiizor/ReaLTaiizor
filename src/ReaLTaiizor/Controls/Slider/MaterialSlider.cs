@@ -2,6 +2,7 @@
 
 using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -43,7 +44,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -202,11 +203,11 @@ namespace ReaLTaiizor.Controls
             set { _useAccentColor = value; Invalidate(); }
         }
 
-        private MaterialManager.FontType _fontType = MaterialManager.FontType.Body1;
+        private MaterialSkinManager.FontType _fontType = MaterialSkinManager.FontType.Body1;
 
         [Category("Material"),
-        DefaultValue(typeof(MaterialManager.FontType), "Body1")]
-        public MaterialManager.FontType FontType
+        DefaultValue(typeof(MaterialSkinManager.FontType), "Body1")]
+        public MaterialSkinManager.FontType FontType
         {
             get => _fontType;
             set
@@ -429,7 +430,7 @@ namespace ReaLTaiizor.Controls
             _accentBrush = new SolidBrush(_accentColor);
             _disabledBrush = new SolidBrush(Color.FromArgb(255, 158, 158, 158));
 
-            if (SkinManager.Theme == MaterialManager.Themes.DARK)
+            if (SkinManager.Theme == MaterialSkinManager.Themes.DARK)
             {
                 _disabledColor = Color.FromArgb((int)(2.55 * 30), 255, 255, 255);
                 _inactiveTrackColor = _accentColor.Darken(0.25f);

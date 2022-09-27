@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -20,7 +21,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -105,7 +106,7 @@ namespace ReaLTaiizor.Controls
             using MaterialNativeTextRenderer NativeText = new(g);
             NativeText.DrawTransparentText(
                 e.Header.Text,
-                SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle2),
+                SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle2),
                 Enabled ? SkinManager.TextHighEmphasisNoAlphaColor : SkinManager.TextDisabledOrHintColor,
                 new Point(e.Bounds.Location.X + PAD, e.Bounds.Location.Y),
                 new Size(e.Bounds.Size.Width - (PAD * 2), e.Bounds.Size.Height),
@@ -141,7 +142,7 @@ namespace ReaLTaiizor.Controls
                 using MaterialNativeTextRenderer NativeText = new(g);
                 NativeText.DrawTransparentText(
                     subItem.Text,
-                    SkinManager.GetLogFontByType(MaterialManager.FontType.Body2),
+                    SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body2),
                     Enabled ? SkinManager.TextHighEmphasisNoAlphaColor : SkinManager.TextDisabledOrHintColor,
                     new Point(subItem.Bounds.X + PAD, subItem.Bounds.Y),
                     new Size(subItem.Bounds.Width - (PAD * 2), subItem.Bounds.Height),

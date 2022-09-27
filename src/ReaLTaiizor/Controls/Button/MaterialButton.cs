@@ -3,6 +3,7 @@
 using ReaLTaiizor.Extension;
 using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -41,7 +42,7 @@ namespace ReaLTaiizor.Controls
         /// Gets the SkinManager
         /// </summary>
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         /// <summary>
         /// Gets or sets the MouseState
@@ -323,7 +324,7 @@ namespace ReaLTaiizor.Controls
 
                 if (!string.IsNullOrEmpty(value))
                 {
-                    _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.GetFontByType(MaterialManager.FontType.Button));
+                    _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.GetFontByType(MaterialSkinManager.FontType.Button));
                 }
                 else
                 {
@@ -403,7 +404,7 @@ namespace ReaLTaiizor.Controls
             Bitmap IconResized = new(Icon, newWidth, newHeight);
 
             // Calculate lightness and color
-            float l = (SkinManager.Theme == MaterialManager.Themes.LIGHT & (highEmphasis == false | Enabled == false | Type != MaterialButtonType.Contained)) ? 0f : 1.5f;
+            float l = (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT & (highEmphasis == false | Enabled == false | Type != MaterialButtonType.Contained)) ? 0f : 1.5f;
 
             // Create matrices
             float[][] matrixGray = {
@@ -549,7 +550,7 @@ namespace ReaLTaiizor.Controls
                             SkinManager.ColorScheme.AccentColor.Lighten(0.5f) : // Emphasis with accent
                             SkinManager.ColorScheme.LightPrimaryColor) : // Emphasis
                             (UseAccentColor ? SkinManager.ColorScheme.AccentColor : // Normal with accent
-                            SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor))); // Normal
+                            SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor))); // Normal
                     int rippleSize = (int)(animationValue * Width * 2);
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
                 }
@@ -578,7 +579,7 @@ namespace ReaLTaiizor.Controls
                 NativeText.DrawMultilineTransparentText(
                     CharacterCasing == CharacterCasingEnum.Upper ? base.Text.ToUpper() : CharacterCasing == CharacterCasingEnum.Lower ? base.Text.ToLower() :
                         CharacterCasing == CharacterCasingEnum.Title ? CultureInfo.CurrentCulture.TextInfo.ToTitleCase(base.Text.ToLower()) : base.Text,
-                    SkinManager.GetLogFontByType(MaterialManager.FontType.Button),
+                    SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Button),
                     textColor,
                     textRect.Location,
                     textRect.Size,

@@ -3,6 +3,7 @@
 using ReaLTaiizor.Util;
 using System.ComponentModel;
 using System.Drawing;
+using ReaLTaiizor.Manager;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -23,7 +24,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -115,7 +116,7 @@ namespace ReaLTaiizor.Controls
         //Properties for managing the material design properties
         public int Depth { get; set; }
 
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         public MaterialMouseState MouseState { get; set; }
 
@@ -128,7 +129,7 @@ namespace ReaLTaiizor.Controls
             Rectangle textRect = new(LEFT_PADDING, itemRect.Y, itemRect.Width - (LEFT_PADDING + RIGHT_PADDING), itemRect.Height);
 
             using MaterialNativeTextRenderer NativeText = new(g);
-            NativeText.DrawTransparentText(e.Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body2),
+            NativeText.DrawTransparentText(e.Text, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body2),
                 e.Item.Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 textRect.Location,
                 textRect.Size,

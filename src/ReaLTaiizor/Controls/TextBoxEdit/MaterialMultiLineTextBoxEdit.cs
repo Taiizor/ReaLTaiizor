@@ -2,7 +2,7 @@
 
 using ReaLTaiizor.Child.Material;
 using ReaLTaiizor.Helper;
-using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -708,7 +708,7 @@ namespace ReaLTaiizor.Controls
             baseTextBox = new MaterialBaseTextBox
             {
                 BorderStyle = BorderStyle.None,
-                Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1),
+                Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1),
                 ForeColor = SkinManager.TextHighEmphasisColor,
                 Multiline = true
             };

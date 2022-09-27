@@ -1,6 +1,6 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Helper
         {
             int Depth { get; set; }
 
-            MaterialManager SkinManager { get; }
+            MaterialSkinManager SkinManager { get; }
 
             MaterialMouseState MouseState { get; set; }
         }

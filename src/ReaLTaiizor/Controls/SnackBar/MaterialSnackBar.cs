@@ -2,19 +2,14 @@
 
 using ReaLTaiizor.Enum.Material;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Helper;
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO.Ports;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using static ReaLTaiizor.Controls.ParrotBarGraph;
-using static ReaLTaiizor.Drawing.Poison.PoisonPaint;
-using static ReaLTaiizor.Helper.MaterialDrawHelper;
 using static ReaLTaiizor.Util.MaterialAnimations;
 
 #endregion
@@ -192,7 +187,7 @@ namespace ReaLTaiizor.Controls
         {
             if (_showActionButton == true)
             {
-                int _buttonWidth = TextRenderer.MeasureText(ActionButtonText, SkinManager.GetFontByType(MaterialManager.FontType.Button)).Width + 32;
+                int _buttonWidth = TextRenderer.MeasureText(ActionButtonText, SkinManager.GetFontByType(MaterialSkinManager.FontType.Button)).Width + 32;
                 Rectangle _actionbuttonBounds = new Rectangle(Width - BUTTON_PADDING - _buttonWidth, TOP_PADDING_SINGLE_LINE, _buttonWidth, BUTTON_HEIGHT);
                 _actionButton.Width = _actionbuttonBounds.Width;
                 _actionButton.Height = _actionbuttonBounds.Height;
@@ -207,7 +202,7 @@ namespace ReaLTaiizor.Controls
             _actionButton.Left = Width - BUTTON_PADDING - _actionButton.Width;  //Button minimum width management
             _actionButton.Visible = _showActionButton;
 
-            Width = TextRenderer.MeasureText(_text, SkinManager.GetFontByType(MaterialManager.FontType.Body2)).Width + (2 * LEFT_RIGHT_PADDING) + _actionButton.Width + 48;
+            Width = TextRenderer.MeasureText(_text, SkinManager.GetFontByType(MaterialSkinManager.FontType.Body2)).Width + (2 * LEFT_RIGHT_PADDING) + _actionButton.Width + 48;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 6, 6));
 
         }
@@ -260,7 +255,7 @@ namespace ReaLTaiizor.Controls
                 // Draw header text
                 NativeText.DrawTransparentText(
                     _text,
-                    SkinManager.GetLogFontByType(MaterialManager.FontType.Body2),
+                    SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body2),
                     SkinManager.SnackBarTextHighEmphasisColor,
                     textRect.Location,
                     textRect.Size,

@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Helper;
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.ComponentModel;
 using System.Drawing;
@@ -19,7 +20,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -46,11 +47,11 @@ namespace ReaLTaiizor.Controls
         DefaultValue(false)]
         public bool UseAccent { get; set; }
 
-        private MaterialManager.FontType _fontType = MaterialManager.FontType.Body1;
+        private MaterialSkinManager.FontType _fontType = MaterialSkinManager.FontType.Body1;
 
         [Category("Material"),
-        DefaultValue(typeof(MaterialManager.FontType), "Body1")]
-        public MaterialManager.FontType FontType
+        DefaultValue(typeof(MaterialSkinManager.FontType), "Body1")]
+        public MaterialSkinManager.FontType FontType
         {
             get => _fontType;
             set
@@ -63,7 +64,7 @@ namespace ReaLTaiizor.Controls
 
         public MaterialLabel()
         {
-            FontType = MaterialManager.FontType.Body1;
+            FontType = MaterialSkinManager.FontType.Body1;
             TextAlign = ContentAlignment.TopLeft;
         }
 
@@ -116,7 +117,7 @@ namespace ReaLTaiizor.Controls
                 SkinManager.GetLogFontByType(_fontType),
                 Enabled ? HighEmphasis ? UseAccent ?
                 SkinManager.ColorScheme.AccentColor : // High emphasis, accent
-                (SkinManager.Theme == MaterialManager.Themes.LIGHT) ?
+                (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT) ?
                 SkinManager.ColorScheme.PrimaryColor : // High emphasis, primary Light theme
                 SkinManager.ColorScheme.PrimaryColor.Lighten(0.25f) : // High emphasis, primary Dark theme
                 SkinManager.TextHighEmphasisColor : // Normal

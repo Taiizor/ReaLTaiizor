@@ -4,6 +4,7 @@ using ReaLTaiizor.Child.Material;
 using ReaLTaiizor.Enum.Material;
 using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -73,7 +74,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -255,8 +256,8 @@ namespace ReaLTaiizor.Controls
             );
             UpdateStyles();
             base.BackColor = Color.Transparent;
-            base.Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1);
-            _secondaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
+            base.Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1);
+            _secondaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
             SetDefaults();
             ShowBorder = true;
             ShowScrollBar = false;
@@ -316,16 +317,16 @@ namespace ReaLTaiizor.Controls
                     _itemHeight = 60;
                     _secondaryTextBottomPadding = 10;
                     _primaryTextBottomPadding = 2;
-                    _primaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
-                    _secondaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Body2);
+                    _primaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
+                    _secondaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body2);
                 }
                 else
                 {
                     _itemHeight = 72;
                     _secondaryTextBottomPadding = 16;
                     _primaryTextBottomPadding = 4;
-                    _primaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1);
-                    _secondaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
+                    _primaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1);
+                    _secondaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
                 }
             }
             else if (_style == ListBoxStyle.ThreeLine)
@@ -336,15 +337,15 @@ namespace ReaLTaiizor.Controls
                 {
                     _itemHeight = 76;
                     _secondaryTextBottomPadding = 16;
-                    _primaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
-                    _secondaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Body2);
+                    _primaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
+                    _secondaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body2);
                 }
                 else
                 {
                     _itemHeight = 88;
                     _secondaryTextBottomPadding = 12;
-                    _primaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1);
-                    _secondaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
+                    _primaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1);
+                    _secondaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
                 }
             }
             else
@@ -359,8 +360,8 @@ namespace ReaLTaiizor.Controls
                     _itemHeight = 48;
                 }
 
-                _primaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1);
-                _secondaryFont = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
+                _primaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1);
+                _secondaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
             }
 
         }

@@ -1,6 +1,6 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public int Depth { get; set; }
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
@@ -524,7 +524,7 @@ namespace ReaLTaiizor.Controls
             _baseTextBox = new BaseTextBox
             {
                 BorderStyle = BorderStyle.None,
-                Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1),
+                Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1),
                 Location = new(0, 0),
                 Width = Width,
                 Height = Height - 5

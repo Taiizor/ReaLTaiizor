@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -198,7 +199,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            Font = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
+            Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -279,7 +280,7 @@ namespace ReaLTaiizor.Controls
                         CharacterCasing == CustomCharacterCasing.Upper ? tabPage.Text.ToUpper() :
                         CharacterCasing == CustomCharacterCasing.Lower ? tabPage.Text.ToLower() :
                         CharacterCasing == CustomCharacterCasing.Proper ? textInfo.ToTitleCase(tabPage.Text.ToLower()) : tabPage.Text,
-                        SkinManager.GetFontByType(MaterialManager.FontType.Body2),
+                        SkinManager.GetFontByType(MaterialSkinManager.FontType.Body2),
                         Color.FromArgb(CalculateTextAlpha(currentTabIndex, animationProgress), SkinManager.ColorScheme.TextColor),
                         textLocation.Location,
                         textLocation.Size,

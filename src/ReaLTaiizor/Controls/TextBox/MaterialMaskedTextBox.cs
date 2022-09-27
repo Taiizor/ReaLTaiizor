@@ -3,6 +3,7 @@
 using ReaLTaiizor.Child.Material;
 using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -933,7 +934,7 @@ namespace ReaLTaiizor.Controls
                 preProcessIcons();
             };
 
-            Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1);
+            Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1);
 
             baseTextBox = new MaterialBaseMaskedTextBox
             {
@@ -1093,7 +1094,7 @@ namespace ReaLTaiizor.Controls
                 // Draw Prefix text 
                 NativeText.DrawTransparentText(
                 _prefixsuffixText,
-                SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1),
+                SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1),
                 Enabled ? SkinManager.TextMediumEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 prefixRect.Location,
                 prefixRect.Size,
@@ -1113,7 +1114,7 @@ namespace ReaLTaiizor.Controls
                 // Draw Suffix text 
                 NativeText.DrawTransparentText(
                 _prefixsuffixText,
-                SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1),
+                SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1),
                 Enabled ? SkinManager.TextMediumEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 suffixRect.Location,
                 suffixRect.Size,
@@ -1323,7 +1324,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Calculate lightness and color
-            float l = (SkinManager.Theme == MaterialManager.Themes.LIGHT) ? 0f : 1f;
+            float l = (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT) ? 0f : 1f;
 
             // Create matrices
             float[][] matrixGray = {
@@ -1503,7 +1504,7 @@ namespace ReaLTaiizor.Controls
             if (_prefixsuffix == PrefixSuffixTypes.Prefix && _prefixsuffixText != null && _prefixsuffixText.Length > 0)
             {
                 using MaterialNativeTextRenderer NativeText = new(CreateGraphics());
-                _prefix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
+                _prefix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
                 _left_padding += _prefix_padding;
             }
             else
@@ -1514,7 +1515,7 @@ namespace ReaLTaiizor.Controls
             if (_prefixsuffix == PrefixSuffixTypes.Suffix && _prefixsuffixText != null && _prefixsuffixText.Length > 0)
             {
                 using MaterialNativeTextRenderer NativeText = new(CreateGraphics());
-                _suffix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
+                _suffix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
                 _right_padding += _suffix_padding;
             }
             else

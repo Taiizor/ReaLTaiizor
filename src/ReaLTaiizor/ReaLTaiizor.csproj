@@ -302,4 +302,8 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     <EmbeddedResource Include="Localization\Poison\zh\PoisonToggle.xml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Manager\MaterialStyleManager.cs" />
+  </ItemGroup>
+
 </Project>

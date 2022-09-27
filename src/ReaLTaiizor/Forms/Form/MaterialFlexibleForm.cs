@@ -1,8 +1,8 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Controls;
-using ReaLTaiizor.Util;
 using System;
+using ReaLTaiizor.Manager;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Forms
 
     public class MaterialFlexibleForm : MaterialForm, MaterialControlI
     {
-        private readonly MaterialManager materialManager;
+        private readonly MaterialSkinManager materialManager;
 
         public static Font FONT;
 
@@ -355,9 +355,9 @@ namespace ReaLTaiizor.Forms
             this.KeyPreview = true;
             this.KeyUp += MaterialFlexibleForm_KeyUp;
 
-            materialManager = MaterialManager.Instance;
+            materialManager = MaterialSkinManager.Instance;
             materialManager.AddFormToManage(this);
-            FONT = materialManager.GetFontByType(MaterialManager.FontType.Body1);
+            FONT = materialManager.GetFontByType(MaterialSkinManager.FontType.Body1);
             messageContainer.BackColor = this.BackColor;
         }
 
