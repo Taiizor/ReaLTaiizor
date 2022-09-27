@@ -73,8 +73,10 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         public int Depth { get; set; }
+        
         [Browsable(false)]
         public MaterialManager SkinManager => MaterialManager.Instance;
+        
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
@@ -273,7 +275,6 @@ namespace ReaLTaiizor.Controls
             CancelClick?.Invoke(this, new EventArgs());
             Collapse = true;
             CollapseOrExpand();
-
         }
 
         private void _validationButton_Click(object sender, EventArgs e)

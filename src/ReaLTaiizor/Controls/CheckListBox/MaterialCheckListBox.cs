@@ -32,43 +32,41 @@ namespace ReaLTaiizor.Controls
 
         public MaterialCheckListBox() : base()
         {
-            DoubleBuffered = true;
-            Items = new ItemsList(this);
-            AutoScroll = true;
+            this.DoubleBuffered = true;
+            this.Items = new ItemsList(this);
+            this.AutoScroll = true;
         }
 
-        /*
-            protected override void OnPaint(PaintEventArgs e)
-            {
-                base.OnPaint(e);
-                MessageBox.Show("Start!");
+        //protected override void OnPaint(PaintEventArgs e)
+        //{
+        //    base.OnPaint(e);
+        //    MessageBox.Show("Start!");
 
-                foreach (Control CTRL in FindForm().Controls)
-                {
-                    try
-                    {
-                        if (CTRL is MaterialCheckedListBox)
-                        {
-                            MessageBox.Show("OK - " + CTRL.Name);
-                            MaterialCheckedListBox MCLB = CTRL as MaterialCheckedListBox;
-                            MessageBox.Show("YES - " + MCLB.Name + " - " + MCLB.Items.Count);
-                            foreach (var Item in MCLB.Items)
-                            {
-                                if (!MCLB.Controls.Contains(Item))
-                                {
-                                    MessageBox.Show("I - " + Item.Text);
-                                    Items.Add(Item.Text, Item.Checked);
-                                }
-                            }
-                        }
-                    }
-                    catch
-                    {
-                        //
-                    }
-                }
-            }
-        */
+        //    foreach (Control CTRL in FindForm().Controls)
+        //    {
+        //        try
+        //        {
+        //            if (CTRL is MaterialCheckListBox)
+        //            {
+        //                MessageBox.Show("OK - " + CTRL.Name);
+        //                MaterialCheckListBox MCLB = CTRL as MaterialCheckListBox;
+        //                MessageBox.Show("YES - " + MCLB.Name + " - " + MCLB.Items.Count);
+        //                foreach (var Item in MCLB.Items)
+        //                {
+        //                    if (!MCLB.Controls.Contains(Item))
+        //                    {
+        //                        MessageBox.Show("I - " + Item.Text);
+        //                        Items.Add(Item.Text, Item.Checked);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        catch
+        //        {
+        //            //
+        //        }
+        //    }
+        //}
 
         protected override void OnCreateControl()
         {
@@ -76,12 +74,12 @@ namespace ReaLTaiizor.Controls
             if (DesignMode)
             {
                 BackColorChanged += (sender, args) => BackColor = Parent.BackColor;
-                BackColor = Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor;
+                BackColor = Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor;
             }
             else
             {
                 BackColorChanged += (sender, args) => BackColor = BlendColor(Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A);
-                BackColor = BlendColor(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A);
+                BackColor = BlendColor(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor, SkinManager.BackgroundAlternativeColor, SkinManager.BackgroundAlternativeColor.A);
             }
         }
 
@@ -92,7 +90,7 @@ namespace ReaLTaiizor.Controls
 
         public class ItemsList : List<MaterialCheckBox>
         {
-            private readonly System.Windows.Forms.Panel _parent;
+            private System.Windows.Forms.Panel _parent;
 
             public ItemsList(System.Windows.Forms.Panel parent)
             {
