@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Material));
             this.materialTextBox1 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.materialTextBox2 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -48,8 +47,8 @@
             // 
             this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.materialTextBox1.Hint = "53X";
+            this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox1.Hint = "Hint";
             this.materialTextBox1.Location = new System.Drawing.Point(12, 85);
             this.materialTextBox1.MaxLength = 50;
             this.materialTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -63,8 +62,8 @@
             // 
             this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox2.Depth = 0;
-            this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.materialTextBox2.Hint = "53X";
+            this.materialTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.materialTextBox2.Hint = "Hint";
             this.materialTextBox2.Location = new System.Drawing.Point(12, 141);
             this.materialTextBox2.MaxLength = 50;
             this.materialTextBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -81,7 +80,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(291, 20);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "deneme";
+            this.textBox1.Text = "testing";
             // 
             // textBox2
             // 
@@ -90,7 +89,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(291, 20);
             this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "deneme";
+            this.textBox2.Text = "testing";
             // 
             // textBox3
             // 
@@ -99,7 +98,7 @@
             this.textBox3.PasswordChar = '●';
             this.textBox3.Size = new System.Drawing.Size(291, 20);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "deneme";
+            this.textBox3.Text = "testing";
             // 
             // textBox4
             // 
@@ -109,7 +108,7 @@
             this.textBox4.PasswordChar = '●';
             this.textBox4.Size = new System.Drawing.Size(291, 20);
             this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "deneme";
+            this.textBox4.Text = "testing";
             // 
             // richTextBox1
             // 
@@ -119,7 +118,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(291, 55);
             this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "deneme";
+            this.richTextBox1.Text = "testing";
             // 
             // materialRichTextBox1
             // 
@@ -139,14 +138,16 @@
             // materialButton1
             // 
             this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton1.Depth = 0;
-            this.materialButton1.DrawShadows = true;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
             this.materialButton1.Location = new System.Drawing.Point(310, 320);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
             this.materialButton1.Size = new System.Drawing.Size(141, 36);
             this.materialButton1.TabIndex = 9;
             this.materialButton1.Text = "FAST ANIMATION";
@@ -158,14 +159,16 @@
             // materialButton2
             // 
             this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton2.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton2.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton2.Depth = 0;
-            this.materialButton2.DrawShadows = true;
             this.materialButton2.HighEmphasis = true;
             this.materialButton2.Icon = null;
             this.materialButton2.Location = new System.Drawing.Point(459, 320);
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
+            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
             this.materialButton2.Size = new System.Drawing.Size(166, 36);
             this.materialButton2.TabIndex = 10;
             this.materialButton2.Text = "NORMAL ANIMATION";
@@ -178,7 +181,7 @@
             // 
             this.materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox3.Depth = 0;
-            this.materialTextBox3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.materialTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.materialTextBox3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.materialTextBox3.Hint = "53X";
             this.materialTextBox3.Location = new System.Drawing.Point(322, 205);
@@ -188,20 +191,22 @@
             this.materialTextBox3.Name = "materialTextBox3";
             this.materialTextBox3.Size = new System.Drawing.Size(291, 36);
             this.materialTextBox3.TabIndex = 11;
-            this.materialTextBox3.Text = "deneme";
+            this.materialTextBox3.Text = "testing";
             this.materialTextBox3.UseTallSize = false;
             // 
             // materialButton3
             // 
             this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton3.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton3.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton3.Depth = 0;
-            this.materialButton3.DrawShadows = true;
             this.materialButton3.HighEmphasis = true;
             this.materialButton3.Icon = null;
             this.materialButton3.Location = new System.Drawing.Point(395, 283);
             this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialButton3.Name = "materialButton3";
+            this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
             this.materialButton3.Size = new System.Drawing.Size(144, 36);
             this.materialButton3.TabIndex = 13;
             this.materialButton3.Text = "CHANGE SCHEMA";
@@ -213,7 +218,6 @@
             // materialSingleTextBox1
             // 
             this.materialSingleTextBox1.Depth = 0;
-            this.materialSingleTextBox1.Hint = "";
             this.materialSingleTextBox1.Location = new System.Drawing.Point(322, 247);
             this.materialSingleTextBox1.MaxLength = 32767;
             this.materialSingleTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -249,7 +253,6 @@
             this.Controls.Add(this.materialTextBox1);
             this.Icon = global::ReaLTaiizor_CR.Properties.Resources.ICO;
             this.MaximizeBox = false;
-            this.MessageFilter = false;
             this.Name = "Material";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
