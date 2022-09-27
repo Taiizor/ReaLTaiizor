@@ -16,8 +16,7 @@ namespace ReaLTaiizor.Helper
         public static Color Lighten(this Color color, float percent)
         {
             float lighting = color.GetBrightness();
-            lighting += lighting * percent;
-
+            lighting = lighting + (lighting * percent);
             if (lighting > 1.0)
             {
                 lighting = 1;
@@ -26,7 +25,6 @@ namespace ReaLTaiizor.Helper
             {
                 lighting = 0.1f;
             }
-
             Color tintedColor = FromHsl(color.A, color.GetHue(), color.GetSaturation(), lighting);
 
             return tintedColor;
@@ -35,8 +33,7 @@ namespace ReaLTaiizor.Helper
         public static Color Darken(this Color color, float percent)
         {
             float lighting = color.GetBrightness();
-            lighting -= lighting * percent;
-
+            lighting = lighting - (lighting * percent);
             if (lighting > 1.0)
             {
                 lighting = 1;
@@ -45,7 +42,6 @@ namespace ReaLTaiizor.Helper
             {
                 lighting = 0;
             }
-
             Color tintedColor = FromHsl(color.A, color.GetHue(), color.GetSaturation(), lighting);
 
             return tintedColor;
@@ -55,22 +51,19 @@ namespace ReaLTaiizor.Helper
         {
             if (alpha is < 0 or > 255)
             {
-                throw new ArgumentOutOfRangeException(nameof(alpha));
+                throw new ArgumentOutOfRangeException("alpha");
             }
-
             if (hue is < 0f or > 360f)
             {
-                throw new ArgumentOutOfRangeException(nameof(hue));
+                throw new ArgumentOutOfRangeException("hue");
             }
-
             if (saturation is < 0f or > 1f)
             {
-                throw new ArgumentOutOfRangeException(nameof(saturation));
+                throw new ArgumentOutOfRangeException("saturation");
             }
-
             if (lighting is < 0f or > 1f)
             {
-                throw new ArgumentOutOfRangeException(nameof(lighting));
+                throw new ArgumentOutOfRangeException("lighting");
             }
 
             if (0 == saturation)
@@ -93,15 +86,12 @@ namespace ReaLTaiizor.Helper
             }
 
             iSextant = (int)Math.Floor(hue / 60f);
-
             if (300f <= hue)
             {
                 hue -= 360f;
             }
-
             hue /= 60f;
             hue -= 2f * (float)Math.Floor((iSextant + 1f) % 6f / 2f);
-
             if (0 == iSextant % 2)
             {
                 fMid = (hue * (fMax - fMin)) + fMin;
@@ -124,6 +114,21 @@ namespace ReaLTaiizor.Helper
                 5 => Color.FromArgb(alpha, iMax, iMin, iMid),
                 _ => Color.FromArgb(alpha, iMax, iMid, iMin),
             };
+        }
+
+        public static Color RemoveAlpha(Color foreground, Color background)
+        {
+            if (foreground.A == 255)
+            {
+                return foreground;
+            }
+
+            double alpha = foreground.A / 255.0;
+            double diff = 1.0 - alpha;
+            return Color.FromArgb(255,
+                (byte)((foreground.R * alpha) + (background.R * diff)),
+                (byte)((foreground.G * alpha) + (background.G * diff)),
+                (byte)((foreground.B * alpha) + (background.B * diff)));
         }
     }
 
