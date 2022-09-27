@@ -41,8 +41,10 @@
             this.materialTextBox3 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
-            this.materialSwitch1 = new ReaLTaiizor.Controls.MaterialSwitch();
-            this.materialSwitch2 = new ReaLTaiizor.Controls.MaterialSwitch();
+            this.materialCheckBox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            this.materialCheckBox2 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            this.materialCheckBox3 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            this.materialCheckBox4 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -235,49 +237,87 @@
             this.materialSingleTextBox1.UseAccentColor = true;
             this.materialSingleTextBox1.UseSystemPasswordChar = false;
             // 
-            // materialSwitch1
+            // materialCheckBox1
             // 
-            this.materialSwitch1.AutoSize = true;
-            this.materialSwitch1.Checked = true;
-            this.materialSwitch1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.materialSwitch1.Depth = 0;
-            this.materialSwitch1.Location = new System.Drawing.Point(616, 85);
-            this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialSwitch1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialSwitch1.Name = "materialSwitch1";
-            this.materialSwitch1.Ripple = true;
-            this.materialSwitch1.Size = new System.Drawing.Size(173, 37);
-            this.materialSwitch1.TabIndex = 15;
-            this.materialSwitch1.Text = "materialSwitch1";
-            this.materialSwitch1.UseAccentColor = false;
-            this.materialSwitch1.UseVisualStyleBackColor = true;
+            this.materialCheckBox1.AutoSize = true;
+            this.materialCheckBox1.Depth = 0;
+            this.materialCheckBox1.Location = new System.Drawing.Point(616, 85);
+            this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialCheckBox1.Name = "materialCheckBox1";
+            this.materialCheckBox1.ReadOnly = false;
+            this.materialCheckBox1.Ripple = true;
+            this.materialCheckBox1.Size = new System.Drawing.Size(172, 37);
+            this.materialCheckBox1.TabIndex = 15;
+            this.materialCheckBox1.Text = "materialCheckBox1";
+            this.materialCheckBox1.UseAccentColor = false;
+            this.materialCheckBox1.UseVisualStyleBackColor = true;
             // 
-            // materialSwitch2
+            // materialCheckBox2
             // 
-            this.materialSwitch2.AutoSize = true;
-            this.materialSwitch2.Checked = true;
-            this.materialSwitch2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.materialSwitch2.Depth = 0;
-            this.materialSwitch2.Location = new System.Drawing.Point(616, 122);
-            this.materialSwitch2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialSwitch2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialSwitch2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialSwitch2.Name = "materialSwitch2";
-            this.materialSwitch2.Ripple = true;
-            this.materialSwitch2.Size = new System.Drawing.Size(173, 37);
-            this.materialSwitch2.TabIndex = 16;
-            this.materialSwitch2.Text = "materialSwitch2";
-            this.materialSwitch2.UseAccentColor = true;
-            this.materialSwitch2.UseVisualStyleBackColor = true;
+            this.materialCheckBox2.AutoSize = true;
+            this.materialCheckBox2.Checked = true;
+            this.materialCheckBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.materialCheckBox2.Depth = 0;
+            this.materialCheckBox2.Location = new System.Drawing.Point(616, 122);
+            this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialCheckBox2.Name = "materialCheckBox2";
+            this.materialCheckBox2.ReadOnly = false;
+            this.materialCheckBox2.Ripple = true;
+            this.materialCheckBox2.Size = new System.Drawing.Size(172, 37);
+            this.materialCheckBox2.TabIndex = 16;
+            this.materialCheckBox2.Text = "materialCheckBox2";
+            this.materialCheckBox2.UseAccentColor = false;
+            this.materialCheckBox2.UseVisualStyleBackColor = true;
+            // 
+            // materialCheckBox3
+            // 
+            this.materialCheckBox3.AutoSize = true;
+            this.materialCheckBox3.Checked = true;
+            this.materialCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.materialCheckBox3.Depth = 0;
+            this.materialCheckBox3.Location = new System.Drawing.Point(616, 159);
+            this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialCheckBox3.Name = "materialCheckBox3";
+            this.materialCheckBox3.ReadOnly = false;
+            this.materialCheckBox3.Ripple = true;
+            this.materialCheckBox3.Size = new System.Drawing.Size(172, 37);
+            this.materialCheckBox3.TabIndex = 18;
+            this.materialCheckBox3.Text = "materialCheckBox3";
+            this.materialCheckBox3.UseAccentColor = true;
+            this.materialCheckBox3.UseVisualStyleBackColor = true;
+            // 
+            // materialCheckBox4
+            // 
+            this.materialCheckBox4.AutoSize = true;
+            this.materialCheckBox4.Depth = 0;
+            this.materialCheckBox4.Location = new System.Drawing.Point(616, 196);
+            this.materialCheckBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckBox4.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckBox4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialCheckBox4.Name = "materialCheckBox4";
+            this.materialCheckBox4.ReadOnly = false;
+            this.materialCheckBox4.Ripple = true;
+            this.materialCheckBox4.Size = new System.Drawing.Size(172, 37);
+            this.materialCheckBox4.TabIndex = 17;
+            this.materialCheckBox4.Text = "materialCheckBox4";
+            this.materialCheckBox4.UseAccentColor = true;
+            this.materialCheckBox4.UseVisualStyleBackColor = true;
             // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(976, 376);
-            this.Controls.Add(this.materialSwitch2);
-            this.Controls.Add(this.materialSwitch1);
+            this.Controls.Add(this.materialCheckBox3);
+            this.Controls.Add(this.materialCheckBox4);
+            this.Controls.Add(this.materialCheckBox2);
+            this.Controls.Add(this.materialCheckBox1);
             this.Controls.Add(this.materialSingleTextBox1);
             this.Controls.Add(this.materialButton3);
             this.Controls.Add(this.materialTextBox3);
@@ -317,7 +357,9 @@
         private ReaLTaiizor.Controls.MaterialTextBox materialTextBox3;
         private ReaLTaiizor.Controls.MaterialButton materialButton3;
         private ReaLTaiizor.Controls.MaterialSingleTextBox materialSingleTextBox1;
-        private ReaLTaiizor.Controls.MaterialSwitch materialSwitch1;
-        private ReaLTaiizor.Controls.MaterialSwitch materialSwitch2;
+        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox1;
+        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox2;
+        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox3;
+        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox4;
     }
 }
