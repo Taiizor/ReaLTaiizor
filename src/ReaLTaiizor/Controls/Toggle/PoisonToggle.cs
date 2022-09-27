@@ -109,41 +109,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -158,43 +135,21 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private bool displayFocusRectangle = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayFocus
-        {
-            get => displayFocusRectangle;
-            set => displayFocusRectangle = value;
-        }
+        public bool DisplayFocus { get; set; } = false;
 
         private readonly PoisonLocalize poisonLocalize = null;
 
-        private PoisonLinkLabelSize poisonLinkSize = PoisonLinkLabelSize.Small;
         [DefaultValue(PoisonLinkLabelSize.Small)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonLinkLabelSize FontSize
-        {
-            get => poisonLinkSize;
-            set => poisonLinkSize = value;
-        }
-
-        private PoisonLinkLabelWeight poisonLinkWeight = PoisonLinkLabelWeight.Regular;
+        public PoisonLinkLabelSize FontSize { get; set; } = PoisonLinkLabelSize.Small;
         [DefaultValue(PoisonLinkLabelWeight.Regular)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonLinkLabelWeight FontWeight
-        {
-            get => poisonLinkWeight;
-            set => poisonLinkWeight = value;
-        }
-
-        private bool displayStatus = true;
+        public PoisonLinkLabelWeight FontWeight { get; set; } = PoisonLinkLabelWeight.Regular;
         [DefaultValue(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayStatus
-        {
-            get => displayStatus;
-            set => displayStatus = value;
-        }
+        public bool DisplayStatus { get; set; } = true;
 
         [Browsable(false)]
         public override Font Font
@@ -258,7 +213,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                 }
@@ -318,7 +273,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                foreColor = !useStyleColors ? PoisonPaint.ForeColor.CheckBox.Normal(Theme) : PoisonPaint.GetStyleColor(Style);
+                foreColor = !UseStyleColors ? PoisonPaint.ForeColor.CheckBox.Normal(Theme) : PoisonPaint.GetStyleColor(Style);
                 borderColor = PoisonPaint.BorderColor.CheckBox.Normal(Theme);
             }
 
@@ -338,7 +293,7 @@ namespace ReaLTaiizor.Controls
 
             Color backColor = BackColor;
 
-            if (!useCustomBackColor)
+            if (!UseCustomBackColor)
             {
                 backColor = PoisonPaint.BackColor.Form(Theme);
             }
@@ -361,10 +316,10 @@ namespace ReaLTaiizor.Controls
             if (DisplayStatus)
             {
                 Rectangle textRect = new(0, 0, 30, ClientRectangle.Height);
-                TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.LinkLabel(poisonLinkSize, poisonLinkWeight), textRect, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
+                TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.LinkLabel(FontSize, FontWeight), textRect, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
             }
 
-            if (displayFocusRectangle && isFocused)
+            if (DisplayFocus && isFocused)
             {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
             }

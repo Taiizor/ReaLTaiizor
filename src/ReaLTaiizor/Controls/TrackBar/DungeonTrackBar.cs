@@ -46,40 +46,19 @@ namespace ReaLTaiizor.Controls
         private bool _DrawValueString = false;
         private bool _JumpToMouse = false;
         private ValueDivisor DividedValue = ValueDivisor.By1;
-
-        private Color _EmptyBackColor = Color.FromArgb(221, 221, 221);
-        private Color _BorderColor = Color.FromArgb(200, 200, 200);
-        private Color _FillBackColor = Color.FromArgb(217, 99, 50);
-        private Color _ThumbBackColor = Color.FromArgb(244, 244, 244);
         private Color _ThumbBorderColor = Color.FromArgb(180, 180, 180);
 
         #endregion
 
         #region Properties
 
-        public Color EmptyBackColor
-        {
-            get => _EmptyBackColor;
-            set => _EmptyBackColor = value;
-        }
+        public Color EmptyBackColor { get; set; } = Color.FromArgb(221, 221, 221);
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.FromArgb(200, 200, 200);
 
-        public Color FillBackColor
-        {
-            get => _FillBackColor;
-            set => _FillBackColor = value;
-        }
+        public Color FillBackColor { get; set; } = Color.FromArgb(217, 99, 50);
 
-        public Color ThumbBackColor
-        {
-            get => _ThumbBackColor;
-            set => _ThumbBackColor = value;
-        }
+        public Color ThumbBackColor { get; set; } = Color.FromArgb(244, 244, 244);
 
         public Color ThumbBorderColor
         {
@@ -301,16 +280,16 @@ namespace ReaLTaiizor.Controls
             TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
 
             G.SetClip(PipeBorder); // Set the clipping region of this Graphics to the specified GraphicsPath
-            G.FillPath(new SolidBrush(_EmptyBackColor), PipeBorder);
+            G.FillPath(new SolidBrush(EmptyBackColor), PipeBorder);
             FillValue = RoundRectangle.RoundRect(1, 8, TrackBarHandleRect.X + TrackBarHandleRect.Width - 4, 5, 2);
 
             G.ResetClip(); // Reset the clip region of this Graphics to an infinite region
 
             G.SmoothingMode = SmoothingMode.HighQuality;
-            G.DrawPath(new(_BorderColor), PipeBorder); // Draw pipe border
-            G.FillPath(new SolidBrush(_FillBackColor), FillValue);
+            G.DrawPath(new(BorderColor), PipeBorder); // Draw pipe border
+            G.FillPath(new SolidBrush(FillBackColor), FillValue);
 
-            G.FillEllipse(new SolidBrush(_ThumbBackColor), TrackThumb.X + (int)Math.Round(unchecked(TrackThumb.Width * (Value / (double)Maximum))) - (int)Math.Round(ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round(TrackThumb.Height / 2.0) - (int)Math.Round(ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
+            G.FillEllipse(new SolidBrush(ThumbBackColor), TrackThumb.X + (int)Math.Round(unchecked(TrackThumb.Width * (Value / (double)Maximum))) - (int)Math.Round(ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round(TrackThumb.Height / 2.0) - (int)Math.Round(ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
             G.DrawEllipse(new(_ThumbBorderColor), TrackThumb.X + (int)Math.Round(unchecked(TrackThumb.Width * (Value / (double)Maximum))) - (int)Math.Round(ThumbSize.Width / 2.0), TrackThumb.Y + (int)Math.Round(TrackThumb.Height / 2.0) - (int)Math.Round(ThumbSize.Height / 2.0), ThumbSize.Width, ThumbSize.Height);
 
             if (_DrawValueString == true)

@@ -108,45 +108,22 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [Browsable(false)]
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = true;
+        public bool UseCustomForeColor { get; set; } = false;
         [Browsable(false)]
         [DefaultValue(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = true;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -161,50 +138,21 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private PoisonProgressBarSize poisonLabelSize = PoisonProgressBarSize.Medium;
         [DefaultValue(PoisonProgressBarSize.Medium)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonProgressBarSize FontSize
-        {
-            get => poisonLabelSize;
-            set => poisonLabelSize = value;
-        }
-
-        private PoisonProgressBarWeight poisonLabelWeight = PoisonProgressBarWeight.Light;
+        public PoisonProgressBarSize FontSize { get; set; } = PoisonProgressBarSize.Medium;
         [DefaultValue(PoisonProgressBarWeight.Light)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonProgressBarWeight FontWeight
-        {
-            get => poisonLabelWeight;
-            set => poisonLabelWeight = value;
-        }
-
-        private ContentAlignment textAlign = ContentAlignment.MiddleRight;
+        public PoisonProgressBarWeight FontWeight { get; set; } = PoisonProgressBarWeight.Light;
         [DefaultValue(ContentAlignment.MiddleRight)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public ContentAlignment TextAlign
-        {
-            get => textAlign;
-            set => textAlign = value;
-        }
-
-        private bool hideProgressText = true;
+        public ContentAlignment TextAlign { get; set; } = ContentAlignment.MiddleRight;
         [DefaultValue(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool HideProgressText
-        {
-            get => hideProgressText;
-            set => hideProgressText = value;
-        }
-
-        private ProgressBarStyle progressBarStyle = ProgressBarStyle.Continuous;
+        public bool HideProgressText { get; set; } = true;
         [DefaultValue(ProgressBarStyle.Continuous)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public ProgressBarStyle ProgressBarStyle
-        {
-            get => progressBarStyle;
-            set => progressBarStyle = value;
-        }
+        public ProgressBarStyle ProgressBarStyle { get; set; } = ProgressBarStyle.Continuous;
 
         public new int Value
         {
@@ -251,7 +199,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     if (!Enabled)
                     {
@@ -299,7 +247,7 @@ namespace ReaLTaiizor.Controls
 
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
-            if (progressBarStyle == ProgressBarStyle.Continuous)
+            if (ProgressBarStyle == ProgressBarStyle.Continuous)
             {
                 if (!DesignMode)
                 {
@@ -308,7 +256,7 @@ namespace ReaLTaiizor.Controls
 
                 DrawProgressContinuous(e.Graphics);
             }
-            else if (progressBarStyle == ProgressBarStyle.Blocks)
+            else if (ProgressBarStyle == ProgressBarStyle.Blocks)
             {
                 if (!DesignMode)
                 {
@@ -317,7 +265,7 @@ namespace ReaLTaiizor.Controls
 
                 DrawProgressContinuous(e.Graphics);
             }
-            else if (progressBarStyle == ProgressBarStyle.Marquee)
+            else if (ProgressBarStyle == ProgressBarStyle.Marquee)
             {
                 if (!DesignMode && Enabled)
                 {
@@ -381,7 +329,7 @@ namespace ReaLTaiizor.Controls
                 foreColor = PoisonPaint.ForeColor.ProgressBar.Normal(Theme);
             }
 
-            TextRenderer.DrawText(graphics, ProgressPercentText, PoisonFonts.ProgressBar(poisonLabelSize, poisonLabelWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
+            TextRenderer.DrawText(graphics, ProgressPercentText, PoisonFonts.ProgressBar(FontSize, FontWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
         }
 
         #endregion
@@ -396,7 +344,7 @@ namespace ReaLTaiizor.Controls
             using (Graphics g = CreateGraphics())
             {
                 proposedSize = new(int.MaxValue, int.MaxValue);
-                preferredSize = TextRenderer.MeasureText(g, ProgressPercentText, PoisonFonts.ProgressBar(poisonLabelSize, poisonLabelWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
+                preferredSize = TextRenderer.MeasureText(g, ProgressPercentText, PoisonFonts.ProgressBar(FontSize, FontWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
             }
 
             return preferredSize;

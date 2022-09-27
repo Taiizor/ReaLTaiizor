@@ -19,13 +19,11 @@ namespace ReaLTaiizor.Forms
         private int W;
         private int H;
         private bool Cap = false;
-        private bool _HeaderMaximize = false;
         private Point MousePoint = new(0, 0);
         private readonly int MoveHeight = 50;
 
         private Image _Image; //Properties.Resources.Taiizor
         private Size _ImageSize;
-        private bool _Sizable = true;
         private const int wmNcHitTest = 0x84;
         private const int htLeft = 10;
         private const int htRight = 11;
@@ -37,18 +35,10 @@ namespace ReaLTaiizor.Forms
         private const int htBottomRight = 17;
 
         [Category("Colors")]
-        public Color HeaderColor
-        {
-            get => _HeaderColor;
-            set => _HeaderColor = value;
-        }
+        public Color HeaderColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(60, 70, 73);
 
         [Category("Colors")]
         public Color BorderColor
@@ -58,11 +48,7 @@ namespace ReaLTaiizor.Forms
         }
 
         [Category("Colors")]
-        public Color TextColor
-        {
-            get => _TextColor;
-            set => _TextColor = value;
-        }
+        public Color TextColor { get; set; } = Color.FromArgb(234, 234, 234);
 
         [Category("Colors")]
         public Color TextLight
@@ -81,11 +67,7 @@ namespace ReaLTaiizor.Forms
         }
 
         [Category("Options")]
-        public bool HeaderMaximize
-        {
-            get => _HeaderMaximize;
-            set => _HeaderMaximize = value;
-        }
+        public bool HeaderMaximize { get; set; } = false;
 
         [Category("Options")]
         public Image Image
@@ -107,11 +89,7 @@ namespace ReaLTaiizor.Forms
         }
 
         [Category("Options")]
-        public bool Sizable
-        {
-            get => _Sizable;
-            set => _Sizable = value;
-        }
+        public bool Sizable { get; set; } = true;
 
         [Category("Options")]
         public Font HeaderTextFont
@@ -124,7 +102,7 @@ namespace ReaLTaiizor.Forms
         {
             base.WndProc(ref m);
 
-            if (_Sizable && m.Msg == wmNcHitTest && FindForm().WindowState != FormWindowState.Maximized)
+            if (Sizable && m.Msg == wmNcHitTest && FindForm().WindowState != FormWindowState.Maximized)
             {
                 int gripDist = 10;
                 //int x = (int)(m.LParam.ToInt64() & 0xFFFF);
@@ -242,12 +220,8 @@ namespace ReaLTaiizor.Forms
             Invalidate();
         }
 
-        private Color _HeaderColor = Color.FromArgb(45, 47, 49);
-        private Color _BaseColor = Color.FromArgb(60, 70, 73);
         private Color _BorderColor = Color.DodgerBlue; //Color.FromArgb(53, 58, 60)
         private Color _ForeverColor = ForeverLibrary.ForeverColor;
-        private Color _TextColor = Color.FromArgb(234, 234, 234);
-
         private Font _HeaderTextFont = new("Segoe UI", 12);
 
         private readonly Color _HeaderLight = Color.FromArgb(171, 171, 172);
@@ -282,22 +256,22 @@ namespace ReaLTaiizor.Forms
             _with2.Clear(BackColor);
 
             //-- Base
-            _with2.FillRectangle(new SolidBrush(_BaseColor), Base);
+            _with2.FillRectangle(new SolidBrush(BaseColor), Base);
 
             //-- Header
-            _with2.FillRectangle(new SolidBrush(_HeaderColor), Header);
+            _with2.FillRectangle(new SolidBrush(HeaderColor), Header);
 
             //-- Logo
             if (_Image == null)
             {
                 _with2.FillRectangle(new SolidBrush(_TextLight), new Rectangle(8, 16, 4, 18));
                 _with2.FillRectangle(new SolidBrush(_ForeverColor), 16, 16, 4, 18);
-                _with2.DrawString(Text, _HeaderTextFont, new SolidBrush(_TextColor), new Rectangle(26, 15, W, H), ForeverLibrary.NearSF);
+                _with2.DrawString(Text, _HeaderTextFont, new SolidBrush(TextColor), new Rectangle(26, 15, W, H), ForeverLibrary.NearSF);
             }
             else
             {
                 _with2.DrawImage(_Image, 12, 12, 27, 27);
-                _with2.DrawString(Text, _HeaderTextFont, new SolidBrush(_TextColor), new Rectangle(48, 15, W, H), ForeverLibrary.NearSF);
+                _with2.DrawString(Text, _HeaderTextFont, new SolidBrush(TextColor), new Rectangle(48, 15, W, H), ForeverLibrary.NearSF);
             }
 
             //-- Border

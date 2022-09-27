@@ -109,41 +109,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -158,32 +135,15 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private bool displayFocusRectangle = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayFocus
-        {
-            get => displayFocusRectangle;
-            set => displayFocusRectangle = value;
-        }
-
-        private PoisonCheckBoxSize poisonCheckBoxSize = PoisonCheckBoxSize.Small;
+        public bool DisplayFocus { get; set; } = false;
         [DefaultValue(PoisonCheckBoxSize.Small)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonCheckBoxSize FontSize
-        {
-            get => poisonCheckBoxSize;
-            set => poisonCheckBoxSize = value;
-        }
-
-        private PoisonCheckBoxWeight poisonCheckBoxWeight = PoisonCheckBoxWeight.Regular;
+        public PoisonCheckBoxSize FontSize { get; set; } = PoisonCheckBoxSize.Small;
         [DefaultValue(PoisonCheckBoxWeight.Regular)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonCheckBoxWeight FontWeight
-        {
-            get => poisonCheckBoxWeight;
-            set => poisonCheckBoxWeight = value;
-        }
+        public PoisonCheckBoxWeight FontWeight { get; set; } = PoisonCheckBoxWeight.Regular;
 
         [Browsable(false)]
         public override Font Font
@@ -222,7 +182,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                     if (Parent is PoisonTile)
@@ -269,7 +229,7 @@ namespace ReaLTaiizor.Controls
         {
             Color borderColor, foreColor;
 
-            if (useCustomForeColor)
+            if (UseCustomForeColor)
             {
                 foreColor = ForeColor;
 
@@ -309,7 +269,7 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    foreColor = !useStyleColors ? PoisonPaint.ForeColor.CheckBox.Normal(Theme) : PoisonPaint.GetStyleColor(Style);
+                    foreColor = !UseStyleColors ? PoisonPaint.ForeColor.CheckBox.Normal(Theme) : PoisonPaint.GetStyleColor(Style);
                     borderColor = PoisonPaint.BorderColor.CheckBox.Normal(Theme);
                 }
             }
@@ -334,11 +294,11 @@ namespace ReaLTaiizor.Controls
             e.Graphics.SmoothingMode = SmoothingMode.Default;
 
             Rectangle textRect = new(16, 0, Width - 16, Height);
-            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), textRect, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
+            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.CheckBox(FontSize, FontWeight), textRect, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
-            if (displayFocusRectangle && isFocused)
+            if (DisplayFocus && isFocused)
             {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
             }
@@ -479,7 +439,7 @@ namespace ReaLTaiizor.Controls
             using (Graphics g = CreateGraphics())
             {
                 proposedSize = new(int.MaxValue, int.MaxValue);
-                preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.CheckBox(poisonCheckBoxSize, poisonCheckBoxWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
+                preferredSize = TextRenderer.MeasureText(g, Text, PoisonFonts.CheckBox(FontSize, FontWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign));
                 preferredSize.Width += 16;
             }
 

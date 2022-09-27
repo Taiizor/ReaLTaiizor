@@ -67,11 +67,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Change the shadow angle, sorry this option is trial and error")]
-        public int ShadowAngle
-        {
-            get => shadowAngle;
-            set => shadowAngle = value;
-        }
+        public int ShadowAngle { get; set; } = 2;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -86,7 +82,7 @@ namespace ReaLTaiizor.Controls
         {
             Rectangle bounds = effectedForm.Bounds;
             ds.Bounds = bounds;
-            ds.Location = new Point(effectedForm.Location.X + shadowAngle, effectedForm.Location.Y + shadowAngle);
+            ds.Location = new Point(effectedForm.Location.X + ShadowAngle, effectedForm.Location.Y + ShadowAngle);
             ds.Show();
             effectedForm.BringToFront();
         }
@@ -98,15 +94,12 @@ namespace ReaLTaiizor.Controls
             {
                 Rectangle bounds = effectedForm.Bounds;
                 ds.Bounds = bounds;
-                ds.Location = new Point(effectedForm.Location.X + shadowAngle, effectedForm.Location.Y + shadowAngle);
+                ds.Location = new Point(effectedForm.Location.X + ShadowAngle, effectedForm.Location.Y + ShadowAngle);
             }
             effectedForm.BringToFront();
         }
 
         private readonly Timer RefreshUI = new();
-
-        private int shadowAngle = 2;
-
         private Form effectedForm;
 
         private readonly DropShadow ds = new();

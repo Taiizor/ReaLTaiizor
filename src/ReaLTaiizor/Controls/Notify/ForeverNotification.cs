@@ -22,12 +22,9 @@ namespace ReaLTaiizor.Controls
 
         private int W;
         private int H;
-        private _Kind K;
         private string _Text;
         private MouseStateForever State = MouseStateForever.None;
         private int X;
-        private bool _Close = true;
-
         private Timer withEventsField_T;
         private Timer T
         {
@@ -57,11 +54,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Options")]
-        public _Kind Kind
-        {
-            get => K;
-            set => K = value;
-        }
+        public _Kind Kind { get; set; }
 
         [Category("Options")]
         public override string Text
@@ -85,11 +78,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Options")]
-        public bool Close
-        {
-            get => _Close;
-            set => _Close = value;
-        }
+        public bool Close { get; set; } = true;
 
         protected override void OnTextChanged(EventArgs e)
         {
@@ -105,7 +94,7 @@ namespace ReaLTaiizor.Controls
 
         public void ShowControl(_Kind Kind, string Str, int Interval)
         {
-            K = Kind;
+            this.Kind = Kind;
             Text = Str;
             Visible = true;
             T = new Timer
@@ -117,7 +106,7 @@ namespace ReaLTaiizor.Controls
 
         private void T_Tick(object sender, EventArgs e)
         {
-            if (_Close)
+            if (Close)
             {
                 Visible = false;
             }
@@ -164,7 +153,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            if (_Close)
+            if (Close)
             {
                 Visible = false;
             }
@@ -203,7 +192,7 @@ namespace ReaLTaiizor.Controls
             _with14.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             _with14.Clear(BackColor);
 
-            switch (K)
+            switch (Kind)
             {
                 case _Kind.Success:
                     //-- Base
@@ -218,7 +207,7 @@ namespace ReaLTaiizor.Controls
                     _with14.DrawString(Text, Font, new SolidBrush(SuccessText), new Rectangle(48, 12, W, H), ForeverLibrary.NearSF);
 
                     //-- X button
-                    if (_Close)
+                    if (Close)
                     {
                         _with14.FillEllipse(new SolidBrush(Color.FromArgb(35, Color.Black)), new Rectangle(W - 30, H - 29, 17, 17));
                         _with14.DrawString("r", new Font("Marlett", 8), new SolidBrush(SuccessColor), new Rectangle(W - 28, 16, W, H), ForeverLibrary.NearSF);
@@ -246,7 +235,7 @@ namespace ReaLTaiizor.Controls
                     _with14.DrawString(Text, Font, new SolidBrush(ErrorText), new Rectangle(48, 12, W, H), ForeverLibrary.NearSF);
 
                     //-- X button
-                    if (_Close)
+                    if (Close)
                     {
                         _with14.FillEllipse(new SolidBrush(Color.FromArgb(35, Color.Black)), new Rectangle(W - 32, H - 29, 17, 17));
                         _with14.DrawString("r", new Font("Marlett", 8), new SolidBrush(ErrorColor), new Rectangle(W - 30, 17, W, H), ForeverLibrary.NearSF);
@@ -274,7 +263,7 @@ namespace ReaLTaiizor.Controls
                     _with14.DrawString(Text, Font, new SolidBrush(InfoText), new Rectangle(48, 12, W, H), ForeverLibrary.NearSF);
 
                     //-- X button
-                    if (_Close)
+                    if (Close)
                     {
                         _with14.FillEllipse(new SolidBrush(Color.FromArgb(35, Color.Black)), new Rectangle(W - 32, H - 29, 17, 17));
                         _with14.DrawString("r", new Font("Marlett", 8), new SolidBrush(InfoColor), new Rectangle(W - 30, 17, W, H), ForeverLibrary.NearSF);

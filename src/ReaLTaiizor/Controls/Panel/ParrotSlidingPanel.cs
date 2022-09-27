@@ -74,11 +74,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Hide controls when collapsed")]
-        public bool HideControls
-        {
-            get => hideControls;
-            set => hideControls = value;
-        }
+        public bool HideControls { get; set; }
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -129,7 +125,7 @@ namespace ReaLTaiizor.Controls
                     }
                 }
                 base.Size = new Size(panelWidthExpanded, base.Height);
-                if (hideControls)
+                if (HideControls)
                 {
                     foreach (object obj in base.Controls)
                     {
@@ -142,7 +138,7 @@ namespace ReaLTaiizor.Controls
                 }
                 return;
             }
-            if (!hideControls)
+            if (!HideControls)
             {
                 goto IL_FB;
             }
@@ -208,9 +204,6 @@ namespace ReaLTaiizor.Controls
         private int panelWidthExpanded = 200;
 
         private int panelWidthCollapsed = 50;
-
-        private bool hideControls;
-
         private Control collapseControl;
     }
 

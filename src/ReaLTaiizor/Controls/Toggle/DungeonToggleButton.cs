@@ -40,88 +40,31 @@ namespace ReaLTaiizor.Controls
         private bool _Toggled;
         private _Type ToggleType;
         private Rectangle Bar;
-        //private Size cHandle = new(15, 20);
-
-        private Color _ToggledBackColorA = Color.FromArgb(253, 253, 253);
-        private Color _ToggledBackColorB = Color.FromArgb(240, 238, 237);
-        private Color _ToggledColorA = Color.FromArgb(231, 108, 58);
-        private Color _ToggledBorderColorA = Color.FromArgb(185, 89, 55);
-        private Color _ToggledColorB = Color.FromArgb(236, 113, 63);
-        private Color _ToggledBorderColorB = Color.FromArgb(185, 89, 55);
-        private Color _ToggledColorC = Color.FromArgb(208, 208, 208);
-        private Color _ToggledBorderColorC = Color.FromArgb(181, 181, 181);
-        private Color _ToggledColorD = Color.FromArgb(226, 226, 226);
-        private Color _ToggledBorderColorD = Color.FromArgb(181, 181, 181);
-
         private Color _ToggledOnOffColorA = Color.WhiteSmoke;
-        private Color _ToggledOnOffColorB = Color.DimGray;
-        private Color _ToggledYesNoColorA = Color.WhiteSmoke;
-        private Color _ToggledYesNoColorB = Color.DimGray;
-        private Color _ToggledIOColorA = Color.WhiteSmoke;
         private Color _ToggledIOColorB = Color.DimGray;
 
         #endregion
         #region Properties
 
-        public Color ToggledBackColorA
-        {
-            get => _ToggledBackColorA;
-            set => _ToggledBackColorA = value;
-        }
+        public Color ToggledBackColorA { get; set; } = Color.FromArgb(253, 253, 253);
 
-        public Color ToggledBackColorB
-        {
-            get => _ToggledBackColorB;
-            set => _ToggledBackColorB = value;
-        }
+        public Color ToggledBackColorB { get; set; } = Color.FromArgb(240, 238, 237);
 
-        public Color ToggledColorA
-        {
-            get => _ToggledColorA;
-            set => _ToggledColorA = value;
-        }
+        public Color ToggledColorA { get; set; } = Color.FromArgb(231, 108, 58);
 
-        public Color ToggledBorderColorA
-        {
-            get => _ToggledBorderColorA;
-            set => _ToggledBorderColorA = value;
-        }
+        public Color ToggledBorderColorA { get; set; } = Color.FromArgb(185, 89, 55);
 
-        public Color ToggledColorB
-        {
-            get => _ToggledColorB;
-            set => _ToggledColorB = value;
-        }
+        public Color ToggledColorB { get; set; } = Color.FromArgb(236, 113, 63);
 
-        public Color ToggledBorderColorB
-        {
-            get => _ToggledBorderColorB;
-            set => _ToggledBorderColorB = value;
-        }
+        public Color ToggledBorderColorB { get; set; } = Color.FromArgb(185, 89, 55);
 
-        public Color ToggledColorC
-        {
-            get => _ToggledColorC;
-            set => _ToggledColorC = value;
-        }
+        public Color ToggledColorC { get; set; } = Color.FromArgb(208, 208, 208);
 
-        public Color ToggledBorderColorC
-        {
-            get => _ToggledBorderColorC;
-            set => _ToggledBorderColorC = value;
-        }
+        public Color ToggledBorderColorC { get; set; } = Color.FromArgb(181, 181, 181);
 
-        public Color ToggledColorD
-        {
-            get => _ToggledColorD;
-            set => _ToggledColorD = value;
-        }
+        public Color ToggledColorD { get; set; } = Color.FromArgb(226, 226, 226);
 
-        public Color ToggledBorderColorD
-        {
-            get => _ToggledBorderColorD;
-            set => _ToggledBorderColorD = value;
-        }
+        public Color ToggledBorderColorD { get; set; } = Color.FromArgb(181, 181, 181);
 
         public Color ToggledOnOffColorA
         {
@@ -129,29 +72,13 @@ namespace ReaLTaiizor.Controls
             set => _ToggledOnOffColorA = value;
         }
 
-        public Color ToggledOnOffColorB
-        {
-            get => _ToggledOnOffColorB;
-            set => _ToggledOnOffColorB = value;
-        }
+        public Color ToggledOnOffColorB { get; set; } = Color.DimGray;
 
-        public Color ToggledYesNoColorA
-        {
-            get => _ToggledYesNoColorA;
-            set => _ToggledYesNoColorA = value;
-        }
+        public Color ToggledYesNoColorA { get; set; } = Color.WhiteSmoke;
 
-        public Color ToggledYesNoColorB
-        {
-            get => _ToggledYesNoColorB;
-            set => _ToggledYesNoColorB = value;
-        }
+        public Color ToggledYesNoColorB { get; set; } = Color.DimGray;
 
-        public Color ToggledIOColorA
-        {
-            get => _ToggledIOColorA;
-            set => _ToggledIOColorA = value;
-        }
+        public Color ToggledIOColorA { get; set; } = Color.WhiteSmoke;
 
         public Color ToggledIOColorB
         {
@@ -221,12 +148,12 @@ namespace ReaLTaiizor.Controls
             if (_Toggled)
             {
                 SwitchXLoc = 37;
-                BackgroundLGB = new(ControlRectangle, _ToggledColorA, _ToggledColorB, 90.0F);
+                BackgroundLGB = new(ControlRectangle, ToggledColorA, ToggledColorB, 90.0F);
             }
             else
             {
                 SwitchXLoc = 0;
-                BackgroundLGB = new(ControlRectangle, _ToggledColorC, _ToggledColorD, 90.0F);
+                BackgroundLGB = new(ControlRectangle, ToggledColorC, ToggledColorD, 90.0F);
             }
 
             // Fill inside background gradient
@@ -242,25 +169,25 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        G.DrawString("OFF", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledOnOffColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                        G.DrawString("OFF", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(ToggledOnOffColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                     }
 
                     break;
                 case _Type.YesNo:
                     if (Toggled)
                     {
-                        G.DrawString("YES", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledYesNoColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                        G.DrawString("YES", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(ToggledYesNoColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                     }
                     else
                     {
-                        G.DrawString("NO", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledYesNoColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                        G.DrawString("NO", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(ToggledYesNoColorB), Bar.X + 59, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                     }
 
                     break;
                 case _Type.IO:
                     if (Toggled)
                     {
-                        G.DrawString("I", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(_ToggledIOColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                        G.DrawString("I", new Font("Segoe UI", 12, FontStyle.Regular), new SolidBrush(ToggledIOColorA), Bar.X + 18, (float)(Bar.Y + 13.5), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                     }
                     else
                     {
@@ -272,7 +199,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle SwitchRectangle = new(SwitchXLoc, 0, Width - 38, Height);
             GraphicsPath SwitchPath = RoundRectangle.RoundRect(SwitchRectangle, 4);
-            LinearGradientBrush SwitchButtonLGB = new(SwitchRectangle, _ToggledBackColorA, _ToggledBackColorB, LinearGradientMode.Vertical);
+            LinearGradientBrush SwitchButtonLGB = new(SwitchRectangle, ToggledBackColorA, ToggledBackColorB, LinearGradientMode.Vertical);
 
             // Fill switch background gradient
             G.FillPath(SwitchButtonLGB, SwitchPath);
@@ -280,13 +207,13 @@ namespace ReaLTaiizor.Controls
             // Draw borders
             if (_Toggled == true)
             {
-                G.DrawPath(new(_ToggledBorderColorA), SwitchPath);
-                G.DrawPath(new(_ToggledBorderColorB), ControlPath);
+                G.DrawPath(new(ToggledBorderColorA), SwitchPath);
+                G.DrawPath(new(ToggledBorderColorB), ControlPath);
             }
             else
             {
-                G.DrawPath(new(_ToggledBorderColorC), SwitchPath);
-                G.DrawPath(new(_ToggledBorderColorD), ControlPath);
+                G.DrawPath(new(ToggledBorderColorC), SwitchPath);
+                G.DrawPath(new(ToggledBorderColorD), ControlPath);
             }
         }
     }

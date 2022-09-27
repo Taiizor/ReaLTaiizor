@@ -28,8 +28,6 @@ namespace ReaLTaiizor.Docking.Crown
         #region Field Region
 
         private readonly List<CrownDockContent> _contents;
-        private readonly Dictionary<DockArea, CrownDockRegion> _regions;
-
         private CrownDockContent _activeContent;
         private bool _switchingContent = false;
 
@@ -57,7 +55,7 @@ namespace ReaLTaiizor.Docking.Crown
                 ActiveGroup = _activeContent.DockGroup;
                 ActiveRegion = ActiveGroup.DockRegion;
 
-                foreach (CrownDockRegion region in _regions.Values)
+                foreach (CrownDockRegion region in Regions.Values)
                 {
                     region.Redraw();
                 }
@@ -78,7 +76,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public CrownDockContent ActiveDocument => _regions[DockArea.Document].ActiveDocument;
+        public CrownDockContent ActiveDocument => Regions[DockArea.Document].ActiveDocument;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -105,7 +103,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Dictionary<DockArea, CrownDockRegion> Regions => _regions;
+        public Dictionary<DockArea, CrownDockRegion> Regions { get; }
 
         #endregion
 
@@ -117,7 +115,7 @@ namespace ReaLTaiizor.Docking.Crown
             DockContentDragFilter = new DockContentDragFilter(this);
             DockResizeFilter = new DockResizeFilter(this);
 
-            _regions = new Dictionary<DockArea, CrownDockRegion>();
+            Regions = new Dictionary<DockArea, CrownDockRegion>();
             _contents = new List<CrownDockContent>();
 
             BackColor = ThemeProvider.Theme.Colors.GreyBackground;
@@ -154,7 +152,7 @@ namespace ReaLTaiizor.Docking.Crown
                 dockContent.DockArea = dockContent.DefaultDockArea;
             }
 
-            CrownDockRegion region = _regions[dockContent.DockArea];
+            CrownDockRegion region = Regions[dockContent.DockArea];
             region.AddContent(dockContent, dockGroup);
 
             ContentAdded?.Invoke(this, new DockContentEventArgs(dockContent));
@@ -174,7 +172,7 @@ namespace ReaLTaiizor.Docking.Crown
 
             dockContent.DockArea = dockGroup.DockArea;
 
-            CrownDockRegion region = _regions[dockGroup.DockArea];
+            CrownDockRegion region = Regions[dockGroup.DockArea];
             region.InsertContent(dockContent, dockGroup, insertType);
 
             ContentAdded?.Invoke(this, new DockContentEventArgs(dockContent));
@@ -192,7 +190,7 @@ namespace ReaLTaiizor.Docking.Crown
             dockContent.DockPanel = null;
             _contents.Remove(dockContent);
 
-            CrownDockRegion region = _regions[dockContent.DockArea];
+            CrownDockRegion region = Regions[dockContent.DockArea];
             region.RemoveContent(dockContent);
 
             ContentRemoved?.Invoke(this, new DockContentEventArgs(dockContent));
@@ -205,22 +203,22 @@ namespace ReaLTaiizor.Docking.Crown
 
         public List<CrownDockContent> GetDocuments()
         {
-            return _regions[DockArea.Document].GetContents();
+            return Regions[DockArea.Document].GetContents();
         }
 
         private void CreateRegions()
         {
             CrownDockRegion documentRegion = new(this, DockArea.Document);
-            _regions.Add(DockArea.Document, documentRegion);
+            Regions.Add(DockArea.Document, documentRegion);
 
             CrownDockRegion leftRegion = new(this, DockArea.Left);
-            _regions.Add(DockArea.Left, leftRegion);
+            Regions.Add(DockArea.Left, leftRegion);
 
             CrownDockRegion rightRegion = new(this, DockArea.Right);
-            _regions.Add(DockArea.Right, rightRegion);
+            Regions.Add(DockArea.Right, rightRegion);
 
             CrownDockRegion bottomRegion = new(this, DockArea.Bottom);
-            _regions.Add(DockArea.Bottom, bottomRegion);
+            Regions.Add(DockArea.Bottom, bottomRegion);
 
             // Add the regions in this order to force the bottom region to be positioned
             // between the left and right regions properly.
@@ -250,9 +248,9 @@ namespace ReaLTaiizor.Docking.Crown
             DockPanelState state = new();
 
             state.Regions.Add(new DockRegionState(DockArea.Document));
-            state.Regions.Add(new DockRegionState(DockArea.Left, _regions[DockArea.Left].Size));
-            state.Regions.Add(new DockRegionState(DockArea.Right, _regions[DockArea.Right].Size));
-            state.Regions.Add(new DockRegionState(DockArea.Bottom, _regions[DockArea.Bottom].Size));
+            state.Regions.Add(new DockRegionState(DockArea.Left, Regions[DockArea.Left].Size));
+            state.Regions.Add(new DockRegionState(DockArea.Right, Regions[DockArea.Right].Size));
+            state.Regions.Add(new DockRegionState(DockArea.Bottom, Regions[DockArea.Bottom].Size));
 
             Dictionary<CrownDockGroup, DockGroupState> _groupStates = new();
 
@@ -293,13 +291,13 @@ namespace ReaLTaiizor.Docking.Crown
                 switch (region.Area)
                 {
                     case DockArea.Left:
-                        _regions[DockArea.Left].Size = region.Size;
+                        Regions[DockArea.Left].Size = region.Size;
                         break;
                     case DockArea.Right:
-                        _regions[DockArea.Right].Size = region.Size;
+                        Regions[DockArea.Right].Size = region.Size;
                         break;
                     case DockArea.Bottom:
-                        _regions[DockArea.Bottom].Size = region.Size;
+                        Regions[DockArea.Bottom].Size = region.Size;
                         break;
                 }
 

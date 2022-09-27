@@ -15,23 +15,18 @@ namespace ReaLTaiizor.Native
     {
         public delegate int SubClassWndProcEventHandler(ref Message m);
         public event SubClassWndProcEventHandler SubClassedWndProc;
-        private bool IsSubClassed = false;
 
         public SubClass(IntPtr Handle, bool _SubClass)
         {
             base.AssignHandle(Handle);
-            IsSubClassed = _SubClass;
+            SubClassed = _SubClass;
         }
 
-        public bool SubClassed
-        {
-            get => IsSubClassed;
-            set => IsSubClassed = value;
-        }
+        public bool SubClassed { get; set; } = false;
 
         protected override void WndProc(ref Message m)
         {
-            if (IsSubClassed)
+            if (SubClassed)
             {
                 if (OnSubClassedWndProc(ref m) != 0)
                 {

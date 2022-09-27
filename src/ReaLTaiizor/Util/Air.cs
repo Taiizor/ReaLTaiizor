@@ -84,13 +84,13 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            _IsParentForm = Parent is Form;
+            IsParentForm = Parent is Form;
 
             if (!_ControlMode)
             {
                 InitializeMessages();
 
-                if (_IsParentForm)
+                if (IsParentForm)
                 {
                     ParentForm.FormBorderStyle = _BorderStyle;
                     ParentForm.TransparencyKey = _TransparencyKey;
@@ -169,7 +169,7 @@ namespace ReaLTaiizor.Util
         private Rectangle Frame;
         protected sealed override void OnSizeChanged(EventArgs e)
         {
-            if (_Movable && !_ControlMode)
+            if (Movable && !_ControlMode)
             {
                 Frame = new(7, 7, Width - 14, _Header - 7);
             }
@@ -208,9 +208,9 @@ namespace ReaLTaiizor.Util
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
+            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
-                if (_Sizable && !_ControlMode)
+                if (Sizable && !_ControlMode)
                 {
                     InvalidateMouse();
                 }
@@ -251,7 +251,7 @@ namespace ReaLTaiizor.Util
 
             if (GetChildAtPoint(PointToClient(MousePosition)) != null)
             {
-                if (_Sizable && !_ControlMode)
+                if (Sizable && !_ControlMode)
                 {
                     Cursor = Cursors.Default;
                     Previous = 0;
@@ -268,9 +268,9 @@ namespace ReaLTaiizor.Util
                 SetState(MouseStateAir.Down);
             }
 
-            if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
+            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
             {
-                if (_Movable && Frame.Contains(e.Location))
+                if (Movable && Frame.Contains(e.Location))
                 {
                     if (!new Rectangle(Width - 22, 5, 15, 15).Contains(e.Location))
                     {
@@ -280,7 +280,7 @@ namespace ReaLTaiizor.Util
                     WM_LMBUTTONDOWN = true;
                     DefWndProc(ref Messages[0]);
                 }
-                else if (_Sizable && !(Previous == 0))
+                else if (Sizable && !(Previous == 0))
                 {
                     Capture = false;
                     WM_LMBUTTONDOWN = true;
@@ -301,7 +301,7 @@ namespace ReaLTaiizor.Util
                 WM_LMBUTTONDOWN = false;
 
                 SetState(MouseStateAir.Over);
-                if (!_SmartBounds)
+                if (!SmartBounds)
                 {
                     return;
                 }
@@ -577,33 +577,16 @@ namespace ReaLTaiizor.Util
 
         #region " Public Properties "
 
-        private bool _SmartBounds = true;
-        public bool SmartBounds
-        {
-            get => _SmartBounds;
-            set => _SmartBounds = value;
-        }
-
-        private bool _Movable = true;
-        public bool Movable
-        {
-            get => _Movable;
-            set => _Movable = value;
-        }
-
-        private bool _Sizable = true;
-        public bool Sizable
-        {
-            get => _Sizable;
-            set => _Sizable = value;
-        }
+        public bool SmartBounds { get; set; } = true;
+        public bool Movable { get; set; } = true;
+        public bool Sizable { get; set; } = true;
 
         private Color _TransparencyKey;
         public Color TransparencyKey
         {
             get
             {
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     return ParentForm.TransparencyKey;
                 }
@@ -621,7 +604,7 @@ namespace ReaLTaiizor.Util
 
                 _TransparencyKey = value;
 
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     ParentForm.TransparencyKey = value;
                     ColorHook();
@@ -634,7 +617,7 @@ namespace ReaLTaiizor.Util
         {
             get
             {
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     return ParentForm.FormBorderStyle;
                 }
@@ -647,7 +630,7 @@ namespace ReaLTaiizor.Util
             {
                 _BorderStyle = value;
 
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     ParentForm.FormBorderStyle = value;
 
@@ -665,7 +648,7 @@ namespace ReaLTaiizor.Util
         {
             get
             {
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     return ParentForm.StartPosition;
                 }
@@ -678,7 +661,7 @@ namespace ReaLTaiizor.Util
             {
                 _StartPosition = value;
 
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     ParentForm.StartPosition = value;
                 }
@@ -813,8 +796,7 @@ namespace ReaLTaiizor.Util
         private Size _ImageSize;
         protected Size ImageSize => _ImageSize;
 
-        private bool _IsParentForm;
-        protected bool IsParentForm => _IsParentForm;
+        protected bool IsParentForm { get; private set; }
 
         protected bool IsParentMdi
         {
@@ -2539,21 +2521,16 @@ namespace ReaLTaiizor.Util
         public string _Name;
         public string Name => _Name;
 
-        private Color _Value;
-        public Color Value
-        {
-            get => _Value;
-            set => _Value = value;
-        }
+        public Color Value { get; set; }
 
         public string ValueHex
         {
-            get => string.Concat("#", _Value.R.ToString("X2", null), _Value.G.ToString("X2", null), _Value.B.ToString("X2", null));
+            get => string.Concat("#", Value.R.ToString("X2", null), Value.G.ToString("X2", null), Value.B.ToString("X2", null));
             set
             {
                 try
                 {
-                    _Value = ColorTranslator.FromHtml(value);
+                    Value = ColorTranslator.FromHtml(value);
                 }
                 catch
                 {
@@ -2565,14 +2542,13 @@ namespace ReaLTaiizor.Util
         public BloomAir(string name, Color value)
         {
             _Name = name;
-            _Value = value;
+            Value = value;
         }
     }
 
     public class PrecisionTimerAir : IDisposable
     {
-        private bool _Enabled;
-        public bool Enabled => _Enabled;
+        public bool Enabled { get; private set; }
 
         private IntPtr Handle;
 
@@ -2587,7 +2563,7 @@ namespace ReaLTaiizor.Util
 
         public void Create(uint dueTime, uint period, TimerDelegate callback)
         {
-            if (_Enabled)
+            if (Enabled)
             {
                 return;
             }
@@ -2600,12 +2576,12 @@ namespace ReaLTaiizor.Util
                 ThrowNewException("CreateTimerQueueTimer");
             }
 
-            _Enabled = Success;
+            Enabled = Success;
         }
 
         public void Delete()
         {
-            if (!_Enabled)
+            if (!Enabled)
             {
                 return;
             }
@@ -2617,7 +2593,7 @@ namespace ReaLTaiizor.Util
                 ThrowNewException("DeleteTimerQueueTimer");
             }
 
-            _Enabled = !Success;
+            Enabled = !Success;
         }
 
         private static void ThrowNewException(string name)

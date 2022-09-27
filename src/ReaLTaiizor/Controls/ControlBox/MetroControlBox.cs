@@ -78,8 +78,6 @@ namespace ReaLTaiizor.Controls
 
         private Style _style;
         private MetroStyleManager _styleManager;
-        private LocationType _DefaultLocation = LocationType.Normal;
-
         private bool _isDerivedStyle = true;
         private bool _maximizeBox = true;
         private Color _closeNormalForeColor;
@@ -211,11 +209,7 @@ namespace ReaLTaiizor.Controls
         #region Public
 
         [Category("Metro"), Description("Gets or sets the Default Location associated with the control.")]
-        public LocationType DefaultLocation
-        {
-            get => _DefaultLocation;
-            set => _DefaultLocation = value;
-        }
+        public LocationType DefaultLocation { get; set; } = LocationType.Normal;
 
         [Category("Metro")]
         [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +

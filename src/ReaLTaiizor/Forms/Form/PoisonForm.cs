@@ -59,47 +59,26 @@ namespace ReaLTaiizor.Forms
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
+        public PoisonStyleManager StyleManager { get; set; } = null;
 
         #endregion
 
         #region Fields
 
-        private FormTextAlignType textAlign = FormTextAlignType.Left;
         [Browsable(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public FormTextAlignType TextAlign
-        {
-            get => textAlign;
-            set => textAlign = value;
-        }
+        public FormTextAlignType TextAlign { get; set; } = FormTextAlignType.Left;
 
         [Browsable(false)]
         public override Color BackColor => PoisonPaint.BackColor.Form(Theme);
 
-        private Enum.Poison.FormBorderStyle formBorderStyle = Enum.Poison.FormBorderStyle.None;
         [DefaultValue(Enum.Poison.FormBorderStyle.None)]
         [Browsable(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public Enum.Poison.FormBorderStyle BorderStyle
-        {
-            get => formBorderStyle;
-            set => formBorderStyle = value;
-        }
-
-        private bool isMovable = true;
+        public Enum.Poison.FormBorderStyle BorderStyle { get; set; } = Enum.Poison.FormBorderStyle.None;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool Movable
-        {
-            get => isMovable;
-            set => isMovable = value;
-        }
+        public bool Movable { get; set; } = true;
 
         public new Padding Padding
         {
@@ -131,13 +110,8 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private bool isResizable = true;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool Resizable
-        {
-            get => isResizable;
-            set => isResizable = value;
-        }
+        public bool Resizable { get; set; } = true;
 
         private FormShadowType shadowType = FormShadowType.Flat;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -914,41 +888,18 @@ namespace ReaLTaiizor.Forms
                 set => poisonTheme = value;
             }
 
-            private PoisonStyleManager poisonStyleManager = null;
             [Browsable(false)]
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public PoisonStyleManager StyleManager
-            {
-                get => poisonStyleManager;
-                set => poisonStyleManager = value;
-            }
-
-            private bool useCustomBackColor = false;
+            public PoisonStyleManager StyleManager { get; set; } = null;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseCustomBackColor
-            {
-                get => useCustomBackColor;
-                set => useCustomBackColor = value;
-            }
-
-            private bool useCustomForeColor = false;
+            public bool UseCustomBackColor { get; set; } = false;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseCustomForeColor
-            {
-                get => useCustomForeColor;
-                set => useCustomForeColor = value;
-            }
-
-            private bool useStyleColors = false;
+            public bool UseCustomForeColor { get; set; } = false;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseStyleColors
-            {
-                get => useStyleColors;
-                set => useStyleColors = value;
-            }
+            public bool UseStyleColors { get; set; } = false;
 
             [Browsable(false)]
             [Category(PoisonDefaults.PropertyCategory.Behaviour)]

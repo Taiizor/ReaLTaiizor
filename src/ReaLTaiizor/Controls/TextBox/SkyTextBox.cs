@@ -125,11 +125,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _BorderColorA = Color.FromArgb(220, 220, 220);
-        private Color _BorderColorB = Color.FromArgb(228, 228, 228);
-        private Color _BorderColorC = Color.FromArgb(191, 191, 191);
-        private Color _BorderColorD = Color.FromArgb(254, 254, 254);
-        private Color _BaseColor = Color.Transparent;
         private Color _UnknownBackColor = Color.FromArgb(43, 43, 43);
         #endregion
 
@@ -144,35 +139,15 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color BorderColorA
-        {
-            get => _BorderColorA;
-            set => _BorderColorA = value;
-        }
+        public Color BorderColorA { get; set; } = Color.FromArgb(220, 220, 220);
 
-        public Color BorderColorB
-        {
-            get => _BorderColorB;
-            set => _BorderColorB = value;
-        }
+        public Color BorderColorB { get; set; } = Color.FromArgb(228, 228, 228);
 
-        public Color BorderColorC
-        {
-            get => _BorderColorC;
-            set => _BorderColorC = value;
-        }
+        public Color BorderColorC { get; set; } = Color.FromArgb(191, 191, 191);
 
-        public Color BorderColorD
-        {
-            get => _BorderColorD;
-            set => _BorderColorD = value;
-        }
+        public Color BorderColorD { get; set; } = Color.FromArgb(254, 254, 254);
 
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.Transparent;
 
         public Color UnknownBackColor
         {

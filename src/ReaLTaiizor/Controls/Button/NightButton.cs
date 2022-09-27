@@ -148,11 +148,10 @@ namespace ReaLTaiizor.Controls
 
         #region IButtonControl
 
-        private bool _IsDefault;
         private DialogResult dlgResult;
 
         [Browsable(false)]
-        private bool IsDefault => _IsDefault;
+        private bool IsDefault { get; set; }
 
         /// <summary>
         /// 
@@ -171,7 +170,7 @@ namespace ReaLTaiizor.Controls
 
         public void NotifyDefault(bool value)
         {
-            _IsDefault = value;
+            IsDefault = value;
         }
 
         public void PerformClick()

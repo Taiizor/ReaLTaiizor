@@ -18,11 +18,8 @@ namespace ReaLTaiizor.Controls
         private int MouseState;
         private GraphicsPath Shape;
         private LinearGradientBrush InactiveGB;
-        private Color _InactiveColor = Color.FromArgb(32, 34, 37);
         private LinearGradientBrush PressedGB;
-        private Color _PressedColor = Color.FromArgb(165, 37, 37);
         private LinearGradientBrush EnteredGB;
-        private Color _EnteredColor = Color.FromArgb(32, 34, 37);
         private Rectangle R1;
         private readonly Pen P1;
         private readonly Pen P3;
@@ -168,23 +165,11 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color InactiveColor
-        {
-            get => _InactiveColor;
-            set => _InactiveColor = value;
-        }
+        public Color InactiveColor { get; set; } = Color.FromArgb(32, 34, 37);
 
-        public Color PressedColor
-        {
-            get => _PressedColor;
-            set => _PressedColor = value;
-        }
+        public Color PressedColor { get; set; } = Color.FromArgb(165, 37, 37);
 
-        public Color EnteredColor
-        {
-            get => _EnteredColor;
-            set => _EnteredColor = value;
-        }
+        public Color EnteredColor { get; set; } = Color.FromArgb(32, 34, 37);
 
         #endregion
 
@@ -259,9 +244,9 @@ namespace ReaLTaiizor.Controls
                 Shape = new();
                 R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColor, _InactiveColor, 90.0F);
-                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColor, _PressedColor, 90.0F);
-                EnteredGB = new(new Rectangle(0, 0, Width, Height), _EnteredColor, _EnteredColor, 90.0F);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), InactiveColor, InactiveColor, 90.0F);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), PressedColor, PressedColor, 90.0F);
+                EnteredGB = new(new Rectangle(0, 0, Width, Height), EnteredColor, EnteredColor, 90.0F);
             }
 
             Shape.AddArc(0, 0, 10, 10, 180, 90);

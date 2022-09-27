@@ -42,68 +42,15 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private string _PercentText = "%";
-        public string PercentText
-        {
-            get => _PercentText;
-            set => _PercentText = value;
-        }
-
-        private Color _BorderColor = HopeColors.OneLevelBorder;
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
-
-        private Color _DangerColor = HopeColors.Danger;
-        public Color DangerColor
-        {
-            get => _DangerColor;
-            set => _DangerColor = value;
-        }
-
-        private Color _DangerTextColorA = HopeColors.Danger;
-        public Color DangerTextColorA
-        {
-            get => _DangerTextColorA;
-            set => _DangerTextColorA = value;
-        }
-
-        private Color _DangerTextColorB = HopeColors.Danger;
-        public Color DangerTextColorB
-        {
-            get => _DangerTextColorB;
-            set => _DangerTextColorB = value;
-        }
-
-        private Color _FullTextColorA = HopeColors.Success;
-        public Color FullTextColorA
-        {
-            get => _FullTextColorA;
-            set => _FullTextColorA = value;
-        }
-
-        private Color _FullTextColorB = HopeColors.Success;
-        public Color FullTextColorB
-        {
-            get => _FullTextColorB;
-            set => _FullTextColorB = value;
-        }
-
-        private Color _BarColor = HopeColors.PrimaryColor;
-        public Color BarColor
-        {
-            get => _BarColor;
-            set => _BarColor = value;
-        }
-
-        private Color _FullBarColor = HopeColors.Success;
-        public Color FullBarColor
-        {
-            get => _FullBarColor;
-            set => _FullBarColor = value;
-        }
+        public string PercentText { get; set; } = "%";
+        public Color BorderColor { get; set; } = HopeColors.OneLevelBorder;
+        public Color DangerColor { get; set; } = HopeColors.Danger;
+        public Color DangerTextColorA { get; set; } = HopeColors.Danger;
+        public Color DangerTextColorB { get; set; } = HopeColors.Danger;
+        public Color FullTextColorA { get; set; } = HopeColors.Success;
+        public Color FullTextColorB { get; set; } = HopeColors.Success;
+        public Color BarColor { get; set; } = HopeColors.PrimaryColor;
+        public Color FullBarColor { get; set; } = HopeColors.Success;
 
         #region Events
         protected override void OnResize(EventArgs e)
@@ -121,30 +68,30 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(Parent.BackColor);
 
-            graphics.FillEllipse(new SolidBrush(_BorderColor), new Rectangle(0, 0, Width, Height));
+            graphics.FillEllipse(new SolidBrush(BorderColor), new Rectangle(0, 0, Width, Height));
 
             if (_isError)
             {
-                graphics.FillPie(new SolidBrush(_DangerColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
+                graphics.FillPie(new SolidBrush(DangerColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
 
                 graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - _roundWidth * 2, Width - _roundWidth * 2));
-                graphics.DrawLine(new(_DangerTextColorA, 2f), Width / 2 - 6, Height / 2 - 6, Width / 2 + 6, Height / 2 + 6);
-                graphics.DrawLine(new(_DangerTextColorB, 2f), Width / 2 - 6, Height / 2 + 6, Width / 2 + 6, Height / 2 - 6);
+                graphics.DrawLine(new(DangerTextColorA, 2f), Width / 2 - 6, Height / 2 - 6, Width / 2 + 6, Height / 2 + 6);
+                graphics.DrawLine(new(DangerTextColorB, 2f), Width / 2 - 6, Height / 2 + 6, Width / 2 + 6, Height / 2 - 6);
             }
             else
             {
                 if (_valueNumber == 100)
                 {
-                    graphics.FillPie(new SolidBrush(_FullBarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
+                    graphics.FillPie(new SolidBrush(FullBarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
                     graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - _roundWidth * 2, Width - _roundWidth * 2));
-                    graphics.DrawLine(new(_FullTextColorA, 2f), Width / 2 - 6, Height / 2, Width / 2 - 3, Height / 2 + 6);
-                    graphics.DrawLine(new(_FullTextColorB, 2f), Width / 2 + 6, Height / 2 - 6, Width / 2 - 3, Height / 2 + 6);
+                    graphics.DrawLine(new(FullTextColorA, 2f), Width / 2 - 6, Height / 2, Width / 2 - 3, Height / 2 + 6);
+                    graphics.DrawLine(new(FullTextColorB, 2f), Width / 2 + 6, Height / 2 - 6, Width / 2 - 3, Height / 2 + 6);
                 }
                 else
                 {
-                    graphics.FillPie(new SolidBrush(_BarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
+                    graphics.FillPie(new SolidBrush(BarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
                     graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - _roundWidth * 2, Width - _roundWidth * 2));
-                    graphics.DrawString(_valueNumber.ToString() + _PercentText, Font, new SolidBrush(ForeColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)), HopeStringAlign.Center);
+                    graphics.DrawString(_valueNumber.ToString() + PercentText, Font, new SolidBrush(ForeColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)), HopeStringAlign.Center);
                 }
             }
         }

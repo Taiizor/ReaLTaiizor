@@ -19,13 +19,10 @@ namespace ReaLTaiizor.Controls
         private int MouseState;
         private GraphicsPath Shape;
         private LinearGradientBrush InactiveGB;
-        private Color _InactiveColorA = Color.FromArgb(0, 176, 231);
         private Color _InactiveColorB = Color.FromArgb(0, 152, 224);
         private LinearGradientBrush PressedGB;
-        private Color _PressedColorA = Color.FromArgb(0, 118, 176);
         private Color _PressedColorB = Color.FromArgb(0, 149, 222);
         private LinearGradientBrush PressedContourGB;
-        private Color _PressedContourColorA = Color.FromArgb(0, 118, 176);
         private Color _PressedContourColorB = Color.FromArgb(0, 118, 176);
         private Rectangle R1;
         private readonly Pen P1;
@@ -189,11 +186,7 @@ namespace ReaLTaiizor.Controls
             base.OnTextChanged(e);
         }
 
-        public Color InactiveColorA
-        {
-            get => _InactiveColorA;
-            set => _InactiveColorA = value;
-        }
+        public Color InactiveColorA { get; set; } = Color.FromArgb(0, 176, 231);
 
         public Color InactiveColorB
         {
@@ -201,11 +194,7 @@ namespace ReaLTaiizor.Controls
             set => _InactiveColorB = value;
         }
 
-        public Color PressedColorA
-        {
-            get => _PressedColorA;
-            set => _PressedColorA = value;
-        }
+        public Color PressedColorA { get; set; } = Color.FromArgb(0, 118, 176);
 
         public Color PressedColorB
         {
@@ -213,11 +202,7 @@ namespace ReaLTaiizor.Controls
             set => _PressedColorB = value;
         }
 
-        public Color PressedContourColorA
-        {
-            get => _PressedContourColorA;
-            set => _PressedContourColorA = value;
-        }
+        public Color PressedContourColorA { get; set; } = Color.FromArgb(0, 118, 176);
 
         public Color PressedContourColorB
         {
@@ -249,9 +234,9 @@ namespace ReaLTaiizor.Controls
                 Shape = new();
                 R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
-                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
-                PressedContourGB = new(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), InactiveColorA, _InactiveColorB, 90f);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), PressedColorA, _PressedColorB, 90f);
+                PressedContourGB = new(new Rectangle(0, 0, Width, Height), PressedContourColorA, _PressedContourColorB, 90f);
 
                 P3 = new(PressedContourGB);
             }

@@ -29,11 +29,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Maximize when dragged to top")]
-        public bool DockAtTop
-        {
-            get => dockAtTop;
-            set => dockAtTop = value;
-        }
+        public bool DockAtTop { get; set; } = true;
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -47,7 +43,7 @@ namespace ReaLTaiizor.Controls
             {
                 ReleaseCapture();
                 SendMessage(HandleControl.FindForm().Handle, 161, 2, 0);
-                if (dockAtTop && handleControl.FindForm().FormBorderStyle == FormBorderStyle.None)
+                if (DockAtTop && handleControl.FindForm().FormBorderStyle == FormBorderStyle.None)
                 {
                     if (HandleControl.FindForm().WindowState != FormWindowState.Maximized && Cursor.Position.Y <= 3)
                     {
@@ -60,9 +56,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private Control handleControl;
-
-        private bool dockAtTop = true;
-
         public const int WM_NCLBUTTONDOWN = 161;
 
         public const int HT_CAPTION = 2;

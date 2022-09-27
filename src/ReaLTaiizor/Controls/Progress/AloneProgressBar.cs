@@ -71,12 +71,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private Color _BorderColor = Color.DodgerBlue;
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.DodgerBlue;
 
         public AloneProgressBar()
         {
@@ -99,7 +94,7 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
             graphics.Clear(BackColor);
-            using (Pen pen = new(_BorderColor))
+            using (Pen pen = new(BorderColor))
             {
                 graphics.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
             }

@@ -18,40 +18,12 @@ namespace ReaLTaiizor.Controls
         private readonly RoyalButton noButton = new();
         private readonly RoyalButton cancelButton = new();
         private readonly RoyalButton retryButton = new();
-        private Form parent;
-        public Form FormParent
-        {
-            get => parent;
-            set => parent = value;
-        }
 
-        private string content;
-        public string Content
-        {
-            get => content;
-            set => content = value;
-        }
-
-        private string caption;
-        public string Caption
-        {
-            get => caption;
-            set => caption = value;
-        }
-
-        private MessageBoxButtons buttons;
-        public MessageBoxButtons Buttons
-        {
-            get => buttons;
-            set => buttons = value;
-        }
-
-        private MessageBoxIcon icon;
-        public MessageBoxIcon Icon
-        {
-            get => icon;
-            set => icon = value;
-        }
+        public Form FormParent { get; set; }
+        public string Content { get; set; }
+        public string Caption { get; set; }
+        public MessageBoxButtons Buttons { get; set; }
+        public MessageBoxIcon Icon { get; set; }
 
         private static bool mode = true;
         public bool Mode
@@ -155,11 +127,11 @@ namespace ReaLTaiizor.Controls
 
             RoyalMessageBox msgBox = new()
             {
-                parent = form,
-                content = content,
-                caption = caption,
-                buttons = buttons,
-                icon = icon,
+                FormParent = form,
+                Content = content,
+                Caption = caption,
+                Buttons = buttons,
+                Icon = icon,
                 Mode = mode,
 
                 Size = form.Size,
@@ -184,12 +156,12 @@ namespace ReaLTaiizor.Controls
             int twoButtonRight = (Width - (buttonWidth * 2)) - 20;
             int threeButtonRight = (Width - (buttonWidth * 3)) - 30;
 
-            if (buttons == MessageBoxButtons.OK)
+            if (Buttons == MessageBoxButtons.OK)
             {
                 okButton.Location = new(oneButtonRight, buttonHeight);
                 okButton.Show();
             }
-            else if (buttons == MessageBoxButtons.OKCancel)
+            else if (Buttons == MessageBoxButtons.OKCancel)
             {
                 okButton.Location = new(twoButtonRight, buttonHeight);
                 okButton.Show();
@@ -197,7 +169,7 @@ namespace ReaLTaiizor.Controls
                 cancelButton.Location = new(oneButtonRight, buttonHeight);
                 cancelButton.Show();
             }
-            else if (buttons == MessageBoxButtons.YesNo)
+            else if (Buttons == MessageBoxButtons.YesNo)
             {
                 yesButton.Location = new(twoButtonRight, buttonHeight);
                 yesButton.Show();
@@ -205,7 +177,7 @@ namespace ReaLTaiizor.Controls
                 noButton.Location = new(oneButtonRight, buttonHeight);
                 noButton.Show();
             }
-            else if (buttons == MessageBoxButtons.YesNoCancel)
+            else if (Buttons == MessageBoxButtons.YesNoCancel)
             {
                 yesButton.Location = new(threeButtonRight, buttonHeight);
                 yesButton.Show();
@@ -216,7 +188,7 @@ namespace ReaLTaiizor.Controls
                 cancelButton.Location = new(oneButtonRight, buttonHeight);
                 cancelButton.Show();
             }
-            else if (buttons == MessageBoxButtons.RetryCancel)
+            else if (Buttons == MessageBoxButtons.RetryCancel)
             {
                 retryButton.Location = new(twoButtonRight, buttonHeight);
                 retryButton.Show();
@@ -247,96 +219,96 @@ namespace ReaLTaiizor.Controls
 
             if (mode)
             {
-                e.Graphics.FillRectangle(new SolidBrush(parent.BackColor), messageRect);
+                e.Graphics.FillRectangle(new SolidBrush(FormParent.BackColor), messageRect);
             }
             else
             {
-                if (icon == MessageBoxIcon.Warning || icon == MessageBoxIcon.Exclamation)
+                if (Icon == MessageBoxIcon.Warning || Icon == MessageBoxIcon.Exclamation)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 128, 0)), messageRect);
                 }
-                else if (icon == MessageBoxIcon.Information || icon == MessageBoxIcon.Asterisk)
+                else if (Icon == MessageBoxIcon.Information || Icon == MessageBoxIcon.Asterisk)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.Gray), messageRect);
                 }
-                else if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Hand || icon == MessageBoxIcon.Stop)
+                else if (Icon == MessageBoxIcon.Error || Icon == MessageBoxIcon.Hand || Icon == MessageBoxIcon.Stop)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.Crimson), messageRect);
                 }
-                else if (icon == MessageBoxIcon.Question)
+                else if (Icon == MessageBoxIcon.Question)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.DodgerBlue), messageRect);
                 }
                 else
                 {
-                    e.Graphics.FillRectangle(new SolidBrush(parent.BackColor), messageRect);
+                    e.Graphics.FillRectangle(new SolidBrush(FormParent.BackColor), messageRect);
                 }
             }
 
-            SolidBrush textBrush = new(parent.ForeColor);
+            SolidBrush textBrush = new(FormParent.ForeColor);
             //SolidBrush backBrush = new(parent.BackColor);
 
-            if (!string.IsNullOrEmpty(caption))
+            if (!string.IsNullOrEmpty(Caption))
             {
-                e.Graphics.DrawString(caption, messageFont, new SolidBrush(RoyalColors.AccentColor), new PointF(messageRect.Left + 10, messageRect.Top + 10));
+                e.Graphics.DrawString(Caption, messageFont, new SolidBrush(RoyalColors.AccentColor), new PointF(messageRect.Left + 10, messageRect.Top + 10));
             }
 
-            if (icon != MessageBoxIcon.None)
+            if (Icon != MessageBoxIcon.None)
             {
                 if (mode)
                 {
-                    if (icon == MessageBoxIcon.Warning || icon == MessageBoxIcon.Exclamation)
+                    if (Icon == MessageBoxIcon.Warning || Icon == MessageBoxIcon.Exclamation)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Warning, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
-                        if (!string.IsNullOrEmpty(content))
+                        if (!string.IsNullOrEmpty(Content))
                         {
-                            e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                            e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
                         }
                     }
-                    else if (icon == MessageBoxIcon.Information || icon == MessageBoxIcon.Asterisk)
+                    else if (Icon == MessageBoxIcon.Information || Icon == MessageBoxIcon.Asterisk)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Information, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
-                        if (!string.IsNullOrEmpty(content))
+                        if (!string.IsNullOrEmpty(Content))
                         {
-                            e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                            e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
                         }
                     }
-                    else if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Hand || icon == MessageBoxIcon.Stop)
+                    else if (Icon == MessageBoxIcon.Error || Icon == MessageBoxIcon.Hand || Icon == MessageBoxIcon.Stop)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Error, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
-                        if (!string.IsNullOrEmpty(content))
+                        if (!string.IsNullOrEmpty(Content))
                         {
-                            e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                            e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
                         }
                     }
-                    else if (icon == MessageBoxIcon.Question)
+                    else if (Icon == MessageBoxIcon.Question)
                     {
                         e.Graphics.DrawImage(Properties.Resources.Question, new Rectangle(messageRect.Left + 10, messageRect.Top + 40, 64, 64));
-                        if (!string.IsNullOrEmpty(content))
+                        if (!string.IsNullOrEmpty(Content))
                         {
-                            e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
+                            e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 64 + 10, messageRect.Top + 18 + 40));
                         }
                     }
                     else
                     {
-                        if (!string.IsNullOrEmpty(content))
+                        if (!string.IsNullOrEmpty(Content))
                         {
-                            e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+                            e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
                         }
                     }
                 }
                 else
                 {
-                    if (!string.IsNullOrEmpty(content))
+                    if (!string.IsNullOrEmpty(Content))
                     {
-                        e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+                        e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
                     }
                 }
 
             }
-            else if (!string.IsNullOrEmpty(content))
+            else if (!string.IsNullOrEmpty(Content))
             {
-                e.Graphics.DrawString(content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
+                e.Graphics.DrawString(Content, messageFont, textBrush, new PointF(messageRect.Left + 10, messageRect.Top + 40));
             }
 
             base.OnPaint(e);

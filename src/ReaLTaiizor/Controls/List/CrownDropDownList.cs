@@ -27,7 +27,6 @@ namespace ReaLTaiizor.Controls
 
         #region Field Region
 
-        private ControlState _controlState = ControlState.Normal;
 
         private readonly ObservableCollection<CrownDropDownItem> _items = new();
         private CrownDropDownItem _selectedItem;
@@ -41,8 +40,6 @@ namespace ReaLTaiizor.Controls
         private int _maxHeight = 130;
 
         private readonly int _iconSize = 16;
-
-        private ToolStripDropDownDirection _dropdownDirection = ToolStripDropDownDirection.Default;
 
         #endregion
 
@@ -81,7 +78,7 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ControlState ControlState => _controlState;
+        public ControlState ControlState { get; private set; } = ControlState.Normal;
 
         [Category("Appearance")]
         [Description("Determines the height of the individual list view items.")]
@@ -112,11 +109,7 @@ namespace ReaLTaiizor.Controls
         [Category("Behavior")]
         [Description("Determines what location the dropdown list appears.")]
         [DefaultValue(ToolStripDropDownDirection.Default)]
-        public ToolStripDropDownDirection DropdownDirection
-        {
-            get => _dropdownDirection;
-            set => _dropdownDirection = value;
-        }
+        public ToolStripDropDownDirection DropdownDirection { get; set; } = ToolStripDropDownDirection.Default;
 
         #endregion
 
@@ -167,9 +160,9 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            if (_controlState != controlState)
+            if (ControlState != controlState)
             {
-                _controlState = controlState;
+                ControlState = controlState;
                 Invalidate();
             }
         }
@@ -187,12 +180,12 @@ namespace ReaLTaiizor.Controls
 
             Point pos = new(0, ClientRectangle.Bottom);
 
-            if (_dropdownDirection == ToolStripDropDownDirection.AboveLeft || _dropdownDirection == ToolStripDropDownDirection.AboveRight)
+            if (DropdownDirection == ToolStripDropDownDirection.AboveLeft || DropdownDirection == ToolStripDropDownDirection.AboveRight)
             {
                 pos.Y = 0;
             }
 
-            _menu.Show(this, pos, _dropdownDirection);
+            _menu.Show(this, pos, DropdownDirection);
 
             if (SelectedItem != null)
             {

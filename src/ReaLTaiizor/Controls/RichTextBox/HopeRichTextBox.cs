@@ -35,20 +35,9 @@ namespace ReaLTaiizor.Controls
         private bool _resizing = false;
         private Point _cursorStartPoint;
 
-        private Color _BorderColor = HopeColors.OneLevelBorder;
-        private Color _HoverBorderColor = HopeColors.PrimaryColor;
+        public Color BorderColor { get; set; } = HopeColors.OneLevelBorder;
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
-
-        public Color HoverBorderColor
-        {
-            get => _HoverBorderColor;
-            set => _HoverBorderColor = value;
-        }
+        public Color HoverBorderColor { get; set; } = HopeColors.PrimaryColor;
 
         public override string Text { get => _baseTextBox.Text; set => _baseTextBox.Text = value; }
         public new object Tag { get => _baseTextBox.Tag; set => _baseTextBox.Tag = value; }
@@ -139,7 +128,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(Color.White), bg);
-            g.DrawPath(new(_baseTextBox.Focused ? _HoverBorderColor : _BorderColor, 0.5f), bg);
+            g.DrawPath(new(_baseTextBox.Focused ? HoverBorderColor : BorderColor, 0.5f), bg);
 
             arrowRectangleF.X = Width - 22;
             arrowRectangleF.Y = Height - 20;

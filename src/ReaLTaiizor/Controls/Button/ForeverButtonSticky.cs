@@ -20,7 +20,6 @@ namespace ReaLTaiizor.Controls
         private int W;
         private int H;
         private MouseStateForever State = MouseStateForever.None;
-        private bool _Rounded = false;
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -77,11 +76,7 @@ namespace ReaLTaiizor.Controls
         private Rectangle Rect => new(Left, Top, Width, Height);
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = ForeverLibrary.ForeverColor;
 
         [Category("Colors")]
         public Color TextColor
@@ -91,11 +86,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Options")]
-        public bool Rounded
-        {
-            get => _Rounded;
-            set => _Rounded = value;
-        }
+        public bool Rounded { get; set; } = false;
 
         protected override void OnResize(EventArgs e)
         {
@@ -109,7 +100,6 @@ namespace ReaLTaiizor.Controls
             //Size = new(112, 32)
         }
 
-        private Color _BaseColor = ForeverLibrary.ForeverColor;
         private Color _TextColor = Color.FromArgb(243, 243, 243);
 
         public ForeverButtonSticky()
@@ -151,7 +141,7 @@ namespace ReaLTaiizor.Controls
                     {
                         //-- Base
                         GP = RoundedBase;
-                        _with17.FillPath(new SolidBrush(_BaseColor), GP);
+                        _with17.FillPath(new SolidBrush(BaseColor), GP);
 
                         //-- Text
                         _with17.DrawString(Text, Font, new SolidBrush(_TextColor), Base, ForeverLibrary.CenterSF);
@@ -159,7 +149,7 @@ namespace ReaLTaiizor.Controls
                     else
                     {
                         //-- Base
-                        _with17.FillRectangle(new SolidBrush(_BaseColor), Base);
+                        _with17.FillRectangle(new SolidBrush(BaseColor), Base);
 
                         //-- Text
                         _with17.DrawString(Text, Font, new SolidBrush(_TextColor), Base, ForeverLibrary.CenterSF);
@@ -170,7 +160,7 @@ namespace ReaLTaiizor.Controls
                     {
                         //-- Base
                         GP = RoundedBase;
-                        _with17.FillPath(new SolidBrush(_BaseColor), GP);
+                        _with17.FillPath(new SolidBrush(BaseColor), GP);
                         _with17.FillPath(new SolidBrush(Color.FromArgb(20, Color.White)), GP);
 
                         //-- Text
@@ -179,7 +169,7 @@ namespace ReaLTaiizor.Controls
                     else
                     {
                         //-- Base
-                        _with17.FillRectangle(new SolidBrush(_BaseColor), Base);
+                        _with17.FillRectangle(new SolidBrush(BaseColor), Base);
                         _with17.FillRectangle(new SolidBrush(Color.FromArgb(20, Color.White)), Base);
 
                         //-- Text
@@ -191,7 +181,7 @@ namespace ReaLTaiizor.Controls
                     {
                         //-- Base
                         GP = RoundedBase;
-                        _with17.FillPath(new SolidBrush(_BaseColor), GP);
+                        _with17.FillPath(new SolidBrush(BaseColor), GP);
                         _with17.FillPath(new SolidBrush(Color.FromArgb(20, Color.Black)), GP);
 
                         //-- Text
@@ -200,7 +190,7 @@ namespace ReaLTaiizor.Controls
                     else
                     {
                         //-- Base
-                        _with17.FillRectangle(new SolidBrush(_BaseColor), Base);
+                        _with17.FillRectangle(new SolidBrush(BaseColor), Base);
                         _with17.FillRectangle(new SolidBrush(Color.FromArgb(20, Color.Black)), Base);
 
                         //-- Text
@@ -220,7 +210,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _BaseColor = Colors.Forever;
+            BaseColor = Colors.Forever;
         }
     }
 

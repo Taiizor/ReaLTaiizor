@@ -24,7 +24,6 @@ namespace ReaLTaiizor.Controls
         private bool Bool;
         private Rectangle Track;
         private Rectangle Knob;
-        private _Style Style_;
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -60,25 +59,13 @@ namespace ReaLTaiizor.Controls
             Knob
         }
 
-        public _Style Style
-        {
-            get => Style_;
-            set => Style_ = value;
-        }
+        public _Style Style { get; set; }
 
         [Category("Colors")]
-        public Color TrackColor
-        {
-            get => _TrackColor;
-            set => _TrackColor = value;
-        }
+        public Color TrackColor { get; set; } = ForeverLibrary.ForeverColor;
 
         [Category("Colors")]
-        public Color HatchColor
-        {
-            get => _HatchColor;
-            set => _HatchColor = value;
-        }
+        public Color HatchColor { get; set; } = Color.FromArgb(23, 148, 92);
 
         [Category("Colors")]
         public Color SliderColor
@@ -88,11 +75,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         public event ScrollEventHandler Scroll;
         public delegate void ScrollEventHandler(object sender);
@@ -183,12 +166,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _ShowValue = false;
-        public bool ShowValue
-        {
-            get => _ShowValue;
-            set => _ShowValue = value;
-        }
+        public bool ShowValue { get; set; } = false;
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
@@ -225,10 +203,7 @@ namespace ReaLTaiizor.Controls
             Height = 23;
         }
 
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _TrackColor = ForeverLibrary.ForeverColor;
         private Color _SliderColor = Color.FromArgb(25, 27, 29);
-        private Color _HatchColor = Color.FromArgb(23, 148, 92);
 
         public ForeverTrackBar()
         {
@@ -269,12 +244,12 @@ namespace ReaLTaiizor.Controls
             //-- Base
             GP.AddRectangle(Base);
             _with20.SetClip(GP);
-            _with20.FillRectangle(new SolidBrush(_BaseColor), new Rectangle(0, 7, W, 8));
-            _with20.FillRectangle(new SolidBrush(_TrackColor), new Rectangle(0, 7, Track.X + Track.Width, 8));
+            _with20.FillRectangle(new SolidBrush(BaseColor), new Rectangle(0, 7, W, 8));
+            _with20.FillRectangle(new SolidBrush(TrackColor), new Rectangle(0, 7, Track.X + Track.Width, 8));
             _with20.ResetClip();
 
             //-- Hatch Brush
-            HatchBrush HB = new(HatchStyle.Plaid, HatchColor, _TrackColor);
+            HatchBrush HB = new(HatchStyle.Plaid, HatchColor, TrackColor);
             _with20.FillRectangle(HB, new Rectangle(-10, 7, Track.X + Track.Width, 8));
 
             //-- Slider/Knob
@@ -311,7 +286,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _TrackColor = Colors.Forever;
+            TrackColor = Colors.Forever;
         }
     }
 

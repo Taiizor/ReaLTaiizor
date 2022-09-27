@@ -24,24 +24,14 @@ namespace ReaLTaiizor.Controls
         private bool _AutoWordSelection;
         private GraphicsPath Shape;
         private Pen P1;
-        private Color _BorderColor = Color.FromArgb(180, 180, 180);
-        private Color _EdgeColor = Color.White;
         private Color _TextBackColor = Color.White;
 
         #endregion
         #region Properties
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.FromArgb(180, 180, 180);
 
-        public Color EdgeColor
-        {
-            get => _EdgeColor;
-            set => _EdgeColor = value;
-        }
+        public Color EdgeColor { get; set; } = Color.White;
 
         public Color TextBackColor
         {
@@ -174,7 +164,7 @@ namespace ReaLTaiizor.Controls
             BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(76, 76, 76);
 
-            P1 = new(_BorderColor);
+            P1 = new(BorderColor);
             Text = null;
             Font = new("Tahoma", 10);
             Size = new(150, 100);
@@ -194,7 +184,7 @@ namespace ReaLTaiizor.Controls
             Graphics G = Graphics.FromImage(B);
             G.SmoothingMode = SmoothingMode.AntiAlias;
             G.Clear(BackColor);
-            G.FillPath(new SolidBrush(_EdgeColor), Shape);
+            G.FillPath(new SolidBrush(EdgeColor), Shape);
             G.DrawPath(P1, Shape);
             G.Dispose();
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);

@@ -30,9 +30,6 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         private bool _Checked;
-        private Color _BorderColor = Color.FromArgb(182, 88, 55);
-        private Color _CheckedBackColorA = Color.FromArgb(213, 85, 32);
-        private Color _CheckedBackColorB = Color.FromArgb(224, 123, 82);
         private Color _CheckedColor = Color.FromArgb(255, 255, 255);
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
@@ -40,23 +37,11 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Properties
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.FromArgb(182, 88, 55);
 
-        public Color CheckedBackColorA
-        {
-            get => _CheckedBackColorA;
-            set => _CheckedBackColorA = value;
-        }
+        public Color CheckedBackColorA { get; set; } = Color.FromArgb(213, 85, 32);
 
-        public Color CheckedBackColorB
-        {
-            get => _CheckedBackColorB;
-            set => _CheckedBackColorB = value;
-        }
+        public Color CheckedBackColorB { get; set; } = Color.FromArgb(224, 123, 82);
 
         public Color CheckedColor
         {
@@ -139,7 +124,7 @@ namespace ReaLTaiizor.Controls
             MyDrawer.SmoothingMode = SmoothingMode.AntiAlias;
 
             // Fill the body of the ellipse with a gradient
-            LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(14, 14)), _CheckedBackColorA, _CheckedBackColorB, 90);
+            LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(14, 14)), CheckedBackColorA, CheckedBackColorB, 90);
             MyDrawer.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(14, 14)));
 
             GraphicsPath GP = new();
@@ -148,7 +133,7 @@ namespace ReaLTaiizor.Controls
             MyDrawer.ResetClip();
 
             // Draw ellipse border
-            MyDrawer.DrawEllipse(new(_BorderColor), new Rectangle(new Point(0, 0), new Size(14, 14)));
+            MyDrawer.DrawEllipse(new(BorderColor), new Rectangle(new Point(0, 0), new Size(14, 14)));
 
             // Draw an ellipse inside the body
             if (_Checked)

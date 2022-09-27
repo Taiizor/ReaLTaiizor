@@ -29,89 +29,18 @@ namespace ReaLTaiizor.Controls
         private Color TextColor;
         private Color LeftBar;
 
-        private Color _GreenBackColor = FoxLibrary.ColorFromHex("#DFF0D6");
-        public Color GreenBackColor
-        {
-            get => _GreenBackColor;
-            set => _GreenBackColor = value;
-        }
-
-        private Color _GreenTextColor = FoxLibrary.ColorFromHex("#4E8C45");
-        public Color GreenTextColor
-        {
-            get => _GreenTextColor;
-            set => _GreenTextColor = value;
-        }
-
-        private Color _GreenBarColor = FoxLibrary.ColorFromHex("#CEE5B6");
-        public Color GreenBarColor
-        {
-            get => _GreenBarColor;
-            set => _GreenBarColor = value;
-        }
-
-        private Color _BlueBackColor = FoxLibrary.ColorFromHex("#D9EDF8");
-        public Color BlueBackColor
-        {
-            get => _BlueBackColor;
-            set => _BlueBackColor = value;
-        }
-
-        private Color _BlueTextColor = FoxLibrary.ColorFromHex("#498FB8");
-        public Color BlueTextColor
-        {
-            get => _BlueTextColor;
-            set => _BlueTextColor = value;
-        }
-
-        private Color _BlueBarColor = FoxLibrary.ColorFromHex("#AFD9F0");
-        public Color BlueBarColor
-        {
-            get => _BlueBarColor;
-            set => _BlueBarColor = value;
-        }
-
-        private Color _YellowBackColor = FoxLibrary.ColorFromHex("#FCF8E1");
-        public Color YellowBackColor
-        {
-            get => _YellowBackColor;
-            set => _YellowBackColor = value;
-        }
-
-        private Color _YellowTextColor = FoxLibrary.ColorFromHex("#908358");
-        public Color YellowTextColor
-        {
-            get => _YellowTextColor;
-            set => _YellowTextColor = value;
-        }
-
-        private Color _YellowBarColor = FoxLibrary.ColorFromHex("#FAEBC8");
-        public Color YellowBarColor
-        {
-            get => _YellowBarColor;
-            set => _YellowBarColor = value;
-        }
-
-        private Color _RedBackColor = FoxLibrary.ColorFromHex("#F2DEDE");
-        public Color RedBackColor
-        {
-            get => _RedBackColor;
-            set => _RedBackColor = value;
-        }
-
-        private Color _RedTextColor = FoxLibrary.ColorFromHex("#C2635E");
-        public Color RedTextColor
-        {
-            get => _RedTextColor;
-            set => _RedTextColor = value;
-        }
-
-        private Color _RedBarColor = FoxLibrary.ColorFromHex("#EBCCD1");
-        public Color RedBarColor
-        {
-            get => _RedBarColor;
-            set => _RedBarColor = value;
-        }
+        public Color GreenBackColor { get; set; } = FoxLibrary.ColorFromHex("#DFF0D6");
+        public Color GreenTextColor { get; set; } = FoxLibrary.ColorFromHex("#4E8C45");
+        public Color GreenBarColor { get; set; } = FoxLibrary.ColorFromHex("#CEE5B6");
+        public Color BlueBackColor { get; set; } = FoxLibrary.ColorFromHex("#D9EDF8");
+        public Color BlueTextColor { get; set; } = FoxLibrary.ColorFromHex("#498FB8");
+        public Color BlueBarColor { get; set; } = FoxLibrary.ColorFromHex("#AFD9F0");
+        public Color YellowBackColor { get; set; } = FoxLibrary.ColorFromHex("#FCF8E1");
+        public Color YellowTextColor { get; set; } = FoxLibrary.ColorFromHex("#908358");
+        public Color YellowBarColor { get; set; } = FoxLibrary.ColorFromHex("#FAEBC8");
+        public Color RedBackColor { get; set; } = FoxLibrary.ColorFromHex("#F2DEDE");
+        public Color RedTextColor { get; set; } = FoxLibrary.ColorFromHex("#C2635E");
+        public Color RedBarColor { get; set; } = FoxLibrary.ColorFromHex("#EBCCD1");
 
         public enum Styles : byte
         {
@@ -130,24 +59,24 @@ namespace ReaLTaiizor.Controls
             switch (Style)
             {
                 case Styles.Green:
-                    Background = _GreenBackColor;
-                    TextColor = _GreenTextColor;
-                    LeftBar = _GreenBarColor;
+                    Background = GreenBackColor;
+                    TextColor = GreenTextColor;
+                    LeftBar = GreenBarColor;
                     break;
                 case Styles.Blue:
-                    Background = _BlueBackColor;
-                    TextColor = _BlueTextColor;
-                    LeftBar = _BlueBarColor;
+                    Background = BlueBackColor;
+                    TextColor = BlueTextColor;
+                    LeftBar = BlueBarColor;
                     break;
                 case Styles.Yellow:
-                    Background = _YellowBackColor;
-                    TextColor = _YellowTextColor;
-                    LeftBar = _YellowBarColor;
+                    Background = YellowBackColor;
+                    TextColor = YellowTextColor;
+                    LeftBar = YellowBarColor;
                     break;
                 case Styles.Red:
-                    Background = _RedBackColor;
-                    TextColor = _RedTextColor;
-                    LeftBar = _RedBarColor;
+                    Background = RedBackColor;
+                    TextColor = RedTextColor;
+                    LeftBar = RedBarColor;
                     break;
             }
 

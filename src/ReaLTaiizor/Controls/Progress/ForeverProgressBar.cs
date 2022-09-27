@@ -21,8 +21,6 @@ namespace ReaLTaiizor.Controls
         private int H;
         private int _Value = 0;
         private int _Maximum = 100;
-        private bool _Pattern = true;
-        private bool _ShowBalloon = true;
         private bool _PercentSign = false;
 
         [Category("Control")]
@@ -70,17 +68,9 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public bool Pattern
-        {
-            get => _Pattern;
-            set => _Pattern = value;
-        }
+        public bool Pattern { get; set; } = true;
 
-        public bool ShowBalloon
-        {
-            get => _ShowBalloon;
-            set => _ShowBalloon = value;
-        }
+        public bool ShowBalloon { get; set; } = true;
 
         public bool PercentSign
         {
@@ -89,11 +79,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color ProgressColor
-        {
-            get => _ProgressColor;
-            set => _ProgressColor = value;
-        }
+        public Color ProgressColor { get; set; } = ForeverLibrary.ForeverColor;
 
         [Category("Colors")]
         public Color DarkerProgress
@@ -120,7 +106,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private readonly Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _ProgressColor = ForeverLibrary.ForeverColor;
         private Color _DarkerProgress = Color.FromArgb(23, 148, 92);
 
         public ForeverProgressBar()
@@ -128,7 +113,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
             DoubleBuffered = true;
             BackColor = Color.FromArgb(60, 70, 73);
-            ForeColor = _ProgressColor;
+            ForeColor = ProgressColor;
             Height = 42;
         }
 
@@ -163,13 +148,13 @@ namespace ReaLTaiizor.Controls
                     //-- Base
                     _with15.FillRectangle(new SolidBrush(_BaseColor), Base);
                     //--Progress
-                    _with15.FillRectangle(new SolidBrush(_ProgressColor), new Rectangle(0, 24, iValue - 1, H - 1));
+                    _with15.FillRectangle(new SolidBrush(ProgressColor), new Rectangle(0, 24, iValue - 1, H - 1));
                     break;
                 case 100:
                     //-- Base
                     _with15.FillRectangle(new SolidBrush(_BaseColor), Base);
                     //--Progress
-                    _with15.FillRectangle(new SolidBrush(_ProgressColor), new Rectangle(0, 24, iValue - 1, H - 1));
+                    _with15.FillRectangle(new SolidBrush(ProgressColor), new Rectangle(0, 24, iValue - 1, H - 1));
                     break;
                 default:
                     //-- Base
@@ -177,16 +162,16 @@ namespace ReaLTaiizor.Controls
 
                     //--Progress
                     GP.AddRectangle(new Rectangle(0, 24, iValue - 1, H - 1));
-                    _with15.FillPath(new SolidBrush(_ProgressColor), GP);
+                    _with15.FillPath(new SolidBrush(ProgressColor), GP);
 
-                    if (_Pattern)
+                    if (Pattern)
                     {
                         //-- Hatch Brush
-                        HatchBrush HB = new(HatchStyle.Plaid, _DarkerProgress, _ProgressColor);
+                        HatchBrush HB = new(HatchStyle.Plaid, _DarkerProgress, ProgressColor);
                         _with15.FillRectangle(HB, new Rectangle(0, 24, iValue - 1, H - 1));
                     }
 
-                    if (_ShowBalloon)
+                    if (ShowBalloon)
                     {
                         //-- Balloon
                         Rectangle Balloon = new(iValue - 18, 0, 34, 16);
@@ -217,7 +202,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _ProgressColor = Colors.Forever;
+            ProgressColor = Colors.Forever;
         }
     }
 

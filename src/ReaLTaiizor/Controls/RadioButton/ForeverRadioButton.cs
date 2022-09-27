@@ -21,8 +21,6 @@ namespace ReaLTaiizor.Controls
         private MouseStateForever State = MouseStateForever.None;
         private int W;
         private int H;
-        private _Options O;
-
         private bool _Checked;
         public bool Checked
         {
@@ -80,11 +78,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Options")]
-        public _Options Options
-        {
-            get => O;
-            set => O = value;
-        }
+        public _Options Options { get; set; }
 
         protected override void OnResize(EventArgs e)
         {
@@ -120,15 +114,10 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
         private Color _BorderColor = ForeverLibrary.ForeverColor;
 
         [Category("Options")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Options")]
         public Color BorderColor
@@ -165,11 +154,11 @@ namespace ReaLTaiizor.Controls
             _with10.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             _with10.Clear(BackColor);
 
-            switch (O)
+            switch (Options)
             {
                 case _Options.Style1:
                     //-- Base
-                    _with10.FillEllipse(new SolidBrush(_BaseColor), Base);
+                    _with10.FillEllipse(new SolidBrush(BaseColor), Base);
 
                     switch (State)
                     {
@@ -189,7 +178,7 @@ namespace ReaLTaiizor.Controls
                     break;
                 case _Options.Style2:
                     //-- Base
-                    _with10.FillEllipse(new SolidBrush(_BaseColor), Base);
+                    _with10.FillEllipse(new SolidBrush(BaseColor), Base);
 
                     switch (State)
                     {

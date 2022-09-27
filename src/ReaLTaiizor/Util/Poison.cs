@@ -32,14 +32,13 @@ namespace ReaLTaiizor.Util
     {
         public HiddenTabs(int id, string page)
         {
-            _index = id;
+            Index = id;
             _tabpage = page;
         }
 
-        private readonly int _index;
         private readonly string _tabpage;
 
-        public int Index => _index;
+        public int Index { get; }
 
         public string Tabpage => _tabpage;
     }
@@ -69,12 +68,7 @@ namespace ReaLTaiizor.Util
 
         private readonly CaseInsensitiveComparer ObjectCompare;
 
-        private SortModifiersType mySortModifier = SortModifiersType.SortByText;
-        public SortModifiersType _SortModifier
-        {
-            set => mySortModifier = value;
-            get => mySortModifier;
-        }
+        public SortModifiersType _SortModifier { set; get; } = SortModifiersType.SortByText;
 
         public ListViewColumnSorter()
         {

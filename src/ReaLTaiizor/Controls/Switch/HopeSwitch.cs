@@ -19,25 +19,15 @@ namespace ReaLTaiizor.Controls
 
         private readonly Timer AnimationTimer = new() { Interval = 1 };
         private int PointAnimationNum = 3;
-        private Color _BaseColor = Color.White;
-        private Color _BaseOnColor = HopeColors.PrimaryColor;
         private Color _BaseOffColor = HopeColors.OneLevelBorder;
 
         #endregion
 
         #region Settings
 
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.White;
 
-        public Color BaseOnColor
-        {
-            get => _BaseOnColor;
-            set => _BaseOnColor = value;
-        }
+        public Color BaseOnColor { get; set; } = HopeColors.PrimaryColor;
 
         public Color BaseOffColor
         {
@@ -77,8 +67,8 @@ namespace ReaLTaiizor.Controls
             backRect.AddArc(new RectangleF(Width - Height + 0.5f, 0.5f, Height - 1, Height - 1), 270, 180);
             backRect.CloseAllFigures();
 
-            graphics.FillPath(new SolidBrush(Checked ? _BaseOnColor : _BaseOffColor), backRect);
-            graphics.FillEllipse(new SolidBrush(_BaseColor), new RectangleF(PointAnimationNum, 2, 16, 16));
+            graphics.FillPath(new SolidBrush(Checked ? BaseOnColor : _BaseOffColor), backRect);
+            graphics.FillEllipse(new SolidBrush(BaseColor), new RectangleF(PointAnimationNum, 2, 16, 16));
         }
 
         public HopeSwitch()

@@ -41,46 +41,20 @@ namespace ReaLTaiizor.Controls
         private readonly LinearGradientBrush GB1;
         private LinearGradientBrush GB2;
         private int I1;
-
-        private Color _BorderColor = Color.FromArgb(180, 180, 180);
-        private Color _BackColorA = Color.FromArgb(244, 241, 243);
-        private Color _BackColorB = Color.FromArgb(244, 241, 243);
-        private Color _ProgressColorA = Color.FromArgb(214, 89, 37);
-        private Color _ProgressColorB = Color.FromArgb(223, 118, 75);
         private Color _ProgressHatchColor = Color.FromArgb(25, 255, 255, 255);
 
         #endregion
         #region Properties
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.FromArgb(180, 180, 180);
 
-        public Color BackColorA
-        {
-            get => _BackColorA;
-            set => _BackColorA = value;
-        }
+        public Color BackColorA { get; set; } = Color.FromArgb(244, 241, 243);
 
-        public Color BackColorB
-        {
-            get => _BackColorB;
-            set => _BackColorB = value;
-        }
+        public Color BackColorB { get; set; } = Color.FromArgb(244, 241, 243);
 
-        public Color ProgressColorA
-        {
-            get => _ProgressColorA;
-            set => _ProgressColorA = value;
-        }
+        public Color ProgressColorA { get; set; } = Color.FromArgb(214, 89, 37);
 
-        public Color ProgressColorB
-        {
-            get => _ProgressColorB;
-            set => _ProgressColorB = value;
-        }
+        public Color ProgressColorB { get; set; } = Color.FromArgb(223, 118, 75);
 
         public Color ProgressHatchColor
         {
@@ -226,9 +200,9 @@ namespace ReaLTaiizor.Controls
             //GB1 = new(R1, Color.FromArgb(255, 255, 255), Color.FromArgb(230, 230, 230), 90f);
 
             // Draw inside background
-            G.FillRectangle(new SolidBrush(_BackColorA), R1);
+            G.FillRectangle(new SolidBrush(BackColorA), R1);
             G.SetClip(GP1);
-            G.FillPath(new SolidBrush(_BackColorB), RoundRectangle.RoundRect(new Rectangle(1, 1, Width - 3, Height / 2 - 2), 4));
+            G.FillPath(new SolidBrush(BackColorB), RoundRectangle.RoundRect(new Rectangle(1, 1, Width - 3, Height / 2 - 2), 4));
 
 
             I1 = (int)Math.Round(((_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (Width - 3));
@@ -237,7 +211,7 @@ namespace ReaLTaiizor.Controls
                 GP3 = RoundRectangle.RoundRect(new Rectangle(1, 1, I1, Height - 3), 4);
 
                 R2 = new(1, 1, I1, Height - 3);
-                GB2 = new(R2, _ProgressColorA, _ProgressColorB, 90f);
+                GB2 = new(R2, ProgressColorA, ProgressColorB, 90f);
 
                 // Fill the value with its gradient
                 G.FillPath(GB2, GP3);
@@ -293,7 +267,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw border
-            G.DrawPath(new(_BorderColor), GP2);
+            G.DrawPath(new(BorderColor), GP2);
 
             e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);
             G.Dispose();

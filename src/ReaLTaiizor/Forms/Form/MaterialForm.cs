@@ -186,14 +186,8 @@ namespace ReaLTaiizor.Forms
 
         private Padding originalPadding;
 
-        private bool _MessageFilter = false;
-
         [Category("Mouse")]
-        public bool MessageFilter
-        {
-            get => _MessageFilter;
-            set => _MessageFilter = value;
-        }
+        public bool MessageFilter { get; set; } = false;
 
         public MaterialForm()
         {

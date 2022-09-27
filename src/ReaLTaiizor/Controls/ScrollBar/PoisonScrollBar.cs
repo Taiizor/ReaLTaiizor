@@ -110,45 +110,22 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [Browsable(false)]
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [Browsable(false)]
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -252,14 +229,9 @@ namespace ReaLTaiizor.Controls
         private bool isHovered;
         private bool isPressed;
 
-        private bool useBarColor = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseBarColor
-        {
-            get => useBarColor;
-            set => useBarColor = value;
-        }
+        public bool UseBarColor { get; set; } = false;
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int ScrollbarSize
@@ -278,14 +250,9 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool highlightOnWheel = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool HighlightOnWheel
-        {
-            get => highlightOnWheel;
-            set => highlightOnWheel = value;
-        }
+        public bool HighlightOnWheel { get; set; } = false;
 
         private ScrollOrientationType poisonOrientation = ScrollOrientationType.Vertical;
         private ScrollOrientation scrollOrientation = ScrollOrientation.VerticalScroll;
@@ -458,7 +425,7 @@ namespace ReaLTaiizor.Controls
 
                 OnScroll(ScrollEventType.ThumbPosition, -1, value, scrollOrientation);
 
-                if (!dontUpdateColor && highlightOnWheel)
+                if (!dontUpdateColor && HighlightOnWheel)
                 {
                     if (!isHovered)
                     {
@@ -568,7 +535,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     if (Parent != null)
                     {
@@ -625,7 +592,7 @@ namespace ReaLTaiizor.Controls
         {
             Color backColor, thumbColor, barColor;
 
-            if (useCustomBackColor)
+            if (UseCustomBackColor)
             {
                 backColor = BackColor;
             }
@@ -676,7 +643,7 @@ namespace ReaLTaiizor.Controls
 
         private void DrawScrollBar(Graphics g, Color backColor, Color thumbColor, Color barColor)
         {
-            if (useBarColor)
+            if (UseBarColor)
             {
                 using SolidBrush b = new(barColor);
                 g.FillRectangle(b, ClientRectangle);

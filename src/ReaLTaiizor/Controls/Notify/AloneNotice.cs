@@ -20,12 +20,7 @@ namespace ReaLTaiizor.Controls
 
         private readonly string B64;
 
-        private Color _BorderColor = Color.White;
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.White;
 
         public AloneNotice()
         {
@@ -52,10 +47,10 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
-            G.Clear(_BorderColor);
+            G.Clear(BorderColor);
             using (SolidBrush solidBrush = new(BackColor))
             {
-                using Pen pen = new(_BorderColor);
+                using Pen pen = new(BorderColor);
                 using SolidBrush solidBrush2 = new(ForeColor);
                 using Font font = new("Segoe UI", 9f);
                 G.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 3, AloneLibrary.RoundingStyle.All));

@@ -84,22 +84,7 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _BGColorA = Color.FromArgb(245, 245, 245);
-        private Color _BGColorB = Color.FromArgb(230, 230, 230);
-        private Color _BorderColorA = Color.FromArgb(252, 252, 252);
-        private Color _BorderColorB = Color.FromArgb(249, 249, 249);
-        private Color _BorderColorC = Color.FromArgb(189, 189, 189);
-        private Color _BorderColorD = Color.FromArgb(200, 168, 168, 168);
-        private Color _TriangleColorA = Color.FromArgb(121, 176, 214);
-        private Color _TriangleColorB = Color.FromArgb(27, 94, 137);
-        private Color _LineColorA = Color.White;
-        private Color _LineColorB = Color.FromArgb(189, 189, 189);
-        private Color _LineColorC = Color.White;
-        private Color _ListForeColor = Color.Black;
-        private Color _ListBackColor = Color.FromArgb(255, 255, 255, 255);
         private Color _ListBorderColor = Color.FromArgb(50, Color.Black);
-        private DashStyle _ListDashType = DashStyle.Dot;
-        private Color _ListSelectedBackColorA = Color.FromArgb(15, Color.White);
         private Color _ListSelectedBackColorB = Color.FromArgb(0, Color.White);
         #endregion
 
@@ -114,83 +99,31 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color BGColorA
-        {
-            get => _BGColorA;
-            set => _BGColorA = value;
-        }
+        public Color BGColorA { get; set; } = Color.FromArgb(245, 245, 245);
 
-        public Color BGColorB
-        {
-            get => _BGColorB;
-            set => _BGColorB = value;
-        }
+        public Color BGColorB { get; set; } = Color.FromArgb(230, 230, 230);
 
-        public Color BorderColorA
-        {
-            get => _BorderColorA;
-            set => _BorderColorA = value;
-        }
+        public Color BorderColorA { get; set; } = Color.FromArgb(252, 252, 252);
 
-        public Color BorderColorB
-        {
-            get => _BorderColorB;
-            set => _BorderColorB = value;
-        }
+        public Color BorderColorB { get; set; } = Color.FromArgb(249, 249, 249);
 
-        public Color BorderColorC
-        {
-            get => _BorderColorC;
-            set => _BorderColorC = value;
-        }
+        public Color BorderColorC { get; set; } = Color.FromArgb(189, 189, 189);
 
-        public Color BorderColorD
-        {
-            get => _BorderColorD;
-            set => _BorderColorD = value;
-        }
+        public Color BorderColorD { get; set; } = Color.FromArgb(200, 168, 168, 168);
 
-        public Color TriangleColorA
-        {
-            get => _TriangleColorA;
-            set => _TriangleColorA = value;
-        }
+        public Color TriangleColorA { get; set; } = Color.FromArgb(121, 176, 214);
 
-        public Color TriangleColorB
-        {
-            get => _TriangleColorB;
-            set => _TriangleColorB = value;
-        }
+        public Color TriangleColorB { get; set; } = Color.FromArgb(27, 94, 137);
 
-        public Color LineColorA
-        {
-            get => _LineColorA;
-            set => _LineColorA = value;
-        }
+        public Color LineColorA { get; set; } = Color.White;
 
-        public Color LineColorB
-        {
-            get => _LineColorB;
-            set => _LineColorB = value;
-        }
+        public Color LineColorB { get; set; } = Color.FromArgb(189, 189, 189);
 
-        public Color LineColorC
-        {
-            get => _LineColorC;
-            set => _LineColorC = value;
-        }
+        public Color LineColorC { get; set; } = Color.White;
 
-        public Color ListForeColor
-        {
-            get => _ListForeColor;
-            set => _ListForeColor = value;
-        }
+        public Color ListForeColor { get; set; } = Color.Black;
 
-        public Color ListBackColor
-        {
-            get => _ListBackColor;
-            set => _ListBackColor = value;
-        }
+        public Color ListBackColor { get; set; } = Color.FromArgb(255, 255, 255, 255);
 
         public Color ListBorderColor
         {
@@ -198,17 +131,9 @@ namespace ReaLTaiizor.Controls
             set => _ListBorderColor = value;
         }
 
-        public DashStyle ListDashType
-        {
-            get => _ListDashType;
-            set => _ListDashType = value;
-        }
+        public DashStyle ListDashType { get; set; } = DashStyle.Dot;
 
-        public Color ListSelectedBackColorA
-        {
-            get => _ListSelectedBackColorA;
-            set => _ListSelectedBackColorA = value;
-        }
+        public Color ListSelectedBackColorA { get; set; } = Color.FromArgb(15, Color.White);
 
         public Color ListSelectedBackColorB
         {

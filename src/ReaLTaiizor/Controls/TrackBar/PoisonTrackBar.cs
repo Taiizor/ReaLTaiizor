@@ -106,45 +106,22 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [Browsable(false)]
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [Browsable(false)]
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -176,14 +153,9 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private bool displayFocusRectangle = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayFocus
-        {
-            get => displayFocusRectangle;
-            set => displayFocusRectangle = value;
-        }
+        public bool DisplayFocus { get; set; } = false;
 
         private int trackerValue = 50;
         [DefaultValue(50)]
@@ -254,21 +226,10 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private int smallChange = 1;
         [DefaultValue(1)]
-        public int SmallChange
-        {
-            get => smallChange;
-            set => smallChange = value;
-        }
-
-        private int largeChange = 5;
+        public int SmallChange { get; set; } = 1;
         [DefaultValue(5)]
-        public int LargeChange
-        {
-            get => largeChange;
-            set => largeChange = value;
-        }
+        public int LargeChange { get; set; } = 5;
 
         private int mouseWheelBarPartitions = 10;
         [DefaultValue(10)]
@@ -329,7 +290,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                 }
@@ -395,7 +356,7 @@ namespace ReaLTaiizor.Controls
 
             DrawTrackBar(e.Graphics, thumbColor, barColor);
 
-            if (displayFocusRectangle && isFocused)
+            if (DisplayFocus && isFocused)
             {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
             }
@@ -486,12 +447,12 @@ namespace ReaLTaiizor.Controls
             {
                 case Keys.Down:
                 case Keys.Left:
-                    SetProperValue(Value - smallChange);
+                    SetProperValue(Value - SmallChange);
                     OnScroll(ScrollEventType.SmallDecrement, Value);
                     break;
                 case Keys.Up:
                 case Keys.Right:
-                    SetProperValue(Value + smallChange);
+                    SetProperValue(Value + SmallChange);
                     OnScroll(ScrollEventType.SmallIncrement, Value);
                     break;
                 case Keys.Home:
@@ -501,11 +462,11 @@ namespace ReaLTaiizor.Controls
                     Value = barMaximum;
                     break;
                 case Keys.PageDown:
-                    SetProperValue(Value - largeChange);
+                    SetProperValue(Value - LargeChange);
                     OnScroll(ScrollEventType.LargeDecrement, Value);
                     break;
                 case Keys.PageUp:
-                    SetProperValue(Value + largeChange);
+                    SetProperValue(Value + LargeChange);
                     OnScroll(ScrollEventType.LargeIncrement, Value);
                     break;
             }

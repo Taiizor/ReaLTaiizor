@@ -51,11 +51,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
-        public MetroStyleManager StyleManager
-        {
-            get => _styleManager;
-            set => _styleManager = value;
-        }
+        public MetroStyleManager StyleManager { get; set; }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
         public string ThemeAuthor { get; set; }
@@ -74,10 +70,7 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private MetroStyleManager _styleManager;
         private Style _style;
-
-        private bool _isDerivedStyle = true;
 
         #endregion Internal Vars
 
@@ -201,11 +194,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro")]
         [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
                      "Set it to false if you want the style of this control be independent. ")]
-        public bool IsDerivedStyle
-        {
-            get => _isDerivedStyle;
-            set => _isDerivedStyle = value;
-        }
+        public bool IsDerivedStyle { get; set; } = true;
 
         #endregion
 

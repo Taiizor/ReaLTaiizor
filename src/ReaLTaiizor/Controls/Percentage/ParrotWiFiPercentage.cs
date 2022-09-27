@@ -53,14 +53,14 @@ namespace ReaLTaiizor.Controls
                 catch
                 {
                 }
-                Percentage = percentage;
+                Value = percentage;
             }
         }
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Returns the wifi percentage")]
-        public int Value => Percentage;
+        public int Value { get; private set; } = 100;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -74,9 +74,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private readonly BackgroundWorker backgroundThread = new();
-
-        private int Percentage = 100;
-
         private string ssid = "Not connected";
     }
 

@@ -39,8 +39,6 @@ namespace ReaLTaiizor.Controls
         private int _indent = 20;
 
         private ObservableList<CrownTreeNode> _nodes;
-        private readonly ObservableCollection<CrownTreeNode> _selectedNodes;
-
         private CrownTreeNode _anchoredNodeStart;
         private CrownTreeNode _anchoredNodeEnd;
 
@@ -95,7 +93,7 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ObservableCollection<CrownTreeNode> SelectedNodes => _selectedNodes;
+        public ObservableCollection<CrownTreeNode> SelectedNodes { get; }
 
         [Category("Appearance")]
         [Description("Determines the height of tree nodes.")]
@@ -154,8 +152,8 @@ namespace ReaLTaiizor.Controls
         public CrownTreeView()
         {
             Nodes = new ObservableList<CrownTreeNode>();
-            _selectedNodes = new ObservableCollection<CrownTreeNode>();
-            _selectedNodes.CollectionChanged += SelectedNodes_CollectionChanged;
+            SelectedNodes = new ObservableCollection<CrownTreeNode>();
+            SelectedNodes.CollectionChanged += SelectedNodes_CollectionChanged;
 
             MaxDragChange = _itemHeight;
 
@@ -192,9 +190,9 @@ namespace ReaLTaiizor.Controls
                     _nodes.Dispose();
                 }
 
-                if (_selectedNodes != null)
+                if (SelectedNodes != null)
                 {
-                    _selectedNodes.CollectionChanged -= SelectedNodes_CollectionChanged;
+                    SelectedNodes.CollectionChanged -= SelectedNodes_CollectionChanged;
                 }
 
                 _disposed = true;
@@ -907,8 +905,8 @@ namespace ReaLTaiizor.Controls
 
         public void SelectNode(CrownTreeNode node)
         {
-            _selectedNodes.Clear();
-            _selectedNodes.Add(node);
+            SelectedNodes.Clear();
+            SelectedNodes.Add(node);
 
             _anchoredNodeStart = node;
             _anchoredNodeEnd = node;
@@ -951,17 +949,17 @@ namespace ReaLTaiizor.Controls
 
         public void SelectNodes(List<CrownTreeNode> nodes, bool updateAnchors = true)
         {
-            _selectedNodes.Clear();
+            SelectedNodes.Clear();
 
             foreach (CrownTreeNode node in nodes)
             {
-                _selectedNodes.Add(node);
+                SelectedNodes.Add(node);
             }
 
-            if (updateAnchors && _selectedNodes.Count > 0)
+            if (updateAnchors && SelectedNodes.Count > 0)
             {
-                _anchoredNodeStart = _selectedNodes[_selectedNodes.Count - 1];
-                _anchoredNodeEnd = _selectedNodes[_selectedNodes.Count - 1];
+                _anchoredNodeStart = SelectedNodes[SelectedNodes.Count - 1];
+                _anchoredNodeEnd = SelectedNodes[SelectedNodes.Count - 1];
             }
 
             Invalidate();
@@ -975,17 +973,17 @@ namespace ReaLTaiizor.Controls
 
         public void ToggleNode(CrownTreeNode node)
         {
-            if (_selectedNodes.Contains(node))
+            if (SelectedNodes.Contains(node))
             {
-                _selectedNodes.Remove(node);
+                SelectedNodes.Remove(node);
 
                 // If we just removed both the anchor start AND end then reset them
                 if (_anchoredNodeStart == node && _anchoredNodeEnd == node)
                 {
-                    if (_selectedNodes.Count > 0)
+                    if (SelectedNodes.Count > 0)
                     {
-                        _anchoredNodeStart = _selectedNodes[0];
-                        _anchoredNodeEnd = _selectedNodes[0];
+                        _anchoredNodeStart = SelectedNodes[0];
+                        _anchoredNodeEnd = SelectedNodes[0];
                     }
                     else
                     {
@@ -1030,7 +1028,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                _selectedNodes.Add(node);
+                SelectedNodes.Add(node);
 
                 _anchoredNodeStart = node;
                 _anchoredNodeEnd = node;
@@ -1284,7 +1282,7 @@ namespace ReaLTaiizor.Controls
 
                 foreach (CrownTreeNode node in cachedSelectedNodes)
                 {
-                    _selectedNodes.Add(node);
+                    SelectedNodes.Add(node);
                 }
             }
 

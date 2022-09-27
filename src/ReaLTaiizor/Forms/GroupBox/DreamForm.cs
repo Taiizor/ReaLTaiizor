@@ -71,47 +71,12 @@ namespace ReaLTaiizor.Forms
             base.OnMouseDown(e);
         }
 
-        private Color _ColorA = Color.FromArgb(40, 218, 255);
-        public Color ColorA
-        {
-            get => _ColorA;
-            set => _ColorA = value;
-        }
-
-        private Color _ColorB = Color.FromArgb(63, 63, 63);
-        public Color ColorB
-        {
-            get => _ColorB;
-            set => _ColorB = value;
-        }
-
-        private Color _ColorC = Color.FromArgb(41, 41, 41); //(74, 74, 74)
-        public Color ColorC
-        {
-            get => _ColorC;
-            set => _ColorC = value;
-        }
-
-        private Color _ColorD = Color.FromArgb(27, 27, 27);
-        public Color ColorD
-        {
-            get => _ColorD;
-            set => _ColorD = value;
-        }
-
-        private Color _ColorE = Color.FromArgb(0, 0, 0, 0);
-        public Color ColorE
-        {
-            get => _ColorE;
-            set => _ColorE = value;
-        }
-
-        private Color _ColorF = Color.FromArgb(25, 255, 255, 255);
-        public Color ColorF
-        {
-            get => _ColorF;
-            set => _ColorF = value;
-        }
+        public Color ColorA { get; set; } = Color.FromArgb(40, 218, 255);
+        public Color ColorB { get; set; } = Color.FromArgb(63, 63, 63);
+        public Color ColorC { get; set; } = Color.FromArgb(41, 41, 41);
+        public Color ColorD { get; set; } = Color.FromArgb(27, 27, 27);
+        public Color ColorE { get; set; } = Color.FromArgb(0, 0, 0, 0);
+        public Color ColorF { get; set; } = Color.FromArgb(25, 255, 255, 255);
 
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -123,7 +88,7 @@ namespace ReaLTaiizor.Forms
         {
             using Bitmap B = new(Width, Height);
             using Graphics G = Graphics.FromImage(B);
-            G.Clear(_ColorC);
+            G.Clear(ColorC);
 
             //Draw.Gradient(G, _ColorD, _ColorC, 0, 0, Width, _TitleHeight)
 
@@ -140,16 +105,16 @@ namespace ReaLTaiizor.Forms
             }
 
             Rectangle R = new((int)O, (_TitleHeight + 2) / 2 - (int)S.Height / 2, (int)S.Width, (int)S.Height);
-            using (Brush T = new LinearGradientBrush(R, _ColorA, _ColorC, LinearGradientMode.Vertical))
+            using (Brush T = new LinearGradientBrush(R, ColorA, ColorC, LinearGradientMode.Vertical))
             {
                 G.DrawString(Text, Font, T, R);
             }
 
-            G.DrawLine(new(_ColorC), 0, 1, Width, 1);
+            G.DrawLine(new(ColorC), 0, 1, Width, 1);
 
             // Draw.Blend(G, _ColorE, _ColorF, _ColorE, 0.5, 0, 0, _TitleHeight + 1, Width, 1)
             ColorBlend x = new();
-            Color[] temp = { _ColorE, _ColorF, _ColorE };
+            Color[] temp = { ColorE, ColorF, ColorE };
             x.Colors = temp;
             float[] temp2 = { 0.5F, 0, 0, _TitleHeight + 1, Width, 1 };
             x.Positions = temp2;
@@ -159,8 +124,8 @@ namespace ReaLTaiizor.Forms
                 B.InterpolationColors = C_Blend;
             */
 
-            G.DrawLine(new(_ColorD), 0, _TitleHeight, Width, _TitleHeight);
-            G.DrawRectangle(new(_ColorD), 0, 0, Width - 1, Height - 1);
+            G.DrawLine(new(ColorD), 0, _TitleHeight, Width, _TitleHeight);
+            G.DrawRectangle(new(ColorD), 0, 0, Width - 1, Height - 1);
             Bitmap B1 = B;
             e.Graphics.DrawImage(B, 0, 0);
         }

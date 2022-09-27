@@ -44,7 +44,6 @@ namespace ReaLTaiizor.Controls
         private Color _ValueColour = Color.FromArgb(224, 224, 224);
         private bool _DrawHatch = true;
         private bool _DrawValueString = false;
-        private bool _JumpToMouse = false;
         private ValueDivisor DividedValue = ValueDivisor.By1;
 
         #endregion
@@ -177,11 +176,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public bool JumpToMouse
-        {
-            get => _JumpToMouse;
-            set => _JumpToMouse = value;
-        }
+        public bool JumpToMouse { get; set; } = false;
 
         #endregion
         #region EventArgs
@@ -203,7 +198,7 @@ namespace ReaLTaiizor.Controls
                 ValueDrawer = (int)Math.Round((double)(((_Value - _Minimum) / ((double)(_Maximum - _Minimum))) * (Width - 11)));
                 TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
                 Cap = TrackBarHandleRect.Contains(e.Location);
-                if (_JumpToMouse)
+                if (JumpToMouse)
                 {
                     Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (e.X / ((double)Width)))));
                 }

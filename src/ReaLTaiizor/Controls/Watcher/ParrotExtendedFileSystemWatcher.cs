@@ -120,11 +120,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The control to output to(via Text)")]
-        public Control OutputControl
-        {
-            get => outputControl;
-            set => outputControl = value;
-        }
+        public Control OutputControl { get; set; }
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -161,16 +157,16 @@ namespace ReaLTaiizor.Controls
                 lastRead = lastWriteTime;
                 if (slimOutput)
                 {
-                    outputControl.Invoke(new SysAction(delegate ()
+                    OutputControl.Invoke(new SysAction(delegate ()
                     {
-                        outputControl.Text = outputControl.Text + "\nChanged: " + e.FullPath.Replace(watcher.Path, "");
+                        OutputControl.Text = OutputControl.Text + "\nChanged: " + e.FullPath.Replace(watcher.Path, "");
                     }));
                 }
                 else
                 {
-                    outputControl.Invoke(new SysAction(delegate ()
+                    OutputControl.Invoke(new SysAction(delegate ()
                     {
-                        outputControl.Text = outputControl.Text + "\nChanged: " + e.FullPath;
+                        OutputControl.Text = OutputControl.Text + "\nChanged: " + e.FullPath;
                     }));
                 }
                 OnFileChanged(e);
@@ -183,19 +179,19 @@ namespace ReaLTaiizor.Controls
             lastRead = lastWriteTime;
             if (slimOutput)
             {
-                if (outputControl.InvokeRequired)
+                if (OutputControl.InvokeRequired)
                 {
-                    outputControl.Invoke(new SysAction(delegate ()
+                    OutputControl.Invoke(new SysAction(delegate ()
                     {
-                        outputControl.Text = outputControl.Text + "\nDeleted: " + e.FullPath.Replace(watcher.Path, "");
+                        OutputControl.Text = OutputControl.Text + "\nDeleted: " + e.FullPath.Replace(watcher.Path, "");
                     }));
                 }
             }
-            else if (outputControl.InvokeRequired)
+            else if (OutputControl.InvokeRequired)
             {
-                outputControl.Invoke(new SysAction(delegate ()
+                OutputControl.Invoke(new SysAction(delegate ()
                 {
-                    outputControl.Text = outputControl.Text + "\nDeleted: " + e.FullPath;
+                    OutputControl.Text = OutputControl.Text + "\nDeleted: " + e.FullPath;
                 }));
             }
             OnFileDeleted(e);
@@ -209,19 +205,19 @@ namespace ReaLTaiizor.Controls
                 lastRead = lastWriteTime;
                 if (slimOutput)
                 {
-                    if (outputControl.InvokeRequired)
+                    if (OutputControl.InvokeRequired)
                     {
-                        outputControl.Invoke(new SysAction(delegate ()
+                        OutputControl.Invoke(new SysAction(delegate ()
                         {
-                            outputControl.Text = outputControl.Text + "\nCreated: " + e.FullPath.Replace(watcher.Path, "");
+                            OutputControl.Text = OutputControl.Text + "\nCreated: " + e.FullPath.Replace(watcher.Path, "");
                         }));
                     }
                 }
-                else if (outputControl.InvokeRequired)
+                else if (OutputControl.InvokeRequired)
                 {
-                    outputControl.Invoke(new SysAction(delegate ()
+                    OutputControl.Invoke(new SysAction(delegate ()
                     {
-                        outputControl.Text = outputControl.Text + "\nCreated: " + e.FullPath;
+                        OutputControl.Text = OutputControl.Text + "\nCreated: " + e.FullPath;
                     }));
                 }
                 OnFileCreated(e);
@@ -236,19 +232,19 @@ namespace ReaLTaiizor.Controls
                 lastRead = lastWriteTime;
                 if (slimOutput)
                 {
-                    if (outputControl.InvokeRequired)
+                    if (OutputControl.InvokeRequired)
                     {
-                        outputControl.Invoke(new SysAction(delegate ()
+                        OutputControl.Invoke(new SysAction(delegate ()
                         {
-                            outputControl.Text = outputControl.Text + "\nRenamed: " + e.FullPath.Replace(watcher.Path, "");
+                            OutputControl.Text = OutputControl.Text + "\nRenamed: " + e.FullPath.Replace(watcher.Path, "");
                         }));
                     }
                 }
-                else if (outputControl.InvokeRequired)
+                else if (OutputControl.InvokeRequired)
                 {
-                    outputControl.Invoke(new SysAction(delegate ()
+                    OutputControl.Invoke(new SysAction(delegate ()
                     {
-                        outputControl.Text = outputControl.Text + "\nRenamed: " + e.FullPath;
+                        OutputControl.Text = OutputControl.Text + "\nRenamed: " + e.FullPath;
                     }));
                 }
                 OnFileRenamed(e);
@@ -258,9 +254,6 @@ namespace ReaLTaiizor.Controls
         private readonly FileSystemWatcher watcher = new();
 
         private DateTime lastRead = DateTime.MinValue;
-
-        private Control outputControl;
-
         private bool slimOutput = true;
     }
 

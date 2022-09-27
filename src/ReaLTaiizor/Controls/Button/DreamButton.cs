@@ -49,40 +49,11 @@ namespace ReaLTaiizor.Controls
             base.OnMouseUp(e);
         }
 
-        private Color _ColorA = Color.FromArgb(31, 31, 31);
-        public Color ColorA
-        {
-            get => _ColorA;
-            set => _ColorA = value;
-        }
-
-        private Color _ColorB = Color.FromArgb(41, 41, 41);
-        public Color ColorB
-        {
-            get => _ColorB;
-            set => _ColorB = value;
-        }
-
-        private Color _ColorC = Color.FromArgb(51, 51, 51);
-        public Color ColorC
-        {
-            get => _ColorC;
-            set => _ColorC = value;
-        }
-
-        private Color _ColorD = Color.FromArgb(0, 0, 0, 0);
-        public Color ColorD
-        {
-            get => _ColorD;
-            set => _ColorD = value;
-        }
-
-        private Color _ColorE = Color.FromArgb(25, 255, 255, 255);
-        public Color ColorE
-        {
-            get => _ColorE;
-            set => _ColorE = value;
-        }
+        public Color ColorA { get; set; } = Color.FromArgb(31, 31, 31);
+        public Color ColorB { get; set; } = Color.FromArgb(41, 41, 41);
+        public Color ColorC { get; set; } = Color.FromArgb(51, 51, 51);
+        public Color ColorD { get; set; } = Color.FromArgb(0, 0, 0, 0);
+        public Color ColorE { get; set; } = Color.FromArgb(25, 255, 255, 255);
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -95,20 +66,20 @@ namespace ReaLTaiizor.Controls
             using Graphics G = Graphics.FromImage(B);
             Rectangle R1 = new(0, 0, Width, Height / 2);
             Rectangle R2 = new(0, Height / 2, Width, Height);
-            G.DrawRectangle(new(_ColorA), 0, 0, Width - 1, Height - 1);
+            G.DrawRectangle(new(ColorA), 0, 0, Width - 1, Height - 1);
 
             if (State == 2)
             {
-                Brush GB1 = new LinearGradientBrush(R1, _ColorC, _ColorB, 40.0F);
-                Brush GB2 = new LinearGradientBrush(R2, _ColorB, _ColorC, 90.0F);
+                Brush GB1 = new LinearGradientBrush(R1, ColorC, ColorB, 40.0F);
+                Brush GB2 = new LinearGradientBrush(R2, ColorB, ColorC, 90.0F);
                 G.FillRectangle(GB1, R1);
                 G.FillRectangle(GB2, R2);
                 //Draw.Gradient(G, _ColorB, _ColorC, 1, 1, Width - 2, Height - 2);
             }
             else
             {
-                Brush GB1 = new LinearGradientBrush(R1, _ColorB, _ColorC, 90.0F);
-                Brush GB2 = new LinearGradientBrush(R2, _ColorC, _ColorB, 90.0F);
+                Brush GB1 = new LinearGradientBrush(R1, ColorB, ColorC, 90.0F);
+                Brush GB2 = new LinearGradientBrush(R2, ColorC, ColorB, 90.0F);
                 G.FillRectangle(GB1, R1);
                 G.FillRectangle(GB2, R2);
                 // Draw.Gradient(G, _ColorC, _ColorB, 1, 1, Width - 2, Height - 2);

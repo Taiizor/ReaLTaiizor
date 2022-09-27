@@ -14,37 +14,17 @@ namespace ReaLTaiizor.Controls
     public class SkyStatusBar : Control
     {
         #region Variables
-        private Color _BackColorA = Color.FromArgb(245, 245, 245);
-        private Color _BackColorB = Color.FromArgb(230, 230, 230);
-        private Color _BorderColorA = Color.FromArgb(200, 252, 252, 252);
-        private Color _BorderColorB = Color.FromArgb(200, 249, 249, 249);
         private Color _BorderColorC = Color.FromArgb(189, 189, 189);
         #endregion
 
         #region Settings
-        public Color BackColorA
-        {
-            get => _BackColorA;
-            set => _BackColorA = value;
-        }
+        public Color BackColorA { get; set; } = Color.FromArgb(245, 245, 245);
 
-        public Color BackColorB
-        {
-            get => _BackColorB;
-            set => _BackColorB = value;
-        }
+        public Color BackColorB { get; set; } = Color.FromArgb(230, 230, 230);
 
-        public Color BorderColorA
-        {
-            get => _BorderColorA;
-            set => _BorderColorA = value;
-        }
+        public Color BorderColorA { get; set; } = Color.FromArgb(200, 252, 252, 252);
 
-        public Color BorderColorB
-        {
-            get => _BorderColorB;
-            set => _BorderColorB = value;
-        }
+        public Color BorderColorB { get; set; } = Color.FromArgb(200, 249, 249, 249);
 
         public Color BorderColorC
         {

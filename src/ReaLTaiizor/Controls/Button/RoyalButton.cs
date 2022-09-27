@@ -17,11 +17,9 @@ namespace ReaLTaiizor.Controls
         public event EventHandler HotTrackChanged;
         public event EventHandler SelectedChanged;
 
-        private bool hotTracked = false;
-        public bool HotTracked => hotTracked;
+        public bool HotTracked { get; private set; } = false;
 
-        private bool pressed = false;
-        public bool Pressed => pressed;
+        public bool Pressed { get; private set; } = false;
 
         private bool drawBorder;
         public bool DrawBorder
@@ -111,28 +109,28 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseEnter(EventArgs e)
         {
-            hotTracked = true;
+            HotTracked = true;
             HotTrackChanged(this, EventArgs.Empty);
             base.OnMouseEnter(e);
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
-            hotTracked = false;
+            HotTracked = false;
             HotTrackChanged(this, EventArgs.Empty);
             base.OnMouseLeave(e);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            pressed = true;
+            Pressed = true;
             SelectedChanged(this, EventArgs.Empty);
             base.OnMouseDown(e);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            pressed = false;
+            Pressed = false;
             SelectedChanged(this, EventArgs.Empty);
             base.OnMouseUp(e);
         }
@@ -142,11 +140,11 @@ namespace ReaLTaiizor.Controls
             Color foreColor = ForeColor;
             Color backColor = BackColor;
 
-            if (hotTracked && !pressed)
+            if (HotTracked && !Pressed)
             {
                 backColor = hotTrackColor;
             }
-            else if (pressed)
+            else if (Pressed)
             {
                 foreColor = pressedForeColor;
                 backColor = pressedColor;

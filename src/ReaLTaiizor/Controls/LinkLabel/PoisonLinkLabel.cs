@@ -25,14 +25,9 @@ namespace ReaLTaiizor.Controls
     {
         #region Interface
 
-        private bool displayFocusRectangle = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayFocus
-        {
-            get => displayFocusRectangle;
-            set => displayFocusRectangle = value;
-        }
+        public bool DisplayFocus { get; set; } = false;
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public event EventHandler<PoisonPaintEventArgs> CustomPaintBackground;
@@ -132,32 +127,15 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
+        public bool UseCustomForeColor { get; set; } = false;
 
         private bool useStyleColors = false;
         [DefaultValue(false)]
@@ -197,15 +175,9 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-
-        private Image _nofocus = null;
         [DefaultValue(null)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public Image NoFocusImage
-        {
-            get => _nofocus;
-            set => _nofocus = value;
-        }
+        public Image NoFocusImage { get; set; } = null;
 
         private int _imagesize = 16;
 
@@ -308,7 +280,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                 }
@@ -351,7 +323,7 @@ namespace ReaLTaiizor.Controls
 
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
-            if (useCustomForeColor)
+            if (UseCustomForeColor)
             {
                 foreColor = ForeColor;
             }
@@ -380,7 +352,7 @@ namespace ReaLTaiizor.Controls
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
-            if (displayFocusRectangle && isFocused)
+            if (DisplayFocus && isFocused)
             {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
             }
@@ -440,7 +412,7 @@ namespace ReaLTaiizor.Controls
 
                 iconLocation.Y += 1;
 
-                if (_nofocus == null)
+                if (NoFocusImage == null)
                 {
                     if (Theme == ThemeStyle.Dark)
                     {
@@ -455,11 +427,11 @@ namespace ReaLTaiizor.Controls
                 {
                     if (Theme == ThemeStyle.Dark)
                     {
-                        g.DrawImage((isHovered && !isPressed) ? _darkimg : _nofocus, new Rectangle(iconLocation, new Size(_imgW, _imgH)));
+                        g.DrawImage((isHovered && !isPressed) ? _darkimg : NoFocusImage, new Rectangle(iconLocation, new Size(_imgW, _imgH)));
                     }
                     else
                     {
-                        g.DrawImage((isHovered && !isPressed) ? _image : _nofocus, new Rectangle(iconLocation, new Size(_imgW, _imgH)));
+                        g.DrawImage((isHovered && !isPressed) ? _image : NoFocusImage, new Rectangle(iconLocation, new Size(_imgW, _imgH)));
                     }
                 }
             }

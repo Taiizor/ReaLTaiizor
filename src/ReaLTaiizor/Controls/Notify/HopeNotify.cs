@@ -19,20 +19,9 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private bool _Close = true;
 
         private readonly Color _DefaultBackColor = HopeColors.PrimaryColor;
         private readonly Color _DefaultTextColor = HopeColors.PrimaryColor;
-
-        private Color _SuccessBackColor = Color.FromArgb(25, HopeColors.Success);
-        private Color _SuccessTextColor = HopeColors.Success;
-        private Color _WarningBackColor = Color.FromArgb(25, HopeColors.Warning);
-        private Color _WarningTextColor = HopeColors.Warning;
-        private Color _InfoBackColor = Color.FromArgb(25, HopeColors.Info);
-        private Color _InfoTextColor = HopeColors.Info;
-        private Color _ErrorBackColor = Color.FromArgb(25, HopeColors.Danger);
-        private Color _ErrorTextColor = HopeColors.Danger;
-
         private Color _CloseColor = RoundRectangle.DarkBackColor;
 
         public enum AlertType
@@ -69,67 +58,31 @@ namespace ReaLTaiizor.Controls
         }
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public bool Close
-        {
-            get => _Close;
-            set => _Close = value;
-        }
+        public bool Close { get; set; } = true;
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color SuccessBackColor
-        {
-            get => _SuccessBackColor;
-            set => _SuccessBackColor = value;
-        }
+        public Color SuccessBackColor { get; set; } = Color.FromArgb(25, HopeColors.Success);
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color SuccessTextColor
-        {
-            get => _SuccessTextColor;
-            set => _SuccessTextColor = value;
-        }
+        public Color SuccessTextColor { get; set; } = HopeColors.Success;
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color WarningBackColor
-        {
-            get => _WarningBackColor;
-            set => _WarningBackColor = value;
-        }
+        public Color WarningBackColor { get; set; } = Color.FromArgb(25, HopeColors.Warning);
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color WarningTextColor
-        {
-            get => _WarningTextColor;
-            set => _WarningTextColor = value;
-        }
+        public Color WarningTextColor { get; set; } = HopeColors.Warning;
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color InfoBackColor
-        {
-            get => _InfoBackColor;
-            set => _InfoBackColor = value;
-        }
+        public Color InfoBackColor { get; set; } = Color.FromArgb(25, HopeColors.Info);
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color InfoTextColor
-        {
-            get => _InfoTextColor;
-            set => _InfoTextColor = value;
-        }
+        public Color InfoTextColor { get; set; } = HopeColors.Info;
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color ErrorBackColor
-        {
-            get => _ErrorBackColor;
-            set => _ErrorBackColor = value;
-        }
+        public Color ErrorBackColor { get; set; } = Color.FromArgb(25, HopeColors.Danger);
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color ErrorTextColor
-        {
-            get => _ErrorTextColor;
-            set => _ErrorTextColor = value;
-        }
+        public Color ErrorTextColor { get; set; } = HopeColors.Danger;
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color CloseColor
@@ -150,7 +103,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            if (_Close)
+            if (Close)
             {
                 Visible = false;
             }
@@ -172,20 +125,20 @@ namespace ReaLTaiizor.Controls
             switch (Type)
             {
                 case AlertType.Success:
-                    backBrush = new(_SuccessBackColor);
-                    textBrush = new(_SuccessTextColor);
+                    backBrush = new(SuccessBackColor);
+                    textBrush = new(SuccessTextColor);
                     break;
                 case AlertType.Warning:
-                    backBrush = new(_WarningBackColor);
-                    textBrush = new(_WarningTextColor);
+                    backBrush = new(WarningBackColor);
+                    textBrush = new(WarningTextColor);
                     break;
                 case AlertType.Info:
-                    backBrush = new(_InfoBackColor);
-                    textBrush = new(_InfoTextColor);
+                    backBrush = new(InfoBackColor);
+                    textBrush = new(InfoTextColor);
                     break;
                 case AlertType.Error:
-                    backBrush = new(_ErrorBackColor);
-                    textBrush = new(_ErrorTextColor);
+                    backBrush = new(ErrorBackColor);
+                    textBrush = new(ErrorTextColor);
                     break;
                 default:
                     break;
@@ -195,7 +148,7 @@ namespace ReaLTaiizor.Controls
             graphics.FillPath(new SolidBrush(Color.White), back);
             graphics.FillPath(backBrush, back);
             graphics.DrawPath(new(textBrush, 1f), back);
-            if (_Close)
+            if (Close)
             {
                 graphics.DrawString(Text, Font, textBrush, new RectangleF(20, 0, Width - 40, Height), HopeStringAlign.Left);
                 graphics.DrawString("r", new Font("Marlett", 10), new SolidBrush(_CloseColor), new Rectangle(Width - 34, 1, 34, 34), HopeStringAlign.Center);
@@ -219,7 +172,7 @@ namespace ReaLTaiizor.Controls
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (_Close)
+            if (Close)
             {
                 Visible = false;
             }

@@ -27,7 +27,7 @@ namespace ReaLTaiizor.Forms
         [Browsable(true)]
         [Description("The working area")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public System.Windows.Forms.Panel WorkingArea => WorkPanel;
+        public System.Windows.Forms.Panel WorkingArea { get; } = new();
 
         public override ISite Site
         {
@@ -392,17 +392,17 @@ namespace ReaLTaiizor.Forms
 
                     panel.Controls.Add(label);
 
-                    WorkPanel.Location = new Point(0, 50);
+                    WorkingArea.Location = new Point(0, 50);
 
                     BackColor = Color.White;
 
-                    WorkPanel.Dock = DockStyle.Fill;
+                    WorkingArea.Dock = DockStyle.Fill;
 
                     parrotFormHandle.HandleControl = label;
                     parrotFormHandle.HandleControl = panel;
                     parrotFormHandle.HandleControl = panel2;
 
-                    base.Controls.Add(WorkPanel);
+                    base.Controls.Add(WorkingArea);
                     base.Controls.Add(panel2);
                     base.Controls.Add(panel);
                     break;
@@ -521,7 +521,7 @@ namespace ReaLTaiizor.Forms
 
                     exit.BringToFront();
 
-                    WorkPanel.Location = new Point(0, 50);
+                    WorkingArea.Location = new Point(0, 50);
 
                     if (!SetBG)
                     {
@@ -529,13 +529,13 @@ namespace ReaLTaiizor.Forms
                         SetBG = true;
                     }
 
-                    WorkPanel.BackColor = BackColor;
-                    WorkPanel.Dock = DockStyle.Fill;
+                    WorkingArea.BackColor = BackColor;
+                    WorkingArea.Dock = DockStyle.Fill;
 
                     parrotFormHandle.HandleControl = label;
                     parrotFormHandle.HandleControl = parrotGradientPanel;
 
-                    base.Controls.Add(WorkPanel);
+                    base.Controls.Add(WorkingArea);
                     base.Controls.Add(panel3);
                     base.Controls.Add(parrotGradientPanel);
                     break;
@@ -641,7 +641,7 @@ namespace ReaLTaiizor.Forms
                     parrotGradientPanel2.Controls.Add(exit);
                     exit.BringToFront();
 
-                    WorkPanel.Location = new Point(0, 50);
+                    WorkingArea.Location = new Point(0, 50);
 
                     if (!SetBG)
                     {
@@ -649,14 +649,14 @@ namespace ReaLTaiizor.Forms
                         SetBG = true;
                     }
 
-                    WorkPanel.BackColor = BackColor;
+                    WorkingArea.BackColor = BackColor;
 
                     parrotFormHandle.HandleControl = label;
                     parrotFormHandle.HandleControl = parrotGradientPanel2;
 
-                    WorkPanel.Dock = DockStyle.Fill;
+                    WorkingArea.Dock = DockStyle.Fill;
 
-                    base.Controls.Add(WorkPanel);
+                    base.Controls.Add(WorkingArea);
                     base.Controls.Add(parrotGradientPanel2);
                     break;
                 default:
@@ -772,9 +772,6 @@ namespace ReaLTaiizor.Forms
         }
 
         private bool SetBG;
-
-        private readonly System.Windows.Forms.Panel WorkPanel = new();
-
         private readonly PictureBox minimize = new();
 
         private readonly PictureBox exit = new();

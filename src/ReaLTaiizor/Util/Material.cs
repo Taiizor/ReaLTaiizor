@@ -992,12 +992,7 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private static AnimationRunType _AnimationRun = AnimationRunType.Normal;
-        public static AnimationRunType AnimationRun
-        {
-            get => _AnimationRun;
-            set => _AnimationRun = value;
-        }
+        public static AnimationRunType AnimationRun { get; set; } = AnimationRunType.Normal;
 
         public static class AnimationCustomQuadratic
         {

@@ -30,33 +30,11 @@ namespace ReaLTaiizor.Forms
         private const int htBottom = 15;
         private const int htBottomLeft = 16;
         private const int htBottomRight = 17;
-        private bool drawBorder;
-        public bool DrawBorder
-        {
-            get => drawBorder;
-            set => drawBorder = value;
-        }
 
-        private int borderThickness;
-        public int BorderThickness
-        {
-            get => borderThickness;
-            set => borderThickness = value;
-        }
-
-        private bool moveable = true;
-        public bool Moveable
-        {
-            get => moveable;
-            set => moveable = value;
-        }
-
-        private bool sizable = true;
-        public bool Sizable
-        {
-            get => sizable;
-            set => sizable = value;
-        }
+        public bool DrawBorder { get; set; }
+        public int BorderThickness { get; set; }
+        public bool Moveable { get; set; } = true;
+        public bool Sizable { get; set; } = true;
 
         public RoyalForm()
         {

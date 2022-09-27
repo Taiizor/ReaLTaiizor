@@ -28,12 +28,9 @@ namespace ReaLTaiizor.Controls
         #region Field Region
 
         private int _itemHeight = 20;
-        private bool _multiSelect;
-
         private readonly int _iconSize = 16;
 
         private ObservableCollection<CrownListItem> _items;
-        private readonly List<int> _selectedIndices;
         private int _anchoredItemStart = -1;
         private int _anchoredItemEnd = -1;
 
@@ -63,7 +60,7 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<int> SelectedIndices => _selectedIndices;
+        public List<int> SelectedIndices { get; }
 
         [Category("Appearance")]
         [Description("Determines the height of the individual list view items.")]
@@ -81,11 +78,7 @@ namespace ReaLTaiizor.Controls
         [Category("Behaviour")]
         [Description("Determines whether multiple list view items can be selected at once.")]
         [DefaultValue(false)]
-        public bool MultiSelect
-        {
-            get => _multiSelect;
-            set => _multiSelect = value;
-        }
+        public bool MultiSelect { get; set; }
 
         [Category("Appearance")]
         [Description("Determines whether icons are rendered with the list items.")]
@@ -99,7 +92,7 @@ namespace ReaLTaiizor.Controls
         public CrownListView()
         {
             Items = new ObservableCollection<CrownListItem>();
-            _selectedIndices = new List<int>();
+            SelectedIndices = new List<int>();
         }
 
         #endregion
@@ -149,9 +142,9 @@ namespace ReaLTaiizor.Controls
 
             if (Items.Count == 0)
             {
-                if (_selectedIndices.Count > 0)
+                if (SelectedIndices.Count > 0)
                 {
-                    _selectedIndices.Clear();
+                    SelectedIndices.Clear();
 
                     SelectedIndicesChanged?.Invoke(this, null);
                 }
@@ -282,8 +275,8 @@ namespace ReaLTaiizor.Controls
                 throw new IndexOutOfRangeException($"Value '{index}' is outside of valid range.");
             }
 
-            _selectedIndices.Clear();
-            _selectedIndices.Add(index);
+            SelectedIndices.Clear();
+            SelectedIndices.Add(index);
 
             SelectedIndicesChanged?.Invoke(this, null);
 
@@ -295,7 +288,7 @@ namespace ReaLTaiizor.Controls
 
         public void SelectItems(IEnumerable<int> indexes)
         {
-            _selectedIndices.Clear();
+            SelectedIndices.Clear();
 
             List<int> list = indexes.ToList();
 
@@ -306,7 +299,7 @@ namespace ReaLTaiizor.Controls
                     throw new IndexOutOfRangeException($"Value '{index}' is outside of valid range.");
                 }
 
-                _selectedIndices.Add(index);
+                SelectedIndices.Add(index);
             }
 
             SelectedIndicesChanged?.Invoke(this, null);
@@ -319,17 +312,17 @@ namespace ReaLTaiizor.Controls
 
         public void ToggleItem(int index)
         {
-            if (_selectedIndices.Contains(index))
+            if (SelectedIndices.Contains(index))
             {
-                _selectedIndices.Remove(index);
+                SelectedIndices.Remove(index);
 
                 // If we just removed both the anchor start AND end then reset them
                 if (_anchoredItemStart == index && _anchoredItemEnd == index)
                 {
-                    if (_selectedIndices.Count > 0)
+                    if (SelectedIndices.Count > 0)
                     {
-                        _anchoredItemStart = _selectedIndices[0];
-                        _anchoredItemEnd = _selectedIndices[0];
+                        _anchoredItemStart = SelectedIndices[0];
+                        _anchoredItemEnd = SelectedIndices[0];
                     }
                     else
                     {
@@ -374,7 +367,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                _selectedIndices.Add(index);
+                SelectedIndices.Add(index);
                 _anchoredItemStart = index;
                 _anchoredItemEnd = index;
             }
@@ -386,25 +379,25 @@ namespace ReaLTaiizor.Controls
 
         public void SelectItems(int startRange, int endRange)
         {
-            _selectedIndices.Clear();
+            SelectedIndices.Clear();
 
             if (startRange == endRange)
             {
-                _selectedIndices.Add(startRange);
+                SelectedIndices.Add(startRange);
             }
 
             if (startRange < endRange)
             {
                 for (int i = startRange; i <= endRange; i++)
                 {
-                    _selectedIndices.Add(i);
+                    SelectedIndices.Add(i);
                 }
             }
             else if (startRange > endRange)
             {
                 for (int i = startRange; i >= endRange; i--)
                 {
-                    _selectedIndices.Add(i);
+                    SelectedIndices.Add(i);
                 }
             }
 

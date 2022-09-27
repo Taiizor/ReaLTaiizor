@@ -23,14 +23,6 @@ namespace ReaLTaiizor.Controls
         private RectangleF upRectangleF = new();
         private RectangleF downRectangleF = new();
         private Point mousePoint = new();
-
-        private Color _BaseColor = HopeColors.FourLevelBorder;
-        private Color _BorderColorA = HopeColors.PlaceholderText;
-        private Color _BorderHoverColorA = HopeColors.PrimaryColor;
-        private Color _BorderColorB = HopeColors.PlaceholderText;
-        private Color _HoverButtonTextColorA = HopeColors.PrimaryColor;
-        private Color _HoverButtonTextColorB = HopeColors.PrimaryColor;
-        private Color _ButtonTextColorA = HopeColors.SecondaryText;
         private Color _ButtonTextColorB = HopeColors.SecondaryText;
 
         public enum NumericStyle
@@ -94,12 +86,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private float _step = 1;
-        public float Step
-        {
-            get => _step;
-            set => _step = value;
-        }
+        public float Step { get; set; } = 1;
 
         private int _precision = 0;
         public int Precision
@@ -112,47 +99,19 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = HopeColors.FourLevelBorder;
 
-        public Color BorderColorA
-        {
-            get => _BorderColorA;
-            set => _BorderColorA = value;
-        }
+        public Color BorderColorA { get; set; } = HopeColors.PlaceholderText;
 
-        public Color BorderHoverColorA
-        {
-            get => _BorderHoverColorA;
-            set => _BorderHoverColorA = value;
-        }
+        public Color BorderHoverColorA { get; set; } = HopeColors.PrimaryColor;
 
-        public Color BorderColorB
-        {
-            get => _BorderColorB;
-            set => _BorderColorB = value;
-        }
+        public Color BorderColorB { get; set; } = HopeColors.PlaceholderText;
 
-        public Color HoverButtonTextColorA
-        {
-            get => _HoverButtonTextColorA;
-            set => _HoverButtonTextColorA = value;
-        }
+        public Color HoverButtonTextColorA { get; set; } = HopeColors.PrimaryColor;
 
-        public Color HoverButtonTextColorB
-        {
-            get => _HoverButtonTextColorB;
-            set => _HoverButtonTextColorB = value;
-        }
+        public Color HoverButtonTextColorB { get; set; } = HopeColors.PrimaryColor;
 
-        public Color ButtonTextColorA
-        {
-            get => _ButtonTextColorA;
-            set => _ButtonTextColorA = value;
-        }
+        public Color ButtonTextColorA { get; set; } = HopeColors.SecondaryText;
 
         public Color ButtonTextColorB
         {
@@ -213,8 +172,8 @@ namespace ReaLTaiizor.Controls
             graphics.Clear(Parent.BackColor);
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
-            graphics.FillPath(new SolidBrush(_BaseColor), bg);
-            graphics.DrawPath(new(enterFlag ? _BorderHoverColorA : _BorderColorA, 1f), bg);
+            graphics.FillPath(new SolidBrush(BaseColor), bg);
+            graphics.DrawPath(new(enterFlag ? BorderHoverColorA : BorderColorA, 1f), bg);
 
             textBox.Text = Math.Round(_value, Precision).ToString();
             textBox.BackColor = BackColor;
@@ -224,17 +183,17 @@ namespace ReaLTaiizor.Controls
                 case NumericStyle.LeftRight:
                     textBox.Size = new(Width - 2 * Height, Height - 2);
                     textBox.Location = new(Height, 5);
-                    graphics.DrawLine(new(_BorderColorB, 0.5f), textBox.Location.X - 0.5f, 1, textBox.Location.X - 0.5f, Height - 1);
+                    graphics.DrawLine(new(BorderColorB, 0.5f), textBox.Location.X - 0.5f, 1, textBox.Location.X - 0.5f, Height - 1);
                     break;
                 case NumericStyle.TopDown:
                     textBox.Size = new(Width - Height - 2, Height - 2);
                     textBox.Location = new(2, 5);
-                    graphics.DrawLine(new(_BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, Height / 2, Width - 1, Height / 2);
+                    graphics.DrawLine(new(BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, Height / 2, Width - 1, Height / 2);
                     break;
             }
-            graphics.DrawString("+", new Font("Segoe UI", 14f), new SolidBrush((upRectangleF.Contains(mousePoint) && enterFlag) ? _HoverButtonTextColorA : _ButtonTextColorA), upRectangleF, HopeStringAlign.Center);
-            graphics.DrawString("-", new Font("Segoe UI", 14f), new SolidBrush((downRectangleF.Contains(mousePoint) && enterFlag) ? _HoverButtonTextColorB : _ButtonTextColorB), downRectangleF, HopeStringAlign.Center);
-            graphics.DrawLine(new(_BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, 1, textBox.Location.X + textBox.Width + 0.5f, Height - 1);
+            graphics.DrawString("+", new Font("Segoe UI", 14f), new SolidBrush((upRectangleF.Contains(mousePoint) && enterFlag) ? HoverButtonTextColorA : ButtonTextColorA), upRectangleF, HopeStringAlign.Center);
+            graphics.DrawString("-", new Font("Segoe UI", 14f), new SolidBrush((downRectangleF.Contains(mousePoint) && enterFlag) ? HoverButtonTextColorB : _ButtonTextColorB), downRectangleF, HopeStringAlign.Center);
+            graphics.DrawLine(new(BorderColorB, 0.5f), textBox.Location.X + textBox.Width + 0.5f, 1, textBox.Location.X + textBox.Width + 0.5f, Height - 1);
             graphics.FillRectangle(new SolidBrush(BackColor), textBox.Location.X, 1, textBox.Width, Height - 2);
             base.Controls.Add(textBox);
         }

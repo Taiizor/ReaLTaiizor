@@ -15,26 +15,9 @@ namespace ReaLTaiizor.Controls
     {
         #region Settings
 
-        private Color _BaseColor = Color.FromArgb(246, 246, 246);
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
-
-        private Color _CircleColor = Color.Gray;
-        public Color CircleColor
-        {
-            get => _CircleColor;
-            set => _CircleColor = value;
-        }
-
-        private string _String = "¡";
-        public string String
-        {
-            get => _String;
-            set => _String = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(246, 246, 246);
+        public Color CircleColor { get; set; } = Color.Gray;
+        public string String { get; set; } = "¡";
 
         #endregion
 
@@ -53,10 +36,10 @@ namespace ReaLTaiizor.Controls
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            e.Graphics.FillEllipse(new SolidBrush(_CircleColor), new Rectangle(1, 1, 29, 29));
-            e.Graphics.FillEllipse(new SolidBrush(_BaseColor), new Rectangle(3, 3, 25, 25));
+            e.Graphics.FillEllipse(new SolidBrush(CircleColor), new Rectangle(1, 1, 29, 29));
+            e.Graphics.FillEllipse(new SolidBrush(BaseColor), new Rectangle(3, 3, 25, 25));
 
-            e.Graphics.DrawString(_String, Font, new SolidBrush(ForeColor), new Rectangle(4, -14, Width, 43), new StringFormat
+            e.Graphics.DrawString(String, Font, new SolidBrush(ForeColor), new Rectangle(4, -14, Width, 43), new StringFormat
             {
                 Alignment = StringAlignment.Near,
                 LineAlignment = StringAlignment.Near

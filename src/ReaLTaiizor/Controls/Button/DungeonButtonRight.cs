@@ -19,17 +19,13 @@ namespace ReaLTaiizor.Controls
         private int MouseState;
         private GraphicsPath Shape;
         private LinearGradientBrush InactiveGB;
-        private Color _InactiveColorA = Color.FromArgb(253, 175, 143);
         private Color _InactiveColorB = Color.FromArgb(244, 146, 106);
         private LinearGradientBrush PressedGB;
-        private Color _PressedColorA = Color.FromArgb(244, 146, 106);
         private Color _PressedColorB = Color.FromArgb(244, 146, 106);
         private LinearGradientBrush PressedContourGB;
-        private Color _PressedContourColorA = Color.FromArgb(162, 120, 101);
         private Color _PressedContourColorB = Color.FromArgb(162, 120, 101);
         private Rectangle R1;
         private readonly Pen P1;
-        private Color _BorderColor = Color.FromArgb(162, 120, 101);
         private Pen P3;
         private Image _Image;
         private Size _ImageSize;
@@ -171,11 +167,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color InactiveColorA
-        {
-            get => _InactiveColorA;
-            set => _InactiveColorA = value;
-        }
+        public Color InactiveColorA { get; set; } = Color.FromArgb(253, 175, 143);
 
         public Color InactiveColorB
         {
@@ -183,11 +175,7 @@ namespace ReaLTaiizor.Controls
             set => _InactiveColorB = value;
         }
 
-        public Color PressedColorA
-        {
-            get => _PressedColorA;
-            set => _PressedColorA = value;
-        }
+        public Color PressedColorA { get; set; } = Color.FromArgb(244, 146, 106);
 
         public Color PressedColorB
         {
@@ -195,11 +183,7 @@ namespace ReaLTaiizor.Controls
             set => _PressedColorB = value;
         }
 
-        public Color PressedContourColorA
-        {
-            get => _PressedContourColorA;
-            set => _PressedContourColorA = value;
-        }
+        public Color PressedContourColorA { get; set; } = Color.FromArgb(162, 120, 101);
 
         public Color PressedContourColorB
         {
@@ -207,11 +191,7 @@ namespace ReaLTaiizor.Controls
             set => _PressedContourColorB = value;
         }
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.FromArgb(162, 120, 101);
 
         #endregion
         #region EventArgs
@@ -255,7 +235,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(76, 76, 76);
             Size = new(177, 30);
             _TextAlignment = StringAlignment.Center;
-            P1 = new(_BorderColor);
+            P1 = new(BorderColor);
             // P1 = Border color
             Cursor = Cursors.Hand;
         }
@@ -268,9 +248,9 @@ namespace ReaLTaiizor.Controls
                 Shape = new();
                 R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
-                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
-                PressedContourGB = new(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), InactiveColorA, _InactiveColorB, 90f);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), PressedColorA, _PressedColorB, 90f);
+                PressedContourGB = new(new Rectangle(0, 0, Width, Height), PressedContourColorA, _PressedContourColorB, 90f);
 
                 P3 = new(PressedContourGB);
             }

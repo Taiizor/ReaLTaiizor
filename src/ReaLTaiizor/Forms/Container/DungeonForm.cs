@@ -33,74 +33,31 @@ namespace ReaLTaiizor.Forms
         private Point MouseP = new(0, 0);
         private bool Cap = false;
         private bool HasShown;
-
-        private Color _TitleColor = Color.FromArgb(223, 219, 210);
-        private Color _BorderColor = Color.FromArgb(38, 38, 38);
-        private Color _HeaderEdgeColorA = Color.FromArgb(87, 85, 77);
-        private Color _HeaderEdgeColorB = Color.FromArgb(69, 68, 63);
-        private Color _FooterEdgeColor = Color.FromArgb(69, 68, 63);
-        private Color _FillEdgeColorA = Color.FromArgb(69, 68, 63);
         private Color _FillEdgeColorB = Color.FromArgb(69, 68, 63);
 
         #endregion
 
         #region Properties
 
-        public Color TitleColor
-        {
-            get => _TitleColor;
-            set => _TitleColor = value;
-        }
+        public Color TitleColor { get; set; } = Color.FromArgb(223, 219, 210);
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.FromArgb(38, 38, 38);
 
-        public Color HeaderEdgeColorA
-        {
-            get => _HeaderEdgeColorA;
-            set => _HeaderEdgeColorA = value;
-        }
+        public Color HeaderEdgeColorA { get; set; } = Color.FromArgb(87, 85, 77);
 
-        public Color HeaderEdgeColorB
-        {
-            get => _HeaderEdgeColorB;
-            set => _HeaderEdgeColorB = value;
-        }
+        public Color HeaderEdgeColorB { get; set; } = Color.FromArgb(69, 68, 63);
 
-        public Color FooterEdgeColor
-        {
-            get => _FooterEdgeColor;
-            set => _FooterEdgeColor = value;
-        }
+        public Color FooterEdgeColor { get; set; } = Color.FromArgb(69, 68, 63);
 
-        public Color FillEdgeColorA
-        {
-            get => _FillEdgeColorA;
-            set => _FillEdgeColorA = value;
-        }
+        public Color FillEdgeColorA { get; set; } = Color.FromArgb(69, 68, 63);
 
         public Color FillEdgeColorB
         {
             get => _FillEdgeColorB;
             set => _FillEdgeColorB = value;
         }
-
-        private bool _Sizable = true;
-        public bool Sizable
-        {
-            get => _Sizable;
-            set => _Sizable = value;
-        }
-
-        private bool _SmartBounds = true;
-        public bool SmartBounds
-        {
-            get => _SmartBounds;
-            set => _SmartBounds = value;
-        }
+        public bool Sizable { get; set; } = true;
+        public bool SmartBounds { get; set; } = true;
 
         private bool _RoundCorners = true;
         public bool RoundCorners
@@ -113,8 +70,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private bool _IsParentForm;
-        protected bool IsParentForm => _IsParentForm;
+        protected bool IsParentForm { get; private set; }
 
         protected bool IsParentMdi
         {
@@ -144,7 +100,7 @@ namespace ReaLTaiizor.Forms
         {
             get
             {
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     return ParentForm.StartPosition;
                 }
@@ -157,7 +113,7 @@ namespace ReaLTaiizor.Forms
             {
                 _StartPosition = value;
 
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     ParentForm.StartPosition = value;
                 }
@@ -177,13 +133,13 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            _IsParentForm = Parent is System.Windows.Forms.Form;
+            IsParentForm = Parent is System.Windows.Forms.Form;
 
             if (!_ControlMode)
             {
                 InitializeMessages();
 
-                if (_IsParentForm)
+                if (IsParentForm)
                 {
                     ParentForm.FormBorderStyle = FormBorderStyle.None;
                     ParentForm.TransparencyKey = Color.Fuchsia;
@@ -217,7 +173,7 @@ namespace ReaLTaiizor.Forms
                 SetState(MouseState.Down);
             }
 
-            if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
+            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
             {
                 if (HeaderRect.Contains(e.Location))
                 {
@@ -225,7 +181,7 @@ namespace ReaLTaiizor.Forms
                     WM_LMBUTTONDOWN = true;
                     DefWndProc(ref Messages[0]);
                 }
-                else if (_Sizable && !(Previous == 0))
+                else if (Sizable && !(Previous == 0))
                 {
                     Capture = false;
                     WM_LMBUTTONDOWN = true;
@@ -243,9 +199,9 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
+            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
-                if (_Sizable && !_ControlMode)
+                if (Sizable && !_ControlMode)
                 {
                     InvalidateMouse();
                 }
@@ -450,7 +406,7 @@ namespace ReaLTaiizor.Forms
                 WM_LMBUTTONDOWN = false;
 
                 SetState(MouseState.Over);
-                if (!_SmartBounds)
+                if (!SmartBounds)
                 {
                     return;
                 }
@@ -490,15 +446,15 @@ namespace ReaLTaiizor.Forms
         {
             base.OnPaint(e);
             Graphics G = e.Graphics;
-            G.Clear(_FooterEdgeColor);
+            G.Clear(FooterEdgeColor);
 
-            G.DrawRectangle(new(_BorderColor), new Rectangle(0, 0, Width - 1, Height - 1));
+            G.DrawRectangle(new(BorderColor), new Rectangle(0, 0, Width - 1, Height - 1));
             // Use [Color.FromArgb(87, 86, 81), Color.FromArgb(60, 59, 55)] for a darker taste
             // And replace each (60, 59, 55) with (69, 68, 63)
-            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, 36), _HeaderEdgeColorA, _HeaderEdgeColorB), new Rectangle(1, 1, Width - 2, 36));
-            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, Height), _FillEdgeColorA, _FillEdgeColorB), new Rectangle(1, 36, Width - 2, Height - 46));
+            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, 36), HeaderEdgeColorA, HeaderEdgeColorB), new Rectangle(1, 1, Width - 2, 36));
+            G.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(0, Height), FillEdgeColorA, _FillEdgeColorB), new Rectangle(1, 36, Width - 2, Height - 46));
 
-            G.DrawRectangle(new(_BorderColor), new Rectangle(9, 47, Width - 19, Height - 55));
+            G.DrawRectangle(new(BorderColor), new Rectangle(9, 47, Width - 19, Height - 55));
             G.FillRectangle(new SolidBrush(BackColor), new Rectangle(10, 48, Width - 20, Height - 56));
 
             if (_RoundCorners == true)
@@ -513,10 +469,10 @@ namespace ReaLTaiizor.Forms
                 G.FillRectangle(Brushes.Fuchsia, 0, 3, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, 1, 1, 1, 1);
 
-                G.FillRectangle(new SolidBrush(_BorderColor), 1, 3, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 1, 2, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 2, 1, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 3, 1, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), 1, 3, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), 1, 2, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), 2, 1, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), 3, 1, 1, 1);
 
                 // Draw right upper corner
                 G.FillRectangle(Brushes.Fuchsia, Width - 1, 0, 1, 1);
@@ -528,10 +484,10 @@ namespace ReaLTaiizor.Forms
                 G.FillRectangle(Brushes.Fuchsia, Width - 1, 3, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, Width - 2, 1, 1, 1);
 
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, 3, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, 2, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 3, 1, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 4, 1, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), Width - 2, 3, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), Width - 2, 2, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), Width - 3, 1, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), Width - 4, 1, 1, 1);
 
                 // Draw Left bottom corner
                 G.FillRectangle(Brushes.Fuchsia, 0, Height - 1, 1, 1);
@@ -544,10 +500,10 @@ namespace ReaLTaiizor.Forms
                 G.FillRectangle(Brushes.Fuchsia, 1, Height - 1, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, 1, Height - 2, 1, 1);
 
-                G.FillRectangle(new SolidBrush(_BorderColor), 1, Height - 3, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 1, Height - 4, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 3, Height - 2, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), 2, Height - 2, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), 1, Height - 3, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), 1, Height - 4, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), 3, Height - 2, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), 2, Height - 2, 1, 1);
 
                 // Draw right bottom corner
                 G.FillRectangle(Brushes.Fuchsia, Width - 1, Height, 1, 1);
@@ -563,13 +519,13 @@ namespace ReaLTaiizor.Forms
                 G.FillRectangle(Brushes.Fuchsia, Width - 1, Height - 4, 1, 1);
                 G.FillRectangle(Brushes.Fuchsia, Width - 2, Height - 2, 1, 1);
 
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, Height - 3, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 2, Height - 4, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 4, Height - 2, 1, 1);
-                G.FillRectangle(new SolidBrush(_BorderColor), Width - 3, Height - 2, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), Width - 2, Height - 3, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), Width - 2, Height - 4, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), Width - 4, Height - 2, 1, 1);
+                G.FillRectangle(new SolidBrush(BorderColor), Width - 3, Height - 2, 1, 1);
             }
 
-            G.DrawString(Text, new Font("Tahoma", 12, FontStyle.Bold), new SolidBrush(_TitleColor), new Rectangle(0, 14, Width - 1, Height), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near });
+            G.DrawString(Text, new Font("Tahoma", 12, FontStyle.Bold), new SolidBrush(TitleColor), new Rectangle(0, 14, Width - 1, Height), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Near });
         }
     }
 

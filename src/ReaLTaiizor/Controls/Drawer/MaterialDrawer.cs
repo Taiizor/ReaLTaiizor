@@ -257,14 +257,8 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = new List<System.Windows.Forms.TabPage>().ToArray();
-
         [Category("Behavior")]
-        public System.Windows.Forms.TabPage[] DrawerNonClickTabPage
-        {
-            get => _DrawerNonClickTabPage;
-            set => _DrawerNonClickTabPage = value;
-        }
+        public System.Windows.Forms.TabPage[] DrawerNonClickTabPage { get; set; } = new List<System.Windows.Forms.TabPage>().ToArray();
 
         private void preProcessIcons()
         {
@@ -702,7 +696,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (_drawerItemRects[i].Contains(e.Location))
                 {
-                    if (_DrawerNonClickTabPage == null || !_DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
+                    if (DrawerNonClickTabPage == null || !DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
                     {
                         _ShowTabControl.SelectedIndex = i;
                         if (AutoHide)
@@ -734,7 +728,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (_drawerItemRects[i].Contains(e.Location))
                 {
-                    if (_DrawerNonClickTabPage == null || !_DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
+                    if (DrawerNonClickTabPage == null || !DrawerNonClickTabPage.Contains(_ShowTabControl.TabPages[i]))
                     {
                         Cursor = Cursors.Hand;
                         return;

@@ -135,14 +135,8 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private System.Windows.Forms.TabPage[] _SelectorNonClickTabPage = new List<System.Windows.Forms.TabPage>().ToArray();
-
         [Category("Behavior")]
-        public System.Windows.Forms.TabPage[] SelectorNonClickTabPage
-        {
-            get => _SelectorNonClickTabPage;
-            set => _SelectorNonClickTabPage = value;
-        }
+        public System.Windows.Forms.TabPage[] SelectorNonClickTabPage { get; set; } = new List<System.Windows.Forms.TabPage>().ToArray();
 
         private int _previousSelectedTabIndex;
 
@@ -305,7 +299,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (_tabRects[i].Contains(e.Location))
                 {
-                    if (_SelectorNonClickTabPage == null || !_SelectorNonClickTabPage.Contains(_baseTabControl.TabPages[i]))
+                    if (SelectorNonClickTabPage == null || !SelectorNonClickTabPage.Contains(_baseTabControl.TabPages[i]))
                     {
                         _baseTabControl.SelectedIndex = i;
                     }
@@ -340,7 +334,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (_tabRects[i].Contains(e.Location))
                 {
-                    if (_SelectorNonClickTabPage == null || !_SelectorNonClickTabPage.Contains(_baseTabControl.TabPages[i]))
+                    if (SelectorNonClickTabPage == null || !SelectorNonClickTabPage.Contains(_baseTabControl.TabPages[i]))
                     {
                         Cursor = _tab_over_cursor;
                         _tab_over_index = i;

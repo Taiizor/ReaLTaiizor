@@ -58,19 +58,8 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private bool _Sizable = true;
-        public bool Sizable
-        {
-            get => _Sizable;
-            set => _Sizable = value;
-        }
-
-        private bool _SmartBounds = true;
-        public bool SmartBounds
-        {
-            get => _SmartBounds;
-            set => _SmartBounds = value;
-        }
+        public bool Sizable { get; set; } = true;
+        public bool SmartBounds { get; set; } = true;
 
         private bool _RoundCorners = true;
         public bool RoundCorners
@@ -83,8 +72,7 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private bool _IsParentForm;
-        protected bool IsParentForm => _IsParentForm;
+        protected bool IsParentForm { get; private set; }
 
         protected bool IsParentMdi
         {
@@ -115,7 +103,7 @@ namespace ReaLTaiizor.Forms
         {
             get
             {
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     return ParentForm.StartPosition;
                 }
@@ -128,7 +116,7 @@ namespace ReaLTaiizor.Forms
             {
                 _StartPosition = value;
 
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     ParentForm.StartPosition = value;
                 }
@@ -148,13 +136,13 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            _IsParentForm = Parent is System.Windows.Forms.Form;
+            IsParentForm = Parent is System.Windows.Forms.Form;
 
             if (!_ControlMode)
             {
                 InitializeMessages();
 
-                if (_IsParentForm)
+                if (IsParentForm)
                 {
                     ParentForm.FormBorderStyle = FormBorderStyle.None;
                     ParentForm.TransparencyKey = Color.Fuchsia;
@@ -189,7 +177,7 @@ namespace ReaLTaiizor.Forms
                 SetState(MouseState.Down);
             }
 
-            if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
+            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
             {
                 if (HeaderRect.Contains(e.Location))
                 {
@@ -197,7 +185,7 @@ namespace ReaLTaiizor.Forms
                     WM_LMBUTTONDOWN = true;
                     DefWndProc(ref Messages[0]);
                 }
-                else if (_Sizable && !(Previous == 0))
+                else if (Sizable && !(Previous == 0))
                 {
                     Capture = false;
                     WM_LMBUTTONDOWN = true;
@@ -215,9 +203,9 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
+            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
-                if (_Sizable && !_ControlMode)
+                if (Sizable && !_ControlMode)
                 {
                     InvalidateMouse();
                 }
@@ -423,7 +411,7 @@ namespace ReaLTaiizor.Forms
                 WM_LMBUTTONDOWN = false;
 
                 SetState(MouseState.Over);
-                if (!_SmartBounds)
+                if (!SmartBounds)
                 {
                     return;
                 }

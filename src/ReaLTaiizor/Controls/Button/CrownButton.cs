@@ -20,8 +20,6 @@ namespace ReaLTaiizor.Controls
         #region Field Region
 
         private ButtonStyle _style = ButtonStyle.Normal;
-        private ControlState _buttonState = ControlState.Normal;
-
         private bool _isDefault;
         private bool _spacePressed;
 
@@ -88,7 +86,7 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ControlState ButtonState => _buttonState;
+        public ControlState ButtonState { get; private set; } = ControlState.Normal;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -141,9 +139,9 @@ namespace ReaLTaiizor.Controls
 
         private void SetButtonState(ControlState buttonState)
         {
-            if (_buttonState != buttonState)
+            if (ButtonState != buttonState)
             {
-                _buttonState = buttonState;
+                ButtonState = buttonState;
                 Invalidate();
             }
         }

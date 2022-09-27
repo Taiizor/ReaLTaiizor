@@ -27,32 +27,16 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color BGColor
-        {
-            get => _BGColor;
-            set => _BGColor = value;
-        }
+        public Color BGColor { get; set; } = Color.FromArgb(60, 70, 73);
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Colors")]
-        public Color ActiveColor
-        {
-            get => _ActiveColor;
-            set => _ActiveColor = value;
-        }
+        public Color ActiveColor { get; set; } = ForeverLibrary.ForeverColor;
 
         [Category("Colors")]
-        public Color ActiveFontColor
-        {
-            get => _ActiveFontColor;
-            set => _ActiveFontColor = value;
-        }
+        public Color ActiveFontColor { get; set; } = Color.White;
 
         [Category("Colors")]
         public Color DeactiveFontColor
@@ -61,10 +45,6 @@ namespace ReaLTaiizor.Controls
             set => _DeactiveFontColor = value;
         }
 
-        private Color _BGColor = Color.FromArgb(60, 70, 73);
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _ActiveColor = ForeverLibrary.ForeverColor;
-        private Color _ActiveFontColor = Color.White;
         private Color _DeactiveFontColor = Color.White;
 
         public ForeverTabPage()
@@ -91,11 +71,11 @@ namespace ReaLTaiizor.Controls
             _with13.SmoothingMode = SmoothingMode.HighQuality;
             _with13.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with13.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            _with13.Clear(_BaseColor);
+            _with13.Clear(BaseColor);
 
             try
             {
-                SelectedTab.BackColor = _BGColor;
+                SelectedTab.BackColor = BGColor;
             }
             catch
             {
@@ -109,11 +89,11 @@ namespace ReaLTaiizor.Controls
                 if (i == SelectedIndex)
                 {
                     //-- Base
-                    _with13.FillRectangle(new SolidBrush(_BaseColor), BaseSize);
+                    _with13.FillRectangle(new SolidBrush(BaseColor), BaseSize);
 
                     //-- Gradiant
                     //.fill
-                    _with13.FillRectangle(new SolidBrush(_ActiveColor), BaseSize);
+                    _with13.FillRectangle(new SolidBrush(ActiveColor), BaseSize);
 
                     //-- ImageList
                     if (ImageList != null)
@@ -125,12 +105,12 @@ namespace ReaLTaiizor.Controls
                                 //-- Image
                                 _with13.DrawImage(ImageList.Images[TabPages[i].ImageIndex], new Point(BaseSize.Location.X + 8, BaseSize.Location.Y + 6));
                                 //-- Text
-                                _with13.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(_ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
+                                _with13.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
                             }
                             else
                             {
                                 //-- Text
-                                _with13.DrawString(TabPages[i].Text, Font, new SolidBrush(_ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
+                                _with13.DrawString(TabPages[i].Text, Font, new SolidBrush(ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
                             }
                         }
                         catch (Exception ex)
@@ -141,13 +121,13 @@ namespace ReaLTaiizor.Controls
                     else
                     {
                         //-- Text
-                        _with13.DrawString(TabPages[i].Text, Font, new SolidBrush(_ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
+                        _with13.DrawString(TabPages[i].Text, Font, new SolidBrush(ActiveFontColor), BaseSize, ForeverLibrary.CenterSF);
                     }
                 }
                 else
                 {
                     //-- Base
-                    _with13.FillRectangle(new SolidBrush(_BaseColor), BaseSize);
+                    _with13.FillRectangle(new SolidBrush(BaseColor), BaseSize);
 
                     //-- ImageList
                     if (ImageList != null)
@@ -203,7 +183,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _ActiveColor = Colors.Forever;
+            ActiveColor = Colors.Forever;
         }
     }
 

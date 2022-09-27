@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Controls
 
         [Category("Parrot")]
         [Browsable(true)]
-        public Direction JoystickDirection => joystickDirection;
+        public Direction JoystickDirection { get; private set; } = Direction.MiddleCenter;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -36,11 +36,7 @@ namespace ReaLTaiizor.Controls
 
         [Category("Parrot")]
         [Browsable(true)]
-        public bool KeepOnScreen
-        {
-            get => keepOnScreen;
-            set => keepOnScreen = value;
-        }
+        public bool KeepOnScreen { get; set; } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -148,17 +144,17 @@ namespace ReaLTaiizor.Controls
                 {
                     if (num3 < base.Width / 3 * 3)
                     {
-                        joystickDirection = Direction.LowerRight;
+                        JoystickDirection = Direction.LowerRight;
                     }
 
                     if (num3 < base.Width / 3 * 2)
                     {
-                        joystickDirection = Direction.LowerCenter;
+                        JoystickDirection = Direction.LowerCenter;
                     }
 
                     if (num3 < base.Width / 3)
                     {
-                        joystickDirection = Direction.LowerLeft;
+                        JoystickDirection = Direction.LowerLeft;
                     }
                 }
 
@@ -166,34 +162,34 @@ namespace ReaLTaiizor.Controls
                 {
                     if (num3 < base.Width / 3 * 3)
                     {
-                        joystickDirection = Direction.MiddleRight;
+                        JoystickDirection = Direction.MiddleRight;
                     }
 
                     if (num3 < base.Width / 3 * 2)
                     {
-                        joystickDirection = Direction.MiddleCenter;
+                        JoystickDirection = Direction.MiddleCenter;
                     }
 
                     if (num3 < base.Width / 3)
                     {
-                        joystickDirection = Direction.MiddleLeft;
+                        JoystickDirection = Direction.MiddleLeft;
                     }
                 }
                 if (num4 < base.Height / 3)
                 {
                     if (num3 < base.Width / 3 * 3)
                     {
-                        joystickDirection = Direction.UpperRight;
+                        JoystickDirection = Direction.UpperRight;
                     }
 
                     if (num3 < base.Width / 3 * 2)
                     {
-                        joystickDirection = Direction.UpperCenter;
+                        JoystickDirection = Direction.UpperCenter;
                     }
 
                     if (num3 < base.Width / 3)
                     {
-                        joystickDirection = Direction.UpperLeft;
+                        JoystickDirection = Direction.UpperLeft;
                     }
                 }
 
@@ -220,7 +216,7 @@ namespace ReaLTaiizor.Controls
         {
             moveStick = false;
 
-            joystickDirection = Direction.MiddleCenter;
+            JoystickDirection = Direction.MiddleCenter;
 
             OnDirectionChanged();
 
@@ -267,9 +263,9 @@ namespace ReaLTaiizor.Controls
         {
             if (movableObject != null)
             {
-                if (keepOnScreen)
+                if (KeepOnScreen)
                 {
-                    if (joystickDirection == Direction.UpperLeft)
+                    if (JoystickDirection == Direction.UpperLeft)
                     {
                         if (movableObject.Location.X - sensitivity > -1)
                         {
@@ -290,7 +286,7 @@ namespace ReaLTaiizor.Controls
                         }
                     }
 
-                    if (joystickDirection == Direction.UpperCenter)
+                    if (JoystickDirection == Direction.UpperCenter)
                     {
                         if (movableObject.Location.Y - sensitivity > -1)
                         {
@@ -302,7 +298,7 @@ namespace ReaLTaiizor.Controls
                         }
                     }
 
-                    if (joystickDirection == Direction.UpperRight)
+                    if (JoystickDirection == Direction.UpperRight)
                     {
                         if (movableObject.Location.X + movableObject.Width + sensitivity < movableObject.Parent.Width - 1)
                         {
@@ -323,7 +319,7 @@ namespace ReaLTaiizor.Controls
                         }
                     }
 
-                    if (joystickDirection == Direction.MiddleLeft)
+                    if (JoystickDirection == Direction.MiddleLeft)
                     {
                         if (movableObject.Location.X - sensitivity > -1)
                         {
@@ -335,7 +331,7 @@ namespace ReaLTaiizor.Controls
                         }
                     }
 
-                    if (joystickDirection == Direction.MiddleRight)
+                    if (JoystickDirection == Direction.MiddleRight)
                     {
                         if (movableObject.Location.X + movableObject.Width + sensitivity < movableObject.Parent.Width - 1)
                         {
@@ -347,7 +343,7 @@ namespace ReaLTaiizor.Controls
                         }
                     }
 
-                    if (joystickDirection == Direction.LowerLeft)
+                    if (JoystickDirection == Direction.LowerLeft)
                     {
                         if (movableObject.Location.X - sensitivity > -1)
                         {
@@ -368,7 +364,7 @@ namespace ReaLTaiizor.Controls
                         }
                     }
 
-                    if (joystickDirection == Direction.LowerCenter)
+                    if (JoystickDirection == Direction.LowerCenter)
                     {
                         if (movableObject.Location.Y + movableObject.Height + sensitivity < movableObject.Parent.Height - 1)
                         {
@@ -380,7 +376,7 @@ namespace ReaLTaiizor.Controls
                         }
                     }
 
-                    if (joystickDirection == Direction.LowerRight)
+                    if (JoystickDirection == Direction.LowerRight)
                     {
                         if (movableObject.Location.X + movableObject.Width + sensitivity < movableObject.Parent.Width - 1)
                         {
@@ -403,42 +399,42 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    if (joystickDirection == Direction.UpperCenter)
+                    if (JoystickDirection == Direction.UpperCenter)
                     {
                         movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y - sensitivity);
                     }
 
-                    if (joystickDirection == Direction.UpperLeft)
+                    if (JoystickDirection == Direction.UpperLeft)
                     {
                         movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y - sensitivity);
                     }
 
-                    if (joystickDirection == Direction.UpperRight)
+                    if (JoystickDirection == Direction.UpperRight)
                     {
                         movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y - sensitivity);
                     }
 
-                    if (joystickDirection == Direction.MiddleLeft)
+                    if (JoystickDirection == Direction.MiddleLeft)
                     {
                         movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y);
                     }
 
-                    if (joystickDirection == Direction.MiddleRight)
+                    if (JoystickDirection == Direction.MiddleRight)
                     {
                         movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y);
                     }
 
-                    if (joystickDirection == Direction.LowerLeft)
+                    if (JoystickDirection == Direction.LowerLeft)
                     {
                         movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y + sensitivity);
                     }
 
-                    if (joystickDirection == Direction.LowerCenter)
+                    if (JoystickDirection == Direction.LowerCenter)
                     {
                         movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y + sensitivity);
                     }
 
-                    if (joystickDirection == Direction.LowerRight)
+                    if (JoystickDirection == Direction.LowerRight)
                     {
                         movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y + sensitivity);
                     }
@@ -449,13 +445,7 @@ namespace ReaLTaiizor.Controls
         }
 
         private readonly Graphics ng;
-
-        private Direction joystickDirection = Direction.MiddleCenter;
-
         private Control movableObject;
-
-        private bool keepOnScreen = true;
-
         private int sensitivity = 3;
 
         private Image backgroundImage;

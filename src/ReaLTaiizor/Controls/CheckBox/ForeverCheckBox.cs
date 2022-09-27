@@ -21,7 +21,6 @@ namespace ReaLTaiizor.Controls
         private int W;
         private int H;
         private MouseStateForever State = MouseStateForever.None;
-        private _Options O;
         private bool _Checked;
 
         protected override void OnTextChanged(EventArgs e)
@@ -57,11 +56,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Options")]
-        public _Options Options
-        {
-            get => O;
-            set => O = value;
-        }
+        public _Options Options { get; set; }
 
         protected override void OnResize(EventArgs e)
         {
@@ -70,11 +65,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Colors")]
         public Color BorderColor
@@ -111,7 +102,6 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
         private Color _BorderColor = ForeverLibrary.ForeverColor;
 
         public ForeverCheckBox()
@@ -140,12 +130,12 @@ namespace ReaLTaiizor.Controls
             _with11.SmoothingMode = SmoothingMode.HighQuality;
             _with11.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             _with11.Clear(BackColor);
-            switch (O)
+            switch (Options)
             {
                 case _Options.Style1:
                     //-- Style 1
                     //-- Base
-                    _with11.FillRectangle(new SolidBrush(_BaseColor), Base);
+                    _with11.FillRectangle(new SolidBrush(BaseColor), Base);
 
                     switch (State)
                     {
@@ -178,7 +168,7 @@ namespace ReaLTaiizor.Controls
                 case _Options.Style2:
                     //-- Style 2
                     //-- Base
-                    _with11.FillRectangle(new SolidBrush(_BaseColor), Base);
+                    _with11.FillRectangle(new SolidBrush(BaseColor), Base);
 
                     switch (State)
                     {

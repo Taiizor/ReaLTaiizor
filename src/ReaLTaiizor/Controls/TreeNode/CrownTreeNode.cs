@@ -26,10 +26,7 @@ namespace ReaLTaiizor.Controls
         #region Field Region
 
         private string _text;
-        private bool _isRoot;
         private CrownTreeView _parentTree;
-        private CrownTreeNode _parentNode;
-
         private ObservableList<CrownTreeNode> _nodes;
 
         private bool _expanded;
@@ -114,11 +111,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public bool IsRoot
-        {
-            get => _isRoot;
-            set => _isRoot = value;
-        }
+        public bool IsRoot { get; set; }
 
         public CrownTreeView ParentTree
         {
@@ -139,11 +132,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public CrownTreeNode ParentNode
-        {
-            get => _parentNode;
-            set => _parentNode = value;
-        }
+        public CrownTreeNode ParentNode { get; set; }
 
         public bool Odd { get; set; }
 

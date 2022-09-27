@@ -87,8 +87,6 @@ namespace ReaLTaiizor.Controls
 
         private Style _style;
         private MetroStyleManager _styleManager;
-        private MetroItemCollection _items;
-        private List<object> _selectedItems;
         private List<object> _indicates;
         private bool _multiSelect;
         private int _selectedIndex;
@@ -140,9 +138,9 @@ namespace ReaLTaiizor.Controls
             SelectedIndex = -1;
             _hoveredItem = -1;
             _showScrollBar = false;
-            _items = new MetroItemCollection();
-            _items.ItemUpdated += InvalidateScroll;
-            _selectedItems = new List<object>();
+            Items = new MetroItemCollection();
+            Items.ItemUpdated += InvalidateScroll;
+            SelectedItems = new List<object>();
             _indicates = new List<object>();
             ItemHeight = 30;
             _multiKeyDown = false;
@@ -150,7 +148,7 @@ namespace ReaLTaiizor.Controls
             {
                 Orientation = ScrollOrientate.Vertical,
                 Size = new(12, Height),
-                Maximum = _items.Count * ItemHeight,
+                Maximum = Items.Count * ItemHeight,
                 SmallChange = 1,
                 LargeChange = 5
             };
@@ -326,11 +324,11 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design", "System.Drawing.Design.UITypeEditor, System.Drawing")]
         [Category("Metro"), Description("Gets the items of the ListBox.")]
-        public MetroItemCollection Items => _items;
+        public MetroItemCollection Items { get; private set; }
 
         [Browsable(false)]
         [Category("Metro"), Description("Gets a collection containing the currently selected items in the ListBox.")]
-        public List<object> SelectedItems => _selectedItems;
+        public List<object> SelectedItems { get; private set; }
 
         [Category("Metro"), Description("Gets or sets the height of an item in the ListBox.")]
         public int ItemHeight
@@ -396,9 +394,9 @@ namespace ReaLTaiizor.Controls
             {
                 _multiSelect = value;
 
-                if (_selectedItems.Count > 1)
+                if (SelectedItems.Count > 1)
                 {
-                    _selectedItems.RemoveRange(1, _selectedItems.Count - 1);
+                    SelectedItems.RemoveRange(1, SelectedItems.Count - 1);
                 }
 
                 Invalidate();
@@ -406,7 +404,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Browsable(false)]
-        public int Count => _items.Count;
+        public int Count => Items.Count;
 
         [Category("Metro"), Description("Gets or sets a value indicating whether the vertical scroll bar be shown or not.")]
         public bool ShowScrollBar
@@ -537,7 +535,7 @@ namespace ReaLTaiizor.Controls
 
         public void AddItem(string newItem)
         {
-            _items.Add(newItem);
+            Items.Add(newItem);
             InvalidateScroll(this, null);
         }
 
@@ -553,31 +551,31 @@ namespace ReaLTaiizor.Controls
 
         public void RemoveItemAt(int index)
         {
-            _items.RemoveAt(index);
+            Items.RemoveAt(index);
             InvalidateScroll(this, null);
         }
 
         public void RemoveItem(string item)
         {
-            _items.Remove(item);
+            Items.Remove(item);
             InvalidateScroll(this, null);
         }
 
         public int IndexOf(string value)
         {
-            return _items.IndexOf(value);
+            return Items.IndexOf(value);
         }
 
         public bool Contains(object item)
         {
-            return _items.Contains(item.ToString());
+            return Items.Contains(item.ToString());
         }
 
         public void RemoveItems(string[] itemsToRemove)
         {
             foreach (string item in itemsToRemove)
             {
-                _items.Remove(item);
+                Items.Remove(item);
             }
 
             InvalidateScroll(this, null);
@@ -585,9 +583,9 @@ namespace ReaLTaiizor.Controls
 
         public void Clear()
         {
-            for (int i = _items.Count - 1; i >= 0; i += -1)
+            for (int i = Items.Count - 1; i >= 0; i += -1)
             {
-                _items.RemoveAt(i);
+                Items.RemoveAt(i);
             }
 
             InvalidateScroll(this, null);
@@ -618,17 +616,17 @@ namespace ReaLTaiizor.Controls
             if (e.Button == MouseButtons.Left)
             {
                 int index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
-                if (index >= 0 && index < _items.Count)
+                if (index >= 0 && index < Items.Count)
                 {
                     if (MultiSelect && _multiKeyDown)
                     {
                         _indicates.Add(index);
-                        _selectedItems.Add(Items[index]);
+                        SelectedItems.Add(Items[index]);
                     }
                     else
                     {
                         _indicates.Clear();
-                        _selectedItems.Clear();
+                        SelectedItems.Clear();
                         _selectedItem = Items[index];
                         _selectedIndex = index;
                         _selectedValue = Items[index];
@@ -649,7 +647,7 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateScroll(object sender, EventArgs e)
         {
-            _svs.Maximum = _items.Count * ItemHeight;
+            _svs.Maximum = Items.Count * ItemHeight;
             Invalidate();
         }
 
@@ -678,9 +676,9 @@ namespace ReaLTaiizor.Controls
                 case Keys.Down:
                     try
                     {
-                        _selectedItems.Remove(_items[SelectedIndex]);
+                        SelectedItems.Remove(Items[SelectedIndex]);
                         SelectedIndex += 1;
-                        _selectedItems.Add(_items[SelectedIndex]);
+                        SelectedItems.Add(Items[SelectedIndex]);
                     }
                     catch
                     {
@@ -691,9 +689,9 @@ namespace ReaLTaiizor.Controls
                 case Keys.Up:
                     try
                     {
-                        _selectedItems.Remove(_items[SelectedIndex]);
+                        SelectedItems.Remove(Items[SelectedIndex]);
                         SelectedIndex -= 1;
-                        _selectedItems.Add(_items[SelectedIndex]);
+                        SelectedItems.Add(Items[SelectedIndex]);
                     }
                     catch
                     {

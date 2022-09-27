@@ -18,7 +18,6 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private Color _LineColor = HopeColors.OneLevelBorder;
         private Color _BorderColor = HopeColors.OneLevelBorder;
 
         #endregion
@@ -32,11 +31,7 @@ namespace ReaLTaiizor.Controls
         public bool ShowText { get; set; } = false;
 
         [RefreshProperties(RefreshProperties.Repaint)]
-        public Color LineColor
-        {
-            get => _LineColor;
-            set => _LineColor = value;
-        }
+        public Color LineColor { get; set; } = HopeColors.OneLevelBorder;
 
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color BorderColor
@@ -62,7 +57,7 @@ namespace ReaLTaiizor.Controls
 
             if (ShowText)
             {
-                graphics.DrawLine(new(_LineColor, 1), 0, 38, Width, 38);
+                graphics.DrawLine(new(LineColor, 1), 0, 38, Width, 38);
                 graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(15, 0, Width - 50, 38), HopeStringAlign.Left);
             }
         }
