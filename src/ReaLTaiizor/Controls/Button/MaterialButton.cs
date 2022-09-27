@@ -333,13 +333,13 @@ namespace ReaLTaiizor.Controls
 
                     using Brush rippleBrush = new SolidBrush(
                         Color.FromArgb((int)(100 - (animationValue * 100)), // Alpha animation
-                        (Type == MaterialButtonType.Contained && HighEmphasis ? (UseAccentColor ?
+                        Type == MaterialButtonType.Contained && HighEmphasis ? (UseAccentColor ?
                             SkinManager.ColorScheme.AccentColor.Lighten(0.5f) : // Emphasis with accent
                             SkinManager.ColorScheme.LightPrimaryColor) : // Emphasis
                             (UseAccentColor ? SkinManager.ColorScheme.AccentColor : // Normal with accent
-                            SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor)))); // Normal
+                            SkinManager.Theme == MaterialManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : SkinManager.ColorScheme.LightPrimaryColor))); // Normal
                     int rippleSize = (int)(animationValue * Width * 2);
-                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
+                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
                 }
                 g.ResetClip();
             }

@@ -689,11 +689,11 @@ namespace ReaLTaiizor.Controls
 
             using (Graphics g = CreateGraphics())
             {
-                int textSize = (int)(g.MeasureString(node.Text, Font).Width);
+                int textSize = (int)g.MeasureString(node.Text, Font).Width;
                 node.TextArea = new(node.IconArea.Right + 2, yOffset, textSize + 1, ItemHeight);
             }
 
-            node.FullArea = new(indent, yOffset, (node.TextArea.Right - indent), ItemHeight);
+            node.FullArea = new(indent, yOffset, node.TextArea.Right - indent, ItemHeight);
 
             if (ContentSize.Width < node.TextArea.Right + 2)
             {
@@ -1081,7 +1081,7 @@ namespace ReaLTaiizor.Controls
 
             if (itemBottom > Viewport.Bottom)
             {
-                VScrollTo((itemBottom - Viewport.Height));
+                VScrollTo(itemBottom - Viewport.Height);
             }
         }
 

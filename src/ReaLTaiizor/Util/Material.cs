@@ -563,7 +563,7 @@ namespace ReaLTaiizor.Util
 
                 // Create and select font
                 SelectObject(memoryHdc, fontHandle);
-                _ = SetTextColor(memoryHdc, (color.B & 0xFF) << 16 | (color.G & 0xFF) << 8 | color.R);
+                _ = SetTextColor(memoryHdc, ((color.B & 0xFF) << 16) | ((color.G & 0xFF) << 8) | color.R);
 
                 Size strSize = new();
                 Point pos = new();
@@ -593,7 +593,7 @@ namespace ReaLTaiizor.Util
 
                     if (flags.HasFlag(TextAlignFlags.Bottom))
                     {
-                        pos.Y = (size.Height) - (strRect.Height);
+                        pos.Y = size.Height - strRect.Height;
                     }
 
                     // Draw Text for multiline format
@@ -613,7 +613,7 @@ namespace ReaLTaiizor.Util
 
                     if (flags.HasFlag(TextAlignFlags.Right))
                     {
-                        pos.X = (size.Width) - (strSize.Width);
+                        pos.X = size.Width - strSize.Width;
                     }
 
                     if (flags.HasFlag(TextAlignFlags.Middle))
@@ -623,7 +623,7 @@ namespace ReaLTaiizor.Util
 
                     if (flags.HasFlag(TextAlignFlags.Bottom))
                     {
-                        pos.Y = (size.Height) - (strSize.Height);
+                        pos.Y = size.Height - strSize.Height;
                     }
 
                     // Draw text to memory HDC
@@ -689,7 +689,7 @@ namespace ReaLTaiizor.Util
 
         private void SetTextColor(Color color)
         {
-            int rgb = (color.B & 0xFF) << 16 | (color.G & 0xFF) << 8 | color.R;
+            int rgb = ((color.B & 0xFF) << 16) | ((color.G & 0xFF) << 8) | color.R;
             _ = SetTextColor(_hdc, rgb);
         }
 
@@ -980,7 +980,7 @@ namespace ReaLTaiizor.Util
 
             private static double EaseInOut(double s)
             {
-                return s - Math.Sin(s * 2 * PI) / (2 * PI);
+                return s - (Math.Sin(s * 2 * PI) / (2 * PI));
             }
         }
 
@@ -1089,15 +1089,15 @@ namespace ReaLTaiizor.Util
 
                             if (!Singular)
                             {
-                                if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                if (_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutOut;
                                 }
-                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE))
+                                else if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
                                 }
-                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                else if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
                                 }
@@ -1111,15 +1111,15 @@ namespace ReaLTaiizor.Util
                             }
                             else
                             {
-                                if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                if (_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutOut;
                                 }
-                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE))
+                                else if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
                                 }
-                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                else if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
                                 }
@@ -1134,15 +1134,15 @@ namespace ReaLTaiizor.Util
 
                             if (!Singular)
                             {
-                                if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                if (_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutOut;
                                 }
-                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE))
+                                else if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MIN_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
                                 }
-                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                else if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
                                 }
@@ -1156,15 +1156,15 @@ namespace ReaLTaiizor.Util
                             }
                             else
                             {
-                                if ((_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE))
+                                if (_animationDirections[i] == AnimationDirection.InOutIn && _animationProgresses[i] == MAX_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutOut;
                                 }
-                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE))
+                                else if (_animationDirections[i] == AnimationDirection.InOutRepeatingIn && _animationProgresses[i] == MAX_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingOut;
                                 }
-                                else if ((_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE))
+                                else if (_animationDirections[i] == AnimationDirection.InOutRepeatingOut && _animationProgresses[i] == MIN_VALUE)
                                 {
                                     _animationDirections[i] = AnimationDirection.InOutRepeatingIn;
                                 }

@@ -385,7 +385,7 @@ namespace ReaLTaiizor.Controls
 
                     if (ensureVisible)
                     {
-                        sweepAngle = 30 + 300f * progFrac;
+                        sweepAngle = 30 + (300f * progFrac);
                     }
                     else
                     {
@@ -397,7 +397,7 @@ namespace ReaLTaiizor.Controls
                         sweepAngle = -sweepAngle;
                     }
 
-                    e.Graphics.DrawArc(forePen, padding, padding, Width - 2 * padding - 1, Height - 2 * padding - 1, angle, sweepAngle);
+                    e.Graphics.DrawArc(forePen, padding, padding, Width - (2 * padding) - 1, Height - (2 * padding) - 1, angle, sweepAngle);
                 }
                 else
                 {
@@ -418,9 +418,9 @@ namespace ReaLTaiizor.Controls
 
                         Color col = Color.FromArgb(alpha, forePen.Color);
                         using Pen gradPen = new(col, forePen.Width);
-                        float startAngle = angle + (offset - (ensureVisible ? 30 : 0)) * (backwards ? 1 : -1);
+                        float startAngle = angle + ((offset - (ensureVisible ? 30 : 0)) * (backwards ? 1 : -1));
                         float sweepAngle = 15 * (backwards ? 1 : -1);
-                        e.Graphics.DrawArc(gradPen, padding, padding, Width - 2 * padding - 1, Height - 2 * padding - 1, startAngle, sweepAngle);
+                        e.Graphics.DrawArc(gradPen, padding, padding, Width - (2 * padding) - 1, Height - (2 * padding) - 1, startAngle, sweepAngle);
                     }
                 }
             }

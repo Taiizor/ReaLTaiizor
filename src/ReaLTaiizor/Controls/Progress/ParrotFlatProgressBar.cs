@@ -281,7 +281,7 @@ namespace ReaLTaiizor.Controls
 
                 linearGradientBrush.RotateTransform(1f);
                 bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, new Rectangle(0, 0, base.Width, base.Height));
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), value * base.Width / maxValue, 0, base.Width - value * base.Width / maxValue, base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), value * base.Width / maxValue, 0, base.Width - (value * base.Width / maxValue), base.Height);
             }
 
             if (ShowBorder)

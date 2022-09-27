@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Design.Poison
                     return designerHost;
                 }
 
-                designerHost = (IDesignerHost)(GetService(typeof(IDesignerHost)));
+                designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
 
                 return designerHost;
             }
@@ -62,7 +62,7 @@ namespace ReaLTaiizor.Design.Poison
                     return componentChangeService;
                 }
 
-                componentChangeService = (IComponentChangeService)(GetService(typeof(IComponentChangeService)));
+                componentChangeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
                 return componentChangeService;
             }

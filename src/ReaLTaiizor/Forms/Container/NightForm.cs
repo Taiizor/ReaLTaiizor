@@ -120,7 +120,7 @@ namespace ReaLTaiizor.Forms
         /// </summary>
         private static bool IsOverTitleBarIcon(MouseEventArgs e)
         {
-            bool point = (e.X > 8 && e.X < 26) && (e.Y > 6 && e.Y < 22);
+            bool point = e.X > 8 && e.X < 26 && e.Y > 6 && e.Y < 22;
             return point;
         }
 

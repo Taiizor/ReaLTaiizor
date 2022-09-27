@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
             text2.Text = BottomText;
             text2.BackColor = BackColor;
             text2.AutoSize = true;
-            text2.Location = new Point(text1.Width / 2 - text2.Width, text1.Location.Y + text1.Height);
+            text2.Location = new Point((text1.Width / 2) - text2.Width, text1.Location.Y + text1.Height);
             background.Controls.Add(text2);
             handle.DockAtTop = false;
 

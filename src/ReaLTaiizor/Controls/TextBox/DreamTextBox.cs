@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
             Pen P2 = new(ColorF, 2);
             G.DrawRectangle(P2, 0, 0, Width, Height);
             SizeF O = G.MeasureString(Text, Font);
-            G.DrawString(Text, Font, new SolidBrush(ForeColor), Width / 2 - O.Width / 2, Height / 2 - O.Height / 2);
+            G.DrawString(Text, Font, new SolidBrush(ForeColor), (Width / 2) - (O.Width / 2), (Height / 2) - (O.Height / 2));
 
             //Draw.Blend(G, _ColorD, _ColorE, _ColorD, 0.5, 0, 1, 1, Width - 2, 1);
             Bitmap B1 = B;

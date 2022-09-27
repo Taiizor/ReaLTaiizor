@@ -316,8 +316,8 @@ namespace ReaLTaiizor.Controls
 
             protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
             {
-                int arrowX = e.ArrowRectangle.X + e.ArrowRectangle.Width / 2;
-                int arrowY = e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2;
+                int arrowX = e.ArrowRectangle.X + (e.ArrowRectangle.Width / 2);
+                int arrowY = e.ArrowRectangle.Y + (e.ArrowRectangle.Height / 2);
                 Point[] arrowPoints = new[]
                 {
                     new Point(arrowX - 5, arrowY - 5),

@@ -295,7 +295,7 @@ namespace ReaLTaiizor.Controls
                 // 24x24 is the perfect size of the image
             }
 
-            e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);
+            e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();
         }

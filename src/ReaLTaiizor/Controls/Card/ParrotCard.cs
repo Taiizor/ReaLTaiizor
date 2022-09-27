@@ -147,9 +147,9 @@ namespace ReaLTaiizor.Controls
             e.Graphics.DrawString(text1, new Font(Font.FontFamily, Font.Size + 4f), new SolidBrush(ForeColor), r, stringFormat);
             stringFormat.Alignment = StringAlignment.Near;
             r = new Rectangle(2, base.Height / 2, base.Width - 4, base.Height / 4);
-            e.Graphics.DrawString(text2, new Font(Font.FontFamily, Font.Size * 2f + 2f), new SolidBrush(ForeColor), r, stringFormat);
+            e.Graphics.DrawString(text2, new Font(Font.FontFamily, (Font.Size * 2f) + 2f), new SolidBrush(ForeColor), r, stringFormat);
             stringFormat.Alignment = StringAlignment.Near;
-            r = new Rectangle(2, base.Height / 2 + base.Height / 4, base.Width - 4, base.Height / 4);
+            r = new Rectangle(2, (base.Height / 2) + (base.Height / 4), base.Width - 4, base.Height / 4);
             e.Graphics.DrawString(text3, new Font(Font.FontFamily, Font.Size + 2f), new SolidBrush(ForeColor), r, stringFormat);
         }
 

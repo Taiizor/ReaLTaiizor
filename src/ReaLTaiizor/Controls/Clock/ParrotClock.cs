@@ -317,13 +317,13 @@ namespace ReaLTaiizor.Controls
 
             if (showSecondsCircle && showMinutesCircle)
             {
-                rectangle = new Rectangle(base.Width / 8 + circleThickness * 2 - 2, base.Height / 6 + circleThickness * 2 - 1, base.Width / 8 * 6 - circleThickness * 4 + 4, base.Height / 6 * 4 - circleThickness * 4 + 2);
+                rectangle = new Rectangle((base.Width / 8) + (circleThickness * 2) - 2, (base.Height / 6) + (circleThickness * 2) - 1, (base.Width / 8 * 6) - (circleThickness * 4) + 4, (base.Height / 6 * 4) - (circleThickness * 4) + 2);
                 bufferedGraphics.Graphics.DrawArc(new Pen(unfilledSecondColor, circleThickness), rectangle, 270f, 360f);
                 bufferedGraphics.Graphics.DrawArc(new Pen(filledSecondColor, circleThickness), rectangle, 270f, (int)(num3 * 3.6));
             }
             if (showMinutesCircle)
             {
-                rectangle = new Rectangle(base.Width / 8 + circleThickness - 1, base.Height / 6 + circleThickness - 1, base.Width / 8 * 6 - circleThickness * 2 + 2, base.Height / 6 * 4 - circleThickness * 2 + 2);
+                rectangle = new Rectangle((base.Width / 8) + circleThickness - 1, (base.Height / 6) + circleThickness - 1, (base.Width / 8 * 6) - (circleThickness * 2) + 2, (base.Height / 6 * 4) - (circleThickness * 2) + 2);
                 bufferedGraphics.Graphics.DrawArc(new Pen(unfilledMinuteColor, circleThickness), rectangle, 270f, 360f);
                 bufferedGraphics.Graphics.DrawArc(new Pen(filledMinuteColor, circleThickness), rectangle, 270f, (int)(num2 * 3.6));
             }

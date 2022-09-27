@@ -42,7 +42,7 @@ namespace ReaLTaiizor.Animate.Parrot
 
                 while (animationForm.Opacity < 100.0)
                 {
-                    animationForm.Opacity = 0.01 * animationSpeed + animationForm.Opacity;
+                    animationForm.Opacity = (0.01 * animationSpeed) + animationForm.Opacity;
                     WaitAnimation(50);
                 }
             }
@@ -82,28 +82,28 @@ namespace ReaLTaiizor.Animate.Parrot
 
                 while (control.Location.X < x / 2)
                 {
-                    control.Location = new Point(control.Location.X + 10 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X + (10 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
                 while (control.Location.X < x / 4)
                 {
-                    control.Location = new Point(control.Location.X + 7 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X + (7 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
                 while (control.Location.X < x / 8)
                 {
-                    control.Location = new Point(control.Location.X + 5 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X + (5 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
                 while (control.Location.X < x)
                 {
-                    control.Location = new Point(control.Location.X + 2 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X + (2 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     WaitAnimation(40);
                 }
@@ -118,30 +118,30 @@ namespace ReaLTaiizor.Animate.Parrot
                 control.Location = new Point(control.Parent.Width + control.Width, control.Location.Y);
                 control.Refresh();
 
-                while (control.Location.X > x2 + control.Width / 2)
+                while (control.Location.X > x2 + (control.Width / 2))
                 {
-                    control.Location = new Point(control.Location.X - 10 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X - (10 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
-                while (control.Location.X > x2 + control.Width / 4)
+                while (control.Location.X > x2 + (control.Width / 4))
                 {
-                    control.Location = new Point(control.Location.X - 7 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X - (7 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
-                while (control.Location.X > x2 + control.Width / 8)
+                while (control.Location.X > x2 + (control.Width / 8))
                 {
-                    control.Location = new Point(control.Location.X - 5 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X - (5 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
                 while (control.Location.X > x2)
                 {
-                    control.Location = new Point(control.Location.X - 2 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X - (2 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     WaitAnimation(40);
                 }
@@ -157,28 +157,28 @@ namespace ReaLTaiizor.Animate.Parrot
 
                 while (control.Location.Y < y / 2)
                 {
-                    control.Location = new Point(control.Location.X, control.Location.Y + 10 * animationSpeed);
+                    control.Location = new Point(control.Location.X, control.Location.Y + (10 * animationSpeed));
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
                 while (control.Location.Y < y / 4)
                 {
-                    control.Location = new Point(control.Location.X, control.Location.Y + 7 * animationSpeed);
+                    control.Location = new Point(control.Location.X, control.Location.Y + (7 * animationSpeed));
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
                 while (control.Location.Y < y / 8)
                 {
-                    control.Location = new Point(control.Location.X, control.Location.Y + 5 * animationSpeed);
+                    control.Location = new Point(control.Location.X, control.Location.Y + (5 * animationSpeed));
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
                 while (control.Location.Y < y)
                 {
-                    control.Location = new Point(control.Location.X, control.Location.Y + 2 * animationSpeed);
+                    control.Location = new Point(control.Location.X, control.Location.Y + (2 * animationSpeed));
                     control.Refresh();
                     WaitAnimation(40);
                 }
@@ -193,30 +193,30 @@ namespace ReaLTaiizor.Animate.Parrot
                 control.Location = new Point(control.Location.X, control.Parent.Height + control.Height);
                 control.Refresh();
 
-                while (control.Location.Y > y2 + control.Height / 2)
+                while (control.Location.Y > y2 + (control.Height / 2))
                 {
-                    control.Location = new Point(control.Location.X, control.Location.Y - 10 * animationSpeed);
+                    control.Location = new Point(control.Location.X, control.Location.Y - (10 * animationSpeed));
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
-                while (control.Location.Y > y2 + control.Height / 4)
+                while (control.Location.Y > y2 + (control.Height / 4))
                 {
-                    control.Location = new Point(control.Location.X, control.Location.Y - 7 * animationSpeed);
+                    control.Location = new Point(control.Location.X, control.Location.Y - (7 * animationSpeed));
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
-                while (control.Location.Y > y2 + control.Height / 8)
+                while (control.Location.Y > y2 + (control.Height / 8))
                 {
-                    control.Location = new Point(control.Location.X, control.Location.Y - 5 * animationSpeed);
+                    control.Location = new Point(control.Location.X, control.Location.Y - (5 * animationSpeed));
                     control.Refresh();
                     WaitAnimation(40);
                 }
 
                 while (control.Location.Y > y2)
                 {
-                    control.Location = new Point(control.Location.X, control.Location.Y - 2 * animationSpeed);
+                    control.Location = new Point(control.Location.X, control.Location.Y - (2 * animationSpeed));
                     control.Refresh();
                     WaitAnimation(40);
                 }
@@ -234,7 +234,7 @@ namespace ReaLTaiizor.Animate.Parrot
 
                 while (control.Location.X < x3)
                 {
-                    control.Location = new Point(control.Location.X + 8 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X + (8 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     control.Refresh();
 
@@ -270,7 +270,7 @@ namespace ReaLTaiizor.Animate.Parrot
 
                 while (control.Location.X > x4)
                 {
-                    control.Location = new Point(control.Location.X - 8 * animationSpeed, control.Location.Y);
+                    control.Location = new Point(control.Location.X - (8 * animationSpeed), control.Location.Y);
                     control.Refresh();
                     control.Refresh();
 
@@ -350,7 +350,7 @@ namespace ReaLTaiizor.Animate.Parrot
                 Size size = control.Size;
                 control.Size = new Size(control.Width, 6);
                 control.Refresh();
-                control.Location = new Point(0 - control.Width, control.Location.Y + size.Height / 2 - 3);
+                control.Location = new Point(0 - control.Width, control.Location.Y + (size.Height / 2) - 3);
                 control.Refresh();
 
                 while (control.Width - size.Width < x5 + size.Width)
@@ -360,7 +360,7 @@ namespace ReaLTaiizor.Animate.Parrot
                     WaitAnimation(50 / animationSpeed);
                 }
 
-                control.Size = new Size(x5 + size.Width * 2, control.Height);
+                control.Size = new Size(x5 + (size.Width * 2), control.Height);
                 control.Refresh();
 
                 while (control.Location.X < x5)
@@ -383,7 +383,7 @@ namespace ReaLTaiizor.Animate.Parrot
                 Size size2 = control.Size;
                 control.Size = new Size(control.Width, 6);
                 control.Refresh();
-                control.Location = new Point(control.Parent.Width + control.Width, control.Location.Y + size2.Height / 2 - 3);
+                control.Location = new Point(control.Parent.Width + control.Width, control.Location.Y + (size2.Height / 2) - 3);
                 control.Refresh();
 
                 while (control.Location.X > x6)
@@ -394,7 +394,7 @@ namespace ReaLTaiizor.Animate.Parrot
                     WaitAnimation(50 / animationSpeed);
                 }
 
-                control.Size = new Size(x6 + size2.Width * 2, control.Height);
+                control.Size = new Size(x6 + (size2.Width * 2), control.Height);
                 control.Refresh();
 
                 while (control.Location.X + control.Width > size2.Width)
@@ -445,11 +445,11 @@ namespace ReaLTaiizor.Animate.Parrot
                     num = control.Height;
                 }
 
-                num = num + 200 + 10 * animationSpeed;
+                num = num + 200 + (10 * animationSpeed);
 
                 while (i < num)
                 {
-                    graphics.FillEllipse(new SolidBrush(color), control.Width / 2 - i / 2, control.Height / 2 - i / 2, i, i);
+                    graphics.FillEllipse(new SolidBrush(color), (control.Width / 2) - (i / 2), (control.Height / 2) - (i / 2), i, i);
                     WaitAnimation(10);
                     i += 10 * animationSpeed;
                 }
@@ -469,7 +469,7 @@ namespace ReaLTaiizor.Animate.Parrot
 
                 while (j < num2)
                 {
-                    graphics.FillRectangle(new SolidBrush(color), control.Width / 2 - j / 2, control.Height / 2 - j / 2, j, j);
+                    graphics.FillRectangle(new SolidBrush(color), (control.Width / 2) - (j / 2), (control.Height / 2) - (j / 2), j, j);
                     WaitAnimation(10);
                     j += 10 * animationSpeed;
                 }
@@ -477,7 +477,7 @@ namespace ReaLTaiizor.Animate.Parrot
 
             if (animation == ColorAnimation.SlideFill)
             {
-                for (int k = 10; k < control.Width + 10 * animationSpeed; k += 10 * animationSpeed)
+                for (int k = 10; k < control.Width + (10 * animationSpeed); k += 10 * animationSpeed)
                 {
                     graphics.FillRectangle(new SolidBrush(color), 0, 0, k, control.Height);
                     WaitAnimation(10);
@@ -487,9 +487,9 @@ namespace ReaLTaiizor.Animate.Parrot
             if (animation == ColorAnimation.StripeFill)
             {
                 int l = 10;
-                int num3 = control.Height / 10 + 5;
+                int num3 = (control.Height / 10) + 5;
 
-                while (l < control.Width + 10 * animationSpeed)
+                while (l < control.Width + (10 * animationSpeed))
                 {
                     graphics.FillRectangle(new SolidBrush(color), 0, 0, l, num3);
                     graphics.FillRectangle(new SolidBrush(color), control.Width - l, num3, l, num3);
@@ -512,11 +512,11 @@ namespace ReaLTaiizor.Animate.Parrot
             if (animation == ColorAnimation.SplitFill)
             {
                 int m = 10;
-                int num4 = control.Width + 10 * animationSpeed;
+                int num4 = control.Width + (10 * animationSpeed);
 
                 while (m < num4)
                 {
-                    graphics.FillRectangle(new SolidBrush(color), 0, control.Height / 2 - m / 2, control.Width, m);
+                    graphics.FillRectangle(new SolidBrush(color), 0, (control.Height / 2) - (m / 2), control.Width, m);
                     WaitAnimation(10);
                     m += 10 * animationSpeed;
                 }

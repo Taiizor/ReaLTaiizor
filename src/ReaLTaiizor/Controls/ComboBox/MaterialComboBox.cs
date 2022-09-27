@@ -221,10 +221,10 @@ namespace ReaLTaiizor.Controls
                 {
                     hintRect = new(
                         SkinManager.FORM_PADDING,
-                        userTextPresent && !_animationManager.IsAnimating() ? (TEXT_SMALL_Y) : ClientRectangle.Y + (int)((TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
+                        userTextPresent && !_animationManager.IsAnimating() ? TEXT_SMALL_Y : ClientRectangle.Y + (int)((TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
                         Width,
-                        userTextPresent && !_animationManager.IsAnimating() ? (TEXT_SMALL_SIZE) : (int)(LINE_Y + (TEXT_SMALL_SIZE - LINE_Y) * animationProgress));
-                    hintTextSize = userTextPresent && !_animationManager.IsAnimating() ? 12 : (int)(16 + (12 - 16) * animationProgress);
+                        userTextPresent && !_animationManager.IsAnimating() ? TEXT_SMALL_SIZE : (int)(LINE_Y + ((TEXT_SMALL_SIZE - LINE_Y) * animationProgress)));
+                    hintTextSize = userTextPresent && !_animationManager.IsAnimating() ? 12 : (int)(16 + ((12 - 16) * animationProgress));
                 }
 
                 // Line Animation
@@ -236,8 +236,8 @@ namespace ReaLTaiizor.Controls
             // Calc text Rect
             Rectangle textRect = new(
                 SkinManager.FORM_PADDING,
-                hasHint && UseTallSize ? (hintRect.Y + hintRect.Height) - 2 : ClientRectangle.Y,
-                ClientRectangle.Width - SkinManager.FORM_PADDING * 3 - 8,
+                hasHint && UseTallSize ? hintRect.Y + hintRect.Height - 2 : ClientRectangle.Y,
+                ClientRectangle.Width - (SkinManager.FORM_PADDING * 3) - 8,
                 hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
             g.Clip = new(textRect);
@@ -313,7 +313,7 @@ namespace ReaLTaiizor.Controls
             SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1),
             SkinManager.TextHighEmphasisNoAlphaColor,
             new Point(e.Bounds.Location.X + SkinManager.FORM_PADDING, e.Bounds.Location.Y),
-            new Size(e.Bounds.Size.Width - SkinManager.FORM_PADDING * 2, e.Bounds.Size.Height),
+            new Size(e.Bounds.Size.Width - (SkinManager.FORM_PADDING * 2), e.Bounds.Size.Height),
             MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle); ;
         }
 
@@ -342,7 +342,7 @@ namespace ReaLTaiizor.Controls
             Size = new(Size.Width, HEIGHT);
             LINE_Y = HEIGHT - BOTTOM_PADDING;
             ItemHeight = HEIGHT - 7;
-            DropDownHeight = ItemHeight * MaxDropDownItems + 2;
+            DropDownHeight = (ItemHeight * MaxDropDownItems) + 2;
         }
 
         public void recalculateAutoSize()

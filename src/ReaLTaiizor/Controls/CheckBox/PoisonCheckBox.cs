@@ -274,7 +274,7 @@ namespace ReaLTaiizor.Controls
             }
 
             Rectangle textRect = new(16, 0, Width - 16, Height);
-            Rectangle boxRect = new(0, Height / 2 - 6, 12, 12);
+            Rectangle boxRect = new(0, (Height / 2) - 6, 12, 12);
             using (Pen p = new(borderColor))
             {
                 switch (CheckAlign)
@@ -283,28 +283,28 @@ namespace ReaLTaiizor.Controls
                         boxRect = new(0, 0, 12, 12);
                         break;
                     case ContentAlignment.MiddleLeft:
-                        boxRect = new(0, Height / 2 - 6, 12, 12);
+                        boxRect = new(0, (Height / 2) - 6, 12, 12);
                         break;
                     case ContentAlignment.BottomLeft:
                         boxRect = new(0, Height - 13, 12, 12);
                         break;
                     case ContentAlignment.TopCenter:
-                        boxRect = new(Width / 2 - 6, 0, 12, 12);
-                        textRect = new(16, boxRect.Top + boxRect.Height - 5, Width - 16 / 2, Height);
+                        boxRect = new((Width / 2) - 6, 0, 12, 12);
+                        textRect = new(16, boxRect.Top + boxRect.Height - 5, Width - (16 / 2), Height);
                         break;
                     case ContentAlignment.BottomCenter:
-                        boxRect = new(Width / 2 - 6, Height - 13, 12, 12);
-                        textRect = new(16, -10, Width - 16 / 2, Height);
+                        boxRect = new((Width / 2) - 6, Height - 13, 12, 12);
+                        textRect = new(16, -10, Width - (16 / 2), Height);
                         break;
                     case ContentAlignment.MiddleCenter:
-                        boxRect = new(Width / 2 - 6, Height / 2 - 6, 12, 12);
+                        boxRect = new((Width / 2) - 6, (Height / 2) - 6, 12, 12);
                         break;
                     case ContentAlignment.TopRight:
                         boxRect = new(Width - 13, 0, 12, 12);
                         textRect = new(0, 0, Width - 16, Height);
                         break;
                     case ContentAlignment.MiddleRight:
-                        boxRect = new(Width - 13, Height / 2 - 6, 12, 12);
+                        boxRect = new(Width - 13, (Height / 2) - 6, 12, 12);
                         textRect = new(0, 0, Width - 16, Height);
                         break;
                     case ContentAlignment.BottomRight:

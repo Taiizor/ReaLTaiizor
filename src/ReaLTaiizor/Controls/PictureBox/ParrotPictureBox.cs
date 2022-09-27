@@ -19,8 +19,8 @@ namespace ReaLTaiizor.Controls
             base.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             base.Size = new Size(150, 150);
             base.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
-            x = 0 - base.Width / 2;
-            y = 0 - base.Height / 2;
+            x = 0 - (base.Width / 2);
+            y = 0 - (base.Height / 2);
         }
 
         [Category("Parrot")]

@@ -171,11 +171,11 @@ namespace ReaLTaiizor.Docking.Crown
         {
             if (DockArea == DockArea.Document)
             {
-                _tabArea.Visible = (_contents.Count > 0);
+                _tabArea.Visible = _contents.Count > 0;
             }
             else
             {
-                _tabArea.Visible = (_contents.Count > 1);
+                _tabArea.Visible = _contents.Count > 1;
             }
 
             int size = 0;

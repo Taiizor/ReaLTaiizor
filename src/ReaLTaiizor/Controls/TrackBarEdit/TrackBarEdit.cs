@@ -184,7 +184,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if ((Cap && (e.X > -1)) && (e.X < (Width + 1)))
+            if (Cap && (e.X > -1) && (e.X < (Width + 1)))
             {
                 Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (e.X / ((double)Width)))));
             }
@@ -195,7 +195,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
-                ValueDrawer = (int)Math.Round((double)(((_Value - _Minimum) / ((double)(_Maximum - _Minimum))) * (Width - 11)));
+                ValueDrawer = (int)Math.Round((double)((_Value - _Minimum) / ((double)(_Maximum - _Minimum)) * (Width - 11)));
                 TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
                 Cap = TrackBarHandleRect.Contains(e.Location);
                 if (JumpToMouse)

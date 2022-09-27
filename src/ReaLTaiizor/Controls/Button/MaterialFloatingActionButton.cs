@@ -241,7 +241,7 @@ namespace ReaLTaiizor.Controls
                     Point animationSource = _animationManager.GetSource(i);
                     SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationValue * 50)), Color.White));
                     int rippleSize = (int)(animationValue * Width * 2);
-                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
+                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
                 }
 
                 g.EndContainer(gcont);
@@ -249,7 +249,7 @@ namespace ReaLTaiizor.Controls
 
             if (Icon != null)
             {
-                g.DrawImage(Icon, new Rectangle(fabBounds.Width / 2 - 11, fabBounds.Height / 2 - 11, 24, 24));
+                g.DrawImage(Icon, new Rectangle((fabBounds.Width / 2) - 11, (fabBounds.Height / 2) - 11, 24, 24));
             }
 
             if (_showAnimationManager.IsAnimating())
@@ -257,8 +257,8 @@ namespace ReaLTaiizor.Controls
                 int target = Convert.ToInt32((_mini ? FAB_MINI_SIZE : FAB_SIZE) * _showAnimationManager.GetProgress());
                 fabBounds.Width = target == 0 ? 1 : target;
                 fabBounds.Height = target == 0 ? 1 : target;
-                fabBounds.X = Convert.ToInt32(((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) - (((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) * _showAnimationManager.GetProgress()));
-                fabBounds.Y = Convert.ToInt32(((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) - (((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) * _showAnimationManager.GetProgress()));
+                fabBounds.X = Convert.ToInt32(((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) - ((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2 * _showAnimationManager.GetProgress()));
+                fabBounds.Y = Convert.ToInt32(((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) - ((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2 * _showAnimationManager.GetProgress()));
             }
 
             // Clip to a round shape with a 1px padding

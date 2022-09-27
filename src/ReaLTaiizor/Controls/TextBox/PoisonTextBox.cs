@@ -249,7 +249,7 @@ namespace ReaLTaiizor.Controls
                 int _butwidth = 0;
                 if (_button != null)
                 {
-                    _butwidth = (_showbutton) ? _button.Width : 0;
+                    _butwidth = _showbutton ? _button.Width : 0;
                 }
 
                 return _butwidth;
@@ -887,7 +887,7 @@ namespace ReaLTaiizor.Controls
                 else
                 {
                     _button.Size = new(Height - 5, Height - 5);
-                    _button.Location = new((Width - _button.Width) - 3, 2);
+                    _button.Location = new(Width - _button.Width - 3, 2);
                 }
 
                 _button.Visible = _showbutton;
@@ -971,7 +971,7 @@ namespace ReaLTaiizor.Controls
             public PromptedTextBox()
             {
                 SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
-                drawPrompt = (Text.Trim().Length == 0);
+                drawPrompt = Text.Trim().Length == 0;
             }
 
             private void DrawTextPrompt()
@@ -1028,14 +1028,14 @@ namespace ReaLTaiizor.Controls
             protected override void OnTextChanged(EventArgs e)
             {
                 base.OnTextChanged(e);
-                drawPrompt = (Text.Trim().Length == 0);
+                drawPrompt = Text.Trim().Length == 0;
                 Invalidate();
             }
 
             protected override void WndProc(ref Message m)
             {
                 base.WndProc(ref m);
-                if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && (drawPrompt && !GetStyle(ControlStyles.UserPaint)))
+                if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && drawPrompt && !GetStyle(ControlStyles.UserPaint))
                 {
                     DrawTextPrompt();
                 }
@@ -1367,13 +1367,13 @@ namespace ReaLTaiizor.Controls
                     switch (ImageAlign)
                     {
                         case ContentAlignment.BottomCenter:
-                            iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, ClientRectangle.Height - iconSize.Height - _filler);
                             break;
                         case ContentAlignment.BottomLeft:
-                            iconLocation = new(_filler, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new(_filler, ClientRectangle.Height - iconSize.Height - _filler);
                             break;
                         case ContentAlignment.BottomRight:
-                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new(ClientRectangle.Width - iconSize.Width - _filler, ClientRectangle.Height - iconSize.Height - _filler);
                             break;
                         case ContentAlignment.MiddleCenter:
                             iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, (ClientRectangle.Height - iconSize.Height) / 2);
@@ -1382,7 +1382,7 @@ namespace ReaLTaiizor.Controls
                             iconLocation = new(_filler, (ClientRectangle.Height - iconSize.Height) / 2);
                             break;
                         case ContentAlignment.MiddleRight:
-                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, (ClientRectangle.Height - iconSize.Height) / 2);
+                            iconLocation = new(ClientRectangle.Width - iconSize.Width - _filler, (ClientRectangle.Height - iconSize.Height) / 2);
                             break;
                         case ContentAlignment.TopCenter:
                             iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, _filler);
@@ -1391,11 +1391,11 @@ namespace ReaLTaiizor.Controls
                             iconLocation = new(_filler, _filler);
                             break;
                         case ContentAlignment.TopRight:
-                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, _filler);
+                            iconLocation = new(ClientRectangle.Width - iconSize.Width - _filler, _filler);
                             break;
                     }
 
-                    g.DrawImage((Theme == ThemeStyle.Dark) ? ((isPressed) ? _image : Image) : (isPressed) ? Image : _image, new Rectangle(iconLocation, iconSize));
+                    g.DrawImage((Theme == ThemeStyle.Dark) ? (isPressed ? _image : Image) : isPressed ? Image : _image, new Rectangle(iconLocation, iconSize));
                 }
             }
 

@@ -177,7 +177,7 @@ namespace ReaLTaiizor.Controls
                 // fake out the base
                 base.DropDownStyle = ComboBoxStyle.DropDownList;
                 // if we are a dropdown and have focus, then show the edit box
-                if ((value == ComboBoxStyle.DropDown) && (Focused))
+                if ((value == ComboBoxStyle.DropDown) && Focused)
                 {
                     textBox.Visible = true;
                 }
@@ -289,7 +289,7 @@ namespace ReaLTaiizor.Controls
 
             base.DrawMode = DrawMode.OwnerDrawFixed;
 
-            drawPrompt = (SelectedIndex == -1);
+            drawPrompt = SelectedIndex == -1;
 
             // setup the textbox
             SuspendLayout();
@@ -672,7 +672,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnSelectedIndexChanged(EventArgs e)
         {
             base.OnSelectedIndexChanged(e);
-            drawPrompt = (SelectedIndex == -1);
+            drawPrompt = SelectedIndex == -1;
             Invalidate();
         }
 
@@ -683,7 +683,7 @@ namespace ReaLTaiizor.Controls
         {
             base.WndProc(ref m);
 
-            if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && (drawPrompt))
+            if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && drawPrompt)
             {
                 DrawTextPrompt();
             }

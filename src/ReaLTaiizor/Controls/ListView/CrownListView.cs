@@ -448,7 +448,7 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateItemPosition(CrownListItem item, int index)
         {
-            item.Area = new(2, (index * ItemHeight), item.Area.Width, ItemHeight);
+            item.Area = new(2, index * ItemHeight, item.Area.Width, ItemHeight);
         }
 
         private void UpdateContentSize()
@@ -517,7 +517,7 @@ namespace ReaLTaiizor.Controls
 
             if (itemBottom > Viewport.Bottom)
             {
-                VScrollTo((itemBottom - Viewport.Height));
+                VScrollTo(itemBottom - Viewport.Height);
             }
         }
 

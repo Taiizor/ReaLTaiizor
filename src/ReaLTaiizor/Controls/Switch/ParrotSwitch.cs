@@ -188,12 +188,12 @@ namespace ReaLTaiizor.Controls
                 if (switchState == State.On)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(onColor), 0, 5, base.Width, base.Height - 10);
-                    e.Graphics.FillRectangle(new SolidBrush(handleOnColor), base.Width / 2 + 2, 7, base.Width / 2 - 5, base.Height - 14);
+                    e.Graphics.FillRectangle(new SolidBrush(handleOnColor), (base.Width / 2) + 2, 7, (base.Width / 2) - 5, base.Height - 14);
                 }
                 else
                 {
                     e.Graphics.FillRectangle(new SolidBrush(offColor), 0, 5, base.Width, base.Height - 10);
-                    e.Graphics.FillRectangle(new SolidBrush(handleOffColor), 2, 7, base.Width / 2 - 5, base.Height - 14);
+                    e.Graphics.FillRectangle(new SolidBrush(handleOffColor), 2, 7, (base.Width / 2) - 5, base.Height - 14);
                 }
             }
             if (switchStyle == Style.Vertical)
@@ -201,12 +201,12 @@ namespace ReaLTaiizor.Controls
                 if (switchState == State.On)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(onColor), 5, 0, base.Width - 10, base.Height);
-                    e.Graphics.FillRectangle(new SolidBrush(handleOnColor), 7, base.Height / 2 + 2, base.Width - 14, base.Height / 2 - 5);
+                    e.Graphics.FillRectangle(new SolidBrush(handleOnColor), 7, (base.Height / 2) + 2, base.Width - 14, (base.Height / 2) - 5);
                 }
                 else
                 {
                     e.Graphics.FillRectangle(new SolidBrush(offColor), 5, 0, base.Width - 10, base.Height);
-                    e.Graphics.FillRectangle(new SolidBrush(handleOffColor), 7, 2, base.Width - 14, base.Height / 2 - 5);
+                    e.Graphics.FillRectangle(new SolidBrush(handleOffColor), 7, 2, base.Width - 14, (base.Height / 2) - 5);
                 }
             }
             if (switchStyle == Style.Dark)

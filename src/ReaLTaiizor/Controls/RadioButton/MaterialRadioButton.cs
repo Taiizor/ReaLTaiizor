@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
 
         private void OnSizeChanged(object sender, EventArgs eventArgs)
         {
-            _boxOffset = Height / 2 - RADIOBUTTON_SIZE / 2;
+            _boxOffset = (Height / 2) - (RADIOBUTTON_SIZE / 2);
             _radioButtonBounds = new(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE);
         }
 
@@ -161,7 +161,7 @@ namespace ReaLTaiizor.Controls
                 int rippleSize = (int)(rippleHeight * (0.7 + (0.3 * animationValue)));
 
                 using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * animationValue), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
-                g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
+                g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize - 1, rippleSize - 1));
             }
 
             // draw ripple animation
@@ -172,8 +172,8 @@ namespace ReaLTaiizor.Controls
                     double animationValue = _rippleAM.GetProgress(i);
                     int rippleSize = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleHeight * (0.7 + (0.3 * animationValue))) : rippleHeight;
 
-                    using SolidBrush rippleBrush = new(Color.FromArgb((int)((animationValue * 40)), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
-                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize - 1, rippleSize - 1));
+                    using SolidBrush rippleBrush = new(Color.FromArgb((int)(animationValue * 40), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
+                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize - 1, rippleSize - 1));
                 }
             }
 

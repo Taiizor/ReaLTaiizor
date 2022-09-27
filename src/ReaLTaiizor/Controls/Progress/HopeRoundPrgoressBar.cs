@@ -74,23 +74,23 @@ namespace ReaLTaiizor.Controls
             {
                 graphics.FillPie(new SolidBrush(DangerColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
 
-                graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - _roundWidth * 2, Width - _roundWidth * 2));
-                graphics.DrawLine(new(DangerTextColorA, 2f), Width / 2 - 6, Height / 2 - 6, Width / 2 + 6, Height / 2 + 6);
-                graphics.DrawLine(new(DangerTextColorB, 2f), Width / 2 - 6, Height / 2 + 6, Width / 2 + 6, Height / 2 - 6);
+                graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)));
+                graphics.DrawLine(new(DangerTextColorA, 2f), (Width / 2) - 6, (Height / 2) - 6, (Width / 2) + 6, (Height / 2) + 6);
+                graphics.DrawLine(new(DangerTextColorB, 2f), (Width / 2) - 6, (Height / 2) + 6, (Width / 2) + 6, (Height / 2) - 6);
             }
             else
             {
                 if (_valueNumber == 100)
                 {
                     graphics.FillPie(new SolidBrush(FullBarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
-                    graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - _roundWidth * 2, Width - _roundWidth * 2));
-                    graphics.DrawLine(new(FullTextColorA, 2f), Width / 2 - 6, Height / 2, Width / 2 - 3, Height / 2 + 6);
-                    graphics.DrawLine(new(FullTextColorB, 2f), Width / 2 + 6, Height / 2 - 6, Width / 2 - 3, Height / 2 + 6);
+                    graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)));
+                    graphics.DrawLine(new(FullTextColorA, 2f), (Width / 2) - 6, Height / 2, (Width / 2) - 3, (Height / 2) + 6);
+                    graphics.DrawLine(new(FullTextColorB, 2f), (Width / 2) + 6, (Height / 2) - 6, (Width / 2) - 3, (Height / 2) + 6);
                 }
                 else
                 {
                     graphics.FillPie(new SolidBrush(BarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
-                    graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - _roundWidth * 2, Width - _roundWidth * 2));
+                    graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)));
                     graphics.DrawString(_valueNumber.ToString() + PercentText, Font, new SolidBrush(ForeColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)), HopeStringAlign.Center);
                 }
             }

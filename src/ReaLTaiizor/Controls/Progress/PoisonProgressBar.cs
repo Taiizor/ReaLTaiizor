@@ -161,17 +161,17 @@ namespace ReaLTaiizor.Controls
         }
 
         [Browsable(false)]
-        public double ProgressTotalPercent => ((1 - (double)(Maximum - Value) / Maximum) * 100);
+        public double ProgressTotalPercent => (1 - ((double)(Maximum - Value) / Maximum)) * 100;
 
         [Browsable(false)]
-        public double ProgressTotalValue => (1 - (double)(Maximum - Value) / Maximum);
+        public double ProgressTotalValue => 1 - ((double)(Maximum - Value) / Maximum);
 
         [Browsable(false)]
-        public string ProgressPercentText => (string.Format("{0}%", Math.Round(ProgressTotalPercent)));
+        public string ProgressPercentText => string.Format("{0}%", Math.Round(ProgressTotalPercent));
 
-        private double ProgressBarWidth => (((double)Value / Maximum) * ClientRectangle.Width);
+        private double ProgressBarWidth => (double)Value / Maximum * ClientRectangle.Width;
 
-        private int ProgressBarMarqueeWidth => (ClientRectangle.Width / 3);
+        private int ProgressBarMarqueeWidth => ClientRectangle.Width / 3;
 
         #endregion
 

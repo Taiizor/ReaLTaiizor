@@ -158,7 +158,7 @@ namespace ReaLTaiizor.Controls
 
             if (e.CloseReason == ToolStripDropDownCloseReason.AppClicked)
             {
-                skipNextOpen = (dropDownRectangle.Contains(PointToClient(Cursor.Position))) && MouseButtons == MouseButtons.Left;
+                skipNextOpen = dropDownRectangle.Contains(PointToClient(Cursor.Position)) && MouseButtons == MouseButtons.Left;
             }
         }
 
@@ -339,7 +339,7 @@ namespace ReaLTaiizor.Controls
             {
                 ShowContextMenuStrip();
             }
-            else if (m_SplitMenuStrip == null && m_SplitMenu == null || !isSplitMenuVisible)
+            else if ((m_SplitMenuStrip == null && m_SplitMenu == null) || !isSplitMenuVisible)
             {
                 SetButtonDrawState();
 
@@ -386,7 +386,7 @@ namespace ReaLTaiizor.Controls
             int internalBorder = BorderSize;
             Rectangle focusRect = new(internalBorder - 1, internalBorder - 1, bounds.Width - dropDownRectangle.Width - internalBorder, bounds.Height - (internalBorder * 2) + 2);
 
-            bool drawSplitLine = (State == PushButtonState.Hot || State == PushButtonState.Pressed || !Application.RenderWithVisualStyles);
+            bool drawSplitLine = State == PushButtonState.Hot || State == PushButtonState.Pressed || !Application.RenderWithVisualStyles;
 
             if (RightToLeft == RightToLeft.Yes)
             {
@@ -437,7 +437,7 @@ namespace ReaLTaiizor.Controls
 
                 if (!string.IsNullOrEmpty(Text) && TextRenderer.MeasureText(Text, Font).Width + SplitSectionWidth > preferredSize.Width)
                 {
-                    return preferredSize + new Size(SplitSectionWidth + BorderSize * 2, 0);
+                    return preferredSize + new Size(SplitSectionWidth + (BorderSize * 2), 0);
                 }
             }
 
@@ -469,10 +469,10 @@ namespace ReaLTaiizor.Controls
 
         private void PaintArrow(Graphics g, Rectangle dropDownRect)
         {
-            Point middle = new(Convert.ToInt32(dropDownRect.Left + dropDownRect.Width / 2), Convert.ToInt32(dropDownRect.Top + dropDownRect.Height / 2));
+            Point middle = new(Convert.ToInt32(dropDownRect.Left + (dropDownRect.Width / 2)), Convert.ToInt32(dropDownRect.Top + (dropDownRect.Height / 2)));
 
             //if the width is odd - favor pushing it over one pixel right.
-            middle.X += (dropDownRect.Width % 2);
+            middle.X += dropDownRect.Width % 2;
 
             Point[] arrow = new[] { new Point(middle.X - 2, middle.Y - 1), new Point(middle.X + 3, middle.Y - 1), new Point(middle.X, middle.Y + 2) };
 
@@ -758,7 +758,7 @@ namespace ReaLTaiizor.Controls
             }
             else if (align is System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.MiddleRight)
             {
-                y = outer.Y + (outer.Height - inner.Height) / 2;
+                y = outer.Y + ((outer.Height - inner.Height) / 2);
             }
             else if (align is System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.BottomRight or System.Drawing.ContentAlignment.BottomLeft)
             {
@@ -855,8 +855,8 @@ namespace ReaLTaiizor.Controls
             }
 
             // Pad the result
-            ret_size.Height += (Padding.Vertical + 6);
-            ret_size.Width += (Padding.Horizontal + 6);
+            ret_size.Height += Padding.Vertical + 6;
+            ret_size.Width += Padding.Horizontal + 6;
 
             //pad the splitButton arrow region
             if (showSplit)

@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
             switch (_style)
             {
                 case Style.ToolTip:
-                    float x = _valueNumber * (Width - 32) / 100 + 16f;
+                    float x = (_valueNumber * (Width - 32) / 100) + 16f;
                     int y = 25;
                     graphics.FillPolygon(new SolidBrush(_valueNumber == 100 && !_isError ? FullBallonColor : tempColor), new PointF[]
                     {
@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
                         path2.CloseAllFigures();
                         graphics.FillPath(new SolidBrush(_valueNumber == 100 && !_isError ? FullBarColor : tempColor), path2);
 
-                        graphics.DrawString(_valueNumber.ToString() + "%", new Font("Segoe UI", 9f), new SolidBrush(ForeColor), new RectangleF(_valueNumber * (Width - Height) / 100 - 33, 0, 45, Height), HopeStringAlign.Right);
+                        graphics.DrawString(_valueNumber.ToString() + "%", new Font("Segoe UI", 9f), new SolidBrush(ForeColor), new RectangleF((_valueNumber * (Width - Height) / 100) - 33, 0, 45, Height), HopeStringAlign.Right);
                     }
                     break;
                 case Style.ValueOutSide:

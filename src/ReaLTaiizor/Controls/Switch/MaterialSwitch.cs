@@ -117,7 +117,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnSizeChanged(e);
 
-            _trackOffsetY = Height / 2 - THUMB_SIZE_HALF;
+            _trackOffsetY = (Height / 2) - THUMB_SIZE_HALF;
 
             TRACK_CENTER_Y = _trackOffsetY + THUMB_SIZE_HALF - 1;
             TRACK_CENTER_X_BEGIN = TRACK_CENTER_Y;
@@ -153,16 +153,16 @@ namespace ReaLTaiizor.Controls
 
             // Draw Track
             Color thumbColor = BlendColor(
-                        (Enabled ? SkinManager.SwitchOffThumbColor : SkinManager.SwitchOffDisabledThumbColor), // Off color
-                        (Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : BlendColor(UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, SkinManager.SwitchOffDisabledThumbColor, 197)), // On color
+                        Enabled ? SkinManager.SwitchOffThumbColor : SkinManager.SwitchOffDisabledThumbColor, // Off color
+                        Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : BlendColor(UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, SkinManager.SwitchOffDisabledThumbColor, 197), // On color
                         animationProgress * 255); // Blend amount
 
-            using (GraphicsPath path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - TRACK_SIZE_HEIGHT / 2, TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
+            using (GraphicsPath path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - (TRACK_SIZE_HEIGHT / 2), TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
             {
                 using SolidBrush trackBrush = new(
                     Color.FromArgb(Enabled ? SkinManager.SwitchOffTrackColor.A : SkinManager.BackgroundDisabledColor.A, // Track alpha
                     BlendColor( // animate color
-                        (Enabled ? SkinManager.SwitchOffTrackColor : SkinManager.BackgroundDisabledColor), // Off color
+                        Enabled ? SkinManager.SwitchOffTrackColor : SkinManager.BackgroundDisabledColor, // Off color
                         UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, // On color
                         animationProgress * 255) // Blend amount
                         .RemoveAlpha()));
@@ -187,7 +187,7 @@ namespace ReaLTaiizor.Controls
                     int rippleAnimatedDiameter = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress))) : rippleSize;
 
                     using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha()));
-                    g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - rippleAnimatedDiameter / 2, TRACK_CENTER_Y - rippleAnimatedDiameter / 2, rippleAnimatedDiameter, rippleAnimatedDiameter));
+                    g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - (rippleAnimatedDiameter / 2), TRACK_CENTER_Y - (rippleAnimatedDiameter / 2), rippleAnimatedDiameter, rippleAnimatedDiameter));
                 }
             }
 
@@ -198,7 +198,7 @@ namespace ReaLTaiizor.Controls
                 int rippleAnimatedDiameter = (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress)));
 
                 using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha()));
-                g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - rippleAnimatedDiameter / 2, TRACK_CENTER_Y - rippleAnimatedDiameter / 2, rippleAnimatedDiameter, rippleAnimatedDiameter));
+                g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - (rippleAnimatedDiameter / 2), TRACK_CENTER_Y - (rippleAnimatedDiameter / 2), rippleAnimatedDiameter, rippleAnimatedDiameter));
             }
 
             // draw Thumb Shadow

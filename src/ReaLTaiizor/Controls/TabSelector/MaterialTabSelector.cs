@@ -221,7 +221,7 @@ namespace ReaLTaiizor.Controls
                     int rippleSize = (int)(animationProgress * _tabRects[_baseTabControl.SelectedIndex].Width * 1.75);
 
                     g.SetClip(_tabRects[_baseTabControl.SelectedIndex]);
-                    g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X - rippleSize / 2, _animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
+                    g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X - (rippleSize / 2), _animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
                     g.ResetClip();
                     rippleBrush.Dispose();
                 }
@@ -394,33 +394,33 @@ namespace ReaLTaiizor.Controls
                 int TitleLenght = 0;
                 foreach (System.Windows.Forms.TabPage TP in _baseTabControl.TabPages)
                 {
-                    TitleLenght += TAB_HEADER_PADDING * 2 + (int)g.MeasureString(TP.Text, Font).Width;
+                    TitleLenght += (TAB_HEADER_PADDING * 2) + (int)g.MeasureString(TP.Text, Font).Width;
                 }
 
                 switch (HeadAlignment)
                 {
                     case Alignment.Center:
                         int CenterLocation = (Width / 2) - (TitleLenght / 2);
-                        _tabRects.Add(new Rectangle(CenterLocation, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                        _tabRects.Add(new Rectangle(CenterLocation, 0, (TAB_HEADER_PADDING * 2) + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
                         for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
                         {
-                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
+                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, (TAB_HEADER_PADDING * 2) + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
                         }
 
                         break;
                     case Alignment.Right:
-                        _tabRects.Add(new Rectangle(Width - TitleLenght - SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                        _tabRects.Add(new Rectangle(Width - TitleLenght - SkinManager.FORM_PADDING, 0, (TAB_HEADER_PADDING * 2) + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
                         for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
                         {
-                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
+                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, (TAB_HEADER_PADDING * 2) + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
                         }
 
                         break;
                     default:
-                        _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
+                        _tabRects.Add(new Rectangle(SkinManager.FORM_PADDING, 0, (TAB_HEADER_PADDING * 2) + (int)g.MeasureString(_baseTabControl.TabPages[0].Text, Font).Width, Height));
                         for (int i = 1; i < _baseTabControl.TabPages.Count; i++)
                         {
-                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
+                            _tabRects.Add(new Rectangle(_tabRects[i - 1].Right, 0, (TAB_HEADER_PADDING * 2) + (int)g.MeasureString(_baseTabControl.TabPages[i].Text, Font).Width, Height));
                         }
 
                         break;

@@ -28,7 +28,7 @@ namespace ReaLTaiizor.Animate.Poison
                     Color controlColor = GetPropertyValue(property, control);
                     Color newColor = DoColorBlend(controlColor, targetColor, 0.1 * (percent / 2));
 
-                    PropertyInfo prop = (control.GetType()).GetProperty(property);
+                    PropertyInfo prop = control.GetType().GetProperty(property);
                     MethodInfo method = prop.GetSetMethod(true);
                     method.Invoke(control, new object[] { newColor });
                 },
@@ -52,10 +52,10 @@ namespace ReaLTaiizor.Animate.Poison
         {
             percent += 0.2;
 
-            int a = (int)Math.Round(startColor.A * (1 - ratio) + targetColor.A * ratio);
-            int r = (int)Math.Round(startColor.R * (1 - ratio) + targetColor.R * ratio);
-            int g = (int)Math.Round(startColor.G * (1 - ratio) + targetColor.G * ratio);
-            int b = (int)Math.Round(startColor.B * (1 - ratio) + targetColor.B * ratio);
+            int a = (int)Math.Round((startColor.A * (1 - ratio)) + (targetColor.A * ratio));
+            int r = (int)Math.Round((startColor.R * (1 - ratio)) + (targetColor.R * ratio));
+            int g = (int)Math.Round((startColor.G * (1 - ratio)) + (targetColor.G * ratio));
+            int b = (int)Math.Round((startColor.B * (1 - ratio)) + (targetColor.B * ratio));
             return Color.FromArgb(a, r, g, b);
         }
 

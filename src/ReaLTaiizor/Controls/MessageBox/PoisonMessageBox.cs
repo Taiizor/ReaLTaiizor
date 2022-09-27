@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
 
             if (owner != null)
             {
-                Form _owner = (owner as Form == null) ? ((UserControl)owner).ParentForm : (Form)owner;
+                Form _owner = ((owner as Form) == null) ? ((UserControl)owner).ParentForm : (Form)owner;
 
                 //int _minWidth = 500;
                 //int _minHeight = 350;
@@ -126,7 +126,7 @@ namespace ReaLTaiizor.Controls
                 //}
 
                 _control.Size = new(_owner.Size.Width, height);
-                _control.Location = new(_owner.Location.X, _owner.Location.Y + (_owner.Height - _control.Height) / 2);
+                _control.Location = new(_owner.Location.X, _owner.Location.Y + ((_owner.Height - _control.Height) / 2));
                 _control.ArrangeApperance();
                 int _overlaySizes = Convert.ToInt32(Math.Floor(_control.Size.Height * 0.28));
                 //_control.OverlayPanelTop.Size = new(_control.Size.Width, _overlaySizes - 30);

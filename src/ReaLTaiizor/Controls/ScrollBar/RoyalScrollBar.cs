@@ -282,7 +282,7 @@ namespace ReaLTaiizor.Controls
                     if (e.Y != lastMousePos.Y)
                     {
                         double y = e.Y - (thumbSize / 2);
-                        y = Math.Min(y, (Height - thumbSize));
+                        y = Math.Min(y, Height - thumbSize);
                         y = Math.Max(y, 0);
 
                         double v = Max * (y / (Height - thumbSize));
@@ -294,7 +294,7 @@ namespace ReaLTaiizor.Controls
                     if (e.X != lastMousePos.X)
                     {
                         double x = e.X - (thumbSize / 2);
-                        x = Math.Min(x, (Width - thumbSize));
+                        x = Math.Min(x, Width - thumbSize);
                         x = Math.Max(x, 0);
 
                         double v = Max * (x / (Width - thumbSize));

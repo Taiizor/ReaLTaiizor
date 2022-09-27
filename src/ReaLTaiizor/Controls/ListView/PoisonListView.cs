@@ -181,7 +181,7 @@ namespace ReaLTaiizor.Controls
             SIF_POS = 0x0004,
             SIF_DISABLENOSCROLL = 0x0008,
             SIF_TRACKPOS = 0x0010,
-            SIF_ALL = (SIF_RANGE | SIF_PAGE | SIF_POS | SIF_TRACKPOS)
+            SIF_ALL = SIF_RANGE | SIF_PAGE | SIF_POS | SIF_TRACKPOS
         }
 
         //ListView item information
@@ -222,10 +222,10 @@ namespace ReaLTaiizor.Controls
         private const uint WM_NCCALCSIZE = 0x83;
 
         private const uint LVM_FIRST = 0x1000;
-        private const uint LVM_INSERTITEMA = (LVM_FIRST + 7);
-        private const uint LVM_INSERTITEMW = (LVM_FIRST + 77);
-        private const uint LVM_DELETEITEM = (LVM_FIRST + 8);
-        private const uint LVM_DELETEALLITEMS = (LVM_FIRST + 9);
+        private const uint LVM_INSERTITEMA = LVM_FIRST + 7;
+        private const uint LVM_INSERTITEMW = LVM_FIRST + 77;
+        private const uint LVM_DELETEITEM = LVM_FIRST + 8;
+        private const uint LVM_DELETEALLITEMS = LVM_FIRST + 9;
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -750,7 +750,7 @@ namespace ReaLTaiizor.Controls
                         itemForeColor = Color.Silver;
                     }
 
-                    int _y = (e.Item.Bounds.Y + _fill) + ((e.Item.Bounds.Height - ((e.Item.SubItems.Count) * 15)) / 2);
+                    int _y = e.Item.Bounds.Y + _fill + ((e.Item.Bounds.Height - (e.Item.SubItems.Count * 15)) / 2);
 
                     Rectangle rect = new(e.Item.Bounds.X + _left, e.Item.Bounds.Y + _fill, e.Item.Bounds.Width, e.Item.Bounds.Height);
 

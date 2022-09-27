@@ -87,8 +87,8 @@ namespace ReaLTaiizor.Controls
 
             if (_resizing)
             {
-                Width = (e.X - _cursorStartPoint.X) + _currentControlStartSize.Width;
-                Height = (e.Y - _cursorStartPoint.Y) + _currentControlStartSize.Height;
+                Width = e.X - _cursorStartPoint.X + _currentControlStartSize.Width;
+                Height = e.Y - _cursorStartPoint.Y + _currentControlStartSize.Height;
                 Height = Height < 38 ? 38 : Height;
                 Width = Width < 100 ? 100 : Width;
             }

@@ -62,7 +62,7 @@ namespace ReaLTaiizor.Controls
                         continue;
                     }
 
-                    double A = (Math.Atan2(Left - B.Left, Top - B.Top) * 2 / Math.PI);
+                    double A = Math.Atan2(Left - B.Left, Top - B.Top) * 2 / Math.PI;
                     if (A / 1 == A)
                     {
                         Bool[(int)A + 1] = true;

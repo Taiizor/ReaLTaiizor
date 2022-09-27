@@ -105,36 +105,36 @@ namespace ReaLTaiizor.Controls
             {
                 int num;
 
-                if (e.X - base.Width / 6 * 2 / 2 < 0)
+                if (e.X - (base.Width / 6 * 2 / 2) < 0)
                 {
                     num = 0;
                 }
-                else if (e.X - base.Width / 6 * 2 / 2 + base.Width / 6 * 2 > base.Width)
+                else if (e.X - (base.Width / 6 * 2 / 2) + (base.Width / 6 * 2) > base.Width)
                 {
-                    num = base.Width - base.Width / 6 * 2;
+                    num = base.Width - (base.Width / 6 * 2);
                 }
                 else
                 {
-                    num = e.X - base.Width / 6 * 2 / 2;
+                    num = e.X - (base.Width / 6 * 2 / 2);
                 }
 
                 int num2;
 
-                if (e.Y - base.Width / 6 * 2 / 2 < 0)
+                if (e.Y - (base.Width / 6 * 2 / 2) < 0)
                 {
                     num2 = 0;
                 }
-                else if (e.Y - base.Width / 6 * 2 / 2 + base.Height / 6 * 2 > base.Height)
+                else if (e.Y - (base.Width / 6 * 2 / 2) + (base.Height / 6 * 2) > base.Height)
                 {
-                    num2 = base.Height - base.Height / 6 * 2;
+                    num2 = base.Height - (base.Height / 6 * 2);
                 }
                 else
                 {
-                    num2 = e.Y - base.Height / 6 * 2 / 2;
+                    num2 = e.Y - (base.Height / 6 * 2 / 2);
                 }
 
-                int num3 = num + base.Width / 6;
-                int num4 = num2 + base.Height / 6;
+                int num3 = num + (base.Width / 6);
+                int num4 = num2 + (base.Height / 6);
 
                 if (num4 < base.Height / 3 * 3)
                 {

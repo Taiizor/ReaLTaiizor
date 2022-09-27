@@ -278,7 +278,7 @@ namespace ReaLTaiizor.Controls
 
             using (Pen p = new(borderColor))
             {
-                Rectangle boxRect = new(0, Height / 2 - 6, 12, 12);
+                Rectangle boxRect = new(0, (Height / 2) - 6, 12, 12);
                 e.Graphics.DrawEllipse(p, boxRect);
             }
 
@@ -287,7 +287,7 @@ namespace ReaLTaiizor.Controls
                 Color fillColor = PoisonPaint.GetStyleColor(Style);
 
                 using SolidBrush b = new(fillColor);
-                Rectangle boxRect = new(3, Height / 2 - 3, 6, 6);
+                Rectangle boxRect = new(3, (Height / 2) - 3, 6, 6);
                 e.Graphics.FillEllipse(b, boxRect);
             }
 

@@ -169,7 +169,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseWheel(MouseEventArgs e)
         {
-            scrollBar.Value -= (e.Delta / 4);
+            scrollBar.Value -= e.Delta / 4;
             base.OnMouseWheel(e);
         }
 
@@ -204,7 +204,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            int firstVisibleItem = (scrollBar.Value / ItemHeight);
+            int firstVisibleItem = scrollBar.Value / ItemHeight;
             int lastVisibleItem = (scrollBar.Value / ItemHeight) + (Height / ItemHeight) + 1;
 
             if (firstVisibleItem < 0)
@@ -244,7 +244,7 @@ namespace ReaLTaiizor.Controls
                     }
                 }
 
-                Rectangle rect = new(0, ((i - firstVisibleItem) * ItemHeight), Width, ItemHeight);
+                Rectangle rect = new(0, (i - firstVisibleItem) * ItemHeight, Width, ItemHeight);
                 DrawItemEventArgs de = new(e.Graphics, Font, rect, i, state);
 
                 DrawItem(de);
@@ -254,13 +254,13 @@ namespace ReaLTaiizor.Controls
 
         private void Items_ItemAdded(object sender, EventArgs e)
         {
-            scrollBar.Max = (Items.Count * ItemHeight);
+            scrollBar.Max = Items.Count * ItemHeight;
             scrollBar.Refresh();
         }
 
         private void Items_ItemRemoved(object sender, EventArgs e)
         {
-            scrollBar.Max = (Items.Count * ItemHeight);
+            scrollBar.Max = Items.Count * ItemHeight;
             scrollBar.Refresh();
         }
 

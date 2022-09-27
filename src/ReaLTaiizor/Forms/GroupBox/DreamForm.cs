@@ -96,7 +96,7 @@ namespace ReaLTaiizor.Forms
             float O = 6;
             if (_TitleAlign == (HorizontalAlignment)2)
             {
-                O = Width / 2 - S.Width / 2;
+                O = (Width / 2) - (S.Width / 2);
             }
 
             if (_TitleAlign == (HorizontalAlignment)1)
@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Forms
                 O = Width - S.Width - 6;
             }
 
-            Rectangle R = new((int)O, (_TitleHeight + 2) / 2 - (int)S.Height / 2, (int)S.Width, (int)S.Height);
+            Rectangle R = new((int)O, ((_TitleHeight + 2) / 2) - ((int)S.Height / 2), (int)S.Width, (int)S.Height);
             using (Brush T = new LinearGradientBrush(R, ColorA, ColorC, LinearGradientMode.Vertical))
             {
                 G.DrawString(Text, Font, T, R);

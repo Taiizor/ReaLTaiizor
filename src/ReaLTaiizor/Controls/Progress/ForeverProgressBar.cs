@@ -173,8 +173,8 @@ namespace ReaLTaiizor.Controls
                         _with15.FillPath(new SolidBrush(_BaseColor), GP3);
 
                         //-- Value > You can add "%" > value & "%"
-                        string text = (PercentSign ? Value.ToString() + "%" : Value.ToString());
-                        int wOffset = (PercentSign ? iValue - 15 : iValue - 11);
+                        string text = PercentSign ? Value.ToString() + "%" : Value.ToString();
+                        int wOffset = PercentSign ? iValue - 15 : iValue - 11;
                         _with15.DrawString(text, new Font("Segoe UI", 10), new SolidBrush(ForeColor), new Rectangle(wOffset, -2, W, H), ForeverLibrary.NearSF);
                     }
 

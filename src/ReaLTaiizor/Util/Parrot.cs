@@ -198,99 +198,99 @@ namespace ReaLTaiizor.Util
             {
                 if (number % 10 <= 5)
                 {
-                    result = number - number % 10;
+                    result = number - (number % 10);
                 }
                 else
                 {
-                    result = number + 10 - number % 10;
+                    result = number + 10 - (number % 10);
                 }
             }
             if (rounding == Round.Hundred)
             {
                 if (number % 100 <= 50)
                 {
-                    result = number - number % 100;
+                    result = number - (number % 100);
                 }
                 else
                 {
-                    result = number + 100 - number % 100;
+                    result = number + 100 - (number % 100);
                 }
             }
             if (rounding == Round.Thousand)
             {
                 if (number % 1000 <= 500)
                 {
-                    result = number - number % 1000;
+                    result = number - (number % 1000);
                 }
                 else
                 {
-                    result = number + 1000 - number % 1000;
+                    result = number + 1000 - (number % 1000);
                 }
             }
             if (rounding == Round.TenThousand)
             {
                 if (number % 10000 <= 5000)
                 {
-                    result = number - number % 10000;
+                    result = number - (number % 10000);
                 }
                 else
                 {
-                    result = number + 10000 - number % 10000;
+                    result = number + 10000 - (number % 10000);
                 }
             }
             if (rounding == Round.HundredThousand)
             {
                 if (number % 100000 <= 50000)
                 {
-                    result = number - number % 100000;
+                    result = number - (number % 100000);
                 }
                 else
                 {
-                    result = number + 100000 - number % 100000;
+                    result = number + 100000 - (number % 100000);
                 }
             }
             if (rounding == Round.Million)
             {
                 if (number % 1000000 <= 500000)
                 {
-                    result = number - number % 1000000;
+                    result = number - (number % 1000000);
                 }
                 else
                 {
-                    result = number + 1000000 - number % 1000000;
+                    result = number + 1000000 - (number % 1000000);
                 }
             }
             if (rounding == Round.TenMillion)
             {
                 if (number % 10000000 <= 5000000)
                 {
-                    result = number - number % 10000000;
+                    result = number - (number % 10000000);
                 }
                 else
                 {
-                    result = number + 10000000 - number % 10000000;
+                    result = number + 10000000 - (number % 10000000);
                 }
             }
             if (rounding == Round.HundredMillion)
             {
                 if (number % 100000000 <= 50000000)
                 {
-                    result = number - number % 100000000;
+                    result = number - (number % 100000000);
                 }
                 else
                 {
-                    result = number + 100000000 - number % 100000000;
+                    result = number + 100000000 - (number % 100000000);
                 }
             }
             if (rounding == Round.Billion)
             {
                 if (number % 1000000000 <= 500000000)
                 {
-                    result = number - number % 1000000000;
+                    result = number - (number % 1000000000);
                 }
                 else
                 {
-                    result = number + 1000000000 - number % 1000000000;
+                    result = number + 1000000000 - (number % 1000000000);
                 }
             }
             return result;
@@ -301,39 +301,39 @@ namespace ReaLTaiizor.Util
             int result = 0;
             if (rounding == Round.Ten)
             {
-                result = number + 10 - number % 10;
+                result = number + 10 - (number % 10);
             }
             if (rounding == Round.Hundred)
             {
-                result = number + 100 - number % 100;
+                result = number + 100 - (number % 100);
             }
             if (rounding == Round.Thousand)
             {
-                result = number + 1000 - number % 1000;
+                result = number + 1000 - (number % 1000);
             }
             if (rounding == Round.TenThousand)
             {
-                result = number + 10000 - number % 10000;
+                result = number + 10000 - (number % 10000);
             }
             if (rounding == Round.HundredThousand)
             {
-                result = number + 100000 - number % 100000;
+                result = number + 100000 - (number % 100000);
             }
             if (rounding == Round.Million)
             {
-                result = number + 1000000 - number % 1000000;
+                result = number + 1000000 - (number % 1000000);
             }
             if (rounding == Round.TenMillion)
             {
-                result = number + 10000000 - number % 10000000;
+                result = number + 10000000 - (number % 10000000);
             }
             if (rounding == Round.HundredMillion)
             {
-                result = number + 100000000 - number % 100000000;
+                result = number + 100000000 - (number % 100000000);
             }
             if (rounding == Round.Billion)
             {
-                result = number + 1000000000 - number % 1000000000;
+                result = number + 1000000000 - (number % 1000000000);
             }
             return result;
         }
@@ -343,39 +343,39 @@ namespace ReaLTaiizor.Util
             int result = 0;
             if (rounding == Round.Ten)
             {
-                result = number - number % 10;
+                result = number - (number % 10);
             }
             if (rounding == Round.Hundred)
             {
-                result = number - number % 100;
+                result = number - (number % 100);
             }
             if (rounding == Round.Thousand)
             {
-                result = number - number % 1000;
+                result = number - (number % 1000);
             }
             if (rounding == Round.TenThousand)
             {
-                result = number - number % 10000;
+                result = number - (number % 10000);
             }
             if (rounding == Round.HundredThousand)
             {
-                result = number - number % 100000;
+                result = number - (number % 100000);
             }
             if (rounding == Round.Million)
             {
-                result = number - number % 1000000;
+                result = number - (number % 1000000);
             }
             if (rounding == Round.TenMillion)
             {
-                result = number - number % 10000000;
+                result = number - (number % 10000000);
             }
             if (rounding == Round.HundredMillion)
             {
-                result = number - number % 100000000;
+                result = number - (number % 100000000);
             }
             if (rounding == Round.Billion)
             {
-                result = number - number % 1000000000;
+                result = number - (number % 1000000000);
             }
             return result;
         }

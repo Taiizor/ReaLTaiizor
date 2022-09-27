@@ -211,7 +211,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (flag)
                 {
-                    ValueDrawer = (int)Math.Round(((_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (Width - 11));
+                    ValueDrawer = (int)Math.Round((_Value - _Minimum) / (double)(_Maximum - _Minimum) * (Width - 11));
                     TrackBarHandleRect = new(ValueDrawer, 0, 25, 25);
                     Cap = TrackBarHandleRect.Contains(e.Location);
                     Focus();
@@ -266,7 +266,7 @@ namespace ReaLTaiizor.Controls
 
             try
             {
-                ValueDrawer = (int)Math.Round(((_Value - _Minimum) / (double)(_Maximum - _Minimum)) * (Width - 11));
+                ValueDrawer = (int)Math.Round((_Value - _Minimum) / (double)(_Maximum - _Minimum) * (Width - 11));
             }
             catch (Exception)
             {

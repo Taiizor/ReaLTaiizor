@@ -424,7 +424,7 @@ namespace ReaLTaiizor.Forms
             drawerForm.Controls.Add(drawerControl);
             drawerControl.Location = new(0, 0);
             drawerControl.Size = new(DrawerWidth, H);
-            drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
+            drawerControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             drawerControl.BaseTabControl = DrawerTabControl;
             drawerControl.DrawerHideTabName = DrawerHideTabName;
             drawerControl.DrawerNonClickTabPage = DrawerNonClickTabPage;
@@ -505,7 +505,7 @@ namespace ReaLTaiizor.Forms
 
             if (Padding.Top < (_statusBarBounds.Height + _actionBarBounds.Height))
             {
-                Padding = new Padding(Padding.Left, (_statusBarBounds.Height + _actionBarBounds.Height), Padding.Right, Padding.Bottom);
+                Padding = new Padding(Padding.Left, _statusBarBounds.Height + _actionBarBounds.Height, Padding.Right, Padding.Bottom);
             }
 
             originalPadding = Padding;
@@ -573,13 +573,13 @@ namespace ReaLTaiizor.Forms
                     {
                         Location = mousePoint.X < _previousSize.Width / 2 ?
                             new Point(Cursor.Position.X - mousePoint.X, Cursor.Position.Y - mousePoint.Y) :
-                            new Point(Cursor.Position.X - _previousSize.Width / 2, Cursor.Position.Y - mousePoint.Y);
+                            new Point(Cursor.Position.X - (_previousSize.Width / 2), Cursor.Position.Y - mousePoint.Y);
                     }
                     else
                     {
                         Location = Width - mousePoint.X < _previousSize.Width / 2 ?
                             new Point(Cursor.Position.X - _previousSize.Width + Width - mousePoint.X, Cursor.Position.Y - mousePoint.Y) :
-                            new Point(Cursor.Position.X - _previousSize.Width / 2, Cursor.Position.Y - mousePoint.Y);
+                            new Point(Cursor.Position.X - (_previousSize.Width / 2), Cursor.Position.Y - mousePoint.Y);
                     }
 
                     Size = _previousSize;
@@ -936,12 +936,12 @@ namespace ReaLTaiizor.Forms
         {
             base.OnResize(e);
 
-            _minButtonBounds = new((Width) - 3 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
-            _maxButtonBounds = new((Width) - 2 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
-            _xButtonBounds = new((Width) - STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _minButtonBounds = new(Width - (3 * STATUS_BAR_BUTTON_WIDTH), 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _maxButtonBounds = new(Width - (2 * STATUS_BAR_BUTTON_WIDTH), 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            _xButtonBounds = new(Width - STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
             _statusBarBounds = new(0, 0, Width, STATUS_BAR_HEIGHT);
             _actionBarBounds = new(0, STATUS_BAR_HEIGHT, Width, ACTION_BAR_HEIGHT);
-            _drawerButtonBounds = new Rectangle(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + SkinManager.FORM_PADDING / 2, ACTION_BAR_HEIGHT);
+            _drawerButtonBounds = new Rectangle(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + (SkinManager.FORM_PADDING / 2), ACTION_BAR_HEIGHT);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -1063,7 +1063,7 @@ namespace ReaLTaiizor.Forms
                     g.FillRectangle(downBrush, _drawerButtonBounds);
                 }
 
-                _drawerIconRect = new(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + SkinManager.FORM_PADDING / 2, ACTION_BAR_HEIGHT);
+                _drawerIconRect = new(SkinManager.FORM_PADDING / 2, STATUS_BAR_HEIGHT, 24 + SkinManager.FORM_PADDING + (SkinManager.FORM_PADDING / 2), ACTION_BAR_HEIGHT);
                 // Ripple
                 if (_clickAnimManager.IsAnimating())
                 {
@@ -1073,7 +1073,7 @@ namespace ReaLTaiizor.Forms
                     int rippleSize = (int)(clickAnimProgress * _drawerIconRect.Width * 1.75);
 
                     g.SetClip(_drawerIconRect);
-                    g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X - rippleSize / 2, _animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
+                    g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X - (rippleSize / 2), _animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
                     g.ResetClip();
                     rippleBrush.Dispose();
                 }
@@ -1083,25 +1083,25 @@ namespace ReaLTaiizor.Forms
                 g.DrawLine(
                    formButtonsPen,
                    _drawerIconRect.X + SkinManager.FORM_PADDING,
-                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2,
+                   _drawerIconRect.Y + (ACTION_BAR_HEIGHT / 2),
                    _drawerIconRect.X + SkinManager.FORM_PADDING + 18,
-                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2);
+                   _drawerIconRect.Y + (ACTION_BAR_HEIGHT / 2));
 
                 // Bottom line
                 g.DrawLine(
                    formButtonsPen,
                    _drawerIconRect.X + SkinManager.FORM_PADDING,
-                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2 - 6,
+                   _drawerIconRect.Y + (ACTION_BAR_HEIGHT / 2) - 6,
                    _drawerIconRect.X + SkinManager.FORM_PADDING + 18,
-                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2 - 6);
+                   _drawerIconRect.Y + (ACTION_BAR_HEIGHT / 2) - 6);
 
                 // Top line
                 g.DrawLine(
                    formButtonsPen,
                    _drawerIconRect.X + SkinManager.FORM_PADDING,
-                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2 + 6,
+                   _drawerIconRect.Y + (ACTION_BAR_HEIGHT / 2) + 6,
                    _drawerIconRect.X + SkinManager.FORM_PADDING + 18,
-                   _drawerIconRect.Y + ACTION_BAR_HEIGHT / 2 + 6);
+                   _drawerIconRect.Y + (ACTION_BAR_HEIGHT / 2) + 6);
             }
 
             if (ControlBox == true)

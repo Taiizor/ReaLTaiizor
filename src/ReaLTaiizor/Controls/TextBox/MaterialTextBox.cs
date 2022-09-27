@@ -237,10 +237,10 @@ namespace ReaLTaiizor.Controls
                 {
                     hintRect = new(
                         SkinManager.FORM_PADDING,
-                        userTextPresent ? (HINT_TEXT_SMALL_Y) : ClientRectangle.Y + (int)((HINT_TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
+                        userTextPresent ? HINT_TEXT_SMALL_Y : ClientRectangle.Y + (int)((HINT_TEXT_SMALL_Y - ClientRectangle.Y) * animationProgress),
                         Width,
-                        userTextPresent ? (HINT_TEXT_SMALL_SIZE) : (int)(LINE_Y + (HINT_TEXT_SMALL_SIZE - LINE_Y) * animationProgress));
-                    hintTextSize = userTextPresent ? 12 : (int)(16 + (12 - 16) * animationProgress);
+                        userTextPresent ? HINT_TEXT_SMALL_SIZE : (int)(LINE_Y + ((HINT_TEXT_SMALL_SIZE - LINE_Y) * animationProgress)));
+                    hintTextSize = userTextPresent ? 12 : (int)(16 + ((12 - 16) * animationProgress));
                 }
 
                 // Line Animation
@@ -257,8 +257,8 @@ namespace ReaLTaiizor.Controls
             // Calc text Rect
             Rectangle textRect = new(
                 SkinManager.FORM_PADDING,
-                hasHint && UseTallSize ? (hintRect.Y + hintRect.Height) - 2 : ClientRectangle.Y,
-                ClientRectangle.Width - SkinManager.FORM_PADDING * 2 + scrollPos.X,
+                hasHint && UseTallSize ? hintRect.Y + hintRect.Height - 2 : ClientRectangle.Y,
+                ClientRectangle.Width - (SkinManager.FORM_PADDING * 2) + scrollPos.X,
                 hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
             g.Clip = new(textRect);
@@ -276,13 +276,13 @@ namespace ReaLTaiizor.Controls
                 textSelectRect = new(
                     textRect.X + selectX, UseTallSize ? hasHint ?
                      textRect.Y + BOTTOM_PADDING : // tall and hint
-                     LINE_Y / 3 - BOTTOM_PADDING : // tall and no hint
+                     (LINE_Y / 3) - BOTTOM_PADDING : // tall and no hint
                      BOTTOM_PADDING, // not tall
                     selectWidth,
                     UseTallSize ? hasHint ?
-                    textRect.Height - BOTTOM_PADDING * 2 : // tall and hint
+                    textRect.Height - (BOTTOM_PADDING * 2) : // tall and hint
                     LINE_Y / 2 : // tall and no hint
-                    LINE_Y - BOTTOM_PADDING * 2); // not tall
+                    LINE_Y - (BOTTOM_PADDING * 2)); // not tall
 
                 // Draw user text
                 NativeText.DrawTransparentText(

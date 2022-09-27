@@ -261,7 +261,7 @@ namespace ReaLTaiizor.Controls
 
             G.SmoothingMode = SmoothingType;
 
-            int intValue = Convert.ToInt32((Convert.ToDouble(_Value) / Convert.ToDouble(_Maximum)) * Width);
+            int intValue = Convert.ToInt32(Convert.ToDouble(_Value) / Convert.ToDouble(_Maximum) * Width);
             G.Clear(BackColor);
 
             LinearGradientBrush gB = new(new Rectangle(0, 0, Width - 1, Height - 1), ColorA, ColorB, 90);

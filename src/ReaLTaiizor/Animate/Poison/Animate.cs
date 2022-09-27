@@ -105,43 +105,43 @@ namespace ReaLTaiizor.Animate.Poison
             {
                 case TransitionType.Linear:
                     // simple linear tweening - no easing 
-                    return (int)(c * t / d + b);
+                    return (int)((c * t / d) + b);
                 case TransitionType.EaseInQuad:
                     // quadratic (t^2) easing in - accelerating from zero velocity
-                    return (int)(c * (t /= d) * t + b);
+                    return (int)((c * (t /= d) * t) + b);
                 case TransitionType.EaseOutQuad:
                     // quadratic (t^2) easing out - decelerating to zero velocity
-                    return (int)(-c * (t /= d) * (t - 2) + b);
+                    return (int)((-c * (t /= d) * (t - 2)) + b);
                 case TransitionType.EaseInOutQuad:
                     // quadratic easing in/out - acceleration until halfway, then deceleration
                     if ((t /= d / 2) < 1)
                     {
-                        return (int)(c / 2 * t * t + b);
+                        return (int)((c / 2 * t * t) + b);
                     }
                     else
                     {
-                        return (int)(-c / 2 * ((--t) * (t - 2) - 1) + b);
+                        return (int)((-c / 2 * (((--t) * (t - 2)) - 1)) + b);
                     }
                 case TransitionType.EaseInCubic:
                     // cubic easing in - accelerating from zero velocity
-                    return (int)(c * (t /= d) * t * t + b);
+                    return (int)((c * (t /= d) * t * t) + b);
 
                 case TransitionType.EaseOutCubic:
                     // cubic easing in - accelerating from zero velocity
-                    return (int)(c * ((t = t / d - 1) * t * t + 1) + b);
+                    return (int)((c * (((t = (t / d) - 1) * t * t) + 1)) + b);
                 case TransitionType.EaseInOutCubic:
                     // cubic easing in - accelerating from zero velocity
                     if ((t /= d / 2) < 1)
                     {
-                        return (int)(c / 2 * t * t * t + b);
+                        return (int)((c / 2 * t * t * t) + b);
                     }
                     else
                     {
-                        return (int)(c / 2 * ((t -= 2) * t * t + 2) + b);
+                        return (int)((c / 2 * (((t -= 2) * t * t) + 2)) + b);
                     }
                 case TransitionType.EaseInQuart:
                     // quartic easing in - accelerating from zero velocity
-                    return (int)(c * (t /= d) * t * t * t + b);
+                    return (int)((c * (t /= d) * t * t * t) + b);
                 case TransitionType.EaseInExpo:
                     // exponential (2^t) easing in - accelerating from zero velocity
                     if (t == 0)
@@ -150,7 +150,7 @@ namespace ReaLTaiizor.Animate.Poison
                     }
                     else
                     {
-                        return (int)(c * Math.Pow(2, (10 * (t / d - 1))) + b);
+                        return (int)((c * Math.Pow(2, 10 * ((t / d) - 1))) + b);
                     }
                 case TransitionType.EaseOutExpo:
                     // exponential (2^t) easing out - decelerating to zero velocity
@@ -160,7 +160,7 @@ namespace ReaLTaiizor.Animate.Poison
                     }
                     else
                     {
-                        return (int)(c * (-Math.Pow(2, -10 * t / d) + 1) + b);
+                        return (int)((c * (-Math.Pow(2, -10 * t / d) + 1)) + b);
                     }
                 default:
                     return 0;

@@ -176,7 +176,7 @@ namespace ReaLTaiizor.Controls
             switch (_style)
             {
                 case NumericStyle.LeftRight:
-                    textBox.Size = new(Width - 2 * Height, Height - 2);
+                    textBox.Size = new(Width - (2 * Height), Height - 2);
                     textBox.Location = new(Height, 5);
                     graphics.DrawLine(new(BorderColorB, 0.5f), textBox.Location.X - 0.5f, 1, textBox.Location.X - 0.5f, Height - 1);
                     break;

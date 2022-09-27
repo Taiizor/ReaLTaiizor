@@ -272,7 +272,7 @@ namespace ReaLTaiizor.Controls
             using SolidBrush hibc = new(HoveredItemBackColor);
             using StringFormat sf = new() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
             int firstItem = _svs.Value / ItemHeight < 0 ? 0 : _svs.Value / ItemHeight;
-            int lastItem = _svs.Value / ItemHeight + Height / ItemHeight + 1 > Items.Count ? Items.Count : _svs.Value / ItemHeight + Height / ItemHeight + 1;
+            int lastItem = (_svs.Value / ItemHeight) + (Height / ItemHeight) + 1 > Items.Count ? Items.Count : (_svs.Value / ItemHeight) + (Height / ItemHeight) + 1;
 
             g.FillRectangle(bg, mainRect);
 
@@ -615,7 +615,7 @@ namespace ReaLTaiizor.Controls
             Focus();
             if (e.Button == MouseButtons.Left)
             {
-                int index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
+                int index = (_svs.Value / ItemHeight) + (e.Location.Y / ItemHeight);
                 if (index >= 0 && index < Items.Count)
                 {
                     if (MultiSelect && _multiKeyDown)
@@ -707,7 +707,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseMove(e);
             Cursor = Cursors.Hand;
-            int index = _svs.Value / ItemHeight + e.Location.Y / ItemHeight;
+            int index = (_svs.Value / ItemHeight) + (e.Location.Y / ItemHeight);
 
             if (index >= Items.Count)
             {

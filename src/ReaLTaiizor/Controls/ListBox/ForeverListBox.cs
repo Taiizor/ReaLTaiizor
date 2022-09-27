@@ -79,7 +79,7 @@ namespace ReaLTaiizor.Controls
 
         public void ClearSelected()
         {
-            for (int i = (ListBx.SelectedItems.Count - 1); i >= 0; i += -1)
+            for (int i = ListBx.SelectedItems.Count - 1; i >= 0; i += -1)
             {
                 ListBx.Items.Remove(ListBx.SelectedItems[i]);
             }

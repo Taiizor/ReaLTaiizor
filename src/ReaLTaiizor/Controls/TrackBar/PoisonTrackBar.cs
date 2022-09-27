@@ -364,20 +364,20 @@ namespace ReaLTaiizor.Controls
 
         private void DrawTrackBar(Graphics g, Color thumbColor, Color barColor)
         {
-            int TrackX = (((trackerValue - barMinimum) * (Width - 6)) / (barMaximum - barMinimum));
+            int TrackX = (trackerValue - barMinimum) * (Width - 6) / (barMaximum - barMinimum);
 
             using (SolidBrush b = new(thumbColor))
             {
-                Rectangle barRect = new(0, Height / 2 - 2, TrackX, 4);
+                Rectangle barRect = new(0, (Height / 2) - 2, TrackX, 4);
                 g.FillRectangle(b, barRect);
 
-                Rectangle thumbRect = new(TrackX, Height / 2 - 8, 6, 16);
+                Rectangle thumbRect = new(TrackX, (Height / 2) - 8, 6, 16);
                 g.FillRectangle(b, thumbRect);
             }
 
             using (SolidBrush b = new(barColor))
             {
-                Rectangle barRect = new(TrackX + 7, Height / 2 - 2, Width - TrackX + 7, 4);
+                Rectangle barRect = new(TrackX + 7, (Height / 2) - 2, Width - TrackX + 7, 4);
                 g.FillRectangle(b, barRect);
             }
         }
@@ -540,7 +540,7 @@ namespace ReaLTaiizor.Controls
                 int p = pt.X;
 
                 float coef = (barMaximum - barMinimum) / (float)(ClientSize.Width - 3);
-                trackerValue = (int)(p * coef + barMinimum);
+                trackerValue = (int)((p * coef) + barMinimum);
 
                 if (trackerValue <= barMinimum)
                 {

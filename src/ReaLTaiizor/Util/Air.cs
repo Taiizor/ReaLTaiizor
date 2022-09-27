@@ -157,7 +157,7 @@ namespace ReaLTaiizor.Util
             {
                 Rectangle SB = Screen.PrimaryScreen.Bounds;
                 Rectangle CB = ParentForm.Bounds;
-                ParentForm.Location = new(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
+                ParentForm.Location = new((SB.Width / 2) - (CB.Width / 2), (SB.Height / 2) - (CB.Height / 2));
             }
 
             HasShown = true;
@@ -268,7 +268,7 @@ namespace ReaLTaiizor.Util
                 SetState(MouseStateAir.Down);
             }
 
-            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
+            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || _ControlMode))
             {
                 if (Movable && Frame.Contains(e.Location))
                 {
@@ -1028,12 +1028,12 @@ namespace ReaLTaiizor.Util
         private Point CenterReturn;
         protected Point Center(Rectangle p, Rectangle c)
         {
-            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
+            CenterReturn = new((p.Width / 2) - (c.Width / 2) + p.X + c.X, (p.Height / 2) - (c.Height / 2) + p.Y + c.Y);
             return CenterReturn;
         }
         protected Point Center(Rectangle p, Size c)
         {
-            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
+            CenterReturn = new((p.Width / 2) - (c.Width / 2) + p.X, (p.Height / 2) - (c.Height / 2) + p.Y);
             return CenterReturn;
         }
 
@@ -1057,7 +1057,7 @@ namespace ReaLTaiizor.Util
 
         protected Point Center(int pWidth, int pHeight, int cWidth, int cHeight)
         {
-            CenterReturn = new(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
+            CenterReturn = new((pWidth / 2) - (cWidth / 2), (pHeight / 2) - (cHeight / 2));
             return CenterReturn;
         }
 
@@ -1200,7 +1200,7 @@ namespace ReaLTaiizor.Util
             }
 
             DrawTextSize = Measure(text);
-            DrawTextPoint = new(Width / 2 - DrawTextSize.Width / 2, Header / 2 - DrawTextSize.Height / 2);
+            DrawTextPoint = new((Width / 2) - (DrawTextSize.Width / 2), (Header / 2) - (DrawTextSize.Height / 2));
 
             switch (a)
             {
@@ -1251,7 +1251,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            DrawImagePoint = new(Width / 2 - image.Width / 2, Header / 2 - image.Height / 2);
+            DrawImagePoint = new((Width / 2) - (image.Width / 2), (Header / 2) - (image.Height / 2));
 
             switch (a)
             {
@@ -2011,12 +2011,12 @@ namespace ReaLTaiizor.Util
         private Point CenterReturn;
         protected Point Center(Rectangle p, Rectangle c)
         {
-            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X + c.X, (p.Height / 2 - c.Height / 2) + p.Y + c.Y);
+            CenterReturn = new((p.Width / 2) - (c.Width / 2) + p.X + c.X, (p.Height / 2) - (c.Height / 2) + p.Y + c.Y);
             return CenterReturn;
         }
         protected Point Center(Rectangle p, Size c)
         {
-            CenterReturn = new((p.Width / 2 - c.Width / 2) + p.X, (p.Height / 2 - c.Height / 2) + p.Y);
+            CenterReturn = new((p.Width / 2) - (c.Width / 2) + p.X, (p.Height / 2) - (c.Height / 2) + p.Y);
             return CenterReturn;
         }
 
@@ -2040,7 +2040,7 @@ namespace ReaLTaiizor.Util
 
         protected Point Center(int pWidth, int pHeight, int cWidth, int cHeight)
         {
-            CenterReturn = new(pWidth / 2 - cWidth / 2, pHeight / 2 - cHeight / 2);
+            CenterReturn = new((pWidth / 2) - (cWidth / 2), (pHeight / 2) - (cHeight / 2));
             return CenterReturn;
         }
 
@@ -2447,7 +2447,7 @@ namespace ReaLTaiizor.Util
 
         private static void HandleCallbacksAir(IntPtr state, bool reserve)
         {
-            Invalidate = (Frames >= FPS);
+            Invalidate = Frames >= FPS;
             if (Invalidate)
             {
                 Frames = 0;

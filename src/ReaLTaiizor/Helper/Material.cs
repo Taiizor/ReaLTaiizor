@@ -100,15 +100,15 @@ namespace ReaLTaiizor.Helper
             }
 
             hue /= 60f;
-            hue -= 2f * (float)Math.Floor(((iSextant + 1f) % 6f) / 2f);
+            hue -= 2f * (float)Math.Floor((iSextant + 1f) % 6f / 2f);
 
             if (0 == iSextant % 2)
             {
-                fMid = hue * (fMax - fMin) + fMin;
+                fMid = (hue * (fMax - fMin)) + fMin;
             }
             else
             {
-                fMid = fMin - hue * (fMax - fMin);
+                fMid = fMin - (hue * (fMax - fMin));
             }
 
             iMax = Convert.ToInt32(fMax * 255);

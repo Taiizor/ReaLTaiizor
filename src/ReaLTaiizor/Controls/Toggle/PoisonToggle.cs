@@ -279,7 +279,7 @@ namespace ReaLTaiizor.Controls
 
             using (Pen p = new(borderColor))
             {
-                Rectangle boxRect = new((DisplayStatus ? 30 : 0), 0, ClientRectangle.Width - (DisplayStatus ? 31 : 1), ClientRectangle.Height - 1);
+                Rectangle boxRect = new(DisplayStatus ? 30 : 0, 0, ClientRectangle.Width - (DisplayStatus ? 31 : 1), ClientRectangle.Height - 1);
                 e.Graphics.DrawRectangle(p, boxRect);
             }
 

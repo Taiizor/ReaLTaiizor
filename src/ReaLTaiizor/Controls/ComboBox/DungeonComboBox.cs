@@ -76,7 +76,7 @@ namespace ReaLTaiizor.Controls
             base.OnDrawItem(e);
             LinearGradientBrush LGB = new(e.Bounds, ColorA, ColorB, 90.0F);
 
-            if (Convert.ToInt32((e.State & DrawItemState.Selected)) == (int)DrawItemState.Selected)
+            if (Convert.ToInt32(e.State & DrawItemState.Selected) == (int)DrawItemState.Selected)
             {
                 if (!(e.Index == -1))
                 {
@@ -121,7 +121,7 @@ namespace ReaLTaiizor.Controls
 
         public DungeonComboBox()
         {
-            SetStyle((ControlStyles)(139286), true);
+            SetStyle((ControlStyles)139286, true);
             SetStyle(ControlStyles.Selectable, false);
 
             DrawMode = DrawMode.OwnerDrawFixed;

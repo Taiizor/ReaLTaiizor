@@ -120,7 +120,7 @@ namespace ReaLTaiizor
             GP.AddArc(X + Width - (Radius * 2), Y, Radius * 2, Radius * 2, 270, 90);
 
             GP.AddLine(X + Width, Y + 0, X + Width, Y + Height);
-            GP.AddArc(X + Width - (Radius * 2), Y + Height - (1), Radius * 2, 1, 0, 90);
+            GP.AddArc(X + Width - (Radius * 2), Y + Height - 1, Radius * 2, 1, 0, 90);
 
             GP.AddLine(X + Width - (Radius * 2), Y + Height, X + Radius, Y + Height);
             GP.AddArc(X, Y + Height - (Radius * 2), Radius * 2, Radius * 2, 90, 90);
@@ -478,7 +478,7 @@ namespace ReaLTaiizor
                     }
                     finally
                     {
-                        flag = (b != null);
+                        flag = b != null;
                         if (flag)
                         {
                             b.Dispose();
@@ -504,7 +504,7 @@ namespace ReaLTaiizor
                     }
                     finally
                     {
-                        flag = (b2 != null);
+                        flag = b2 != null;
                         if (flag)
                         {
                             b2.Dispose();
@@ -526,7 +526,7 @@ namespace ReaLTaiizor
                     }
                     finally
                     {
-                        flag = (p != null);
+                        flag = p != null;
                         if (flag)
                         {
                             p.Dispose();
@@ -541,10 +541,10 @@ namespace ReaLTaiizor
         {
             int dropWidth = Convert.ToInt32(item.DropDownButtonBounds.Width - 1);
             int dropHeight = Convert.ToInt32(item.DropDownButtonBounds.Height - 1);
-            float triangleWidth = dropWidth / 2.0F + 1;
-            float triangleLeft = Convert.ToSingle(item.DropDownButtonBounds.Left + (dropWidth - triangleWidth) / 2.0F);
+            float triangleWidth = (dropWidth / 2.0F) + 1;
+            float triangleLeft = Convert.ToSingle(item.DropDownButtonBounds.Left + ((dropWidth - triangleWidth) / 2.0F));
             float triangleHeight = triangleWidth / 2.0F;
-            float triangleTop = Convert.ToSingle(item.DropDownButtonBounds.Top + (dropHeight - triangleHeight) / 2.0F + 1);
+            float triangleTop = Convert.ToSingle(item.DropDownButtonBounds.Top + ((dropHeight - triangleHeight) / 2.0F) + 1);
             RectangleF arrowRect = new(triangleLeft, triangleTop, triangleWidth, triangleHeight);
 
             DrawCustomArrow(g, item, Rectangle.Round(arrowRect));
@@ -584,10 +584,10 @@ namespace ReaLTaiizor
             // Icon
             int w = Convert.ToInt32(rect.Width - 1);
             int h = Convert.ToInt32(rect.Height - 1);
-            float triangleWidth = w / 2.0F + 1;
-            float triangleLeft = Convert.ToSingle(rect.Left + (w - triangleWidth) / 2.0F + 3);
+            float triangleWidth = (w / 2.0F) + 1;
+            float triangleLeft = Convert.ToSingle(rect.Left + ((w - triangleWidth) / 2.0F) + 3);
             float triangleHeight = triangleWidth / 2.0F;
-            float triangleTop = Convert.ToSingle(rect.Top + (h - triangleHeight) / 2.0F + 7);
+            float triangleTop = Convert.ToSingle(rect.Top + ((h - triangleHeight) / 2.0F) + 7);
             RectangleF arrowRect = new(triangleLeft, triangleTop, triangleWidth, triangleHeight);
             DrawCustomArrow(e.Graphics, e.Item, Rectangle.Round(arrowRect));
 

@@ -119,11 +119,11 @@ namespace ReaLTaiizor.Controls
 
             if (Checked)
             {
-                Rectangle chkPoly = new(checkBoxRectangle.X + checkBoxRectangle.Width / 4, checkBoxRectangle.Y + checkBoxRectangle.Height / 4, checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
+                Rectangle chkPoly = new(checkBoxRectangle.X + (checkBoxRectangle.Width / 4), checkBoxRectangle.Y + (checkBoxRectangle.Height / 4), checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
                 Point[] Poly =
                 {
-                    new Point(chkPoly.X, chkPoly.Y + chkPoly.Height / 2),
-                    new Point(chkPoly.X + chkPoly.Width / 2, chkPoly.Y + chkPoly.Height),
+                    new Point(chkPoly.X, chkPoly.Y + (chkPoly.Height / 2)),
+                    new Point(chkPoly.X + (chkPoly.Width / 2), chkPoly.Y + chkPoly.Height),
                     new Point(chkPoly.X + chkPoly.Width, chkPoly.Y)
                 };
                 G.SmoothingMode = SmoothingType;

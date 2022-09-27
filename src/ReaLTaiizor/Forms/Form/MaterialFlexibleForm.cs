@@ -51,14 +51,14 @@ namespace ReaLTaiizor.Forms
             richTextBoxMessage = new MaterialRichTextBox();
             middleButton = new MaterialButton();
             rightButton = new MaterialButton();
-            ((ISupportInitialize)(MaterialFlexibleFormBindingSource)).BeginInit();
+            ((ISupportInitialize)MaterialFlexibleFormBindingSource).BeginInit();
             messageContainer.SuspendLayout();
-            ((ISupportInitialize)(pictureBoxForIcon)).BeginInit();
+            ((ISupportInitialize)pictureBoxForIcon).BeginInit();
             SuspendLayout();
             //
             // leftButton
             //
-            leftButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+            leftButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             leftButton.AutoSize = false;
             leftButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             leftButton.Depth = 0;
@@ -81,9 +81,9 @@ namespace ReaLTaiizor.Forms
             //
             // messageContainer
             //
-            messageContainer.Anchor = (((AnchorStyles.Top | AnchorStyles.Bottom)
-            | AnchorStyles.Left)
-            | AnchorStyles.Right);
+            messageContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom
+            | AnchorStyles.Left
+            | AnchorStyles.Right;
             messageContainer.BackColor = Color.White;
             messageContainer.Controls.Add(pictureBoxForIcon);
             messageContainer.Controls.Add(richTextBoxMessage);
@@ -103,9 +103,9 @@ namespace ReaLTaiizor.Forms
             //
             // richTextBoxMessage
             //
-            richTextBoxMessage.Anchor = (((AnchorStyles.Top | AnchorStyles.Bottom)
-            | AnchorStyles.Left)
-            | AnchorStyles.Right);
+            richTextBoxMessage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom
+            | AnchorStyles.Left
+            | AnchorStyles.Right;
             richTextBoxMessage.BackColor = Color.FromArgb(237, 237, 237);
             richTextBoxMessage.BorderStyle = BorderStyle.None;
             richTextBoxMessage.DataBindings.Add(new Binding("Text", MaterialFlexibleFormBindingSource, "MessageText", true, DataSourceUpdateMode.OnPropertyChanged));
@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Forms
             //
             // middleButton
             //
-            middleButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+            middleButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             middleButton.AutoSize = false;
             middleButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             middleButton.Depth = 0;
@@ -150,7 +150,7 @@ namespace ReaLTaiizor.Forms
             //
             // rightButton
             //
-            rightButton.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+            rightButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             rightButton.AutoSize = false;
             rightButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             rightButton.Depth = 0;
@@ -190,9 +190,9 @@ namespace ReaLTaiizor.Forms
             Text = "<Caption>";
             Load += new EventHandler(MaterialFlexibleForm_Load);
             Shown += new EventHandler(MaterialFlexibleForm_Shown);
-            ((ISupportInitialize)(MaterialFlexibleFormBindingSource)).EndInit();
+            ((ISupportInitialize)MaterialFlexibleFormBindingSource).EndInit();
             messageContainer.ResumeLayout(false);
-            ((ISupportInitialize)(pictureBoxForIcon)).EndInit();
+            ((ISupportInitialize)pictureBoxForIcon).EndInit();
             ResumeLayout(false);
         }
 
@@ -320,8 +320,8 @@ namespace ReaLTaiizor.Forms
             {
                 Screen screen = Screen.FromPoint(Cursor.Position);
                 MaterialFlexibleForm.StartPosition = FormStartPosition.Manual;
-                MaterialFlexibleForm.Left = screen.Bounds.Left + screen.Bounds.Width / 2 - MaterialFlexibleForm.Width / 2;
-                MaterialFlexibleForm.Top = screen.Bounds.Top + screen.Bounds.Height / 2 - MaterialFlexibleForm.Height / 2;
+                MaterialFlexibleForm.Left = screen.Bounds.Left + (screen.Bounds.Width / 2) - (MaterialFlexibleForm.Width / 2);
+                MaterialFlexibleForm.Top = screen.Bounds.Top + (screen.Bounds.Height / 2) - (MaterialFlexibleForm.Height / 2);
             }
         }
 

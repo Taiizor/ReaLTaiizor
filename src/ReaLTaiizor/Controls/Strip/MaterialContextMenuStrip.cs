@@ -152,7 +152,7 @@ namespace ReaLTaiizor.Controls
                         double animationValue = animationManager.GetProgress(i);
                         SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationValue * 50)), Color.Black));
                         int rippleSize = (int)(animationValue * itemRect.Width * 2.5);
-                        g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, itemRect.Y - itemRect.Height, rippleSize, itemRect.Height * 3));
+                        g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), itemRect.Y - itemRect.Height, rippleSize, itemRect.Height * 3));
                     }
                 }
             }
@@ -187,7 +187,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             const int ARROW_SIZE = 4;
 
-            Point arrowMiddle = new(e.ArrowRectangle.X + e.ArrowRectangle.Width / 2, e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2);
+            Point arrowMiddle = new(e.ArrowRectangle.X + (e.ArrowRectangle.Width / 2), e.ArrowRectangle.Y + (e.ArrowRectangle.Height / 2));
             Brush arrowBrush = e.Item.Enabled ? SkinManager.TextHighEmphasisBrush : SkinManager.TextDisabledOrHintBrush;
             using GraphicsPath arrowPath = new();
             arrowPath.AddLines(

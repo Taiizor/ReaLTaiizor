@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Native
 
         public static int HiWord(int Number)
         {
-            return ((Number >> 16) & 0xffff);
+            return (Number >> 16) & 0xffff;
         }
 
         #endregion
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Native
 
         public static int LoWord(int Number)
         {
-            return (Number & 0xffff);
+            return Number & 0xffff;
         }
 
         #endregion

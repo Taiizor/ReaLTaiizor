@@ -341,14 +341,14 @@ namespace ReaLTaiizor.Controls
 
             if (showGrid)
             {
-                e.Graphics.DrawRectangle(new Pen(gridColor, 1f), 0, 0, Increment * 7 - 1, base.Height - 1);
+                e.Graphics.DrawRectangle(new Pen(gridColor, 1f), 0, 0, (Increment * 7) - 1, base.Height - 1);
                 e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment, 0, Increment, base.Height);
                 e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 2, 0, Increment * 2, base.Height);
                 e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 3, 0, Increment * 3, base.Height);
                 e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 4, 0, Increment * 4, base.Height);
                 e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 5, 0, Increment * 5, base.Height);
                 e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 6, 0, Increment * 6, base.Height);
-                e.Graphics.DrawLine(new Pen(gridColor, 1f), 0, base.Height / 2, Increment * 7 - 1, base.Height / 2);
+                e.Graphics.DrawLine(new Pen(gridColor, 1f), 0, base.Height / 2, (Increment * 7) - 1, base.Height / 2);
             }
         }
 

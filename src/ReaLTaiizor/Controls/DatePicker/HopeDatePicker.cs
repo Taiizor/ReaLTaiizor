@@ -324,7 +324,7 @@ namespace ReaLTaiizor.Controls
             string s = _DayNames;
             for (int i = 0; i < 7; i++)
             {
-                graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(DaysTextColor), new RectangleF(10 + i * (Width - 20) / 7, WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
+                graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(DaysTextColor), new RectangleF(10 + (i * (Width - 20) / 7), WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
             }
 
             graphics.DrawLine(new(HeadLineColor, 0.5f), 10, WeekRect.Y + WeekRect.Height, Width - 10, WeekRect.Y + WeekRect.Height);

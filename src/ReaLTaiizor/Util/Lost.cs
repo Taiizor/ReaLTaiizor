@@ -103,7 +103,7 @@ namespace ReaLTaiizor.Util
 
         public virtual Rectangle ShadeRect(int index)
         {
-            return new Rectangle(Location.X - index, Location.Y - index, Width + index * 2, Height + index * 2);
+            return new Rectangle(Location.X - index, Location.Y - index, Width + (index * 2), Height + (index * 2));
         }
 
         public virtual void DrawShadow(Graphics g)
@@ -184,7 +184,7 @@ namespace ReaLTaiizor.Util
 
         public virtual Rectangle ShadeRect(int index)
         {
-            return new Rectangle(Location.X - index, Location.Y - index, Width + index * 2, Height + index * 2);
+            return new Rectangle(Location.X - index, Location.Y - index, Width + (index * 2), Height + (index * 2));
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -246,7 +246,7 @@ namespace ReaLTaiizor.Util
 
         private static Rectangle ShadeRect(Rectangle origin, int index)
         {
-            return new Rectangle(origin.X - index, origin.Y - index, origin.Width + index * 2, origin.Height + index * 2);
+            return new Rectangle(origin.X - index, origin.Y - index, origin.Width + (index * 2), origin.Height + (index * 2));
         }
 
         private void DrawShadow(Graphics g, Rectangle rect)

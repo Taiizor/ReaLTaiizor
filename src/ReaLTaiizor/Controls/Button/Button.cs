@@ -271,7 +271,7 @@ namespace ReaLTaiizor.Controls
                     // Fill button body with InactiveGB color gradient
                     G.DrawPath(P1, Shape);
                     // Draw button border [InactiveGB]
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
@@ -296,7 +296,7 @@ namespace ReaLTaiizor.Controls
                     G.DrawPath(P3, Shape);
                     // Draw button border [PressedGB]
 
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
@@ -321,7 +321,7 @@ namespace ReaLTaiizor.Controls
                     G.DrawPath(P3, Shape);
                     // Draw button border [EnteredGB]
 
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {

@@ -168,7 +168,7 @@ namespace ReaLTaiizor.Forms
                 SetState(MouseState.Down);
             }
 
-            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
+            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || _ControlMode))
             {
                 if (HeaderRect.Contains(e.Location))
                 {
@@ -203,7 +203,7 @@ namespace ReaLTaiizor.Forms
             }
             if (Cap)
             {
-                Parent.Location = (Point)((object)(Convert.ToDouble(MousePosition) - Convert.ToDouble(MouseP)));
+                Parent.Location = (Point)(object)(Convert.ToDouble(MousePosition) - Convert.ToDouble(MouseP));
             }
         }
 
@@ -235,7 +235,7 @@ namespace ReaLTaiizor.Forms
             {
                 Rectangle SB = Screen.PrimaryScreen.Bounds;
                 Rectangle CB = ParentForm.Bounds;
-                ParentForm.Location = new(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
+                ParentForm.Location = new((SB.Width / 2) - (CB.Width / 2), (SB.Height / 2) - (CB.Height / 2));
             }
             HasShown = true;
         }
@@ -426,7 +426,7 @@ namespace ReaLTaiizor.Forms
 
         public DungeonForm()
         {
-            SetStyle((ControlStyles)(139270), true);
+            SetStyle((ControlStyles)139270, true);
             BackColor = Color.FromArgb(244, 241, 243);
             ForeColor = Color.FromArgb(223, 219, 210);
             Padding = new Padding(20, 56, 20, 16);

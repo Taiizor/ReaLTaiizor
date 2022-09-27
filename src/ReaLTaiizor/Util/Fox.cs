@@ -37,7 +37,7 @@ namespace ReaLTaiizor.Util
             SizeF TS = G.MeasureString(T, F);
 
             using SolidBrush B = new(C);
-            G.DrawString(T, F, B, new Point((int)(R.X + R.Width / 2 - (TS.Width / 2)), (int)(R.Y + R.Height / 2 - (TS.Height / 2))));
+            G.DrawString(T, F, B, new Point((int)(R.X + (R.Width / 2) - (TS.Width / 2)), (int)(R.Y + (R.Height / 2) - (TS.Height / 2))));
         }
 
         public static Color ColorFromHex(string Hex)

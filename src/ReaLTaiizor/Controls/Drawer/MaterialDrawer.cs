@@ -356,10 +356,10 @@ namespace ReaLTaiizor.Controls
                    _drawerItemRects[currentTabIndex].Y + (drawerItemHeight / 2) - (_ShowTabControl.ImageList.Images[tabPage.ImageKey].Height / 2),
                    _ShowTabControl.ImageList.Images[tabPage.ImageKey].Width, _ShowTabControl.ImageList.Images[tabPage.ImageKey].Height);
 
-                textureBrushGray.TranslateTransform(iconRect.X + iconRect.Width / 2 - _ShowTabControl.ImageList.Images[tabPage.ImageKey].Width / 2,
-                                                    iconRect.Y + iconRect.Height / 2 - _ShowTabControl.ImageList.Images[tabPage.ImageKey].Height / 2);
-                textureBrushColor.TranslateTransform(iconRect.X + iconRect.Width / 2 - _ShowTabControl.ImageList.Images[tabPage.ImageKey].Width / 2,
-                                                     iconRect.Y + iconRect.Height / 2 - _ShowTabControl.ImageList.Images[tabPage.ImageKey].Height / 2);
+                textureBrushGray.TranslateTransform(iconRect.X + (iconRect.Width / 2) - (_ShowTabControl.ImageList.Images[tabPage.ImageKey].Width / 2),
+                                                    iconRect.Y + (iconRect.Height / 2) - (_ShowTabControl.ImageList.Images[tabPage.ImageKey].Height / 2));
+                textureBrushColor.TranslateTransform(iconRect.X + (iconRect.Width / 2) - (_ShowTabControl.ImageList.Images[tabPage.ImageKey].Width / 2),
+                                                     iconRect.Y + (iconRect.Height / 2) - (_ShowTabControl.ImageList.Images[tabPage.ImageKey].Height / 2));
 
                 // add to dictionary
                 iconsBrushes.Add(tabPage.ImageKey, textureBrushGray);
@@ -445,8 +445,8 @@ namespace ReaLTaiizor.Controls
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         protected override void InitLayout()
         {
-            drawerItemHeight = TAB_HEADER_PADDING * 2 - SkinManager.FORM_PADDING / 2;
-            MinWidth = (int)(SkinManager.FORM_PADDING * 1.5 + drawerItemHeight);
+            drawerItemHeight = (TAB_HEADER_PADDING * 2) - (SkinManager.FORM_PADDING / 2);
+            MinWidth = (int)((SkinManager.FORM_PADDING * 1.5) + drawerItemHeight);
             _showHideAnimManager.SetProgress(_isOpen ? 0 : 1);
             showHideAnimation();
             Invalidate();
@@ -535,7 +535,7 @@ namespace ReaLTaiizor.Controls
                     SkinManager.ColorScheme.LightPrimaryColor)); // dark theme
 
                 g.SetClip(_drawerItemPaths[_ShowTabControl.SelectedIndex]);
-                g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X + dx - (rSize / 2), _animationSource.Y - rSize / 2, rSize, rSize));
+                g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X + dx - (rSize / 2), _animationSource.Y - (rSize / 2), rSize, rSize));
                 g.ResetClip();
                 rippleBrush.Dispose();
             }
@@ -769,11 +769,11 @@ namespace ReaLTaiizor.Controls
             //Calculate the bounds of each tab header specified in the base tab control
             for (int i = 0; i < _ShowTabControl.TabPages.Count; i++)
             {
-                _drawerItemRects[i] = (new Rectangle(
+                _drawerItemRects[i] = new Rectangle(
                     (int)(SkinManager.FORM_PADDING * 0.75) - (ShowIconsWhenHidden ? Location.X : 0),
-                    (TAB_HEADER_PADDING * 2) * i + (SkinManager.FORM_PADDING >> 1),
-                    (Width + (ShowIconsWhenHidden ? Location.X : 0)) - (int)(SkinManager.FORM_PADDING * 1.5) - 1,
-                    drawerItemHeight));
+                    (TAB_HEADER_PADDING * 2 * i) + (SkinManager.FORM_PADDING >> 1),
+                    Width + (ShowIconsWhenHidden ? Location.X : 0) - (int)(SkinManager.FORM_PADDING * 1.5) - 1,
+                    drawerItemHeight);
 
                 _drawerItemPaths[i] = CreateRoundRect(new RectangleF(_drawerItemRects[i].X - 0.5f, _drawerItemRects[i].Y - 0.5f, _drawerItemRects[i].Width, _drawerItemRects[i].Height), 4);
             }

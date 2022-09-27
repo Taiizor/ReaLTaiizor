@@ -149,12 +149,12 @@ namespace ReaLTaiizor.Controls
             cancelButton.Hide();
             retryButton.Hide();
 
-            int messageBoxHeight = (Height / 3);
+            int messageBoxHeight = Height / 3;
             int buttonHeight = (messageBoxHeight * 2) - 45;
             int buttonWidth = okButton.Width;
-            int oneButtonRight = (Width - buttonWidth) - 10;
-            int twoButtonRight = (Width - (buttonWidth * 2)) - 20;
-            int threeButtonRight = (Width - (buttonWidth * 3)) - 30;
+            int oneButtonRight = Width - buttonWidth - 10;
+            int twoButtonRight = Width - (buttonWidth * 2) - 20;
+            int threeButtonRight = Width - (buttonWidth * 3) - 30;
 
             if (Buttons == MessageBoxButtons.OK)
             {
@@ -211,8 +211,8 @@ namespace ReaLTaiizor.Controls
 
             Rectangle messageRect = new()
             {
-                Size = new(Width, (Height / 3)),
-                Location = new(0, ((Height - (Height / 3)) / 2))
+                Size = new(Width, Height / 3),
+                Location = new(0, (Height - (Height / 3)) / 2)
             };
 
             Font messageFont = new(Font.FontFamily, 12.75f, FontStyle.Regular);

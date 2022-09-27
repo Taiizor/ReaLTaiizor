@@ -260,7 +260,7 @@ namespace ReaLTaiizor.Controls
                 case 0:
                     _G.FillPath(InactiveGB, Shape);
                     _G.DrawPath(P1, Shape);
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         _G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
@@ -282,7 +282,7 @@ namespace ReaLTaiizor.Controls
                     _G.FillPath(PressedGB, Shape);
                     _G.DrawPath(P3, Shape);
 
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         _G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {

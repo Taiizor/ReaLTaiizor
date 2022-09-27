@@ -280,9 +280,9 @@ namespace ReaLTaiizor.Controls
         private void FillRoundedRectangle(Graphics Gfx, Color ButtonColor, int CornerRadius)
         {
             using GraphicsPath graphicsPath = new();
-            graphicsPath.AddArc(base.Width - CornerRadius * 2 - 2, 0, CornerRadius * 2, CornerRadius * 2, 270f, 90f);
-            graphicsPath.AddArc(base.Width - CornerRadius * 2 - 2, base.Height - CornerRadius * 2, CornerRadius * 2, CornerRadius * 2 - 2, 0f, 90f);
-            graphicsPath.AddArc(0, base.Height - CornerRadius * 2 - 2, CornerRadius * 2 - 2, CornerRadius * 2, 90f, 90f);
+            graphicsPath.AddArc(base.Width - (CornerRadius * 2) - 2, 0, CornerRadius * 2, CornerRadius * 2, 270f, 90f);
+            graphicsPath.AddArc(base.Width - (CornerRadius * 2) - 2, base.Height - (CornerRadius * 2), CornerRadius * 2, (CornerRadius * 2) - 2, 0f, 90f);
+            graphicsPath.AddArc(0, base.Height - (CornerRadius * 2) - 2, (CornerRadius * 2) - 2, CornerRadius * 2, 90f, 90f);
             graphicsPath.AddArc(0, 0, CornerRadius * 2, CornerRadius * 2, 180f, 90f);
             graphicsPath.CloseFigure();
             Gfx.FillPath(new SolidBrush(ButtonColor), graphicsPath);
@@ -291,9 +291,9 @@ namespace ReaLTaiizor.Controls
         private void DrawRoundedRectangle(Graphics Gfx, Color borderColor, int CornerRadius, int borderThickness)
         {
             using GraphicsPath graphicsPath = new();
-            graphicsPath.AddArc(base.Width - CornerRadius * 2 - 2, 0, CornerRadius * 2, CornerRadius * 2, 270f, 90f);
-            graphicsPath.AddArc(base.Width - CornerRadius * 2 - 2, base.Height - CornerRadius * 2, CornerRadius * 2, CornerRadius * 2 - 2, 0f, 90f);
-            graphicsPath.AddArc(0, base.Height - CornerRadius * 2 - 2, CornerRadius * 2 - 2, CornerRadius * 2, 90f, 90f);
+            graphicsPath.AddArc(base.Width - (CornerRadius * 2) - 2, 0, CornerRadius * 2, CornerRadius * 2, 270f, 90f);
+            graphicsPath.AddArc(base.Width - (CornerRadius * 2) - 2, base.Height - (CornerRadius * 2), CornerRadius * 2, (CornerRadius * 2) - 2, 0f, 90f);
+            graphicsPath.AddArc(0, base.Height - (CornerRadius * 2) - 2, (CornerRadius * 2) - 2, CornerRadius * 2, 90f, 90f);
             graphicsPath.AddArc(0, 0, CornerRadius * 2, CornerRadius * 2, 180f, 90f);
             graphicsPath.CloseFigure();
             Gfx.DrawPath(new Pen(borderColor, borderThickness), graphicsPath);
@@ -314,7 +314,7 @@ namespace ReaLTaiizor.Controls
             }
             if (buttonStyle == Style.MaterialRounded)
             {
-                if (Height / 2 - 1 != 0)
+                if ((Height / 2) - 1 != 0)
                 {
                     FillRoundedRectangle(e.Graphics, CurrentBackColor, cornerRadius);
                 }
@@ -325,17 +325,17 @@ namespace ReaLTaiizor.Controls
             }
             if (buttonStyle == Style.Invert)
             {
-                if (Height / 2 - 1 != 0)
+                if ((Height / 2) - 1 != 0)
                 {
-                    FillRoundedRectangle(e.Graphics, CurrentBackColor, Height / 2 - 1);
+                    FillRoundedRectangle(e.Graphics, CurrentBackColor, (Height / 2) - 1);
                 }
                 else
                 {
                     FillRoundedRectangle(e.Graphics, CurrentBackColor, Height / 2);
                 }
-                if (Height / 2 - 1 != 0)
+                if ((Height / 2) - 1 != 0)
                 {
-                    DrawRoundedRectangle(e.Graphics, CurrentForeColor, Height / 2 - 1, 2);
+                    DrawRoundedRectangle(e.Graphics, CurrentForeColor, (Height / 2) - 1, 2);
                 }
                 else
                 {
@@ -354,17 +354,17 @@ namespace ReaLTaiizor.Controls
                 hoverForeColor = Color.FromArgb(235, 235, 215);
                 clickBackcolor = Color.FromArgb(65, 75, 80);
                 clickForecolor = Color.FromArgb(125, 130, 140);
-                if (Height / 2 - 1 != 0)
+                if ((Height / 2) - 1 != 0)
                 {
-                    FillRoundedRectangle(e.Graphics, CurrentBackColor, Height / 2 - 1);
+                    FillRoundedRectangle(e.Graphics, CurrentBackColor, (Height / 2) - 1);
                 }
                 else
                 {
                     FillRoundedRectangle(e.Graphics, CurrentBackColor, Height / 2);
                 }
-                if (Height / 2 - 1 != 0)
+                if ((Height / 2) - 1 != 0)
                 {
-                    DrawRoundedRectangle(e.Graphics, Color.Black, Height / 2 - 1, 1);
+                    DrawRoundedRectangle(e.Graphics, Color.Black, (Height / 2) - 1, 1);
                 }
                 else
                 {
@@ -376,7 +376,7 @@ namespace ReaLTaiizor.Controls
                 backColor = Color.White;
                 foreColor = Color.Black;
                 Font = new Font("Microsoft Sans Serif", 14f);
-                if (Height / 2 - 1 != 0)
+                if ((Height / 2) - 1 != 0)
                 {
                     FillRoundedRectangle(e.Graphics, CurrentBackColor, 8);
                 }
@@ -384,7 +384,7 @@ namespace ReaLTaiizor.Controls
                 {
                     FillRoundedRectangle(e.Graphics, CurrentBackColor, 8);
                 }
-                if (Height / 2 - 1 != 0)
+                if ((Height / 2) - 1 != 0)
                 {
                     DrawRoundedRectangle(e.Graphics, Color.FromArgb(163, 163, 163), 8, 2);
                 }
@@ -408,7 +408,7 @@ namespace ReaLTaiizor.Controls
                 }
                 if (imagePosition == ImgPosition.Center)
                 {
-                    e.Graphics.DrawImage(new Bitmap(buttonImage, base.Height - 2, base.Height - 2), base.Width / 2 - Height / 2, 1);
+                    e.Graphics.DrawImage(new Bitmap(buttonImage, base.Height - 2, base.Height - 2), (base.Width / 2) - (Height / 2), 1);
                 }
             }
             if (imagePosition != ImgPosition.Center || buttonImage == null)

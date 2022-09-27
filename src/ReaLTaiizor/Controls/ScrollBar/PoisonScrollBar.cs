@@ -819,7 +819,7 @@ namespace ReaLTaiizor.Controls
                     int oldScrollValue = curValue;
 
                     int pos = poisonOrientation == ScrollOrientationType.Vertical ? e.Location.Y : e.Location.X;
-                    int thumbSize = poisonOrientation == ScrollOrientationType.Vertical ? (pos / Height) / thumbHeight : (pos / Width) / thumbWidth;
+                    int thumbSize = poisonOrientation == ScrollOrientationType.Vertical ? pos / Height / thumbHeight : pos / Width / thumbWidth;
 
                     if (pos <= (thumbTopLimit + thumbPosition))
                     {
@@ -854,7 +854,7 @@ namespace ReaLTaiizor.Controls
 
                         if (pixelRange != 0)
                         {
-                            perc = (thumbPos) / (float)pixelRange;
+                            perc = thumbPos / (float)pixelRange;
                         }
 
                         curValue = Convert.ToInt32((perc * (maximum - minimum)) + minimum);
@@ -1086,7 +1086,7 @@ namespace ReaLTaiizor.Controls
                 return 0;
             }
 
-            int thumbSize = poisonOrientation == ScrollOrientationType.Vertical ? (thumbPosition / Height) / thumbHeight : (thumbPosition / Width) / thumbWidth;
+            int thumbSize = poisonOrientation == ScrollOrientationType.Vertical ? thumbPosition / Height / thumbHeight : thumbPosition / Width / thumbWidth;
 
             if (Orientation == ScrollOrientationType.Vertical)
             {
@@ -1105,7 +1105,7 @@ namespace ReaLTaiizor.Controls
                 perc = (curValue - (float)minimum) / realRange;
             }
 
-            return Math.Max(thumbTopLimit, Math.Min(thumbBottomLimitTop, Convert.ToInt32((perc * pixelRange))));
+            return Math.Max(thumbTopLimit, Math.Min(thumbBottomLimitTop, Convert.ToInt32(perc * pixelRange)));
         }
 
         private int GetThumbSize()
@@ -1119,7 +1119,7 @@ namespace ReaLTaiizor.Controls
                 return trackSize;
             }
 
-            float newThumbSize = (largeChange * (float)trackSize) / maximum;
+            float newThumbSize = largeChange * (float)trackSize / maximum;
 
             return Convert.ToInt32(Math.Min(trackSize, Math.Max(newThumbSize, 10f)));
         }

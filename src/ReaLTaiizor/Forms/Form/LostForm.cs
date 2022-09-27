@@ -100,7 +100,7 @@ namespace ReaLTaiizor.Forms
 
         public override Rectangle ShadeRect(int index)
         {
-            return new Rectangle(1 - index, 1 - index, Width - 2 + index * 2, 30 + index * 2);
+            return new Rectangle(1 - index, 1 - index, Width - 2 + (index * 2), 30 + (index * 2));
         }
 
         protected override CreateParams CreateParams
@@ -152,25 +152,25 @@ namespace ReaLTaiizor.Forms
                 ///allow resize on the top border
                 if (pt.Y <= 2 && clientSize.Height >= 2)
                 {
-                    m.Result = (IntPtr)(htTop);
+                    m.Result = (IntPtr)htTop;
                     return;
                 }
                 ///allow resize on the bottom border
                 if (pt.Y >= clientSize.Height - gripDist && clientSize.Height >= gripDist)
                 {
-                    m.Result = (IntPtr)(htBottom);
+                    m.Result = (IntPtr)htBottom;
                     return;
                 }
                 ///allow resize on the left border
                 if (pt.X <= gripDist && clientSize.Height >= gripDist)
                 {
-                    m.Result = (IntPtr)(htLeft);
+                    m.Result = (IntPtr)htLeft;
                     return;
                 }
                 ///allow resize on the right border
                 if (pt.X >= clientSize.Width - gripDist && clientSize.Height >= gripDist)
                 {
-                    m.Result = (IntPtr)(htRight);
+                    m.Result = (IntPtr)htRight;
                     return;
                 }
             }

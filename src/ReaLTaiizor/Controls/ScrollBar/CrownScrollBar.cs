@@ -336,14 +336,14 @@ namespace ReaLTaiizor.Controls
 
                 if (_scrollOrientation == Enum.Crown.ScrollOrientation.Vertical)
                 {
-                    int thumbPos = (_initialValue - _trackArea.Top);
+                    int thumbPos = _initialValue - _trackArea.Top;
                     int newPosition = thumbPos + difference.Y;
 
                     ScrollToPhysical(newPosition);
                 }
                 else if (_scrollOrientation == Enum.Crown.ScrollOrientation.Horizontal)
                 {
-                    int thumbPos = (_initialValue - _trackArea.Left);
+                    int thumbPos = _initialValue - _trackArea.Left;
                     int newPosition = thumbPos + difference.X;
 
                     ScrollToPhysical(newPosition);
@@ -398,7 +398,7 @@ namespace ReaLTaiizor.Controls
             int trackAreaSize = isVert ? _trackArea.Height - _thumbArea.Height : _trackArea.Width - _thumbArea.Width;
 
             float positionRatio = positionInPixels / (float)trackAreaSize;
-            int viewScrollSize = (Maximum - ViewSize);
+            int viewScrollSize = Maximum - ViewSize;
 
             int newValue = (int)(positionRatio * viewScrollSize);
             Value = newValue;

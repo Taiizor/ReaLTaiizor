@@ -69,7 +69,7 @@ namespace ReaLTaiizor.Extension
 
         public static int PercentageToColorComponent(this int percentage)
         {
-            return (int)((percentage / 100d) * 255d);
+            return (int)(percentage / 100d * 255d);
         }
     }
 

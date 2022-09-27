@@ -313,9 +313,9 @@ namespace ReaLTaiizor.Controls
 
             if (rightItem == NavigationItem.Menu)
             {
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + base.Height / 5, base.Height / 4, base.Width - base.Height + base.Height / 5 * 4, base.Height / 4);
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + base.Height / 5, base.Height / 4 * 2, base.Width - base.Height + base.Height / 5 * 4, base.Height / 4 * 2);
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + base.Height / 5, base.Height / 4 * 3, base.Width - base.Height + base.Height / 5 * 4, base.Height / 4 * 3);
+                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4);
+                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4 * 2, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4 * 2);
+                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4 * 3, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4 * 3);
                 return;
             }
 

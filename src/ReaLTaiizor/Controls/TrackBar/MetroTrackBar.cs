@@ -110,7 +110,7 @@ namespace ReaLTaiizor.Controls
             _maximum = 100;
             _minimum = 0;
             _value = 0;
-            _currentValue = Convert.ToInt32(Value / (double)(Maximum) - (2 * Width));
+            _currentValue = Convert.ToInt32((Value / (double)Maximum) - (2 * Width));
             UpdateStyles();
             _utl = new Utilites();
             ApplyTheme();

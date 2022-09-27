@@ -105,7 +105,7 @@ namespace ReaLTaiizor.Util
             else if (OrderOfSort == SortOrder.Descending)
             {
                 // Descending sort is selected, return negative result of compare operation
-                return (-compareResult);
+                return -compareResult;
             }
             else
             {

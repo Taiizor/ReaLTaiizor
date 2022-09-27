@@ -58,7 +58,7 @@ namespace ReaLTaiizor.Controls
                 G.DrawString(Text, font, solidBrush2, new Point(30, 6));
             }
             using Image image = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64)));
-            G.DrawImage(image, new Rectangle(8, checked((int)Math.Round(unchecked(Height / 2.0 - 8.0))), 16, 16));
+            G.DrawImage(image, new Rectangle(8, checked((int)Math.Round(unchecked((Height / 2.0) - 8.0))), 16, 16));
         }
 
         protected override void OnMouseUp(MouseEventArgs e)

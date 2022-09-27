@@ -553,7 +553,7 @@ namespace ReaLTaiizor.Controls
                     pWnd = WinApi.GetWindow(pWnd, WinApi.GW_HWNDNEXT);
                 }
 
-                if ((!bFound) && (bUpDown))
+                if ((!bFound) && bUpDown)
                 {
                     bUpDown = false;
                 }
@@ -680,7 +680,7 @@ namespace ReaLTaiizor.Controls
                 }
             );
 
-            return (result != null);
+            return result != null;
         }
         #endregion
     }

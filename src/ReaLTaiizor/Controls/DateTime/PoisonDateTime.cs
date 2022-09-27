@@ -270,7 +270,7 @@ namespace ReaLTaiizor.Controls
                 _check = 15;
                 using (Pen p = new(borderColor))
                 {
-                    Rectangle boxRect = new(3, Height / 2 - 6, 12, 12);
+                    Rectangle boxRect = new(3, (Height / 2) - 6, 12, 12);
                     e.Graphics.DrawRectangle(p, boxRect);
                 }
 
@@ -280,7 +280,7 @@ namespace ReaLTaiizor.Controls
                     Color fillColor = PoisonPaint.GetStyleColor(Style);
 
                     using SolidBrush b = new(fillColor);
-                    Rectangle boxRect = new(5, Height / 2 - 4, 9, 9);
+                    Rectangle boxRect = new(5, (Height / 2) - 4, 9, 9);
                     e.Graphics.FillRectangle(b, boxRect);
                 }
                 else

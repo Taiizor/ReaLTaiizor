@@ -421,7 +421,7 @@ namespace ReaLTaiizor.Controls
                 switch (DefaultLocation)
                 {
                     case LocationType.Space:
-                        Location = new((Parent.Width - Width) - 12, 13);
+                        Location = new(Parent.Width - Width - 12, 13);
                         break;
                     case LocationType.Edge:
                         Location = new(Parent.Width - Width, 0);

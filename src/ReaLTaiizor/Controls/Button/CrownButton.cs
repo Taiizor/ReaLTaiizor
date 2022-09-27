@@ -394,11 +394,11 @@ namespace ReaLTaiizor.Controls
                 {
                     case TextImageRelation.ImageAboveText:
                         textOffsetY = (Image.Size.Height / 2) + (ImagePadding / 2);
-                        y -= ((int)(stringSize.Height / 2) + (ImagePadding / 2));
+                        y -= (int)(stringSize.Height / 2) + (ImagePadding / 2);
                         break;
                     case TextImageRelation.TextAboveImage:
                         textOffsetY = ((Image.Size.Height / 2) + (ImagePadding / 2)) * -1;
-                        y += ((int)(stringSize.Height / 2) + (ImagePadding / 2));
+                        y += (int)(stringSize.Height / 2) + (ImagePadding / 2);
                         break;
                     case TextImageRelation.ImageBeforeText:
                         textOffsetX = Image.Size.Width + (ImagePadding * 2);

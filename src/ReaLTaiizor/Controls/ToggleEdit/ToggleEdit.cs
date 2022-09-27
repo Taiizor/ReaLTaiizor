@@ -135,15 +135,15 @@ namespace ReaLTaiizor.Controls
         private void AnimationTimer_Tick(object sender, EventArgs e)
         {
             //  Create a slide animation when toggled on/off
-            if ((_Toggled == true))
+            if (_Toggled == true)
             {
-                if ((ToggleLocation < 100))
+                if (ToggleLocation < 100)
                 {
                     ToggleLocation += 10;
                     Invalidate(false);
                 }
             }
-            else if ((ToggleLocation > 0))
+            else if (ToggleLocation > 0)
             {
                 ToggleLocation -= 10;
                 Invalidate(false);
@@ -157,19 +157,19 @@ namespace ReaLTaiizor.Controls
             G.Clear(Parent.BackColor);
             checked
             {
-                Point point = new(0, (int)Math.Round(unchecked(Height / 2.0 - cHandle.Height / 2.0)));
+                Point point = new(0, (int)Math.Round(unchecked((Height / 2.0) - (cHandle.Height / 2.0))));
                 Point arg_A8_0 = point;
-                Point point2 = new(0, (int)Math.Round(unchecked(Height / 2.0 + cHandle.Height / 2.0)));
+                Point point2 = new(0, (int)Math.Round(unchecked((Height / 2.0) + (cHandle.Height / 2.0))));
                 LinearGradientBrush Gradient = new(arg_A8_0, point2, Color.FromArgb(250, 250, 250), Color.FromArgb(240, 240, 240));
                 Bar = new(8, 10, Width - 21, Height - 21);
 
                 G.SmoothingMode = SmoothingMode.AntiAlias;
-                G.FillPath(Gradient, (GraphicsPath)Pill(0, (int)Math.Round(unchecked(Height / 2.0 - cHandle.Height / 2.0)), Width - 1, cHandle.Height - 5, new ToggleEdit.PillStyle
+                G.FillPath(Gradient, (GraphicsPath)Pill(0, (int)Math.Round(unchecked((Height / 2.0) - (cHandle.Height / 2.0))), Width - 1, cHandle.Height - 5, new ToggleEdit.PillStyle
                 {
                     Left = true,
                     Right = true
                 }));
-                G.DrawPath(new(Color.FromArgb(177, 177, 176)), (GraphicsPath)Pill(0, (int)Math.Round(unchecked(Height / 2.0 - cHandle.Height / 2.0)), Width - 1, cHandle.Height - 5, new ToggleEdit.PillStyle
+                G.DrawPath(new(Color.FromArgb(177, 177, 176)), (GraphicsPath)Pill(0, (int)Math.Round(unchecked((Height / 2.0) - (cHandle.Height / 2.0))), Width - 1, cHandle.Height - 5, new ToggleEdit.PillStyle
                 {
                     Left = true,
                     Right = true
@@ -241,8 +241,8 @@ namespace ReaLTaiizor.Controls
                             break;
                         }
                 }
-                G.FillEllipse(new SolidBrush(Color.FromArgb(249, 249, 249)), Bar.X + (int)Math.Round(unchecked(Bar.Width * (ToggleLocation / 80.0))) - (int)Math.Round(cHandle.Width / 2.0), Bar.Y + (int)Math.Round(Bar.Height / 2.0) - (int)Math.Round(unchecked(cHandle.Height / 2.0 - 1.0)), cHandle.Width, cHandle.Height - 5);
-                G.DrawEllipse(new(Color.FromArgb(177, 177, 176)), Bar.X + (int)Math.Round(unchecked(Bar.Width * (ToggleLocation / 80.0) - checked((int)Math.Round(cHandle.Width / 2.0)))), Bar.Y + (int)Math.Round(Bar.Height / 2.0) - (int)Math.Round(unchecked(cHandle.Height / 2.0 - 1.0)), cHandle.Width, cHandle.Height - 5);
+                G.FillEllipse(new SolidBrush(Color.FromArgb(249, 249, 249)), Bar.X + (int)Math.Round(unchecked(Bar.Width * (ToggleLocation / 80.0))) - (int)Math.Round(cHandle.Width / 2.0), Bar.Y + (int)Math.Round(Bar.Height / 2.0) - (int)Math.Round(unchecked((cHandle.Height / 2.0) - 1.0)), cHandle.Width, cHandle.Height - 5);
+                G.DrawEllipse(new(Color.FromArgb(177, 177, 176)), Bar.X + (int)Math.Round(unchecked((Bar.Width * (ToggleLocation / 80.0)) - checked((int)Math.Round(cHandle.Width / 2.0)))), Bar.Y + (int)Math.Round(Bar.Height / 2.0) - (int)Math.Round(unchecked((cHandle.Height / 2.0) - 1.0)), cHandle.Width, cHandle.Height - 5);
             }
         }
     }

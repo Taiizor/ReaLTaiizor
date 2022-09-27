@@ -325,7 +325,7 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);
+            e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();
         }

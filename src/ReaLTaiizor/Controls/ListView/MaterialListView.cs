@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
                 SkinManager.GetLogFontByType(MaterialManager.FontType.Subtitle2),
                 Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 new Point(e.Bounds.Location.X + PAD, e.Bounds.Location.Y),
-                new Size(e.Bounds.Size.Width - PAD * 2, e.Bounds.Size.Height),
+                new Size(e.Bounds.Size.Width - (PAD * 2), e.Bounds.Size.Height),
                 MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Controls
                     SkinManager.GetLogFontByType(MaterialManager.FontType.Body2),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     new Point(subItem.Bounds.X + PAD, subItem.Bounds.Y),
-                    new Size(subItem.Bounds.Width - PAD * 2, subItem.Bounds.Height),
+                    new Size(subItem.Bounds.Width - (PAD * 2), subItem.Bounds.Height),
                     MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
         }

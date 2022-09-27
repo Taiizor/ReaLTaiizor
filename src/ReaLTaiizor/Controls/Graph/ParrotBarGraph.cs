@@ -390,7 +390,7 @@ namespace ReaLTaiizor.Controls
 
                         foreach (int num10 in list2)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(list3[num7]), new RectangleF(num6, base.Height - num10 * num9, num8, Height));
+                            e.Graphics.FillRectangle(new SolidBrush(list3[num7]), new RectangleF(num6, base.Height - (num10 * num9), num8, Height));
                             StringFormat stringFormat3 = new()
                             {
                                 Alignment = StringAlignment.Center
@@ -399,7 +399,7 @@ namespace ReaLTaiizor.Controls
                             SolidBrush brush3 = new(list3[num7]);
                             RectangleF layoutRectangle3 = default;
 
-                            layoutRectangle3 = new RectangleF(num6, base.Height - num10 * num9 - Font.Size / 2f * 3f, num8, Font.Size * 2f);
+                            layoutRectangle3 = new RectangleF(num6, base.Height - (num10 * num9) - (Font.Size / 2f * 3f), num8, Font.Size * 2f);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
                             e.Graphics.TextRenderingHint = TextRenderingType;
@@ -435,7 +435,7 @@ namespace ReaLTaiizor.Controls
                             SolidBrush brush4 = new(list3[num7]);
                             RectangleF layoutRectangle4 = default;
 
-                            layoutRectangle4 = new RectangleF(num13 * num12, num6, base.Width - num13 * num12, num11);
+                            layoutRectangle4 = new RectangleF(num13 * num12, num6, base.Width - (num13 * num12), num11);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
                             e.Graphics.TextRenderingHint = TextRenderingType;

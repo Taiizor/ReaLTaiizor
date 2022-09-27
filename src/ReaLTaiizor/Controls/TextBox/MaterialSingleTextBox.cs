@@ -564,7 +564,7 @@ namespace ReaLTaiizor.Controls
                 //Animate
                 int animationWidth = (int)(_baseTextBox.Width * _animationManager.GetProgress());
                 int halfAnimationWidth = animationWidth / 2;
-                int animationStart = _baseTextBox.Location.X + _baseTextBox.Width / 2;
+                int animationStart = _baseTextBox.Location.X + (_baseTextBox.Width / 2);
 
                 //Unfocused background
                 g.FillRectangle(SkinManager.DividersBrush, _baseTextBox.Location.X, lineY, _baseTextBox.Width, 1);

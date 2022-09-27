@@ -453,12 +453,12 @@ namespace ReaLTaiizor.Controls
             switch (Orientation)
             {
                 case ScrollOrientate.Vertical:
-                    thumbPosition = e.Y - _thumbSize / 2;
+                    thumbPosition = e.Y - (_thumbSize / 2);
                     thumbBounds = _bar.Height - _thumbSize;
                     _val = Convert.ToInt32((double)thumbPosition / thumbBounds * (Maximum - Minimum)) - Minimum;
                     break;
                 case ScrollOrientate.Horizontal:
-                    thumbPosition = e.X - _thumbSize / 2;
+                    thumbPosition = e.X - (_thumbSize / 2);
                     thumbBounds = _bar.Width - _thumbSize;
                     _val = Convert.ToInt32((double)thumbPosition / thumbBounds * (Maximum - Minimum)) - Minimum;
                     break;

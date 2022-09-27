@@ -343,7 +343,7 @@ namespace ReaLTaiizor.Forms
 
             if (displayHeader)
             {
-                Rectangle bounds = new(20, 20, ClientRectangle.Width - 2 * 20, 40);
+                Rectangle bounds = new(20, 20, ClientRectangle.Width - (2 * 20), 40);
                 TextFormatFlags flags = TextFormatFlags.EndEllipsis | GetTextFormatFlags();
                 TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Title, bounds, foreColor, flags);
             }
@@ -614,7 +614,7 @@ namespace ReaLTaiizor.Forms
                 }
             }
 
-            if (RectangleToScreen(new Rectangle(borderWidth, borderWidth, ClientRectangle.Width - 2 * borderWidth, 50)).Contains(vPoint))
+            if (RectangleToScreen(new Rectangle(borderWidth, borderWidth, ClientRectangle.Width - (2 * borderWidth), 50)).Contains(vPoint))
             {
                 return WinApi.HitTest.HTCAPTION;
             }
@@ -1365,7 +1365,7 @@ namespace ReaLTaiizor.Forms
             private Image DrawOutsetShadow(Color color, Rectangle shadowCanvasArea)
             {
                 Rectangle rOuter = shadowCanvasArea;
-                Rectangle rInner = new(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - (-Offset.X * 2 - 1), shadowCanvasArea.Height - (-Offset.Y * 2 - 1));
+                Rectangle rInner = new(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - ((-Offset.X * 2) - 1), shadowCanvasArea.Height - ((-Offset.Y * 2) - 1));
 
                 Bitmap img = new(rOuter.Width, rOuter.Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
@@ -1499,8 +1499,8 @@ namespace ReaLTaiizor.Forms
                 int currentBlur = 0;
                 do
                 {
-                    double transparency = (rOuter.Height - rInner.Height) / (double)(blur * 2 + spread * 2);
-                    Color shadowColor = Color.FromArgb(((int)(200 * (transparency * transparency))), color);
+                    double transparency = (rOuter.Height - rInner.Height) / (double)((blur * 2) + (spread * 2));
+                    Color shadowColor = Color.FromArgb((int)(200 * (transparency * transparency)), color);
                     Rectangle rOutput = rInner;
                     rOutput.Offset(-originalOuter.Left, -originalOuter.Top);
 

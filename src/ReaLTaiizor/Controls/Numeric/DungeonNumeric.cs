@@ -203,7 +203,7 @@ namespace ReaLTaiizor.Controls
             {
                 if (KeyboardNum == true)
                 {
-                    _Value = long.Parse((_Value).ToString() + e.KeyChar.ToString().ToString());
+                    _Value = long.Parse(_Value.ToString() + e.KeyChar.ToString().ToString());
                 }
 
                 if (_Value > _Maximum)
@@ -315,7 +315,7 @@ namespace ReaLTaiizor.Controls
                     G.DrawString(Convert.ToString(Value), Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 15, Height - 1), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                     break;
             }
-            e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);
+            e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();
         }
