@@ -1,6 +1,7 @@
 ﻿using ReaLTaiizor.Colors;
 using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System;
 using System.Text;
@@ -10,14 +11,14 @@ namespace ReaLTaiizor.UI
 {
     public partial class Form17 : MaterialForm
     {
-        private readonly MaterialManager materialManager;
+        private readonly MaterialSkinManager materialManager;
 
         public Form17()
         {
             InitializeComponent();
 
             // Initialize MaterialManager
-            materialManager = MaterialManager.Instance;
+            materialManager = MaterialSkinManager.Instance;
 
             // Set this to false to disable backcolor enforcing on non-materialSkin components
             // This HAS to be set before the AddFormToManage()
@@ -25,7 +26,7 @@ namespace ReaLTaiizor.UI
 
             // MaterialManager properties
             materialManager.AddFormToManage(this);
-            materialManager.Theme = MaterialManager.Themes.LIGHT;
+            materialManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
 
             // Add dummy data to the listview
@@ -61,7 +62,7 @@ namespace ReaLTaiizor.UI
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            materialManager.Theme = materialManager.Theme == MaterialManager.Themes.DARK ? MaterialManager.Themes.LIGHT : MaterialManager.Themes.DARK;
+            materialManager.Theme = materialManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
             updateColor();
         }
 
@@ -85,9 +86,9 @@ namespace ReaLTaiizor.UI
             {
                 case 0:
                     materialManager.ColorScheme = new MaterialColorScheme(
-                        materialManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
-                        materialManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
-                        materialManager.Theme == MaterialManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
+                        materialManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal500 : MaterialPrimary.Indigo500,
+                        materialManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
+                        materialManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
                         MaterialAccent.Pink200,
                         MaterialTextShade.WHITE);
                     break;
