@@ -42,8 +42,13 @@
             this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
             this.materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
-            this.materialScrollBar3 = new ReaLTaiizor.Controls.MaterialScrollBar();
-            this.materialScrollBar4 = new ReaLTaiizor.Controls.MaterialScrollBar();
+            this.materialProgressBar1 = new ReaLTaiizor.Controls.MaterialProgressBar();
+            this.materialProgressBar2 = new ReaLTaiizor.Controls.MaterialProgressBar();
+            this.materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialLabel3 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialLabel4 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.materialMaskedTextBox1 = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -253,39 +258,138 @@
             this.materialExpansionPanel1.UseAccentColor = true;
             this.materialExpansionPanel1.ValidationButtonEnable = true;
             // 
-            // materialScrollBar3
+            // materialProgressBar1
             // 
-            this.materialScrollBar3.Depth = 0;
-            this.materialScrollBar3.Location = new System.Drawing.Point(174, 359);
-            this.materialScrollBar3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialScrollBar3.Name = "materialScrollBar3";
-            this.materialScrollBar3.Orientation = ReaLTaiizor.Enum.Material.MateScrollOrientation.Horizontal;
-            this.materialScrollBar3.ScrollbarSize = 200;
-            this.materialScrollBar3.Size = new System.Drawing.Size(200, 200);
-            this.materialScrollBar3.TabIndex = 19;
-            this.materialScrollBar3.Text = "materialScrollBar3";
-            this.materialScrollBar3.UseBarColor = true;
+            this.materialProgressBar1.Depth = 0;
+            this.materialProgressBar1.Location = new System.Drawing.Point(12, 362);
+            this.materialProgressBar1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialProgressBar1.Name = "materialProgressBar1";
+            this.materialProgressBar1.Size = new System.Drawing.Size(291, 47);
+            this.materialProgressBar1.TabIndex = 16;
+            this.materialProgressBar1.UseAccentColor = false;
+            this.materialProgressBar1.Value = 50;
             // 
-            // materialScrollBar4
+            // materialProgressBar2
             // 
-            this.materialScrollBar4.Depth = 0;
-            this.materialScrollBar4.Location = new System.Drawing.Point(12, 362);
-            this.materialScrollBar4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialScrollBar4.Name = "materialScrollBar4";
-            this.materialScrollBar4.Orientation = ReaLTaiizor.Enum.Material.MateScrollOrientation.Vertical;
-            this.materialScrollBar4.ScrollbarSize = 156;
-            this.materialScrollBar4.Size = new System.Drawing.Size(156, 200);
-            this.materialScrollBar4.TabIndex = 18;
-            this.materialScrollBar4.Text = "materialScrollBar4";
-            this.materialScrollBar4.UseBarColor = true;
+            this.materialProgressBar2.Depth = 0;
+            this.materialProgressBar2.Location = new System.Drawing.Point(12, 415);
+            this.materialProgressBar2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialProgressBar2.Name = "materialProgressBar2";
+            this.materialProgressBar2.Size = new System.Drawing.Size(291, 47);
+            this.materialProgressBar2.TabIndex = 17;
+            this.materialProgressBar2.UseAccentColor = true;
+            this.materialProgressBar2.Value = 50;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.HighEmphasis = true;
+            this.materialLabel1.Location = new System.Drawing.Point(309, 374);
+            this.materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(107, 19);
+            this.materialLabel1.TabIndex = 18;
+            this.materialLabel1.Text = "materialLabel1";
+            this.materialLabel1.UseAccent = true;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(309, 393);
+            this.materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(107, 19);
+            this.materialLabel2.TabIndex = 19;
+            this.materialLabel2.Text = "materialLabel2";
+            this.materialLabel2.UseAccent = true;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.HighEmphasis = true;
+            this.materialLabel3.Location = new System.Drawing.Point(309, 412);
+            this.materialLabel3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(107, 19);
+            this.materialLabel3.TabIndex = 20;
+            this.materialLabel3.Text = "materialLabel3";
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.Location = new System.Drawing.Point(309, 431);
+            this.materialLabel4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(107, 19);
+            this.materialLabel4.TabIndex = 21;
+            this.materialLabel4.Text = "materialLabel4";
+            // 
+            // materialMaskedTextBox1
+            // 
+            this.materialMaskedTextBox1.AllowPromptAsInput = true;
+            this.materialMaskedTextBox1.AnimateReadOnly = false;
+            this.materialMaskedTextBox1.AsciiOnly = false;
+            this.materialMaskedTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialMaskedTextBox1.BeepOnError = false;
+            this.materialMaskedTextBox1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.materialMaskedTextBox1.Depth = 0;
+            this.materialMaskedTextBox1.ErrorMessage = "dsdsd";
+            this.materialMaskedTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialMaskedTextBox1.HelperText = "53X";
+            this.materialMaskedTextBox1.HidePromptOnLeave = false;
+            this.materialMaskedTextBox1.HideSelection = true;
+            this.materialMaskedTextBox1.Hint = "dsdsd";
+            this.materialMaskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.materialMaskedTextBox1.LeadingIcon = null;
+            this.materialMaskedTextBox1.Location = new System.Drawing.Point(422, 379);
+            this.materialMaskedTextBox1.Mask = "";
+            this.materialMaskedTextBox1.MaxLength = 32767;
+            this.materialMaskedTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.materialMaskedTextBox1.Name = "materialMaskedTextBox1";
+            this.materialMaskedTextBox1.PasswordChar = '\0';
+            this.materialMaskedTextBox1.PrefixSuffixText = null;
+            this.materialMaskedTextBox1.PromptChar = '_';
+            this.materialMaskedTextBox1.ReadOnly = false;
+            this.materialMaskedTextBox1.RejectInputOnFirstFailure = false;
+            this.materialMaskedTextBox1.ResetOnPrompt = true;
+            this.materialMaskedTextBox1.ResetOnSpace = true;
+            this.materialMaskedTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.materialMaskedTextBox1.SelectedText = "";
+            this.materialMaskedTextBox1.SelectionLength = 0;
+            this.materialMaskedTextBox1.SelectionStart = 0;
+            this.materialMaskedTextBox1.ShortcutsEnabled = true;
+            this.materialMaskedTextBox1.ShowAssistiveText = true;
+            this.materialMaskedTextBox1.Size = new System.Drawing.Size(250, 64);
+            this.materialMaskedTextBox1.SkipLiterals = true;
+            this.materialMaskedTextBox1.TabIndex = 22;
+            this.materialMaskedTextBox1.TabStop = false;
+            this.materialMaskedTextBox1.Text = "materialMaskedTextBox1";
+            this.materialMaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.materialMaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.materialMaskedTextBox1.TrailingIcon = null;
+            this.materialMaskedTextBox1.UseSystemPasswordChar = false;
+            this.materialMaskedTextBox1.ValidatingType = null;
             // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(976, 582);
-            this.Controls.Add(this.materialScrollBar3);
-            this.Controls.Add(this.materialScrollBar4);
+            this.Controls.Add(this.materialMaskedTextBox1);
+            this.Controls.Add(this.materialLabel4);
+            this.Controls.Add(this.materialLabel3);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.materialProgressBar2);
+            this.Controls.Add(this.materialProgressBar1);
             this.Controls.Add(this.materialExpansionPanel1);
             this.Controls.Add(this.materialSingleTextBox1);
             this.Controls.Add(this.materialButton3);
@@ -327,7 +431,12 @@
         private ReaLTaiizor.Controls.MaterialButton materialButton3;
         private ReaLTaiizor.Controls.MaterialSingleTextBox materialSingleTextBox1;
         private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
-        private ReaLTaiizor.Controls.MaterialScrollBar materialScrollBar3;
-        private ReaLTaiizor.Controls.MaterialScrollBar materialScrollBar4;
+        private ReaLTaiizor.Controls.MaterialProgressBar materialProgressBar1;
+        private ReaLTaiizor.Controls.MaterialProgressBar materialProgressBar2;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel3;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel4;
+        private ReaLTaiizor.Controls.MaterialMaskedTextBox materialMaskedTextBox1;
     }
 }

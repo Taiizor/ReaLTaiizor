@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
 using System.ComponentModel;
 using System.Drawing;
@@ -106,7 +107,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
 
             // Draw Text
             using MaterialNativeTextRenderer NativeText = new(g);
@@ -115,7 +116,9 @@ namespace ReaLTaiizor.Controls
                 SkinManager.GetLogFontByType(_fontType),
                 Enabled ? HighEmphasis ? UseAccent ?
                 SkinManager.ColorScheme.AccentColor : // High emphasis, accent
-                SkinManager.ColorScheme.PrimaryColor : // High emphasis, primary
+                (SkinManager.Theme == MaterialManager.Themes.LIGHT) ?
+                SkinManager.ColorScheme.PrimaryColor : // High emphasis, primary Light theme
+                SkinManager.ColorScheme.PrimaryColor.Lighten(0.25f) : // High emphasis, primary Dark theme
                 SkinManager.TextHighEmphasisColor : // Normal
                 SkinManager.TextDisabledOrHintColor, // Disabled
                 ClientRectangle.Location,
@@ -126,7 +129,6 @@ namespace ReaLTaiizor.Controls
         protected override void InitLayout()
         {
             Font = SkinManager.GetFontByType(_fontType);
-            BackColorChanged += (sender, args) => Refresh();
         }
     }
 
