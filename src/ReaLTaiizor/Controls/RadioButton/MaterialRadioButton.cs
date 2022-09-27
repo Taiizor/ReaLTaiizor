@@ -1,6 +1,5 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Helper;
 using ReaLTaiizor.Util;
 using System;
 using System.ComponentModel;
@@ -30,6 +29,19 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         public Point MouseLocation { get; set; }
+
+        private bool useAccentColor;
+
+        [Category("Material")]
+        public bool UseAccentColor
+        {
+            get => useAccentColor;
+            set
+            {
+                useAccentColor = value;
+                Invalidate();
+            }
+        }
 
         private bool ripple;
 
@@ -110,13 +122,13 @@ namespace ReaLTaiizor.Controls
             SizeChanged += OnSizeChanged;
 
             Ripple = true;
-            MouseLocation = new(-1, -1);
+            MouseLocation = new Point(-1, -1);
         }
 
         private void OnSizeChanged(object sender, EventArgs eventArgs)
         {
-            _boxOffset = (Height / 2) - (RADIOBUTTON_SIZE / 2);
-            _radioButtonBounds = new(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE);
+            _boxOffset = (Height / 2) - (int)(RADIOBUTTON_SIZE / 2);
+            _radioButtonBounds = new Rectangle(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE);
         }
 
         public override Size GetPreferredSize(Size proposedSize)
@@ -139,7 +151,7 @@ namespace ReaLTaiizor.Controls
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             // clear the control
-            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
 
             int RADIOBUTTON_CENTER = _boxOffset + RADIOBUTTON_SIZE_HALF;
             Point animationSource = new(RADIOBUTTON_CENTER, RADIOBUTTON_CENTER);
@@ -152,7 +164,7 @@ namespace ReaLTaiizor.Controls
             float animationSizeHalf = animationSize / 2;
             int rippleHeight = (HEIGHT_RIPPLE % 2 == 0) ? HEIGHT_RIPPLE - 3 : HEIGHT_RIPPLE - 2;
 
-            Color RadioColor = Color.FromArgb(colorAlpha, Enabled ? SkinManager.ColorScheme.AccentColor : SkinManager.CheckBoxOffDisabledColor);
+            Color RadioColor = Color.FromArgb(colorAlpha, Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : SkinManager.CheckBoxOffDisabledColor);
 
             // draw hover animation
             if (Ripple)
@@ -160,7 +172,8 @@ namespace ReaLTaiizor.Controls
                 double animationValue = _hoverAM.GetProgress();
                 int rippleSize = (int)(rippleHeight * (0.7 + (0.3 * animationValue)));
 
-                using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * animationValue), !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
+                using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * animationValue),
+                    !Checked ? (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White) : RadioColor));
                 g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize - 1, rippleSize - 1));
             }
 
@@ -178,7 +191,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // draw radiobutton circle
-            using (Pen pen = new(MaterialDrawHelper.BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
+            using (Pen pen = new(BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
             {
                 g.DrawEllipse(pen, new Rectangle(_boxOffset, _boxOffset, RADIOBUTTON_SIZE, RADIOBUTTON_SIZE));
             }
@@ -253,7 +266,7 @@ namespace ReaLTaiizor.Controls
 
             MouseLeave += (sender, args) =>
             {
-                MouseLocation = new(-1, -1);
+                MouseLocation = new Point(-1, -1);
                 MouseState = MaterialMouseState.OUT;
                 //if (Ripple && hovered)
                 //{

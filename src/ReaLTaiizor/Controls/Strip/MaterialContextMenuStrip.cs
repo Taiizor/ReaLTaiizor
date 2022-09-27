@@ -15,6 +15,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialContextMenuStrip
 
+    [ToolboxItem(false)]
     public class MaterialContextMenuStrip : ContextMenuStrip, MaterialControlI
     {
         //Properties for managing the material design properties
@@ -88,7 +89,7 @@ namespace ReaLTaiizor.Controls
         public MaterialToolStripMenuItem()
         {
             AutoSize = false;
-            Size = new(120, 30);
+            Size = new Size(128, 32);
         }
 
         protected override ToolStripDropDown CreateDefaultDropDown()
@@ -108,6 +109,9 @@ namespace ReaLTaiizor.Controls
 
     internal class MaterialToolStripRender : ToolStripProfessionalRenderer, MaterialControlI
     {
+        private const int LEFT_PADDING = 16;
+        private const int RIGHT_PADDING = 8;
+
         //Properties for managing the material design properties
         public int Depth { get; set; }
 
@@ -121,7 +125,7 @@ namespace ReaLTaiizor.Controls
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             Rectangle itemRect = GetItemRect(e.Item);
-            Rectangle textRect = new(24, itemRect.Y, itemRect.Width - (24 + 16), itemRect.Height);
+            Rectangle textRect = new(LEFT_PADDING, itemRect.Y, itemRect.Width - (LEFT_PADDING + RIGHT_PADDING), itemRect.Height);
 
             using MaterialNativeTextRenderer NativeText = new(g);
             NativeText.DrawTransparentText(e.Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body2),
@@ -134,11 +138,11 @@ namespace ReaLTaiizor.Controls
         protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.Clear(SkinManager.BackdropColor);
+            g.Clear(SkinManager.BackgroundColor);
 
             //Draw background
             Rectangle itemRect = GetItemRect(e.Item);
-            g.FillRectangle(e.Item.Selected && e.Item.Enabled ? SkinManager.BackgroundFocusBrush : SkinManager.BackdropBrush, itemRect);
+            g.FillRectangle(e.Item.Selected && e.Item.Enabled ? SkinManager.BackgroundFocusBrush : SkinManager.BackgroundBrush, itemRect);
 
             //Ripple animation
             if (e.ToolStrip is MaterialContextMenuStrip toolStrip)
@@ -166,20 +170,16 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
 
-            g.FillRectangle(SkinManager.BackdropBrush, e.Item.Bounds);
+            g.FillRectangle(SkinManager.BackgroundBrush, e.Item.Bounds);
             g.DrawLine(
-                new(SkinManager.DividersColor),
+                new Pen(SkinManager.DividersColor),
                 new Point(e.Item.Bounds.Left, e.Item.Bounds.Height / 2),
                 new Point(e.Item.Bounds.Right, e.Item.Bounds.Height / 2));
         }
 
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
         {
-            Graphics g = e.Graphics;
-
-            g.DrawRectangle(
-                new(SkinManager.DividersColor),
-                new Rectangle(e.AffectedBounds.X, e.AffectedBounds.Y, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1));
+            e.ToolStrip.BackColor = SkinManager.BackgroundColor;
         }
 
         protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
@@ -202,7 +202,7 @@ namespace ReaLTaiizor.Controls
 
         private Rectangle GetItemRect(ToolStripItem item)
         {
-            return new Rectangle(0, item.ContentRectangle.Y, item.ContentRectangle.Width + 4, item.ContentRectangle.Height);
+            return new Rectangle(0, item.ContentRectangle.Y, item.ContentRectangle.Width, item.ContentRectangle.Height);
         }
     }
 
