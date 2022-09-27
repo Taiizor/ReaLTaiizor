@@ -199,7 +199,7 @@ namespace ReaLTaiizor.Controls
                 Opacity = _AnimationManager.GetProgress();
             }
         }
-        
+
         protected override void OnPaint(PaintEventArgs e)
         {
 

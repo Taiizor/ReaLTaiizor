@@ -1,7 +1,7 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Util;
 using ReaLTaiizor.Manager;
+using ReaLTaiizor.Util;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -74,10 +74,10 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         public int Depth { get; set; }
-        
+
         [Browsable(false)]
         public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
-        
+
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 

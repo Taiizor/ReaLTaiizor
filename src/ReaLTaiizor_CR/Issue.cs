@@ -1,7 +1,5 @@
 ﻿using ReaLTaiizor.Forms;
 using System;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace ReaLTaiizor_CR
 {

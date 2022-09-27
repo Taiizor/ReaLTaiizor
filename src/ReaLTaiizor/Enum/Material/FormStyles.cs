@@ -1,7 +1,7 @@
 ﻿namespace ReaLTaiizor.Enum.Material
 {
     #region FormStylesEnum
-    
+
     public enum FormStyles
     {
         StatusAndActionBar_None,

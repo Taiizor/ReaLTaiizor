@@ -25,8 +25,8 @@ namespace ReaLTaiizor.Controls
         private const int BUTTON_PADDING = 8;
         private const int BUTTON_HEIGHT = 36;
 
-        private MaterialButton _actionButton = new MaterialButton();
-        private Timer _duration = new Timer(); // Timer that checks when the drop down is fully visible
+        private MaterialButton _actionButton = new();
+        private Timer _duration = new(); // Timer that checks when the drop down is fully visible
 
         private AnimationManager _AnimationManager;
         private bool _closingAnimationDone = false;
@@ -188,7 +188,7 @@ namespace ReaLTaiizor.Controls
             if (_showActionButton == true)
             {
                 int _buttonWidth = TextRenderer.MeasureText(ActionButtonText, SkinManager.GetFontByType(MaterialSkinManager.FontType.Button)).Width + 32;
-                Rectangle _actionbuttonBounds = new Rectangle(Width - BUTTON_PADDING - _buttonWidth, TOP_PADDING_SINGLE_LINE, _buttonWidth, BUTTON_HEIGHT);
+                Rectangle _actionbuttonBounds = new(Width - BUTTON_PADDING - _buttonWidth, TOP_PADDING_SINGLE_LINE, _buttonWidth, BUTTON_HEIGHT);
                 _actionButton.Width = _actionbuttonBounds.Width;
                 _actionButton.Height = _actionbuttonBounds.Height;
                 _actionButton.Text = _actionButtonText;
@@ -243,24 +243,22 @@ namespace ReaLTaiizor.Controls
             e.Graphics.Clear(BackColor);
 
             // Calc text Rect
-            Rectangle textRect = new Rectangle(
+            Rectangle textRect = new(
                 LEFT_RIGHT_PADDING,
                 0,
                 Width - (2 * LEFT_RIGHT_PADDING) - _actionButton.Width,
                 Height);
 
             //Draw  Text
-            using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
-            {
-                // Draw header text
-                NativeText.DrawTransparentText(
-                    _text,
-                    SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body2),
-                    SkinManager.SnackBarTextHighEmphasisColor,
-                    textRect.Location,
-                    textRect.Size,
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-            }
+            using MaterialNativeTextRenderer NativeText = new(g);
+            // Draw header text
+            NativeText.DrawTransparentText(
+                _text,
+                SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body2),
+                SkinManager.SnackBarTextHighEmphasisColor,
+                textRect.Location,
+                textRect.Size,
+                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

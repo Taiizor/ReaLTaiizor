@@ -3,8 +3,8 @@
 using ReaLTaiizor.Child.Material;
 using ReaLTaiizor.Enum.Material;
 using ReaLTaiizor.Helper;
-using ReaLTaiizor.Util;
 using ReaLTaiizor.Manager;
+using ReaLTaiizor.Util;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

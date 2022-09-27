@@ -1,7 +1,7 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Util;
 using ReaLTaiizor.Manager;
+using ReaLTaiizor.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -214,11 +214,11 @@ namespace ReaLTaiizor.Controls
                     new float[] {   0,   0,   0,   1,  0}, // alpha scale factor
                     new float[] {   r,   g,   b,   0,  1}};// offset
 
-            ColorMatrix colorMatrixGray = new ColorMatrix(matrixGray);
-            ColorMatrix colorMatrixColor = new ColorMatrix(matrixColor);
+            ColorMatrix colorMatrixGray = new(matrixGray);
+            ColorMatrix colorMatrixColor = new(matrixColor);
 
-            ImageAttributes grayImageAttributes = new ImageAttributes();
-            ImageAttributes colorImageAttributes = new ImageAttributes();
+            ImageAttributes grayImageAttributes = new();
+            ImageAttributes colorImageAttributes = new();
 
             // Set color matrices
             grayImageAttributes.SetColorMatrix(colorMatrixGray, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
@@ -238,10 +238,10 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Image Rect
-                Rectangle destRect = new Rectangle(0, 0, _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
+                Rectangle destRect = new(0, 0, _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
 
                 // Create a pre-processed copy of the image (GRAY)
-                Bitmap bgray = new Bitmap(destRect.Width, destRect.Height);
+                Bitmap bgray = new(destRect.Width, destRect.Height);
                 using (Graphics gGray = Graphics.FromImage(bgray))
                 {
                     gGray.DrawImage(_baseTabControl.ImageList.Images[tabPage.ImageKey],
@@ -254,7 +254,7 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // Create a pre-processed copy of the image (PRIMARY COLOR)
-                Bitmap bcolor = new Bitmap(destRect.Width, destRect.Height);
+                Bitmap bcolor = new(destRect.Width, destRect.Height);
                 using (Graphics gColor = Graphics.FromImage(bcolor))
                 {
                     gColor.DrawImage(_baseTabControl.ImageList.Images[tabPage.ImageKey],
@@ -267,8 +267,8 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // added processed image to brush for drawing
-                TextureBrush textureBrushGray = new TextureBrush(bgray);
-                TextureBrush textureBrushColor = new TextureBrush(bcolor);
+                TextureBrush textureBrushGray = new(bgray);
+                TextureBrush textureBrushColor = new(bcolor);
 
                 textureBrushGray.WrapMode = System.Drawing.Drawing2D.WrapMode.Clamp;
                 textureBrushColor.WrapMode = System.Drawing.Drawing2D.WrapMode.Clamp;
@@ -276,7 +276,7 @@ namespace ReaLTaiizor.Controls
                 // Translate the brushes to the correct positions
                 int currentTabIndex = _baseTabControl.TabPages.IndexOf(tabPage);
 
-                Rectangle iconRect = new Rectangle(
+                Rectangle iconRect = new(
                    _drawerItemRects[currentTabIndex].X + (drawerItemHeight / 2) - (_baseTabControl.ImageList.Images[tabPage.ImageKey].Width / 2),
                    _drawerItemRects[currentTabIndex].Y + (drawerItemHeight / 2) - (_baseTabControl.ImageList.Images[tabPage.ImageKey].Height / 2),
                    _baseTabControl.ImageList.Images[tabPage.ImageKey].Width, _baseTabControl.ImageList.Images[tabPage.ImageKey].Height);
@@ -482,7 +482,7 @@ namespace ReaLTaiizor.Controls
             // Ripple
             if (_clickAnimManager.IsAnimating())
             {
-                SolidBrush rippleBrush = new SolidBrush(Color.FromArgb((int)(70 - (clickAnimProgress * 70)),
+                SolidBrush rippleBrush = new(Color.FromArgb((int)(70 - (clickAnimProgress * 70)),
                     UseColors ? SkinManager.ColorScheme.AccentColor : // Using colors
                     SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? SkinManager.ColorScheme.PrimaryColor : // light theme
                     SkinManager.ColorScheme.LightPrimaryColor)); // dark theme
@@ -520,7 +520,7 @@ namespace ReaLTaiizor.Controls
                 textRect.X += _baseTabControl.ImageList != null ? drawerItemHeight : (int)(SkinManager.FORM_PADDING * 0.75);
                 textRect.Width -= SkinManager.FORM_PADDING << 2;
 
-                using (MaterialNativeTextRenderer NativeText = new MaterialNativeTextRenderer(g))
+                using (MaterialNativeTextRenderer NativeText = new(g))
                 {
                     NativeText.DrawTransparentText(tabPage.Text, textFont, textColor, textRect.Location, textRect.Size, MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
                 }
@@ -529,7 +529,7 @@ namespace ReaLTaiizor.Controls
                 if (_baseTabControl.ImageList != null && !string.IsNullOrEmpty(tabPage.ImageKey))
                 {
                     string ik = string.Concat(tabPage.ImageKey, "_", tabPage.Name);
-                    Rectangle iconRect = new Rectangle(
+                    Rectangle iconRect = new(
                         _drawerItemRects[currentTabIndex].X + (drawerItemHeight >> 1) - (iconsSize[ik].Width >> 1),
                         _drawerItemRects[currentTabIndex].Y + (drawerItemHeight >> 1) - (iconsSize[ik].Height >> 1),
                         iconsSize[ik].Width, iconsSize[ik].Height);
@@ -547,10 +547,8 @@ namespace ReaLTaiizor.Controls
             // Draw divider if not using colors
             if (!UseColors)
             {
-                using (Pen dividerPen = new Pen(SkinManager.DividersColor, 1))
-                {
-                    g.DrawLine(dividerPen, Width - 1, 0, Width - 1, Height);
-                }
+                using Pen dividerPen = new(SkinManager.DividersColor, 1);
+                g.DrawLine(dividerPen, Width - 1, 0, Width - 1, Height);
             }
 
             // Animate tab indicator

@@ -1,8 +1,8 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Controls;
-using System;
 using ReaLTaiizor.Manager;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;

@@ -1,9 +1,9 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.ComponentModel;
 using System.Drawing;
-using ReaLTaiizor.Manager;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
