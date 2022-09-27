@@ -41,10 +41,8 @@
             this.materialTextBox3 = new ReaLTaiizor.Controls.MaterialTextBox();
             this.materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialSingleTextBox1 = new ReaLTaiizor.Controls.MaterialSingleTextBox();
-            this.materialCheckBox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
-            this.materialCheckBox2 = new ReaLTaiizor.Controls.MaterialCheckBox();
-            this.materialCheckBox3 = new ReaLTaiizor.Controls.MaterialCheckBox();
-            this.materialCheckBox4 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            this.materialSlider1 = new ReaLTaiizor.Controls.MaterialSlider();
+            this.materialSlider2 = new ReaLTaiizor.Controls.MaterialSlider();
             this.SuspendLayout();
             // 
             // materialTextBox1
@@ -237,87 +235,39 @@
             this.materialSingleTextBox1.UseAccentColor = true;
             this.materialSingleTextBox1.UseSystemPasswordChar = false;
             // 
-            // materialCheckBox1
+            // materialSlider1
             // 
-            this.materialCheckBox1.AutoSize = true;
-            this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Location = new System.Drawing.Point(616, 85);
-            this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCheckBox1.Name = "materialCheckBox1";
-            this.materialCheckBox1.ReadOnly = false;
-            this.materialCheckBox1.Ripple = true;
-            this.materialCheckBox1.Size = new System.Drawing.Size(172, 37);
-            this.materialCheckBox1.TabIndex = 15;
-            this.materialCheckBox1.Text = "materialCheckBox1";
-            this.materialCheckBox1.UseAccentColor = false;
-            this.materialCheckBox1.UseVisualStyleBackColor = true;
+            this.materialSlider1.Depth = 0;
+            this.materialSlider1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialSlider1.Location = new System.Drawing.Point(619, 85);
+            this.materialSlider1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialSlider1.Name = "materialSlider1";
+            this.materialSlider1.Size = new System.Drawing.Size(277, 40);
+            this.materialSlider1.TabIndex = 15;
+            this.materialSlider1.Text = "materialSlider1";
             // 
-            // materialCheckBox2
+            // materialSlider2
             // 
-            this.materialCheckBox2.AutoSize = true;
-            this.materialCheckBox2.Checked = true;
-            this.materialCheckBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.materialCheckBox2.Depth = 0;
-            this.materialCheckBox2.Location = new System.Drawing.Point(616, 122);
-            this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCheckBox2.Name = "materialCheckBox2";
-            this.materialCheckBox2.ReadOnly = false;
-            this.materialCheckBox2.Ripple = true;
-            this.materialCheckBox2.Size = new System.Drawing.Size(172, 37);
-            this.materialCheckBox2.TabIndex = 16;
-            this.materialCheckBox2.Text = "materialCheckBox2";
-            this.materialCheckBox2.UseAccentColor = false;
-            this.materialCheckBox2.UseVisualStyleBackColor = true;
-            // 
-            // materialCheckBox3
-            // 
-            this.materialCheckBox3.AutoSize = true;
-            this.materialCheckBox3.Checked = true;
-            this.materialCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.materialCheckBox3.Depth = 0;
-            this.materialCheckBox3.Location = new System.Drawing.Point(616, 159);
-            this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCheckBox3.Name = "materialCheckBox3";
-            this.materialCheckBox3.ReadOnly = false;
-            this.materialCheckBox3.Ripple = true;
-            this.materialCheckBox3.Size = new System.Drawing.Size(172, 37);
-            this.materialCheckBox3.TabIndex = 18;
-            this.materialCheckBox3.Text = "materialCheckBox3";
-            this.materialCheckBox3.UseAccentColor = true;
-            this.materialCheckBox3.UseVisualStyleBackColor = true;
-            // 
-            // materialCheckBox4
-            // 
-            this.materialCheckBox4.AutoSize = true;
-            this.materialCheckBox4.Depth = 0;
-            this.materialCheckBox4.Location = new System.Drawing.Point(616, 196);
-            this.materialCheckBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox4.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCheckBox4.Name = "materialCheckBox4";
-            this.materialCheckBox4.ReadOnly = false;
-            this.materialCheckBox4.Ripple = true;
-            this.materialCheckBox4.Size = new System.Drawing.Size(172, 37);
-            this.materialCheckBox4.TabIndex = 17;
-            this.materialCheckBox4.Text = "materialCheckBox4";
-            this.materialCheckBox4.UseAccentColor = true;
-            this.materialCheckBox4.UseVisualStyleBackColor = true;
+            this.materialSlider2.Depth = 0;
+            this.materialSlider2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialSlider2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialSlider2.Location = new System.Drawing.Point(619, 131);
+            this.materialSlider2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialSlider2.Name = "materialSlider2";
+            this.materialSlider2.Size = new System.Drawing.Size(277, 40);
+            this.materialSlider2.TabIndex = 16;
+            this.materialSlider2.Text = "materialSlider2";
+            this.materialSlider2.UseAccentColor = true;
+            this.materialSlider2.ValuePrefix = "P";
+            this.materialSlider2.ValueSuffix = "S";
             // 
             // Material
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(976, 376);
-            this.Controls.Add(this.materialCheckBox3);
-            this.Controls.Add(this.materialCheckBox4);
-            this.Controls.Add(this.materialCheckBox2);
-            this.Controls.Add(this.materialCheckBox1);
+            this.Controls.Add(this.materialSlider2);
+            this.Controls.Add(this.materialSlider1);
             this.Controls.Add(this.materialSingleTextBox1);
             this.Controls.Add(this.materialButton3);
             this.Controls.Add(this.materialTextBox3);
@@ -357,9 +307,7 @@
         private ReaLTaiizor.Controls.MaterialTextBox materialTextBox3;
         private ReaLTaiizor.Controls.MaterialButton materialButton3;
         private ReaLTaiizor.Controls.MaterialSingleTextBox materialSingleTextBox1;
-        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox1;
-        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox2;
-        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox3;
-        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox4;
+        private ReaLTaiizor.Controls.MaterialSlider materialSlider1;
+        private ReaLTaiizor.Controls.MaterialSlider materialSlider2;
     }
 }
