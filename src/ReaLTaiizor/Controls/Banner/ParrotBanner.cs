@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Controls
             list2.Add(new Point(base.Height / 10 * 2, base.Height / 10 * 7));
             list2.Add(new Point(base.Height / 10, base.Height / 10 * 6));
             list2.Add(new Point(0, base.Height / 10 * 5));
-            Pen pen = new Pen(borderColor, 1f);
+            Pen pen = new(borderColor, 1f);
             e.Graphics.DrawPolygon(pen, list2.ToArray());
             StringFormat stringFormat = new()
             {

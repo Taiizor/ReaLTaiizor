@@ -311,13 +311,13 @@ namespace ReaLTaiizor.Controls
                 bufferedGraphics.Graphics.DrawImage(BackgroundImage, 0, 0);
             }
 
-            Rectangle rect = new Rectangle(filledThickness / 2 + 1, filledThickness / 2 + 1, base.Width - filledThickness - 2, base.Height - filledThickness - 2);
+            Rectangle rect = new(filledThickness / 2 + 1, filledThickness / 2 + 1, base.Width - filledThickness - 2, base.Height - filledThickness - 2);
             bufferedGraphics.Graphics.DrawArc(new Pen(unFilledColor, unfilledThickness), rect, StartPoint, 360f);
             bufferedGraphics.Graphics.DrawArc(new Pen(Color.FromArgb(filledColorAlpha, filledColor.R, filledColor.G, filledColor.B), filledThickness), rect, StartPoint, (int)(Percentage * 3.6));
 
             if (ShowText)
             {
-                Rectangle r = new Rectangle(0, 0, base.Width, base.Height);
+                Rectangle r = new(0, 0, base.Width, base.Height);
                 StringFormat stringFormat = new()
                 {
                     LineAlignment = StringAlignment.Center,

@@ -143,7 +143,7 @@ namespace ReaLTaiizor.Controls
             };
             e.Graphics.PixelOffsetMode = PixelOffsetType;
             e.Graphics.TextRenderingHint = TextRenderingType;
-            Rectangle r = new Rectangle(2, 6, base.Width - 4, 26);
+            Rectangle r = new(2, 6, base.Width - 4, 26);
             e.Graphics.DrawString(text1, new Font(Font.FontFamily, Font.Size + 4f), new SolidBrush(ForeColor), r, stringFormat);
             stringFormat.Alignment = StringAlignment.Near;
             r = new Rectangle(2, base.Height / 2, base.Width - 4, base.Height / 4);

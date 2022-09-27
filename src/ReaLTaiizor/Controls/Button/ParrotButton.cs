@@ -393,7 +393,7 @@ namespace ReaLTaiizor.Controls
                     DrawRoundedRectangle(e.Graphics, Color.FromArgb(163, 163, 163), 8, 2);
                 }
             }
-            Rectangle r = new Rectangle(0, 0, base.Width, base.Height);
+            Rectangle r = new(0, 0, base.Width, base.Height);
             if (buttonStyle != Style.Dark && buttonStyle != Style.MaterialEllipse && buttonStyle != Style.MacOS && buttonStyle != Style.Invert && buttonImage != null)
             {
                 if (imagePosition == ImgPosition.Left)

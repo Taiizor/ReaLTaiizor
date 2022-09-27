@@ -346,7 +346,7 @@ namespace ReaLTaiizor.Controls
 
                 if (graphStyle == Style.Flat)
                 {
-                    SolidBrush brush = new SolidBrush(belowLineColor);
+                    SolidBrush brush = new(belowLineColor);
                     e.Graphics.FillPolygon(brush, list.ToArray());
                 }
                 else

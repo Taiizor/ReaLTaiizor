@@ -540,7 +540,7 @@ namespace ReaLTaiizor.Forms
                     base.Controls.Add(parrotGradientPanel);
                     break;
                 case Style.Ubuntu:
-                    ParrotGradientPanel parrotGradientPanel2 = new ParrotGradientPanel
+                    ParrotGradientPanel parrotGradientPanel2 = new()
                     {
                         Style = ParrotGradientPanel.GradientStyle.Horizontal,
                         TopLeft = UbuntuLeftBackColor,

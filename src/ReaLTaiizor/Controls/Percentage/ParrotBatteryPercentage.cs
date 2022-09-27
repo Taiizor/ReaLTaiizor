@@ -42,7 +42,7 @@ namespace ReaLTaiizor.Controls
             backgroundThread.RunWorkerAsync();
         }
 
-        private readonly BackgroundWorker backgroundThread = new BackgroundWorker();
+        private readonly BackgroundWorker backgroundThread = new();
 
         private int Percentage;
     }
