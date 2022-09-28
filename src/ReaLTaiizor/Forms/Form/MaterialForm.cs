@@ -547,6 +547,7 @@ namespace ReaLTaiizor.Forms
             drawerForm.Location = new Point(PointToScreen(Point.Empty).X, Y);
             drawerForm.ShowInTaskbar = false;
             drawerForm.Owner = drawerOverlay;
+            drawerForm.TopMost = TopMost;
             drawerForm.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
 
             // Add drawer to overlay form
