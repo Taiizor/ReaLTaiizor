@@ -33,28 +33,32 @@ namespace ReaLTaiizor.UI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form17));
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem145 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem146 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem147 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem148 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem149 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem150 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem151 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem152 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem153 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem154 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem155 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem156 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem157 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem158 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem159 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem160 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem161 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
-            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem162 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem1 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem2 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem3 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem4 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem5 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem6 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem7 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem8 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem9 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem10 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem11 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem12 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem13 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem14 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem15 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem16 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem17 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
+            ReaLTaiizor.Child.Material.MaterialListBoxItem materialListBoxItem18 = new ReaLTaiizor.Child.Material.MaterialListBoxItem();
             this.materialCheckbox3 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckbox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialButton29 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton28 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton27 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton26 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton25 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialButton6 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialLabel57 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -164,6 +168,8 @@ namespace ReaLTaiizor.UI
             this.materialProgressBar1 = new ReaLTaiizor.Controls.MaterialProgressBar();
             this.materialLabel29 = new ReaLTaiizor.Controls.MaterialLabel();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.materialButton30 = new ReaLTaiizor.Controls.MaterialButton();
+            this.materialButton31 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialDivider3 = new ReaLTaiizor.Controls.MaterialDivider();
             this.materialDivider2 = new ReaLTaiizor.Controls.MaterialDivider();
             this.materialDivider1 = new ReaLTaiizor.Controls.MaterialDivider();
@@ -222,12 +228,6 @@ namespace ReaLTaiizor.UI
             this.item2ToolStripMenuItem = new ReaLTaiizor.Controls.MaterialToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.item3ToolStripMenuItem = new ReaLTaiizor.Controls.MaterialToolStripMenuItem();
-            this.materialButton26 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialButton27 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialButton28 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialButton29 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialButton30 = new ReaLTaiizor.Controls.MaterialButton();
-            this.materialButton31 = new ReaLTaiizor.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -342,6 +342,94 @@ namespace ReaLTaiizor.UI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
             // 
+            // materialButton29
+            // 
+            this.materialButton29.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton29.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton29.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton29.Depth = 0;
+            this.materialButton29.HighEmphasis = true;
+            this.materialButton29.Icon = null;
+            this.materialButton29.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            this.materialButton29.Location = new System.Drawing.Point(502, 507);
+            this.materialButton29.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton29.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton29.Name = "materialButton29";
+            this.materialButton29.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton29.Size = new System.Drawing.Size(141, 36);
+            this.materialButton29.TabIndex = 45;
+            this.materialButton29.Text = "FAST ANIMATION";
+            this.materialButton29.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton29.UseAccentColor = false;
+            this.materialButton29.UseVisualStyleBackColor = true;
+            this.materialButton29.Click += new System.EventHandler(this.MaterialButton29_Click);
+            // 
+            // materialButton28
+            // 
+            this.materialButton28.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton28.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton28.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton28.Depth = 0;
+            this.materialButton28.HighEmphasis = true;
+            this.materialButton28.Icon = null;
+            this.materialButton28.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            this.materialButton28.Location = new System.Drawing.Point(328, 508);
+            this.materialButton28.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton28.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton28.Name = "materialButton28";
+            this.materialButton28.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton28.Size = new System.Drawing.Size(166, 36);
+            this.materialButton28.TabIndex = 44;
+            this.materialButton28.Text = "NORMAL ANIMATION";
+            this.materialButton28.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton28.UseAccentColor = false;
+            this.materialButton28.UseVisualStyleBackColor = true;
+            this.materialButton28.Click += new System.EventHandler(this.MaterialButton28_Click);
+            // 
+            // materialButton27
+            // 
+            this.materialButton27.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton27.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton27.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton27.Depth = 0;
+            this.materialButton27.HighEmphasis = true;
+            this.materialButton27.Icon = null;
+            this.materialButton27.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            this.materialButton27.Location = new System.Drawing.Point(165, 507);
+            this.materialButton27.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton27.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton27.Name = "materialButton27";
+            this.materialButton27.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton27.Size = new System.Drawing.Size(155, 36);
+            this.materialButton27.TabIndex = 43;
+            this.materialButton27.Text = "UNLOCK CONTAINS";
+            this.materialButton27.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton27.UseAccentColor = true;
+            this.materialButton27.UseVisualStyleBackColor = true;
+            this.materialButton27.Click += new System.EventHandler(this.MaterialButton27_Click);
+            // 
+            // materialButton26
+            // 
+            this.materialButton26.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton26.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton26.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton26.Depth = 0;
+            this.materialButton26.HighEmphasis = true;
+            this.materialButton26.Icon = null;
+            this.materialButton26.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            this.materialButton26.Location = new System.Drawing.Point(22, 508);
+            this.materialButton26.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton26.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton26.Name = "materialButton26";
+            this.materialButton26.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton26.Size = new System.Drawing.Size(135, 36);
+            this.materialButton26.TabIndex = 42;
+            this.materialButton26.Text = "LOCK CONTAINS";
+            this.materialButton26.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton26.UseAccentColor = true;
+            this.materialButton26.UseVisualStyleBackColor = true;
+            this.materialButton26.Click += new System.EventHandler(this.MaterialButton26_Click);
+            // 
             // materialButton25
             // 
             this.materialButton25.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -349,6 +437,7 @@ namespace ReaLTaiizor.UI
             this.materialButton25.Depth = 0;
             this.materialButton25.HighEmphasis = true;
             this.materialButton25.Icon = null;
+            this.materialButton25.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton25.Location = new System.Drawing.Point(450, 459);
             this.materialButton25.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton25.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -369,6 +458,7 @@ namespace ReaLTaiizor.UI
             this.materialButton6.Depth = 0;
             this.materialButton6.HighEmphasis = true;
             this.materialButton6.Icon = null;
+            this.materialButton6.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton6.Location = new System.Drawing.Point(249, 459);
             this.materialButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -444,6 +534,7 @@ namespace ReaLTaiizor.UI
             this.MaterialButton3.Depth = 0;
             this.MaterialButton3.HighEmphasis = true;
             this.MaterialButton3.Icon = null;
+            this.MaterialButton3.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.MaterialButton3.Location = new System.Drawing.Point(22, 460);
             this.MaterialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MaterialButton3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -562,6 +653,7 @@ namespace ReaLTaiizor.UI
             this.materialButton7.Depth = 0;
             this.materialButton7.HighEmphasis = true;
             this.materialButton7.Icon = null;
+            this.materialButton7.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton7.Location = new System.Drawing.Point(180, 156);
             this.materialButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -618,6 +710,7 @@ namespace ReaLTaiizor.UI
             this.MaterialButton4.Depth = 0;
             this.MaterialButton4.HighEmphasis = true;
             this.MaterialButton4.Icon = null;
+            this.MaterialButton4.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.MaterialButton4.Location = new System.Drawing.Point(22, 156);
             this.MaterialButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MaterialButton4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -663,7 +756,7 @@ namespace ReaLTaiizor.UI
             this.tabPage7.Location = new System.Drawing.Point(4, 31);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1015, 520);
+            this.tabPage7.Size = new System.Drawing.Size(1015, 557);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Buttons Galore";
             // 
@@ -675,6 +768,7 @@ namespace ReaLTaiizor.UI
             this.materialButton23.Depth = 0;
             this.materialButton23.HighEmphasis = false;
             this.materialButton23.Icon = global::ReaLTaiizor.UI.Properties.Resources.baseline_fingerprint_black_24dp;
+            this.materialButton23.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton23.Location = new System.Drawing.Point(280, 221);
             this.materialButton23.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton23.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -778,6 +872,7 @@ namespace ReaLTaiizor.UI
             this.materialButton24.Depth = 0;
             this.materialButton24.HighEmphasis = false;
             this.materialButton24.Icon = global::ReaLTaiizor.UI.Properties.Resources.baseline_bluetooth_black_24dp;
+            this.materialButton24.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton24.Location = new System.Drawing.Point(522, 221);
             this.materialButton24.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton24.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -798,6 +893,7 @@ namespace ReaLTaiizor.UI
             this.materialButton22.Depth = 0;
             this.materialButton22.HighEmphasis = false;
             this.materialButton22.Icon = global::ReaLTaiizor.UI.Properties.Resources.baseline_favorite_border_black_24dp;
+            this.materialButton22.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton22.Location = new System.Drawing.Point(32, 221);
             this.materialButton22.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton22.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -830,6 +926,7 @@ namespace ReaLTaiizor.UI
             this.materialButton19.Depth = 0;
             this.materialButton19.HighEmphasis = false;
             this.materialButton19.Icon = null;
+            this.materialButton19.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton19.Location = new System.Drawing.Point(522, 365);
             this.materialButton19.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton19.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -850,6 +947,7 @@ namespace ReaLTaiizor.UI
             this.materialButton20.Depth = 0;
             this.materialButton20.HighEmphasis = false;
             this.materialButton20.Icon = null;
+            this.materialButton20.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton20.Location = new System.Drawing.Point(32, 365);
             this.materialButton20.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton20.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -870,6 +968,7 @@ namespace ReaLTaiizor.UI
             this.materialButton21.Depth = 0;
             this.materialButton21.HighEmphasis = false;
             this.materialButton21.Icon = null;
+            this.materialButton21.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton21.Location = new System.Drawing.Point(280, 365);
             this.materialButton21.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton21.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -890,6 +989,7 @@ namespace ReaLTaiizor.UI
             this.materialButton5.Depth = 0;
             this.materialButton5.HighEmphasis = true;
             this.materialButton5.Icon = null;
+            this.materialButton5.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton5.Location = new System.Drawing.Point(522, 269);
             this.materialButton5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -910,6 +1010,7 @@ namespace ReaLTaiizor.UI
             this.materialButton8.Depth = 0;
             this.materialButton8.HighEmphasis = true;
             this.materialButton8.Icon = null;
+            this.materialButton8.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton8.Location = new System.Drawing.Point(32, 269);
             this.materialButton8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -930,6 +1031,7 @@ namespace ReaLTaiizor.UI
             this.materialButton9.Depth = 0;
             this.materialButton9.HighEmphasis = true;
             this.materialButton9.Icon = null;
+            this.materialButton9.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton9.Location = new System.Drawing.Point(280, 269);
             this.materialButton9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton9.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -951,6 +1053,7 @@ namespace ReaLTaiizor.UI
             this.materialButton18.Enabled = false;
             this.materialButton18.HighEmphasis = false;
             this.materialButton18.Icon = null;
+            this.materialButton18.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton18.Location = new System.Drawing.Point(522, 461);
             this.materialButton18.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton18.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -971,6 +1074,7 @@ namespace ReaLTaiizor.UI
             this.materialButton17.Depth = 0;
             this.materialButton17.HighEmphasis = false;
             this.materialButton17.Icon = null;
+            this.materialButton17.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton17.Location = new System.Drawing.Point(522, 413);
             this.materialButton17.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton17.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -991,6 +1095,7 @@ namespace ReaLTaiizor.UI
             this.materialButton16.Depth = 0;
             this.materialButton16.HighEmphasis = true;
             this.materialButton16.Icon = null;
+            this.materialButton16.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton16.Location = new System.Drawing.Point(522, 317);
             this.materialButton16.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton16.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1011,6 +1116,7 @@ namespace ReaLTaiizor.UI
             this.materialButton15.Depth = 0;
             this.materialButton15.HighEmphasis = false;
             this.materialButton15.Icon = null;
+            this.materialButton15.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton15.Location = new System.Drawing.Point(32, 413);
             this.materialButton15.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton15.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1031,6 +1137,7 @@ namespace ReaLTaiizor.UI
             this.materialButton14.Depth = 0;
             this.materialButton14.HighEmphasis = true;
             this.materialButton14.Icon = null;
+            this.materialButton14.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton14.Location = new System.Drawing.Point(32, 317);
             this.materialButton14.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton14.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1052,6 +1159,7 @@ namespace ReaLTaiizor.UI
             this.materialButton13.Enabled = false;
             this.materialButton13.HighEmphasis = false;
             this.materialButton13.Icon = null;
+            this.materialButton13.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton13.Location = new System.Drawing.Point(280, 461);
             this.materialButton13.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton13.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1073,6 +1181,7 @@ namespace ReaLTaiizor.UI
             this.materialButton12.Enabled = false;
             this.materialButton12.HighEmphasis = false;
             this.materialButton12.Icon = null;
+            this.materialButton12.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton12.Location = new System.Drawing.Point(32, 461);
             this.materialButton12.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1093,6 +1202,7 @@ namespace ReaLTaiizor.UI
             this.materialButton11.Depth = 0;
             this.materialButton11.HighEmphasis = false;
             this.materialButton11.Icon = null;
+            this.materialButton11.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton11.Location = new System.Drawing.Point(280, 413);
             this.materialButton11.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1113,6 +1223,7 @@ namespace ReaLTaiizor.UI
             this.materialButton10.Depth = 0;
             this.materialButton10.HighEmphasis = true;
             this.materialButton10.Icon = null;
+            this.materialButton10.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton10.Location = new System.Drawing.Point(280, 317);
             this.materialButton10.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -1158,7 +1269,7 @@ namespace ReaLTaiizor.UI
             this.tabPage2.Location = new System.Drawing.Point(4, 31);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1015, 520);
+            this.tabPage2.Size = new System.Drawing.Size(1015, 557);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Selection Controls";
             // 
@@ -2465,6 +2576,7 @@ namespace ReaLTaiizor.UI
             this.materialFlatButton2.Depth = 0;
             this.materialFlatButton2.HighEmphasis = false;
             this.materialFlatButton2.Icon = global::ReaLTaiizor.UI.Properties.Resources.minus;
+            this.materialFlatButton2.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialFlatButton2.Location = new System.Drawing.Point(29, 189);
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -2515,6 +2627,7 @@ namespace ReaLTaiizor.UI
             this.MaterialButton2.Depth = 0;
             this.MaterialButton2.HighEmphasis = true;
             this.MaterialButton2.Icon = global::ReaLTaiizor.UI.Properties.Resources.round_add_black_24dp;
+            this.MaterialButton2.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.MaterialButton2.Location = new System.Drawing.Point(755, 189);
             this.MaterialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.MaterialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -2574,6 +2687,50 @@ namespace ReaLTaiizor.UI
             this.tabPage6.Size = new System.Drawing.Size(1015, 557);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Containers";
+            // 
+            // materialButton30
+            // 
+            this.materialButton30.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton30.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton30.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton30.Depth = 0;
+            this.materialButton30.HighEmphasis = true;
+            this.materialButton30.Icon = null;
+            this.materialButton30.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            this.materialButton30.Location = new System.Drawing.Point(733, 290);
+            this.materialButton30.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton30.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton30.Name = "materialButton30";
+            this.materialButton30.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton30.Size = new System.Drawing.Size(140, 36);
+            this.materialButton30.TabIndex = 72;
+            this.materialButton30.Text = "UNLOCK SECOND";
+            this.materialButton30.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton30.UseAccentColor = false;
+            this.materialButton30.UseVisualStyleBackColor = true;
+            this.materialButton30.Click += new System.EventHandler(this.MaterialButton30_Click);
+            // 
+            // materialButton31
+            // 
+            this.materialButton31.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton31.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton31.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton31.Depth = 0;
+            this.materialButton31.HighEmphasis = true;
+            this.materialButton31.Icon = null;
+            this.materialButton31.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            this.materialButton31.Location = new System.Drawing.Point(572, 290);
+            this.materialButton31.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton31.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialButton31.Name = "materialButton31";
+            this.materialButton31.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton31.Size = new System.Drawing.Size(120, 36);
+            this.materialButton31.TabIndex = 71;
+            this.materialButton31.Text = "LOCK SECOND";
+            this.materialButton31.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.materialButton31.UseAccentColor = false;
+            this.materialButton31.UseVisualStyleBackColor = true;
+            this.materialButton31.Click += new System.EventHandler(this.MaterialButton31_Click);
             // 
             // materialDivider3
             // 
@@ -2645,6 +2802,7 @@ namespace ReaLTaiizor.UI
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
+            this.materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
             this.materialButton1.Location = new System.Drawing.Point(220, 131);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -2810,7 +2968,7 @@ namespace ReaLTaiizor.UI
             this.tabPage10.ImageKey = "round_bookmark_white_24dp.png";
             this.tabPage10.Location = new System.Drawing.Point(4, 31);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1015, 520);
+            this.tabPage10.Size = new System.Drawing.Size(1015, 557);
             this.tabPage10.TabIndex = 7;
             this.tabPage10.Text = "ListBox";
             // 
@@ -2869,30 +3027,30 @@ namespace ReaLTaiizor.UI
             this.materialListBox3.BorderColor = System.Drawing.Color.LightGray;
             this.materialListBox3.Depth = 0;
             this.materialListBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialListBoxItem145.SecondaryText = "A very very long secondary text to display 1 ";
-            materialListBoxItem145.Tag = null;
-            materialListBoxItem145.Text = "ListBoxItem1";
-            materialListBoxItem146.SecondaryText = "A very very long secondary text to display 2";
-            materialListBoxItem146.Tag = null;
-            materialListBoxItem146.Text = "ListBoxItem2";
-            materialListBoxItem147.SecondaryText = "A very very long secondary text to display 3";
-            materialListBoxItem147.Tag = null;
-            materialListBoxItem147.Text = "ListBoxItem3";
-            materialListBoxItem148.SecondaryText = "A very very long secondary text to display 4";
-            materialListBoxItem148.Tag = null;
-            materialListBoxItem148.Text = "ListBoxItem4";
-            materialListBoxItem149.SecondaryText = "A very very long secondary text to display 5";
-            materialListBoxItem149.Tag = null;
-            materialListBoxItem149.Text = "ListBoxItem5";
-            materialListBoxItem150.SecondaryText = "A very very long secondary text to display 6";
-            materialListBoxItem150.Tag = null;
-            materialListBoxItem150.Text = "ListBoxItem6";
-            this.materialListBox3.Items.Add(materialListBoxItem145);
-            this.materialListBox3.Items.Add(materialListBoxItem146);
-            this.materialListBox3.Items.Add(materialListBoxItem147);
-            this.materialListBox3.Items.Add(materialListBoxItem148);
-            this.materialListBox3.Items.Add(materialListBoxItem149);
-            this.materialListBox3.Items.Add(materialListBoxItem150);
+            materialListBoxItem1.SecondaryText = "A very very long secondary text to display 1 ";
+            materialListBoxItem1.Tag = null;
+            materialListBoxItem1.Text = "ListBoxItem1";
+            materialListBoxItem2.SecondaryText = "A very very long secondary text to display 2";
+            materialListBoxItem2.Tag = null;
+            materialListBoxItem2.Text = "ListBoxItem2";
+            materialListBoxItem3.SecondaryText = "A very very long secondary text to display 3";
+            materialListBoxItem3.Tag = null;
+            materialListBoxItem3.Text = "ListBoxItem3";
+            materialListBoxItem4.SecondaryText = "A very very long secondary text to display 4";
+            materialListBoxItem4.Tag = null;
+            materialListBoxItem4.Text = "ListBoxItem4";
+            materialListBoxItem5.SecondaryText = "A very very long secondary text to display 5";
+            materialListBoxItem5.Tag = null;
+            materialListBoxItem5.Text = "ListBoxItem5";
+            materialListBoxItem6.SecondaryText = "A very very long secondary text to display 6";
+            materialListBoxItem6.Tag = null;
+            materialListBoxItem6.Text = "ListBoxItem6";
+            this.materialListBox3.Items.Add(materialListBoxItem1);
+            this.materialListBox3.Items.Add(materialListBoxItem2);
+            this.materialListBox3.Items.Add(materialListBoxItem3);
+            this.materialListBox3.Items.Add(materialListBoxItem4);
+            this.materialListBox3.Items.Add(materialListBoxItem5);
+            this.materialListBox3.Items.Add(materialListBoxItem6);
             this.materialListBox3.Location = new System.Drawing.Point(579, 132);
             this.materialListBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialListBox3.Name = "materialListBox3";
@@ -2908,30 +3066,30 @@ namespace ReaLTaiizor.UI
             this.materialListBox2.BorderColor = System.Drawing.Color.LightGray;
             this.materialListBox2.Depth = 0;
             this.materialListBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialListBoxItem151.SecondaryText = "Secondary text1";
-            materialListBoxItem151.Tag = null;
-            materialListBoxItem151.Text = "ListBoxItem1";
-            materialListBoxItem152.SecondaryText = "Secondary text2";
-            materialListBoxItem152.Tag = null;
-            materialListBoxItem152.Text = "ListBoxItem2";
-            materialListBoxItem153.SecondaryText = "Secondary text3";
-            materialListBoxItem153.Tag = null;
-            materialListBoxItem153.Text = "ListBoxItem3";
-            materialListBoxItem154.SecondaryText = "Secondary text4";
-            materialListBoxItem154.Tag = null;
-            materialListBoxItem154.Text = "ListBoxItem4";
-            materialListBoxItem155.SecondaryText = "Secondary text5";
-            materialListBoxItem155.Tag = null;
-            materialListBoxItem155.Text = "ListBoxItem5";
-            materialListBoxItem156.SecondaryText = "Secondary text6";
-            materialListBoxItem156.Tag = null;
-            materialListBoxItem156.Text = "ListBoxItem6";
-            this.materialListBox2.Items.Add(materialListBoxItem151);
-            this.materialListBox2.Items.Add(materialListBoxItem152);
-            this.materialListBox2.Items.Add(materialListBoxItem153);
-            this.materialListBox2.Items.Add(materialListBoxItem154);
-            this.materialListBox2.Items.Add(materialListBoxItem155);
-            this.materialListBox2.Items.Add(materialListBoxItem156);
+            materialListBoxItem7.SecondaryText = "Secondary text1";
+            materialListBoxItem7.Tag = null;
+            materialListBoxItem7.Text = "ListBoxItem1";
+            materialListBoxItem8.SecondaryText = "Secondary text2";
+            materialListBoxItem8.Tag = null;
+            materialListBoxItem8.Text = "ListBoxItem2";
+            materialListBoxItem9.SecondaryText = "Secondary text3";
+            materialListBoxItem9.Tag = null;
+            materialListBoxItem9.Text = "ListBoxItem3";
+            materialListBoxItem10.SecondaryText = "Secondary text4";
+            materialListBoxItem10.Tag = null;
+            materialListBoxItem10.Text = "ListBoxItem4";
+            materialListBoxItem11.SecondaryText = "Secondary text5";
+            materialListBoxItem11.Tag = null;
+            materialListBoxItem11.Text = "ListBoxItem5";
+            materialListBoxItem12.SecondaryText = "Secondary text6";
+            materialListBoxItem12.Tag = null;
+            materialListBoxItem12.Text = "ListBoxItem6";
+            this.materialListBox2.Items.Add(materialListBoxItem7);
+            this.materialListBox2.Items.Add(materialListBoxItem8);
+            this.materialListBox2.Items.Add(materialListBoxItem9);
+            this.materialListBox2.Items.Add(materialListBoxItem10);
+            this.materialListBox2.Items.Add(materialListBoxItem11);
+            this.materialListBox2.Items.Add(materialListBoxItem12);
             this.materialListBox2.Location = new System.Drawing.Point(306, 132);
             this.materialListBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialListBox2.Name = "materialListBox2";
@@ -2948,30 +3106,30 @@ namespace ReaLTaiizor.UI
             this.materialListBox1.BorderColor = System.Drawing.Color.LightGray;
             this.materialListBox1.Depth = 0;
             this.materialListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            materialListBoxItem157.SecondaryText = "";
-            materialListBoxItem157.Tag = null;
-            materialListBoxItem157.Text = "ListBoxItem1";
-            materialListBoxItem158.SecondaryText = "";
-            materialListBoxItem158.Tag = null;
-            materialListBoxItem158.Text = "ListBoxItem2";
-            materialListBoxItem159.SecondaryText = "";
-            materialListBoxItem159.Tag = null;
-            materialListBoxItem159.Text = "ListBoxItem3";
-            materialListBoxItem160.SecondaryText = "";
-            materialListBoxItem160.Tag = null;
-            materialListBoxItem160.Text = "ListBoxItem4";
-            materialListBoxItem161.SecondaryText = "";
-            materialListBoxItem161.Tag = null;
-            materialListBoxItem161.Text = "ListBoxItem5";
-            materialListBoxItem162.SecondaryText = "";
-            materialListBoxItem162.Tag = null;
-            materialListBoxItem162.Text = "ListBoxItem6";
-            this.materialListBox1.Items.Add(materialListBoxItem157);
-            this.materialListBox1.Items.Add(materialListBoxItem158);
-            this.materialListBox1.Items.Add(materialListBoxItem159);
-            this.materialListBox1.Items.Add(materialListBoxItem160);
-            this.materialListBox1.Items.Add(materialListBoxItem161);
-            this.materialListBox1.Items.Add(materialListBoxItem162);
+            materialListBoxItem13.SecondaryText = "";
+            materialListBoxItem13.Tag = null;
+            materialListBoxItem13.Text = "ListBoxItem1";
+            materialListBoxItem14.SecondaryText = "";
+            materialListBoxItem14.Tag = null;
+            materialListBoxItem14.Text = "ListBoxItem2";
+            materialListBoxItem15.SecondaryText = "";
+            materialListBoxItem15.Tag = null;
+            materialListBoxItem15.Text = "ListBoxItem3";
+            materialListBoxItem16.SecondaryText = "";
+            materialListBoxItem16.Tag = null;
+            materialListBoxItem16.Text = "ListBoxItem4";
+            materialListBoxItem17.SecondaryText = "";
+            materialListBoxItem17.Tag = null;
+            materialListBoxItem17.Text = "ListBoxItem5";
+            materialListBoxItem18.SecondaryText = "";
+            materialListBoxItem18.Tag = null;
+            materialListBoxItem18.Text = "ListBoxItem6";
+            this.materialListBox1.Items.Add(materialListBoxItem13);
+            this.materialListBox1.Items.Add(materialListBoxItem14);
+            this.materialListBox1.Items.Add(materialListBoxItem15);
+            this.materialListBox1.Items.Add(materialListBoxItem16);
+            this.materialListBox1.Items.Add(materialListBoxItem17);
+            this.materialListBox1.Items.Add(materialListBoxItem18);
             this.materialListBox1.Location = new System.Drawing.Point(38, 132);
             this.materialListBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialListBox1.Name = "materialListBox1";
@@ -2987,7 +3145,7 @@ namespace ReaLTaiizor.UI
             this.tabPage11.ImageKey = "round_http_white_24dp.png";
             this.tabPage11.Location = new System.Drawing.Point(4, 31);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(1015, 520);
+            this.tabPage11.Size = new System.Drawing.Size(1015, 557);
             this.tabPage11.TabIndex = 8;
             this.tabPage11.Text = "Expansion panel";
             // 
@@ -3076,7 +3234,7 @@ namespace ReaLTaiizor.UI
             this.tabPage12.ImageKey = "round_phone_black_24dp.png";
             this.tabPage12.Location = new System.Drawing.Point(4, 31);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(1015, 520);
+            this.tabPage12.Size = new System.Drawing.Size(1015, 557);
             this.tabPage12.TabIndex = 9;
             this.tabPage12.Text = "Label";
             // 
@@ -3439,132 +3597,6 @@ namespace ReaLTaiizor.UI
             this.item3ToolStripMenuItem.Name = "item3ToolStripMenuItem";
             this.item3ToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
             this.item3ToolStripMenuItem.Text = "Item 3";
-            // 
-            // materialButton26
-            // 
-            this.materialButton26.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton26.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.materialButton26.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton26.Depth = 0;
-            this.materialButton26.HighEmphasis = true;
-            this.materialButton26.Icon = null;
-            this.materialButton26.Location = new System.Drawing.Point(652, 460);
-            this.materialButton26.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton26.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton26.Name = "materialButton26";
-            this.materialButton26.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton26.Size = new System.Drawing.Size(135, 36);
-            this.materialButton26.TabIndex = 42;
-            this.materialButton26.Text = "LOCK CONTAINS";
-            this.materialButton26.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.materialButton26.UseAccentColor = true;
-            this.materialButton26.UseVisualStyleBackColor = true;
-            this.materialButton26.Click += new System.EventHandler(this.MaterialButton26_Click);
-            // 
-            // materialButton27
-            // 
-            this.materialButton27.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton27.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.materialButton27.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton27.Depth = 0;
-            this.materialButton27.HighEmphasis = true;
-            this.materialButton27.Icon = null;
-            this.materialButton27.Location = new System.Drawing.Point(795, 460);
-            this.materialButton27.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton27.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton27.Name = "materialButton27";
-            this.materialButton27.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton27.Size = new System.Drawing.Size(155, 36);
-            this.materialButton27.TabIndex = 43;
-            this.materialButton27.Text = "UNLOCK CONTAINS";
-            this.materialButton27.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.materialButton27.UseAccentColor = true;
-            this.materialButton27.UseVisualStyleBackColor = true;
-            this.materialButton27.Click += new System.EventHandler(this.MaterialButton27_Click);
-            // 
-            // materialButton28
-            // 
-            this.materialButton28.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton28.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.materialButton28.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton28.Depth = 0;
-            this.materialButton28.HighEmphasis = true;
-            this.materialButton28.Icon = null;
-            this.materialButton28.Location = new System.Drawing.Point(635, 508);
-            this.materialButton28.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton28.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton28.Name = "materialButton28";
-            this.materialButton28.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton28.Size = new System.Drawing.Size(166, 36);
-            this.materialButton28.TabIndex = 44;
-            this.materialButton28.Text = "NORMAL ANIMATION";
-            this.materialButton28.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.materialButton28.UseAccentColor = false;
-            this.materialButton28.UseVisualStyleBackColor = true;
-            this.materialButton28.Click += new System.EventHandler(this.MaterialButton28_Click);
-            // 
-            // materialButton29
-            // 
-            this.materialButton29.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton29.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.materialButton29.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton29.Depth = 0;
-            this.materialButton29.HighEmphasis = true;
-            this.materialButton29.Icon = null;
-            this.materialButton29.Location = new System.Drawing.Point(809, 508);
-            this.materialButton29.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton29.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton29.Name = "materialButton29";
-            this.materialButton29.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton29.Size = new System.Drawing.Size(141, 36);
-            this.materialButton29.TabIndex = 45;
-            this.materialButton29.Text = "FAST ANIMATION";
-            this.materialButton29.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.materialButton29.UseAccentColor = false;
-            this.materialButton29.UseVisualStyleBackColor = true;
-            this.materialButton29.Click += new System.EventHandler(this.MaterialButton29_Click);
-            // 
-            // materialButton30
-            // 
-            this.materialButton30.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton30.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.materialButton30.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton30.Depth = 0;
-            this.materialButton30.HighEmphasis = true;
-            this.materialButton30.Icon = null;
-            this.materialButton30.Location = new System.Drawing.Point(733, 290);
-            this.materialButton30.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton30.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton30.Name = "materialButton30";
-            this.materialButton30.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton30.Size = new System.Drawing.Size(140, 36);
-            this.materialButton30.TabIndex = 72;
-            this.materialButton30.Text = "UNLOCK SECOND";
-            this.materialButton30.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.materialButton30.UseAccentColor = false;
-            this.materialButton30.UseVisualStyleBackColor = true;
-            this.materialButton30.Click += new System.EventHandler(this.MaterialButton30_Click);
-            // 
-            // materialButton31
-            // 
-            this.materialButton31.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton31.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.materialButton31.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton31.Depth = 0;
-            this.materialButton31.HighEmphasis = true;
-            this.materialButton31.Icon = null;
-            this.materialButton31.Location = new System.Drawing.Point(572, 290);
-            this.materialButton31.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton31.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialButton31.Name = "materialButton31";
-            this.materialButton31.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton31.Size = new System.Drawing.Size(120, 36);
-            this.materialButton31.TabIndex = 71;
-            this.materialButton31.Text = "LOCK SECOND";
-            this.materialButton31.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.materialButton31.UseAccentColor = false;
-            this.materialButton31.UseVisualStyleBackColor = true;
-            this.materialButton31.Click += new System.EventHandler(this.MaterialButton31_Click);
             // 
             // Form17
             // 
