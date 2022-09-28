@@ -13,6 +13,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialMultiLineTextBox
 
+    [ToolboxItem(false), Description("This control has been replaced by MaterialMultiLineTextBoxEdit"), Obsolete("Use MaterialMultiLineTextBoxEdit instead", false)]
     public class MaterialMultiLineTextBox : RichTextBox, MaterialControlI
     {
         //Properties for managing the material design properties

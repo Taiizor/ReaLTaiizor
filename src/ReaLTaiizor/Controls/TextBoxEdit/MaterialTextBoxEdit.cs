@@ -30,6 +30,11 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
+    
+        public bool Focus()
+        {
+            return baseTextBox.Focus();
+        }
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }

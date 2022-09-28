@@ -63,6 +63,15 @@ namespace ReaLTaiizor.Controls
             Dense
         }
 
+        public enum MaterialIconType
+        {
+            Rebase,
+            Default
+        }
+
+        [Category("Material")]
+        public MaterialIconType IconType { get; set; }
+
         [Browsable(false)]
         public Color NoAccentTextColor { get; set; }
 
@@ -441,7 +450,7 @@ namespace ReaLTaiizor.Controls
             // added processed image to brush for drawing
             TextureBrush textureBrushGray = new(bgray);
 
-            textureBrushGray.WrapMode = System.Drawing.Drawing2D.WrapMode.Clamp;
+            textureBrushGray.WrapMode = WrapMode.Clamp;
 
             // Translate the brushes to the correct positions
             Rectangle iconRect = new(8, (Height / 2) - (ICON_SIZE / 2), ICON_SIZE, ICON_SIZE);
@@ -597,7 +606,14 @@ namespace ReaLTaiizor.Controls
 
             if (Icon != null)
             {
-                g.FillRectangle(iconsBrushes, iconRect);
+                if (IconType == MaterialIconType.Rebase)
+                {
+                    g.FillRectangle(iconsBrushes, iconRect);
+                }
+                else
+                {
+                    g.DrawImage(Icon, iconRect);
+                }
             }
         }
 

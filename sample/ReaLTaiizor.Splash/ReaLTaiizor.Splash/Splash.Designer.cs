@@ -37,10 +37,10 @@
             this.poisonStyleManager1 = new ReaLTaiizor.Manager.PoisonStyleManager(this.components);
             this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
             this.spaceSeparatorVertical1 = new ReaLTaiizor.Controls.SpaceSeparatorVertical();
-            this.spaceSeparatorHorizantal1 = new ReaLTaiizor.Controls.SpaceSeparatorHorizantal();
+            this.spaceSeparatorHorizontal21 = new ReaLTaiizor.Controls.SpaceSeparatorHorizontal();
             this.spaceSeparatorVertical2 = new ReaLTaiizor.Controls.SpaceSeparatorVertical();
-            this.spaceSeparatorHorizantal2 = new ReaLTaiizor.Controls.SpaceSeparatorHorizantal();
-            this.spaceSeparatorHorizantal3 = new ReaLTaiizor.Controls.SpaceSeparatorHorizantal();
+            this.spaceSeparatorHorizontal22 = new ReaLTaiizor.Controls.SpaceSeparatorHorizontal();
+            this.spaceSeparatorHorizontal23 = new ReaLTaiizor.Controls.SpaceSeparatorHorizontal();
             this.parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager1)).BeginInit();
@@ -124,19 +124,19 @@
             this.spaceSeparatorVertical1.Text = "spaceSeparatorVertical1";
             this.spaceSeparatorVertical1.Transparent = false;
             // 
-            // spaceSeparatorHorizantal1
+            // spaceSeparatorHorizontal21
             // 
-            this.spaceSeparatorHorizantal1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.spaceSeparatorHorizantal1.Customization = "Kioq/yoqKv8jIyP/Kioq/w==";
-            this.spaceSeparatorHorizantal1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceSeparatorHorizantal1.Image = null;
-            this.spaceSeparatorHorizantal1.Location = new System.Drawing.Point(21, 384);
-            this.spaceSeparatorHorizantal1.Name = "spaceSeparatorHorizantal1";
-            this.spaceSeparatorHorizantal1.NoRounding = false;
-            this.spaceSeparatorHorizantal1.Size = new System.Drawing.Size(128, 4);
-            this.spaceSeparatorHorizantal1.TabIndex = 6;
-            this.spaceSeparatorHorizantal1.Text = "spaceSeparatorHorizantal1";
-            this.spaceSeparatorHorizantal1.Transparent = false;
+            this.spaceSeparatorHorizontal21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.spaceSeparatorHorizontal21.Customization = "Kioq/yoqKv8jIyP/Kioq/w==";
+            this.spaceSeparatorHorizontal21.Font = new System.Drawing.Font("Verdana", 8F);
+            this.spaceSeparatorHorizontal21.Image = null;
+            this.spaceSeparatorHorizontal21.Location = new System.Drawing.Point(21, 384);
+            this.spaceSeparatorHorizontal21.Name = "spaceSeparatorHorizontal21";
+            this.spaceSeparatorHorizontal21.NoRounding = false;
+            this.spaceSeparatorHorizontal21.Size = new System.Drawing.Size(128, 4);
+            this.spaceSeparatorHorizontal21.TabIndex = 6;
+            this.spaceSeparatorHorizontal21.Text = "spaceSeparatorHorizontal21";
+            this.spaceSeparatorHorizontal21.Transparent = false;
             // 
             // spaceSeparatorVertical2
             // 
@@ -152,35 +152,35 @@
             this.spaceSeparatorVertical2.Text = "spaceSeparatorVertical2";
             this.spaceSeparatorVertical2.Transparent = false;
             // 
-            // spaceSeparatorHorizantal2
+            // spaceSeparatorHorizontal22
             // 
-            this.spaceSeparatorHorizantal2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.spaceSeparatorHorizantal2.Customization = "Kioq/yoqKv8jIyP/Kioq/w==";
-            this.spaceSeparatorHorizantal2.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceSeparatorHorizantal2.Image = null;
-            this.spaceSeparatorHorizantal2.Location = new System.Drawing.Point(21, 240);
-            this.spaceSeparatorHorizantal2.Name = "spaceSeparatorHorizantal2";
-            this.spaceSeparatorHorizantal2.NoRounding = false;
-            this.spaceSeparatorHorizantal2.Size = new System.Drawing.Size(128, 4);
-            this.spaceSeparatorHorizantal2.TabIndex = 8;
-            this.spaceSeparatorHorizantal2.Text = "spaceSeparatorHorizantal2";
-            this.spaceSeparatorHorizantal2.Transparent = false;
+            this.spaceSeparatorHorizontal22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.spaceSeparatorHorizontal22.Customization = "Kioq/yoqKv8jIyP/Kioq/w==";
+            this.spaceSeparatorHorizontal22.Font = new System.Drawing.Font("Verdana", 8F);
+            this.spaceSeparatorHorizontal22.Image = null;
+            this.spaceSeparatorHorizontal22.Location = new System.Drawing.Point(21, 240);
+            this.spaceSeparatorHorizontal22.Name = "spaceSeparatorHorizontal22";
+            this.spaceSeparatorHorizontal22.NoRounding = false;
+            this.spaceSeparatorHorizontal22.Size = new System.Drawing.Size(128, 4);
+            this.spaceSeparatorHorizontal22.TabIndex = 8;
+            this.spaceSeparatorHorizontal22.Text = "spaceSeparatorHorizontal22";
+            this.spaceSeparatorHorizontal22.Transparent = false;
             // 
-            // spaceSeparatorHorizantal3
+            // spaceSeparatorHorizontal23
             // 
-            this.spaceSeparatorHorizantal3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.spaceSeparatorHorizontal23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.spaceSeparatorHorizantal3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(15)))), ((int)(((byte)(16)))));
-            this.spaceSeparatorHorizantal3.Customization = "Kioq/yoqKv8jIyP/Kioq/w==";
-            this.spaceSeparatorHorizantal3.Font = new System.Drawing.Font("Verdana", 8F);
-            this.spaceSeparatorHorizantal3.Image = null;
-            this.spaceSeparatorHorizantal3.Location = new System.Drawing.Point(300, 384);
-            this.spaceSeparatorHorizantal3.Name = "spaceSeparatorHorizantal3";
-            this.spaceSeparatorHorizantal3.NoRounding = false;
-            this.spaceSeparatorHorizantal3.Size = new System.Drawing.Size(200, 4);
-            this.spaceSeparatorHorizantal3.TabIndex = 9;
-            this.spaceSeparatorHorizantal3.Text = "spaceSeparatorHorizantal3";
-            this.spaceSeparatorHorizantal3.Transparent = false;
+            this.spaceSeparatorHorizontal23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(15)))), ((int)(((byte)(16)))));
+            this.spaceSeparatorHorizontal23.Customization = "Kioq/yoqKv8jIyP/Kioq/w==";
+            this.spaceSeparatorHorizontal23.Font = new System.Drawing.Font("Verdana", 8F);
+            this.spaceSeparatorHorizontal23.Image = null;
+            this.spaceSeparatorHorizontal23.Location = new System.Drawing.Point(300, 384);
+            this.spaceSeparatorHorizontal23.Name = "spaceSeparatorHorizontal23";
+            this.spaceSeparatorHorizontal23.NoRounding = false;
+            this.spaceSeparatorHorizontal23.Size = new System.Drawing.Size(200, 4);
+            this.spaceSeparatorHorizontal23.TabIndex = 9;
+            this.spaceSeparatorHorizontal23.Text = "spaceSeparatorHorizontal23";
+            this.spaceSeparatorHorizontal23.Transparent = false;
             // 
             // parrotPictureBox1
             // 
@@ -213,11 +213,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 400);
             this.ControlBox = false;
-            this.Controls.Add(this.spaceSeparatorHorizantal3);
+            this.Controls.Add(this.spaceSeparatorHorizontal23);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.spaceSeparatorHorizantal2);
+            this.Controls.Add(this.spaceSeparatorHorizontal22);
             this.Controls.Add(this.spaceSeparatorVertical2);
-            this.Controls.Add(this.spaceSeparatorHorizantal1);
+            this.Controls.Add(this.spaceSeparatorHorizontal21);
             this.Controls.Add(this.spaceSeparatorVertical1);
             this.Controls.Add(this.poisonLabel1);
             this.Controls.Add(this.poisonProgressSpinner1);
@@ -244,11 +244,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Manager.PoisonStyleManager poisonStyleManager1;
         private Controls.PoisonLabel poisonLabel1;
-        private Controls.SpaceSeparatorHorizantal spaceSeparatorHorizantal2;
+        private Controls.SpaceSeparatorHorizontal spaceSeparatorHorizontal22;
         private Controls.SpaceSeparatorVertical spaceSeparatorVertical2;
-        private Controls.SpaceSeparatorHorizantal spaceSeparatorHorizantal1;
+        private Controls.SpaceSeparatorHorizontal spaceSeparatorHorizontal21;
         private Controls.SpaceSeparatorVertical spaceSeparatorVertical1;
-        private Controls.SpaceSeparatorHorizantal spaceSeparatorHorizantal3;
+        private Controls.SpaceSeparatorHorizontal spaceSeparatorHorizontal23;
         private Controls.ParrotPictureBox parrotPictureBox1;
     }
 }

@@ -30,16 +30,21 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
+        public bool Focus()
+        {
+            return baseTextBox.Focus();
+        }
+
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
         //Unused properties
 
         [Browsable(false)]
-        public override System.Drawing.Image BackgroundImage { get; set; }
+        public override Image BackgroundImage { get; set; }
 
         [Browsable(false)]
-        public override System.Windows.Forms.ImageLayout BackgroundImageLayout { get; set; }
+        public override ImageLayout BackgroundImageLayout { get; set; }
 
         [Browsable(false)]
         public string SelectedText { get => baseTextBox.SelectedText; set => baseTextBox.SelectedText = value; }
@@ -52,7 +57,7 @@ namespace ReaLTaiizor.Controls
         public int TextLength => baseTextBox.TextLength;
 
         [Browsable(false)]
-        public override System.Drawing.Color ForeColor { get; set; }
+        public override Color ForeColor { get; set; }
 
         //Material Skin properties
 

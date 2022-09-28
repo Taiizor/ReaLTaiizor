@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Stopwatch
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Caption;
+            this.materialLabel1.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Caption;
             this.materialLabel1.Location = new System.Drawing.Point(0, 0);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel1.MaximumSize = new System.Drawing.Size(47, 25);
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Stopwatch
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Caption;
+            this.materialLabel2.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Caption;
             this.materialLabel2.Location = new System.Drawing.Point(47, 0);
             this.materialLabel2.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel2.MaximumSize = new System.Drawing.Size(100, 25);
@@ -74,7 +74,7 @@ namespace ReaLTaiizor.Stopwatch
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.FontType = ReaLTaiizor.Util.MaterialManager.FontType.Caption;
+            this.materialLabel3.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Caption;
             this.materialLabel3.Location = new System.Drawing.Point(147, 0);
             this.materialLabel3.Margin = new System.Windows.Forms.Padding(0);
             this.materialLabel3.MaximumSize = new System.Drawing.Size(100, 25);

@@ -20,37 +20,44 @@ namespace ReaLTaiizor.Splash
 
         private void Process(object Test)
         {
-            Random Random = new();
-
-            if (State)
+            try
             {
-                poisonProgressSpinner1.Value++;
+                Random Random = new();
 
-                if (poisonProgressSpinner1.Value == 100)
+                if (State)
                 {
-                    State = false;
+                    poisonProgressSpinner1.Value++;
 
-                    poisonProgressSpinner1.Style = (Enum.Poison.ColorStyle)Random.Next(3, 15);
+                    if (poisonProgressSpinner1.Value == 100)
+                    {
+                        State = false;
+
+                        poisonProgressSpinner1.Style = (Enum.Poison.ColorStyle)Random.Next(3, 15);
+                    }
+                }
+                else
+                {
+                    poisonProgressSpinner1.Value--;
+
+                    if (poisonProgressSpinner1.Value == 0)
+                    {
+                        State = true;
+
+                        poisonProgressSpinner1.Style = (Enum.Poison.ColorStyle)Random.Next(3, 15);
+                    }
+                }
+
+                poisonLabel1.Style = poisonProgressSpinner1.Style;
+                poisonLabel1.Text = $"Wait A Moments.. {poisonProgressSpinner1.Value}%";
+
+                if (poisonProgressSpinner1.Value % 2 == 0)
+                {
+                    parrotPictureBox1.FilterAlpha = poisonProgressSpinner1.Value * 2;
                 }
             }
-            else
+            catch
             {
-                poisonProgressSpinner1.Value--;
-
-                if (poisonProgressSpinner1.Value == 0)
-                {
-                    State = true;
-
-                    poisonProgressSpinner1.Style = (Enum.Poison.ColorStyle)Random.Next(3, 15);
-                }
-            }
-
-            poisonLabel1.Style = poisonProgressSpinner1.Style;
-            poisonLabel1.Text = $"Wait A Moments.. {poisonProgressSpinner1.Value}%";
-
-            if (poisonProgressSpinner1.Value % 2 == 0)
-            {
-                parrotPictureBox1.FilterAlpha = poisonProgressSpinner1.Value * 2;
+                //
             }
         }
     }

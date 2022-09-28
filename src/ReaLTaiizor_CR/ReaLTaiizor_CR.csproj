@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <TargetFramework>net48</TargetFramework>
+    <!--<TargetFramework>net48</TargetFramework>-->
     <!--<TargetFramework>net5.0-windows</TargetFramework>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
     <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
-    <!--<TargetFrameworks>net48;net481;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
+    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
@@ -40,6 +40,21 @@
 
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net7.0-windows'">
     <PackageReference Include="System.Resources.Extensions" Version="7.0.0-rc.1.22426.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

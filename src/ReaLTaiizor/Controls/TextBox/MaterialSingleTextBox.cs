@@ -15,6 +15,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialSingleTextBox
 
+    [ToolboxItem(false), Description("This control has been replaced by MaterialTextBoxEdit"), Obsolete("Use MaterialTextBoxEdit instead", false)]
     public class MaterialSingleTextBox : Control, MaterialControlI
     {
         //Properties for managing the material design properties
