@@ -14,7 +14,7 @@ using System.Windows.Forms;
 //     Website: www.Vegalya.com
 //     Created: 15.May.2019
 //     Changed: 28.Sep.2022
-//     Version: 3.7.8.8
+//     Version: 3.7.8.9
 //
 // |---------DO-NOT-REMOVE---------|
 

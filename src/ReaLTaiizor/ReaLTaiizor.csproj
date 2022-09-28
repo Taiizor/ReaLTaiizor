@@ -16,14 +16,14 @@
   <PropertyGroup>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-    <Version>3.7.8.8</Version>
+    <Version>3.7.8.9</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>ReaLTaiizor</Title>
     <PackageId>ReaLTaiizor</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Summary>Best with more than 300 WinForms components.</Summary>
+    <Summary>Best with more than 350 WinForms components.</Summary>
     <Description>$(Summary)
 .NET WinForms UI/UX Component Library - $(PackageId)</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
