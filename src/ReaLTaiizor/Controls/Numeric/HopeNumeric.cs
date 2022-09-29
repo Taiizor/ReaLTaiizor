@@ -16,13 +16,14 @@ namespace ReaLTaiizor.Controls
 
     public class HopeNumeric : Control
     {
-
         #region Variables
         private bool enterFlag = false;
+        private bool focus = false;
         private readonly TextBox textBox = new();
         private RectangleF upRectangleF = new();
         private RectangleF downRectangleF = new();
         private Point mousePoint = new();
+        private string textValue = string.Empty;
 
         public enum NumericStyle
         {
@@ -75,14 +76,26 @@ namespace ReaLTaiizor.Controls
             {
                 if (value > _maxNum || value < _minNum)
                 {
-                    return;
+                    if (value > _maxNum)
+                    {
+                        value = _maxNum;
+                    }
+                    else
+                    {
+                        value = _minNum;
+                    }
                 }
-                else
-                {
-                    _value = value;
-                    Invalidate();
-                }
+
+                _value = value;
+                Invalidate();
             }
+        }
+
+        private bool _enterKey = true;
+        public bool EnterKey
+        {
+            get => _enterKey;
+            set => _enterKey = value;
         }
 
         public float Step { get; set; } = 1;
@@ -140,6 +153,19 @@ namespace ReaLTaiizor.Controls
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
+
+            if (focus && !EnterKey)
+            {
+                focus = false;
+
+                if (float.TryParse(textBox.Text, out float f))
+                {
+                    ValueNumber = f;
+                }
+
+                textBox.Text = Math.Round(_value, Precision).ToString();
+            }
+
             if (upRectangleF.Contains(mousePoint))
             {
                 ValueNumber += Step;
@@ -149,6 +175,8 @@ namespace ReaLTaiizor.Controls
             {
                 ValueNumber -= Step;
             }
+
+            base.Focus();
         }
 
         protected override void OnResize(EventArgs e)
@@ -170,7 +198,11 @@ namespace ReaLTaiizor.Controls
             graphics.FillPath(new SolidBrush(BaseColor), bg);
             graphics.DrawPath(new(enterFlag ? BorderHoverColorA : BorderColorA, 1f), bg);
 
-            textBox.Text = Math.Round(_value, Precision).ToString();
+            if ((!focus && EnterKey) || !focus && !EnterKey)
+            {
+                textBox.Text = Math.Round(_value, Precision).ToString();
+            }
+
             textBox.BackColor = BackColor;
             textBox.ForeColor = ForeColor;
             switch (_style)
@@ -213,19 +245,54 @@ namespace ReaLTaiizor.Controls
             textBox.Cursor = Cursors.IBeam;
             textBox.BackColor = BackColor;
             textBox.KeyPress += TextBox_KeyPress;
+            textBox.GotFocus += TextBox_GotFocus;
+            textBox.LostFocus += TextBox_LostFocus;
             #endregion
         }
 
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            if (EnterKey && e.KeyChar == 13)
             {
                 if (float.TryParse(textBox.Text, out float f))
                 {
                     ValueNumber = f;
                 }
+                
+                textBox.Text = Math.Round(_value, Precision).ToString();
 
                 base.Focus();
+            }
+            else if (!EnterKey && e.KeyChar == 13)
+            {
+                base.Focus();
+            }
+        }
+
+        private void TextBox_GotFocus(object sender, EventArgs e)
+        {
+            focus = true;
+        }
+
+        private void TextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (focus)
+            {
+                if (!EnterKey && textBox.Text != Math.Round(_value, Precision).ToString())
+                {
+                    if (float.TryParse(textBox.Text, out float f))
+                    {
+                        ValueNumber = f;
+                    }
+
+                    textBox.Text = Math.Round(_value, Precision).ToString();
+                }
+                else if (EnterKey && textBox.Text != Math.Round(_value, Precision).ToString())
+                {
+                    textBox.Text = Math.Round(_value, Precision).ToString();
+                }
+
+                focus = false;
             }
         }
     }
