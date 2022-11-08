@@ -71,7 +71,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net7.0-windows'">
-    <PackageReference Include="System.Resources.Extensions" Version="7.0.0-rc.2.22472.3" />
+    <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
