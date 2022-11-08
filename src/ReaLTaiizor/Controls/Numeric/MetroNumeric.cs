@@ -84,8 +84,10 @@ namespace ReaLTaiizor.Controls
         private Point _point;
         private int _value;
         private readonly Timer _holdTimer;
+        private int _holdInterval = 10;
 
         private bool _isDerivedStyle = true;
+        private int _increment = 1;
         private int _maximum = 100;
         private int _minimum;
         private Color _backgroundColor;
@@ -117,7 +119,7 @@ namespace ReaLTaiizor.Controls
             _point = new(0, 0);
             _holdTimer = new Timer()
             {
-                Interval = 10,
+                Interval = _holdInterval,
                 AutoReset = true,
                 Enabled = false
             };
@@ -237,6 +239,24 @@ namespace ReaLTaiizor.Controls
         #endregion Theme Changing
 
         #region Properties
+
+        [Category("Metro"), Description("Gets or sets the hold interval of the Numeric.")]
+        public int HoldInterval
+        {
+            get => _holdInterval;
+            set
+            {
+                _holdInterval = value;
+                _holdTimer.Interval = _holdInterval;
+            }
+        }
+
+        [Category("Metro"), Description("Gets or sets the increment number of the Numeric.")]
+        public int Increment
+        {
+            get => _increment;
+            set => _increment = value;
+        }
 
         [Category("Metro"), Description("Gets or sets the maximum number of the Numeric.")]
         public int Maximum
@@ -371,8 +391,6 @@ namespace ReaLTaiizor.Controls
             _point = e.Location;
             Invalidate();
             Cursor = _point.X > Width - 50 ? Cursors.Hand : Cursors.IBeam;
-
-
         }
 
         protected override void OnClick(EventArgs e)
@@ -434,16 +452,24 @@ namespace ReaLTaiizor.Controls
 
             if (_point.X > Width - 45 && _point.X < Width - 25)
             {
-                if (Value + 1 <= Maximum)
+                if (Value + Increment <= Maximum)
                 {
-                    Value += 1;
+                    Value += Increment;
+                }
+                else
+                {
+                    Value = Maximum;
                 }
             }
             else
             {
-                if (Value - 1 >= Minimum)
+                if (Value - Increment >= Minimum)
                 {
-                    Value -= 1;
+                    Value -= Increment;
+                }
+                else
+                {
+                    Value = Minimum;
                 }
             }
         }
