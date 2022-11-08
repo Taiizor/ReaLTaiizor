@@ -88,6 +88,7 @@ namespace ReaLTaiizor.Controls
 
         private bool _isDerivedStyle = true;
         private int _increment = 1;
+        private int _decrement = 1;
         private int _maximum = 100;
         private int _minimum;
         private Color _backgroundColor;
@@ -256,6 +257,13 @@ namespace ReaLTaiizor.Controls
         {
             get => _increment;
             set => _increment = value;
+        }
+
+        [Category("Metro"), Description("Gets or sets the decrement number of the Numeric.")]
+        public int Decrement
+        {
+            get => _decrement;
+            set => _decrement = value;
         }
 
         [Category("Metro"), Description("Gets or sets the maximum number of the Numeric.")]
@@ -463,9 +471,9 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                if (Value - Increment >= Minimum)
+                if (Value - Decrement >= Minimum)
                 {
-                    Value -= Increment;
+                    Value -= Decrement;
                 }
                 else
                 {
