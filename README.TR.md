@@ -90,6 +90,17 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 <table>
   <tr>
     <td align="center">
+		<a href="https://github.com/Vegalya">
+			<img src="https://avatars3.githubusercontent.com/u/98421771?s=200&v=4" width="80px;" alt="Vegalya"/>
+			<br/>
+			<sub>
+				<b>Vegalya</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Vegalya" target="_blank" title="İçerik">🖋</a>
+	</td>
+    <td align="center">
 		<a href="https://github.com/Soferity">
 			<img src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4" width="80px;" alt="Soferity"/>
 			<br/>
