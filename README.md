@@ -58,8 +58,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=HideakiAtsuyo" title="Reviewed Pull Requests">👀</a>
 	</td>
-  </tr>
-  <tr>
     <td align="center">
 		<a href="https://github.com/LandarXT">
 			<img src="https://avatars3.githubusercontent.com/u/104514709?s=460&v=4" width="80px;" alt="LandarXT"/>
@@ -168,6 +166,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		<br/>
 		<a href="https://github.com/dennismagno" target="_blank" title="Code">💻</a>
     </td>
+  </tr>
+  <tr>
     <td align="center">
 		<a href="https://github.com/RobinPerris">
 			<img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris"/>
