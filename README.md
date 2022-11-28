@@ -35,7 +35,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Code">💻</a>
 		<a href="https://www.taiizor.com" title="Ideas & Planning, Feedback">🤔</a>
-	</td>
+    </td>
     <td align="center">
 		<a href="https://github.com/JTOne123">
 			<img src="https://avatars3.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123"/>
@@ -46,7 +46,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="Reviewed Pull Requests">👀</a>
-	</td>
+    </td>
     <td align="center">
 		<a href="https://github.com/HideakiAtsuyo">
 			<img src="https://avatars3.githubusercontent.com/u/53636771?s=460&v=4" width="80px;" alt="HideakiAtsuyo"/>
@@ -58,6 +58,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=HideakiAtsuyo" title="Reviewed Pull Requests">👀</a>
 	</td>
+  </tr>
+  <tr>
     <td align="center">
 		<a href="https://github.com/LandarXT">
 			<img src="https://avatars3.githubusercontent.com/u/104514709?s=460&v=4" width="80px;" alt="LandarXT"/>
@@ -68,7 +70,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=LandarXT" title="Reviewed Pull Requests">👀</a>
-	</td>
+    </td>
     <td align="center">
 		<a href="https://github.com/edoardopirovano">
 			<img src="https://avatars3.githubusercontent.com/u/6748066?s=460&v=4" width="80px;" alt="edoardopirovano"/>
@@ -79,7 +81,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=edoardopirovano" title="Reviewed Pull Requests">👀</a>
-	</td>
+    </td>
   </tr>
 </table>
 
@@ -99,7 +101,7 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/Vegalya" target="_blank" title="Content">🖋</a>
-	</td>
+    </td>
     <td align="center">
 		<a href="https://github.com/Soferity">
 			<img src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4" width="80px;" alt="Soferity"/>
@@ -110,8 +112,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/Soferity" target="_blank" title="Content">🖋</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/donaldsteele">
 			<img src="https://avatars3.githubusercontent.com/u/8108109?s=200&v=4" width="80px;" alt="donaldsteele"/>
 			<br/>
@@ -121,8 +123,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/donaldsteele" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/leocb">
 			<img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb"/>
 			<br/>
@@ -132,8 +134,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/leocb" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/N-a-r-w-i-n">
 			<img src="https://avatars3.githubusercontent.com/u/25624385?s=200&v=4" width="80px;" alt="N-a-r-w-i-n"/>
 			<br/>
@@ -143,8 +145,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/N-a-r-w-i-n" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/peters">
 			<img src="https://avatars3.githubusercontent.com/u/869?s=200&v=4" width="80px;" alt="peters"/>
 			<br/>
@@ -154,8 +156,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/peters" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/dennismagno">
 			<img src="https://avatars3.githubusercontent.com/u/5070675?s=200&v=4" width="80px;" alt="dennismagno"/>
 			<br/>
@@ -165,8 +167,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/dennismagno" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/RobinPerris">
 			<img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris"/>
 			<br/>
@@ -176,8 +178,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/RobinPerris" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/VPKSoft">
 			<img src="https://avatars3.githubusercontent.com/u/40712699?s=200&v=4" width="80px;" alt="VPKSoft"/>
 			<br/>
@@ -187,7 +189,7 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/VPKSoft" target="_blank" title="Content">🖋</a>
-	</td>
+    </td>
   </tr>
 </table>
 
