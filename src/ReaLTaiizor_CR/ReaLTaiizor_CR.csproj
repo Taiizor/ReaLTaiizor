@@ -8,49 +8,53 @@
         <!--<TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
     </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
+        <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWindowsForms>true</UseWindowsForms>
-    <AnalysisLevel>preview</AnalysisLevel>
-    <LangVersion>preview</LangVersion>
-    <NeutralLanguage>en-GB</NeutralLanguage>
-    <StartupObject>ReaLTaiizor_CR.Program</StartupObject>
-    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
-    <Configurations>Debug;GitHub;Release</Configurations>
-    <NoWarn>CA1416</NoWarn>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <UseWindowsForms>true</UseWindowsForms>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <LangVersion>preview</LangVersion>
+        <NeutralLanguage>en-GB</NeutralLanguage>
+        <StartupObject>ReaLTaiizor_CR.Program</StartupObject>
+        <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
+        <Configurations>Debug;GitHub;Release</Configurations>
+        <NoWarn>CA1416</NoWarn>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ReaLTaiizor\ReaLTaiizor.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\ReaLTaiizor\ReaLTaiizor.csproj" />
+    </ItemGroup>
 
-  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net6.0-windows'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
-  </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND $(TargetFramework.StartsWith('net4'))">
+        <PackageReference Include="System.Resources.Extensions" Version="4.7.1" />
+    </ItemGroup>
 
-  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net7.0-windows'">
-    <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
-  </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net6.0-windows'">
+        <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net7.0-windows'">
+        <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
 
 </Project>
