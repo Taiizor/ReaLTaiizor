@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <TargetFramework>net48</TargetFramework>
-    <!--<TargetFramework>net5.0-windows</TargetFramework>-->
-    <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
-    <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
-    <!--<TargetFrameworks>net48;net481;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+        <TargetFramework>net48</TargetFramework>
+        <!--<TargetFramework>net7.0-windows</TargetFramework>-->
+        <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
+        <!--<TargetFrameworks>net48;net6.0-windows;net7.0-windows</TargetFrameworks>-->
+        <!--<TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
+    </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -28,10 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ReaLTaiizor\ReaLTaiizor.csproj" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND $(TargetFramework.StartsWith('net4'))">
-    <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net6.0-windows'">
