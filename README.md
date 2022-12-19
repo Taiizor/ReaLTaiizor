@@ -112,6 +112,17 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		<a href="https://github.com/Soferity" target="_blank" title="Content">🖋</a>
     </td>
     <td align="center">
+		<a href="https://github.com/IgnaceMaes">
+			<img src="https://avatars3.githubusercontent.com/u/10243652?s=200&v=4" width="80px;" alt="IgnaceMaes"/>
+			<br/>
+			<sub>
+				<b>IgnaceMaes</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/IgnaceMaes" target="_blank" title="Code">💻</a>
+    </td>
+    <td align="center">
 		<a href="https://github.com/donaldsteele">
 			<img src="https://avatars3.githubusercontent.com/u/8108109?s=200&v=4" width="80px;" alt="donaldsteele"/>
 			<br/>
@@ -155,6 +166,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		<br/>
 		<a href="https://github.com/peters" target="_blank" title="Code">💻</a>
     </td>
+  </tr>
+  <tr>
     <td align="center">
 		<a href="https://github.com/dennismagno">
 			<img src="https://avatars3.githubusercontent.com/u/5070675?s=200&v=4" width="80px;" alt="dennismagno"/>
@@ -166,8 +179,6 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		<br/>
 		<a href="https://github.com/dennismagno" target="_blank" title="Code">💻</a>
     </td>
-  </tr>
-  <tr>
     <td align="center">
 		<a href="https://github.com/RobinPerris">
 			<img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris"/>

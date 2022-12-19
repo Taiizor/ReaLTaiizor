@@ -112,6 +112,17 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<a href="https://github.com/Soferity" target="_blank" title="Contenido">🖋</a>
 	</td>
 	<td align="center">
+		<a href="https://github.com/IgnaceMaes">
+			<img src="https://avatars3.githubusercontent.com/u/10243652?s=200&v=4" width="80px;" alt="IgnaceMaes"/>
+			<br/>
+			<sub>
+				<b>IgnaceMaes</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/IgnaceMaes" target="_blank" title="Código">💻</a>
+	</td>
+	<td align="center">
 		<a href="https://github.com/donaldsteele">
 			<img src="https://avatars3.githubusercontent.com/u/8108109?s=200&v=4" width="80px;" alt="donaldsteele"/>
 			<br/>
@@ -155,6 +166,8 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<br/>
 		<a href="https://github.com/peters" target="_blank" title="Código">💻</a>
 	</td>
+  </tr>
+  <tr>
 	<td align="center">
 		<a href="https://github.com/dennismagno">
 			<img src="https://avatars3.githubusercontent.com/u/5070675?s=200&v=4" width="80px;" alt="dennismagno"/>
@@ -166,8 +179,6 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<br/>
 		<a href="https://github.com/dennismagno" target="_blank" title="Código">💻</a>
 	</td>
-  </tr>
-  <tr>
 	<td align="center">
 		<a href="https://github.com/RobinPerris">
 			<img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris"/>
