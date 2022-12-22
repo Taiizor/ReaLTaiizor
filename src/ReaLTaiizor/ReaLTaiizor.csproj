@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-        <TargetFramework>net48</TargetFramework>
+        <!--<TargetFramework>net48</TargetFramework>-->
         <!--<TargetFramework>net7.0-windows</TargetFramework>-->
         <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
         <!--<TargetFrameworks>net48;net6.0-windows;net7.0-windows</TargetFrameworks>-->
-        <!--<TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
@@ -16,7 +16,7 @@
     <PropertyGroup>
         <UseWindowsForms>true</UseWindowsForms>
         <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-        <Version>3.7.8.9</Version>
+        <Version>3.7.9.0</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>ReaLTaiizor</Title>

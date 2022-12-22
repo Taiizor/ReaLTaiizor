@@ -199,7 +199,7 @@ namespace ReaLTaiizor.Manager
                         ThemeName = "MetroDark";
                         break;
                     case Style.Custom:
-                        if (!string.IsNullOrEmpty(_customTheme))
+                        if (!string.IsNullOrEmpty(_customTheme) && File.Exists(_customTheme))
                         {
                             Properties.Settings.Default.ThemeFile = _customTheme;
                             Properties.Settings.Default.Save();
@@ -227,13 +227,13 @@ namespace ReaLTaiizor.Manager
                     Properties.Settings.Default.ThemeFile = value;
                     Properties.Settings.Default.Save();
                     ControlProperties(value);
-                    Style = Style.Custom;
                     _customTheme = value;
+                    Style = Style.Custom;
                 }
                 else
                 {
-                    Style = Style.Light;
                     _customTheme = null;
+                    Style = Style.Light;
                 }
             }
         }
