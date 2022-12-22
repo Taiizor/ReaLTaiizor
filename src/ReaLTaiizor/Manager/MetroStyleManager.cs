@@ -34,6 +34,8 @@ namespace ReaLTaiizor.Manager
 
         public MetroStyleManager()
         {
+            Style = Style.Light;
+
             if (_customTheme == null)
             {
                 string themePath = Properties.Settings.Default.ThemeFile;
@@ -54,7 +56,7 @@ namespace ReaLTaiizor.Manager
                     _customTheme = ThemeFilePath(Properties.Resources.Metro_Theme);
                 }
             }
-            Style = Style.Light;
+
             EvaluateDicts();
         }
 
@@ -220,19 +222,19 @@ namespace ReaLTaiizor.Manager
             get => _customTheme;
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value) && File.Exists(value))
                 {
                     Properties.Settings.Default.ThemeFile = value;
                     Properties.Settings.Default.Save();
                     ControlProperties(value);
                     Style = Style.Custom;
+                    _customTheme = value;
                 }
                 else
                 {
                     Style = Style.Light;
+                    _customTheme = null;
                 }
-
-                _customTheme = value;
             }
         }
 
@@ -428,16 +430,23 @@ namespace ReaLTaiizor.Manager
 
         private void ThemeDetailsReader(string path)
         {
-            foreach (KeyValuePair<string, object> item in GetValues(path, "Theme"))
+            try
             {
-                if (item.Key == "Name")
+                foreach (KeyValuePair<string, object> item in GetValues(path, "Theme"))
                 {
-                    ThemeName = item.Value.ToString();
+                    if (item.Key == "Name")
+                    {
+                        ThemeName = item.Value.ToString();
+                    }
+                    else if (item.Key == "Author")
+                    {
+                        ThemeAuthor = item.Value.ToString();
+                    }
                 }
-                else if (item.Key == "Author")
-                {
-                    ThemeAuthor = item.Value.ToString();
-                }
+            }
+            catch
+            {
+                return;
             }
         }
 
@@ -468,7 +477,7 @@ namespace ReaLTaiizor.Manager
             }
             catch
             {
-                return null;
+                return new();
             }
         }
 
