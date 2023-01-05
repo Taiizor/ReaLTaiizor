@@ -285,9 +285,9 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 ![Overview-4](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Crown.gif)
 
-![Overview-5](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Cyber.gif)
+![Overview-5](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Parrot.png)
 
-![Overview-6](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Parrot.png)
+![Overview-6](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Cyber.gif)
 
 ![Overview-7](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form1.png)
 
