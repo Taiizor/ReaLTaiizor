@@ -1,8 +1,8 @@
 ﻿namespace ReaLTaiizor.Enum.Cyber
 {
-    #region ButtonStyleEnum
+    #region StateStyleEnum
 
-    public enum ButtonStyle
+    public enum StateStyle
     {
         Default,
         Custom,
