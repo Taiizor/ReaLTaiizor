@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
-    
+
         public bool Focus()
         {
             return baseTextBox.Focus();

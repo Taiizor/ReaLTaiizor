@@ -87,8 +87,6 @@ namespace ReaLTaiizor.Controls
         private int _holdInterval = 10;
 
         private bool _isDerivedStyle = true;
-        private int _increment = 1;
-        private int _decrement = 1;
         private int _maximum = 100;
         private int _minimum;
         private Color _backgroundColor;
@@ -253,18 +251,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the increment number of the Numeric.")]
-        public int Increment
-        {
-            get => _increment;
-            set => _increment = value;
-        }
+        public int Increment { get; set; } = 1;
 
         [Category("Metro"), Description("Gets or sets the decrement number of the Numeric.")]
-        public int Decrement
-        {
-            get => _decrement;
-            set => _decrement = value;
-        }
+        public int Decrement { get; set; } = 1;
 
         [Category("Metro"), Description("Gets or sets the maximum number of the Numeric.")]
         public int Maximum

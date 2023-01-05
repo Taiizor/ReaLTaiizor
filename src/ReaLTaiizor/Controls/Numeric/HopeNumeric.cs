@@ -91,12 +91,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _enterKey = true;
-        public bool EnterKey
-        {
-            get => _enterKey;
-            set => _enterKey = value;
-        }
+        public bool EnterKey { get; set; } = true;
 
         public float Step { get; set; } = 1;
 
@@ -198,7 +193,7 @@ namespace ReaLTaiizor.Controls
             graphics.FillPath(new SolidBrush(BaseColor), bg);
             graphics.DrawPath(new(enterFlag ? BorderHoverColorA : BorderColorA, 1f), bg);
 
-            if ((!focus && EnterKey) || !focus && !EnterKey)
+            if ((!focus && EnterKey) || (!focus && !EnterKey))
             {
                 textBox.Text = Math.Round(_value, Precision).ToString();
             }
@@ -258,7 +253,7 @@ namespace ReaLTaiizor.Controls
                 {
                     ValueNumber = f;
                 }
-                
+
                 textBox.Text = Math.Round(_value, Precision).ToString();
 
                 base.Focus();

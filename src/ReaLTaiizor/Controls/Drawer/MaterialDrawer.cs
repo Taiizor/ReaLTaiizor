@@ -818,7 +818,7 @@ namespace ReaLTaiizor.Controls
                     }
                 }
             }
-            
+
             Cursor = previousCursor;
 
             if (e.Location.X + this.Location.X < BORDER_WIDTH)

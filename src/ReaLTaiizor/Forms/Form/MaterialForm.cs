@@ -55,11 +55,7 @@ namespace ReaLTaiizor.Forms
         }
 
         [Category("Drawer")]
-        public Cursor DrawerHamburgerCursor
-        {
-            get => _drawerHamburgerCursor;
-            set => _drawerHamburgerCursor = value;
-        }
+        public Cursor DrawerHamburgerCursor { get; set; } = Cursors.Hand;
 
         [Category("Drawer")]
         public bool DrawerShowIconsWhenHidden
@@ -402,7 +398,6 @@ namespace ReaLTaiizor.Forms
         private Rectangle _drawerButtonBounds => new(ClientRectangle.X + (SkinManager.FORM_PADDING / 2) + 3, STATUS_BAR_HEIGHT + (ACTION_BAR_HEIGHT / 2) - (ACTION_BAR_HEIGHT_DEFAULT / 2), ACTION_BAR_HEIGHT_DEFAULT, ACTION_BAR_HEIGHT_DEFAULT);
         private Rectangle _statusBarBounds => new(ClientRectangle.X, ClientRectangle.Y, ClientSize.Width, STATUS_BAR_HEIGHT);
         private Rectangle _drawerIconRect;
-        private Cursor _drawerHamburgerCursor = Cursors.Hand;
 
         private bool Maximized
         {
@@ -1042,7 +1037,7 @@ namespace ReaLTaiizor.Forms
 
             if (DrawerTabControl != null && _drawerIconRect.Contains(e.Location))
             {
-                Cursor = _drawerHamburgerCursor;
+                Cursor = DrawerHamburgerCursor;
             }
             else
             {
