@@ -3,7 +3,6 @@
 using ReaLTaiizor.Enum.Cyber;
 using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -15,41 +14,40 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace ReaLTaiizor.Controls
 {
-    #region CyberGroupBox
+    #region CyberSwitch
 
-    [ToolboxBitmap(typeof(System.Windows.Forms.GroupBox))]
-    [Description("Displays a box around a group of controls with the ability to include a header.")]
-    [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
-    public partial class CyberGroupBox : UserControl
+    [ToolboxBitmap(typeof(System.Windows.Forms.CheckBox))]
+    [Description("Allows the user to enable or disable the corresponding setting.")]
+    public partial class CyberSwitch : UserControl
     {
         #region Variables
 
         private float h = 0;
         private Rectangle rectangle_region = new();
         private GraphicsPath graphicsPath = new();
-        private readonly StringFormat stringFormat = new();
-        private Size size_cybergroupbox = new();
+        private Size size_cyberswitch = new();
 
         #endregion
 
         #region Property Region
 
-        private bool tmp_background;
+        private bool tmp_checked_status;
         [Category("Cyber")]
-        [Description("Background On/Off")]
-        public bool Background
+        [Description("On/Off")]
+        public bool Checked
         {
-            get => tmp_background;
+            get => tmp_checked_status;
             set
             {
-                tmp_background = value;
+                tmp_checked_status = value;
+                CheckedChanged();
                 Refresh();
             }
         }
 
         private bool tmp_rgb_status;
         [Category("Cyber")]
-        [Description("RGB On/Off")]
+        [Description("On/Off RGB")]
         public bool RGB
         {
             get => tmp_rgb_status;
@@ -83,9 +81,22 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        private bool tmp_background;
+        [Category("Cyber")]
+        [Description("Background On/Off")]
+        public bool Background
+        {
+            get => tmp_background;
+            set
+            {
+                tmp_background = value;
+                Refresh();
+            }
+        }
+
         private bool tmp_rounding_status;
         [Category("Cyber")]
-        [Description("On/Off Rounded Button")]
+        [Description("On/Off Rounding")]
         public bool Rounding
         {
             get => tmp_rounding_status;
@@ -112,6 +123,19 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        private Color color_value;
+        [Category("Cyber")]
+        [Description("The color of the circle inside")]
+        public Color ColorValue
+        {
+            get => color_value;
+            set
+            {
+                color_value = value;
+                Refresh();
+            }
+        }
+
         private Color tmp_color_background;
         [Category("Cyber")]
         [Description("Background color")]
@@ -132,6 +156,125 @@ namespace ReaLTaiizor.Controls
         {
             get => timer_rgb.Interval;
             set => timer_rgb.Interval = value;
+        }
+
+        private bool tmp_background_pen;
+        [Category("BorderStyle")]
+        [Description("On/Off Border")]
+        public bool BackgroundPen
+        {
+            get => tmp_background_pen;
+            set
+            {
+                tmp_background_pen = value;
+                OnSizeChanged(null);
+                Refresh();
+            }
+        }
+
+        private float tmp_background_width_pen;
+        [Category("BorderStyle")]
+        [Description("Border size")]
+        public float Background_WidthPen
+        {
+            get => tmp_background_width_pen;
+            set
+            {
+                tmp_background_width_pen = value;
+                OnSizeChanged(null);
+                Refresh();
+            }
+        }
+
+        private Color tmp_color_background_pen;
+        [Category("BorderStyle")]
+        [Description("Border color")]
+        public Color ColorBackground_Pen
+        {
+            get => tmp_color_background_pen;
+            set
+            {
+                tmp_color_background_pen = value;
+                Refresh();
+            }
+        }
+
+        private bool tmp_lineargradient_background_status;
+        [Category("LinearGradient")]
+        [Description("On/Off background gradient")]
+        public bool LinearGradient_Background
+        {
+            get => tmp_lineargradient_background_status;
+            set
+            {
+                tmp_lineargradient_background_status = value;
+                Refresh();
+            }
+        }
+
+        private Color tmp_color_1_for_gradient_background;
+        [Category("LinearGradient")]
+        [Description("Color #1 for background gradient")]
+        public Color ColorBackground_1
+        {
+            get => tmp_color_1_for_gradient_background;
+            set
+            {
+                tmp_color_1_for_gradient_background = value;
+                Refresh();
+            }
+        }
+
+        private Color tmp_color_2_for_gradient_background;
+        [Category("LinearGradient")]
+        [Description("Color #2 for background gradient")]
+        public Color ColorBackground_2
+        {
+            get => tmp_color_2_for_gradient_background;
+            set
+            {
+                tmp_color_2_for_gradient_background = value;
+                Refresh();
+            }
+        }
+
+        private bool tmp_lineargradient_value_status;
+        [Category("LinearGradient")]
+        [Description("On/Off Gradient Value")]
+        public bool LinearGradient_Value
+        {
+            get => tmp_lineargradient_value_status;
+            set
+            {
+                tmp_lineargradient_value_status = value;
+                Refresh();
+            }
+        }
+
+        private Color tmp_color_1_for_gradient_value;
+        [Category("LinearGradient")]
+        [Description("Color #1 for the value gradient")]
+        public Color ColorBackground_Value_1
+        {
+            get => tmp_color_1_for_gradient_value;
+            set
+            {
+                tmp_color_1_for_gradient_value = value;
+                Refresh();
+            }
+        }
+
+        private Color tmp_color_2_for_gradient_value;
+        [Category("LinearGradient")]
+        [Description("Color #2 for the value gradient")]
+        public Color ColorBackground_Value_2
+        {
+            get => tmp_color_2_for_gradient_value;
+            set
+            {
+                tmp_color_2_for_gradient_value = value;
+                Refresh();
+            }
         }
 
         private bool tmp_lighting;
@@ -227,86 +370,6 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool tmp_background_pen;
-        [Category("BorderStyle")]
-        [Description("On/Off Border")]
-        public bool BackgroundPen
-        {
-            get => tmp_background_pen;
-            set
-            {
-                tmp_background_pen = value;
-                OnSizeChanged(null);
-                Refresh();
-            }
-        }
-
-        private float tmp_background_width_pen;
-        [Category("BorderStyle")]
-        [Description("Border size")]
-        public float Background_WidthPen
-        {
-            get => tmp_background_width_pen;
-            set
-            {
-                tmp_background_width_pen = value;
-                OnSizeChanged(null);
-                Refresh();
-            }
-        }
-
-        private Color tmp_color_Background_pen;
-        [Category("BorderStyle")]
-        [Description("Border color")]
-        public Color ColorBackground_Pen
-        {
-            get => tmp_color_Background_pen;
-            set
-            {
-                tmp_color_Background_pen = value;
-                Refresh();
-            }
-        }
-
-        private bool tmp_lineargradient_background;
-        [Category("LinearGradient")]
-        [Description("On/Off background gradient")]
-        public bool LinearGradient_Background
-        {
-            get => tmp_lineargradient_background;
-            set
-            {
-                tmp_lineargradient_background = value;
-                Refresh();
-            }
-        }
-
-        private Color tmp_color_1_for_gradient;
-        [Category("LinearGradient")]
-        [Description("Color #1 for gradient")]
-        public Color ColorBackground_1
-        {
-            get => tmp_color_1_for_gradient;
-            set
-            {
-                tmp_color_1_for_gradient = value;
-                Refresh();
-            }
-        }
-
-        private Color tmp_color_2_for_gradient;
-        [Category("LinearGradient")]
-        [Description("Color #2 for gradient")]
-        public Color ColorBackground_2
-        {
-            get => tmp_color_2_for_gradient;
-            set
-            {
-                tmp_color_2_for_gradient = value;
-                Refresh();
-            }
-        }
-
         private SmoothingMode tmp_smoothing_mode;
         [Category("Cyber")]
         [Description("Mode <graphics.SmoothingMode>")]
@@ -337,43 +400,48 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private StateStyle tmp_cybergroupbox_style = StateStyle.Default;
+        private StateStyle tmp_cyberswitch_style = StateStyle.Default;
         [Category("Cyber")]
-        [Description("GroupBox style")]
-        public StateStyle CyberGroupBoxStyle
+        [Description("Switch style")]
+        public StateStyle CyberSwitchStyle
         {
-            get => tmp_cybergroupbox_style;
+            get => tmp_cyberswitch_style;
             set
             {
-                tmp_cybergroupbox_style = value;
-                switch (tmp_cybergroupbox_style)
+                tmp_cyberswitch_style = value;
+                switch (tmp_cyberswitch_style)
                 {
                     case StateStyle.Default:
-                        Size = new Size(150, 130);
+                        Size = new Size(35, 20);
                         BackColor = Color.Transparent;
                         ForeColor = Color.FromArgb(245, 245, 245);
-
-                        Background = true;
+                        Checked = false;
                         RGB = false;
+                        Background = true;
                         Rounding = true;
-                        RoundingInt = 60;
+                        RoundingInt = 90;
+                        ColorValue = Color.FromArgb(29, 200, 238);
                         ColorBackground = Color.FromArgb(37, 52, 68);
                         Timer_RGB = 300;
-                        Lighting = false;
-                        ColorLighting = Color.FromArgb(29, 200, 238);
-                        Alpha = 20;
-                        PenWidth = 15;
-                        LinearGradientPen = false;
-                        ColorPen_1 = Color.FromArgb(37, 52, 68);
-                        ColorPen_2 = Color.FromArgb(41, 63, 86);
                         BackgroundPen = true;
-                        Background_WidthPen = 3F;
+                        Background_WidthPen = 2F;
                         ColorBackground_Pen = Color.FromArgb(29, 200, 238);
                         LinearGradient_Background = false;
                         ColorBackground_1 = Color.FromArgb(37, 52, 68);
                         ColorBackground_2 = Color.FromArgb(41, 63, 86);
+                        LinearGradient_Value = false;
+                        ColorBackground_Value_1 = Color.FromArgb(28, 200, 238);
+                        ColorBackground_Value_2 = Color.FromArgb(100, 208, 232);
+                        Lighting = false;
+                        ColorLighting = Color.FromArgb(29, 200, 238);
+                        Alpha = 50;
+                        PenWidth = 10;
+                        LinearGradientPen = false;
+                        ColorPen_1 = Color.FromArgb(37, 52, 68);
+                        ColorPen_2 = Color.FromArgb(41, 63, 86);
                         SmoothingMode = SmoothingMode.HighQuality;
                         TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+                        Font = HelpEngine.GetDefaultFont();
                         break;
                     case StateStyle.Custom:
                         break;
@@ -381,7 +449,6 @@ namespace ReaLTaiizor.Controls
                         HelpEngine.GetRandom random = new();
                         Background = random.Bool();
                         Rounding = random.Bool();
-
                         if (Rounding)
                         {
                             RoundingInt = random.Int(5, 90);
@@ -393,6 +460,7 @@ namespace ReaLTaiizor.Controls
                         }
 
                         BackgroundPen = random.Bool();
+
                         if (BackgroundPen)
                         {
                             Background_WidthPen = random.Float(1, 3);
@@ -412,12 +480,21 @@ namespace ReaLTaiizor.Controls
                             ColorBackground_2 = random.ColorArgb();
                         }
 
+                        LinearGradient_Value = random.Bool();
+                        if (LinearGradient_Value)
+                        {
+                            ColorBackground_Value_1 = random.ColorArgb();
+                            ColorBackground_Value_2 = random.ColorArgb();
+                        }
+
                         LinearGradientPen = random.Bool();
                         if (LinearGradientPen)
                         {
                             ColorPen_1 = random.ColorArgb();
                             ColorPen_2 = random.ColorArgb();
                         }
+
+                        ColorValue = random.ColorArgb(random.Int(0, 255));
                         break;
                 }
 
@@ -429,17 +506,14 @@ namespace ReaLTaiizor.Controls
 
         #region Constructor Region
 
-        public CyberGroupBox()
+        public CyberSwitch()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.Selectable | ControlStyles.SupportsTransparentBackColor | ControlStyles.StandardDoubleClick, true);
             DoubleBuffered = true;
 
             Tag = "Cyber";
-            CyberGroupBoxStyle = StateStyle.Default;
-            CyberGroupBoxStyle = StateStyle.Custom;
-
-            stringFormat.Alignment = StringAlignment.Center;
-            stringFormat.LineAlignment = StringAlignment.Center;
+            CyberSwitchStyle = StateStyle.Default;
+            CyberSwitchStyle = StateStyle.Custom;
 
             OnSizeChanged(null);
         }
@@ -464,12 +538,26 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        protected override void OnMouseClick(MouseEventArgs e)
+        {
+            Checked = !Checked;
+            Refresh();
+        }
+
         protected override void OnSizeChanged(EventArgs e)
         {
             int tmp = (int)((BackgroundPen ? Background_WidthPen : 0) + (Lighting ? PenWidth / 4 : 0));
-            size_cybergroupbox = new Size(Width - (tmp * 2), Height - (tmp * 2));
-            rectangle_region = new Rectangle(tmp, tmp, size_cybergroupbox.Width, size_cybergroupbox.Height);
+            size_cyberswitch = new Size(Width - (tmp * 2), Height - (tmp * 2));
+            rectangle_region = new Rectangle(tmp, tmp, size_cyberswitch.Width, size_cyberswitch.Height);
         }
+        #endregion
+
+        #region Event Handler Region
+
+        public delegate void EventHandler();
+        [Category("Cyber")]
+        [Description("Occurs whenever the Checked property is changed.")]
+        public event EventHandler CheckedChanged = delegate { };
 
         #endregion
 
@@ -491,7 +579,7 @@ namespace ReaLTaiizor.Controls
                 //Rounding
                 if (Rounding && RoundingInt > 0)
                 {
-                    roundingValue = Height / 100F * RoundingInt;
+                    roundingValue = size_cyberswitch.Height / 100F * RoundingInt;
                 }
 
                 //RoundedRectangle
@@ -553,12 +641,75 @@ namespace ReaLTaiizor.Controls
                     graphics.FillPath(LinearGradient_Background ? brush : new SolidBrush(ColorBackground), graphicsPath);
                 }
 
+                //Additionally
+                Draw_Checked(graphics);
+
                 return bitmap;
             }
 
             BaseLoading();
             graphics_form.DrawImage(Layer_1(), new PointF(0, 0));
             graphics_form.DrawImage(Layer_2(), new PointF(0, 0));
+        }
+
+        private void Draw_Checked(Graphics graphics)
+        {
+            //RoundedRectangle
+            Rectangle rectangle_new = new();
+
+            if (Checked)
+            {
+                int num_X = (int)(rectangle_region.Width / 10 * 6.2F);
+                int num_Y = rectangle_region.Height / 6;
+                rectangle_new.X = rectangle_region.X + num_X;
+                rectangle_new.Y = rectangle_region.Y + num_Y;
+                rectangle_new.Height = rectangle_region.Height - (num_Y * 2);
+                rectangle_new.Width = rectangle_new.Height;
+
+                if (LinearGradient_Value)
+                {
+                    graphics.FillEllipse(new LinearGradientBrush(rectangle_region,
+                    RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorBackground_Value_1,
+                    RGB ? DrawEngine.HSV_To_RGB(h + 20, 1f, 1f) : ColorBackground_Value_2,
+                    360), rectangle_new);
+                }
+                else
+                {
+                    graphics.FillEllipse(new SolidBrush(
+                    RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorValue), rectangle_new);
+                }
+            }
+            else
+            {
+                int num_X = rectangle_region.Width / 10;
+                int num_Y = rectangle_region.Height / 6;
+                rectangle_new.X = rectangle_region.X + num_X;
+                rectangle_new.Y = rectangle_region.Y + num_Y;
+                rectangle_new.Height = rectangle_region.Height - (num_Y * 2);
+                rectangle_new.Width = rectangle_new.Height;
+                float size_brightness = 0.5F;
+
+                if (LinearGradient_Value)
+                {
+                    graphics.FillEllipse(new LinearGradientBrush(rectangle_region,
+                    Color.FromArgb(
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorBackground_Value_1).R * size_brightness),
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorBackground_Value_1).G * size_brightness),
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorBackground_Value_1).B * size_brightness)),
+                    Color.FromArgb(
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h + 20, 1f, 1f) : ColorBackground_Value_2).R * size_brightness),
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h + 20, 1f, 1f) : ColorBackground_Value_2).G * size_brightness),
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h + 20, 1f, 1f) : ColorBackground_Value_2).B * size_brightness)),
+                    360), rectangle_new);
+                }
+                else
+                {
+                    graphics.FillEllipse(new SolidBrush(Color.FromArgb(100,
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorValue).R * size_brightness),
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorValue).G * size_brightness),
+                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorValue).B * size_brightness))), rectangle_new);
+                }
+            }
         }
 
         #endregion

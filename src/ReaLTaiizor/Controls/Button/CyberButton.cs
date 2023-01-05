@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Controls
     #region CyberButton
 
     [DefaultEvent("Click")]
-    [ToolboxBitmap(typeof(Button))]
+    [ToolboxBitmap(typeof(System.Windows.Forms.Button))]
     [Description("When clicked, an event is fired.")]
     public partial class CyberButton : UserControl
     {
