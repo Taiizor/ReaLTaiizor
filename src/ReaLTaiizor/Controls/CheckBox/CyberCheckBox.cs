@@ -14,18 +14,20 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace ReaLTaiizor.Controls
 {
-    #region CyberSwitch
+    #region CyberCheckBox
 
     [ToolboxBitmap(typeof(System.Windows.Forms.CheckBox))]
     [Description("Allows the user to enable or disable the corresponding setting.")]
-    public partial class CyberSwitch : UserControl
+    public partial class CyberCheckBox : UserControl
     {
         #region Variables
 
         private float h = 0;
         private Rectangle rectangle_region = new();
         private GraphicsPath graphicsPath = new();
-        private Size size_cyberswitch = new();
+        private int temp = 0;
+        private bool Mouse_Enter = false;
+        private Size size_cybercheckbox = new();
 
         #endregion
 
@@ -33,7 +35,7 @@ namespace ReaLTaiizor.Controls
 
         private bool tmp_checked_status;
         [Category("Cyber")]
-        [Description("On/Off")]
+        [Description("On/Off checked status")]
         public bool Checked
         {
             get => tmp_checked_status;
@@ -45,9 +47,22 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        private string tmp_text_button;
+        [Category("Cyber")]
+        [Description("Text on checkbox")]
+        public string TextButton
+        {
+            get => tmp_text_button;
+            set
+            {
+                tmp_text_button = value;
+                Refresh();
+            }
+        }
+
         private bool tmp_rgb_status;
         [Category("Cyber")]
-        [Description("On/Off RGB")]
+        [Description("RGB On/Off")]
         public bool RGB
         {
             get => tmp_rgb_status;
@@ -123,15 +138,15 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private Color color_value;
-        [Category("Cyber")]
-        [Description("The color of the circle inside")]
-        public Color ColorValue
+        private Color tmp_color_click_circle;
+        [Category("Effects")]
+        [Description("Click animation color")]
+        public Color Effect_1_ColorBackground
         {
-            get => color_value;
+            get => tmp_color_click_circle;
             set
             {
-                color_value = value;
+                tmp_color_click_circle = value;
                 Refresh();
             }
         }
@@ -149,15 +164,6 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private readonly Timer timer_rgb = new() { Interval = 300 };
-        [Category("Timers")]
-        [Description("RGB mode refresh rate (redrawing in effect)")]
-        public int Timer_RGB
-        {
-            get => timer_rgb.Interval;
-            set => timer_rgb.Interval = value;
-        }
-
         private bool tmp_background_pen;
         [Category("BorderStyle")]
         [Description("On/Off Border")]
@@ -172,21 +178,21 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private float tmp_background_width_pen;
+        private float background_width_pen;
         [Category("BorderStyle")]
         [Description("Border size")]
         public float Background_WidthPen
         {
-            get => tmp_background_width_pen;
+            get => background_width_pen;
             set
             {
-                tmp_background_width_pen = value;
+                background_width_pen = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private Color tmp_color_background_pen;
+        public static Color tmp_color_background_pen;
         [Category("BorderStyle")]
         [Description("Border color")]
         public Color ColorBackground_Pen
@@ -199,134 +205,115 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool tmp_lineargradient_background_status;
+        private Color color_checked;
+        [Category("Cyber")]
+        [Description("Checkmark color")]
+        public Color ColorChecked
+        {
+            get => color_checked;
+            set
+            {
+                color_checked = value;
+                Refresh();
+            }
+        }
+
+        [Category("Effects")]
+        [DefaultValue(true)]
+        [Description("On/Off circle effect when hovering/activating")]
+        public bool Effect_1 { get; set; }
+
+        private int effect1_transparency;
+        [Category("Effects")]
+        [Description("Transparency effect_1")]
+        public int Effect_1_Transparency
+        {
+            get => effect1_transparency;
+            set
+            {
+                if (value is > 0 and <= 255)
+                {
+                    effect1_transparency = value;
+                }
+            }
+        }
+
+        [Category("Effects")]
+        [Description("On/Off the white background effect on the button")]
+        public bool Effect_2 { get; set; }
+
+        private int effect2_transparency;
+        [Category("Effects")]
+        [Description("Transparency effect_2")]
+        public int Effect_2_Transparency
+        {
+            get => effect2_transparency;
+            set
+            {
+                if (value is > 0 and <= 255)
+                {
+                    effect2_transparency = value;
+                }
+            }
+        }
+
+        [Category("Effects")]
+        [Description("Effect color")]
+        public Color Effect_2_ColorBackground { get; set; }
+
+        private readonly Timer timer_effect_1 = new() { Interval = 1 };
+        [Category("Timers")]
+        [Description("Effect speed <effect_1> (redrawing is in effect)")]
+        public int Timer_Effect_1
+        {
+            get => timer_effect_1.Interval;
+            set => timer_effect_1.Interval = value;
+        }
+
+        private readonly Timer timer_rgb = new() { Interval = 300 };
+        [Category("Timers")]
+        [Description("RGB mode refresh rate (redrawing in effect)")]
+        public int Timer_RGB
+        {
+            get => timer_rgb.Interval;
+            set => timer_rgb.Interval = value;
+        }
+
+        private bool tmp_lineargradient_Background_status;
         [Category("LinearGradient")]
         [Description("On/Off background gradient")]
         public bool LinearGradient_Background
         {
-            get => tmp_lineargradient_background_status;
+            get => tmp_lineargradient_Background_status;
             set
             {
-                tmp_lineargradient_background_status = value;
+                tmp_lineargradient_Background_status = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_1_for_gradient_background;
+        private Color tmp_color_1_for_gradient;
         [Category("LinearGradient")]
-        [Description("Color #1 for background gradient")]
+        [Description("Color #1 for gradient")]
         public Color ColorBackground_1
         {
-            get => tmp_color_1_for_gradient_background;
+            get => tmp_color_1_for_gradient;
             set
             {
-                tmp_color_1_for_gradient_background = value;
+                tmp_color_1_for_gradient = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_2_for_gradient_background;
+        private Color tmp_color_2_for_gradient;
         [Category("LinearGradient")]
-        [Description("Color #2 for background gradient")]
+        [Description("Color #2 for gradient")]
         public Color ColorBackground_2
         {
-            get => tmp_color_2_for_gradient_background;
+            get => tmp_color_2_for_gradient;
             set
             {
-                tmp_color_2_for_gradient_background = value;
-                Refresh();
-            }
-        }
-
-        private bool tmp_lineargradient_value_status;
-        [Category("LinearGradient")]
-        [Description("On/Off Gradient Value")]
-        public bool LinearGradient_Value
-        {
-            get => tmp_lineargradient_value_status;
-            set
-            {
-                tmp_lineargradient_value_status = value;
-                Refresh();
-            }
-        }
-
-        private Color tmp_color_1_for_gradient_value;
-        [Category("LinearGradient")]
-        [Description("Color #1 for the value gradient")]
-        public Color ColorBackground_Value_1
-        {
-            get => tmp_color_1_for_gradient_value;
-            set
-            {
-                tmp_color_1_for_gradient_value = value;
-                Refresh();
-            }
-        }
-
-        private Color tmp_color_2_for_gradient_value;
-        [Category("LinearGradient")]
-        [Description("Color #2 for the value gradient")]
-        public Color ColorBackground_Value_2
-        {
-            get => tmp_color_2_for_gradient_value;
-            set
-            {
-                tmp_color_2_for_gradient_value = value;
-                Refresh();
-            }
-        }
-
-        private bool tmp_lighting;
-        [Category("Lighting")]
-        [Description("On/Off backlight")]
-        public bool Lighting
-        {
-            get => tmp_lighting;
-            set
-            {
-                tmp_lighting = value;
-                OnSizeChanged(null);
-                Refresh();
-            }
-        }
-
-        private Color tmp_color_lighting;
-        [Category("Lighting")]
-        [Description("Backlight / Shadow Color")]
-        public Color ColorLighting
-        {
-            get => tmp_color_lighting;
-            set
-            {
-                tmp_color_lighting = value;
-                Refresh();
-            }
-        }
-
-        private int tmp_alpha;
-        [Category("Lighting")]
-        [Description("Lighting alpha")]
-        public int Alpha
-        {
-            get => tmp_alpha;
-            set
-            {
-                tmp_alpha = value;
-                Refresh();
-            }
-        }
-
-        private int tmp_pen_width;
-        [Category("Lighting")]
-        [Description("Lighting width")]
-        public int PenWidth
-        {
-            get => tmp_pen_width;
-            set
-            {
-                tmp_pen_width = value;
-                OnSizeChanged(null);
+                tmp_color_2_for_gradient = value;
                 Refresh();
             }
         }
@@ -400,42 +387,44 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private StateStyle tmp_cyberswitch_style = StateStyle.Default;
+        private StateStyle tmp_cybercheckbox_style = StateStyle.Default;
         [Category("Cyber")]
-        [Description("Switch style")]
-        public StateStyle CyberSwitchStyle
+        [Description("CheckBox style")]
+        public StateStyle CyberCheckBoxStyle
         {
-            get => tmp_cyberswitch_style;
+            get => tmp_cybercheckbox_style;
             set
             {
-                tmp_cyberswitch_style = value;
-                switch (tmp_cyberswitch_style)
+                tmp_cybercheckbox_style = value;
+                switch (tmp_cybercheckbox_style)
                 {
                     case StateStyle.Default:
-                        Size = new Size(35, 20);
+                        Size = new Size(170, 45);
                         BackColor = Color.Transparent;
                         ForeColor = Color.FromArgb(245, 245, 245);
+
                         Checked = false;
+                        TextButton = "CyberCheckBox";
                         RGB = false;
                         Background = true;
                         Rounding = true;
-                        RoundingInt = 90;
-                        ColorValue = Color.FromArgb(29, 200, 238);
+                        RoundingInt = 100;
+                        Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
                         ColorBackground = Color.FromArgb(37, 52, 68);
-                        Timer_RGB = 300;
                         BackgroundPen = true;
                         Background_WidthPen = 2F;
                         ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+                        ColorChecked = Color.FromArgb(29, 200, 238);
+                        Effect_1 = true;
+                        Effect_1_Transparency = 25;
+                        Effect_2 = true;
+                        Effect_2_Transparency = 15;
+                        Effect_2_ColorBackground = Color.White;
+                        Timer_Effect_1 = 1;
+                        Timer_RGB = 300;
                         LinearGradient_Background = false;
                         ColorBackground_1 = Color.FromArgb(37, 52, 68);
                         ColorBackground_2 = Color.FromArgb(41, 63, 86);
-                        LinearGradient_Value = false;
-                        ColorBackground_Value_1 = Color.FromArgb(28, 200, 238);
-                        ColorBackground_Value_2 = Color.FromArgb(100, 208, 232);
-                        Lighting = false;
-                        ColorLighting = Color.FromArgb(29, 200, 238);
-                        Alpha = 50;
-                        PenWidth = 10;
                         LinearGradientPen = false;
                         ColorPen_1 = Color.FromArgb(37, 52, 68);
                         ColorPen_2 = Color.FromArgb(41, 63, 86);
@@ -460,17 +449,11 @@ namespace ReaLTaiizor.Controls
                         }
 
                         BackgroundPen = random.Bool();
-
                         if (BackgroundPen)
                         {
                             Background_WidthPen = random.Float(1, 3);
                             ColorBackground_Pen = random.ColorArgb(random.Int(0, 255));
-                        }
-
-                        Lighting = random.Bool();
-                        if (Lighting)
-                        {
-                            ColorLighting = random.ColorArgb();
+                            ColorChecked = random.ColorArgb(random.Int(0, 255));
                         }
 
                         LinearGradient_Background = random.Bool();
@@ -480,21 +463,12 @@ namespace ReaLTaiizor.Controls
                             ColorBackground_2 = random.ColorArgb();
                         }
 
-                        LinearGradient_Value = random.Bool();
-                        if (LinearGradient_Value)
-                        {
-                            ColorBackground_Value_1 = random.ColorArgb();
-                            ColorBackground_Value_2 = random.ColorArgb();
-                        }
-
                         LinearGradientPen = random.Bool();
                         if (LinearGradientPen)
                         {
                             ColorPen_1 = random.ColorArgb();
                             ColorPen_2 = random.ColorArgb();
                         }
-
-                        ColorValue = random.ColorArgb(random.Int(0, 255));
                         break;
                 }
 
@@ -506,14 +480,14 @@ namespace ReaLTaiizor.Controls
 
         #region Constructor Region
 
-        public CyberSwitch()
+        public CyberCheckBox()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.Selectable | ControlStyles.SupportsTransparentBackColor | ControlStyles.StandardDoubleClick, true);
             DoubleBuffered = true;
 
             Tag = "Cyber";
-            CyberSwitchStyle = StateStyle.Default;
-            CyberSwitchStyle = StateStyle.Custom;
+            CyberCheckBoxStyle = StateStyle.Default;
+            CyberCheckBoxStyle = StateStyle.Custom;
 
             OnSizeChanged(null);
         }
@@ -528,6 +502,7 @@ namespace ReaLTaiizor.Controls
             {
                 Settings_Load(e.Graphics);
                 Draw_Background(e.Graphics);
+                Draw_Text(e.Graphics);
 
                 graphicsPath.ClearMarkers();
                 graphicsPath.Dispose();
@@ -541,14 +516,60 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseClick(MouseEventArgs e)
         {
             Checked = !Checked;
+
+            timer_effect_1.Stop();
+            timer_effect_1.Dispose();
+            if (e.Button == MouseButtons.Left)
+            {
+                temp = size_cybercheckbox.Width;
+
+                if (Checked)
+                {
+                    timer_effect_1.Tick += (Sender, EventArgs) =>
+                    {
+                        temp += 1;
+                        Refresh();
+                    };
+                    timer_effect_1.Start();
+                }
+                else
+                {
+                    Refresh();
+                }
+            }
+        }
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            Mouse_Enter = true;
+            Refresh();
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            timer_effect_1.Stop();
+            timer_effect_1.Dispose();
+            Mouse_Enter = false;
+            temp = 0;
+
             Refresh();
         }
 
         protected override void OnSizeChanged(EventArgs e)
         {
-            int tmp = (int)((BackgroundPen ? Background_WidthPen : 0) + (Lighting ? PenWidth / 4 : 0));
-            size_cyberswitch = new Size(Width - (tmp * 2), Height - (tmp * 2));
-            rectangle_region = new Rectangle(tmp, tmp, size_cyberswitch.Width, size_cyberswitch.Height);
+            Size = new Size(Size.Width, 45);
+            size_cybercheckbox = new Size(21, 21);
+            rectangle_region = new Rectangle(15, (Size.Height / 2) - 12, size_cybercheckbox.Width, size_cybercheckbox.Height);
+        }
+
+        protected override CreateParams CreateParams //WS_CLIPCHILDREN
+        {
+            get
+            {
+                CreateParams createParams = base.CreateParams;
+                createParams.ExStyle |= 0x02000000;
+                return createParams;
+            }
         }
 
         #endregion
@@ -580,7 +601,7 @@ namespace ReaLTaiizor.Controls
                 //Rounding
                 if (Rounding && RoundingInt > 0)
                 {
-                    roundingValue = size_cyberswitch.Height / 100F * RoundingInt;
+                    roundingValue = size_cybercheckbox.Height / 100F * RoundingInt;
                 }
 
                 //RoundedRectangle
@@ -596,12 +617,6 @@ namespace ReaLTaiizor.Controls
             {
                 Bitmap bitmap = new(Width, Height);
                 Graphics graphics = HelpEngine.GetGraphics(ref bitmap, SmoothingMode, TextRenderingHint);
-
-                //Shadow
-                if (Lighting)
-                {
-                    DrawEngine.DrawBlurred(graphics, ColorLighting, DrawEngine.RoundedRectangle(rectangle_region, roundingValue), Alpha, PenWidth);
-                }
 
                 //Background border
                 if (Background_WidthPen != 0 && BackgroundPen == true)
@@ -628,12 +643,16 @@ namespace ReaLTaiizor.Controls
                 Bitmap bitmap = new(Width, Height);
                 Graphics graphics = HelpEngine.GetGraphics(ref bitmap, SmoothingMode, TextRenderingHint);
 
-                //Region_Clip
-                graphics.Clip = new Region(DrawEngine.RoundedRectangle(new Rectangle(
-                    rectangle_region.X - (int)(2 + Background_WidthPen),
-                    rectangle_region.Y - (int)(2 + Background_WidthPen),
-                    rectangle_region.Width + ((int)(2 + Background_WidthPen) * 2),
-                    rectangle_region.Height + ((int)(2 + Background_WidthPen) * 2)), Rounding ? roundingValue : 0.1F));
+                //Effects
+                if (Effect_1)
+                {
+                    Draw_Animation_Circles(graphics);
+                }
+
+                if (Effect_2 && Mouse_Enter)
+                {
+                    Draw_Animation_WhiteBackground_CirclesStyle(graphics);
+                }
 
                 //Background
                 if (Background == true)
@@ -643,7 +662,10 @@ namespace ReaLTaiizor.Controls
                 }
 
                 //Additionally
-                Draw_Checked(graphics);
+                if (Checked)
+                {
+                    Draw_Checked(graphics);
+                }
 
                 return bitmap;
             }
@@ -653,63 +675,55 @@ namespace ReaLTaiizor.Controls
             graphics_form.DrawImage(Layer_2(), new PointF(0, 0));
         }
 
+        private void Draw_Text(Graphics graphics)
+        {
+            graphics.DrawString(
+                TextButton,
+                Font,
+                new SolidBrush(ForeColor),
+                new Rectangle((int)(25 + graphicsPath.GetBounds().Width), (Size.Height / 2) - (Font.Height / 2), 0, 0));
+        }
+
         private void Draw_Checked(Graphics graphics)
         {
-            //RoundedRectangle
-            Rectangle rectangle_new = new();
+            graphics.DrawString(
+                "\uE73E",
+                new Font("Segoe MDL2 Assets", 10F, FontStyle.Regular),
+                new SolidBrush(RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorChecked),
+                new Rectangle(15 + 3, (Size.Height / 2) - (25 / 2) + 5, 0, 0));
+        }
 
-            if (Checked)
+        private void Draw_Animation_Circles(Graphics graphics)
+        {
+            int size_circles = 40;
+            if (temp < size_circles)
             {
-                int num_X = (int)(rectangle_region.Width / 10 * 6.2F);
-                int num_Y = rectangle_region.Height / 6;
-                rectangle_new.X = rectangle_region.X + num_X;
-                rectangle_new.Y = rectangle_region.Y + num_Y;
-                rectangle_new.Height = rectangle_region.Height - (num_Y * 2);
-                rectangle_new.Width = rectangle_new.Height;
-
-                if (LinearGradient_Value)
+                Rectangle rectangle_circles = new(
+                    15 + (25 / 2) - (temp / 2),
+                    (Size.Height / 2) - (25 / 2) + (25 / 2) - (temp / 2),
+                    temp, temp);
+                rectangle_circles.X -= 2;
+                rectangle_circles.Y -= 2;
+                if (rectangle_circles.Width != 0 && rectangle_circles.Height != 0)
                 {
-                    graphics.FillEllipse(new LinearGradientBrush(rectangle_region,
-                    RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorBackground_Value_1,
-                    RGB ? DrawEngine.HSV_To_RGB(h + 20, 1f, 1f) : ColorBackground_Value_2,
-                    360), rectangle_new);
-                }
-                else
-                {
-                    graphics.FillEllipse(new SolidBrush(
-                    RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorValue), rectangle_new);
+                    graphics.FillEllipse(new SolidBrush(Color.FromArgb(Effect_1_Transparency, Effect_1_ColorBackground)), rectangle_circles);
                 }
             }
-            else
-            {
-                int num_X = rectangle_region.Width / 10;
-                int num_Y = rectangle_region.Height / 6;
-                rectangle_new.X = rectangle_region.X + num_X;
-                rectangle_new.Y = rectangle_region.Y + num_Y;
-                rectangle_new.Height = rectangle_region.Height - (num_Y * 2);
-                rectangle_new.Width = rectangle_new.Height;
-                float size_brightness = 0.5F;
+        }
 
-                if (LinearGradient_Value)
-                {
-                    graphics.FillEllipse(new LinearGradientBrush(rectangle_region,
-                    Color.FromArgb(
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorBackground_Value_1).R * size_brightness),
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorBackground_Value_1).G * size_brightness),
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorBackground_Value_1).B * size_brightness)),
-                    Color.FromArgb(
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h + 20, 1f, 1f) : ColorBackground_Value_2).R * size_brightness),
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h + 20, 1f, 1f) : ColorBackground_Value_2).G * size_brightness),
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h + 20, 1f, 1f) : ColorBackground_Value_2).B * size_brightness)),
-                    360), rectangle_new);
-                }
-                else
-                {
-                    graphics.FillEllipse(new SolidBrush(Color.FromArgb(100,
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorValue).R * size_brightness),
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorValue).G * size_brightness),
-                    (int)((RGB ? DrawEngine.HSV_To_RGB(h, 1f, 1f) : ColorValue).B * size_brightness))), rectangle_new);
-                }
+        private void Draw_Animation_WhiteBackground_CirclesStyle(Graphics graphics)
+        {
+            int size_circles = 40;
+
+            Rectangle rectangle_circles = new(
+                15 + (25 / 2) - (size_circles / 2),
+                (Size.Height / 2) - (25 / 2) + (25 / 2) - (size_circles / 2),
+                size_circles, size_circles);
+            rectangle_circles.X -= 2;
+            rectangle_circles.Y -= 2;
+            if (rectangle_circles.Width != 0 && rectangle_circles.Height != 0)
+            {
+                graphics.FillEllipse(new SolidBrush(Color.FromArgb(Effect_2_Transparency, Effect_2_ColorBackground)), rectangle_circles);
             }
         }
 
