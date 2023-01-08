@@ -5,9 +5,9 @@
 ![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D6.0-blue)
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-Preview-blue.svg)
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)
-[![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg?label=Download)](https://www.nuget.org/packages/ReaLTaiizor)
+[![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
 [![FuGet-Version](https://www.fuget.org/packages/ReaLTaiizor/badge.svg)](https://www.fuget.org/packages/ReaLTaiizor)
-[![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
+[![NuGet-Download](https://img.shields.io/nuget/dt/ReaLTaiizor?label=Download)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
 [![.NET](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml)
 [![CodeQL](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml)
