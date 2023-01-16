@@ -16,7 +16,7 @@
 [![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
 
 # Bienvenido a ReaLTaiizor
-ReaLTaiizor es una biblioteca de componente interfaz de UI/UX. Le permite hacer diseños modernos utilizando los diversos componentes que ofrece.
+ReaLTaiizor es una biblioteca de controles amigable y enfocada en el diseño para proyectos .NET WinForms, que contiene una amplia gama de componentes. Puedes personalizar tus proyectos con diferentes opciones de temas y personalizar los controles de usuario para hacer tus aplicaciones más profesionales.
 
 ## Colaboradores
 

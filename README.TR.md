@@ -16,7 +16,7 @@
 [![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
 
 # ReaLTaiizor'a Hoşgeldiniz
-ReaLTaiizor bir UI/UX bileşen kütüphanesidir. Sunduğu çeşitli bileşenleri kullanarak modern tasarımlar yapmanıza olanak sağlar.
+ReaLTaiizor, .NET WinForms projelerinde kullanabileceğiniz geniş bir yelpazede bileşenleri içeren, kullanımı kolay ve tasarım odaklı bir kontrol kütüphanesidir. Farklı tema seçenekleriyle projelerinizi kişiselleştirebilir, kullanıcı kontrollerini istediğiniz gibi özelleştirerek uygulamalarınızı daha profesyonel hâle getirebilirsiniz.
 
 ## Katkıda Bulunanlar
 

@@ -23,9 +23,8 @@
         <PackageId>ReaLTaiizor</PackageId>
         <Authors>Taiizor</Authors>
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-        <Summary>Best with more than 350 WinForms components.</Summary>
-        <Description>$(Summary)
-.NET WinForms UI/UX Component Library - $(PackageId)</Description>
+        <Summary>ReaLTaiizor is a .NET WinForms control library that offers a wide range of components and is user-friendly and design-focused.</Summary>
+        <Description>ReaLTaiizor is a user-friendly and design-focused control library for .NET WinForms projects, containing a wide range of components. You can personalize your projects with different theme options and customize user controls to make your applications more professional.</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageLicenseExpression></PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
