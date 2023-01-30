@@ -34,7 +34,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Code">💻</a>
-		<a href="https://www.taiizor.com" title="Ideas & Planning, Feedback">🤔</a>
+		<a href="https://www.vegalya.com" title="Ideas & Planning, Feedback">🤔</a>
     </td>
     <td align="center">
 		<a href="https://github.com/JTOne123">

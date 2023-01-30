@@ -34,7 +34,7 @@ Gracias a estas personas maravillosas ([emoji clave](https://allcontributors.org
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Código">💻</a>
-		<a href="https://www.taiizor.com" title="Ideas & Planificación, Comentarios">🤔</a>
+		<a href="https://www.vegalya.com" title="Ideas & Planificación, Comentarios">🤔</a>
 	</td>
     <td align="center">
 		<a href="https://github.com/JTOne123">

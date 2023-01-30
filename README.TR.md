@@ -34,7 +34,7 @@ Bu harika insanlara teşekkürler ([emoji anahtarı](https://allcontributors.org
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Kodlama">💻</a>
-		<a href="https://www.taiizor.com" title="Fikirler & Planlama, Geri Bildirim">🤔</a>
+		<a href="https://www.vegalya.com" title="Fikirler & Planlama, Geri Bildirim">🤔</a>
 	</td>
     <td align="center">
 		<a href="https://github.com/JTOne123">
