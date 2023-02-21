@@ -39,7 +39,7 @@ jobs:
             GitHub
         ]
         solution: [
-            /
+            src
         ]
 
     steps:

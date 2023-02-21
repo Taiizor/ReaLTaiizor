@@ -18,7 +18,22 @@ jobs:
             GitHub
         ]
         solution: [
-            ReaLTaiizor.sln
+            src/ReaLTaiizor.sln,
+            sample/ReaLTaiizor.Defender/ReaLTaiizor.Defender.sln,
+            sample/ReaLTaiizor.Instagram/ReaLTaiizor.Instagram.sln,
+            sample/ReaLTaiizor.Kaspersky/ReaLTaiizor.Kaspersky.sln,
+            sample/ReaLTaiizor.Login/ReaLTaiizor.Login.sln,
+            sample/ReaLTaiizor.Payment/ReaLTaiizor.Payment.sln,
+            sample/ReaLTaiizor.Player/ReaLTaiizor.Player.sln,
+            sample/ReaLTaiizor.Rufus/ReaLTaiizor.Rufus.sln,
+            sample/ReaLTaiizor.Splash/ReaLTaiizor.Splash.sln,
+            sample/ReaLTaiizor.Store/ReaLTaiizor.Store.sln,
+            sample/ReaLTaiizor.XAMPP/ReaLTaiizor.XAMPP.sln,
+            ready/ReaLTaiizor.AppLocker/ReaLTaiizor.AppLocker.sln,
+            ready/ReaLTaiizor.Stopwatch/ReaLTaiizor.Stopwatch.sln,
+            ready/ReaLTaiizor.Translate/ReaLTaiizor.Translate.sln,
+            demo/ReaLTaiizor.UI/ReaLTaiizor.UI.sln,
+            demo/ReaLTaiizor.UX/ReaLTaiizor.UX.sln
         ]
 
     steps:
