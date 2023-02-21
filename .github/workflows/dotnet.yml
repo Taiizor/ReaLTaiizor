@@ -18,22 +18,7 @@ jobs:
             GitHub
         ]
         solution: [
-            src,
-            sample/ReaLTaiizor.Defender,
-            sample/ReaLTaiizor.Instagram,
-            sample/ReaLTaiizor.Kaspersky,
-            sample/ReaLTaiizor.Login,
-            sample/ReaLTaiizor.Payment,
-            sample/ReaLTaiizor.Player,
-            sample/ReaLTaiizor.Rufus,
-            sample/ReaLTaiizor.Splash,
-            sample/ReaLTaiizor.Store,
-            sample/ReaLTaiizor.XAMPP,
-            ready/ReaLTaiizor.AppLocker,
-            ready/ReaLTaiizor.Stopwatch,
-            ready/ReaLTaiizor.Translate,
-            demo/ReaLTaiizor.UI,
-            demo/ReaLTaiizor.UX
+            /
         ]
 
     steps:
