@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-        <TargetFramework>net48</TargetFramework>
-        <!--<TargetFramework>net7.0-windows</TargetFramework>-->
+        <!--<TargetFramework>net48</TargetFramework>-->
+        <!--<TargetFramework>net8.0-windows</TargetFramework>-->
         <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
-        <!--<TargetFrameworks>net48;net6.0-windows;net7.0-windows</TargetFrameworks>-->
-        <!--<TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>-->
+        <!--<TargetFrameworks>net48;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>-->
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
         <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -62,7 +62,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     </PropertyGroup>
 
     <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-        <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+        <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.1.23110.8" />
     </ItemGroup>
 
     <ItemGroup>
