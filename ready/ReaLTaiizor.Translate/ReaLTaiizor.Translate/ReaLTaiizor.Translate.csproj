@@ -17,11 +17,11 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Costura.Fody" Version="5.7.0">
+    <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.1" />
   </ItemGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0-windows' OR '$(TargetFramework)'=='net7.0-windows' OR '$(TargetFramework)'=='net8.0-windows'">

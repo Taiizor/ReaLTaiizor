@@ -83,7 +83,7 @@
     <Content Include="Resources\Twitter.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.1" />
     <!--<Reference Include="ReaLTaiizor">
       <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\$(TargetFramework)\ReaLTaiizor.dll</HintPath>
