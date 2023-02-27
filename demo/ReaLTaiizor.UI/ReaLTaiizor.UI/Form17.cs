@@ -95,7 +95,7 @@ namespace ReaLTaiizor.UI
         private void ColorScheme_Click(object sender, EventArgs e)
         {
             colorSchemeIndex++;
-            if (colorSchemeIndex > 2)
+            if (colorSchemeIndex > 6)
             {
                 colorSchemeIndex = 0;
             }
@@ -132,6 +132,38 @@ namespace ReaLTaiizor.UI
                         MaterialPrimary.BlueGrey900,
                         MaterialPrimary.BlueGrey500,
                         MaterialAccent.LightBlue200,
+                        MaterialTextShade.WHITE);
+                    break;
+                case 3:
+                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                        MaterialPrimary.Red800,
+                        MaterialPrimary.Red900,
+                        MaterialPrimary.Red500,
+                        MaterialAccent.Green200,
+                        MaterialTextShade.WHITE);
+                    break;
+                case 4:
+                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                        MaterialPrimary.Yellow800,
+                        MaterialPrimary.Yellow900,
+                        MaterialPrimary.Yellow500,
+                        MaterialAccent.DeepOrange200,
+                        MaterialTextShade.WHITE);
+                    break;
+                case 5:
+                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                        MaterialPrimary.DeepOrange800,
+                        MaterialPrimary.DeepOrange900,
+                        MaterialPrimary.DeepOrange500,
+                        MaterialAccent.Yellow200,
+                        MaterialTextShade.WHITE);
+                    break;
+                case 6:
+                    materialSkinManager.ColorScheme = new MaterialColorScheme(
+                        MaterialPrimary.Lime800,
+                        MaterialPrimary.Lime900,
+                        MaterialPrimary.Lime500,
+                        MaterialAccent.Green200,
                         MaterialTextShade.WHITE);
                     break;
             }
