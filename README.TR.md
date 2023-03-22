@@ -260,6 +260,10 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 [![StopwatchReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Stopwatch.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Stopwatch "StopwatchReady")
 
+### Karmalayıcı
+
+[![HashingReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hashing.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Hashing "HashingReady")
+
 ### Çeviri
 
 [![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Translate "TranslateReady")

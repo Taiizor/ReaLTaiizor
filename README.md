@@ -260,6 +260,10 @@ Step 2：Enjoy designing
 
 [![StopwatchReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Stopwatch.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Stopwatch "StopwatchReady")
 
+### Hashing
+
+[![HashingReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hashing.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Hashing "HashingReady")
+
 ### Translate
 
 [![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Translate "TranslateReady")

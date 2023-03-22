@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ReaLTaiizor.Translate
+namespace ReaLTaiizor.Hashing
 {
     internal static class Program
     {
@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Translate
 #endif
             Application.SetCompatibleTextRenderingDefault(false);
             Control.CheckForIllegalCrossThreadCalls = false;
-            Application.Run(new Translate());
+            Application.Run(new Hashing());
         }
     }
 }
