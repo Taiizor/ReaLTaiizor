@@ -337,7 +337,7 @@ namespace ReaLTaiizor.Forms
 
         private static readonly string[] BUTTON_TEXTS_POLISH_PL = { "OK", "Anuluj", "Tak", "Nie", "Opuść", "Powtórz", "Ignoruj" };
 
-        private static readonly string[] BUTTON_TEXTS_POLISH_TR = { "Tamam", "İptal", "&Evet", "&Hayır", "&Sonlandır", "&Yeniden Dene", "&Yoksay" }; //Abort: &Durdur
+        private static readonly string[] BUTTON_TEXTS_TURKISH_TR = { "Tamam", "İptal", "&Evet", "&Hayır", "&Sonlandır", "&Yeniden Dene", "&Yoksay" }; //Abort: &Durdur
 
         private MessageBoxDefaultButton defaultButton;
 
@@ -384,7 +384,7 @@ namespace ReaLTaiizor.Forms
                 TwoLetterISOLanguageID.fr => BUTTON_TEXTS_FRENCH_FR[buttonTextArrayIndex],
                 TwoLetterISOLanguageID.ro => BUTTON_TEXTS_ROMANIAN_RO[buttonTextArrayIndex],
                 TwoLetterISOLanguageID.pl => BUTTON_TEXTS_POLISH_PL[buttonTextArrayIndex],
-                TwoLetterISOLanguageID.tr => BUTTON_TEXTS_POLISH_TR[buttonTextArrayIndex],
+                TwoLetterISOLanguageID.tr => BUTTON_TEXTS_TURKISH_TR[buttonTextArrayIndex],
                 _ => BUTTON_TEXTS_ENGLISH_EN[buttonTextArrayIndex],
             };
         }
