@@ -61,7 +61,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 8.0.100-preview.2.23157.25
+        dotnet-version: 8.0.100-preview.3.23178.7
         dotnet-quality: preview
 
     - name: Restore the ReaLTaiizor
