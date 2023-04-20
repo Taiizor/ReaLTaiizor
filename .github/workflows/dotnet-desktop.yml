@@ -20,6 +20,7 @@ jobs:
         solution: [
             src/ReaLTaiizor.sln,
             sample/ReaLTaiizor.Defender/ReaLTaiizor.Defender.sln,
+            sample/ReaLTaiizor.GenshinImpact/ReaLTaiizor.GenshinImpact.sln,
             sample/ReaLTaiizor.Instagram/ReaLTaiizor.Instagram.sln,
             sample/ReaLTaiizor.Kaspersky/ReaLTaiizor.Kaspersky.sln,
             sample/ReaLTaiizor.Login/ReaLTaiizor.Login.sln,
