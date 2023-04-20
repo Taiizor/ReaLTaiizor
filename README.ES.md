@@ -214,6 +214,10 @@ Paso 2：Disfruta diseñando
 
 ## Ejemplos
 
+### Genshin Impact
+
+[![GenshinImpactSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Genshin_Impact.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.GenshinImpact "GenshinImpactSample")
+
 ### Windows Defender
 
 [![WindowsDefenderSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Windows_Defender.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Defender "WindowsDefenderSample")
