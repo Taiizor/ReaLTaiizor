@@ -32,6 +32,7 @@ jobs:
             sample/ReaLTaiizor.XAMPP,
             ready/ReaLTaiizor.AppLocker,
             ready/ReaLTaiizor.Hashing,
+            ready/ReaLTaiizor.MAChanger,
             ready/ReaLTaiizor.Stopwatch,
             ready/ReaLTaiizor.Translate,
             demo/ReaLTaiizor.UI,

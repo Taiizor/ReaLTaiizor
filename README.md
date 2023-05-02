@@ -268,6 +268,10 @@ Step 2：Enjoy designing
 
 [![HashingReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hashing.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Hashing "HashingReady")
 
+### MAChanger
+
+[![MAChangerReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MAChanger.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.MAChanger "MAChangerReady")
+
 ### Translate
 
 [![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Translate "TranslateReady")

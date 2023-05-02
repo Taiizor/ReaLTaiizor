@@ -234,7 +234,7 @@ Paso 2：Disfruta diseñando
 
 [![RufusSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Rufus.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Rufus "RufusSample")
 
-### Store
+### Tienda
 
 [![StoreSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Store.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.Store "StoreSample")
 
@@ -267,6 +267,10 @@ Paso 2：Disfruta diseñando
 ### Calculadora de Hash
 
 [![HashingReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hashing.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Hashing "HashingReady")
+
+### MAChanger
+
+[![MAChangerReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MAChanger.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.MAChanger "MAChangerReady")
 
 ### Traducir
 
