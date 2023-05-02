@@ -33,6 +33,7 @@ jobs:
             ready/ReaLTaiizor.AppLocker/ReaLTaiizor.AppLocker.sln,
             ready/ReaLTaiizor.Hashing/ReaLTaiizor.Hashing.sln,
             ready/ReaLTaiizor.MAChanger/ReaLTaiizor.MAChanger.sln,
+            ready/ReaLTaiizor.Portscan/ReaLTaiizor.Portscan.sln,
             ready/ReaLTaiizor.Stopwatch/ReaLTaiizor.Stopwatch.sln,
             ready/ReaLTaiizor.Translate/ReaLTaiizor.Translate.sln,
             demo/ReaLTaiizor.UI/ReaLTaiizor.UI.sln,

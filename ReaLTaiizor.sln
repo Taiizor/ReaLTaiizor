@@ -71,6 +71,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor.GenshinImpact",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor.MAChanger", "ready\ReaLTaiizor.MAChanger\ReaLTaiizor.MAChanger\ReaLTaiizor.MAChanger.csproj", "{79237762-DF74-4B27-BCA1-6BE6B8ADF2AC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor.Portscan", "ready\ReaLTaiizor.Portscan\ReaLTaiizor.Portscan\ReaLTaiizor.Portscan.csproj", "{F174B213-76DD-4083-B7A4-B9276187162B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -222,6 +224,12 @@ Global
 		{79237762-DF74-4B27-BCA1-6BE6B8ADF2AC}.GitHub|Any CPU.Build.0 = Debug|Any CPU
 		{79237762-DF74-4B27-BCA1-6BE6B8ADF2AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79237762-DF74-4B27-BCA1-6BE6B8ADF2AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F174B213-76DD-4083-B7A4-B9276187162B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F174B213-76DD-4083-B7A4-B9276187162B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F174B213-76DD-4083-B7A4-B9276187162B}.GitHub|Any CPU.ActiveCfg = Debug|Any CPU
+		{F174B213-76DD-4083-B7A4-B9276187162B}.GitHub|Any CPU.Build.0 = Debug|Any CPU
+		{F174B213-76DD-4083-B7A4-B9276187162B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F174B213-76DD-4083-B7A4-B9276187162B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -253,6 +261,7 @@ Global
 		{E0AE3740-F80F-44F0-968B-66B11C60B2CD} = {E51D7599-8BC7-46D3-8C8A-D840613DE396}
 		{F64C39EC-36BB-4042-B5A0-E0E2156CD34E} = {599D4EA3-70E5-424A-A7B6-90977C7E7C86}
 		{79237762-DF74-4B27-BCA1-6BE6B8ADF2AC} = {E51D7599-8BC7-46D3-8C8A-D840613DE396}
+		{F174B213-76DD-4083-B7A4-B9276187162B} = {E51D7599-8BC7-46D3-8C8A-D840613DE396}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEB12F1D-8C3B-492E-8590-D56D5B56FC2A}

@@ -272,6 +272,10 @@ Adım 2：Tasarlamanın tadını çıkarın
 
 [![MAChangerReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MAChanger.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.MAChanger "MAChangerReady")
 
+### Portscan
+
+[![PortscanReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Portscan.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Portscan "PortscanReady")
+
 ### Çeviri
 
 [![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Translate "TranslateReady")

@@ -33,6 +33,7 @@ jobs:
             ready/ReaLTaiizor.AppLocker,
             ready/ReaLTaiizor.Hashing,
             ready/ReaLTaiizor.MAChanger,
+            ready/ReaLTaiizor.Portscan,
             ready/ReaLTaiizor.Stopwatch,
             ready/ReaLTaiizor.Translate,
             demo/ReaLTaiizor.UI,
