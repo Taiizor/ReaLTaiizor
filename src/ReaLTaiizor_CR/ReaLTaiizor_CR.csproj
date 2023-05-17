@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
         <!--<TargetFramework>net48</TargetFramework>-->
@@ -31,7 +31,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-        <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.3.23174.8" />
+        <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.4.23259.5" />
     </ItemGroup>
 
     <ItemGroup>
