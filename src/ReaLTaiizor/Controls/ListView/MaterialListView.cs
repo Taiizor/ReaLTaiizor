@@ -102,6 +102,7 @@ namespace ReaLTaiizor.Controls
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             g.FillRectangle(new SolidBrush(BackColor), e.Bounds);
+
             // Draw Text
             using MaterialNativeTextRenderer NativeText = new(g);
             NativeText.DrawTransparentText(
@@ -111,7 +112,8 @@ namespace ReaLTaiizor.Controls
                 new Point(e.Bounds.Location.X + PAD, e.Bounds.Location.Y),
                 new Size(e.Bounds.Size.Width - (PAD * 2), e.Bounds.Size.Height),
                 e.Header.TextAlign == HorizontalAlignment.Left ? MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle
-                : MaterialNativeTextRenderer.TextAlignFlags.Right | MaterialNativeTextRenderer.TextAlignFlags.Middle);
+                : e.Header.TextAlign == HorizontalAlignment.Right ? MaterialNativeTextRenderer.TextAlignFlags.Right | MaterialNativeTextRenderer.TextAlignFlags.Middle
+                : MaterialNativeTextRenderer.TextAlignFlags.Center | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
         protected override void OnDrawItem(DrawListViewItemEventArgs e)
@@ -137,7 +139,7 @@ namespace ReaLTaiizor.Controls
             // Draw separator line
             g.DrawLine(new Pen(SkinManager.DividersColor), e.Bounds.Left, e.Bounds.Y, e.Bounds.Right, e.Bounds.Y);
 
-            var idx = 0;
+            int id = 0;
             foreach (ListViewItem.ListViewSubItem subItem in e.Item.SubItems)
             {
                 // Draw Text
@@ -148,10 +150,12 @@ namespace ReaLTaiizor.Controls
                     Enabled ? SkinManager.TextHighEmphasisNoAlphaColor : SkinManager.TextDisabledOrHintColor,
                     new Point(subItem.Bounds.X + PAD, subItem.Bounds.Y),
                     new Size(subItem.Bounds.Width - (PAD * 2), subItem.Bounds.Height),
-                    Columns[idx].TextAlign == HorizontalAlignment.Left 
+                    Columns[id].TextAlign == HorizontalAlignment.Left
                             ? MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle
-                            : MaterialNativeTextRenderer.TextAlignFlags.Right | MaterialNativeTextRenderer.TextAlignFlags.Middle);
-                ++idx;
+                            : Columns[id].TextAlign == HorizontalAlignment.Right
+                            ? MaterialNativeTextRenderer.TextAlignFlags.Right | MaterialNativeTextRenderer.TextAlignFlags.Middle
+                            : MaterialNativeTextRenderer.TextAlignFlags.Center | MaterialNativeTextRenderer.TextAlignFlags.Middle);
+                ++id;
             }
         }
 

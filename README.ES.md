@@ -201,6 +201,17 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 		<br/>
 		<a href="https://github.com/0xLaileb" target="_blank" title="Código">💻</a>
     </td>
+    <td align="center">
+		<a href="https://github.com/Stefan6440">
+			<img src="https://avatars3.githubusercontent.com/u/5719752?s=200&v=4" width="80px;" alt="Stefan6440"/>
+			<br/>
+			<sub>
+				<b>Stefan6440</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Stefan6440" target="_blank" title="Código">💻</a>
+    </td>
   </tr>
 </table>
 
