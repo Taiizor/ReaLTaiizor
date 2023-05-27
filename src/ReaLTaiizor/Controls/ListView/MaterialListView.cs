@@ -110,7 +110,8 @@ namespace ReaLTaiizor.Controls
                 Enabled ? SkinManager.TextHighEmphasisNoAlphaColor : SkinManager.TextDisabledOrHintColor,
                 new Point(e.Bounds.Location.X + PAD, e.Bounds.Location.Y),
                 new Size(e.Bounds.Size.Width - (PAD * 2), e.Bounds.Size.Height),
-                MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
+                e.Header.TextAlign == HorizontalAlignment.Left ? MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle
+                : MaterialNativeTextRenderer.TextAlignFlags.Right | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
         protected override void OnDrawItem(DrawListViewItemEventArgs e)
@@ -136,6 +137,7 @@ namespace ReaLTaiizor.Controls
             // Draw separator line
             g.DrawLine(new Pen(SkinManager.DividersColor), e.Bounds.Left, e.Bounds.Y, e.Bounds.Right, e.Bounds.Y);
 
+            var idx = 0;
             foreach (ListViewItem.ListViewSubItem subItem in e.Item.SubItems)
             {
                 // Draw Text
@@ -146,7 +148,10 @@ namespace ReaLTaiizor.Controls
                     Enabled ? SkinManager.TextHighEmphasisNoAlphaColor : SkinManager.TextDisabledOrHintColor,
                     new Point(subItem.Bounds.X + PAD, subItem.Bounds.Y),
                     new Size(subItem.Bounds.Width - (PAD * 2), subItem.Bounds.Height),
-                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
+                    Columns[idx].TextAlign == HorizontalAlignment.Left 
+                            ? MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle
+                            : MaterialNativeTextRenderer.TextAlignFlags.Right | MaterialNativeTextRenderer.TextAlignFlags.Middle);
+                ++idx;
             }
         }
 
