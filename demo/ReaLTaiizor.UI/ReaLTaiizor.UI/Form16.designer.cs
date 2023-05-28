@@ -238,10 +238,12 @@
             royalMenuStrip1.HotTrackColor = System.Drawing.Color.Empty;
             royalMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { dosyaToolStripMenuItem, düzenToolStripMenuItem, araçlarToolStripMenuItem, yardımToolStripMenuItem });
             royalMenuStrip1.Location = new System.Drawing.Point(137, 1);
+            royalMenuStrip1.MaximumSize = new System.Drawing.Size(168, 30);
+            royalMenuStrip1.MinimumSize = new System.Drawing.Size(168, 30);
             royalMenuStrip1.Name = "royalMenuStrip1";
             royalMenuStrip1.Padding = new System.Windows.Forms.Padding(1);
             royalMenuStrip1.SelectedColor = System.Drawing.Color.Empty;
-            royalMenuStrip1.Size = new System.Drawing.Size(288, 30);
+            royalMenuStrip1.Size = new System.Drawing.Size(168, 30);
             royalMenuStrip1.Stretch = false;
             royalMenuStrip1.TabIndex = 12;
             royalMenuStrip1.Text = "royalMenuStrip1";

@@ -19,7 +19,7 @@ namespace ReaLTaiizor.UI
             {
                 metroStyleManager1.Style = Style.Dark;
             }
-            else
+            else if (metroStyleManager1.Style == Style.Dark)
             {
                 metroStyleManager1.Style = Style.Light;
             }
@@ -53,6 +53,11 @@ namespace ReaLTaiizor.UI
         private void MetroDefaultButton1_Click(object sender, EventArgs e)
         {
             metroStyleManager1.OpenTheme();
+        }
+
+        private void MetroButton1_Click(object sender, EventArgs e)
+        {
+            metroStyleManager1.Style = Style.Light;
         }
     }
 }

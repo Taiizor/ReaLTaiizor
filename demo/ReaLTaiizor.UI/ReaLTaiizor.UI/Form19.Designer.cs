@@ -245,9 +245,10 @@
             MetroButton1.Style = Enum.Metro.Style.Light;
             MetroButton1.StyleManager = metroStyleManager1;
             MetroButton1.TabIndex = 9;
-            MetroButton1.Text = "Normal button";
+            MetroButton1.Text = "Reset Theme";
             MetroButton1.ThemeAuthor = "Taiizor";
             MetroButton1.ThemeName = "MetroLight";
+            MetroButton1.Click += MetroButton1_Click;
             // 
             // MetroEllipse3
             // 
@@ -515,7 +516,7 @@
             MetroDefaultButton1.Style = Enum.Metro.Style.Light;
             MetroDefaultButton1.StyleManager = metroStyleManager1;
             MetroDefaultButton1.TabIndex = 0;
-            MetroDefaultButton1.Text = "Default button";
+            MetroDefaultButton1.Text = "Custom Theme";
             MetroDefaultButton1.ThemeAuthor = "Taiizor";
             MetroDefaultButton1.ThemeName = "MetroLight";
             MetroToolTip1.SetToolTip(MetroDefaultButton1, "Choose Custom Theme");
@@ -1208,7 +1209,7 @@
             MetroContextMenuStrip1.IsDerivedStyle = true;
             MetroContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { textBoxToolStripMenuItem });
             MetroContextMenuStrip1.Name = "MetroContextMenuStrip1";
-            MetroContextMenuStrip1.Size = new System.Drawing.Size(116, 26);
+            MetroContextMenuStrip1.Size = new System.Drawing.Size(181, 48);
             MetroContextMenuStrip1.Style = Enum.Metro.Style.Light;
             MetroContextMenuStrip1.StyleManager = null;
             MetroContextMenuStrip1.ThemeAuthor = "Taiizor";
@@ -1217,7 +1218,7 @@
             // textBoxToolStripMenuItem
             // 
             textBoxToolStripMenuItem.Name = "textBoxToolStripMenuItem";
-            textBoxToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            textBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             textBoxToolStripMenuItem.Text = "TextBox";
             // 
             // MetroLabel8

@@ -39,9 +39,11 @@ namespace ReaLTaiizor.Manager
             if (_customTheme == null)
             {
                 string themePath = Properties.Settings.Default.ThemeFile;
+
                 if (File.Exists(themePath))
                 {
                     FileInfo FI = new(themePath);
+
                     if (FI.Length > 0)
                     {
                         _customTheme = themePath;
@@ -70,6 +72,12 @@ namespace ReaLTaiizor.Manager
             {
                 case null:
                     return;
+                case IMetroForm form when CustomTheme == null:
+                    form.Style = Style;
+                    form.ThemeAuthor = ThemeAuthor;
+                    form.ThemeName = ThemeName;
+                    form.StyleManager = this;
+                    break;
                 case IMetroForm form when CustomTheme != null:
                     form.Style = Style;
                     form.ThemeAuthor = ThemeAuthor;
@@ -96,7 +104,7 @@ namespace ReaLTaiizor.Manager
             foreach (Control ctrl in controls)
             {
                 IMetroControl control = ctrl as IMetroControl;
-                if (control != null && CustomTheme != null)
+                if (control != null && (CustomTheme == null || CustomTheme != null))
                 {
                     control.Style = Style;
                     control.ThemeAuthor = ThemeAuthor;
@@ -244,7 +252,6 @@ namespace ReaLTaiizor.Manager
 
         public void OpenTheme()
         {
-            Style = Style.Custom;
             using OpenFileDialog ofd = new() { Filter = @"Xml File (*.xml)|*.xml" };
             if (ofd.ShowDialog() != DialogResult.OK)
             {
@@ -513,6 +520,7 @@ namespace ReaLTaiizor.Manager
                 {
                     Filter = @"Xml File (*.xml)|*.xml",
                 };
+
                 return _ofd.ShowDialog() == DialogResult.OK ? _ofd.FileName : base.EditValue(context, provider, value);
             }
         }
