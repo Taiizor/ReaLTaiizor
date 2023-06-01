@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
 // bu öznitelik değerlerini değiştirin.
 [assembly: AssemblyTitle("ReaLTaiizor MAChanger")]
-[assembly: AssemblyDescription("ReaLTaiizor MAChanger v1.0.0.1")]
+[assembly: AssemblyDescription("ReaLTaiizor MAChanger v1.0.0.2")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Taiizor")]
 [assembly: AssemblyProduct("ReaLTaiizor MAChanger")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Tüm değerleri belirtebilir veya varsayılan Derleme ve Düzeltme Numaralarını kullanmak için
 // aşağıda gösterildiği gibi '*' kullanabilirsiniz:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.1")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
+[assembly: AssemblyVersion("1.0.0.2")]
+[assembly: AssemblyFileVersion("1.0.0.2")]
