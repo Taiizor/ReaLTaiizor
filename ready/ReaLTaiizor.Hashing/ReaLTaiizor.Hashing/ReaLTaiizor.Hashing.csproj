@@ -22,7 +22,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.2" />
-    <PackageReference Include="Skylark.Standard" Version="3.0.0.6" />
+    <PackageReference Include="Skylark.Standard" Version="3.0.0.7" />
   </ItemGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0-windows' OR '$(TargetFramework)'=='net7.0-windows' OR '$(TargetFramework)'=='net8.0-windows'">
     <DisableFody>true</DisableFody>
