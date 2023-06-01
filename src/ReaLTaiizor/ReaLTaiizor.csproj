@@ -25,6 +25,7 @@
         <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
         <Summary>ReaLTaiizor is a .NET WinForms control library that offers a wide range of components and is user-friendly and design-focused.</Summary>
         <Description>ReaLTaiizor is a user-friendly and design-focused control library for .NET WinForms projects, containing a wide range of components. You can personalize your projects with different theme options and customize user controls to make your applications more professional.</Description>
+        <PackageReadmeFile>README.MD</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageLicenseExpression></PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -79,20 +80,18 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     </ItemGroup>
 
     <ItemGroup>
+        <None Include="..\README.MD">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
         <None Include="..\..\LICENSE">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-    </ItemGroup>
-
-    <ItemGroup>
         <None Include="Resources\Taiizor.png">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-    </ItemGroup>
-
-    <ItemGroup>
         <None Include="Resources\Metro\Metro Theme.xml">
             <SubType>Designer</SubType>
         </None>
