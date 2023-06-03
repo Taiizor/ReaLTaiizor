@@ -237,7 +237,7 @@ namespace ReaLTaiizor.Nerator.CS
 
         private static bool HasDigit(string Password)
         {
-            return Password.Any(c => char.IsDigit(c));
+            return Password.Any(char.IsDigit);
         }
 
         private static bool HasSpecialChar(string Password)
@@ -248,12 +248,12 @@ namespace ReaLTaiizor.Nerator.CS
 
         private static bool HasUpperCaseLetter(string Password)
         {
-            return Password.Any(C => char.IsUpper(C));
+            return Password.Any(char.IsUpper);
         }
 
         private static bool HasLowerCaseLetter(string Password)
         {
-            return Password.Any(C => char.IsLower(C));
+            return Password.Any(char.IsLower);
         }
     }
 }

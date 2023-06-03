@@ -1,10 +1,10 @@
-﻿using ReaLTaiizor.Nerator.CS;
-using ReaLTaiizor.Enum.Poison;
+﻿using ReaLTaiizor.Enum.Poison;
+using ReaLTaiizor.Nerator.CS;
 using System;
 using System.Windows.Forms;
+using static ReaLTaiizor.Colors.PoisonColors;
 using static ReaLTaiizor.Nerator.CS.History;
 using static ReaLTaiizor.Nerator.CS.Strength;
-using static ReaLTaiizor.Colors.PoisonColors;
 
 namespace ReaLTaiizor.Nerator.UC.LIGHT.HISTORY
 {

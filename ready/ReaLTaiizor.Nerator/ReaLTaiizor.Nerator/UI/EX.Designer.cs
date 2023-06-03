@@ -79,7 +79,7 @@
             themeForm1.SmartBounds = true;
             themeForm1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             themeForm1.TabIndex = 0;
-            themeForm1.Text = "ReaLTaiizor Nerator";
+            themeForm1.Text = "Nerator";
             // 
             // Expand
             // 
@@ -431,7 +431,7 @@
             MinimumSize = new System.Drawing.Size(335, 202);
             Name = "EX";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "ReaLTaiizor Nerator";
+            Text = "Nerator";
             TransparencyKey = System.Drawing.Color.Fuchsia;
             FormClosed += new System.Windows.Forms.FormClosedEventHandler(EX_FormClosed);
             themeForm1.ResumeLayout(false);
