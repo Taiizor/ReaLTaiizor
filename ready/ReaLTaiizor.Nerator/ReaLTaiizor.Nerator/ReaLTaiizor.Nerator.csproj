@@ -47,7 +47,7 @@
         <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.4.23259.5" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)'=='net48' or '$(TargetFramework)'=='net481'">
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <Reference Include="System.Windows" />
         <Reference Include="System.Windows.Forms" />
     </ItemGroup>

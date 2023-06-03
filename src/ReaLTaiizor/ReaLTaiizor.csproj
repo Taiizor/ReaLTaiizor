@@ -73,7 +73,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
         </PackageReference>
     </ItemGroup>
 
-    <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
         <Reference Include="System.Design" />
         <Reference Include="Microsoft.CSharp" />
         <Reference Include="Microsoft.VisualBasic" />
