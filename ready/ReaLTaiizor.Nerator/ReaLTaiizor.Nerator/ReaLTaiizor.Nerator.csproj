@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <!--<TargetFramework>net48</TargetFramework>-->
-        <TargetFrameworks>net48;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
         <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
         <StartupObject>ReaLTaiizor.Nerator.Program</StartupObject>
         <ApplicationManifest>App.manifest</ApplicationManifest>
@@ -47,11 +47,7 @@
         <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.4.23259.5" />
     </ItemGroup>
 
-    <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1-windows' OR '$(TargetFramework)'=='net6.0-windows' OR '$(TargetFramework)'=='net7.0-windows' OR '$(TargetFramework)'=='net8.0-windows'">
-        <DisableFody>true</DisableFody>
-    </PropertyGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)'=='net48'">
+    <ItemGroup Condition="'$(TargetFramework)'=='net48' or '$(TargetFramework)'=='net481'">
         <Reference Include="System.Windows" />
         <Reference Include="System.Windows.Forms" />
     </ItemGroup>
