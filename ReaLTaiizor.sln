@@ -73,6 +73,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor.MAChanger", "re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor.Portscan", "ready\ReaLTaiizor.Portscan\ReaLTaiizor.Portscan\ReaLTaiizor.Portscan.csproj", "{F174B213-76DD-4083-B7A4-B9276187162B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaLTaiizor.Nerator", "ready\ReaLTaiizor.Nerator\ReaLTaiizor.Nerator\ReaLTaiizor.Nerator.csproj", "{02AA4C57-2532-4BD9-BA38-B4E458C0788E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -230,6 +232,12 @@ Global
 		{F174B213-76DD-4083-B7A4-B9276187162B}.GitHub|Any CPU.Build.0 = Debug|Any CPU
 		{F174B213-76DD-4083-B7A4-B9276187162B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F174B213-76DD-4083-B7A4-B9276187162B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02AA4C57-2532-4BD9-BA38-B4E458C0788E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02AA4C57-2532-4BD9-BA38-B4E458C0788E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02AA4C57-2532-4BD9-BA38-B4E458C0788E}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{02AA4C57-2532-4BD9-BA38-B4E458C0788E}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
+		{02AA4C57-2532-4BD9-BA38-B4E458C0788E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02AA4C57-2532-4BD9-BA38-B4E458C0788E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -262,6 +270,7 @@ Global
 		{F64C39EC-36BB-4042-B5A0-E0E2156CD34E} = {599D4EA3-70E5-424A-A7B6-90977C7E7C86}
 		{79237762-DF74-4B27-BCA1-6BE6B8ADF2AC} = {E51D7599-8BC7-46D3-8C8A-D840613DE396}
 		{F174B213-76DD-4083-B7A4-B9276187162B} = {E51D7599-8BC7-46D3-8C8A-D840613DE396}
+		{02AA4C57-2532-4BD9-BA38-B4E458C0788E} = {E51D7599-8BC7-46D3-8C8A-D840613DE396}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEB12F1D-8C3B-492E-8590-D56D5B56FC2A}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
+  <Costura CreateTemporaryAssemblies="false" IncludeDebugSymbols="false" DisableCompression="false" DisableCleanup="false" LoadAtModuleInit="true" IgnoreSatelliteAssemblies="false">
+    <!--<PreloadOrder>
+      ReaLTaiizor
+      Newtonsoft.Json
+      System.Diagnostics.DiagnosticSource
+    </PreloadOrder>-->
+
+    <!--<Unmanaged32Assemblies>
+      ReaLTaiizor
+      Newtonsoft.Json
+      System.Diagnostics.DiagnosticSource
+    </Unmanaged32Assemblies>
+    <Unmanaged64Assemblies>
+      ReaLTaiizor
+      Newtonsoft.Json
+      System.Diagnostics.DiagnosticSource
+    </Unmanaged64Assemblies>-->
+
+    <IncludeAssemblies>
+      ReaLTaiizor
+      Newtonsoft.Json
+      System.Diagnostics.DiagnosticSource
+    </IncludeAssemblies>
+  </Costura>
+</Weavers>

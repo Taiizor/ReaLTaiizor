@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <!--<TargetFramework>net48</TargetFramework>-->
+        <TargetFrameworks>net48;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+        <ApplicationIcon>Assets\ICO.ico</ApplicationIcon>
+        <StartupObject>ReaLTaiizor.Nerator.Program</StartupObject>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+        <Company>Taiizor</Company>
+        <Title>$(AssemblyName) - New Generation Password Generator</Title>
+        <Description>$(Title)</Description>
+        <Product>$(Title)</Product>
+        <InformationalVersion>$(Version)</InformationalVersion>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <Version>$([System.DateTime]::Today.ToString(yy)).$([System.DateTime]::Today.ToString(MM)).$([System.DateTime]::Today.ToString(dd)).$([System.DateTime]::Now.ToString(HH))$([System.DateTime]::Now.ToString(mm))</Version>
+        <AssemblyName>ReaLTaiizor.Nerator</AssemblyName>
+        <RootNamespace>$(AssemblyName)</RootNamespace>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <LangVersion>preview</LangVersion>
+        <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Company)</Copyright>
+        <Configurations>Debug;GitHub;Release</Configurations>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+        <ServerGarbageCollection>true</ServerGarbageCollection>
+        <RetainVMGarbageCollection>true</RetainVMGarbageCollection>
+        <ThreadPoolMinThreads>1</ThreadPoolMinThreads>
+        <ThreadPoolMaxThreads>100</ThreadPoolMaxThreads>
+        <!-- Supported as of .NET Core SDK 3.0 Preview 1 -->
+        <TieredCompilation>true</TieredCompilation>
+        <InvariantGlobalization>false</InvariantGlobalization>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+        <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+        <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.4.23259.5" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1-windows' OR '$(TargetFramework)'=='net6.0-windows' OR '$(TargetFramework)'=='net7.0-windows' OR '$(TargetFramework)'=='net8.0-windows'">
+        <DisableFody>true</DisableFody>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)'=='net48'">
+        <Reference Include="System.Windows" />
+        <Reference Include="System.Windows.Forms" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
+            <TargetPath>$(AssemblyName).exe.config</TargetPath>
+        </AppConfigWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ReaLTaiizor" Version="3.7.9.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Skylark.Clipboard" Version="3.0.0.7" />
+        <PackageReference Include="Costura.Fody" Version="5.8.0-alpha0098">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Assets\" />
+        <Folder Include="UC\DARK\HISTORY\" />
+    </ItemGroup>
+
+</Project>
