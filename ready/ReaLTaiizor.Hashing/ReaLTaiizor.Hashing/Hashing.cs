@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Clipboard = Skylark.Clipboard.Helper.Board;
 
 namespace ReaLTaiizor.Hashing
 {
@@ -13,6 +14,66 @@ namespace ReaLTaiizor.Hashing
             InitializeComponent();
 
             FilePath.Text = Application.ExecutablePath;
+        }
+
+        private void CopyMD5_Click(object sender, EventArgs e)
+        {
+            if (ResultMD5.Text != Clipboard.GetText())
+            {
+                Clipboard.SetDataObject(ResultMD5.Text, true);
+                if (ResultMD5.Text == Clipboard.GetText())
+                {
+                    ResultMD5.Focus();
+                }
+            }
+        }
+
+        private void CopySHA1_Click(object sender, EventArgs e)
+        {
+            if (ResultSHA1.Text != Clipboard.GetText())
+            {
+                Clipboard.SetDataObject(ResultSHA1.Text, true);
+                if (ResultSHA1.Text == Clipboard.GetText())
+                {
+                    ResultSHA1.Focus();
+                }
+            }
+        }
+
+        private void CopySHA256_Click(object sender, EventArgs e)
+        {
+            if (ResultSHA256.Text != Clipboard.GetText())
+            {
+                Clipboard.SetDataObject(ResultSHA256.Text, true);
+                if (ResultSHA256.Text == Clipboard.GetText())
+                {
+                    ResultSHA256.Focus();
+                }
+            }
+        }
+
+        private void CopySHA384_Click(object sender, EventArgs e)
+        {
+            if (ResultSHA384.Text != Clipboard.GetText())
+            {
+                Clipboard.SetDataObject(ResultSHA384.Text, true);
+                if (ResultSHA384.Text == Clipboard.GetText())
+                {
+                    ResultSHA384.Focus();
+                }
+            }
+        }
+
+        private void CopySHA512_Click(object sender, EventArgs e)
+        {
+            if (ResultSHA512.Text != Clipboard.GetText())
+            {
+                Clipboard.SetDataObject(ResultSHA512.Text, true);
+                if (ResultSHA512.Text == Clipboard.GetText())
+                {
+                    ResultSHA512.Focus();
+                }
+            }
         }
 
         private void OpenFile_Click(object sender, EventArgs e)
