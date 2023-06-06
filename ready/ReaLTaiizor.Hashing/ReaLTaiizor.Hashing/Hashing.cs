@@ -90,6 +90,12 @@ namespace ReaLTaiizor.Hashing
         {
             try
             {
+                CopyMD5.Enabled = false;
+                CopySHA1.Enabled = false;
+                CopySHA256.Enabled = false;
+                CopySHA384.Enabled = false;
+                CopySHA512.Enabled = false;
+
                 HashFile.Enabled = false;
                 HashAsyncFile.Enabled = false;
 
@@ -98,10 +104,19 @@ namespace ReaLTaiizor.Hashing
                 if (File.Exists(FilePath.Text))
                 {
                     ResultMD5.Text = HashExtension.FileToMD5(FilePath.Text, Upper: true, Invariant: true);
+                    CopyMD5.Enabled = true;
+
                     ResultSHA1.Text = HashExtension.FileToSHA1(FilePath.Text, Upper: true, Invariant: true);
+                    CopySHA1.Enabled = true;
+
                     ResultSHA256.Text = HashExtension.FileToSHA256(FilePath.Text, Upper: true, Invariant: true);
+                    CopySHA256.Enabled = true;
+
                     ResultSHA384.Text = HashExtension.FileToSHA384(FilePath.Text, Upper: true, Invariant: true);
+                    CopySHA384.Enabled = true;
+
                     ResultSHA512.Text = HashExtension.FileToSHA512(FilePath.Text, Upper: true, Invariant: true);
+                    CopySHA512.Enabled = true;
 
                     Separator.LineColor = Color.SeaGreen;
                 }
@@ -125,6 +140,12 @@ namespace ReaLTaiizor.Hashing
         {
             try
             {
+                CopyMD5.Enabled = false;
+                CopySHA1.Enabled = false;
+                CopySHA256.Enabled = false;
+                CopySHA384.Enabled = false;
+                CopySHA512.Enabled = false;
+
                 HashFile.Enabled = false;
                 HashAsyncFile.Enabled = false;
 
@@ -133,10 +154,19 @@ namespace ReaLTaiizor.Hashing
                 if (File.Exists(FilePath.Text))
                 {
                     ResultMD5.Text = await HashExtension.FileToMD5Async(FilePath.Text, Upper: true, Invariant: true);
+                    CopyMD5.Enabled = true;
+
                     ResultSHA1.Text = await HashExtension.FileToSHA1Async(FilePath.Text, Upper: true, Invariant: true);
+                    CopySHA1.Enabled = true;
+
                     ResultSHA256.Text = await HashExtension.FileToSHA256Async(FilePath.Text, Upper: true, Invariant: true);
+                    CopySHA256.Enabled = true;
+
                     ResultSHA384.Text = await HashExtension.FileToSHA384Async(FilePath.Text, Upper: true, Invariant: true);
+                    CopySHA384.Enabled = true;
+
                     ResultSHA512.Text = await HashExtension.FileToSHA512Async(FilePath.Text, Upper: true, Invariant: true);
+                    CopySHA512.Enabled = true;
 
                     Separator.LineColor = Color.SeaGreen;
                 }

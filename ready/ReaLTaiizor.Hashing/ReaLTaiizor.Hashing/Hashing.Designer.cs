@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ReaLTaiizor.Controls.CrownButton CopyMD5;
-            ReaLTaiizor.Controls.CrownButton CopySHA1;
-            ReaLTaiizor.Controls.CrownButton CopySHA256;
-            ReaLTaiizor.Controls.CrownButton CopySHA384;
-            ReaLTaiizor.Controls.CrownButton CopySHA512;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hashing));
+            this.CopyMD5 = new ReaLTaiizor.Controls.CrownButton();
+            this.CopySHA1 = new ReaLTaiizor.Controls.CrownButton();
+            this.CopySHA256 = new ReaLTaiizor.Controls.CrownButton();
+            this.CopySHA384 = new ReaLTaiizor.Controls.CrownButton();
+            this.CopySHA512 = new ReaLTaiizor.Controls.CrownButton();
             this.nightForm1 = new ReaLTaiizor.Forms.NightForm();
             this.Separator = new ReaLTaiizor.Controls.Separator();
             this.HashAsyncFile = new ReaLTaiizor.Controls.CrownButton();
@@ -53,22 +53,77 @@
             this.nightLabel1 = new ReaLTaiizor.Controls.NightLabel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-            CopyMD5 = new ReaLTaiizor.Controls.CrownButton();
-            CopySHA1 = new ReaLTaiizor.Controls.CrownButton();
-            CopySHA256 = new ReaLTaiizor.Controls.CrownButton();
-            CopySHA384 = new ReaLTaiizor.Controls.CrownButton();
-            CopySHA512 = new ReaLTaiizor.Controls.CrownButton();
             this.nightForm1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // CopyMD5
+            // 
+            this.CopyMD5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CopyMD5.Enabled = false;
+            this.CopyMD5.Location = new System.Drawing.Point(732, 90);
+            this.CopyMD5.Name = "CopyMD5";
+            this.CopyMD5.Padding = new System.Windows.Forms.Padding(5);
+            this.CopyMD5.Size = new System.Drawing.Size(48, 23);
+            this.CopyMD5.TabIndex = 23;
+            this.CopyMD5.Text = "Copy";
+            this.CopyMD5.Click += new System.EventHandler(this.CopyMD5_Click);
+            // 
+            // CopySHA1
+            // 
+            this.CopySHA1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CopySHA1.Enabled = false;
+            this.CopySHA1.Location = new System.Drawing.Point(732, 115);
+            this.CopySHA1.Name = "CopySHA1";
+            this.CopySHA1.Padding = new System.Windows.Forms.Padding(5);
+            this.CopySHA1.Size = new System.Drawing.Size(48, 23);
+            this.CopySHA1.TabIndex = 24;
+            this.CopySHA1.Text = "Copy";
+            this.CopySHA1.Click += new System.EventHandler(this.CopySHA1_Click);
+            // 
+            // CopySHA256
+            // 
+            this.CopySHA256.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CopySHA256.Enabled = false;
+            this.CopySHA256.Location = new System.Drawing.Point(732, 140);
+            this.CopySHA256.Name = "CopySHA256";
+            this.CopySHA256.Padding = new System.Windows.Forms.Padding(5);
+            this.CopySHA256.Size = new System.Drawing.Size(48, 23);
+            this.CopySHA256.TabIndex = 25;
+            this.CopySHA256.Text = "Copy";
+            this.CopySHA256.Click += new System.EventHandler(this.CopySHA256_Click);
+            // 
+            // CopySHA384
+            // 
+            this.CopySHA384.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CopySHA384.Enabled = false;
+            this.CopySHA384.Location = new System.Drawing.Point(732, 165);
+            this.CopySHA384.Name = "CopySHA384";
+            this.CopySHA384.Padding = new System.Windows.Forms.Padding(5);
+            this.CopySHA384.Size = new System.Drawing.Size(48, 23);
+            this.CopySHA384.TabIndex = 26;
+            this.CopySHA384.Text = "Copy";
+            this.CopySHA384.Click += new System.EventHandler(this.CopySHA384_Click);
+            // 
+            // CopySHA512
+            // 
+            this.CopySHA512.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CopySHA512.Enabled = false;
+            this.CopySHA512.Location = new System.Drawing.Point(732, 190);
+            this.CopySHA512.Name = "CopySHA512";
+            this.CopySHA512.Padding = new System.Windows.Forms.Padding(5);
+            this.CopySHA512.Size = new System.Drawing.Size(48, 23);
+            this.CopySHA512.TabIndex = 27;
+            this.CopySHA512.Text = "Copy";
+            this.CopySHA512.Click += new System.EventHandler(this.CopySHA512_Click);
             // 
             // nightForm1
             // 
             this.nightForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(51)))));
-            this.nightForm1.Controls.Add(CopySHA512);
-            this.nightForm1.Controls.Add(CopySHA384);
-            this.nightForm1.Controls.Add(CopySHA256);
-            this.nightForm1.Controls.Add(CopySHA1);
-            this.nightForm1.Controls.Add(CopyMD5);
+            this.nightForm1.Controls.Add(this.CopySHA512);
+            this.nightForm1.Controls.Add(this.CopySHA384);
+            this.nightForm1.Controls.Add(this.CopySHA256);
+            this.nightForm1.Controls.Add(this.CopySHA1);
+            this.nightForm1.Controls.Add(this.CopyMD5);
             this.nightForm1.Controls.Add(this.Separator);
             this.nightForm1.Controls.Add(this.HashAsyncFile);
             this.nightForm1.Controls.Add(this.HashFile);
@@ -344,61 +399,6 @@
             this.OpenFileDialog.RestoreDirectory = true;
             this.OpenFileDialog.ShowHelp = true;
             // 
-            // CopyMD5
-            // 
-            CopyMD5.Cursor = System.Windows.Forms.Cursors.Hand;
-            CopyMD5.Location = new System.Drawing.Point(732, 90);
-            CopyMD5.Name = "CopyMD5";
-            CopyMD5.Padding = new System.Windows.Forms.Padding(5);
-            CopyMD5.Size = new System.Drawing.Size(48, 23);
-            CopyMD5.TabIndex = 23;
-            CopyMD5.Text = "Copy";
-            CopyMD5.Click += new System.EventHandler(this.CopyMD5_Click);
-            // 
-            // CopySHA1
-            // 
-            CopySHA1.Cursor = System.Windows.Forms.Cursors.Hand;
-            CopySHA1.Location = new System.Drawing.Point(732, 115);
-            CopySHA1.Name = "CopySHA1";
-            CopySHA1.Padding = new System.Windows.Forms.Padding(5);
-            CopySHA1.Size = new System.Drawing.Size(48, 23);
-            CopySHA1.TabIndex = 24;
-            CopySHA1.Text = "Copy";
-            CopySHA1.Click += new System.EventHandler(this.CopySHA1_Click);
-            // 
-            // CopySHA256
-            // 
-            CopySHA256.Cursor = System.Windows.Forms.Cursors.Hand;
-            CopySHA256.Location = new System.Drawing.Point(732, 140);
-            CopySHA256.Name = "CopySHA256";
-            CopySHA256.Padding = new System.Windows.Forms.Padding(5);
-            CopySHA256.Size = new System.Drawing.Size(48, 23);
-            CopySHA256.TabIndex = 25;
-            CopySHA256.Text = "Copy";
-            CopySHA256.Click += new System.EventHandler(this.CopySHA256_Click);
-            // 
-            // CopySHA384
-            // 
-            CopySHA384.Cursor = System.Windows.Forms.Cursors.Hand;
-            CopySHA384.Location = new System.Drawing.Point(732, 165);
-            CopySHA384.Name = "CopySHA384";
-            CopySHA384.Padding = new System.Windows.Forms.Padding(5);
-            CopySHA384.Size = new System.Drawing.Size(48, 23);
-            CopySHA384.TabIndex = 26;
-            CopySHA384.Text = "Copy";
-            CopySHA384.Click += new System.EventHandler(this.CopySHA384_Click);
-            // 
-            // CopySHA512
-            // 
-            CopySHA512.Cursor = System.Windows.Forms.Cursors.Hand;
-            CopySHA512.Location = new System.Drawing.Point(732, 190);
-            CopySHA512.Name = "CopySHA512";
-            CopySHA512.Padding = new System.Windows.Forms.Padding(5);
-            CopySHA512.Size = new System.Drawing.Size(48, 23);
-            CopySHA512.TabIndex = 27;
-            CopySHA512.Text = "Copy";
-            CopySHA512.Click += new System.EventHandler(this.CopySHA512_Click);
-            // 
             // Hashing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -442,5 +442,10 @@
         private Controls.CrownButton OpenFile;
         private Controls.Separator Separator;
         private System.Windows.Forms.OpenFileDialog OpenFileDialog;
+        private Controls.CrownButton CopyMD5;
+        private Controls.CrownButton CopySHA1;
+        private Controls.CrownButton CopySHA256;
+        private Controls.CrownButton CopySHA384;
+        private Controls.CrownButton CopySHA512;
     }
 }
