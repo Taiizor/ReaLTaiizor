@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!--<TargetFrameworks>net48;net8.0-windows</TargetFrameworks>-->
     <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
@@ -22,7 +22,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.3" />
-    <PackageReference Include="Skylark.Standard" Version="3.0.0.7" />
+    <PackageReference Include="Skylark.Standard" Version="3.0.0.9" />
     <PackageReference Include="Skylark.Clipboard" Version="3.0.0.7" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
