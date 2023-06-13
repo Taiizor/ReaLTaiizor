@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Controls
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
             base.OnDrawNode(e);
@@ -81,10 +81,10 @@ namespace ReaLTaiizor.Controls
             _with22.Clear(BackColor);
 
             _with22.FillRectangle(new SolidBrush(_BaseColor), Base);
-            _with22.DrawString(Text, Font, Brushes.Black, new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
-
+            _with22.DrawString(Text, Font, new SolidBrush(_LineColor), new Rectangle(Bounds.X + 2, Bounds.Y + 2, Bounds.Width, Bounds.Height), ForeverLibrary.NearSF);
 
             base.OnPaint(e);
+
             G.Dispose();
             e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             e.Graphics.DrawImageUnscaled(B, 0, 0);

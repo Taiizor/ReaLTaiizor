@@ -25,6 +25,6 @@ body:
     attributes:
       label: Version
       description: What version of our package are you running?
-      placeholder: "Example: 3.7.8.7"
+      placeholder: "Example: 3.7.9.3"
     validations:
       required: true
