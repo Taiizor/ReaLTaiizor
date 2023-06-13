@@ -2,9 +2,9 @@
 
 namespace ReaLTaiizor.Login
 {
-    public partial class Login : Form
+    public partial class Login3 : Form
     {
-        public Login()
+        public Login3()
         {
             InitializeComponent();
         }

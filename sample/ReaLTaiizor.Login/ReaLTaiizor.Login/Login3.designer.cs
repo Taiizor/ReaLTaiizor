@@ -1,6 +1,6 @@
 ﻿namespace ReaLTaiizor.Login
 {
-    partial class Login
+    partial class Login3
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login3));
             this.hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
             this.hopeForm1 = new ReaLTaiizor.Forms.HopeForm();
             this.hopeTextBox2 = new ReaLTaiizor.Controls.HopeTextBox();
@@ -308,7 +308,7 @@
             this.pictureBox5.TabIndex = 33;
             this.pictureBox5.TabStop = false;
             // 
-            // Login
+            // Login3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;

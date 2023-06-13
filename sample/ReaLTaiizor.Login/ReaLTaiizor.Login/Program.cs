@@ -16,7 +16,7 @@ namespace ReaLTaiizor.Login
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Login1());
         }
     }
 }

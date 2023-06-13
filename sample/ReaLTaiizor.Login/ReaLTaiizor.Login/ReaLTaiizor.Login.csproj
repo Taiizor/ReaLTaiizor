@@ -20,6 +20,11 @@
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.3" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Background.jpg" />
+    <Content Include="Resources\Background2.jpg" />
+    <Content Include="Resources\Storyfire.png" />
+    <Content Include="Resources\Wrauter.png" />
+    <Content Include="Resources\Bulog.png" />
     <Content Include="Resources\Account.png" />
     <Content Include="Resources\Cloud.png" />
     <Content Include="Resources\Dropbox.png" />
