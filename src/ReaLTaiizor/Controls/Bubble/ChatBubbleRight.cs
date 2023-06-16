@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -12,7 +13,6 @@ namespace ReaLTaiizor.Controls
 
     public class ChatBubbleRight : Control
     {
-
         #region Variables
 
         private GraphicsPath Shape;
@@ -110,7 +110,7 @@ namespace ReaLTaiizor.Controls
             Font = new("Segoe UI", 10);
         }
 
-        protected override void OnResize(System.EventArgs e)
+        protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
             Shape = new();

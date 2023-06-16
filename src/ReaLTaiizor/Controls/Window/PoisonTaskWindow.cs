@@ -20,6 +20,7 @@ namespace ReaLTaiizor.Controls
     public sealed class PoisonTaskWindow : PoisonForm
     {
         private static PoisonTaskWindow singletonWindow;
+
         public static void ShowTaskWindow(IWin32Window parent, string title, Control userControl, int secToClose)
         {
             if (singletonWindow != null)

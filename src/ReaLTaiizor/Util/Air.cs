@@ -1458,6 +1458,7 @@ namespace ReaLTaiizor.Util
         protected Graphics G;
 
         protected Bitmap B;
+
         public AirControl()
         {
             SetStyle((ControlStyles)139270, true);

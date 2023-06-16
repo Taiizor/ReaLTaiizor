@@ -57,12 +57,17 @@ namespace ReaLTaiizor.Controls
         public ForeverTreeView()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
+
+            SetStyle(ControlStyles.UserPaint, value: false);
+            SetStyle(ControlStyles.StandardClick, value: false);
+            SetStyle(ControlStyles.UseTextForAccessibility, value: false);
+
             DoubleBuffered = true;
 
             BackColor = _BaseColor;
             ForeColor = Color.White;
             LineColor = _LineColor;
-            DrawMode = TreeViewDrawMode.OwnerDrawAll;
+            DrawMode = TreeViewDrawMode.Normal;
 
             Font = new("Segoe UI", 8);
         }

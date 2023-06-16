@@ -30,16 +30,8 @@ namespace ReaLTaiizor.Controls
             Cursor = Cursors.Hand;
         }
 
-        private Color GTN;
-        private Color GTO;
-        private Color GTD;
-        private Color GBN;
-        private Color GBO;
-        private Color GBD;
-        private Color Bo;
-        private Color TN;
-        private Color TD;
-        private Color TDO;
+        private Color GTN, GTO, GTD, GBN, GBO, GBD, Bo, TN, TD, TDO;
+
         protected override void ColorHook()
         {
             GTN = GetColor("Gradient top normal");
@@ -57,16 +49,16 @@ namespace ReaLTaiizor.Controls
         protected override void PaintHook()
         {
             G.Clear(BackColor);
-            LinearGradientBrush LGB = default;
             G.SmoothingMode = SmoothingMode.HighQuality;
 
 
-            LGB = State switch
+            LinearGradientBrush LGB = State switch
             {
                 MouseStateAir.None => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f),
                 MouseStateAir.Over => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTO, GBO, 90f),
                 _ => new LinearGradientBrush(new Rectangle(0, 0, Width - 1, Height - 1), GTD, GBD, 90f),
             };
+
             if (!Enabled)
             {
                 LGB = new(new Rectangle(0, 0, Width - 1, Height - 1), GTN, GBN, 90f);
@@ -74,6 +66,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath buttonpath = CreateRound(Rectangle.Round(LGB.Rectangle), 3);
             G.FillPath(LGB, CreateRound(Rectangle.Round(LGB.Rectangle), 3));
+            
             if (!Enabled)
             {
                 G.FillPath(new SolidBrush(Color.FromArgb(50, Color.White)), CreateRound(Rectangle.Round(LGB.Rectangle), 3));
