@@ -115,12 +115,12 @@ namespace ReaLTaiizor.Controls
             this.ActionButtonText = ActionButtonText;
             this.UseAccentColor = UseAccentColor;
             Height = 48;
-            MinimumSize = new System.Drawing.Size(344, 48);
-            MaximumSize = new System.Drawing.Size(568, 48);
+            MinimumSize = new Size(344, 48);
+            MaximumSize = new Size(568, 48);
 
             this.ShowActionButton = ShowActionButton;
 
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 6, 6));
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 6, 6));
 
             _AnimationManager = new AnimationManager();
             _AnimationManager.AnimationType = AnimationType.EaseOut;
@@ -235,7 +235,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -261,7 +261,7 @@ namespace ReaLTaiizor.Controls
                 MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
         }
 
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = !_closingAnimationDone;
             if (!_closingAnimationDone)
@@ -290,7 +290,7 @@ namespace ReaLTaiizor.Controls
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            this.ClientSize = new System.Drawing.Size(344, 48);
+            this.ClientSize = new Size(344, 48);
             this.Name = "SnackBar";
             this.ResumeLayout(false);
         }

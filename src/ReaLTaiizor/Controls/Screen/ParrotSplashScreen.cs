@@ -35,6 +35,11 @@ namespace ReaLTaiizor.Controls
 
         [Category("Parrot")]
         [Browsable(true)]
+        [Description("Progressbar location")]
+        public Point ProgressBarLocation { get; set; } = new Point(0, 224);
+
+        [Category("Parrot")]
+        [Browsable(true)]
         [Description("Progressbar style")]
         public ParrotFlatProgressBar.Style ProgressBarStyle { get; set; } = ParrotFlatProgressBar.Style.Material;
 
@@ -79,6 +84,11 @@ namespace ReaLTaiizor.Controls
 
         [Category("Parrot")]
         [Browsable(true)]
+        [Description("The top text location")]
+        public Point TopTextLocation { get; set; } = new Point(0, 70);
+
+        [Category("Parrot")]
+        [Browsable(true)]
         [Description("The top text color")]
         public Color TopTextColor { get; set; } = Color.White;
 
@@ -89,8 +99,18 @@ namespace ReaLTaiizor.Controls
 
         [Category("Parrot")]
         [Browsable(true)]
+        [Description("The top text font family")]
+        public FontFamily TopTextFontFamily { get; set; } = new("Arial");
+
+        [Category("Parrot")]
+        [Browsable(true)]
         [Description("The top text size")]
         public int TopTextSize { get; set; } = 36;
+
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("The bottom text location")]
+        public Point BottomTextLocation { get; set; } = new Point(51, 125);
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -101,6 +121,11 @@ namespace ReaLTaiizor.Controls
         [Browsable(true)]
         [Description("The bottom text")]
         public string BottomText { get; set; } = "ReaLTaizor Special Edition";
+
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("The bottom text font family")]
+        public FontFamily BottomTextFontFamily { get; set; } = new("Arial");
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -132,7 +157,7 @@ namespace ReaLTaiizor.Controls
             progressBar.CompleteColor = LoadedColor;
             progressBar.Value = 0;
             progressBar.Size = new Size(splashForm.Width, 10);
-            progressBar.Location = new Point(0, splashForm.Height / 5 * 4);
+            progressBar.Location = ProgressBarLocation;
 
             if (!ShowProgressBar)
             {
@@ -143,18 +168,18 @@ namespace ReaLTaiizor.Controls
             updateProgress.Interval = SecondsDisplayed / 100;
             updateProgress.Tick += UpdateLoader;
             text1.ForeColor = TopTextColor;
-            text1.Font = new Font("Ariel", TopTextSize);
+            text1.Font = new Font(TopTextFontFamily, TopTextSize);
             text1.Text = TopText;
             text1.BackColor = BackColor;
             text1.AutoSize = true;
-            text1.Location = new Point(0, splashForm.Height / 4);
+            text1.Location = TopTextLocation;
             background.Controls.Add(text1);
             text2.ForeColor = BottomTextColor;
-            text2.Font = new Font("Ariel", BottomTextSize);
+            text2.Font = new Font(BottomTextFontFamily, BottomTextSize);
             text2.Text = BottomText;
             text2.BackColor = BackColor;
             text2.AutoSize = true;
-            text2.Location = new Point((text1.Width / 2) - text2.Width, text1.Location.Y + text1.Height);
+            text2.Location = BottomTextLocation;
             background.Controls.Add(text2);
             handle.DockAtTop = false;
 
@@ -165,6 +190,7 @@ namespace ReaLTaiizor.Controls
                 handle3.HandleControl = text2;
                 handle4.HandleControl = progressBar;
             }
+
             if (IsEllipse)
             {
                 ellipse.CornerRadius = EllipseCornerRadius;

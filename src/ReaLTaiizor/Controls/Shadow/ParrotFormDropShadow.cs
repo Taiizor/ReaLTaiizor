@@ -27,10 +27,12 @@ namespace ReaLTaiizor.Controls
             set
             {
                 base.Site = value;
+
                 if (value == null)
                 {
                     return;
                 }
+
                 if (value.GetService(typeof(IDesignerHost)) is IDesignerHost designerHost)
                 {
                     IComponent rootComponent = designerHost.RootComponent;
