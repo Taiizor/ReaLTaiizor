@@ -59,6 +59,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
+
             if (Parent != null)
             {
                 AddShadowPaintEvent(Parent, drawShadowOnParent);
@@ -77,6 +78,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
+
             if (Parent == null)
             {
                 return;

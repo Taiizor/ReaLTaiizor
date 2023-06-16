@@ -72,6 +72,7 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
+
             W = Width - 1;
             H = Height - 1;
 
@@ -96,6 +97,7 @@ namespace ReaLTaiizor.Controls
             _with6.DrawString(String, Font, new SolidBrush(StringColor), new Rectangle(0, 22, W, H), ForeverLibrary.CenterSF);
 
             base.OnPaint(e);
+
             G.Dispose();
             e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             e.Graphics.DrawImageUnscaled(B, 0, 0);
