@@ -19,8 +19,8 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotClock()
         {
-            base.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
-            base.Size = new Size(120, 130);
+            SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            Size = new Size(120, 130);
             Font = new Font("Impact", 15f);
             RefreshUI.Interval = 1000;
             RefreshUI.Tick += RefreshUI_Tick;
@@ -203,6 +203,32 @@ namespace ReaLTaiizor.Controls
 
         [Category("Parrot")]
         [Browsable(true)]
+        [Description("Time (AM) format")]
+        public string TimeAMFormat
+        {
+            get => timeAMFormat;
+            set
+            {
+                timeAMFormat = value;
+                Invalidate();
+            }
+        }
+
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("Time (PM) format")]
+        public string TimePMFormat
+        {
+            get => timePMFormat;
+            set
+            {
+                timePMFormat = value;
+                Invalidate();
+            }
+        }
+
+        [Category("Parrot")]
+        [Browsable(true)]
         [Description("The time display format")]
         public HourFormat DisplayFormat
         {
@@ -282,9 +308,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             BufferedGraphicsContext bufferedGraphicsContext = BufferedGraphicsManager.Current;
-            bufferedGraphicsContext.MaximumBuffer = new Size(base.Width + 1, base.Height + 1);
+            bufferedGraphicsContext.MaximumBuffer = new Size(Width + 1, Height + 1);
 
-            bufferedGraphics = bufferedGraphicsContext.Allocate(base.CreateGraphics(), base.ClientRectangle);
+            bufferedGraphics = bufferedGraphicsContext.Allocate(CreateGraphics(), ClientRectangle);
 
             bufferedGraphics.Graphics.SmoothingMode = SmoothingType;
             bufferedGraphics.Graphics.InterpolationMode = InterpolationType;
@@ -298,13 +324,13 @@ namespace ReaLTaiizor.Controls
             {
                 List<Point> list = new()
                 {
-                    new Point(0, base.Height / 4),
-                    new Point(base.Width / 2, 0),
-                    new Point(base.Width, base.Height / 4),
-                    new Point(base.Width, base.Height / 4 * 3),
-                    new Point(base.Width / 2, base.Height),
-                    new Point(0, base.Height / 4 * 3),
-                    new Point(0, base.Height / 4)
+                    new Point(0, Height / 4),
+                    new Point(Width / 2, 0),
+                    new Point(Width, Height / 4),
+                    new Point(Width, Height / 4 * 3),
+                    new Point(Width / 2, Height),
+                    new Point(0, Height / 4 * 3),
+                    new Point(0, Height / 4)
                 };
                 bufferedGraphics.Graphics.FillPolygon(new SolidBrush(hexagonColor), list.ToArray());
             }
@@ -317,18 +343,18 @@ namespace ReaLTaiizor.Controls
 
             if (showSecondsCircle && showMinutesCircle)
             {
-                rectangle = new Rectangle((base.Width / 8) + (circleThickness * 2) - 2, (base.Height / 6) + (circleThickness * 2) - 1, (base.Width / 8 * 6) - (circleThickness * 4) + 4, (base.Height / 6 * 4) - (circleThickness * 4) + 2);
+                rectangle = new Rectangle((Width / 8) + (circleThickness * 2) - 2, (Height / 6) + (circleThickness * 2) - 1, (Width / 8 * 6) - (circleThickness * 4) + 4, (Height / 6 * 4) - (circleThickness * 4) + 2);
                 bufferedGraphics.Graphics.DrawArc(new Pen(unfilledSecondColor, circleThickness), rectangle, 270f, 360f);
                 bufferedGraphics.Graphics.DrawArc(new Pen(filledSecondColor, circleThickness), rectangle, 270f, (int)(num3 * 3.6));
             }
             if (showMinutesCircle)
             {
-                rectangle = new Rectangle((base.Width / 8) + circleThickness - 1, (base.Height / 6) + circleThickness - 1, (base.Width / 8 * 6) - (circleThickness * 2) + 2, (base.Height / 6 * 4) - (circleThickness * 2) + 2);
+                rectangle = new Rectangle((Width / 8) + circleThickness - 1, (Height / 6) + circleThickness - 1, (Width / 8 * 6) - (circleThickness * 2) + 2, (Height / 6 * 4) - (circleThickness * 2) + 2);
                 bufferedGraphics.Graphics.DrawArc(new Pen(unfilledMinuteColor, circleThickness), rectangle, 270f, 360f);
                 bufferedGraphics.Graphics.DrawArc(new Pen(filledMinuteColor, circleThickness), rectangle, 270f, (int)(num2 * 3.6));
             }
 
-            rectangle = new Rectangle(base.Width / 8, base.Height / 6, base.Width / 8 * 6, base.Height / 6 * 4);
+            rectangle = new Rectangle(Width / 8, Height / 6, Width / 8 * 6, Height / 6 * 4);
 
             bufferedGraphics.Graphics.DrawArc(new Pen(unfilledHourColor, circleThickness), rectangle, 270f, 360f);
             bufferedGraphics.Graphics.DrawArc(new Pen(filledHourColor, circleThickness), rectangle, 270f, (int)(num * 3.6));
@@ -345,16 +371,16 @@ namespace ReaLTaiizor.Controls
             {
                 if (showAMPM)
                 {
-                    bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString("hh:mm") + "\n" + DateTime.Now.ToString("tt", CultureInfo.InvariantCulture), Font, new SolidBrush(timeColor), rectangle, stringFormat);
+                    bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(timeAMFormat) + "\n" + DateTime.Now.ToString("tt", CultureInfo.InvariantCulture), Font, new SolidBrush(timeColor), rectangle, stringFormat);
                 }
                 else
                 {
-                    bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString("hh:mm"), Font, new SolidBrush(timeColor), rectangle, stringFormat);
+                    bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(timeAMFormat), Font, new SolidBrush(timeColor), rectangle, stringFormat);
                 }
             }
             else
             {
-                bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString("HH:mm"), Font, new SolidBrush(timeColor), rectangle, stringFormat);
+                bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(timePMFormat), Font, new SolidBrush(timeColor), rectangle, stringFormat);
             }
 
             bufferedGraphics.Render(e.Graphics);
@@ -391,7 +417,11 @@ namespace ReaLTaiizor.Controls
 
         private bool showAMPM;
 
-        private HourFormat displayFormat;
+        private string timeAMFormat = "hh:mm";
+
+        private string timePMFormat = "HH:mm";
+
+        private HourFormat displayFormat = HourFormat.TwentyFourHour;
 
         public enum HourFormat
         {
