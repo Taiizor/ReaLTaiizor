@@ -21,11 +21,15 @@ namespace ReaLTaiizor.Controls
         private LinearGradientBrush PressedGB;
         private LinearGradientBrush EnteredGB;
         private Rectangle R1;
-        private readonly Pen P1;
-        private readonly Pen P3;
         private Image _Image;
         private Size _ImageSize;
         private StringAlignment _TextAlignment = StringAlignment.Center;
+        private Color _InactiveColor = Color.FromArgb(32, 34, 37);
+        private Color _PressedColor = Color.FromArgb(165, 37, 37);
+        private Color _EnteredColor = Color.FromArgb(32, 34, 37);
+        private Color _BorderColor = Color.FromArgb(32, 34, 37);
+        private Color _EnteredBorderColor = Color.FromArgb(165, 37, 37);
+        private Color _PressedBorderColor = Color.FromArgb(165, 37, 37);
         private Color _TextColor; // VBConversions Note: Initial value cannot be assigned here since it is non-static.  Assignment has been moved to the class constructors.
         private ContentAlignment _ImageAlign = ContentAlignment.MiddleLeft;
 
@@ -165,11 +169,65 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color InactiveColor { get; set; } = Color.FromArgb(32, 34, 37);
+        public Color InactiveColor
+        {
+            get => _InactiveColor;
+            set
+            {
+                _InactiveColor = value;
+                Invalidate();
+            }
+        }
 
-        public Color PressedColor { get; set; } = Color.FromArgb(165, 37, 37);
+        public Color PressedColor
+        {
+            get => _PressedColor;
+            set
+            {
+                _PressedColor = value;
+                Invalidate();
+            }
+        }
 
-        public Color EnteredColor { get; set; } = Color.FromArgb(32, 34, 37);
+        public Color EnteredColor
+        {
+            get => _EnteredColor;
+            set
+            {
+                _EnteredColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color BorderColor
+        {
+            get => _BorderColor;
+            set
+            {
+                _BorderColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color EnteredBorderColor
+        {
+            get => _EnteredBorderColor;
+            set
+            {
+                _EnteredBorderColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color PressedBorderColor
+        {
+            get => _PressedBorderColor;
+            set
+            {
+                _PressedBorderColor = value;
+                Invalidate();
+            }
+        }
 
         #endregion
 
@@ -232,8 +290,6 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(255, 255, 255);
             Size = new(120, 40);
             _TextAlignment = StringAlignment.Center;
-            P1 = new(Color.FromArgb(32, 34, 37)); // P1 = Border color
-            P3 = new(Color.FromArgb(165, 37, 37)); // P3 = Border color when pressed
         }
 
         protected override void OnResize(EventArgs e)
@@ -269,7 +325,7 @@ namespace ReaLTaiizor.Controls
                     //Inactive
                     G.FillPath(InactiveGB, Shape);
                     // Fill button body with InactiveGB color gradient
-                    G.DrawPath(P1, Shape);
+                    G.DrawPath(new(BorderColor), Shape);
                     // Draw button border [InactiveGB]
                     if (Image == null)
                     {
@@ -293,7 +349,7 @@ namespace ReaLTaiizor.Controls
                     //Pressed
                     G.FillPath(PressedGB, Shape);
                     // Fill button body with PressedGB color gradient
-                    G.DrawPath(P3, Shape);
+                    G.DrawPath(new(PressedBorderColor), Shape);
                     // Draw button border [PressedGB]
 
                     if (Image == null)
@@ -318,7 +374,7 @@ namespace ReaLTaiizor.Controls
                     //Entered
                     G.FillPath(EnteredGB, Shape);
                     // Fill button body with EnteredGB color gradient
-                    G.DrawPath(P3, Shape);
+                    G.DrawPath(new(EnteredBorderColor), Shape);
                     // Draw button border [EnteredGB]
 
                     if (Image == null)
