@@ -17,10 +17,10 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotBanner()
         {
-            base.Size = new Size(100, 20);
-            base.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            Size = new Size(100, 20);
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
-            Text = base.Name;
+            Text = Name;
             ForeColor = Color.White;
         }
 
@@ -33,7 +33,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 borderColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 bannerColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

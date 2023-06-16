@@ -21,7 +21,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 borderColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -34,7 +34,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 textColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 borderWidth = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showText = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

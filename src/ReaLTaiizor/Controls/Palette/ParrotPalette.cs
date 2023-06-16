@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 gridColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showGrid = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -76,7 +76,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color1 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -89,7 +89,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color2 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color3 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color4 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color5 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -141,7 +141,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color6 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color7 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -167,7 +167,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color8 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -180,7 +180,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color9 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -193,7 +193,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color10 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -206,7 +206,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color11 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -219,7 +219,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color12 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -232,7 +232,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color13 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -245,7 +245,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color14 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 image = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
                 x1 = x;
                 y1 = y;
                 OnSelectedColorChanged();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -88,7 +88,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseDown(e);
             isSelectingColor = false;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseMove(MouseEventArgs e)

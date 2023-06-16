@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Controls
 
         private void RefreshUI_Tick(object sender, EventArgs e)
         {
-            base.Invalidate();
+            Invalidate();
         }
 
         [Category("Parrot")]
@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 circleThickness = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledHourColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 filledHourColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledMinuteColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledMinuteColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -106,7 +106,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledSecondColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -119,7 +119,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 filledSecondColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -132,7 +132,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 hexagonColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -145,7 +145,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 timeColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -158,7 +158,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showSecondsCircle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -171,7 +171,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showMinutesCircle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -184,7 +184,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showHexagon = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -197,7 +197,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showAMPM = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -210,7 +210,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 displayFormat = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

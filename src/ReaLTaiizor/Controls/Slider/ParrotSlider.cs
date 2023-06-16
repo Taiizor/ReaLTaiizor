@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 barThickness = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 bigStepIncrement = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Controls
             {
                 percentage = value;
                 OnScroll();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
             {
                 max = value;
                 OnScroll();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 filledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -99,7 +99,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -112,7 +112,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 knobColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -125,7 +125,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 knobImage = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -138,7 +138,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 quickHopping = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -151,7 +151,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 sliderStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -164,7 +164,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Positions = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -177,7 +177,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Colors = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -265,7 +265,7 @@ namespace ReaLTaiizor.Controls
                 {
                     Percentage = 0;
                 }
-                base.Invalidate();
+                Invalidate();
                 return;
             }
 
@@ -276,7 +276,7 @@ namespace ReaLTaiizor.Controls
                 {
                     Percentage = max;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -294,7 +294,7 @@ namespace ReaLTaiizor.Controls
                 {
                     Percentage = max;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 

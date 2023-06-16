@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 items = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -58,7 +58,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 filledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 splitterColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -97,7 +97,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 textColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -110,7 +110,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 sorting = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -123,7 +123,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 textAlignment = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 graphOrientation = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -149,7 +149,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 graphStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -162,7 +162,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showGrid = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

@@ -30,7 +30,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 items = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
             {
                 selectedIndex = value;
                 OnIndexChanged();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentBackColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -96,7 +96,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentActiveTextColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -109,7 +109,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentActiveFontColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -122,7 +122,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentInactiveFontColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentActiveBackColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -148,7 +148,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentInactiveTextColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -161,7 +161,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentInactiveBorderColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -174,7 +174,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentNormalBackColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -187,7 +187,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 segmentActiveLineColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

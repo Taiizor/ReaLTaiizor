@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 gaugeStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -42,7 +42,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 thickness = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 dialThickness = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -76,7 +76,7 @@ namespace ReaLTaiizor.Controls
                 {
                     percentage = 100;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -89,7 +89,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 dialColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 filledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 consumptionColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -141,7 +141,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 barColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

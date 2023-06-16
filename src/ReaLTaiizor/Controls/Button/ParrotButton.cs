@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
                     CurrentBackColor = Color.White;
                     CurrentForeColor = Color.Black;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
             {
                 foreColor = value;
                 CurrentForeColor = foreColor;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Controls
             {
                 backColor = value;
                 CurrentBackColor = backColor;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -98,7 +98,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 hoverForeColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -111,7 +111,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 hoverBackgroundColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -124,7 +124,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 clickForecolor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -137,7 +137,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 clickBackcolor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -150,7 +150,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 cornerRadius = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -163,7 +163,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 buttonText = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -176,7 +176,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 horizontalAlignment = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -189,7 +189,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 verticlAlignment = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -202,7 +202,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 buttonImage = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -215,7 +215,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 imagePosition = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -250,7 +250,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseEnter(e);
             CurrentForeColor = hoverForeColor;
             CurrentBackColor = hoverBackgroundColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
@@ -258,7 +258,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseLeave(e);
             CurrentForeColor = foreColor;
             CurrentBackColor = backColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -266,7 +266,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
             CurrentForeColor = clickForecolor;
             CurrentBackColor = clickBackcolor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -274,7 +274,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseUp(e);
             CurrentForeColor = foreColor;
             CurrentBackColor = backColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         private void FillRoundedRectangle(Graphics Gfx, Color ButtonColor, int CornerRadius)

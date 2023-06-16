@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Controls
             {
                 backgroundImage = value;
                 backgroundImage = new Bitmap(BackgroundImage, new Size(base.Width, base.Height));
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -76,7 +76,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 joyStickColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unFilledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 filledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Controls
                 {
                     filledColorAlpha = 1;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -97,7 +97,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledThickness = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -110,7 +110,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 filledThickness = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -132,7 +132,7 @@ namespace ReaLTaiizor.Controls
                     percentage = 100;
                 }
                 OnPercentageChanged();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
                     animationSpeed = 10;
                 }
                 UpdateUI.Interval = 200 / animationSpeed;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -175,7 +175,7 @@ namespace ReaLTaiizor.Controls
                 {
                     UpdateUI.Enabled = false;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -188,7 +188,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 textSize = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -201,7 +201,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 textColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -214,7 +214,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showText = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

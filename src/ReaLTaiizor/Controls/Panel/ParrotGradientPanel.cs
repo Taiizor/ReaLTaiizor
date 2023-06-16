@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 primerColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 topLeft = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 topRight = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 bottomLeft = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 bottomRight = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

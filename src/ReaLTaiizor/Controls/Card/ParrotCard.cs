@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color1 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color2 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 text1 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 text2 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 text3 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

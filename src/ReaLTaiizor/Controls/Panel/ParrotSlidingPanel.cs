@@ -35,7 +35,7 @@ namespace ReaLTaiizor.Controls
                 collapsed = value;
                 CollapseChanged();
                 CollapsedStateChanged();
-                base.Invalidate();
+                Invalidate();
             }
         }
 

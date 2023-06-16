@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Val = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Min = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Max = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

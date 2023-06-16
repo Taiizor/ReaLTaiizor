@@ -34,7 +34,7 @@ namespace ReaLTaiizor.Controls
             {
                 isChecked = value;
                 OnCheckedStateChanged();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 tickThickness = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -61,7 +61,7 @@ namespace ReaLTaiizor.Controls
             {
                 checkboxColor = value;
                 currentColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -74,7 +74,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 checkboxCheckColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -87,7 +87,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 borderColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -100,7 +100,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 badgeColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -113,7 +113,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 checkboxHoverColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -126,7 +126,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 checkboxStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -180,14 +180,14 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseEnter(e);
             currentColor = checkboxHoverColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
             currentColor = checkboxColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnClick(EventArgs e)

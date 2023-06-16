@@ -40,7 +40,7 @@ namespace ReaLTaiizor.Controls
                 {
                     base.Size = new Size(58, 30);
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
             {
                 switchState = value;
                 OnSwitchStateChanged();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -68,7 +68,7 @@ namespace ReaLTaiizor.Controls
             {
                 onColor = value;
                 SetSwitchColor = false;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -82,7 +82,7 @@ namespace ReaLTaiizor.Controls
             {
                 offColor = value;
                 SetSwitchColor = false;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -96,7 +96,7 @@ namespace ReaLTaiizor.Controls
             {
                 handleOnColor = value;
                 SetSwitchColor = false;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -110,7 +110,7 @@ namespace ReaLTaiizor.Controls
             {
                 handleOffColor = value;
                 SetSwitchColor = false;
-                base.Invalidate();
+                Invalidate();
             }
         }
 

@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
             {
                 _Checked = value;
                 CheckedChangedEvent?.Invoke(this, null);
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -93,7 +93,7 @@ namespace ReaLTaiizor.Controls
                     Cursor = Cursors.Default;
                 }
 
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 Enabled = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
