@@ -23,7 +23,7 @@
     </PackageReference>
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.3" />
     <PackageReference Include="Skylark.Standard" Version="3.0.0.9" />
-    <PackageReference Include="Skylark.Clipboard" Version="3.0.0.9" />
+    <PackageReference Include="Skylark.Clipboard" Version="3.0.1.2" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
