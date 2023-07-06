@@ -42,6 +42,7 @@
             this.spaceSeparatorHorizontal22 = new ReaLTaiizor.Controls.SpaceSeparatorHorizontal();
             this.spaceSeparatorHorizontal23 = new ReaLTaiizor.Controls.SpaceSeparatorHorizontal();
             this.parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
+            this.parrotFormHandle1 = new ReaLTaiizor.Controls.ParrotFormHandle();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager1)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             // parrotObjectEllipse1
             // 
             this.parrotObjectEllipse1.CornerRadius = 10;
-            this.parrotObjectEllipse1.EffectedControl = this;
+            this.parrotObjectEllipse1.EffectedControl = null;
             this.parrotObjectEllipse1.EffectedForm = this;
             // 
             // poisonProgressSpinner1
@@ -205,6 +206,11 @@
             this.parrotPictureBox1.Text = "parrotPictureBox1";
             this.parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
+            // parrotFormHandle1
+            // 
+            this.parrotFormHandle1.DockAtTop = true;
+            this.parrotFormHandle1.HandleControl = this.parrotPictureBox1;
+            // 
             // Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -250,5 +256,6 @@
         private Controls.SpaceSeparatorVertical spaceSeparatorVertical1;
         private Controls.SpaceSeparatorHorizontal spaceSeparatorHorizontal23;
         private Controls.ParrotPictureBox parrotPictureBox1;
+        private Controls.ParrotFormHandle parrotFormHandle1;
     }
 }
