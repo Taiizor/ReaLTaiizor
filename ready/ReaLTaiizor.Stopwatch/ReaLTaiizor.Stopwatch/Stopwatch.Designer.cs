@@ -48,6 +48,10 @@ namespace ReaLTaiizor.Stopwatch
             this.parrotForm1.ExitApplication = true;
             this.parrotForm1.FormStyle = ReaLTaiizor.Forms.ParrotForm.Style.MacOS;
             this.parrotForm1.Location = new System.Drawing.Point(0, 0);
+            this.parrotForm1.MacOSForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.parrotForm1.MacOSLeftBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.parrotForm1.MacOSRightBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.parrotForm1.MacOSSeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
             this.parrotForm1.MaterialBackColor = System.Drawing.Color.DodgerBlue;
             this.parrotForm1.MaterialForeColor = System.Drawing.Color.White;
             this.parrotForm1.Name = "parrotForm1";
@@ -57,6 +61,9 @@ namespace ReaLTaiizor.Stopwatch
             this.parrotForm1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             this.parrotForm1.TabIndex = 0;
             this.parrotForm1.TitleText = "Stopwatch";
+            this.parrotForm1.UbuntuForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(210)))));
+            this.parrotForm1.UbuntuLeftBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(85)))), ((int)(((byte)(80)))));
+            this.parrotForm1.UbuntuRightBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(60)))));
             // 
             // parrotForm1.WorkingArea
             // 
@@ -123,7 +130,7 @@ namespace ReaLTaiizor.Stopwatch
             // parrotObjectEllipse1
             // 
             this.parrotObjectEllipse1.CornerRadius = 10;
-            this.parrotObjectEllipse1.EffectedControl = this;
+            this.parrotObjectEllipse1.EffectedControl = null;
             this.parrotObjectEllipse1.EffectedForm = this;
             // 
             // parrotSplashScreen1
@@ -132,11 +139,13 @@ namespace ReaLTaiizor.Stopwatch
             this.parrotSplashScreen1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.parrotSplashScreen1.BottomText = "ReaLTaizor Stopwatch Edition";
             this.parrotSplashScreen1.BottomTextColor = System.Drawing.Color.Black;
+            this.parrotSplashScreen1.BottomTextLocation = new System.Drawing.Point(125, 150);
             this.parrotSplashScreen1.BottomTextSize = 10;
             this.parrotSplashScreen1.EllipseCornerRadius = 15;
             this.parrotSplashScreen1.IsEllipse = true;
             this.parrotSplashScreen1.LoadedColor = System.Drawing.Color.DodgerBlue;
             this.parrotSplashScreen1.ProgressBarBorder = false;
+            this.parrotSplashScreen1.ProgressBarLocation = new System.Drawing.Point(0, 224);
             this.parrotSplashScreen1.ProgressBarStyle = ReaLTaiizor.Controls.ParrotFlatProgressBar.Style.Material;
             this.parrotSplashScreen1.SecondsDisplayed = 1500;
             this.parrotSplashScreen1.ShowProgressBar = true;
@@ -144,6 +153,7 @@ namespace ReaLTaiizor.Stopwatch
             this.parrotSplashScreen1.SplashSize = new System.Drawing.Size(450, 280);
             this.parrotSplashScreen1.TopText = "ReaLTaiizor Stopwatch";
             this.parrotSplashScreen1.TopTextColor = System.Drawing.Color.Black;
+            this.parrotSplashScreen1.TopTextLocation = new System.Drawing.Point(5, 70);
             this.parrotSplashScreen1.TopTextSize = 31;
             this.parrotSplashScreen1.UnloadedColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             // 
