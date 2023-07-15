@@ -139,7 +139,15 @@ namespace ReaLTaiizor.Controls
                     ForegroundColor = Color.FromArgb(65, 177, 225);
                     BackgroundColor = Color.White;
                     UnselectedTextColor = Color.Gray;
-                    SelectedTextColor = Color.White;
+                    switch (TabStyle)
+                    {
+                        case TabStyle.Style1:
+                            SelectedTextColor = Color.White;
+                            break;
+                        default:
+                            SelectedTextColor = Color.Black;
+                            break;
+                    }
                     ThemeAuthor = "Taiizor";
                     ThemeName = "MetroLight";
                     UpdateProperties();
@@ -318,6 +326,16 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _tabStyle = value;
+
+                if (Style == Style.Light && _tabStyle == TabStyle.Style1)
+                {
+                    SelectedTextColor = Color.White;
+                }
+                else if (Style == Style.Light && _tabStyle == TabStyle.Style2)
+                {
+                    SelectedTextColor = Color.Black;
+                }
+
                 Refresh();
             }
         }
