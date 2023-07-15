@@ -139,14 +139,13 @@ namespace ReaLTaiizor.Controls
                     ForegroundColor = Color.FromArgb(65, 177, 225);
                     BackgroundColor = Color.White;
                     UnselectedTextColor = Color.Gray;
-                    switch (TabStyle)
+                    if (TabStyle == TabStyle.Style1)
                     {
-                        case TabStyle.Style1:
-                            SelectedTextColor = Color.White;
-                            break;
-                        default:
-                            SelectedTextColor = Color.Black;
-                            break;
+                        SelectedTextColor = Color.White;
+                    }
+                    else
+                    {
+                        SelectedTextColor = ForegroundColor;
                     }
                     ThemeAuthor = "Taiizor";
                     ThemeName = "MetroLight";
@@ -156,7 +155,14 @@ namespace ReaLTaiizor.Controls
                     ForegroundColor = Color.FromArgb(65, 177, 225);
                     BackgroundColor = Color.FromArgb(30, 30, 30);
                     UnselectedTextColor = Color.Gray;
-                    SelectedTextColor = Color.White;
+                    if (TabStyle == TabStyle.Style1)
+                    {
+                        SelectedTextColor = Color.White;
+                    }
+                    else
+                    {
+                        SelectedTextColor = ForegroundColor;
+                    }
                     ThemeAuthor = "Taiizor";
                     ThemeName = "MetroDark";
                     UpdateProperties();
@@ -197,6 +203,7 @@ namespace ReaLTaiizor.Controls
             {
                 InvalidateTabPage(BackgroundColor);
                 Invalidate();
+                Refresh();
             }
             catch
             {
@@ -326,16 +333,14 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _tabStyle = value;
-
-                if (Style == Style.Light && _tabStyle == TabStyle.Style1)
+                if (_tabStyle == TabStyle.Style1)
                 {
                     SelectedTextColor = Color.White;
                 }
-                else if (Style == Style.Light && _tabStyle == TabStyle.Style2)
+                else if (_tabStyle == TabStyle.Style2)
                 {
-                    SelectedTextColor = Color.Black;
+                    SelectedTextColor = ForegroundColor;
                 }
-
                 Refresh();
             }
         }
@@ -410,6 +415,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+
             for (int i = 0; i <= TabCount - 1; i++)
             {
                 Rectangle r = GetTabRect(i);
@@ -430,6 +436,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
+
             if (MCursor == Cursor)
             {
                 Cursor = Cursors.Default;
@@ -481,6 +488,7 @@ namespace ReaLTaiizor.Controls
             {
                 _slideGraphics.DrawImage(_slideBitmap, alpha);
             };
+
             _slideAnimator.Complete = () =>
             {
                 SelectedTab = control2;
@@ -492,6 +500,7 @@ namespace ReaLTaiizor.Controls
                     }
                 }
             };
+
             _slideAnimator.Start
             (
                 AnimateTime,
@@ -513,6 +522,7 @@ namespace ReaLTaiizor.Controls
                 e.Cancel = true;
                 return;
             }
+
             DoSlideAnimate(TabPages[_oldIndex], TabPages[e.TabPageIndex], _oldIndex > e.TabPageIndex);
         }
 
@@ -524,8 +534,10 @@ namespace ReaLTaiizor.Controls
         private void DoAnimationScrollRight(Control control1, Control control2)
         {
             Graphics g = control1.CreateGraphics();
+
             Bitmap p1 = new(control1.Width, control1.Height);
             Bitmap p2 = new(control2.Width, control2.Height);
+
             control1.DrawToBitmap(p1, new Rectangle(0, 0, control1.Width, control1.Height));
             control2.DrawToBitmap(p2, new Rectangle(0, 0, control2.Width, control2.Height));
 
@@ -540,12 +552,15 @@ namespace ReaLTaiizor.Controls
             int slide = control1.Width - (control1.Width % Speed);
 
             int a;
+
             for (a = 0; a >= -slide; a += -Speed)
             {
                 g.DrawImage(p1, new Rectangle(a, 0, control1.Width, control1.Height));
                 g.DrawImage(p2, new Rectangle(a + control2.Width, 0, control2.Width, control2.Height));
             }
+
             a = control1.Width;
+
             g.DrawImage(p1, new Rectangle(a, 0, control1.Width, control1.Height));
             g.DrawImage(p2, new Rectangle(a + control2.Width, 0, control2.Width, control2.Height));
 
