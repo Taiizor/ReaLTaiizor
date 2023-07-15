@@ -104,6 +104,7 @@ namespace ReaLTaiizor.Manager
             foreach (Control ctrl in controls)
             {
                 IMetroControl control = ctrl as IMetroControl;
+
                 if (control != null && (CustomTheme == null || CustomTheme != null))
                 {
                     control.Style = Style;
@@ -111,6 +112,7 @@ namespace ReaLTaiizor.Manager
                     control.ThemeName = ThemeName;
                     control.StyleManager = this;
                 }
+
                 if (control is TabControl tabControl)
                 {
                     foreach (TabPage c in tabControl.TabPages)
@@ -131,10 +133,12 @@ namespace ReaLTaiizor.Manager
                     if (child is not IMetroControl)
                     {
                         continue;
-                    } ((IMetroControl)child).Style = Style;
+                    }
+                    
+                    ((IMetroControl)child).Style = Style;
                     ((IMetroControl)child).StyleManager = this;
-                    ((IMetroControl)child).ThemeAuthor = ThemeAuthor;
                     ((IMetroControl)child).ThemeName = ThemeName;
+                    ((IMetroControl)child).ThemeAuthor = ThemeAuthor;
                 }
             }
         }
@@ -253,6 +257,7 @@ namespace ReaLTaiizor.Manager
         public void OpenTheme()
         {
             using OpenFileDialog ofd = new() { Filter = @"Xml File (*.xml)|*.xml" };
+
             if (ofd.ShowDialog() != DialogResult.OK)
             {
                 return;
@@ -269,8 +274,10 @@ namespace ReaLTaiizor.Manager
 
         private static string ThemeFilePath(string str)
         {
-            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Templates) + @"\ThemeFile.xml"}";
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Templates), "ThemeFile.xml");
+
             File.WriteAllText(path, str);
+
             return path;
         }
 
@@ -508,9 +515,8 @@ namespace ReaLTaiizor.Manager
                     return base.EditValue(context, provider, value);
                 }
 
-                IWindowsFormsEditorService editorService =
-                    (IWindowsFormsEditorService)
-                    provider.GetService(typeof(IWindowsFormsEditorService));
+                IWindowsFormsEditorService editorService = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
+                
                 if (editorService == null)
                 {
                     return base.EditValue(context, provider, value);
