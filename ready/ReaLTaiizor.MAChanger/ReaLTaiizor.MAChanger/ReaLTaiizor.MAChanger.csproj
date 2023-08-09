@@ -22,13 +22,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.4" />
-    <PackageReference Include="System.Management" Version="8.0.0-preview.6.23329.7" />
+    <PackageReference Include="System.Management" Version="8.0.0-preview.7.23375.6" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.6.23329.7" />
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.7.23375.6" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

@@ -38,6 +38,6 @@
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.6.23329.7" />
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.7.23375.6" />
   </ItemGroup>
 </Project>
