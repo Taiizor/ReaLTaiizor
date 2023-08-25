@@ -201,7 +201,8 @@ namespace ReaLTaiizor.Controls
         protected override void OnControlAdded(ControlEventArgs e)
         {
             base.OnControlAdded(e);
-            if (e.Control is TabPage)
+
+            if (e.Control is System.Windows.Forms.TabPage)
             {
                 IEnumerator Enumerator;
                 try
@@ -209,8 +210,8 @@ namespace ReaLTaiizor.Controls
                     Enumerator = Controls.GetEnumerator();
                     while (Enumerator.MoveNext())
                     {
-                        TabPage Current = (TabPage)Enumerator.Current;
-                        Current = new TabPage();
+                        System.Windows.Forms.TabPage Current = (System.Windows.Forms.TabPage)Enumerator.Current;
+                        Current = new System.Windows.Forms.TabPage();
                     }
                 }
                 finally
@@ -240,6 +241,11 @@ namespace ReaLTaiizor.Controls
 
             for (int TabIndex = 0; TabIndex <= TabCount - 1; TabIndex++)
             {
+                if (TabPages[TabIndex].BackColor != PageColor)
+                {
+                    TabPages[TabIndex].BackColor = PageColor;
+                }
+
                 if (TabIndex == SelectedIndex)
                 {
                     Rectangle TabRect = new(new Point(GetTabRect(TabIndex).Location.X - 2, GetTabRect(TabIndex).Location.Y - 2), new Size(GetTabRect(TabIndex).Width + 3, GetTabRect(TabIndex).Height - 8));
@@ -290,11 +296,6 @@ namespace ReaLTaiizor.Controls
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();
-
-            foreach (System.Windows.Forms.TabPage Page in TabPages)
-            {
-                Page.BackColor = PageColor;
-            }
         }
     }
 
