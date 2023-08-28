@@ -17,7 +17,7 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.9.4" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Console.png" />
