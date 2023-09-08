@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 #endregion
@@ -13,7 +14,7 @@ namespace ReaLTaiizor.Controls
 
     public class TabPage : TabControl
     {
-        private SmoothingMode _SmoothingType = SmoothingMode.HighSpeed;
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
             get => _SmoothingType;
@@ -24,7 +25,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighSpeed;
+        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
             get => _CompositingQualityType;
@@ -53,6 +54,28 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _InterpolationType = value;
+                Invalidate();
+            }
+        }
+
+        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
+        public PixelOffsetMode PixelOffsetType
+        {
+            get => _PixelOffsetType;
+            set
+            {
+                _PixelOffsetType = value;
+                Invalidate();
+            }
+        }
+
+        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
+        public TextRenderingHint TextRenderingType
+        {
+            get => _TextRenderingType;
+            set
+            {
+                _TextRenderingType = value;
                 Invalidate();
             }
         }
@@ -183,8 +206,8 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer, true);
 
             DoubleBuffered = true;
-            SizeMode = TabSizeMode.Fixed;
             ItemSize = new(44, 135);
+            SizeMode = TabSizeMode.Fixed;
             DrawMode = TabDrawMode.OwnerDrawFixed;
         }
 
@@ -194,8 +217,8 @@ namespace ReaLTaiizor.Controls
 
             base.DoubleBuffered = true;
             SizeMode = TabSizeMode.Fixed;
-            Appearance = TabAppearance.Normal;
             Alignment = TabAlignment.Left;
+            Appearance = TabAppearance.Normal;
         }
 
         protected override void OnControlAdded(ControlEventArgs e)
@@ -208,6 +231,7 @@ namespace ReaLTaiizor.Controls
                 try
                 {
                     Enumerator = Controls.GetEnumerator();
+
                     while (Enumerator.MoveNext())
                     {
                         System.Windows.Forms.TabPage Current = (System.Windows.Forms.TabPage)Enumerator.Current;
@@ -231,8 +255,10 @@ namespace ReaLTaiizor.Controls
 
             _Graphics.Clear(FrameColor);
             _Graphics.SmoothingMode = SmoothingType;
-            _Graphics.CompositingQuality = CompositingQualityType;
             _Graphics.CompositingMode = CompositingType;
+            _Graphics.PixelOffsetMode = PixelOffsetType;
+            _Graphics.TextRenderingHint = TextRenderingType;
+            _Graphics.CompositingQuality = CompositingQualityType;
 
             // Draw tab selector background
             _Graphics.FillRectangle(new SolidBrush(ControlBackColor), new Rectangle(-5, 0, ItemSize.Height + 4, Height));
@@ -261,6 +287,7 @@ namespace ReaLTaiizor.Controls
                     if (ImageList != null)
                     {
                         int Index = TabPages[TabIndex].ImageIndex;
+
                         if (!(Index == -1))
                         {
                             _Graphics.DrawImage(ImageList.Images[TabPages[TabIndex].ImageIndex], TabRect.X + 9, TabRect.Y + 6, 24, 24);
@@ -282,6 +309,7 @@ namespace ReaLTaiizor.Controls
                     if (ImageList != null)
                     {
                         int Index = TabPages[TabIndex].ImageIndex;
+
                         if (!(Index == -1))
                         {
                             _Graphics.DrawImage(ImageList.Images[TabPages[TabIndex].ImageIndex], TabRect.X + 9, TabRect.Y + 6, 24, 24);
@@ -290,9 +318,14 @@ namespace ReaLTaiizor.Controls
 
                 }
             }
-            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+
+            e.Graphics.SmoothingMode = SmoothingType;
+            e.Graphics.CompositingMode = CompositingType;
+            e.Graphics.PixelOffsetMode = PixelOffsetType;
+            e.Graphics.TextRenderingHint = TextRenderingType;
             e.Graphics.InterpolationMode = InterpolationType;
-            e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
+            e.Graphics.CompositingQuality = CompositingQualityType;
+
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();
