@@ -106,41 +106,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -155,33 +132,15 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private bool displayFocusRectangle = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayFocus
-        {
-            get => displayFocusRectangle;
-            set => displayFocusRectangle = value;
-        }
-
-
-        private PoisonDateTimeSize poisonDateTimeSize = PoisonDateTimeSize.Medium;
+        public bool DisplayFocus { get; set; } = false;
         [DefaultValue(PoisonDateTimeSize.Medium)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonDateTimeSize FontSize
-        {
-            get => poisonDateTimeSize;
-            set => poisonDateTimeSize = value;
-        }
-
-        private PoisonDateTimeWeight poisonDateTimeWeight = PoisonDateTimeWeight.Regular;
+        public PoisonDateTimeSize FontSize { get; set; } = PoisonDateTimeSize.Medium;
         [DefaultValue(PoisonDateTimeWeight.Regular)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonDateTimeWeight FontWeight
-        {
-            get => poisonDateTimeWeight;
-            set => poisonDateTimeWeight = value;
-        }
+        public PoisonDateTimeWeight FontWeight { get; set; } = PoisonDateTimeWeight.Regular;
 
         [DefaultValue(false)]
         [Browsable(false)]
@@ -226,7 +185,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                 }
@@ -311,7 +270,7 @@ namespace ReaLTaiizor.Controls
                 _check = 15;
                 using (Pen p = new(borderColor))
                 {
-                    Rectangle boxRect = new(3, Height / 2 - 6, 12, 12);
+                    Rectangle boxRect = new(3, (Height / 2) - 6, 12, 12);
                     e.Graphics.DrawRectangle(p, boxRect);
                 }
 
@@ -321,7 +280,7 @@ namespace ReaLTaiizor.Controls
                     Color fillColor = PoisonPaint.GetStyleColor(Style);
 
                     using SolidBrush b = new(fillColor);
-                    Rectangle boxRect = new(5, Height / 2 - 4, 9, 9);
+                    Rectangle boxRect = new(5, (Height / 2) - 4, 9, 9);
                     e.Graphics.FillRectangle(b, boxRect);
                 }
                 else
@@ -332,11 +291,11 @@ namespace ReaLTaiizor.Controls
 
             Rectangle textRect = new(2 + _check, 2, Width - 20, Height - 4);
 
-            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.DateTime(poisonDateTimeSize, poisonDateTimeWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.DateTime(FontSize, FontWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
-            if (displayFocusRectangle && isFocused)
+            if (DisplayFocus && isFocused)
             {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
             }
@@ -471,7 +430,7 @@ namespace ReaLTaiizor.Controls
             {
                 string measureText = Text.Length > 0 ? Text : "MeasureText";
                 proposedSize = new(int.MaxValue, int.MaxValue);
-                preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.DateTime(poisonDateTimeSize, poisonDateTimeWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
+                preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.DateTime(FontSize, FontWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
                 preferredSize.Height += 10;
             }
 

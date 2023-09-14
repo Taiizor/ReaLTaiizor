@@ -1,7 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Helper;
-using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -64,15 +64,14 @@ namespace ReaLTaiizor.Controls
         public bool AnimateShowHideButton
         {
             get => _animateShowButton;
-            set
-            {
-                _animateShowButton = value;
-                Refresh();
-            }
+            set { _animateShowButton = value; Refresh(); }
         }
 
         private bool _animateShowButton;
 
+        [DefaultValue(false)]
+        [Category("Material")]
+        [Description("Define icon to display")]
         public Image Icon
         {
             get => _icon;
@@ -94,7 +93,7 @@ namespace ReaLTaiizor.Controls
             DrawShadows = true;
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
 
-            Size = new(FAB_SIZE, FAB_SIZE);
+            Size = new Size(FAB_SIZE, FAB_SIZE);
             _animationManager = new AnimationManager(false)
             {
                 Increment = 0.03,
@@ -217,14 +216,18 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = pevent.Graphics;
 
-            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             // Paint shadow on element to blend with the parent shadow
             DrawRoundShadow(g, fabBounds);
 
             // draw fab
-            g.FillEllipse(_mouseHover ? new SolidBrush(SkinManager.ColorScheme.AccentColor.Lighten(0.25f)) : SkinManager.ColorScheme.AccentBrush, fabBounds);
+            g.FillEllipse(Enabled ? _mouseHover ?
+                new SolidBrush(SkinManager.ColorScheme.AccentColor.Lighten(0.25f)) :
+                SkinManager.ColorScheme.AccentBrush :
+                new SolidBrush(BlendColor(SkinManager.ColorScheme.AccentColor, SkinManager.SwitchOffDisabledThumbColor, 197)),
+                fabBounds);
 
             if (_animationManager.IsAnimating())
             {
@@ -241,7 +244,7 @@ namespace ReaLTaiizor.Controls
                     Point animationSource = _animationManager.GetSource(i);
                     SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationValue * 50)), Color.White));
                     int rippleSize = (int)(animationValue * Width * 2);
-                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
+                    g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), animationSource.Y - (rippleSize / 2), rippleSize, rippleSize));
                 }
 
                 g.EndContainer(gcont);
@@ -249,7 +252,7 @@ namespace ReaLTaiizor.Controls
 
             if (Icon != null)
             {
-                g.DrawImage(Icon, new Rectangle(fabBounds.Width / 2 - 11, fabBounds.Height / 2 - 11, 24, 24));
+                g.DrawImage(Icon, new Rectangle((fabBounds.Width / 2) - 11, (fabBounds.Height / 2) - 11, 24, 24));
             }
 
             if (_showAnimationManager.IsAnimating())
@@ -257,14 +260,14 @@ namespace ReaLTaiizor.Controls
                 int target = Convert.ToInt32((_mini ? FAB_MINI_SIZE : FAB_SIZE) * _showAnimationManager.GetProgress());
                 fabBounds.Width = target == 0 ? 1 : target;
                 fabBounds.Height = target == 0 ? 1 : target;
-                fabBounds.X = Convert.ToInt32(((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) - (((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) * _showAnimationManager.GetProgress()));
-                fabBounds.Y = Convert.ToInt32(((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) - (((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) * _showAnimationManager.GetProgress()));
+                fabBounds.X = Convert.ToInt32(((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) - ((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2 * _showAnimationManager.GetProgress()));
+                fabBounds.Y = Convert.ToInt32(((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2) - ((_mini ? FAB_MINI_SIZE : FAB_SIZE) / 2 * _showAnimationManager.GetProgress()));
             }
 
             // Clip to a round shape with a 1px padding
             GraphicsPath clipPath = new();
             clipPath.AddEllipse(new Rectangle(fabBounds.X - 1, fabBounds.Y - 1, fabBounds.Width + 3, fabBounds.Height + 3));
-            Region = new(clipPath);
+            Region = new Region(clipPath);
         }
 
         protected override void OnMouseClick(MouseEventArgs mevent)
@@ -328,12 +331,6 @@ namespace ReaLTaiizor.Controls
                 _showAnimationManager.StartNewAnimation(AnimationDirection.In);
                 Visible = true;
             }
-        }
-
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
-            Mini = _mini;
         }
     }
 

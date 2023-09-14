@@ -191,7 +191,7 @@
             this.labelEdit3.Name = "labelEdit3";
             this.labelEdit3.Size = new System.Drawing.Size(45, 19);
             this.labelEdit3.TabIndex = 11;
-            this.labelEdit3.Text = "1.809";
+            this.labelEdit3.Text = "1.914";
             // 
             // labelEdit4
             // 
@@ -204,7 +204,7 @@
             this.labelEdit4.Name = "labelEdit4";
             this.labelEdit4.Size = new System.Drawing.Size(33, 19);
             this.labelEdit4.TabIndex = 12;
-            this.labelEdit4.Text = "279";
+            this.labelEdit4.Text = "328";
             // 
             // labelEdit5
             // 
@@ -217,7 +217,7 @@
             this.labelEdit5.Name = "labelEdit5";
             this.labelEdit5.Size = new System.Drawing.Size(51, 19);
             this.labelEdit5.TabIndex = 13;
-            this.labelEdit5.Text = "16.1M";
+            this.labelEdit5.Text = "19.1M";
             // 
             // labelEdit6
             // 
@@ -384,7 +384,7 @@
             this.labelEdit10.Name = "labelEdit10";
             this.labelEdit10.Size = new System.Drawing.Size(76, 18);
             this.labelEdit10.TabIndex = 29;
-            this.labelEdit10.Text = "1.881 Posts";
+            this.labelEdit10.Text = "1.914 Posts";
             // 
             // labelEdit11
             // 
@@ -397,7 +397,7 @@
             this.labelEdit11.Name = "labelEdit11";
             this.labelEdit11.Size = new System.Drawing.Size(110, 18);
             this.labelEdit11.TabIndex = 30;
-            this.labelEdit11.Text = "18.1M Followers";
+            this.labelEdit11.Text = "19.1M Followers";
             // 
             // labelEdit12
             // 

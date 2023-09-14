@@ -70,11 +70,11 @@ namespace ReaLTaiizor.Native
                 return new Rectangle(left, top, right - left, bottom - top);
             }
 
-            public int Height => (bottom - top);
+            public int Height => bottom - top;
 
             public Size Size => new(Width, Height);
 
-            public int Width => (right - left);
+            public int Width => right - left;
             private static T InlineAssignHelper<T>(ref T target, T value)
             {
                 target = value;
@@ -239,7 +239,7 @@ namespace ReaLTaiizor.Native
         public const int DWM_TNP_RECTSOURCE = 2;
         public const int DWM_TNP_SOURCECLIENTAREAONLY = 0x10;
         public const int DWM_TNP_VISIBLE = 8;
-        public static readonly bool DwmApiAvailable = (Environment.OSVersion.Version.Major >= 6);
+        public static readonly bool DwmApiAvailable = Environment.OSVersion.Version.Major >= 6;
 
         public const int WM_DWMCOMPOSITIONCHANGED = 0x31e;
 

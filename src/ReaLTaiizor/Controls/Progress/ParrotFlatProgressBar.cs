@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 barStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Controls
                 {
                     this.value = maxValue;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -65,7 +65,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 completeColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -78,7 +78,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 completeBackColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 borderColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -104,7 +104,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showBorder = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -117,7 +117,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 incompletedColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -130,7 +130,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 incompletedBackColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -147,7 +147,7 @@ namespace ReaLTaiizor.Controls
                 {
                     Value = maxValue;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -160,7 +160,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Positions = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -173,7 +173,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Colors = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -281,7 +281,7 @@ namespace ReaLTaiizor.Controls
 
                 linearGradientBrush.RotateTransform(1f);
                 bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, new Rectangle(0, 0, base.Width, base.Height));
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), value * base.Width / maxValue, 0, base.Width - value * base.Width / maxValue, base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), value * base.Width / maxValue, 0, base.Width - (value * base.Width / maxValue), base.Height);
             }
 
             if (ShowBorder)
@@ -295,7 +295,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnSizeChanged(EventArgs e)
         {
-            base.Invalidate();
+            Invalidate();
         }
 
         private BufferedGraphics bufferedGraphics;

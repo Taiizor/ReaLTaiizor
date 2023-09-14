@@ -48,7 +48,7 @@ namespace ReaLTaiizor.Forms
         {
             base.OnClick(e);
             Rectangle r = new(Width - 22, 5, 15, 15);
-            if (r.Contains(new Point(e.X, e.Y)) || r.Contains(new Point(X, Y)) && e.Button == MouseButtons.Left)
+            if (r.Contains(new Point(e.X, e.Y)) || (r.Contains(new Point(X, Y)) && e.Button == MouseButtons.Left))
             {
                 FindForm().Close();
             }

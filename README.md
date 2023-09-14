@@ -2,12 +2,12 @@
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.8-blue)
 ![Dot-Net-Core-Version](https://img.shields.io/badge/.NET%20Core-%3E%3D3.1-blue)
-![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D5.0-blue)
-![C-Sharp-Version](https://img.shields.io/badge/C%23-10.0-blue.svg)
-![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)
-[![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg)](https://www.nuget.org/packages/ReaLTaiizor)
-[![FuGet-Version](https://www.fuget.org/packages/ReaLTaiizor/badge.svg)](https://www.fuget.org/packages/ReaLTaiizor)
-[![NuGet](https://img.shields.io/nuget/dt/ReaLTaiizor)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
+![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D6.0-blue)
+![C-Sharp-Version](https://img.shields.io/badge/C%23-Preview-blue.svg)
+[![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)](https://visualstudio.microsoft.com/downloads)
+[![NuGet-Version](https://img.shields.io/nuget/v/ReaLTaiizor.svg?label=NuGet)](https://www.nuget.org/packages/ReaLTaiizor)
+[![FuGet-Version](https://www.fuget.org/packages/ReaLTaiizor/badge.svg?label=FuGet)](https://www.fuget.org/packages/ReaLTaiizor)
+[![NuGet-Download](https://img.shields.io/nuget/dt/ReaLTaiizor?label=Download)](https://www.nuget.org/api/v2/package/ReaLTaiizor)
 
 [![.NET](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/dotnet.yml)
 [![CodeQL](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Taiizor/ReaLTaiizor/actions/workflows/codeql-analysis.yml)
@@ -16,7 +16,7 @@
 [![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
 
 # Welcome to ReaLTaiizor
-ReaLTaiizor is a UI/UX component library. It allows you to make modern designs using the various components it offers.
+ReaLTaiizor is a user-friendly and design-focused control library for .NET WinForms projects, containing a wide range of components. You can personalize your projects with different theme options and customize user controls to make your applications more professional.
 
 ## Contributors
 
@@ -34,8 +34,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Code">💻</a>
-		<a href="https://www.taiizor.com" title="Ideas & Planning, Feedback">🤔</a>
-	</td>
+		<a href="https://www.vegalya.com" title="Ideas & Planning, Feedback">🤔</a>
+    </td>
     <td align="center">
 		<a href="https://github.com/JTOne123">
 			<img src="https://avatars3.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123"/>
@@ -46,7 +46,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="Reviewed Pull Requests">👀</a>
-	</td>
+    </td>
     <td align="center">
 		<a href="https://github.com/HideakiAtsuyo">
 			<img src="https://avatars3.githubusercontent.com/u/53636771?s=460&v=4" width="80px;" alt="HideakiAtsuyo"/>
@@ -68,7 +68,18 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=LandarXT" title="Reviewed Pull Requests">👀</a>
-	</td>
+    </td>
+    <td align="center">
+		<a href="https://github.com/edoardopirovano">
+			<img src="https://avatars3.githubusercontent.com/u/6748066?s=460&v=4" width="80px;" alt="edoardopirovano"/>
+			<br/>
+			<sub>
+				<b>edoardopirovano</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=edoardopirovano" title="Reviewed Pull Requests">👀</a>
+    </td>
   </tr>
 </table>
 
@@ -79,6 +90,17 @@ This project follows the [all contributors](https://github.com/all-contributors/
 <table>
   <tr>
     <td align="center">
+		<a href="https://github.com/Vegalya">
+			<img src="https://avatars3.githubusercontent.com/u/98421771?s=200&v=4" width="80px;" alt="Vegalya"/>
+			<br/>
+			<sub>
+				<b>Vegalya</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Vegalya" target="_blank" title="Content">🖋</a>
+    </td>
+    <td align="center">
 		<a href="https://github.com/Soferity">
 			<img src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4" width="80px;" alt="Soferity"/>
 			<br/>
@@ -88,8 +110,19 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/Soferity" target="_blank" title="Content">🖋</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
+		<a href="https://github.com/IgnaceMaes">
+			<img src="https://avatars3.githubusercontent.com/u/10243652?s=200&v=4" width="80px;" alt="IgnaceMaes"/>
+			<br/>
+			<sub>
+				<b>IgnaceMaes</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/IgnaceMaes" target="_blank" title="Code">💻</a>
+    </td>
+    <td align="center">
 		<a href="https://github.com/donaldsteele">
 			<img src="https://avatars3.githubusercontent.com/u/8108109?s=200&v=4" width="80px;" alt="donaldsteele"/>
 			<br/>
@@ -99,8 +132,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/donaldsteele" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/leocb">
 			<img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb"/>
 			<br/>
@@ -110,8 +143,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/leocb" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/N-a-r-w-i-n">
 			<img src="https://avatars3.githubusercontent.com/u/25624385?s=200&v=4" width="80px;" alt="N-a-r-w-i-n"/>
 			<br/>
@@ -121,8 +154,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/N-a-r-w-i-n" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/peters">
 			<img src="https://avatars3.githubusercontent.com/u/869?s=200&v=4" width="80px;" alt="peters"/>
 			<br/>
@@ -132,8 +165,10 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/peters" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
 		<a href="https://github.com/dennismagno">
 			<img src="https://avatars3.githubusercontent.com/u/5070675?s=200&v=4" width="80px;" alt="dennismagno"/>
 			<br/>
@@ -143,8 +178,8 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/dennismagno" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
+    </td>
+    <td align="center">
 		<a href="https://github.com/RobinPerris">
 			<img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris"/>
 			<br/>
@@ -154,18 +189,29 @@ This project follows the [all contributors](https://github.com/all-contributors/
 		</a>
 		<br/>
 		<a href="https://github.com/RobinPerris" target="_blank" title="Code">💻</a>
-	</td>
-	<td align="center">
-		<a href="https://github.com/VPKSoft">
-			<img src="https://avatars3.githubusercontent.com/u/40712699?s=200&v=4" width="80px;" alt="VPKSoft"/>
+    </td>
+    <td align="center">
+		<a href="https://github.com/0xLaileb">
+			<img src="https://avatars3.githubusercontent.com/u/59660240?s=200&v=4" width="80px;" alt="0xLaileb"/>
 			<br/>
 			<sub>
-				<b>VPKSoft</b>
+				<b>0xLaileb</b>
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/VPKSoft" target="_blank" title="Content">🖋</a>
-	</td>
+		<a href="https://github.com/0xLaileb" target="_blank" title="Code">💻</a>
+    </td>
+    <td align="center">
+		<a href="https://github.com/Stefan6440">
+			<img src="https://avatars3.githubusercontent.com/u/5719752?s=200&v=4" width="80px;" alt="Stefan6440"/>
+			<br/>
+			<sub>
+				<b>Stefan6440</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Stefan6440" target="_blank" title="Code">💻</a>
+    </td>
   </tr>
 </table>
 
@@ -178,6 +224,10 @@ Step 1：Add a reference to ReaLTaiizor or search for ReaLTaiizor on the NuGet;
 Step 2：Enjoy designing
 
 ## Examples
+
+### Genshin Impact
+
+[![GenshinImpactSample](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Genshin_Impact.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/sample/ReaLTaiizor.GenshinImpact "GenshinImpactSample")
 
 ### Windows Defender
 
@@ -225,6 +275,22 @@ Step 2：Enjoy designing
 
 [![StopwatchReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Stopwatch.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Stopwatch "StopwatchReady")
 
+### Hashing
+
+[![HashingReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Hashing.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Hashing "HashingReady")
+
+### MAChanger
+
+[![MAChangerReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/MAChanger.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.MAChanger "MAChangerReady")
+
+### Nerator
+
+[![NeratorReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Nerator.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Nerator "NeratorReady")
+
+### Portscan
+
+[![PortscanReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Portscan.gif)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Portscan "PortscanReady")
+
 ### Translate
 
 [![TranslateReady](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Translate.png)](https://github.com/Taiizor/ReaLTaiizor/tree/develop/ready/ReaLTaiizor.Translate "TranslateReady")
@@ -241,13 +307,15 @@ Step 2：Enjoy designing
 
 ![Overview-5](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Parrot.png)
 
-![Overview-6](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form1.png)
+![Overview-6](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Cyber.gif)
 
-![Overview-7](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form2.png)
+![Overview-7](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form1.png)
 
-![Overview-8](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Sky.png)
+![Overview-8](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Form2.png)
 
-![Overview-9](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Alone.png)
+![Overview-9](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Sky.png)
+
+![Overview-10](https://raw.githubusercontent.com/Taiizor/ReaLTaiizor/develop/.screenshots/Alone.png)
 
 ## Latest Theme Examples
 

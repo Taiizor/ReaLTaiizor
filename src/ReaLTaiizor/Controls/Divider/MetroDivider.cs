@@ -146,7 +146,7 @@ namespace ReaLTaiizor.Controls
 
                                     break;
                                 case "Thickness":
-                                    Thickness = ((int)varkey.Value);
+                                    Thickness = (int)varkey.Value;
                                     break;
                                 case "ForeColor":
                                     ForeColor = _utl.HexColor((string)varkey.Value);

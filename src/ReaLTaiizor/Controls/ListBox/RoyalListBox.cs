@@ -15,14 +15,12 @@ namespace ReaLTaiizor.Controls
     public class RoyalListBox : Control
     {
         private readonly RoyalScrollBar scrollBar;
-        private readonly RoyalListBoxItemCollection items;
-        public RoyalListBoxItemCollection Items => items;
 
-        private readonly RoyalListBoxSelectedItemCollection selectedItems;
-        public RoyalListBoxSelectedItemCollection SelectedItems => selectedItems;
+        public RoyalListBoxItemCollection Items { get; }
 
-        private readonly RoyalListBoxSelectedIndexCollection selectedIndicies;
-        public RoyalListBoxSelectedIndexCollection SelectedIndicies => selectedIndicies;
+        public RoyalListBoxSelectedItemCollection SelectedItems { get; }
+
+        public RoyalListBoxSelectedIndexCollection SelectedIndicies { get; }
 
         private bool multiSelection;
         public bool MultiSelection
@@ -76,12 +74,12 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
-            selectedIndicies = new RoyalListBoxSelectedIndexCollection();
-            selectedItems = new RoyalListBoxSelectedItemCollection();
+            SelectedIndicies = new RoyalListBoxSelectedIndexCollection();
+            SelectedItems = new RoyalListBoxSelectedItemCollection();
 
-            items = new RoyalListBoxItemCollection();
-            items.ItemAdded += new EventHandler(Items_ItemAdded);
-            items.ItemRemoved += new EventHandler(Items_ItemRemoved);
+            Items = new RoyalListBoxItemCollection();
+            Items.ItemAdded += new EventHandler(Items_ItemAdded);
+            Items.ItemRemoved += new EventHandler(Items_ItemRemoved);
 
             ItemHeight = 30;
             HotLightColor = RoyalColors.HotTrackColor;
@@ -152,14 +150,14 @@ namespace ReaLTaiizor.Controls
             {
                 if (multiSelection && multiSelectKeyDown)
                 {
-                    selectedIndicies.Add(index);
-                    selectedItems.Add(items[index]);
+                    SelectedIndicies.Add(index);
+                    SelectedItems.Add(Items[index]);
                     Refresh();
                 }
                 else
                 {
-                    selectedIndicies.Clear();
-                    selectedItems.Clear();
+                    SelectedIndicies.Clear();
+                    SelectedItems.Clear();
 
                     SelectedIndex = index;
                     Refresh();
@@ -171,7 +169,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseWheel(MouseEventArgs e)
         {
-            scrollBar.Value -= (e.Delta / 4);
+            scrollBar.Value -= e.Delta / 4;
             base.OnMouseWheel(e);
         }
 
@@ -206,7 +204,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            int firstVisibleItem = (scrollBar.Value / ItemHeight);
+            int firstVisibleItem = scrollBar.Value / ItemHeight;
             int lastVisibleItem = (scrollBar.Value / ItemHeight) + (Height / ItemHeight) + 1;
 
             if (firstVisibleItem < 0)
@@ -223,13 +221,13 @@ namespace ReaLTaiizor.Controls
             {
                 DrawItemState state = DrawItemState.Default;
 
-                if (multiSelection && selectedIndicies.Count > 0)
+                if (multiSelection && SelectedIndicies.Count > 0)
                 {
-                    if (i == HotLightedIndex && !selectedIndicies.Contains(i))
+                    if (i == HotLightedIndex && !SelectedIndicies.Contains(i))
                     {
                         state = DrawItemState.HotLight;
                     }
-                    else if (selectedIndicies.Contains(i))
+                    else if (SelectedIndicies.Contains(i))
                     {
                         state = DrawItemState.Selected;
                     }
@@ -246,7 +244,7 @@ namespace ReaLTaiizor.Controls
                     }
                 }
 
-                Rectangle rect = new(0, ((i - firstVisibleItem) * ItemHeight), Width, ItemHeight);
+                Rectangle rect = new(0, (i - firstVisibleItem) * ItemHeight, Width, ItemHeight);
                 DrawItemEventArgs de = new(e.Graphics, Font, rect, i, state);
 
                 DrawItem(de);
@@ -256,13 +254,13 @@ namespace ReaLTaiizor.Controls
 
         private void Items_ItemAdded(object sender, EventArgs e)
         {
-            scrollBar.Max = (Items.Count * ItemHeight);
+            scrollBar.Max = Items.Count * ItemHeight;
             scrollBar.Refresh();
         }
 
         private void Items_ItemRemoved(object sender, EventArgs e)
         {
-            scrollBar.Max = (Items.Count * ItemHeight);
+            scrollBar.Max = Items.Count * ItemHeight;
             scrollBar.Refresh();
         }
 

@@ -6,6 +6,7 @@ using ReaLTaiizor.Extension.Metro;
 using ReaLTaiizor.Interface.Metro;
 using ReaLTaiizor.Manager;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -124,6 +125,7 @@ namespace ReaLTaiizor.Controls
                 true
             );
             UpdateStyles();
+            Size = new Size(160, 85);
             base.Font = MetroFonts.Light(10);
             base.BackColor = Color.Transparent;
             _badgeAlignment = BadgeAlign.TopRight;
@@ -566,7 +568,7 @@ namespace ReaLTaiizor.Controls
                 case Style.Custom:
                     if (StyleManager != null)
                     {
-                        foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.BadgeDictionary)
+                        foreach (KeyValuePair<string, object> varkey in StyleManager.BadgeDictionary)
                         {
                             if (varkey.Key == null)
                             {
@@ -676,7 +678,7 @@ namespace ReaLTaiizor.Controls
 
         #region Methods
 
-        private static void SmoothingType(Graphics e, SmoothingMode state = SmoothingMode.AntiAlias)
+        private static void SmoothingType(Graphics e, SmoothingMode state = SmoothingMode.HighQuality)
         {
             e.SmoothingMode = state;
         }

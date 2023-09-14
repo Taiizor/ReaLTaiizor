@@ -29,7 +29,7 @@ namespace ReaLTaiizor.Animate.Metro
                     }
                 case EasingType.QuadInOut:
                     {
-                        double mid = initial + (end - initial) / 2.0;
+                        double mid = initial + ((end - initial) / 2.0);
                         if (alpha <= 0.5)
                         {
                             return ValueAt(initial, mid, alpha * 2, EasingType.QuadIn);
@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Animate.Metro
                     }
                 case EasingType.CubeInOut:
                     {
-                        double mid = initial + (end - initial) / 2.0;
+                        double mid = initial + ((end - initial) / 2.0);
                         if (alpha <= 0.5)
                         {
                             return ValueAt(initial, mid, alpha * 2, EasingType.CubeIn);
@@ -75,7 +75,7 @@ namespace ReaLTaiizor.Animate.Metro
                     }
                 case EasingType.QuartInOut:
                     {
-                        double mid = initial + (end - initial) / 2.0;
+                        double mid = initial + ((end - initial) / 2.0);
                         if (alpha <= 0.5)
                         {
                             return ValueAt(initial, mid, alpha * 2, EasingType.QuartIn);
@@ -98,7 +98,7 @@ namespace ReaLTaiizor.Animate.Metro
                     }
                 case EasingType.QuintInOut:
                     {
-                        double mid = initial + (end - initial) / 2.0;
+                        double mid = initial + ((end - initial) / 2.0);
                         if (alpha <= 0.5)
                         {
                             return ValueAt(initial, mid, alpha / 0.5, EasingType.QuintIn);

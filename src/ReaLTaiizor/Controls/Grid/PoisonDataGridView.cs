@@ -112,32 +112,15 @@ namespace ReaLTaiizor.Controls
             set { poisonStyleManager = value; StyleGrid(); }
         }
 
-        private bool useCustomBackColor = false;
         [DefaultValue(false)]
         [Category("Poison Appearance")]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category("Poison Appearance")]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category("Poison Appearance")]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category("Poison Behaviour")]
@@ -150,9 +133,8 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region Properties
-        private float _offset = 0.2F;
         [DefaultValue(0.2F)]
-        public float HighLightPercentage { get => _offset; set => _offset = value; }
+        public float HighLightPercentage { get; set; } = 0.2F;
         #endregion
 
         private readonly PoisonDataGridHelper scrollhelper = null;
@@ -230,16 +212,16 @@ namespace ReaLTaiizor.Controls
 
             DefaultCellStyle.BackColor = PoisonPaint.BackColor.Form(Theme);
 
-            DefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
+            DefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), HighLightPercentage);
             DefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
 
-            DefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
+            DefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), HighLightPercentage);
             DefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
 
-            RowHeadersDefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
+            RowHeadersDefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), HighLightPercentage);
             RowHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
 
-            ColumnHeadersDefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), _offset);
+            ColumnHeadersDefaultCellStyle.SelectionBackColor = ControlPaint.Light(PoisonPaint.GetStyleColor(Style), HighLightPercentage);
             ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(17, 17, 17);
         }
     }

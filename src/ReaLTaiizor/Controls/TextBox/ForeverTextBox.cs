@@ -108,13 +108,8 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _FocusOnHover = false;
         [Category("Options")]
-        public bool FocusOnHover
-        {
-            get => _FocusOnHover;
-            set => _FocusOnHover = value;
-        }
+        public bool FocusOnHover { get; set; } = false;
 
         [Category("Options")]
         public override string Text
@@ -196,21 +191,10 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
         }
 
-        private Color _BorderColor = ForeverLibrary.ForeverColor;
         [Category("Colors")]
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
-
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
+        public Color BorderColor { get; set; } = ForeverLibrary.ForeverColor;
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -257,7 +241,7 @@ namespace ReaLTaiizor.Controls
             {
                 Font = new("Segoe UI", 10),
                 Text = Text,
-                BackColor = _BaseColor,
+                BackColor = BaseColor,
                 ForeColor = ForeColor,
                 MaxLength = _MaxLength,
                 Multiline = _Multiline,
@@ -302,14 +286,14 @@ namespace ReaLTaiizor.Controls
             _with12.SmoothingMode = SmoothingMode.HighQuality;
             _with12.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with12.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            _with12.Clear(_BorderColor);
+            _with12.Clear(BorderColor);
 
             //-- Colors
-            TB.BackColor = _BaseColor;
+            TB.BackColor = BaseColor;
             TB.ForeColor = ForeColor;
 
             //-- Base
-            _with12.FillRectangle(new SolidBrush(_BaseColor), Base);
+            _with12.FillRectangle(new SolidBrush(BaseColor), Base);
 
             base.OnPaint(e);
             G.Dispose();
@@ -344,7 +328,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _BorderColor = Colors.Forever;
+            BorderColor = Colors.Forever;
         }
     }
 

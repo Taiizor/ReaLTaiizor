@@ -64,13 +64,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-
-        private Color _BoxBGColorA = Color.FromArgb(245, 245, 245);
-        private Color _BoxBGColorB = Color.FromArgb(231, 231, 231);
-        private Color _BoxBorderColorA = Color.FromArgb(189, 189, 189);
-        private Color _BoxBorderColorB = Color.FromArgb(252, 252, 252);
-        private Color _BoxBorderColorC = Color.FromArgb(168, 168, 168);
-        private Color _CheckedColor = Color.FromArgb(220, 27, 94, 137);
         #endregion
 
         #region Settings
@@ -84,41 +77,17 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color BoxBGColorA
-        {
-            get => _BoxBGColorA;
-            set => _BoxBGColorA = value;
-        }
+        public Color BoxBGColorA { get; set; } = Color.FromArgb(245, 245, 245);
 
-        public Color BoxBGColorB
-        {
-            get => _BoxBGColorB;
-            set => _BoxBGColorB = value;
-        }
+        public Color BoxBGColorB { get; set; } = Color.FromArgb(231, 231, 231);
 
-        public Color BoxBorderColorA
-        {
-            get => _BoxBorderColorA;
-            set => _BoxBorderColorA = value;
-        }
+        public Color BoxBorderColorA { get; set; } = Color.FromArgb(189, 189, 189);
 
-        public Color BoxBorderColorB
-        {
-            get => _BoxBorderColorB;
-            set => _BoxBorderColorB = value;
-        }
+        public Color BoxBorderColorB { get; set; } = Color.FromArgb(252, 252, 252);
 
-        public Color BoxBorderColorC
-        {
-            get => _BoxBorderColorC;
-            set => _BoxBorderColorC = value;
-        }
+        public Color BoxBorderColorC { get; set; } = Color.FromArgb(168, 168, 168);
 
-        public Color CheckedColor
-        {
-            get => _CheckedColor;
-            set => _CheckedColor = value;
-        }
+        public Color CheckedColor { get; set; } = Color.FromArgb(220, 27, 94, 137);
         #endregion
 
         public SkyCheckBox() : base()
@@ -150,11 +119,11 @@ namespace ReaLTaiizor.Controls
 
             if (Checked)
             {
-                Rectangle chkPoly = new(checkBoxRectangle.X + checkBoxRectangle.Width / 4, checkBoxRectangle.Y + checkBoxRectangle.Height / 4, checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
+                Rectangle chkPoly = new(checkBoxRectangle.X + (checkBoxRectangle.Width / 4), checkBoxRectangle.Y + (checkBoxRectangle.Height / 4), checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
                 Point[] Poly =
                 {
-                    new Point(chkPoly.X, chkPoly.Y + chkPoly.Height / 2),
-                    new Point(chkPoly.X + chkPoly.Width / 2, chkPoly.Y + chkPoly.Height),
+                    new Point(chkPoly.X, chkPoly.Y + (chkPoly.Height / 2)),
+                    new Point(chkPoly.X + (chkPoly.Width / 2), chkPoly.Y + chkPoly.Height),
                     new Point(chkPoly.X + chkPoly.Width, chkPoly.Y)
                 };
                 G.SmoothingMode = SmoothingType;

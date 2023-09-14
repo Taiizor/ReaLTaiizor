@@ -53,13 +53,15 @@ namespace ReaLTaiizor.Extension
             {
                 secureString += '\u25CF';
             }
-
             return secureString;
         }
 
         public static Color ToColor(this int argb)
         {
-            return Color.FromArgb((argb & 0xFF0000) >> 16, (argb & 0x00FF00) >> 8, argb & 0x0000FF);
+            return Color.FromArgb(
+                (argb & 0xFF0000) >> 16,
+                (argb & 0x00FF00) >> 8,
+                 argb & 0x0000FF);
         }
 
         public static Color RemoveAlpha(this Color color)
@@ -69,7 +71,7 @@ namespace ReaLTaiizor.Extension
 
         public static int PercentageToColorComponent(this int percentage)
         {
-            return (int)((percentage / 100d) * 255d);
+            return (int)(percentage / 100d * 255d);
         }
     }
 

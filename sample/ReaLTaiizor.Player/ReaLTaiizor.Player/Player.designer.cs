@@ -1,4 +1,6 @@
-﻿namespace ReaLTaiizor.Player
+﻿using System.Windows.Forms;
+
+namespace ReaLTaiizor.Player
 {
     partial class Player
     {
@@ -39,14 +41,14 @@
             this.labelEdit1 = new ReaLTaiizor.Controls.LabelEdit();
             this.panel1 = new ReaLTaiizor.Controls.Panel();
             this.hopeTrackBar1 = new ReaLTaiizor.Controls.HopeTrackBar();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.metroEllipse2 = new ReaLTaiizor.Controls.MetroEllipse();
+            this.metroEllipse1 = new ReaLTaiizor.Controls.MetroEllipse();
+            this.metroEllipse3 = new ReaLTaiizor.Controls.MetroEllipse();
+            this.metroEllipse4 = new ReaLTaiizor.Controls.MetroEllipse();
+            this.metroEllipse5 = new ReaLTaiizor.Controls.MetroEllipse();
             this.foreverMinimize1 = new ReaLTaiizor.Controls.ForeverMinimize();
             this.foreverClose1 = new ReaLTaiizor.Controls.ForeverClose();
-            this.panel2 = new ReaLTaiizor.Controls.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.parrotControlEllipse1 = new ReaLTaiizor.Controls.ParrotControlEllipse();
@@ -58,11 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -173,11 +170,11 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panel1.Controls.Add(this.hopeTrackBar1);
-            this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.metroEllipse2);
+            this.panel1.Controls.Add(this.metroEllipse1);
+            this.panel1.Controls.Add(this.metroEllipse3);
+            this.panel1.Controls.Add(this.metroEllipse4);
+            this.panel1.Controls.Add(this.metroEllipse5);
             this.panel1.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             this.panel1.Location = new System.Drawing.Point(12, 343);
             this.panel1.Name = "panel1";
@@ -212,66 +209,161 @@
             this.hopeTrackBar1.UnknownColor = System.Drawing.Color.White;
             this.hopeTrackBar1.Value = 50;
             // 
-            // pictureBox6
+            // metroEllipse2
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Image = global::ReaLTaiizor.Player.Properties.Resources.end_64px;
-            this.pictureBox6.Location = new System.Drawing.Point(158, 30);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 12;
-            this.pictureBox6.TabStop = false;
+            this.metroEllipse2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.metroEllipse2.BorderThickness = 0;
+            this.metroEllipse2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroEllipse2.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.metroEllipse2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroEllipse2.HoverBorderColor = System.Drawing.Color.Orange;
+            this.metroEllipse2.HoverColor = System.Drawing.Color.Black;
+            this.metroEllipse2.HoverTextColor = System.Drawing.Color.White;
+            this.metroEllipse2.Image = global::ReaLTaiizor.Player.Properties.Resources.pause_64px;
+            this.metroEllipse2.ImageSize = new System.Drawing.Size(28, 28);
+            this.metroEllipse2.IsDerivedStyle = true;
+            this.metroEllipse2.Location = new System.Drawing.Point(120, 30);
+            this.metroEllipse2.Margin = new System.Windows.Forms.Padding(0);
+            this.metroEllipse2.Name = "metroEllipse2";
+            this.metroEllipse2.NormalBorderColor = System.Drawing.Color.Gray;
+            this.metroEllipse2.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.metroEllipse2.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroEllipse2.PressBorderColor = System.Drawing.Color.Crimson;
+            this.metroEllipse2.PressColor = System.Drawing.Color.Black;
+            this.metroEllipse2.PressTextColor = System.Drawing.Color.White;
+            this.metroEllipse2.Size = new System.Drawing.Size(32, 32);
+            this.metroEllipse2.Style = ReaLTaiizor.Enum.Metro.Style.Custom;
+            this.metroEllipse2.StyleManager = null;
+            this.metroEllipse2.TabIndex = 13;
+            this.metroEllipse2.ThemeAuthor = "Taiizor";
+            this.metroEllipse2.ThemeName = "MetroDark";
+            this.metroEllipse2.Click += new System.EventHandler(this.MetroEllipse2_Click);
             // 
-            // pictureBox2
+            // metroEllipse1
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::ReaLTaiizor.Player.Properties.Resources.available_updates_64px;
-            this.pictureBox2.Location = new System.Drawing.Point(8, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
+            this.metroEllipse1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.metroEllipse1.BorderThickness = 0;
+            this.metroEllipse1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroEllipse1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.metroEllipse1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroEllipse1.HoverBorderColor = System.Drawing.Color.Orange;
+            this.metroEllipse1.HoverColor = System.Drawing.Color.Black;
+            this.metroEllipse1.HoverTextColor = System.Drawing.Color.White;
+            this.metroEllipse1.Image = global::ReaLTaiizor.Player.Properties.Resources.end_64px;
+            this.metroEllipse1.ImageSize = new System.Drawing.Size(28, 28);
+            this.metroEllipse1.IsDerivedStyle = true;
+            this.metroEllipse1.Location = new System.Drawing.Point(158, 30);
+            this.metroEllipse1.Margin = new System.Windows.Forms.Padding(0);
+            this.metroEllipse1.Name = "metroEllipse1";
+            this.metroEllipse1.NormalBorderColor = System.Drawing.Color.Gray;
+            this.metroEllipse1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.metroEllipse1.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroEllipse1.PressBorderColor = System.Drawing.Color.Crimson;
+            this.metroEllipse1.PressColor = System.Drawing.Color.Black;
+            this.metroEllipse1.PressTextColor = System.Drawing.Color.White;
+            this.metroEllipse1.Size = new System.Drawing.Size(32, 32);
+            this.metroEllipse1.Style = ReaLTaiizor.Enum.Metro.Style.Custom;
+            this.metroEllipse1.StyleManager = null;
+            this.metroEllipse1.TabIndex = 14;
+            this.metroEllipse1.ThemeAuthor = "Taiizor";
+            this.metroEllipse1.ThemeName = "MetroDark";
             // 
-            // pictureBox5
+            // metroEllipse3
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = global::ReaLTaiizor.Player.Properties.Resources.skip_to_start_64px;
-            this.pictureBox5.Location = new System.Drawing.Point(82, 30);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 11;
-            this.pictureBox5.TabStop = false;
+            this.metroEllipse3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.metroEllipse3.BorderThickness = 0;
+            this.metroEllipse3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroEllipse3.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.metroEllipse3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroEllipse3.HoverBorderColor = System.Drawing.Color.Orange;
+            this.metroEllipse3.HoverColor = System.Drawing.Color.Black;
+            this.metroEllipse3.HoverTextColor = System.Drawing.Color.White;
+            this.metroEllipse3.Image = global::ReaLTaiizor.Player.Properties.Resources.skip_to_start_64px;
+            this.metroEllipse3.ImageSize = new System.Drawing.Size(28, 28);
+            this.metroEllipse3.IsDerivedStyle = true;
+            this.metroEllipse3.Location = new System.Drawing.Point(82, 30);
+            this.metroEllipse3.Margin = new System.Windows.Forms.Padding(0);
+            this.metroEllipse3.Name = "metroEllipse3";
+            this.metroEllipse3.NormalBorderColor = System.Drawing.Color.Gray;
+            this.metroEllipse3.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.metroEllipse3.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroEllipse3.PressBorderColor = System.Drawing.Color.Crimson;
+            this.metroEllipse3.PressColor = System.Drawing.Color.Black;
+            this.metroEllipse3.PressTextColor = System.Drawing.Color.White;
+            this.metroEllipse3.Size = new System.Drawing.Size(32, 32);
+            this.metroEllipse3.Style = ReaLTaiizor.Enum.Metro.Style.Custom;
+            this.metroEllipse3.StyleManager = null;
+            this.metroEllipse3.TabIndex = 15;
+            this.metroEllipse3.ThemeAuthor = "Taiizor";
+            this.metroEllipse3.ThemeName = "MetroDark";
             // 
-            // pictureBox3
+            // metroEllipse4
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::ReaLTaiizor.Player.Properties.Resources.pause_64px;
-            this.pictureBox3.Location = new System.Drawing.Point(120, 30);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
+            this.metroEllipse4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.metroEllipse4.BorderThickness = 0;
+            this.metroEllipse4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroEllipse4.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.metroEllipse4.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse4.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroEllipse4.HoverBorderColor = System.Drawing.Color.Orange;
+            this.metroEllipse4.HoverColor = System.Drawing.Color.Black;
+            this.metroEllipse4.HoverTextColor = System.Drawing.Color.White;
+            this.metroEllipse4.Image = global::ReaLTaiizor.Player.Properties.Resources.update_left_rotation_64px;
+            this.metroEllipse4.ImageSize = new System.Drawing.Size(28, 28);
+            this.metroEllipse4.IsDerivedStyle = true;
+            this.metroEllipse4.Location = new System.Drawing.Point(8, 30);
+            this.metroEllipse4.Margin = new System.Windows.Forms.Padding(0);
+            this.metroEllipse4.Name = "metroEllipse4";
+            this.metroEllipse4.NormalBorderColor = System.Drawing.Color.Gray;
+            this.metroEllipse4.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.metroEllipse4.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroEllipse4.PressBorderColor = System.Drawing.Color.Crimson;
+            this.metroEllipse4.PressColor = System.Drawing.Color.Black;
+            this.metroEllipse4.PressTextColor = System.Drawing.Color.White;
+            this.metroEllipse4.Size = new System.Drawing.Size(32, 32);
+            this.metroEllipse4.Style = ReaLTaiizor.Enum.Metro.Style.Custom;
+            this.metroEllipse4.StyleManager = null;
+            this.metroEllipse4.TabIndex = 16;
+            this.metroEllipse4.ThemeAuthor = "Taiizor";
+            this.metroEllipse4.ThemeName = "MetroDark";
             // 
-            // pictureBox4
+            // metroEllipse5
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::ReaLTaiizor.Player.Properties.Resources.shuffle_64px;
-            this.pictureBox4.Location = new System.Drawing.Point(232, 30);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
+            this.metroEllipse5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.metroEllipse5.BorderThickness = 0;
+            this.metroEllipse5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroEllipse5.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.metroEllipse5.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse5.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroEllipse5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroEllipse5.HoverBorderColor = System.Drawing.Color.Orange;
+            this.metroEllipse5.HoverColor = System.Drawing.Color.Black;
+            this.metroEllipse5.HoverTextColor = System.Drawing.Color.White;
+            this.metroEllipse5.Image = global::ReaLTaiizor.Player.Properties.Resources.shuffle_64px;
+            this.metroEllipse5.ImageSize = new System.Drawing.Size(28, 28);
+            this.metroEllipse5.IsDerivedStyle = true;
+            this.metroEllipse5.Location = new System.Drawing.Point(232, 30);
+            this.metroEllipse5.Margin = new System.Windows.Forms.Padding(0);
+            this.metroEllipse5.Name = "metroEllipse5";
+            this.metroEllipse5.NormalBorderColor = System.Drawing.Color.Gray;
+            this.metroEllipse5.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.metroEllipse5.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroEllipse5.PressBorderColor = System.Drawing.Color.Crimson;
+            this.metroEllipse5.PressColor = System.Drawing.Color.Black;
+            this.metroEllipse5.PressTextColor = System.Drawing.Color.White;
+            this.metroEllipse5.Size = new System.Drawing.Size(32, 32);
+            this.metroEllipse5.Style = ReaLTaiizor.Enum.Metro.Style.Custom;
+            this.metroEllipse5.StyleManager = null;
+            this.metroEllipse5.TabIndex = 17;
+            this.metroEllipse5.ThemeAuthor = "Taiizor";
+            this.metroEllipse5.ThemeName = "MetroDark";
             // 
             // foreverMinimize1
             // 
@@ -309,22 +401,26 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel2.BackgroundImage = global::ReaLTaiizor.Player.Properties.Resources.Background;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel2.Location = new System.Drawing.Point(0, 81);
+            this.panel2.Location = new System.Drawing.Point(2, 81);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(300, 256);
-            this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel2.Size = new System.Drawing.Size(296, 256);
             this.panel2.TabIndex = 14;
             this.panel2.Text = "panel2";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::ReaLTaiizor.Player.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(22, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(256, 256);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -370,11 +466,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -390,14 +481,9 @@
         private ReaLTaiizor.Controls.LabelEdit labelEdit2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ReaLTaiizor.Controls.HopeTrackBar hopeTrackBar1;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private ReaLTaiizor.Controls.Panel panel1;
         private System.Windows.Forms.Timer timer1;
-        private ReaLTaiizor.Controls.Panel panel2;
+        private Panel panel2;
         private ReaLTaiizor.Controls.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox8;
@@ -405,5 +491,10 @@
         private Controls.ParrotControlEllipse parrotControlEllipse1;
         private Controls.ParrotControlEllipse parrotControlEllipse2;
         private Controls.ParrotControlEllipse parrotControlEllipse3;
+        private Controls.MetroEllipse metroEllipse2;
+        private Controls.MetroEllipse metroEllipse1;
+        private Controls.MetroEllipse metroEllipse3;
+        private Controls.MetroEllipse metroEllipse4;
+        private Controls.MetroEllipse metroEllipse5;
     }
 }

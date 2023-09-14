@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            panelbody = new System.Windows.Forms.Panel();
+            Body = new System.Windows.Forms.Panel();
             tlpBody = new System.Windows.Forms.TableLayoutPanel();
             messageLabel = new System.Windows.Forms.Label();
             titleLabel = new System.Windows.Forms.Label();
@@ -23,21 +23,21 @@
             poisonButton2 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
             poisonButton3 = new ReaLTaiizor.Controls.PoisonButton();
-            panelbody.SuspendLayout();
+            Body.SuspendLayout();
             tlpBody.SuspendLayout();
             pnlBottom.SuspendLayout();
             SuspendLayout();
             // 
             // panelbody
             // 
-            panelbody.BackColor = System.Drawing.Color.DarkGray;
-            panelbody.Controls.Add(tlpBody);
-            panelbody.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelbody.Location = new System.Drawing.Point(0, 0);
-            panelbody.Margin = new System.Windows.Forms.Padding(0);
-            panelbody.Name = "panelbody";
-            panelbody.Size = new System.Drawing.Size(804, 211);
-            panelbody.TabIndex = 2;
+            Body.BackColor = System.Drawing.Color.DarkGray;
+            Body.Controls.Add(tlpBody);
+            Body.Dock = System.Windows.Forms.DockStyle.Fill;
+            Body.Location = new System.Drawing.Point(0, 0);
+            Body.Margin = new System.Windows.Forms.Padding(0);
+            Body.Name = "panelbody";
+            Body.Size = new System.Drawing.Size(804, 211);
+            Body.TabIndex = 2;
             // 
             // tlpBody
             // 
@@ -140,13 +140,13 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(804, 211);
             ControlBox = false;
-            Controls.Add(panelbody);
+            Controls.Add(Body);
             Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "PoisonMessageBoxControl";
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            panelbody.ResumeLayout(false);
+            Body.ResumeLayout(false);
             tlpBody.ResumeLayout(false);
             tlpBody.PerformLayout();
             pnlBottom.ResumeLayout(false);
@@ -156,7 +156,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelbody;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label messageLabel;
         private ReaLTaiizor.Controls.PoisonButton poisonButton1;

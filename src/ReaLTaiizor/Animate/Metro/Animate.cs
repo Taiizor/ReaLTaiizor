@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Animate.Metro
 
             Update?.Invoke(Value);
 
-            if (Alpha != 0.0 && Alpha != 1.0)
+            if (Alpha is not 0.0 and not 1.0)
             {
                 return;
             }

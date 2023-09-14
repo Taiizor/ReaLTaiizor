@@ -25,25 +25,15 @@ namespace ReaLTaiizor.Controls
         private HorizontalAlignment ALNType;
         private bool isPasswordMasked = false;
         private Pen P1;
-        private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private readonly SolidBrush B1;
-        private Color _EdgeColor = Color.White;
 
         #endregion
 
         #region Properties
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.FromArgb(180, 180, 180);
 
-        public Color EdgeColor
-        {
-            get => _EdgeColor;
-            set => _EdgeColor = value;
-        }
+        public Color EdgeColor { get; set; } = Color.White;
 
         public HorizontalAlignment TextAlignment
         {
@@ -226,8 +216,8 @@ namespace ReaLTaiizor.Controls
             AddTextBox();
             Controls.Add(DungeonTB);
 
-            P1 = new(_BorderColor); // P1 = Border color
-            B1 = new(_EdgeColor); // B1 = Rect Background color
+            P1 = new(BorderColor); // P1 = Border color
+            B1 = new(EdgeColor); // B1 = Rect Background color
             BackColor = Color.Transparent;
             ForeColor = Color.DimGray;
 

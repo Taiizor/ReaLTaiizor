@@ -21,8 +21,6 @@ namespace ReaLTaiizor.Controls
         private MouseStateForever State = MouseStateForever.None;
         private int W;
         private int H;
-        private _Options O;
-
         private bool _Checked;
         public bool Checked
         {
@@ -80,11 +78,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Options")]
-        public _Options Options
-        {
-            get => O;
-            set => O = value;
-        }
+        public _Options Options { get; set; }
 
         protected override void OnResize(EventArgs e)
         {
@@ -120,22 +114,11 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _BorderColor = ForeverLibrary.ForeverColor;
+        [Category("Options")]
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Options")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
-
-        [Category("Options")]
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = ForeverLibrary.ForeverColor;
 
         public ForeverRadioButton()
         {
@@ -165,42 +148,42 @@ namespace ReaLTaiizor.Controls
             _with10.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             _with10.Clear(BackColor);
 
-            switch (O)
+            switch (Options)
             {
                 case _Options.Style1:
                     //-- Base
-                    _with10.FillEllipse(new SolidBrush(_BaseColor), Base);
+                    _with10.FillEllipse(new SolidBrush(BaseColor), Base);
 
                     switch (State)
                     {
                         case MouseStateForever.Over:
-                            _with10.DrawEllipse(new(_BorderColor), Base);
+                            _with10.DrawEllipse(new(BorderColor), Base);
                             break;
                         case MouseStateForever.Down:
-                            _with10.DrawEllipse(new(_BorderColor), Base);
+                            _with10.DrawEllipse(new(BorderColor), Base);
                             break;
                     }
 
                     //-- If Checked 
                     if (Checked)
                     {
-                        _with10.FillEllipse(new SolidBrush(_BorderColor), Dot);
+                        _with10.FillEllipse(new SolidBrush(BorderColor), Dot);
                     }
                     break;
                 case _Options.Style2:
                     //-- Base
-                    _with10.FillEllipse(new SolidBrush(_BaseColor), Base);
+                    _with10.FillEllipse(new SolidBrush(BaseColor), Base);
 
                     switch (State)
                     {
                         case MouseStateForever.Over:
                             //-- Base
-                            _with10.DrawEllipse(new(_BorderColor), Base);
+                            _with10.DrawEllipse(new(BorderColor), Base);
                             _with10.FillEllipse(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                         case MouseStateForever.Down:
                             //-- Base
-                            _with10.DrawEllipse(new(_BorderColor), Base);
+                            _with10.DrawEllipse(new(BorderColor), Base);
                             _with10.FillEllipse(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                     }
@@ -209,7 +192,7 @@ namespace ReaLTaiizor.Controls
                     if (Checked)
                     {
                         //-- Base
-                        _with10.FillEllipse(new SolidBrush(_BorderColor), Dot);
+                        _with10.FillEllipse(new SolidBrush(BorderColor), Dot);
                     }
                     break;
             }
@@ -227,7 +210,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _BorderColor = Colors.Forever;
+            BorderColor = Colors.Forever;
         }
     }
 

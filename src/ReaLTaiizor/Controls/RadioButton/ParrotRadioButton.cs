@@ -33,7 +33,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 isChecked = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
             {
                 radioColor = value;
                 currentColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -60,7 +60,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 radioHoverColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 radioStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -120,14 +120,14 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseEnter(e);
             currentColor = radioHoverColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
             currentColor = radioColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnClick(EventArgs e)
@@ -146,7 +146,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
             isChecked = true;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnPaint(PaintEventArgs e)

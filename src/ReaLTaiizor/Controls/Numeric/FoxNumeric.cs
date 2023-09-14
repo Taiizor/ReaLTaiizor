@@ -98,40 +98,11 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private Color _BorderColor = FoxLibrary.ColorFromHex("#C8C8C8");
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
-
-        private Color _DisabledBorderColor = FoxLibrary.ColorFromHex("#E6E6E6");
-        public Color DisabledBorderColor
-        {
-            get => _DisabledBorderColor;
-            set => _DisabledBorderColor = value;
-        }
-
-        private Color _ButtonTextColor = FoxLibrary.ColorFromHex("#56626E");
-        public Color ButtonTextColor
-        {
-            get => _ButtonTextColor;
-            set => _ButtonTextColor = value;
-        }
-
-        private Color _DisabledTextColor = FoxLibrary.ColorFromHex("#A6B2BE");
-        public Color DisabledTextColor
-        {
-            get => _DisabledTextColor;
-            set => _DisabledTextColor = value;
-        }
-
-        private Color _DisabledButtonTextColor = FoxLibrary.ColorFromHex("#BAC6D2");
-        public Color DisabledButtonTextColor
-        {
-            get => _DisabledButtonTextColor;
-            set => _DisabledButtonTextColor = value;
-        }
+        public Color BorderColor { get; set; } = FoxLibrary.ColorFromHex("#C8C8C8");
+        public Color DisabledBorderColor { get; set; } = FoxLibrary.ColorFromHex("#E6E6E6");
+        public Color ButtonTextColor { get; set; } = FoxLibrary.ColorFromHex("#56626E");
+        public Color DisabledTextColor { get; set; } = FoxLibrary.ColorFromHex("#A6B2BE");
+        public Color DisabledButtonTextColor { get; set; } = FoxLibrary.ColorFromHex("#BAC6D2");
 
         public FoxNumeric()
         {
@@ -149,7 +120,7 @@ namespace ReaLTaiizor.Controls
 
             if (Enabled)
             {
-                using (Pen Border = new(_BorderColor))
+                using (Pen Border = new(BorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
@@ -160,25 +131,25 @@ namespace ReaLTaiizor.Controls
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
                 }
 
-                using SolidBrush SignColor = new(_ButtonTextColor);
+                using SolidBrush SignColor = new(ButtonTextColor);
                 using Font SignFont = new("Marlett", 10);
                 G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
                 G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));
             }
             else
             {
-                using (Pen Border = new(_DisabledBorderColor))
+                using (Pen Border = new(DisabledBorderColor))
                 {
                     G.DrawPath(Border, FoxLibrary.RoundRect(FoxLibrary.FullRectangle(Size, true), 2));
                     G.DrawPath(Border, FoxLibrary.RoundRect(new Rectangle(Width - 20, 4, 15, 18), 2));
                 }
 
-                using (SolidBrush TextColor = new(_DisabledTextColor))
+                using (SolidBrush TextColor = new(DisabledTextColor))
                 {
                     FoxLibrary.CenterString(G, Value.ToString(), Font, TextColor.Color, new Rectangle(-10, 0, Width, Height));
                 }
 
-                using SolidBrush SignColor = new(_DisabledButtonTextColor);
+                using SolidBrush SignColor = new(DisabledButtonTextColor);
                 using Font SignFont = new("Marlett", 10);
                 G.DrawString("t", SignFont, SignColor, new Point(Width - 20, 4));
                 G.DrawString("u", SignFont, SignColor, new Point(Width - 20, 10));

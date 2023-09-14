@@ -24,23 +24,15 @@ namespace ReaLTaiizor.Controls
 
         [Category("Parrot")]
         [Browsable(true)]
-        public Direction JoystickDirection => joystickDirection;
+        public Direction JoystickDirection { get; private set; } = Direction.MiddleCenter;
 
         [Category("Parrot")]
         [Browsable(true)]
-        public Control MovableObject
-        {
-            get => movableObject;
-            set => movableObject = value;
-        }
+        public Control MovableObject { get; set; }
 
         [Category("Parrot")]
         [Browsable(true)]
-        public bool KeepOnScreen
-        {
-            get => keepOnScreen;
-            set => keepOnScreen = value;
-        }
+        public bool KeepOnScreen { get; set; } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -72,7 +64,7 @@ namespace ReaLTaiizor.Controls
             {
                 backgroundImage = value;
                 backgroundImage = new Bitmap(BackgroundImage, new Size(base.Width, base.Height));
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -84,7 +76,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 joyStickColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -113,52 +105,52 @@ namespace ReaLTaiizor.Controls
             {
                 int num;
 
-                if (e.X - base.Width / 6 * 2 / 2 < 0)
+                if (e.X - (base.Width / 6 * 2 / 2) < 0)
                 {
                     num = 0;
                 }
-                else if (e.X - base.Width / 6 * 2 / 2 + base.Width / 6 * 2 > base.Width)
+                else if (e.X - (base.Width / 6 * 2 / 2) + (base.Width / 6 * 2) > base.Width)
                 {
-                    num = base.Width - base.Width / 6 * 2;
+                    num = base.Width - (base.Width / 6 * 2);
                 }
                 else
                 {
-                    num = e.X - base.Width / 6 * 2 / 2;
+                    num = e.X - (base.Width / 6 * 2 / 2);
                 }
 
                 int num2;
 
-                if (e.Y - base.Width / 6 * 2 / 2 < 0)
+                if (e.Y - (base.Width / 6 * 2 / 2) < 0)
                 {
                     num2 = 0;
                 }
-                else if (e.Y - base.Width / 6 * 2 / 2 + base.Height / 6 * 2 > base.Height)
+                else if (e.Y - (base.Width / 6 * 2 / 2) + (base.Height / 6 * 2) > base.Height)
                 {
-                    num2 = base.Height - base.Height / 6 * 2;
+                    num2 = base.Height - (base.Height / 6 * 2);
                 }
                 else
                 {
-                    num2 = e.Y - base.Height / 6 * 2 / 2;
+                    num2 = e.Y - (base.Height / 6 * 2 / 2);
                 }
 
-                int num3 = num + base.Width / 6;
-                int num4 = num2 + base.Height / 6;
+                int num3 = num + (base.Width / 6);
+                int num4 = num2 + (base.Height / 6);
 
                 if (num4 < base.Height / 3 * 3)
                 {
                     if (num3 < base.Width / 3 * 3)
                     {
-                        joystickDirection = Direction.LowerRight;
+                        JoystickDirection = Direction.LowerRight;
                     }
 
                     if (num3 < base.Width / 3 * 2)
                     {
-                        joystickDirection = Direction.LowerCenter;
+                        JoystickDirection = Direction.LowerCenter;
                     }
 
                     if (num3 < base.Width / 3)
                     {
-                        joystickDirection = Direction.LowerLeft;
+                        JoystickDirection = Direction.LowerLeft;
                     }
                 }
 
@@ -166,34 +158,34 @@ namespace ReaLTaiizor.Controls
                 {
                     if (num3 < base.Width / 3 * 3)
                     {
-                        joystickDirection = Direction.MiddleRight;
+                        JoystickDirection = Direction.MiddleRight;
                     }
 
                     if (num3 < base.Width / 3 * 2)
                     {
-                        joystickDirection = Direction.MiddleCenter;
+                        JoystickDirection = Direction.MiddleCenter;
                     }
 
                     if (num3 < base.Width / 3)
                     {
-                        joystickDirection = Direction.MiddleLeft;
+                        JoystickDirection = Direction.MiddleLeft;
                     }
                 }
                 if (num4 < base.Height / 3)
                 {
                     if (num3 < base.Width / 3 * 3)
                     {
-                        joystickDirection = Direction.UpperRight;
+                        JoystickDirection = Direction.UpperRight;
                     }
 
                     if (num3 < base.Width / 3 * 2)
                     {
-                        joystickDirection = Direction.UpperCenter;
+                        JoystickDirection = Direction.UpperCenter;
                     }
 
                     if (num3 < base.Width / 3)
                     {
-                        joystickDirection = Direction.UpperLeft;
+                        JoystickDirection = Direction.UpperLeft;
                     }
                 }
 
@@ -220,7 +212,7 @@ namespace ReaLTaiizor.Controls
         {
             moveStick = false;
 
-            joystickDirection = Direction.MiddleCenter;
+            JoystickDirection = Direction.MiddleCenter;
 
             OnDirectionChanged();
 
@@ -265,197 +257,190 @@ namespace ReaLTaiizor.Controls
 
         private void MoveObject()
         {
-            if (movableObject != null)
+            if (MovableObject != null)
             {
-                if (keepOnScreen)
+                if (KeepOnScreen)
                 {
-                    if (joystickDirection == Direction.UpperLeft)
+                    if (JoystickDirection == Direction.UpperLeft)
                     {
-                        if (movableObject.Location.X - sensitivity > -1)
+                        if (MovableObject.Location.X - sensitivity > -1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
-                            movableObject.Location = new Point(0, movableObject.Location.Y);
+                            MovableObject.Location = new Point(0, MovableObject.Location.Y);
                         }
 
-                        if (movableObject.Location.Y - sensitivity > -1)
+                        if (MovableObject.Location.Y - sensitivity > -1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y - sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - sensitivity);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, 0);
+                            MovableObject.Location = new Point(MovableObject.Location.X, 0);
                         }
                     }
 
-                    if (joystickDirection == Direction.UpperCenter)
+                    if (JoystickDirection == Direction.UpperCenter)
                     {
-                        if (movableObject.Location.Y - sensitivity > -1)
+                        if (MovableObject.Location.Y - sensitivity > -1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y - sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - sensitivity);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, 0);
+                            MovableObject.Location = new Point(MovableObject.Location.X, 0);
                         }
                     }
 
-                    if (joystickDirection == Direction.UpperRight)
+                    if (JoystickDirection == Direction.UpperRight)
                     {
-                        if (movableObject.Location.X + movableObject.Width + sensitivity < movableObject.Parent.Width - 1)
+                        if (MovableObject.Location.X + MovableObject.Width + sensitivity < MovableObject.Parent.Width - 1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Parent.Width - movableObject.Width, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Parent.Width - MovableObject.Width, MovableObject.Location.Y);
                         }
 
-                        if (movableObject.Location.Y - sensitivity > -1)
+                        if (MovableObject.Location.Y - sensitivity > -1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y - sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - sensitivity);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, 0);
+                            MovableObject.Location = new Point(MovableObject.Location.X, 0);
                         }
                     }
 
-                    if (joystickDirection == Direction.MiddleLeft)
+                    if (JoystickDirection == Direction.MiddleLeft)
                     {
-                        if (movableObject.Location.X - sensitivity > -1)
+                        if (MovableObject.Location.X - sensitivity > -1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
-                            movableObject.Location = new Point(0, movableObject.Location.Y);
+                            MovableObject.Location = new Point(0, MovableObject.Location.Y);
                         }
                     }
 
-                    if (joystickDirection == Direction.MiddleRight)
+                    if (JoystickDirection == Direction.MiddleRight)
                     {
-                        if (movableObject.Location.X + movableObject.Width + sensitivity < movableObject.Parent.Width - 1)
+                        if (MovableObject.Location.X + MovableObject.Width + sensitivity < MovableObject.Parent.Width - 1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Parent.Width - movableObject.Width, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Parent.Width - MovableObject.Width, MovableObject.Location.Y);
                         }
                     }
 
-                    if (joystickDirection == Direction.LowerLeft)
+                    if (JoystickDirection == Direction.LowerLeft)
                     {
-                        if (movableObject.Location.X - sensitivity > -1)
+                        if (MovableObject.Location.X - sensitivity > -1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
-                            movableObject.Location = new Point(0, movableObject.Location.Y);
+                            MovableObject.Location = new Point(0, MovableObject.Location.Y);
                         }
 
-                        if (movableObject.Location.Y + movableObject.Height + sensitivity < movableObject.Parent.Height - 1)
+                        if (MovableObject.Location.Y + MovableObject.Height + sensitivity < MovableObject.Parent.Height - 1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y + sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + sensitivity);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Parent.Height - movableObject.Height);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Parent.Height - MovableObject.Height);
                         }
                     }
 
-                    if (joystickDirection == Direction.LowerCenter)
+                    if (JoystickDirection == Direction.LowerCenter)
                     {
-                        if (movableObject.Location.Y + movableObject.Height + sensitivity < movableObject.Parent.Height - 1)
+                        if (MovableObject.Location.Y + MovableObject.Height + sensitivity < MovableObject.Parent.Height - 1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y + sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + sensitivity);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Parent.Height - movableObject.Height);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Parent.Height - MovableObject.Height);
                         }
                     }
 
-                    if (joystickDirection == Direction.LowerRight)
+                    if (JoystickDirection == Direction.LowerRight)
                     {
-                        if (movableObject.Location.X + movableObject.Width + sensitivity < movableObject.Parent.Width - 1)
+                        if (MovableObject.Location.X + MovableObject.Width + sensitivity < MovableObject.Parent.Width - 1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Parent.Width - movableObject.Width, movableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Parent.Width - MovableObject.Width, MovableObject.Location.Y);
                         }
 
-                        if (movableObject.Location.Y + movableObject.Height + sensitivity < movableObject.Parent.Height - 1)
+                        if (MovableObject.Location.Y + MovableObject.Height + sensitivity < MovableObject.Parent.Height - 1)
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y + sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + sensitivity);
                         }
                         else
                         {
-                            movableObject.Location = new Point(movableObject.Location.X, movableObject.Parent.Height - movableObject.Height);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Parent.Height - MovableObject.Height);
                         }
                     }
                 }
                 else
                 {
-                    if (joystickDirection == Direction.UpperCenter)
+                    if (JoystickDirection == Direction.UpperCenter)
                     {
-                        movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y - sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - sensitivity);
                     }
 
-                    if (joystickDirection == Direction.UpperLeft)
+                    if (JoystickDirection == Direction.UpperLeft)
                     {
-                        movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y - sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y - sensitivity);
                     }
 
-                    if (joystickDirection == Direction.UpperRight)
+                    if (JoystickDirection == Direction.UpperRight)
                     {
-                        movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y - sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y - sensitivity);
                     }
 
-                    if (joystickDirection == Direction.MiddleLeft)
+                    if (JoystickDirection == Direction.MiddleLeft)
                     {
-                        movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y);
+                        MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y);
                     }
 
-                    if (joystickDirection == Direction.MiddleRight)
+                    if (JoystickDirection == Direction.MiddleRight)
                     {
-                        movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y);
+                        MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y);
                     }
 
-                    if (joystickDirection == Direction.LowerLeft)
+                    if (JoystickDirection == Direction.LowerLeft)
                     {
-                        movableObject.Location = new Point(movableObject.Location.X - sensitivity, movableObject.Location.Y + sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y + sensitivity);
                     }
 
-                    if (joystickDirection == Direction.LowerCenter)
+                    if (JoystickDirection == Direction.LowerCenter)
                     {
-                        movableObject.Location = new Point(movableObject.Location.X, movableObject.Location.Y + sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + sensitivity);
                     }
 
-                    if (joystickDirection == Direction.LowerRight)
+                    if (JoystickDirection == Direction.LowerRight)
                     {
-                        movableObject.Location = new Point(movableObject.Location.X + sensitivity, movableObject.Location.Y + sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y + sensitivity);
                     }
                 }
 
-                movableObject.Refresh();
+                MovableObject.Refresh();
             }
         }
 
         private readonly Graphics ng;
-
-        private Direction joystickDirection = Direction.MiddleCenter;
-
-        private Control movableObject;
-
-        private bool keepOnScreen = true;
-
         private int sensitivity = 3;
 
         private Image backgroundImage;

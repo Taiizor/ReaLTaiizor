@@ -78,8 +78,6 @@ namespace ReaLTaiizor.Controls
 
         private Style _style;
         private MetroStyleManager _styleManager;
-        private LocationType _DefaultLocation = LocationType.Normal;
-
         private bool _isDerivedStyle = true;
         private bool _maximizeBox = true;
         private Color _closeNormalForeColor;
@@ -211,11 +209,7 @@ namespace ReaLTaiizor.Controls
         #region Public
 
         [Category("Metro"), Description("Gets or sets the Default Location associated with the control.")]
-        public LocationType DefaultLocation
-        {
-            get => _DefaultLocation;
-            set => _DefaultLocation = value;
-        }
+        public LocationType DefaultLocation { get; set; } = LocationType.Normal;
 
         [Category("Metro")]
         [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
@@ -427,7 +421,7 @@ namespace ReaLTaiizor.Controls
                 switch (DefaultLocation)
                 {
                     case LocationType.Space:
-                        Location = new((Parent.Width - Width) - 12, 13);
+                        Location = new(Parent.Width - Width - 12, 13);
                         break;
                     case LocationType.Edge:
                         Location = new(Parent.Width - Width, 0);
@@ -453,13 +447,13 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             if (e.Location.Y > 0 && e.Location.Y < (Height - 2))
             {
-                if (e.Location.X > 0 && e.Location.X < 34)
+                if (e.Location.X is > 0 and < 34)
                 {
                     MinimizeHovered = true;
                     MaximizeHovered = false;
                     CloseHovered = false;
                 }
-                else if (e.Location.X > 33 && e.Location.X < 65)
+                else if (e.Location.X is > 33 and < 65)
                 {
                     MinimizeHovered = false;
                     MaximizeHovered = true;

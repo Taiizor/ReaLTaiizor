@@ -24,7 +24,7 @@ namespace ReaLTaiizor.Animate.Poison
                 },
                 delegate
                 {
-                    return (control.Size.Equals(targetSize));
+                    return control.Size.Equals(targetSize);
                 });
         }
 

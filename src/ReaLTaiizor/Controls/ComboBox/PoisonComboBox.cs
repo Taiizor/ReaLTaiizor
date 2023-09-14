@@ -110,41 +110,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -169,14 +146,9 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private bool displayFocusRectangle = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayFocus
-        {
-            get => displayFocusRectangle;
-            set => displayFocusRectangle = value;
-        }
+        public bool DisplayFocus { get; set; } = false;
 
         [DefaultValue(DrawMode.OwnerDrawFixed)]
         [Browsable(false)]
@@ -205,7 +177,7 @@ namespace ReaLTaiizor.Controls
                 // fake out the base
                 base.DropDownStyle = ComboBoxStyle.DropDownList;
                 // if we are a dropdown and have focus, then show the edit box
-                if ((value == ComboBoxStyle.DropDown) && (Focused))
+                if ((value == ComboBoxStyle.DropDown) && Focused)
                 {
                     textBox.Visible = true;
                 }
@@ -218,23 +190,12 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private PoisonComboBoxSize poisonComboBoxSize = PoisonComboBoxSize.Medium;
         [DefaultValue(PoisonComboBoxSize.Medium)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonComboBoxSize FontSize
-        {
-            get => poisonComboBoxSize;
-            set => poisonComboBoxSize = value;
-        }
-
-        private PoisonComboBoxWeight poisonComboBoxWeight = PoisonComboBoxWeight.Regular;
+        public PoisonComboBoxSize FontSize { get; set; } = PoisonComboBoxSize.Medium;
         [DefaultValue(PoisonComboBoxWeight.Regular)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonComboBoxWeight FontWeight
-        {
-            get => poisonComboBoxWeight;
-            set => poisonComboBoxWeight = value;
-        }
+        public PoisonComboBoxWeight FontWeight { get; set; } = PoisonComboBoxWeight.Regular;
 
         private string promptText = "";
         [Browsable(true)]
@@ -328,14 +289,14 @@ namespace ReaLTaiizor.Controls
 
             base.DrawMode = DrawMode.OwnerDrawFixed;
 
-            drawPrompt = (SelectedIndex == -1);
+            drawPrompt = SelectedIndex == -1;
 
             // setup the textbox
             SuspendLayout();
             textBox.Location = new System.Drawing.Point(0, 0);
-            textBox.FontSize = (PoisonTextBoxSize)poisonComboBoxSize;
-            textBox.FontWeight = (PoisonTextBoxWeight)poisonComboBoxWeight;
-            textBox.WaterMarkFont = PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight);
+            textBox.FontSize = (PoisonTextBoxSize)FontSize;
+            textBox.FontWeight = (PoisonTextBoxWeight)FontWeight;
+            textBox.WaterMarkFont = PoisonFonts.ComboBox(FontSize, FontWeight);
             textBox.Size = Size;
             textBox.TabIndex = 0;
             textBox.Margin = new Padding(0);
@@ -396,7 +357,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                 }
@@ -482,15 +443,15 @@ namespace ReaLTaiizor.Controls
 
                 if (Enabled)
                 {
-                    TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+                    TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.ComboBox(FontSize, FontWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
                 }
                 else
                 {
-                    ControlPaint.DrawStringDisabled(e.Graphics, Text, PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), PoisonPaint.ForeColor.ComboBox.Disabled(Theme), textRect, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+                    ControlPaint.DrawStringDisabled(e.Graphics, Text, PoisonFonts.ComboBox(FontSize, FontWeight), PoisonPaint.ForeColor.ComboBox.Disabled(Theme), textRect, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
                 }
 
                 OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
-                if (displayFocusRectangle && isFocused)
+                if (DisplayFocus && isFocused)
                 {
                     ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
                 }
@@ -509,7 +470,7 @@ namespace ReaLTaiizor.Controls
                 Color foreColor = PoisonPaint.ForeColor.Link.Normal(Theme);
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                 }
@@ -532,12 +493,12 @@ namespace ReaLTaiizor.Controls
                 if (DropDownStyle != ComboBoxStyle.DropDown)
                 {
                     Rectangle textRect = new(0, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height);
-                    TextRenderer.DrawText(e.Graphics, GetItemText(Items[e.Index]), PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+                    TextRenderer.DrawText(e.Graphics, GetItemText(Items[e.Index]), PoisonFonts.ComboBox(FontSize, FontWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
                 }
                 else
                 {
                     Rectangle textRect = new(0, e.Bounds.Top, textBox.Width, e.Bounds.Height);
-                    TextRenderer.DrawText(e.Graphics, GetItemText(Items[e.Index]), PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+                    TextRenderer.DrawText(e.Graphics, GetItemText(Items[e.Index]), PoisonFonts.ComboBox(FontSize, FontWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
                 }
             }
             else
@@ -557,13 +518,13 @@ namespace ReaLTaiizor.Controls
         {
             Color backColor = BackColor;
 
-            if (!useCustomBackColor)
+            if (!UseCustomBackColor)
             {
                 backColor = PoisonPaint.BackColor.Form(Theme);
             }
 
             Rectangle textRect = new(2, 2, Width - 20, Height - 4);
-            TextRenderer.DrawText(g, promptText, PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), textRect, SystemColors.GrayText, backColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
+            TextRenderer.DrawText(g, promptText, PoisonFonts.ComboBox(FontSize, FontWeight), textRect, SystemColors.GrayText, backColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
         }
 
         #endregion
@@ -701,7 +662,7 @@ namespace ReaLTaiizor.Controls
             {
                 string measureText = Text.Length > 0 ? Text : "MeasureText";
                 proposedSize = new(int.MaxValue, int.MaxValue);
-                preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.ComboBox(poisonComboBoxSize, poisonComboBoxWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
+                preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.ComboBox(FontSize, FontWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
                 preferredSize.Height += 4;
             }
 
@@ -711,7 +672,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnSelectedIndexChanged(EventArgs e)
         {
             base.OnSelectedIndexChanged(e);
-            drawPrompt = (SelectedIndex == -1);
+            drawPrompt = SelectedIndex == -1;
             Invalidate();
         }
 
@@ -722,7 +683,7 @@ namespace ReaLTaiizor.Controls
         {
             base.WndProc(ref m);
 
-            if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && (drawPrompt))
+            if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && drawPrompt)
             {
                 DrawTextPrompt();
             }

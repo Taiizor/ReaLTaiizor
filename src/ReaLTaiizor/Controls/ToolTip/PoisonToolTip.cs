@@ -53,13 +53,8 @@ namespace ReaLTaiizor.Controls
             set => PoisonTheme = value;
         }
 
-        private PoisonStyleManager PoisonStyleManager = null;
         [Browsable(false)]
-        public PoisonStyleManager StyleManager
-        {
-            get => PoisonStyleManager;
-            set => PoisonStyleManager = value;
-        }
+        public PoisonStyleManager StyleManager { get; set; } = null;
 
         #endregion
 

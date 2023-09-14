@@ -109,41 +109,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -158,41 +135,18 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private bool displayFocusRectangle = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayFocus
-        {
-            get => displayFocusRectangle;
-            set => displayFocusRectangle = value;
-        }
-
-        private bool highlight = false;
+        public bool DisplayFocus { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool Highlight
-        {
-            get => highlight;
-            set => highlight = value;
-        }
-
-        private PoisonButtonSize poisonButtonSize = PoisonButtonSize.Small;
+        public bool Highlight { get; set; } = false;
         [DefaultValue(PoisonButtonSize.Small)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonButtonSize FontSize
-        {
-            get => poisonButtonSize;
-            set => poisonButtonSize = value;
-        }
-
-        private PoisonButtonWeight poisonButtonWeight = PoisonButtonWeight.Bold;
+        public PoisonButtonSize FontSize { get; set; } = PoisonButtonSize.Small;
         [DefaultValue(PoisonButtonWeight.Bold)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonButtonWeight FontWeight
-        {
-            get => poisonButtonWeight;
-            set => poisonButtonWeight = value;
-        }
+        public PoisonButtonWeight FontWeight { get; set; } = PoisonButtonWeight.Bold;
 
         private bool isHovered = false;
         private bool isPressed = false;
@@ -238,7 +192,7 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    if (!useCustomBackColor)
+                    if (!UseCustomBackColor)
                     {
                         backColor = PoisonPaint.BackColor.Button.Normal(Theme);
                     }
@@ -300,11 +254,11 @@ namespace ReaLTaiizor.Controls
             else
             {
                 borderColor = PoisonPaint.BorderColor.Button.Normal(Theme);
-                if (useCustomForeColor)
+                if (UseCustomForeColor)
                 {
                     foreColor = ForeColor;
                 }
-                else if (useStyleColors)
+                else if (UseStyleColors)
                 {
                     foreColor = PoisonPaint.GetStyleColor(Style);
                 }
@@ -329,11 +283,11 @@ namespace ReaLTaiizor.Controls
                 e.Graphics.DrawRectangle(p, borderRect);
             }
 
-            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Button(poisonButtonSize, poisonButtonWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
+            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Button(FontSize, FontWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
-            if (displayFocusRectangle && isFocused)
+            if (DisplayFocus && isFocused)
             {
                 ControlPaint.DrawFocusRectangle(e.Graphics, ClientRectangle);
             }

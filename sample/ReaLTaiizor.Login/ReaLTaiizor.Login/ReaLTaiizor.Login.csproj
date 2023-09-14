@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!--<TargetFrameworks>net48;net7.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <!--<TargetFrameworks>net48;net8.0-windows</TargetFrameworks>-->
+    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -17,9 +17,14 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.7" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Background.jpg" />
+    <Content Include="Resources\Background2.jpg" />
+    <Content Include="Resources\Storyfire.png" />
+    <Content Include="Resources\Wrauter.png" />
+    <Content Include="Resources\Bulog.png" />
     <Content Include="Resources\Account.png" />
     <Content Include="Resources\Cloud.png" />
     <Content Include="Resources\Dropbox.png" />
@@ -43,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-rc.1.23419.4" />
   </ItemGroup>
 </Project>

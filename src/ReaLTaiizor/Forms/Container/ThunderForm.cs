@@ -14,40 +14,11 @@ namespace ReaLTaiizor.Forms
 
     public class ThunderForm : ContainerControl
     {
-        private Image _Image = Properties.Resources.Taiizor;
-        public Image Image
-        {
-            get => _Image;
-            set => _Image = value;
-        }
-
-        private Color _BodyColorA = Color.FromArgb(25, 25, 25);
-        public Color BodyColorA
-        {
-            get => _BodyColorA;
-            set => _BodyColorA = value;
-        }
-
-        private Color _BodyColorB = Color.FromArgb(30, 35, 48);
-        public Color BodyColorB
-        {
-            get => _BodyColorB;
-            set => _BodyColorB = value;
-        }
-
-        private Color _BodyColorC = Color.FromArgb(46, 46, 46);
-        public Color BodyColorC
-        {
-            get => _BodyColorC;
-            set => _BodyColorC = value;
-        }
-
-        private Color _BodyColorD = Color.FromArgb(50, 55, 58);
-        public Color BodyColorD
-        {
-            get => _BodyColorD;
-            set => _BodyColorD = value;
-        }
+        public Image Image { get; set; } = Properties.Resources.Taiizor;
+        public Color BodyColorA { get; set; } = Color.FromArgb(25, 25, 25);
+        public Color BodyColorB { get; set; } = Color.FromArgb(30, 35, 48);
+        public Color BodyColorC { get; set; } = Color.FromArgb(46, 46, 46);
+        public Color BodyColorD { get; set; } = Color.FromArgb(50, 55, 58);
 
         public ThunderForm()
         {
@@ -74,8 +45,8 @@ namespace ReaLTaiizor.Forms
             Rectangle Body = new(10, 10, Width - 21, Height - 16);
             Rectangle Body2 = new(5, 5, Width - 11, Height - 6);
             base.OnPaint(e);
-            LinearGradientBrush BodyBrush = new(Body2, _BodyColorA, _BodyColorB, 90);
-            LinearGradientBrush BodyBrush2 = new(Body, _BodyColorC, _BodyColorD, 120);
+            LinearGradientBrush BodyBrush = new(Body2, BodyColorA, BodyColorB, 90);
+            LinearGradientBrush BodyBrush2 = new(Body, BodyColorC, BodyColorD, 120);
             LinearGradientBrush gloss = new(new Rectangle(0, 0, Width - 128, 28 / 2), Color.FromArgb(240, Color.FromArgb(26, 26, 26)), Color.FromArgb(5, 255, 255, 255), 90);
             LinearGradientBrush gloss2 = new(new Rectangle(Width - 82, 0, Width - 205, 28 / 2), Color.FromArgb(240, Color.FromArgb(26, 26, 26)), Color.FromArgb(5, 255, 255, 255), 90);
             LinearGradientBrush mainbrush1 = new(TopLeft, Color.FromArgb(26, 26, 26), Color.FromArgb(30, 30, 30), 90);
@@ -98,7 +69,7 @@ namespace ReaLTaiizor.Forms
             G.FillPath(gloss2, DrawThunder.RoundRect(TopRight, 3));
             G.DrawPath(Pens.Black, DrawThunder.RoundRect(TopRight, 3));
 
-            if (_Image == null)
+            if (Image == null)
             {
                 G.DrawLine(P1, 14, 9, 14, 22);
                 G.DrawLine(P1, 17, 6, 17, 25);
@@ -111,7 +82,7 @@ namespace ReaLTaiizor.Forms
             }
             else
             {
-                G.DrawImage(_Image, 11, 2, 25, 25);
+                G.DrawImage(Image, 11, 2, 25, 25);
                 G.DrawString(base.Text, drawFont, new SolidBrush(ForeColor), new Rectangle(45, 1, Width - 1, 27), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });
             }
 

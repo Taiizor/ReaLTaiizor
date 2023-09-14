@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Controls
 {
     #region PoisonTabControl
 
-#if NET48
+#if NET48_OR_GREATER
     [Designer(typeof(PoisonTabControlDesigner))]
 #endif
     [ToolboxBitmap(typeof(TabControl))]
@@ -117,41 +117,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -175,32 +152,15 @@ namespace ReaLTaiizor.Controls
 
         private const int TabBottomBorderHeight = 3;
 
-        private PoisonTabControlSize poisonLabelSize = PoisonTabControlSize.Medium;
         [DefaultValue(PoisonTabControlSize.Medium)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonTabControlSize FontSize
-        {
-            get => poisonLabelSize;
-            set => poisonLabelSize = value;
-        }
-
-        private PoisonTabControlWeight poisonLabelWeight = PoisonTabControlWeight.Light;
+        public PoisonTabControlSize FontSize { get; set; } = PoisonTabControlSize.Medium;
         [DefaultValue(PoisonTabControlWeight.Light)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public PoisonTabControlWeight FontWeight
-        {
-            get => poisonLabelWeight;
-            set => poisonLabelWeight = value;
-        }
-
-        private ContentAlignment textAlign = ContentAlignment.MiddleLeft;
+        public PoisonTabControlWeight FontWeight { get; set; } = PoisonTabControlWeight.Light;
         [DefaultValue(ContentAlignment.MiddleLeft)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public ContentAlignment TextAlign
-        {
-            get => textAlign;
-            set => textAlign = value;
-        }
+        public ContentAlignment TextAlign { get; set; } = ContentAlignment.MiddleLeft;
 
         [Editor(typeof(PoisonTabPageCollectionEditor), typeof(UITypeEditor))]
         public new TabPageCollection TabPages => base.TabPages;
@@ -254,7 +214,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                 }
@@ -335,7 +295,7 @@ namespace ReaLTaiizor.Controls
             using (Graphics g = CreateGraphics())
             {
                 Size proposedSize = new(int.MaxValue, int.MaxValue);
-                preferredSize = TextRenderer.MeasureText(g, text, PoisonFonts.TabControl(poisonLabelSize, poisonLabelWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign) | TextFormatFlags.NoPadding);
+                preferredSize = TextRenderer.MeasureText(g, text, PoisonFonts.TabControl(FontSize, FontWeight), proposedSize, PoisonPaint.GetTextFormatFlags(TextAlign) | TextFormatFlags.NoPadding);
             }
             return preferredSize;
         }
@@ -345,7 +305,7 @@ namespace ReaLTaiizor.Controls
             Color foreColor;
             Color backColor = BackColor;
 
-            if (!useCustomBackColor)
+            if (!UseCustomBackColor)
             {
                 backColor = PoisonPaint.BackColor.Form(Theme);
             }
@@ -359,13 +319,13 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                if (useCustomForeColor)
+                if (UseCustomForeColor)
                 {
                     foreColor = DefaultForeColor;
                 }
                 else
                 {
-                    foreColor = !useStyleColors ? PoisonPaint.ForeColor.TabControl.Normal(Theme) : PoisonPaint.GetStyleColor(Style);
+                    foreColor = !UseStyleColors ? PoisonPaint.ForeColor.TabControl.Normal(Theme) : PoisonPaint.GetStyleColor(Style);
                 }
             }
 
@@ -383,7 +343,7 @@ namespace ReaLTaiizor.Controls
                 graphics.FillRectangle(bgBrush, bgRect);
             }
 
-            TextRenderer.DrawText(graphics, tabPage.Text, PoisonFonts.TabControl(poisonLabelSize, poisonLabelWeight), tabRect, foreColor, backColor, PoisonPaint.GetTextFormatFlags(TextAlign));
+            TextRenderer.DrawText(graphics, tabPage.Text, PoisonFonts.TabControl(FontSize, FontWeight), tabRect, foreColor, backColor, PoisonPaint.GetTextFormatFlags(TextAlign));
         }
 
         [SecuritySafeCritical]
@@ -542,7 +502,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnFontChanged(EventArgs e)
         {
             base.OnFontChanged(e);
-            IntPtr hFont = PoisonFonts.TabControl(poisonLabelSize, poisonLabelWeight).ToHfont();
+            IntPtr hFont = PoisonFonts.TabControl(FontSize, FontWeight).ToHfont();
             SendMessage(Handle, WM_SETFONT, hFont, (IntPtr)(-1));
             SendMessage(Handle, WM_FONTCHANGE, IntPtr.Zero, IntPtr.Zero);
             UpdateStyles();
@@ -593,7 +553,7 @@ namespace ReaLTaiizor.Controls
                     pWnd = WinApi.GetWindow(pWnd, WinApi.GW_HWNDNEXT);
                 }
 
-                if ((!bFound) && (bUpDown))
+                if ((!bFound) && bUpDown)
                 {
                     bUpDown = false;
                 }
@@ -720,7 +680,7 @@ namespace ReaLTaiizor.Controls
                 }
             );
 
-            return (result != null);
+            return result != null;
         }
         #endregion
     }

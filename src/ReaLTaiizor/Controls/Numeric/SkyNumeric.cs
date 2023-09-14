@@ -184,19 +184,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _TopTriangleColor = Color.FromArgb(27, 94, 137);
-        private Color _BotTriangleColor = Color.FromArgb(27, 94, 137);
-        private Color _BorderColorA = Color.FromArgb(220, 220, 220);
-        private Color _BorderColorB = Color.FromArgb(228, 228, 228);
-        private Color _BorderColorC = Color.FromArgb(191, 191, 191);
-        private Color _BorderColorD = Color.FromArgb(254, 254, 254);
-        private Color _ButtonBackColorA = Color.FromArgb(245, 245, 245);
-        private Color _ButtonBackColorB = Color.FromArgb(232, 232, 232);
-        private Color _ButtonBorderColorA = Color.FromArgb(252, 252, 252);
-        private Color _ButtonBorderColorB = Color.FromArgb(190, 190, 190);
-        private Color _ButtonBorderColorC = Color.FromArgb(200, 167, 167, 167);
-        private Color _ButtonBorderColorD = Color.FromArgb(188, 188, 188);
-        private Color _ButtonBorderColorE = Color.FromArgb(252, 252, 252);
         #endregion
 
         #region Settings
@@ -210,83 +197,31 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color TopTriangleColor
-        {
-            get => _TopTriangleColor;
-            set => _TopTriangleColor = value;
-        }
+        public Color TopTriangleColor { get; set; } = Color.FromArgb(27, 94, 137);
 
-        public Color BotTriangleColor
-        {
-            get => _BotTriangleColor;
-            set => _BotTriangleColor = value;
-        }
+        public Color BotTriangleColor { get; set; } = Color.FromArgb(27, 94, 137);
 
-        public Color BorderColorA
-        {
-            get => _BorderColorA;
-            set => _BorderColorA = value;
-        }
+        public Color BorderColorA { get; set; } = Color.FromArgb(220, 220, 220);
 
-        public Color BorderColorB
-        {
-            get => _BorderColorB;
-            set => _BorderColorB = value;
-        }
+        public Color BorderColorB { get; set; } = Color.FromArgb(228, 228, 228);
 
-        public Color BorderColorC
-        {
-            get => _BorderColorC;
-            set => _BorderColorC = value;
-        }
+        public Color BorderColorC { get; set; } = Color.FromArgb(191, 191, 191);
 
-        public Color BorderColorD
-        {
-            get => _BorderColorD;
-            set => _BorderColorD = value;
-        }
+        public Color BorderColorD { get; set; } = Color.FromArgb(254, 254, 254);
 
-        public Color ButtonBackColorA
-        {
-            get => _ButtonBackColorA;
-            set => _ButtonBackColorA = value;
-        }
+        public Color ButtonBackColorA { get; set; } = Color.FromArgb(245, 245, 245);
 
-        public Color ButtonBackColorB
-        {
-            get => _ButtonBackColorB;
-            set => _ButtonBackColorB = value;
-        }
+        public Color ButtonBackColorB { get; set; } = Color.FromArgb(232, 232, 232);
 
-        public Color ButtonBorderColorA
-        {
-            get => _ButtonBorderColorA;
-            set => _ButtonBorderColorA = value;
-        }
+        public Color ButtonBorderColorA { get; set; } = Color.FromArgb(252, 252, 252);
 
-        public Color ButtonBorderColorB
-        {
-            get => _ButtonBorderColorB;
-            set => _ButtonBorderColorB = value;
-        }
+        public Color ButtonBorderColorB { get; set; } = Color.FromArgb(190, 190, 190);
 
-        public Color ButtonBorderColorC
-        {
-            get => _ButtonBorderColorC;
-            set => _ButtonBorderColorC = value;
-        }
+        public Color ButtonBorderColorC { get; set; } = Color.FromArgb(200, 167, 167, 167);
 
-        public Color ButtonBorderColorD
-        {
-            get => _ButtonBorderColorD;
-            set => _ButtonBorderColorD = value;
-        }
+        public Color ButtonBorderColorD { get; set; } = Color.FromArgb(188, 188, 188);
 
-        public Color ButtonBorderColorE
-        {
-            get => _ButtonBorderColorE;
-            set => _ButtonBorderColorE = value;
-        }
+        public Color ButtonBorderColorE { get; set; } = Color.FromArgb(252, 252, 252);
         #endregion
 
         public SkyNumeric()

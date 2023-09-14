@@ -1,6 +1,6 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -15,13 +15,14 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialSingleTextBox
 
+    [ToolboxItem(false), Description("This control has been replaced by MaterialTextBoxEdit"), Obsolete("Use MaterialTextBoxEdit instead", false)]
     public class MaterialSingleTextBox : Control, MaterialControlI
     {
         //Properties for managing the material design properties
         [Browsable(false)]
         public int Depth { get; set; }
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
@@ -116,7 +117,7 @@ namespace ReaLTaiizor.Controls
             remove => _baseTextBox.ClientSizeChanged -= value;
         }
 
-#if !NETCOREAPP3_1 && !NET7_0
+#if !NETCOREAPP3_1 && !NET7_0 && !NET8_0
         public new event EventHandler ContextMenuChanged
         {
             add => _baseTextBox.ContextMenuChanged += value;
@@ -524,7 +525,7 @@ namespace ReaLTaiizor.Controls
             _baseTextBox = new BaseTextBox
             {
                 BorderStyle = BorderStyle.None,
-                Font = SkinManager.GetFontByType(MaterialManager.FontType.Subtitle1),
+                Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1),
                 Location = new(0, 0),
                 Width = Width,
                 Height = Height - 5
@@ -564,7 +565,7 @@ namespace ReaLTaiizor.Controls
                 //Animate
                 int animationWidth = (int)(_baseTextBox.Width * _animationManager.GetProgress());
                 int halfAnimationWidth = animationWidth / 2;
-                int animationStart = _baseTextBox.Location.X + _baseTextBox.Width / 2;
+                int animationStart = _baseTextBox.Location.X + (_baseTextBox.Width / 2);
 
                 //Unfocused background
                 g.FillRectangle(SkinManager.DividersBrush, _baseTextBox.Location.X, lineY, _baseTextBox.Width, 1);
@@ -659,7 +660,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-#if NETCOREAPP3_1 || NET5_0 || NET6_0 || NET7_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0
             //public EventHandler ContextMenuChanged { get; internal set; }
             public event EventHandler ContextMenuChanged;
 #endif

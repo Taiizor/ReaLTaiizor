@@ -35,20 +35,9 @@ namespace ReaLTaiizor.Controls
         private bool _resizing = false;
         private Point _cursorStartPoint;
 
-        private Color _BorderColor = HopeColors.OneLevelBorder;
-        private Color _HoverBorderColor = HopeColors.PrimaryColor;
+        public Color BorderColor { get; set; } = HopeColors.OneLevelBorder;
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
-
-        public Color HoverBorderColor
-        {
-            get => _HoverBorderColor;
-            set => _HoverBorderColor = value;
-        }
+        public Color HoverBorderColor { get; set; } = HopeColors.PrimaryColor;
 
         public override string Text { get => _baseTextBox.Text; set => _baseTextBox.Text = value; }
         public new object Tag { get => _baseTextBox.Tag; set => _baseTextBox.Tag = value; }
@@ -98,8 +87,8 @@ namespace ReaLTaiizor.Controls
 
             if (_resizing)
             {
-                Width = (e.X - _cursorStartPoint.X) + _currentControlStartSize.Width;
-                Height = (e.Y - _cursorStartPoint.Y) + _currentControlStartSize.Height;
+                Width = e.X - _cursorStartPoint.X + _currentControlStartSize.Width;
+                Height = e.Y - _cursorStartPoint.Y + _currentControlStartSize.Height;
                 Height = Height < 38 ? 38 : Height;
                 Width = Width < 100 ? 100 : Width;
             }
@@ -139,7 +128,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(Color.White), bg);
-            g.DrawPath(new(_baseTextBox.Focused ? _HoverBorderColor : _BorderColor, 0.5f), bg);
+            g.DrawPath(new(_baseTextBox.Focused ? HoverBorderColor : BorderColor, 0.5f), bg);
 
             arrowRectangleF.X = Width - 22;
             arrowRectangleF.Y = Height - 20;
@@ -249,7 +238,7 @@ namespace ReaLTaiizor.Controls
             remove => _baseTextBox.ClientSizeChanged -= value;
         }
 
-#if !NETCOREAPP3_1 && !NET7_0
+#if !NETCOREAPP3_1 && !NET7_0 && !NET8_0
         public new event EventHandler ContextMenuChanged
         {
             add => _baseTextBox.ContextMenuChanged += value;
@@ -710,7 +699,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-#if NETCOREAPP3_1 || NET5_0 || NET6_0 || NET7_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0
             //public EventHandler ContextMenuChanged { get; internal set; }
             public event EventHandler ContextMenuChanged;
 #endif

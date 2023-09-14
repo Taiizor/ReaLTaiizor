@@ -372,7 +372,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                _currentValue = Convert.ToInt32(Value / (double)Maximum * Height - 1);
+                _currentValue = Convert.ToInt32((Value / (double)Maximum * Height) - 1);
             }
         }
 

@@ -108,41 +108,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -272,7 +249,7 @@ namespace ReaLTaiizor.Controls
                 int _butwidth = 0;
                 if (_button != null)
                 {
-                    _butwidth = (_showbutton) ? _button.Width : 0;
+                    _butwidth = _showbutton ? _button.Width : 0;
                 }
 
                 return _butwidth;
@@ -341,7 +318,7 @@ namespace ReaLTaiizor.Controls
 
         #region Routing Fields
 
-#if !NETCOREAPP3_1 && !NET5_0 && !NET6_0 && !NET7_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
         public override ContextMenu ContextMenu
         {
             get => baseTextBox.ContextMenu;
@@ -529,7 +506,7 @@ namespace ReaLTaiizor.Controls
 
         private void BaseTextBoxContextMenuChanged(object sender, EventArgs e)
         {
-#if !NETCOREAPP3_1 && !NET5_0 && !NET6_0 && !NET7_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
             base.OnContextMenuChanged(e);
 #endif
         }
@@ -627,7 +604,7 @@ namespace ReaLTaiizor.Controls
                 Color backColor = BackColor;
                 baseTextBox.BackColor = backColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                     baseTextBox.BackColor = backColor;
@@ -669,7 +646,7 @@ namespace ReaLTaiizor.Controls
 
         protected virtual void OnPaintForeground(PaintEventArgs e)
         {
-            if (useCustomForeColor)
+            if (UseCustomForeColor)
             {
                 baseTextBox.ForeColor = ForeColor;
             }
@@ -680,7 +657,7 @@ namespace ReaLTaiizor.Controls
 
             Color borderColor = PoisonPaint.BorderColor.ComboBox.Normal(Theme);
 
-            if (useStyleColors)
+            if (UseStyleColors)
             {
                 borderColor = PoisonPaint.GetStyleColor(Style);
             }
@@ -844,7 +821,7 @@ namespace ReaLTaiizor.Controls
             baseTextBox.ChangeUICues += BaseTextBoxChangeUiCues;
             baseTextBox.Click += BaseTextBoxClick;
             baseTextBox.ClientSizeChanged += BaseTextBoxClientSizeChanged;
-#if !NETCOREAPP3_1 && !NET5_0 && !NET6_0 && !NET7_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
             baseTextBox.ContextMenuChanged += BaseTextBoxContextMenuChanged;
 #endif
             baseTextBox.ContextMenuStripChanged += BaseTextBoxContextMenuStripChanged;
@@ -910,7 +887,7 @@ namespace ReaLTaiizor.Controls
                 else
                 {
                     _button.Size = new(Height - 5, Height - 5);
-                    _button.Location = new((Width - _button.Width) - 3, 2);
+                    _button.Location = new(Width - _button.Width - 3, 2);
                 }
 
                 _button.Visible = _showbutton;
@@ -989,17 +966,12 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            private Font _waterMarkFont = PoisonFonts.WaterMark(PoisonLabelSize.Small, PoisonWaterMarkWeight.Italic);
-            public Font WaterMarkFont
-            {
-                get => _waterMarkFont;
-                set => _waterMarkFont = value;
-            }
+            public Font WaterMarkFont { get; set; } = PoisonFonts.WaterMark(PoisonLabelSize.Small, PoisonWaterMarkWeight.Italic);
 
             public PromptedTextBox()
             {
                 SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
-                drawPrompt = (Text.Trim().Length == 0);
+                drawPrompt = Text.Trim().Length == 0;
             }
 
             private void DrawTextPrompt()
@@ -1030,7 +1002,7 @@ namespace ReaLTaiizor.Controls
 
                 //SolidBrush drawBrush = new(WaterMarkColor);
 
-                TextRenderer.DrawText(g, promptText, _waterMarkFont, clientRectangle, _waterMarkColor, BackColor, flags);
+                TextRenderer.DrawText(g, promptText, WaterMarkFont, clientRectangle, _waterMarkColor, BackColor, flags);
             }
 
             protected override void OnPaint(PaintEventArgs e)
@@ -1056,14 +1028,14 @@ namespace ReaLTaiizor.Controls
             protected override void OnTextChanged(EventArgs e)
             {
                 base.OnTextChanged(e);
-                drawPrompt = (Text.Trim().Length == 0);
+                drawPrompt = Text.Trim().Length == 0;
                 Invalidate();
             }
 
             protected override void WndProc(ref Message m)
             {
                 base.WndProc(ref m);
-                if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && (drawPrompt && !GetStyle(ControlStyles.UserPaint)))
+                if (((m.Msg == WM_PAINT) || (m.Msg == OCM_COMMAND)) && drawPrompt && !GetStyle(ControlStyles.UserPaint))
                 {
                     DrawTextPrompt();
                 }
@@ -1215,41 +1187,18 @@ namespace ReaLTaiizor.Controls
                 set => poisonTheme = value;
             }
 
-            private PoisonStyleManager poisonStyleManager = null;
             [Browsable(false)]
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public PoisonStyleManager StyleManager
-            {
-                get => poisonStyleManager;
-                set => poisonStyleManager = value;
-            }
-
-            private bool useCustomBackColor = false;
+            public PoisonStyleManager StyleManager { get; set; } = null;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseCustomBackColor
-            {
-                get => useCustomBackColor;
-                set => useCustomBackColor = value;
-            }
-
-            private bool useCustomForeColor = false;
+            public bool UseCustomBackColor { get; set; } = false;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseCustomForeColor
-            {
-                get => useCustomForeColor;
-                set => useCustomForeColor = value;
-            }
-
-            private bool useStyleColors = false;
+            public bool UseCustomForeColor { get; set; } = false;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseStyleColors
-            {
-                get => useStyleColors;
-                set => useStyleColors = value;
-            }
+            public bool UseStyleColors { get; set; } = false;
 
             [Browsable(false)]
             [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -1418,13 +1367,13 @@ namespace ReaLTaiizor.Controls
                     switch (ImageAlign)
                     {
                         case ContentAlignment.BottomCenter:
-                            iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, ClientRectangle.Height - iconSize.Height - _filler);
                             break;
                         case ContentAlignment.BottomLeft:
-                            iconLocation = new(_filler, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new(_filler, ClientRectangle.Height - iconSize.Height - _filler);
                             break;
                         case ContentAlignment.BottomRight:
-                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, (ClientRectangle.Height - iconSize.Height) - _filler);
+                            iconLocation = new(ClientRectangle.Width - iconSize.Width - _filler, ClientRectangle.Height - iconSize.Height - _filler);
                             break;
                         case ContentAlignment.MiddleCenter:
                             iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, (ClientRectangle.Height - iconSize.Height) / 2);
@@ -1433,7 +1382,7 @@ namespace ReaLTaiizor.Controls
                             iconLocation = new(_filler, (ClientRectangle.Height - iconSize.Height) / 2);
                             break;
                         case ContentAlignment.MiddleRight:
-                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, (ClientRectangle.Height - iconSize.Height) / 2);
+                            iconLocation = new(ClientRectangle.Width - iconSize.Width - _filler, (ClientRectangle.Height - iconSize.Height) / 2);
                             break;
                         case ContentAlignment.TopCenter:
                             iconLocation = new((ClientRectangle.Width - iconSize.Width) / 2, _filler);
@@ -1442,11 +1391,11 @@ namespace ReaLTaiizor.Controls
                             iconLocation = new(_filler, _filler);
                             break;
                         case ContentAlignment.TopRight:
-                            iconLocation = new((ClientRectangle.Width - iconSize.Width) - _filler, _filler);
+                            iconLocation = new(ClientRectangle.Width - iconSize.Width - _filler, _filler);
                             break;
                     }
 
-                    g.DrawImage((Theme == ThemeStyle.Dark) ? ((isPressed) ? _image : Image) : (isPressed) ? Image : _image, new Rectangle(iconLocation, iconSize));
+                    g.DrawImage((Theme == ThemeStyle.Dark) ? (isPressed ? _image : Image) : isPressed ? Image : _image, new Rectangle(iconLocation, iconSize));
                 }
             }
 

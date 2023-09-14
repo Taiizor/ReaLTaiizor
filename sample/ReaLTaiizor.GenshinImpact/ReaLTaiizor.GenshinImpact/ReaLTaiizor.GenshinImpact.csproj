@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!--<TargetFrameworks>net48;net8.0-windows</TargetFrameworks>-->
+    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AnalysisLevel>preview</AnalysisLevel>
+    <LangVersion>preview</LangVersion>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <NoWarn>CA1416</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ReaLTaiizor.GenshinImpact.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ICO.ico" />
+    <Content Include="Resources\Vine.png" />
+    <Content Include="Resources\Button.png" />
+    <Content Include="Resources\Slide1.jpg" />
+    <Content Include="Resources\Slide2.jpg" />
+    <Content Include="Resources\Slide3.jpg" />
+    <Content Include="Resources\Slide4.jpg" />
+    <Content Include="Resources\Slide5.jpg" />
+    <Content Include="Resources\Launch1.png" />
+    <Content Include="Resources\Launch2.png" />
+    <Content Include="Resources\Twitter.png" />
+    <Content Include="Resources\LinkedIn.png" />
+    <Content Include="Resources\Snapchat.png" />
+    <Content Include="Resources\Facebook.png" />
+    <Content Include="Resources\Pinterest.png" />
+    <Content Include="Resources\Instagram.png" />
+    <Content Include="Resources\HoYoverse.jpeg" />
+    <Content Include="Resources\Background.png" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-rc.1.23419.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

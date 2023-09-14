@@ -262,7 +262,7 @@ namespace ReaLTaiizor.Forms
         {
             base.OnPaint(e);
 
-            if (Dock == DockStyle.Left || Dock == DockStyle.Right || Dock == DockStyle.None)
+            if (Dock is DockStyle.Left or DockStyle.Right or DockStyle.None)
             {
                 Dock = DockStyle.Top;
             }
@@ -304,7 +304,7 @@ namespace ReaLTaiizor.Forms
             {
                 if (MinimizeBox)
                 {
-                    minRectangle = new(Width - 54 - (MaximizeBox ? 1 : 0) * 22, (Height - 16) / 2, 18, 18);
+                    minRectangle = new(Width - 54 - ((MaximizeBox ? 1 : 0) * 22), (Height - 16) / 2, 18, 18);
 
                     if (minRectangle.Contains(mousePoint))
                     {

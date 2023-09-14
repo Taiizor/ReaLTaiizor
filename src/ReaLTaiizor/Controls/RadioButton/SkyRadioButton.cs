@@ -90,12 +90,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _EllipseBorderColorA = Color.FromArgb(168, 168, 168);
-        private Color _EllipseBorderColorB = Color.FromArgb(252, 252, 252);
-        private Color _EllipseBackColorA = Color.FromArgb(245, 245, 245);
-        private Color _EllipseBackColorB = Color.FromArgb(231, 231, 231);
-        private Color _CheckedColorA = Color.FromArgb(27, 94, 137);
-        private Color _CheckedColorB = Color.FromArgb(150, 118, 177, 211);
         #endregion
 
         #region Settings
@@ -109,41 +103,17 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color EllipseBorderColorA
-        {
-            get => _EllipseBorderColorA;
-            set => _EllipseBorderColorA = value;
-        }
+        public Color EllipseBorderColorA { get; set; } = Color.FromArgb(168, 168, 168);
 
-        public Color EllipseBorderColorB
-        {
-            get => _EllipseBorderColorB;
-            set => _EllipseBorderColorB = value;
-        }
+        public Color EllipseBorderColorB { get; set; } = Color.FromArgb(252, 252, 252);
 
-        public Color EllipseBackColorA
-        {
-            get => _EllipseBackColorA;
-            set => _EllipseBackColorA = value;
-        }
+        public Color EllipseBackColorA { get; set; } = Color.FromArgb(245, 245, 245);
 
-        public Color EllipseBackColorB
-        {
-            get => _EllipseBackColorB;
-            set => _EllipseBackColorB = value;
-        }
+        public Color EllipseBackColorB { get; set; } = Color.FromArgb(231, 231, 231);
 
-        public Color CheckedColorA
-        {
-            get => _CheckedColorA;
-            set => _CheckedColorA = value;
-        }
+        public Color CheckedColorA { get; set; } = Color.FromArgb(27, 94, 137);
 
-        public Color CheckedColorB
-        {
-            get => _CheckedColorB;
-            set => _CheckedColorB = value;
-        }
+        public Color CheckedColorB { get; set; } = Color.FromArgb(150, 118, 177, 211);
         #endregion
 
         public SkyRadioButton() : base()

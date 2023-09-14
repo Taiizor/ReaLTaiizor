@@ -16,8 +16,8 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotCard()
         {
-            base.SetStyle(ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor, true);
-            base.Size = new Size(320, 170);
+            SetStyle(ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor, true);
+            Size = new Size(320, 170);
             BackColor = Color.Transparent;
             ForeColor = Color.White;
         }
@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color1 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -44,7 +44,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color2 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 text1 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -70,7 +70,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 text2 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 text3 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -116,51 +116,51 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             e.Graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
-            if (base.Width > base.Height)
-            {
-                int width = base.Width;
-            }
-            else
-            {
-                int height = base.Height;
-            }
-            Brush brush = new LinearGradientBrush(base.ClientRectangle, color1, color2, 135f);
+
+            Brush brush = new LinearGradientBrush(ClientRectangle, color1, color2, 135f);
+
             using (GraphicsPath graphicsPath = new())
             {
-                graphicsPath.AddArc(base.Width - 10 - 2, 0, 10, 10, 250f, 90f);
-                graphicsPath.AddArc(base.Width - 10 - 2, base.Height - 10, 10, 8, 0f, 90f);
-                graphicsPath.AddArc(0, base.Height - 10 - 2, 8, 10, 90f, 90f);
+                graphicsPath.AddArc(Width - 10 - 2, 0, 10, 10, 250f, 90f);
+                graphicsPath.AddArc(Width - 10 - 2, Height - 10, 10, 8, 0f, 90f);
+                graphicsPath.AddArc(0, Height - 10 - 2, 8, 10, 90f, 90f);
                 graphicsPath.AddArc(0, 0, 10, 10, 180f, 90f);
                 graphicsPath.CloseFigure();
                 e.Graphics.FillPath(brush, graphicsPath);
             }
+
             StringFormat stringFormat = new()
             {
                 LineAlignment = StringAlignment.Center,
                 Alignment = StringAlignment.Near
             };
+
             e.Graphics.PixelOffsetMode = PixelOffsetType;
             e.Graphics.TextRenderingHint = TextRenderingType;
-            Rectangle r = new Rectangle(2, 6, base.Width - 4, 26);
+
+            Rectangle r = new(2, 6, Width - 4, 26);
+
             e.Graphics.DrawString(text1, new Font(Font.FontFamily, Font.Size + 4f), new SolidBrush(ForeColor), r, stringFormat);
+
             stringFormat.Alignment = StringAlignment.Near;
-            r = new Rectangle(2, base.Height / 2, base.Width - 4, base.Height / 4);
-            e.Graphics.DrawString(text2, new Font(Font.FontFamily, Font.Size * 2f + 2f), new SolidBrush(ForeColor), r, stringFormat);
+
+            r = new Rectangle(2, Height / 2, Width - 4, Height / 4);
+            e.Graphics.DrawString(text2, new Font(Font.FontFamily, (Font.Size * 2f) + 2f), new SolidBrush(ForeColor), r, stringFormat);
+
             stringFormat.Alignment = StringAlignment.Near;
-            r = new Rectangle(2, base.Height / 2 + base.Height / 4, base.Width - 4, base.Height / 4);
+
+            r = new Rectangle(2, (Height / 2) + (Height / 4), Width - 4, Height / 4);
             e.Graphics.DrawString(text3, new Font(Font.FontFamily, Font.Size + 2f), new SolidBrush(ForeColor), r, stringFormat);
         }
 
         private Color color1 = Color.DodgerBlue;
-
         private Color color2 = Color.LimeGreen;
 
-        private string text1 = "Savings Card";
-
-        private string text2 = "1234 5678 9101 1121";
-
+        private string text1 = "Credit Card";
+        private string text2 = "1357 2468 9013 5724";
         private string text3 = "Exp: 01/02 - 03/04";
     }
 

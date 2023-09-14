@@ -38,13 +38,7 @@ namespace ReaLTaiizor.Colors
 
         public static Color Yellow => Color.FromArgb(255, 196, 37);
 
-        private static Color _custom = Color.FromArgb(225, 195, 143);
-
-        public static Color Custom
-        {
-            get => _custom;
-            set => _custom = value;
-        }
+        public static Color Custom { get; set; } = Color.FromArgb(225, 195, 143);
     }
 
     #endregion

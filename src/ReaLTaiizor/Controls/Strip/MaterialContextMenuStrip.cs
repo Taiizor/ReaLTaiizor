@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.ComponentModel;
 using System.Drawing;
@@ -15,6 +16,7 @@ namespace ReaLTaiizor.Controls
 {
     #region MaterialContextMenuStrip
 
+    [ToolboxItem(false)]
     public class MaterialContextMenuStrip : ContextMenuStrip, MaterialControlI
     {
         //Properties for managing the material design properties
@@ -22,7 +24,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -61,7 +63,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
         {
-            if (e.ClickedItem != null && !(e.ClickedItem is ToolStripSeparator))
+            if (e.ClickedItem is not null and not ToolStripSeparator)
             {
                 if (e == _delayesArgs)
                 {
@@ -88,7 +90,7 @@ namespace ReaLTaiizor.Controls
         public MaterialToolStripMenuItem()
         {
             AutoSize = false;
-            Size = new(120, 30);
+            Size = new Size(128, 32);
         }
 
         protected override ToolStripDropDown CreateDefaultDropDown()
@@ -108,10 +110,13 @@ namespace ReaLTaiizor.Controls
 
     internal class MaterialToolStripRender : ToolStripProfessionalRenderer, MaterialControlI
     {
+        private const int LEFT_PADDING = 16;
+        private const int RIGHT_PADDING = 8;
+
         //Properties for managing the material design properties
         public int Depth { get; set; }
 
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         public MaterialMouseState MouseState { get; set; }
 
@@ -121,10 +126,10 @@ namespace ReaLTaiizor.Controls
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             Rectangle itemRect = GetItemRect(e.Item);
-            Rectangle textRect = new(24, itemRect.Y, itemRect.Width - (24 + 16), itemRect.Height);
+            Rectangle textRect = new(LEFT_PADDING, itemRect.Y, itemRect.Width - (LEFT_PADDING + RIGHT_PADDING), itemRect.Height);
 
             using MaterialNativeTextRenderer NativeText = new(g);
-            NativeText.DrawTransparentText(e.Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body2),
+            NativeText.DrawTransparentText(e.Text, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body2),
                 e.Item.Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 textRect.Location,
                 textRect.Size,
@@ -134,11 +139,11 @@ namespace ReaLTaiizor.Controls
         protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.Clear(SkinManager.BackdropColor);
+            g.Clear(SkinManager.BackgroundColor);
 
             //Draw background
             Rectangle itemRect = GetItemRect(e.Item);
-            g.FillRectangle(e.Item.Selected && e.Item.Enabled ? SkinManager.BackgroundFocusBrush : SkinManager.BackdropBrush, itemRect);
+            g.FillRectangle(e.Item.Selected && e.Item.Enabled ? SkinManager.BackgroundFocusBrush : SkinManager.BackgroundBrush, itemRect);
 
             //Ripple animation
             if (e.ToolStrip is MaterialContextMenuStrip toolStrip)
@@ -152,7 +157,7 @@ namespace ReaLTaiizor.Controls
                         double animationValue = animationManager.GetProgress(i);
                         SolidBrush rippleBrush = new(Color.FromArgb((int)(51 - (animationValue * 50)), Color.Black));
                         int rippleSize = (int)(animationValue * itemRect.Width * 2.5);
-                        g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, itemRect.Y - itemRect.Height, rippleSize, itemRect.Height * 3));
+                        g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - (rippleSize / 2), itemRect.Y - itemRect.Height, rippleSize, itemRect.Height * 3));
                     }
                 }
             }
@@ -166,20 +171,16 @@ namespace ReaLTaiizor.Controls
         {
             Graphics g = e.Graphics;
 
-            g.FillRectangle(SkinManager.BackdropBrush, e.Item.Bounds);
+            g.FillRectangle(SkinManager.BackgroundBrush, e.Item.Bounds);
             g.DrawLine(
-                new(SkinManager.DividersColor),
+                new Pen(SkinManager.DividersColor),
                 new Point(e.Item.Bounds.Left, e.Item.Bounds.Height / 2),
                 new Point(e.Item.Bounds.Right, e.Item.Bounds.Height / 2));
         }
 
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
         {
-            Graphics g = e.Graphics;
-
-            g.DrawRectangle(
-                new(SkinManager.DividersColor),
-                new Rectangle(e.AffectedBounds.X, e.AffectedBounds.Y, e.AffectedBounds.Width - 1, e.AffectedBounds.Height - 1));
+            e.ToolStrip.BackColor = SkinManager.BackgroundColor;
         }
 
         protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
@@ -187,7 +188,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             const int ARROW_SIZE = 4;
 
-            Point arrowMiddle = new(e.ArrowRectangle.X + e.ArrowRectangle.Width / 2, e.ArrowRectangle.Y + e.ArrowRectangle.Height / 2);
+            Point arrowMiddle = new(e.ArrowRectangle.X + (e.ArrowRectangle.Width / 2), e.ArrowRectangle.Y + (e.ArrowRectangle.Height / 2));
             Brush arrowBrush = e.Item.Enabled ? SkinManager.TextHighEmphasisBrush : SkinManager.TextDisabledOrHintBrush;
             using GraphicsPath arrowPath = new();
             arrowPath.AddLines(
@@ -202,7 +203,7 @@ namespace ReaLTaiizor.Controls
 
         private Rectangle GetItemRect(ToolStripItem item)
         {
-            return new Rectangle(0, item.ContentRectangle.Y, item.ContentRectangle.Width + 4, item.ContentRectangle.Height);
+            return new Rectangle(0, item.ContentRectangle.Y, item.ContentRectangle.Width, item.ContentRectangle.Height);
         }
     }
 

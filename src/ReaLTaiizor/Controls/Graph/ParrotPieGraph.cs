@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Colors = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -88,7 +88,7 @@ namespace ReaLTaiizor.Controls
                 {
                     _Numbers = value;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 

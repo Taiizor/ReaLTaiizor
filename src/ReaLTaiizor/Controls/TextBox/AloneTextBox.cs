@@ -81,7 +81,7 @@ namespace ReaLTaiizor.Controls
             {
                 TB.Enabled = value;
                 _EnabledCalc = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -92,7 +92,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 Enabled = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -103,7 +103,7 @@ namespace ReaLTaiizor.Controls
             {
                 TB.UseSystemPasswordChar = UseSystemPasswordChar;
                 _allowpassword = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -114,7 +114,7 @@ namespace ReaLTaiizor.Controls
             {
                 _maxChars = value;
                 TB.MaxLength = MaxLength;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -124,7 +124,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _textAlignment = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -136,7 +136,7 @@ namespace ReaLTaiizor.Controls
                 _multiLine = value;
                 TB.Multiline = value;
                 OnResize(EventArgs.Empty);
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -157,20 +157,20 @@ namespace ReaLTaiizor.Controls
         protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnBackColorChanged(EventArgs e)
         {
             base.OnBackColorChanged(e);
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnForeColorChanged(EventArgs e)
         {
             base.OnForeColorChanged(e);
             TB.ForeColor = ForeColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -274,7 +274,7 @@ namespace ReaLTaiizor.Controls
                 if (flag)
                 {
                     int height = TB.Height;
-                    TB.Location = new(10, (int)Math.Round(unchecked(Height / 2.0 - height / 2.0 - 0.0)));
+                    TB.Location = new(10, (int)Math.Round(unchecked((Height / 2.0) - (height / 2.0) - 0.0)));
                     TB.Size = new(base.Width - 20, height);
                 }
                 else
@@ -289,14 +289,14 @@ namespace ReaLTaiizor.Controls
         {
             base.OnEnter(e);
             State = AloneTextBox.MouseState.Down;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnLeave(EventArgs e)
         {
             base.OnLeave(e);
             State = AloneTextBox.MouseState.None;
-            base.Invalidate();
+            Invalidate();
         }
     }
 

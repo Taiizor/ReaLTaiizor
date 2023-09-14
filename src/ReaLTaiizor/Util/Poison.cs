@@ -32,16 +32,13 @@ namespace ReaLTaiizor.Util
     {
         public HiddenTabs(int id, string page)
         {
-            _index = id;
-            _tabpage = page;
+            Index = id;
+            Tabpage = page;
         }
 
-        private readonly int _index;
-        private readonly string _tabpage;
+        public int Index { get; }
 
-        public int Index => _index;
-
-        public string Tabpage => _tabpage;
+        public string Tabpage { get; }
     }
     #endregion HiddenTabClass
 
@@ -69,12 +66,7 @@ namespace ReaLTaiizor.Util
 
         private readonly CaseInsensitiveComparer ObjectCompare;
 
-        private SortModifiersType mySortModifier = SortModifiersType.SortByText;
-        public SortModifiersType _SortModifier
-        {
-            set => mySortModifier = value;
-            get => mySortModifier;
-        }
+        public SortModifiersType _SortModifier { set; get; } = SortModifiersType.SortByText;
 
         public ListViewColumnSorter()
         {
@@ -113,7 +105,7 @@ namespace ReaLTaiizor.Util
             else if (OrderOfSort == SortOrder.Descending)
             {
                 // Descending sort is selected, return negative result of compare operation
-                return (-compareResult);
+                return -compareResult;
             }
             else
             {

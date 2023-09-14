@@ -25,6 +25,7 @@ Partial Class Crown
         components = New System.ComponentModel.Container
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "Crown"
     End Sub
 End Class

@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -15,37 +16,27 @@ namespace ReaLTaiizor.Controls
     {
         #region Settings
 
-        private Color _BaseColor = Color.FromArgb(246, 246, 246);
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
-
-        private Color _CircleColor = Color.Gray;
-        public Color CircleColor
-        {
-            get => _CircleColor;
-            set => _CircleColor = value;
-        }
-
-        private string _String = "ü";
-        public string String
-        {
-            get => _String;
-            set => _String = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(246, 246, 246);
+        public Color CircleColor { get; set; } = Color.Gray;
+        public string String { get; set; } = "ü";
 
         #endregion
 
         public TickIcon()
         {
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             ForeColor = Color.DimGray;
-            BackColor = Color.FromArgb(246, 246, 246);
+            BackColor = Color.Transparent;
             ForeColor = Color.Gray;
             Font = new("Wingdings", 25, FontStyle.Bold);
             Size = new(33, 33);
             DoubleBuffered = true;
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            Font = new(Font.FontFamily, Height - 6, Font.Style);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -53,13 +44,13 @@ namespace ReaLTaiizor.Controls
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            e.Graphics.FillEllipse(new SolidBrush(_CircleColor), new Rectangle(1, 1, 29, 29));
-            e.Graphics.FillEllipse(new SolidBrush(_BaseColor), new Rectangle(3, 3, 25, 25));
+            e.Graphics.FillEllipse(new SolidBrush(CircleColor), new Rectangle(0, 0, Width, Height));
+            e.Graphics.FillEllipse(new SolidBrush(BaseColor), new Rectangle(3, 3, Width - 6, Height - 6));
 
-            e.Graphics.DrawString(_String, Font, new SolidBrush(ForeColor), new Rectangle(0, -3, Width, 43), new StringFormat
+            e.Graphics.DrawString(String, Font, new SolidBrush(ForeColor), new Rectangle(0, 6 * (Height / 33), Width, Height), new StringFormat
             {
-                Alignment = StringAlignment.Near,
-                LineAlignment = StringAlignment.Near
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
             });
         }
     }

@@ -33,14 +33,7 @@ namespace ReaLTaiizor.Controls
         }
 
         private int X;
-        private Color GTN;
-        private Color GTO;
-        private Color GTD;
-        private Color GBN;
-        private Color GBO;
-        private Color GBD;
-        private Color Bo;
-        private Color T;
+        private Color GTN, GTO, GTD, GBN, GBO, GBD, Bo, T;
 
         protected override void ColorHook()
         {

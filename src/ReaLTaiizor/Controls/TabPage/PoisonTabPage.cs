@@ -109,41 +109,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager PoisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => PoisonStyleManager;
-            set => PoisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -161,14 +138,9 @@ namespace ReaLTaiizor.Controls
         private readonly PoisonScrollBar verticalScrollbar = new(ScrollOrientationType.Vertical);
         private readonly PoisonScrollBar horizontalScrollbar = new(ScrollOrientationType.Horizontal);
 
-        private bool showHorizontalScrollbar = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool HorizontalScrollbar
-        {
-            get => showHorizontalScrollbar;
-            set => showHorizontalScrollbar = value;
-        }
+        public bool HorizontalScrollbar { get; set; } = false;
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int HorizontalScrollbarSize
@@ -190,15 +162,9 @@ namespace ReaLTaiizor.Controls
             get => horizontalScrollbar.HighlightOnWheel;
             set => horizontalScrollbar.HighlightOnWheel = value;
         }
-
-        private bool showVerticalScrollbar = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool VerticalScrollbar
-        {
-            get => showVerticalScrollbar;
-            set => showVerticalScrollbar = value;
-        }
+        public bool VerticalScrollbar { get; set; } = false;
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int VerticalScrollbarSize
@@ -229,8 +195,8 @@ namespace ReaLTaiizor.Controls
             {
                 if (value)
                 {
-                    showHorizontalScrollbar = true;
-                    showVerticalScrollbar = true;
+                    HorizontalScrollbar = true;
+                    VerticalScrollbar = true;
                 }
 
                 base.AutoScroll = value;
@@ -289,7 +255,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.BackColor.Form(Theme);
                 }

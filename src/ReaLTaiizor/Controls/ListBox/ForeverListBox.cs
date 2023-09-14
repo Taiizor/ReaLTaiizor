@@ -51,11 +51,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color SelectedColor
-        {
-            get => _SelectedColor;
-            set => _SelectedColor = value;
-        }
+        public Color SelectedColor { get; set; } = ForeverLibrary.ForeverColor;
 
         public string SelectedItem =>
                 //return ListBx.SelectedItem.ToString();
@@ -83,7 +79,7 @@ namespace ReaLTaiizor.Controls
 
         public void ClearSelected()
         {
-            for (int i = (ListBx.SelectedItems.Count - 1); i >= 0; i += -1)
+            for (int i = ListBx.SelectedItems.Count - 1; i >= 0; i += -1)
             {
                 ListBx.Items.Remove(ListBx.SelectedItems[i]);
             }
@@ -108,7 +104,7 @@ namespace ReaLTaiizor.Controls
             if (e.State.ToString().IndexOf("Selected,") >= 0)
             {
                 //-- Base
-                e.Graphics.FillRectangle(new SolidBrush(_SelectedColor), new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height));
+                e.Graphics.FillRectangle(new SolidBrush(SelectedColor), new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height));
 
                 //-- Text
                 e.Graphics.DrawString(" " + ListBx.Items[e.Index].ToString(), new Font("Segoe UI", 8), Brushes.White, e.Bounds.X, e.Bounds.Y + 2);
@@ -147,7 +143,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private readonly Color BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _SelectedColor = ForeverLibrary.ForeverColor;
 
         public ForeverListBox()
         {
@@ -202,7 +197,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _SelectedColor = Colors.Forever;
+            SelectedColor = Colors.Forever;
         }
     }
 

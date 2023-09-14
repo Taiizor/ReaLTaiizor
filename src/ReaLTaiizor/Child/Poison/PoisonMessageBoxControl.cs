@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Child.Poison
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly Color _question = Color.FromArgb(71, 164, 71);
 
-        public System.Windows.Forms.Panel Body => panelbody;
+        public System.Windows.Forms.Panel Body { get; private set; }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly PoisonMessageBoxProperties _properties = null;
@@ -70,10 +70,10 @@ namespace ReaLTaiizor.Child.Poison
             switch (_properties.Icon)
             {
                 case MessageBoxIcon.Exclamation:
-                    panelbody.BackColor = _warningColor;
+                    Body.BackColor = _warningColor;
                     break;
                 case MessageBoxIcon.Error:
-                    panelbody.BackColor = _errorColor;
+                    Body.BackColor = _errorColor;
                     break;
                 default: break;
             }
@@ -172,7 +172,7 @@ namespace ReaLTaiizor.Child.Poison
                 default: break;
             }
 
-            panelbody.BackColor = _properties.Icon switch
+            Body.BackColor = _properties.Icon switch
             {
                 MessageBoxIcon.Error => _errorColor,
                 MessageBoxIcon.Warning => _warningColor,

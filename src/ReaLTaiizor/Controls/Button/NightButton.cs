@@ -52,7 +52,7 @@ namespace ReaLTaiizor.Controls
             get => _Radius;
             set
             {
-                if (!(value < 1 || value > 20))
+                if (value is not (< 1 or > 20))
                 {
                     _Radius = value;
                 }
@@ -148,11 +148,10 @@ namespace ReaLTaiizor.Controls
 
         #region IButtonControl
 
-        private bool _IsDefault;
         private DialogResult dlgResult;
 
         [Browsable(false)]
-        private bool IsDefault => _IsDefault;
+        private bool IsDefault { get; set; }
 
         /// <summary>
         /// 
@@ -171,7 +170,7 @@ namespace ReaLTaiizor.Controls
 
         public void NotifyDefault(bool value)
         {
-            _IsDefault = value;
+            IsDefault = value;
         }
 
         public void PerformClick()
@@ -215,7 +214,7 @@ namespace ReaLTaiizor.Controls
             // Upper right corner
             if (round_upperRight)
             {
-                RectangleF corner = new(rect.Right - 2 * x_radius, rect.Y, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new(rect.Right - (2 * x_radius), rect.Y, 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 270, 90);
                 point1 = new(rect.Right, rect.Y + y_radius);
             }
@@ -238,7 +237,7 @@ namespace ReaLTaiizor.Controls
             // Lower right corner
             if (round_lowerRight)
             {
-                RectangleF corner = new(rect.Right - 2 * x_radius, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new(rect.Right - (2 * x_radius), rect.Bottom - (2 * y_radius), 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 0, 90);
                 point1 = new(rect.Right - x_radius, rect.Bottom);
             }
@@ -261,7 +260,7 @@ namespace ReaLTaiizor.Controls
             // Lower left corner
             if (round_lowerLeft)
             {
-                RectangleF corner = new(rect.X, rect.Bottom - 2 * y_radius, 2 * x_radius, 2 * y_radius);
+                RectangleF corner = new(rect.X, rect.Bottom - (2 * y_radius), 2 * x_radius, 2 * y_radius);
                 path.AddArc(corner, 90, 90);
                 point1 = new(rect.X, rect.Bottom - y_radius);
             }
@@ -458,7 +457,7 @@ namespace ReaLTaiizor.Controls
             g.PixelOffsetMode = _PixelOffsetType;
 
             margin = 3;
-            width = ClientSize.Width - 2 * margin;
+            width = ClientSize.Width - (2 * margin);
             height = ClientSize.Height - 6;
 
             buttonRect = new(margin, margin, width, height);

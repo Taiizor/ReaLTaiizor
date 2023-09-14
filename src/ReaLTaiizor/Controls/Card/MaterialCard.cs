@@ -1,6 +1,6 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -59,6 +59,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
+
             if (Parent != null)
             {
                 AddShadowPaintEvent(Parent, drawShadowOnParent);
@@ -77,6 +78,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
+
             if (Parent == null)
             {
                 return;
@@ -129,7 +131,7 @@ namespace ReaLTaiizor.Controls
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            g.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
 
             // card rectangle path
             RectangleF cardRectF = new(ClientRectangle.Location, ClientRectangle.Size);

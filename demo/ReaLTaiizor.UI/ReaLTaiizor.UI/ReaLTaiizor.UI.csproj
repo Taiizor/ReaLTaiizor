@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!--<TargetFramework>net48</TargetFramework>-->
-    <!--<TargetFrameworks>net48;net7.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <!--<TargetFrameworks>net48;net8.0-windows</TargetFrameworks>-->
+    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -75,14 +75,16 @@
     <Content Include="Resources\round_http_white_24dp.png" />
     <Content Include="Resources\round_report_problem_white_24dp.png" />
     <Content Include="Resources\round_swap_vert_white_24dp.png" />
+    <Content Include="Resources\round_add_black_24dp.png" />
+    <Content Include="Resources\round_phone_black_24dp.png" />
     <Content Include="Resources\StatusAnnotations_Information_16xLG_color.png" />
     <Content Include="Resources\StatusAnnotations_Information_16xMD_color.png" />
     <Content Include="Resources\Taiizor.ico" />
     <Content Include="Resources\Twitter.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta1" />
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
     <!--<Reference Include="ReaLTaiizor">
       <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\$(TargetFramework)\ReaLTaiizor.dll</HintPath>
     </Reference>-->
@@ -90,7 +92,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-rc.1.23419.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

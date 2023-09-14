@@ -20,6 +20,7 @@ namespace ReaLTaiizor.Controls
     public sealed class PoisonTaskWindow : PoisonForm
     {
         private static PoisonTaskWindow singletonWindow;
+
         public static void ShowTaskWindow(IWin32Window parent, string title, Control userControl, int secToClose)
         {
             if (singletonWindow != null)
@@ -37,7 +38,7 @@ namespace ReaLTaiizor.Controls
                 StartPosition = FormStartPosition.Manual
             };
 
-            if (parent != null && parent is IPoisonForm form)
+            if (parent is not null and IPoisonForm form)
             {
                 singletonWindow.Theme = form.Theme;
                 singletonWindow.Style = form.Style;
@@ -86,33 +87,16 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool cancelTimer = false;
-        public bool CancelTimer
-        {
-            get => cancelTimer;
-            set => cancelTimer = value;
-        }
+        public bool CancelTimer { get; set; } = false;
 
         private readonly int closeTime = 0;
         private int elapsedTime = 0;
         private int progressWidth = 0;
         private DelayedCall timer;
 
-        private bool startLocation = true;
+        public bool StartLocation { get; set; } = true;
 
-        public bool StartLocation
-        {
-            get => startLocation;
-            set => startLocation = value;
-        }
-
-        private bool customSize = false;
-
-        public bool CustomSize
-        {
-            get => customSize;
-            set => customSize = value;
-        }
+        public bool CustomSize { get; set; } = false;
 
         private readonly PoisonPanel controlContainer;
 
@@ -211,7 +195,7 @@ namespace ReaLTaiizor.Controls
 
             elapsedTime += 5;
 
-            if (cancelTimer)
+            if (CancelTimer)
             {
                 elapsedTime = 0;
             }
@@ -220,7 +204,7 @@ namespace ReaLTaiizor.Controls
             progressWidth = (int)(Width * (perc / 100));
             Invalidate(new Rectangle(0, 0, Width, 5));
 
-            if (!cancelTimer)
+            if (!CancelTimer)
             {
                 timer.Reset();
             }

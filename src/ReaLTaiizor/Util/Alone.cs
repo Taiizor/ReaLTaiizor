@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
+
 #endregion
 
 namespace ReaLTaiizor.Util
@@ -27,7 +28,7 @@ namespace ReaLTaiizor.Util
         {
             SizeF sizeF = G.MeasureString(T, F);
             using SolidBrush solidBrush = new(C);
-            G.DrawString(T, F, solidBrush, checked(new Point((int)Math.Round(unchecked(R.Width / 2.0 - (double)(sizeF.Width / 2f))), (int)Math.Round(unchecked(R.Height / 2.0 - (double)(sizeF.Height / 2f))))));
+            G.DrawString(T, F, solidBrush, checked(new Point((int)Math.Round(unchecked((R.Width / 2.0) - (double)(sizeF.Width / 2f))), (int)Math.Round(unchecked((R.Height / 2.0) - (double)(sizeF.Height / 2f))))));
         }
 
         public static Color ColorFromHex(string Hex)

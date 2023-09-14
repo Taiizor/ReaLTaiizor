@@ -53,31 +53,6 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
         private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-
-        private Color _NormalBGColorA = Color.FromArgb(245, 245, 245);
-        private Color _NormalBGColorB = Color.FromArgb(230, 230, 230);
-        private Color _HoverBGColorA = Color.FromArgb(70, 153, 205);
-        private Color _HoverBGColorB = Color.FromArgb(53, 124, 170);
-        private Color _DownBGColorA = Color.FromArgb(70, 153, 205);
-        private Color _DownBGColorB = Color.FromArgb(53, 124, 170);
-        private Color _NormalForeColor = Color.FromArgb(27, 94, 137);
-        private Color _HoverForeColor = Color.White;
-        private Color _DownForeColor = Color.White;
-        private Color _NormalShadowForeColor = Color.FromArgb(200, Color.White);
-        private Color _HoverShadowForeColor = Color.FromArgb(200, Color.Black);
-        private Color _DownShadowForeColor = Color.FromArgb(200, Color.Black);
-        private Color _NormalBorderColorA = Color.FromArgb(252, 252, 252);
-        private Color _NormalBorderColorB = Color.FromArgb(249, 249, 249);
-        private Color _NormalBorderColorC = Color.FromArgb(189, 189, 189);
-        private Color _NormalBorderColorD = Color.FromArgb(200, 168, 168, 168);
-        private Color _HoverBorderColorA = Color.FromArgb(88, 168, 221);
-        private Color _HoverBorderColorB = Color.FromArgb(76, 149, 194);
-        private Color _HoverBorderColorC = Color.FromArgb(38, 93, 131);
-        private Color _HoverBorderColorD = Color.FromArgb(200, 25, 73, 109);
-        private Color _DownBorderColorA = Color.FromArgb(88, 168, 221);
-        private Color _DownBorderColorB = Color.FromArgb(76, 149, 194);
-        private Color _DownBorderColorC = Color.FromArgb(38, 93, 131);
-        private Color _DownBorderColorD = Color.FromArgb(200, 25, 73, 109);
         #endregion
 
         #region Settings
@@ -91,149 +66,53 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color NormalBGColorA
-        {
-            get => _NormalBGColorA;
-            set => _NormalBGColorA = value;
-        }
+        public Color NormalBGColorA { get; set; } = Color.FromArgb(245, 245, 245);
 
-        public Color NormalBGColorB
-        {
-            get => _NormalBGColorB;
-            set => _NormalBGColorB = value;
-        }
+        public Color NormalBGColorB { get; set; } = Color.FromArgb(230, 230, 230);
 
-        public Color HoverBGColorA
-        {
-            get => _HoverBGColorA;
-            set => _HoverBGColorA = value;
-        }
+        public Color HoverBGColorA { get; set; } = Color.FromArgb(70, 153, 205);
 
-        public Color HoverBGColorB
-        {
-            get => _HoverBGColorB;
-            set => _HoverBGColorB = value;
-        }
+        public Color HoverBGColorB { get; set; } = Color.FromArgb(53, 124, 170);
 
-        public Color DownBGColorA
-        {
-            get => _DownBGColorA;
-            set => _DownBGColorA = value;
-        }
+        public Color DownBGColorA { get; set; } = Color.FromArgb(70, 153, 205);
 
-        public Color DownBGColorB
-        {
-            get => _DownBGColorB;
-            set => _DownBGColorB = value;
-        }
+        public Color DownBGColorB { get; set; } = Color.FromArgb(53, 124, 170);
 
-        public Color NormalForeColor
-        {
-            get => _NormalForeColor;
-            set => _NormalForeColor = value;
-        }
+        public Color NormalForeColor { get; set; } = Color.FromArgb(27, 94, 137);
 
-        public Color HoverForeColor
-        {
-            get => _HoverForeColor;
-            set => _HoverForeColor = value;
-        }
+        public Color HoverForeColor { get; set; } = Color.White;
 
-        public Color DownForeColor
-        {
-            get => _DownForeColor;
-            set => _DownForeColor = value;
-        }
+        public Color DownForeColor { get; set; } = Color.White;
 
-        public Color NormalShadowForeColor
-        {
-            get => _NormalShadowForeColor;
-            set => _NormalShadowForeColor = value;
-        }
+        public Color NormalShadowForeColor { get; set; } = Color.FromArgb(200, Color.White);
 
-        public Color HoverShadowForeColor
-        {
-            get => _HoverShadowForeColor;
-            set => _HoverShadowForeColor = value;
-        }
+        public Color HoverShadowForeColor { get; set; } = Color.FromArgb(200, Color.Black);
 
-        public Color DownShadowForeColor
-        {
-            get => _DownShadowForeColor;
-            set => _DownShadowForeColor = value;
-        }
+        public Color DownShadowForeColor { get; set; } = Color.FromArgb(200, Color.Black);
 
-        public Color NormalBorderColorA
-        {
-            get => _NormalBorderColorA;
-            set => _NormalBorderColorA = value;
-        }
+        public Color NormalBorderColorA { get; set; } = Color.FromArgb(252, 252, 252);
 
-        public Color NormalBorderColorB
-        {
-            get => _NormalBorderColorB;
-            set => _NormalBorderColorB = value;
-        }
+        public Color NormalBorderColorB { get; set; } = Color.FromArgb(249, 249, 249);
 
-        public Color NormalBorderColorC
-        {
-            get => _NormalBorderColorC;
-            set => _NormalBorderColorC = value;
-        }
+        public Color NormalBorderColorC { get; set; } = Color.FromArgb(189, 189, 189);
 
-        public Color NormalBorderColorD
-        {
-            get => _NormalBorderColorD;
-            set => _NormalBorderColorD = value;
-        }
+        public Color NormalBorderColorD { get; set; } = Color.FromArgb(200, 168, 168, 168);
 
-        public Color HoverBorderColorA
-        {
-            get => _HoverBorderColorA;
-            set => _HoverBorderColorA = value;
-        }
+        public Color HoverBorderColorA { get; set; } = Color.FromArgb(88, 168, 221);
 
-        public Color HoverBorderColorB
-        {
-            get => _HoverBorderColorB;
-            set => _HoverBorderColorB = value;
-        }
+        public Color HoverBorderColorB { get; set; } = Color.FromArgb(76, 149, 194);
 
-        public Color HoverBorderColorC
-        {
-            get => _HoverBorderColorC;
-            set => _HoverBorderColorC = value;
-        }
+        public Color HoverBorderColorC { get; set; } = Color.FromArgb(38, 93, 131);
 
-        public Color HoverBorderColorD
-        {
-            get => _HoverBorderColorD;
-            set => _HoverBorderColorD = value;
-        }
+        public Color HoverBorderColorD { get; set; } = Color.FromArgb(200, 25, 73, 109);
 
-        public Color DownBorderColorA
-        {
-            get => _DownBorderColorA;
-            set => _DownBorderColorA = value;
-        }
+        public Color DownBorderColorA { get; set; } = Color.FromArgb(88, 168, 221);
 
-        public Color DownBorderColorB
-        {
-            get => _DownBorderColorB;
-            set => _DownBorderColorB = value;
-        }
+        public Color DownBorderColorB { get; set; } = Color.FromArgb(76, 149, 194);
 
-        public Color DownBorderColorC
-        {
-            get => _DownBorderColorC;
-            set => _DownBorderColorC = value;
-        }
+        public Color DownBorderColorC { get; set; } = Color.FromArgb(38, 93, 131);
 
-        public Color DownBorderColorD
-        {
-            get => _DownBorderColorD;
-            set => _DownBorderColorD = value;
-        }
+        public Color DownBorderColorD { get; set; } = Color.FromArgb(200, 25, 73, 109);
         #endregion
 
         public SkyButton() : base()

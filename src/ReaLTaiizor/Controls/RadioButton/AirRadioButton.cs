@@ -15,7 +15,6 @@ namespace ReaLTaiizor.Controls
     [DefaultEventAttribute("CheckedChanged")]
     public class AirRadioButton : AirControl
     {
-
         public AirRadioButton()
         {
             Font = new("Segoe UI", 9);
@@ -30,12 +29,8 @@ namespace ReaLTaiizor.Controls
         }
 
         private int X;
-        private Color TextColor;
-        private Color G1;
-        private Color G2;
-        private Color Bo;
+        private Color TextColor, G1, G2, Bo, Bb;
 
-        private Color Bb;
         protected override void ColorHook()
         {
             TextColor = GetColor("Text");

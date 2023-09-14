@@ -17,10 +17,10 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotBanner()
         {
-            base.Size = new Size(100, 20);
-            base.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            Size = new Size(100, 20);
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
-            Text = base.Name;
+            Text = Name;
             ForeColor = Color.White;
         }
 
@@ -33,7 +33,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 borderColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -46,7 +46,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 bannerColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -86,17 +86,17 @@ namespace ReaLTaiizor.Controls
             list.Add(new Point(base.Height / 10 * 3, base.Height / 10 * 2));
             list.Add(new Point(base.Height / 10 * 4, base.Height / 10));
             list.Add(new Point(base.Height / 10 * 5, 0));
-            list.Add(new Point(base.Width - base.Height / 10 * 5, 0));
-            list.Add(new Point(base.Width - base.Height / 10 * 4, base.Height / 10));
-            list.Add(new Point(base.Width - base.Height / 10 * 3, base.Height / 10 * 2));
-            list.Add(new Point(base.Width - base.Height / 10 * 2, base.Height / 10 * 3));
-            list.Add(new Point(base.Width - base.Height / 10, base.Height / 10 * 4));
+            list.Add(new Point(base.Width - (base.Height / 10 * 5), 0));
+            list.Add(new Point(base.Width - (base.Height / 10 * 4), base.Height / 10));
+            list.Add(new Point(base.Width - (base.Height / 10 * 3), base.Height / 10 * 2));
+            list.Add(new Point(base.Width - (base.Height / 10 * 2), base.Height / 10 * 3));
+            list.Add(new Point(base.Width - (base.Height / 10), base.Height / 10 * 4));
             list.Add(new Point(base.Width, base.Height / 10 * 5));
-            list.Add(new Point(base.Width - base.Height / 10, base.Height / 10 * 6));
-            list.Add(new Point(base.Width - base.Height / 10 * 2, base.Height / 10 * 7));
-            list.Add(new Point(base.Width - base.Height / 10 * 3, base.Height / 10 * 8));
-            list.Add(new Point(base.Width - base.Height / 10 * 4, base.Height / 10 * 9));
-            list.Add(new Point(base.Width - base.Height / 10 * 5, base.Height / 10 * 10));
+            list.Add(new Point(base.Width - (base.Height / 10), base.Height / 10 * 6));
+            list.Add(new Point(base.Width - (base.Height / 10 * 2), base.Height / 10 * 7));
+            list.Add(new Point(base.Width - (base.Height / 10 * 3), base.Height / 10 * 8));
+            list.Add(new Point(base.Width - (base.Height / 10 * 4), base.Height / 10 * 9));
+            list.Add(new Point(base.Width - (base.Height / 10 * 5), base.Height / 10 * 10));
             list.Add(new Point(base.Height / 10 * 5, base.Height / 10 * 10));
             list.Add(new Point(base.Height / 10 * 4, base.Height / 10 * 9));
             list.Add(new Point(base.Height / 10 * 3, base.Height / 10 * 8));
@@ -111,24 +111,24 @@ namespace ReaLTaiizor.Controls
             list2.Add(new Point(base.Height / 10 * 3, base.Height / 10 * 2));
             list2.Add(new Point(base.Height / 10 * 4, base.Height / 10));
             list2.Add(new Point(base.Height / 10 * 5, 0));
-            list2.Add(new Point(base.Width - base.Height / 10 * 5 - 1, 0));
-            list2.Add(new Point(base.Width - base.Height / 10 * 4 - 1, base.Height / 10));
-            list2.Add(new Point(base.Width - base.Height / 10 * 3 - 1, base.Height / 10 * 2));
-            list2.Add(new Point(base.Width - base.Height / 10 * 2 - 1, base.Height / 10 * 3));
-            list2.Add(new Point(base.Width - base.Height / 10 - 1, base.Height / 10 * 4));
+            list2.Add(new Point(base.Width - (base.Height / 10 * 5) - 1, 0));
+            list2.Add(new Point(base.Width - (base.Height / 10 * 4) - 1, base.Height / 10));
+            list2.Add(new Point(base.Width - (base.Height / 10 * 3) - 1, base.Height / 10 * 2));
+            list2.Add(new Point(base.Width - (base.Height / 10 * 2) - 1, base.Height / 10 * 3));
+            list2.Add(new Point(base.Width - (base.Height / 10) - 1, base.Height / 10 * 4));
             list2.Add(new Point(base.Width - 1, base.Height / 10 * 5));
-            list2.Add(new Point(base.Width - base.Height / 10 - 1, base.Height / 10 * 6));
-            list2.Add(new Point(base.Width - base.Height / 10 * 2 - 1, base.Height / 10 * 7));
-            list2.Add(new Point(base.Width - base.Height / 10 * 3 - 1, base.Height / 10 * 8));
-            list2.Add(new Point(base.Width - base.Height / 10 * 4 - 1, base.Height / 10 * 9));
-            list2.Add(new Point(base.Width - base.Height / 10 * 5, base.Height / 10 * 10 - 1));
-            list2.Add(new Point(base.Height / 10 * 5 - 1, base.Height / 10 * 10 - 1));
+            list2.Add(new Point(base.Width - (base.Height / 10) - 1, base.Height / 10 * 6));
+            list2.Add(new Point(base.Width - (base.Height / 10 * 2) - 1, base.Height / 10 * 7));
+            list2.Add(new Point(base.Width - (base.Height / 10 * 3) - 1, base.Height / 10 * 8));
+            list2.Add(new Point(base.Width - (base.Height / 10 * 4) - 1, base.Height / 10 * 9));
+            list2.Add(new Point(base.Width - (base.Height / 10 * 5), (base.Height / 10 * 10) - 1));
+            list2.Add(new Point((base.Height / 10 * 5) - 1, (base.Height / 10 * 10) - 1));
             list2.Add(new Point(base.Height / 10 * 4, base.Height / 10 * 9));
             list2.Add(new Point(base.Height / 10 * 3, base.Height / 10 * 8));
             list2.Add(new Point(base.Height / 10 * 2, base.Height / 10 * 7));
             list2.Add(new Point(base.Height / 10, base.Height / 10 * 6));
             list2.Add(new Point(0, base.Height / 10 * 5));
-            Pen pen = new Pen(borderColor, 1f);
+            Pen pen = new(borderColor, 1f);
             e.Graphics.DrawPolygon(pen, list2.ToArray());
             StringFormat stringFormat = new()
             {

@@ -30,33 +30,11 @@ namespace ReaLTaiizor.Forms
         private const int htBottom = 15;
         private const int htBottomLeft = 16;
         private const int htBottomRight = 17;
-        private bool drawBorder;
-        public bool DrawBorder
-        {
-            get => drawBorder;
-            set => drawBorder = value;
-        }
 
-        private int borderThickness;
-        public int BorderThickness
-        {
-            get => borderThickness;
-            set => borderThickness = value;
-        }
-
-        private bool moveable = true;
-        public bool Moveable
-        {
-            get => moveable;
-            set => moveable = value;
-        }
-
-        private bool sizable = true;
-        public bool Sizable
-        {
-            get => sizable;
-            set => sizable = value;
-        }
+        public bool DrawBorder { get; set; }
+        public int BorderThickness { get; set; }
+        public bool Moveable { get; set; } = true;
+        public bool Sizable { get; set; } = true;
 
         public RoyalForm()
         {
@@ -154,25 +132,25 @@ namespace ReaLTaiizor.Forms
                 ///allow resize on the top border
                 if (pt.Y <= 2 && clientSize.Height >= 2)
                 {
-                    m.Result = (IntPtr)(htTop);
+                    m.Result = (IntPtr)htTop;
                     return;
                 }
                 ///allow resize on the bottom border
                 if (pt.Y >= clientSize.Height - gripDist && clientSize.Height >= gripDist)
                 {
-                    m.Result = (IntPtr)(htBottom);
+                    m.Result = (IntPtr)htBottom;
                     return;
                 }
                 ///allow resize on the left border
                 if (pt.X <= gripDist && clientSize.Height >= gripDist)
                 {
-                    m.Result = (IntPtr)(htLeft);
+                    m.Result = (IntPtr)htLeft;
                     return;
                 }
                 ///allow resize on the right border
                 if (pt.X >= clientSize.Width - gripDist && clientSize.Height >= gripDist)
                 {
-                    m.Result = (IntPtr)(htRight);
+                    m.Result = (IntPtr)htRight;
                     return;
                 }
             }
@@ -237,7 +215,7 @@ namespace ReaLTaiizor.Forms
             // 
             // minimizeButton
             // 
-            minimizeButton.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            minimizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             minimizeButton.BackColor = BackColor;
             minimizeButton.BorderColor = Color.FromArgb(180, 180, 180);
             minimizeButton.BorderThickness = 3;
@@ -257,7 +235,7 @@ namespace ReaLTaiizor.Forms
             // 
             // maximizeButton
             // 
-            maximizeButton.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            maximizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             maximizeButton.BackColor = BackColor;
             maximizeButton.BorderColor = Color.FromArgb(180, 180, 180);
             maximizeButton.BorderThickness = 3;
@@ -277,7 +255,7 @@ namespace ReaLTaiizor.Forms
             // 
             // closeButton
             // 
-            closeButton.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            closeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             closeButton.BackColor = BackColor;
             closeButton.BorderColor = Color.FromArgb(180, 180, 180);
             closeButton.BorderThickness = 3;

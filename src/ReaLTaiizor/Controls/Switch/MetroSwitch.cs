@@ -230,7 +230,7 @@ namespace ReaLTaiizor.Controls
             g.FillRectangle(backBrush, rect);
             g.FillRectangle(checkback, rect2);
             g.DrawRectangle(p, rect);
-            g.FillRectangle(checkMarkBrush, new Rectangle((Convert.ToInt32(rect.Width * (_switchLocation / 180.0))), 0, 16, 22));
+            g.FillRectangle(checkMarkBrush, new Rectangle(Convert.ToInt32(rect.Width * (_switchLocation / 180.0)), 0, 16, 22));
         }
 
         #endregion Draw Control

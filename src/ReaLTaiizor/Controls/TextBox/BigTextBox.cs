@@ -30,6 +30,7 @@ namespace ReaLTaiizor.Controls
         private readonly SolidBrush B1;
 
         #endregion
+
         #region Properties
 
         public HorizontalAlignment TextAlignment
@@ -41,6 +42,7 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
         public int MaxLength
         {
             get => _maxchars;
@@ -128,6 +130,7 @@ namespace ReaLTaiizor.Controls
         protected Size ImageSize => _ImageSize;
 
         #endregion
+
         #region EventArgs
 
         protected override void OnTextChanged(EventArgs e)
@@ -177,6 +180,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
+
             if (_Multiline)
             {
                 RT_TB.Height = Height - 23;
@@ -202,6 +206,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         public void AddTextBox()
         {
             TextBox _TB = RT_TB;
@@ -241,7 +246,7 @@ namespace ReaLTaiizor.Controls
             Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
 
-            G.SmoothingMode = SmoothingMode.AntiAlias;
+            G.SmoothingMode = SmoothingMode.HighQuality;
 
             if (Image == null)
             {

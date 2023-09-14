@@ -110,41 +110,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -204,7 +181,7 @@ namespace ReaLTaiizor.Controls
             SIF_POS = 0x0004,
             SIF_DISABLENOSCROLL = 0x0008,
             SIF_TRACKPOS = 0x0010,
-            SIF_ALL = (SIF_RANGE | SIF_PAGE | SIF_POS | SIF_TRACKPOS)
+            SIF_ALL = SIF_RANGE | SIF_PAGE | SIF_POS | SIF_TRACKPOS
         }
 
         //ListView item information
@@ -245,10 +222,10 @@ namespace ReaLTaiizor.Controls
         private const uint WM_NCCALCSIZE = 0x83;
 
         private const uint LVM_FIRST = 0x1000;
-        private const uint LVM_INSERTITEMA = (LVM_FIRST + 7);
-        private const uint LVM_INSERTITEMW = (LVM_FIRST + 77);
-        private const uint LVM_DELETEITEM = (LVM_FIRST + 8);
-        private const uint LVM_DELETEALLITEMS = (LVM_FIRST + 9);
+        private const uint LVM_INSERTITEMA = LVM_FIRST + 7;
+        private const uint LVM_INSERTITEMW = LVM_FIRST + 77;
+        private const uint LVM_DELETEITEM = LVM_FIRST + 8;
+        private const uint LVM_DELETEALLITEMS = LVM_FIRST + 9;
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -341,7 +318,7 @@ namespace ReaLTaiizor.Controls
             SuspendLayout();
             EnsureVisible(pos);
 
-            if (View == View.Tile || View == View.LargeIcon || View == View.SmallIcon)
+            if (View is View.Tile or View.LargeIcon or View.SmallIcon)
             {
                 return;
             }
@@ -413,11 +390,11 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            else if (m.Msg == LVM_INSERTITEMA || m.Msg == LVM_INSERTITEMW)
+            else if (m.Msg is (int)LVM_INSERTITEMA or (int)LVM_INSERTITEMW)
             {
                 OnItemAdded();
             }
-            else if (m.Msg == LVM_DELETEITEM || m.Msg == LVM_DELETEALLITEMS)
+            else if (m.Msg is (int)LVM_DELETEITEM or (int)LVM_DELETEALLITEMS)
             {
                 OnItemsRemoved();
             }
@@ -773,7 +750,7 @@ namespace ReaLTaiizor.Controls
                         itemForeColor = Color.Silver;
                     }
 
-                    int _y = (e.Item.Bounds.Y + _fill) + ((e.Item.Bounds.Height - ((e.Item.SubItems.Count) * 15)) / 2);
+                    int _y = e.Item.Bounds.Y + _fill + ((e.Item.Bounds.Height - (e.Item.SubItems.Count * 15)) / 2);
 
                     Rectangle rect = new(e.Item.Bounds.X + _left, e.Item.Bounds.Y + _fill, e.Item.Bounds.Width, e.Item.Bounds.Height);
 

@@ -108,41 +108,18 @@ namespace ReaLTaiizor.Controls
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
-
-        private bool useCustomBackColor = false;
+        public PoisonStyleManager StyleManager { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomBackColor
-        {
-            get => useCustomBackColor;
-            set => useCustomBackColor = value;
-        }
-
-        private bool useCustomForeColor = false;
+        public bool UseCustomBackColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseCustomForeColor
-        {
-            get => useCustomForeColor;
-            set => useCustomForeColor = value;
-        }
-
-        private bool useStyleColors = false;
+        public bool UseCustomForeColor { get; set; } = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseStyleColors
-        {
-            get => useStyleColors;
-            set => useStyleColors = value;
-        }
+        public bool UseStyleColors { get; set; } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -152,21 +129,15 @@ namespace ReaLTaiizor.Controls
             get => GetStyle(ControlStyles.Selectable);
             set => SetStyle(ControlStyles.Selectable, value);
         }
-
-        private Control activeControl = null;
         [Browsable(false)]
-        public Control ActiveControl
-        {
-            get => activeControl;
-            set => activeControl = value;
-        }
+        public Control ActiveControl { get; set; } = null;
 
         public bool ActivateControl(Control ctrl)
         {
             if (Controls.Contains(ctrl))
             {
                 ctrl.Select();
-                activeControl = ctrl;
+                ActiveControl = ctrl;
                 return true;
             }
 
@@ -177,22 +148,11 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private bool paintTileCount = true;
         [DefaultValue(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool PaintTileCount
-        {
-            get => paintTileCount;
-            set => paintTileCount = value;
-        }
-
-        private int tileCount = 0;
+        public bool PaintTileCount { get; set; } = true;
         [DefaultValue(0)]
-        public int TileCount
-        {
-            get => tileCount;
-            set => tileCount = value;
-        }
+        public int TileCount { get; set; } = 0;
 
         [DefaultValue(ContentAlignment.BottomLeft)]
         public new ContentAlignment TextAlign
@@ -200,33 +160,15 @@ namespace ReaLTaiizor.Controls
             get => base.TextAlign;
             set => base.TextAlign = value;
         }
-
-        private Image tileImage = null;
         [DefaultValue(null)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public Image TileImage
-        {
-            get => tileImage;
-            set => tileImage = value;
-        }
-
-        private bool useTileImage = false;
+        public Image TileImage { get; set; } = null;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool UseTileImage
-        {
-            get => useTileImage;
-            set => useTileImage = value;
-        }
-
-        private ContentAlignment tileImageAlign = ContentAlignment.TopLeft;
+        public bool UseTileImage { get; set; } = false;
         [DefaultValue(ContentAlignment.TopLeft)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public ContentAlignment TileImageAlign
-        {
-            get => tileImageAlign;
-            set => tileImageAlign = value;
-        }
+        public ContentAlignment TileImageAlign { get; set; } = ContentAlignment.TopLeft;
 
         private PoisonTileTextSize tileTextFontSize = PoisonTileTextSize.Medium;
         [DefaultValue(PoisonTileTextSize.Medium)]
@@ -246,14 +188,9 @@ namespace ReaLTaiizor.Controls
             set { tileTextFontWeight = value; Refresh(); }
         }
 
-        private bool displayFocusBorder = true;
         [DefaultValue(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool DisplayFocusBorder
-        {
-            get => displayFocusBorder;
-            set => displayFocusBorder = value;
-        }
+        public bool DisplayFocusBorder { get; set; } = true;
 
         private bool isHovered = false;
         private bool isPressed = false;
@@ -287,7 +224,7 @@ namespace ReaLTaiizor.Controls
             {
                 Color backColor = BackColor;
 
-                if (!useCustomBackColor)
+                if (!UseCustomBackColor)
                 {
                     backColor = PoisonPaint.GetStyleColor(Style);
                 }
@@ -349,12 +286,12 @@ namespace ReaLTaiizor.Controls
                 foreColor = PoisonPaint.ForeColor.Tile.Normal(Theme);
             }
 
-            if (useCustomForeColor)
+            if (UseCustomForeColor)
             {
                 foreColor = ForeColor;
             }
 
-            if (isPressed || ((isHovered || isFocused) && displayFocusBorder))
+            if (isPressed || ((isHovered || isFocused) && DisplayFocusBorder))
             {
                 using Pen p = new(borderColor);
                 p.Width = 3;
@@ -365,20 +302,20 @@ namespace ReaLTaiizor.Controls
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
 
-            if (useTileImage)
+            if (UseTileImage)
             {
-                if (tileImage != null)
+                if (TileImage != null)
                 {
-                    Rectangle imageRectangle = tileImageAlign switch
+                    Rectangle imageRectangle = TileImageAlign switch
                     {
                         ContentAlignment.BottomLeft => new(new Point(0, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height)),
-                        ContentAlignment.BottomCenter => new(new Point(Width / 2 - TileImage.Width / 2, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height)),
+                        ContentAlignment.BottomCenter => new(new Point((Width / 2) - (TileImage.Width / 2), Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height)),
                         ContentAlignment.BottomRight => new(new Point(Width - TileImage.Width, Height - TileImage.Height), new Size(TileImage.Width, TileImage.Height)),
-                        ContentAlignment.MiddleLeft => new(new Point(0, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height)),
-                        ContentAlignment.MiddleCenter => new(new Point(Width / 2 - TileImage.Width / 2, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height)),
-                        ContentAlignment.MiddleRight => new(new Point(Width - TileImage.Width, Height / 2 - TileImage.Height / 2), new Size(TileImage.Width, TileImage.Height)),
+                        ContentAlignment.MiddleLeft => new(new Point(0, (Height / 2) - (TileImage.Height / 2)), new Size(TileImage.Width, TileImage.Height)),
+                        ContentAlignment.MiddleCenter => new(new Point((Width / 2) - (TileImage.Width / 2), (Height / 2) - (TileImage.Height / 2)), new Size(TileImage.Width, TileImage.Height)),
+                        ContentAlignment.MiddleRight => new(new Point(Width - TileImage.Width, (Height / 2) - (TileImage.Height / 2)), new Size(TileImage.Width, TileImage.Height)),
                         ContentAlignment.TopLeft => new(new Point(0, 0), new Size(TileImage.Width, TileImage.Height)),
-                        ContentAlignment.TopCenter => new(new Point(Width / 2 - TileImage.Width / 2, 0), new Size(TileImage.Width, TileImage.Height)),
+                        ContentAlignment.TopCenter => new(new Point((Width / 2) - (TileImage.Width / 2), 0), new Size(TileImage.Width, TileImage.Height)),
                         ContentAlignment.TopRight => new(new Point(Width - TileImage.Width, 0), new Size(TileImage.Width, TileImage.Height)),
                         _ => new(new Point(0, 0), new Size(TileImage.Width, TileImage.Height)),
                     };
@@ -386,7 +323,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            if (TileCount > 0 && paintTileCount)
+            if (TileCount > 0 && PaintTileCount)
             {
                 Size countSize = TextRenderer.MeasureText(TileCount.ToString(), PoisonFonts.TileCount);
 

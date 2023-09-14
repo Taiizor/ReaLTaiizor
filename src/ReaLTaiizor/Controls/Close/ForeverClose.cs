@@ -98,37 +98,16 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Colors")]
-        public Color OverColor
-        {
-            get => _OverColor;
-            set => _OverColor = value;
-        }
+        public Color OverColor { get; set; } = Color.FromArgb(30, 255, 255, 255);
 
         [Category("Colors")]
-        public Color DownColor
-        {
-            get => _DownColor;
-            set => _DownColor = value;
-        }
+        public Color DownColor { get; set; } = Color.FromArgb(30, 0, 0, 0);
 
         [Category("Colors")]
-        public Color TextColor
-        {
-            get => _TextColor;
-            set => _TextColor = value;
-        }
-
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _OverColor = Color.FromArgb(30, 255, 255, 255);
-        private Color _DownColor = Color.FromArgb(30, 0, 0, 0);
-        private Color _TextColor = Color.FromArgb(243, 243, 243);
+        public Color TextColor { get; set; } = Color.FromArgb(243, 243, 243);
 
         public ForeverClose()
         {
@@ -155,7 +134,7 @@ namespace ReaLTaiizor.Controls
             _with3.Clear(BackColor);
 
             //-- Base
-            _with3.FillRectangle(new SolidBrush(_BaseColor), Base);
+            _with3.FillRectangle(new SolidBrush(BaseColor), Base);
 
             //-- X
             _with3.DrawString("r", Font, new SolidBrush(TextColor), new Rectangle(0, 0, Width, Height), ForeverLibrary.CenterSF);
@@ -164,10 +143,10 @@ namespace ReaLTaiizor.Controls
             switch (State)
             {
                 case MouseStateForever.Over:
-                    _with3.FillRectangle(new SolidBrush(_OverColor), Base);
+                    _with3.FillRectangle(new SolidBrush(OverColor), Base);
                     break;
                 case MouseStateForever.Down:
-                    _with3.FillRectangle(new SolidBrush(_DownColor), Base);
+                    _with3.FillRectangle(new SolidBrush(DownColor), Base);
                     break;
             }
 

@@ -36,7 +36,7 @@ namespace ReaLTaiizor.Controls
                 {
                     IComponent rootComponent = designerHost.RootComponent;
 
-                    if (rootComponent is ContainerControl && rootComponent is not Form)
+                    if (rootComponent is ContainerControl and not Form)
                     {
                         effectedControl = rootComponent as ContainerControl;
 

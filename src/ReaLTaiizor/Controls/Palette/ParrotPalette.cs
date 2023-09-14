@@ -15,8 +15,8 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotPalette()
         {
-            base.Size = new Size(175, 50);
-            Increment = base.Width / 7;
+            Size = new Size(175, 50);
+            Increment = Width / 7;
             Cursor = Cursors.Hand;
         }
 
@@ -50,7 +50,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 gridColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -63,7 +63,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 showGrid = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -76,7 +76,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color1 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -89,7 +89,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color2 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -102,7 +102,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color3 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -115,7 +115,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color4 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -128,7 +128,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color5 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -141,7 +141,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color6 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -154,7 +154,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color7 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -167,7 +167,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color8 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -180,7 +180,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color9 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -193,7 +193,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color10 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -206,7 +206,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color11 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -219,7 +219,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color12 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -232,7 +232,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color13 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -245,69 +245,84 @@ namespace ReaLTaiizor.Controls
             set
             {
                 color14 = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            if (e.X > 0 && e.Y < base.Height)
+
+            if (e.X > 0 && e.Y < Height)
             {
                 selectedColor = color2;
             }
-            if (e.X > 0 && e.Y < base.Height / 2)
+
+            if (e.X > 0 && e.Y < Height / 2)
             {
                 selectedColor = color1;
             }
-            if (e.X > Increment && e.Y < base.Height)
+
+            if (e.X > Increment && e.Y < Height)
             {
                 selectedColor = color4;
             }
-            if (e.X > Increment && e.Y < base.Height / 2)
+
+            if (e.X > Increment && e.Y < Height / 2)
             {
                 selectedColor = color3;
             }
-            if (e.X > Increment * 2 && e.Y < base.Height)
+
+            if (e.X > Increment * 2 && e.Y < Height)
             {
                 selectedColor = color6;
             }
-            if (e.X > Increment * 2 && e.Y < base.Height / 2)
+
+            if (e.X > Increment * 2 && e.Y < Height / 2)
             {
                 selectedColor = color5;
             }
-            if (e.X > Increment * 3 && e.Y < base.Height)
+
+            if (e.X > Increment * 3 && e.Y < Height)
             {
                 selectedColor = color8;
             }
-            if (e.X > Increment * 3 && e.Y < base.Height / 2)
+
+            if (e.X > Increment * 3 && e.Y < Height / 2)
             {
                 selectedColor = color7;
             }
-            if (e.X > Increment * 4 && e.Y < base.Height)
+
+            if (e.X > Increment * 4 && e.Y < Height)
             {
                 selectedColor = color10;
             }
-            if (e.X > Increment * 4 && e.Y < base.Height / 2)
+
+            if (e.X > Increment * 4 && e.Y < Height / 2)
             {
                 selectedColor = color9;
             }
-            if (e.X > Increment * 5 && e.Y < base.Height)
+
+            if (e.X > Increment * 5 && e.Y < Height)
             {
                 selectedColor = color12;
             }
-            if (e.X > Increment * 5 && e.Y < base.Height / 2)
+
+            if (e.X > Increment * 5 && e.Y < Height / 2)
             {
                 selectedColor = color11;
             }
-            if (e.X > Increment * 6 && e.Y < base.Height)
+
+            if (e.X > Increment * 6 && e.Y < Height)
             {
                 selectedColor = color14;
             }
-            if (e.X > Increment * 6 && e.Y < base.Height / 2)
+
+            if (e.X > Increment * 6 && e.Y < Height / 2)
             {
                 selectedColor = color13;
             }
+
             OnColorChange();
         }
 
@@ -322,33 +337,33 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
-            Increment = base.Width / 7;
+            Increment = Width / 7;
 
-            e.Graphics.FillRectangle(new SolidBrush(color1), 0, 0, Increment, base.Height / 2);
-            e.Graphics.FillRectangle(new SolidBrush(color2), 0, base.Height / 2, Increment, base.Height);
-            e.Graphics.FillRectangle(new SolidBrush(color3), Increment, 0, Increment, base.Height / 2);
-            e.Graphics.FillRectangle(new SolidBrush(color4), Increment, base.Height / 2, Increment, base.Height);
-            e.Graphics.FillRectangle(new SolidBrush(color5), Increment * 2, 0, Increment, base.Height / 2);
-            e.Graphics.FillRectangle(new SolidBrush(color6), Increment * 2, base.Height / 2, Increment, base.Height);
-            e.Graphics.FillRectangle(new SolidBrush(color7), Increment * 3, 0, Increment, base.Height / 2);
-            e.Graphics.FillRectangle(new SolidBrush(color8), Increment * 3, base.Height / 2, Increment, base.Height);
-            e.Graphics.FillRectangle(new SolidBrush(color9), Increment * 4, 0, Increment, base.Height / 2);
-            e.Graphics.FillRectangle(new SolidBrush(color10), Increment * 4, base.Height / 2, Increment, base.Height);
-            e.Graphics.FillRectangle(new SolidBrush(color11), Increment * 5, 0, Increment, base.Height / 2);
-            e.Graphics.FillRectangle(new SolidBrush(color12), Increment * 5, base.Height / 2, Increment, base.Height);
-            e.Graphics.FillRectangle(new SolidBrush(color13), Increment * 6, 0, Increment, base.Height / 2);
-            e.Graphics.FillRectangle(new SolidBrush(color14), Increment * 6, base.Height / 2, Increment, base.Height);
+            e.Graphics.FillRectangle(new SolidBrush(color1), 0, 0, Increment, Height / 2);
+            e.Graphics.FillRectangle(new SolidBrush(color2), 0, Height / 2, Increment, Height);
+            e.Graphics.FillRectangle(new SolidBrush(color3), Increment, 0, Increment, Height / 2);
+            e.Graphics.FillRectangle(new SolidBrush(color4), Increment, Height / 2, Increment, Height);
+            e.Graphics.FillRectangle(new SolidBrush(color5), Increment * 2, 0, Increment, Height / 2);
+            e.Graphics.FillRectangle(new SolidBrush(color6), Increment * 2, Height / 2, Increment, Height);
+            e.Graphics.FillRectangle(new SolidBrush(color7), Increment * 3, 0, Increment, Height / 2);
+            e.Graphics.FillRectangle(new SolidBrush(color8), Increment * 3, Height / 2, Increment, Height);
+            e.Graphics.FillRectangle(new SolidBrush(color9), Increment * 4, 0, Increment, Height / 2);
+            e.Graphics.FillRectangle(new SolidBrush(color10), Increment * 4, Height / 2, Increment, Height);
+            e.Graphics.FillRectangle(new SolidBrush(color11), Increment * 5, 0, Increment, Height / 2);
+            e.Graphics.FillRectangle(new SolidBrush(color12), Increment * 5, Height / 2, Increment, Height);
+            e.Graphics.FillRectangle(new SolidBrush(color13), Increment * 6, 0, Increment, Height / 2);
+            e.Graphics.FillRectangle(new SolidBrush(color14), Increment * 6, Height / 2, Increment, Height);
 
             if (showGrid)
             {
-                e.Graphics.DrawRectangle(new Pen(gridColor, 1f), 0, 0, Increment * 7 - 1, base.Height - 1);
-                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment, 0, Increment, base.Height);
-                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 2, 0, Increment * 2, base.Height);
-                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 3, 0, Increment * 3, base.Height);
-                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 4, 0, Increment * 4, base.Height);
-                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 5, 0, Increment * 5, base.Height);
-                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 6, 0, Increment * 6, base.Height);
-                e.Graphics.DrawLine(new Pen(gridColor, 1f), 0, base.Height / 2, Increment * 7 - 1, base.Height / 2);
+                e.Graphics.DrawRectangle(new Pen(gridColor, 1f), 0, 0, (Increment * 7) - 1, Height - 1);
+                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment, 0, Increment, Height);
+                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 2, 0, Increment * 2, Height);
+                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 3, 0, Increment * 3, Height);
+                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 4, 0, Increment * 4, Height);
+                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 5, 0, Increment * 5, Height);
+                e.Graphics.DrawLine(new Pen(gridColor, 1f), Increment * 6, 0, Increment * 6, Height);
+                e.Graphics.DrawLine(new Pen(gridColor, 1f), 0, Height / 2, (Increment * 7) - 1, Height / 2);
             }
         }
 

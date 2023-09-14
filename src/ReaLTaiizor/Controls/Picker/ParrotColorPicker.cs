@@ -30,23 +30,19 @@ namespace ReaLTaiizor.Controls
             set
             {
                 image = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The selected color")]
-        public Color SelectedColor
-        {
-            get => selectedColor;
-            set => selectedColor = value;
-        }
+        public Color SelectedColor { get; set; }
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Returns the selected color hex value")]
-        public string SelectedColorHex => ColorTranslator.ToHtml(selectedColor);
+        public string SelectedColorHex => ColorTranslator.ToHtml(SelectedColor);
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -56,11 +52,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the selected color preview")]
-        public bool ShowColorPreview
-        {
-            get => showColorPreview;
-            set => showColorPreview = value;
-        }
+        public bool ShowColorPreview { get; set; } = true;
 
         private void GetColor(int x, int y)
         {
@@ -71,7 +63,7 @@ namespace ReaLTaiizor.Controls
                 {
                     try
                     {
-                        selectedColor = bitmap.GetPixel(x, y);
+                        SelectedColor = bitmap.GetPixel(x, y);
                     }
                     catch
                     {
@@ -81,7 +73,7 @@ namespace ReaLTaiizor.Controls
                 x1 = x;
                 y1 = y;
                 OnSelectedColorChanged();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -96,7 +88,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseDown(e);
             isSelectingColor = false;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -121,9 +113,9 @@ namespace ReaLTaiizor.Controls
             bufferedGraphics.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             bufferedGraphics.Graphics.Clear(BackColor);
             bufferedGraphics.Graphics.DrawImage(new Bitmap(image, base.Width - 3, base.Height - 3), 1, 1);
-            if (isSelectingColor && showColorPreview)
+            if (isSelectingColor && ShowColorPreview)
             {
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(selectedColor), new RectangleF(x1 - 10, y1 - 10, 20f, 20f));
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(SelectedColor), new RectangleF(x1 - 10, y1 - 10, 20f, 20f));
             }
             bufferedGraphics.Render(e.Graphics);
         }
@@ -138,11 +130,6 @@ namespace ReaLTaiizor.Controls
         private BufferedGraphics bufferedGraphics;
 
         public Image image = Resources.color_picker;
-
-        private Color selectedColor;
-
-        private bool showColorPreview = true;
-
         private int x1;
 
         private int y1;

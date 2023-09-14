@@ -17,7 +17,7 @@ namespace ReaLTaiizor.Util
     public abstract class ControlRoyalBase : Control
     {
         private Thread animationThread;
-        private readonly double framesPerSecond = (1000 / 15);
+        private readonly double framesPerSecond = 1000 / 15;
 
         protected delegate void MoveControlDelegate(Point location);
         protected delegate void ResizeControlDelegate(Size size);
@@ -84,11 +84,11 @@ namespace ReaLTaiizor.Util
 
         private void MoveControl(Point location, double seconds)
         {
-            double x = (location.X - Location.X);
-            double y = (location.Y - Location.Y);
+            double x = location.X - Location.X;
+            double y = location.Y - Location.Y;
 
-            double xStepDist = (x / (framesPerSecond * seconds));
-            double yStepDist = (y / (framesPerSecond * seconds));
+            double xStepDist = x / (framesPerSecond * seconds);
+            double yStepDist = y / (framesPerSecond * seconds);
 
             double ox = Location.X;
             double oy = Location.Y;
@@ -124,11 +124,11 @@ namespace ReaLTaiizor.Util
 
         private void ResizeControl(Size size, double seconds)
         {
-            double x = (size.Width - Width);
-            double y = (size.Height - Height);
+            double x = size.Width - Width;
+            double y = size.Height - Height;
 
-            double xStepDist = (x / (framesPerSecond * seconds));
-            double yStepDist = (y / (framesPerSecond * seconds));
+            double xStepDist = x / (framesPerSecond * seconds);
+            double yStepDist = y / (framesPerSecond * seconds);
 
             double ox = Width;
             double oy = Height;
@@ -164,13 +164,13 @@ namespace ReaLTaiizor.Util
 
         private void FadeToColor(Color color, double seconds)
         {
-            double r = (color.R - BackColor.R);
-            double g = (color.G - BackColor.G);
-            double b = (color.B - BackColor.B);
+            double r = color.R - BackColor.R;
+            double g = color.G - BackColor.G;
+            double b = color.B - BackColor.B;
 
-            double rStep = (r / (framesPerSecond * seconds));
-            double gStep = (g / (framesPerSecond * seconds));
-            double bStep = (b / (framesPerSecond * seconds));
+            double rStep = r / (framesPerSecond * seconds);
+            double gStep = g / (framesPerSecond * seconds);
+            double bStep = b / (framesPerSecond * seconds);
 
             double or = BackColor.R;
             double og = BackColor.G;

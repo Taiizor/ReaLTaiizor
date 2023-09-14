@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 buttonStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -69,7 +69,7 @@ namespace ReaLTaiizor.Controls
             {
                 foreColor = value;
                 CurrentForeColor = foreColor;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -83,7 +83,7 @@ namespace ReaLTaiizor.Controls
             {
                 backColor = value;
                 CurrentBackColor = backColor;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -106,7 +106,7 @@ namespace ReaLTaiizor.Controls
                     CurrentForeColor = selectedForecolor;
                     CurrentBackColor = selectedBackcolor;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -119,7 +119,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 hoverForeColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -132,7 +132,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 hoverBackgroundColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -145,7 +145,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 selectedForecolor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -158,7 +158,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 selectedBackcolor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -171,7 +171,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 cornerRadius = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -184,7 +184,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 buttonText = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -197,7 +197,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 horizontalAlignment = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -210,7 +210,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 verticlAlignment = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -223,7 +223,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 buttonImage = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -236,7 +236,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 buttonSmoothing = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -249,7 +249,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 imagePosition = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -284,7 +284,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseEnter(e);
             CurrentForeColor = hoverForeColor;
             CurrentBackColor = hoverBackgroundColor;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
@@ -300,7 +300,7 @@ namespace ReaLTaiizor.Controls
                 CurrentForeColor = selectedForecolor;
                 CurrentBackColor = selectedBackcolor;
             }
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -309,7 +309,7 @@ namespace ReaLTaiizor.Controls
             CurrentForeColor = selectedForecolor;
             CurrentBackColor = selectedBackcolor;
             SuperSelected = true;
-            base.Invalidate();
+            Invalidate();
         }
 
         [DllImport("Gdi32.dll")]

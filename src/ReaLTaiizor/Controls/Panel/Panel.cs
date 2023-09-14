@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
             G.DrawPath(new(BackColor), Shape); // Draw border
 
             G.Dispose();
-            e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);
+            e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             B.Dispose();
         }
     }

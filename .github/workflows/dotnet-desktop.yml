@@ -20,6 +20,7 @@ jobs:
         solution: [
             src/ReaLTaiizor.sln,
             sample/ReaLTaiizor.Defender/ReaLTaiizor.Defender.sln,
+            sample/ReaLTaiizor.GenshinImpact/ReaLTaiizor.GenshinImpact.sln,
             sample/ReaLTaiizor.Instagram/ReaLTaiizor.Instagram.sln,
             sample/ReaLTaiizor.Kaspersky/ReaLTaiizor.Kaspersky.sln,
             sample/ReaLTaiizor.Login/ReaLTaiizor.Login.sln,
@@ -30,6 +31,10 @@ jobs:
             sample/ReaLTaiizor.Store/ReaLTaiizor.Store.sln,
             sample/ReaLTaiizor.XAMPP/ReaLTaiizor.XAMPP.sln,
             ready/ReaLTaiizor.AppLocker/ReaLTaiizor.AppLocker.sln,
+            ready/ReaLTaiizor.Hashing/ReaLTaiizor.Hashing.sln,
+            ready/ReaLTaiizor.MAChanger/ReaLTaiizor.MAChanger.sln,
+            ready/ReaLTaiizor.Nerator/ReaLTaiizor.Nerator.sln,
+            ready/ReaLTaiizor.Portscan/ReaLTaiizor.Portscan.sln,
             ready/ReaLTaiizor.Stopwatch/ReaLTaiizor.Stopwatch.sln,
             ready/ReaLTaiizor.Translate/ReaLTaiizor.Translate.sln,
             demo/ReaLTaiizor.UI/ReaLTaiizor.UI.sln,
@@ -38,19 +43,20 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
     # Install the .NET Core workload
     - name: Install .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.100-preview.6.22352.1
+        dotnet-version: 8.0.x
+        dotnet-quality: preview
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v1.3.1
 
     # Execute all unit tests in the solution
     - name: Execute Unit Tests

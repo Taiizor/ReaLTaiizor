@@ -41,7 +41,7 @@ namespace ReaLTaiizor.Controls
         {
             base.WndProc(ref m);
 
-            if (m.Msg == 0x000F || m.Msg == 0x133)
+            if (m.Msg is 0x000F or 0x133)
             {
                 IntPtr hDC = GetWindowDC(m.HWnd);
                 if (hDC.ToInt32() == 0)

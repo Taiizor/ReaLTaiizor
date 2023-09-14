@@ -20,6 +20,7 @@ jobs:
         solution: [
             src,
             sample/ReaLTaiizor.Defender,
+            sample/ReaLTaiizor.GenshinImpact,
             sample/ReaLTaiizor.Instagram,
             sample/ReaLTaiizor.Kaspersky,
             sample/ReaLTaiizor.Login,
@@ -30,6 +31,10 @@ jobs:
             sample/ReaLTaiizor.Store,
             sample/ReaLTaiizor.XAMPP,
             ready/ReaLTaiizor.AppLocker,
+            ready/ReaLTaiizor.Hashing,
+            ready/ReaLTaiizor.MAChanger,
+            ready/ReaLTaiizor.Nerator,
+            ready/ReaLTaiizor.Portscan,
             ready/ReaLTaiizor.Stopwatch,
             ready/ReaLTaiizor.Translate,
             demo/ReaLTaiizor.UI,
@@ -37,12 +42,13 @@ jobs:
         ]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.100-preview.6.22352.1
+        dotnet-version: 8.0.x
+        dotnet-quality: preview
 
     - name: Restore the ReaLTaiizor
       run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }}

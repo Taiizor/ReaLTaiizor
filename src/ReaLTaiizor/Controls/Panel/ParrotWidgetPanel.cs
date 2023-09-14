@@ -30,11 +30,7 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Reat controls as widgets")]
-        public bool ControlsAsWidgets
-        {
-            get => controlsAsWidgets;
-            set => controlsAsWidgets = value;
-        }
+        public bool ControlsAsWidgets { get; set; }
 
         private void WidgetDown(object sender, MouseEventArgs e)
         {
@@ -53,8 +49,6 @@ namespace ReaLTaiizor.Controls
                 ((Control)sender).Location = new Point(e.X, e.Y);
             }
         }
-
-        private bool controlsAsWidgets;
 
         private bool isDragging;
     }

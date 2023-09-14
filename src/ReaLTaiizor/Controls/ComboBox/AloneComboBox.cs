@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _EnabledCalc = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -43,7 +43,7 @@ namespace ReaLTaiizor.Controls
             {
                 base.Enabled = value;
                 Enabled = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -183,7 +183,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnSelectedItemChanged(EventArgs e)
         {
             base.OnSelectedItemChanged(e);
-            base.Invalidate();
+            Invalidate();
         }
     }
 

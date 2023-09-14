@@ -19,7 +19,6 @@ namespace ReaLTaiizor.Controls
     {
         private int W;
         private int H;
-        private bool _ShowTimeDate = false;
 
         protected override void CreateHandle()
         {
@@ -34,46 +33,22 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Colors")]
-        public Color TextColor
-        {
-            get => _TextColor;
-            set => _TextColor = value;
-        }
+        public Color TextColor { get; set; } = Color.White;
 
         [Category("Colors")]
-        public Color TimeColor
-        {
-            get => _TimeColor;
-            set => _TimeColor = value;
-        }
+        public Color TimeColor { get; set; } = Color.White;
 
         [Category("Colors")]
-        public Color RectColor
-        {
-            get => _RectColor;
-            set => _RectColor = value;
-        }
+        public Color RectColor { get; set; } = ForeverLibrary.ForeverColor;
 
         [Category("Options")]
-        public bool ShowTimeDate
-        {
-            get => _ShowTimeDate;
-            set => _ShowTimeDate = value;
-        }
+        public bool ShowTimeDate { get; set; } = false;
 
         [Category("Options")]
-        public string TimeFormat
-        {
-            get => _TimeFormat;
-            set => _TimeFormat = value;
-        }
+        public string TimeFormat { get; set; } = "dd.MM.yyyy - HH:mm:ss";
 
         [Category("Options")]
         public string TimeFormatDefault => "dd.MM.yyyy - HH:mm:ss";
@@ -87,16 +62,10 @@ namespace ReaLTaiizor.Controls
             catch
             {
                 TimeFormat = TimeFormatDefault;
-                _TimeFormat = TimeFormatDefault;
+                TimeFormat = TimeFormatDefault;
                 return DateTime.Now.ToString(TimeFormatDefault);
             }
         }
-
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _TextColor = Color.White;
-        private Color _TimeColor = Color.White;
-        private Color _RectColor = ForeverLibrary.ForeverColor;
-        private string _TimeFormat = "dd.MM.yyyy - HH:mm:ss";
 
         public ForeverStatusBar()
         {
@@ -104,7 +73,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             Font = new("Segoe UI", 8);
             ForeColor = Color.White;
-            TimeFormat = _TimeFormat;
+            TimeFormat = TimeFormat;
             Size = new(Width, 20);
         }
 
@@ -129,16 +98,16 @@ namespace ReaLTaiizor.Controls
             _with21.FillRectangle(new SolidBrush(BaseColor), Base);
 
             //-- Text
-            _with21.DrawString(Text, Font, new SolidBrush(_TextColor), new Rectangle(10, 4, W, H), ForeverLibrary.NearSF);
+            _with21.DrawString(Text, Font, new SolidBrush(TextColor), new Rectangle(10, 4, W, H), ForeverLibrary.NearSF);
 
             //-- Rectangle
-            _with21.FillRectangle(new SolidBrush(_RectColor), new Rectangle(4, 4, 4, 14));
+            _with21.FillRectangle(new SolidBrush(RectColor), new Rectangle(4, 4, 4, 14));
 
             //-- TimeDate
             if (ShowTimeDate)
             {
-                string Time = GetTimeFormat(_TimeFormat);
-                _with21.DrawString(Time, Font, new SolidBrush(_TimeColor), new Rectangle(-4, 2, W, H), new StringFormat
+                string Time = GetTimeFormat(TimeFormat);
+                _with21.DrawString(Time, Font, new SolidBrush(TimeColor), new Rectangle(-4, 2, W, H), new StringFormat
                 {
                     Alignment = StringAlignment.Far,
                     LineAlignment = StringAlignment.Center
@@ -156,7 +125,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _RectColor = Colors.Forever;
+            RectColor = Colors.Forever;
         }
     }
 

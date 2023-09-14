@@ -39,9 +39,9 @@ namespace ReaLTaiizor.Design.Poison
             }
         }
 
-        public IDesignerHost DesignerHost => designerHost ??= (IDesignerHost)(GetService(typeof(IDesignerHost)));
+        public IDesignerHost DesignerHost => designerHost ??= (IDesignerHost)GetService(typeof(IDesignerHost));
 
-        public ISelectionService SelectionService => selectionService ??= (ISelectionService)(GetService(typeof(ISelectionService)));
+        public ISelectionService SelectionService => selectionService ??= (ISelectionService)GetService(typeof(ISelectionService));
 
         #endregion
 
@@ -72,7 +72,7 @@ namespace ReaLTaiizor.Design.Poison
 
             RaiseComponentChanging(TypeDescriptor.GetProperties(parentControl)["TabPages"]);
 
-            PoisonTabPage p = (PoisonTabPage)(DesignerHost.CreateComponent(typeof(PoisonTabPage)));
+            PoisonTabPage p = (PoisonTabPage)DesignerHost.CreateComponent(typeof(PoisonTabPage));
             p.Text = p.Name;
             parentControl.TabPages.Add(p);
 

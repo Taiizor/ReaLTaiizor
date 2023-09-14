@@ -38,53 +38,37 @@ namespace ReaLTaiizor.Controls
         public class TColorTable : ProfessionalColorTable
         {
             [Category("Colors")]
-            public Color _BackColor
-            {
-                get => BackColor;
-                set => BackColor = value;
-            }
+            public Color _BackColor { get; set; } = Color.FromArgb(45, 47, 49);
 
             [Category("Colors")]
-            public Color _CheckedColor
-            {
-                get => CheckedColor;
-                set => CheckedColor = value;
-            }
+            public Color _CheckedColor { get; set; } = ForeverLibrary.ForeverColor;
 
             [Category("Colors")]
-            public Color _BorderColor
-            {
-                get => BorderColor;
-                set => BorderColor = value;
-            }
+            public Color _BorderColor { get; set; } = Color.FromArgb(53, 58, 60);
 
-            private Color BackColor = Color.FromArgb(45, 47, 49);
-            private Color CheckedColor = ForeverLibrary.ForeverColor;
-            private Color BorderColor = Color.FromArgb(53, 58, 60);
+            public override Color ButtonSelectedBorder => _BackColor;
 
-            public override Color ButtonSelectedBorder => BackColor;
+            public override Color CheckBackground => _CheckedColor;
 
-            public override Color CheckBackground => CheckedColor;
+            public override Color CheckPressedBackground => _CheckedColor;
 
-            public override Color CheckPressedBackground => CheckedColor;
+            public override Color CheckSelectedBackground => _CheckedColor;
 
-            public override Color CheckSelectedBackground => CheckedColor;
+            public override Color ImageMarginGradientBegin => _CheckedColor;
 
-            public override Color ImageMarginGradientBegin => CheckedColor;
+            public override Color ImageMarginGradientEnd => _CheckedColor;
 
-            public override Color ImageMarginGradientEnd => CheckedColor;
+            public override Color ImageMarginGradientMiddle => _CheckedColor;
 
-            public override Color ImageMarginGradientMiddle => CheckedColor;
+            public override Color MenuBorder => _BorderColor;
 
-            public override Color MenuBorder => BorderColor;
+            public override Color MenuItemBorder => _BorderColor;
 
-            public override Color MenuItemBorder => BorderColor;
+            public override Color MenuItemSelected => _CheckedColor;
 
-            public override Color MenuItemSelected => CheckedColor;
+            public override Color SeparatorDark => _BorderColor;
 
-            public override Color SeparatorDark => BorderColor;
-
-            public override Color ToolStripDropDownBackground => BackColor;
+            public override Color ToolStripDropDownBackground => _BackColor;
         }
     }
 

@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Controls
 
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(MetroTabControl), "Bitmaps.TabControl.bmp")]
-#if NET48
+#if NET48_OR_GREATER
     [Designer(typeof(MetroTabControlDesigner))]
 #endif
     [ComVisible(true)]
@@ -85,9 +85,6 @@ namespace ReaLTaiizor.Controls
         private readonly PointFAnimate _slideAnimator;
         private Graphics _slideGraphics;
         private Bitmap _slideBitmap;
-
-        private bool _controlsVisible = true;
-        private Cursor _MCursor = Cursors.Hand;
         private bool _isDerivedStyle = true;
         private bool _useAnimation = true;
         private int _speed = 100;
@@ -118,10 +115,10 @@ namespace ReaLTaiizor.Controls
             _slideAnimator = new PointFAnimate();
             if (Cursor == null)
             {
-                Cursor = _MCursor;
+                Cursor = MCursor;
             }
 
-            _MCursor = Cursor;
+            MCursor = Cursor;
             ApplyTheme();
         }
 
@@ -142,7 +139,14 @@ namespace ReaLTaiizor.Controls
                     ForegroundColor = Color.FromArgb(65, 177, 225);
                     BackgroundColor = Color.White;
                     UnselectedTextColor = Color.Gray;
-                    SelectedTextColor = Color.White;
+                    if (TabStyle == TabStyle.Style1)
+                    {
+                        SelectedTextColor = Color.White;
+                    }
+                    else
+                    {
+                        SelectedTextColor = ForegroundColor;
+                    }
                     ThemeAuthor = "Taiizor";
                     ThemeName = "MetroLight";
                     UpdateProperties();
@@ -151,7 +155,14 @@ namespace ReaLTaiizor.Controls
                     ForegroundColor = Color.FromArgb(65, 177, 225);
                     BackgroundColor = Color.FromArgb(30, 30, 30);
                     UnselectedTextColor = Color.Gray;
-                    SelectedTextColor = Color.White;
+                    if (TabStyle == TabStyle.Style1)
+                    {
+                        SelectedTextColor = Color.White;
+                    }
+                    else
+                    {
+                        SelectedTextColor = ForegroundColor;
+                    }
                     ThemeAuthor = "Taiizor";
                     ThemeName = "MetroDark";
                     UpdateProperties();
@@ -192,6 +203,7 @@ namespace ReaLTaiizor.Controls
             {
                 InvalidateTabPage(BackgroundColor);
                 Invalidate();
+                Refresh();
             }
             catch
             {
@@ -269,16 +281,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Metro"), Description("Gets or sets the visible of page controls.")]
-        public bool ControlsVisible
-        {
-            get => _controlsVisible; set => _controlsVisible = value;
-        }
+        public bool ControlsVisible { get; set; } = true;
 
         [Category("Metro"), Description("Gets or sets the cursor of control.")]
-        public Cursor MCursor
-        {
-            get => _MCursor; set => _MCursor = value;
-        }
+        public Cursor MCursor { get; set; } = Cursors.Hand;
 
         [Browsable(false)]
         public Cursor Cursor { get; set; }
@@ -327,6 +333,14 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _tabStyle = value;
+                if (_tabStyle == TabStyle.Style1)
+                {
+                    SelectedTextColor = Color.White;
+                }
+                else if (_tabStyle == TabStyle.Style2)
+                {
+                    SelectedTextColor = ForegroundColor;
+                }
                 Refresh();
             }
         }
@@ -371,6 +385,7 @@ namespace ReaLTaiizor.Controls
                             using SolidBrush sb = new(ForegroundColor);
                             g.FillRectangle(sb, r);
                         }
+
                         using SolidBrush tb = new(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor);
                         g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
                     }
@@ -385,7 +400,8 @@ namespace ReaLTaiizor.Controls
                             using Pen sb = new(ForegroundColor, 2);
                             g.DrawLine(sb, r.X, r.Height, r.X + r.Width, r.Height);
                         }
-                        using SolidBrush tb = new(UnselectedTextColor);
+
+                        using SolidBrush tb = new(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor);
                         g.DrawString(TabPages[i].Text, Font, tb, r, _mth.SetPosition());
                     }
                     break;
@@ -399,6 +415,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+
             for (int i = 0; i <= TabCount - 1; i++)
             {
                 Rectangle r = GetTabRect(i);
@@ -419,6 +436,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
+
             if (MCursor == Cursor)
             {
                 Cursor = Cursors.Default;
@@ -458,7 +476,7 @@ namespace ReaLTaiizor.Controls
                 control2.DrawToBitmap(_slideBitmap, new Rectangle(control1.Width, 0, control2.Width, control2.Height));
             }
 
-            if (_controlsVisible)
+            if (ControlsVisible)
             {
                 foreach (Control c in control2.Controls)
                 {
@@ -470,10 +488,11 @@ namespace ReaLTaiizor.Controls
             {
                 _slideGraphics.DrawImage(_slideBitmap, alpha);
             };
+
             _slideAnimator.Complete = () =>
             {
                 SelectedTab = control2;
-                if (_controlsVisible)
+                if (ControlsVisible)
                 {
                     foreach (Control c in control2.Controls)
                     {
@@ -481,6 +500,7 @@ namespace ReaLTaiizor.Controls
                     }
                 }
             };
+
             _slideAnimator.Start
             (
                 AnimateTime,
@@ -502,6 +522,7 @@ namespace ReaLTaiizor.Controls
                 e.Cancel = true;
                 return;
             }
+
             DoSlideAnimate(TabPages[_oldIndex], TabPages[e.TabPageIndex], _oldIndex > e.TabPageIndex);
         }
 
@@ -513,12 +534,14 @@ namespace ReaLTaiizor.Controls
         private void DoAnimationScrollRight(Control control1, Control control2)
         {
             Graphics g = control1.CreateGraphics();
+
             Bitmap p1 = new(control1.Width, control1.Height);
             Bitmap p2 = new(control2.Width, control2.Height);
+
             control1.DrawToBitmap(p1, new Rectangle(0, 0, control1.Width, control1.Height));
             control2.DrawToBitmap(p2, new Rectangle(0, 0, control2.Width, control2.Height));
 
-            if (_controlsVisible)
+            if (ControlsVisible)
             {
                 foreach (Control c in control1.Controls)
                 {
@@ -529,18 +552,21 @@ namespace ReaLTaiizor.Controls
             int slide = control1.Width - (control1.Width % Speed);
 
             int a;
+
             for (a = 0; a >= -slide; a += -Speed)
             {
                 g.DrawImage(p1, new Rectangle(a, 0, control1.Width, control1.Height));
                 g.DrawImage(p2, new Rectangle(a + control2.Width, 0, control2.Width, control2.Height));
             }
+
             a = control1.Width;
+
             g.DrawImage(p1, new Rectangle(a, 0, control1.Width, control1.Height));
             g.DrawImage(p2, new Rectangle(a + control2.Width, 0, control2.Width, control2.Height));
 
             SelectedTab = (System.Windows.Forms.TabPage)control2;
 
-            if (_controlsVisible)
+            if (ControlsVisible)
             {
                 foreach (Control c in control2.Controls)
                 {

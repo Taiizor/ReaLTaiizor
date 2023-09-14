@@ -19,14 +19,8 @@ namespace ReaLTaiizor.Controls
         private int MouseState;
         private GraphicsPath Shape;
         private LinearGradientBrush InactiveGB;
-        private Color _InactiveColorA = Color.FromArgb(251, 251, 251);
-        private Color _InactiveColorB = Color.FromArgb(225, 225, 225);
         private LinearGradientBrush PressedGB;
-        private Color _PressedColorA = Color.FromArgb(235, 235, 235);
-        private Color _PressedColorB = Color.FromArgb(223, 223, 223);
         private LinearGradientBrush PressedContourGB;
-        private Color _PressedContourColorA = Color.FromArgb(167, 167, 167);
-        private Color _PressedContourColorB = Color.FromArgb(167, 167, 167);
         private Rectangle R1;
         private readonly Pen P1;
         private Pen P3;
@@ -202,41 +196,17 @@ namespace ReaLTaiizor.Controls
             base.OnTextChanged(e);
         }
 
-        public Color InactiveColorA
-        {
-            get => _InactiveColorA;
-            set => _InactiveColorA = value;
-        }
+        public Color InactiveColorA { get; set; } = Color.FromArgb(251, 251, 251);
 
-        public Color InactiveColorB
-        {
-            get => _InactiveColorB;
-            set => _InactiveColorB = value;
-        }
+        public Color InactiveColorB { get; set; } = Color.FromArgb(225, 225, 225);
 
-        public Color PressedColorA
-        {
-            get => _PressedColorA;
-            set => _PressedColorA = value;
-        }
+        public Color PressedColorA { get; set; } = Color.FromArgb(235, 235, 235);
 
-        public Color PressedColorB
-        {
-            get => _PressedColorB;
-            set => _PressedColorB = value;
-        }
+        public Color PressedColorB { get; set; } = Color.FromArgb(223, 223, 223);
 
-        public Color PressedContourColorA
-        {
-            get => _PressedContourColorA;
-            set => _PressedContourColorA = value;
-        }
+        public Color PressedContourColorA { get; set; } = Color.FromArgb(167, 167, 167);
 
-        public Color PressedContourColorB
-        {
-            get => _PressedContourColorB;
-            set => _PressedContourColorB = value;
-        }
+        public Color PressedContourColorB { get; set; } = Color.FromArgb(167, 167, 167);
 
         #endregion
 
@@ -261,9 +231,9 @@ namespace ReaLTaiizor.Controls
                 Shape = new();
                 R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
-                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
-                PressedContourGB = new(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), InactiveColorA, InactiveColorB, 90f);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), PressedColorA, PressedColorB, 90f);
+                PressedContourGB = new(new Rectangle(0, 0, Width, Height), PressedContourColorA, PressedContourColorB, 90f);
 
                 P3 = new(PressedContourGB);
             }
@@ -290,7 +260,7 @@ namespace ReaLTaiizor.Controls
                 case 0:
                     _G.FillPath(InactiveGB, Shape);
                     _G.DrawPath(P1, Shape);
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         _G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
@@ -312,7 +282,7 @@ namespace ReaLTaiizor.Controls
                     _G.FillPath(PressedGB, Shape);
                     _G.DrawPath(P3, Shape);
 
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         _G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {

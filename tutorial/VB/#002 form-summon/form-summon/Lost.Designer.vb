@@ -25,6 +25,7 @@ Partial Class Lost
         components = New System.ComponentModel.Container
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "Lost"
     End Sub
 End Class

@@ -236,7 +236,7 @@ namespace ReaLTaiizor.Controls
                 Size = new(form.Width - 2, (form.Height / 3) - 1),
                 Location = new(form.Location.X, (form.Height / 2) - 1)
             };
-            if (icon == MessageBoxIcon.Error || icon == MessageBoxIcon.Stop)
+            if (icon is MessageBoxIcon.Error or MessageBoxIcon.Stop)
             {
                 BackgroundColor = Color.FromArgb(210, 50, 45);
                 BorderColor = Color.FromArgb(210, 50, 45);
@@ -254,13 +254,13 @@ namespace ReaLTaiizor.Controls
                 BorderColor = Color.FromArgb(70, 165, 70);
                 ForegroundColor = Color.White;
             }
-            else if (icon == MessageBoxIcon.Exclamation || icon == MessageBoxIcon.Warning)
+            else if (icon is MessageBoxIcon.Exclamation or MessageBoxIcon.Warning)
             {
                 BackgroundColor = Color.FromArgb(237, 156, 40);
                 BorderColor = Color.FromArgb(237, 156, 40);
                 ForegroundColor = Color.White;
             }
-            else if (icon == MessageBoxIcon.None || icon == MessageBoxIcon.Asterisk || icon == MessageBoxIcon.Hand)
+            else if (icon is MessageBoxIcon.None or MessageBoxIcon.Asterisk or MessageBoxIcon.Hand)
             {
                 BackgroundColor = Color.White;
                 BorderColor = Color.FromArgb(65, 177, 225);
@@ -274,8 +274,8 @@ namespace ReaLTaiizor.Controls
         {
 
             int buttonHeight = Height - 45;
-            int firstButton = (Width - _buttonSize.Width) - 10;
-            int secondButoon = (Width - (_buttonSize.Width * 2)) - 20;
+            int firstButton = Width - _buttonSize.Width - 10;
+            int secondButoon = Width - (_buttonSize.Width * 2) - 20;
             switch (Buttons)
             {
                 case MessageBoxButtons.OK:
@@ -295,7 +295,7 @@ namespace ReaLTaiizor.Controls
                     _noButton.Visible = true;
                     break;
                 case MessageBoxButtons.YesNoCancel:
-                    _yesButton.Location = new((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
+                    _yesButton.Location = new(Width - (_buttonSize.Width * 3) - 30, buttonHeight);
                     _yesButton.Visible = true;
                     _noButton.Location = new(secondButoon, buttonHeight);
                     _noButton.Visible = true;
@@ -309,7 +309,7 @@ namespace ReaLTaiizor.Controls
                     _cancelButton.Visible = true;
                     break;
                 case MessageBoxButtons.AbortRetryIgnore:
-                    _abortButton.Location = new((Width - (_buttonSize.Width * 3)) - 30, buttonHeight);
+                    _abortButton.Location = new(Width - (_buttonSize.Width * 3) - 30, buttonHeight);
                     _abortButton.Visible = true;
                     _retryButton.Location = new(secondButoon, buttonHeight);
                     _retryButton.Visible = true;
@@ -333,7 +333,7 @@ namespace ReaLTaiizor.Controls
             Graphics G = e.Graphics;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            Rectangle rect = new(0, ((OwnerForm.Height - (OwnerForm.Height / 2)) / 250), OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
+            Rectangle rect = new(0, (OwnerForm.Height - (OwnerForm.Height / 2)) / 250, OwnerForm.Width - 3, (OwnerForm.Height / 3) - 3);
 
             using SolidBrush bg = new(BackgroundColor);
             using SolidBrush CTNT = new(ForegroundColor);

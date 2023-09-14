@@ -40,22 +40,9 @@ namespace ReaLTaiizor.Forms
 
         #region Properties
 
-        private bool _Sizable = true;
-        public bool Sizable
-        {
-            get => _Sizable;
-            set => _Sizable = value;
-        }
-
-        private bool _SmartBounds = false;
-        public bool SmartBounds
-        {
-            get => _SmartBounds;
-            set => _SmartBounds = value;
-        }
-
-        private bool _IsParentForm;
-        protected bool IsParentForm => _IsParentForm;
+        public bool Sizable { get; set; } = true;
+        public bool SmartBounds { get; set; } = false;
+        protected bool IsParentForm { get; private set; }
 
         protected bool IsParentMdi
         {
@@ -86,7 +73,7 @@ namespace ReaLTaiizor.Forms
         {
             get
             {
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     return ParentForm.StartPosition;
                 }
@@ -99,7 +86,7 @@ namespace ReaLTaiizor.Forms
             {
                 _StartPosition = value;
 
-                if (_IsParentForm && !_ControlMode)
+                if (IsParentForm && !_ControlMode)
                 {
                     ParentForm.StartPosition = value;
                 }
@@ -119,13 +106,13 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            _IsParentForm = Parent is System.Windows.Forms.Form;
+            IsParentForm = Parent is System.Windows.Forms.Form;
 
             if (!_ControlMode)
             {
                 InitializeMessages();
 
-                if (_IsParentForm)
+                if (IsParentForm)
                 {
                     ParentForm.FormBorderStyle = FormBorderStyle.None;
                     ParentForm.TransparencyKey = Color.Fuchsia;
@@ -159,7 +146,7 @@ namespace ReaLTaiizor.Forms
                 SetState(MouseState.Down);
             }
 
-            if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized || _ControlMode))
+            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || _ControlMode))
             {
                 if (HeaderRect.Contains(e.Location))
                 {
@@ -167,7 +154,7 @@ namespace ReaLTaiizor.Forms
                     WM_LMBUTTONDOWN = true;
                     DefWndProc(ref Messages[0]);
                 }
-                else if (_Sizable && !(Previous == 0))
+                else if (Sizable && !(Previous == 0))
                 {
                     Capture = false;
                     WM_LMBUTTONDOWN = true;
@@ -185,16 +172,16 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (!(_IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
+            if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
-                if (_Sizable && !_ControlMode)
+                if (Sizable && !_ControlMode)
                 {
                     InvalidateMouse();
                 }
             }
             if (Cap)
             {
-                Parent.Location = (Point)((object)(Convert.ToDouble(MousePosition) - Convert.ToDouble(MouseP)));
+                Parent.Location = (Point)(object)(Convert.ToDouble(MousePosition) - Convert.ToDouble(MouseP));
             }
         }
 
@@ -222,11 +209,11 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            if (_StartPosition == FormStartPosition.CenterParent || _StartPosition == FormStartPosition.CenterScreen)
+            if (_StartPosition is FormStartPosition.CenterParent or FormStartPosition.CenterScreen)
             {
                 Rectangle SB = Screen.PrimaryScreen.Bounds;
                 Rectangle CB = ParentForm.Bounds;
-                ParentForm.Location = new(SB.Width / 2 - CB.Width / 2, SB.Height / 2 - CB.Height / 2);
+                ParentForm.Location = new((SB.Width / 2) - (CB.Width / 2), (SB.Height / 2) - (CB.Height / 2));
             }
             HasShown = true;
         }
@@ -392,7 +379,7 @@ namespace ReaLTaiizor.Forms
                 WM_LMBUTTONDOWN = false;
 
                 SetState(MouseState.Over);
-                if (!_SmartBounds)
+                if (!SmartBounds)
                 {
                     return;
                 }
@@ -428,7 +415,7 @@ namespace ReaLTaiizor.Forms
             Dock = DockStyle.Fill;
             DoubleBuffered = true;
             Padding = new Padding(3, 28, 3, 28);
-            SetStyle((ControlStyles)(139270), true);
+            SetStyle((ControlStyles)139270, true);
             ForeColor = Color.FromArgb(142, 142, 142);
             BackColor = Color.FromArgb(32, 41, 50);
             StartPosition = FormStartPosition.CenterScreen;
@@ -453,8 +440,8 @@ namespace ReaLTaiizor.Forms
             G.FillPath(new SolidBrush(Color.FromArgb(32, 41, 50)), RoundRectangle.RoundRect(new Rectangle(2, 20, Width - 5, Height - 42), BorderCurve));
 
             // Patch the header with a rectangle that has a curve so its border will remain within container bounds
-            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(2, 2, Width / 2 + 2, 16), BorderCurve));
-            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(Width / 2 - 3, 2, Width / 2, 16), BorderCurve));
+            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle(2, 2, (Width / 2) + 2, 16), BorderCurve));
+            G.FillPath(new SolidBrush(Color.FromArgb(52, 52, 52)), RoundRectangle.RoundRect(new Rectangle((Width / 2) - 3, 2, Width / 2, 16), BorderCurve));
             // Fill the header rectangle below the patch
             G.FillRectangle(new SolidBrush(Color.FromArgb(52, 52, 52)), new Rectangle(2, 15, Width - 5, 10));
 
@@ -472,7 +459,7 @@ namespace ReaLTaiizor.Forms
 
             G.DrawString(_TextBottom, new Font("Trebuchet MS", 10, FontStyle.Bold), new SolidBrush(Color.FromArgb(221, 221, 221)), 5, Height - 23);
 
-            e.Graphics.DrawImage((Image)(B.Clone()), 0, 0);
+            e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();
         }

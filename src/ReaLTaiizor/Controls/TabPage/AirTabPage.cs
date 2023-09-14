@@ -15,9 +15,25 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             DoubleBuffered = true;
-            SizeMode = TabSizeMode.Fixed;
             ItemSize = new(30, 115);
+            SizeMode = TabSizeMode.Fixed;
+            MouseMove += AirTabPage_MouseMove;
         }
+
+        private void AirTabPage_MouseMove(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < TabCount; i++)
+            {
+                // get their rectangle area and check if it contains the mouse cursor
+                Rectangle r = GetTabRect(i);
+                if (r.Contains(e.Location))
+                {
+                    // show the context menu here
+                    System.Diagnostics.Debug.WriteLine("TabPressed: " + i);
+                }
+            }
+        }
+
         protected override void CreateHandle()
         {
             base.CreateHandle();
@@ -31,6 +47,61 @@ namespace ReaLTaiizor.Controls
             set
             {
                 C1 = value;
+                Invalidate();
+            }
+        }
+
+        private Color _BaseColor = Color.White;
+        public Color BaseColor
+        {
+            get => _BaseColor;
+            set
+            {
+                _BaseColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _NormalTextColor = Color.DimGray;
+        public Color NormalTextColor
+        {
+            get => _NormalTextColor;
+            set
+            {
+                _NormalTextColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _SelectedTextColor = Color.Black;
+        public Color SelectedTextColor
+        {
+            get => _SelectedTextColor;
+            set
+            {
+                _SelectedTextColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _SelectedTabBackColor = Color.White;
+        public Color SelectedTabBackColor
+        {
+            get => _SelectedTabBackColor;
+            set
+            {
+                _SelectedTabBackColor = value;
+                Invalidate();
+            }
+        }
+
+        private Cursor _TabCursor = Cursors.Hand;
+        public Cursor TabCursor
+        {
+            get => _TabCursor;
+            set
+            {
+                _TabCursor = value;
                 Invalidate();
             }
         }
@@ -50,22 +121,28 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
+
             try
             {
-                SelectedTab.BackColor = Color.White;
+                SelectedTab.BackColor = SelectedTabBackColor;
+                SelectedTab.Cursor = Cursors.Default;
+                Cursor = TabCursor;
             }
             catch
             {
             }
-            G.Clear(Color.White);
+
+            G.Clear(BaseColor);
+            G.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
             for (int i = 0; i <= TabCount - 1; i++)
             {
                 Rectangle x2 = new(new Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y - 2), new Size(GetTabRect(i).Width + 3, GetTabRect(i).Height - 1));
                 Rectangle textrectangle = new(x2.Location.X + 20, x2.Location.Y, x2.Width - 20, x2.Height);
+
                 if (i == SelectedIndex)
                 {
                     G.FillRectangle(new SolidBrush(C1), new Rectangle(x2.Location, new Size(9, x2.Height)));
-
 
                     if (ImageList != null)
                     {
@@ -74,7 +151,7 @@ namespace ReaLTaiizor.Controls
                             if (ImageList.Images[TabPages[i].ImageIndex] != null)
                             {
                                 G.DrawImage(ImageList.Images[TabPages[i].ImageIndex], new Point(textrectangle.Location.X + 8, textrectangle.Location.Y + 6));
-                                G.DrawString("      " + TabPages[i].Text, Font, Brushes.Black, textrectangle, new StringFormat
+                                G.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(SelectedTextColor), textrectangle, new StringFormat
                                 {
                                     LineAlignment = StringAlignment.Center,
                                     Alignment = StringAlignment.Near
@@ -82,7 +159,7 @@ namespace ReaLTaiizor.Controls
                             }
                             else
                             {
-                                G.DrawString(TabPages[i].Text, Font, Brushes.Black, textrectangle, new StringFormat
+                                G.DrawString(TabPages[i].Text, Font, new SolidBrush(SelectedTextColor), textrectangle, new StringFormat
                                 {
                                     LineAlignment = StringAlignment.Center,
                                     Alignment = StringAlignment.Near
@@ -91,7 +168,7 @@ namespace ReaLTaiizor.Controls
                         }
                         catch
                         {
-                            G.DrawString(TabPages[i].Text, Font, Brushes.Black, textrectangle, new StringFormat
+                            G.DrawString(TabPages[i].Text, Font, new SolidBrush(SelectedTextColor), textrectangle, new StringFormat
                             {
                                 LineAlignment = StringAlignment.Center,
                                 Alignment = StringAlignment.Near
@@ -100,7 +177,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        G.DrawString(TabPages[i].Text, Font, Brushes.Black, textrectangle, new StringFormat
+                        G.DrawString(TabPages[i].Text, Font, new SolidBrush(SelectedTextColor), textrectangle, new StringFormat
                         {
                             LineAlignment = StringAlignment.Center,
                             Alignment = StringAlignment.Near
@@ -117,7 +194,7 @@ namespace ReaLTaiizor.Controls
                             if (ImageList.Images[TabPages[i].ImageIndex] != null)
                             {
                                 G.DrawImage(ImageList.Images[TabPages[i].ImageIndex], new Point(textrectangle.Location.X + 8, textrectangle.Location.Y + 6));
-                                G.DrawString("      " + TabPages[i].Text, Font, Brushes.DimGray, textrectangle, new StringFormat
+                                G.DrawString("      " + TabPages[i].Text, Font, new SolidBrush(NormalTextColor), textrectangle, new StringFormat
                                 {
                                     LineAlignment = StringAlignment.Center,
                                     Alignment = StringAlignment.Near
@@ -125,7 +202,7 @@ namespace ReaLTaiizor.Controls
                             }
                             else
                             {
-                                G.DrawString(TabPages[i].Text, Font, Brushes.DimGray, textrectangle, new StringFormat
+                                G.DrawString(TabPages[i].Text, Font, new SolidBrush(NormalTextColor), textrectangle, new StringFormat
                                 {
                                     LineAlignment = StringAlignment.Center,
                                     Alignment = StringAlignment.Near
@@ -134,7 +211,7 @@ namespace ReaLTaiizor.Controls
                         }
                         catch
                         {
-                            G.DrawString(TabPages[i].Text, Font, Brushes.DimGray, textrectangle, new StringFormat
+                            G.DrawString(TabPages[i].Text, Font, new SolidBrush(NormalTextColor), textrectangle, new StringFormat
                             {
                                 LineAlignment = StringAlignment.Center,
                                 Alignment = StringAlignment.Near
@@ -143,7 +220,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        G.DrawString(TabPages[i].Text, Font, Brushes.DimGray, textrectangle, new StringFormat
+                        G.DrawString(TabPages[i].Text, Font, new SolidBrush(NormalTextColor), textrectangle, new StringFormat
                         {
                             LineAlignment = StringAlignment.Center,
                             Alignment = StringAlignment.Near

@@ -20,7 +20,6 @@ namespace ReaLTaiizor.Controls
         private int W;
         private int H;
         private MouseStateForever State = MouseStateForever.None;
-        private bool _Rounded = false;
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -63,7 +62,7 @@ namespace ReaLTaiizor.Controls
                         continue;
                     }
 
-                    double A = (Math.Atan2(Left - B.Left, Top - B.Top) * 2 / Math.PI);
+                    double A = Math.Atan2(Left - B.Left, Top - B.Top) * 2 / Math.PI;
                     if (A / 1 == A)
                     {
                         Bool[(int)A + 1] = true;
@@ -77,25 +76,13 @@ namespace ReaLTaiizor.Controls
         private Rectangle Rect => new(Left, Top, Width, Height);
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = ForeverLibrary.ForeverColor;
 
         [Category("Colors")]
-        public Color TextColor
-        {
-            get => _TextColor;
-            set => _TextColor = value;
-        }
+        public Color TextColor { get; set; } = Color.FromArgb(243, 243, 243);
 
         [Category("Options")]
-        public bool Rounded
-        {
-            get => _Rounded;
-            set => _Rounded = value;
-        }
+        public bool Rounded { get; set; } = false;
 
         protected override void OnResize(EventArgs e)
         {
@@ -108,9 +95,6 @@ namespace ReaLTaiizor.Controls
             base.OnCreateControl();
             //Size = new(112, 32)
         }
-
-        private Color _BaseColor = ForeverLibrary.ForeverColor;
-        private Color _TextColor = Color.FromArgb(243, 243, 243);
 
         public ForeverButtonSticky()
         {
@@ -151,18 +135,18 @@ namespace ReaLTaiizor.Controls
                     {
                         //-- Base
                         GP = RoundedBase;
-                        _with17.FillPath(new SolidBrush(_BaseColor), GP);
+                        _with17.FillPath(new SolidBrush(BaseColor), GP);
 
                         //-- Text
-                        _with17.DrawString(Text, Font, new SolidBrush(_TextColor), Base, ForeverLibrary.CenterSF);
+                        _with17.DrawString(Text, Font, new SolidBrush(TextColor), Base, ForeverLibrary.CenterSF);
                     }
                     else
                     {
                         //-- Base
-                        _with17.FillRectangle(new SolidBrush(_BaseColor), Base);
+                        _with17.FillRectangle(new SolidBrush(BaseColor), Base);
 
                         //-- Text
-                        _with17.DrawString(Text, Font, new SolidBrush(_TextColor), Base, ForeverLibrary.CenterSF);
+                        _with17.DrawString(Text, Font, new SolidBrush(TextColor), Base, ForeverLibrary.CenterSF);
                     }
                     break;
                 case MouseStateForever.Over:
@@ -170,20 +154,20 @@ namespace ReaLTaiizor.Controls
                     {
                         //-- Base
                         GP = RoundedBase;
-                        _with17.FillPath(new SolidBrush(_BaseColor), GP);
+                        _with17.FillPath(new SolidBrush(BaseColor), GP);
                         _with17.FillPath(new SolidBrush(Color.FromArgb(20, Color.White)), GP);
 
                         //-- Text
-                        _with17.DrawString(Text, Font, new SolidBrush(_TextColor), Base, ForeverLibrary.CenterSF);
+                        _with17.DrawString(Text, Font, new SolidBrush(TextColor), Base, ForeverLibrary.CenterSF);
                     }
                     else
                     {
                         //-- Base
-                        _with17.FillRectangle(new SolidBrush(_BaseColor), Base);
+                        _with17.FillRectangle(new SolidBrush(BaseColor), Base);
                         _with17.FillRectangle(new SolidBrush(Color.FromArgb(20, Color.White)), Base);
 
                         //-- Text
-                        _with17.DrawString(Text, Font, new SolidBrush(_TextColor), Base, ForeverLibrary.CenterSF);
+                        _with17.DrawString(Text, Font, new SolidBrush(TextColor), Base, ForeverLibrary.CenterSF);
                     }
                     break;
                 case MouseStateForever.Down:
@@ -191,20 +175,20 @@ namespace ReaLTaiizor.Controls
                     {
                         //-- Base
                         GP = RoundedBase;
-                        _with17.FillPath(new SolidBrush(_BaseColor), GP);
+                        _with17.FillPath(new SolidBrush(BaseColor), GP);
                         _with17.FillPath(new SolidBrush(Color.FromArgb(20, Color.Black)), GP);
 
                         //-- Text
-                        _with17.DrawString(Text, Font, new SolidBrush(_TextColor), Base, ForeverLibrary.CenterSF);
+                        _with17.DrawString(Text, Font, new SolidBrush(TextColor), Base, ForeverLibrary.CenterSF);
                     }
                     else
                     {
                         //-- Base
-                        _with17.FillRectangle(new SolidBrush(_BaseColor), Base);
+                        _with17.FillRectangle(new SolidBrush(BaseColor), Base);
                         _with17.FillRectangle(new SolidBrush(Color.FromArgb(20, Color.Black)), Base);
 
                         //-- Text
-                        _with17.DrawString(Text, Font, new SolidBrush(_TextColor), Base, ForeverLibrary.CenterSF);
+                        _with17.DrawString(Text, Font, new SolidBrush(TextColor), Base, ForeverLibrary.CenterSF);
                     }
                     break;
             }
@@ -220,7 +204,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _BaseColor = Colors.Forever;
+            BaseColor = Colors.Forever;
         }
     }
 

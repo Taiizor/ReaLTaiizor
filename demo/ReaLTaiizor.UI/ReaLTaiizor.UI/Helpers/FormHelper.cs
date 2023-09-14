@@ -31,6 +31,7 @@ namespace ReaLTaiizor.UI.Helpers
                 "20" or "form20" or "poison" => new Form20(),
                 "21" or "form21" or "crown" => new Form21(),
                 "22" or "form22" or "parrot" => new Form22(),
+                "23" or "form23" or "cyber" => new Form23(),
                 _ => new Form17(),
             };
         }

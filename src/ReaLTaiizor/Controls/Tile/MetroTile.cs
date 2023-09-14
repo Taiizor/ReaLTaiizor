@@ -260,7 +260,7 @@ namespace ReaLTaiizor.Controls
                     {
                         foreach (System.Collections.Generic.KeyValuePair<string, object> varkey in StyleManager.TileDictionary)
                         {
-                            if ((varkey.Key == null) || varkey.Key == null)
+                            if (varkey.Key is null)
                             {
                                 return;
                             }

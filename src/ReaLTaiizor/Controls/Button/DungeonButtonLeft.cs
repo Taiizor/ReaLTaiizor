@@ -19,17 +19,10 @@ namespace ReaLTaiizor.Controls
         private int MouseState;
         private GraphicsPath Shape;
         private LinearGradientBrush InactiveGB;
-        private Color _InactiveColorA = Color.FromArgb(253, 252, 252);
-        private Color _InactiveColorB = Color.FromArgb(239, 237, 236);
         private LinearGradientBrush PressedGB;
-        private Color _PressedColorA = Color.FromArgb(226, 226, 226);
-        private Color _PressedColorB = Color.FromArgb(237, 237, 237);
         private LinearGradientBrush PressedContourGB;
-        private Color _PressedContourColorA = Color.FromArgb(167, 167, 167);
-        private Color _PressedContourColorB = Color.FromArgb(167, 167, 167);
         private Rectangle R1;
         private readonly Pen P1;
-        private Color _BorderColor = Color.FromArgb(180, 180, 180);
         private Pen P3;
         private Image _Image;
         private Size _ImageSize;
@@ -171,47 +164,19 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color InactiveColorA
-        {
-            get => _InactiveColorA;
-            set => _InactiveColorA = value;
-        }
+        public Color InactiveColorA { get; set; } = Color.FromArgb(253, 252, 252);
 
-        public Color InactiveColorB
-        {
-            get => _InactiveColorB;
-            set => _InactiveColorB = value;
-        }
+        public Color InactiveColorB { get; set; } = Color.FromArgb(239, 237, 236);
 
-        public Color PressedColorA
-        {
-            get => _PressedColorA;
-            set => _PressedColorA = value;
-        }
+        public Color PressedColorA { get; set; } = Color.FromArgb(226, 226, 226);
 
-        public Color PressedColorB
-        {
-            get => _PressedColorB;
-            set => _PressedColorB = value;
-        }
+        public Color PressedColorB { get; set; } = Color.FromArgb(237, 237, 237);
 
-        public Color PressedContourColorA
-        {
-            get => _PressedContourColorA;
-            set => _PressedContourColorA = value;
-        }
+        public Color PressedContourColorA { get; set; } = Color.FromArgb(167, 167, 167);
 
-        public Color PressedContourColorB
-        {
-            get => _PressedContourColorB;
-            set => _PressedContourColorB = value;
-        }
+        public Color PressedContourColorB { get; set; } = Color.FromArgb(167, 167, 167);
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.FromArgb(180, 180, 180);
 
         #endregion
         #region EventArgs
@@ -255,7 +220,7 @@ namespace ReaLTaiizor.Controls
             ForeColor = Color.FromArgb(76, 76, 76);
             Size = new(177, 30);
             _TextAlignment = StringAlignment.Center;
-            P1 = new(_BorderColor);
+            P1 = new(BorderColor);
             // P1 = Border color
             Cursor = Cursors.Hand;
         }
@@ -268,9 +233,9 @@ namespace ReaLTaiizor.Controls
                 Shape = new();
                 R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new(new Rectangle(0, 0, Width, Height), _InactiveColorA, _InactiveColorB, 90f);
-                PressedGB = new(new Rectangle(0, 0, Width, Height), _PressedColorA, _PressedColorB, 90f);
-                PressedContourGB = new(new Rectangle(0, 0, Width, Height), _PressedContourColorA, _PressedContourColorB, 90f);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), InactiveColorA, InactiveColorB, 90f);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), PressedColorA, PressedColorB, 90f);
+                PressedContourGB = new(new Rectangle(0, 0, Width, Height), PressedContourColorA, PressedContourColorB, 90f);
 
                 P3 = new(PressedContourGB);
             }
@@ -299,7 +264,7 @@ namespace ReaLTaiizor.Controls
                     // Fill button body with InactiveGB color gradient
                     G.DrawPath(P1, Shape);
                     // Draw button border [InactiveGB]
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
@@ -324,7 +289,7 @@ namespace ReaLTaiizor.Controls
                     G.DrawPath(P3, Shape);
                     // Draw button border [PressedGB]
 
-                    if ((Image == null))
+                    if (Image == null)
                     {
                         G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {

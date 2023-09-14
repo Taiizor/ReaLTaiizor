@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _EnabledCalc = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 Enabled = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -149,14 +149,14 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseEnter(e);
             State = MouseState.Over;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
             State = MouseState.None;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -169,14 +169,14 @@ namespace ReaLTaiizor.Controls
             }
 
             State = MouseState.Over;
-            base.Invalidate();
+            Invalidate();
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
             State = MouseState.Down;
-            base.Invalidate();
+            Invalidate();
         }
     }
 

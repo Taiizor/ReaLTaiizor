@@ -17,8 +17,9 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotNavigationBar()
         {
-            base.Size = new Size(300, 40);
+            Size = new Size(300, 40);
             NavBarStyle = Style.Android;
+            Font = new Font("Arial", 12f);
         }
 
         [Category("Parrot")]
@@ -52,7 +53,7 @@ namespace ReaLTaiizor.Controls
                         BackgroundColor = Color.FromArgb(1, 119, 215);
                     }
 
-                    base.Invalidate();
+                    Invalidate();
                 }
             }
         }
@@ -66,7 +67,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 itemColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -79,7 +80,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 titleColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -92,7 +93,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 backgroundColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -105,7 +106,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 leftItem = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -118,7 +119,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 rightItem = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -131,7 +132,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 title = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -144,7 +145,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 leftCustomText = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -157,7 +158,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 rightCustomText = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -170,7 +171,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 leftCustomImage = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -183,7 +184,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 rightCustomImage = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -196,7 +197,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 interaction = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -268,15 +269,15 @@ namespace ReaLTaiizor.Controls
 
             if (leftItem == NavigationItem.Back)
             {
-                e.Graphics.DrawString("Back", new Font("Arial", 12f), new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString("Back", Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
             }
             else if (leftItem == NavigationItem.Next)
             {
-                e.Graphics.DrawString("Next", new Font("Arial", 12f), new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString("Next", Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
             }
             else if (leftItem == NavigationItem.CustomText)
             {
-                e.Graphics.DrawString(leftCustomText, new Font("Arial", 12f), new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString(leftCustomText, Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
             }
             else if (leftItem == NavigationItem.Menu)
             {
@@ -290,32 +291,32 @@ namespace ReaLTaiizor.Controls
             }
 
             stringFormat.Alignment = StringAlignment.Center;
-            e.Graphics.DrawString(title, new Font("Arial", 12f, style), new SolidBrush(titleColor), base.ClientRectangle, stringFormat);
+            e.Graphics.DrawString(title, new Font(Font.FontFamily, Font.Size, style), new SolidBrush(titleColor), base.ClientRectangle, stringFormat);
             stringFormat.Alignment = StringAlignment.Far;
 
             if (rightItem == NavigationItem.Back)
             {
-                e.Graphics.DrawString("Back", new Font("Arial", 12f), new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString("Back", Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
                 return;
             }
 
             if (rightItem == NavigationItem.Next)
             {
-                e.Graphics.DrawString("Next", new Font("Arial", 12f), new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString("Next", Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
                 return;
             }
 
             if (rightItem == NavigationItem.CustomText)
             {
-                e.Graphics.DrawString(rightCustomText, new Font("Arial", 12f), new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString(rightCustomText, Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
                 return;
             }
 
             if (rightItem == NavigationItem.Menu)
             {
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + base.Height / 5, base.Height / 4, base.Width - base.Height + base.Height / 5 * 4, base.Height / 4);
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + base.Height / 5, base.Height / 4 * 2, base.Width - base.Height + base.Height / 5 * 4, base.Height / 4 * 2);
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + base.Height / 5, base.Height / 4 * 3, base.Width - base.Height + base.Height / 5 * 4, base.Height / 4 * 3);
+                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4);
+                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4 * 2, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4 * 2);
+                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4 * 3, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4 * 3);
                 return;
             }
 

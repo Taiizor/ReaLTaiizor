@@ -16,92 +16,57 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Allow dragging the splash")]
-        public bool AllowDragging
-        {
-            get => allowDragging;
-            set => allowDragging = value;
-        }
+        public bool AllowDragging { get; set; } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show progressbar")]
-        public bool ShowProgressBar
-        {
-            get => showProgressBar;
-            set => showProgressBar = value;
-        }
+        public bool ShowProgressBar { get; set; } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Is the splash elliptical")]
-        public bool IsEllipse
-        {
-            get => isEllipse;
-            set => isEllipse = value;
-        }
+        public bool IsEllipse { get; set; }
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The corner radius if ellipse")]
-        public int EllipseCornerRadius
-        {
-            get => ellipseCornerRadius;
-            set => ellipseCornerRadius = value;
-        }
+        public int EllipseCornerRadius { get; set; } = 15;
+
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("Progressbar location")]
+        public Point ProgressBarLocation { get; set; } = new Point(0, 224);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Progressbar style")]
-        public ParrotFlatProgressBar.Style ProgressBarStyle
-        {
-            get => progressBarStyle;
-            set => progressBarStyle = value;
-        }
+        public ParrotFlatProgressBar.Style ProgressBarStyle { get; set; } = ParrotFlatProgressBar.Style.Material;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Progressbar border")]
-        public bool ProgressBarBorder
-        {
-            get => progressBarBorder;
-            set => progressBarBorder = value;
-        }
+        public bool ProgressBarBorder { get; set; }
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The progressbar loaded color")]
-        public Color LoadedColor
-        {
-            get => loadedColor;
-            set => loadedColor = value;
-        }
+        public Color LoadedColor { get; set; } = Color.DodgerBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The progressbar unloaded color")]
-        public Color UnloadedColor
-        {
-            get => unloadedColor;
-            set => unloadedColor = value;
-        }
+        public Color UnloadedColor { get; set; } = Color.FromArgb(30, 30, 30);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Amount of seconds splash is displayed for in milliseconds")]
-        public int SecondsDisplayed
-        {
-            get => secondsDisplayed;
-            set => secondsDisplayed = value;
-        }
+        public int SecondsDisplayed { get; set; } = 3000;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The splash BackColor")]
-        public Color BackColor
-        {
-            get => backColor;
-            set => backColor = value;
-        }
+        public Color BackColor { get; set; } = Color.FromArgb(30, 30, 30);
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -115,65 +80,57 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The splash icon")]
-        public Icon SplashIcon
-        {
-            get => splashIcon;
-            set => splashIcon = value;
-        }
+        public Icon SplashIcon { get; set; } = Properties.Resources.Taiizor1;
+
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("The top text location")]
+        public Point TopTextLocation { get; set; } = new Point(0, 70);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The top text color")]
-        public Color TopTextColor
-        {
-            get => topTextColor;
-            set => topTextColor = value;
-        }
+        public Color TopTextColor { get; set; } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The top text")]
-        public string TopText
-        {
-            get => topText;
-            set => topText = value;
-        }
+        public string TopText { get; set; } = "Visual Studio";
+
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("The top text font family")]
+        public FontFamily TopTextFontFamily { get; set; } = new("Arial");
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The top text size")]
-        public int TopTextSize
-        {
-            get => topTextSize;
-            set => topTextSize = value;
-        }
+        public int TopTextSize { get; set; } = 36;
+
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("The bottom text location")]
+        public Point BottomTextLocation { get; set; } = new Point(51, 125);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The bottom text color")]
-        public Color BottomTextColor
-        {
-            get => bottomTextColor;
-            set => bottomTextColor = value;
-        }
+        public Color BottomTextColor { get; set; } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The bottom text")]
-        public string BottomText
-        {
-            get => bottomText;
-            set => bottomText = value;
-        }
+        public string BottomText { get; set; } = "ReaLTaizor Special Edition";
+
+        [Category("Parrot")]
+        [Browsable(true)]
+        [Description("The bottom text font family")]
+        public FontFamily BottomTextFontFamily { get; set; } = new("Arial");
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The bottom text size")]
-        public int BottomTextSize
-        {
-            get => bottomTextSize;
-            set => bottomTextSize = value;
-        }
+        public int BottomTextSize { get; set; } = 16;
 
         public void InitializeLoader(Control mainForm)
         {
@@ -182,60 +139,61 @@ namespace ReaLTaiizor.Controls
             ((Form)baseForm).WindowState = FormWindowState.Minimized;
             ((Form)baseForm).ShowInTaskbar = false;
 
-            splashForm.Icon = splashIcon;
+            splashForm.Icon = SplashIcon;
 
-            splashForm.BackColor = backColor;
+            splashForm.BackColor = BackColor;
             splashForm.FormBorderStyle = FormBorderStyle.None;
             splashForm.StartPosition = FormStartPosition.CenterScreen;
             splashForm.Size = splashSize;
 
             background.Dock = DockStyle.Fill;
-            background.BackColor = backColor;
+            background.BackColor = BackColor;
 
             splashForm.Controls.Add(background);
 
-            progressBar.BarStyle = progressBarStyle;
-            progressBar.ShowBorder = progressBarBorder;
-            progressBar.InocmpletedColor = unloadedColor;
-            progressBar.CompleteColor = loadedColor;
+            progressBar.BarStyle = ProgressBarStyle;
+            progressBar.ShowBorder = ProgressBarBorder;
+            progressBar.InocmpletedColor = UnloadedColor;
+            progressBar.CompleteColor = LoadedColor;
             progressBar.Value = 0;
             progressBar.Size = new Size(splashForm.Width, 10);
-            progressBar.Location = new Point(0, splashForm.Height / 5 * 4);
+            progressBar.Location = ProgressBarLocation;
 
-            if (!showProgressBar)
+            if (!ShowProgressBar)
             {
                 progressBar.Visible = false;
             }
 
             background.Controls.Add(progressBar);
-            updateProgress.Interval = secondsDisplayed / 100;
+            updateProgress.Interval = SecondsDisplayed / 100;
             updateProgress.Tick += UpdateLoader;
-            text1.ForeColor = topTextColor;
-            text1.Font = new Font("Ariel", topTextSize);
-            text1.Text = topText;
-            text1.BackColor = backColor;
+            text1.ForeColor = TopTextColor;
+            text1.Font = new Font(TopTextFontFamily, TopTextSize);
+            text1.Text = TopText;
+            text1.BackColor = BackColor;
             text1.AutoSize = true;
-            text1.Location = new Point(0, splashForm.Height / 4);
+            text1.Location = TopTextLocation;
             background.Controls.Add(text1);
-            text2.ForeColor = bottomTextColor;
-            text2.Font = new Font("Ariel", bottomTextSize);
-            text2.Text = bottomText;
-            text2.BackColor = backColor;
+            text2.ForeColor = BottomTextColor;
+            text2.Font = new Font(BottomTextFontFamily, BottomTextSize);
+            text2.Text = BottomText;
+            text2.BackColor = BackColor;
             text2.AutoSize = true;
-            text2.Location = new Point(text1.Width / 2 - text2.Width, text1.Location.Y + text1.Height);
+            text2.Location = BottomTextLocation;
             background.Controls.Add(text2);
             handle.DockAtTop = false;
 
-            if (allowDragging)
+            if (AllowDragging)
             {
                 handle.HandleControl = background;
                 handle2.HandleControl = text1;
                 handle3.HandleControl = text2;
                 handle4.HandleControl = progressBar;
             }
-            if (isEllipse)
+
+            if (IsEllipse)
             {
-                ellipse.CornerRadius = ellipseCornerRadius;
+                ellipse.CornerRadius = EllipseCornerRadius;
                 ellipse.EffectedForm = splashForm;
             }
 
@@ -272,44 +230,8 @@ namespace ReaLTaiizor.Controls
             ((Form)baseForm).WindowState = FormWindowState.Normal;
         }
 
-        private bool allowDragging = true;
-
-        private bool showProgressBar = true;
-
-        private bool isEllipse;
-
-        private int ellipseCornerRadius = 15;
-
-        private ParrotFlatProgressBar.Style progressBarStyle = ParrotFlatProgressBar.Style.Material;
-
-        private bool progressBarBorder;
-
-        private Color loadedColor = Color.DodgerBlue;
-
-        private Color unloadedColor = Color.FromArgb(30, 30, 30);
-
-        private int secondsDisplayed = 3000;
-
-        private Color backColor = Color.FromArgb(30, 30, 30);
-
         private Size splashSize = new(450, 280);
-
-        private Color topTextColor = Color.White;
-
-        private string topText = "Visual Studio";
-
-        private int topTextSize = 36;
-
-        private Color bottomTextColor = Color.White;
-
-        private string bottomText = "ReaLTaizor Special Edition";
-
-        private int bottomTextSize = 16;
-
         private readonly Form splashForm = new();
-
-        private Icon splashIcon = Properties.Resources.Taiizor1;
-
         private readonly ParrotFlatProgressBar progressBar = new();
 
         private readonly Timer updateProgress = new();

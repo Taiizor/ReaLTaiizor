@@ -1,64 +1,65 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <!--<TargetFrameworks>net48;net7.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net48;netcoreapp3.1-windows;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
-    <OutputType>WinExe</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWindowsForms>true</UseWindowsForms>
-    <AnalysisLevel>preview</AnalysisLevel>
-    <LangVersion>preview</LangVersion>
-    <NeutralLanguage>en-GB</NeutralLanguage>
-    <NoWarn>CA1416</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>ReaLTaiizor.Player.Program</StartupObject>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.8.7" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\Album1.jpg" />
-    <Content Include="Resources\Album2.jpg" />
-    <Content Include="Resources\Album3.jpg" />
-    <Content Include="Resources\audio_64px.png" />
-    <Content Include="Resources\available_updates_64px.png" />
-    <Content Include="Resources\end_64px.png" />
-    <Content Include="Resources\fast_forward_64px.png" />
-    <Content Include="Resources\ICO.ico" />
-    <Content Include="Resources\ICO2.ico" />
-    <Content Include="Resources\ICO3.ico" />
-    <Content Include="Resources\ICO4.ico" />
-    <Content Include="Resources\Logo.png" />
-    <Content Include="Resources\Logo1.png" />
-    <Content Include="Resources\Logo2.png" />
-    <Content Include="Resources\Logo3.png" />
-    <Content Include="Resources\Logo4.png" />
-    <Content Include="Resources\Logo5.png" />
-    <Content Include="Resources\musical_notes_64px.png" />
-    <Content Include="Resources\musical_notes_96px.png" />
-    <Content Include="Resources\musical_notes_96px_1.png" />
-    <Content Include="Resources\musical_note_96px.png" />
-    <Content Include="Resources\music_96px.png" />
-    <Content Include="Resources\mute_64px.png" />
-    <Content Include="Resources\pause_64px.png" />
-    <Content Include="Resources\play_64px.png" />
-    <Content Include="Resources\repeat_64px.png" />
-    <Content Include="Resources\rewind_64px.png" />
-    <Content Include="Resources\settings_64px.png" />
-    <Content Include="Resources\shuffle_64px.png" />
-    <Content Include="Resources\shutdown_64px.png" />
-    <Content Include="Resources\skip_to_start_64px.png" />
-    <Content Include="Resources\synchronize_64px.png" />
-    <Content Include="Resources\update_left_rotation_64px.png" />
-    <Content Include="Resources\voice_64px.png" />
-  </ItemGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-  </PropertyGroup>
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
-  </ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <!--<TargetFrameworks>net48;net8.0-windows</TargetFrameworks>-->
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+        <OutputType>WinExe</OutputType>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <UseWindowsForms>true</UseWindowsForms>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <LangVersion>preview</LangVersion>
+        <NeutralLanguage>en-GB</NeutralLanguage>
+        <NoWarn>CA1416</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup>
+        <StartupObject>ReaLTaiizor.Player.Program</StartupObject>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="Resources\Background.png" />
+        <Content Include="Resources\Album1.jpg" />
+        <Content Include="Resources\Album2.jpg" />
+        <Content Include="Resources\Album3.jpg" />
+        <Content Include="Resources\audio_64px.png" />
+        <Content Include="Resources\available_updates_64px.png" />
+        <Content Include="Resources\end_64px.png" />
+        <Content Include="Resources\fast_forward_64px.png" />
+        <Content Include="Resources\ICO.ico" />
+        <Content Include="Resources\ICO2.ico" />
+        <Content Include="Resources\ICO3.ico" />
+        <Content Include="Resources\ICO4.ico" />
+        <Content Include="Resources\Logo.png" />
+        <Content Include="Resources\Logo1.png" />
+        <Content Include="Resources\Logo2.png" />
+        <Content Include="Resources\Logo3.png" />
+        <Content Include="Resources\Logo4.png" />
+        <Content Include="Resources\Logo5.png" />
+        <Content Include="Resources\musical_notes_64px.png" />
+        <Content Include="Resources\musical_notes_96px.png" />
+        <Content Include="Resources\musical_notes_96px_1.png" />
+        <Content Include="Resources\musical_note_96px.png" />
+        <Content Include="Resources\music_96px.png" />
+        <Content Include="Resources\mute_64px.png" />
+        <Content Include="Resources\pause_64px.png" />
+        <Content Include="Resources\play_64px.png" />
+        <Content Include="Resources\repeat_64px.png" />
+        <Content Include="Resources\rewind_64px.png" />
+        <Content Include="Resources\settings_64px.png" />
+        <Content Include="Resources\shuffle_64px.png" />
+        <Content Include="Resources\shutdown_64px.png" />
+        <Content Include="Resources\skip_to_start_64px.png" />
+        <Content Include="Resources\synchronize_64px.png" />
+        <Content Include="Resources\update_left_rotation_64px.png" />
+        <Content Include="Resources\voice_64px.png" />
+    </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+        <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
+        <PackageReference Include="System.Resources.Extensions" Version="8.0.0-rc.1.23419.4" />
+    </ItemGroup>
 </Project>

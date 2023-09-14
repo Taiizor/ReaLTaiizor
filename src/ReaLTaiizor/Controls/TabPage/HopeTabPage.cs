@@ -23,11 +23,46 @@ namespace ReaLTaiizor.Controls
         private Color _themeColorA = HopeColors.PrimaryColor;
         private Color _themeColorB = Color.FromArgb(150, HopeColors.PrimaryColor);
         private Color _foreColorA = Color.Silver;
-        private Color _foreColorB = Color.Black;
+        private Color _foreColorB = Color.Gray;
         private Color _foreColorC = Color.FromArgb(150, Color.White);
+
+        private TextState _TitleTextState = TextState.Normal;
+        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
+        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
+        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         #endregion
 
         #region Settings
+        public SmoothingMode SmoothingType
+        {
+            get => _SmoothingType;
+            set
+            {
+                _SmoothingType = value;
+                Invalidate();
+            }
+        }
+
+        public PixelOffsetMode PixelOffsetType
+        {
+            get => _PixelOffsetType;
+            set
+            {
+                _PixelOffsetType = value;
+                Invalidate();
+            }
+        }
+
+        public TextRenderingHint TextRenderingType
+        {
+            get => _TextRenderingType;
+            set
+            {
+                _TextRenderingType = value;
+                Invalidate();
+            }
+        }
+
         public Color BaseColor
         {
             get => _baseColor;
@@ -37,6 +72,7 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
         public Color ThemeColorA
         {
             get => _themeColorA;
@@ -46,6 +82,7 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
         public Color ThemeColorB
         {
             get => _themeColorB;
@@ -55,6 +92,7 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
         public Color ForeColorA
         {
             get => _foreColorA;
@@ -64,6 +102,7 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
         public Color ForeColorB
         {
             get => _foreColorB;
@@ -73,6 +112,7 @@ namespace ReaLTaiizor.Controls
                 Invalidate();
             }
         }
+
         public Color ForeColorC
         {
             get => _foreColorC;
@@ -90,7 +130,6 @@ namespace ReaLTaiizor.Controls
             Normal
         }
 
-        private TextState _TitleTextState = TextState.Normal;
         public TextState TitleTextState
         {
             get => _TitleTextState;
@@ -137,7 +176,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+
             enterFlag = true;
+
             for (int i = 0; i < TabCount; i++)
             {
                 Rectangle tempRect = GetTabRect(i);
@@ -146,6 +187,7 @@ namespace ReaLTaiizor.Controls
                     enterIndex = i;
                 }
             }
+
             Invalidate();
         }
 
@@ -159,9 +201,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            graphics.SmoothingMode = SmoothingMode.HighQuality;
-            graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            graphics.SmoothingMode = SmoothingType;
+            graphics.PixelOffsetMode = PixelOffsetType;
+            graphics.TextRenderingHint = TextRenderingType;
             graphics.Clear(_baseColor);
 
             for (int i = 0; i < TabCount; i++)

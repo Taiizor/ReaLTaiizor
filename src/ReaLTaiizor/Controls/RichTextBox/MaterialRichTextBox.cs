@@ -1,6 +1,6 @@
 ﻿#region Imports
 
-using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
 using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Controls
             Multiline = true;
 
             BorderStyle = BorderStyle.None;
-            Font = SkinManager.GetFontByType(MaterialManager.FontType.Body1);
+            Font = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
             BackColor = SkinManager.BackgroundColor;
             ForeColor = SkinManager.TextHighEmphasisColor;
             BackColorChanged += (sender, args) => BackColor = SkinManager.BackgroundColor;

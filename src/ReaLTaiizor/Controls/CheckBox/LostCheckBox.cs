@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Controls
             }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);
-            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), Height + 3, Height / 2 - textSize.Height / 2);
+            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), Height + 3, (Height / 2) - (textSize.Height / 2));
         }
 
 

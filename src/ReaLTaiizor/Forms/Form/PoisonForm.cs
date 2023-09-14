@@ -59,47 +59,26 @@ namespace ReaLTaiizor.Forms
             set => poisonTheme = value;
         }
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
-        public PoisonStyleManager StyleManager
-        {
-            get => poisonStyleManager;
-            set => poisonStyleManager = value;
-        }
+        public PoisonStyleManager StyleManager { get; set; } = null;
 
         #endregion
 
         #region Fields
 
-        private FormTextAlignType textAlign = FormTextAlignType.Left;
         [Browsable(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public FormTextAlignType TextAlign
-        {
-            get => textAlign;
-            set => textAlign = value;
-        }
+        public FormTextAlignType TextAlign { get; set; } = FormTextAlignType.Left;
 
         [Browsable(false)]
         public override Color BackColor => PoisonPaint.BackColor.Form(Theme);
 
-        private Enum.Poison.FormBorderStyle formBorderStyle = Enum.Poison.FormBorderStyle.None;
         [DefaultValue(Enum.Poison.FormBorderStyle.None)]
         [Browsable(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public Enum.Poison.FormBorderStyle BorderStyle
-        {
-            get => formBorderStyle;
-            set => formBorderStyle = value;
-        }
-
-        private bool isMovable = true;
+        public Enum.Poison.FormBorderStyle BorderStyle { get; set; } = Enum.Poison.FormBorderStyle.None;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool Movable
-        {
-            get => isMovable;
-            set => isMovable = value;
-        }
+        public bool Movable { get; set; } = true;
 
         public new Padding Padding
         {
@@ -131,13 +110,8 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private bool isResizable = true;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public bool Resizable
-        {
-            get => isResizable;
-            set => isResizable = value;
-        }
+        public bool Resizable { get; set; } = true;
 
         private FormShadowType shadowType = FormShadowType.Flat;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -369,7 +343,7 @@ namespace ReaLTaiizor.Forms
 
             if (displayHeader)
             {
-                Rectangle bounds = new(20, 20, ClientRectangle.Width - 2 * 20, 40);
+                Rectangle bounds = new(20, 20, ClientRectangle.Width - (2 * 20), 40);
                 TextFormatFlags flags = TextFormatFlags.EndEllipsis | GetTextFormatFlags();
                 TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Title, bounds, foreColor, flags);
             }
@@ -410,7 +384,7 @@ namespace ReaLTaiizor.Forms
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            if (!(this is ReaLTaiizor.Controls.PoisonTaskWindow))
+            if (this is not ReaLTaiizor.Controls.PoisonTaskWindow)
             {
                 ReaLTaiizor.Controls.PoisonTaskWindow.ForceClose();
             }
@@ -640,7 +614,7 @@ namespace ReaLTaiizor.Forms
                 }
             }
 
-            if (RectangleToScreen(new Rectangle(borderWidth, borderWidth, ClientRectangle.Width - 2 * borderWidth, 50)).Contains(vPoint))
+            if (RectangleToScreen(new Rectangle(borderWidth, borderWidth, ClientRectangle.Width - (2 * borderWidth), 50)).Contains(vPoint))
             {
                 return WinApi.HitTest.HTCAPTION;
             }
@@ -914,41 +888,18 @@ namespace ReaLTaiizor.Forms
                 set => poisonTheme = value;
             }
 
-            private PoisonStyleManager poisonStyleManager = null;
             [Browsable(false)]
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public PoisonStyleManager StyleManager
-            {
-                get => poisonStyleManager;
-                set => poisonStyleManager = value;
-            }
-
-            private bool useCustomBackColor = false;
+            public PoisonStyleManager StyleManager { get; set; } = null;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseCustomBackColor
-            {
-                get => useCustomBackColor;
-                set => useCustomBackColor = value;
-            }
-
-            private bool useCustomForeColor = false;
+            public bool UseCustomBackColor { get; set; } = false;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseCustomForeColor
-            {
-                get => useCustomForeColor;
-                set => useCustomForeColor = value;
-            }
-
-            private bool useStyleColors = false;
+            public bool UseCustomForeColor { get; set; } = false;
             [DefaultValue(false)]
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
-            public bool UseStyleColors
-            {
-                get => useStyleColors;
-                set => useStyleColors = value;
-            }
+            public bool UseStyleColors { get; set; } = false;
 
             [Browsable(false)]
             [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -1414,7 +1365,7 @@ namespace ReaLTaiizor.Forms
             private Image DrawOutsetShadow(Color color, Rectangle shadowCanvasArea)
             {
                 Rectangle rOuter = shadowCanvasArea;
-                Rectangle rInner = new(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - (-Offset.X * 2 - 1), shadowCanvasArea.Height - (-Offset.Y * 2 - 1));
+                Rectangle rInner = new(shadowCanvasArea.X + (-Offset.X - 1), shadowCanvasArea.Y + (-Offset.Y - 1), shadowCanvasArea.Width - ((-Offset.X * 2) - 1), shadowCanvasArea.Height - ((-Offset.Y * 2) - 1));
 
                 Bitmap img = new(rOuter.Width, rOuter.Height, PixelFormat.Format32bppArgb);
                 Graphics g = Graphics.FromImage(img);
@@ -1548,8 +1499,8 @@ namespace ReaLTaiizor.Forms
                 int currentBlur = 0;
                 do
                 {
-                    double transparency = (rOuter.Height - rInner.Height) / (double)(blur * 2 + spread * 2);
-                    Color shadowColor = Color.FromArgb(((int)(200 * (transparency * transparency))), color);
+                    double transparency = (rOuter.Height - rInner.Height) / (double)((blur * 2) + (spread * 2));
+                    Color shadowColor = Color.FromArgb((int)(200 * (transparency * transparency)), color);
                     Rectangle rOutput = rInner;
                     rOutput.Offset(-originalOuter.Left, -originalOuter.Top);
 

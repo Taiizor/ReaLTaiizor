@@ -47,7 +47,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Val = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Min = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -67,16 +67,11 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Max = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
-        private Color _BorderColor = Color.DodgerBlue;
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = Color.DodgerBlue;
 
         public AloneProgressBar()
         {
@@ -99,7 +94,7 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             base.OnPaint(e);
             graphics.Clear(BackColor);
-            using (Pen pen = new(_BorderColor))
+            using (Pen pen = new(BorderColor))
             {
                 graphics.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
             }
@@ -108,7 +103,7 @@ namespace ReaLTaiizor.Controls
             if (flag)
             {
                 using HatchBrush hatchBrush = new(HatchStyle.LightUpwardDiagonal, Stripes, BackgroundColor);
-                graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked(Value / (double)Maximum * Width - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
+                graphics.FillPath(hatchBrush, AloneLibrary.RoundRect(checked(new Rectangle(0, 0, (int)Math.Round(unchecked((Value / (double)Maximum * Width) - 1.0)), base.Height - 1)), 6, AloneLibrary.RoundingStyle.All));
             }
         }
     }

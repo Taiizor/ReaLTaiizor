@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
         private bool showSplit;
         private bool isSplitMenuVisible;
         private ContextMenuStrip m_SplitMenuStrip;
-#if !NETCOREAPP3_1 && !NET5_0 && !NET6_0 && !NET7_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
         private ContextMenu m_SplitMenu;
 #endif
         private readonly TextFormatFlags textFormatFlags = TextFormatFlags.Default;
@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Controls
             set => SplitMenuStrip = value;
         }
 
-#if !NETCOREAPP3_1 && !NET5_0 && !NET6_0 && !NET7_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
         [DefaultValue(null)]
         public ContextMenu SplitMenu
         {
@@ -158,7 +158,7 @@ namespace ReaLTaiizor.Controls
 
             if (e.CloseReason == ToolStripDropDownCloseReason.AppClicked)
             {
-                skipNextOpen = (dropDownRectangle.Contains(PointToClient(Cursor.Position))) && MouseButtons == MouseButtons.Left;
+                skipNextOpen = dropDownRectangle.Contains(PointToClient(Cursor.Position)) && MouseButtons == MouseButtons.Left;
             }
         }
 
@@ -307,7 +307,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-#if !NETCOREAPP3_1 && !NET5_0 && !NET6_0 && !NET7_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
             //handle ContextMenu re-clicking the drop-down region to close the menu
             if (m_SplitMenu != null && e.Button == MouseButtons.Left && !isMouseEntered)
             {
@@ -333,13 +333,13 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-#if !NETCOREAPP3_1 && !NET5_0 && !NET6_0 && !NET7_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
                 ShowContextMenuStrip();
             }
-            else if (m_SplitMenuStrip == null && m_SplitMenu == null || !isSplitMenuVisible)
+            else if ((m_SplitMenuStrip == null && m_SplitMenu == null) || !isSplitMenuVisible)
             {
                 SetButtonDrawState();
 
@@ -350,7 +350,7 @@ namespace ReaLTaiizor.Controls
             }
 #endif
 
-#if NETCOREAPP3_1 || NET5_0 || NET6_0 || NET7_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
@@ -386,7 +386,7 @@ namespace ReaLTaiizor.Controls
             int internalBorder = BorderSize;
             Rectangle focusRect = new(internalBorder - 1, internalBorder - 1, bounds.Width - dropDownRectangle.Width - internalBorder, bounds.Height - (internalBorder * 2) + 2);
 
-            bool drawSplitLine = (State == PushButtonState.Hot || State == PushButtonState.Pressed || !Application.RenderWithVisualStyles);
+            bool drawSplitLine = State == PushButtonState.Hot || State == PushButtonState.Pressed || !Application.RenderWithVisualStyles;
 
             if (RightToLeft == RightToLeft.Yes)
             {
@@ -437,7 +437,7 @@ namespace ReaLTaiizor.Controls
 
                 if (!string.IsNullOrEmpty(Text) && TextRenderer.MeasureText(Text, Font).Width + SplitSectionWidth > preferredSize.Width)
                 {
-                    return preferredSize + new Size(SplitSectionWidth + BorderSize * 2, 0);
+                    return preferredSize + new Size(SplitSectionWidth + (BorderSize * 2), 0);
                 }
             }
 
@@ -469,10 +469,10 @@ namespace ReaLTaiizor.Controls
 
         private void PaintArrow(Graphics g, Rectangle dropDownRect)
         {
-            Point middle = new(Convert.ToInt32(dropDownRect.Left + dropDownRect.Width / 2), Convert.ToInt32(dropDownRect.Top + dropDownRect.Height / 2));
+            Point middle = new(Convert.ToInt32(dropDownRect.Left + (dropDownRect.Width / 2)), Convert.ToInt32(dropDownRect.Top + (dropDownRect.Height / 2)));
 
             //if the width is odd - favor pushing it over one pixel right.
-            middle.X += (dropDownRect.Width % 2);
+            middle.X += dropDownRect.Width % 2;
 
             Point[] arrow = new[] { new Point(middle.X - 2, middle.Y - 1), new Point(middle.X + 3, middle.Y - 1), new Point(middle.X, middle.Y + 2) };
 
@@ -739,28 +739,28 @@ namespace ReaLTaiizor.Controls
             int x = 0;
             int y = 0;
 
-            if (align == System.Drawing.ContentAlignment.BottomLeft || align == System.Drawing.ContentAlignment.MiddleLeft || align == System.Drawing.ContentAlignment.TopLeft)
+            if (align is System.Drawing.ContentAlignment.BottomLeft or System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.TopLeft)
             {
                 x = outer.X;
             }
-            else if (align == System.Drawing.ContentAlignment.BottomCenter || align == System.Drawing.ContentAlignment.MiddleCenter || align == System.Drawing.ContentAlignment.TopCenter)
+            else if (align is System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.TopCenter)
             {
                 x = Math.Max(outer.X + ((outer.Width - inner.Width) / 2), outer.Left);
             }
-            else if (align == System.Drawing.ContentAlignment.BottomRight || align == System.Drawing.ContentAlignment.MiddleRight || align == System.Drawing.ContentAlignment.TopRight)
+            else if (align is System.Drawing.ContentAlignment.BottomRight or System.Drawing.ContentAlignment.MiddleRight or System.Drawing.ContentAlignment.TopRight)
             {
                 x = outer.Right - inner.Width;
             }
 
-            if (align == System.Drawing.ContentAlignment.TopCenter || align == System.Drawing.ContentAlignment.TopLeft || align == System.Drawing.ContentAlignment.TopRight)
+            if (align is System.Drawing.ContentAlignment.TopCenter or System.Drawing.ContentAlignment.TopLeft or System.Drawing.ContentAlignment.TopRight)
             {
                 y = outer.Y;
             }
-            else if (align == System.Drawing.ContentAlignment.MiddleCenter || align == System.Drawing.ContentAlignment.MiddleLeft || align == System.Drawing.ContentAlignment.MiddleRight)
+            else if (align is System.Drawing.ContentAlignment.MiddleCenter or System.Drawing.ContentAlignment.MiddleLeft or System.Drawing.ContentAlignment.MiddleRight)
             {
-                y = outer.Y + (outer.Height - inner.Height) / 2;
+                y = outer.Y + ((outer.Height - inner.Height) / 2);
             }
-            else if (align == System.Drawing.ContentAlignment.BottomCenter || align == System.Drawing.ContentAlignment.BottomRight || align == System.Drawing.ContentAlignment.BottomLeft)
+            else if (align is System.Drawing.ContentAlignment.BottomCenter or System.Drawing.ContentAlignment.BottomRight or System.Drawing.ContentAlignment.BottomLeft)
             {
                 y = outer.Bottom - inner.Height;
             }
@@ -784,7 +784,7 @@ namespace ReaLTaiizor.Controls
 
             State = PushButtonState.Pressed;
 
-#if !NETCOREAPP3_1 && !NET5_0 && !NET6_0 && !NET7_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
             if (m_SplitMenu != null)
             {
                 m_SplitMenu.Show(this, new Point(0, Height));
@@ -795,7 +795,7 @@ namespace ReaLTaiizor.Controls
             }
 #endif
 
-#if NETCOREAPP3_1 || NET5_0 || NET6_0 || NET7_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0
             if (m_SplitMenuStrip != null)
             {
                 m_SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);
@@ -855,8 +855,8 @@ namespace ReaLTaiizor.Controls
             }
 
             // Pad the result
-            ret_size.Height += (Padding.Vertical + 6);
-            ret_size.Width += (Padding.Horizontal + 6);
+            ret_size.Height += Padding.Vertical + 6;
+            ret_size.Width += Padding.Horizontal + 6;
 
             //pad the splitButton arrow region
             if (showSplit)

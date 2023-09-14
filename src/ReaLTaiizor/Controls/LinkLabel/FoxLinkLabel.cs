@@ -17,19 +17,8 @@ namespace ReaLTaiizor.Controls
     {
         private Graphics G;
 
-        private Color _DownColor = FoxLibrary.ColorFromHex("#FF9500");
-        public Color DownColor
-        {
-            get => _DownColor;
-            set => _DownColor = value;
-        }
-
-        private Color _OverColor = FoxLibrary.ColorFromHex("#178CE5");
-        public Color OverColor
-        {
-            get => _OverColor;
-            set => _OverColor = value;
-        }
+        public Color DownColor { get; set; } = FoxLibrary.ColorFromHex("#FF9500");
+        public Color OverColor { get; set; } = FoxLibrary.ColorFromHex("#178CE5");
 
         public FoxLinkLabel() : base()
         {
@@ -47,14 +36,14 @@ namespace ReaLTaiizor.Controls
             switch (State)
             {
                 case FoxLibrary.MouseState.Over:
-                    using (SolidBrush TextColor = new(_OverColor))
+                    using (SolidBrush TextColor = new(OverColor))
                     {
                         using Font TextFont = new(Font.FontFamily, Font.Size, FontStyle.Underline);
                         G.DrawString(Text, TextFont, TextColor, new Point(0, 0));
                     }
                     break;
                 case FoxLibrary.MouseState.Down:
-                    using (SolidBrush TextColor = new(_DownColor))
+                    using (SolidBrush TextColor = new(DownColor))
                     {
                         G.DrawString(Text, Font, TextColor, new Point(0, 0));
                     }

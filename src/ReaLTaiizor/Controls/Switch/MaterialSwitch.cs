@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Extension;
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System;
 using System.ComponentModel;
@@ -23,20 +24,26 @@ namespace ReaLTaiizor.Controls
         public int Depth { get; set; }
 
         [Browsable(false)]
-        public MaterialManager SkinManager => MaterialManager.Instance;
-
-        private bool useAccentColor;
-        public bool UseAccentColor
-        {
-            get => useAccentColor;
-            set { useAccentColor = value; Invalidate(); }
-        }
+        public MaterialSkinManager SkinManager => MaterialSkinManager.Instance;
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
         [Browsable(false)]
         public Point MouseLocation { get; set; }
+
+        private bool useAccentColor;
+
+        [Category("Material")]
+        public bool UseAccentColor
+        {
+            get => useAccentColor;
+            set
+            {
+                useAccentColor = value;
+                Invalidate();
+            }
+        }
 
         private bool _ripple;
 
@@ -58,6 +65,10 @@ namespace ReaLTaiizor.Controls
             }
         }
 
+        [Category("Appearance")]
+        [Browsable(true), DefaultValue(false), EditorBrowsable(EditorBrowsableState.Always)]
+        public bool ReadOnly { get; set; }
+
         private readonly AnimationManager _checkAM;
         private readonly AnimationManager _hoverAM;
         private readonly AnimationManager _rippleAM;
@@ -66,9 +77,9 @@ namespace ReaLTaiizor.Controls
 
         private const int THUMB_SIZE_HALF = THUMB_SIZE / 2;
 
-        private const int TRACK_SIZE_HEIGHT = 14;
-        private const int TRACK_SIZE_WIDTH = 36;
-        private const int TRACK_RADIUS = TRACK_SIZE_HEIGHT / 2;
+        private const int TRACK_SIZE_HEIGHT = (int)14;
+        private const int TRACK_SIZE_WIDTH = (int)36;
+        private const int TRACK_RADIUS = (int)(TRACK_SIZE_HEIGHT / 2);
 
         private int TRACK_CENTER_Y;
         private int TRACK_CENTER_X_BEGIN;
@@ -110,14 +121,23 @@ namespace ReaLTaiizor.Controls
             };
 
             Ripple = true;
-            MouseLocation = new(-1, -1);
+            MouseLocation = new Point(-1, -1);
+            ReadOnly = false;
+        }
+
+        protected override void OnClick(EventArgs e)
+        {
+            if (!ReadOnly)
+            {
+                base.OnClick(e);
+            }
         }
 
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
 
-            _trackOffsetY = Height / 2 - THUMB_SIZE_HALF;
+            _trackOffsetY = (Height / 2) - THUMB_SIZE_HALF;
 
             TRACK_CENTER_Y = _trackOffsetY + THUMB_SIZE_HALF - 1;
             TRACK_CENTER_X_BEGIN = TRACK_CENTER_Y;
@@ -130,9 +150,8 @@ namespace ReaLTaiizor.Controls
             Size strSize;
             using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
-                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialManager.FontType.Body1));
+                strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1));
             }
-
             int w = TRACK_SIZE_WIDTH + THUMB_SIZE + strSize.Width;
             return Ripple ? new Size(w, RIPPLE_DIAMETER) : new Size(w, THUMB_SIZE);
         }
@@ -147,22 +166,22 @@ namespace ReaLTaiizor.Controls
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor);
+            g.Clear(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SkinManager.BackgroundColor : Parent.Parent.BackColor) : Parent.BackColor);
 
             double animationProgress = _checkAM.GetProgress();
 
             // Draw Track
             Color thumbColor = BlendColor(
-                        (Enabled ? SkinManager.SwitchOffThumbColor : SkinManager.SwitchOffDisabledThumbColor), // Off color
-                        (Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : BlendColor(UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, SkinManager.SwitchOffDisabledThumbColor, 197)), // On color
+                        Enabled ? SkinManager.SwitchOffThumbColor : SkinManager.SwitchOffDisabledThumbColor, // Off color
+                        Enabled ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : BlendColor(UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, SkinManager.SwitchOffDisabledThumbColor, 197), // On color
                         animationProgress * 255); // Blend amount
 
-            using (GraphicsPath path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - TRACK_SIZE_HEIGHT / 2, TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
+            using (GraphicsPath path = CreateRoundRect(new Rectangle(TRACK_CENTER_X_BEGIN - TRACK_RADIUS, TRACK_CENTER_Y - (TRACK_SIZE_HEIGHT / 2), TRACK_SIZE_WIDTH, TRACK_SIZE_HEIGHT), TRACK_RADIUS))
             {
                 using SolidBrush trackBrush = new(
                     Color.FromArgb(Enabled ? SkinManager.SwitchOffTrackColor.A : SkinManager.BackgroundDisabledColor.A, // Track alpha
                     BlendColor( // animate color
-                        (Enabled ? SkinManager.SwitchOffTrackColor : SkinManager.BackgroundDisabledColor), // Off color
+                        Enabled ? SkinManager.SwitchOffTrackColor : SkinManager.BackgroundDisabledColor, // Off color
                         UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor, // On color
                         animationProgress * 255) // Blend amount
                         .RemoveAlpha()));
@@ -177,7 +196,7 @@ namespace ReaLTaiizor.Controls
 
             Color rippleColor = Color.FromArgb(40, // color alpha
                 Checked ? UseAccentColor ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor : // On color
-                (SkinManager.Theme == MaterialManager.Themes.LIGHT ? Color.Black : Color.White)); // Off color
+                (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT ? Color.Black : Color.White)); // Off color
 
             if (Ripple && _rippleAM.IsAnimating())
             {
@@ -187,7 +206,7 @@ namespace ReaLTaiizor.Controls
                     int rippleAnimatedDiameter = (_rippleAM.GetDirection(i) == AnimationDirection.InOutIn) ? (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress))) : rippleSize;
 
                     using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha()));
-                    g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - rippleAnimatedDiameter / 2, TRACK_CENTER_Y - rippleAnimatedDiameter / 2, rippleAnimatedDiameter, rippleAnimatedDiameter));
+                    g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - (rippleAnimatedDiameter / 2), TRACK_CENTER_Y - (rippleAnimatedDiameter / 2), rippleAnimatedDiameter, rippleAnimatedDiameter));
                 }
             }
 
@@ -198,7 +217,7 @@ namespace ReaLTaiizor.Controls
                 int rippleAnimatedDiameter = (int)(rippleSize * (0.7 + (0.3 * rippleAnimProgress)));
 
                 using SolidBrush rippleBrush = new(Color.FromArgb((int)(40 * rippleAnimProgress), rippleColor.RemoveAlpha()));
-                g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - rippleAnimatedDiameter / 2, TRACK_CENTER_Y - rippleAnimatedDiameter / 2, rippleAnimatedDiameter, rippleAnimatedDiameter));
+                g.FillEllipse(rippleBrush, new Rectangle(TRACK_CENTER_X_BEGIN + OffsetX - (rippleAnimatedDiameter / 2), TRACK_CENTER_Y - (rippleAnimatedDiameter / 2), rippleAnimatedDiameter, rippleAnimatedDiameter));
             }
 
             // draw Thumb Shadow
@@ -223,7 +242,7 @@ namespace ReaLTaiizor.Controls
             Rectangle textLocation = new(TEXT_OFFSET + TRACK_SIZE_WIDTH, 0, Width - (TEXT_OFFSET + TRACK_SIZE_WIDTH), Height);
             NativeText.DrawTransparentText(
                 Text,
-                SkinManager.GetLogFontByType(MaterialManager.FontType.Body1),
+                SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1),
                 Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 textLocation.Location,
                 textLocation.Size,
@@ -239,7 +258,7 @@ namespace ReaLTaiizor.Controls
             g.Clear(Color.Transparent);
 
             // draw the checkmark lines
-            using (Pen pen = new(Parent.BackColor == Color.Transparent ? ((Parent.Parent == null || (Parent.Parent != null && Parent.Parent.BackColor == Color.Transparent)) ? SystemColors.Control : Parent.Parent.BackColor) : Parent.BackColor, 2))
+            using (Pen pen = new(Parent.BackColor, 2))
             {
                 g.DrawLines(pen, CheckmarkLine);
             }
@@ -255,7 +274,7 @@ namespace ReaLTaiizor.Controls
                 base.AutoSize = value;
                 if (value)
                 {
-                    Size = new(10, 10);
+                    Size = new Size(10, 10);
                 }
             }
         }
@@ -308,7 +327,7 @@ namespace ReaLTaiizor.Controls
 
             MouseLeave += (sender, args) =>
             {
-                MouseLocation = new(-1, -1);
+                MouseLocation = new Point(-1, -1);
                 MouseState = MaterialMouseState.OUT;
                 //if (Ripple && hovered)
                 //{

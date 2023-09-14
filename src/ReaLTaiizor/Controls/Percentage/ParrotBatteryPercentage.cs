@@ -24,15 +24,15 @@ namespace ReaLTaiizor.Controls
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Returns the battery percentage")]
-        public int Value => Percentage;
+        public int Value { get; private set; }
 
         private void BackgroundThread_DoWork(object sender, DoWorkEventArgs e)
         {
             string text = SystemInformation.PowerStatus.BatteryLifePercent.ToString("#.#########", CultureInfo.InvariantCulture);
-            Percentage = int.Parse(text.Substring(text.IndexOf(".") + 1));
-            if (Percentage == 1)
+            Value = int.Parse(text.Substring(text.IndexOf(".") + 1));
+            if (Value == 1)
             {
-                Percentage = 100;
+                Value = 100;
             }
         }
 
@@ -42,9 +42,7 @@ namespace ReaLTaiizor.Controls
             backgroundThread.RunWorkerAsync();
         }
 
-        private readonly BackgroundWorker backgroundThread = new BackgroundWorker();
-
-        private int Percentage;
+        private readonly BackgroundWorker backgroundThread = new();
     }
 
     #endregion

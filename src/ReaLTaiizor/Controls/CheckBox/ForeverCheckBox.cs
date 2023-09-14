@@ -21,7 +21,6 @@ namespace ReaLTaiizor.Controls
         private int W;
         private int H;
         private MouseStateForever State = MouseStateForever.None;
-        private _Options O;
         private bool _Checked;
 
         protected override void OnTextChanged(EventArgs e)
@@ -57,11 +56,7 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Options")]
-        public _Options Options
-        {
-            get => O;
-            set => O = value;
-        }
+        public _Options Options { get; set; }
 
         protected override void OnResize(EventArgs e)
         {
@@ -70,18 +65,10 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color BaseColor
-        {
-            get => _BaseColor;
-            set => _BaseColor = value;
-        }
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Colors")]
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = ForeverLibrary.ForeverColor;
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -111,9 +98,6 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        private Color _BaseColor = Color.FromArgb(45, 47, 49);
-        private Color _BorderColor = ForeverLibrary.ForeverColor;
-
         public ForeverCheckBox()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
@@ -140,29 +124,29 @@ namespace ReaLTaiizor.Controls
             _with11.SmoothingMode = SmoothingMode.HighQuality;
             _with11.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             _with11.Clear(BackColor);
-            switch (O)
+            switch (Options)
             {
                 case _Options.Style1:
                     //-- Style 1
                     //-- Base
-                    _with11.FillRectangle(new SolidBrush(_BaseColor), Base);
+                    _with11.FillRectangle(new SolidBrush(BaseColor), Base);
 
                     switch (State)
                     {
                         case MouseStateForever.Over:
                             //-- Base
-                            _with11.DrawRectangle(new(_BorderColor), Base);
+                            _with11.DrawRectangle(new(BorderColor), Base);
                             break;
                         case MouseStateForever.Down:
                             //-- Base
-                            _with11.DrawRectangle(new(_BorderColor), Base);
+                            _with11.DrawRectangle(new(BorderColor), Base);
                             break;
                     }
 
                     //-- If Checked
                     if (Checked)
                     {
-                        _with11.DrawString("ü", new Font("Wingdings", 18), new SolidBrush(_BorderColor), new Rectangle(5, 7, H - 9, H - 9), ForeverLibrary.CenterSF);
+                        _with11.DrawString("ü", new Font("Wingdings", 18), new SolidBrush(BorderColor), new Rectangle(5, 7, H - 9, H - 9), ForeverLibrary.CenterSF);
                     }
 
                     //-- If Enabled
@@ -178,18 +162,18 @@ namespace ReaLTaiizor.Controls
                 case _Options.Style2:
                     //-- Style 2
                     //-- Base
-                    _with11.FillRectangle(new SolidBrush(_BaseColor), Base);
+                    _with11.FillRectangle(new SolidBrush(BaseColor), Base);
 
                     switch (State)
                     {
                         case MouseStateForever.Over:
                             //-- Base
-                            _with11.DrawRectangle(new(_BorderColor), Base);
+                            _with11.DrawRectangle(new(BorderColor), Base);
                             _with11.FillRectangle(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                         case MouseStateForever.Down:
                             //-- Base
-                            _with11.DrawRectangle(new(_BorderColor), Base);
+                            _with11.DrawRectangle(new(BorderColor), Base);
                             _with11.FillRectangle(new SolidBrush(Color.FromArgb(118, 213, 170)), Base);
                             break;
                     }
@@ -197,7 +181,7 @@ namespace ReaLTaiizor.Controls
                     //-- If Checked
                     if (Checked)
                     {
-                        _with11.DrawString("ü", new Font("Wingdings", 18), new SolidBrush(_BorderColor), new Rectangle(5, 7, H - 9, H - 9), ForeverLibrary.CenterSF);
+                        _with11.DrawString("ü", new Font("Wingdings", 18), new SolidBrush(BorderColor), new Rectangle(5, 7, H - 9, H - 9), ForeverLibrary.CenterSF);
                     }
 
                     //-- If Enabled
@@ -223,7 +207,7 @@ namespace ReaLTaiizor.Controls
         {
             ForeverColors Colors = ForeverLibrary.GetColors(this);
 
-            _BorderColor = Colors.Forever;
+            BorderColor = Colors.Forever;
         }
     }
 

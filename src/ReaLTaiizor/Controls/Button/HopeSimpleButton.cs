@@ -19,16 +19,6 @@ namespace ReaLTaiizor.Controls
         #region Variables
         private bool enterFlag = false;
         private bool clickFlag = false;
-        private Color _DefaultColor = HopeColors.DefaultColor;
-        private Color _DefaultClickColor = HopeColors.DarkPrimary;
-        private Color _PrimaryColor = HopeColors.PrimaryColor;
-        private Color _SuccessColor = HopeColors.Success;
-        private Color _InfoColor = HopeColors.Info;
-        private Color _WarningColor = HopeColors.Warning;
-        private Color _DangerColor = HopeColors.Danger;
-        private Color _BorderColor = HopeColors.OneLevelBorder;
-        private Color _HoverTextColor = HopeColors.MainText;
-        private Color _HoverClickTextColor = HopeColors.DarkPrimary;
         #endregion
 
         #region Settings
@@ -54,65 +44,25 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        public Color DefaultColor
-        {
-            get => _DefaultColor;
-            set => _DefaultColor = value;
-        }
+        public Color DefaultColor { get; set; } = HopeColors.DefaultColor;
 
-        public Color DefaultClickColor
-        {
-            get => _DefaultClickColor;
-            set => _DefaultClickColor = value;
-        }
+        public Color DefaultClickColor { get; set; } = HopeColors.DarkPrimary;
 
-        public Color PrimaryColor
-        {
-            get => _PrimaryColor;
-            set => _PrimaryColor = value;
-        }
+        public Color PrimaryColor { get; set; } = HopeColors.PrimaryColor;
 
-        public Color SuccessColor
-        {
-            get => _SuccessColor;
-            set => _SuccessColor = value;
-        }
+        public Color SuccessColor { get; set; } = HopeColors.Success;
 
-        public Color InfoColor
-        {
-            get => _InfoColor;
-            set => _InfoColor = value;
-        }
+        public Color InfoColor { get; set; } = HopeColors.Info;
 
-        public Color WarningColor
-        {
-            get => _WarningColor;
-            set => _WarningColor = value;
-        }
+        public Color WarningColor { get; set; } = HopeColors.Warning;
 
-        public Color DangerColor
-        {
-            get => _DangerColor;
-            set => _DangerColor = value;
-        }
+        public Color DangerColor { get; set; } = HopeColors.Danger;
 
-        public Color BorderColor
-        {
-            get => _BorderColor;
-            set => _BorderColor = value;
-        }
+        public Color BorderColor { get; set; } = HopeColors.OneLevelBorder;
 
-        public Color HoverTextColor
-        {
-            get => _HoverTextColor;
-            set => _HoverTextColor = value;
-        }
+        public Color HoverTextColor { get; set; } = HopeColors.MainText;
 
-        public Color HoverClickTextColor
-        {
-            get => _HoverClickTextColor;
-            set => _HoverClickTextColor = value;
-        }
+        public Color HoverClickTextColor { get; set; } = HopeColors.DarkPrimary;
         #endregion
 
         #region Events
@@ -157,28 +107,28 @@ namespace ReaLTaiizor.Controls
             if (_buttonType == HopeButtonType.Default)
             {
                 GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
-                graphics.DrawPath(new(enterFlag ? (clickFlag ? _DefaultClickColor : _DefaultColor) : _BorderColor, 1), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? (clickFlag ? _HoverClickTextColor : _HoverTextColor) : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawPath(new(enterFlag ? (clickFlag ? DefaultClickColor : DefaultColor) : BorderColor, 1), BG);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? (clickFlag ? HoverClickTextColor : HoverTextColor) : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {
-                Color backColor = _DefaultColor;
+                Color backColor = DefaultColor;
                 switch (_buttonType)
                 {
                     case HopeButtonType.Primary:
-                        backColor = _PrimaryColor;
+                        backColor = PrimaryColor;
                         break;
                     case HopeButtonType.Success:
-                        backColor = _SuccessColor;
+                        backColor = SuccessColor;
                         break;
                     case HopeButtonType.Info:
-                        backColor = _InfoColor;
+                        backColor = InfoColor;
                         break;
                     case HopeButtonType.Warning:
-                        backColor = _WarningColor;
+                        backColor = WarningColor;
                         break;
                     case HopeButtonType.Danger:
-                        backColor = _DangerColor;
+                        backColor = DangerColor;
                         break;
                     default:
                         break;
@@ -197,7 +147,7 @@ namespace ReaLTaiizor.Controls
 
                 SolidBrush brush = new(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : Color.FromArgb(25, backColor));
                 graphics.FillPath(brush, BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? _HoverTextColor : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
         }
 

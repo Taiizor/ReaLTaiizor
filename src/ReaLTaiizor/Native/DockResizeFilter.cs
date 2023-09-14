@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Native
         public bool PreFilterMessage(ref Message m)
         {
             // We only care about mouse events
-            if (!(m.Msg == (int)WM.MOUSEMOVE || m.Msg == (int)WM.LBUTTONDOWN || m.Msg == (int)WM.LBUTTONUP || m.Msg == (int)WM.LBUTTONDBLCLK || m.Msg == (int)WM.RBUTTONDOWN || m.Msg == (int)WM.RBUTTONUP || m.Msg == (int)WM.RBUTTONDBLCLK))
+            if (m.Msg is not (((int)WM.MOUSEMOVE) or ((int)WM.LBUTTONDOWN) or ((int)WM.LBUTTONUP) or ((int)WM.LBUTTONDBLCLK) or ((int)WM.RBUTTONDOWN) or ((int)WM.RBUTTONUP) or ((int)WM.RBUTTONDBLCLK)))
             {
                 return false;
             }

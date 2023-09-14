@@ -34,31 +34,14 @@ namespace ReaLTaiizor.Native
             get => bounds;
             private set => bounds = value;
         }
-
-        private TaskBarPosition position = TaskBarPosition.Unknown;
-        public TaskBarPosition Position
-        {
-            get => position;
-            private set => position = value;
-        }
+        public TaskBarPosition Position { get; private set; } = TaskBarPosition.Unknown;
 
         public Point Location => Bounds.Location;
 
         public Size Size => Bounds.Size;
 
-        private bool alwaysOnTop = false;
-        public bool AlwaysOnTop
-        {
-            get => alwaysOnTop;
-            private set => alwaysOnTop = value;
-        }
-
-        private bool autoHide = false;
-        public bool AutoHide
-        {
-            get => autoHide;
-            private set => autoHide = value;
-        }
+        public bool AlwaysOnTop { get; private set; } = false;
+        public bool AutoHide { get; private set; } = false;
 
         [SecuritySafeCritical]
         public TaskBar()

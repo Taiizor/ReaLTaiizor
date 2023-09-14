@@ -19,7 +19,7 @@ namespace ReaLTaiizor.Controls
         {
             base.Size = new Size(250, 20);
             base.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
-            barRectangle = new(base.Height / 2 + 1, 1, base.Width - base.Height, base.Height - 1);
+            barRectangle = new((base.Height / 2) + 1, 1, base.Width - base.Height, base.Height - 1);
             Cursor = Cursors.Hand;
         }
 
@@ -32,7 +32,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 barThickness = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -45,7 +45,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 bigStepIncrement = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -59,7 +59,7 @@ namespace ReaLTaiizor.Controls
             {
                 percentage = value;
                 OnScroll();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -73,7 +73,7 @@ namespace ReaLTaiizor.Controls
             {
                 max = value;
                 OnScroll();
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 filledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -99,7 +99,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 unfilledColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -112,7 +112,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 knobColor = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -125,7 +125,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 knobImage = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -138,7 +138,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 quickHopping = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -151,7 +151,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 sliderStyle = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -164,7 +164,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Positions = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -177,7 +177,7 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Colors = value;
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -252,31 +252,31 @@ namespace ReaLTaiizor.Controls
 
             int num = Percentage * base.Width / max;
 
-            if (e.X > num - base.Height / 2 && e.X < num + base.Height / 2)
+            if (e.X > num - (base.Height / 2) && e.X < num + (base.Height / 2))
             {
                 onHandle = true;
                 return;
             }
 
-            if (e.X < num - base.Height / 2)
+            if (e.X < num - (base.Height / 2))
             {
                 Percentage -= bigStepIncrement;
                 if (Percentage < 0)
                 {
                     Percentage = 0;
                 }
-                base.Invalidate();
+                Invalidate();
                 return;
             }
 
-            if (e.X > num + base.Height / 2)
+            if (e.X > num + (base.Height / 2))
             {
                 Percentage += bigStepIncrement;
                 if (Percentage > max)
                 {
                     Percentage = max;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -294,7 +294,7 @@ namespace ReaLTaiizor.Controls
                 {
                     Percentage = max;
                 }
-                base.Invalidate();
+                Invalidate();
             }
         }
 
@@ -325,8 +325,8 @@ namespace ReaLTaiizor.Controls
 
             if (sliderStyle == Style.Flat)
             {
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(unfilledColor), base.Height / 2 + 1, base.Height / 2 - barThickness / 2, base.Width - base.Height - 2, barThickness);
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(filledColor), 1 + base.Height / 2, base.Height / 2 - barThickness / 2, num2 - 2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(unfilledColor), (base.Height / 2) + 1, (base.Height / 2) - (barThickness / 2), base.Width - base.Height - 2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(filledColor), 1 + (base.Height / 2), (base.Height / 2) - (barThickness / 2), num2 - 2, barThickness);
 
                 if (knobImage == null)
                 {
@@ -340,26 +340,26 @@ namespace ReaLTaiizor.Controls
 
             if (sliderStyle == Style.MacOS)
             {
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(185, 185, 185)), base.Height / 2 + 1, base.Height / 2 - barThickness / 2, base.Width - base.Height - 2, barThickness);
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(80, 150, 230)), 1 + base.Height / 2, base.Height / 2 - barThickness / 2, num2 - 2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(185, 185, 185)), (base.Height / 2) + 1, (base.Height / 2) - (barThickness / 2), base.Width - base.Height - 2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(80, 150, 230)), 1 + (base.Height / 2), (base.Height / 2) - (barThickness / 2), num2 - 2, barThickness);
                 bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.White), num2 + 1, 1, base.Height - 2, base.Height - 2);
                 bufferedGraphics.Graphics.DrawEllipse(new Pen(Color.FromArgb(190, 200, 200)), num2 + 1, 1, base.Height - 2, base.Height - 2);
             }
 
             if (sliderStyle == Style.Windows10)
             {
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(146, 147, 148)), base.Height / 2 + 1, base.Height / 2 - barThickness / 2, base.Width - base.Height - 2, barThickness);
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(65, 155, 225)), 1 + base.Height / 2, base.Height / 2 - barThickness / 2, num2 - 2, barThickness);
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(0, 120, 215)), num2 + 1 + base.Height / 3, 3, base.Height / 2 - 2, base.Height - 6);
-                bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(0, 120, 215)), num2 + 1 + base.Height / 3, 0, base.Height / 2 - 2, 4);
-                bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(0, 120, 215)), num2 + 1 + base.Height / 3, base.Height - 5, base.Height / 2 - 2, 4);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(146, 147, 148)), (base.Height / 2) + 1, (base.Height / 2) - (barThickness / 2), base.Width - base.Height - 2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(65, 155, 225)), 1 + (base.Height / 2), (base.Height / 2) - (barThickness / 2), num2 - 2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(0, 120, 215)), num2 + 1 + (base.Height / 3), 3, (base.Height / 2) - 2, base.Height - 6);
+                bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(0, 120, 215)), num2 + 1 + (base.Height / 3), 0, (base.Height / 2) - 2, 4);
+                bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(0, 120, 215)), num2 + 1 + (base.Height / 3), base.Height - 5, (base.Height / 2) - 2, 4);
             }
 
             if (sliderStyle == Style.Android)
             {
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, 100, 100)), base.Height / 2 + 1, base.Height / 2 - barThickness / 2, base.Width - base.Height - 2, barThickness);
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 180, 230)), 1 + base.Height / 2, base.Height / 2 - barThickness / 2, num2 - 2, barThickness);
-                bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(50, 180, 230)), num2 + 1 + barThickness / 3 * 5, base.Height / 2 - barThickness / 3 * 4, barThickness * 2, barThickness * 2);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, 100, 100)), (base.Height / 2) + 1, (base.Height / 2) - (barThickness / 2), base.Width - base.Height - 2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 180, 230)), 1 + (base.Height / 2), (base.Height / 2) - (barThickness / 2), num2 - 2, barThickness);
+                bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(50, 180, 230)), num2 + 1 + (barThickness / 3 * 5), (base.Height / 2) - (barThickness / 3 * 4), barThickness * 2, barThickness * 2);
                 bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(100, 50, 180, 230)), num2 + 1, 1, base.Height - 2, base.Height - 2);
                 bufferedGraphics.Graphics.DrawEllipse(new Pen(Color.FromArgb(50, 180, 230), 2f), num2 + 1, 1, base.Height - 2, base.Height - 2);
             }
@@ -377,8 +377,8 @@ namespace ReaLTaiizor.Controls
 
                 linearGradientBrush.RotateTransform(1f);
 
-                bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, base.Height / 2 + 1, base.Height / 2 - barThickness / 2, base.Width - base.Height - 2, barThickness);
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.LightGray), 1 + base.Height / 2 + num2, base.Height / 2 - barThickness / 2, base.Width - base.Height - 2 - num2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, (base.Height / 2) + 1, (base.Height / 2) - (barThickness / 2), base.Width - base.Height - 2, barThickness);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(Color.LightGray), 1 + (base.Height / 2) + num2, (base.Height / 2) - (barThickness / 2), base.Width - base.Height - 2 - num2, barThickness);
                 bufferedGraphics.Graphics.FillEllipse(new SolidBrush(Color.White), num2 + 1, 1, base.Height - 2, base.Height - 2);
                 bufferedGraphics.Graphics.DrawEllipse(new Pen(Color.FromArgb(200, 200, 200)), num2 + 1, 1, base.Height - 2, base.Height - 2);
             }

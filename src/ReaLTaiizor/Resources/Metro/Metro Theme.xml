@@ -207,7 +207,7 @@
     <BackColor>#FFFFFF</BackColor>
     <ForeColor>#FFC40D</ForeColor>
     <UnselectedTextColor>#808080</UnselectedTextColor>
-    <SelectedTextColor>#FFFFFF</SelectedTextColor>
+    <SelectedTextColor>#000000</SelectedTextColor>
   </TabControl>
   <ScrollBar>
     <BackColor>#FFFFFF</BackColor>

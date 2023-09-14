@@ -27,93 +27,37 @@ namespace ReaLTaiizor.Controls
         }
 
         [Category("Colors")]
-        public Color Red
-        {
-            get => _Red;
-            set => _Red = value;
-        }
+        public Color Red { get; set; } = Color.FromArgb(220, 85, 96);
 
         [Category("Colors")]
-        public Color Cyan
-        {
-            get => _Cyan;
-            set => _Cyan = value;
-        }
+        public Color Cyan { get; set; } = Color.FromArgb(10, 154, 157);
 
         [Category("Colors")]
-        public Color Blue
-        {
-            get => _Blue;
-            set => _Blue = value;
-        }
+        public Color Blue { get; set; } = Color.FromArgb(0, 128, 255);
 
         [Category("Colors")]
-        public Color LimeGreen
-        {
-            get => _LimeGreen;
-            set => _LimeGreen = value;
-        }
+        public Color LimeGreen { get; set; } = Color.FromArgb(35, 168, 109);
 
         [Category("Colors")]
-        public Color Orange
-        {
-            get => _Orange;
-            set => _Orange = value;
-        }
+        public Color Orange { get; set; } = Color.FromArgb(253, 181, 63);
 
         [Category("Colors")]
-        public Color Purple
-        {
-            get => _Purple;
-            set => _Purple = value;
-        }
+        public Color Purple { get; set; } = Color.FromArgb(155, 88, 181);
 
         [Category("Colors")]
-        public Color Black
-        {
-            get => _Black;
-            set => _Black = value;
-        }
+        public Color Black { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Colors")]
-        public Color Gray
-        {
-            get => _Gray;
-            set => _Gray = value;
-        }
+        public Color Gray { get; set; } = Color.FromArgb(63, 70, 73);
 
         [Category("Colors")]
-        public Color White
-        {
-            get => _White;
-            set => _White = value;
-        }
+        public Color White { get; set; } = Color.FromArgb(243, 243, 243);
 
         [Category("Options")]
-        public string String
-        {
-            get => _String;
-            set => _String = value;
-        }
+        public string String { get; set; } = "Color Palette";
 
         [Category("Colors")]
-        public Color StringColor
-        {
-            get => _StringColor;
-            set => _StringColor = value;
-        }
-
-        private Color _Red = Color.FromArgb(220, 85, 96);
-        private Color _Cyan = Color.FromArgb(10, 154, 157);
-        private Color _Blue = Color.FromArgb(0, 128, 255);
-        private Color _LimeGreen = Color.FromArgb(35, 168, 109);
-        private Color _Orange = Color.FromArgb(253, 181, 63);
-        private Color _Purple = Color.FromArgb(155, 88, 181);
-        private Color _Black = Color.FromArgb(45, 47, 49);
-        private Color _Gray = Color.FromArgb(63, 70, 73);
-        private Color _White = Color.FromArgb(243, 243, 243);
-        private string _String = "Color Palette";
-        private Color _StringColor = Color.White;
+        public Color StringColor { get; set; } = Color.White;
 
         public ForeverPalette()
         {
@@ -128,6 +72,7 @@ namespace ReaLTaiizor.Controls
         {
             Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
+
             W = Width - 1;
             H = Height - 1;
 
@@ -138,20 +83,21 @@ namespace ReaLTaiizor.Controls
             _with6.Clear(BackColor);
 
             //-- Colors 
-            _with6.FillRectangle(new SolidBrush(_Red), new Rectangle(0, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_Cyan), new Rectangle(20, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_Blue), new Rectangle(40, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_LimeGreen), new Rectangle(60, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_Orange), new Rectangle(80, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_Purple), new Rectangle(100, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_Black), new Rectangle(120, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_Gray), new Rectangle(140, 0, 20, 40));
-            _with6.FillRectangle(new SolidBrush(_White), new Rectangle(160, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(Red), new Rectangle(0, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(Cyan), new Rectangle(20, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(Blue), new Rectangle(40, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(LimeGreen), new Rectangle(60, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(Orange), new Rectangle(80, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(Purple), new Rectangle(100, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(Black), new Rectangle(120, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(Gray), new Rectangle(140, 0, 20, 40));
+            _with6.FillRectangle(new SolidBrush(White), new Rectangle(160, 0, 20, 40));
 
             //-- Text
-            _with6.DrawString(_String, Font, new SolidBrush(_StringColor), new Rectangle(0, 22, W, H), ForeverLibrary.CenterSF);
+            _with6.DrawString(String, Font, new SolidBrush(StringColor), new Rectangle(0, 22, W, H), ForeverLibrary.CenterSF);
 
             base.OnPaint(e);
+
             G.Dispose();
             e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             e.Graphics.DrawImageUnscaled(B, 0, 0);
