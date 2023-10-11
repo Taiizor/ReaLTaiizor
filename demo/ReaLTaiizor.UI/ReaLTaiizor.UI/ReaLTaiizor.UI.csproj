@@ -84,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.6" />
     <!--<Reference Include="ReaLTaiizor">
       <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\$(TargetFramework)\ReaLTaiizor.dll</HintPath>
     </Reference>-->
@@ -93,7 +93,7 @@
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-rc.1.23419.4" />
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-rc.2.23479.6" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
