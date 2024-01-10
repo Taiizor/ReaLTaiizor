@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Taiizor")]
 [assembly: AssemblyProduct("ReaLTaiizor MAChanger")]
-[assembly: AssemblyCopyright("Copyright © 2023 Taiizor")]
+[assembly: AssemblyCopyright("Copyright © 2024 Taiizor")]
 [assembly: AssemblyTrademark("ReaLTaiizor")]
 [assembly: AssemblyCulture("")]
 

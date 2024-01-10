@@ -28,7 +28,10 @@ namespace ReaLTaiizor.UI
             // MaterialSkinManager properties
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.WHITE);
+
+            //materialSkinManager.ColorScheme = new MaterialColorScheme(0x00C926b3, 0xA1008B, 0xDC2EFF, 0x006E70FF, MaterialTextShade.LIGHT);
+            //materialSkinManager.ColorScheme = new MaterialColorScheme("#00480157", "#370142", "DC2EFF", "00BB5FCF", MaterialTextShade.LIGHT);
+            materialSkinManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.LIGHT);
 
             // Add dummy data to the listview
             SeedListView();
@@ -114,7 +117,7 @@ namespace ReaLTaiizor.UI
                         materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
                         materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
                         MaterialAccent.Pink200,
-                        MaterialTextShade.WHITE);
+                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialTextShade.LIGHT : MaterialTextShade.DARK);
                     break;
 
                 case 1:
@@ -123,7 +126,7 @@ namespace ReaLTaiizor.UI
                         MaterialPrimary.Green700,
                         MaterialPrimary.Green200,
                         MaterialAccent.Red100,
-                        MaterialTextShade.WHITE);
+                        MaterialTextShade.LIGHT);
                     break;
 
                 case 2:
@@ -132,7 +135,7 @@ namespace ReaLTaiizor.UI
                         MaterialPrimary.BlueGrey900,
                         MaterialPrimary.BlueGrey500,
                         MaterialAccent.LightBlue200,
-                        MaterialTextShade.WHITE);
+                        MaterialTextShade.LIGHT);
                     break;
                 case 3:
                     materialSkinManager.ColorScheme = new MaterialColorScheme(
@@ -140,7 +143,7 @@ namespace ReaLTaiizor.UI
                         MaterialPrimary.Red900,
                         MaterialPrimary.Red500,
                         MaterialAccent.Green200,
-                        MaterialTextShade.WHITE);
+                        MaterialTextShade.LIGHT);
                     break;
                 case 4:
                     materialSkinManager.ColorScheme = new MaterialColorScheme(
@@ -148,7 +151,7 @@ namespace ReaLTaiizor.UI
                         MaterialPrimary.Yellow900,
                         MaterialPrimary.Yellow500,
                         MaterialAccent.DeepOrange200,
-                        MaterialTextShade.WHITE);
+                        MaterialTextShade.LIGHT);
                     break;
                 case 5:
                     materialSkinManager.ColorScheme = new MaterialColorScheme(
@@ -156,7 +159,7 @@ namespace ReaLTaiizor.UI
                         MaterialPrimary.DeepOrange900,
                         MaterialPrimary.DeepOrange500,
                         MaterialAccent.Yellow200,
-                        MaterialTextShade.WHITE);
+                        MaterialTextShade.LIGHT);
                     break;
                 case 6:
                     materialSkinManager.ColorScheme = new MaterialColorScheme(
@@ -164,10 +167,12 @@ namespace ReaLTaiizor.UI
                         MaterialPrimary.Lime900,
                         MaterialPrimary.Lime500,
                         MaterialAccent.Green200,
-                        MaterialTextShade.WHITE);
+                        MaterialTextShade.LIGHT);
                     break;
             }
+
             Invalidate();
+            Refresh();
         }
 
         private void MaterialButton2_Click(object sender, EventArgs e)
