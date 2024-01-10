@@ -43,8 +43,8 @@ namespace ReaLTaiizor_CR
             this.parrotRadioButton1 = new ReaLTaiizor.Controls.ParrotRadioButton();
             this.parrotRadioButton2 = new ReaLTaiizor.Controls.ParrotRadioButton();
             this.parrotGroupBox1 = new ReaLTaiizor.Controls.ParrotGroupBox();
-            this.parrotBanner1 = new ReaLTaiizor.Controls.ParrotBanner();
             this.parrotColorPicker1 = new ReaLTaiizor.Controls.ParrotColorPicker();
+            this.parrotBanner1 = new ReaLTaiizor.Controls.ParrotBanner();
             this.parrotGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -310,6 +310,17 @@ namespace ReaLTaiizor_CR
             this.parrotGroupBox1.Text = "GroupBox1";
             this.parrotGroupBox1.TextColor = System.Drawing.Color.DodgerBlue;
             // 
+            // parrotColorPicker1
+            // 
+            this.parrotColorPicker1.Location = new System.Drawing.Point(10, 37);
+            this.parrotColorPicker1.Name = "parrotColorPicker1";
+            this.parrotColorPicker1.PickerImage = ((System.Drawing.Image)(resources.GetObject("parrotColorPicker1.PickerImage")));
+            this.parrotColorPicker1.SelectedColor = System.Drawing.Color.SeaGreen;
+            this.parrotColorPicker1.ShowColorPreview = true;
+            this.parrotColorPicker1.Size = new System.Drawing.Size(72, 72);
+            this.parrotColorPicker1.TabIndex = 2;
+            this.parrotColorPicker1.Text = "parrotColorPicker1";
+            // 
             // parrotBanner1
             // 
             this.parrotBanner1.BackColor = System.Drawing.Color.Transparent;
@@ -323,17 +334,6 @@ namespace ReaLTaiizor_CR
             this.parrotBanner1.TabIndex = 1;
             this.parrotBanner1.Text = "Test";
             this.parrotBanner1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            // 
-            // parrotColorPicker1
-            // 
-            this.parrotColorPicker1.Location = new System.Drawing.Point(10, 37);
-            this.parrotColorPicker1.Name = "parrotColorPicker1";
-            this.parrotColorPicker1.PickerImage = ((System.Drawing.Image)(resources.GetObject("parrotColorPicker1.PickerImage")));
-            this.parrotColorPicker1.SelectedColor = System.Drawing.Color.SeaGreen;
-            this.parrotColorPicker1.ShowColorPreview = true;
-            this.parrotColorPicker1.Size = new System.Drawing.Size(72, 72);
-            this.parrotColorPicker1.TabIndex = 2;
-            this.parrotColorPicker1.Text = "parrotColorPicker1";
             // 
             // Parrot
             // 

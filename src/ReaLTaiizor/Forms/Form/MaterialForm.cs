@@ -445,16 +445,16 @@ namespace ReaLTaiizor.Forms
         {
             DrawerWidth = 200;
             DrawerIsOpen = false;
-            DrawerShowIconsWhenHidden = false;
             DrawerAutoHide = true;
             DrawerAutoShow = false;
             DrawerIndicatorWidth = 0;
             DrawerHighlightWithAccent = true;
+            DrawerShowIconsWhenHidden = false;
             DrawerBackgroundWithAccent = false;
 
-            FormBorderStyle = FormBorderStyle.None;
             Sizable = true;
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
             FormStyle = FormStyles.ActionBar_40;
 

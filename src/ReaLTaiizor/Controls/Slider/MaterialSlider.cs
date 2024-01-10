@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using ReaLTaiizor.Extension;
 using ReaLTaiizor.Helper;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
@@ -20,6 +21,7 @@ namespace ReaLTaiizor.Controls
     public class MaterialSlider : Control, MaterialControlI
     {
         #region "Private members"
+
         private bool _mousePressed;
         private int _mouseX;
         //private int _indicatorSize;
@@ -36,7 +38,6 @@ namespace ReaLTaiizor.Controls
         private const int _thumbRadius = 20;
         private const int _thumbRadiusHoverPressed = 40;
 
-
         #endregion
 
         #region "Public Properties"
@@ -48,6 +49,20 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
+
+        [Category("Material")]
+        [DefaultValue(Directions.Normal)]
+        [Description("Define control direction change value with mouse wheel")]
+        public Directions ScrollDirection { get; set; }
+
+        protected int _stepChange = 2;
+        [Category("Material")]
+        [Description("Define control step change value")]
+        public int StepChange
+        {
+            get => _stepChange;
+            set => _stepChange = value.Clamp(1, RangeMax);
+        }
 
         private int _value;
         [DefaultValue(50)]
@@ -230,6 +245,16 @@ namespace ReaLTaiizor.Controls
 
         #endregion
 
+        #region "Enums"
+
+        public enum Directions
+        {
+            Normal,
+            Reverse
+        }
+
+        #endregion
+
         public MaterialSlider()
         {
             SetStyle(ControlStyles.Selectable, true);
@@ -292,15 +317,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            if (_valueMax != 0 && (Value + (e.Delta / -40)) > _valueMax)
-            {
-                Value = _valueMax;
-            }
-            else
-            {
-                Value += e.Delta / -40;
-            }
-
+            int scrollLines = SystemInformation.MouseWheelScrollLines;
+            Value += e.Delta / 40 / scrollLines * StepChange * (ScrollDirection == Directions.Normal ? 1 : -1);
+            Value = Value.Clamp(RangeMin, RangeMax);
             onValueChanged?.Invoke(this, _value);
         }
 

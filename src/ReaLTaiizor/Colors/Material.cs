@@ -46,6 +46,34 @@ namespace ReaLTaiizor.Colors
             TextBrush = new SolidBrush(TextColor);
         }
 
+        public MaterialColorScheme(string customPrimary, string customDarkPrimary, string customLightPrimary, string customAccent, MaterialTextShade textShade)
+        {
+            //Color
+            //PrimaryColor = ((int)new Int32Converter().ConvertFromString(customPrimary)).ToColor();
+            //DarkPrimaryColor = ((int)new Int32Converter().ConvertFromString(customDarkPrimary)).ToColor();
+            //LightPrimaryColor = ((int)new Int32Converter().ConvertFromString(customLightPrimary)).ToColor();
+            //AccentColor = ((int)new Int32Converter().ConvertFromString(customAccent)).ToColor();
+            PrimaryColor = MaterialExtension.GetIntFromHexColor(customPrimary).ToColor();
+            DarkPrimaryColor = MaterialExtension.GetIntFromHexColor(customDarkPrimary).ToColor();
+            LightPrimaryColor = MaterialExtension.GetIntFromHexColor(customLightPrimary).ToColor();
+            AccentColor = MaterialExtension.GetIntFromHexColor(customAccent).ToColor();
+            TextColor = ((int)textShade).ToColor();
+
+            //Pen
+            PrimaryPen = new Pen(PrimaryColor);
+            DarkPrimaryPen = new Pen(DarkPrimaryColor);
+            LightPrimaryPen = new Pen(LightPrimaryColor);
+            AccentPen = new Pen(AccentColor);
+            TextPen = new Pen(TextColor);
+
+            //Brush
+            PrimaryBrush = new SolidBrush(PrimaryColor);
+            DarkPrimaryBrush = new SolidBrush(DarkPrimaryColor);
+            LightPrimaryBrush = new SolidBrush(LightPrimaryColor);
+            AccentBrush = new SolidBrush(AccentColor);
+            TextBrush = new SolidBrush(TextColor);
+        }
+
         public MaterialColorScheme(int primary, int darkPrimary, int lightPrimary, int accent, MaterialTextShade textShade)
         {
             //Color

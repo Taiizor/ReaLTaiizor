@@ -17,8 +17,13 @@ namespace ReaLTaiizor_CR
             InitializeComponent();
 
             MManager = MaterialSkinManager.Instance;
+
             MManager.AddFormToManage(this);
+
             MManager.Theme = MaterialSkinManager.Themes.DARK;
+
+            //MManager.ColorScheme = new MaterialColorScheme(0x00C926b3, 0xA1008B, 0xDC2EFF, 0x006E70FF, MaterialTextShade.WHITE);
+            //MManager.ColorScheme = new MaterialColorScheme("#00480157", "#370142", "DC2EFF", "00BB5FCF", MaterialTextShade.WHITE);
             MManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.BlueGrey800, MaterialPrimary.BlueGrey900, MaterialPrimary.BlueGrey500, MaterialAccent.LightBlue200, MaterialTextShade.WHITE);
         }
 
@@ -37,6 +42,7 @@ namespace ReaLTaiizor_CR
             //MManager.Theme = MManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialSkinManager.Themes.LIGHT : MaterialSkinManager.Themes.DARK;
 
             colorSchemeIndex++;
+
             if (colorSchemeIndex > 2)
             {
                 colorSchemeIndex = 0;
@@ -75,6 +81,7 @@ namespace ReaLTaiizor_CR
                         MaterialTextShade.WHITE);
                     break;
             }
+
             Invalidate();
         }
     }
