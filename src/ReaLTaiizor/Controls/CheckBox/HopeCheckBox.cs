@@ -152,9 +152,11 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs pevent)
         {
             Graphics graphics = pevent.Graphics;
+
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
             graphics.Clear(BackColor);
 
             GraphicsPath checkmarkPath = RoundRectangle.CreateRoundRect(2, 2, 16, 16, 1);
@@ -170,6 +172,7 @@ namespace ReaLTaiizor.Controls
             {
                 new PointF(5, 9),new PointF(9, 13), new PointF(15, 6)
             });
+
             graphics.FillRectangle(new SolidBrush(Color.White), PointAnimationNum, PointAnimationNum, SizeAnimationNum, SizeAnimationNum);
 
             graphics.DrawString(Text, Font, new SolidBrush(_Enable ? (Checked ? _CheckedColor : ForeColor) : _DisabledStringColor), new RectangleF(22, 0, Width - 22, Height), HopeStringAlign.Center);
