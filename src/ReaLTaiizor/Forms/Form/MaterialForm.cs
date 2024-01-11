@@ -286,6 +286,10 @@ namespace ReaLTaiizor.Forms
             /// WM_RBUTTONDOWN
             /// </summary>
             RightButtonDown = 0x0204,
+            /// <summary>
+            /// WM_ACTIVATEAPP
+            /// </summary>
+            ActivateApp = 0x001C
         }
 
         /// <summary>
@@ -445,20 +449,21 @@ namespace ReaLTaiizor.Forms
         {
             DrawerWidth = 200;
             DrawerIsOpen = false;
-            DrawerShowIconsWhenHidden = false;
             DrawerAutoHide = true;
             DrawerAutoShow = false;
             DrawerIndicatorWidth = 0;
             DrawerHighlightWithAccent = true;
+            DrawerShowIconsWhenHidden = false;
             DrawerBackgroundWithAccent = false;
 
-            FormBorderStyle = FormBorderStyle.None;
             Sizable = true;
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
             FormStyle = FormStyles.ActionBar_40;
 
-            Padding = new Padding(PADDING_MINIMUM, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, PADDING_MINIMUM, PADDING_MINIMUM);      //Keep space for resize by mouse
+            //Keep space for resize by mouse
+            Padding = new Padding(PADDING_MINIMUM, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, PADDING_MINIMUM, PADDING_MINIMUM);
 
             _clickAnimManager = new AnimationManager()
             {
@@ -549,7 +554,7 @@ namespace ReaLTaiizor.Forms
             drawerForm.Size = new Size(DrawerWidth, H);
             drawerForm.Location = new Point(PointToScreen(Point.Empty).X, Y);
             drawerForm.ShowInTaskbar = false;
-            drawerForm.Owner = drawerOverlay;
+            drawerForm.Owner = this; //drawerOverlay
             drawerForm.TopMost = TopMost;
             drawerForm.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
 
@@ -939,6 +944,16 @@ namespace ReaLTaiizor.Forms
                 _clickAnimManager.SetProgress(0);
                 _clickAnimManager.StartNewAnimation(AnimationDirection.In);
                 _animationSource = cursorPos;
+            }
+            // Form blocked in minimized state (privilege mode)
+            else if (WindowState == FormWindowState.Minimized && message == WM.ActivateApp)
+            {
+                drawerOverlay.Invalidate();
+                drawerOverlay.Update();
+                drawerForm.Invalidate();
+                drawerForm.Update();
+                this.Invalidate();
+                this.Update();
             }
             // Double click to maximize
             else if (message == WM.LeftButtonDoubleClick && isOverCaption)

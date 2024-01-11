@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.8" />
   </ItemGroup>
 
 </Project>

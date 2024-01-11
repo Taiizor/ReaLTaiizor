@@ -21,14 +21,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
-    <PackageReference Include="Skylark.Standard" Version="3.1.1.7" />
-    <PackageReference Include="Skylark.Clipboard" Version="3.1.1.1" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.8" />
+    <PackageReference Include="Skylark.Standard" Version="3.1.3.4" />
+    <PackageReference Include="Skylark.Clipboard" Version="3.1.2.1" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="8.0.0-rc.1.23419.4" />
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
   </ItemGroup>
 </Project>
