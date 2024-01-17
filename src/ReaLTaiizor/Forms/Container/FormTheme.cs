@@ -106,7 +106,7 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            IsParentForm = Parent is System.Windows.Forms.Form;
+            IsParentForm = Parent is Form;
 
             if (!_ControlMode)
             {

@@ -96,13 +96,19 @@ namespace ReaLTaiizor.Forms
             if (Sizable && m.Msg == wmNcHitTest && FindForm().WindowState != FormWindowState.Maximized)
             {
                 int gripDist = 10;
+
                 //int x = (int)(m.LParam.ToInt64() & 0xFFFF);
                 //int x = Cursor.Position.X;
-                // int y = (int)((m.LParam.ToInt64() & 0xFFFF0000) >> 16);
                 //Console.WriteLine(x);
+
+                // int y = (int)((m.LParam.ToInt64() & 0xFFFF0000) >> 16);
+                //Console.WriteLine(y);
+
                 Point pt = PointToClient(Cursor.Position);
                 //Console.WriteLine(pt);
+
                 Size clientSize = ClientSize;
+
                 ///allow resize on the lower right corner
                 if (pt.X >= clientSize.Width - gripDist && pt.Y >= clientSize.Height - gripDist && clientSize.Height >= gripDist)
                 {
@@ -193,6 +199,7 @@ namespace ReaLTaiizor.Forms
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+
             if (Cap)
             {
                 // Parent.Location = MousePosition - MousePoint;
@@ -203,11 +210,14 @@ namespace ReaLTaiizor.Forms
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            ParentForm.FormBorderStyle = FormBorderStyle.None;
+
             ParentForm.AllowTransparency = false;
             ParentForm.TransparencyKey = Color.Fuchsia;
+            ParentForm.FormBorderStyle = FormBorderStyle.None;
             ParentForm.FindForm().StartPosition = FormStartPosition.CenterScreen;
+
             Dock = DockStyle.Fill;
+
             Invalidate();
         }
 
@@ -230,6 +240,7 @@ namespace ReaLTaiizor.Forms
         {
             Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
+
             W = Width;
             H = Height;
 
@@ -265,9 +276,12 @@ namespace ReaLTaiizor.Forms
             _with2.DrawRectangle(new(BorderColor), Base);
 
             base.OnPaint(e);
+
             G.Dispose();
+
             e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             e.Graphics.DrawImageUnscaled(B, 0, 0);
+
             B.Dispose();
         }
     }
