@@ -164,6 +164,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnColumnStateChanged(DataGridViewColumnStateChangedEventArgs e)
         {
             base.OnColumnStateChanged(e);
+
             if (e.StateChanged == DataGridViewElementStates.Visible)
             {
                 scrollhelper.UpdateScrollbar();
@@ -174,6 +175,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
+
             if (RowCount > 1)
             {
                 if (e.Delta > 0 && FirstDisplayedScrollingRowIndex > 0)

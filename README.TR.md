@@ -23,64 +23,75 @@ ReaLTaiizor, .NET WinForms projelerinde kullanabileceğiniz geniş bir yelpazede
 Bu harika insanlara teşekkürler ([emoji anahtarı](https://allcontributors.org/docs/en/emoji-key)):
 
 <table>
-  <tr>
-    <td align="center">
-		<a href="https://github.com/Taiizor">
-			<img src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4" width="80px;" alt="Taiizor"/>
-			<br/>
-			<sub>
-				<b>Taiizor</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Kodlama">💻</a>
-		<a href="https://www.vegalya.com" title="Fikirler & Planlama, Geri Bildirim">🤔</a>
-	</td>
-    <td align="center">
-		<a href="https://github.com/JTOne123">
-			<img src="https://avatars3.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123"/>
-			<br/>
-			<sub>
-				<b>JTOne123</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="İncelenen Çekme İstekleri">👀</a>
-	</td>
-    <td align="center">
-		<a href="https://github.com/HideakiAtsuyo">
-			<img src="https://avatars3.githubusercontent.com/u/53636771?s=460&v=4" width="80px;" alt="HideakiAtsuyo"/>
-			<br/>
-			<sub>
-				<b>HideakiAtsuyo</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=HideakiAtsuyo" title="İncelenen Çekme İstekleri">👀</a>
-	</td>
-    <td align="center">
-		<a href="https://github.com/LandarXT">
-			<img src="https://avatars3.githubusercontent.com/u/104514709?s=460&v=4" width="80px;" alt="LandarXT"/>
-			<br/>
-			<sub>
-				<b>LandarXT</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=LandarXT" title="İncelenen Çekme İstekleri">👀</a>
-	</td>
-    <td align="center">
-		<a href="https://github.com/edoardopirovano">
-			<img src="https://avatars3.githubusercontent.com/u/6748066?s=460&v=4" width="80px;" alt="edoardopirovano"/>
-			<br/>
-			<sub>
-				<b>edoardopirovano</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=edoardopirovano" title="İncelenen Çekme İstekleri">👀</a>
-	</td>
-  </tr>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/Taiizor">
+                <img src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4" width="80px;" alt="Taiizor" />
+                <br />
+                <sub>
+                    <b>Taiizor</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Kodlama">💻</a>
+            <a href="https://www.vegalya.com" title="Fikirler & Planlama, Geri Bildirim">🤔</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/JTOne123">
+                <img src="https://avatars3.githubusercontent.com/u/3457140?s=460&v=4" width="80px;" alt="JTOne123" />
+                <br />
+                <sub>
+                    <b>JTOne123</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=JTOne123" title="İncelenen Çekme İstekleri">👀</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/HideakiAtsuyo">
+                <img src="https://avatars3.githubusercontent.com/u/53636771?s=460&v=4" width="80px;" alt="HideakiAtsuyo" />
+                <br />
+                <sub>
+                    <b>HideakiAtsuyo</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=HideakiAtsuyo" title="İncelenen Çekme İstekleri">👀</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/LandarXT">
+                <img src="https://avatars3.githubusercontent.com/u/104514709?s=460&v=4" width="80px;" alt="LandarXT" />
+                <br />
+                <sub>
+                    <b>LandarXT</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=LandarXT" title="İncelenen Çekme İstekleri">👀</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/edoardopirovano">
+                <img src="https://avatars3.githubusercontent.com/u/6748066?s=460&v=4" width="80px;" alt="edoardopirovano" />
+                <br />
+                <sub>
+                    <b>edoardopirovano</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=edoardopirovano" title="İncelenen Çekme İstekleri">👀</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/Oxara">
+                <img src="https://avatars3.githubusercontent.com/u/30343564?s=460&v=4" width="80px;" alt="Oxara" />
+                <br />
+                <sub>
+                    <b>Oxara</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Oxara" title="İncelenen Çekme İstekleri">👀</a>
+        </td>
+    </tr>
 </table>
 
 Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-contributors) özelliklerini takip ediyor. Her türlü katkıda hoş geldiniz!
@@ -88,131 +99,131 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 ## Destekleyenler
 
 <table>
-  <tr>
-    <td align="center">
-		<a href="https://github.com/Vegalya">
-			<img src="https://avatars3.githubusercontent.com/u/98421771?s=200&v=4" width="80px;" alt="Vegalya"/>
-			<br/>
-			<sub>
-				<b>Vegalya</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Vegalya" target="_blank" title="İçerik">🖋</a>
-	</td>
-    <td align="center">
-		<a href="https://github.com/Soferity">
-			<img src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4" width="80px;" alt="Soferity"/>
-			<br/>
-			<sub>
-				<b>Soferity</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Soferity" target="_blank" title="İçerik">🖋</a>
-	</td>
-	<td align="center">
-		<a href="https://github.com/IgnaceMaes">
-			<img src="https://avatars3.githubusercontent.com/u/10243652?s=200&v=4" width="80px;" alt="IgnaceMaes"/>
-			<br/>
-			<sub>
-				<b>IgnaceMaes</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/IgnaceMaes" target="_blank" title="Kodlama">💻</a>
-	</td>
-	<td align="center">
-		<a href="https://github.com/donaldsteele">
-			<img src="https://avatars3.githubusercontent.com/u/8108109?s=200&v=4" width="80px;" alt="donaldsteele"/>
-			<br/>
-			<sub>
-				<b>donaldsteele</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/donaldsteele" target="_blank" title="Kodlama">💻</a>
-	</td>
-	<td align="center">
-		<a href="https://github.com/leocb">
-			<img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb"/>
-			<br/>
-			<sub>
-				<b>leocb</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/leocb" target="_blank" title="Kodlama">💻</a>
-	</td>
-	<td align="center">
-		<a href="https://github.com/N-a-r-w-i-n">
-			<img src="https://avatars3.githubusercontent.com/u/25624385?s=200&v=4" width="80px;" alt="N-a-r-w-i-n"/>
-			<br/>
-			<sub>
-				<b>N-a-r-w-i-n</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/N-a-r-w-i-n" target="_blank" title="Kodlama">💻</a>
-	</td>
-	<td align="center">
-		<a href="https://github.com/peters">
-			<img src="https://avatars3.githubusercontent.com/u/869?s=200&v=4" width="80px;" alt="peters"/>
-			<br/>
-			<sub>
-				<b>peters</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/peters" target="_blank" title="Kodlama">💻</a>
-	</td>
-  </tr>
-  <tr>
-	<td align="center">
-		<a href="https://github.com/dennismagno">
-			<img src="https://avatars3.githubusercontent.com/u/5070675?s=200&v=4" width="80px;" alt="dennismagno"/>
-			<br/>
-			<sub>
-				<b>dennismagno</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/dennismagno" target="_blank" title="Kodlama">💻</a>
-	</td>
-	<td align="center">
-		<a href="https://github.com/RobinPerris">
-			<img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris"/>
-			<br/>
-			<sub>
-				<b>RobinPerris</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/RobinPerris" target="_blank" title="Kodlama">💻</a>
-	</td>
-    <td align="center">
-		<a href="https://github.com/0xLaileb">
-			<img src="https://avatars3.githubusercontent.com/u/59660240?s=200&v=4" width="80px;" alt="0xLaileb"/>
-			<br/>
-			<sub>
-				<b>0xLaileb</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/0xLaileb" target="_blank" title="Kodlama">💻</a>
-    </td>
-    <td align="center">
-		<a href="https://github.com/Stefan6440">
-			<img src="https://avatars3.githubusercontent.com/u/5719752?s=200&v=4" width="80px;" alt="Stefan6440"/>
-			<br/>
-			<sub>
-				<b>Stefan6440</b>
-			</sub>
-		</a>
-		<br/>
-		<a href="https://github.com/Stefan6440" target="_blank" title="Kodlama">💻</a>
-    </td>
-  </tr>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/Vegalya">
+                <img src="https://avatars3.githubusercontent.com/u/98421771?s=200&v=4" width="80px;" alt="Vegalya" />
+                <br />
+                <sub>
+                    <b>Vegalya</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Vegalya" target="_blank" title="İçerik">🖋</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/Soferity">
+                <img src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4" width="80px;" alt="Soferity" />
+                <br />
+                <sub>
+                    <b>Soferity</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Soferity" target="_blank" title="İçerik">🖋</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/IgnaceMaes">
+                <img src="https://avatars3.githubusercontent.com/u/10243652?s=200&v=4" width="80px;" alt="IgnaceMaes" />
+                <br />
+                <sub>
+                    <b>IgnaceMaes</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/IgnaceMaes" target="_blank" title="Kodlama">💻</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/donaldsteele">
+                <img src="https://avatars3.githubusercontent.com/u/8108109?s=200&v=4" width="80px;" alt="donaldsteele" />
+                <br />
+                <sub>
+                    <b>donaldsteele</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/donaldsteele" target="_blank" title="Kodlama">💻</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/leocb">
+                <img src="https://avatars3.githubusercontent.com/u/8310271?s=200&v=4" width="80px;" alt="leocb" />
+                <br />
+                <sub>
+                    <b>leocb</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/leocb" target="_blank" title="Kodlama">💻</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/N-a-r-w-i-n">
+                <img src="https://avatars3.githubusercontent.com/u/25624385?s=200&v=4" width="80px;" alt="N-a-r-w-i-n" />
+                <br />
+                <sub>
+                    <b>N-a-r-w-i-n</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/N-a-r-w-i-n" target="_blank" title="Kodlama">💻</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/peters">
+                <img src="https://avatars3.githubusercontent.com/u/869?s=200&v=4" width="80px;" alt="peters" />
+                <br />
+                <sub>
+                    <b>peters</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/peters" target="_blank" title="Kodlama">💻</a>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/dennismagno">
+                <img src="https://avatars3.githubusercontent.com/u/5070675?s=200&v=4" width="80px;" alt="dennismagno" />
+                <br />
+                <sub>
+                    <b>dennismagno</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/dennismagno" target="_blank" title="Kodlama">💻</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/RobinPerris">
+                <img src="https://avatars3.githubusercontent.com/u/1886599?s=200&v=4" width="80px;" alt="RobinPerris" />
+                <br />
+                <sub>
+                    <b>RobinPerris</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/RobinPerris" target="_blank" title="Kodlama">💻</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/0xLaileb">
+                <img src="https://avatars3.githubusercontent.com/u/59660240?s=200&v=4" width="80px;" alt="0xLaileb" />
+                <br />
+                <sub>
+                    <b>0xLaileb</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/0xLaileb" target="_blank" title="Kodlama">💻</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/Stefan6440">
+                <img src="https://avatars3.githubusercontent.com/u/5719752?s=200&v=4" width="80px;" alt="Stefan6440" />
+                <br />
+                <sub>
+                    <b>Stefan6440</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Stefan6440" target="_blank" title="Kodlama">💻</a>
+        </td>
+    </tr>
 </table>
 
 ## Kullanım

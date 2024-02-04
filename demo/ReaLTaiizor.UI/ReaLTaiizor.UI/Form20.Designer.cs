@@ -30,1389 +30,1396 @@ namespace ReaLTaiizor.UI
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form20));
-            poisonTabControl1 = new Controls.PoisonTabControl();
-            poisonTabPage1 = new Controls.PoisonTabPage();
-            poisonDropDownButton1 = new Controls.PoisonDropDownButton();
-            poisonContextMenu1 = new Controls.PoisonContextMenuStrip(components);
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            maintenanceToolStripMenuItem = new ToolStripMenuItem();
-            toolsToolStripMenuItem = new ToolStripMenuItem();
-            settingsToolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItem1 = new ToolStripSeparator();
-            exitToolStripMenuItem = new ToolStripMenuItem();
-            poisonRadioButton4 = new Controls.PoisonRadioButton();
-            poisonRadioButton5 = new Controls.PoisonRadioButton();
-            poisonCheckBox4 = new Controls.PoisonCheckBox();
-            poisonCheckBox5 = new Controls.PoisonCheckBox();
-            poisonLabel21 = new Controls.PoisonLabel();
-            poisonLabel22 = new Controls.PoisonLabel();
-            poisonRadioButton6 = new Controls.PoisonRadioButton();
-            poisonCheckBox6 = new Controls.PoisonCheckBox();
-            poisonLink4 = new Controls.PoisonLinkLabel();
-            poisonLink3 = new Controls.PoisonLinkLabel();
-            poisonLabel9 = new Controls.PoisonLabel();
-            poisonLabel8 = new Controls.PoisonLabel();
-            poisonLink1 = new Controls.PoisonLinkLabel();
-            poisonLabel1 = new Controls.PoisonLabel();
-            poisonButton3 = new Controls.PoisonButton();
-            poisonButton2 = new Controls.PoisonButton();
-            poisonButton1 = new Controls.PoisonButton();
-            poisonTileSwitch = new Controls.PoisonTile();
-            poisonTile2 = new Controls.PoisonTile();
-            poisonTile1 = new Controls.PoisonTile();
-            poisonTabPage2 = new Controls.PoisonTabPage();
-            poisonComboBox4 = new Controls.PoisonComboBox();
-            poisonComboBox3 = new Controls.PoisonComboBox();
-            poisonDateTime2 = new Controls.PoisonDateTime();
-            poisonLabel20 = new Controls.PoisonLabel();
-            poisonDateTime1 = new Controls.PoisonDateTime();
-            poisonButton5 = new Controls.PoisonButton();
-            poisonToggle3 = new Controls.PoisonToggle();
-            poisonToggle2 = new Controls.PoisonToggle();
-            poisonRadioButton3 = new Controls.PoisonRadioButton();
-            poisonRadioButton2 = new Controls.PoisonRadioButton();
-            poisonCheckBox3 = new Controls.PoisonCheckBox();
-            poisonCheckBox2 = new Controls.PoisonCheckBox();
-            poisonLabel19 = new Controls.PoisonLabel();
-            poisonLabel18 = new Controls.PoisonLabel();
-            poisonLabel17 = new Controls.PoisonLabel();
-            poisonLabel16 = new Controls.PoisonLabel();
-            poisonComboBox1 = new Controls.PoisonComboBox();
-            poisonRadioButton1 = new Controls.PoisonRadioButton();
-            poisonToggle1 = new Controls.PoisonToggle();
-            poisonCheckBox1 = new Controls.PoisonCheckBox();
-            poisonTabPage3 = new Controls.PoisonTabPage();
-            poisonLabel7 = new Controls.PoisonLabel();
-            poisonProgressSpinner3 = new Controls.PoisonProgressSpinner();
-            poisonProgressSpinner2 = new Controls.PoisonProgressSpinner();
-            poisonLabel6 = new Controls.PoisonLabel();
-            poisonLabel5 = new Controls.PoisonLabel();
-            poisonProgressBar1 = new Controls.PoisonProgressBar();
-            poisonLabel4 = new Controls.PoisonLabel();
-            poisonScrollBar1 = new Controls.PoisonScrollBar();
-            poisonTrackBar1 = new Controls.PoisonTrackBar();
-            poisonProgressSpinner1 = new Controls.PoisonProgressSpinner();
-            poisonProgressBar = new Controls.PoisonProgressBar();
-            poisonTabPage4 = new Controls.PoisonTabPage();
-            poisonTextBox4 = new Controls.PoisonTextBox();
-            poisonTextBox3 = new Controls.PoisonTextBox();
-            poisonTextBox2 = new Controls.PoisonTextBox();
-            poisonLabel15 = new Controls.PoisonLabel();
-            poisonLabel12 = new Controls.PoisonLabel();
-            poisonLabel13 = new Controls.PoisonLabel();
-            poisonLabel14 = new Controls.PoisonLabel();
-            poisonLabel11 = new Controls.PoisonLabel();
-            poisonLabel10 = new Controls.PoisonLabel();
-            poisonLabel3 = new Controls.PoisonLabel();
-            poisonTextBox1 = new Controls.PoisonTextBox();
-            poisonLabel2 = new Controls.PoisonLabel();
-            poisonTabPage6 = new Controls.PoisonTabPage();
-            poisonButton12 = new Controls.PoisonButton();
-            poisonButton11 = new Controls.PoisonButton();
-            poisonButton10 = new Controls.PoisonButton();
-            poisonButton9 = new Controls.PoisonButton();
-            poisonButton8 = new Controls.PoisonButton();
-            poisonButton7 = new Controls.PoisonButton();
-            poisonButton6 = new Controls.PoisonButton();
-            poisonTabPage7 = new Controls.PoisonTabPage();
-            poisonGrid1 = new Controls.PoisonDataGridView();
-            poisonTabPage5 = new Controls.PoisonTabPage();
-            poisonTile5 = new Controls.PoisonTile();
-            poisonTile4 = new Controls.PoisonTile();
-            poisonTile3 = new Controls.PoisonTile();
-            propertyGrid1 = new PropertyGrid();
-            richTextBox1 = new RichTextBox();
-            label2 = new Label();
-            label1 = new Label();
-            poisonStyleManager = new Manager.PoisonStyleManager(components);
-            poisonToolTip = new Controls.PoisonToolTip();
-            poisonStyleExtender = new Controls.PoisonStyleExtender(components);
-            poisonTabControl1.SuspendLayout();
-            poisonTabPage1.SuspendLayout();
-            poisonContextMenu1.SuspendLayout();
-            poisonTabPage2.SuspendLayout();
-            poisonTabPage3.SuspendLayout();
-            poisonTabPage4.SuspendLayout();
-            poisonTabPage6.SuspendLayout();
-            poisonTabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonGrid1).BeginInit();
-            poisonTabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonStyleManager).BeginInit();
-            SuspendLayout();
+            this.poisonTabControl1 = new ReaLTaiizor.Controls.PoisonTabControl();
+            this.poisonTabPage1 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.poisonDropDownButton1 = new ReaLTaiizor.Controls.PoisonDropDownButton();
+            this.poisonContextMenu1 = new ReaLTaiizor.Controls.PoisonContextMenuStrip(this.components);
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.poisonRadioButton4 = new ReaLTaiizor.Controls.PoisonRadioButton();
+            this.poisonRadioButton5 = new ReaLTaiizor.Controls.PoisonRadioButton();
+            this.poisonCheckBox4 = new ReaLTaiizor.Controls.PoisonCheckBox();
+            this.poisonCheckBox5 = new ReaLTaiizor.Controls.PoisonCheckBox();
+            this.poisonLabel21 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel22 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonRadioButton6 = new ReaLTaiizor.Controls.PoisonRadioButton();
+            this.poisonCheckBox6 = new ReaLTaiizor.Controls.PoisonCheckBox();
+            this.poisonLink4 = new ReaLTaiizor.Controls.PoisonLinkLabel();
+            this.poisonLink3 = new ReaLTaiizor.Controls.PoisonLinkLabel();
+            this.poisonLabel9 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel8 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLink1 = new ReaLTaiizor.Controls.PoisonLinkLabel();
+            this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonButton3 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonButton2 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonTileSwitch = new ReaLTaiizor.Controls.PoisonTile();
+            this.poisonTile2 = new ReaLTaiizor.Controls.PoisonTile();
+            this.poisonTile1 = new ReaLTaiizor.Controls.PoisonTile();
+            this.poisonTabPage2 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.poisonComboBox4 = new ReaLTaiizor.Controls.PoisonComboBox();
+            this.poisonComboBox3 = new ReaLTaiizor.Controls.PoisonComboBox();
+            this.poisonDateTime2 = new ReaLTaiizor.Controls.PoisonDateTime();
+            this.poisonLabel20 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonDateTime1 = new ReaLTaiizor.Controls.PoisonDateTime();
+            this.poisonButton5 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonToggle3 = new ReaLTaiizor.Controls.PoisonToggle();
+            this.poisonToggle2 = new ReaLTaiizor.Controls.PoisonToggle();
+            this.poisonRadioButton3 = new ReaLTaiizor.Controls.PoisonRadioButton();
+            this.poisonRadioButton2 = new ReaLTaiizor.Controls.PoisonRadioButton();
+            this.poisonCheckBox3 = new ReaLTaiizor.Controls.PoisonCheckBox();
+            this.poisonCheckBox2 = new ReaLTaiizor.Controls.PoisonCheckBox();
+            this.poisonLabel19 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel18 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel17 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel16 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonComboBox1 = new ReaLTaiizor.Controls.PoisonComboBox();
+            this.poisonRadioButton1 = new ReaLTaiizor.Controls.PoisonRadioButton();
+            this.poisonToggle1 = new ReaLTaiizor.Controls.PoisonToggle();
+            this.poisonCheckBox1 = new ReaLTaiizor.Controls.PoisonCheckBox();
+            this.poisonTabPage3 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.poisonLabel7 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonProgressSpinner3 = new ReaLTaiizor.Controls.PoisonProgressSpinner();
+            this.poisonProgressSpinner2 = new ReaLTaiizor.Controls.PoisonProgressSpinner();
+            this.poisonLabel6 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel5 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonProgressBar1 = new ReaLTaiizor.Controls.PoisonProgressBar();
+            this.poisonLabel4 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonScrollBar1 = new ReaLTaiizor.Controls.PoisonScrollBar();
+            this.poisonTrackBar1 = new ReaLTaiizor.Controls.PoisonTrackBar();
+            this.poisonProgressSpinner1 = new ReaLTaiizor.Controls.PoisonProgressSpinner();
+            this.poisonProgressBar = new ReaLTaiizor.Controls.PoisonProgressBar();
+            this.poisonTabPage4 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.poisonTextBox4 = new ReaLTaiizor.Controls.PoisonTextBox();
+            this.poisonTextBox3 = new ReaLTaiizor.Controls.PoisonTextBox();
+            this.poisonTextBox2 = new ReaLTaiizor.Controls.PoisonTextBox();
+            this.poisonLabel15 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel12 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel13 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel14 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel11 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel10 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonLabel3 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonTextBox1 = new ReaLTaiizor.Controls.PoisonTextBox();
+            this.poisonLabel2 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonTabPage6 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.poisonButton12 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonButton11 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonButton10 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonButton9 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonButton8 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonButton7 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonButton6 = new ReaLTaiizor.Controls.PoisonButton();
+            this.poisonTabPage7 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.poisonGrid1 = new ReaLTaiizor.Controls.PoisonDataGridView();
+            this.poisonTabPage5 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.poisonTile5 = new ReaLTaiizor.Controls.PoisonTile();
+            this.poisonTile4 = new ReaLTaiizor.Controls.PoisonTile();
+            this.poisonTile3 = new ReaLTaiizor.Controls.PoisonTile();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.poisonStyleManager = new ReaLTaiizor.Manager.PoisonStyleManager(this.components);
+            this.poisonToolTip = new ReaLTaiizor.Controls.PoisonToolTip();
+            this.poisonStyleExtender = new ReaLTaiizor.Controls.PoisonStyleExtender(this.components);
+            this.poisonTabControl1.SuspendLayout();
+            this.poisonTabPage1.SuspendLayout();
+            this.poisonContextMenu1.SuspendLayout();
+            this.poisonTabPage2.SuspendLayout();
+            this.poisonTabPage3.SuspendLayout();
+            this.poisonTabPage4.SuspendLayout();
+            this.poisonTabPage6.SuspendLayout();
+            this.poisonTabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.poisonGrid1)).BeginInit();
+            this.poisonTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager)).BeginInit();
+            this.SuspendLayout();
             // 
             // poisonTabControl1
             // 
-            poisonTabControl1.Controls.Add(poisonTabPage1);
-            poisonTabControl1.Controls.Add(poisonTabPage2);
-            poisonTabControl1.Controls.Add(poisonTabPage3);
-            poisonTabControl1.Controls.Add(poisonTabPage4);
-            poisonTabControl1.Controls.Add(poisonTabPage6);
-            poisonTabControl1.Controls.Add(poisonTabPage7);
-            poisonTabControl1.Controls.Add(poisonTabPage5);
-            poisonTabControl1.Dock = DockStyle.Fill;
-            poisonTabControl1.Location = new System.Drawing.Point(20, 60);
-            poisonTabControl1.Name = "poisonTabControl1";
-            poisonTabControl1.Padding = new System.Drawing.Point(6, 8);
-            poisonTabControl1.SelectedIndex = 0;
-            poisonTabControl1.Size = new System.Drawing.Size(680, 302);
-            poisonTabControl1.TabIndex = 0;
-            poisonTabControl1.UseSelectable = true;
+            this.poisonTabControl1.Controls.Add(this.poisonTabPage1);
+            this.poisonTabControl1.Controls.Add(this.poisonTabPage2);
+            this.poisonTabControl1.Controls.Add(this.poisonTabPage3);
+            this.poisonTabControl1.Controls.Add(this.poisonTabPage4);
+            this.poisonTabControl1.Controls.Add(this.poisonTabPage6);
+            this.poisonTabControl1.Controls.Add(this.poisonTabPage7);
+            this.poisonTabControl1.Controls.Add(this.poisonTabPage5);
+            this.poisonTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.poisonTabControl1.Location = new System.Drawing.Point(20, 60);
+            this.poisonTabControl1.Name = "poisonTabControl1";
+            this.poisonTabControl1.SelectedIndex = 0;
+            this.poisonTabControl1.Size = new System.Drawing.Size(680, 302);
+            this.poisonTabControl1.TabIndex = 0;
+            this.poisonTabControl1.UseSelectable = true;
             // 
             // poisonTabPage1
             // 
-            poisonTabPage1.AutoScroll = true;
-            poisonTabPage1.Controls.Add(poisonDropDownButton1);
-            poisonTabPage1.Controls.Add(poisonRadioButton4);
-            poisonTabPage1.Controls.Add(poisonRadioButton5);
-            poisonTabPage1.Controls.Add(poisonCheckBox4);
-            poisonTabPage1.Controls.Add(poisonCheckBox5);
-            poisonTabPage1.Controls.Add(poisonLabel21);
-            poisonTabPage1.Controls.Add(poisonLabel22);
-            poisonTabPage1.Controls.Add(poisonRadioButton6);
-            poisonTabPage1.Controls.Add(poisonCheckBox6);
-            poisonTabPage1.Controls.Add(poisonLink4);
-            poisonTabPage1.Controls.Add(poisonLink3);
-            poisonTabPage1.Controls.Add(poisonLabel9);
-            poisonTabPage1.Controls.Add(poisonLabel8);
-            poisonTabPage1.Controls.Add(poisonLink1);
-            poisonTabPage1.Controls.Add(poisonLabel1);
-            poisonTabPage1.Controls.Add(poisonButton3);
-            poisonTabPage1.Controls.Add(poisonButton2);
-            poisonTabPage1.Controls.Add(poisonButton1);
-            poisonTabPage1.Controls.Add(poisonTileSwitch);
-            poisonTabPage1.Controls.Add(poisonTile2);
-            poisonTabPage1.Controls.Add(poisonTile1);
-            poisonTabPage1.HorizontalScrollbar = true;
-            poisonTabPage1.HorizontalScrollbarBarColor = true;
-            poisonTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            poisonTabPage1.HorizontalScrollbarSize = 10;
-            poisonTabPage1.Location = new System.Drawing.Point(4, 38);
-            poisonTabPage1.Name = "poisonTabPage1";
-            poisonTabPage1.Padding = new Padding(25);
-            poisonTabPage1.Size = new System.Drawing.Size(672, 260);
-            poisonTabPage1.TabIndex = 0;
-            poisonTabPage1.Text = "Tiles && Buttons";
-            poisonTabPage1.VerticalScrollbar = true;
-            poisonTabPage1.VerticalScrollbarBarColor = true;
-            poisonTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            poisonTabPage1.VerticalScrollbarSize = 10;
+            this.poisonTabPage1.AutoScroll = true;
+            this.poisonTabPage1.Controls.Add(this.poisonDropDownButton1);
+            this.poisonTabPage1.Controls.Add(this.poisonRadioButton4);
+            this.poisonTabPage1.Controls.Add(this.poisonRadioButton5);
+            this.poisonTabPage1.Controls.Add(this.poisonCheckBox4);
+            this.poisonTabPage1.Controls.Add(this.poisonCheckBox5);
+            this.poisonTabPage1.Controls.Add(this.poisonLabel21);
+            this.poisonTabPage1.Controls.Add(this.poisonLabel22);
+            this.poisonTabPage1.Controls.Add(this.poisonRadioButton6);
+            this.poisonTabPage1.Controls.Add(this.poisonCheckBox6);
+            this.poisonTabPage1.Controls.Add(this.poisonLink4);
+            this.poisonTabPage1.Controls.Add(this.poisonLink3);
+            this.poisonTabPage1.Controls.Add(this.poisonLabel9);
+            this.poisonTabPage1.Controls.Add(this.poisonLabel8);
+            this.poisonTabPage1.Controls.Add(this.poisonLink1);
+            this.poisonTabPage1.Controls.Add(this.poisonLabel1);
+            this.poisonTabPage1.Controls.Add(this.poisonButton3);
+            this.poisonTabPage1.Controls.Add(this.poisonButton2);
+            this.poisonTabPage1.Controls.Add(this.poisonButton1);
+            this.poisonTabPage1.Controls.Add(this.poisonTileSwitch);
+            this.poisonTabPage1.Controls.Add(this.poisonTile2);
+            this.poisonTabPage1.Controls.Add(this.poisonTile1);
+            this.poisonTabPage1.HorizontalScrollbar = true;
+            this.poisonTabPage1.HorizontalScrollbarBarColor = true;
+            this.poisonTabPage1.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage1.HorizontalScrollbarSize = 10;
+            this.poisonTabPage1.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage1.Name = "poisonTabPage1";
+            this.poisonTabPage1.Padding = new System.Windows.Forms.Padding(25);
+            this.poisonTabPage1.Size = new System.Drawing.Size(672, 260);
+            this.poisonTabPage1.TabIndex = 0;
+            this.poisonTabPage1.Text = "Tiles && Buttons";
+            this.poisonTabPage1.VerticalScrollbar = true;
+            this.poisonTabPage1.VerticalScrollbarBarColor = true;
+            this.poisonTabPage1.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage1.VerticalScrollbarSize = 10;
             // 
             // poisonDropDownButton1
             // 
-            poisonDropDownButton1.AutoSize = true;
-            poisonDropDownButton1.ContextMenuStrip = poisonContextMenu1;
-            poisonDropDownButton1.Image = Properties.Resources.AttachOrDetach_7014;
-            poisonDropDownButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            poisonDropDownButton1.Location = new System.Drawing.Point(209, 176);
-            poisonDropDownButton1.Margin = new Padding(2);
-            poisonDropDownButton1.Name = "poisonDropDownButton1";
-            poisonDropDownButton1.Size = new System.Drawing.Size(127, 37);
-            poisonDropDownButton1.SplitMenuStrip = poisonContextMenu1;
-            poisonDropDownButton1.TabIndex = 24;
-            poisonDropDownButton1.Text = "DropDownButton";
-            poisonDropDownButton1.UseSelectable = true;
+            this.poisonDropDownButton1.AutoSize = true;
+            this.poisonDropDownButton1.ContextMenuStrip = this.poisonContextMenu1;
+            this.poisonDropDownButton1.Image = global::ReaLTaiizor.UI.Properties.Resources.AttachOrDetach_7014;
+            this.poisonDropDownButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.poisonDropDownButton1.Location = new System.Drawing.Point(209, 176);
+            this.poisonDropDownButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.poisonDropDownButton1.Name = "poisonDropDownButton1";
+            this.poisonDropDownButton1.Size = new System.Drawing.Size(127, 37);
+            this.poisonDropDownButton1.SplitMenuStrip = this.poisonContextMenu1;
+            this.poisonDropDownButton1.TabIndex = 24;
+            this.poisonDropDownButton1.Text = "DropDownButton";
+            this.poisonDropDownButton1.UseSelectable = true;
             // 
             // poisonContextMenu1
             // 
-            poisonContextMenu1.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            poisonContextMenu1.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            poisonContextMenu1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            poisonContextMenu1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, maintenanceToolStripMenuItem, toolsToolStripMenuItem, settingsToolStripMenuItem, toolStripMenuItem1, exitToolStripMenuItem });
-            poisonContextMenu1.Name = "poisonContextMenu1";
-            poisonContextMenu1.Size = new System.Drawing.Size(144, 120);
+            this.poisonContextMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.poisonContextMenu1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.poisonContextMenu1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.poisonContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.maintenanceToolStripMenuItem,
+            this.toolsToolStripMenuItem,
+            this.settingsToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.exitToolStripMenuItem});
+            this.poisonContextMenu1.Name = "poisonContextMenu1";
+            this.poisonContextMenu1.Size = new System.Drawing.Size(144, 120);
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            fileToolStripMenuItem.Text = "&File";
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // maintenanceToolStripMenuItem
             // 
-            maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            maintenanceToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            maintenanceToolStripMenuItem.Text = "&Maintenance";
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.maintenanceToolStripMenuItem.Text = "&Maintenance";
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            toolsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            toolsToolStripMenuItem.Text = "&Tools";
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // settingsToolStripMenuItem
             // 
-            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            settingsToolStripMenuItem.Text = "&Settings";
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.settingsToolStripMenuItem.Text = "&Settings";
             // 
             // toolStripMenuItem1
             // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new System.Drawing.Size(140, 6);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(140, 6);
             // 
             // exitToolStripMenuItem
             // 
-            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // poisonRadioButton4
             // 
-            poisonRadioButton4.AutoSize = true;
-            poisonRadioButton4.Enabled = false;
-            poisonRadioButton4.Location = new System.Drawing.Point(496, 205);
-            poisonRadioButton4.Name = "poisonRadioButton4";
-            poisonRadioButton4.Size = new System.Drawing.Size(137, 15);
-            poisonRadioButton4.TabIndex = 23;
-            poisonRadioButton4.TabStop = true;
-            poisonRadioButton4.Text = "Disabled Radiobutton";
-            poisonRadioButton4.UseSelectable = true;
+            this.poisonRadioButton4.AutoSize = true;
+            this.poisonRadioButton4.Enabled = false;
+            this.poisonRadioButton4.Location = new System.Drawing.Point(496, 205);
+            this.poisonRadioButton4.Name = "poisonRadioButton4";
+            this.poisonRadioButton4.Size = new System.Drawing.Size(137, 15);
+            this.poisonRadioButton4.TabIndex = 23;
+            this.poisonRadioButton4.TabStop = true;
+            this.poisonRadioButton4.Text = "Disabled Radiobutton";
+            this.poisonRadioButton4.UseSelectable = true;
             // 
             // poisonRadioButton5
             // 
-            poisonRadioButton5.AutoSize = true;
-            poisonRadioButton5.Location = new System.Drawing.Point(496, 184);
-            poisonRadioButton5.Name = "poisonRadioButton5";
-            poisonRadioButton5.Size = new System.Drawing.Size(124, 15);
-            poisonRadioButton5.TabIndex = 22;
-            poisonRadioButton5.TabStop = true;
-            poisonRadioButton5.Text = "Styled Radiobutton";
-            poisonRadioButton5.UseSelectable = true;
-            poisonRadioButton5.UseStyleColors = true;
+            this.poisonRadioButton5.AutoSize = true;
+            this.poisonRadioButton5.Location = new System.Drawing.Point(496, 184);
+            this.poisonRadioButton5.Name = "poisonRadioButton5";
+            this.poisonRadioButton5.Size = new System.Drawing.Size(124, 15);
+            this.poisonRadioButton5.TabIndex = 22;
+            this.poisonRadioButton5.TabStop = true;
+            this.poisonRadioButton5.Text = "Styled Radiobutton";
+            this.poisonRadioButton5.UseSelectable = true;
+            this.poisonRadioButton5.UseStyleColors = true;
             // 
             // poisonCheckBox4
             // 
-            poisonCheckBox4.AutoSize = true;
-            poisonCheckBox4.Enabled = false;
-            poisonCheckBox4.Location = new System.Drawing.Point(496, 98);
-            poisonCheckBox4.Name = "poisonCheckBox4";
-            poisonCheckBox4.Size = new System.Drawing.Size(124, 15);
-            poisonCheckBox4.TabIndex = 21;
-            poisonCheckBox4.Text = "Disabled Checkbox";
-            poisonCheckBox4.UseSelectable = true;
+            this.poisonCheckBox4.AutoSize = true;
+            this.poisonCheckBox4.Enabled = false;
+            this.poisonCheckBox4.Location = new System.Drawing.Point(496, 98);
+            this.poisonCheckBox4.Name = "poisonCheckBox4";
+            this.poisonCheckBox4.Size = new System.Drawing.Size(124, 15);
+            this.poisonCheckBox4.TabIndex = 21;
+            this.poisonCheckBox4.Text = "Disabled Checkbox";
+            this.poisonCheckBox4.UseSelectable = true;
             // 
             // poisonCheckBox5
             // 
-            poisonCheckBox5.AutoSize = true;
-            poisonCheckBox5.Location = new System.Drawing.Point(496, 77);
-            poisonCheckBox5.Name = "poisonCheckBox5";
-            poisonCheckBox5.Size = new System.Drawing.Size(111, 15);
-            poisonCheckBox5.TabIndex = 20;
-            poisonCheckBox5.Text = "Styled Checkbox";
-            poisonCheckBox5.UseSelectable = true;
-            poisonCheckBox5.UseStyleColors = true;
+            this.poisonCheckBox5.AutoSize = true;
+            this.poisonCheckBox5.Location = new System.Drawing.Point(496, 77);
+            this.poisonCheckBox5.Name = "poisonCheckBox5";
+            this.poisonCheckBox5.Size = new System.Drawing.Size(111, 15);
+            this.poisonCheckBox5.TabIndex = 20;
+            this.poisonCheckBox5.Text = "Styled Checkbox";
+            this.poisonCheckBox5.UseSelectable = true;
+            this.poisonCheckBox5.UseStyleColors = true;
             // 
             // poisonLabel21
             // 
-            poisonLabel21.AutoSize = true;
-            poisonLabel21.Location = new System.Drawing.Point(496, 136);
-            poisonLabel21.Name = "poisonLabel21";
-            poisonLabel21.Size = new System.Drawing.Size(119, 19);
-            poisonLabel21.TabIndex = 19;
-            poisonLabel21.Text = "PoisonRadioButton";
+            this.poisonLabel21.AutoSize = true;
+            this.poisonLabel21.Location = new System.Drawing.Point(496, 136);
+            this.poisonLabel21.Name = "poisonLabel21";
+            this.poisonLabel21.Size = new System.Drawing.Size(119, 19);
+            this.poisonLabel21.TabIndex = 19;
+            this.poisonLabel21.Text = "PoisonRadioButton";
             // 
             // poisonLabel22
             // 
-            poisonLabel22.AutoSize = true;
-            poisonLabel22.Location = new System.Drawing.Point(496, 28);
-            poisonLabel22.Name = "poisonLabel22";
-            poisonLabel22.Size = new System.Drawing.Size(104, 19);
-            poisonLabel22.TabIndex = 18;
-            poisonLabel22.Text = "PoisonCheckBox";
+            this.poisonLabel22.AutoSize = true;
+            this.poisonLabel22.Location = new System.Drawing.Point(496, 28);
+            this.poisonLabel22.Name = "poisonLabel22";
+            this.poisonLabel22.Size = new System.Drawing.Size(104, 19);
+            this.poisonLabel22.TabIndex = 18;
+            this.poisonLabel22.Text = "PoisonCheckBox";
             // 
             // poisonRadioButton6
             // 
-            poisonRadioButton6.AutoSize = true;
-            poisonRadioButton6.Location = new System.Drawing.Point(496, 163);
-            poisonRadioButton6.Name = "poisonRadioButton6";
-            poisonRadioButton6.Size = new System.Drawing.Size(132, 15);
-            poisonRadioButton6.TabIndex = 17;
-            poisonRadioButton6.TabStop = true;
-            poisonRadioButton6.Text = "Normal Radiobutton";
-            poisonToolTip.SetToolTip(poisonRadioButton6, "RadioButton Tooltip");
-            poisonRadioButton6.UseSelectable = true;
+            this.poisonRadioButton6.AutoSize = true;
+            this.poisonRadioButton6.Location = new System.Drawing.Point(496, 163);
+            this.poisonRadioButton6.Name = "poisonRadioButton6";
+            this.poisonRadioButton6.Size = new System.Drawing.Size(132, 15);
+            this.poisonRadioButton6.TabIndex = 17;
+            this.poisonRadioButton6.TabStop = true;
+            this.poisonRadioButton6.Text = "Normal Radiobutton";
+            this.poisonToolTip.SetToolTip(this.poisonRadioButton6, "RadioButton Tooltip");
+            this.poisonRadioButton6.UseSelectable = true;
             // 
             // poisonCheckBox6
             // 
-            poisonCheckBox6.AutoSize = true;
-            poisonCheckBox6.Location = new System.Drawing.Point(496, 56);
-            poisonCheckBox6.Name = "poisonCheckBox6";
-            poisonCheckBox6.Size = new System.Drawing.Size(119, 15);
-            poisonCheckBox6.TabIndex = 16;
-            poisonCheckBox6.Text = "Normal Checkbox";
-            poisonToolTip.SetToolTip(poisonCheckBox6, "Checkbox Tooltip");
-            poisonCheckBox6.UseSelectable = true;
+            this.poisonCheckBox6.AutoSize = true;
+            this.poisonCheckBox6.Location = new System.Drawing.Point(496, 56);
+            this.poisonCheckBox6.Name = "poisonCheckBox6";
+            this.poisonCheckBox6.Size = new System.Drawing.Size(119, 15);
+            this.poisonCheckBox6.TabIndex = 16;
+            this.poisonCheckBox6.Text = "Normal Checkbox";
+            this.poisonToolTip.SetToolTip(this.poisonCheckBox6, "Checkbox Tooltip");
+            this.poisonCheckBox6.UseSelectable = true;
             // 
             // poisonLink4
             // 
-            poisonLink4.Enabled = false;
-            poisonLink4.Location = new System.Drawing.Point(368, 127);
-            poisonLink4.Name = "poisonLink4";
-            poisonLink4.Size = new System.Drawing.Size(95, 23);
-            poisonLink4.TabIndex = 15;
-            poisonLink4.Text = "Disabled Link";
-            poisonLink4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            poisonLink4.UseSelectable = true;
+            this.poisonLink4.Enabled = false;
+            this.poisonLink4.Location = new System.Drawing.Point(368, 127);
+            this.poisonLink4.Name = "poisonLink4";
+            this.poisonLink4.Size = new System.Drawing.Size(95, 23);
+            this.poisonLink4.TabIndex = 15;
+            this.poisonLink4.Text = "Disabled Link";
+            this.poisonLink4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.poisonLink4.UseSelectable = true;
             // 
             // poisonLink3
             // 
-            poisonLink3.Location = new System.Drawing.Point(368, 98);
-            poisonLink3.Name = "poisonLink3";
-            poisonLink3.Size = new System.Drawing.Size(95, 23);
-            poisonLink3.TabIndex = 14;
-            poisonLink3.Text = "Styled Link";
-            poisonLink3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            poisonLink3.UseSelectable = true;
-            poisonLink3.UseStyleColors = true;
+            this.poisonLink3.Location = new System.Drawing.Point(368, 98);
+            this.poisonLink3.Name = "poisonLink3";
+            this.poisonLink3.Size = new System.Drawing.Size(95, 23);
+            this.poisonLink3.TabIndex = 14;
+            this.poisonLink3.Text = "Styled Link";
+            this.poisonLink3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.poisonLink3.UseSelectable = true;
+            this.poisonLink3.UseStyleColors = true;
             // 
             // poisonLabel9
             // 
-            poisonLabel9.AutoSize = true;
-            poisonLabel9.Location = new System.Drawing.Point(368, 47);
-            poisonLabel9.Name = "poisonLabel9";
-            poisonLabel9.Size = new System.Drawing.Size(100, 19);
-            poisonLabel9.TabIndex = 12;
-            poisonLabel9.Text = "PoisonLinkLabel";
+            this.poisonLabel9.AutoSize = true;
+            this.poisonLabel9.Location = new System.Drawing.Point(368, 47);
+            this.poisonLabel9.Name = "poisonLabel9";
+            this.poisonLabel9.Size = new System.Drawing.Size(100, 19);
+            this.poisonLabel9.TabIndex = 12;
+            this.poisonLabel9.Text = "PoisonLinkLabel";
             // 
             // poisonLabel8
             // 
-            poisonLabel8.AutoSize = true;
-            poisonLabel8.Location = new System.Drawing.Point(209, 25);
-            poisonLabel8.Name = "poisonLabel8";
-            poisonLabel8.Size = new System.Drawing.Size(85, 19);
-            poisonLabel8.TabIndex = 11;
-            poisonLabel8.Text = "PoisonButton";
+            this.poisonLabel8.AutoSize = true;
+            this.poisonLabel8.Location = new System.Drawing.Point(209, 25);
+            this.poisonLabel8.Name = "poisonLabel8";
+            this.poisonLabel8.Size = new System.Drawing.Size(85, 19);
+            this.poisonLabel8.TabIndex = 11;
+            this.poisonLabel8.Text = "PoisonButton";
             // 
             // poisonLink1
             // 
-            poisonLink1.Location = new System.Drawing.Point(368, 69);
-            poisonLink1.Name = "poisonLink1";
-            poisonLink1.Size = new System.Drawing.Size(95, 23);
-            poisonLink1.TabIndex = 10;
-            poisonLink1.Text = "Normal Link";
-            poisonLink1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            poisonToolTip.SetToolTip(poisonLink1, "Link Tooltip");
-            poisonLink1.UseSelectable = true;
+            this.poisonLink1.Location = new System.Drawing.Point(368, 69);
+            this.poisonLink1.Name = "poisonLink1";
+            this.poisonLink1.Size = new System.Drawing.Size(95, 23);
+            this.poisonLink1.TabIndex = 10;
+            this.poisonLink1.Text = "Normal Link";
+            this.poisonLink1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.poisonToolTip.SetToolTip(this.poisonLink1, "Link Tooltip");
+            this.poisonLink1.UseSelectable = true;
             // 
             // poisonLabel1
             // 
-            poisonLabel1.AutoSize = true;
-            poisonLabel1.Location = new System.Drawing.Point(28, 25);
-            poisonLabel1.Name = "poisonLabel1";
-            poisonLabel1.Size = new System.Drawing.Size(67, 19);
-            poisonLabel1.TabIndex = 8;
-            poisonLabel1.Text = "PoisonTile";
+            this.poisonLabel1.AutoSize = true;
+            this.poisonLabel1.Location = new System.Drawing.Point(28, 25);
+            this.poisonLabel1.Name = "poisonLabel1";
+            this.poisonLabel1.Size = new System.Drawing.Size(67, 19);
+            this.poisonLabel1.TabIndex = 8;
+            this.poisonLabel1.Text = "PoisonTile";
             // 
             // poisonButton3
             // 
-            poisonButton3.Enabled = false;
-            poisonButton3.Location = new System.Drawing.Point(209, 133);
-            poisonButton3.Name = "poisonButton3";
-            poisonButton3.Size = new System.Drawing.Size(127, 37);
-            poisonButton3.TabIndex = 7;
-            poisonButton3.Text = "Disabled Button";
-            poisonButton3.UseSelectable = true;
+            this.poisonButton3.Enabled = false;
+            this.poisonButton3.Location = new System.Drawing.Point(209, 133);
+            this.poisonButton3.Name = "poisonButton3";
+            this.poisonButton3.Size = new System.Drawing.Size(127, 37);
+            this.poisonButton3.TabIndex = 7;
+            this.poisonButton3.Text = "Disabled Button";
+            this.poisonButton3.UseSelectable = true;
             // 
             // poisonButton2
             // 
-            poisonButton2.Highlight = true;
-            poisonButton2.Location = new System.Drawing.Point(209, 90);
-            poisonButton2.Name = "poisonButton2";
-            poisonButton2.Size = new System.Drawing.Size(127, 37);
-            poisonButton2.TabIndex = 6;
-            poisonButton2.Text = "Highlighted Button";
-            poisonButton2.UseSelectable = true;
-            poisonButton2.Click += poisonButton2_Click;
+            this.poisonButton2.Highlight = true;
+            this.poisonButton2.Location = new System.Drawing.Point(209, 90);
+            this.poisonButton2.Name = "poisonButton2";
+            this.poisonButton2.Size = new System.Drawing.Size(127, 37);
+            this.poisonButton2.TabIndex = 6;
+            this.poisonButton2.Text = "Highlighted Button";
+            this.poisonButton2.UseSelectable = true;
             // 
             // poisonButton1
             // 
-            poisonButton1.BackgroundImageLayout = ImageLayout.Stretch;
-            poisonButton1.Location = new System.Drawing.Point(209, 47);
-            poisonButton1.Name = "poisonButton1";
-            poisonButton1.Size = new System.Drawing.Size(127, 37);
-            poisonButton1.TabIndex = 5;
-            poisonButton1.Text = "Normal Button";
-            poisonToolTip.SetToolTip(poisonButton1, "Button Tooltip");
-            poisonButton1.UseSelectable = true;
-            poisonButton1.Click += poisonButton1_Click;
+            this.poisonButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.poisonButton1.Location = new System.Drawing.Point(209, 47);
+            this.poisonButton1.Name = "poisonButton1";
+            this.poisonButton1.Size = new System.Drawing.Size(127, 37);
+            this.poisonButton1.TabIndex = 5;
+            this.poisonButton1.Text = "Normal Button";
+            this.poisonToolTip.SetToolTip(this.poisonButton1, "Button Tooltip");
+            this.poisonButton1.UseSelectable = true;
             // 
             // poisonTileSwitch
             // 
-            poisonTileSwitch.ActiveControl = null;
-            poisonTileSwitch.Location = new System.Drawing.Point(28, 133);
-            poisonTileSwitch.Name = "poisonTileSwitch";
-            poisonTileSwitch.Size = new System.Drawing.Size(166, 80);
-            poisonTileSwitch.TabIndex = 4;
-            poisonTileSwitch.Text = "Switch Style";
-            poisonTileSwitch.UseSelectable = true;
-            poisonTileSwitch.Click += poisonTileSwitch_Click;
+            this.poisonTileSwitch.ActiveControl = null;
+            this.poisonTileSwitch.Location = new System.Drawing.Point(28, 133);
+            this.poisonTileSwitch.Name = "poisonTileSwitch";
+            this.poisonTileSwitch.Size = new System.Drawing.Size(166, 80);
+            this.poisonTileSwitch.TabIndex = 4;
+            this.poisonTileSwitch.Text = "Switch Style";
+            this.poisonTileSwitch.UseSelectable = true;
             // 
             // poisonTile2
             // 
-            poisonTile2.ActiveControl = null;
-            poisonTile2.Enabled = false;
-            poisonTile2.Location = new System.Drawing.Point(114, 47);
-            poisonTile2.Name = "poisonTile2";
-            poisonTile2.Size = new System.Drawing.Size(80, 80);
-            poisonTile2.TabIndex = 3;
-            poisonTile2.Text = "Disabled";
-            poisonTile2.UseSelectable = true;
+            this.poisonTile2.ActiveControl = null;
+            this.poisonTile2.Enabled = false;
+            this.poisonTile2.Location = new System.Drawing.Point(114, 47);
+            this.poisonTile2.Name = "poisonTile2";
+            this.poisonTile2.Size = new System.Drawing.Size(80, 80);
+            this.poisonTile2.TabIndex = 3;
+            this.poisonTile2.Text = "Disabled";
+            this.poisonTile2.UseSelectable = true;
             // 
             // poisonTile1
             // 
-            poisonTile1.ActiveControl = null;
-            poisonTile1.Location = new System.Drawing.Point(28, 47);
-            poisonTile1.Name = "poisonTile1";
-            poisonTile1.Size = new System.Drawing.Size(80, 80);
-            poisonTile1.TabIndex = 2;
-            poisonTile1.Text = "Switch Theme";
-            poisonToolTip.SetToolTip(poisonTile1, "Tile Tooltip");
-            poisonTile1.UseSelectable = true;
-            poisonTile1.Click += poisonTile1_Click;
+            this.poisonTile1.ActiveControl = null;
+            this.poisonTile1.Location = new System.Drawing.Point(28, 47);
+            this.poisonTile1.Name = "poisonTile1";
+            this.poisonTile1.Size = new System.Drawing.Size(80, 80);
+            this.poisonTile1.TabIndex = 2;
+            this.poisonTile1.Text = "Switch Theme";
+            this.poisonToolTip.SetToolTip(this.poisonTile1, "Tile Tooltip");
+            this.poisonTile1.UseSelectable = true;
             // 
             // poisonTabPage2
             // 
-            poisonTabPage2.Controls.Add(poisonComboBox4);
-            poisonTabPage2.Controls.Add(poisonComboBox3);
-            poisonTabPage2.Controls.Add(poisonDateTime2);
-            poisonTabPage2.Controls.Add(poisonLabel20);
-            poisonTabPage2.Controls.Add(poisonDateTime1);
-            poisonTabPage2.Controls.Add(poisonButton5);
-            poisonTabPage2.Controls.Add(poisonToggle3);
-            poisonTabPage2.Controls.Add(poisonToggle2);
-            poisonTabPage2.Controls.Add(poisonRadioButton3);
-            poisonTabPage2.Controls.Add(poisonRadioButton2);
-            poisonTabPage2.Controls.Add(poisonCheckBox3);
-            poisonTabPage2.Controls.Add(poisonCheckBox2);
-            poisonTabPage2.Controls.Add(poisonLabel19);
-            poisonTabPage2.Controls.Add(poisonLabel18);
-            poisonTabPage2.Controls.Add(poisonLabel17);
-            poisonTabPage2.Controls.Add(poisonLabel16);
-            poisonTabPage2.Controls.Add(poisonComboBox1);
-            poisonTabPage2.Controls.Add(poisonRadioButton1);
-            poisonTabPage2.Controls.Add(poisonToggle1);
-            poisonTabPage2.Controls.Add(poisonCheckBox1);
-            poisonTabPage2.HorizontalScrollbarBarColor = true;
-            poisonTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            poisonTabPage2.HorizontalScrollbarSize = 10;
-            poisonTabPage2.Location = new System.Drawing.Point(4, 38);
-            poisonTabPage2.Name = "poisonTabPage2";
-            poisonTabPage2.Padding = new Padding(25);
-            poisonTabPage2.Size = new System.Drawing.Size(672, 260);
-            poisonTabPage2.TabIndex = 1;
-            poisonTabPage2.Text = "Options";
-            poisonTabPage2.VerticalScrollbarBarColor = true;
-            poisonTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            poisonTabPage2.VerticalScrollbarSize = 10;
-            poisonTabPage2.Visible = false;
+            this.poisonTabPage2.Controls.Add(this.poisonComboBox4);
+            this.poisonTabPage2.Controls.Add(this.poisonComboBox3);
+            this.poisonTabPage2.Controls.Add(this.poisonDateTime2);
+            this.poisonTabPage2.Controls.Add(this.poisonLabel20);
+            this.poisonTabPage2.Controls.Add(this.poisonDateTime1);
+            this.poisonTabPage2.Controls.Add(this.poisonButton5);
+            this.poisonTabPage2.Controls.Add(this.poisonToggle3);
+            this.poisonTabPage2.Controls.Add(this.poisonToggle2);
+            this.poisonTabPage2.Controls.Add(this.poisonRadioButton3);
+            this.poisonTabPage2.Controls.Add(this.poisonRadioButton2);
+            this.poisonTabPage2.Controls.Add(this.poisonCheckBox3);
+            this.poisonTabPage2.Controls.Add(this.poisonCheckBox2);
+            this.poisonTabPage2.Controls.Add(this.poisonLabel19);
+            this.poisonTabPage2.Controls.Add(this.poisonLabel18);
+            this.poisonTabPage2.Controls.Add(this.poisonLabel17);
+            this.poisonTabPage2.Controls.Add(this.poisonLabel16);
+            this.poisonTabPage2.Controls.Add(this.poisonComboBox1);
+            this.poisonTabPage2.Controls.Add(this.poisonRadioButton1);
+            this.poisonTabPage2.Controls.Add(this.poisonToggle1);
+            this.poisonTabPage2.Controls.Add(this.poisonCheckBox1);
+            this.poisonTabPage2.HorizontalScrollbarBarColor = true;
+            this.poisonTabPage2.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage2.HorizontalScrollbarSize = 10;
+            this.poisonTabPage2.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage2.Name = "poisonTabPage2";
+            this.poisonTabPage2.Padding = new System.Windows.Forms.Padding(25);
+            this.poisonTabPage2.Size = new System.Drawing.Size(672, 260);
+            this.poisonTabPage2.TabIndex = 1;
+            this.poisonTabPage2.Text = "Options";
+            this.poisonTabPage2.VerticalScrollbarBarColor = true;
+            this.poisonTabPage2.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage2.VerticalScrollbarSize = 10;
+            this.poisonTabPage2.Visible = false;
             // 
             // poisonComboBox4
             // 
-            poisonComboBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            poisonComboBox4.DropDownStyle = ComboBoxStyle.DropDown;
-            poisonComboBox4.FormattingEnabled = true;
-            poisonComboBox4.ItemHeight = 23;
-            poisonComboBox4.Location = new System.Drawing.Point(201, 227);
-            poisonComboBox4.Name = "poisonComboBox4";
-            poisonComboBox4.PromptText = "DataBound ComboBox";
-            poisonComboBox4.Size = new System.Drawing.Size(213, 29);
-            poisonComboBox4.TabIndex = 23;
-            poisonToolTip.SetToolTip(poisonComboBox4, "ComboBox Tooltip");
-            poisonComboBox4.UseSelectable = true;
+            this.poisonComboBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.poisonComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.poisonComboBox4.FormattingEnabled = true;
+            this.poisonComboBox4.ItemHeight = 23;
+            this.poisonComboBox4.Location = new System.Drawing.Point(201, 227);
+            this.poisonComboBox4.Name = "poisonComboBox4";
+            this.poisonComboBox4.PromptText = "DataBound ComboBox";
+            this.poisonComboBox4.Size = new System.Drawing.Size(213, 29);
+            this.poisonComboBox4.TabIndex = 23;
+            this.poisonToolTip.SetToolTip(this.poisonComboBox4, "ComboBox Tooltip");
+            this.poisonComboBox4.UseSelectable = true;
             // 
             // poisonComboBox3
             // 
-            poisonComboBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            poisonComboBox3.Cursor = Cursors.Hand;
-            poisonComboBox3.DropDownStyle = ComboBoxStyle.DropDown;
-            poisonComboBox3.FormattingEnabled = true;
-            poisonComboBox3.ItemHeight = 23;
-            poisonComboBox3.Items.AddRange(new object[] { "Normal Combobox 1", "Normal Combobox 2", "Normal Combobox 3", "Normal Combobox 4" });
-            poisonComboBox3.Location = new System.Drawing.Point(201, 196);
-            poisonComboBox3.Name = "poisonComboBox3";
-            poisonComboBox3.PromptText = "Prompted ComboBox";
-            poisonComboBox3.Size = new System.Drawing.Size(213, 29);
-            poisonComboBox3.TabIndex = 21;
-            poisonToolTip.SetToolTip(poisonComboBox3, "ComboBox Tooltip");
-            poisonComboBox3.UseSelectable = true;
+            this.poisonComboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.poisonComboBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.poisonComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.poisonComboBox3.FormattingEnabled = true;
+            this.poisonComboBox3.ItemHeight = 23;
+            this.poisonComboBox3.Items.AddRange(new object[] {
+            "Normal Combobox 1",
+            "Normal Combobox 2",
+            "Normal Combobox 3",
+            "Normal Combobox 4"});
+            this.poisonComboBox3.Location = new System.Drawing.Point(201, 196);
+            this.poisonComboBox3.Name = "poisonComboBox3";
+            this.poisonComboBox3.PromptText = "Prompted ComboBox";
+            this.poisonComboBox3.Size = new System.Drawing.Size(213, 29);
+            this.poisonComboBox3.TabIndex = 21;
+            this.poisonToolTip.SetToolTip(this.poisonComboBox3, "ComboBox Tooltip");
+            this.poisonComboBox3.UseSelectable = true;
             // 
             // poisonDateTime2
             // 
-            poisonDateTime2.Enabled = false;
-            poisonDateTime2.Location = new System.Drawing.Point(201, 87);
-            poisonDateTime2.MinimumSize = new System.Drawing.Size(4, 29);
-            poisonDateTime2.Name = "poisonDateTime2";
-            poisonDateTime2.Size = new System.Drawing.Size(213, 29);
-            poisonDateTime2.TabIndex = 20;
+            this.poisonDateTime2.Enabled = false;
+            this.poisonDateTime2.Location = new System.Drawing.Point(201, 87);
+            this.poisonDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
+            this.poisonDateTime2.Name = "poisonDateTime2";
+            this.poisonDateTime2.Size = new System.Drawing.Size(213, 29);
+            this.poisonDateTime2.TabIndex = 20;
             // 
             // poisonLabel20
             // 
-            poisonLabel20.AutoSize = true;
-            poisonLabel20.Location = new System.Drawing.Point(201, 25);
-            poisonLabel20.Name = "poisonLabel20";
-            poisonLabel20.Size = new System.Drawing.Size(103, 19);
-            poisonLabel20.TabIndex = 19;
-            poisonLabel20.Text = "PoisonDateTime";
+            this.poisonLabel20.AutoSize = true;
+            this.poisonLabel20.Location = new System.Drawing.Point(201, 25);
+            this.poisonLabel20.Name = "poisonLabel20";
+            this.poisonLabel20.Size = new System.Drawing.Size(103, 19);
+            this.poisonLabel20.TabIndex = 19;
+            this.poisonLabel20.Text = "PoisonDateTime";
             // 
             // poisonDateTime1
             // 
-            poisonDateTime1.Location = new System.Drawing.Point(201, 51);
-            poisonDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
-            poisonDateTime1.Name = "poisonDateTime1";
-            poisonDateTime1.Size = new System.Drawing.Size(213, 29);
-            poisonDateTime1.TabIndex = 18;
+            this.poisonDateTime1.Location = new System.Drawing.Point(201, 51);
+            this.poisonDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.poisonDateTime1.Name = "poisonDateTime1";
+            this.poisonDateTime1.Size = new System.Drawing.Size(213, 29);
+            this.poisonDateTime1.TabIndex = 18;
             // 
             // poisonButton5
             // 
-            poisonButton5.Location = new System.Drawing.Point(453, 51);
-            poisonButton5.Name = "poisonButton5";
-            poisonButton5.Size = new System.Drawing.Size(123, 29);
-            poisonButton5.TabIndex = 17;
-            poisonButton5.Text = "&Show Context Menu";
-            poisonButton5.UseSelectable = true;
-            poisonButton5.Click += poisonButton5_Click;
+            this.poisonButton5.Location = new System.Drawing.Point(453, 51);
+            this.poisonButton5.Name = "poisonButton5";
+            this.poisonButton5.Size = new System.Drawing.Size(123, 29);
+            this.poisonButton5.TabIndex = 17;
+            this.poisonButton5.Text = "&Show Context Menu";
+            this.poisonButton5.UseSelectable = true;
             // 
             // poisonToggle3
             // 
-            poisonToggle3.AutoSize = true;
-            poisonToggle3.DisplayStatus = false;
-            poisonToggle3.Enabled = false;
-            poisonToggle3.Location = new System.Drawing.Point(483, 212);
-            poisonToggle3.Name = "poisonToggle3";
-            poisonToggle3.Size = new System.Drawing.Size(50, 17);
-            poisonToggle3.TabIndex = 15;
-            poisonToggle3.Text = "Kapalı";
-            poisonToggle3.UseSelectable = true;
+            this.poisonToggle3.AutoSize = true;
+            this.poisonToggle3.DisplayStatus = false;
+            this.poisonToggle3.Enabled = false;
+            this.poisonToggle3.Location = new System.Drawing.Point(483, 212);
+            this.poisonToggle3.Name = "poisonToggle3";
+            this.poisonToggle3.Size = new System.Drawing.Size(50, 17);
+            this.poisonToggle3.TabIndex = 15;
+            this.poisonToggle3.Text = "Kapalı";
+            this.poisonToggle3.UseSelectable = true;
             // 
             // poisonToggle2
             // 
-            poisonToggle2.AutoSize = true;
-            poisonToggle2.DisplayStatus = false;
-            poisonToggle2.Location = new System.Drawing.Point(483, 189);
-            poisonToggle2.Name = "poisonToggle2";
-            poisonToggle2.Size = new System.Drawing.Size(50, 17);
-            poisonToggle2.TabIndex = 14;
-            poisonToggle2.Text = "Kapalı";
-            poisonToggle2.UseSelectable = true;
-            poisonToggle2.UseStyleColors = true;
+            this.poisonToggle2.AutoSize = true;
+            this.poisonToggle2.DisplayStatus = false;
+            this.poisonToggle2.Location = new System.Drawing.Point(483, 189);
+            this.poisonToggle2.Name = "poisonToggle2";
+            this.poisonToggle2.Size = new System.Drawing.Size(50, 17);
+            this.poisonToggle2.TabIndex = 14;
+            this.poisonToggle2.Text = "Kapalı";
+            this.poisonToggle2.UseSelectable = true;
+            this.poisonToggle2.UseStyleColors = true;
             // 
             // poisonRadioButton3
             // 
-            poisonRadioButton3.AutoSize = true;
-            poisonRadioButton3.Enabled = false;
-            poisonRadioButton3.Location = new System.Drawing.Point(18, 202);
-            poisonRadioButton3.Name = "poisonRadioButton3";
-            poisonRadioButton3.Size = new System.Drawing.Size(137, 15);
-            poisonRadioButton3.TabIndex = 13;
-            poisonRadioButton3.TabStop = true;
-            poisonRadioButton3.Text = "Disabled Radiobutton";
-            poisonRadioButton3.UseSelectable = true;
+            this.poisonRadioButton3.AutoSize = true;
+            this.poisonRadioButton3.Enabled = false;
+            this.poisonRadioButton3.Location = new System.Drawing.Point(18, 202);
+            this.poisonRadioButton3.Name = "poisonRadioButton3";
+            this.poisonRadioButton3.Size = new System.Drawing.Size(137, 15);
+            this.poisonRadioButton3.TabIndex = 13;
+            this.poisonRadioButton3.TabStop = true;
+            this.poisonRadioButton3.Text = "Disabled Radiobutton";
+            this.poisonRadioButton3.UseSelectable = true;
             // 
             // poisonRadioButton2
             // 
-            poisonRadioButton2.AutoSize = true;
-            poisonRadioButton2.Location = new System.Drawing.Point(18, 181);
-            poisonRadioButton2.Name = "poisonRadioButton2";
-            poisonRadioButton2.Size = new System.Drawing.Size(124, 15);
-            poisonRadioButton2.TabIndex = 12;
-            poisonRadioButton2.TabStop = true;
-            poisonRadioButton2.Text = "Styled Radiobutton";
-            poisonRadioButton2.UseSelectable = true;
-            poisonRadioButton2.UseStyleColors = true;
+            this.poisonRadioButton2.AutoSize = true;
+            this.poisonRadioButton2.Location = new System.Drawing.Point(18, 181);
+            this.poisonRadioButton2.Name = "poisonRadioButton2";
+            this.poisonRadioButton2.Size = new System.Drawing.Size(124, 15);
+            this.poisonRadioButton2.TabIndex = 12;
+            this.poisonRadioButton2.TabStop = true;
+            this.poisonRadioButton2.Text = "Styled Radiobutton";
+            this.poisonRadioButton2.UseSelectable = true;
+            this.poisonRadioButton2.UseStyleColors = true;
             // 
             // poisonCheckBox3
             // 
-            poisonCheckBox3.AutoSize = true;
-            poisonCheckBox3.Enabled = false;
-            poisonCheckBox3.Location = new System.Drawing.Point(18, 95);
-            poisonCheckBox3.Name = "poisonCheckBox3";
-            poisonCheckBox3.Size = new System.Drawing.Size(124, 15);
-            poisonCheckBox3.TabIndex = 11;
-            poisonCheckBox3.Text = "Disabled Checkbox";
-            poisonCheckBox3.UseSelectable = true;
+            this.poisonCheckBox3.AutoSize = true;
+            this.poisonCheckBox3.Enabled = false;
+            this.poisonCheckBox3.Location = new System.Drawing.Point(18, 95);
+            this.poisonCheckBox3.Name = "poisonCheckBox3";
+            this.poisonCheckBox3.Size = new System.Drawing.Size(124, 15);
+            this.poisonCheckBox3.TabIndex = 11;
+            this.poisonCheckBox3.Text = "Disabled Checkbox";
+            this.poisonCheckBox3.UseSelectable = true;
             // 
             // poisonCheckBox2
             // 
-            poisonCheckBox2.AutoSize = true;
-            poisonCheckBox2.Location = new System.Drawing.Point(18, 74);
-            poisonCheckBox2.Name = "poisonCheckBox2";
-            poisonCheckBox2.Size = new System.Drawing.Size(111, 15);
-            poisonCheckBox2.TabIndex = 10;
-            poisonCheckBox2.Text = "Styled Checkbox";
-            poisonCheckBox2.UseSelectable = true;
-            poisonCheckBox2.UseStyleColors = true;
+            this.poisonCheckBox2.AutoSize = true;
+            this.poisonCheckBox2.Location = new System.Drawing.Point(18, 74);
+            this.poisonCheckBox2.Name = "poisonCheckBox2";
+            this.poisonCheckBox2.Size = new System.Drawing.Size(111, 15);
+            this.poisonCheckBox2.TabIndex = 10;
+            this.poisonCheckBox2.Text = "Styled Checkbox";
+            this.poisonCheckBox2.UseSelectable = true;
+            this.poisonCheckBox2.UseStyleColors = true;
             // 
             // poisonLabel19
             // 
-            poisonLabel19.AutoSize = true;
-            poisonLabel19.Location = new System.Drawing.Point(453, 139);
-            poisonLabel19.Name = "poisonLabel19";
-            poisonLabel19.Size = new System.Drawing.Size(86, 19);
-            poisonLabel19.TabIndex = 9;
-            poisonLabel19.Text = "PoisonToggle";
+            this.poisonLabel19.AutoSize = true;
+            this.poisonLabel19.Location = new System.Drawing.Point(453, 139);
+            this.poisonLabel19.Name = "poisonLabel19";
+            this.poisonLabel19.Size = new System.Drawing.Size(86, 19);
+            this.poisonLabel19.TabIndex = 9;
+            this.poisonLabel19.Text = "PoisonToggle";
             // 
             // poisonLabel18
             // 
-            poisonLabel18.AutoSize = true;
-            poisonLabel18.Location = new System.Drawing.Point(18, 133);
-            poisonLabel18.Name = "poisonLabel18";
-            poisonLabel18.Size = new System.Drawing.Size(119, 19);
-            poisonLabel18.TabIndex = 8;
-            poisonLabel18.Text = "PoisonRadioButton";
+            this.poisonLabel18.AutoSize = true;
+            this.poisonLabel18.Location = new System.Drawing.Point(18, 133);
+            this.poisonLabel18.Name = "poisonLabel18";
+            this.poisonLabel18.Size = new System.Drawing.Size(119, 19);
+            this.poisonLabel18.TabIndex = 8;
+            this.poisonLabel18.Text = "PoisonRadioButton";
             // 
             // poisonLabel17
             // 
-            poisonLabel17.AutoSize = true;
-            poisonLabel17.Location = new System.Drawing.Point(201, 143);
-            poisonLabel17.Name = "poisonLabel17";
-            poisonLabel17.Size = new System.Drawing.Size(114, 19);
-            poisonLabel17.TabIndex = 7;
-            poisonLabel17.Text = "PoisonComboBox";
+            this.poisonLabel17.AutoSize = true;
+            this.poisonLabel17.Location = new System.Drawing.Point(201, 143);
+            this.poisonLabel17.Name = "poisonLabel17";
+            this.poisonLabel17.Size = new System.Drawing.Size(114, 19);
+            this.poisonLabel17.TabIndex = 7;
+            this.poisonLabel17.Text = "PoisonComboBox";
             // 
             // poisonLabel16
             // 
-            poisonLabel16.AutoSize = true;
-            poisonLabel16.Location = new System.Drawing.Point(18, 25);
-            poisonLabel16.Name = "poisonLabel16";
-            poisonLabel16.Size = new System.Drawing.Size(104, 19);
-            poisonLabel16.TabIndex = 6;
-            poisonLabel16.Text = "PoisonCheckBox";
+            this.poisonLabel16.AutoSize = true;
+            this.poisonLabel16.Location = new System.Drawing.Point(18, 25);
+            this.poisonLabel16.Name = "poisonLabel16";
+            this.poisonLabel16.Size = new System.Drawing.Size(104, 19);
+            this.poisonLabel16.TabIndex = 6;
+            this.poisonLabel16.Text = "PoisonCheckBox";
             // 
             // poisonComboBox1
             // 
-            poisonComboBox1.FormattingEnabled = true;
-            poisonComboBox1.ItemHeight = 23;
-            poisonComboBox1.Items.AddRange(new object[] { "Normal Combobox 1Normal Combobox 1Normal Combobox 1", "Normal Combobox 2", "Normal Combobox 3", "Normal Combobox 4" });
-            poisonComboBox1.Location = new System.Drawing.Point(201, 165);
-            poisonComboBox1.Name = "poisonComboBox1";
-            poisonComboBox1.PromptText = "Prompted ComboBox";
-            poisonComboBox1.Size = new System.Drawing.Size(213, 29);
-            poisonComboBox1.TabIndex = 5;
-            poisonToolTip.SetToolTip(poisonComboBox1, "ComboBox Tooltip");
-            poisonComboBox1.UseSelectable = true;
+            this.poisonComboBox1.FormattingEnabled = true;
+            this.poisonComboBox1.ItemHeight = 23;
+            this.poisonComboBox1.Items.AddRange(new object[] {
+            "Normal Combobox 1Normal Combobox 1Normal Combobox 1",
+            "Normal Combobox 2",
+            "Normal Combobox 3",
+            "Normal Combobox 4"});
+            this.poisonComboBox1.Location = new System.Drawing.Point(201, 165);
+            this.poisonComboBox1.Name = "poisonComboBox1";
+            this.poisonComboBox1.PromptText = "Prompted ComboBox";
+            this.poisonComboBox1.Size = new System.Drawing.Size(213, 29);
+            this.poisonComboBox1.TabIndex = 5;
+            this.poisonToolTip.SetToolTip(this.poisonComboBox1, "ComboBox Tooltip");
+            this.poisonComboBox1.UseSelectable = true;
             // 
             // poisonRadioButton1
             // 
-            poisonRadioButton1.AutoSize = true;
-            poisonRadioButton1.Location = new System.Drawing.Point(18, 160);
-            poisonRadioButton1.Name = "poisonRadioButton1";
-            poisonRadioButton1.Size = new System.Drawing.Size(132, 15);
-            poisonRadioButton1.TabIndex = 4;
-            poisonRadioButton1.TabStop = true;
-            poisonRadioButton1.Text = "Normal Radiobutton";
-            poisonToolTip.SetToolTip(poisonRadioButton1, "RadioButton Tooltip");
-            poisonRadioButton1.UseSelectable = true;
+            this.poisonRadioButton1.AutoSize = true;
+            this.poisonRadioButton1.Location = new System.Drawing.Point(18, 160);
+            this.poisonRadioButton1.Name = "poisonRadioButton1";
+            this.poisonRadioButton1.Size = new System.Drawing.Size(132, 15);
+            this.poisonRadioButton1.TabIndex = 4;
+            this.poisonRadioButton1.TabStop = true;
+            this.poisonRadioButton1.Text = "Normal Radiobutton";
+            this.poisonToolTip.SetToolTip(this.poisonRadioButton1, "RadioButton Tooltip");
+            this.poisonRadioButton1.UseSelectable = true;
             // 
             // poisonToggle1
             // 
-            poisonToggle1.AutoSize = true;
-            poisonToggle1.Location = new System.Drawing.Point(453, 166);
-            poisonToggle1.Name = "poisonToggle1";
-            poisonToggle1.Size = new System.Drawing.Size(80, 17);
-            poisonToggle1.TabIndex = 3;
-            poisonToggle1.Text = "Kapalı";
-            poisonToolTip.SetToolTip(poisonToggle1, "Toggle Tooltip");
-            poisonToggle1.UseSelectable = true;
+            this.poisonToggle1.AutoSize = true;
+            this.poisonToggle1.Location = new System.Drawing.Point(453, 166);
+            this.poisonToggle1.Name = "poisonToggle1";
+            this.poisonToggle1.Size = new System.Drawing.Size(80, 17);
+            this.poisonToggle1.TabIndex = 3;
+            this.poisonToggle1.Text = "Kapalı";
+            this.poisonToolTip.SetToolTip(this.poisonToggle1, "Toggle Tooltip");
+            this.poisonToggle1.UseSelectable = true;
             // 
             // poisonCheckBox1
             // 
-            poisonCheckBox1.AutoSize = true;
-            poisonCheckBox1.Location = new System.Drawing.Point(18, 53);
-            poisonCheckBox1.Name = "poisonCheckBox1";
-            poisonCheckBox1.Size = new System.Drawing.Size(119, 15);
-            poisonCheckBox1.TabIndex = 2;
-            poisonCheckBox1.Text = "Normal Checkbox";
-            poisonToolTip.SetToolTip(poisonCheckBox1, "Checkbox Tooltip");
-            poisonCheckBox1.UseSelectable = true;
+            this.poisonCheckBox1.AutoSize = true;
+            this.poisonCheckBox1.Location = new System.Drawing.Point(18, 53);
+            this.poisonCheckBox1.Name = "poisonCheckBox1";
+            this.poisonCheckBox1.Size = new System.Drawing.Size(119, 15);
+            this.poisonCheckBox1.TabIndex = 2;
+            this.poisonCheckBox1.Text = "Normal Checkbox";
+            this.poisonToolTip.SetToolTip(this.poisonCheckBox1, "Checkbox Tooltip");
+            this.poisonCheckBox1.UseSelectable = true;
             // 
             // poisonTabPage3
             // 
-            poisonTabPage3.Controls.Add(poisonLabel7);
-            poisonTabPage3.Controls.Add(poisonProgressSpinner3);
-            poisonTabPage3.Controls.Add(poisonProgressSpinner2);
-            poisonTabPage3.Controls.Add(poisonLabel6);
-            poisonTabPage3.Controls.Add(poisonLabel5);
-            poisonTabPage3.Controls.Add(poisonProgressBar1);
-            poisonTabPage3.Controls.Add(poisonLabel4);
-            poisonTabPage3.Controls.Add(poisonScrollBar1);
-            poisonTabPage3.Controls.Add(poisonTrackBar1);
-            poisonTabPage3.Controls.Add(poisonProgressSpinner1);
-            poisonTabPage3.Controls.Add(poisonProgressBar);
-            poisonTabPage3.HorizontalScrollbar = true;
-            poisonTabPage3.HorizontalScrollbarBarColor = true;
-            poisonTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            poisonTabPage3.HorizontalScrollbarSize = 10;
-            poisonTabPage3.Location = new System.Drawing.Point(4, 38);
-            poisonTabPage3.Name = "poisonTabPage3";
-            poisonTabPage3.Padding = new Padding(25);
-            poisonTabPage3.Size = new System.Drawing.Size(672, 260);
-            poisonTabPage3.TabIndex = 2;
-            poisonTabPage3.Text = "Scroll && Progress";
-            poisonTabPage3.VerticalScrollbar = true;
-            poisonTabPage3.VerticalScrollbarBarColor = true;
-            poisonTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            poisonTabPage3.VerticalScrollbarSize = 10;
-            poisonTabPage3.Visible = false;
+            this.poisonTabPage3.Controls.Add(this.poisonLabel7);
+            this.poisonTabPage3.Controls.Add(this.poisonProgressSpinner3);
+            this.poisonTabPage3.Controls.Add(this.poisonProgressSpinner2);
+            this.poisonTabPage3.Controls.Add(this.poisonLabel6);
+            this.poisonTabPage3.Controls.Add(this.poisonLabel5);
+            this.poisonTabPage3.Controls.Add(this.poisonProgressBar1);
+            this.poisonTabPage3.Controls.Add(this.poisonLabel4);
+            this.poisonTabPage3.Controls.Add(this.poisonScrollBar1);
+            this.poisonTabPage3.Controls.Add(this.poisonTrackBar1);
+            this.poisonTabPage3.Controls.Add(this.poisonProgressSpinner1);
+            this.poisonTabPage3.Controls.Add(this.poisonProgressBar);
+            this.poisonTabPage3.HorizontalScrollbar = true;
+            this.poisonTabPage3.HorizontalScrollbarBarColor = true;
+            this.poisonTabPage3.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage3.HorizontalScrollbarSize = 10;
+            this.poisonTabPage3.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage3.Name = "poisonTabPage3";
+            this.poisonTabPage3.Padding = new System.Windows.Forms.Padding(25);
+            this.poisonTabPage3.Size = new System.Drawing.Size(672, 260);
+            this.poisonTabPage3.TabIndex = 2;
+            this.poisonTabPage3.Text = "Scroll && Progress";
+            this.poisonTabPage3.VerticalScrollbar = true;
+            this.poisonTabPage3.VerticalScrollbarBarColor = true;
+            this.poisonTabPage3.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage3.VerticalScrollbarSize = 10;
+            this.poisonTabPage3.Visible = false;
             // 
             // poisonLabel7
             // 
-            poisonLabel7.AutoSize = true;
-            poisonLabel7.Location = new System.Drawing.Point(28, 187);
-            poisonLabel7.Name = "poisonLabel7";
-            poisonLabel7.Size = new System.Drawing.Size(99, 19);
-            poisonLabel7.TabIndex = 12;
-            poisonLabel7.Text = "PoisonScrollBar";
+            this.poisonLabel7.AutoSize = true;
+            this.poisonLabel7.Location = new System.Drawing.Point(28, 187);
+            this.poisonLabel7.Name = "poisonLabel7";
+            this.poisonLabel7.Size = new System.Drawing.Size(99, 19);
+            this.poisonLabel7.TabIndex = 12;
+            this.poisonLabel7.Text = "PoisonScrollBar";
             // 
             // poisonProgressSpinner3
             // 
-            poisonProgressSpinner3.Location = new System.Drawing.Point(345, 146);
-            poisonProgressSpinner3.Maximum = 100;
-            poisonProgressSpinner3.Name = "poisonProgressSpinner3";
-            poisonProgressSpinner3.Size = new System.Drawing.Size(23, 23);
-            poisonProgressSpinner3.TabIndex = 11;
-            poisonProgressSpinner3.UseSelectable = true;
-            poisonProgressSpinner3.Value = 50;
+            this.poisonProgressSpinner3.Location = new System.Drawing.Point(345, 146);
+            this.poisonProgressSpinner3.Maximum = 100;
+            this.poisonProgressSpinner3.Name = "poisonProgressSpinner3";
+            this.poisonProgressSpinner3.Size = new System.Drawing.Size(23, 23);
+            this.poisonProgressSpinner3.TabIndex = 11;
+            this.poisonProgressSpinner3.UseSelectable = true;
+            this.poisonProgressSpinner3.Value = 50;
             // 
             // poisonProgressSpinner2
             // 
-            poisonProgressSpinner2.Location = new System.Drawing.Point(316, 146);
-            poisonProgressSpinner2.Maximum = 100;
-            poisonProgressSpinner2.Name = "poisonProgressSpinner2";
-            poisonProgressSpinner2.Size = new System.Drawing.Size(23, 23);
-            poisonProgressSpinner2.TabIndex = 10;
-            poisonProgressSpinner2.UseSelectable = true;
-            poisonProgressSpinner2.Value = 25;
+            this.poisonProgressSpinner2.Location = new System.Drawing.Point(316, 146);
+            this.poisonProgressSpinner2.Maximum = 100;
+            this.poisonProgressSpinner2.Name = "poisonProgressSpinner2";
+            this.poisonProgressSpinner2.Size = new System.Drawing.Size(23, 23);
+            this.poisonProgressSpinner2.TabIndex = 10;
+            this.poisonProgressSpinner2.UseSelectable = true;
+            this.poisonProgressSpinner2.Value = 25;
             // 
             // poisonLabel6
             // 
-            poisonLabel6.AutoSize = true;
-            poisonLabel6.Location = new System.Drawing.Point(287, 124);
-            poisonLabel6.Name = "poisonLabel6";
-            poisonLabel6.Size = new System.Drawing.Size(142, 19);
-            poisonLabel6.TabIndex = 9;
-            poisonLabel6.Text = "PoisonProgressSpinner";
+            this.poisonLabel6.AutoSize = true;
+            this.poisonLabel6.Location = new System.Drawing.Point(287, 124);
+            this.poisonLabel6.Name = "poisonLabel6";
+            this.poisonLabel6.Size = new System.Drawing.Size(142, 19);
+            this.poisonLabel6.TabIndex = 9;
+            this.poisonLabel6.Text = "PoisonProgressSpinner";
             // 
             // poisonLabel5
             // 
-            poisonLabel5.AutoSize = true;
-            poisonLabel5.Location = new System.Drawing.Point(28, 124);
-            poisonLabel5.Name = "poisonLabel5";
-            poisonLabel5.Size = new System.Drawing.Size(96, 19);
-            poisonLabel5.TabIndex = 8;
-            poisonLabel5.Text = "PoisonTrackBar";
+            this.poisonLabel5.AutoSize = true;
+            this.poisonLabel5.Location = new System.Drawing.Point(28, 124);
+            this.poisonLabel5.Name = "poisonLabel5";
+            this.poisonLabel5.Size = new System.Drawing.Size(96, 19);
+            this.poisonLabel5.TabIndex = 8;
+            this.poisonLabel5.Text = "PoisonTrackBar";
             // 
             // poisonProgressBar1
             // 
-            poisonProgressBar1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            poisonProgressBar1.Location = new System.Drawing.Point(28, 76);
-            poisonProgressBar1.MinimumSize = new System.Drawing.Size(500, 23);
-            poisonProgressBar1.Name = "poisonProgressBar1";
-            poisonProgressBar1.ProgressBarStyle = ProgressBarStyle.Marquee;
-            poisonProgressBar1.Size = new System.Drawing.Size(500, 23);
-            poisonProgressBar1.TabIndex = 7;
-            poisonProgressBar1.Value = 25;
+            this.poisonProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.poisonProgressBar1.Location = new System.Drawing.Point(28, 76);
+            this.poisonProgressBar1.MinimumSize = new System.Drawing.Size(500, 23);
+            this.poisonProgressBar1.Name = "poisonProgressBar1";
+            this.poisonProgressBar1.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.poisonProgressBar1.Size = new System.Drawing.Size(500, 23);
+            this.poisonProgressBar1.TabIndex = 7;
+            this.poisonProgressBar1.Value = 25;
             // 
             // poisonLabel4
             // 
-            poisonLabel4.AutoSize = true;
-            poisonLabel4.Location = new System.Drawing.Point(28, 25);
-            poisonLabel4.Name = "poisonLabel4";
-            poisonLabel4.Size = new System.Drawing.Size(118, 19);
-            poisonLabel4.TabIndex = 6;
-            poisonLabel4.Text = "PoisonProgressBar";
+            this.poisonLabel4.AutoSize = true;
+            this.poisonLabel4.Location = new System.Drawing.Point(28, 25);
+            this.poisonLabel4.Name = "poisonLabel4";
+            this.poisonLabel4.Size = new System.Drawing.Size(118, 19);
+            this.poisonLabel4.TabIndex = 6;
+            this.poisonLabel4.Text = "PoisonProgressBar";
             // 
             // poisonScrollBar1
             // 
-            poisonScrollBar1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            poisonScrollBar1.LargeChange = 10;
-            poisonScrollBar1.Location = new System.Drawing.Point(31, 209);
-            poisonScrollBar1.Maximum = 100;
-            poisonScrollBar1.Minimum = 0;
-            poisonScrollBar1.MinimumSize = new System.Drawing.Size(500, 23);
-            poisonScrollBar1.MouseWheelBarPartitions = 10;
-            poisonScrollBar1.Name = "poisonScrollBar1";
-            poisonScrollBar1.Orientation = Enum.Poison.ScrollOrientationType.Horizontal;
-            poisonScrollBar1.ScrollbarSize = 23;
-            poisonScrollBar1.Size = new System.Drawing.Size(500, 23);
-            poisonScrollBar1.TabIndex = 5;
-            poisonToolTip.SetToolTip(poisonScrollBar1, "Scrollbar Tooltip");
-            poisonScrollBar1.UseBarColor = true;
-            poisonScrollBar1.UseSelectable = true;
+            this.poisonScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.poisonScrollBar1.LargeChange = 10;
+            this.poisonScrollBar1.Location = new System.Drawing.Point(31, 209);
+            this.poisonScrollBar1.Maximum = 100;
+            this.poisonScrollBar1.Minimum = 0;
+            this.poisonScrollBar1.MinimumSize = new System.Drawing.Size(500, 23);
+            this.poisonScrollBar1.MouseWheelBarPartitions = 10;
+            this.poisonScrollBar1.Name = "poisonScrollBar1";
+            this.poisonScrollBar1.Orientation = ReaLTaiizor.Enum.Poison.ScrollOrientationType.Horizontal;
+            this.poisonScrollBar1.ScrollbarSize = 23;
+            this.poisonScrollBar1.Size = new System.Drawing.Size(500, 23);
+            this.poisonScrollBar1.TabIndex = 5;
+            this.poisonToolTip.SetToolTip(this.poisonScrollBar1, "Scrollbar Tooltip");
+            this.poisonScrollBar1.UseBarColor = true;
+            this.poisonScrollBar1.UseSelectable = true;
             // 
             // poisonTrackBar1
             // 
-            poisonTrackBar1.BackColor = System.Drawing.Color.Transparent;
-            poisonTrackBar1.Location = new System.Drawing.Point(28, 146);
-            poisonTrackBar1.Name = "poisonTrackBar1";
-            poisonTrackBar1.Size = new System.Drawing.Size(237, 23);
-            poisonTrackBar1.TabIndex = 4;
-            poisonTrackBar1.Text = "poisonTrackBar1";
-            poisonToolTip.SetToolTip(poisonTrackBar1, "TrackBar Tooltip");
+            this.poisonTrackBar1.BackColor = System.Drawing.Color.Transparent;
+            this.poisonTrackBar1.Location = new System.Drawing.Point(28, 146);
+            this.poisonTrackBar1.Name = "poisonTrackBar1";
+            this.poisonTrackBar1.Size = new System.Drawing.Size(237, 23);
+            this.poisonTrackBar1.TabIndex = 4;
+            this.poisonTrackBar1.Text = "poisonTrackBar1";
+            this.poisonToolTip.SetToolTip(this.poisonTrackBar1, "TrackBar Tooltip");
             // 
             // poisonProgressSpinner1
             // 
-            poisonProgressSpinner1.Location = new System.Drawing.Point(287, 146);
-            poisonProgressSpinner1.Maximum = 100;
-            poisonProgressSpinner1.Name = "poisonProgressSpinner1";
-            poisonProgressSpinner1.Size = new System.Drawing.Size(23, 23);
-            poisonProgressSpinner1.TabIndex = 3;
-            poisonToolTip.SetToolTip(poisonProgressSpinner1, "Spinner Tooltip");
-            poisonProgressSpinner1.UseSelectable = true;
+            this.poisonProgressSpinner1.Location = new System.Drawing.Point(287, 146);
+            this.poisonProgressSpinner1.Maximum = 100;
+            this.poisonProgressSpinner1.Name = "poisonProgressSpinner1";
+            this.poisonProgressSpinner1.Size = new System.Drawing.Size(23, 23);
+            this.poisonProgressSpinner1.TabIndex = 3;
+            this.poisonToolTip.SetToolTip(this.poisonProgressSpinner1, "Spinner Tooltip");
+            this.poisonProgressSpinner1.UseSelectable = true;
             // 
             // poisonProgressBar
             // 
-            poisonProgressBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            poisonProgressBar.Enabled = false;
-            poisonProgressBar.Location = new System.Drawing.Point(28, 47);
-            poisonProgressBar.MinimumSize = new System.Drawing.Size(500, 23);
-            poisonProgressBar.Name = "poisonProgressBar";
-            poisonProgressBar.Size = new System.Drawing.Size(500, 23);
-            poisonProgressBar.TabIndex = 2;
-            poisonToolTip.SetToolTip(poisonProgressBar, "ProgressBar Tooltip");
-            poisonProgressBar.Value = 25;
+            this.poisonProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.poisonProgressBar.Enabled = false;
+            this.poisonProgressBar.Location = new System.Drawing.Point(28, 47);
+            this.poisonProgressBar.MinimumSize = new System.Drawing.Size(500, 23);
+            this.poisonProgressBar.Name = "poisonProgressBar";
+            this.poisonProgressBar.Size = new System.Drawing.Size(500, 23);
+            this.poisonProgressBar.TabIndex = 2;
+            this.poisonToolTip.SetToolTip(this.poisonProgressBar, "ProgressBar Tooltip");
+            this.poisonProgressBar.Value = 25;
             // 
             // poisonTabPage4
             // 
-            poisonTabPage4.Controls.Add(poisonTextBox4);
-            poisonTabPage4.Controls.Add(poisonTextBox3);
-            poisonTabPage4.Controls.Add(poisonTextBox2);
-            poisonTabPage4.Controls.Add(poisonLabel15);
-            poisonTabPage4.Controls.Add(poisonLabel12);
-            poisonTabPage4.Controls.Add(poisonLabel13);
-            poisonTabPage4.Controls.Add(poisonLabel14);
-            poisonTabPage4.Controls.Add(poisonLabel11);
-            poisonTabPage4.Controls.Add(poisonLabel10);
-            poisonTabPage4.Controls.Add(poisonLabel3);
-            poisonTabPage4.Controls.Add(poisonTextBox1);
-            poisonTabPage4.Controls.Add(poisonLabel2);
-            poisonTabPage4.HorizontalScrollbarBarColor = true;
-            poisonTabPage4.HorizontalScrollbarHighlightOnWheel = false;
-            poisonTabPage4.HorizontalScrollbarSize = 10;
-            poisonTabPage4.Location = new System.Drawing.Point(4, 38);
-            poisonTabPage4.Name = "poisonTabPage4";
-            poisonTabPage4.Padding = new Padding(25);
-            poisonTabPage4.Size = new System.Drawing.Size(672, 260);
-            poisonTabPage4.TabIndex = 3;
-            poisonTabPage4.Text = "Labels && Text";
-            poisonTabPage4.VerticalScrollbarBarColor = true;
-            poisonTabPage4.VerticalScrollbarHighlightOnWheel = false;
-            poisonTabPage4.VerticalScrollbarSize = 10;
-            poisonTabPage4.Visible = false;
+            this.poisonTabPage4.Controls.Add(this.poisonTextBox4);
+            this.poisonTabPage4.Controls.Add(this.poisonTextBox3);
+            this.poisonTabPage4.Controls.Add(this.poisonTextBox2);
+            this.poisonTabPage4.Controls.Add(this.poisonLabel15);
+            this.poisonTabPage4.Controls.Add(this.poisonLabel12);
+            this.poisonTabPage4.Controls.Add(this.poisonLabel13);
+            this.poisonTabPage4.Controls.Add(this.poisonLabel14);
+            this.poisonTabPage4.Controls.Add(this.poisonLabel11);
+            this.poisonTabPage4.Controls.Add(this.poisonLabel10);
+            this.poisonTabPage4.Controls.Add(this.poisonLabel3);
+            this.poisonTabPage4.Controls.Add(this.poisonTextBox1);
+            this.poisonTabPage4.Controls.Add(this.poisonLabel2);
+            this.poisonTabPage4.HorizontalScrollbarBarColor = true;
+            this.poisonTabPage4.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage4.HorizontalScrollbarSize = 10;
+            this.poisonTabPage4.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage4.Name = "poisonTabPage4";
+            this.poisonTabPage4.Padding = new System.Windows.Forms.Padding(25);
+            this.poisonTabPage4.Size = new System.Drawing.Size(672, 260);
+            this.poisonTabPage4.TabIndex = 3;
+            this.poisonTabPage4.Text = "Labels && Text";
+            this.poisonTabPage4.VerticalScrollbarBarColor = true;
+            this.poisonTabPage4.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage4.VerticalScrollbarSize = 10;
+            this.poisonTabPage4.Visible = false;
             // 
             // poisonTextBox4
             // 
             // 
             // 
             // 
-            poisonTextBox4.CustomButton.Image = null;
-            poisonTextBox4.CustomButton.Location = new System.Drawing.Point(151, 2);
-            poisonTextBox4.CustomButton.Name = "";
-            poisonTextBox4.CustomButton.Size = new System.Drawing.Size(17, 17);
-            poisonTextBox4.CustomButton.Style = Enum.Poison.ColorStyle.Blue;
-            poisonTextBox4.CustomButton.TabIndex = 1;
-            poisonTextBox4.CustomButton.Theme = Enum.Poison.ThemeStyle.Light;
-            poisonTextBox4.CustomButton.UseSelectable = true;
-            poisonTextBox4.CustomButton.Visible = false;
-            poisonTextBox4.Enabled = false;
-            poisonTextBox4.Lines = new string[] { "Disabled Textbox" };
-            poisonTextBox4.Location = new System.Drawing.Point(342, 106);
-            poisonTextBox4.MaxLength = 32767;
-            poisonTextBox4.Name = "poisonTextBox4";
-            poisonTextBox4.PasswordChar = '\0';
-            poisonTextBox4.ScrollBars = ScrollBars.None;
-            poisonTextBox4.SelectedText = "";
-            poisonTextBox4.SelectionLength = 0;
-            poisonTextBox4.SelectionStart = 0;
-            poisonTextBox4.ShortcutsEnabled = true;
-            poisonTextBox4.Size = new System.Drawing.Size(171, 22);
-            poisonTextBox4.TabIndex = 13;
-            poisonTextBox4.Text = "Disabled Textbox";
-            poisonTextBox4.UseSelectable = true;
-            poisonTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
-            poisonTextBox4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.poisonTextBox4.CustomButton.Image = null;
+            this.poisonTextBox4.CustomButton.Location = new System.Drawing.Point(151, 2);
+            this.poisonTextBox4.CustomButton.Name = "";
+            this.poisonTextBox4.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.poisonTextBox4.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            this.poisonTextBox4.CustomButton.TabIndex = 1;
+            this.poisonTextBox4.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.poisonTextBox4.CustomButton.UseSelectable = true;
+            this.poisonTextBox4.CustomButton.Visible = false;
+            this.poisonTextBox4.Enabled = false;
+            this.poisonTextBox4.Lines = new string[] {
+        "Disabled Textbox"};
+            this.poisonTextBox4.Location = new System.Drawing.Point(342, 106);
+            this.poisonTextBox4.MaxLength = 32767;
+            this.poisonTextBox4.Name = "poisonTextBox4";
+            this.poisonTextBox4.PasswordChar = '\0';
+            this.poisonTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.poisonTextBox4.SelectedText = "";
+            this.poisonTextBox4.SelectionLength = 0;
+            this.poisonTextBox4.SelectionStart = 0;
+            this.poisonTextBox4.ShortcutsEnabled = true;
+            this.poisonTextBox4.Size = new System.Drawing.Size(171, 22);
+            this.poisonTextBox4.TabIndex = 13;
+            this.poisonTextBox4.Text = "Disabled Textbox";
+            this.poisonTextBox4.UseSelectable = true;
+            this.poisonTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.poisonTextBox4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // poisonTextBox3
             // 
             // 
             // 
             // 
-            poisonTextBox3.CustomButton.Image = null;
-            poisonTextBox3.CustomButton.Location = new System.Drawing.Point(81, 1);
-            poisonTextBox3.CustomButton.Name = "";
-            poisonTextBox3.CustomButton.Size = new System.Drawing.Size(89, 89);
-            poisonTextBox3.CustomButton.Style = Enum.Poison.ColorStyle.Blue;
-            poisonTextBox3.CustomButton.TabIndex = 1;
-            poisonTextBox3.CustomButton.Theme = Enum.Poison.ThemeStyle.Light;
-            poisonTextBox3.CustomButton.UseSelectable = true;
-            poisonTextBox3.CustomButton.Visible = false;
-            poisonTextBox3.Lines = new string[] { "Multiline Textbox" };
-            poisonTextBox3.Location = new System.Drawing.Point(342, 134);
-            poisonTextBox3.MaxLength = 32767;
-            poisonTextBox3.Multiline = true;
-            poisonTextBox3.Name = "poisonTextBox3";
-            poisonTextBox3.PasswordChar = '\0';
-            poisonTextBox3.ScrollBars = ScrollBars.None;
-            poisonTextBox3.SelectedText = "";
-            poisonTextBox3.SelectionLength = 0;
-            poisonTextBox3.SelectionStart = 0;
-            poisonTextBox3.ShortcutsEnabled = true;
-            poisonTextBox3.Size = new System.Drawing.Size(171, 91);
-            poisonTextBox3.TabIndex = 12;
-            poisonTextBox3.Text = "Multiline Textbox";
-            poisonTextBox3.UseSelectable = true;
-            poisonTextBox3.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
-            poisonTextBox3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.poisonTextBox3.CustomButton.Image = null;
+            this.poisonTextBox3.CustomButton.Location = new System.Drawing.Point(81, 1);
+            this.poisonTextBox3.CustomButton.Name = "";
+            this.poisonTextBox3.CustomButton.Size = new System.Drawing.Size(89, 89);
+            this.poisonTextBox3.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            this.poisonTextBox3.CustomButton.TabIndex = 1;
+            this.poisonTextBox3.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.poisonTextBox3.CustomButton.UseSelectable = true;
+            this.poisonTextBox3.CustomButton.Visible = false;
+            this.poisonTextBox3.Lines = new string[] {
+        "Multiline Textbox"};
+            this.poisonTextBox3.Location = new System.Drawing.Point(342, 134);
+            this.poisonTextBox3.MaxLength = 32767;
+            this.poisonTextBox3.Multiline = true;
+            this.poisonTextBox3.Name = "poisonTextBox3";
+            this.poisonTextBox3.PasswordChar = '\0';
+            this.poisonTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.poisonTextBox3.SelectedText = "";
+            this.poisonTextBox3.SelectionLength = 0;
+            this.poisonTextBox3.SelectionStart = 0;
+            this.poisonTextBox3.ShortcutsEnabled = true;
+            this.poisonTextBox3.Size = new System.Drawing.Size(171, 91);
+            this.poisonTextBox3.TabIndex = 12;
+            this.poisonTextBox3.Text = "Multiline Textbox";
+            this.poisonTextBox3.UseSelectable = true;
+            this.poisonTextBox3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.poisonTextBox3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // poisonTextBox2
             // 
             // 
             // 
             // 
-            poisonTextBox2.CustomButton.Image = null;
-            poisonTextBox2.CustomButton.Location = new System.Drawing.Point(151, 2);
-            poisonTextBox2.CustomButton.Name = "";
-            poisonTextBox2.CustomButton.Size = new System.Drawing.Size(17, 17);
-            poisonTextBox2.CustomButton.Style = Enum.Poison.ColorStyle.Blue;
-            poisonTextBox2.CustomButton.TabIndex = 1;
-            poisonTextBox2.CustomButton.Theme = Enum.Poison.ThemeStyle.Light;
-            poisonTextBox2.CustomButton.UseSelectable = true;
-            poisonTextBox2.CustomButton.Visible = false;
-            poisonTextBox2.IconRight = true;
-            poisonTextBox2.Lines = new string[] { "Styled Textbox" };
-            poisonTextBox2.Location = new System.Drawing.Point(342, 78);
-            poisonTextBox2.MaxLength = 32767;
-            poisonTextBox2.Name = "poisonTextBox2";
-            poisonTextBox2.PasswordChar = '\0';
-            poisonTextBox2.ScrollBars = ScrollBars.None;
-            poisonTextBox2.SelectedText = "";
-            poisonTextBox2.SelectionLength = 0;
-            poisonTextBox2.SelectionStart = 0;
-            poisonTextBox2.ShortcutsEnabled = true;
-            poisonTextBox2.Size = new System.Drawing.Size(171, 22);
-            poisonTextBox2.TabIndex = 11;
-            poisonTextBox2.Text = "Styled Textbox";
-            poisonTextBox2.UseSelectable = true;
-            poisonTextBox2.UseStyleColors = true;
-            poisonTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
-            poisonTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.poisonTextBox2.CustomButton.Image = null;
+            this.poisonTextBox2.CustomButton.Location = new System.Drawing.Point(151, 2);
+            this.poisonTextBox2.CustomButton.Name = "";
+            this.poisonTextBox2.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.poisonTextBox2.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            this.poisonTextBox2.CustomButton.TabIndex = 1;
+            this.poisonTextBox2.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.poisonTextBox2.CustomButton.UseSelectable = true;
+            this.poisonTextBox2.CustomButton.Visible = false;
+            this.poisonTextBox2.IconRight = true;
+            this.poisonTextBox2.Lines = new string[] {
+        "Styled Textbox"};
+            this.poisonTextBox2.Location = new System.Drawing.Point(342, 78);
+            this.poisonTextBox2.MaxLength = 32767;
+            this.poisonTextBox2.Name = "poisonTextBox2";
+            this.poisonTextBox2.PasswordChar = '\0';
+            this.poisonTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.poisonTextBox2.SelectedText = "";
+            this.poisonTextBox2.SelectionLength = 0;
+            this.poisonTextBox2.SelectionStart = 0;
+            this.poisonTextBox2.ShortcutsEnabled = true;
+            this.poisonTextBox2.Size = new System.Drawing.Size(171, 22);
+            this.poisonTextBox2.TabIndex = 11;
+            this.poisonTextBox2.Text = "Styled Textbox";
+            this.poisonTextBox2.UseSelectable = true;
+            this.poisonTextBox2.UseStyleColors = true;
+            this.poisonTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.poisonTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // poisonLabel15
             // 
-            poisonLabel15.AutoSize = true;
-            poisonLabel15.Location = new System.Drawing.Point(342, 25);
-            poisonLabel15.Margin = new Padding(3);
-            poisonLabel15.Name = "poisonLabel15";
-            poisonLabel15.Size = new System.Drawing.Size(91, 19);
-            poisonLabel15.TabIndex = 10;
-            poisonLabel15.Text = "PoisonTextBox";
+            this.poisonLabel15.AutoSize = true;
+            this.poisonLabel15.Location = new System.Drawing.Point(342, 25);
+            this.poisonLabel15.Margin = new System.Windows.Forms.Padding(3);
+            this.poisonLabel15.Name = "poisonLabel15";
+            this.poisonLabel15.Size = new System.Drawing.Size(91, 19);
+            this.poisonLabel15.TabIndex = 10;
+            this.poisonLabel15.Text = "PoisonTextBox";
             // 
             // poisonLabel12
             // 
-            poisonLabel12.AutoSize = true;
-            poisonLabel12.Enabled = false;
-            poisonLabel12.LabelMode = Enum.Poison.PoisonLabelModeType.Selectable;
-            poisonLabel12.Location = new System.Drawing.Point(148, 100);
-            poisonLabel12.Margin = new Padding(3);
-            poisonLabel12.Name = "poisonLabel12";
-            poisonLabel12.Size = new System.Drawing.Size(157, 19);
-            poisonLabel12.TabIndex = 9;
-            poisonLabel12.Text = "Disabled Selectable Label";
+            this.poisonLabel12.AutoSize = true;
+            this.poisonLabel12.Enabled = false;
+            this.poisonLabel12.LabelMode = ReaLTaiizor.Enum.Poison.PoisonLabelModeType.Selectable;
+            this.poisonLabel12.Location = new System.Drawing.Point(148, 100);
+            this.poisonLabel12.Margin = new System.Windows.Forms.Padding(3);
+            this.poisonLabel12.Name = "poisonLabel12";
+            this.poisonLabel12.Size = new System.Drawing.Size(157, 19);
+            this.poisonLabel12.TabIndex = 9;
+            this.poisonLabel12.Text = "Disabled Selectable Label";
             // 
             // poisonLabel13
             // 
-            poisonLabel13.AutoSize = true;
-            poisonLabel13.LabelMode = Enum.Poison.PoisonLabelModeType.Selectable;
-            poisonLabel13.Location = new System.Drawing.Point(148, 75);
-            poisonLabel13.Margin = new Padding(3);
-            poisonLabel13.Name = "poisonLabel13";
-            poisonLabel13.Size = new System.Drawing.Size(142, 19);
-            poisonLabel13.TabIndex = 8;
-            poisonLabel13.Text = "Styled Selectable Label";
-            poisonLabel13.UseStyleColors = true;
+            this.poisonLabel13.AutoSize = true;
+            this.poisonLabel13.LabelMode = ReaLTaiizor.Enum.Poison.PoisonLabelModeType.Selectable;
+            this.poisonLabel13.Location = new System.Drawing.Point(148, 75);
+            this.poisonLabel13.Margin = new System.Windows.Forms.Padding(3);
+            this.poisonLabel13.Name = "poisonLabel13";
+            this.poisonLabel13.Size = new System.Drawing.Size(142, 19);
+            this.poisonLabel13.TabIndex = 8;
+            this.poisonLabel13.Text = "Styled Selectable Label";
+            this.poisonLabel13.UseStyleColors = true;
             // 
             // poisonLabel14
             // 
-            poisonLabel14.AutoSize = true;
-            poisonLabel14.LabelMode = Enum.Poison.PoisonLabelModeType.Selectable;
-            poisonLabel14.Location = new System.Drawing.Point(148, 50);
-            poisonLabel14.Margin = new Padding(3);
-            poisonLabel14.Name = "poisonLabel14";
-            poisonLabel14.Size = new System.Drawing.Size(152, 19);
-            poisonLabel14.TabIndex = 7;
-            poisonLabel14.Text = "Normal Selectable Label";
-            poisonToolTip.SetToolTip(poisonLabel14, "Label Tooltip");
+            this.poisonLabel14.AutoSize = true;
+            this.poisonLabel14.LabelMode = ReaLTaiizor.Enum.Poison.PoisonLabelModeType.Selectable;
+            this.poisonLabel14.Location = new System.Drawing.Point(148, 50);
+            this.poisonLabel14.Margin = new System.Windows.Forms.Padding(3);
+            this.poisonLabel14.Name = "poisonLabel14";
+            this.poisonLabel14.Size = new System.Drawing.Size(152, 19);
+            this.poisonLabel14.TabIndex = 7;
+            this.poisonLabel14.Text = "Normal Selectable Label";
+            this.poisonToolTip.SetToolTip(this.poisonLabel14, "Label Tooltip");
             // 
             // poisonLabel11
             // 
-            poisonLabel11.AutoSize = true;
-            poisonLabel11.Enabled = false;
-            poisonLabel11.Location = new System.Drawing.Point(28, 100);
-            poisonLabel11.Margin = new Padding(3);
-            poisonLabel11.Name = "poisonLabel11";
-            poisonLabel11.Size = new System.Drawing.Size(94, 19);
-            poisonLabel11.TabIndex = 6;
-            poisonLabel11.Text = "Disabled Label";
+            this.poisonLabel11.AutoSize = true;
+            this.poisonLabel11.Enabled = false;
+            this.poisonLabel11.Location = new System.Drawing.Point(28, 100);
+            this.poisonLabel11.Margin = new System.Windows.Forms.Padding(3);
+            this.poisonLabel11.Name = "poisonLabel11";
+            this.poisonLabel11.Size = new System.Drawing.Size(94, 19);
+            this.poisonLabel11.TabIndex = 6;
+            this.poisonLabel11.Text = "Disabled Label";
             // 
             // poisonLabel10
             // 
-            poisonLabel10.AutoSize = true;
-            poisonLabel10.Location = new System.Drawing.Point(28, 75);
-            poisonLabel10.Margin = new Padding(3);
-            poisonLabel10.Name = "poisonLabel10";
-            poisonLabel10.Size = new System.Drawing.Size(79, 19);
-            poisonLabel10.TabIndex = 5;
-            poisonLabel10.Text = "Styled Label";
-            poisonLabel10.UseStyleColors = true;
+            this.poisonLabel10.AutoSize = true;
+            this.poisonLabel10.Location = new System.Drawing.Point(28, 75);
+            this.poisonLabel10.Margin = new System.Windows.Forms.Padding(3);
+            this.poisonLabel10.Name = "poisonLabel10";
+            this.poisonLabel10.Size = new System.Drawing.Size(79, 19);
+            this.poisonLabel10.TabIndex = 5;
+            this.poisonLabel10.Text = "Styled Label";
+            this.poisonLabel10.UseStyleColors = true;
             // 
             // poisonLabel3
             // 
-            poisonLabel3.AutoSize = true;
-            poisonLabel3.Location = new System.Drawing.Point(28, 50);
-            poisonLabel3.Margin = new Padding(3);
-            poisonLabel3.Name = "poisonLabel3";
-            poisonLabel3.Size = new System.Drawing.Size(89, 19);
-            poisonLabel3.TabIndex = 4;
-            poisonLabel3.Text = "Normal Label";
-            poisonToolTip.SetToolTip(poisonLabel3, "Label Tooltip");
+            this.poisonLabel3.AutoSize = true;
+            this.poisonLabel3.Location = new System.Drawing.Point(28, 50);
+            this.poisonLabel3.Margin = new System.Windows.Forms.Padding(3);
+            this.poisonLabel3.Name = "poisonLabel3";
+            this.poisonLabel3.Size = new System.Drawing.Size(89, 19);
+            this.poisonLabel3.TabIndex = 4;
+            this.poisonLabel3.Text = "Normal Label";
+            this.poisonToolTip.SetToolTip(this.poisonLabel3, "Label Tooltip");
             // 
             // poisonTextBox1
             // 
-            poisonTextBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.poisonTextBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             // 
             // 
             // 
-            poisonTextBox1.CustomButton.Image = null;
-            poisonTextBox1.CustomButton.Location = new System.Drawing.Point(151, 2);
-            poisonTextBox1.CustomButton.Name = "";
-            poisonTextBox1.CustomButton.Size = new System.Drawing.Size(17, 17);
-            poisonTextBox1.CustomButton.Style = Enum.Poison.ColorStyle.Blue;
-            poisonTextBox1.CustomButton.TabIndex = 1;
-            poisonTextBox1.CustomButton.Theme = Enum.Poison.ThemeStyle.Light;
-            poisonTextBox1.CustomButton.UseSelectable = true;
-            poisonTextBox1.CustomButton.Visible = false;
-            poisonTextBox1.Lines = new string[] { "Normal Textbox" };
-            poisonTextBox1.Location = new System.Drawing.Point(342, 50);
-            poisonTextBox1.MaxLength = 32767;
-            poisonTextBox1.Name = "poisonTextBox1";
-            poisonTextBox1.PasswordChar = '\0';
-            poisonTextBox1.PromptText = "With Placeholder support!";
-            poisonTextBox1.ScrollBars = ScrollBars.None;
-            poisonTextBox1.SelectedText = "";
-            poisonTextBox1.SelectionLength = 0;
-            poisonTextBox1.SelectionStart = 0;
-            poisonTextBox1.ShortcutsEnabled = true;
-            poisonTextBox1.Size = new System.Drawing.Size(171, 22);
-            poisonTextBox1.TabIndex = 3;
-            poisonTextBox1.Text = "Normal Textbox";
-            poisonToolTip.SetToolTip(poisonTextBox1, "Textbox Tooltip");
-            poisonTextBox1.UseSelectable = true;
-            poisonTextBox1.WaterMark = "With Placeholder support!";
-            poisonTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(109, 109, 109);
-            poisonTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.poisonTextBox1.CustomButton.Image = null;
+            this.poisonTextBox1.CustomButton.Location = new System.Drawing.Point(151, 2);
+            this.poisonTextBox1.CustomButton.Name = "";
+            this.poisonTextBox1.CustomButton.Size = new System.Drawing.Size(17, 17);
+            this.poisonTextBox1.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            this.poisonTextBox1.CustomButton.TabIndex = 1;
+            this.poisonTextBox1.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.poisonTextBox1.CustomButton.UseSelectable = true;
+            this.poisonTextBox1.CustomButton.Visible = false;
+            this.poisonTextBox1.Lines = new string[] {
+        "Normal Textbox"};
+            this.poisonTextBox1.Location = new System.Drawing.Point(342, 50);
+            this.poisonTextBox1.MaxLength = 32767;
+            this.poisonTextBox1.Name = "poisonTextBox1";
+            this.poisonTextBox1.PasswordChar = '\0';
+            this.poisonTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.poisonTextBox1.SelectedText = "";
+            this.poisonTextBox1.SelectionLength = 0;
+            this.poisonTextBox1.SelectionStart = 0;
+            this.poisonTextBox1.ShortcutsEnabled = true;
+            this.poisonTextBox1.Size = new System.Drawing.Size(171, 22);
+            this.poisonTextBox1.TabIndex = 3;
+            this.poisonTextBox1.Text = "Normal Textbox";
+            this.poisonToolTip.SetToolTip(this.poisonTextBox1, "Textbox Tooltip");
+            this.poisonTextBox1.UseSelectable = true;
+            this.poisonTextBox1.WaterMark = "With WaterMark support!";
+            this.poisonTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.poisonTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // poisonLabel2
             // 
-            poisonLabel2.AutoSize = true;
-            poisonLabel2.Location = new System.Drawing.Point(28, 25);
-            poisonLabel2.Margin = new Padding(3);
-            poisonLabel2.Name = "poisonLabel2";
-            poisonLabel2.Size = new System.Drawing.Size(78, 19);
-            poisonLabel2.TabIndex = 2;
-            poisonLabel2.Text = "PoisonLabel";
+            this.poisonLabel2.AutoSize = true;
+            this.poisonLabel2.Location = new System.Drawing.Point(28, 25);
+            this.poisonLabel2.Margin = new System.Windows.Forms.Padding(3);
+            this.poisonLabel2.Name = "poisonLabel2";
+            this.poisonLabel2.Size = new System.Drawing.Size(78, 19);
+            this.poisonLabel2.TabIndex = 2;
+            this.poisonLabel2.Text = "PoisonLabel";
             // 
             // poisonTabPage6
             // 
-            poisonTabPage6.Controls.Add(poisonButton12);
-            poisonTabPage6.Controls.Add(poisonButton11);
-            poisonTabPage6.Controls.Add(poisonButton10);
-            poisonTabPage6.Controls.Add(poisonButton9);
-            poisonTabPage6.Controls.Add(poisonButton8);
-            poisonTabPage6.Controls.Add(poisonButton7);
-            poisonTabPage6.Controls.Add(poisonButton6);
-            poisonTabPage6.HorizontalScrollbarBarColor = true;
-            poisonTabPage6.HorizontalScrollbarHighlightOnWheel = false;
-            poisonTabPage6.HorizontalScrollbarSize = 10;
-            poisonTabPage6.Location = new System.Drawing.Point(4, 38);
-            poisonTabPage6.Name = "poisonTabPage6";
-            poisonTabPage6.Size = new System.Drawing.Size(672, 260);
-            poisonTabPage6.TabIndex = 5;
-            poisonTabPage6.Text = "MessageBox";
-            poisonTabPage6.VerticalScrollbarBarColor = true;
-            poisonTabPage6.VerticalScrollbarHighlightOnWheel = false;
-            poisonTabPage6.VerticalScrollbarSize = 10;
+            this.poisonTabPage6.Controls.Add(this.poisonButton12);
+            this.poisonTabPage6.Controls.Add(this.poisonButton11);
+            this.poisonTabPage6.Controls.Add(this.poisonButton10);
+            this.poisonTabPage6.Controls.Add(this.poisonButton9);
+            this.poisonTabPage6.Controls.Add(this.poisonButton8);
+            this.poisonTabPage6.Controls.Add(this.poisonButton7);
+            this.poisonTabPage6.Controls.Add(this.poisonButton6);
+            this.poisonTabPage6.HorizontalScrollbarBarColor = true;
+            this.poisonTabPage6.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage6.HorizontalScrollbarSize = 10;
+            this.poisonTabPage6.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage6.Name = "poisonTabPage6";
+            this.poisonTabPage6.Size = new System.Drawing.Size(672, 260);
+            this.poisonTabPage6.TabIndex = 5;
+            this.poisonTabPage6.Text = "MessageBox";
+            this.poisonTabPage6.VerticalScrollbarBarColor = true;
+            this.poisonTabPage6.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage6.VerticalScrollbarSize = 10;
             // 
             // poisonButton12
             // 
-            poisonButton12.Location = new System.Drawing.Point(229, 130);
-            poisonButton12.Name = "poisonButton12";
-            poisonButton12.Size = new System.Drawing.Size(154, 42);
-            poisonButton12.TabIndex = 8;
-            poisonButton12.Text = "Default";
-            poisonButton12.UseSelectable = true;
-            poisonButton12.Click += poisonButton12_Click;
+            this.poisonButton12.Location = new System.Drawing.Point(229, 130);
+            this.poisonButton12.Name = "poisonButton12";
+            this.poisonButton12.Size = new System.Drawing.Size(154, 42);
+            this.poisonButton12.TabIndex = 8;
+            this.poisonButton12.Text = "Default";
+            this.poisonButton12.UseSelectable = true;
             // 
             // poisonButton11
             // 
-            poisonButton11.Location = new System.Drawing.Point(446, 16);
-            poisonButton11.Name = "poisonButton11";
-            poisonButton11.Size = new System.Drawing.Size(154, 42);
-            poisonButton11.TabIndex = 7;
-            poisonButton11.Text = "Retry Cancel";
-            poisonButton11.UseSelectable = true;
-            poisonButton11.Click += poisonButton11_Click;
+            this.poisonButton11.Location = new System.Drawing.Point(446, 16);
+            this.poisonButton11.Name = "poisonButton11";
+            this.poisonButton11.Size = new System.Drawing.Size(154, 42);
+            this.poisonButton11.TabIndex = 7;
+            this.poisonButton11.Text = "Retry Cancel";
+            this.poisonButton11.UseSelectable = true;
             // 
             // poisonButton10
             // 
-            poisonButton10.Location = new System.Drawing.Point(5, 70);
-            poisonButton10.Name = "poisonButton10";
-            poisonButton10.Size = new System.Drawing.Size(154, 42);
-            poisonButton10.TabIndex = 6;
-            poisonButton10.Text = "Ok Cancel";
-            poisonButton10.UseSelectable = true;
-            poisonButton10.Click += poisonButton10_Click;
+            this.poisonButton10.Location = new System.Drawing.Point(5, 70);
+            this.poisonButton10.Name = "poisonButton10";
+            this.poisonButton10.Size = new System.Drawing.Size(154, 42);
+            this.poisonButton10.TabIndex = 6;
+            this.poisonButton10.Text = "Ok Cancel";
+            this.poisonButton10.UseSelectable = true;
             // 
             // poisonButton9
             // 
-            poisonButton9.Location = new System.Drawing.Point(446, 70);
-            poisonButton9.Name = "poisonButton9";
-            poisonButton9.Size = new System.Drawing.Size(154, 42);
-            poisonButton9.TabIndex = 5;
-            poisonButton9.Text = "Abort Retry Ignore";
-            poisonButton9.UseSelectable = true;
-            poisonButton9.Click += poisonButton9_Click;
+            this.poisonButton9.Location = new System.Drawing.Point(446, 70);
+            this.poisonButton9.Name = "poisonButton9";
+            this.poisonButton9.Size = new System.Drawing.Size(154, 42);
+            this.poisonButton9.TabIndex = 5;
+            this.poisonButton9.Text = "Abort Retry Ignore";
+            this.poisonButton9.UseSelectable = true;
             // 
             // poisonButton8
             // 
-            poisonButton8.Location = new System.Drawing.Point(229, 70);
-            poisonButton8.Name = "poisonButton8";
-            poisonButton8.Size = new System.Drawing.Size(154, 42);
-            poisonButton8.TabIndex = 4;
-            poisonButton8.Text = "Yes No Cancel";
-            poisonButton8.UseSelectable = true;
-            poisonButton8.Click += poisonButton8_Click;
+            this.poisonButton8.Location = new System.Drawing.Point(229, 70);
+            this.poisonButton8.Name = "poisonButton8";
+            this.poisonButton8.Size = new System.Drawing.Size(154, 42);
+            this.poisonButton8.TabIndex = 4;
+            this.poisonButton8.Text = "Yes No Cancel";
+            this.poisonButton8.UseSelectable = true;
             // 
             // poisonButton7
             // 
-            poisonButton7.Location = new System.Drawing.Point(229, 16);
-            poisonButton7.Name = "poisonButton7";
-            poisonButton7.Size = new System.Drawing.Size(154, 42);
-            poisonButton7.TabIndex = 3;
-            poisonButton7.Text = "Yes No";
-            poisonButton7.UseSelectable = true;
-            poisonButton7.Click += poisonButton7_Click;
+            this.poisonButton7.Location = new System.Drawing.Point(229, 16);
+            this.poisonButton7.Name = "poisonButton7";
+            this.poisonButton7.Size = new System.Drawing.Size(154, 42);
+            this.poisonButton7.TabIndex = 3;
+            this.poisonButton7.Text = "Yes No";
+            this.poisonButton7.UseSelectable = true;
             // 
             // poisonButton6
             // 
-            poisonButton6.Location = new System.Drawing.Point(5, 16);
-            poisonButton6.Name = "poisonButton6";
-            poisonButton6.Size = new System.Drawing.Size(154, 42);
-            poisonButton6.TabIndex = 2;
-            poisonButton6.Text = "Ok";
-            poisonButton6.UseSelectable = true;
-            poisonButton6.Click += poisonButton6_Click;
+            this.poisonButton6.Location = new System.Drawing.Point(5, 16);
+            this.poisonButton6.Name = "poisonButton6";
+            this.poisonButton6.Size = new System.Drawing.Size(154, 42);
+            this.poisonButton6.TabIndex = 2;
+            this.poisonButton6.Text = "Ok";
+            this.poisonButton6.UseSelectable = true;
             // 
             // poisonTabPage7
             // 
-            poisonTabPage7.Controls.Add(poisonGrid1);
-            poisonTabPage7.HorizontalScrollbarBarColor = true;
-            poisonTabPage7.HorizontalScrollbarHighlightOnWheel = false;
-            poisonTabPage7.HorizontalScrollbarSize = 10;
-            poisonTabPage7.Location = new System.Drawing.Point(4, 38);
-            poisonTabPage7.Name = "poisonTabPage7";
-            poisonTabPage7.Padding = new Padding(0, 5, 0, 0);
-            poisonTabPage7.Size = new System.Drawing.Size(672, 260);
-            poisonTabPage7.TabIndex = 6;
-            poisonTabPage7.Text = "Grid";
-            poisonTabPage7.VerticalScrollbarBarColor = true;
-            poisonTabPage7.VerticalScrollbarHighlightOnWheel = false;
-            poisonTabPage7.VerticalScrollbarSize = 10;
+            this.poisonTabPage7.Controls.Add(this.poisonGrid1);
+            this.poisonTabPage7.HorizontalScrollbarBarColor = true;
+            this.poisonTabPage7.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage7.HorizontalScrollbarSize = 10;
+            this.poisonTabPage7.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage7.Name = "poisonTabPage7";
+            this.poisonTabPage7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.poisonTabPage7.Size = new System.Drawing.Size(672, 260);
+            this.poisonTabPage7.TabIndex = 6;
+            this.poisonTabPage7.Text = "Grid";
+            this.poisonTabPage7.VerticalScrollbarBarColor = true;
+            this.poisonTabPage7.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage7.VerticalScrollbarSize = 10;
             // 
             // poisonGrid1
             // 
-            poisonGrid1.AllowUserToResizeRows = false;
-            poisonGrid1.BackgroundColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            poisonGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            poisonGrid1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            poisonGrid1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(0, 174, 219);
+            this.poisonGrid1.AllowUserToResizeRows = false;
+            this.poisonGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.poisonGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.poisonGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(36, 211, 255);
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            poisonGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            poisonGrid1.ColumnHeadersHeight = 30;
-            poisonGrid1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(211)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.poisonGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.poisonGrid1.ColumnHeadersHeight = 30;
+            this.poisonGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(36, 211, 255);
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            poisonGrid1.DefaultCellStyle = dataGridViewCellStyle2;
-            poisonGrid1.Dock = DockStyle.Fill;
-            poisonGrid1.EnableHeadersVisualStyles = false;
-            poisonGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            poisonGrid1.GridColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            poisonGrid1.HighLightPercentage = 0.5F;
-            poisonGrid1.Location = new System.Drawing.Point(0, 5);
-            poisonGrid1.Name = "poisonGrid1";
-            poisonGrid1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(211)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.poisonGrid1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.poisonGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.poisonGrid1.EnableHeadersVisualStyles = false;
+            this.poisonGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.poisonGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.poisonGrid1.HighLightPercentage = 0.5F;
+            this.poisonGrid1.Location = new System.Drawing.Point(0, 5);
+            this.poisonGrid1.Name = "poisonGrid1";
+            this.poisonGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(36, 211, 255);
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            poisonGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            poisonGrid1.RowHeadersVisible = false;
-            poisonGrid1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            poisonGrid1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonGrid1.Size = new System.Drawing.Size(672, 255);
-            poisonGrid1.TabIndex = 2;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(211)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.poisonGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.poisonGrid1.RowHeadersVisible = false;
+            this.poisonGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.poisonGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.poisonGrid1.Size = new System.Drawing.Size(672, 255);
+            this.poisonGrid1.TabIndex = 2;
             // 
             // poisonTabPage5
             // 
-            poisonTabPage5.Controls.Add(poisonTile5);
-            poisonTabPage5.Controls.Add(poisonTile4);
-            poisonTabPage5.Controls.Add(poisonTile3);
-            poisonTabPage5.Controls.Add(propertyGrid1);
-            poisonTabPage5.Controls.Add(richTextBox1);
-            poisonTabPage5.Controls.Add(label2);
-            poisonTabPage5.Controls.Add(label1);
-            poisonTabPage5.HorizontalScrollbarBarColor = true;
-            poisonTabPage5.HorizontalScrollbarHighlightOnWheel = false;
-            poisonTabPage5.HorizontalScrollbarSize = 10;
-            poisonTabPage5.Location = new System.Drawing.Point(4, 38);
-            poisonTabPage5.Name = "poisonTabPage5";
-            poisonTabPage5.Size = new System.Drawing.Size(672, 260);
-            poisonTabPage5.TabIndex = 4;
-            poisonTabPage5.Text = "Legacy";
-            poisonTabPage5.VerticalScrollbarBarColor = true;
-            poisonTabPage5.VerticalScrollbarHighlightOnWheel = false;
-            poisonTabPage5.VerticalScrollbarSize = 10;
+            this.poisonTabPage5.Controls.Add(this.poisonTile5);
+            this.poisonTabPage5.Controls.Add(this.poisonTile4);
+            this.poisonTabPage5.Controls.Add(this.poisonTile3);
+            this.poisonTabPage5.Controls.Add(this.propertyGrid1);
+            this.poisonTabPage5.Controls.Add(this.richTextBox1);
+            this.poisonTabPage5.Controls.Add(this.label2);
+            this.poisonTabPage5.Controls.Add(this.label1);
+            this.poisonTabPage5.HorizontalScrollbarBarColor = true;
+            this.poisonTabPage5.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage5.HorizontalScrollbarSize = 10;
+            this.poisonTabPage5.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage5.Name = "poisonTabPage5";
+            this.poisonTabPage5.Size = new System.Drawing.Size(672, 260);
+            this.poisonTabPage5.TabIndex = 4;
+            this.poisonTabPage5.Text = "Legacy";
+            this.poisonTabPage5.VerticalScrollbarBarColor = true;
+            this.poisonTabPage5.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage5.VerticalScrollbarSize = 10;
             // 
             // poisonTile5
             // 
-            poisonTile5.ActiveControl = null;
-            poisonTile5.Location = new System.Drawing.Point(159, 175);
-            poisonTile5.Name = "poisonTile5";
-            poisonTile5.Size = new System.Drawing.Size(56, 51);
-            poisonTile5.Style = Enum.Poison.ColorStyle.Red;
-            poisonTile5.TabIndex = 8;
-            poisonTile5.Text = "poisonTile5";
-            poisonTile5.UseSelectable = true;
+            this.poisonTile5.ActiveControl = null;
+            this.poisonTile5.Location = new System.Drawing.Point(159, 175);
+            this.poisonTile5.Name = "poisonTile5";
+            this.poisonTile5.Size = new System.Drawing.Size(56, 51);
+            this.poisonTile5.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Red;
+            this.poisonTile5.TabIndex = 8;
+            this.poisonTile5.Text = "poisonTile5";
+            this.poisonTile5.UseSelectable = true;
             // 
             // poisonTile4
             // 
-            poisonTile4.ActiveControl = null;
-            poisonTile4.Location = new System.Drawing.Point(97, 175);
-            poisonTile4.Name = "poisonTile4";
-            poisonTile4.Size = new System.Drawing.Size(56, 51);
-            poisonTile4.Style = Enum.Poison.ColorStyle.Orange;
-            poisonTile4.TabIndex = 7;
-            poisonTile4.Text = "poisonTile4";
-            poisonTile4.UseSelectable = true;
+            this.poisonTile4.ActiveControl = null;
+            this.poisonTile4.Location = new System.Drawing.Point(97, 175);
+            this.poisonTile4.Name = "poisonTile4";
+            this.poisonTile4.Size = new System.Drawing.Size(56, 51);
+            this.poisonTile4.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Orange;
+            this.poisonTile4.TabIndex = 7;
+            this.poisonTile4.Text = "poisonTile4";
+            this.poisonTile4.UseSelectable = true;
             // 
             // poisonTile3
             // 
-            poisonTile3.ActiveControl = null;
-            poisonTile3.Location = new System.Drawing.Point(35, 175);
-            poisonTile3.Name = "poisonTile3";
-            poisonTile3.Size = new System.Drawing.Size(56, 51);
-            poisonTile3.Style = Enum.Poison.ColorStyle.Lime;
-            poisonTile3.TabIndex = 6;
-            poisonTile3.Text = "poisonTile3";
-            poisonTile3.UseSelectable = true;
+            this.poisonTile3.ActiveControl = null;
+            this.poisonTile3.Location = new System.Drawing.Point(35, 175);
+            this.poisonTile3.Name = "poisonTile3";
+            this.poisonTile3.Size = new System.Drawing.Size(56, 51);
+            this.poisonTile3.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Lime;
+            this.poisonTile3.TabIndex = 6;
+            this.poisonTile3.Text = "poisonTile3";
+            this.poisonTile3.UseSelectable = true;
             // 
             // propertyGrid1
             // 
-            poisonStyleExtender.SetApplyPoisonTheme(propertyGrid1, true);
-            propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            propertyGrid1.Location = new System.Drawing.Point(280, 19);
-            propertyGrid1.Name = "propertyGrid1";
-            propertyGrid1.SelectedObject = this;
-            propertyGrid1.Size = new System.Drawing.Size(256, 230);
-            propertyGrid1.TabIndex = 5;
+            this.poisonStyleExtender.SetApplyPoisonTheme(this.propertyGrid1, true);
+            this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.propertyGrid1.Location = new System.Drawing.Point(280, 19);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.SelectedObject = this;
+            this.propertyGrid1.Size = new System.Drawing.Size(256, 230);
+            this.propertyGrid1.TabIndex = 5;
             // 
             // richTextBox1
             // 
-            poisonStyleExtender.SetApplyPoisonTheme(richTextBox1, true);
-            richTextBox1.Location = new System.Drawing.Point(29, 78);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new System.Drawing.Size(197, 90);
-            richTextBox1.TabIndex = 4;
-            richTextBox1.Text = "This RichTextBox has ApplyPoisonTheme=true\nDoes it work?";
+            this.poisonStyleExtender.SetApplyPoisonTheme(this.richTextBox1, true);
+            this.richTextBox1.Location = new System.Drawing.Point(29, 78);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(197, 90);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "This RichTextBox has ApplyPoisonTheme=true\nDoes it work?";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(32, 53);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(199, 13);
-            label2.TabIndex = 3;
-            label2.Text = "Legacy Label (ApplyPoisonTheme=false)";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(199, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Legacy Label (ApplyPoisonTheme=false)";
             // 
             // label1
             // 
-            poisonStyleExtender.SetApplyPoisonTheme(label1, true);
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(32, 23);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(195, 13);
-            label1.TabIndex = 2;
-            label1.Text = "Legacy Label (ApplyPoisonTheme=true)";
+            this.poisonStyleExtender.SetApplyPoisonTheme(this.label1, true);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(195, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Legacy Label (ApplyPoisonTheme=true)";
             // 
             // poisonStyleManager
             // 
-            poisonStyleManager.Owner = this;
+            this.poisonStyleManager.Owner = this;
             // 
             // poisonToolTip
             // 
-            poisonToolTip.Style = Enum.Poison.ColorStyle.Blue;
-            poisonToolTip.StyleManager = null;
-            poisonToolTip.Theme = Enum.Poison.ThemeStyle.Light;
+            this.poisonToolTip.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            this.poisonToolTip.StyleManager = null;
+            this.poisonToolTip.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             // 
             // Form20
             // 
-            ApplyImageInvert = true;
-            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
-            BackImage = Properties.Resources.GitHub_Mark;
-            BackImagePadding = new Padding(210, 10, 0, 0);
-            BackMaxSize = 50;
-            ClientSize = new System.Drawing.Size(720, 382);
-            Controls.Add(poisonTabControl1);
-            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Name = "Form20";
-            ShadowType = Enum.Poison.FormShadowType.AeroShadow;
-            StyleManager = poisonStyleManager;
-            Text = "Poison Theme";
-            poisonTabControl1.ResumeLayout(false);
-            poisonTabPage1.ResumeLayout(false);
-            poisonTabPage1.PerformLayout();
-            poisonContextMenu1.ResumeLayout(false);
-            poisonTabPage2.ResumeLayout(false);
-            poisonTabPage2.PerformLayout();
-            poisonTabPage3.ResumeLayout(false);
-            poisonTabPage3.PerformLayout();
-            poisonTabPage4.ResumeLayout(false);
-            poisonTabPage4.PerformLayout();
-            poisonTabPage6.ResumeLayout(false);
-            poisonTabPage7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)poisonGrid1).EndInit();
-            poisonTabPage5.ResumeLayout(false);
-            poisonTabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonStyleManager).EndInit();
-            ResumeLayout(false);
+            this.ApplyImageInvert = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackImage = global::ReaLTaiizor.UI.Properties.Resources.GitHub_Mark;
+            this.BackImagePadding = new System.Windows.Forms.Padding(210, 10, 0, 0);
+            this.BackMaxSize = 50;
+            this.ClientSize = new System.Drawing.Size(720, 382);
+            this.Controls.Add(this.poisonTabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Form20";
+            this.ShadowType = ReaLTaiizor.Enum.Poison.FormShadowType.AeroShadow;
+            this.StyleManager = this.poisonStyleManager;
+            this.Text = "Poison Theme";
+            this.poisonTabControl1.ResumeLayout(false);
+            this.poisonTabPage1.ResumeLayout(false);
+            this.poisonTabPage1.PerformLayout();
+            this.poisonContextMenu1.ResumeLayout(false);
+            this.poisonTabPage2.ResumeLayout(false);
+            this.poisonTabPage2.PerformLayout();
+            this.poisonTabPage3.ResumeLayout(false);
+            this.poisonTabPage3.PerformLayout();
+            this.poisonTabPage4.ResumeLayout(false);
+            this.poisonTabPage4.PerformLayout();
+            this.poisonTabPage6.ResumeLayout(false);
+            this.poisonTabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.poisonGrid1)).EndInit();
+            this.poisonTabPage5.ResumeLayout(false);
+            this.poisonTabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

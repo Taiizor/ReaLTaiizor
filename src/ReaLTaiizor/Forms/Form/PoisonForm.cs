@@ -305,21 +305,23 @@ namespace ReaLTaiizor.Forms
                 Color c = PoisonPaint.BorderColor.Form(Theme);
 
                 using Pen pen = new(c);
+
                 e.Graphics.DrawLines
                 (
-                    pen,
-                    new[]
+                    pen, new[]
                     {
-                            new Point(0, borderWidth),
-                            new Point(0, Height - 1),
-                            new Point(Width - 1, Height - 1),
-                            new Point(Width - 1, borderWidth)
-                    });
+                        new Point(0, borderWidth),
+                        new Point(0, Height - 1),
+                        new Point(Width - 1, Height - 1),
+                        new Point(Width - 1, borderWidth)
+                    }
+                );
             }
 
             if (backImage != null && backMaxSize != 0)
             {
                 Image img = PoisonImage.ResizeImage(backImage, new Rectangle(0, 0, backMaxSize, backMaxSize));
+
                 if (_imageinvert)
                 {
                     img = PoisonImage.ResizeImage((Theme == ThemeStyle.Dark) ? _image : backImage, new Rectangle(0, 0, backMaxSize, backMaxSize));
@@ -357,12 +359,12 @@ namespace ReaLTaiizor.Forms
                 (
                     b, new Rectangle[]
                     {
-                            new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-6), resizeHandleSize),
-                            new Rectangle(new Point(ClientRectangle.Width-10,ClientRectangle.Height-10), resizeHandleSize),
-                            new Rectangle(new Point(ClientRectangle.Width-10,ClientRectangle.Height-6), resizeHandleSize),
-                            new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-10), resizeHandleSize),
-                            new Rectangle(new Point(ClientRectangle.Width-14,ClientRectangle.Height-6), resizeHandleSize),
-                            new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-14), resizeHandleSize)
+                        new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-6), resizeHandleSize),
+                        new Rectangle(new Point(ClientRectangle.Width-10,ClientRectangle.Height-10), resizeHandleSize),
+                        new Rectangle(new Point(ClientRectangle.Width-10,ClientRectangle.Height-6), resizeHandleSize),
+                        new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-10), resizeHandleSize),
+                        new Rectangle(new Point(ClientRectangle.Width-14,ClientRectangle.Height-6), resizeHandleSize),
+                        new Rectangle(new Point(ClientRectangle.Width-6,ClientRectangle.Height-14), resizeHandleSize)
                     }
                );
             }
