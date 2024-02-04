@@ -14,7 +14,7 @@ namespace ReaLTaiizor.UI
         {
             InitializeComponent();
 
-            BorderStyle = Enum.Poison.FormBorderStyle.FixedSingle;
+            PoisonBorderStyle = Enum.Poison.FormBorderStyle.FixedSingle;
             ShadowType = FormShadowType.AeroShadow;
 
             DataTable _table = new();
