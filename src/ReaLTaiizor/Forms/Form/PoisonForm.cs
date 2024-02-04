@@ -76,7 +76,8 @@ namespace ReaLTaiizor.Forms
         [DefaultValue(Enum.Poison.FormBorderStyle.None)]
         [Browsable(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
-        public Enum.Poison.FormBorderStyle BorderStyle { get; set; } = Enum.Poison.FormBorderStyle.None;
+        public Enum.Poison.FormBorderStyle PoisonBorderStyle { get; set; } = Enum.Poison.FormBorderStyle.None;
+
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool Movable { get; set; } = true;
 
@@ -299,7 +300,7 @@ namespace ReaLTaiizor.Forms
                 e.Graphics.FillRectangle(b, topRect);
             }
 
-            if (BorderStyle != Enum.Poison.FormBorderStyle.None)
+            if (PoisonBorderStyle != Enum.Poison.FormBorderStyle.None)
             {
                 Color c = PoisonPaint.BorderColor.Form(Theme);
 
