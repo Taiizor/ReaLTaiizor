@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
         private bool showSplit;
         private bool isSplitMenuVisible;
         private ContextMenuStrip m_SplitMenuStrip;
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
         private ContextMenu m_SplitMenu;
 #endif
         private readonly TextFormatFlags textFormatFlags = TextFormatFlags.Default;
@@ -53,7 +53,7 @@ namespace ReaLTaiizor.Controls
             set => SplitMenuStrip = value;
         }
 
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
         [DefaultValue(null)]
         public ContextMenu SplitMenu
         {
@@ -307,7 +307,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
             //handle ContextMenu re-clicking the drop-down region to close the menu
             if (m_SplitMenu != null && e.Button == MouseButtons.Left && !isMouseEntered)
             {
@@ -333,7 +333,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
@@ -350,7 +350,7 @@ namespace ReaLTaiizor.Controls
             }
 #endif
 
-#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
@@ -784,7 +784,7 @@ namespace ReaLTaiizor.Controls
 
             State = PushButtonState.Pressed;
 
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
             if (m_SplitMenu != null)
             {
                 m_SplitMenu.Show(this, new Point(0, Height));
@@ -795,7 +795,7 @@ namespace ReaLTaiizor.Controls
             }
 #endif
 
-#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0
             if (m_SplitMenuStrip != null)
             {
                 m_SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);

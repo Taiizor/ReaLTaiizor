@@ -117,7 +117,7 @@ namespace ReaLTaiizor.Controls
             remove => _baseTextBox.ClientSizeChanged -= value;
         }
 
-#if !NETCOREAPP3_1 && !NET7_0 && !NET8_0
+#if !NETCOREAPP3_1 && !NET7_0 && !NET8_0 && !NET9_0
         public new event EventHandler ContextMenuChanged
         {
             add => _baseTextBox.ContextMenuChanged += value;

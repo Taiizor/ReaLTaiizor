@@ -51,7 +51,7 @@ jobs:
     - name: Install .NET Core
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 9.0.x
         dotnet-quality: preview
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
