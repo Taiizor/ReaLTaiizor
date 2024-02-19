@@ -21,7 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.9.9" />
+    <PackageReference Include="ReaLTaiizor" Version="3.8.0" />
     <PackageReference Include="Skylark.Standard" Version="3.1.4.4" />
     <PackageReference Include="Skylark.Clipboard" Version="3.1.2.5" />
   </ItemGroup>
