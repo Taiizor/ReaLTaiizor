@@ -15,5 +15,5 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'We grateful you making your first issue notification. You can be sure that a return will be made as soon as possible.'
-        pr-message: 'We grateful you making your first pull request notification. You can be sure that a return will be made as soon as possible.'
+        issue-message: "We're grateful you made your first issue notification. You can be sure that a response will be made as soon as possible."
+        pr-message: "We're grateful you made your first pull request notification. You can be sure that a response will be made as soon as possible."
