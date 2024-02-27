@@ -5,6 +5,7 @@ using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -31,6 +32,7 @@ namespace ReaLTaiizor.UI
 
             //materialSkinManager.ColorScheme = new MaterialColorScheme(0x00C926b3, 0xA1008B, 0xDC2EFF, 0x006E70FF, MaterialTextShade.LIGHT);
             //materialSkinManager.ColorScheme = new MaterialColorScheme("#00480157", "#370142", "DC2EFF", "00BB5FCF", MaterialTextShade.LIGHT);
+            //materialSkinManager.ColorScheme = new MaterialColorScheme(Color.Orange, Color.DarkOrange, Color.Orchid, Color.OrangeRed, Color.MediumOrchid);
             materialSkinManager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Indigo500, MaterialPrimary.Indigo700, MaterialPrimary.Indigo100, MaterialAccent.Pink200, MaterialTextShade.LIGHT);
 
             // Add dummy data to the listview
@@ -98,6 +100,7 @@ namespace ReaLTaiizor.UI
         private void ColorScheme_Click(object sender, EventArgs e)
         {
             colorSchemeIndex++;
+
             if (colorSchemeIndex > 6)
             {
                 colorSchemeIndex = 0;
@@ -117,7 +120,7 @@ namespace ReaLTaiizor.UI
                         materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal700 : MaterialPrimary.Indigo700,
                         materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialPrimary.Teal200 : MaterialPrimary.Indigo100,
                         MaterialAccent.Pink200,
-                        materialSkinManager.Theme == MaterialSkinManager.Themes.DARK ? MaterialTextShade.LIGHT : MaterialTextShade.DARK);
+                        MaterialTextShade.LIGHT);
                     break;
 
                 case 1:
