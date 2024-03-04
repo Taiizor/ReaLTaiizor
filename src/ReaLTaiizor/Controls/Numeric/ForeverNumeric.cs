@@ -27,6 +27,8 @@ namespace ReaLTaiizor.Controls
         private long _Max;
         private bool Bool;
 
+        public event EventHandler ValueChanged;
+
         public long Value
         {
             get => _Value;
@@ -35,6 +37,7 @@ namespace ReaLTaiizor.Controls
                 if (value <= _Max & value >= _Min)
                 {
                     _Value = value;
+                    OnValueChanged(EventArgs.Empty);
                 }
 
                 Invalidate();
@@ -54,6 +57,7 @@ namespace ReaLTaiizor.Controls
                 if (_Value > _Max)
                 {
                     _Value = _Max;
+                    OnValueChanged(EventArgs.Empty);
                 }
 
                 Invalidate();
@@ -73,18 +77,27 @@ namespace ReaLTaiizor.Controls
                 if (_Value < _Min)
                 {
                     _Value = Minimum;
+                    OnValueChanged(EventArgs.Empty);
                 }
 
                 Invalidate();
             }
         }
 
+        protected virtual void OnValueChanged(EventArgs e)
+        {
+            ValueChanged?.Invoke(this, e);
+        }
+
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+
             x = e.Location.X;
             y = e.Location.Y;
+
             Invalidate();
+
             if (e.X < Width - 23)
             {
                 Cursor = Cursors.Default;
@@ -98,6 +111,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
+
             if (x > Width - 21 && x < Width - 3)
             {
                 if (y < 15)
@@ -105,6 +119,7 @@ namespace ReaLTaiizor.Controls
                     if ((Value + 1) <= _Max)
                     {
                         _Value += 1;
+                        OnValueChanged(EventArgs.Empty);
                     }
                 }
                 else
@@ -112,6 +127,7 @@ namespace ReaLTaiizor.Controls
                     if ((Value - 1) >= _Min)
                     {
                         _Value -= 1;
+                        OnValueChanged(EventArgs.Empty);
                     }
                 }
             }
@@ -120,22 +136,26 @@ namespace ReaLTaiizor.Controls
                 Bool = !Bool;
                 Focus();
             }
+
             Invalidate();
         }
 
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             base.OnKeyPress(e);
+
             try
             {
                 if (Bool)
                 {
                     _Value = Convert.ToInt64(_Value.ToString() + e.KeyChar.ToString());
+                    OnValueChanged(EventArgs.Empty);
                 }
 
                 if (_Value > _Max)
                 {
                     _Value = _Max;
+                    OnValueChanged(EventArgs.Empty);
                 }
 
                 Invalidate();
@@ -148,6 +168,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
+
             if (e.KeyCode == Keys.Back)
             {
                 Value = 0;

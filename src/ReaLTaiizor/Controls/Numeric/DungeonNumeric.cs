@@ -13,7 +13,6 @@ namespace ReaLTaiizor.Controls
 
     public class DungeonNumeric : Control
     {
-
         #region Enums
 
         public enum _TextAlignment
@@ -23,6 +22,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region Variables
 
         private GraphicsPath Shape;
@@ -38,6 +38,7 @@ namespace ReaLTaiizor.Controls
         private readonly Timer LongPressTimer = new();
 
         #endregion
+
         #region Properties
 
         public Color BorderColor { get; set; } = Color.FromArgb(180, 180, 180);
@@ -113,6 +114,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region EventArgs
 
         protected override void OnResize(EventArgs e)

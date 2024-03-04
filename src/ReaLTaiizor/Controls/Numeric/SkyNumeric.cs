@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Controls
 
     public class SkyNumeric : Control
     {
-        #region " Properties & Flicker Control "
+        #region "Properties & Flicker Control"
         private int X;
         private int Y;
         private long _Value;
