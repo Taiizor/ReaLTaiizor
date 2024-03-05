@@ -412,7 +412,7 @@ namespace ReaLTaiizor.Controls
                 richTextBox.BackColor = ColorBackground;
             }
 
-            richTextBox.ForeColor = Color.WhiteSmoke;
+            richTextBox.ForeColor = ForeColor;
             richTextBox.BorderStyle = BorderStyle.None;
             richTextBox.Font = Font;
             richTextBox.ScrollBars = RichTextBoxScrollBars.None;
@@ -465,6 +465,7 @@ namespace ReaLTaiizor.Controls
         private void Draw_Background(Graphics graphics_form)
         {
             float roundingValue = 0.1F;
+
             void BaseLoading()
             {
                 //Rounding
@@ -482,6 +483,7 @@ namespace ReaLTaiizor.Controls
                 Width, Height),
                 roundingValue));
             }
+
             Bitmap Layer_1()
             {
                 Bitmap bitmap = new(Width, Height);
@@ -513,6 +515,7 @@ namespace ReaLTaiizor.Controls
 
                 return bitmap;
             }
+
             Bitmap Layer_2()
             {
                 Bitmap bitmap = new(Width, Height);
@@ -532,6 +535,7 @@ namespace ReaLTaiizor.Controls
             }
 
             BaseLoading();
+
             graphics_form.DrawImage(Layer_1(), new PointF(0, 0));
             graphics_form.DrawImage(Layer_2(), new PointF(0, 0));
         }

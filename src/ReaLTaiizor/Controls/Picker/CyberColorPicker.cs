@@ -52,6 +52,7 @@ namespace ReaLTaiizor.Controls
             InitializeComponent();
 
             Tag = "Cyber";
+            ForeColor = Color.WhiteSmoke;
             pictureBox1.Tag = new PointF((float)pictureBox1.Width / 2, (float)pictureBox1.Height / 2);
             pictureBox3.Tag = new ValueBox();
 
@@ -67,6 +68,21 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region Event Region
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            if (label1.ForeColor != ForeColor)
+            {
+                label1.ForeColor = ForeColor;
+            }
+
+            if (label2.ForeColor != ForeColor)
+            {
+                label2.ForeColor = ForeColor;
+            }
+        }
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {

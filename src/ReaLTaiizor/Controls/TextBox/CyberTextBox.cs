@@ -465,12 +465,13 @@ namespace ReaLTaiizor.Controls
             textBox.Visible = Visible;
             textBox.Size = new Size((int)(size_cybertextbox.Width - (RoundingInt / 2) - (Background_WidthPen / 2)), size_cybertextbox.Height / 2);
             textBox.Location = new Point((Width / 2) - (textBox.Size.Width / 2), (Height / 2) - (textBox.Size.Height / 2));
+            
             if (ColorBackground.Name != "Transparent")
             {
                 textBox.BackColor = ColorBackground;
             }
 
-            textBox.ForeColor = Color.WhiteSmoke;
+            textBox.ForeColor = ForeColor;
             textBox.BorderStyle = BorderStyle.None;
             Font = new Font(Font.Name, Height / 4, Font.Style);
             textBox.Font = Font;
@@ -519,6 +520,7 @@ namespace ReaLTaiizor.Controls
                 Width, Height),
                 roundingValue));
             }
+
             Bitmap Layer_1()
             {
                 Bitmap bitmap = new(Width, Height);
@@ -550,6 +552,7 @@ namespace ReaLTaiizor.Controls
 
                 return bitmap;
             }
+
             Bitmap Layer_2()
             {
                 Bitmap bitmap = new(Width, Height);
@@ -569,6 +572,7 @@ namespace ReaLTaiizor.Controls
             }
 
             BaseLoading();
+
             graphics_form.DrawImage(Layer_1(), new PointF(0, 0));
             graphics_form.DrawImage(Layer_2(), new PointF(0, 0));
         }

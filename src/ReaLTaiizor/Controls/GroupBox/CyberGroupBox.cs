@@ -486,6 +486,7 @@ namespace ReaLTaiizor.Controls
         private void Draw_Background(Graphics graphics_form)
         {
             float roundingValue = 0.1F;
+
             void BaseLoading()
             {
                 //Rounding
@@ -503,6 +504,7 @@ namespace ReaLTaiizor.Controls
                 Width, Height),
                 roundingValue));
             }
+
             Bitmap Layer_1()
             {
                 Bitmap bitmap = new(Width, Height);
@@ -534,6 +536,7 @@ namespace ReaLTaiizor.Controls
 
                 return bitmap;
             }
+
             Bitmap Layer_2()
             {
                 Bitmap bitmap = new(Width, Height);
