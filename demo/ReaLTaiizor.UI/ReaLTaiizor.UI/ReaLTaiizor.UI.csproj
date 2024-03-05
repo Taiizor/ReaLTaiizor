@@ -85,7 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="ReaLTaiizor" Version="3.8.0.1" />
+    <PackageReference Include="ReaLTaiizor" Version="3.8.0.2" />
     <!--<Reference Include="ReaLTaiizor">
       <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\$(TargetFramework)\ReaLTaiizor.dll</HintPath>
     </Reference>-->
