@@ -55,12 +55,9 @@
             this.dreamProgressBar1 = new ReaLTaiizor.Controls.DreamProgressBar();
             this.dreamTextBox1 = new ReaLTaiizor.Controls.DreamTextBox();
             this.foreverListBox1 = new ReaLTaiizor.Controls.ForeverListBox();
-            this.aloneButton1 = new ReaLTaiizor.Controls.AloneButton();
-            this.aloneCheckBox1 = new ReaLTaiizor.Controls.AloneCheckBox();
             this.aloneComboBox1 = new ReaLTaiizor.Controls.AloneComboBox();
             this.aloneNotice1 = new ReaLTaiizor.Controls.AloneNotice();
             this.aloneProgressBar1 = new ReaLTaiizor.Controls.AloneProgressBar();
-            this.aloneRadioButton1 = new ReaLTaiizor.Controls.AloneRadioButton();
             this.aloneTextBox2 = new ReaLTaiizor.Controls.AloneTextBox();
             this.foreverProgressBar1 = new ReaLTaiizor.Controls.ForeverProgressBar();
             this.foreverTreeView1 = new ReaLTaiizor.Controls.ForeverTreeView();
@@ -173,31 +170,6 @@
             this.foreverListBox1.TabIndex = 5;
             this.foreverListBox1.Text = "foreverListBox1";
             // 
-            // aloneButton1
-            // 
-            this.aloneButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aloneButton1.EnabledCalc = true;
-            this.aloneButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.aloneButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            this.aloneButton1.Location = new System.Drawing.Point(5, 121);
-            this.aloneButton1.Name = "aloneButton1";
-            this.aloneButton1.Size = new System.Drawing.Size(120, 40);
-            this.aloneButton1.TabIndex = 6;
-            this.aloneButton1.Text = "aloneButton1";
-            // 
-            // aloneCheckBox1
-            // 
-            this.aloneCheckBox1.BackColor = System.Drawing.Color.White;
-            this.aloneCheckBox1.Checked = false;
-            this.aloneCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aloneCheckBox1.EnabledCalc = true;
-            this.aloneCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            this.aloneCheckBox1.Location = new System.Drawing.Point(131, 121);
-            this.aloneCheckBox1.Name = "aloneCheckBox1";
-            this.aloneCheckBox1.Size = new System.Drawing.Size(118, 18);
-            this.aloneCheckBox1.TabIndex = 7;
-            this.aloneCheckBox1.Text = "aloneCheckBox1";
-            // 
             // aloneComboBox1
             // 
             this.aloneComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -245,19 +217,6 @@
             this.aloneProgressBar1.TabIndex = 10;
             this.aloneProgressBar1.Text = "aloneProgressBar1";
             this.aloneProgressBar1.Value = 50;
-            // 
-            // aloneRadioButton1
-            // 
-            this.aloneRadioButton1.BackColor = System.Drawing.Color.White;
-            this.aloneRadioButton1.Checked = false;
-            this.aloneRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aloneRadioButton1.EnabledCalc = true;
-            this.aloneRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            this.aloneRadioButton1.Location = new System.Drawing.Point(255, 153);
-            this.aloneRadioButton1.Name = "aloneRadioButton1";
-            this.aloneRadioButton1.Size = new System.Drawing.Size(138, 18);
-            this.aloneRadioButton1.TabIndex = 11;
-            this.aloneRadioButton1.Text = "aloneRadioButton1";
             // 
             // aloneTextBox2
             // 
@@ -415,12 +374,9 @@
             this.Controls.Add(this.foreverTreeView1);
             this.Controls.Add(this.foreverProgressBar1);
             this.Controls.Add(this.aloneTextBox2);
-            this.Controls.Add(this.aloneRadioButton1);
             this.Controls.Add(this.aloneProgressBar1);
             this.Controls.Add(this.aloneNotice1);
             this.Controls.Add(this.aloneComboBox1);
-            this.Controls.Add(this.aloneCheckBox1);
-            this.Controls.Add(this.aloneButton1);
             this.Controls.Add(this.foreverListBox1);
             this.Controls.Add(this.dreamTextBox1);
             this.Controls.Add(this.dreamProgressBar1);
@@ -446,12 +402,9 @@
         private ReaLTaiizor.Controls.DreamProgressBar dreamProgressBar1;
         private ReaLTaiizor.Controls.DreamTextBox dreamTextBox1;
         private ReaLTaiizor.Controls.ForeverListBox foreverListBox1;
-        private ReaLTaiizor.Controls.AloneButton aloneButton1;
-        private ReaLTaiizor.Controls.AloneCheckBox aloneCheckBox1;
         private ReaLTaiizor.Controls.AloneComboBox aloneComboBox1;
         private ReaLTaiizor.Controls.AloneNotice aloneNotice1;
         private ReaLTaiizor.Controls.AloneProgressBar aloneProgressBar1;
-        private ReaLTaiizor.Controls.AloneRadioButton aloneRadioButton1;
         private ReaLTaiizor.Controls.AloneTextBox aloneTextBox2;
         private ReaLTaiizor.Controls.ForeverProgressBar foreverProgressBar1;
         private ReaLTaiizor.Controls.ForeverTreeView foreverTreeView1;

@@ -19,8 +19,11 @@ namespace ReaLTaiizor.Controls
 
         public FoxLabel()
         {
-            Font = new("Segoe UI", 10, FontStyle.Bold);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             ForeColor = FoxLibrary.ColorFromHex("#4C5864");
+            Font = new("Segoe UI", 10, FontStyle.Bold);
+            BackColor = Color.Transparent;
             DoubleBuffered = true;
             Size = new(65, 19);
         }
@@ -37,7 +40,7 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            G.Clear(BackColor);
+            //G.Clear(BackColor);
 
             using (SolidBrush HColor = new(ForeColor))
             {

@@ -92,6 +92,7 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.DrawString(GetItemText(Items[e.Index]), e.Font, Brushes.DimGray, e.Bounds);
                 }
             }
+
             LGB.Dispose();
         }
 
@@ -123,6 +124,7 @@ namespace ReaLTaiizor.Controls
         {
             SetStyle((ControlStyles)139286, true);
             SetStyle(ControlStyles.Selectable, false);
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
             DrawMode = DrawMode.OwnerDrawFixed;
             DropDownStyle = ComboBoxStyle.DropDownList;
@@ -139,6 +141,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
             LinearGradientBrush LGB = default;
             GraphicsPath GP = default;
 
@@ -147,6 +150,7 @@ namespace ReaLTaiizor.Controls
 
             // Create a curvy border
             GP = RoundRectangle.RoundRect(0, 0, Width - 1, Height - 1, 5);
+
             // Fills the body of the rectangle with a gradient
             LGB = new(ClientRectangle, ColorD, ColorE, 90.0F);
 
@@ -156,17 +160,20 @@ namespace ReaLTaiizor.Controls
 
             // Draw rectangle border
             e.Graphics.DrawPath(new(ColorF), GP);
+
             // Draw string
             e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(3, 0, Width - 20, Height), new StringFormat
             {
                 LineAlignment = StringAlignment.Center,
                 Alignment = StringAlignment.Near
             });
+
             e.Graphics.DrawString("6", new Font("Marlett", 13, FontStyle.Regular), new SolidBrush(ColorG), new Rectangle(3, 0, Width - 4, Height), new StringFormat
             {
                 LineAlignment = StringAlignment.Center,
                 Alignment = StringAlignment.Far
             });
+
             e.Graphics.DrawLine(new(ColorH), Width - 24, 4, Width - 24, Height - 5);
             e.Graphics.DrawLine(new(ColorI), Width - 25, 4, Width - 25, Height - 5);
 

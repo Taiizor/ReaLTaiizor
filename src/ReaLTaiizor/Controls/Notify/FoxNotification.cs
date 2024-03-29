@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Util.FoxBase;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -13,12 +14,15 @@ namespace ReaLTaiizor.Controls
 {
     #region FoxNotification
 
-    public class FoxNotification : Util.FoxBase.NotifyFoxBase
+    public class FoxNotification : NotifyFoxBase
     {
         public FoxNotification() : base()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             Size = new(130, 40);
             Font = new("Segoe UI", 10);
+            BackColor = Color.Transparent;
         }
 
         public Styles Style { get; set; }
@@ -56,6 +60,8 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
+            //G.Clear(BackColor);
+
             switch (Style)
             {
                 case Styles.Green:
@@ -84,10 +90,13 @@ namespace ReaLTaiizor.Controls
             {
                 using SolidBrush TC = new(TextColor);
                 using SolidBrush LB = new(LeftBar);
+
                 G.FillRectangle(Back, FoxLibrary.FullRectangle(Size, true));
                 G.SmoothingMode = SmoothingMode.None;
-                G.FillRectangle(LB, new Rectangle(0, 1, 6, Height - 2));
+
+                G.FillRectangle(LB, new Rectangle(1, 1, 6, Height - 2));
                 G.SmoothingMode = SmoothingMode.HighQuality;
+
                 G.DrawString(Text, Font, TC, new Point(20, 11));
             }
 
@@ -99,7 +108,6 @@ namespace ReaLTaiizor.Controls
             base.OnResize(e);
             Size = new(Width, 40);
         }
-
     }
 
     #endregion

@@ -22,8 +22,11 @@ namespace ReaLTaiizor.Controls
 
         public FoxLinkLabel() : base()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             Size = new(82, 18);
             Font = new("Segoe UI", 10);
+            BackColor = Color.Transparent;
             ForeColor = FoxLibrary.ColorFromHex("#0095DD");
         }
 
@@ -32,6 +35,8 @@ namespace ReaLTaiizor.Controls
             G = e.Graphics;
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
+            //G.Clear(BackColor);
 
             switch (State)
             {

@@ -295,6 +295,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
+
             if (Width > 0 && Height > 0)
             {
                 Shape = new();
@@ -310,6 +311,7 @@ namespace ReaLTaiizor.Controls
             Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
             Shape.AddArc(0, Height - 11, 10, 10, 90, 90);
             Shape.CloseAllFigures();
+
             Invalidate();
         }
 

@@ -90,11 +90,14 @@ namespace ReaLTaiizor.Controls
 
         public AloneButton()
         {
-            DoubleBuffered = true;
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             Enabled = true;
-            Cursor = Cursors.Hand;
             Size = new(120, 40);
+            DoubleBuffered = true;
+            Cursor = Cursors.Hand;
             Font = new("Segoe UI", 9f);
+            BackColor = Color.Transparent;
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
         }
 
@@ -103,7 +106,11 @@ namespace ReaLTaiizor.Controls
             G = e.Graphics;
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
+            //G.Clear(BackColor);
+
             base.OnPaint(e);
+
             if (Enabled)
             {
                 MouseState state = State;

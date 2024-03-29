@@ -193,7 +193,7 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             DoubleBuffered = true;
             TextAlign = HorizontalAlignment.Left;
-            BackColor = Color.White;
+            BackColor = Color.Transparent;
             ForeColor = Color.FromArgb(66, 78, 90);
             Font = new("Segoe UI", 10);
             Size = new(90, 29);
@@ -211,8 +211,7 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            G.Clear(Parent.BackColor);
-
+            //G.Clear(BackColor);
 
             if (Enabled)
             {
@@ -243,6 +242,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
+
             if (!MultiLine)
             {
                 TB.Location = new(10, (Height / 2) - (TB.Height / 2) - 0);
@@ -258,6 +258,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnEnter(EventArgs e)
         {
             base.OnEnter(e);
+
             State = FoxLibrary.MouseState.Down;
             Invalidate();
         }
@@ -265,6 +266,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnLeave(EventArgs e)
         {
             base.OnLeave(e);
+
             State = FoxLibrary.MouseState.None;
             Invalidate();
         }

@@ -31,7 +31,10 @@ namespace ReaLTaiizor.Controls
 
         public FoxCheckBoxEdit() : base()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             Font = new("Segoe UI", 10);
+            BackColor = Color.Transparent;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -40,7 +43,7 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            G.Clear(BackColor);
+            //G.Clear(BackColor);
 
             if (Enabled)
             {
@@ -78,7 +81,6 @@ namespace ReaLTaiizor.Controls
 
             if (Checked)
             {
-
                 if (Enabled)
                 {
                     using Image I = Image.FromStream(new MemoryStream(Convert.FromBase64String(B64E)));
@@ -93,7 +95,6 @@ namespace ReaLTaiizor.Controls
 
             base.OnPaint(e);
         }
-
     }
 
     #endregion

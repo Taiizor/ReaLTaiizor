@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Controls
 
         private Graphics G;
 
-        private AloneTextBox.MouseState State;
+        private MouseState State;
 
         private readonly bool IsDown;
 
@@ -197,7 +197,7 @@ namespace ReaLTaiizor.Controls
 
         public void NewTextBox()
         {
-            System.Windows.Forms.TextBox tB = TB;
+            TextBox tB = TB;
             tB.Text = string.Empty;
             tB.BackColor = BackColor;
             tB.ForeColor = ForeColor;
@@ -211,11 +211,14 @@ namespace ReaLTaiizor.Controls
 
         public AloneTextBox()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             base.TextChanged += delegate (object a0, EventArgs a1)
             {
                 TextChng();
             };
-            TB = new System.Windows.Forms.TextBox();
+
+            TB = new TextBox();
             _allowpassword = false;
             _maxChars = 32767;
             _multiLine = false;
@@ -226,7 +229,7 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             TextAlign = HorizontalAlignment.Left;
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
-            BackColor = Color.White;
+            BackColor = Color.Transparent;
             Font = new("Segoe UI", 9f);
             base.Size = new(97, 29);
             Enabled = true;
@@ -237,13 +240,17 @@ namespace ReaLTaiizor.Controls
             G = e.Graphics;
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
             base.OnPaint(e);
-            G.Clear(BackColor);
+
+            //G.Clear(BackColor);
+
             bool enabled = Enabled;
+
             if (enabled)
             {
                 TB.ForeColor = ForeColor;
-                bool flag = State == AloneTextBox.MouseState.Down;
+                bool flag = State == MouseState.Down;
                 if (flag)
                 {
                     using Pen pen = new(AloneLibrary.ColorFromHex("#78B7E6"));
@@ -261,6 +268,7 @@ namespace ReaLTaiizor.Controls
                 using Pen pen3 = new(AloneLibrary.ColorFromHex("#E1E1E2"));
                 G.DrawPath(pen3, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 12, AloneLibrary.RoundingStyle.All));
             }
+
             TB.TextAlign = TextAlign;
             TB.UseSystemPasswordChar = UseSystemPasswordChar;
         }
@@ -288,14 +296,14 @@ namespace ReaLTaiizor.Controls
         protected override void OnEnter(EventArgs e)
         {
             base.OnEnter(e);
-            State = AloneTextBox.MouseState.Down;
+            State = MouseState.Down;
             Invalidate();
         }
 
         protected override void OnLeave(EventArgs e)
         {
             base.OnLeave(e);
-            State = AloneTextBox.MouseState.None;
+            State = MouseState.None;
             Invalidate();
         }
     }

@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Util.FoxBase;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -16,7 +17,7 @@ namespace ReaLTaiizor.Controls
     #region FoxCheckBox
 
     [DefaultEvent("CheckedChanged")]
-    public class FoxCheckBox : Util.FoxBase.CheckControlBox
+    public class FoxCheckBox : CheckControlBox
     {
         private Graphics G;
 
@@ -35,6 +36,13 @@ namespace ReaLTaiizor.Controls
         public Color DisabledUncheckedBorderColorA { get; set; } = FoxLibrary.ColorFromHex("#E6E6E6");
         public Color DisabledUncheckedBorderColorB { get; set; } = FoxLibrary.ColorFromHex("#E2BD85");
         public Color DisabledUncheckedColor { get; set; } = FoxLibrary.ColorFromHex("#FFCB7C");
+
+        public FoxCheckBox()
+        {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
+            BackColor = Color.Transparent;
+        }
 
         protected override void OnPaint(PaintEventArgs e)
         {

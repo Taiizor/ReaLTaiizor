@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Util.FoxBase;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -12,9 +13,8 @@ namespace ReaLTaiizor.Controls
 {
     #region FoxButton
 
-    public class FoxButton : Util.FoxBase.ButtonFoxBase
+    public class FoxButton : ButtonFoxBase
     {
-
         private Graphics G;
 
         public Color BaseColor { get; set; } = FoxLibrary.ColorFromHex("#F9F9F9");
@@ -27,7 +27,10 @@ namespace ReaLTaiizor.Controls
 
         public FoxButton() : base()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             Font = new("Segoe UI", 10);
+            BackColor = Color.Transparent;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -36,7 +39,7 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            G.Clear(Parent.BackColor);
+            G.Clear(BackColor);
 
             if (Enabled)
             {

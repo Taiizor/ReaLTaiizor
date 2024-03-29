@@ -106,10 +106,13 @@ namespace ReaLTaiizor.Controls
 
         public FoxNumeric()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             Enabled = true;
             DoubleBuffered = true;
-            ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             Font = new("Segoe UI", 10);
+            BackColor = Color.Transparent;
+            ForeColor = FoxLibrary.ColorFromHex("#424E5A");
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -117,6 +120,8 @@ namespace ReaLTaiizor.Controls
             G = e.Graphics;
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
+            //G.Clear(BackColor);
 
             if (Enabled)
             {

@@ -218,7 +218,6 @@ namespace ReaLTaiizor.Util
 
         public abstract class CheckControlEdit : Control
         {
-
             public event CheckedChangedEventHandler CheckedChanged;
             public delegate void CheckedChangedEventHandler(object sender, EventArgs e);
 
@@ -272,7 +271,7 @@ namespace ReaLTaiizor.Util
             {
                 Enabled = true;
                 DoubleBuffered = true;
-                Size = new(115, 23);
+                Size = new(138, 21);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 
@@ -368,7 +367,7 @@ namespace ReaLTaiizor.Util
             {
                 Enabled = true;
                 DoubleBuffered = true;
-                Size = new(130, 23);
+                Size = new(138, 21);
                 ForeColor = FoxLibrary.ColorFromHex("#424E5A");
             }
 

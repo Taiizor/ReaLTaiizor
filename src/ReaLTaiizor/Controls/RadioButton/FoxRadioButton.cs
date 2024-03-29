@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using ReaLTaiizor.Util;
+using ReaLTaiizor.Util.FoxBase;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -14,7 +15,7 @@ namespace ReaLTaiizor.Controls
     #region FoxRadioButton
 
     [DefaultEvent("CheckedChanged")]
-    public class FoxRadioButton : Util.FoxBase.FoxBaseRadioButton
+    public class FoxRadioButton : FoxBaseRadioButton
     {
         private Graphics G;
 
@@ -27,7 +28,10 @@ namespace ReaLTaiizor.Controls
 
         public FoxRadioButton() : base()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             Font = new("Segoe UI", 10);
+            BackColor = Color.Transparent;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -36,7 +40,7 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            G.Clear(BackColor);
+            //G.Clear(BackColor);
 
             if (Enabled)
             {

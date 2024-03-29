@@ -15,7 +15,6 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("CheckedChanged")]
     public class DungeonCheckBox : Control
     {
-
         #region Variables
 
         private GraphicsPath Shape;
@@ -28,6 +27,7 @@ namespace ReaLTaiizor.Controls
         public delegate void CheckedChangedEventHandler(object sender);
 
         #endregion
+
         #region Properties
 
         public bool Checked
@@ -107,7 +107,7 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
 
             Graphics MyDrawer = e.Graphics;
-            MyDrawer.Clear(BackColor);
+            //MyDrawer.Clear(BackColor);
             MyDrawer.SmoothingMode = SmoothingMode.AntiAlias;
 
             MyDrawer.FillPath(GB, Shape);

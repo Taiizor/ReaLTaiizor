@@ -105,11 +105,13 @@ namespace ReaLTaiizor.Controls
 
         public AloneRadioButton()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             DoubleBuffered = true;
             Enabled = true;
-            Size = new(138, 18);
+            Size = new(138, 17);
             ForeColor = AloneLibrary.ColorFromHex("#7C858E");
-            BackColor = Color.White;
+            BackColor = Color.Transparent;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -117,8 +119,11 @@ namespace ReaLTaiizor.Controls
             G = e.Graphics;
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
             base.OnPaint(e);
-            G.Clear(BackColor);
+
+            //G.Clear(BackColor);
+
             bool enabled = Enabled;
             if (enabled)
             {
@@ -131,6 +136,7 @@ namespace ReaLTaiizor.Controls
                     G.DrawEllipse(pen, new Rectangle(0, 0, 16, 16));
                     G.DrawString(Text, font, solidBrush2, new Point(25, 0));
                 }
+
                 bool @checked = Checked;
                 if (@checked)
                 {
@@ -149,6 +155,7 @@ namespace ReaLTaiizor.Controls
                     G.DrawEllipse(pen2, new Rectangle(0, 0, 16, 16));
                     G.DrawString(Text, font2, solidBrush5, new Point(25, 0));
                 }
+
                 bool checked2 = Checked;
                 if (checked2)
                 {
@@ -161,6 +168,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
+
             bool enabled = Enabled;
             if (enabled)
             {
@@ -181,6 +189,7 @@ namespace ReaLTaiizor.Controls
                 {
 
                 }
+
                 Checked = !Checked;
                 CheckedChangedEvent?.Invoke(this, e);
             }
@@ -189,7 +198,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            base.Size = new(base.Width, 18);
+            base.Size = new(base.Width, 17);
         }
     }
 
