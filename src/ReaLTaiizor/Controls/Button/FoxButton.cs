@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingMode.HighQuality;
             G.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            G.Clear(BackColor);
+            //G.Clear(BackColor);
 
             if (Enabled)
             {

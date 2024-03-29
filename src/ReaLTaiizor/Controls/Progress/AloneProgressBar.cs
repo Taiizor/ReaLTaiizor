@@ -72,9 +72,12 @@ namespace ReaLTaiizor.Controls
         }
 
         public Color BorderColor { get; set; } = Color.DodgerBlue;
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 45, 48);
 
         public AloneProgressBar()
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             _Val = 50;
             _Min = 0;
             _Max = 100;
@@ -84,19 +87,28 @@ namespace ReaLTaiizor.Controls
             Maximum = 100;
             Minimum = 0;
             Value = 50;
-            BackColor = Color.FromArgb(45, 45, 48);
+            BackColor = Color.Transparent;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
+
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
             base.OnPaint(e);
-            graphics.Clear(BackColor);
+
+            //graphics.Clear(BackColor);
+
             using (Pen pen = new(BorderColor))
             {
                 graphics.DrawPath(pen, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
+            }
+
+            using (SolidBrush solidBrush = new(BaseColor))
+            {
+                graphics.FillPath(solidBrush, AloneLibrary.RoundRect(AloneLibrary.FullRectangle(base.Size, true), 6, AloneLibrary.RoundingStyle.All));
             }
 
             bool flag = Value != 0;

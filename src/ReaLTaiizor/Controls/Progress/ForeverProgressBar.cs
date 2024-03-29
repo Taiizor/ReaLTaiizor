@@ -69,9 +69,14 @@ namespace ReaLTaiizor.Controls
 
         public bool Pattern { get; set; } = true;
 
+        public bool MoveBalloon { get; set; } = true;
+
         public bool ShowBalloon { get; set; } = true;
 
         public bool PercentSign { get; set; } = false;
+
+        [Category("Colors")]
+        public Color BaseColor { get; set; } = Color.FromArgb(45, 47, 49);
 
         [Category("Colors")]
         public Color ProgressColor { get; set; } = ForeverLibrary.ForeverColor;
@@ -96,13 +101,13 @@ namespace ReaLTaiizor.Controls
             Value += Amount;
         }
 
-        private readonly Color _BaseColor = Color.FromArgb(45, 47, 49);
-
         public ForeverProgressBar()
         {
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
+
             DoubleBuffered = true;
-            BackColor = Color.FromArgb(60, 70, 73);
+            //BackColor = Color.FromArgb(60, 70, 73);
+            BackColor = Color.Transparent;
             ForeColor = ProgressColor;
             Height = 42;
         }
@@ -113,7 +118,7 @@ namespace ReaLTaiizor.Controls
 
             Bitmap B = new(Width, Height);
             Graphics G = Graphics.FromImage(B);
-            W = Width - 1;
+            W = Width;
             H = Height - 1;
 
             Rectangle Base = new(0, 24, W, H);
@@ -125,6 +130,7 @@ namespace ReaLTaiizor.Controls
             _with15.SmoothingMode = SmoothingMode.HighQuality;
             _with15.PixelOffsetMode = PixelOffsetMode.HighQuality;
             _with15.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
             _with15.Clear(BackColor);
 
             //-- Progress Value
@@ -134,57 +140,82 @@ namespace ReaLTaiizor.Controls
 
             switch (Value)
             {
-                case 0:
+                case 0 or 100:
                     //-- Base
-                    _with15.FillRectangle(new SolidBrush(_BaseColor), Base);
+                    _with15.FillRectangle(new SolidBrush(BaseColor), Base);
                     //--Progress
-                    _with15.FillRectangle(new SolidBrush(ProgressColor), new Rectangle(0, 24, iValue - 1, H - 1));
-                    break;
-                case 100:
-                    //-- Base
-                    _with15.FillRectangle(new SolidBrush(_BaseColor), Base);
-                    //--Progress
-                    _with15.FillRectangle(new SolidBrush(ProgressColor), new Rectangle(0, 24, iValue - 1, H - 1));
+                    _with15.FillRectangle(new SolidBrush(ProgressColor), new Rectangle(0, 24, iValue, H - 1));
+
+                    if (ShowBalloon && !MoveBalloon)
+                    {
+                        float percent2 = 50 / ((float)_Maximum);
+                        iValue = (int)(percent2 * Width);
+
+                        //-- Balloon
+                        Rectangle Balloon = new(iValue - 18, 0, 34, 16);
+                        GP2 = ForeverLibrary.RoundRec(Balloon, 4);
+                        _with15.FillPath(new SolidBrush(BaseColor), GP2);
+
+                        //-- Arrow
+                        GP3 = ForeverLibrary.DrawArrow(iValue - 7, 16, true);
+                        _with15.FillPath(new SolidBrush(BaseColor), GP3);
+
+                        //-- Value > You can add "%" > value & "%"
+                        string text = PercentSign ? Value.ToString() + "%" : Value.ToString();
+                        int wOffset = PercentSign ? iValue - 15 : iValue - 11;
+
+                        _with15.DrawString(text, new Font("Segoe UI", 10), new SolidBrush(ForeColor), new Rectangle(Value == 100 ? wOffset - 4 : Value == 0 ? wOffset + 4 : wOffset, -2, W, H), ForeverLibrary.NearSF);
+                    }
                     break;
                 default:
                     //-- Base
-                    _with15.FillRectangle(new SolidBrush(_BaseColor), Base);
+                    _with15.FillRectangle(new SolidBrush(BaseColor), Base);
 
                     //--Progress
-                    GP.AddRectangle(new Rectangle(0, 24, iValue - 1, H - 1));
+                    GP.AddRectangle(new Rectangle(0, 24, iValue, H - 1));
                     _with15.FillPath(new SolidBrush(ProgressColor), GP);
 
                     if (Pattern)
                     {
                         //-- Hatch Brush
                         HatchBrush HB = new(HatchStyle.Plaid, DarkerProgress, ProgressColor);
-                        _with15.FillRectangle(HB, new Rectangle(0, 24, iValue - 1, H - 1));
+                        _with15.FillRectangle(HB, new Rectangle(0, 24, iValue, H - 1));
                     }
 
                     if (ShowBalloon)
                     {
+                        if (!MoveBalloon)
+                        {
+                            float percent2 = 50 / ((float)_Maximum);
+                            iValue = (int)(percent2 * Width);
+                        }
+
                         //-- Balloon
                         Rectangle Balloon = new(iValue - 18, 0, 34, 16);
                         GP2 = ForeverLibrary.RoundRec(Balloon, 4);
-                        _with15.FillPath(new SolidBrush(_BaseColor), GP2);
+                        _with15.FillPath(new SolidBrush(BaseColor), GP2);
 
                         //-- Arrow
-                        GP3 = ForeverLibrary.DrawArrow(iValue - 9, 16, true);
-                        _with15.FillPath(new SolidBrush(_BaseColor), GP3);
+                        GP3 = ForeverLibrary.DrawArrow(iValue - 7, 16, true);
+                        _with15.FillPath(new SolidBrush(BaseColor), GP3);
 
                         //-- Value > You can add "%" > value & "%"
                         string text = PercentSign ? Value.ToString() + "%" : Value.ToString();
                         int wOffset = PercentSign ? iValue - 15 : iValue - 11;
-                        _with15.DrawString(text, new Font("Segoe UI", 10), new SolidBrush(ForeColor), new Rectangle(wOffset, -2, W, H), ForeverLibrary.NearSF);
+
+                        _with15.DrawString(text, new Font("Segoe UI", 10), new SolidBrush(ForeColor), new Rectangle(Value <= 9 ? wOffset + 4 : wOffset, -2, W, H), ForeverLibrary.NearSF);
                     }
 
                     break;
             }
 
             base.OnPaint(e);
+
             G.Dispose();
+
             e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             e.Graphics.DrawImageUnscaled(B, 0, 0);
+
             B.Dispose();
         }
 

@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode26});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Düğüm3");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Düğüm4");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode28,
-            treeNode29,
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Düğüm5");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Düğüm6");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Düğüm7");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Düğüm8");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33,
-            treeNode34,
-            treeNode35});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Düğüm3");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Düğüm4");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Düğüm5");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Düğüm6");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Düğüm7");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Düğüm8");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23});
             this.aloneTextBox1 = new ReaLTaiizor.Controls.AloneTextBox();
             this.bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
             this.comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit();
@@ -57,9 +57,7 @@
             this.foreverListBox1 = new ReaLTaiizor.Controls.ForeverListBox();
             this.aloneComboBox1 = new ReaLTaiizor.Controls.AloneComboBox();
             this.aloneNotice1 = new ReaLTaiizor.Controls.AloneNotice();
-            this.aloneProgressBar1 = new ReaLTaiizor.Controls.AloneProgressBar();
             this.aloneTextBox2 = new ReaLTaiizor.Controls.AloneTextBox();
-            this.foreverProgressBar1 = new ReaLTaiizor.Controls.ForeverProgressBar();
             this.foreverTreeView1 = new ReaLTaiizor.Controls.ForeverTreeView();
             this.foxTextBox1 = new ReaLTaiizor.Controls.FoxTextBox();
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
@@ -203,21 +201,6 @@
             this.aloneNotice1.TabIndex = 9;
             this.aloneNotice1.Text = "Deneme";
             // 
-            // aloneProgressBar1
-            // 
-            this.aloneProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.aloneProgressBar1.BackgroundColor = System.Drawing.Color.Green;
-            this.aloneProgressBar1.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.aloneProgressBar1.Location = new System.Drawing.Point(132, 145);
-            this.aloneProgressBar1.Maximum = 100;
-            this.aloneProgressBar1.Minimum = 0;
-            this.aloneProgressBar1.Name = "aloneProgressBar1";
-            this.aloneProgressBar1.Size = new System.Drawing.Size(117, 49);
-            this.aloneProgressBar1.Stripes = System.Drawing.Color.DarkGreen;
-            this.aloneProgressBar1.TabIndex = 10;
-            this.aloneProgressBar1.Text = "aloneProgressBar1";
-            this.aloneProgressBar1.Value = 50;
-            // 
             // aloneTextBox2
             // 
             this.aloneTextBox2.BackColor = System.Drawing.Color.White;
@@ -235,23 +218,6 @@
             this.aloneTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.aloneTextBox2.UseSystemPasswordChar = false;
             // 
-            // foreverProgressBar1
-            // 
-            this.foreverProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.foreverProgressBar1.DarkerProgress = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
-            this.foreverProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverProgressBar1.Location = new System.Drawing.Point(5, 200);
-            this.foreverProgressBar1.Maximum = 100;
-            this.foreverProgressBar1.Name = "foreverProgressBar1";
-            this.foreverProgressBar1.Pattern = true;
-            this.foreverProgressBar1.PercentSign = true;
-            this.foreverProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverProgressBar1.ShowBalloon = true;
-            this.foreverProgressBar1.Size = new System.Drawing.Size(388, 42);
-            this.foreverProgressBar1.TabIndex = 13;
-            this.foreverProgressBar1.Text = "foreverProgressBar1";
-            this.foreverProgressBar1.Value = 50;
-            // 
             // foreverTreeView1
             // 
             this.foreverTreeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
@@ -261,34 +227,34 @@
             this.foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
             this.foreverTreeView1.Location = new System.Drawing.Point(5, 248);
             this.foreverTreeView1.Name = "foreverTreeView1";
-            treeNode25.Name = "Düğüm2";
-            treeNode25.Text = "Düğüm2";
-            treeNode26.Name = "Düğüm1";
-            treeNode26.Text = "Düğüm1";
-            treeNode27.Name = "Düğüm0";
-            treeNode27.Text = "Düğüm0";
-            treeNode28.Name = "Düğüm2";
-            treeNode28.Text = "Düğüm2";
-            treeNode29.Name = "Düğüm3";
-            treeNode29.Text = "Düğüm3";
-            treeNode30.Name = "Düğüm4";
-            treeNode30.Text = "Düğüm4";
-            treeNode31.Name = "Düğüm0";
-            treeNode31.Text = "Düğüm0";
-            treeNode32.Name = "Düğüm5";
-            treeNode32.Text = "Düğüm5";
-            treeNode33.Name = "Düğüm6";
-            treeNode33.Text = "Düğüm6";
-            treeNode34.Name = "Düğüm7";
-            treeNode34.Text = "Düğüm7";
-            treeNode35.Name = "Düğüm8";
-            treeNode35.Text = "Düğüm8";
-            treeNode36.Name = "Düğüm1";
-            treeNode36.Text = "Düğüm1";
+            treeNode13.Name = "Düğüm2";
+            treeNode13.Text = "Düğüm2";
+            treeNode14.Name = "Düğüm1";
+            treeNode14.Text = "Düğüm1";
+            treeNode15.Name = "Düğüm0";
+            treeNode15.Text = "Düğüm0";
+            treeNode16.Name = "Düğüm2";
+            treeNode16.Text = "Düğüm2";
+            treeNode17.Name = "Düğüm3";
+            treeNode17.Text = "Düğüm3";
+            treeNode18.Name = "Düğüm4";
+            treeNode18.Text = "Düğüm4";
+            treeNode19.Name = "Düğüm0";
+            treeNode19.Text = "Düğüm0";
+            treeNode20.Name = "Düğüm5";
+            treeNode20.Text = "Düğüm5";
+            treeNode21.Name = "Düğüm6";
+            treeNode21.Text = "Düğüm6";
+            treeNode22.Name = "Düğüm7";
+            treeNode22.Text = "Düğüm7";
+            treeNode23.Name = "Düğüm8";
+            treeNode23.Text = "Düğüm8";
+            treeNode24.Name = "Düğüm1";
+            treeNode24.Text = "Düğüm1";
             this.foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode31,
-            treeNode36});
+            treeNode15,
+            treeNode19,
+            treeNode24});
             this.foreverTreeView1.Size = new System.Drawing.Size(388, 22);
             this.foreverTreeView1.TabIndex = 14;
             // 
@@ -372,9 +338,7 @@
             this.Controls.Add(this.hopeComboBox1);
             this.Controls.Add(this.foxTextBox1);
             this.Controls.Add(this.foreverTreeView1);
-            this.Controls.Add(this.foreverProgressBar1);
             this.Controls.Add(this.aloneTextBox2);
-            this.Controls.Add(this.aloneProgressBar1);
             this.Controls.Add(this.aloneNotice1);
             this.Controls.Add(this.aloneComboBox1);
             this.Controls.Add(this.foreverListBox1);
@@ -404,9 +368,7 @@
         private ReaLTaiizor.Controls.ForeverListBox foreverListBox1;
         private ReaLTaiizor.Controls.AloneComboBox aloneComboBox1;
         private ReaLTaiizor.Controls.AloneNotice aloneNotice1;
-        private ReaLTaiizor.Controls.AloneProgressBar aloneProgressBar1;
         private ReaLTaiizor.Controls.AloneTextBox aloneTextBox2;
-        private ReaLTaiizor.Controls.ForeverProgressBar foreverProgressBar1;
         private ReaLTaiizor.Controls.ForeverTreeView foreverTreeView1;
         private ReaLTaiizor.Controls.FoxTextBox foxTextBox1;
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
