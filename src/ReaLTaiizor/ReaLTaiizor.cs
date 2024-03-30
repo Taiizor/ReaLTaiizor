@@ -13,8 +13,8 @@ using System.Windows.Forms;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 15.May.2019
-//     Changed: 30.Mar.2024
-//     Version: 3.8.0.5
+//     Changed: 31.Mar.2024
+//     Version: 3.8.0.6
 //
 // |---------DO-NOT-REMOVE---------|
 
