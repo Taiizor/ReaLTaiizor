@@ -104,10 +104,12 @@ namespace ReaLTaiizor.Controls
             Shape = new();
 
             GraphicsPath _Shape = Shape;
+
             _Shape.AddArc(9, 0, 10, 10, 180, 90);
             _Shape.AddArc(Width - 11, 0, 10, 10, -90, 90);
             _Shape.AddArc(Width - 11, Height - 11, 10, 10, 0, 90);
             _Shape.AddArc(9, Height - 11, 10, 10, 90, 90);
+
             _Shape.CloseAllFigures();
 
             Invalidate();
@@ -118,20 +120,31 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
+            Size TS = TextRenderer.MeasureText(Text, Font);
+
             if (_SizeAuto)
             {
                 if (_SizeAutoW && _SizeAutoH)
                 {
-                    Width = TextRenderer.MeasureText(Text, Font).Width + 15;
-                    Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+                    Width = TS.Width + 15;
+                    Height = TS.Height + 15;
                 }
                 else if (_SizeAutoW)
                 {
-                    Width = TextRenderer.MeasureText(Text, Font).Width + 15;
+                    Width = TS.Width + 15;
                 }
                 else
                 {
-                    Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+                    int TH = 0;
+
+                    using (Graphics CG = CreateGraphics())
+                    {
+                        SizeF SF = CG.MeasureString(Text, Font, Width - 17);
+                        TH = (int)SF.Height;
+                    }
+
+                    Height = TH + 15;
+                    //Height = TS.Height + 15;
                 }
             }
 
@@ -139,12 +152,15 @@ namespace ReaLTaiizor.Controls
             Graphics G = Graphics.FromImage(B);
 
             Graphics _G = G;
+
             _G.SmoothingMode = SmoothingMode.HighQuality;
             _G.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
             _G.Clear(BackColor);
 
             // Fill the body of the bubble with the specified color
             _G.FillPath(new SolidBrush(_BubbleColor), Shape);
+
             // Draw the string specified in 'Text' property
             _G.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(15, 7, Width - 17, Height - 5));
 
@@ -157,12 +173,16 @@ namespace ReaLTaiizor.Controls
                     new Point(0, Height - 25),
                     new Point(9, Height - 30)
                 };
+
                 _G.FillPolygon(new SolidBrush(_BubbleColor), p);
                 _G.DrawPolygon(new(new SolidBrush(_BubbleColor)), p);
             }
+
             G.Dispose();
+
             e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             e.Graphics.DrawImageUnscaled(B, 0, 0);
+
             B.Dispose();
         }
     }

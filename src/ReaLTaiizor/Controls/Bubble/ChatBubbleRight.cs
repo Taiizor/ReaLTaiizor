@@ -116,10 +116,12 @@ namespace ReaLTaiizor.Controls
             Shape = new();
 
             GraphicsPath _with1 = Shape;
+
             _with1.AddArc(0, 0, 10, 10, 180, 90);
             _with1.AddArc(Width - 18, 0, 10, 10, -90, 90);
             _with1.AddArc(Width - 18, Height - 11, 10, 10, 0, 90);
             _with1.AddArc(0, Height - 11, 10, 10, 90, 90);
+
             _with1.CloseAllFigures();
 
             Invalidate();
@@ -129,13 +131,16 @@ namespace ReaLTaiizor.Controls
         {
             base.OnPaint(e);
 
+            Size TS = TextRenderer.MeasureText(Text, Font);
+
             if (_SizeAuto)
             {
                 int WW = Width;
                 if (_SizeAutoW && _SizeAutoH)
                 {
-                    Width = TextRenderer.MeasureText(Text, Font).Width + 15;
-                    Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+                    Width = TS.Width + 15;
+                    Height = TS.Height + 15;
+
                     if (_SizeWidthLeft)
                     {
                         Location = new(Location.X - (Width - WW), Location.Y);
@@ -143,7 +148,8 @@ namespace ReaLTaiizor.Controls
                 }
                 else if (_SizeAutoW)
                 {
-                    Width = TextRenderer.MeasureText(Text, Font).Width + 15;
+                    Width = TS.Width + 15;
+
                     if (_SizeWidthLeft)
                     {
                         Location = new(Location.X - (Width - WW), Location.Y);
@@ -151,7 +157,16 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    Height = TextRenderer.MeasureText(Text, Font).Height + 15;
+                    int TH = 0;
+
+                    using (Graphics CG = CreateGraphics())
+                    {
+                        SizeF SF = CG.MeasureString(Text, Font, Width - 17);
+                        TH = (int)SF.Height;
+                    }
+
+                    Height = TH + 15;
+                    //Height = TS.Height + 15;
                 }
             }
 
@@ -159,12 +174,15 @@ namespace ReaLTaiizor.Controls
             Graphics G = Graphics.FromImage(B);
 
             Graphics _G = G;
+
             _G.SmoothingMode = SmoothingMode.HighQuality;
             _G.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
             _G.Clear(BackColor);
 
             // Fill the body of the bubble with the specified color
             _G.FillPath(new SolidBrush(_BubbleColor), Shape);
+
             // Draw the string specified in 'Text' property
             _G.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(6, 7, Width - 15, Height));
 
@@ -177,13 +195,16 @@ namespace ReaLTaiizor.Controls
                     new Point(Width, Height - 25),
                     new Point(Width - 8, Height - 30)
                 };
+
                 _G.FillPolygon(new SolidBrush(_BubbleColor), p);
                 _G.DrawPolygon(new(new SolidBrush(_BubbleColor)), p);
             }
 
             G.Dispose();
+
             e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             e.Graphics.DrawImageUnscaled(B, 0, 0);
+
             B.Dispose();
         }
     }
