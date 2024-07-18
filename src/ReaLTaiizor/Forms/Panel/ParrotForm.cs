@@ -300,8 +300,13 @@ namespace ReaLTaiizor.Forms
 
             try
             {
-                base.FindForm().FormBorderStyle = FormBorderStyle.None;
-                base.FindForm().StartPosition = FormStartPosition.CenterScreen;
+                Form findForm = base.FindForm();
+
+                if (findForm != null)
+                {
+                    findForm.FormBorderStyle = FormBorderStyle.None;
+                    findForm.StartPosition = FormStartPosition.CenterScreen;
+                }
             }
             catch
             {
@@ -346,6 +351,7 @@ namespace ReaLTaiizor.Forms
                         parrotButton3.ButtonStyle = ParrotButton.Style.Material;
                         parrotButton3.Cursor = Cursors.Hand;
                         parrotButton3.ButtonImage = null;
+                        parrotButton3.Click -= Minimize_Click;
                         parrotButton3.Click += Minimize_Click;
 
                         panel.Controls.Add(parrotButton3);
@@ -362,6 +368,7 @@ namespace ReaLTaiizor.Forms
                         parrotButton2.ButtonStyle = ParrotButton.Style.Material;
                         parrotButton2.Cursor = Cursors.Hand;
                         parrotButton2.ButtonImage = null;
+                        parrotButton2.Click -= Maximize_Click;
                         parrotButton2.Click += Maximize_Click;
 
                         panel.Controls.Add(parrotButton2);
@@ -379,6 +386,7 @@ namespace ReaLTaiizor.Forms
                     parrotButton.Cursor = Cursors.Hand;
                     parrotButton.ButtonImage = null;
 
+                    parrotButton.Click -= Exit_Click;
                     parrotButton.Click += Exit_Click;
 
                     panel.Controls.Add(parrotButton);
@@ -458,6 +466,7 @@ namespace ReaLTaiizor.Forms
 
                         minimize.Image = image;
 
+                        minimize.Click -= Minimize_Click;
                         minimize.Click += Minimize_Click;
                         minimize.MouseEnter += Minimize_MouseEnter;
                         minimize.MouseLeave += Minimize_MouseLeave;
@@ -486,6 +495,7 @@ namespace ReaLTaiizor.Forms
 
                         maximize.Image = image2;
 
+                        maximize.Click -= Maximize_Click;
                         maximize.Click += Maximize_Click;
                         maximize.MouseEnter += Maximize_MouseEnter;
                         maximize.MouseLeave += Maximize_MouseLeave;
@@ -511,6 +521,7 @@ namespace ReaLTaiizor.Forms
 
                     exit.Image = image3;
 
+                    exit.Click -= Exit_Click;
                     exit.Click += Exit_Click;
                     exit.MouseEnter += Exit_MouseEnter;
                     exit.MouseLeave += Exit_MouseLeave;
@@ -585,6 +596,7 @@ namespace ReaLTaiizor.Forms
                         graphics4.DrawRectangle(new Pen(Color.FromArgb(60, 60, 55), 1f), new Rectangle(6, 6, 5, 5));
 
                         maximize.Image = image4;
+                        maximize.Click -= Maximize_Click;
                         maximize.Click += Maximize_Click;
                         maximize.SizeMode = PictureBoxSizeMode.CenterImage;
 
@@ -610,6 +622,7 @@ namespace ReaLTaiizor.Forms
                         graphics5.DrawLine(new Pen(Color.FromArgb(60, 60, 55), 1f), 6, 9, 11, 9);
 
                         minimize.Image = image5;
+                        minimize.Click -= Minimize_Click;
                         minimize.Click += Minimize_Click;
                         minimize.SizeMode = PictureBoxSizeMode.CenterImage;
 
@@ -635,6 +648,7 @@ namespace ReaLTaiizor.Forms
                     graphics6.DrawLine(new Pen(Color.FromArgb(60, 60, 55), 1f), 6, 11, 11, 6);
 
                     exit.Image = image6;
+                    exit.Click -= Exit_Click;
                     exit.Click += Exit_Click;
                     exit.SizeMode = PictureBoxSizeMode.CenterImage;
 
