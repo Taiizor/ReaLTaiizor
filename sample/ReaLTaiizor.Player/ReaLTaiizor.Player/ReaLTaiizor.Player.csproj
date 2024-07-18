@@ -17,7 +17,7 @@
         <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="ReaLTaiizor" Version="3.8.0.5" />
+        <PackageReference Include="ReaLTaiizor" Version="3.8.0.6" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="Resources\Background.png" />

@@ -16,7 +16,7 @@
     <PropertyGroup>
         <UseWindowsForms>true</UseWindowsForms>
         <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-        <Version>3.8.0.6</Version>
+        <Version>3.8.0.7</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>ReaLTaiizor</Title>
