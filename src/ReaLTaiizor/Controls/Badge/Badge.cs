@@ -86,20 +86,26 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
             Graphics _G = e.Graphics;
+
             _G.Clear(BackColor);
             _G.SmoothingMode = SmoothingMode.AntiAlias;
+
             LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(Width - 2, Height)), _BGColorA, _BGColorB, 90f);
 
             // Fills the body with LGB gradient
             _G.FillEllipse(LGB, new(new Point(0, 0), new Size(Width - 2, Height - 2)));
+
             // Draw border
             _G.DrawEllipse(new(_BorderColor), new(new Point(0, 0), new Size(Width - 2, Height - 2)));
+            
             _G.DrawString(Texting, Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 2, Height), new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             });
+            
             e.Dispose();
         }
 

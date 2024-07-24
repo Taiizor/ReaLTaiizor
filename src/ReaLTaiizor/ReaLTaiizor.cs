@@ -13,7 +13,7 @@ using System.Windows.Forms;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 15.May.2019
-//     Changed: 18.Jul.2024
+//     Changed: 23.Jul.2024
 //     Version: 3.8.0.7
 //
 // |---------DO-NOT-REMOVE---------|
