@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Düğüm3");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Düğüm4");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode17,
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Düğüm5");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Düğüm6");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Düğüm7");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Düğüm8");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23});
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode26});
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Düğüm3");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Düğüm4");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode28,
+            treeNode29,
+            treeNode30});
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Düğüm5");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Düğüm6");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Düğüm7");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Düğüm8");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Düğüm1", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33,
+            treeNode34,
+            treeNode35});
             this.aloneTextBox1 = new ReaLTaiizor.Controls.AloneTextBox();
             this.bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
             this.comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit();
@@ -63,6 +63,7 @@
             this.hopeComboBox1 = new ReaLTaiizor.Controls.HopeComboBox();
             this.royalScrollBar1 = new ReaLTaiizor.Controls.RoyalScrollBar();
             this.textBoxEdit1 = new ReaLTaiizor.Controls.TextBoxEdit();
+            this.cyberTextBox1 = new ReaLTaiizor.Controls.CyberTextBox();
             this.SuspendLayout();
             // 
             // aloneTextBox1
@@ -227,34 +228,34 @@
             this.foreverTreeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
             this.foreverTreeView1.Location = new System.Drawing.Point(5, 248);
             this.foreverTreeView1.Name = "foreverTreeView1";
-            treeNode13.Name = "Düğüm2";
-            treeNode13.Text = "Düğüm2";
-            treeNode14.Name = "Düğüm1";
-            treeNode14.Text = "Düğüm1";
-            treeNode15.Name = "Düğüm0";
-            treeNode15.Text = "Düğüm0";
-            treeNode16.Name = "Düğüm2";
-            treeNode16.Text = "Düğüm2";
-            treeNode17.Name = "Düğüm3";
-            treeNode17.Text = "Düğüm3";
-            treeNode18.Name = "Düğüm4";
-            treeNode18.Text = "Düğüm4";
-            treeNode19.Name = "Düğüm0";
-            treeNode19.Text = "Düğüm0";
-            treeNode20.Name = "Düğüm5";
-            treeNode20.Text = "Düğüm5";
-            treeNode21.Name = "Düğüm6";
-            treeNode21.Text = "Düğüm6";
-            treeNode22.Name = "Düğüm7";
-            treeNode22.Text = "Düğüm7";
-            treeNode23.Name = "Düğüm8";
-            treeNode23.Text = "Düğüm8";
-            treeNode24.Name = "Düğüm1";
-            treeNode24.Text = "Düğüm1";
+            treeNode25.Name = "Düğüm2";
+            treeNode25.Text = "Düğüm2";
+            treeNode26.Name = "Düğüm1";
+            treeNode26.Text = "Düğüm1";
+            treeNode27.Name = "Düğüm0";
+            treeNode27.Text = "Düğüm0";
+            treeNode28.Name = "Düğüm2";
+            treeNode28.Text = "Düğüm2";
+            treeNode29.Name = "Düğüm3";
+            treeNode29.Text = "Düğüm3";
+            treeNode30.Name = "Düğüm4";
+            treeNode30.Text = "Düğüm4";
+            treeNode31.Name = "Düğüm0";
+            treeNode31.Text = "Düğüm0";
+            treeNode32.Name = "Düğüm5";
+            treeNode32.Text = "Düğüm5";
+            treeNode33.Name = "Düğüm6";
+            treeNode33.Text = "Düğüm6";
+            treeNode34.Name = "Düğüm7";
+            treeNode34.Text = "Düğüm7";
+            treeNode35.Name = "Düğüm8";
+            treeNode35.Text = "Düğüm8";
+            treeNode36.Name = "Düğüm1";
+            treeNode36.Text = "Düğüm1";
             this.foreverTreeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15,
-            treeNode19,
-            treeNode24});
+            treeNode27,
+            treeNode31,
+            treeNode36});
             this.foreverTreeView1.Size = new System.Drawing.Size(388, 22);
             this.foreverTreeView1.TabIndex = 14;
             // 
@@ -327,12 +328,43 @@
             this.textBoxEdit1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.textBoxEdit1.UseSystemPasswordChar = false;
             // 
+            // cyberTextBox1
+            // 
+            this.cyberTextBox1.Alpha = 20;
+            this.cyberTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.cyberTextBox1.Background_WidthPen = 3F;
+            this.cyberTextBox1.BackgroundPen = true;
+            this.cyberTextBox1.ColorBackground = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
+            this.cyberTextBox1.ColorBackground_Pen = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.cyberTextBox1.ColorLighting = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.cyberTextBox1.ColorPen_1 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.cyberTextBox1.ColorPen_2 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
+            this.cyberTextBox1.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            this.cyberTextBox1.Font = new System.Drawing.Font("Arial", 10F);
+            this.cyberTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.cyberTextBox1.Lighting = false;
+            this.cyberTextBox1.LinearGradientPen = false;
+            this.cyberTextBox1.Location = new System.Drawing.Point(461, 204);
+            this.cyberTextBox1.Name = "cyberTextBox1";
+            this.cyberTextBox1.PenWidth = 15;
+            this.cyberTextBox1.RGB = false;
+            this.cyberTextBox1.Rounding = true;
+            this.cyberTextBox1.RoundingInt = 60;
+            this.cyberTextBox1.Size = new System.Drawing.Size(200, 40);
+            this.cyberTextBox1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.cyberTextBox1.TabIndex = 19;
+            this.cyberTextBox1.Tag = "Cyber";
+            this.cyberTextBox1.TextButton = "Cyber Text";
+            this.cyberTextBox1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.cyberTextBox1.Timer_RGB = 300;
+            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(796, 318);
+            this.Controls.Add(this.cyberTextBox1);
             this.Controls.Add(this.textBoxEdit1);
             this.Controls.Add(this.royalScrollBar1);
             this.Controls.Add(this.hopeComboBox1);
@@ -374,5 +406,6 @@
         private ReaLTaiizor.Controls.HopeComboBox hopeComboBox1;
         private ReaLTaiizor.Controls.RoyalScrollBar royalScrollBar1;
         private ReaLTaiizor.Controls.TextBoxEdit textBoxEdit1;
+        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox1;
     }
 }

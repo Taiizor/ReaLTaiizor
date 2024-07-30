@@ -241,9 +241,9 @@ namespace ReaLTaiizor.Controls
                 graphics.FillEllipse(new SolidBrush(_BallonColor), new RectangleF(ValueWidth - 2 + 5, 1, 18, 18));
                 graphics.FillPolygon(new SolidBrush(_BallonArrowColor), new PointF[]
                 {
-                    new PointF(ValueWidth + 1.305F - 2 + 5,13.5F + 1),
-                    new PointF(ValueWidth + 7.794F + 9-2 + 5,13.5F + 1),
-                    new PointF(ValueWidth + 9-2 + 5,28F)
+                    new(ValueWidth + 1.305F - 2 + 5,13.5F + 1),
+                    new(ValueWidth + 7.794F + 9-2 + 5,13.5F + 1),
+                    new(ValueWidth + 9-2 + 5,28F)
                 });
                 graphics.DrawString(_value.ToString(), Font, new SolidBrush(ForeColor), new RectangleF(ValueWidth - 2 + 5, 2, 18, 18), HopeStringAlign.Center);
             }

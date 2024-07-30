@@ -169,9 +169,9 @@ namespace ReaLTaiizor.Controls
             {
                 Point[] p =
                 {
-                    new Point(9, Height - 19),
-                    new Point(0, Height - 25),
-                    new Point(9, Height - 30)
+                    new(9, Height - 19),
+                    new(0, Height - 25),
+                    new(9, Height - 30)
                 };
 
                 _G.FillPolygon(new SolidBrush(_BubbleColor), p);

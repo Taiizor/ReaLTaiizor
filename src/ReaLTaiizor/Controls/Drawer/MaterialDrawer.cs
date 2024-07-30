@@ -325,9 +325,9 @@ namespace ReaLTaiizor.Controls
                 {
                     gGray.DrawImage(_showTabControl.ImageList.Images[tabPage.ImageKey],
                         new Point[] {
-                                new Point(0, 0),
-                                new Point(destRect.Width, 0),
-                                new Point(0, destRect.Height),
+                                new(0, 0),
+                                new(destRect.Width, 0),
+                                new(0, destRect.Height),
                         },
                         destRect, GraphicsUnit.Pixel, grayImageAttributes);
                 }
@@ -338,9 +338,9 @@ namespace ReaLTaiizor.Controls
                 {
                     gColor.DrawImage(_showTabControl.ImageList.Images[tabPage.ImageKey],
                         new Point[] {
-                                new Point(0, 0),
-                                new Point(destRect.Width, 0),
-                                new Point(0, destRect.Height),
+                                new(0, 0),
+                                new(destRect.Width, 0),
+                                new(0, destRect.Height),
                         },
                         destRect, GraphicsUnit.Pixel, colorImageAttributes);
                 }

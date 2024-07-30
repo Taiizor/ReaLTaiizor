@@ -465,7 +465,7 @@ namespace ReaLTaiizor.Controls
             textBox.Visible = Visible;
             textBox.Size = new Size((int)(size_cybertextbox.Width - (RoundingInt / 2) - (Background_WidthPen / 2)), size_cybertextbox.Height / 2);
             textBox.Location = new Point((Width / 2) - (textBox.Size.Width / 2), (Height / 2) - (textBox.Size.Height / 2));
-            
+
             if (ColorBackground.Name != "Transparent")
             {
                 textBox.BackColor = ColorBackground;

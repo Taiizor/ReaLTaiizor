@@ -66,7 +66,7 @@ namespace ReaLTaiizor.Controls
 
             GraphicsPath buttonpath = CreateRound(Rectangle.Round(LGB.Rectangle), 3);
             G.FillPath(LGB, CreateRound(Rectangle.Round(LGB.Rectangle), 3));
-            
+
             if (!Enabled)
             {
                 G.FillPath(new SolidBrush(Color.FromArgb(50, Color.White)), CreateRound(Rectangle.Round(LGB.Rectangle), 3));

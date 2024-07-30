@@ -108,7 +108,7 @@ namespace ReaLTaiizor.Controls
                     int y = 25;
                     graphics.FillPolygon(new SolidBrush(_valueNumber == 100 && !_isError ? FullBallonColor : tempColor), new PointF[]
                     {
-                         new PointF(x,y),new PointF(x+5,y-5),new PointF(x+16,y-5),new PointF(x+16,y-25),new PointF(x-16,y-25),new PointF(x-16,y-5),new PointF(x-5,y-5)
+                         new(x,y),new(x+5,y-5),new(x+16,y-5),new(x+16,y-25),new(x-16,y-25),new(x-16,y-5),new(x-5,y-5)
                     });
                     graphics.DrawString(_valueNumber != 100 ? _valueNumber.ToString() + "%" : FullBallonText, Font, new SolidBrush(ForeColor), new RectangleF(x - 16, y - 25, 32, 20), HopeStringAlign.Center);
 

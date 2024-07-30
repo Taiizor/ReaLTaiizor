@@ -156,7 +156,7 @@ namespace ReaLTaiizor.Controls
             return Ripple ? new Size(w, RIPPLE_DIAMETER) : new Size(w, THUMB_SIZE);
         }
 
-        private static readonly Point[] CheckmarkLine = { new Point(3, 8), new Point(7, 12), new Point(14, 5) };
+        private static readonly Point[] CheckmarkLine = { new(3, 8), new(7, 12), new(14, 5) };
 
         private const int TEXT_OFFSET = THUMB_SIZE;
 

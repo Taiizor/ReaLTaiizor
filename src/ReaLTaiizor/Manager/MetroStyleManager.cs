@@ -134,7 +134,7 @@ namespace ReaLTaiizor.Manager
                     {
                         continue;
                     }
-                    
+
                     ((IMetroControl)child).Style = Style;
                     ((IMetroControl)child).StyleManager = this;
                     ((IMetroControl)child).ThemeName = ThemeName;
@@ -516,7 +516,7 @@ namespace ReaLTaiizor.Manager
                 }
 
                 IWindowsFormsEditorService editorService = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
-                
+
                 if (editorService == null)
                 {
                     return base.EditValue(context, provider, value);

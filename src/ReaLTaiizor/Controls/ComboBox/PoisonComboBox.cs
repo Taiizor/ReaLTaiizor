@@ -436,7 +436,7 @@ namespace ReaLTaiizor.Controls
             {
                 using (SolidBrush b = new(foreColor))
                 {
-                    e.Graphics.FillPolygon(b, new Point[] { new Point(Width - 20, (Height / 2) - 2), new Point(Width - 9, (Height / 2) - 2), new Point(Width - 15, (Height / 2) + 4) });
+                    e.Graphics.FillPolygon(b, new Point[] { new(Width - 20, (Height / 2) - 2), new(Width - 9, (Height / 2) - 2), new(Width - 15, (Height / 2) + 4) });
                 }
 
                 Rectangle textRect = new(2, 2, Width - 40, Height - 4);

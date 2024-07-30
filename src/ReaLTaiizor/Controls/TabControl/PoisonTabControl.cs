@@ -361,14 +361,14 @@ namespace ReaLTaiizor.Controls
 
             using Brush b = new SolidBrush(PoisonPaint.BorderColor.TabControl.Normal(Theme));
             GraphicsPath gp = new(FillMode.Winding);
-            PointF[] pts = { new PointF(6, 6), new PointF(16, 0), new PointF(16, 12) };
+            PointF[] pts = { new(6, 6), new(16, 0), new(16, 12) };
             gp.AddLines(pts);
 
             graphics.FillPath(b, gp);
 
             gp.Reset();
 
-            PointF[] pts2 = { new PointF(borderRect.Width - 15, 0), new PointF(borderRect.Width - 5, 6), new PointF(borderRect.Width - 15, 12) };
+            PointF[] pts2 = { new(borderRect.Width - 15, 0), new(borderRect.Width - 5, 6), new(borderRect.Width - 15, 12) };
             gp.AddLines(pts2);
 
             graphics.FillPath(b, gp);

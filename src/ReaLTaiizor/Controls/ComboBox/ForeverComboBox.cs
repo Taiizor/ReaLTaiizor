@@ -23,6 +23,7 @@ namespace ReaLTaiizor.Controls
         private int y;
 
         private MouseStateForever State = MouseStateForever.None;
+
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);

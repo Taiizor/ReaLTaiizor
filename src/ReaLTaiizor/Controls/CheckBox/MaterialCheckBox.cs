@@ -80,7 +80,7 @@ namespace ReaLTaiizor.Controls
         private const int CHECKBOX_SIZE = 18;
         private const int CHECKBOX_SIZE_HALF = CHECKBOX_SIZE / 2;
         private int _boxOffset;
-        private static readonly Point[] CheckmarkLine = { new Point(3, 8), new Point(7, 12), new Point(14, 5) };
+        private static readonly Point[] CheckmarkLine = { new(3, 8), new(7, 12), new(14, 5) };
         private bool hovered = false;
         private CheckState _oldCheckState;
         #endregion

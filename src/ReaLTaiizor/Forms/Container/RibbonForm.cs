@@ -215,11 +215,11 @@ namespace ReaLTaiizor.Forms
 
             Point[] Pt =
             {
-                new Point(10, 0),
-                new Point(10, 66),
-                new Point(36, 40),
-                new Point(62, 66),
-                new Point(62, 0)
+                new(10, 0),
+                new(10, 66),
+                new(36, 40),
+                new(62, 66),
+                new(62, 0)
             };
 
             Pen penCurrent = new(RibbonEdgeColorC);
@@ -229,11 +229,11 @@ namespace ReaLTaiizor.Forms
 
             Point[] Pt2 =
             {
-                new Point(14, 0),
-                new Point(14, 62),
-                new Point(36, 40),
-                new Point(58, 62),
-                new Point(58, 0)
+                new(14, 0),
+                new(14, 62),
+                new(36, 40),
+                new(58, 62),
+                new(58, 0)
             };
 
             Pen penCurrent2 = new(RibbonEdgeColorE);

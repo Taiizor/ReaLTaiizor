@@ -170,7 +170,7 @@ namespace ReaLTaiizor.Controls
 
             graphics.DrawLines(new(Color.White, 2), new PointF[]
             {
-                new PointF(5, 9),new PointF(9, 13), new PointF(15, 6)
+                new(5, 9),new(9, 13), new(15, 6)
             });
 
             graphics.FillRectangle(new SolidBrush(Color.White), PointAnimationNum, PointAnimationNum, SizeAnimationNum, SizeAnimationNum);

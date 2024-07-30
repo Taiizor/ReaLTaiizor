@@ -1374,9 +1374,9 @@ namespace ReaLTaiizor.Controls
                 {
                     gGray.DrawImage(_leadingIconIconResized,
                         new Point[] {
-                                    new Point(0, 0),
-                                    new Point(destRect.Width, 0),
-                                    new Point(0, destRect.Height),
+                                    new(0, 0),
+                                    new(destRect.Width, 0),
+                                    new(0, destRect.Height),
                         },
                         destRect, GraphicsUnit.Pixel, grayImageAttributes);
                 }
@@ -1387,9 +1387,9 @@ namespace ReaLTaiizor.Controls
                 {
                     gred.DrawImage(_leadingIconIconResized,
                         new Point[] {
-                                    new Point(0, 0),
-                                    new Point(destRect.Width, 0),
-                                    new Point(0, destRect.Height),
+                                    new(0, 0),
+                                    new(destRect.Width, 0),
+                                    new(0, destRect.Height),
                         },
                         destRect, GraphicsUnit.Pixel, redImageAttributes);
                 }
@@ -1431,9 +1431,9 @@ namespace ReaLTaiizor.Controls
                 {
                     gGray.DrawImage(_trailingIconResized,
                         new Point[] {
-                                    new Point(0, 0),
-                                    new Point(destRect.Width, 0),
-                                    new Point(0, destRect.Height),
+                                    new(0, 0),
+                                    new(destRect.Width, 0),
+                                    new(0, destRect.Height),
                         },
                         destRect, GraphicsUnit.Pixel, grayImageAttributes);
                 }
@@ -1444,9 +1444,9 @@ namespace ReaLTaiizor.Controls
                 {
                     gred.DrawImage(_trailingIconResized,
                         new Point[] {
-                                    new Point(0, 0),
-                                    new Point(destRect.Width, 0),
-                                    new Point(0, destRect.Height),
+                                    new(0, 0),
+                                    new(destRect.Width, 0),
+                                    new(0, destRect.Height),
                         },
                         destRect, GraphicsUnit.Pixel, redImageAttributes);
                 }

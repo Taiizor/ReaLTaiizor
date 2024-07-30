@@ -109,9 +109,9 @@ namespace ReaLTaiizor.Controls
                 Rectangle chkPoly = new(checkBoxRectangle.X + (checkBoxRectangle.Width / 4), checkBoxRectangle.Y + (checkBoxRectangle.Height / 4), checkBoxRectangle.Width / 2, checkBoxRectangle.Height / 2);
                 Point[] p = new Point[]
                 {
-                    new Point(chkPoly.X, chkPoly.Y + (chkPoly.Height /2)),
-                    new Point(chkPoly.X + (chkPoly.Width / 2), chkPoly.Y + chkPoly.Height),
-                    new Point(chkPoly.X + chkPoly.Width, chkPoly.Y)
+                    new(chkPoly.X, chkPoly.Y + (chkPoly.Height /2)),
+                    new(chkPoly.X + (chkPoly.Width / 2), chkPoly.Y + chkPoly.Height),
+                    new(chkPoly.X + chkPoly.Width, chkPoly.Y)
                 };
                 Pen P1 = new(Color.FromArgb(12, 12, 12), 2);
                 for (int i = 0; i <= p.Length - 2; i++)

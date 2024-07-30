@@ -99,13 +99,13 @@ namespace ReaLTaiizor.Controls
 
             // Draw border
             _G.DrawEllipse(new(_BorderColor), new(new Point(0, 0), new Size(Width - 2, Height - 2)));
-            
+
             _G.DrawString(Texting, Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 2, Height), new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             });
-            
+
             e.Dispose();
         }
 

@@ -13,13 +13,13 @@ namespace ReaLTaiizor.Controls
 
     public class ComboBoxEdit : ComboBox
     {
-
         #region Variables
 
         private int _StartIndex = 0;
         private Color _HoverSelectionColor = Color.FromArgb(241, 241, 241);
 
         #endregion
+
         #region Custom Properties
 
         public int StartIndex
@@ -50,6 +50,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region EventArgs
 
         protected override void OnDrawItem(DrawItemEventArgs e)
