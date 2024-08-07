@@ -11,9 +11,9 @@ using System.Windows.Forms;
 // |---------DO-NOT-REMOVE---------|
 //
 //     Creator: Taiizor
-//     Website: www.Vegalya.com
+//     Website: www.vegalya.com
 //     Created: 15.May.2019
-//     Changed: 31.Jul.2024
+//     Changed: 07.Aug.2024
 //     Version: 3.8.0.7
 //
 // |---------DO-NOT-REMOVE---------|
