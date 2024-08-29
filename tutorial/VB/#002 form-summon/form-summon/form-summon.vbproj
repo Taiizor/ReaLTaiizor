@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ReaLTaiizor" Version="3.8.0.6" />
+    <PackageReference Include="ReaLTaiizor" Version="3.8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
