@@ -304,9 +304,9 @@ namespace ReaLTaiizor.Controls
                 Shape = new();
                 R1 = new(0, 0, Width, Height);
 
-                InactiveGB = new(new Rectangle(0, 0, Width, Height), InactiveColor, InactiveColor, 90.0F);
-                PressedGB = new(new Rectangle(0, 0, Width, Height), PressedColor, PressedColor, 90.0F);
                 EnteredGB = new(new Rectangle(0, 0, Width, Height), EnteredColor, EnteredColor, 90.0F);
+                PressedGB = new(new Rectangle(0, 0, Width, Height), PressedColor, PressedColor, 90.0F);
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), InactiveColor, InactiveColor, 90.0F);
             }
 
             Shape.AddArc(0, 0, 10, 10, 180, 90);
@@ -401,6 +401,7 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
             }
+
             base.OnPaint(e);
         }
     }
