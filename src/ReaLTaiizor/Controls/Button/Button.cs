@@ -174,6 +174,7 @@ namespace ReaLTaiizor.Controls
             get => _InactiveColor;
             set
             {
+                InactiveGB = new(new Rectangle(0, 0, Width, Height), value, value, 90.0F);
                 _InactiveColor = value;
                 Invalidate();
             }
@@ -184,6 +185,7 @@ namespace ReaLTaiizor.Controls
             get => _PressedColor;
             set
             {
+                PressedGB = new(new Rectangle(0, 0, Width, Height), value, value, 90.0F);
                 _PressedColor = value;
                 Invalidate();
             }
@@ -194,6 +196,7 @@ namespace ReaLTaiizor.Controls
             get => _EnteredColor;
             set
             {
+                EnteredGB = new(new Rectangle(0, 0, Width, Height), value, value, 90.0F);
                 _EnteredColor = value;
                 Invalidate();
             }
