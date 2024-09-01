@@ -17,7 +17,8 @@ namespace ReaLTaiizor.Animate.Poison
         protected static List<DelayedCall> dcList;
 
         protected System.Timers.Timer timer;
-        protected object timerLock;
+        protected Lock timerLock;
+        protected static readonly Lock dcListLock = new();
         private Callback callback;
         protected bool cancelled = false;
 
@@ -30,7 +31,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         protected DelayedCall()
         {
-            timerLock = new object();
+            timerLock = new();
         }
 
         #region Compatibility code
@@ -179,7 +180,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         protected static void Register(DelayedCall dc)
         {
-            lock (dcList)
+            lock (dcListLock)
             {
                 if (!dcList.Contains(dc))
                 {
@@ -190,7 +191,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         protected static void Unregister(DelayedCall dc)
         {
-            lock (dcList)
+            lock (dcListLock)
             {
                 dcList.Remove(dc);
             }
@@ -200,7 +201,7 @@ namespace ReaLTaiizor.Animate.Poison
         {
             get
             {
-                lock (dcList)
+                lock (dcListLock)
                 {
                     return dcList.Count;
                 }
@@ -211,7 +212,7 @@ namespace ReaLTaiizor.Animate.Poison
         {
             get
             {
-                lock (dcList)
+                lock (dcListLock)
                 {
                     foreach (DelayedCall dc in dcList)
                     {
@@ -227,7 +228,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         public static void CancelAll()
         {
-            lock (dcList)
+            lock (dcListLock)
             {
                 foreach (DelayedCall dc in dcList)
                 {
@@ -238,7 +239,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         public static void FireAll()
         {
-            lock (dcList)
+            lock (dcListLock)
             {
                 foreach (DelayedCall dc in dcList)
                 {
@@ -249,7 +250,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         public static void DisposeAll()
         {
-            lock (dcList)
+            lock (dcListLock)
             {
                 while (dcList.Count > 0)
                 {

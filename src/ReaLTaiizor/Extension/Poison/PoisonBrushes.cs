@@ -3,6 +3,7 @@
 using ReaLTaiizor.Colors;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 
 #endregion
 
@@ -12,10 +13,11 @@ namespace ReaLTaiizor.Extension.Poison
 
     public sealed class PoisonBrushes
     {
+        private static readonly Lock syncRoot = new();
         private static readonly Dictionary<string, SolidBrush> poisonBrushes = new();
         private static SolidBrush GetSaveBrush(string key, Color color)
         {
-            lock (poisonBrushes)
+            lock (syncRoot)
             {
                 if (!poisonBrushes.ContainsKey(key))
                 {

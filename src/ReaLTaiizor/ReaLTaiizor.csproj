@@ -79,6 +79,10 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
         <Reference Include="Microsoft.VisualBasic" />
     </ItemGroup>
 
+    <ItemGroup Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))">
+        <PackageReference Include="Backport.System.Threading.Lock" Version="1.1.6" />
+    </ItemGroup>    
+
     <ItemGroup>
         <None Include="..\README.MD">
             <Pack>True</Pack>

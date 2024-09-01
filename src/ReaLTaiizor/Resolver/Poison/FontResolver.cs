@@ -7,6 +7,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 #endregion
 
@@ -34,6 +35,7 @@ namespace ReaLTaiizor.Resolver.Poison
         private const string OPEN_SANS_LIGHT = "Open Sans Light";
         private const string OPEN_SANS_BOLD = "Open Sans Bold";
 
+        private readonly Lock syncRoot = new();
         private readonly PrivateFontCollection fontCollection = new();
 
         private static bool TryResolve(ref string familyName, ref FontStyle fontStyle)
@@ -66,7 +68,7 @@ namespace ReaLTaiizor.Resolver.Poison
 
         private FontFamily GetFontFamily(string familyName)
         {
-            lock (fontCollection)
+            lock (syncRoot)
             {
                 foreach (FontFamily fontFamily in fontCollection.Families)
                 {
