@@ -3,7 +3,6 @@
 using ReaLTaiizor.Colors;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading;
 
 #endregion
 
