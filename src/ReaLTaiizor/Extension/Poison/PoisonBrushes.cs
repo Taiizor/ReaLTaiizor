@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Extension.Poison
 
     public sealed class PoisonBrushes
     {
-        private static readonly Lock syncRoot = new();
+        private static readonly Lock syncRoot = LockFactory.Create();
         private static readonly Dictionary<string, SolidBrush> poisonBrushes = new();
         private static SolidBrush GetSaveBrush(string key, Color color)
         {

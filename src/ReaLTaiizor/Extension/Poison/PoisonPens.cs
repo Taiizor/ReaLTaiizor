@@ -13,7 +13,7 @@ namespace ReaLTaiizor.Extension.Poison
 
     public sealed class PoisonPens
     {
-        private static readonly Lock syncRoot = new();
+        private static readonly Lock syncRoot = LockFactory.Create();
         private static readonly Dictionary<string, Pen> poisonPens = new();
         private static Pen GetSavePen(string key, Color color)
         {

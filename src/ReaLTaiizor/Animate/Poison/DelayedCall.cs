@@ -18,7 +18,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         protected System.Timers.Timer timer;
         protected Lock timerLock;
-        protected static readonly Lock dcListLock = new();
+        protected static readonly Lock dcListLock = LockFactory.Create();
         private Callback callback;
         protected bool cancelled = false;
 
@@ -31,7 +31,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         protected DelayedCall()
         {
-            timerLock = new();
+            timerLock = LockFactory.Create();
         }
 
         #region Compatibility code
