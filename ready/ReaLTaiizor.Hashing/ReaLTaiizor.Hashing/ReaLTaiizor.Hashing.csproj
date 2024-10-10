@@ -17,13 +17,13 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Costura.Fody" Version="6.0.0-alpha0384">
+    <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
     </PackageReference>
     <PackageReference Include="ReaLTaiizor" Version="3.8.0.7" />
-    <PackageReference Include="Skylark.Standard" Version="3.1.6.6" />
-    <PackageReference Include="Skylark.Clipboard" Version="3.1.4.1" />
+    <PackageReference Include="Skylark.Standard" Version="3.1.6.7" />
+    <PackageReference Include="Skylark.Clipboard" Version="3.1.4.2" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
