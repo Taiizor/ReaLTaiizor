@@ -62,7 +62,7 @@
         <PackageReference Include="ReaLTaiizor" Version="3.8.0.7" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Skylark.Clipboard" Version="3.1.4.1" />
-        <PackageReference Include="Costura.Fody" Version="6.0.0-alpha0384">
+        <PackageReference Include="Costura.Fody" Version="6.0.0-beta0000">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
         </PackageReference>
