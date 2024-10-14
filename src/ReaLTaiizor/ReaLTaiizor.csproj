@@ -54,6 +54,12 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
         <NoWarn>1587,1591</NoWarn>
     </PropertyGroup>
 
+    <ItemGroup>
+        <Using Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))" Alias="Lock" Include="System.Threading.Lock" />
+        <Using Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))" Alias="Lock" Include="Backport.System.Threading.Lock" />
+        <Using Alias="LockFactory" Include="Backport.System.Threading.LockFactory" />
+    </ItemGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
@@ -71,6 +77,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
             <Version>8.0.0</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
+        <PackageReference Include="Backport.System.Threading.Lock" Version="2.0.5" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net48'))">
