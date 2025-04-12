@@ -400,8 +400,11 @@ namespace ReaLTaiizor.Controls
 
         private void T_TextChanged(object sender, EventArgs e)
         {
+            int cursorPosition = _richTextBox.SelectionStart; // Save the current cursor position
             Text = _richTextBox.Text;
             TextChanged?.Invoke(this);
+            _richTextBox.SelectionStart = cursorPosition; // Restore the cursor position
+            _richTextBox.SelectionLength = 0; // Ensure no text is selected
             Invalidate();
         }
 
