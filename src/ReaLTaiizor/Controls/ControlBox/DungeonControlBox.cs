@@ -13,7 +13,6 @@ namespace ReaLTaiizor.Controls
 
     public class DungeonControlBox : Control
     {
-
         #region Enums
 
         public enum MouseState
@@ -24,6 +23,7 @@ namespace ReaLTaiizor.Controls
         }
 
         #endregion
+
         #region MouseStates
         private MouseState State = MouseState.None;
         private int X;
@@ -47,11 +47,11 @@ namespace ReaLTaiizor.Controls
             }
             else if (X is > 23 and < 40)
             {
-                if (_EnableMinimize == true)
+                if (EnableMinimize == true)
                 {
                     FindForm().WindowState = FormWindowState.Minimized;
                 }
-                else if (_EnableMaximize == true)
+                else if (EnableMaximize == true)
                 {
                     if (FindForm().WindowState == FormWindowState.Maximized)
                     {
@@ -67,7 +67,7 @@ namespace ReaLTaiizor.Controls
             }
             else if (X is > 43 and < 60)
             {
-                if (_EnableMaximize == true)
+                if (EnableMaximize == true)
                 {
                     if (FindForm().WindowState == FormWindowState.Maximized)
                     {
@@ -103,29 +103,28 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
         #endregion
+
         #region Properties
 
-        private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get => _DefaultLocation;
+            get;
             set
             {
-                _DefaultLocation = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private bool _EnableMaximize = true;
         public bool EnableMaximize
         {
-            get => _EnableMaximize;
+            get;
             set
             {
-                _EnableMaximize = value;
-                if (_EnableMaximize == false || _EnableMinimize == false)
+                field = value;
+                if (field == false || EnableMinimize == false)
                 {
-                    if (_EnableMaximize == false && _EnableMinimize == false)
+                    if (field == false && EnableMinimize == false)
                     {
                         Size = new(24, 22);
                     }
@@ -141,18 +140,17 @@ namespace ReaLTaiizor.Controls
 
                 Invalidate();
             }
-        }
+        } = true;
 
-        private bool _EnableMinimize = true;
         public bool EnableMinimize
         {
-            get => _EnableMinimize;
+            get;
             set
             {
-                _EnableMinimize = value;
-                if (_EnableMaximize == false || _EnableMinimize == false)
+                field = value;
+                if (EnableMaximize == false || field == false)
                 {
-                    if (_EnableMaximize == false && _EnableMinimize == false)
+                    if (EnableMaximize == false && field == false)
                     {
                         Size = new(24, 22);
                     }
@@ -168,7 +166,7 @@ namespace ReaLTaiizor.Controls
 
                 Invalidate();
             }
-        }
+        } = true;
 
         #endregion
 
@@ -184,9 +182,9 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            if (_EnableMaximize == false || _EnableMinimize == false)
+            if (EnableMaximize == false || EnableMinimize == false)
             {
-                if (_EnableMaximize == false && _EnableMinimize == false)
+                if (EnableMaximize == false && EnableMinimize == false)
                 {
                     Size = new(23, 22);
                 }
@@ -224,7 +222,7 @@ namespace ReaLTaiizor.Controls
             G.DrawEllipse(new(Color.FromArgb(57, 56, 53)), CloseBtn);
             G.DrawString("r", new Font("Marlett", 7), new SolidBrush(Color.FromArgb(52, 50, 46)), new Rectangle((int)6.5, 8, 0, 0));
 
-            if (_EnableMinimize == true && _EnableMaximize == true)
+            if (EnableMinimize == true && EnableMaximize == true)
             {
                 LinearGradientBrush LGBMinimize = new(MinBtn, Color.FromArgb(130, 129, 123), Color.FromArgb(103, 102, 96), 90);
                 G.FillEllipse(LGBMinimize, MinBtn);
@@ -236,7 +234,7 @@ namespace ReaLTaiizor.Controls
                 G.DrawEllipse(new(Color.FromArgb(57, 56, 53)), MaxBtn);
                 G.DrawString("1", new Font("Marlett", 7), new SolidBrush(Color.FromArgb(52, 50, 46)), new Rectangle(46, 7, 0, 0));
             }
-            else if (_EnableMinimize == true && _EnableMaximize == false)
+            else if (EnableMinimize == true && EnableMaximize == false)
             {
                 LinearGradientBrush LGBMinimize = new(MinBtn, Color.FromArgb(130, 129, 123), Color.FromArgb(103, 102, 96), 90);
                 G.FillEllipse(LGBMinimize, MinBtn);
@@ -259,7 +257,7 @@ namespace ReaLTaiizor.Controls
                     G.DrawEllipse(new(Color.FromArgb(57, 56, 53)), CloseBtn);
                     G.DrawString("r", new Font("Marlett", 7), new SolidBrush(Color.FromArgb(52, 50, 46)), new Rectangle((int)6.5, 8, 0, 0));
 
-                    if (_EnableMinimize == true && _EnableMaximize == true)
+                    if (EnableMinimize == true && EnableMaximize == true)
                     {
                         LinearGradientBrush xLGBMinimize_1 = new(MinBtn, Color.FromArgb(130, 129, 123), Color.FromArgb(103, 102, 96), 90);
                         G.FillEllipse(xLGBMinimize_1, MinBtn);
@@ -271,7 +269,7 @@ namespace ReaLTaiizor.Controls
                         G.DrawEllipse(new(Color.FromArgb(57, 56, 53)), MaxBtn);
                         G.DrawString("1", new Font("Marlett", 7), new SolidBrush(Color.FromArgb(52, 50, 46)), new Rectangle(46, 7, 0, 0));
                     }
-                    else if (_EnableMinimize == true && _EnableMaximize == false)
+                    else if (EnableMinimize == true && EnableMaximize == false)
                     {
                         LinearGradientBrush xLGBMinimize_1 = new(MinBtn, Color.FromArgb(130, 129, 123), Color.FromArgb(103, 102, 96), 90);
                         G.FillEllipse(xLGBMinimize_1, MinBtn);
@@ -297,14 +295,14 @@ namespace ReaLTaiizor.Controls
                     }
                     else if (X is > 23 and < 40)
                     {
-                        if (_EnableMinimize == true)
+                        if (EnableMinimize == true)
                         {
                             LinearGradientBrush xLGBMinimize = new(MinBtn, Color.FromArgb(196, 196, 196), Color.FromArgb(173, 173, 173), 90);
                             G.FillEllipse(xLGBMinimize, MinBtn);
                             G.DrawEllipse(new(Color.FromArgb(57, 56, 53)), MinBtn);
                             G.DrawString("0", new Font("Marlett", 7), new SolidBrush(Color.FromArgb(52, 50, 46)), new Rectangle(26, (int)4.4, 0, 0));
                         }
-                        else if (_EnableMaximize == true)
+                        else if (EnableMaximize == true)
                         {
                             LinearGradientBrush xLGBMaximize = new(MinBtn, Color.FromArgb(196, 196, 196), Color.FromArgb(173, 173, 173), 90);
                             G.FillEllipse(xLGBMaximize, MinBtn);
@@ -314,7 +312,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else if (X is > 43 and < 60)
                     {
-                        if (_EnableMaximize == true && _EnableMinimize == true)
+                        if (EnableMaximize == true && EnableMinimize == true)
                         {
                             LinearGradientBrush xLGBMaximize = new(MaxBtn, Color.FromArgb(196, 196, 196), Color.FromArgb(173, 173, 173), 90);
                             G.FillEllipse(xLGBMaximize, MaxBtn);

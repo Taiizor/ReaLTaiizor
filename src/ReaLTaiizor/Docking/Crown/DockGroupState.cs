@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public DockGroupState()
         {
-            Contents = new List<string>();
+            Contents = [];
         }
 
         #endregion

@@ -30,49 +30,46 @@ namespace ReaLTaiizor.Controls
             set { thumbColor = value; Invalidate(); }
         }
 
-        private int _value;
         public int Value
         {
-            get => _value;
+            get;
             set
             {
                 if (value < 0)
                 {
-                    _value = 0;
+                    field = 0;
                 }
                 else if (value > Max)
                 {
-                    _value = Max;
+                    field = Max;
                 }
                 else
                 {
-                    _value = value;
+                    field = value;
                     ValueChanged(this, EventArgs.Empty);
                 }
                 Invalidate();
             }
         }
 
-        private int min;
         public int Min
         {
-            get => min;
-            set { min = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private int max;
         public int Max
         {
-            get => max;
+            get;
             set
             {
-                max = value;
+                field = value;
 
                 if (Orientation == Orientation.Vertical)
                 {
-                    if (max > Height)
+                    if (field > Height)
                     {
-                        thumbSize = Height * (Height / (double)max);
+                        thumbSize = Height * (Height / (double)field);
                     }
                     else
                     {
@@ -81,9 +78,9 @@ namespace ReaLTaiizor.Controls
                 }
                 else if (Orientation == Orientation.Horizontal)
                 {
-                    if (max > Width)
+                    if (field > Width)
                     {
-                        thumbSize = Width * (Width / (double)max);
+                        thumbSize = Width * (Width / (double)field);
                     }
                     else
                     {
@@ -96,28 +93,26 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private int smallChange;
         public int SmallChange
         {
-            get => smallChange;
-            set { smallChange = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private int largeChange;
         public int LargeChange
         {
-            get => largeChange;
-            set { largeChange = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         private double thumbSize;
         private bool thumbSelected;
         private Point lastMousePos;
-        private Orientation orientation;
+
         public Orientation Orientation
         {
-            get => orientation;
-            set { orientation = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         public RoyalScrollBar()
@@ -156,15 +151,15 @@ namespace ReaLTaiizor.Controls
 
             if (Orientation == Orientation.Vertical)
             {
-                thumbSize = Height * (Height / (double)max);
-                double y = (double)(Height - thumbSize) * (Value / (double)max);
+                thumbSize = Height * (Height / (double)Max);
+                double y = (double)(Height - thumbSize) * (Value / (double)Max);
 
                 rect = new(new Point(0, (int)y), new Size(Width, (int)thumbSize));
             }
             else if (Orientation == Orientation.Horizontal)
             {
-                thumbSize = Width * (Width / (double)max);
-                double x = (double)(Width - thumbSize) * (Value / (double)max);
+                thumbSize = Width * (Width / (double)Max);
+                double x = (double)(Width - thumbSize) * (Value / (double)Max);
 
                 rect = new(new Point((int)x, 0), new Size((int)thumbSize, Height));
             }
@@ -217,15 +212,15 @@ namespace ReaLTaiizor.Controls
 
             if (Orientation == Orientation.Vertical)
             {
-                thumbSize = Height * (Height / (double)max);
-                double y = (double)(Height - thumbSize) * (Value / (double)max);
+                thumbSize = Height * (Height / (double)Max);
+                double y = (double)(Height - thumbSize) * (Value / (double)Max);
 
                 thumbRect = new(0, (int)y, Width, (int)thumbSize);
             }
             else if (Orientation == Orientation.Horizontal)
             {
-                thumbSize = Width * (Width / (double)max);
-                double x = (double)(Width - thumbSize) * (Value / (double)max);
+                thumbSize = Width * (Width / (double)Max);
+                double x = (double)(Width - thumbSize) * (Value / (double)Max);
 
                 thumbRect = new((int)x, 0, (int)thumbSize, Height);
             }
@@ -242,22 +237,22 @@ namespace ReaLTaiizor.Controls
                     {
                         if (mouseRect.Y < thumbRect.Top)
                         {
-                            Value -= largeChange;
+                            Value -= LargeChange;
                         }
                         else if (mouseRect.Y > thumbRect.Bottom)
                         {
-                            Value += largeChange;
+                            Value += LargeChange;
                         }
                     }
                     else if (Orientation == Orientation.Horizontal)
                     {
                         if (mouseRect.X < thumbRect.Left)
                         {
-                            Value -= largeChange;
+                            Value -= LargeChange;
                         }
                         else if (mouseRect.X > thumbRect.Right)
                         {
-                            Value += largeChange;
+                            Value += LargeChange;
                         }
                     }
                 }

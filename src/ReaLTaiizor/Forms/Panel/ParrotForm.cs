@@ -79,210 +79,209 @@ namespace ReaLTaiizor.Forms
         [Description("The titles text")]
         public string TitleText
         {
-            get => titleText;
+            get;
             set
             {
-                titleText = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = "Parrot Form";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the maximize option")]
         public bool ShowMaximize
         {
-            get => showMaximize;
+            get;
             set
             {
-                showMaximize = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Exit appliction? otherwise form will just be closed")]
         public bool ExitApplication
         {
-            get => exitApplication;
+            get;
             set
             {
-                exitApplication = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the minimize option")]
         public bool ShowMinimize
         {
-            get => showMinimize;
+            get;
             set
             {
-                showMinimize = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The forecolor of the material titlebar")]
         public Color MaterialForeColor
         {
-            get => materialForeColor;
+            get;
             set
             {
-                materialForeColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The backcolor of the material titlebar")]
         public Color MaterialBackColor
         {
-            get => materialBackColor;
+            get;
             set
             {
-                materialBackColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.DodgerBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The forecolor of the macos titlebar")]
         public Color MacOSForeColor
         {
-            get => macOSForeColor;
+            get;
             set
             {
-                macOSForeColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.FromArgb(40, 40, 40);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The leftbackcolor of the macos titlebar")]
         public Color MacOSLeftBackColor
         {
-            get => macOSLeftBackColor;
+            get;
             set
             {
-                macOSLeftBackColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.FromArgb(230, 230, 230);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The rightbackcolor of the macos titlebar")]
         public Color MacOSRightBackColor
         {
-            get => macOSRightBackColor;
+            get;
             set
             {
-                macOSRightBackColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.FromArgb(210, 210, 210);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The separator color of the macos titlebar")]
         public Color MacOSSeparatorColor
         {
-            get => macOSSeparatorColor;
+            get;
             set
             {
-                macOSSeparatorColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.FromArgb(173, 173, 173);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The forecolor of the ubuntu titlebar")]
         public Color UbuntuForeColor
         {
-            get => ubuntuForeColor;
+            get;
             set
             {
-                ubuntuForeColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.FromArgb(220, 220, 210);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The leftbackcolor of the ubuntu titlebar")]
         public Color UbuntuLeftBackColor
         {
-            get => ubuntuLeftBackColor;
+            get;
             set
             {
-                ubuntuLeftBackColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.FromArgb(90, 85, 80);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The rightbackcolor of the ubuntu titlebar")]
         public Color UbuntuRightBackColor
         {
-            get => ubuntuRightBackColor;
+            get;
             set
             {
-                ubuntuRightBackColor = value;
+                field = value;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Color.FromArgb(65, 65, 60);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The forms style")]
         public Style FormStyle
         {
-            get => formStyle;
+            get;
             set
             {
-                formStyle = value;
+                field = value;
                 SetBG = false;
                 base.Controls.Clear();
                 RefreshUI();
             }
-        }
+        } = Style.MacOS;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
         private void InitializeComponent()
         {
@@ -319,7 +318,7 @@ namespace ReaLTaiizor.Forms
 
             _ = new ParrotFormHandle();
 
-            switch (formStyle)
+            switch (FormStyle)
             {
                 case Style.Material:
                     System.Windows.Forms.Panel panel = new();
@@ -340,7 +339,7 @@ namespace ReaLTaiizor.Forms
                     panel.Size = new Size(base.Width, 24);
                     panel.Dock = DockStyle.Top;
 
-                    if (showMinimize)
+                    if (ShowMinimize)
                     {
                         parrotButton3.Size = new Size(24, 24);
                         parrotButton3.Dock = DockStyle.Right;
@@ -357,7 +356,7 @@ namespace ReaLTaiizor.Forms
                         panel.Controls.Add(parrotButton3);
                     }
 
-                    if (showMaximize)
+                    if (ShowMaximize)
                     {
                         parrotButton2.Size = new Size(24, 24);
                         parrotButton2.Dock = DockStyle.Right;
@@ -396,7 +395,7 @@ namespace ReaLTaiizor.Forms
                     label.TextAlign = ContentAlignment.MiddleLeft;
                     label.AutoSize = false;
                     label.Dock = DockStyle.Left;
-                    label.Text = titleText;
+                    label.Text = TitleText;
 
                     panel.Controls.Add(label);
 
@@ -438,18 +437,18 @@ namespace ReaLTaiizor.Forms
                     label.TextAlign = ContentAlignment.MiddleCenter;
                     label.AutoSize = false;
                     label.Dock = DockStyle.Fill;
-                    label.Text = titleText;
+                    label.Text = TitleText;
 
                     parrotGradientPanel.Controls.Add(label);
 
                     int x = 40;
 
-                    if (!showMaximize)
+                    if (!ShowMaximize)
                     {
                         x = 20;
                     }
 
-                    if (showMinimize)
+                    if (ShowMinimize)
                     {
                         minimize.BackColor = Color.Transparent;
                         minimize.Parent = parrotGradientPanel;
@@ -478,7 +477,7 @@ namespace ReaLTaiizor.Forms
                         minimize.BringToFront();
                     }
 
-                    if (showMaximize)
+                    if (ShowMaximize)
                     {
                         maximize.BackColor = Color.Transparent;
                         maximize.Parent = parrotGradientPanel;
@@ -568,18 +567,18 @@ namespace ReaLTaiizor.Forms
                     label.Font = new Font("Arial", 10f, FontStyle.Bold);
                     label.TextAlign = ContentAlignment.MiddleLeft;
                     label.AutoSize = false;
-                    label.Text = titleText;
+                    label.Text = TitleText;
 
                     parrotGradientPanel2.Controls.Add(label);
 
                     int x2 = 50;
 
-                    if (!showMinimize)
+                    if (!ShowMinimize)
                     {
                         x2 = 25;
                     }
 
-                    if (showMaximize)
+                    if (ShowMaximize)
                     {
                         maximize.BackColor = Color.Transparent;
                         maximize.Parent = parrotGradientPanel2;
@@ -605,7 +604,7 @@ namespace ReaLTaiizor.Forms
                         maximize.BringToFront();
                     }
 
-                    if (showMaximize)
+                    if (ShowMaximize)
                     {
                         minimize.BackColor = Color.Transparent;
                         minimize.Parent = parrotGradientPanel2;
@@ -682,7 +681,7 @@ namespace ReaLTaiizor.Forms
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            if (exitApplication)
+            if (ExitApplication)
             {
                 Environment.Exit(1);
                 Application.Exit();
@@ -795,34 +794,6 @@ namespace ReaLTaiizor.Forms
         private FormBorderStyle DefaultStyle;
 
         private Form DefaultForm;
-
-        private string titleText = "Parrot Form";
-
-        private bool showMaximize = true;
-
-        private bool exitApplication = true;
-
-        private bool showMinimize = true;
-
-        private Color materialForeColor = Color.White;
-
-        private Color materialBackColor = Color.DodgerBlue;
-
-        private Color macOSForeColor = Color.FromArgb(40, 40, 40);
-
-        private Color macOSLeftBackColor = Color.FromArgb(230, 230, 230);
-
-        private Color macOSRightBackColor = Color.FromArgb(210, 210, 210);
-
-        private Color macOSSeparatorColor = Color.FromArgb(173, 173, 173);
-
-        private Color ubuntuForeColor = Color.FromArgb(220, 220, 210);
-
-        private Color ubuntuLeftBackColor = Color.FromArgb(90, 85, 80);
-
-        private Color ubuntuRightBackColor = Color.FromArgb(65, 65, 60);
-
-        private Style formStyle = Style.MacOS;
 
         public enum Style
         {

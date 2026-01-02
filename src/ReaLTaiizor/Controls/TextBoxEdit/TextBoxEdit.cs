@@ -18,13 +18,7 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         public TextBox ReaLTaiizorTB = new();
-        private int _maxchars = 32767;
-        private bool _ReadOnly;
-        private bool _Multiline;
-        private Image _Image;
         private Size _ImageSize;
-        private HorizontalAlignment ALNType;
-        private bool isPasswordMasked = false;
         private Pen P1;
         private readonly SolidBrush B1;
         private GraphicsPath Shape;
@@ -35,40 +29,40 @@ namespace ReaLTaiizor.Controls
 
         public HorizontalAlignment TextAlignment
         {
-            get => ALNType;
+            get;
             set
             {
-                ALNType = value;
+                field = value;
                 Invalidate();
             }
         }
         public int MaxLength
         {
-            get => _maxchars;
+            get;
             set
             {
-                _maxchars = value;
+                field = value;
                 ReaLTaiizorTB.MaxLength = MaxLength;
                 Invalidate();
             }
-        }
+        } = 32767;
 
         public bool UseSystemPasswordChar
         {
-            get => isPasswordMasked;
+            get;
             set
             {
                 ReaLTaiizorTB.UseSystemPasswordChar = UseSystemPasswordChar;
-                isPasswordMasked = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
         public bool ReadOnly
         {
-            get => _ReadOnly;
+            get;
             set
             {
-                _ReadOnly = value;
+                field = value;
                 if (ReaLTaiizorTB != null)
                 {
                     ReaLTaiizorTB.ReadOnly = value;
@@ -77,10 +71,10 @@ namespace ReaLTaiizor.Controls
         }
         public bool Multiline
         {
-            get => _Multiline;
+            get;
             set
             {
-                _Multiline = value;
+                field = value;
                 if (ReaLTaiizorTB != null)
                 {
                     ReaLTaiizorTB.Multiline = value;
@@ -99,7 +93,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -111,7 +105,7 @@ namespace ReaLTaiizor.Controls
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
 
                 if (Image == null)
                 {
@@ -191,7 +185,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            if (_Multiline)
+            if (Multiline)
             {
                 ReaLTaiizorTB.Height = Height - 23;
             }
@@ -291,7 +285,7 @@ namespace ReaLTaiizor.Controls
 
             if (Image != null)
             {
-                G.DrawImage(_Image, 5, 8, 24, 24);
+                G.DrawImage(Image, 5, 8, 24, 24);
                 // 24x24 is the perfect size of the image
             }
 

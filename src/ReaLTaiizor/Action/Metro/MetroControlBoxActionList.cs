@@ -51,8 +51,8 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            DesignerActionItemCollection items = new()
-            {
+            DesignerActionItemCollection items =
+            [
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
@@ -64,7 +64,7 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionHeaderItem("Appearance"),
                 new DesignerActionPropertyItem("MaximizeBox", "Enable MaximizeBox", "Appearance", "Gets or sets a value indicating whether the Maximize button is Enabled in the caption bar of the form."),
                 new DesignerActionPropertyItem("MinimizeBox", "Enable MinimizeBox", "Appearance", "Gets or sets a value indicating whether the Minimize button is Enabled in the caption bar of the form.")
-            };
+            ];
             return items;
         }
     }

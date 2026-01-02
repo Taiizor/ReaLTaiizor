@@ -30,17 +30,13 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private List<object> _indicates;
-        private bool _multiSelect;
         private int _selectedIndex;
         private MaterialListBoxItem _selectedItem;
         private bool _showScrollBar;
-        private bool _multiKeyDown;
         private int _hoveredItem;
         private MaterialScrollBar _scrollBar;
         private bool _updating = false;
         private int _itemHeight;
-        private bool _showBorder;
-        private Color _borderColor;
         private Font _primaryFont;
         private Font _secondaryFont;
 
@@ -55,15 +51,12 @@ namespace ReaLTaiizor.Controls
             TwoLine,
             ThreeLine
         }
-        private ListBoxStyle _style = ListBoxStyle.SingleLine;
 
         public enum MaterialItemDensity
         {
             Default,
             Dense
         }
-
-        private MaterialItemDensity _density;
 
         #endregion Internal Vars
 
@@ -79,20 +72,18 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        private bool useAccentColor;
-
         [Category("Material"), DefaultValue(false), DisplayName("Use Accent Color")]
         public bool UseAccentColor
         {
-            get => useAccentColor;
-            set { useAccentColor = value; _scrollBar.UseAccentColor = value; Invalidate(); }
+            get;
+            set { field = value; _scrollBar.UseAccentColor = value; Invalidate(); }
         }
 
         [TypeConverter(typeof(CollectionConverter))]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor(typeof(MaterialItemCollectionEditor), typeof(UITypeEditor))]
         [Category("Material"), Description("Gets the items of the ListBox.")]
-        public ObservableCollection<MaterialListBoxItem> Items { get; } = new ObservableCollection<MaterialListBoxItem>();
+        public ObservableCollection<MaterialListBoxItem> Items { get; } = [];
 
         [Browsable(false)]
         [Category("Material"), Description("Gets a collection containing the currently selected items in the ListBox.")]
@@ -149,10 +140,10 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue(false), Description("Gets or sets a value indicating whether the ListBox supports multiple rows.")]
         public bool MultiSelect
         {
-            get => _multiSelect;
+            get;
             set
             {
-                _multiSelect = value;
+                field = value;
 
                 if (SelectedItems.Count > 1)
                 {
@@ -181,10 +172,10 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue(true), Description("Gets or sets a value indicating whether the border shown or not.")]
         public bool ShowBorder
         {
-            get => _showBorder;
+            get;
             set
             {
-                _showBorder = value;
+                field = value;
                 Refresh();
             }
         }
@@ -202,10 +193,10 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), Description("Gets or sets border color used by the control.")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -214,29 +205,42 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control style.")]
         public ListBoxStyle Style
         {
-            get => _style;
+            get;
             set
             {
-                _style = value;
+                field = value;
                 UpdateItemSpecs();
 
                 InvalidateScroll(this, null);
                 Refresh();
             }
-        }
+        } = ListBoxStyle.SingleLine;
 
         [Category("Material"), DefaultValue(MaterialItemDensity.Dense)]
         [Description("Gets or sets list density")]
         public MaterialItemDensity Density
         {
-            get => _density;
+            get;
             set
             {
-                _density = value;
+                field = value;
                 UpdateItemSpecs();
                 Invalidate();
             }
         }
+
+        [Category("Material"), DefaultValue(true)]
+        [Description("Enables Smoothly Scrolling")]
+        public bool SmoothScrolling
+        {
+            get;
+            set
+            {
+                field = value;
+                UpdateItemSpecs();
+                Invalidate();
+            }
+        } = true;
 
         #endregion Properties
 
@@ -275,9 +279,8 @@ namespace ReaLTaiizor.Controls
             _hoveredItem = -1;
             _showScrollBar = false;
             Items.CollectionChanged += InvalidateScroll;
-            SelectedItems = new List<object>();
-            _indicates = new List<object>();
-            _multiKeyDown = false;
+            SelectedItems = [];
+            _indicates = [];
             _scrollBar = new MaterialScrollBar()
             {
                 Orientation = MateScrollOrientation.Vertical,
@@ -309,31 +312,33 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateItemSpecs()
         {
-            if (_style == ListBoxStyle.TwoLine)
+            if (Style == ListBoxStyle.TwoLine)
             {
                 _secondaryTextTopPadding = 4;
-                if (_density == MaterialItemDensity.Dense)
+
+                if (Density == MaterialItemDensity.Dense)
                 {
                     _itemHeight = 60;
-                    _secondaryTextBottomPadding = 10;
                     _primaryTextBottomPadding = 2;
+                    _secondaryTextBottomPadding = 10;
                     _primaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
                     _secondaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body2);
                 }
                 else
                 {
                     _itemHeight = 72;
-                    _secondaryTextBottomPadding = 16;
                     _primaryTextBottomPadding = 4;
+                    _secondaryTextBottomPadding = 16;
                     _primaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Subtitle1);
                     _secondaryFont = SkinManager.GetFontByType(MaterialSkinManager.FontType.Body1);
                 }
             }
-            else if (_style == ListBoxStyle.ThreeLine)
+            else if (Style == ListBoxStyle.ThreeLine)
             {
                 _primaryTextBottomPadding = 4;
                 _secondaryTextTopPadding = 4;
-                if (_density == MaterialItemDensity.Dense)
+
+                if (Density == MaterialItemDensity.Dense)
                 {
                     _itemHeight = 76;
                     _secondaryTextBottomPadding = 16;
@@ -351,7 +356,7 @@ namespace ReaLTaiizor.Controls
             else
             {
                 //SingleLine
-                if (_density == MaterialItemDensity.Dense)
+                if (Density == MaterialItemDensity.Dense)
                 {
                     _itemHeight = 40;
                 }
@@ -381,15 +386,21 @@ namespace ReaLTaiizor.Controls
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             Rectangle mainRect = new(0, 0, Width - (ShowBorder ? 1 : 0), Height - (ShowBorder ? 1 : 0));
 
-            int lastItem = (_scrollBar.Value / _itemHeight) + (Height / _itemHeight) + 1 > Items.Count ? Items.Count : (_scrollBar.Value / _itemHeight) + (Height / _itemHeight) + 1;
             int firstItem = _scrollBar.Value / _itemHeight < 0 ? 0 : (_scrollBar.Value / _itemHeight);
+
+            // Account for partially visible items.
+            int itemOffset = SmoothScrolling ? _scrollBar.Value - (firstItem * _itemHeight) : 0;
+
+            // Calculate the last item
+            int lastItem = (_scrollBar.Value / _itemHeight) + ((Height + itemOffset) / _itemHeight) + 1 > Items.Count ? Items.Count : (_scrollBar.Value / _itemHeight) + ((Height + itemOffset) / _itemHeight) + 1;
 
             g.FillRectangle(Enabled ? SkinManager.BackgroundBrush : SkinManager.BackgroundDisabledBrush, mainRect);
 
             //Set TextAlignFlags
             MaterialNativeTextRenderer.TextAlignFlags primaryTextAlignFlags;
             MaterialNativeTextRenderer.TextAlignFlags secondaryTextAlignFlags = MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Top;
-            if (_style is ListBoxStyle.TwoLine or ListBoxStyle.ThreeLine)
+
+            if (Style is ListBoxStyle.TwoLine or ListBoxStyle.ThreeLine)
             {
                 primaryTextAlignFlags = MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Bottom;
             }
@@ -418,7 +429,7 @@ namespace ReaLTaiizor.Controls
                 string itemText = Items[i].Text;
                 string itemSecondaryText = Items[i].SecondaryText;
 
-                Rectangle itemRect = new(0, (i - firstItem) * _itemHeight, Width - (_showScrollBar && _scrollBar.Visible ? _scrollBar.Width : 0), _itemHeight);
+                Rectangle itemRect = new(0, ((i - firstItem) * _itemHeight) - itemOffset, Width - (_showScrollBar && _scrollBar.Visible ? _scrollBar.Width : 0), _itemHeight);
 
                 if (MultiSelect && _indicates.Count != 0)
                 {
@@ -428,10 +439,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else if (_indicates.Contains(i))
                     {
-                        g.FillRectangle(Enabled ?
-                            SelectedBrush :
-                            new SolidBrush(BlendColor(SelectedColor, SkinManager.SwitchOffDisabledThumbColor, 197)),
-                            itemRect);
+                        g.FillRectangle(Enabled ? SelectedBrush : new SolidBrush(BlendColor(SelectedColor, SkinManager.SwitchOffDisabledThumbColor, 197)), itemRect);
                     }
                 }
                 else
@@ -442,10 +450,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else if (i == SelectedIndex)
                     {
-                        g.FillRectangle(Enabled ?
-                            SelectedBrush :
-                            new SolidBrush(BlendColor(SelectedColor, SkinManager.SwitchOffDisabledThumbColor, 197)),
-                            itemRect);
+                        g.FillRectangle(Enabled ? SelectedBrush : new SolidBrush(BlendColor(SelectedColor, SkinManager.SwitchOffDisabledThumbColor, 197)), itemRect);
                     }
                 }
 
@@ -453,13 +458,13 @@ namespace ReaLTaiizor.Controls
                 Rectangle primaryTextRect = new(itemRect.X + _leftrightPadding, itemRect.Y, itemRect.Width - (2 * _leftrightPadding), itemRect.Height);
                 Rectangle secondaryTextRect = new();
 
-                if (_style == ListBoxStyle.TwoLine)
+                if (Style == ListBoxStyle.TwoLine)
                 {
                     primaryTextRect.Height = (primaryTextRect.Height / 2) - _primaryTextBottomPadding;
                 }
-                else if (_style == ListBoxStyle.ThreeLine)
+                else if (Style == ListBoxStyle.ThreeLine)
                 {
-                    if (_density == MaterialItemDensity.Default)
+                    if (Density == MaterialItemDensity.Default)
                     {
                         primaryTextRect.Height = 36 - _primaryTextBottomPadding;
                     }
@@ -474,14 +479,14 @@ namespace ReaLTaiizor.Controls
                 NativeText.DrawTransparentText(
                 itemText,
                 _primaryFont,
-                Enabled ? (i != SelectedIndex || UseAccentColor) ?
+                Enabled ? ((i != SelectedIndex && !_indicates.Contains(i)) || UseAccentColor) ?
                 SkinManager.TextHighEmphasisColor :
                 SkinManager.ColorScheme.TextColor :
                 SkinManager.TextDisabledOrHintColor, // Disabled
                 primaryTextRect.Location,
                 primaryTextRect.Size,
                 primaryTextAlignFlags);
-                if (_style == ListBoxStyle.TwoLine)
+                if (Style == ListBoxStyle.TwoLine)
                 {
                     NativeText.DrawTransparentText(
                     itemSecondaryText,
@@ -494,7 +499,7 @@ namespace ReaLTaiizor.Controls
                     secondaryTextRect.Size,
                     secondaryTextAlignFlags);
                 }
-                else if (_style == ListBoxStyle.ThreeLine)
+                else if (Style == ListBoxStyle.ThreeLine)
                 {
                     NativeText.DrawMultilineTransparentText(
                     itemSecondaryText,
@@ -537,10 +542,14 @@ namespace ReaLTaiizor.Controls
         public void AddItems(MaterialListBoxItem[] newItems)
         {
             _updating = true;
+            _scrollBar.BeginUpdate();
+
             foreach (MaterialListBoxItem str in newItems)
             {
                 AddItem(str);
             }
+
+            _scrollBar.EndUpdate();
             _updating = false;
 
             InvalidateScroll(this, null);
@@ -550,10 +559,14 @@ namespace ReaLTaiizor.Controls
         public void AddItems(string[] newItems)
         {
             _updating = true;
+            _scrollBar.BeginUpdate();
+
             foreach (string str in newItems)
             {
                 AddItem(str);
             }
+
+            _scrollBar.EndUpdate();
             _updating = false;
 
             InvalidateScroll(this, null);
@@ -567,6 +580,7 @@ namespace ReaLTaiizor.Controls
                 _selectedIndex -= 1;
                 update_selection();
             }
+
             Items.RemoveAt(index);
             InvalidateScroll(this, null);
             ItemsCountChanged?.Invoke(this, new EventArgs());
@@ -579,6 +593,7 @@ namespace ReaLTaiizor.Controls
                 _selectedIndex -= 1;
                 update_selection();
             }
+
             Items.Remove(item);
             InvalidateScroll(this, null);
             ItemsCountChanged?.Invoke(this, new EventArgs());
@@ -592,6 +607,8 @@ namespace ReaLTaiizor.Controls
         public void RemoveItems(MaterialListBoxItem[] itemsToRemove)
         {
             _updating = true;
+            _scrollBar.BeginUpdate();
+
             foreach (MaterialListBoxItem item in itemsToRemove)
             {
                 if (Items.IndexOf(item) <= _selectedIndex)
@@ -601,6 +618,8 @@ namespace ReaLTaiizor.Controls
                 }
                 Items.Remove(item);
             }
+
+            _scrollBar.EndUpdate();
             _updating = false;
 
             InvalidateScroll(this, null);
@@ -609,7 +628,7 @@ namespace ReaLTaiizor.Controls
 
         private void update_selection()
         {
-            if (_selectedIndex >= 0)
+            if (_selectedIndex >= 0 && _selectedIndex < Items.Count)
             {
                 _selectedItem = Items[_selectedIndex];
                 SelectedValue = Items[_selectedIndex];
@@ -626,12 +645,17 @@ namespace ReaLTaiizor.Controls
         public void Clear()
         {
             _updating = true;
+            _scrollBar.BeginUpdate();
+
             for (int i = Items.Count - 1; i >= 0; i += -1)
             {
                 Items.RemoveAt(i);
             }
+
+            _scrollBar.EndUpdate();
             _updating = false;
             _selectedIndex = -1;
+
             update_selection();
 
             InvalidateScroll(this, null);
@@ -641,11 +665,13 @@ namespace ReaLTaiizor.Controls
         public void BeginUpdate()
         {
             _updating = true;
+            _scrollBar.BeginUpdate();
         }
 
         public void EndUpdate()
         {
             _updating = false;
+            _scrollBar.EndUpdate();
         }
 
         #endregion Methods
@@ -674,21 +700,40 @@ namespace ReaLTaiizor.Controls
         {
             InvalidateScroll(this, e);
             InvalidateLayout();
+
             base.OnSizeChanged(e);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             Focus();
+
             if (e.Button == MouseButtons.Left)
             {
-                int index = (_scrollBar.Value / _itemHeight) + (e.Location.Y / _itemHeight);
+                int itemOffset = SmoothScrolling ? _scrollBar.Value % _itemHeight : 0;
+                int index = (_scrollBar.Value / _itemHeight) + ((e.Location.Y + itemOffset) / _itemHeight);
+
                 if (index >= 0 && index < Items.Count)
                 {
-                    if (MultiSelect && _multiKeyDown)
+                    if (MultiSelect && (ModifierKeys == Keys.Control || ModifierKeys == Keys.Shift))
                     {
+                        if (SelectedIndex >= 0)
+                        {
+                            if (!_indicates.Contains(SelectedIndex))
+                            {
+                                _indicates.Add(SelectedIndex);
+                            }
+                            if (!SelectedItems.Contains(Items[SelectedIndex]))
+                            {
+                                SelectedItems.Add(Items[SelectedIndex]);
+                            }
+
+                            SelectedIndex = -1;
+                        }
+
                         _indicates.Add(index);
                         SelectedItems.Add(Items[index]);
+                        SelectedValueChanged?.Invoke(this, Items[index]);
                     }
                     else
                     {
@@ -702,8 +747,10 @@ namespace ReaLTaiizor.Controls
                         SelectedValueChanged?.Invoke(this, _selectedItem);
                     }
                 }
+
                 Invalidate();
             }
+
             base.OnMouseDown(e);
         }
 
@@ -723,8 +770,12 @@ namespace ReaLTaiizor.Controls
             _scrollBar.SmallChange = _itemHeight;
             _scrollBar.LargeChange = Height;
             _scrollBar.Visible = (Items.Count * _itemHeight) > Height;
+
             if (Items.Count == 0)
-            { _scrollBar.Value = 0; }
+            {
+                _scrollBar.Value = 0;
+            }
+
             Invalidate();
         }
 
@@ -737,6 +788,7 @@ namespace ReaLTaiizor.Controls
         {
             _scrollBar.Size = new Size(12, Height - (ShowBorder ? 2 : 0));
             _scrollBar.Location = new Point(Width - (_scrollBar.Width + (ShowBorder ? 1 : 0)), ShowBorder ? 1 : 0);
+
             Invalidate();
         }
 
@@ -800,7 +852,9 @@ namespace ReaLTaiizor.Controls
                     }
                     break;
             }
+
             Invalidate();
+
             return base.IsInputKey(keyData);
         }
 
@@ -815,7 +869,8 @@ namespace ReaLTaiizor.Controls
 
         private void _updateHoveredItem(MouseEventArgs e)
         {
-            int index = (_scrollBar.Value / _itemHeight) + (e.Location.Y / _itemHeight);
+            int itemOffset = SmoothScrolling ? _scrollBar.Value % _itemHeight : 0;
+            int index = (_scrollBar.Value / _itemHeight) + ((e.Location.Y + itemOffset) / _itemHeight);
 
             if (index >= Items.Count)
             {
@@ -826,22 +881,25 @@ namespace ReaLTaiizor.Controls
             {
                 _hoveredItem = index;
             }
-
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             _hoveredItem = -1;
             Cursor = Cursors.Default;
+
             Invalidate();
+
             base.OnMouseLeave(e);
         }
 
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
+
             _scrollBar.Size = new Size(12, Height - (ShowBorder ? 2 : 0));
             _scrollBar.Location = new Point(Width - (_scrollBar.Width + (ShowBorder ? 1 : 0)), ShowBorder ? 1 : 0);
+
             InvalidateScroll(this, e);
         }
 
@@ -862,6 +920,7 @@ namespace ReaLTaiizor.Controls
                 m.Result = IntPtr.Zero;
                 return;
             }
+
             base.WndProc(ref m);
         }
     }

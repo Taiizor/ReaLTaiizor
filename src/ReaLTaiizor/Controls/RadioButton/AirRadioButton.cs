@@ -51,7 +51,7 @@ namespace ReaLTaiizor.Controls
         {
             G.Clear(BackColor);
             G.SmoothingMode = SmoothingMode.HighQuality;
-            if (_Checked)
+            if (Checked)
             {
                 LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(14, 14)), G1, G2, 90f);
                 G.FillEllipse(LGB, new Rectangle(new Point(0, 0), new Size(14, 14)));
@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Controls
 
             G.DrawEllipse(new(Bo), new Rectangle(new Point(0, 0), new Size(14, 14)));
 
-            if (_Checked)
+            if (Checked)
             {
                 SolidBrush LGB = new(Bb);
                 G.FillEllipse(LGB, new Rectangle(new Point(4, 4), new Size(6, 6)));
@@ -93,10 +93,9 @@ namespace ReaLTaiizor.Controls
             DrawText(new SolidBrush(TextColor), HorizontalAlignment.Left, 17, -2);
         }
 
-        private int _Field = 16;
         public int Field
         {
-            get => _Field;
+            get;
             set
             {
                 if (value < 4)
@@ -104,19 +103,18 @@ namespace ReaLTaiizor.Controls
                     return;
                 }
 
-                _Field = value;
+                field = value;
                 LockHeight = value;
                 Invalidate();
             }
-        }
+        } = 16;
 
-        private bool _Checked;
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 InvalidateControls();
                 CheckedChanged?.Invoke(this);
                 Invalidate();
@@ -125,7 +123,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (!_Checked)
+            if (!Checked)
             {
                 Checked = true;
             }
@@ -143,7 +141,7 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked)
+            if (!IsHandleCreated || !Checked)
             {
                 return;
             }

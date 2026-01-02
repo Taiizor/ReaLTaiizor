@@ -21,13 +21,13 @@ namespace ReaLTaiizor.Controls
         private MouseStateForever State = MouseStateForever.None;
         private int W;
         private int H;
-        private bool _Checked;
+
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 InvalidateControls();
                 CheckedChanged?.Invoke(this);
                 Invalidate();
@@ -39,7 +39,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnClick(EventArgs e)
         {
-            if (!_Checked)
+            if (!Checked)
             {
                 Checked = true;
             }
@@ -49,7 +49,7 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked)
+            if (!IsHandleCreated || !Checked)
             {
                 return;
             }

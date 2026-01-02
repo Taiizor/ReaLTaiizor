@@ -27,16 +27,15 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Properties
 
-        private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get => _DefaultLocation;
+            get;
             set
             {
-                _DefaultLocation = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         #endregion
         #region Variables

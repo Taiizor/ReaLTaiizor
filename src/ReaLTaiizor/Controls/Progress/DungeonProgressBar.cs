@@ -26,10 +26,8 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Variables 
 
-        private int _Minimum;
         private int _Maximum = 100;
         private int _Value = 0;
-        private Alignment ALN;
         private bool _DrawHatch;
 
         private bool _ShowPercentage;
@@ -79,10 +77,10 @@ namespace ReaLTaiizor.Controls
 
         public int Minimum
         {
-            get => _Minimum;
+            get;
             set
             {
-                _Minimum = value;
+                field = value;
 
                 if (value > _Maximum)
                 {
@@ -115,10 +113,10 @@ namespace ReaLTaiizor.Controls
 
         public Alignment ValueAlignment
         {
-            get => ALN;
+            get;
             set
             {
-                ALN = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -200,7 +198,7 @@ namespace ReaLTaiizor.Controls
             G.FillPath(new SolidBrush(BackColorB), RoundRectangle.RoundRect(new Rectangle(1, 1, Width - 3, (Height / 2) - 2), 4));
 
 
-            I1 = (int)Math.Round((_Value - _Minimum) / (double)(_Maximum - _Minimum) * (Width - 3));
+            I1 = (int)Math.Round((_Value - Minimum) / (double)(_Maximum - Minimum) * (Width - 3));
             if (I1 > 1)
             {
                 GP3 = RoundRectangle.RoundRect(new Rectangle(1, 1, I1, Height - 3), 4);

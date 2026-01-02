@@ -28,10 +28,10 @@ namespace ReaLTaiizor.Controls
         [Description("Is the image eliptical")]
         public bool IsElipse
         {
-            get => isElipse;
+            get;
             set
             {
-                isElipse = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -41,10 +41,10 @@ namespace ReaLTaiizor.Controls
         [Description("Is the image")]
         public Image Image
         {
-            get => image;
+            get;
             set
             {
-                image = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -54,10 +54,10 @@ namespace ReaLTaiizor.Controls
         [Description("Is the image paralax zoom")]
         public bool IsParallax
         {
-            get => isParallax;
+            get;
             set
             {
-                isParallax = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -67,117 +67,112 @@ namespace ReaLTaiizor.Controls
         [Description("Enable filters")]
         public bool FilterEnabled
         {
-            get => filterEnabled;
+            get;
             set
             {
-                filterEnabled = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Filter color left")]
         public Color ColorLeft
         {
-            get => colorLeft;
+            get;
             set
             {
-                colorLeft = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DodgerBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Filter color right")]
         public Color ColorRight
         {
-            get => colorRight;
+            get;
             set
             {
-                colorRight = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DodgerBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Filter alpha")]
         public int FilterAlpha
         {
-            get => filterAlpha;
+            get;
             set
             {
-                filterAlpha = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 200;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBilinear;
         [Category("Parrot")]
         [Browsable(true)]
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBilinear;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -195,37 +190,37 @@ namespace ReaLTaiizor.Controls
             e.Graphics.InterpolationMode = InterpolationType;
             e.Graphics.CompositingQuality = CompositingQualityType;
             e.Graphics.PixelOffsetMode = PixelOffsetType;
-            if (image != null)
+            if (Image != null)
             {
-                if (!isParallax)
+                if (!IsParallax)
                 {
-                    if (isElipse)
+                    if (IsElipse)
                     {
-                        Brush brush = new TextureBrush(new Bitmap(image, base.Width, base.Height), new Rectangle(0, 0, base.Width, base.Height));
+                        Brush brush = new TextureBrush(new Bitmap(Image, base.Width, base.Height), new Rectangle(0, 0, base.Width, base.Height));
                         e.Graphics.FillEllipse(brush, 0, 0, base.Width, base.Height);
-                        if (filterEnabled)
+                        if (FilterEnabled)
                         {
-                            Brush brush2 = new LinearGradientBrush(base.ClientRectangle, Color.FromArgb(filterAlpha, colorRight), Color.FromArgb(filterAlpha, colorLeft), 180f);
+                            Brush brush2 = new LinearGradientBrush(base.ClientRectangle, Color.FromArgb(FilterAlpha, ColorRight), Color.FromArgb(FilterAlpha, ColorLeft), 180f);
                             e.Graphics.FillEllipse(brush2, 0, 0, base.Width, base.Height);
                             return;
                         }
                     }
                     else
                     {
-                        e.Graphics.DrawImage(new Bitmap(image, base.Width, base.Height), 0, 0);
-                        if (filterEnabled)
+                        e.Graphics.DrawImage(new Bitmap(Image, base.Width, base.Height), 0, 0);
+                        if (FilterEnabled)
                         {
-                            Brush brush3 = new LinearGradientBrush(base.ClientRectangle, Color.FromArgb(filterAlpha, colorRight), Color.FromArgb(filterAlpha, colorLeft), 180f);
+                            Brush brush3 = new LinearGradientBrush(base.ClientRectangle, Color.FromArgb(FilterAlpha, ColorRight), Color.FromArgb(FilterAlpha, ColorLeft), 180f);
                             e.Graphics.FillRectangle(brush3, 0, 0, base.Width, base.Height);
                             return;
                         }
                     }
                 }
-                else if (isParallax)
+                else if (IsParallax)
                 {
                     try
                     {
-                        bufferedGraphics.Graphics.DrawImage(new Bitmap(image, base.Width * 2, base.Height * 2), x, y);
+                        bufferedGraphics.Graphics.DrawImage(new Bitmap(Image, base.Width * 2, base.Height * 2), x, y);
                         bufferedGraphics.Render(e.Graphics);
                     }
                     catch
@@ -240,7 +235,7 @@ namespace ReaLTaiizor.Controls
             try
             {
                 bufferedGraphics.Graphics.Clear(BackColor);
-                bufferedGraphics.Graphics.DrawImage(new Bitmap(image, base.Width * 2, base.Height * 2), x, y);
+                bufferedGraphics.Graphics.DrawImage(new Bitmap(Image, base.Width * 2, base.Height * 2), x, y);
                 bufferedGraphics.Render(base.CreateGraphics());
             }
             catch
@@ -251,7 +246,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (isParallax)
+            if (IsParallax)
             {
                 x = e.X - base.Width;
                 y = e.Y - base.Height;
@@ -264,20 +259,6 @@ namespace ReaLTaiizor.Controls
         private int y;
 
         private BufferedGraphics bufferedGraphics;
-
-        private bool isElipse;
-
-        private Image image;
-
-        private bool isParallax;
-
-        private bool filterEnabled = true;
-
-        private Color colorLeft = Color.DodgerBlue;
-
-        private Color colorRight = Color.DodgerBlue;
-
-        private int filterAlpha = 200;
     }
 
     #endregion

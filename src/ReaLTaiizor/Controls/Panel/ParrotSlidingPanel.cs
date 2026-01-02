@@ -29,47 +29,47 @@ namespace ReaLTaiizor.Controls
         [Description("Is the panel collapsed")]
         public bool Collapsed
         {
-            get => collapsed;
+            get;
             set
             {
-                collapsed = value;
+                field = value;
                 CollapseChanged();
                 CollapsedStateChanged();
                 Invalidate();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The panel width expanded")]
         public int PanelWidthExpanded
         {
-            get => panelWidthExpanded;
+            get;
             set
             {
-                panelWidthExpanded = value;
+                field = value;
                 if (!Collapsed)
                 {
-                    base.Size = new Size(panelWidthExpanded, base.Height);
+                    base.Size = new Size(field, base.Height);
                 }
             }
-        }
+        } = 200;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The panel width expanded")]
         public int PanelWidthCollapsed
         {
-            get => panelWidthCollapsed;
+            get;
             set
             {
-                panelWidthCollapsed = value;
+                field = value;
                 if (Collapsed)
                 {
-                    base.Size = new Size(panelWidthCollapsed, base.Height);
+                    base.Size = new Size(field, base.Height);
                 }
             }
-        }
+        } = 50;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -81,13 +81,13 @@ namespace ReaLTaiizor.Controls
         [Description("The control used to collapse/expand the sliding panel")]
         public Control CollapseControl
         {
-            get => collapseControl;
+            get;
             set
             {
-                collapseControl = value;
-                if (collapseControl != null)
+                field = value;
+                if (field != null)
                 {
-                    collapseControl.Click += SwitchCollapsed;
+                    field.Click += SwitchCollapsed;
                 }
             }
         }
@@ -104,16 +104,16 @@ namespace ReaLTaiizor.Controls
 
         private void CollapseChanged()
         {
-            if (!collapsed)
+            if (!Collapsed)
             {
-                while (base.Width < panelWidthExpanded)
+                while (base.Width < PanelWidthExpanded)
                 {
-                    if (base.Width < panelWidthExpanded / 10 * 6)
+                    if (base.Width < PanelWidthExpanded / 10 * 6)
                     {
                         base.Size = new Size(base.Width + 30, base.Height);
                         sleeper.Sleep(40);
                     }
-                    else if (base.Width < panelWidthExpanded / 10 * 4)
+                    else if (base.Width < PanelWidthExpanded / 10 * 4)
                     {
                         base.Size = new Size(base.Width + 20, base.Height);
                         sleeper.Sleep(40);
@@ -124,13 +124,13 @@ namespace ReaLTaiizor.Controls
                         sleeper.Sleep(40);
                     }
                 }
-                base.Size = new Size(panelWidthExpanded, base.Height);
+                base.Size = new Size(PanelWidthExpanded, base.Height);
                 if (HideControls)
                 {
                     foreach (object obj in base.Controls)
                     {
                         Control control = (Control)obj;
-                        if (control != collapseControl)
+                        if (control != CollapseControl)
                         {
                             control.Visible = true;
                         }
@@ -147,19 +147,19 @@ namespace ReaLTaiizor.Controls
             {
                 object obj2 = enumerator.Current;
                 Control control2 = (Control)obj2;
-                if (control2 != collapseControl)
+                if (control2 != CollapseControl)
                 {
                     control2.Visible = false;
                 }
             }
             goto IL_FB;
         IL_5E:
-            if (base.Width > panelWidthExpanded / 5 * 3)
+            if (base.Width > PanelWidthExpanded / 5 * 3)
             {
                 base.Size = new Size(base.Width - 30, base.Height);
                 sleeper.Sleep(40);
             }
-            else if (base.Width > panelWidthExpanded / 5 * 2)
+            else if (base.Width > PanelWidthExpanded / 5 * 2)
             {
                 base.Size = new Size(base.Width - 20, base.Height);
                 sleeper.Sleep(40);
@@ -170,9 +170,9 @@ namespace ReaLTaiizor.Controls
                 sleeper.Sleep(40);
             }
         IL_FB:
-            if (base.Width <= panelWidthCollapsed)
+            if (base.Width <= PanelWidthCollapsed)
             {
-                base.Size = new Size(panelWidthCollapsed, base.Height);
+                base.Size = new Size(PanelWidthCollapsed, base.Height);
                 return;
             }
             goto IL_5E;
@@ -195,13 +195,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private readonly ParrotSleeper sleeper = new();
-
-        private bool collapsed = true;
-
-        private int panelWidthExpanded = 200;
-
-        private int panelWidthCollapsed = 50;
-        private Control collapseControl;
     }
 
     #endregion

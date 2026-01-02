@@ -63,30 +63,28 @@ namespace ReaLTaiizor.Controls
 
         //Material properties
 
-        private bool _UseTallSize;
 
         [Category("Material"), DefaultValue(true), Description("Using a larger size enables the hint to always be visible")]
         public bool UseTallSize
         {
-            get => _UseTallSize;
+            get;
             set
             {
-                _UseTallSize = value;
+                field = value;
                 UpdateHeight();
                 UpdateRects();
                 Invalidate();
             }
         }
 
-        private bool _showAssistiveText;
         [Category("Material"), DefaultValue(false), Description("Assistive elements provide additional detail about text entered into text fields. Could be Helper text or Error message.")]
         public bool ShowAssistiveText
         {
-            get => _showAssistiveText;
+            get;
             set
             {
-                _showAssistiveText = value;
-                if (_showAssistiveText)
+                field = value;
+                if (field)
                 {
                     _helperTextHeight = HELPER_TEXT_HEIGHT;
                 }
@@ -101,28 +99,24 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private string _helperText;
-
         [Category("Material"), DefaultValue(""), Localizable(true), Description("Helper text conveys additional guidance about the input field, such as how it will be used.")]
         public string HelperText
         {
-            get => _helperText;
+            get;
             set
             {
-                _helperText = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private string _errorMessage;
-
         [Category("Material"), DefaultValue(""), Localizable(true), Description("When text input isn't accepted, an error message can display instructions on how to fix it. Error messages are displayed below the input line, replacing helper text until fixed.")]
         public string ErrorMessage
         {
-            get => _errorMessage;
+            get;
             set
             {
-                _errorMessage = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -143,25 +137,21 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue(true)]
         public bool UseAccent { get; set; }
 
-        private Image _leadingIcon;
-
         [Category("Material"), Browsable(true), Localizable(false)]
         /// <summary>
         /// Gets or sets the leading Icon
         /// </summary>
         public Image LeadingIcon
         {
-            get => _leadingIcon;
+            get;
             set
             {
-                _leadingIcon = value;
+                field = value;
                 UpdateRects();
                 preProcessIcons();
                 Invalidate();
             }
         }
-
-        private Image _trailingIcon;
 
         [Category("Material"), Browsable(true), Localizable(false)]
         /// <summary>
@@ -169,10 +159,10 @@ namespace ReaLTaiizor.Controls
         /// </summary>
         public Image TrailingIcon
         {
-            get => _trailingIcon;
+            get;
             set
             {
-                _trailingIcon = value;
+                field = value;
                 UpdateRects();
                 preProcessIcons();
                 Invalidate();
@@ -186,16 +176,15 @@ namespace ReaLTaiizor.Controls
             Suffix,
         }
 
-        private PrefixSuffixTypes _prefixsuffix;
         [Category("Material"), DefaultValue(PrefixSuffixTypes.None), Description("Set Prefix/Suffix/None")]
         public PrefixSuffixTypes PrefixSuffix
         {
-            get => _prefixsuffix;
+            get;
             set
             {
-                _prefixsuffix = value;
+                field = value;
                 UpdateRects();            //Génére une nullref exception
-                if (_prefixsuffix == PrefixSuffixTypes.Suffix)
+                if (field == PrefixSuffixTypes.Suffix)
                 {
                     RightToLeft = RightToLeft.Yes;
                 }
@@ -208,16 +197,15 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private string _prefixsuffixText;
         [Category("Material"), DefaultValue(""), Localizable(true), Description("Set Prefix or Suffix text")]
         public string PrefixSuffixText
         {
-            get => _prefixsuffixText;
+            get;
             set
             {
                 //if (_prefixsuffixText != value)
                 //{
-                _prefixsuffixText = value;
+                field = value;
                 UpdateRects();
                 Invalidate();
                 //}
@@ -292,45 +280,40 @@ namespace ReaLTaiizor.Controls
 
         public new object Tag { get => baseTextBox.Tag; set => baseTextBox.Tag = value; }
 
-        private bool _readonly;
         [Category("Behavior")]
         public bool ReadOnly
         {
-            get => _readonly;
+            get;
             set
             {
-                _readonly = value;
+                field = value;
                 if (Enabled == true)
                 {
-                    baseTextBox.ReadOnly = _readonly;
+                    baseTextBox.ReadOnly = field;
                 }
                 this.Invalidate();
             }
         }
 
-        private bool _animateReadOnly;
-
         [Category("Material")]
         [Browsable(true)]
         public bool AnimateReadOnly
         {
-            get => _animateReadOnly;
+            get;
             set
             {
-                _animateReadOnly = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private bool _leaveOnEnterKey;
-
         [Category("Material"), DefaultValue(false), Description("Select next control which have TabStop property set to True when enter key is pressed.")]
         public bool LeaveOnEnterKey
         {
-            get => _leaveOnEnterKey;
+            get;
             set
             {
-                _leaveOnEnterKey = value;
+                field = value;
                 if (value)
                 {
                     baseTextBox.KeyDown += new KeyEventHandler(LeaveOnEnterKey_KeyDown);
@@ -1033,7 +1016,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Prefix:
-            if (_prefixsuffix == PrefixSuffixTypes.Prefix && _prefixsuffixText != null && _prefixsuffixText.Length > 0 && (isFocused || userTextPresent || !hasHint))
+            if (PrefixSuffix == PrefixSuffixTypes.Prefix && PrefixSuffixText != null && PrefixSuffixText.Length > 0 && (isFocused || userTextPresent || !hasHint))
             {
                 using MaterialNativeTextRenderer NativeText = new(g);
                 Rectangle prefixRect = new(
@@ -1045,7 +1028,7 @@ namespace ReaLTaiizor.Controls
 
                 // Draw Prefix text 
                 NativeText.DrawTransparentText(
-                _prefixsuffixText,
+                PrefixSuffixText,
                 SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1),
                 Enabled ? SkinManager.TextMediumEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 prefixRect.Location,
@@ -1054,7 +1037,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Suffix:
-            if (_prefixsuffix == PrefixSuffixTypes.Suffix && _prefixsuffixText != null && _prefixsuffixText.Length > 0 && (isFocused || userTextPresent || !hasHint))
+            if (PrefixSuffix == PrefixSuffixTypes.Suffix && PrefixSuffixText != null && PrefixSuffixText.Length > 0 && (isFocused || userTextPresent || !hasHint))
             {
                 using MaterialNativeTextRenderer NativeText = new(g);
                 Rectangle suffixRect = new(
@@ -1066,7 +1049,7 @@ namespace ReaLTaiizor.Controls
 
                 // Draw Suffix text 
                 NativeText.DrawTransparentText(
-                _prefixsuffixText,
+                PrefixSuffixText,
                 SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1),
                 Enabled ? SkinManager.TextMediumEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 suffixRect.Location,
@@ -1093,7 +1076,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw helper text
-            if (_showAssistiveText && isFocused && !_errorState)
+            if (ShowAssistiveText && isFocused && !_errorState)
             {
                 using MaterialNativeTextRenderer NativeText = new(g);
                 NativeText.DrawTransparentText(
@@ -1111,7 +1094,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw error message
-            if (_showAssistiveText && _errorState && ErrorMessage != null)
+            if (ShowAssistiveText && _errorState && ErrorMessage != null)
             {
                 using MaterialNativeTextRenderer NativeText = new(g);
                 NativeText.DrawTransparentText(
@@ -1271,7 +1254,7 @@ namespace ReaLTaiizor.Controls
 
         private void preProcessIcons()
         {
-            if (_trailingIcon == null && _leadingIcon == null)
+            if (TrailingIcon == null && LeadingIcon == null)
             {
                 return;
             }
@@ -1311,15 +1294,15 @@ namespace ReaLTaiizor.Controls
             // Image Rect
             Rectangle destRect = new(0, 0, ICON_SIZE, ICON_SIZE);
 
-            if (_leadingIcon != null)
+            if (LeadingIcon != null)
             {
                 // ********************
                 // *** _leadingIcon ***
                 // ********************
 
                 //Resize icon if greater than ICON_SIZE
-                Size newSize_leadingIcon = ResizeIcon(_leadingIcon);
-                Bitmap _leadingIconIconResized = new(_leadingIcon, newSize_leadingIcon.Width, newSize_leadingIcon.Height);
+                Size newSize_leadingIcon = ResizeIcon(LeadingIcon);
+                Bitmap _leadingIconIconResized = new(LeadingIcon, newSize_leadingIcon.Width, newSize_leadingIcon.Height);
 
                 // Create a pre-processed copy of the image (GRAY)
                 Bitmap bgray = new(destRect.Width, destRect.Height);
@@ -1368,15 +1351,15 @@ namespace ReaLTaiizor.Controls
 
             }
 
-            if (_trailingIcon != null)
+            if (TrailingIcon != null)
             {
                 // *********************
                 // *** _trailingIcon ***
                 // *********************
 
                 //Resize icon if greater than ICON_SIZE
-                Size newSize_trailingIcon = ResizeIcon(_trailingIcon);
-                Bitmap _trailingIconResized = new(_trailingIcon, newSize_trailingIcon.Width, newSize_trailingIcon.Height);
+                Size newSize_trailingIcon = ResizeIcon(TrailingIcon);
+                Bitmap _trailingIconResized = new(TrailingIcon, newSize_trailingIcon.Width, newSize_trailingIcon.Height);
 
                 // Create a pre-processed copy of the image (GRAY)
                 Bitmap bgray = new(destRect.Width, destRect.Height);
@@ -1430,7 +1413,7 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateHeight()
         {
-            HEIGHT = _UseTallSize ? 48 : 36;
+            HEIGHT = UseTallSize ? 48 : 36;
             HEIGHT += _helperTextHeight;
             Size = new Size(Size.Width, HEIGHT);
         }
@@ -1446,7 +1429,7 @@ namespace ReaLTaiizor.Controls
                 _left_padding = LEFT_PADDING;
             }
 
-            if (_trailingIcon != null)
+            if (TrailingIcon != null)
             {
                 _right_padding = RIGHT_PADDING + ICON_SIZE;
             }
@@ -1455,10 +1438,10 @@ namespace ReaLTaiizor.Controls
                 _right_padding = RIGHT_PADDING;
             }
 
-            if (_prefixsuffix == PrefixSuffixTypes.Prefix && _prefixsuffixText != null && _prefixsuffixText.Length > 0)
+            if (PrefixSuffix == PrefixSuffixTypes.Prefix && PrefixSuffixText != null && PrefixSuffixText.Length > 0)
             {
                 using MaterialNativeTextRenderer NativeText = new(CreateGraphics());
-                _prefix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
+                _prefix_padding = NativeText.MeasureLogString(PrefixSuffixText, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
                 _left_padding += _prefix_padding;
             }
             else
@@ -1466,10 +1449,10 @@ namespace ReaLTaiizor.Controls
                 _prefix_padding = 0;
             }
 
-            if (_prefixsuffix == PrefixSuffixTypes.Suffix && _prefixsuffixText != null && _prefixsuffixText.Length > 0)
+            if (PrefixSuffix == PrefixSuffixTypes.Suffix && PrefixSuffixText != null && PrefixSuffixText.Length > 0)
             {
                 using MaterialNativeTextRenderer NativeText = new(CreateGraphics());
-                _suffix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
+                _suffix_padding = NativeText.MeasureLogString(PrefixSuffixText, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
                 _right_padding += _suffix_padding;
             }
             else

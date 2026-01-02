@@ -19,16 +19,15 @@ namespace ReaLTaiizor.Controls
         private Color TCN;
         private Color TCH;
 
-        private bool _Checked;
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
 
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 CheckedChanged?.Invoke(this);
                 Invalidate();
             }
@@ -66,7 +65,7 @@ namespace ReaLTaiizor.Controls
         {
             G.Clear(BG);
 
-            if (_Checked)
+            if (Checked)
             {
                 G.DrawString("a", new Font("Marlett", 14), new SolidBrush(TCN), new Point(0, 1));
             }
@@ -74,7 +73,7 @@ namespace ReaLTaiizor.Controls
             if (State == MouseStateMoon.Over)
             {
                 G.FillRectangle(Brushes.White, new Rectangle(new Point(3, 3), new Size(15, 15)));
-                if (_Checked)
+                if (Checked)
                 {
                     G.DrawString("a", new Font("Marlett", 14), new SolidBrush(TCH), new Point(0, 1));
                 }

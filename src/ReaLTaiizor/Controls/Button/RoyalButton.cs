@@ -21,60 +21,52 @@ namespace ReaLTaiizor.Controls
 
         public bool Pressed { get; private set; } = false;
 
-        private bool drawBorder;
         public bool DrawBorder
         {
-            get => drawBorder;
-            set { drawBorder = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private Color hotTrackColor;
         public Color HotTrackColor
         {
-            get => hotTrackColor;
-            set { hotTrackColor = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private Color pressedColor;
         public Color PressedColor
         {
-            get => pressedColor;
-            set { pressedColor = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private Color pressedForeColor;
         public Color PressedForeColor
         {
-            get => pressedForeColor;
-            set { pressedForeColor = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private Color borderColor;
         public Color BorderColor
         {
-            get => borderColor;
-            set { borderColor = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private int borderThickness;
         public int BorderThickness
         {
-            get => borderThickness;
-            set { borderThickness = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private Image image;
         public Image Image
         {
-            get => image;
-            set { image = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private RoyalLayoutFlags layoutFlags;
         public RoyalLayoutFlags LayoutFlags
         {
-            get => layoutFlags;
-            set { layoutFlags = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         public RoyalButton()
@@ -142,12 +134,12 @@ namespace ReaLTaiizor.Controls
 
             if (HotTracked && !Pressed)
             {
-                backColor = hotTrackColor;
+                backColor = HotTrackColor;
             }
             else if (Pressed)
             {
-                foreColor = pressedForeColor;
-                backColor = pressedColor;
+                foreColor = PressedForeColor;
+                backColor = PressedColor;
             }
 
             e.Graphics.FillRectangle(new SolidBrush(backColor), e.ClipRectangle);

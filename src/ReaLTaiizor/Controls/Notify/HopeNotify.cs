@@ -37,21 +37,20 @@ namespace ReaLTaiizor.Controls
         [RefreshProperties(RefreshProperties.Repaint)]
         public AlertType Type { get; set; } = AlertType.Success;
 
-        private Timer _timer;
         private Timer _Timer
         {
-            get => _timer;
+            get;
             set
             {
-                if (_timer != null)
+                if (field != null)
                 {
-                    _timer.Tick -= Timer_Tick;
+                    field.Tick -= Timer_Tick;
                 }
 
-                _timer = value;
-                if (_timer != null)
+                field = value;
+                if (field != null)
                 {
-                    _timer.Tick += Timer_Tick;
+                    field.Tick += Timer_Tick;
                 }
             }
         }

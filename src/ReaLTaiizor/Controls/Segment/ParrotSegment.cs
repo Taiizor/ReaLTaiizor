@@ -26,23 +26,23 @@ namespace ReaLTaiizor.Controls
         [Description("The items, split by ','.")]
         public string Items
         {
-            get => items;
+            get;
             set
             {
-                items = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "Contacts, Recents, Messages, Dialer";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The selected index")]
         public int SelectedIndex
         {
-            get => selectedIndex;
+            get;
             set
             {
-                selectedIndex = value;
+                field = value;
                 OnIndexChanged();
                 Invalidate();
             }
@@ -53,182 +53,179 @@ namespace ReaLTaiizor.Controls
         [Description("The segment style")]
         public Style SegmentStyle
         {
-            get => segmentStyle;
+            get;
             set
             {
-                segmentStyle = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Style.Material;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The segment selected base color")]
         public Color SegmentColor
         {
-            get => segmentColor;
+            get;
             set
             {
-                segmentColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The segment back color")]
         public Color SegmentBackColor
         {
-            get => segmentBackColor;
+            get;
             set
             {
-                segmentBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(0, 150, 135);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The active segment text color")]
         public Color SegmentActiveTextColor
         {
-            get => segmentActiveTextColor;
+            get;
             set
             {
-                segmentActiveTextColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The active segment android font color")]
         public Color SegmentActiveFontColor
         {
-            get => segmentActiveFontColor;
+            get;
             set
             {
-                segmentActiveFontColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(65, 130, 205);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Theinactive segment android font color")]
         public Color SegmentInactiveFontColor
         {
-            get => segmentInactiveFontColor;
+            get;
             set
             {
-                segmentInactiveFontColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(153, 153, 153);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The active segment ios back color")]
         public Color SegmentActiveBackColor
         {
-            get => segmentActiveBackColor;
+            get;
             set
             {
-                segmentActiveBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(0, 120, 255);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Theinactive segment text color")]
         public Color SegmentInactiveTextColor
         {
-            get => segmentInactiveTextColor;
+            get;
             set
             {
-                segmentInactiveTextColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(150, 210, 210);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Theinactive segment ios border color")]
         public Color SegmentInactiveBorderColor
         {
-            get => segmentInactiveBorderColor;
+            get;
             set
             {
-                segmentInactiveBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(0, 120, 255);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Theinactive segment android normal color")]
         public Color SegmentNormalBackColor
         {
-            get => segmentNormalBackColor;
+            get;
             set
             {
-                segmentNormalBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The active segment android line color")]
         public Color SegmentActiveLineColor
         {
-            get => segmentActiveLineColor;
+            get;
             set
             {
-                segmentActiveLineColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(65, 130, 205);
 
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBilinear;
         [Category("Parrot")]
         [Browsable(true)]
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBilinear;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         public event EventHandler IndexChanged;
 
@@ -244,7 +241,7 @@ namespace ReaLTaiizor.Controls
             e.Graphics.CompositingQuality = CompositingQualityType;
             e.Graphics.TextRenderingHint = TextRenderingType;
             int num = 0;
-            foreach (string text in items.Split(new char[]
+            foreach (string text in Items.Split(new char[]
             {
                 ','
             }))
@@ -254,9 +251,9 @@ namespace ReaLTaiizor.Controls
             int num2 = base.Width / num;
             int num3 = 0;
             int num4 = 0;
-            if (segmentStyle == Style.iOS)
+            if (SegmentStyle == Style.iOS)
             {
-                foreach (string s in items.Split(new char[]
+                foreach (string s in Items.Split(new char[]
                 {
                     ','
                 }))
@@ -270,7 +267,7 @@ namespace ReaLTaiizor.Controls
                             Alignment = StringAlignment.Center
                         };
                         e.Graphics.DrawRectangle(new Pen(SegmentInactiveBorderColor, 1f), 0, 0, base.Width - 1, base.Height - 1);
-                        if (selectedIndex == num3)
+                        if (SelectedIndex == num3)
                         {
                             e.Graphics.FillRectangle(new SolidBrush(SegmentActiveBackColor), num4, 0, num2, base.Height);
                             e.Graphics.DrawString(s, Font, new SolidBrush(SegmentActiveTextColor), r, stringFormat);
@@ -285,10 +282,10 @@ namespace ReaLTaiizor.Controls
                     num3++;
                 }
             }
-            if (segmentStyle == Style.Android)
+            if (SegmentStyle == Style.Android)
             {
                 e.Graphics.FillRectangle(new SolidBrush(SegmentNormalBackColor), 0, 0, base.Width, base.Height);
-                foreach (string s2 in items.Split(new char[]
+                foreach (string s2 in Items.Split(new char[]
                 {
                     ','
                 }))
@@ -301,7 +298,7 @@ namespace ReaLTaiizor.Controls
                             LineAlignment = StringAlignment.Center,
                             Alignment = StringAlignment.Center
                         };
-                        if (selectedIndex == num3)
+                        if (SelectedIndex == num3)
                         {
                             e.Graphics.FillRectangle(new SolidBrush(SegmentActiveLineColor), num4, base.Height - 3, num2, 3);
                             e.Graphics.DrawString(s2, Font, new SolidBrush(SegmentActiveFontColor), r2, stringFormat2);
@@ -315,10 +312,10 @@ namespace ReaLTaiizor.Controls
                     num3++;
                 }
             }
-            if (segmentStyle == Style.Material)
+            if (SegmentStyle == Style.Material)
             {
-                e.Graphics.FillRectangle(new SolidBrush(segmentBackColor), 0, 0, base.Width, base.Height);
-                foreach (string s3 in items.Split(new char[]
+                e.Graphics.FillRectangle(new SolidBrush(SegmentBackColor), 0, 0, base.Width, base.Height);
+                foreach (string s3 in Items.Split(new char[]
                 {
                     ','
                 }))
@@ -331,14 +328,14 @@ namespace ReaLTaiizor.Controls
                             LineAlignment = StringAlignment.Center,
                             Alignment = StringAlignment.Center
                         };
-                        if (selectedIndex == num3)
+                        if (SelectedIndex == num3)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(segmentColor), num4, base.Height - 3, num2, 3);
-                            e.Graphics.DrawString(s3, Font, new SolidBrush(segmentActiveTextColor), r3, stringFormat3);
+                            e.Graphics.FillRectangle(new SolidBrush(SegmentColor), num4, base.Height - 3, num2, 3);
+                            e.Graphics.DrawString(s3, Font, new SolidBrush(SegmentActiveTextColor), r3, stringFormat3);
                         }
                         else
                         {
-                            e.Graphics.DrawString(s3, Font, new SolidBrush(segmentInactiveTextColor), r3, stringFormat3);
+                            e.Graphics.DrawString(s3, Font, new SolidBrush(SegmentInactiveTextColor), r3, stringFormat3);
                         }
                     }
                     num4 += num2;
@@ -352,7 +349,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
             int num = 0;
             int num2 = 0;
-            foreach (string text in items.Split(new char[]
+            foreach (string text in Items.Split(new char[]
             {
                 ','
             }))
@@ -404,37 +401,11 @@ namespace ReaLTaiizor.Controls
             {
                 num = 10;
             }
-            if (num != selectedIndex)
+            if (num != SelectedIndex)
             {
                 SelectedIndex = num;
             }
         }
-
-        private string items = "Contacts, Recents, Messages, Dialer";
-
-        private int selectedIndex;
-
-        private Style segmentStyle = Style.Material;
-
-        private Color segmentColor = Color.White;
-
-        private Color segmentBackColor = Color.FromArgb(0, 150, 135);
-
-        private Color segmentActiveTextColor = Color.White;
-
-        private Color segmentActiveFontColor = Color.FromArgb(65, 130, 205);
-
-        private Color segmentActiveBackColor = Color.FromArgb(0, 120, 255);
-
-        private Color segmentActiveLineColor = Color.FromArgb(65, 130, 205);
-
-        private Color segmentInactiveTextColor = Color.FromArgb(150, 210, 210);
-
-        private Color segmentInactiveFontColor = Color.FromArgb(153, 153, 153);
-
-        private Color segmentInactiveBorderColor = Color.FromArgb(0, 120, 255);
-
-        private Color segmentNormalBackColor = Color.White;
 
         public enum Style
         {

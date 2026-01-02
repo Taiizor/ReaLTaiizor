@@ -38,22 +38,22 @@ namespace ReaLTaiizor.Controls
         [Browsable(true)]
         public int Sensitivity
         {
-            get => sensitivity;
+            get;
             set
             {
-                sensitivity = value;
+                field = value;
 
-                if (sensitivity > 10)
+                if (field > 10)
                 {
-                    sensitivity = 10;
+                    field = 10;
                 }
 
-                if (sensitivity < 1)
+                if (field < 1)
                 {
-                    sensitivity = 1;
+                    field = 1;
                 }
             }
-        }
+        } = 3;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -72,26 +72,25 @@ namespace ReaLTaiizor.Controls
         [Browsable(true)]
         public Color JoyStickColor
         {
-            get => joyStickColor;
+            get;
             set
             {
-                joyStickColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DodgerBlue;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -198,7 +197,7 @@ namespace ReaLTaiizor.Controls
 
                 graphics.FillRectangle(new SolidBrush(BackColor), -1, -1, base.Width + 1, base.Height + 1);
                 graphics.DrawImage(new Bitmap(BackgroundImage, new Size(base.Width, base.Height)), 0, 0);
-                graphics.FillPie(new SolidBrush(joyStickColor), new Rectangle(num, num2, base.Width / 6 * 2, base.Height / 6 * 2), 0f, 360f);
+                graphics.FillPie(new SolidBrush(JoyStickColor), new Rectangle(num, num2, base.Width / 6 * 2, base.Height / 6 * 2), 0f, 360f);
 
                 ng.DrawImage(image, 0, 0);
 
@@ -223,7 +222,7 @@ namespace ReaLTaiizor.Controls
 
             graphics.FillRectangle(new SolidBrush(BackColor), -1, -1, base.Width + 1, base.Height + 1);
             graphics.DrawImage(new Bitmap(BackgroundImage, new Size(base.Width, base.Height)), 0, 0);
-            graphics.FillPie(new SolidBrush(joyStickColor), new Rectangle(base.Width / 6 * 2, base.Height / 6 * 2, base.Width / 6 * 2, base.Height / 6 * 2), 0f, 360f);
+            graphics.FillPie(new SolidBrush(JoyStickColor), new Rectangle(base.Width / 6 * 2, base.Height / 6 * 2, base.Width / 6 * 2, base.Height / 6 * 2), 0f, 360f);
 
             ng.DrawImage(image, 0, 0);
 
@@ -239,7 +238,7 @@ namespace ReaLTaiizor.Controls
 
             graphics.FillRectangle(new SolidBrush(BackColor), -1, -1, base.Width + 1, base.Height + 1);
             graphics.DrawImage(new Bitmap(BackgroundImage, new Size(base.Width, base.Height)), 0, 0);
-            graphics.FillPie(new SolidBrush(joyStickColor), new Rectangle(base.Width / 6 * 2, base.Height / 6 * 2, base.Width / 6 * 2, base.Height / 6 * 2), 0f, 360f);
+            graphics.FillPie(new SolidBrush(JoyStickColor), new Rectangle(base.Width / 6 * 2, base.Height / 6 * 2, base.Width / 6 * 2, base.Height / 6 * 2), 0f, 360f);
 
             graphics.DrawImage(image, 0, 0);
 
@@ -263,18 +262,18 @@ namespace ReaLTaiizor.Controls
                 {
                     if (JoystickDirection == Direction.UpperLeft)
                     {
-                        if (MovableObject.Location.X - sensitivity > -1)
+                        if (MovableObject.Location.X - Sensitivity > -1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X - Sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
                             MovableObject.Location = new Point(0, MovableObject.Location.Y);
                         }
 
-                        if (MovableObject.Location.Y - sensitivity > -1)
+                        if (MovableObject.Location.Y - Sensitivity > -1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - Sensitivity);
                         }
                         else
                         {
@@ -284,9 +283,9 @@ namespace ReaLTaiizor.Controls
 
                     if (JoystickDirection == Direction.UpperCenter)
                     {
-                        if (MovableObject.Location.Y - sensitivity > -1)
+                        if (MovableObject.Location.Y - Sensitivity > -1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - Sensitivity);
                         }
                         else
                         {
@@ -296,18 +295,18 @@ namespace ReaLTaiizor.Controls
 
                     if (JoystickDirection == Direction.UpperRight)
                     {
-                        if (MovableObject.Location.X + MovableObject.Width + sensitivity < MovableObject.Parent.Width - 1)
+                        if (MovableObject.Location.X + MovableObject.Width + Sensitivity < MovableObject.Parent.Width - 1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X + Sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
                             MovableObject.Location = new Point(MovableObject.Parent.Width - MovableObject.Width, MovableObject.Location.Y);
                         }
 
-                        if (MovableObject.Location.Y - sensitivity > -1)
+                        if (MovableObject.Location.Y - Sensitivity > -1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - Sensitivity);
                         }
                         else
                         {
@@ -317,9 +316,9 @@ namespace ReaLTaiizor.Controls
 
                     if (JoystickDirection == Direction.MiddleLeft)
                     {
-                        if (MovableObject.Location.X - sensitivity > -1)
+                        if (MovableObject.Location.X - Sensitivity > -1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X - Sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
@@ -329,9 +328,9 @@ namespace ReaLTaiizor.Controls
 
                     if (JoystickDirection == Direction.MiddleRight)
                     {
-                        if (MovableObject.Location.X + MovableObject.Width + sensitivity < MovableObject.Parent.Width - 1)
+                        if (MovableObject.Location.X + MovableObject.Width + Sensitivity < MovableObject.Parent.Width - 1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X + Sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
@@ -341,18 +340,18 @@ namespace ReaLTaiizor.Controls
 
                     if (JoystickDirection == Direction.LowerLeft)
                     {
-                        if (MovableObject.Location.X - sensitivity > -1)
+                        if (MovableObject.Location.X - Sensitivity > -1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X - Sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
                             MovableObject.Location = new Point(0, MovableObject.Location.Y);
                         }
 
-                        if (MovableObject.Location.Y + MovableObject.Height + sensitivity < MovableObject.Parent.Height - 1)
+                        if (MovableObject.Location.Y + MovableObject.Height + Sensitivity < MovableObject.Parent.Height - 1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + Sensitivity);
                         }
                         else
                         {
@@ -362,9 +361,9 @@ namespace ReaLTaiizor.Controls
 
                     if (JoystickDirection == Direction.LowerCenter)
                     {
-                        if (MovableObject.Location.Y + MovableObject.Height + sensitivity < MovableObject.Parent.Height - 1)
+                        if (MovableObject.Location.Y + MovableObject.Height + Sensitivity < MovableObject.Parent.Height - 1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + Sensitivity);
                         }
                         else
                         {
@@ -374,18 +373,18 @@ namespace ReaLTaiizor.Controls
 
                     if (JoystickDirection == Direction.LowerRight)
                     {
-                        if (MovableObject.Location.X + MovableObject.Width + sensitivity < MovableObject.Parent.Width - 1)
+                        if (MovableObject.Location.X + MovableObject.Width + Sensitivity < MovableObject.Parent.Width - 1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y);
+                            MovableObject.Location = new Point(MovableObject.Location.X + Sensitivity, MovableObject.Location.Y);
                         }
                         else
                         {
                             MovableObject.Location = new Point(MovableObject.Parent.Width - MovableObject.Width, MovableObject.Location.Y);
                         }
 
-                        if (MovableObject.Location.Y + MovableObject.Height + sensitivity < MovableObject.Parent.Height - 1)
+                        if (MovableObject.Location.Y + MovableObject.Height + Sensitivity < MovableObject.Parent.Height - 1)
                         {
-                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + sensitivity);
+                            MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + Sensitivity);
                         }
                         else
                         {
@@ -397,42 +396,42 @@ namespace ReaLTaiizor.Controls
                 {
                     if (JoystickDirection == Direction.UpperCenter)
                     {
-                        MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y - Sensitivity);
                     }
 
                     if (JoystickDirection == Direction.UpperLeft)
                     {
-                        MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y - sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X - Sensitivity, MovableObject.Location.Y - Sensitivity);
                     }
 
                     if (JoystickDirection == Direction.UpperRight)
                     {
-                        MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y - sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X + Sensitivity, MovableObject.Location.Y - Sensitivity);
                     }
 
                     if (JoystickDirection == Direction.MiddleLeft)
                     {
-                        MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y);
+                        MovableObject.Location = new Point(MovableObject.Location.X - Sensitivity, MovableObject.Location.Y);
                     }
 
                     if (JoystickDirection == Direction.MiddleRight)
                     {
-                        MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y);
+                        MovableObject.Location = new Point(MovableObject.Location.X + Sensitivity, MovableObject.Location.Y);
                     }
 
                     if (JoystickDirection == Direction.LowerLeft)
                     {
-                        MovableObject.Location = new Point(MovableObject.Location.X - sensitivity, MovableObject.Location.Y + sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X - Sensitivity, MovableObject.Location.Y + Sensitivity);
                     }
 
                     if (JoystickDirection == Direction.LowerCenter)
                     {
-                        MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X, MovableObject.Location.Y + Sensitivity);
                     }
 
                     if (JoystickDirection == Direction.LowerRight)
                     {
-                        MovableObject.Location = new Point(MovableObject.Location.X + sensitivity, MovableObject.Location.Y + sensitivity);
+                        MovableObject.Location = new Point(MovableObject.Location.X + Sensitivity, MovableObject.Location.Y + Sensitivity);
                     }
                 }
 
@@ -441,12 +440,7 @@ namespace ReaLTaiizor.Controls
         }
 
         private readonly Graphics ng;
-        private int sensitivity = 3;
-
         private Image backgroundImage;
-
-        private Color joyStickColor = Color.DodgerBlue;
-
         private bool moveStick;
 
         public enum Direction

@@ -24,37 +24,35 @@ namespace ReaLTaiizor.Controls
 
         #region Settings
 
-        private int _minValue = 0;
         public int MinValue
         {
-            get => _minValue;
+            get;
             set
             {
-                if (value > _maxValue || value > _value)
+                if (value > MaxValue || value > _value)
                 {
                     return;
                 }
 
-                _minValue = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 0;
 
-        private int _maxValue = 10;
         public int MaxValue
         {
-            get => _maxValue;
+            get;
             set
             {
-                if (value < _minValue || value < _value)
+                if (value < MinValue || value < _value)
                 {
                     return;
                 }
 
-                _maxValue = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 10;
 
         private int _value = 0;
         public int Value
@@ -62,133 +60,122 @@ namespace ReaLTaiizor.Controls
             get => _value;
             set
             {
-                _value = value >= _minValue && value <= _maxValue ? value : _minValue;
+                _value = value >= MinValue && value <= MaxValue ? value : MinValue;
                 Invalidate();
             }
         }
 
-        private bool _showValue = false;
         public bool ShowValue
         {
-            get => _showValue;
+            get;
             set
             {
-                _showValue = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
-        private bool _AlwaysValueVisible = false;
         public bool AlwaysValueVisible
         {
-            get => _AlwaysValueVisible;
+            get;
             set
             {
-                _AlwaysValueVisible = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
-        private int ValueWidth => Convert.ToInt32(_value * (Width - 30) / (_maxValue - _minValue));
+        private int ValueWidth => Convert.ToInt32(_value * (Width - 30) / (MaxValue - MinValue));
 
-        private Color _themeColor = HopeColors.PrimaryColor;
         public Color ThemeColor
         {
-            get => _themeColor;
+            get;
             set
             {
-                _themeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.PrimaryColor;
 
-        private Color _BaseColor = Color.FromArgb(44, 55, 66);
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(44, 55, 66);
 
-        private Color _BarColor = RoundRectangle.BackColor;
         public Color BarColor
         {
-            get => _BarColor;
+            get;
             set
             {
-                _BarColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = RoundRectangle.BackColor;
 
-        private Color _BallonColor = HopeColors.PrimaryColor;
         public Color BallonColor
         {
-            get => _BallonColor;
+            get;
             set
             {
-                _BallonColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.PrimaryColor;
 
-        private Color _BallonArrowColor = HopeColors.PrimaryColor;
         public Color BallonArrowColor
         {
-            get => _BallonArrowColor;
+            get;
             set
             {
-                _BallonArrowColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.PrimaryColor;
 
-        private Color _FillBarColor = HopeColors.PrimaryColor;
         public Color FillBarColor
         {
-            get => _FillBarColor;
+            get;
             set
             {
-                _FillBarColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.PrimaryColor;
 
-        private Color _HeadBorderColor = Color.DodgerBlue;
         public Color HeadBorderColor
         {
-            get => _HeadBorderColor;
+            get;
             set
             {
-                _HeadBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DodgerBlue;
 
-        private Color _HeadColor = Color.Black;
         public Color HeadColor
         {
-            get => _HeadColor;
+            get;
             set
             {
-                _HeadColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
-        private Color _UnknownColor = Color.White;
         public Color UnknownColor
         {
-            get => _UnknownColor;
+            get;
             set
             {
-                _UnknownColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         #endregion
 
@@ -196,7 +183,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            Height = _showValue ? 45 : 16;
+            Height = ShowValue ? 45 : 16;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -214,7 +201,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             if (mouseFlat && e.X > -1 && e.X < (Width + 1))
             {
-                _value = _minValue + Convert.ToInt32((_maxValue - _minValue) * (e.X / (float)Width));
+                _value = MinValue + Convert.ToInt32((MaxValue - MinValue) * (e.X / (float)Width));
                 Invalidate();
             }
         }
@@ -234,12 +221,12 @@ namespace ReaLTaiizor.Controls
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            graphics.Clear(_BaseColor);
+            graphics.Clear(BaseColor);
 
-            if (ShowValue && (mouseFlat || _AlwaysValueVisible))
+            if (ShowValue && (mouseFlat || AlwaysValueVisible))
             {
-                graphics.FillEllipse(new SolidBrush(_BallonColor), new RectangleF(ValueWidth - 2 + 5, 1, 18, 18));
-                graphics.FillPolygon(new SolidBrush(_BallonArrowColor), new PointF[]
+                graphics.FillEllipse(new SolidBrush(BallonColor), new RectangleF(ValueWidth - 2 + 5, 1, 18, 18));
+                graphics.FillPolygon(new SolidBrush(BallonArrowColor), new PointF[]
                 {
                     new(ValueWidth + 1.305F - 2 + 5,13.5F + 1),
                     new(ValueWidth + 7.794F + 9-2 + 5,13.5F + 1),
@@ -248,11 +235,11 @@ namespace ReaLTaiizor.Controls
                 graphics.DrawString(_value.ToString(), Font, new SolidBrush(ForeColor), new RectangleF(ValueWidth - 2 + 5, 2, 18, 18), HopeStringAlign.Center);
             }
 
-            graphics.FillRectangle(new SolidBrush(_BarColor), new RectangleF(15, Height - 10, Width - 30, 4));
-            graphics.FillRectangle(new SolidBrush(_UnknownColor), new RectangleF(15, Height - 10, ValueWidth, 4));
-            graphics.FillRectangle(new SolidBrush(_FillBarColor), new RectangleF(15, Height - 10, ValueWidth, 4));
-            graphics.FillEllipse(new SolidBrush(_HeadBorderColor), new RectangleF(ValueWidth + 5, Height - 17, 16, 16));
-            graphics.FillEllipse(new SolidBrush(_HeadColor), new RectangleF(ValueWidth + 8, Height - 14, 10, 10));
+            graphics.FillRectangle(new SolidBrush(BarColor), new RectangleF(15, Height - 10, Width - 30, 4));
+            graphics.FillRectangle(new SolidBrush(UnknownColor), new RectangleF(15, Height - 10, ValueWidth, 4));
+            graphics.FillRectangle(new SolidBrush(FillBarColor), new RectangleF(15, Height - 10, ValueWidth, 4));
+            graphics.FillEllipse(new SolidBrush(HeadBorderColor), new RectangleF(ValueWidth + 5, Height - 17, 16, 16));
+            graphics.FillEllipse(new SolidBrush(HeadColor), new RectangleF(ValueWidth + 8, Height - 14, 10, 10));
         }
 
         public HopeTrackBar()

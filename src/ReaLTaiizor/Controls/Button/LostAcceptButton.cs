@@ -13,33 +13,29 @@ namespace ReaLTaiizor.Controls
 
     public class LostAcceptButton : ControlLostBase
     {
-        private Image _image = null;
         public Image Image
         {
-            get => _image;
-            set { _image = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = null;
 
-        private Color _hovercolor = Color.ForestGreen;
         public Color HoverColor
         {
-            get => _hovercolor;
-            set { _hovercolor = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = Color.ForestGreen;
 
-        private Color _backcolor = Color.SeaGreen;
         public Color BackColor
         {
-            get => _backcolor;
-            set { _backcolor = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = Color.SeaGreen;
 
-        private Color _forecolor = Color.White;
         public Color ForeColor
         {
-            get => _forecolor;
-            set { _forecolor = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = Color.White;
 
         public LostAcceptButton() : base()
         {
@@ -50,12 +46,12 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
-            pevent.Graphics.FillRectangle(MouseOver ? new SolidBrush(_hovercolor) : new SolidBrush(_backcolor), ClientRectangle);
+            pevent.Graphics.FillRectangle(MouseOver ? new SolidBrush(HoverColor) : new SolidBrush(BackColor), ClientRectangle);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(MouseOver ? new SolidBrush(_hovercolor) : new SolidBrush(_backcolor), ClientRectangle);
+            e.Graphics.FillRectangle(MouseOver ? new SolidBrush(HoverColor) : new SolidBrush(BackColor), ClientRectangle);
 
             if (BackgroundImage != null)
             {
@@ -63,7 +59,7 @@ namespace ReaLTaiizor.Controls
             }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);
-            e.Graphics.DrawString(Text, Font, new SolidBrush(_forecolor), (Width / 2) - (textSize.Width / 2), (Height / 2) - (textSize.Height / 2));
+            e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), (Width / 2) - (textSize.Width / 2), (Height / 2) - (textSize.Height / 2));
         }
 
         /*

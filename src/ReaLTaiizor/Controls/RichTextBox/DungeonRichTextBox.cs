@@ -19,9 +19,6 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         public RichTextBox DungeonRTB = new();
-        private bool _ReadOnly;
-        private bool _WordWrap;
-        private bool _AutoWordSelection;
         private GraphicsPath Shape;
         private Pen P1;
 
@@ -45,10 +42,10 @@ namespace ReaLTaiizor.Controls
         }
         public bool ReadOnly
         {
-            get => _ReadOnly;
+            get;
             set
             {
-                _ReadOnly = value;
+                field = value;
                 if (DungeonRTB != null)
                 {
                     DungeonRTB.ReadOnly = value;
@@ -57,10 +54,10 @@ namespace ReaLTaiizor.Controls
         }
         public bool WordWrap
         {
-            get => _WordWrap;
+            get;
             set
             {
-                _WordWrap = value;
+                field = value;
                 if (DungeonRTB != null)
                 {
                     DungeonRTB.WordWrap = value;
@@ -69,10 +66,10 @@ namespace ReaLTaiizor.Controls
         }
         public bool AutoWordSelection
         {
-            get => _AutoWordSelection;
+            get;
             set
             {
-                _AutoWordSelection = value;
+                field = value;
                 if (DungeonRTB != null)
                 {
                     DungeonRTB.AutoWordSelection = value;

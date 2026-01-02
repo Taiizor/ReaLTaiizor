@@ -157,7 +157,7 @@
             // foreverListBox1
             // 
             this.foreverListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(25)))), ((int)(((byte)(35)))));
-            this.foreverListBox1.items = new string[] {
+            this.foreverListBox1.Items = new string[] {
         "Item 1",
         "Item 2",
         "Item 3"};

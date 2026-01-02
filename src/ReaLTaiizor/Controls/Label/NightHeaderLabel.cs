@@ -15,62 +15,58 @@ namespace ReaLTaiizor.Controls
     {
         #region Properties
 
-        private PanelSide _Side;
         [Browsable(true)]
         [Description("Determines the foreground color of the label according to which side it is placed on.")]
         public PanelSide Side
         {
-            get => _Side;
+            get;
             set
             {
-                _Side = value;
+                field = value;
                 switch (value)
                 {
                     case PanelSide.LeftPanel:
-                        ForeColor = _LeftSideForeColor;
+                        ForeColor = LeftSideForeColor;
                         break;
                     case PanelSide.RightPanel:
-                        ForeColor = _RightSideForeColor;
+                        ForeColor = RightSideForeColor;
                         break;
                 }
                 Invalidate();
             }
         }
 
-        private Color _LeftSideForeColor = ColorTranslator.FromHtml("#FAFAFA");
         public Color LeftSideForeColor
         {
-            get => _LeftSideForeColor;
+            get;
             set
             {
-                _LeftSideForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#FAFAFA");
 
-        private Color _RightSideForeColor = ColorTranslator.FromHtml("#AAABB0");
         public Color RightSideForeColor
         {
-            get => _RightSideForeColor;
+            get;
             set
             {
-                _RightSideForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#AAABB0");
 
-        private TextRenderingHint _TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
         [Browsable(true)]
         [Description("Specifies the quality of text rendering.")]
         public TextRenderingHint TextRenderingHint
         {
-            get => _TextRenderingHint;
+            get;
             set
             {
-                _TextRenderingHint = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.AntiAliasGridFit;
 
         #endregion
 
@@ -88,7 +84,7 @@ namespace ReaLTaiizor.Controls
         {
             Font = new("Microsoft Sans Serif", 22, FontStyle.Regular, GraphicsUnit.Point);
             TextAlign = ContentAlignment.MiddleCenter;
-            ForeColor = _RightSideForeColor;
+            ForeColor = RightSideForeColor;
             BackColor = Color.Transparent;
             UseCompatibleTextRendering = true;
         }
@@ -101,7 +97,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.TextRenderingHint = _TextRenderingHint;
+            e.Graphics.TextRenderingHint = TextRenderingHint;
             base.OnPaint(e);
         }
     }

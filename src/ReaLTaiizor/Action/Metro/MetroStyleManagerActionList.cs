@@ -47,8 +47,8 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            DesignerActionItemCollection items = new()
-            {
+            DesignerActionItemCollection items =
+            [
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("OwnerForm", "OwnerForm", "Metro", "Gets or sets the form (MetroForm) to Apply themes for."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
@@ -57,7 +57,7 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionHeaderItem("Information"),
                 new DesignerActionPropertyItem("ThemeName", "ThemeName", "Information", "Gets or sets the The Theme name associated with the theme."),
                 new DesignerActionPropertyItem("ThemeAuthor", "ThemeAuthor", "Information", "Gets or sets the The Author name associated with the theme."),
-            };
+            ];
             return items;
         }
     }

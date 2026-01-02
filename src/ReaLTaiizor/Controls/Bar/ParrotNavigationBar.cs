@@ -27,12 +27,12 @@ namespace ReaLTaiizor.Controls
         [Description("The navigation bar style")]
         public Style NavBarStyle
         {
-            get => navBarStyle;
+            get;
             set
             {
-                if (navBarStyle != value)
+                if (field != value)
                 {
-                    navBarStyle = value;
+                    field = value;
 
                     if (value == Style.iOS)
                     {
@@ -63,114 +63,114 @@ namespace ReaLTaiizor.Controls
         [Description("The color of the items")]
         public Color ItemColor
         {
-            get => itemColor;
+            get;
             set
             {
-                itemColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the title")]
         public Color TitleColor
         {
-            get => titleColor;
+            get;
             set
             {
-                titleColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the title")]
         public Color BackgroundColor
         {
-            get => backgroundColor;
+            get;
             set
             {
-                backgroundColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The left navigation item")]
         public NavigationItem LeftItem
         {
-            get => leftItem;
+            get;
             set
             {
-                leftItem = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = NavigationItem.Back;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The right navigation item")]
         public NavigationItem RightItem
         {
-            get => rightItem;
+            get;
             set
             {
-                rightItem = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = NavigationItem.Next;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The navigation bar title")]
         public string Title
         {
-            get => title;
+            get;
             set
             {
-                title = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "Navigation Bar";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text of the left item if set to CustomText")]
         public string LeftCustomText
         {
-            get => leftCustomText;
+            get;
             set
             {
-                leftCustomText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "⫷⩶";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text of the right item if set to CustomText")]
         public string RightCustomText
         {
-            get => rightCustomText;
+            get;
             set
             {
-                rightCustomText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "⩶⫸";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The image of the left item if set to CustomImage")]
         public Image LeftCustomImage
         {
-            get => leftCustomImage;
+            get;
             set
             {
-                leftCustomImage = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -180,10 +180,10 @@ namespace ReaLTaiizor.Controls
         [Description("The image of the right item if set to CustomImage")]
         public Image RightCustomImage
         {
-            get => rightCustomImage;
+            get;
             set
             {
-                rightCustomImage = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -193,58 +193,55 @@ namespace ReaLTaiizor.Controls
         [Description("The navigation bar interaction")]
         public bool Interaction
         {
-            get => interaction;
+            get;
             set
             {
-                interaction = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBilinear;
         [Category("Parrot")]
         [Browsable(true)]
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBilinear;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
-            if (interaction && cursor == null)
+            if (Interaction && cursor == null)
             {
                 cursor = Cursor;
             }
@@ -255,74 +252,74 @@ namespace ReaLTaiizor.Controls
 
             FontStyle style = FontStyle.Bold;
 
-            if (navBarStyle == Style.iOS)
+            if (NavBarStyle == Style.iOS)
             {
                 style = FontStyle.Regular;
             }
 
-            e.Graphics.FillRectangle(new SolidBrush(backgroundColor), 0, 0, base.Width, base.Height);
+            e.Graphics.FillRectangle(new SolidBrush(BackgroundColor), 0, 0, base.Width, base.Height);
             StringFormat stringFormat = new()
             {
                 LineAlignment = StringAlignment.Center,
                 Alignment = StringAlignment.Near
             };
 
-            if (leftItem == NavigationItem.Back)
+            if (LeftItem == NavigationItem.Back)
             {
-                e.Graphics.DrawString("Back", Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString("Back", Font, new SolidBrush(ItemColor), base.ClientRectangle, stringFormat);
             }
-            else if (leftItem == NavigationItem.Next)
+            else if (LeftItem == NavigationItem.Next)
             {
-                e.Graphics.DrawString("Next", Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString("Next", Font, new SolidBrush(ItemColor), base.ClientRectangle, stringFormat);
             }
-            else if (leftItem == NavigationItem.CustomText)
+            else if (LeftItem == NavigationItem.CustomText)
             {
-                e.Graphics.DrawString(leftCustomText, Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString(LeftCustomText, Font, new SolidBrush(ItemColor), base.ClientRectangle, stringFormat);
             }
-            else if (leftItem == NavigationItem.Menu)
+            else if (LeftItem == NavigationItem.Menu)
             {
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Height / 5, base.Height / 4, base.Height / 5 * 4, base.Height / 4);
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Height / 5, base.Height / 4 * 2, base.Height / 5 * 4, base.Height / 4 * 2);
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Height / 5, base.Height / 4 * 3, base.Height / 5 * 4, base.Height / 4 * 3);
+                e.Graphics.DrawLine(new Pen(ItemColor, 2f), base.Height / 5, base.Height / 4, base.Height / 5 * 4, base.Height / 4);
+                e.Graphics.DrawLine(new Pen(ItemColor, 2f), base.Height / 5, base.Height / 4 * 2, base.Height / 5 * 4, base.Height / 4 * 2);
+                e.Graphics.DrawLine(new Pen(ItemColor, 2f), base.Height / 5, base.Height / 4 * 3, base.Height / 5 * 4, base.Height / 4 * 3);
             }
-            else if (leftItem == NavigationItem.CustomImage && leftCustomImage != null)
+            else if (LeftItem == NavigationItem.CustomImage && LeftCustomImage != null)
             {
-                e.Graphics.DrawImage(new Bitmap(leftCustomImage, base.Height, base.Height), 0, 0);
+                e.Graphics.DrawImage(new Bitmap(LeftCustomImage, base.Height, base.Height), 0, 0);
             }
 
             stringFormat.Alignment = StringAlignment.Center;
-            e.Graphics.DrawString(title, new Font(Font.FontFamily, Font.Size, style), new SolidBrush(titleColor), base.ClientRectangle, stringFormat);
+            e.Graphics.DrawString(Title, new Font(Font.FontFamily, Font.Size, style), new SolidBrush(TitleColor), base.ClientRectangle, stringFormat);
             stringFormat.Alignment = StringAlignment.Far;
 
-            if (rightItem == NavigationItem.Back)
+            if (RightItem == NavigationItem.Back)
             {
-                e.Graphics.DrawString("Back", Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString("Back", Font, new SolidBrush(ItemColor), base.ClientRectangle, stringFormat);
                 return;
             }
 
-            if (rightItem == NavigationItem.Next)
+            if (RightItem == NavigationItem.Next)
             {
-                e.Graphics.DrawString("Next", Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString("Next", Font, new SolidBrush(ItemColor), base.ClientRectangle, stringFormat);
                 return;
             }
 
-            if (rightItem == NavigationItem.CustomText)
+            if (RightItem == NavigationItem.CustomText)
             {
-                e.Graphics.DrawString(rightCustomText, Font, new SolidBrush(itemColor), base.ClientRectangle, stringFormat);
+                e.Graphics.DrawString(RightCustomText, Font, new SolidBrush(ItemColor), base.ClientRectangle, stringFormat);
                 return;
             }
 
-            if (rightItem == NavigationItem.Menu)
+            if (RightItem == NavigationItem.Menu)
             {
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4);
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4 * 2, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4 * 2);
-                e.Graphics.DrawLine(new Pen(itemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4 * 3, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4 * 3);
+                e.Graphics.DrawLine(new Pen(ItemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4);
+                e.Graphics.DrawLine(new Pen(ItemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4 * 2, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4 * 2);
+                e.Graphics.DrawLine(new Pen(ItemColor, 2f), base.Width - base.Height + (base.Height / 5), base.Height / 4 * 3, base.Width - base.Height + (base.Height / 5 * 4), base.Height / 4 * 3);
                 return;
             }
 
-            if (rightItem == NavigationItem.CustomImage && rightCustomImage != null)
+            if (RightItem == NavigationItem.CustomImage && RightCustomImage != null)
             {
-                e.Graphics.DrawImage(new Bitmap(rightCustomImage, base.Height, base.Height), base.Width - base.Height, 0);
+                e.Graphics.DrawImage(new Bitmap(RightCustomImage, base.Height, base.Height), base.Width - base.Height, 0);
             }
         }
 
@@ -343,7 +340,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            if (interaction)
+            if (Interaction)
             {
                 if (e.X < base.Width / 3)
                 {
@@ -359,7 +356,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (interaction)
+            if (Interaction)
             {
                 if (e.X < base.Width / 3 || e.X > base.Width / 3 * 2)
                 {
@@ -372,31 +369,7 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private Style navBarStyle;
-
-        private Color itemColor = Color.White;
-
-        private Color titleColor = Color.White;
-
-        private Color backgroundColor = Color.White;
-
-        private NavigationItem leftItem = NavigationItem.Back;
-
-        private NavigationItem rightItem = NavigationItem.Next;
-
-        private string title = "Navigation Bar";
-
-        private string leftCustomText = "⫷⩶";
-
-        private string rightCustomText = "⩶⫸";
-
-        private Image leftCustomImage;
-
-        private Image rightCustomImage;
-
         private Cursor cursor;
-
-        private bool interaction = true;
 
         public enum NavigationItem
         {

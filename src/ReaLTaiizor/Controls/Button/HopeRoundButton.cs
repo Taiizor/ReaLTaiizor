@@ -23,27 +23,25 @@ namespace ReaLTaiizor.Controls
 
         #region Settings
 
-        private HopeButtonType _buttonType = HopeButtonType.Primary;
         public HopeButtonType ButtonType
         {
-            get => _buttonType;
+            get;
             set
             {
-                _buttonType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeButtonType.Primary;
 
-        private Color _textColor = Color.White;
         public Color TextColor
         {
-            get => _textColor;
+            get;
             set
             {
-                _textColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color DefaultColor { get; set; } = HopeColors.DefaultColor;
 
@@ -95,9 +93,13 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
+            graphics.PageUnit = GraphicsUnit.Pixel;
             graphics.SmoothingMode = SmoothingMode.HighQuality;
+            graphics.CompositingMode = CompositingMode.SourceOver;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            graphics.CompositingQuality = CompositingQuality.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             graphics.Clear(Parent.BackColor);
 
             GraphicsPath backPath = new();
@@ -105,16 +107,16 @@ namespace ReaLTaiizor.Controls
             backPath.AddArc(new RectangleF(Width - Height + 0.5f, 0.5f, Height - 1, Height - 1), 270, 180);
             backPath.CloseAllFigures();
 
-            if (_buttonType == HopeButtonType.Default)
+            if (ButtonType == HopeButtonType.Default)
             {
                 graphics.DrawPath(new(clickFlag ? DefaultColor : BorderColor, 1), backPath);
                 graphics.FillPath(new SolidBrush(enterFlag ? Color.FromArgb(25, DefaultColor) : DefaultColor), backPath);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : _textColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : TextColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }
             else
             {
                 Color backColor = DefaultColor;
-                switch (_buttonType)
+                switch (ButtonType)
                 {
                     case HopeButtonType.Primary:
                         backColor = PrimaryColor;
@@ -136,7 +138,7 @@ namespace ReaLTaiizor.Controls
                 }
                 SolidBrush brush = new(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : backColor);
                 graphics.FillPath(brush, backPath);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : _textColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : TextColor), new RectangleF(Height / 2, 0, Width - Height, Height), HopeStringAlign.Center);
             }
         }
 

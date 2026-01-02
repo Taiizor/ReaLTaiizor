@@ -29,10 +29,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -55,8 +55,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -76,19 +76,7 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
         private int _startIndex;
-
-        private bool _isDerivedStyle = true;
-        private Color _backgroundColor;
-        private Color _borderColor;
-        private Color _arrowColor;
-        private Color _selectedItemForeColor;
-        private Color _selectedItemBackColor;
-        private Color _disabledBackColor;
-        private Color _disabledForeColor;
-        private Color _disabledBorderColor;
 
         #endregion Internal Vars
 
@@ -154,10 +142,10 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get => _backgroundColor;
+            get;
             set
             {
-                _backgroundColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -165,10 +153,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -176,10 +164,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro")]
         public Color ArrowColor
         {
-            get => _arrowColor;
+            get;
             set
             {
-                _arrowColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -187,10 +175,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro")]
         public Color SelectedItemForeColor
         {
-            get => _selectedItemForeColor;
+            get;
             set
             {
-                _selectedItemForeColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -198,10 +186,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro")]
         public Color SelectedItemBackColor
         {
-            get => _selectedItemBackColor;
+            get;
             set
             {
-                _selectedItemBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -209,10 +197,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro")]
         public Color DisabledBackColor
         {
-            get => _disabledBackColor;
+            get;
             set
             {
-                _disabledBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -220,10 +208,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro")]
         public Color DisabledForeColor
         {
-            get => _disabledForeColor;
+            get;
             set
             {
-                _disabledForeColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -231,10 +219,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro")]
         public Color DisabledBorderColor
         {
-            get => _disabledBorderColor;
+            get;
             set
             {
-                _disabledBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -244,13 +232,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion
 

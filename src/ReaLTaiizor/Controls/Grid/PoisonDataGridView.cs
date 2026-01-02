@@ -49,68 +49,65 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private ColorStyle poisonStyle = ColorStyle.Default;
         [Category("Poison Appearance")]
         [DefaultValue(ColorStyle.Default)]
         public ColorStyle Style
         {
             get
             {
-                if (DesignMode || poisonStyle != ColorStyle.Default)
+                if (DesignMode || field != ColorStyle.Default)
                 {
-                    return poisonStyle;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                if (StyleManager != null && field == ColorStyle.Default)
                 {
                     return StyleManager.Style;
                 }
 
-                if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                if (StyleManager == null && field == ColorStyle.Default)
                 {
                     return ColorStyle.Blue;
                 }
 
-                return poisonStyle;
+                return field;
             }
-            set { poisonStyle = value; StyleGrid(); }
-        }
+            set { field = value; StyleGrid(); }
+        } = ColorStyle.Default;
 
-        private ThemeStyle poisonTheme = ThemeStyle.Default;
         [Category("Poison Appearance")]
         [DefaultValue(ThemeStyle.Default)]
         public ThemeStyle Theme
         {
             get
             {
-                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                if (DesignMode || field != ThemeStyle.Default)
                 {
-                    return poisonTheme;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager != null && field == ThemeStyle.Default)
                 {
                     return StyleManager.Theme;
                 }
 
-                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager == null && field == ThemeStyle.Default)
                 {
                     return ThemeStyle.Light;
                 }
 
-                return poisonTheme;
+                return field;
             }
-            set { poisonTheme = value; StyleGrid(); }
-        }
+            set { field = value; StyleGrid(); }
+        } = ThemeStyle.Default;
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get => poisonStyleManager;
-            set { poisonStyleManager = value; StyleGrid(); }
-        }
+            get;
+            set { field = value; StyleGrid(); }
+        } = null;
 
         [DefaultValue(false)]
         [Category("Poison Appearance")]

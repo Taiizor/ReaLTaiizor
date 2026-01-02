@@ -29,10 +29,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -55,8 +55,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -75,12 +75,6 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
-
-        private bool _isDerivedStyle = true;
-        private DividerStyle _orientation;
-        private int _thickness;
 
         #endregion Internal Vars
 
@@ -194,10 +188,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets Orientation of the control.")]
         public DividerStyle Orientation
         {
-            get => _orientation;
+            get;
             set
             {
-                _orientation = value;
+                field = value;
                 Refresh();
             }
         }
@@ -205,10 +199,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the divider thickness.")]
         public int Thickness
         {
-            get => _thickness;
+            get;
             set
             {
-                _thickness = value;
+                field = value;
                 Refresh();
             }
         }
@@ -224,13 +218,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion Properties
 

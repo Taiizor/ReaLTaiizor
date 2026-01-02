@@ -35,13 +35,12 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        private bool _Checked;
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 InvalidateControls();
                 CheckedChanged?.Invoke(this);
                 Invalidate();
@@ -52,7 +51,7 @@ namespace ReaLTaiizor.Controls
         {
             if (mouse.X <= Height - 1 || mouse.Y <= Width - 1)
             {
-                if (!_Checked)
+                if (!Checked)
                 {
                     Checked = true;
                 }
@@ -73,7 +72,7 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked)
+            if (!IsHandleCreated || !Checked)
             {
                 return;
             }
@@ -89,19 +88,18 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region Variables
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         #endregion
 
         #region Settings
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public Color EllipseBorderColorA { get; set; } = Color.FromArgb(168, 168, 168);
 

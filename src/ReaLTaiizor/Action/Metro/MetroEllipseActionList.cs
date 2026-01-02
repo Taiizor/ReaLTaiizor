@@ -68,8 +68,8 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            DesignerActionItemCollection items = new()
-            {
+            DesignerActionItemCollection items =
+            [
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
@@ -84,7 +84,7 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("BorderThickness", "BorderThickness", "Appearance", "Gets or sets the border thickness associated with the control."),
                 new DesignerActionPropertyItem("Image", "Image", "Appearance", "Gets or sets the image associated with the control."),
                 new DesignerActionPropertyItem("ImageSize", "ImageSize", "Appearance", "Gets or sets the image size associated with the control."),
-            };
+            ];
             return items;
         }
     }

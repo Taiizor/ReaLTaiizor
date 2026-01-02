@@ -21,8 +21,6 @@ namespace ReaLTaiizor.Forms
         private bool Cap = false;
         private Point MousePoint = new(0, 0);
         private readonly int MoveHeight = 50;
-
-        private Image _Image; //Properties.Resources.Taiizor
         private Size _ImageSize;
         private const int wmNcHitTest = 0x84;
         private const int htLeft = 10;
@@ -67,7 +65,7 @@ namespace ReaLTaiizor.Forms
         [Category("Options")]
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -79,7 +77,7 @@ namespace ReaLTaiizor.Forms
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
             }
         }
 
@@ -260,7 +258,7 @@ namespace ReaLTaiizor.Forms
             _with2.FillRectangle(new SolidBrush(HeaderColor), Header);
 
             //-- Logo
-            if (_Image == null)
+            if (Image == null)
             {
                 _with2.FillRectangle(new SolidBrush(_TextLight), new Rectangle(8, 16, 4, 18));
                 _with2.FillRectangle(new SolidBrush(ForeverColor), 16, 16, 4, 18);
@@ -268,7 +266,7 @@ namespace ReaLTaiizor.Forms
             }
             else
             {
-                _with2.DrawImage(_Image, 12, 12, 27, 27);
+                _with2.DrawImage(Image, 12, 12, 27, 27);
                 _with2.DrawString(Text, HeaderTextFont, new SolidBrush(TextColor), new Rectangle(48, 15, W, H), ForeverLibrary.NearSF);
             }
 

@@ -15,13 +15,12 @@ namespace ReaLTaiizor.Controls
     {
         #region " Control Help - Properties & Flicker Control "
 
-        private int _StartIndex = 0;
         public int StartIndex
         {
-            get => _StartIndex;
+            get;
             set
             {
-                _StartIndex = value;
+                field = value;
                 try
                 {
                     base.SelectedIndex = value;
@@ -31,7 +30,7 @@ namespace ReaLTaiizor.Controls
                 }
                 Invalidate();
             }
-        }
+        } = 0;
 
         public void ReplaceItem(object sender, DrawItemEventArgs e)
         {
@@ -40,7 +39,7 @@ namespace ReaLTaiizor.Controls
             {
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                 {
-                    e.Graphics.FillRectangle(new SolidBrush(_highlightColor), e.Bounds);
+                    e.Graphics.FillRectangle(new SolidBrush(ItemHighlightColor), e.Bounds);
                     LinearGradientBrush gloss = new(e.Bounds, ListSelectedBackColorA, ListSelectedBackColorB, 90);
                     e.Graphics.FillRectangle(gloss, new Rectangle(new Point(e.Bounds.X, e.Bounds.Y), new Size(e.Bounds.Width, e.Bounds.Height)));
                     e.Graphics.DrawRectangle(new(ListBorderColor) { DashStyle = ListDashType }, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
@@ -61,41 +60,39 @@ namespace ReaLTaiizor.Controls
 
         protected void DrawTriangle(Color Clr, Point FirstPoint, Point SecondPoint, Point ThirdPoint, Graphics G)
         {
-            List<Point> points = new()
-            {
+            List<Point> points =
+            [
                 FirstPoint,
                 SecondPoint,
                 ThirdPoint
-            };
+            ];
             G.FillPolygon(new SolidBrush(Clr), points.ToArray());
         }
 
-        private Color _highlightColor = Color.FromArgb(121, 176, 214);
         public Color ItemHighlightColor
         {
-            get => _highlightColor;
+            get;
             set
             {
-                _highlightColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(121, 176, 214);
         #endregion
 
         #region Variables
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         #endregion
 
         #region Settings
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public Color BGColorA { get; set; } = Color.FromArgb(245, 245, 245);
 

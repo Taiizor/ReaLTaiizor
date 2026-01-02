@@ -56,59 +56,57 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private ColorStyle poisonStyle = ColorStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ColorStyle.Default)]
         public ColorStyle Style
         {
             get
             {
-                if (DesignMode || poisonStyle != ColorStyle.Default)
+                if (DesignMode || field != ColorStyle.Default)
                 {
-                    return poisonStyle;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                if (StyleManager != null && field == ColorStyle.Default)
                 {
                     return StyleManager.Style;
                 }
 
-                if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                if (StyleManager == null && field == ColorStyle.Default)
                 {
                     return PoisonDefaults.Style;
                 }
 
-                return poisonStyle;
+                return field;
             }
-            set => poisonStyle = value;
-        }
+            set;
+        } = ColorStyle.Default;
 
-        private ThemeStyle poisonTheme = ThemeStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ThemeStyle.Default)]
         public ThemeStyle Theme
         {
             get
             {
-                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                if (DesignMode || field != ThemeStyle.Default)
                 {
-                    return poisonTheme;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager != null && field == ThemeStyle.Default)
                 {
                     return StyleManager.Theme;
                 }
 
-                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager == null && field == ThemeStyle.Default)
                 {
                     return PoisonDefaults.Theme;
                 }
 
-                return poisonTheme;
+                return field;
             }
-            set => poisonTheme = value;
-        }
+            set;
+        } = ThemeStyle.Default;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -469,15 +467,14 @@ namespace ReaLTaiizor.Controls
             UpdateScrollbar();
         }
 
-        private bool allowSorting = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
         public bool AllowSorting
         {
-            get => allowSorting;
+            get;
             set
             {
-                allowSorting = value;
+                field = value;
                 if (!value)
                 {
                     lvwColumnSorter = null;
@@ -489,7 +486,7 @@ namespace ReaLTaiizor.Controls
                     ListViewItemSorter = lvwColumnSorter;
                 }
             }
-        }
+        } = false;
 
         private void PoisonListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {

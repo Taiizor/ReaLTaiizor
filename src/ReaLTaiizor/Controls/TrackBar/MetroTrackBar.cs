@@ -30,10 +30,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -56,8 +56,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -76,23 +76,12 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
         private bool _variable;
         private Rectangle _track;
         private int _maximum;
         private int _minimum;
         private int _value;
         private int _currentValue;
-
-        private bool _isDerivedStyle = true;
-        private Color _valueColor;
-        private Color _handlerColor;
-        private Color _backgroundColor;
-        private Color _disabledValueColor;
-        private Color _disabledBackColor;
-        private Color _disabledBorderColor;
-        private Color _disabledHandlerColor;
 
         #endregion Internal Vars
 
@@ -272,10 +261,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description(" Gets or sets the value color in normal mouse sate.")]
         public Color ValueColor
         {
-            get => _valueColor;
+            get;
             set
             {
-                _valueColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -283,10 +272,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the handler color.")]
         public Color HandlerColor
         {
-            get => _handlerColor;
+            get;
             set
             {
-                _handlerColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -295,10 +284,10 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get => _backgroundColor;
+            get;
             set
             {
-                _backgroundColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -306,10 +295,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the value of the control whenever while disabled.")]
         public Color DisabledValueColor
         {
-            get => _disabledValueColor;
+            get;
             set
             {
-                _disabledValueColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -317,10 +306,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
         public Color DisabledBackColor
         {
-            get => _disabledBackColor;
+            get;
             set
             {
-                _disabledBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -328,10 +317,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get => _disabledBorderColor;
+            get;
             set
             {
-                _disabledBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -339,10 +328,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the handler color while the control disabled.")]
         public Color DisabledHandlerColor
         {
-            get => _disabledHandlerColor;
+            get;
             set
             {
-                _disabledHandlerColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -352,13 +341,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion
 

@@ -15,7 +15,6 @@ namespace ReaLTaiizor.Controls
     {
         #region Field Region
 
-        private string _sectionHeader;
 
         #endregion
 
@@ -29,10 +28,10 @@ namespace ReaLTaiizor.Controls
         [Description("The section header text associated with this control.")]
         public string SectionHeader
         {
-            get => _sectionHeader;
+            get;
             set
             {
-                _sectionHeader = value;
+                field = value;
                 Invalidate();
             }
         }

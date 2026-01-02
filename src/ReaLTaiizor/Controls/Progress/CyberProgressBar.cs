@@ -34,55 +34,51 @@ namespace ReaLTaiizor.Controls
 
         #region Property Region
 
-        private int tmp_value_progressbar;
         [Category("Value")]
         [Description("Value [%]")]
         public int Value
         {
-            get => tmp_value_progressbar;
+            get;
             set
             {
                 if (value <= Maximum && value >= Minimum)
                 {
-                    tmp_value_progressbar = value;
+                    field = value;
                     Refresh();
                 }
             }
         }
 
-        private int tmp_min_progressbar;
         [Category("Value")]
         [Description("MIN value")]
         public int Minimum
         {
-            get => tmp_min_progressbar;
+            get;
             set
             {
                 if (value < Maximum)
                 {
-                    tmp_min_progressbar = value;
+                    field = value;
                     Refresh();
                 }
             }
         }
 
-        private int tmp_max_progressbar;
         [Category("Value")]
         [Description("MAX Value")]
         public int Maximum
         {
-            get => tmp_max_progressbar;
+            get;
             set
             {
                 if (value > Minimum)
                 {
-                    tmp_max_progressbar = value;
+                    field = value;
                     Refresh();
                 }
             }
         }
 
-        private int tmp_start_drawing_value;
         [Category("Value")]
         [Description(
         "Value at which Value (if (Value >= value) Drawing occurs).n" +
@@ -90,38 +86,36 @@ namespace ReaLTaiizor.Controls
         )]
         public int StartDrawingValue
         {
-            get => tmp_start_drawing_value;
+            get;
             set
             {
-                tmp_start_drawing_value = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool progress_text;
         [Category("Cyber")]
         [Description("On/Off text")]
         public bool ProgressText
         {
-            get => progress_text;
+            get;
             set
             {
-                progress_text = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_rgb_status;
         [Category("Cyber")]
         [Description("RGB On/Off")]
         public bool RGB
         {
-            get => tmp_rgb_status;
+            get;
             set
             {
-                tmp_rgb_status = value;
+                field = value;
 
-                if (tmp_rgb_status == true)
+                if (field == true)
                 {
                     timer_rgb.Stop();
                     if (!DrawEngine.GlobalRGB.Enabled)
@@ -156,342 +150,317 @@ namespace ReaLTaiizor.Controls
             set => timer_rgb.Interval = value;
         }
 
-        private Color tmp_color_progressbar;
         [Category("Cyber")]
         [Description("Fill color progressbar")]
         public Color ColorProgressBar
         {
-            get => tmp_color_progressbar;
+            get;
             set
             {
-                tmp_color_progressbar = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private int tmp_color_progressbar_transparency;
         [Category("Value")]
         [Description("Transparency of filling progressbar")]
         public int ColorValue_Transparency
         {
-            get => tmp_color_progressbar_transparency;
+            get;
             set
             {
                 if (value is >= 5 and <= 255)
                 {
-                    tmp_color_progressbar_transparency = value;
+                    field = value;
                     Refresh();
                 }
             }
         }
 
-        private bool tmp_rounding_status;
         [Category("Cyber")]
         [Description("On/Off rounding progressbar")]
         public bool Rounding
         {
-            get => tmp_rounding_status;
+            get;
             set
             {
-                tmp_rounding_status = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private int tmp_rounding_int;
         [Category("Cyber")]
         [Description("Percentage rounding")]
         public int RoundingInt
         {
-            get => tmp_rounding_int;
+            get;
             set
             {
                 if (value is >= 0 and <= 100)
                 {
-                    tmp_rounding_int = value;
+                    field = value;
                     Refresh();
                 }
             }
         }
 
-        private Color tmp_color_background;
         [Category("Cyber")]
         [Description("Background color")]
         public Color ColorBackground
         {
-            get => tmp_color_background;
+            get;
             set
             {
-                tmp_color_background = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_background;
         [Category("Cyber")]
         [Description("Background On/Off")]
         public bool Background
         {
-            get => tmp_background;
+            get;
             set
             {
-                tmp_background = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_background_pen;
         [Category("BorderStyle")]
         [Description("On/Off Border")]
         public bool BackgroundPen
         {
-            get => tmp_background_pen;
+            get;
             set
             {
-                tmp_background_pen = value;
+                field = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private float tmp_background_width_pen;
         [Category("BorderStyle")]
         [Description("Border size")]
         public float Background_WidthPen
         {
-            get => tmp_background_width_pen;
+            get;
             set
             {
-                tmp_background_width_pen = value;
+                field = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private Color tmp_color_Background_pen;
         [Category("BorderStyle")]
         [Description("Border color")]
         public Color ColorBackground_Pen
         {
-            get => tmp_color_Background_pen;
+            get;
             set
             {
-                tmp_color_Background_pen = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_lighting;
         [Category("Lighting")]
         [Description("On/Off backlight")]
         public bool Lighting
         {
-            get => tmp_lighting;
+            get;
             set
             {
-                tmp_lighting = value;
+                field = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private Color tmp_color_lighting;
         [Category("Lighting")]
         [Description("Backlight / Shadow Color")]
         public Color ColorLighting
         {
-            get => tmp_color_lighting;
+            get;
             set
             {
-                tmp_color_lighting = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private int tmp_alpha;
         [Category("Lighting")]
         [Description("Lighting alpha")]
         public int Alpha
         {
-            get => tmp_alpha;
+            get;
             set
             {
-                tmp_alpha = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private int tmp_pen_width;
         [Category("Lighting")]
         [Description("Lighting width")]
         public int PenWidth
         {
-            get => tmp_pen_width;
+            get;
             set
             {
-                tmp_pen_width = value;
+                field = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private bool tmp_lineargradient_Background_status;
         [Category("LinearGradient")]
         [Description("On/Off background gradient")]
         public bool LinearGradient_Background
         {
-            get => tmp_lineargradient_Background_status;
+            get;
             set
             {
-                tmp_lineargradient_Background_status = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_1_for_gradient_Background;
         [Category("LinearGradient")]
         [Description("Color #1 for background gradient")]
         public Color ColorBackground_1
         {
-            get => tmp_color_1_for_gradient_Background;
+            get;
             set
             {
-                tmp_color_1_for_gradient_Background = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_2_for_gradient_Background;
         [Category("LinearGradient")]
         [Description("Color #2 for background gradient")]
         public Color ColorBackground_2
         {
-            get => tmp_color_2_for_gradient_Background;
+            get;
             set
             {
-                tmp_color_2_for_gradient_Background = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_lineargradient_value_status;
         [Category("LinearGradient")]
         [Description("On/Off Filling Gradient")]
         public bool LinearGradient_Value
         {
-            get => tmp_lineargradient_value_status;
+            get;
             set
             {
-                tmp_lineargradient_value_status = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_1_for_gradient_value;
         [Category("LinearGradient")]
         [Description("Color #1 for filling gradient")]
         public Color ColorBackground_Value_1
         {
-            get => tmp_color_1_for_gradient_value;
+            get;
             set
             {
-                tmp_color_1_for_gradient_value = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_2_for_gradient_value;
         [Category("LinearGradient")]
         [Description("Color #2 for filling gradient")]
         public Color ColorBackground_Value_2
         {
-            get => tmp_color_2_for_gradient_value;
+            get;
             set
             {
-                tmp_color_2_for_gradient_value = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_lineargradient_pen_status;
         [Category("LinearGradient")]
         [Description("On/Off border gradient")]
         public bool LinearGradientPen
         {
-            get => tmp_lineargradient_pen_status;
+            get;
             set
             {
-                tmp_lineargradient_pen_status = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_1_for_gradient_pen;
         [Category("LinearGradient")]
         [Description("Color #1 for border gradient")]
         public Color ColorPen_1
         {
-            get => tmp_color_1_for_gradient_pen;
+            get;
             set
             {
-                tmp_color_1_for_gradient_pen = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_2_for_gradient_pen;
         [Category("LinearGradient")]
         [Description("Color #1 for border gradient")]
         public Color ColorPen_2
         {
-            get => tmp_color_2_for_gradient_pen;
+            get;
             set
             {
-                tmp_color_2_for_gradient_pen = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private SmoothingMode tmp_smoothing_mode;
         [Category("Cyber")]
         [Description("Mode <graphics.SmoothingMode>")]
         public SmoothingMode SmoothingMode
         {
-            get => tmp_smoothing_mode;
+            get;
             set
             {
                 if (value != SmoothingMode.Invalid)
                 {
-                    tmp_smoothing_mode = value;
+                    field = value;
                 }
 
                 Refresh();
             }
         }
 
-        private TextRenderingHint tmp_text_rendering_hint;
         [Category("Cyber")]
         [Description("Mode <graphics.TextRenderingHint>")]
         public TextRenderingHint TextRenderingHint
         {
-            get => tmp_text_rendering_hint;
+            get;
             set
             {
-                tmp_text_rendering_hint = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private StateStyle tmp_cyberprogressbar_style = StateStyle.Default;
         [Category("Cyber")]
         [Description("ProgressBar style")]
         public StateStyle CyberProgressBarStyle
         {
-            get => tmp_cyberprogressbar_style;
+            get;
             set
             {
-                tmp_cyberprogressbar_style = value;
-                switch (tmp_cyberprogressbar_style)
+                field = value;
+                switch (field)
                 {
                     case StateStyle.Default:
                         Size = new Size(300, 34);
@@ -591,7 +560,7 @@ namespace ReaLTaiizor.Controls
 
                 Refresh();
             }
-        }
+        } = StateStyle.Default;
 
         #endregion
 
@@ -622,7 +591,7 @@ namespace ReaLTaiizor.Controls
             {
                 Settings_Load(e.Graphics);
                 Draw_Background(e.Graphics);
-                if (progress_text)
+                if (ProgressText)
                 {
                     Draw_Text(e.Graphics);
                 }

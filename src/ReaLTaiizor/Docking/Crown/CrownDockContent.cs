@@ -23,8 +23,6 @@ namespace ReaLTaiizor.Docking.Crown
 
         #region Field Region
 
-        private string _dockText;
-        private Image _icon;
 
         #endregion
 
@@ -34,12 +32,12 @@ namespace ReaLTaiizor.Docking.Crown
         [Description("Determines the text that will appear in the content tabs and headers.")]
         public string DockText
         {
-            get => _dockText;
+            get;
             set
             {
-                string oldText = _dockText;
+                string oldText = field;
 
-                _dockText = value;
+                field = value;
 
                 DockTextChanged?.Invoke(this, null);
 
@@ -51,10 +49,10 @@ namespace ReaLTaiizor.Docking.Crown
         [Description("Determines the icon that will appear in the content tabs and headers.")]
         public Image Icon
         {
-            get => _icon;
+            get;
             set
             {
-                _icon = value;
+                field = value;
                 Invalidate();
             }
         }

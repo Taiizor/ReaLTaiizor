@@ -22,49 +22,44 @@ namespace ReaLTaiizor.Controls
 
         public RoyalListBoxSelectedIndexCollection SelectedIndicies { get; }
 
-        private bool multiSelection;
         public bool MultiSelection
         {
-            get => multiSelection;
-            set { multiSelection = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         private readonly bool multiSelectKeyDown = false;
-        private int itemHeight;
+
         public int ItemHeight
         {
-            get => itemHeight;
-            set { itemHeight = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private Color hotLightColor;
         public Color HotLightColor
         {
-            get => hotLightColor;
-            set { hotLightColor = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private Color selectedColor;
         public Color SelectedColor
         {
-            get => selectedColor;
-            set { selectedColor = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
-        private int selectedIndex;
         public int SelectedIndex
         {
-            get => selectedIndex;
-            set { selectedIndex = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         public object SelectedValue => null;
 
-        private int hotLightedIndex;
         public int HotLightedIndex
         {
-            get => hotLightedIndex;
-            set { hotLightedIndex = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         public object HotLightedItem => null;
@@ -74,10 +69,10 @@ namespace ReaLTaiizor.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
-            SelectedIndicies = new RoyalListBoxSelectedIndexCollection();
-            SelectedItems = new RoyalListBoxSelectedItemCollection();
+            SelectedIndicies = [];
+            SelectedItems = [];
 
-            Items = new RoyalListBoxItemCollection();
+            Items = [];
             Items.ItemAdded += new EventHandler(Items_ItemAdded);
             Items.ItemRemoved += new EventHandler(Items_ItemRemoved);
 
@@ -148,7 +143,7 @@ namespace ReaLTaiizor.Controls
 
             if (index >= 0 && index < Items.Count)
             {
-                if (multiSelection && multiSelectKeyDown)
+                if (MultiSelection && multiSelectKeyDown)
                 {
                     SelectedIndicies.Add(index);
                     SelectedItems.Add(Items[index]);
@@ -221,7 +216,7 @@ namespace ReaLTaiizor.Controls
             {
                 DrawItemState state = DrawItemState.Default;
 
-                if (multiSelection && SelectedIndicies.Count > 0)
+                if (MultiSelection && SelectedIndicies.Count > 0)
                 {
                     if (i == HotLightedIndex && !SelectedIndicies.Contains(i))
                     {

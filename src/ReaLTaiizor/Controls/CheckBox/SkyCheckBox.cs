@@ -29,13 +29,12 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        private bool _Checked;
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 CheckedChanged?.Invoke(this);
                 Invalidate();
             }
@@ -63,19 +62,18 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region Variables
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         #endregion
 
         #region Settings
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public Color BoxBGColorA { get; set; } = Color.FromArgb(245, 245, 245);
 

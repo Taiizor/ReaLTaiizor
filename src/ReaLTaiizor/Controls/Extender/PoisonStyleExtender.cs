@@ -30,55 +30,53 @@ namespace ReaLTaiizor.Controls
             set { }
         }
 
-        private ThemeStyle poisonTheme = ThemeStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ThemeStyle.Default)]
         public ThemeStyle Theme
         {
             get
             {
-                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                if (DesignMode || field != ThemeStyle.Default)
                 {
-                    return poisonTheme;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager != null && field == ThemeStyle.Default)
                 {
                     return StyleManager.Theme;
                 }
 
-                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager == null && field == ThemeStyle.Default)
                 {
                     return PoisonDefaults.Theme;
                 }
 
-                return poisonTheme;
+                return field;
             }
             set
             {
-                poisonTheme = value;
+                field = value;
                 UpdateTheme();
             }
-        }
+        } = ThemeStyle.Default;
 
-        private PoisonStyleManager poisonStyleManager = null;
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PoisonStyleManager StyleManager
         {
-            get => poisonStyleManager;
+            get;
             set
             {
-                poisonStyleManager = value;
+                field = value;
                 UpdateTheme();
             }
-        }
+        } = null;
 
         #endregion
 
         #region Fields
 
-        private readonly List<Control> extendedControls = new();
+        private readonly List<Control> extendedControls = [];
 
         #endregion
 

@@ -46,73 +46,73 @@ namespace ReaLTaiizor.Controls
         [Description("Unfilled circle color")]
         public Color UnFilledColor
         {
-            get => unFilledColor;
+            get;
             set
             {
-                unFilledColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(114, 114, 114);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Filled circle color")]
         public Color FilledColor
         {
-            get => filledColor;
+            get;
             set
             {
-                filledColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(60, 220, 210);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Filled colors alpha value")]
         public int FilledColorAlpha
         {
-            get => filledColorAlpha;
+            get;
             set
             {
-                filledColorAlpha = value;
+                field = value;
                 if (value > 255)
                 {
-                    filledColorAlpha = 255;
+                    field = 255;
                 }
                 if (value < 1)
                 {
-                    filledColorAlpha = 1;
+                    field = 1;
                 }
                 Invalidate();
             }
-        }
+        } = 130;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Unfilled circle thickness")]
         public int UnfilledThickness
         {
-            get => unfilledThickness;
+            get;
             set
             {
-                unfilledThickness = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 24;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Unfilled circle thickness")]
         public int FilledThickness
         {
-            get => filledThickness;
+            get;
             set
             {
-                filledThickness = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 40;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -218,70 +218,65 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBilinear;
         [Category("Parrot")]
         [Browsable(true)]
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBilinear;
 
         public event EventHandler PercentageChanged;
 
@@ -311,9 +306,9 @@ namespace ReaLTaiizor.Controls
                 bufferedGraphics.Graphics.DrawImage(BackgroundImage, 0, 0);
             }
 
-            Rectangle rect = new((filledThickness / 2) + 1, (filledThickness / 2) + 1, base.Width - filledThickness - 2, base.Height - filledThickness - 2);
-            bufferedGraphics.Graphics.DrawArc(new Pen(unFilledColor, unfilledThickness), rect, StartPoint, 360f);
-            bufferedGraphics.Graphics.DrawArc(new Pen(Color.FromArgb(filledColorAlpha, filledColor.R, filledColor.G, filledColor.B), filledThickness), rect, StartPoint, (int)(Percentage * 3.6));
+            Rectangle rect = new((FilledThickness / 2) + 1, (FilledThickness / 2) + 1, base.Width - FilledThickness - 2, base.Height - FilledThickness - 2);
+            bufferedGraphics.Graphics.DrawArc(new Pen(UnFilledColor, UnfilledThickness), rect, StartPoint, 360f);
+            bufferedGraphics.Graphics.DrawArc(new Pen(Color.FromArgb(FilledColorAlpha, FilledColor.R, FilledColor.G, FilledColor.B), FilledThickness), rect, StartPoint, (int)(Percentage * 3.6));
 
             if (ShowText)
             {
@@ -336,17 +331,6 @@ namespace ReaLTaiizor.Controls
         private readonly Timer UpdateUI = new();
 
         private int StartPoint = 270;
-
-        private Color unFilledColor = Color.FromArgb(114, 114, 114);
-
-        private Color filledColor = Color.FromArgb(60, 220, 210);
-
-        private int filledColorAlpha = 130;
-
-        private int unfilledThickness = 24;
-
-        private int filledThickness = 40;
-
         public int percentage = 50;
 
         public int animationSpeed = 5;

@@ -52,59 +52,57 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private ColorStyle poisonStyle = ColorStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ColorStyle.Default)]
         public ColorStyle Style
         {
             get
             {
-                if (DesignMode || poisonStyle != ColorStyle.Default)
+                if (DesignMode || field != ColorStyle.Default)
                 {
-                    return poisonStyle;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                if (StyleManager != null && field == ColorStyle.Default)
                 {
                     return StyleManager.Style;
                 }
 
-                if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                if (StyleManager == null && field == ColorStyle.Default)
                 {
                     return PoisonDefaults.Style;
                 }
 
-                return poisonStyle;
+                return field;
             }
-            set => poisonStyle = value;
-        }
+            set;
+        } = ColorStyle.Default;
 
-        private ThemeStyle poisonTheme = ThemeStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ThemeStyle.Default)]
         public ThemeStyle Theme
         {
             get
             {
-                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                if (DesignMode || field != ThemeStyle.Default)
                 {
-                    return poisonTheme;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager != null && field == ThemeStyle.Default)
                 {
                     return StyleManager.Theme;
                 }
 
-                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager == null && field == ThemeStyle.Default)
                 {
                     return PoisonDefaults.Theme;
                 }
 
-                return poisonTheme;
+                return field;
             }
-            set => poisonTheme = value;
-        }
+            set;
+        } = ThemeStyle.Default;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -164,7 +162,7 @@ namespace ReaLTaiizor.Controls
             get => trackerValue;
             set
             {
-                if (value >= barMinimum & value <= barMaximum)
+                if (value >= Minimum & value <= Maximum)
                 {
                     trackerValue = value;
                     OnValueChanged();
@@ -177,19 +175,18 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private int barMinimum = 0;
         [DefaultValue(0)]
         public int Minimum
         {
-            get => barMinimum;
+            get;
             set
             {
-                if (value < barMaximum)
+                if (value < Maximum)
                 {
-                    barMinimum = value;
-                    if (trackerValue < barMinimum)
+                    field = value;
+                    if (trackerValue < field)
                     {
-                        trackerValue = barMinimum;
+                        trackerValue = field;
                         ValueChanged?.Invoke(this, new EventArgs());
                     }
                     Invalidate();
@@ -199,22 +196,20 @@ namespace ReaLTaiizor.Controls
                     throw new ArgumentOutOfRangeException("Minimal value is greather than maximal one");
                 }
             }
-        }
+        } = 0;
 
-
-        private int barMaximum = 100;
         [DefaultValue(100)]
         public int Maximum
         {
-            get => barMaximum;
+            get;
             set
             {
-                if (value > barMinimum)
+                if (value > Minimum)
                 {
-                    barMaximum = value;
-                    if (trackerValue > barMaximum)
+                    field = value;
+                    if (trackerValue > field)
                     {
-                        trackerValue = barMaximum;
+                        trackerValue = field;
                         ValueChanged?.Invoke(this, new EventArgs());
                     }
                     Invalidate();
@@ -224,30 +219,29 @@ namespace ReaLTaiizor.Controls
                     throw new ArgumentOutOfRangeException("Maximal value is lower than minimal one");
                 }
             }
-        }
+        } = 100;
 
         [DefaultValue(1)]
         public int SmallChange { get; set; } = 1;
         [DefaultValue(5)]
         public int LargeChange { get; set; } = 5;
 
-        private int mouseWheelBarPartitions = 10;
         [DefaultValue(10)]
         public int MouseWheelBarPartitions
         {
-            get => mouseWheelBarPartitions;
+            get;
             set
             {
                 if (value > 0)
                 {
-                    mouseWheelBarPartitions = value;
+                    field = value;
                 }
                 else
                 {
                     throw new ArgumentOutOfRangeException("MouseWheelBarPartitions has to be greather than zero");
                 }
             }
-        }
+        } = 10;
 
         private bool isHovered = false;
         private bool isPressed = false;
@@ -364,7 +358,7 @@ namespace ReaLTaiizor.Controls
 
         private void DrawTrackBar(Graphics g, Color thumbColor, Color barColor)
         {
-            int TrackX = (trackerValue - barMinimum) * (Width - 6) / (barMaximum - barMinimum);
+            int TrackX = (trackerValue - Minimum) * (Width - 6) / (Maximum - Minimum);
 
             using (SolidBrush b = new(thumbColor))
             {
@@ -456,10 +450,10 @@ namespace ReaLTaiizor.Controls
                     OnScroll(ScrollEventType.SmallIncrement, Value);
                     break;
                 case Keys.Home:
-                    Value = barMinimum;
+                    Value = Minimum;
                     break;
                 case Keys.End:
-                    Value = barMaximum;
+                    Value = Maximum;
                     break;
                 case Keys.PageDown:
                     SetProperValue(Value - LargeChange);
@@ -471,12 +465,12 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            if (Value == barMinimum)
+            if (Value == Minimum)
             {
                 OnScroll(ScrollEventType.First, Value);
             }
 
-            if (Value == barMaximum)
+            if (Value == Maximum)
             {
                 OnScroll(ScrollEventType.Last, Value);
             }
@@ -539,17 +533,17 @@ namespace ReaLTaiizor.Controls
                 Point pt = e.Location;
                 int p = pt.X;
 
-                float coef = (barMaximum - barMinimum) / (float)(ClientSize.Width - 3);
-                trackerValue = (int)((p * coef) + barMinimum);
+                float coef = (Maximum - Minimum) / (float)(ClientSize.Width - 3);
+                trackerValue = (int)((p * coef) + Minimum);
 
-                if (trackerValue <= barMinimum)
+                if (trackerValue <= Minimum)
                 {
-                    trackerValue = barMinimum;
+                    trackerValue = Minimum;
                     set = ScrollEventType.First;
                 }
-                else if (trackerValue >= barMaximum)
+                else if (trackerValue >= Maximum)
                 {
-                    trackerValue = barMaximum;
+                    trackerValue = Maximum;
                     set = ScrollEventType.Last;
                 }
 
@@ -579,7 +573,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            int v = e.Delta / 120 * (barMaximum - barMinimum) / mouseWheelBarPartitions;
+            int v = e.Delta / 120 * (Maximum - Minimum) / MouseWheelBarPartitions;
             SetProperValue(Value + v);
         }
 
@@ -599,13 +593,13 @@ namespace ReaLTaiizor.Controls
 
         private void SetProperValue(int val)
         {
-            if (val < barMinimum)
+            if (val < Minimum)
             {
-                Value = barMinimum;
+                Value = Minimum;
             }
-            else if (val > barMaximum)
+            else if (val > Maximum)
             {
-                Value = barMaximum;
+                Value = Maximum;
             }
             else
             {

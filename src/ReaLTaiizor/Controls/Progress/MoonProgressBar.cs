@@ -84,71 +84,65 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private Color _LineColor = Color.White;
         public Color LineColor
         {
-            get => _LineColor;
+            get;
             set
             {
-                _LineColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
-        private Color _LinesColor = Color.LightGray;
         public Color LinesColor
         {
-            get => _LinesColor;
+            get;
             set
             {
-                _LinesColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LightGray;
 
-        private Color _LinerColor = Color.Transparent;
         public Color LinerColor
         {
-            get => _LinerColor;
+            get;
             set
             {
-                _LinerColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Transparent;
 
-        private Color _LineUpColor = Color.FromArgb(240, 240, 240);
         public Color LineUpColor
         {
-            get => _LineUpColor;
+            get;
             set
             {
-                _LineUpColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(240, 240, 240);
 
-        private Color _LineEndColor = Color.LightGray;
         public Color LineEndColor
         {
-            get => _LineEndColor;
+            get;
             set
             {
-                _LineEndColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LightGray;
 
-        private HatchStyle _HatchType = HatchStyle.BackwardDiagonal;
         public HatchStyle HatchType
         {
-            get => _HatchType;
+            get;
             set
             {
-                _HatchType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HatchStyle.BackwardDiagonal;
 
         private void Increment(int amount)
         {

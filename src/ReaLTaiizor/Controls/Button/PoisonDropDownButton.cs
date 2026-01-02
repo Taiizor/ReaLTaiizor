@@ -24,15 +24,12 @@ namespace ReaLTaiizor.Controls
 
         #region Variables
 
-        private PushButtonState _state;
         private static readonly int BorderSize = SystemInformation.Border3DSize.Width * 2;
         private bool skipNextOpen;
         private Rectangle dropDownRectangle;
         private bool showSplit;
         private bool isSplitMenuVisible;
-        private ContextMenuStrip m_SplitMenuStrip;
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
-        private ContextMenu m_SplitMenu;
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0 && !NET10_0
 #endif
         private readonly TextFormatFlags textFormatFlags = TextFormatFlags.Default;
         #endregion
@@ -53,17 +50,17 @@ namespace ReaLTaiizor.Controls
             set => SplitMenuStrip = value;
         }
 
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0 && !NET10_0
         [DefaultValue(null)]
         public ContextMenu SplitMenu
         {
-            get => m_SplitMenu;
+            get;
             set
             {
                 //remove the event handlers for the old SplitMenu
-                if (m_SplitMenu != null)
+                if (field != null)
                 {
-                    m_SplitMenu.Popup -= SplitMenu_Popup;
+                    field.Popup -= SplitMenu_Popup;
                 }
 
                 //add the event handlers for the new SplitMenu
@@ -77,7 +74,7 @@ namespace ReaLTaiizor.Controls
                     ShowSplit = false;
                 }
 
-                m_SplitMenu = value;
+                field = value;
             }
         }
 #endif
@@ -85,14 +82,14 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(null)]
         public ContextMenuStrip SplitMenuStrip
         {
-            get => m_SplitMenuStrip;
+            get;
             set
             {
                 //remove the event handlers for the old SplitMenuStrip
-                if (m_SplitMenuStrip != null)
+                if (field != null)
                 {
-                    m_SplitMenuStrip.Closing -= SplitMenuStrip_Closing;
-                    m_SplitMenuStrip.Opening -= SplitMenuStrip_Opening;
+                    field.Closing -= SplitMenuStrip_Closing;
+                    field.Opening -= SplitMenuStrip_Opening;
                 }
 
                 //add the event handlers for the new SplitMenuStrip
@@ -107,7 +104,7 @@ namespace ReaLTaiizor.Controls
                     ShowSplit = false;
                 }
 
-                m_SplitMenuStrip = value;
+                field = value;
             }
         }
 
@@ -131,12 +128,12 @@ namespace ReaLTaiizor.Controls
 
         private PushButtonState State
         {
-            get => _state;
+            get;
             set
             {
-                if (!_state.Equals(value))
+                if (!field.Equals(value))
                 {
-                    _state = value;
+                    field = value;
                     Invalidate();
                 }
             }
@@ -307,9 +304,9 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0 && !NET10_0
             //handle ContextMenu re-clicking the drop-down region to close the menu
-            if (m_SplitMenu != null && e.Button == MouseButtons.Left && !isMouseEntered)
+            if (SplitMenu != null && e.Button == MouseButtons.Left && !isMouseEntered)
             {
                 skipNextOpen = true;
             }
@@ -333,13 +330,13 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0 && !NET10_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
                 ShowContextMenuStrip();
             }
-            else if ((m_SplitMenuStrip == null && m_SplitMenu == null) || !isSplitMenuVisible)
+            else if ((SplitMenuStrip == null && SplitMenu == null) || !isSplitMenuVisible)
             {
                 SetButtonDrawState();
 
@@ -350,13 +347,13 @@ namespace ReaLTaiizor.Controls
             }
 #endif
 
-#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0 || NET9_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0 || NET10_0
             // if the right button was released inside the button
             if (mevent.Button == MouseButtons.Right && ClientRectangle.Contains(mevent.Location) && !isSplitMenuVisible)
             {
                 ShowContextMenuStrip();
             }
-            else if (m_SplitMenuStrip == null || !isSplitMenuVisible)
+            else if (SplitMenuStrip == null || !isSplitMenuVisible)
             {
                 SetButtonDrawState();
 
@@ -504,7 +501,7 @@ namespace ReaLTaiizor.Controls
                     textRectangle = OverlayObjectRect(ref content_rect, ref text_size, TextAlign); // Rectangle.Inflate(content_rect, -4, -4);
 
                     //Offset on Windows 98 style when button is pressed
-                    if (_state == PushButtonState.Pressed && !Application.RenderWithVisualStyles)
+                    if (State == PushButtonState.Pressed && !Application.RenderWithVisualStyles)
                     {
                         textRectangle.Offset(1, 1);
                     }
@@ -784,21 +781,21 @@ namespace ReaLTaiizor.Controls
 
             State = PushButtonState.Pressed;
 
-#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0
-            if (m_SplitMenu != null)
+#if !NETCOREAPP3_1 && !NET6_0 && !NET7_0 && !NET8_0 && !NET9_0 && !NET10_0
+            if (SplitMenu != null)
             {
-                m_SplitMenu.Show(this, new Point(0, Height));
+                SplitMenu.Show(this, new Point(0, Height));
             }
-            else if (m_SplitMenuStrip != null)
+            else if (SplitMenuStrip != null)
             {
-                m_SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);
+                SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);
             }
 #endif
 
-#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0 || NET9_0
-            if (m_SplitMenuStrip != null)
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0 || NET10_0
+            if (SplitMenuStrip != null)
             {
-                m_SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);
+                SplitMenuStrip.Show(this, new Point(0, Height), ToolStripDropDownDirection.BelowRight);
             }
 #endif
         }

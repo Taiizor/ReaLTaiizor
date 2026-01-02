@@ -25,9 +25,6 @@ namespace ReaLTaiizor.Controls
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), CompilerGenerated]
         private AloneCheckBox.CheckedChangedEventHandler CheckedChangedEvent;
-
-        private bool _Checked;
-
         private bool _EnabledCalc;
 
         private Graphics G;
@@ -68,10 +65,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 CheckedChangedEvent?.Invoke(this, null);
                 Invalidate();
             }

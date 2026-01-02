@@ -85,9 +85,11 @@ namespace ReaLTaiizor.Controls
             BackColor = SkinManager.BackgroundColor;
             FormStyle = FormStyles.StatusAndActionBar_None;
 
-            _AnimationManager = new AnimationManager();
-            _AnimationManager.AnimationType = AnimationType.EaseOut;
-            _AnimationManager.Increment = 0.03;
+            _AnimationManager = new AnimationManager
+            {
+                AnimationType = AnimationType.EaseOut,
+                Increment = 0.03
+            };
             _AnimationManager.OnAnimationProgress += _AnimationManager_OnAnimationProgress;
 
             _validationButton = new MaterialButton

@@ -34,11 +34,6 @@ namespace ReaLTaiizor.Controls
 
         private readonly int _expandAreaSize = 16;
         private readonly int _iconSize = 16;
-
-        private int _itemHeight = 20;
-        private int _indent = 20;
-
-        private ObservableList<CrownTreeNode> _nodes;
         private CrownTreeNode _anchoredNodeStart;
         private CrownTreeNode _anchoredNodeEnd;
 
@@ -63,26 +58,26 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ObservableList<CrownTreeNode> Nodes
         {
-            get => _nodes;
+            get;
             set
             {
-                if (_nodes != null)
+                if (field != null)
                 {
-                    _nodes.ItemsAdded -= Nodes_ItemsAdded;
-                    _nodes.ItemsRemoved -= Nodes_ItemsRemoved;
+                    field.ItemsAdded -= Nodes_ItemsAdded;
+                    field.ItemsRemoved -= Nodes_ItemsRemoved;
 
-                    foreach (CrownTreeNode node in _nodes)
+                    foreach (CrownTreeNode node in field)
                     {
                         UnhookNodeEvents(node);
                     }
                 }
 
-                _nodes = value;
+                field = value;
 
-                _nodes.ItemsAdded += Nodes_ItemsAdded;
-                _nodes.ItemsRemoved += Nodes_ItemsRemoved;
+                field.ItemsAdded += Nodes_ItemsAdded;
+                field.ItemsRemoved += Nodes_ItemsRemoved;
 
-                foreach (CrownTreeNode node in _nodes)
+                foreach (CrownTreeNode node in field)
                 {
                     HookNodeEvents(node);
                 }
@@ -100,27 +95,27 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(20)]
         public int ItemHeight
         {
-            get => _itemHeight;
+            get;
             set
             {
-                _itemHeight = value;
-                MaxDragChange = _itemHeight;
+                field = value;
+                MaxDragChange = field;
                 UpdateNodes();
             }
-        }
+        } = 20;
 
         [Category("Appearance")]
         [Description("Determines the amount of horizontal space given by parent node.")]
         [DefaultValue(20)]
         public int Indent
         {
-            get => _indent;
+            get;
             set
             {
-                _indent = value;
+                field = value;
                 UpdateNodes();
             }
-        }
+        } = 20;
 
         [Category("Behavior")]
         [Description("Determines whether multiple tree nodes can be selected at once.")]
@@ -151,11 +146,11 @@ namespace ReaLTaiizor.Controls
 
         public CrownTreeView()
         {
-            Nodes = new ObservableList<CrownTreeNode>();
-            SelectedNodes = new ObservableCollection<CrownTreeNode>();
+            Nodes = [];
+            SelectedNodes = [];
             SelectedNodes.CollectionChanged += SelectedNodes_CollectionChanged;
 
-            MaxDragChange = _itemHeight;
+            MaxDragChange = ItemHeight;
 
             LoadIcons();
         }
@@ -185,9 +180,9 @@ namespace ReaLTaiizor.Controls
                     AfterNodeExpand = null;
                 }
 
-                if (_nodes != null)
+                if (Nodes != null)
                 {
-                    _nodes.Dispose();
+                    Nodes.Dispose();
                 }
 
                 if (SelectedNodes != null)
@@ -916,7 +911,7 @@ namespace ReaLTaiizor.Controls
 
         public void SelectNodes(CrownTreeNode startNode, CrownTreeNode endNode)
         {
-            List<CrownTreeNode> nodes = new();
+            List<CrownTreeNode> nodes = [];
 
             if (startNode == endNode)
             {
@@ -1164,11 +1159,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Create initial list of nodes to drag
-            _dragNodes = new List<CrownTreeNode>();
-            foreach (CrownTreeNode node in SelectedNodes)
-            {
-                _dragNodes.Add(node);
-            }
+            _dragNodes = [.. SelectedNodes];
 
             // Clear out any nodes with a parent that is being dragged
             foreach (CrownTreeNode node in _dragNodes.ToList())

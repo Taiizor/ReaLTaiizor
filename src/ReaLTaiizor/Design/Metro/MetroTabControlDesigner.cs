@@ -46,8 +46,7 @@ namespace ReaLTaiizor.Design.Metro
                         new DesignerVerb("Remove Tab", OnRemoveTab)
                     };
 
-                    _verbs = new();
-                    _verbs.AddRange(addVerbs);
+                    _verbs = [.. addVerbs];
 
                     if (Control is not MetroTabControl parentControl)
                     {

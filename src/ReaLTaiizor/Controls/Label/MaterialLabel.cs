@@ -47,20 +47,18 @@ namespace ReaLTaiizor.Controls
         DefaultValue(false)]
         public bool UseAccent { get; set; }
 
-        private MaterialSkinManager.FontType _fontType = MaterialSkinManager.FontType.Body1;
-
         [Category("Material"),
         DefaultValue(typeof(MaterialSkinManager.FontType), "Body1")]
         public MaterialSkinManager.FontType FontType
         {
-            get => _fontType;
+            get;
             set
             {
-                _fontType = value;
-                Font = SkinManager.GetFontByType(_fontType);
+                field = value;
+                Font = SkinManager.GetFontByType(field);
                 Refresh();
             }
-        }
+        } = MaterialSkinManager.FontType.Body1;
 
         public MaterialLabel()
         {
@@ -75,7 +73,7 @@ namespace ReaLTaiizor.Controls
                 Size strSize;
                 using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
                 {
-                    strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(_fontType));
+                    strSize = NativeText.MeasureLogString(Text, SkinManager.GetLogFontByType(FontType));
                     strSize.Width += 1; // necessary to avoid a bug when autosize = true
                 }
                 return strSize;
@@ -114,7 +112,7 @@ namespace ReaLTaiizor.Controls
             using MaterialNativeTextRenderer NativeText = new(g);
             NativeText.DrawMultilineTransparentText(
                 Text,
-                SkinManager.GetLogFontByType(_fontType),
+                SkinManager.GetLogFontByType(FontType),
                 Enabled ? HighEmphasis ? UseAccent ?
                 SkinManager.ColorScheme.AccentColor : // High emphasis, accent
                 (SkinManager.Theme == MaterialSkinManager.Themes.LIGHT) ?
@@ -129,7 +127,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void InitLayout()
         {
-            Font = SkinManager.GetFontByType(_fontType);
+            Font = SkinManager.GetFontByType(FontType);
         }
     }
 

@@ -14,38 +14,35 @@ namespace ReaLTaiizor.Controls
 
     public class HopePictureBox : PictureBox
     {
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         protected override void OnPaint(PaintEventArgs pe)
         {

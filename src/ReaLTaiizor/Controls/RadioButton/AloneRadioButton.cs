@@ -25,9 +25,6 @@ namespace ReaLTaiizor.Controls
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never), CompilerGenerated]
         private AloneRadioButton.CheckedChangedEventHandler CheckedChangedEvent;
-
-        private bool _Checked;
-
         private bool _EnabledCalc;
 
         private Graphics G;
@@ -64,10 +61,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 Invalidate();
             }
         }

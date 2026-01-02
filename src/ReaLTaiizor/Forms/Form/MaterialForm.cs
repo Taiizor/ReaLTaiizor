@@ -41,15 +41,15 @@ namespace ReaLTaiizor.Forms
         [Category("Material"), Browsable(true), DisplayName("Form Style"), DefaultValue(FormStyles.ActionBar_40)]
         public FormStyles FormStyle
         {
-            get => _formStyle;
+            get;
             set
             {
-                if (_formStyle == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _formStyle = value;
+                field = value;
                 RecalculateFormBoundaries();
             }
         }
@@ -60,22 +60,22 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerShowIconsWhenHidden
         {
-            get => _drawerShowIconsWhenHidden;
+            get;
             set
             {
-                if (_drawerShowIconsWhenHidden == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _drawerShowIconsWhenHidden = value;
+                field = value;
 
                 if (drawerControl == null)
                 {
                     return;
                 }
 
-                drawerControl.ShowIconsWhenHidden = _drawerShowIconsWhenHidden;
+                drawerControl.ShowIconsWhenHidden = field;
                 drawerControl.Refresh();
             }
         }
@@ -86,15 +86,15 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerAutoHide
         {
-            get => _drawerAutoHide;
-            set => drawerControl.AutoHide = _drawerAutoHide = value;
+            get;
+            set => drawerControl.AutoHide = field = value;
         }
 
         [Category("Drawer")]
         public bool DrawerAutoShow
         {
-            get => _drawerAutoShow;
-            set => drawerControl.AutoShow = _drawerAutoShow = value;
+            get;
+            set => drawerControl.AutoShow = field = value;
         }
 
         [Category("Drawer")]
@@ -103,15 +103,15 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerIsOpen
         {
-            get => _drawerIsOpen;
+            get;
             set
             {
-                if (_drawerIsOpen == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _drawerIsOpen = value;
+                field = value;
 
                 if (value)
                 {
@@ -127,15 +127,15 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerUseColors
         {
-            get => _drawerUseColors;
+            get;
             set
             {
-                if (_drawerUseColors == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _drawerUseColors = value;
+                field = value;
 
                 if (drawerControl == null)
                 {
@@ -148,17 +148,40 @@ namespace ReaLTaiizor.Forms
         }
 
         [Category("Drawer")]
-        public bool DrawerHighlightWithAccent
+        public bool DrawerUsePreProcessIcons
         {
-            get => _drawerHighlightWithAccent;
+            get;
             set
             {
-                if (_drawerHighlightWithAccent == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _drawerHighlightWithAccent = value;
+                field = value;
+
+                if (drawerControl == null)
+                {
+                    return;
+                }
+
+                drawerControl.UsePreProcessIcons = value;
+                drawerControl.Refresh();
+            }
+        }
+
+        [Category("Drawer")]
+        public bool DrawerHighlightWithAccent
+        {
+            get;
+            set
+            {
+                if (field == value)
+                {
+                    return;
+                }
+
+                field = value;
 
                 if (drawerControl == null)
                 {
@@ -173,15 +196,15 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public bool DrawerBackgroundWithAccent
         {
-            get => _backgroundWithAccent;
+            get;
             set
             {
-                if (_backgroundWithAccent == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _backgroundWithAccent = value;
+                field = value;
 
                 if (drawerControl == null)
                 {
@@ -196,31 +219,27 @@ namespace ReaLTaiizor.Forms
         [Category("Drawer")]
         public MaterialTabControl DrawerTabControl { get; set; }
 
-        private string[] _DrawerHideTabName = new List<string>().ToArray();
-
         [Category("Drawer")]
         public string[] DrawerHideTabName
         {
-            get => _DrawerHideTabName;
+            get;
             set
             {
-                _DrawerHideTabName = value;
-                drawerControl.DrawerHideTabName = _DrawerHideTabName;
+                field = value;
+                drawerControl.DrawerHideTabName = field;
             }
-        }
-
-        private System.Windows.Forms.TabPage[] _DrawerNonClickTabPage = new List<System.Windows.Forms.TabPage>().ToArray();
+        } = new List<string>().ToArray();
 
         [Category("Drawer")]
         public System.Windows.Forms.TabPage[] DrawerNonClickTabPage
         {
-            get => _DrawerNonClickTabPage;
+            get;
             set
             {
-                _DrawerNonClickTabPage = value;
-                drawerControl.DrawerNonClickTabPage = _DrawerNonClickTabPage;
+                field = value;
+                drawerControl.DrawerNonClickTabPage = field;
             }
-        }
+        } = new List<System.Windows.Forms.TabPage>().ToArray();
 
         public override string Text
         {
@@ -394,7 +413,7 @@ namespace ReaLTaiizor.Forms
 
         private ResizeDirection _resizeDir;
         private ButtonState _buttonState = ButtonState.None;
-        private FormStyles _formStyle;
+
         private Rectangle _minButtonBounds => new(ClientSize.Width - (3 * STATUS_BAR_BUTTON_WIDTH), ClientRectangle.Y, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
         private Rectangle _maxButtonBounds => new(ClientSize.Width - (2 * STATUS_BAR_BUTTON_WIDTH), ClientRectangle.Y, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
         private Rectangle _xButtonBounds => new(ClientSize.Width - STATUS_BAR_BUTTON_WIDTH, ClientRectangle.Y, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
@@ -430,13 +449,6 @@ namespace ReaLTaiizor.Forms
         private MaterialDrawerForm drawerForm = new();
 
         // Drawer overlay and speed improvements
-        private bool _drawerShowIconsWhenHidden;
-        private bool _drawerAutoHide;
-        private bool _drawerAutoShow;
-        private bool _drawerIsOpen;
-        private bool _drawerUseColors;
-        private bool _drawerHighlightWithAccent;
-        private bool _backgroundWithAccent;
         private MaterialDrawer drawerControl = new();
         private AnimationManager _drawerShowHideAnimManager;
         private readonly AnimationManager _clickAnimManager;
@@ -452,6 +464,7 @@ namespace ReaLTaiizor.Forms
             DrawerAutoHide = true;
             DrawerAutoShow = false;
             DrawerIndicatorWidth = 0;
+            DrawerUsePreProcessIcons = true;
             DrawerHighlightWithAccent = true;
             DrawerShowIconsWhenHidden = false;
             DrawerBackgroundWithAccent = false;
@@ -840,7 +853,7 @@ namespace ReaLTaiizor.Forms
 
         private void RecalculateFormBoundaries()
         {
-            switch (_formStyle)
+            switch (FormStyle)
             {
                 case FormStyles.StatusAndActionBar_None:
                     ACTION_BAR_HEIGHT = 0;
@@ -872,7 +885,7 @@ namespace ReaLTaiizor.Forms
                     break;
             }
 
-            Padding = new Padding(_drawerShowIconsWhenHidden ? drawerControl.MinWidth : PADDING_MINIMUM, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Padding.Right, Padding.Bottom);
+            Padding = new Padding(DrawerShowIconsWhenHidden ? drawerControl.MinWidth : PADDING_MINIMUM, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Padding.Right, Padding.Bottom);
             originalPadding = Padding;
 
             if (DrawerTabControl != null)
@@ -1149,7 +1162,7 @@ namespace ReaLTaiizor.Forms
                 g.DrawLine(borderPen, new Point(0, ClientSize.Height - 1), new Point(ClientSize.Width - 1, ClientSize.Height - 1));
             }
 
-            if (_formStyle != FormStyles.StatusAndActionBar_None)
+            if (FormStyle != FormStyles.StatusAndActionBar_None)
             {
                 if (ControlBox)
                 {
@@ -1280,7 +1293,7 @@ namespace ReaLTaiizor.Forms
             }
 
             // Drawer Icon
-            if (DrawerTabControl != null && _formStyle != FormStyles.ActionBar_None && _formStyle != FormStyles.StatusAndActionBar_None)
+            if (DrawerTabControl != null && FormStyle != FormStyles.ActionBar_None && FormStyle != FormStyles.StatusAndActionBar_None)
             {
                 if (_buttonState == ButtonState.DrawerOver)
                 {
@@ -1333,7 +1346,7 @@ namespace ReaLTaiizor.Forms
                    _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
             }
 
-            if (ControlBox == true && _formStyle != FormStyles.ActionBar_None && _formStyle != FormStyles.StatusAndActionBar_None)
+            if (ControlBox == true && FormStyle != FormStyles.ActionBar_None && FormStyle != FormStyles.StatusAndActionBar_None)
             {
                 //Form title
                 using MaterialNativeTextRenderer NativeText = new(g);
@@ -1343,6 +1356,17 @@ namespace ReaLTaiizor.Forms
                     textLocation.Location,
                     textLocation.Size,
                     MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
+            }
+            else if (ControlBox == true && FormStyle == FormStyles.ActionBar_None)
+            {
+                //Form title
+                using MaterialNativeTextRenderer NativeText = new(g);
+                Rectangle textLocation = new(10, 4, ClientSize.Width, ClientSize.Height);
+                NativeText.DrawTransparentText(Text, SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Subtitle2),
+                    SkinManager.ColorScheme.TextColor,
+                    textLocation.Location,
+                    textLocation.Size,
+                    MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Top);
             }
         }
         #endregion

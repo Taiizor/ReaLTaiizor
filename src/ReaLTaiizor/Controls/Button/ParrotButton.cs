@@ -43,23 +43,23 @@ namespace ReaLTaiizor.Controls
         [Description("The button style")]
         public Style ButtonStyle
         {
-            get => buttonStyle;
+            get;
             set
             {
-                buttonStyle = value;
-                if (buttonStyle == Style.Dark)
+                field = value;
+                if (field == Style.Dark)
                 {
                     CurrentBackColor = Color.FromArgb(65, 70, 75);
                     CurrentForeColor = Color.FromArgb(195, 200, 185);
                 }
-                if (buttonStyle == Style.MacOS)
+                if (field == Style.MacOS)
                 {
                     CurrentBackColor = Color.White;
                     CurrentForeColor = Color.Black;
                 }
                 Invalidate();
             }
-        }
+        } = Style.MaterialRounded;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -146,65 +146,65 @@ namespace ReaLTaiizor.Controls
         [Description("The corner radius if rounded edges")]
         public int CornerRadius
         {
-            get => cornerRadius;
+            get;
             set
             {
-                cornerRadius = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 5;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text of the button")]
         public string ButtonText
         {
-            get => buttonText;
+            get;
             set
             {
-                buttonText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "Button";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text horizontal alignment")]
         public StringAlignment Horizontal_Alignment
         {
-            get => horizontalAlignment;
+            get;
             set
             {
-                horizontalAlignment = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = StringAlignment.Center;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text vertical alignment")]
         public StringAlignment Vertical_Alignment
         {
-            get => verticlAlignment;
+            get;
             set
             {
-                verticlAlignment = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = StringAlignment.Center;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The buttons image")]
         public Image ButtonImage
         {
-            get => buttonImage;
+            get;
             set
             {
-                buttonImage = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Resources.mini_button;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -219,31 +219,29 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         protected override void OnMouseEnter(EventArgs e)
         {
@@ -304,26 +302,26 @@ namespace ReaLTaiizor.Controls
             base.OnPaint(e);
             e.Graphics.SmoothingMode = SmoothingType;
             e.Graphics.TextRenderingHint = TextRenderingType;
-            if (buttonStyle == Style.MaterialEllipse)
+            if (ButtonStyle == Style.MaterialEllipse)
             {
                 e.Graphics.FillPie(new SolidBrush(CurrentBackColor), 0, 0, base.Width - 1, base.Height - 1, 0, 360);
             }
-            if (buttonStyle == Style.Material)
+            if (ButtonStyle == Style.Material)
             {
                 e.Graphics.FillRectangle(new SolidBrush(CurrentBackColor), 0, 0, base.Width, base.Height);
             }
-            if (buttonStyle == Style.MaterialRounded)
+            if (ButtonStyle == Style.MaterialRounded)
             {
                 if ((Height / 2) - 1 != 0)
                 {
-                    FillRoundedRectangle(e.Graphics, CurrentBackColor, cornerRadius);
+                    FillRoundedRectangle(e.Graphics, CurrentBackColor, CornerRadius);
                 }
                 else
                 {
-                    FillRoundedRectangle(e.Graphics, CurrentBackColor, cornerRadius);
+                    FillRoundedRectangle(e.Graphics, CurrentBackColor, CornerRadius);
                 }
             }
-            if (buttonStyle == Style.Invert)
+            if (ButtonStyle == Style.Invert)
             {
                 if ((Height / 2) - 1 != 0)
                 {
@@ -346,7 +344,7 @@ namespace ReaLTaiizor.Controls
                 clickBackcolor = foreColor;
                 clickForecolor = foreColor;
             }
-            if (buttonStyle == Style.Dark)
+            if (ButtonStyle == Style.Dark)
             {
                 backColor = Color.FromArgb(65, 70, 75);
                 foreColor = Color.FromArgb(195, 200, 185);
@@ -371,7 +369,7 @@ namespace ReaLTaiizor.Controls
                     DrawRoundedRectangle(e.Graphics, Color.Black, Height / 2, 1);
                 }
             }
-            if (buttonStyle == Style.MacOS)
+            if (ButtonStyle == Style.MacOS)
             {
                 backColor = Color.White;
                 foreColor = Color.Black;
@@ -394,42 +392,39 @@ namespace ReaLTaiizor.Controls
                 }
             }
             Rectangle r = new(0, 0, base.Width, base.Height);
-            if (buttonStyle != Style.Dark && buttonStyle != Style.MaterialEllipse && buttonStyle != Style.MacOS && buttonStyle != Style.Invert && buttonImage != null)
+            if (ButtonStyle != Style.Dark && ButtonStyle != Style.MaterialEllipse && ButtonStyle != Style.MacOS && ButtonStyle != Style.Invert && ButtonImage != null)
             {
                 if (imagePosition == ImgPosition.Left)
                 {
                     r = new Rectangle(base.Height, 0, base.Width - base.Height, base.Height);
-                    e.Graphics.DrawImage(new Bitmap(buttonImage, base.Height - 2, base.Height - 2), 1, 1);
+                    e.Graphics.DrawImage(new Bitmap(ButtonImage, base.Height - 2, base.Height - 2), 1, 1);
                 }
                 if (imagePosition == ImgPosition.Right)
                 {
                     r = new Rectangle(0, 0, base.Width - base.Height, base.Height);
-                    e.Graphics.DrawImage(new Bitmap(buttonImage, base.Height - 2, base.Height - 2), base.Width - base.Height, 1);
+                    e.Graphics.DrawImage(new Bitmap(ButtonImage, base.Height - 2, base.Height - 2), base.Width - base.Height, 1);
                 }
                 if (imagePosition == ImgPosition.Center)
                 {
-                    e.Graphics.DrawImage(new Bitmap(buttonImage, base.Height - 2, base.Height - 2), (base.Width / 2) - (Height / 2), 1);
+                    e.Graphics.DrawImage(new Bitmap(ButtonImage, base.Height - 2, base.Height - 2), (base.Width / 2) - (Height / 2), 1);
                 }
             }
-            if (imagePosition != ImgPosition.Center || buttonImage == null)
+            if (imagePosition != ImgPosition.Center || ButtonImage == null)
             {
                 StringFormat stringFormat = new()
                 {
-                    LineAlignment = verticlAlignment,
-                    Alignment = horizontalAlignment
+                    LineAlignment = Vertical_Alignment,
+                    Alignment = Horizontal_Alignment
                 };
                 e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-                e.Graphics.DrawString(buttonText, Font, new SolidBrush(CurrentForeColor), r, stringFormat);
+                e.Graphics.DrawString(ButtonText, Font, new SolidBrush(CurrentForeColor), r, stringFormat);
             }
         }
 
         private Color CurrentBackColor;
 
         private Color CurrentForeColor;
-
-        private Style buttonStyle = Style.MaterialRounded;
-
         private Color foreColor = Color.DodgerBlue;
 
         private Color backColor = Color.FromArgb(255, 255, 255);
@@ -441,17 +436,6 @@ namespace ReaLTaiizor.Controls
         private Color clickForecolor = Color.DodgerBlue;
 
         private Color clickBackcolor = Color.FromArgb(195, 195, 195);
-
-        private int cornerRadius = 5;
-
-        private string buttonText = "Button";
-
-        private StringAlignment horizontalAlignment = StringAlignment.Center;
-
-        private StringAlignment verticlAlignment = StringAlignment.Center;
-
-        private Image buttonImage = Resources.mini_button;
-
         public ImgPosition imagePosition;
 
         public enum ImgPosition

@@ -22,18 +22,18 @@ namespace ReaLTaiizor.Controls
             DoubleBuffered = true;
             base.SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
             base.Size = new Size(200, 100);
-            items.Add(50);
-            items.Add(20);
-            items.Add(100);
-            items.Add(60);
-            items.Add(1);
-            items.Add(20);
-            items.Add(80);
-            items.Add(12);
-            items.Add(72);
-            items.Add(58);
-            items.Add(19);
-            items.Add(600);
+            Items.Add(50);
+            Items.Add(20);
+            Items.Add(100);
+            Items.Add(60);
+            Items.Add(1);
+            Items.Add(20);
+            Items.Add(80);
+            Items.Add(12);
+            Items.Add(72);
+            Items.Add(58);
+            Items.Add(19);
+            Items.Add(600);
         }
 
         [Category("Parrot")]
@@ -41,23 +41,23 @@ namespace ReaLTaiizor.Controls
         [Description("The color of the text when the tab is selected")]
         public List<int> Items
         {
-            get => items;
+            get;
             set
             {
-                items = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = [];
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the text when the tab is selected")]
         public bool ShowVerticalLines
         {
-            get => showVerticalLines;
+            get;
             set
             {
-                showVerticalLines = value;
+                field = value;
                 Refresh();
             }
         }
@@ -67,114 +67,114 @@ namespace ReaLTaiizor.Controls
         [Description("The color of the text when the tab is selected")]
         public Color BackGroundColor
         {
-            get => backgroundColor;
+            get;
             set
             {
-                backgroundColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.FromArgb(102, 217, 174);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the text when the tab is selected")]
         public Color BackColor
         {
-            get => backColor;
+            get;
             set
             {
-                backColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.FromArgb(40, 40, 40);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the text when the tab is selected")]
         public Color BelowLineColor
         {
-            get => belowLineColor;
+            get;
             set
             {
-                belowLineColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.FromArgb(24, 202, 142);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the text when the tab is selected")]
         public Color LineColor
         {
-            get => lineColor;
+            get;
             set
             {
-                lineColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the text when the tab is selected")]
         public Color BorderColor
         {
-            get => borderColor;
+            get;
             set
             {
-                borderColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the text when the tab is selected")]
         public Color VerticalLineColor
         {
-            get => verticalLineColor;
+            get;
             set
             {
-                verticalLineColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.DimGray;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the graph title")]
         public Color GraphTitleColor
         {
-            get => graphTitleColor;
+            get;
             set
             {
-                graphTitleColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.Gray;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The of the graph")]
         public string GraphTitle
         {
-            get => graphTitle;
+            get;
             set
             {
-                graphTitle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = "Parrot Line Graph";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Draw the title on the control")]
         public bool ShowTitle
         {
-            get => showTitle;
+            get;
             set
             {
-                showTitle = value;
+                field = value;
                 Refresh();
             }
         }
@@ -184,10 +184,10 @@ namespace ReaLTaiizor.Controls
         [Description("Draw the border on the control")]
         public bool ShowBorder
         {
-            get => showBorder;
+            get;
             set
             {
-                showBorder = value;
+                field = value;
                 Refresh();
             }
         }
@@ -197,36 +197,36 @@ namespace ReaLTaiizor.Controls
         [Description("Draw the points on each value")]
         public bool ShowPoints
         {
-            get => showPoints;
+            get;
             set
             {
-                showPoints = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The point size")]
         public int PointSize
         {
-            get => pointSize;
+            get;
             set
             {
-                pointSize = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = 7;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The title alignment")]
         public StringAlignment TitleAlignment
         {
-            get => titleAlignment;
+            get;
             set
             {
-                titleAlignment = value;
+                field = value;
                 Refresh();
             }
         }
@@ -236,82 +236,79 @@ namespace ReaLTaiizor.Controls
         [Description("The style of the graph")]
         public Style GraphStyle
         {
-            get => graphStyle;
+            get;
             set
             {
-                graphStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Style.Material;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingType;
 
-            Pen pen = new(lineColor, 1f);
-            Pen pen2 = new(verticalLineColor, 1f);
+            Pen pen = new(LineColor, 1f);
+            Pen pen2 = new(VerticalLineColor, 1f);
 
-            if (graphStyle == Style.Material)
+            if (GraphStyle == Style.Material)
             {
-                e.Graphics.FillRectangle(new SolidBrush(backColor), new Rectangle(0, 0, base.Width, base.Height));
+                e.Graphics.FillRectangle(new SolidBrush(BackColor), new Rectangle(0, 0, base.Width, base.Height));
             }
             else
             {
-                e.Graphics.FillRectangle(new SolidBrush(backgroundColor), new Rectangle(0, 0, base.Width, base.Height));
+                e.Graphics.FillRectangle(new SolidBrush(BackGroundColor), new Rectangle(0, 0, base.Width, base.Height));
             }
 
-            int total = items.ToArray().Max();
-            int num = base.Width / items.Count;
+            int total = Items.ToArray().Max();
+            int num = base.Width / Items.Count;
             int num2 = 0;
             int num3 = base.Height;
             int num4 = num;
             int num5 = 0;
 
-            List<PointF> list = new()
-            {
+            List<PointF> list =
+            [
                 new Point(1, base.Height)
-            };
+            ];
 
-            foreach (int num6 in items)
+            foreach (int num6 in Items)
             {
                 if (num6 > 0)
                 {
@@ -340,13 +337,13 @@ namespace ReaLTaiizor.Controls
 
             list.Add(new Point(base.Width, num5 - 1));
 
-            if (graphStyle != Style.Curved)
+            if (GraphStyle != Style.Curved)
             {
                 list.Add(new Point(base.Width, base.Height));
 
-                if (graphStyle == Style.Flat)
+                if (GraphStyle == Style.Flat)
                 {
-                    SolidBrush brush = new(belowLineColor);
+                    SolidBrush brush = new(BelowLineColor);
                     e.Graphics.FillPolygon(brush, list.ToArray());
                 }
                 else
@@ -362,7 +359,7 @@ namespace ReaLTaiizor.Controls
 
                 int num8 = 0;
 
-                foreach (int number in items)
+                foreach (int number in Items)
                 {
                     int num9 = Percentage.IntToPercent(number, total);
 
@@ -379,11 +376,11 @@ namespace ReaLTaiizor.Controls
                         num5 = base.Height - (num9 * base.Height / 100);
                     }
 
-                    if (graphStyle == Style.Flat && showVerticalLines)
+                    if (GraphStyle == Style.Flat && ShowVerticalLines)
                     {
                         num8++;
 
-                        if (num8 != items.ToArray().Length && num4 != 0 && num4 != base.Width)
+                        if (num8 != Items.ToArray().Length && num4 != 0 && num4 != base.Width)
                         {
                             e.Graphics.DrawLine(pen2, num4, base.Height, num4, 0);
                         }
@@ -391,19 +388,19 @@ namespace ReaLTaiizor.Controls
 
                     e.Graphics.DrawLine(pen, num2 - 1, num3 - 1, num4 - 1, num5 - 1);
 
-                    if (showPoints)
+                    if (ShowPoints)
                     {
-                        if (num5 - (pointSize / 2) - 1 < 0)
+                        if (num5 - (PointSize / 2) - 1 < 0)
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(num4 - (pointSize / 2) - 1, -1f, pointSize, pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(LineColor), new RectangleF(num4 - (PointSize / 2) - 1, -1f, PointSize, PointSize));
                         }
-                        else if (num5 - (pointSize / 2) - 1 + pointSize > base.Height)
+                        else if (num5 - (PointSize / 2) - 1 + PointSize > base.Height)
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(num4 - (pointSize / 2) - 1, base.Height - pointSize + 1, pointSize, pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(LineColor), new RectangleF(num4 - (PointSize / 2) - 1, base.Height - PointSize + 1, PointSize, PointSize));
                         }
                         else
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(num4 - (pointSize / 2) - 1, num5 - (pointSize / 2) - 1, pointSize, pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(LineColor), new RectangleF(num4 - (PointSize / 2) - 1, num5 - (PointSize / 2) - 1, PointSize, PointSize));
                         }
                     }
 
@@ -416,21 +413,21 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                if (showPoints)
+                if (ShowPoints)
                 {
                     foreach (PointF pointF in list)
                     {
-                        if (pointF.Y - (pointSize / 2) - 1f < 0f)
+                        if (pointF.Y - (PointSize / 2) - 1f < 0f)
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - (pointSize / 2) - 1f, -1f, pointSize, pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(LineColor), new RectangleF(pointF.X - (PointSize / 2) - 1f, -1f, PointSize, PointSize));
                         }
-                        else if (pointF.Y - (pointSize / 2) - 1f + pointSize > Height)
+                        else if (pointF.Y - (PointSize / 2) - 1f + PointSize > Height)
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - (pointSize / 2) - 1f, base.Height - pointSize + 1, pointSize, pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(LineColor), new RectangleF(pointF.X - (PointSize / 2) - 1f, base.Height - PointSize + 1, PointSize, PointSize));
                         }
                         else
                         {
-                            e.Graphics.FillEllipse(new SolidBrush(lineColor), new RectangleF(pointF.X - (pointSize / 2) - 1f, pointF.Y - (pointSize / 2) - 1f, pointSize, pointSize));
+                            e.Graphics.FillEllipse(new SolidBrush(LineColor), new RectangleF(pointF.X - (PointSize / 2) - 1f, pointF.Y - (PointSize / 2) - 1f, PointSize, PointSize));
                         }
                     }
                 }
@@ -438,62 +435,30 @@ namespace ReaLTaiizor.Controls
                 e.Graphics.DrawCurve(pen, list.ToArray());
             }
 
-            if (graphStyle != Style.Material && showBorder)
+            if (GraphStyle != Style.Material && ShowBorder)
             {
-                e.Graphics.DrawRectangle(new Pen(borderColor, 2f), new Rectangle(0, 0, base.Width - 1, base.Height - 1));
+                e.Graphics.DrawRectangle(new Pen(BorderColor, 2f), new Rectangle(0, 0, base.Width - 1, base.Height - 1));
             }
 
-            if (showTitle)
+            if (ShowTitle)
             {
                 StringFormat stringFormat = new()
                 {
                     LineAlignment = StringAlignment.Near,
-                    Alignment = titleAlignment
+                    Alignment = TitleAlignment
                 };
 
                 Font font = new("Arial", 14f);
-                SolidBrush brush3 = new(graphTitleColor);
+                SolidBrush brush3 = new(GraphTitleColor);
                 RectangleF layoutRectangle = new(0f, 0f, Width, Height);
 
                 e.Graphics.PixelOffsetMode = PixelOffsetType;
                 e.Graphics.TextRenderingHint = TextRenderingType;
 
-                e.Graphics.DrawString(graphTitle, font, brush3, layoutRectangle, stringFormat);
+                e.Graphics.DrawString(GraphTitle, font, brush3, layoutRectangle, stringFormat);
             }
             base.OnPaint(e);
         }
-
-        private List<int> items = new();
-
-        private bool showVerticalLines;
-
-        private bool showBorder;
-
-        private bool showTitle;
-
-        private bool showPoints = true;
-
-        private StringAlignment titleAlignment;
-
-        private int pointSize = 7;
-
-        private Color backgroundColor = Color.FromArgb(102, 217, 174);
-
-        private Color backColor = Color.FromArgb(40, 40, 40);
-
-        private Color belowLineColor = Color.FromArgb(24, 202, 142);
-
-        private Color borderColor = Color.White;
-
-        private Color lineColor = Color.White;
-
-        private Color verticalLineColor = Color.DimGray;
-
-        private Color graphTitleColor = Color.Gray;
-
-        private string graphTitle = "Parrot Line Graph";
-
-        private Style graphStyle = Style.Material;
 
         public enum Style
         {

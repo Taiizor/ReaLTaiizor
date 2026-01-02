@@ -31,28 +31,24 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public Point MouseLocation { get; set; }
 
-        private bool useAccentColor;
-
         [Category("Material")]
         public bool UseAccentColor
         {
-            get => useAccentColor;
+            get;
             set
             {
-                useAccentColor = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private bool ripple;
-
         [Category("Behavior")]
         public bool Ripple
         {
-            get => ripple;
+            get;
             set
             {
-                ripple = value;
+                field = value;
                 AutoSize = AutoSize; //Make AutoSize directly set the bounds.
 
                 if (value)

@@ -72,8 +72,7 @@ namespace ReaLTaiizor.Controls
         private int ToggleLocation = 0;
         public event ToggledChangedEventHandler ToggledChanged;
         public delegate void ToggledChangedEventHandler();
-        private bool _Toggled;
-        private _Type ToggleType;
+
         private Rectangle Bar;
         private Size cHandle = new(15, 20);
 
@@ -82,10 +81,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Toggled
         {
-            get => _Toggled;
+            get;
             set
             {
-                _Toggled = value;
+                field = value;
                 Invalidate();
 
                 ToggledChanged?.Invoke();
@@ -94,10 +93,10 @@ namespace ReaLTaiizor.Controls
 
         public _Type Type
         {
-            get => ToggleType;
+            get;
             set
             {
-                ToggleType = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -135,7 +134,7 @@ namespace ReaLTaiizor.Controls
         private void AnimationTimer_Tick(object sender, EventArgs e)
         {
             //  Create a slide animation when toggled on/off
-            if (_Toggled == true)
+            if (Toggled == true)
             {
                 if (ToggleLocation < 100)
                 {
@@ -175,7 +174,7 @@ namespace ReaLTaiizor.Controls
                     Right = true
                 }));
                 Gradient.Dispose();
-                switch (ToggleType)
+                switch (Type)
                 {
                     case ToggleEdit._Type.YesNo:
                         {

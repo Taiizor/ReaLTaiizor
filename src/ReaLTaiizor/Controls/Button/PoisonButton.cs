@@ -55,59 +55,57 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private ColorStyle poisonStyle = ColorStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ColorStyle.Default)]
         public ColorStyle Style
         {
             get
             {
-                if (DesignMode || poisonStyle != ColorStyle.Default)
+                if (DesignMode || field != ColorStyle.Default)
                 {
-                    return poisonStyle;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                if (StyleManager != null && field == ColorStyle.Default)
                 {
                     return StyleManager.Style;
                 }
 
-                if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                if (StyleManager == null && field == ColorStyle.Default)
                 {
                     return PoisonDefaults.Style;
                 }
 
-                return poisonStyle;
+                return field;
             }
-            set => poisonStyle = value;
-        }
+            set;
+        } = ColorStyle.Default;
 
-        private ThemeStyle poisonTheme = ThemeStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ThemeStyle.Default)]
         public ThemeStyle Theme
         {
             get
             {
-                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                if (DesignMode || field != ThemeStyle.Default)
                 {
-                    return poisonTheme;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager != null && field == ThemeStyle.Default)
                 {
                     return StyleManager.Theme;
                 }
 
-                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager == null && field == ThemeStyle.Default)
                 {
                     return PoisonDefaults.Theme;
                 }
 
-                return poisonTheme;
+                return field;
             }
-            set => poisonTheme = value;
-        }
+            set;
+        } = ThemeStyle.Default;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -141,6 +139,19 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool Highlight { get; set; } = false;
+
+        [DefaultValue(false)]
+        [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public bool UseCustomFont
+        {
+            get;
+            set
+            {
+                field = value;
+                Refresh();
+            }
+        } = false;
+
         [DefaultValue(PoisonButtonSize.Small)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonButtonSize FontSize { get; set; } = PoisonButtonSize.Small;
@@ -151,6 +162,30 @@ namespace ReaLTaiizor.Controls
         private bool isHovered = false;
         private bool isPressed = false;
         private bool isFocused = false;
+
+        #endregion
+
+        #region Routing Fields
+
+        public override Font Font
+        {
+            get
+            {
+                if (UseCustomFont)
+                {
+                    return base.Font;
+                }
+                else
+                {
+                    return PoisonFonts.Button(FontSize, FontWeight);
+                }
+            }
+            set
+            {
+                base.Font = value;
+                Refresh();
+            }
+        }
 
         #endregion
 
@@ -283,7 +318,7 @@ namespace ReaLTaiizor.Controls
                 e.Graphics.DrawRectangle(p, borderRect);
             }
 
-            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.Button(FontSize, FontWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
+            TextRenderer.DrawText(e.Graphics, Text, Font, ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign));
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 

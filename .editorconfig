@@ -43,6 +43,10 @@ dotnet_style_operator_placement_when_wrapping = beginning_of_line
 indent_size = 2
 
 [*.cs]
+
+# WFO1000: A property should determine its property content serialization with the DesignerSerializationVisibilityAttribute, DefaultValueAttribute or the ShouldSerializeProperty method
+dotnet_diagnostic.WFO1000.severity = silent
+
 #### Adlandırma stilleri ####
 
 # Adlandırma kuralları

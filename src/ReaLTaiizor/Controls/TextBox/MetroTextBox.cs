@@ -32,10 +32,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -58,8 +58,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -78,29 +78,18 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
         private HorizontalAlignment _textAlign;
         private int _maxLength;
         private bool _readOnly;
         private bool _useSystemPasswordChar;
         private string _watermarkText;
-        private Image _image;
         private MouseMode _state;
         private AutoCompleteSource _autoCompleteSource;
         private AutoCompleteMode _autoCompleteMode;
-        private AutoCompleteStringCollection _autoCompleteCustomSource;
         private bool _multiline;
         private string[] _lines;
         private Color _backColor;
         private Color _foreColor;
-        private Color _borderColor;
-        private Color _hoverColor;
-
-        private bool _isDerivedStyle = true;
-        private Color _disabledForeColor;
-        private Color _disabledBackColor;
-        private Color _disabledBorderColor;
 
         #region Base TextBox
 
@@ -540,10 +529,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the color of the control whenever hovered.")]
         public Color HoverColor
         {
-            get => _hoverColor;
+            get;
             set
             {
-                _hoverColor = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -552,10 +541,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the border color of the control.")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -658,10 +647,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the image of the control.")]
         public Image Image
         {
-            get => _image;
+            get;
             set
             {
-                _image = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -685,10 +674,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets a value specifying the source of complete strings used for automatic completion.")]
         public AutoCompleteStringCollection AutoCompleteCustomSource
         {
-            get => _autoCompleteCustomSource;
+            get;
             set
             {
-                _autoCompleteCustomSource = value;
+                field = value;
                 if (_textBox != null)
                 {
                     _textBox.AutoCompleteCustomSource = value;
@@ -772,10 +761,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the forecolor of the control whenever while disabled.")]
         public Color DisabledForeColor
         {
-            get => _disabledForeColor;
+            get;
             set
             {
-                _disabledForeColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -783,10 +772,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
         public Color DisabledBackColor
         {
-            get => _disabledBackColor;
+            get;
             set
             {
-                _disabledBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -794,10 +783,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get => _disabledBorderColor;
+            get;
             set
             {
-                _disabledBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -807,13 +796,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion
     }

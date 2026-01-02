@@ -28,15 +28,14 @@ namespace ReaLTaiizor.Controls
         [Description("Decides whether the top and bottom border lines are recolored on Enter event.")]
         public bool ColorBordersOnEnter { get; set; } = true;
 
-        private Image _Image;
         [Browsable(true)]
         [Description("The image displayed in the TextBox.")]
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
-                _Image = value;
+                field = value;
                 ImageSize = value == null ? Size.Empty : value.Size;
                 tbCtrl.Location = new(24, 14);
 
@@ -46,29 +45,27 @@ namespace ReaLTaiizor.Controls
 
         protected Size ImageSize { get; private set; }
 
-        private int _MaxLength = 32767;
         [Browsable(true)]
         [Description("Specifies the maximum number of characters that can be entered into the edit control.")]
         public int MaxLength
         {
-            get => _MaxLength;
+            get;
             set
             {
-                _MaxLength = value;
+                field = value;
                 tbCtrl.MaxLength = MaxLength;
                 Invalidate();
             }
-        }
+        } = 32767;
 
-        private bool _Multiline;
         [Browsable(true)]
         [Description("Controls whether the text of the edit control can span more than one line.")]
         public bool Multiline
         {
-            get => _Multiline;
+            get;
             set
             {
-                _Multiline = value;
+                field = value;
                 if (tbCtrl != null)
                 {
                     tbCtrl.Multiline = value;
@@ -84,15 +81,14 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _ReadOnly;
         [Browsable(true)]
         [Description("Controls whether the text in the edit control can be changed or not.")]
         public bool ReadOnly
         {
-            get => _ReadOnly;
+            get;
             set
             {
-                _ReadOnly = value;
+                field = value;
                 if (tbCtrl != null)
                 {
                     tbCtrl.ReadOnly = value;
@@ -100,85 +96,79 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _ShortcutsEnabled = true;
         [Browsable(true)]
         [Description("Indicates whether shortcuts defined for the control are enabled.")]
         public bool ShortcutsEnabled
         {
-            get => _ShortcutsEnabled;
+            get;
             set
             {
-                _ShortcutsEnabled = value;
+                field = value;
                 tbCtrl.ShortcutsEnabled = value;
             }
-        }
+        } = true;
 
-        private bool _ShowBottomBorder = true;
         [Browsable(true)]
         [Description("Decides whether the bottom border line should be drawn.")]
         public bool ShowBottomBorder
         {
-            get => _ShowBottomBorder;
+            get;
             set
             {
-                _ShowBottomBorder = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private bool _ShowTopBorder = true;
         [Browsable(true)]
         [Description("Decides whether the top border line should be drawn.")]
         public bool ShowTopBorder
         {
-            get => _ShowTopBorder;
+            get;
             set
             {
-                _ShowTopBorder = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private HorizontalAlignment _TextAlignment;
         [Browsable(true)]
         [Description("Indicates how the text should be aligned for edit controls.")]
         public HorizontalAlignment TextAlignment
         {
-            get => _TextAlignment;
+            get;
             set
             {
-                _TextAlignment = value;
-                tbCtrl.TextAlign = _TextAlignment;
+                field = value;
+                tbCtrl.TextAlign = field;
                 Invalidate();
             }
         }
 
-        private bool _UseSystemPasswordChar = false;
         [Browsable(true)]
         [Description("Indicates if the text in the edit control should appear as the default password character.")]
         public bool UseSystemPasswordChar
         {
-            get => _UseSystemPasswordChar;
+            get;
             set
             {
-                _UseSystemPasswordChar = value;
+                field = value;
                 tbCtrl.UseSystemPasswordChar = UseSystemPasswordChar;
                 Invalidate();
             }
-        }
+        } = false;
 
-        private string _Watermark = string.Empty;
         [Browsable(true)]
         [Description("Allows adding a watermark to the TextBox field when it is empty.")]
         public string Watermark
         {
-            get => _Watermark;
+            get;
             set
             {
-                _Watermark = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = string.Empty;
 
         private Color _WatermarkColor;
         [Browsable(true)]
@@ -193,45 +183,42 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private Color _ActiveBorderColor = ColorTranslator.FromHtml("#F25D59");
         [Browsable(true)]
         [Description("Actived TextBox border line color.")]
         public Color ActiveBorderColor
         {
-            get => _ActiveBorderColor;
+            get;
             set
             {
-                _ActiveBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#F25D59");
 
-        private Color _DisableBorderColor = ColorTranslator.FromHtml("#3C3F50");
         [Browsable(true)]
         [Description("Disabled TextBox border line color.")]
         public Color DisableBorderColor
         {
-            get => _DisableBorderColor;
+            get;
             set
             {
-                _DisableBorderColor = value;
+                field = value;
                 BorderColor = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#3C3F50");
 
-        private Color _BaseBackColor = ColorTranslator.FromHtml("#2B3043");
         [Browsable(true)]
         [Description("TextBox is change BackColor.")]
         public Color BaseBackColor
         {
-            get => _BaseBackColor;
+            get;
             set
             {
-                _BaseBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#2B3043");
 
         #endregion
 
@@ -246,7 +233,7 @@ namespace ReaLTaiizor.Controls
         {
             if (ColorBordersOnEnter)
             {
-                BorderColor = _ActiveBorderColor;
+                BorderColor = ActiveBorderColor;
             }
 
             if (tbCtrl.TextLength <= 0)
@@ -262,7 +249,7 @@ namespace ReaLTaiizor.Controls
         {
             if (ColorBordersOnEnter)
             {
-                BorderColor = _DisableBorderColor;
+                BorderColor = DisableBorderColor;
             }
 
             if (tbCtrl.TextLength <= 0)
@@ -332,7 +319,7 @@ namespace ReaLTaiizor.Controls
             watermarkContainer.Height = tbCtrl.Height;
 
             using SolidBrush watermark = new(_WatermarkColor);
-            e.Graphics.DrawString(_Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
+            e.Graphics.DrawString(Watermark, Font, watermark, new PointF(-3.0f, 1.0f));
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -365,7 +352,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnResize(e);
 
-            if (_Multiline)
+            if (Multiline)
             {
                 tbCtrl.Height = Height - 30;
             }
@@ -420,8 +407,8 @@ namespace ReaLTaiizor.Controls
             tbCtrl.BorderStyle = BorderStyle.None;
             tbCtrl.TextAlign = HorizontalAlignment.Left;
             tbCtrl.Font = new("Segoe UI", 10);
-            tbCtrl.UseSystemPasswordChar = _UseSystemPasswordChar;
-            tbCtrl.ShortcutsEnabled = _ShortcutsEnabled;
+            tbCtrl.UseSystemPasswordChar = UseSystemPasswordChar;
+            tbCtrl.ShortcutsEnabled = ShortcutsEnabled;
             tbCtrl.Multiline = false;
             tbCtrl.BackColor = BaseBackColor;
 
@@ -467,14 +454,14 @@ namespace ReaLTaiizor.Controls
         {
             using Pen border = new(BorderColor);
             // Top border
-            if (_ShowTopBorder)
+            if (ShowTopBorder)
             {
                 g.DrawLine(border, 0, 0, Width - 1, 0);
                 g.DrawLine(border, 0, 1, Width - 1, 1);
             }
 
             // Bottom border
-            if (_ShowBottomBorder)
+            if (ShowBottomBorder)
             {
                 g.DrawLine(border, 0, Height - 2, Width - 1, Height - 2);
                 g.DrawLine(border, 0, Height - 1, Width - 1, Height - 1);
@@ -492,7 +479,7 @@ namespace ReaLTaiizor.Controls
                 tbCtrl.Location = new(48, tbCtrl.Location.Y);
                 tbCtrl.Width = Width - 59;
 
-                g.DrawImage(_Image, 23, 14, 16, 16);
+                g.DrawImage(Image, 23, 14, 16, 16);
             }
         }
 

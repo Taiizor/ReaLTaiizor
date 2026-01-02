@@ -37,26 +37,20 @@ namespace ReaLTaiizor.Controls
 
         private Size ThumbSize = new(14, 14);
         private Rectangle TrackThumb;
-
-        private int _Minimum = 0;
-        private int _Maximum = 10;
         private int _Value = 0;
-
-        private bool _JumpToMouse = false;
-        private ValueDivisor DividedValue = ValueDivisor.By1;
 
         #endregion
         #region Properties
 
         public int Minimum
         {
-            get => _Minimum;
+            get;
             set
             {
 
-                if (value >= _Maximum)
+                if (value >= Maximum)
                 {
-                    value = _Maximum - 10;
+                    value = Maximum - 10;
                 }
 
                 if (_Value < value)
@@ -64,20 +58,20 @@ namespace ReaLTaiizor.Controls
                     _Value = value;
                 }
 
-                _Minimum = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 0;
 
         public int Maximum
         {
-            get => _Maximum;
+            get;
             set
             {
 
-                if (value <= _Minimum)
+                if (value <= Minimum)
                 {
-                    value = _Minimum + 10;
+                    value = Minimum + 10;
                 }
 
                 if (_Value > value)
@@ -85,10 +79,10 @@ namespace ReaLTaiizor.Controls
                     _Value = value;
                 }
 
-                _Maximum = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 10;
 
         public delegate void ValueChangedEventHandler();
         private ValueChangedEventHandler ValueChangedEvent;
@@ -106,15 +100,15 @@ namespace ReaLTaiizor.Controls
             {
                 if (_Value != value)
                 {
-                    if (value < _Minimum)
+                    if (value < Minimum)
                     {
-                        _Value = _Minimum;
+                        _Value = Minimum;
                     }
                     else
                     {
-                        if (value > _Maximum)
+                        if (value > Maximum)
                         {
-                            _Value = _Maximum;
+                            _Value = Maximum;
                         }
                         else
                         {
@@ -129,30 +123,30 @@ namespace ReaLTaiizor.Controls
 
         public ValueDivisor ValueDivison
         {
-            get => DividedValue;
+            get;
             set
             {
-                DividedValue = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ValueDivisor.By1;
 
         [Browsable(false)]
         public float ValueToSet
         {
-            get => _Value / (int)DividedValue;
-            set => Value = (int)(value * (int)DividedValue);
+            get => _Value / (int)ValueDivison;
+            set => Value = (int)(value * (int)ValueDivison);
         }
 
         public bool JumpToMouse
         {
-            get => _JumpToMouse;
+            get;
             set
             {
-                _JumpToMouse = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         #endregion
         #region EventArgs
@@ -165,7 +159,7 @@ namespace ReaLTaiizor.Controls
                 bool flag = Cap && e.X > -1 && e.X < Width + 1;
                 if (flag)
                 {
-                    Value = _Minimum + (int)Math.Round((_Maximum - _Minimum) * (e.X / (double)Width));
+                    Value = Minimum + (int)Math.Round((Maximum - Minimum) * (e.X / (double)Width));
                 }
             }
         }
@@ -175,13 +169,13 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
-                ValueDrawer = (int)Math.Round((_Value - _Minimum) / (double)(_Maximum - _Minimum) * (Width - 11));
+                ValueDrawer = (int)Math.Round((_Value - Minimum) / (double)(Maximum - Minimum) * (Width - 11));
                 TrackBarHandleRect = new(ValueDrawer, 0, 25, 25);
                 Cap = TrackBarHandleRect.Contains(e.Location);
                 Focus();
-                if (_JumpToMouse)
+                if (JumpToMouse)
                 {
-                    Value = _Minimum + (int)Math.Round((_Maximum - _Minimum) * (e.X / (double)Width));
+                    Value = Minimum + (int)Math.Round((Maximum - Minimum) * (e.X / (double)Width));
                 }
             }
         }
@@ -220,7 +214,7 @@ namespace ReaLTaiizor.Controls
 
             try
             {
-                ValueDrawer = (int)Math.Round((_Value - _Minimum) / (double)(_Maximum - _Minimum) * Width);
+                ValueDrawer = (int)Math.Round((_Value - Minimum) / (double)(Maximum - Minimum) * Width);
             }
             catch (Exception)
             {

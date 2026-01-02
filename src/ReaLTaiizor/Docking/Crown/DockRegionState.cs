@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public DockRegionState()
         {
-            Groups = new List<DockGroupState>();
+            Groups = [];
         }
 
         public DockRegionState(DockArea area) : this()

@@ -38,8 +38,6 @@ namespace ReaLTaiizor.Controls
             remove => ToggledChangedEvent = (ToggledChangedEventHandler)Delegate.Remove(ToggledChangedEvent, value);
         }
 
-        private bool _Toggled;
-        private _Type ToggleType;
         private Rectangle Bar;
         private int _Width;
         private int _Height;
@@ -49,10 +47,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Toggled
         {
-            get => _Toggled;
+            get;
             set
             {
-                _Toggled = value;
+                field = value;
                 Invalidate();
                 ToggledChangedEvent?.Invoke();
             }
@@ -60,10 +58,10 @@ namespace ReaLTaiizor.Controls
 
         public _Type Type
         {
-            get => ToggleType;
+            get;
             set
             {
-                ToggleType = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -118,7 +116,7 @@ namespace ReaLTaiizor.Controls
             G.FillPath(new SolidBrush(Color.FromArgb(66, 76, 85)), GP);
             G.FillPath(new SolidBrush(Color.FromArgb(32, 41, 50)), GP2);
 
-            if (_Toggled)
+            if (Toggled)
             {
                 GP = RoundRectangle.RoundRect(BaseRect, 4);
                 ThumbRect = new((_Width / 2) - 2, 4, 36, _Height - 8);
@@ -128,7 +126,7 @@ namespace ReaLTaiizor.Controls
             }
 
             // Draw string
-            switch (ToggleType)
+            switch (Type)
             {
                 case _Type.CheckMark:
                     if (Toggled)

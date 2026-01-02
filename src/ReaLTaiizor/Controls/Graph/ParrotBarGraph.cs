@@ -54,143 +54,141 @@ namespace ReaLTaiizor.Controls
         [Description("The filled color")]
         public Color FilledColor
         {
-            get => filledColor;
+            get;
             set
             {
-                filledColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(30, 33, 38);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The unfilled color")]
         public Color UnfilledColor
         {
-            get => unfilledColor;
+            get;
             set
             {
-                unfilledColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(37, 40, 49);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The splitter color")]
         public Color SplitterColor
         {
-            get => splitterColor;
+            get;
             set
             {
-                splitterColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(59, 62, 71);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text color")]
         public Color TextColor
         {
-            get => textColor;
+            get;
             set
             {
-                textColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(120, 120, 120);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The item sorting style")]
         public SortStyle Sorting
         {
-            get => sorting;
+            get;
             set
             {
-                sorting = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SortStyle.Normal;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text aligning")]
         public Aligning TextAlignment
         {
-            get => textAlignment;
+            get;
             set
             {
-                textAlignment = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Aligning.Far;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The orientation of the graph")]
         public Orientation GraphOrientation
         {
-            get => graphOrientation;
+            get;
             set
             {
-                graphOrientation = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Orientation.Vertical;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The style of the graph")]
         public Style GraphStyle
         {
-            get => graphStyle;
+            get;
             set
             {
-                graphStyle = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Style.Material;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the item grid")]
         public bool ShowGrid
         {
-            get => showGrid;
+            get;
             set
             {
-                showGrid = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         public void ClearItems()
         {
@@ -201,18 +199,18 @@ namespace ReaLTaiizor.Controls
         {
             if (items != null)
             {
-                if (graphStyle == Style.Flat)
+                if (GraphStyle == Style.Flat)
                 {
-                    e.Graphics.FillRectangle(new SolidBrush(unfilledColor), 0, 0, base.Width, base.Height);
+                    e.Graphics.FillRectangle(new SolidBrush(UnfilledColor), 0, 0, base.Width, base.Height);
 
-                    List<int> list = new();
+                    List<int> list = [];
 
-                    if (sorting == SortStyle.Normal)
+                    if (Sorting == SortStyle.Normal)
                     {
                         list = items;
                     }
 
-                    if (sorting == SortStyle.Descending)
+                    if (Sorting == SortStyle.Descending)
                     {
                         list = items;
                         list = (from p in list
@@ -220,7 +218,7 @@ namespace ReaLTaiizor.Controls
                                 select p).ToList();
                     }
 
-                    if (sorting == SortStyle.Ascending)
+                    if (Sorting == SortStyle.Ascending)
                     {
                         list = items;
                         list.Sort();
@@ -228,36 +226,36 @@ namespace ReaLTaiizor.Controls
 
                     int num = 0;
 
-                    if (graphOrientation == Orientation.Horizontal)
+                    if (GraphOrientation == Orientation.Horizontal)
                     {
                         int num2 = base.Height / items.Count;
                         decimal d = base.Width / Items.Max();
 
                         foreach (int value in list)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(filledColor), new RectangleF(0f, num, (int)(value * d), num2));
+                            e.Graphics.FillRectangle(new SolidBrush(FilledColor), new RectangleF(0f, num, (int)(value * d), num2));
 
                             StringFormat stringFormat = new()
                             {
                                 LineAlignment = StringAlignment.Center
                             };
 
-                            if (textAlignment == Aligning.Near)
+                            if (TextAlignment == Aligning.Near)
                             {
                                 stringFormat.Alignment = StringAlignment.Near;
                             }
 
-                            if (textAlignment == Aligning.Center)
+                            if (TextAlignment == Aligning.Center)
                             {
                                 stringFormat.Alignment = StringAlignment.Center;
                             }
 
-                            if (textAlignment == Aligning.Far)
+                            if (TextAlignment == Aligning.Far)
                             {
                                 stringFormat.Alignment = StringAlignment.Far;
                             }
 
-                            SolidBrush brush = new(textColor);
+                            SolidBrush brush = new(TextColor);
                             RectangleF layoutRectangle = new(5f, num, base.Width - 5, num2);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
@@ -268,17 +266,17 @@ namespace ReaLTaiizor.Controls
                             num += num2;
                         }
 
-                        if (showGrid)
+                        if (ShowGrid)
                         {
                             num = 0;
 
                             foreach (int num3 in list)
                             {
-                                e.Graphics.DrawRectangle(new Pen(splitterColor, 1f), new Rectangle(0, num, base.Width, num + num2));
+                                e.Graphics.DrawRectangle(new Pen(SplitterColor, 1f), new Rectangle(0, num, base.Width, num + num2));
                                 num += num2;
                             }
 
-                            e.Graphics.DrawRectangle(new Pen(splitterColor, 1f), 1, 1, base.Width, base.Height);
+                            e.Graphics.DrawRectangle(new Pen(SplitterColor, 1f), 1, 1, base.Width, base.Height);
                         }
                     }
                     else
@@ -288,29 +286,29 @@ namespace ReaLTaiizor.Controls
 
                         foreach (int value2 in list)
                         {
-                            e.Graphics.FillRectangle(new SolidBrush(filledColor), new RectangleF(num, base.Height - (int)(value2 * d2), num4, Height));
+                            e.Graphics.FillRectangle(new SolidBrush(FilledColor), new RectangleF(num, base.Height - (int)(value2 * d2), num4, Height));
 
                             StringFormat stringFormat2 = new()
                             {
                                 Alignment = StringAlignment.Center
                             };
 
-                            if (textAlignment == Aligning.Near)
+                            if (TextAlignment == Aligning.Near)
                             {
                                 stringFormat2.LineAlignment = StringAlignment.Near;
                             }
 
-                            if (textAlignment == Aligning.Center)
+                            if (TextAlignment == Aligning.Center)
                             {
                                 stringFormat2.LineAlignment = StringAlignment.Center;
                             }
 
-                            if (textAlignment == Aligning.Far)
+                            if (TextAlignment == Aligning.Far)
                             {
                                 stringFormat2.LineAlignment = StringAlignment.Far;
                             }
 
-                            SolidBrush brush2 = new(textColor);
+                            SolidBrush brush2 = new(TextColor);
                             RectangleF layoutRectangle2 = new(num, 5f, num4, base.Height - 5);
 
                             e.Graphics.PixelOffsetMode = PixelOffsetType;
@@ -321,33 +319,33 @@ namespace ReaLTaiizor.Controls
                             num += num4;
                         }
 
-                        if (showGrid)
+                        if (ShowGrid)
                         {
                             num = 0;
 
                             foreach (int num5 in list)
                             {
-                                e.Graphics.DrawRectangle(new Pen(splitterColor, 1f), new Rectangle(num, 0, num + num4, base.Height));
+                                e.Graphics.DrawRectangle(new Pen(SplitterColor, 1f), new Rectangle(num, 0, num + num4, base.Height));
                                 num += num4;
                             }
 
-                            e.Graphics.DrawRectangle(new Pen(splitterColor, 1f), 1, 1, base.Width, base.Height);
+                            e.Graphics.DrawRectangle(new Pen(SplitterColor, 1f), 1, 1, base.Width, base.Height);
                         }
                     }
                 }
 
-                if (graphStyle == Style.Material)
+                if (GraphStyle == Style.Material)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(40, 40, 40)), 0, 0, base.Width, base.Height);
 
-                    List<int> list2 = new();
+                    List<int> list2 = [];
 
-                    if (sorting == SortStyle.Normal)
+                    if (Sorting == SortStyle.Normal)
                     {
                         list2 = items;
                     }
 
-                    if (sorting == SortStyle.Descending)
+                    if (Sorting == SortStyle.Descending)
                     {
                         list2 = items;
                         list2 = (from p in list2
@@ -355,7 +353,7 @@ namespace ReaLTaiizor.Controls
                                  select p).ToList();
                     }
 
-                    if (sorting == SortStyle.Ascending)
+                    if (Sorting == SortStyle.Ascending)
                     {
                         list2 = items;
                         list2.Sort();
@@ -363,8 +361,8 @@ namespace ReaLTaiizor.Controls
 
                     int num6 = 0;
 
-                    List<Color> list3 = new()
-                    {
+                    List<Color> list3 =
+                    [
                         Color.FromArgb(249, 55, 98),
                         Color.FromArgb(219, 55, 128),
                         Color.FromArgb(193, 58, 151),
@@ -379,11 +377,11 @@ namespace ReaLTaiizor.Controls
                         Color.FromArgb(0, 152, 250),
                         Color.FromArgb(0, 162, 250),
                         Color.FromArgb(0, 150, 212)
-                    };
+                    ];
 
                     int num7 = 0;
 
-                    if (graphOrientation == Orientation.Vertical)
+                    if (GraphOrientation == Orientation.Vertical)
                     {
                         int num8 = base.Width / items.Count;
                         int num9 = base.Height / Items.Max();
@@ -417,7 +415,7 @@ namespace ReaLTaiizor.Controls
                         }
                     }
 
-                    if (graphOrientation == Orientation.Horizontal)
+                    if (GraphOrientation == Orientation.Horizontal)
                     {
                         int num11 = base.Height / items.Count;
                         int num12 = base.Width / Items.Max();
@@ -454,18 +452,18 @@ namespace ReaLTaiizor.Controls
                     }
                 }
 
-                if (graphStyle == Style.Bootstrap)
+                if (GraphStyle == Style.Bootstrap)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(35, 40, 50)), 0, 0, base.Width, base.Height);
 
-                    List<int> list4 = new();
+                    List<int> list4 = [];
 
-                    if (sorting == SortStyle.Normal)
+                    if (Sorting == SortStyle.Normal)
                     {
                         list4 = items;
                     }
 
-                    if (sorting == SortStyle.Descending)
+                    if (Sorting == SortStyle.Descending)
                     {
                         list4 = items;
                         list4 = (from p in list4
@@ -473,7 +471,7 @@ namespace ReaLTaiizor.Controls
                                  select p).ToList();
                     }
 
-                    if (sorting == SortStyle.Ascending)
+                    if (Sorting == SortStyle.Ascending)
                     {
                         list4 = items;
                         list4.Sort();
@@ -481,7 +479,7 @@ namespace ReaLTaiizor.Controls
 
                     int num14 = 0;
 
-                    if (graphOrientation == Orientation.Horizontal)
+                    if (GraphOrientation == Orientation.Horizontal)
                     {
                         int num15 = base.Height / items.Count;
                         decimal d3 = base.Width / Items.Max();
@@ -556,30 +554,12 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                e.Graphics.FillRectangle(new SolidBrush(unfilledColor), 0, 0, base.Width, base.Height);
+                e.Graphics.FillRectangle(new SolidBrush(UnfilledColor), 0, 0, base.Width, base.Height);
             }
             base.OnPaint(e);
         }
 
-        private List<int> items = new();
-
-        private Color filledColor = Color.FromArgb(30, 33, 38);
-
-        private Color unfilledColor = Color.FromArgb(37, 40, 49);
-
-        private Color splitterColor = Color.FromArgb(59, 62, 71);
-
-        private Color textColor = Color.FromArgb(120, 120, 120);
-
-        private SortStyle sorting = SortStyle.Normal;
-
-        private Aligning textAlignment = Aligning.Far;
-
-        private Orientation graphOrientation = Orientation.Vertical;
-
-        private Style graphStyle = Style.Material;
-
-        private bool showGrid;
+        private List<int> items = [];
 
         public enum SortStyle
         {

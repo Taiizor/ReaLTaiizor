@@ -37,28 +37,24 @@ namespace ReaLTaiizor.Controls
 
         private const char NonVisualStylePasswordChar = '\u002A';
 
-        private string hint = string.Empty;
-
         [Category("Material"), DefaultValue(""), Localizable(true)]
         public string Hint
         {
-            get => hint;
+            get;
             set
             {
-                hint = value;
+                field = value;
                 SendMessage(Handle, EM_SETCUEBANNER, (int)IntPtr.Zero, Hint);
             }
-        }
-
-        private bool _leaveOnEnterKey;
+        } = string.Empty;
 
         [Category("Material"), DefaultValue(false), Description("Select next control which have TabStop property set to True when enter key is pressed. To add enter in text, the user must press CTRL+Enter")]
         public bool LeaveOnEnterKey
         {
-            get => _leaveOnEnterKey;
+            get;
             set
             {
-                _leaveOnEnterKey = value;
+                field = value;
                 if (value)
                 {
                     KeyDown += new KeyEventHandler(LeaveOnEnterKey_KeyDown);

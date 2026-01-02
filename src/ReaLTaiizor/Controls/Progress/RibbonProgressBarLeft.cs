@@ -20,49 +20,45 @@ namespace ReaLTaiizor.Controls
         private int OFS = 0;
         private readonly int Speed = 50;
 
-        private int _Maximum = 100;
         public int Maximum
         {
-            get => _Maximum;
+            get;
             set
             {
-                _Maximum = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 100;
 
-        private int _Value = 0;
         public int Value
         {
-            get => _Value;
+            get;
             set
             {
-                _Value = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 0;
 
-        private bool _ShowPercentage = false;
         public bool ShowPercentage
         {
-            get => _ShowPercentage;
+            get;
             set
             {
-                _ShowPercentage = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
-        private bool _ShowEdge = false;
         public bool ShowEdge
         {
-            get => _ShowEdge;
+            get;
             set
             {
-                _ShowEdge = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         protected override void CreateHandle()
         {
@@ -91,159 +87,145 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private string _PercentageText = "%";
         public string PercentageText
         {
-            get => _PercentageText;
+            get;
             set
             {
-                _PercentageText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "%";
 
-        private Color _ProgressBorderColorA = Color.FromArgb(150, 97, 94, 90);
         public Color ProgressBorderColorA
         {
-            get => _ProgressBorderColorA;
+            get;
             set
             {
-                _ProgressBorderColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(150, 97, 94, 90);
 
-        private Color _ProgressBorderColorB = Color.FromArgb(153, 151, 155);
         public Color ProgressBorderColorB
         {
-            get => _ProgressBorderColorB;
+            get;
             set
             {
-                _ProgressBorderColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(153, 151, 155);
 
-        private Color _EdgeColor = Color.FromArgb(125, 97, 94, 90);
         public Color EdgeColor
         {
-            get => _EdgeColor;
+            get;
             set
             {
-                _EdgeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(125, 97, 94, 90);
 
-        private Color _BorderColor = Color.FromArgb(117, 120, 117);
         public Color BorderColor
         {
-            get => _BorderColor;
+            get;
             set
             {
-                _BorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(117, 120, 117);
 
-        private Color _ColorA = Color.FromArgb(203, 201, 205);
         public Color ColorA
         {
-            get => _ColorA;
+            get;
             set
             {
-                _ColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(203, 201, 205);
 
-        private Color _ColorB = Color.FromArgb(188, 186, 190);
         public Color ColorB
         {
-            get => _ColorB;
+            get;
             set
             {
-                _ColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(188, 186, 190);
 
-        private Color _BaseColor = Color.FromArgb(75, Color.White);
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(75, Color.White);
 
-        private Color _ProgressColorA = Color.FromArgb(203, 201, 205);
         public Color ProgressColorA
         {
-            get => _ProgressColorA;
+            get;
             set
             {
-                _ProgressColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(203, 201, 205);
 
-        private Color _ProgressColorB = Color.FromArgb(188, 186, 190);
         public Color ProgressColorB
         {
-            get => _ProgressColorB;
+            get;
             set
             {
-                _ProgressColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(188, 186, 190);
 
-        private Color _ProgressLineColorA = Color.FromArgb(40, Color.White);
         public Color ProgressLineColorA
         {
-            get => _ProgressLineColorA;
+            get;
             set
             {
-                _ProgressLineColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(40, Color.White);
 
-        private Color _ProgressLineColorB = Color.FromArgb(20, Color.White);
         public Color ProgressLineColorB
         {
-            get => _ProgressLineColorB;
+            get;
             set
             {
-                _ProgressLineColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(20, Color.White);
 
-        private HatchStyle _HatchType = HatchStyle.DarkUpwardDiagonal;
         public HatchStyle HatchType
         {
-            get => _HatchType;
+            get;
             set
             {
-                _HatchType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HatchStyle.DarkUpwardDiagonal;
         #endregion
 
         public RibbonProgressBarLeft() : base()
@@ -261,7 +243,7 @@ namespace ReaLTaiizor.Controls
 
             G.SmoothingMode = SmoothingType;
 
-            int intValue = Convert.ToInt32(Convert.ToDouble(_Value) / Convert.ToDouble(_Maximum) * Width);
+            int intValue = Convert.ToInt32(Convert.ToDouble(Value) / Convert.ToDouble(Maximum) * Width);
             G.Clear(BackColor);
 
             LinearGradientBrush gB = new(new Rectangle(0, 0, Width - 1, Height - 1), ColorA, ColorB, 90);
@@ -284,7 +266,7 @@ namespace ReaLTaiizor.Controls
             G.DrawPath(new(ProgressBorderColorB), DrawRibbon.RoundRect(new Rectangle(0, 0, intValue - 1, Height - 1), 2));
             //colored bar outline
 
-            if (_ShowPercentage)
+            if (ShowPercentage)
             {
                 G.DrawString(Convert.ToString(string.Concat(Value, PercentageText)), Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 1, Height - 1), new StringFormat
                 {

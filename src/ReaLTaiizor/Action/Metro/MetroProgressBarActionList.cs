@@ -57,8 +57,8 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            DesignerActionItemCollection items = new()
-            {
+            DesignerActionItemCollection items =
+            [
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
@@ -71,7 +71,7 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("Minimum", "Minimum", "Appearance", "Gets or sets the minimum value of the progressbar."),
                 new DesignerActionPropertyItem("Maximum", "Maximum", "Appearance", "Gets or sets the maximum value of the progressbar."),
                 new DesignerActionPropertyItem("Value", "Value", "Appearance", "Gets or sets the current position of the progressbar."),
-            };
+            ];
             return items;
         }
     }

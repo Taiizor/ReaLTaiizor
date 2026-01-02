@@ -5,10 +5,14 @@ namespace ReaLTaiizor.UI
 {
     public partial class Form22 : Form
     {
-        public Form22()
+        public Form22(bool State = false)
         {
             InitializeComponent();
-            parrotSplashScreen1.InitializeLoader(this);
+
+            if (!State)
+            {
+                parrotSplashScreen1.InitializeLoader(this);
+            }
         }
 
         private void ParrotColorPicker1_SelectedColorChanged(object sender, EventArgs e)

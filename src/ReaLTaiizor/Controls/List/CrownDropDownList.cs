@@ -28,16 +28,9 @@ namespace ReaLTaiizor.Controls
         #region Field Region
 
 
-        private CrownDropDownItem _selectedItem;
 
         private readonly CrownContextMenuStrip _menu = new();
         private bool _menuOpen = false;
-
-        private bool _showBorder = true;
-
-        private int _itemHeight = 22;
-        private int _maxHeight = 130;
-
         private readonly int _iconSize = 16;
 
         #endregion
@@ -46,16 +39,16 @@ namespace ReaLTaiizor.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ObservableCollection<CrownDropDownItem> Items { get; } = new();
+        public ObservableCollection<CrownDropDownItem> Items { get; } = [];
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public CrownDropDownItem SelectedItem
         {
-            get => _selectedItem;
+            get;
             set
             {
-                _selectedItem = value;
+                field = value;
                 SelectedItemChanged?.Invoke(this, new EventArgs());
             }
         }
@@ -65,13 +58,13 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(true)]
         public bool ShowBorder
         {
-            get => _showBorder;
+            get;
             set
             {
-                _showBorder = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         protected override Size DefaultSize => new(100, 26);
 
@@ -84,26 +77,26 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(22)]
         public int ItemHeight
         {
-            get => _itemHeight;
+            get;
             set
             {
-                _itemHeight = value;
+                field = value;
                 ResizeMenu();
             }
-        }
+        } = 22;
 
         [Category("Appearance")]
         [Description("Determines the maximum height of the dropdown panel.")]
         [DefaultValue(130)]
         public int MaxHeight
         {
-            get => _maxHeight;
+            get;
             set
             {
-                _maxHeight = value;
+                field = value;
                 ResizeMenu();
             }
-        }
+        } = 130;
 
         [Category("Behavior")]
         [Description("Determines what location the dropdown list appears.")]
@@ -196,11 +189,11 @@ namespace ReaLTaiizor.Controls
         private void ResizeMenu()
         {
             int width = ClientRectangle.Width;
-            int height = (_menu.Items.Count * _itemHeight) + 4;
+            int height = (_menu.Items.Count * ItemHeight) + 4;
 
-            if (height > _maxHeight)
+            if (height > MaxHeight)
             {
-                height = _maxHeight;
+                height = MaxHeight;
             }
 
             // Dirty: Check what the autosized items are
@@ -219,7 +212,7 @@ namespace ReaLTaiizor.Controls
             // Force the size
             foreach (ToolStripMenuItem item in _menu.Items)
             {
-                item.Size = new(width - 1, _itemHeight);
+                item.Size = new(width - 1, ItemHeight);
             }
 
             _menu.Size = new(width, height);
@@ -239,7 +232,7 @@ namespace ReaLTaiizor.Controls
                     {
                         Image = item.Icon,
                         AutoSize = false,
-                        Height = _itemHeight,
+                        Height = ItemHeight,
                         Font = Font,
                         Tag = item,
                         TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -286,7 +279,7 @@ namespace ReaLTaiizor.Controls
             }
 
             CrownDropDownItem dropdownItem = (CrownDropDownItem)menuItem.Tag;
-            if (_selectedItem != dropdownItem)
+            if (SelectedItem != dropdownItem)
             {
                 SelectedItem = dropdownItem;
             }

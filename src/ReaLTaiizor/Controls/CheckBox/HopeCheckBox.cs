@@ -17,89 +17,82 @@ namespace ReaLTaiizor.Controls
     public class HopeCheckBox : System.Windows.Forms.CheckBox
     {
         #region Variables
-        private Color _EnabledCheckedColor = HopeColors.PrimaryColor;
-        private Color _EnabledUncheckedColor = ColorTranslator.FromHtml("#9c9ea1");
-        private Color _DisabledColor = ColorTranslator.FromHtml("#c4c6ca");
-        private Color _EnabledStringColor = ColorTranslator.FromHtml("#999999");
-        private Color _DisabledStringColor = ColorTranslator.FromHtml("#babbbd");
-        private Color _CheckedColor = HopeColors.PrimaryColor;
         private readonly Timer AnimationTimer = new() { Interval = 15 };
         private int SizeAnimationNum = 14;
         private int PointAnimationNum = 3;
         private bool enterFlag = false;
-        private bool _Enable = true;
         #endregion
 
         #region Settings
         public bool Enable
         {
-            get => _Enable;
+            get;
             set
             {
-                _Enable = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         public Color EnabledCheckedColor
         {
-            get => _EnabledCheckedColor;
+            get;
             set
             {
-                _EnabledCheckedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.PrimaryColor;
 
         public Color EnabledUncheckedColor
         {
-            get => _EnabledUncheckedColor;
+            get;
             set
             {
-                _EnabledUncheckedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#9c9ea1");
 
         public Color DisabledColor
         {
-            get => _DisabledColor;
+            get;
             set
             {
-                _DisabledColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#c4c6ca");
 
         public Color EnabledStringColor
         {
-            get => _EnabledStringColor;
+            get;
             set
             {
-                _EnabledStringColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#999999");
 
         public Color DisabledStringColor
         {
-            get => _DisabledStringColor;
+            get;
             set
             {
-                _DisabledStringColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#babbbd");
 
         public Color CheckedColor
         {
-            get => _CheckedColor;
+            get;
             set
             {
-                _CheckedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.PrimaryColor;
         #endregion
 
         #region Events
@@ -129,7 +122,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseEnter(eventargs);
             enterFlag = true;
 
-            if (_Enable)
+            if (Enable)
             {
                 Cursor = Cursors.Hand;
             }
@@ -162,7 +155,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath checkmarkPath = RoundRectangle.CreateRoundRect(2, 2, 16, 16, 1);
             //Rectangle checkMarkLine = new(3, 3, 14, 14);
 
-            SolidBrush BG = new(_Enable ? (Checked || enterFlag ? _EnabledCheckedColor : _EnabledUncheckedColor) : _DisabledColor);
+            SolidBrush BG = new(Enable ? (Checked || enterFlag ? EnabledCheckedColor : EnabledUncheckedColor) : DisabledColor);
             Pen Pen = new(BG.Color);
 
             graphics.FillPath(BG, checkmarkPath);
@@ -175,7 +168,7 @@ namespace ReaLTaiizor.Controls
 
             graphics.FillRectangle(new SolidBrush(Color.White), PointAnimationNum, PointAnimationNum, SizeAnimationNum, SizeAnimationNum);
 
-            graphics.DrawString(Text, Font, new SolidBrush(_Enable ? (Checked ? _CheckedColor : ForeColor) : _DisabledStringColor), new RectangleF(22, 0, Width - 22, Height), HopeStringAlign.Center);
+            graphics.DrawString(Text, Font, new SolidBrush(Enable ? (Checked ? CheckedColor : ForeColor) : DisabledStringColor), new RectangleF(22, 0, Width - 22, Height), HopeStringAlign.Center);
         }
 
         private void AnimationTick(object sender, EventArgs e)

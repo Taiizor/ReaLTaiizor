@@ -21,30 +21,7 @@ namespace ReaLTaiizor.Controls
         private int _BorderCurve = 8;
         private GraphicsPath CreateRoundPath;
         private string NotificationText = null;
-        private Type _NotificationType;
-        private bool _RoundedCorners;
-        private bool _ShowCloseButton;
-        private Image _Image;
         private Size _ImageSize;
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
-        private Color _CloseForeColor = Color.Black;
-        private Color _ErrorBackColor = Color.Crimson;
-        private Color _ErrorForeColor = Color.White;
-        private Color _ErrorBorderColor = Color.Crimson;
-        private Color _SuccessBackColor = Color.SeaGreen;
-        private Color _SuccessForeColor = Color.White;
-        private Color _SuccessBorderColor = Color.SeaGreen;
-        private Color _WarningBackColor = Color.FromArgb(255, 128, 0);
-        private Color _WarningForeColor = Color.White;
-        private Color _WarningBorderColor = Color.FromArgb(255, 128, 0);
-        private Color _NoticeBackColor = Color.Gray;
-        private Color _NoticeForeColor = Color.White;
-        private Color _NoticeBorderColor = Color.Gray;
-        private string _ErrorTitleText = "ERROR";
-        private string _SuccessTitleText = "SUCCESS";
-        private string _WarningTitleText = "WARNING";
-        private string _NoticeTitleText = "NOTICE";
 
         #endregion
 
@@ -66,10 +43,10 @@ namespace ReaLTaiizor.Controls
         // Create a NotificationType property and add the Type enum to it
         public Type NotificationType
         {
-            get => _NotificationType;
+            get;
             set
             {
-                _NotificationType = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -77,10 +54,10 @@ namespace ReaLTaiizor.Controls
         // Boolean value to determine whether the control should use border radius
         public bool RoundCorners
         {
-            get => _RoundedCorners;
+            get;
             set
             {
-                _RoundedCorners = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -88,10 +65,10 @@ namespace ReaLTaiizor.Controls
         // Boolean value to determine whether the control should draw the close button
         public bool ShowCloseButton
         {
-            get => _ShowCloseButton;
+            get;
             set
             {
-                _ShowCloseButton = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -110,7 +87,7 @@ namespace ReaLTaiizor.Controls
         // Image value to determine whether the control should draw an image before the header
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -122,7 +99,7 @@ namespace ReaLTaiizor.Controls
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -131,193 +108,193 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         public Color CloseForeColor
         {
-            get => _CloseForeColor;
+            get;
             set
             {
-                _CloseForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
         public Color ErrorBackColor
         {
-            get => _ErrorBackColor;
+            get;
             set
             {
-                _ErrorBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Crimson;
 
         public Color ErrorForeColor
         {
-            get => _ErrorForeColor;
+            get;
             set
             {
-                _ErrorForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color ErrorBorderColor
         {
-            get => _ErrorBorderColor;
+            get;
             set
             {
-                _ErrorBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Crimson;
 
         public Color SuccessBackColor
         {
-            get => _SuccessBackColor;
+            get;
             set
             {
-                _SuccessBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.SeaGreen;
 
         public Color SuccessForeColor
         {
-            get => _SuccessForeColor;
+            get;
             set
             {
-                _SuccessForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color SuccessBorderColor
         {
-            get => _SuccessBorderColor;
+            get;
             set
             {
-                _SuccessBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.SeaGreen;
 
         public Color WarningBackColor
         {
-            get => _WarningBackColor;
+            get;
             set
             {
-                _WarningBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(255, 128, 0);
 
         public Color WarningForeColor
         {
-            get => _WarningForeColor;
+            get;
             set
             {
-                _WarningForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color WarningBorderColor
         {
-            get => _WarningBorderColor;
+            get;
             set
             {
-                _WarningBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(255, 128, 0);
 
         public Color NoticeBackColor
         {
-            get => _NoticeBackColor;
+            get;
             set
             {
-                _NoticeBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Gray;
 
         public Color NoticeForeColor
         {
-            get => _NoticeForeColor;
+            get;
             set
             {
-                _NoticeForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color NoticeBorderColor
         {
-            get => _NoticeBorderColor;
+            get;
             set
             {
-                _NoticeBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Gray;
 
         public string ErrorTitleText
         {
-            get => _ErrorTitleText;
+            get;
             set
             {
-                _ErrorTitleText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "ERROR";
 
         public string SuccessTitleText
         {
-            get => _SuccessTitleText;
+            get;
             set
             {
-                _SuccessTitleText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "SUCCESS";
 
         public string WarningTitleText
         {
-            get => _WarningTitleText;
+            get;
             set
             {
-                _WarningTitleText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "WARNING";
 
         public string NoticeTitleText
         {
-            get => _NoticeTitleText;
+            get;
             set
             {
-                _NoticeTitleText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "NOTICE";
 
         #endregion
 
@@ -346,7 +323,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
 
             // Disposes the control when the close button is clicked
-            if (_ShowCloseButton == true)
+            if (ShowCloseButton == true)
             {
                 if (IsOverClose)
                 {
@@ -410,7 +387,7 @@ namespace ReaLTaiizor.Controls
             GFX.TextRenderingHint = TextRenderingType;
             GFX.Clear(Parent.BackColor);
 
-            switch (_NotificationType)
+            switch (NotificationType)
             {
                 case Type.Notice:
                     NotificationText = NoticeTitleText;
@@ -438,7 +415,7 @@ namespace ReaLTaiizor.Controls
                     break;
             }
 
-            if (_RoundedCorners)
+            if (RoundCorners)
             {
                 GFX.FillPath(new SolidBrush(BackgroundColor), CrvBorderPath);
                 GFX.DrawPath(new(BorderColor), CrvBorderPath);
@@ -456,14 +433,14 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                GFX.DrawImage(_Image, 12, 4, 16, 16);
+                GFX.DrawImage(Image, 12, 4, 16, 16);
                 GFX.DrawString(NotificationText, TypeFont, new SolidBrush(ForeColor), new Point(30, 5));
                 GFX.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(10, 21, Width - 17, Height - 5));
             }
 
             CloseCoordinates = new(Width - 26, 4);
 
-            if (_ShowCloseButton)
+            if (ShowCloseButton)
             {
                 GFX.DrawString("r", new Font("Marlett", 7, FontStyle.Regular), new SolidBrush(CloseForeColor), new Rectangle(Width - 20, 10, Width, Height), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near }); // Draw the close button
             }

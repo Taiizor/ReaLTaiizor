@@ -89,9 +89,13 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
+            graphics.PageUnit = GraphicsUnit.Pixel;
             graphics.SmoothingMode = SmoothingMode.HighQuality;
+            graphics.CompositingMode = CompositingMode.SourceOver;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            graphics.CompositingQuality = CompositingQuality.HighQuality;
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             graphics.Clear(Parent.BackColor);
 
             if (ButtonType == HopeButtonType.Default)

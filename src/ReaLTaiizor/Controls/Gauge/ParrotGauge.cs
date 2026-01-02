@@ -145,18 +145,17 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -215,8 +214,8 @@ namespace ReaLTaiizor.Controls
 
         public Color consumptionColor = Color.Black;
 
-        public List<Color> barColor = new()
-        {
+        public List<Color> barColor =
+        [
             Color.FromArgb(255, 220, 0),
             Color.FromArgb(255, 150, 0),
             Color.FromArgb(250, 90, 0),
@@ -224,7 +223,7 @@ namespace ReaLTaiizor.Controls
             Color.FromArgb(249, 55, 98),
             Color.FromArgb(0, 162, 250),
             Color.FromArgb(0, 162, 250)
-        };
+        ];
 
         public Color filledColor = Color.FromArgb(0, 162, 250);
 

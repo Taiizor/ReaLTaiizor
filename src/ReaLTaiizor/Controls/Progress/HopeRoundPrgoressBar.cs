@@ -18,29 +18,28 @@ namespace ReaLTaiizor.Controls
     {
 
         private readonly int tempValue = 0;
-        private int _valueNumber = 0;
+
         public int ValueNumber
         {
-            get => _valueNumber;
+            get;
             set
             {
-                _valueNumber = value > 100 ? 100 : (value < 0 ? 0 : value);
+                field = value > 100 ? 100 : (value < 0 ? 0 : value);
                 Invalidate();
             }
-        }
+        } = 0;
 
         private readonly float _roundWidth = 6;
 
-        private bool _isError = false;
         public bool IsError
         {
-            get => _isError;
+            get;
             set
             {
-                _isError = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         public string PercentText { get; set; } = "%";
         public Color BorderColor { get; set; } = HopeColors.OneLevelBorder;
@@ -70,9 +69,9 @@ namespace ReaLTaiizor.Controls
 
             graphics.FillEllipse(new SolidBrush(BorderColor), new Rectangle(0, 0, Width, Height));
 
-            if (_isError)
+            if (IsError)
             {
-                graphics.FillPie(new SolidBrush(DangerColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
+                graphics.FillPie(new SolidBrush(DangerColor), new Rectangle(0, 0, Width, Width), 0, ValueNumber * 3.6f);
 
                 graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)));
                 graphics.DrawLine(new(DangerTextColorA, 2f), (Width / 2) - 6, (Height / 2) - 6, (Width / 2) + 6, (Height / 2) + 6);
@@ -80,18 +79,18 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                if (_valueNumber == 100)
+                if (ValueNumber == 100)
                 {
-                    graphics.FillPie(new SolidBrush(FullBarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
+                    graphics.FillPie(new SolidBrush(FullBarColor), new Rectangle(0, 0, Width, Width), 0, ValueNumber * 3.6f);
                     graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)));
                     graphics.DrawLine(new(FullTextColorA, 2f), (Width / 2) - 6, Height / 2, (Width / 2) - 3, (Height / 2) + 6);
                     graphics.DrawLine(new(FullTextColorB, 2f), (Width / 2) + 6, (Height / 2) - 6, (Width / 2) - 3, (Height / 2) + 6);
                 }
                 else
                 {
-                    graphics.FillPie(new SolidBrush(BarColor), new Rectangle(0, 0, Width, Width), 0, _valueNumber * 3.6f);
+                    graphics.FillPie(new SolidBrush(BarColor), new Rectangle(0, 0, Width, Width), 0, ValueNumber * 3.6f);
                     graphics.FillEllipse(new SolidBrush(BackColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)));
-                    graphics.DrawString(_valueNumber.ToString() + PercentText, Font, new SolidBrush(ForeColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)), HopeStringAlign.Center);
+                    graphics.DrawString(ValueNumber.ToString() + PercentText, Font, new SolidBrush(ForeColor), new RectangleF(_roundWidth, _roundWidth, Width - (_roundWidth * 2), Width - (_roundWidth * 2)), HopeStringAlign.Center);
                 }
             }
         }

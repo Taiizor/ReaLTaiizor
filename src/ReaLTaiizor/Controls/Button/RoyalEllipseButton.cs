@@ -13,16 +13,15 @@ namespace ReaLTaiizor.Controls
 
     public class RoyalEllipseButton : RoyalButton
     {
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
         public RoyalEllipseButton() : base()
         {

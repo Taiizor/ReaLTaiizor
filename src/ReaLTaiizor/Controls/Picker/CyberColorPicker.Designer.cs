@@ -66,7 +66,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 16);
             this.label1.TabIndex = 12;
-            this.label1.Text = "RGB: none";
+            this.label1.Text = "RGB: NONE";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox3
@@ -89,7 +89,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 16);
             this.label2.TabIndex = 16;
-            this.label2.Text = "HEX: none";
+            this.label2.Text = "HEX: NONE";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CyberColorPicker

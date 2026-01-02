@@ -29,38 +29,35 @@ namespace ReaLTaiizor.Controls
 
         #region Settings
 
-        private Style _style = Style.ToolTip;
         public Style ProgressBarStyle
         {
-            get => _style;
+            get;
             set
             {
-                _style = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Style.ToolTip;
 
-        private bool _isError = false;
         public bool IsError
         {
-            get => _isError;
+            get;
             set
             {
-                _isError = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
-        private int _valueNumber = 0;
         public int ValueNumber
         {
-            get => _valueNumber;
+            get;
             set
             {
-                _valueNumber = value > 100 ? 100 : (value < 0 ? 0 : value);
+                field = value > 100 ? 100 : (value < 0 ? 0 : value);
                 Invalidate();
             }
-        }
+        } = 0;
 
         public Color DangerColor { get; set; } = HopeColors.Danger;
         public Color BaseColor { get; set; } = HopeColors.PrimaryColor;
@@ -75,7 +72,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            switch (_style)
+            switch (ProgressBarStyle)
             {
                 case Style.ToolTip:
                     Height = 32;
@@ -99,21 +96,21 @@ namespace ReaLTaiizor.Controls
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             graphics.Clear(BackColor);
 
-            Color tempColor = _isError ? DangerColor : BaseColor;
+            Color tempColor = IsError ? DangerColor : BaseColor;
 
-            switch (_style)
+            switch (ProgressBarStyle)
             {
                 case Style.ToolTip:
-                    float x = (_valueNumber * (Width - 32) / 100) + 16f;
+                    float x = (ValueNumber * (Width - 32) / 100) + 16f;
                     int y = 25;
-                    graphics.FillPolygon(new SolidBrush(_valueNumber == 100 && !_isError ? FullBallonColor : tempColor), new PointF[]
+                    graphics.FillPolygon(new SolidBrush(ValueNumber == 100 && !IsError ? FullBallonColor : tempColor), new PointF[]
                     {
                          new(x,y),new(x+5,y-5),new(x+16,y-5),new(x+16,y-25),new(x-16,y-25),new(x-16,y-5),new(x-5,y-5)
                     });
-                    graphics.DrawString(_valueNumber != 100 ? _valueNumber.ToString() + "%" : FullBallonText, Font, new SolidBrush(ForeColor), new RectangleF(x - 16, y - 25, 32, 20), HopeStringAlign.Center);
+                    graphics.DrawString(ValueNumber != 100 ? ValueNumber.ToString() + "%" : FullBallonText, Font, new SolidBrush(ForeColor), new RectangleF(x - 16, y - 25, 32, 20), HopeStringAlign.Center);
 
                     graphics.FillRectangle(new SolidBrush(BarColor), new RectangleF(16, 25, Width - 32, Height - 25));
-                    graphics.FillRectangle(new SolidBrush(_valueNumber == 100 && !_isError ? FullBarColor : tempColor), new RectangleF(16, 25, x - 16, Height - 25));
+                    graphics.FillRectangle(new SolidBrush(ValueNumber == 100 && !IsError ? FullBarColor : tempColor), new RectangleF(16, 25, x - 16, Height - 25));
                     break;
 
                 case Style.ValueInSide:
@@ -123,7 +120,7 @@ namespace ReaLTaiizor.Controls
                     path1.CloseAllFigures();
                     graphics.FillPath(new SolidBrush(BarColor), path1);
 
-                    if (_valueNumber == 0)
+                    if (ValueNumber == 0)
                     {
                         graphics.DrawString("0%", new Font("Segoe UI", 9f), new SolidBrush(ForeColor), new RectangleF(5, 0, 50, Height), HopeStringAlign.Left);
                     }
@@ -131,11 +128,11 @@ namespace ReaLTaiizor.Controls
                     {
                         GraphicsPath path2 = new();
                         path2.AddArc(new RectangleF(0, 0, Height, Height), 90, 180);
-                        path2.AddArc(new RectangleF(_valueNumber * (Width - Height) / 100, 0, Height, Height), -90, 180);
+                        path2.AddArc(new RectangleF(ValueNumber * (Width - Height) / 100, 0, Height, Height), -90, 180);
                         path2.CloseAllFigures();
-                        graphics.FillPath(new SolidBrush(_valueNumber == 100 && !_isError ? FullBarColor : tempColor), path2);
+                        graphics.FillPath(new SolidBrush(ValueNumber == 100 && !IsError ? FullBarColor : tempColor), path2);
 
-                        graphics.DrawString(_valueNumber.ToString() + "%", new Font("Segoe UI", 9f), new SolidBrush(ForeColor), new RectangleF((_valueNumber * (Width - Height) / 100) - 33, 0, 45, Height), HopeStringAlign.Right);
+                        graphics.DrawString(ValueNumber.ToString() + "%", new Font("Segoe UI", 9f), new SolidBrush(ForeColor), new RectangleF((ValueNumber * (Width - Height) / 100) - 33, 0, 45, Height), HopeStringAlign.Right);
                     }
                     break;
                 case Style.ValueOutSide:
@@ -145,16 +142,16 @@ namespace ReaLTaiizor.Controls
                     path3.CloseAllFigures();
                     graphics.FillPath(new SolidBrush(BarColor), path3);
 
-                    if (_valueNumber != 0)
+                    if (ValueNumber != 0)
                     {
                         GraphicsPath path4 = new();
                         path4.AddArc(new RectangleF(0, 4, Height - 8, Height - 8), 90, 180);
-                        path4.AddArc(new RectangleF(_valueNumber * (Width - 50) / 100, 4, Height - 8, Height - 8), -90, 180);
+                        path4.AddArc(new RectangleF(ValueNumber * (Width - 50) / 100, 4, Height - 8, Height - 8), -90, 180);
                         path4.CloseAllFigures();
-                        graphics.FillPath(new SolidBrush(_valueNumber == 100 && !_isError ? FullBarColor : tempColor), path4);
+                        graphics.FillPath(new SolidBrush(ValueNumber == 100 && !IsError ? FullBarColor : tempColor), path4);
                     }
 
-                    if (_isError)
+                    if (IsError)
                     {
                         graphics.FillEllipse(new SolidBrush(DangerColor), new RectangleF(Width - 40, 0, Height, Height));
                         int a = Width - 40 + 4;
@@ -164,7 +161,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        if (_valueNumber == 100)
+                        if (ValueNumber == 100)
                         {
                             graphics.FillEllipse(new SolidBrush(FullBarColor), new RectangleF(Width - 40, 0, Height, Height));
                             int a = Width - 40 + 4;
@@ -174,7 +171,7 @@ namespace ReaLTaiizor.Controls
                         }
                         else
                         {
-                            graphics.DrawString(_valueNumber.ToString() + "%", new Font("Segoe UI", 10f), new SolidBrush(ForeColor), new RectangleF(Width - 40, 0, 50, Height), HopeStringAlign.Left);
+                            graphics.DrawString(ValueNumber.ToString() + "%", new Font("Segoe UI", 10f), new SolidBrush(ForeColor), new RectangleF(Width - 40, 0, 50, Height), HopeStringAlign.Left);
                         }
                     }
                     break;

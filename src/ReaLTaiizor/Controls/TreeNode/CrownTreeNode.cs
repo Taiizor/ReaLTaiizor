@@ -25,11 +25,6 @@ namespace ReaLTaiizor.Controls
 
         #region Field Region
 
-        private string _text;
-        private CrownTreeView _parentTree;
-        private ObservableList<CrownTreeNode> _nodes;
-
-        private bool _expanded;
 
         #endregion
 
@@ -37,15 +32,15 @@ namespace ReaLTaiizor.Controls
 
         public string Text
         {
-            get => _text;
+            get;
             set
             {
-                if (_text == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _text = value;
+                field = value;
 
                 OnTextChanged();
             }
@@ -67,10 +62,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Expanded
         {
-            get => _expanded;
+            get;
             set
             {
-                if (_expanded == value)
+                if (field == value)
                 {
                     return;
                 }
@@ -80,9 +75,9 @@ namespace ReaLTaiizor.Controls
                     return;
                 }
 
-                _expanded = value;
+                field = value;
 
-                if (_expanded)
+                if (field)
                 {
                     NodeExpanded?.Invoke(this, null);
                 }
@@ -95,19 +90,19 @@ namespace ReaLTaiizor.Controls
 
         public ObservableList<CrownTreeNode> Nodes
         {
-            get => _nodes;
+            get;
             set
             {
-                if (_nodes != null)
+                if (field != null)
                 {
-                    _nodes.ItemsAdded -= Nodes_ItemsAdded;
-                    _nodes.ItemsRemoved -= Nodes_ItemsRemoved;
+                    field.ItemsAdded -= Nodes_ItemsAdded;
+                    field.ItemsRemoved -= Nodes_ItemsRemoved;
                 }
 
-                _nodes = value;
+                field = value;
 
-                _nodes.ItemsAdded += Nodes_ItemsAdded;
-                _nodes.ItemsRemoved += Nodes_ItemsRemoved;
+                field.ItemsAdded += Nodes_ItemsAdded;
+                field.ItemsRemoved += Nodes_ItemsRemoved;
             }
         }
 
@@ -115,19 +110,19 @@ namespace ReaLTaiizor.Controls
 
         public CrownTreeView ParentTree
         {
-            get => _parentTree;
+            get;
             set
             {
-                if (_parentTree == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _parentTree = value;
+                field = value;
 
                 foreach (CrownTreeNode node in Nodes)
                 {
-                    node.ParentTree = _parentTree;
+                    node.ParentTree = field;
                 }
             }
         }
@@ -185,7 +180,7 @@ namespace ReaLTaiizor.Controls
 
         public CrownTreeNode()
         {
-            Nodes = new ObservableList<CrownTreeNode>();
+            Nodes = [];
         }
 
         public CrownTreeNode(string text) : this()

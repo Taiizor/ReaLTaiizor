@@ -73,13 +73,13 @@ namespace ReaLTaiizor.Controls
             get => _value;
             set
             {
-                if (value < _rangeMin)
+                if (value < RangeMin)
                 {
-                    _value = _rangeMin;
+                    _value = RangeMin;
                 }
-                else if (value > _rangeMax)
+                else if (value > RangeMax)
                 {
-                    _value = _rangeMax;
+                    _value = RangeMax;
                 }
                 else
                 {
@@ -91,56 +91,53 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private int _valueMax;
         [DefaultValue(0)]
         [Category("Material")]
         [Description("Define position indicator maximum value. Ignored when set to 0.")]
         public int ValueMax
         {
-            get => _valueMax;
+            get;
             set
             {
-                if (value > _rangeMax)
+                if (value > RangeMax)
                 {
-                    _valueMax = _rangeMax;
+                    field = RangeMax;
                 }
-                else if (value < _rangeMin)
+                else if (value < RangeMin)
                 {
-                    _valueMax = _rangeMin;
+                    field = RangeMin;
                 }
                 else
                 {
-                    _valueMax = value;
+                    field = value;
                 }
             }
         }
 
-        private int _rangeMax;
         [DefaultValue(100)]
         [Category("Material")]
         [Description("Define control range maximum value")]
         public int RangeMax
         {
-            get => _rangeMax;
+            get;
             set
             {
-                _rangeMax = value;
+                field = value;
                 //_mouseX = _sliderRectangle.X + ((int)((double)_value / (double)(RangeMax - RangeMin) * (double)(_sliderRectangle.Width) - _thumbRadius / 2));
                 _mouseX = _sliderRectangle.X + ((int)((double)_value / (double)(RangeMax - RangeMin) * (double)(_sliderRectangle.Width - _thumbRadius)));
                 RecalcutlateIndicator();
             }
         }
 
-        private int _rangeMin;
         [DefaultValue(0)]
         [Category("Material")]
         [Description("Define control range minimum value")]
         public int RangeMin
         {
-            get => _rangeMin;
+            get;
             set
             {
-                _rangeMin = value;
+                field = value;
                 //_mouseX = _sliderRectangle.X + ((int)((double)_value / (double)(RangeMax - RangeMin) * (double)(_sliderRectangle.Width) - _thumbRadius / 2));
                 _mouseX = _sliderRectangle.X + ((int)((double)_value / (double)(RangeMax - RangeMin) * (double)(_sliderRectangle.Width - _thumbRadius)));
                 RecalcutlateIndicator();
@@ -162,76 +159,69 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private string _valueSuffix;
         [DefaultValue("")]
         [Category("Material")]
         [Description("Set control value suffix text")]
         public string ValueSuffix
         {
-            get => _valueSuffix;
+            get;
             set
             {
-                _valueSuffix = value;
+                field = value;
                 UpdateRects();
             }
         }
 
-        private string _valuePrefix;
         [DefaultValue("")]
         [Category("Material")]
         [Description("Set control value prefix text")]
         public string ValuePrefix
         {
-            get => _valuePrefix;
+            get;
             set
             {
-                _valuePrefix = value;
+                field = value;
                 UpdateRects();
             }
         }
 
-        private bool _showText;
         [DefaultValue(true)]
         [Category("Material"), DisplayName("Show Text")]
         [Description("Show text")]
         public bool ShowText
         {
-            get => _showText;
-            set { _showText = value; UpdateRects(); Invalidate(); }
+            get;
+            set { field = value; UpdateRects(); Invalidate(); }
         }
 
-        private bool _showValue;
         [DefaultValue(true)]
         [Category("Material"), DisplayName("Show Value")]
         [Description("Show value")]
         public bool ShowValue
         {
-            get => _showValue;
-            set { _showValue = value; UpdateRects(); Invalidate(); }
+            get;
+            set { field = value; UpdateRects(); Invalidate(); }
         }
 
-        private bool _useAccentColor;
         [Category("Material"), DefaultValue(false), DisplayName("Use Accent Color")]
         public bool UseAccentColor
         {
-            get => _useAccentColor;
-            set { _useAccentColor = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
-
-        private MaterialSkinManager.FontType _fontType = MaterialSkinManager.FontType.Body1;
 
         [Category("Material"),
         DefaultValue(typeof(MaterialSkinManager.FontType), "Body1")]
         public MaterialSkinManager.FontType FontType
         {
-            get => _fontType;
+            get;
             set
             {
-                _fontType = value;
-                Font = SkinManager.GetFontByType(_fontType);
+                field = value;
+                Font = SkinManager.GetFontByType(field);
                 Refresh();
             }
-        }
+        } = MaterialSkinManager.FontType.Body1;
 
 
         #endregion
@@ -375,17 +365,17 @@ namespace ReaLTaiizor.Controls
             else if (e.X < _sliderRectangle.X)// + (_thumbRadius / 2))
             {
                 _mouseX = _sliderRectangle.X;
-                v = _rangeMin;
+                v = RangeMin;
             }
             else if (e.X > _sliderRectangle.Right - _thumbRadius)// / 2)
             {
                 _mouseX = _sliderRectangle.Right - _thumbRadius;
-                v = _rangeMax;
+                v = RangeMax;
             }
 
-            if (_valueMax != 0 && v > _valueMax)
+            if (ValueMax != 0 && v > ValueMax)
             {
-                Value = _valueMax;
+                Value = ValueMax;
             }
             else
             {
@@ -404,13 +394,13 @@ namespace ReaLTaiizor.Controls
             Size valueSize;
             using (MaterialNativeTextRenderer NativeText = new(CreateGraphics()))
             {
-                textSize = NativeText.MeasureLogString(_showText ? Text : "", SkinManager.GetLogFontByType(_fontType));
-                valueSize = NativeText.MeasureLogString(_showValue ? _valuePrefix + RangeMax.ToString() + _valueSuffix : "", SkinManager.GetLogFontByType(_fontType));
+                textSize = NativeText.MeasureLogString(ShowText ? Text : "", SkinManager.GetLogFontByType(FontType));
+                valueSize = NativeText.MeasureLogString(ShowValue ? ValuePrefix + RangeMax.ToString() + ValueSuffix : "", SkinManager.GetLogFontByType(FontType));
             }
             _valueRectangle = new Rectangle(Width - valueSize.Width - (_thumbRadiusHoverPressed / 4), 0, valueSize.Width + (_thumbRadiusHoverPressed / 4), Height);
             _textRectangle = new Rectangle(0, 0, textSize.Width + (_thumbRadiusHoverPressed / 4), Height);
             _sliderRectangle = new Rectangle(_textRectangle.Right, 0, _valueRectangle.Left - _textRectangle.Right, _thumbRadius);
-            _mouseX = _sliderRectangle.X + ((int)(((double)_value / (double)(_rangeMax - _rangeMin) * (double)_sliderRectangle.Width) - (_thumbRadius / 2)));
+            _mouseX = _sliderRectangle.X + ((int)(((double)_value / (double)(RangeMax - RangeMin) * (double)_sliderRectangle.Width) - (_thumbRadius / 2)));
             RecalcutlateIndicator();
         }
 
@@ -437,7 +427,7 @@ namespace ReaLTaiizor.Controls
             Color _thumbHoverColor;
             Color _thumbPressedColor;
 
-            if (_useAccentColor)
+            if (UseAccentColor)
             {
                 _accentColor = SkinManager.ColorScheme.AccentColor;
             }
@@ -514,24 +504,24 @@ namespace ReaLTaiizor.Controls
             }
 
             using MaterialNativeTextRenderer NativeText = new(g);
-            if (_showText == true)
+            if (ShowText == true)
             {
                 // Draw text
                 NativeText.DrawTransparentText(
                 Text,
-                SkinManager.GetLogFontByType(_fontType),
+                SkinManager.GetLogFontByType(FontType),
                 Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                 _textRectangle.Location,
                 _textRectangle.Size,
                 MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
 
-            if (_showValue == true)
+            if (ShowValue == true)
             {
                 // Draw value
                 NativeText.DrawTransparentText(
                     ValuePrefix + Value.ToString() + ValueSuffix,
-                    SkinManager.GetLogFontByType(_fontType),
+                    SkinManager.GetLogFontByType(FontType),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     _valueRectangle.Location,
                     _valueRectangle.Size,

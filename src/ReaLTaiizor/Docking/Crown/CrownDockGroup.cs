@@ -20,9 +20,9 @@ namespace ReaLTaiizor.Docking.Crown
     {
         #region Field Region
 
-        private readonly List<CrownDockContent> _contents = new();
+        private readonly List<CrownDockContent> _contents = [];
 
-        private readonly Dictionary<CrownDockContent, CrownDockTab> _tabs = new();
+        private readonly Dictionary<CrownDockContent, CrownDockTab> _tabs = [];
 
         private readonly CrownDockTabArea _tabArea;
 

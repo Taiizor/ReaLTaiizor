@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public DockPanelState()
         {
-            Regions = new List<DockRegionState>();
+            Regions = [];
         }
 
         #endregion

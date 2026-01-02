@@ -13,10 +13,9 @@ namespace ReaLTaiizor.Forms
 
     public class DreamForm : GroupBox
     {
-        private int _TitleHeight = 25;
         public int TitleHeight
         {
-            get => _TitleHeight;
+            get;
             set
             {
                 if (value > Height)
@@ -29,21 +28,20 @@ namespace ReaLTaiizor.Forms
                     Height = 1;
                 }
 
-                _TitleHeight = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 25;
 
-        private HorizontalAlignment _TitleAlign = (HorizontalAlignment)2;
         public HorizontalAlignment TitleAlign
         {
-            get => _TitleAlign;
+            get;
             set
             {
-                _TitleAlign = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = (HorizontalAlignment)2;
 
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -60,7 +58,7 @@ namespace ReaLTaiizor.Forms
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (new Rectangle(Parent.Location.X, Parent.Location.Y, Width - 1, _TitleHeight - 1).IntersectsWith(new Rectangle(MousePosition.X, MousePosition.Y, 1, 1)))
+            if (new Rectangle(Parent.Location.X, Parent.Location.Y, Width - 1, TitleHeight - 1).IntersectsWith(new Rectangle(MousePosition.X, MousePosition.Y, 1, 1)))
             {
                 Capture = false;
                 //Message  M = Message.Create(Parent.Handle, 161, 2, 0);
@@ -94,17 +92,17 @@ namespace ReaLTaiizor.Forms
 
             SizeF S = G.MeasureString(Text + "1", Font);
             float O = 6;
-            if (_TitleAlign == (HorizontalAlignment)2)
+            if (TitleAlign == (HorizontalAlignment)2)
             {
                 O = (Width / 2) - (S.Width / 2);
             }
 
-            if (_TitleAlign == (HorizontalAlignment)1)
+            if (TitleAlign == (HorizontalAlignment)1)
             {
                 O = Width - S.Width - 6;
             }
 
-            Rectangle R = new((int)O, ((_TitleHeight + 2) / 2) - ((int)S.Height / 2), (int)S.Width, (int)S.Height);
+            Rectangle R = new((int)O, ((TitleHeight + 2) / 2) - ((int)S.Height / 2), (int)S.Width, (int)S.Height);
             using (Brush T = new LinearGradientBrush(R, ColorA, ColorC, LinearGradientMode.Vertical))
             {
                 G.DrawString(Text, Font, T, R);
@@ -116,7 +114,7 @@ namespace ReaLTaiizor.Forms
             ColorBlend x = new();
             Color[] temp = { ColorE, ColorF, ColorE };
             x.Colors = temp;
-            float[] temp2 = { 0.5F, 0, 0, _TitleHeight + 1, Width, 1 };
+            float[] temp2 = { 0.5F, 0, 0, TitleHeight + 1, Width, 1 };
             x.Positions = temp2;
 
             /*
@@ -124,7 +122,7 @@ namespace ReaLTaiizor.Forms
                 B.InterpolationColors = C_Blend;
             */
 
-            G.DrawLine(new(ColorD), 0, _TitleHeight, Width, _TitleHeight);
+            G.DrawLine(new(ColorD), 0, TitleHeight, Width, TitleHeight);
             G.DrawRectangle(new(ColorD), 0, 0, Width - 1, Height - 1);
             Bitmap B1 = B;
             e.Graphics.DrawImage(B, 0, 0);

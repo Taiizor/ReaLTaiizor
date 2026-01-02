@@ -1,4 +1,5 @@
-﻿using System.Linq;
+using ReaLTaiizor.UI.Forms;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ReaLTaiizor.UI.Helpers
@@ -30,9 +31,9 @@ namespace ReaLTaiizor.UI.Helpers
                 "19" or "form19" or "metro" => new Form19(),
                 "20" or "form20" or "poison" => new Form20(),
                 "21" or "form21" or "crown" => new Form21(),
-                "22" or "form22" or "parrot" => new Form22(),
+                "22" or "form22" or "parrot" => new Form22(Arg.Count() > 1),
                 "23" or "form23" or "cyber" => new Form23(),
-                _ => new Form17(),
+                _ => new FormManager(),
             };
         }
     }

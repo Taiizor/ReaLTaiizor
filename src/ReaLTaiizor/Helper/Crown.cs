@@ -114,23 +114,22 @@ namespace ReaLTaiizor.Helper
                 PropertyChanged?.Invoke(null, new PropertyChangedEventArgs(name));
             }
 
-            private static ITheme _Theme;
             public static ITheme Theme
             {
                 get
                 {
-                    if (_Theme == null)
+                    if (field == null)
                     {
-                        _Theme = new DarkTheme();
+                        field = new DarkTheme();
                     }
 
-                    return _Theme;
+                    return field;
                 }
                 set
                 {
-                    if (value != _Theme)
+                    if (value != field)
                     {
-                        _Theme = value;
+                        field = value;
                         OnPropertyChanged("Theme");
                     }
                 }

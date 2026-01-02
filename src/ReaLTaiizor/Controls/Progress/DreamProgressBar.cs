@@ -12,21 +12,19 @@ namespace ReaLTaiizor.Controls
 
     public class DreamProgressBar : ProgressBar
     {
-        private int _Value;
         public int Value
         {
-            get => _Value;
+            get;
             set
             {
-                _Value = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private int _Maximum = 100;
         public int Maximum
         {
-            get => _Maximum;
+            get;
             set
             {
                 if (value == 0)
@@ -34,10 +32,10 @@ namespace ReaLTaiizor.Controls
                     value = 1;
                 }
 
-                _Maximum = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 100;
 
         public DreamProgressBar()
         {
@@ -59,7 +57,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            int V = Width * _Value / _Maximum;
+            int V = Width * Value / Maximum;
             using Bitmap B = new(Width, Height);
             using Graphics G = Graphics.FromImage(B);
             Rectangle R1 = new(1, 1, Width - 2, Height - 2);

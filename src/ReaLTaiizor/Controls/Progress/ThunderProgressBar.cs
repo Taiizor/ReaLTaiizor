@@ -14,17 +14,15 @@ namespace ReaLTaiizor.Controls
 
     public class ThunderProgressBar : Control
     {
-        private int _Maximum = 100;
-
         public int Maximum
         {
-            get => _Maximum;
+            get;
             set
             {
-                _Maximum = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 100;
         private int _Value = 0;
         public int Value
         {
@@ -42,24 +40,24 @@ namespace ReaLTaiizor.Controls
             set
             {
                 _Value = value;
-                if (_Value > _Maximum)
+                if (_Value > Maximum)
                 {
-                    _Value = _Maximum;
+                    _Value = Maximum;
                 }
 
                 Invalidate();
             }
         }
-        private bool _ShowPercentage = false;
+
         public bool ShowPercentage
         {
-            get => _ShowPercentage;
+            get;
             set
             {
-                _ShowPercentage = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         public ThunderProgressBar() : base()
         {
@@ -77,7 +75,7 @@ namespace ReaLTaiizor.Controls
 
             G.SmoothingMode = SmoothingMode.HighQuality;
 
-            double val = (double)_Value / _Maximum;
+            double val = (double)_Value / Maximum;
             int intValue = Convert.ToInt32(val * Width);
             G.Clear(BackColor);
             Color C1 = Color.FromArgb(174, 195, 30);
@@ -100,7 +98,7 @@ namespace ReaLTaiizor.Controls
             G.DrawPath(new(Color.FromArgb(150, 97, 94, 90)), GP2);
             G.DrawPath(P1, GP2);
 
-            if (_ShowPercentage)
+            if (ShowPercentage)
             {
                 G.DrawString(Convert.ToString(string.Concat(Value, "%")), Font, new SolidBrush(ForeColor), R1, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             }

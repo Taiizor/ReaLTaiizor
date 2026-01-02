@@ -15,11 +15,11 @@ namespace ReaLTaiizor.AppLocker
         [DllImport("User32.dll")]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
 
-        public static Dictionary<string, string> Procs = new();
-        private readonly Dictionary<string, string> LProcs = new();
-        public static Dictionary<string, bool> PProcs = new();
-        public Dictionary<string, bool> MBProcs = new();
-        public static Dictionary<string, bool> BPProcs = new();
+        public static Dictionary<string, string> Procs = [];
+        private readonly Dictionary<string, string> LProcs = [];
+        public static Dictionary<string, bool> PProcs = [];
+        public Dictionary<string, bool> MBProcs = [];
+        public static Dictionary<string, bool> BPProcs = [];
 
         public AppLocker()
         {

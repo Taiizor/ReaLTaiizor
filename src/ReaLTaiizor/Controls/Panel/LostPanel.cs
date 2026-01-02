@@ -20,16 +20,15 @@ namespace ReaLTaiizor.Controls
 
         #region Properties
 
-        private bool _ShowText = true;
         public bool ShowText
         {
-            get => _ShowText;
+            get;
             set
             {
-                _ShowText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         #endregion
 
@@ -55,7 +54,7 @@ namespace ReaLTaiizor.Controls
         {
             e.Graphics.FillRectangle(new SolidBrush(BackColor), ClientRectangle);
 
-            if (_ShowText)
+            if (ShowText)
             {
                 e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), 2, 2);
             }

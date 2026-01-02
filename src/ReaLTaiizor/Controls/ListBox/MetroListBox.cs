@@ -34,10 +34,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -61,10 +61,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
+            get;
             set
             {
-                _styleManager = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -85,10 +85,7 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
         private List<object> _indicates;
-        private bool _multiSelect;
         private int _selectedIndex;
         private object _selectedItem;
         private string _selectedText;
@@ -97,17 +94,6 @@ namespace ReaLTaiizor.Controls
         private int _hoveredItem;
         private MetroScrollBar _svs;
         private object _selectedValue;
-
-        private bool _isDerivedStyle = true;
-        private int _itemHeight;
-        private bool _showBorder;
-        private Color _selectedItemColor;
-        private Color _selectedItemBackColor;
-        private Color _hoveredItemColor;
-        private Color _hoveredItemBackColor;
-        private Color _disabledForeColor;
-        private Color _disabledBackColor;
-        private Color _borderColor;
 
         #endregion Internal Vars
 
@@ -138,10 +124,10 @@ namespace ReaLTaiizor.Controls
             SelectedIndex = -1;
             _hoveredItem = -1;
             _showScrollBar = false;
-            Items = new MetroItemCollection();
+            Items = [];
             Items.ItemUpdated += InvalidateScroll;
-            SelectedItems = new List<object>();
-            _indicates = new List<object>();
+            SelectedItems = [];
+            _indicates = [];
             ItemHeight = 30;
             _multiKeyDown = false;
             _svs = new MetroScrollBar()
@@ -333,10 +319,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the height of an item in the ListBox.")]
         public int ItemHeight
         {
-            get => _itemHeight;
+            get;
             set
             {
-                _itemHeight = value;
+                field = value;
                 Refresh();
             }
         }
@@ -389,10 +375,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets a value indicating whether the ListBox supports multiple rows.")]
         public bool MultiSelect
         {
-            get => _multiSelect;
+            get;
             set
             {
-                _multiSelect = value;
+                field = value;
 
                 if (SelectedItems.Count > 1)
                 {
@@ -421,10 +407,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets a value indicating whether the border shown or not.")]
         public bool ShowBorder
         {
-            get => _showBorder;
+            get;
             set
             {
-                _showBorder = value;
+                field = value;
                 Refresh();
             }
         }
@@ -442,10 +428,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets selected item used by the control.")]
         public Color SelectedItemColor
         {
-            get => _selectedItemColor;
+            get;
             set
             {
-                _selectedItemColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -453,10 +439,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets selected item backcolor used by the control.")]
         public Color SelectedItemBackColor
         {
-            get => _selectedItemBackColor;
+            get;
             set
             {
-                _selectedItemBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -464,10 +450,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets hovered item used by the control.")]
         public Color HoveredItemColor
         {
-            get => _hoveredItemColor;
+            get;
             set
             {
-                _hoveredItemColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -475,10 +461,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets hovered item backcolor used by the control.")]
         public Color HoveredItemBackColor
         {
-            get => _hoveredItemBackColor;
+            get;
             set
             {
-                _hoveredItemBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -486,10 +472,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled forecolor used by the control.")]
         public Color DisabledForeColor
         {
-            get => _disabledForeColor;
+            get;
             set
             {
-                _disabledForeColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -497,10 +483,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
         public Color DisabledBackColor
         {
-            get => _disabledBackColor;
+            get;
             set
             {
-                _disabledBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -508,10 +494,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets border color used by the control.")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -521,13 +507,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion Properties
 

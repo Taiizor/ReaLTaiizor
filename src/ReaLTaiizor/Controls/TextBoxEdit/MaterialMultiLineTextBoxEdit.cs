@@ -154,45 +154,40 @@ namespace ReaLTaiizor.Controls
 
         public new object Tag { get => baseTextBox.Tag; set => baseTextBox.Tag = value; }
 
-        private bool _readonly;
         [Category("Behavior")]
         public bool ReadOnly
         {
-            get => _readonly;
+            get;
             set
             {
-                _readonly = value;
+                field = value;
                 if (Enabled == true)
                 {
-                    baseTextBox.ReadOnly = _readonly;
+                    baseTextBox.ReadOnly = field;
                 }
                 this.Invalidate();
             }
         }
 
-        private bool _animateReadOnly;
-
         [Category("Material")]
         [Browsable(true)]
         public bool AnimateReadOnly
         {
-            get => _animateReadOnly;
+            get;
             set
             {
-                _animateReadOnly = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private bool _leaveOnEnterKey;
-
         [Category("Material"), DefaultValue(false), Description("Select next control which have TabStop property set to True when enter key is pressed. To add enter in text, the user must press CTRL+Enter")]
         public bool LeaveOnEnterKey
         {
-            get => _leaveOnEnterKey;
+            get;
             set
             {
-                _leaveOnEnterKey = value;
+                field = value;
                 if (value)
                 {
                     baseTextBox.KeyDown += new KeyEventHandler(LeaveOnEnterKey_KeyDown);

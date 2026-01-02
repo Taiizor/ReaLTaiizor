@@ -64,8 +64,8 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            DesignerActionItemCollection items = new()
-            {
+            DesignerActionItemCollection items =
+            [
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
@@ -81,7 +81,7 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionHeaderItem("Badge"),
                 new DesignerActionPropertyItem("BadgeText", "BadgeText", "Badge", "Gets or sets the badge text associated with the control."),
                 new DesignerActionPropertyItem("BadgeAlignment", "BadgeAlignment", "Badge", "Gets or sets the badge alignment associated with the control.")
-            };
+            ];
             return items;
         }
     }

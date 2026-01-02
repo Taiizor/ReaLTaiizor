@@ -3,6 +3,7 @@
 using ReaLTaiizor.Design.Metro;
 using ReaLTaiizor.Enum.Metro;
 using ReaLTaiizor.Interface.Metro;
+using ReaLTaiizor.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +39,7 @@ namespace ReaLTaiizor.Manager
 
             if (_customTheme == null)
             {
-                string themePath = Properties.Settings.Default.ThemeFile;
+                string themePath = Settings.Default.ThemeFile;
 
                 if (File.Exists(themePath))
                 {
@@ -50,12 +51,12 @@ namespace ReaLTaiizor.Manager
                     }
                     else
                     {
-                        _customTheme = ThemeFilePath(Properties.Resources.Metro_Theme);
+                        _customTheme = ThemeFilePath(Resources.Metro_Theme);
                     }
                 }
                 else
                 {
-                    _customTheme = ThemeFilePath(Properties.Resources.Metro_Theme);
+                    _customTheme = ThemeFilePath(Resources.Metro_Theme);
                 }
             }
 
@@ -162,8 +163,6 @@ namespace ReaLTaiizor.Manager
 
         #region Internal Vars
 
-        private Style _style;
-        private Form _ownerForm;
         private string _customTheme;
 
         #endregion Internal Vars
@@ -179,16 +178,16 @@ namespace ReaLTaiizor.Manager
         [Category("Metro"), Description("Gets or sets the form (MetroForm) to Apply themes for.")]
         public Form OwnerForm
         {
-            get => _ownerForm;
+            get;
             set
             {
-                if (_ownerForm != null)
+                if (field != null)
                 {
                     return;
                 }
 
-                _ownerForm = value;
-                _ownerForm.ControlAdded += ControlAdded;
+                field = value;
+                field.ControlAdded += ControlAdded;
                 UpdateForm();
             }
         }
@@ -196,10 +195,10 @@ namespace ReaLTaiizor.Manager
         [Category("Metro"), Description("Gets or sets the style.")]
         public Style Style
         {
-            get => _style;
+            get;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -213,8 +212,8 @@ namespace ReaLTaiizor.Manager
                     case Style.Custom:
                         if (!string.IsNullOrEmpty(_customTheme) && File.Exists(_customTheme))
                         {
-                            Properties.Settings.Default.ThemeFile = _customTheme;
-                            Properties.Settings.Default.Save();
+                            Settings.Default.ThemeFile = _customTheme;
+                            Settings.Default.Save();
                             ControlProperties(_customTheme);
                         }
                         else
@@ -236,8 +235,8 @@ namespace ReaLTaiizor.Manager
             {
                 if (!string.IsNullOrEmpty(value) && File.Exists(value))
                 {
-                    Properties.Settings.Default.ThemeFile = value;
-                    Properties.Settings.Default.Save();
+                    Settings.Default.ThemeFile = value;
+                    Settings.Default.Save();
                     ControlProperties(value);
                     _customTheme = value;
                     Style = Style.Custom;
@@ -266,15 +265,25 @@ namespace ReaLTaiizor.Manager
             CustomTheme = ofd.FileName;
         }
 
+        public void SaveTheme()
+        {
+            ThemeFilePath(Resources.Metro_Theme);
+        }
+
         public void SetTheme(string path)
         {
             Style = Style.Custom;
             CustomTheme = path;
         }
 
+        public static string PathTheme()
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Templates), "ThemeFile.xml");
+        }
+
         private static string ThemeFilePath(string str)
         {
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Templates), "ThemeFile.xml");
+            string path = PathTheme();
 
             File.WriteAllText(path, str);
 
@@ -377,31 +386,31 @@ namespace ReaLTaiizor.Manager
 
         private void EvaluateDicts()
         {
-            ButtonDictionary = new Dictionary<string, object>();
-            DefaultButtonDictionary = new Dictionary<string, object>();
-            LabelDictionary = new Dictionary<string, object>();
-            LinkLabelDictionary = new Dictionary<string, object>();
-            TextBoxDictionary = new Dictionary<string, object>();
-            RichTextBoxDictionary = new Dictionary<string, object>();
-            FormDictionary = new Dictionary<string, object>();
-            BadgeDictionary = new Dictionary<string, object>();
-            DividerDictionary = new Dictionary<string, object>();
-            CheckBoxDictionary = new Dictionary<string, object>();
-            RadioButtonDictionary = new Dictionary<string, object>();
-            SwitchBoxDictionary = new Dictionary<string, object>();
-            ToolTipDictionary = new Dictionary<string, object>();
-            ComboBoxDictionary = new Dictionary<string, object>();
-            NumericDictionary = new Dictionary<string, object>();
-            EllipseDictionary = new Dictionary<string, object>();
-            TileDictionary = new Dictionary<string, object>();
-            ProgressDictionary = new Dictionary<string, object>();
-            ControlBoxDictionary = new Dictionary<string, object>();
-            TabControlDictionary = new Dictionary<string, object>();
-            ScrollBarDictionary = new Dictionary<string, object>();
-            PanelDictionary = new Dictionary<string, object>();
-            TrackBarDictionary = new Dictionary<string, object>();
-            ContextMenuDictionary = new Dictionary<string, object>();
-            ListBoxDictionary = new Dictionary<string, object>();
+            ButtonDictionary = [];
+            DefaultButtonDictionary = [];
+            LabelDictionary = [];
+            LinkLabelDictionary = [];
+            TextBoxDictionary = [];
+            RichTextBoxDictionary = [];
+            FormDictionary = [];
+            BadgeDictionary = [];
+            DividerDictionary = [];
+            CheckBoxDictionary = [];
+            RadioButtonDictionary = [];
+            SwitchBoxDictionary = [];
+            ToolTipDictionary = [];
+            ComboBoxDictionary = [];
+            NumericDictionary = [];
+            EllipseDictionary = [];
+            TileDictionary = [];
+            ProgressDictionary = [];
+            ControlBoxDictionary = [];
+            TabControlDictionary = [];
+            ScrollBarDictionary = [];
+            PanelDictionary = [];
+            TrackBarDictionary = [];
+            ContextMenuDictionary = [];
+            ListBoxDictionary = [];
         }
 
         #endregion
@@ -468,7 +477,7 @@ namespace ReaLTaiizor.Manager
         {
             try
             {
-                Dictionary<string, object> dict = new();
+                Dictionary<string, object> dict = [];
                 XmlDocument doc = new();
                 if (File.Exists(path))
                 {
@@ -491,7 +500,7 @@ namespace ReaLTaiizor.Manager
             }
             catch
             {
-                return new();
+                return [];
             }
         }
 

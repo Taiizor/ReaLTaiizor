@@ -19,109 +19,98 @@ namespace ReaLTaiizor.Controls
         #region Variables
         private int enterIndex;
         private bool enterFlag = false;
-        private Color _baseColor = Color.FromArgb(44, 55, 66);
-        private Color _themeColorA = HopeColors.PrimaryColor;
-        private Color _themeColorB = Color.FromArgb(150, HopeColors.PrimaryColor);
-        private Color _foreColorA = Color.Silver;
-        private Color _foreColorB = Color.Gray;
-        private Color _foreColorC = Color.FromArgb(150, Color.White);
-
-        private TextState _TitleTextState = TextState.Normal;
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         #endregion
 
         #region Settings
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         public Color BaseColor
         {
-            get => _baseColor;
+            get;
             set
             {
-                _baseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(44, 55, 66);
 
         public Color ThemeColorA
         {
-            get => _themeColorA;
+            get;
             set
             {
-                _themeColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.PrimaryColor;
 
         public Color ThemeColorB
         {
-            get => _themeColorB;
+            get;
             set
             {
-                _themeColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(150, HopeColors.PrimaryColor);
 
         public Color ForeColorA
         {
-            get => _foreColorA;
+            get;
             set
             {
-                _foreColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Silver;
 
         public Color ForeColorB
         {
-            get => _foreColorB;
+            get;
             set
             {
-                _foreColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Gray;
 
         public Color ForeColorC
         {
-            get => _foreColorC;
+            get;
             set
             {
-                _foreColorC = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(150, Color.White);
 
         public enum TextState
         {
@@ -132,13 +121,13 @@ namespace ReaLTaiizor.Controls
 
         public TextState TitleTextState
         {
-            get => _TitleTextState;
+            get;
             set
             {
-                _TitleTextState = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextState.Normal;
 
         #endregion
 
@@ -204,25 +193,25 @@ namespace ReaLTaiizor.Controls
             graphics.SmoothingMode = SmoothingType;
             graphics.PixelOffsetMode = PixelOffsetType;
             graphics.TextRenderingHint = TextRenderingType;
-            graphics.Clear(_baseColor);
+            graphics.Clear(BaseColor);
 
             for (int i = 0; i < TabCount; i++)
             {
                 if (i == SelectedIndex)
                 {
-                    graphics.FillRectangle(new SolidBrush(_themeColorA), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
-                    graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorA), GetTabRect(i), HopeStringAlign.Center);
+                    graphics.FillRectangle(new SolidBrush(ThemeColorA), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
+                    graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(ForeColorA), GetTabRect(i), HopeStringAlign.Center);
                 }
                 else
                 {
                     if (i == enterIndex && enterFlag)
                     {
-                        graphics.FillRectangle(new SolidBrush(_themeColorB), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
-                        graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorC), GetTabRect(i), HopeStringAlign.Center);
+                        graphics.FillRectangle(new SolidBrush(ThemeColorB), GetTabRect(i).X + 3, ItemSize.Height - 3, ItemSize.Width - 6, 3);
+                        graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(ForeColorC), GetTabRect(i), HopeStringAlign.Center);
                     }
                     else
                     {
-                        graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(_foreColorB), GetTabRect(i), HopeStringAlign.Center);
+                        graphics.DrawString(TitleText(TabPages[i].Text), Font, new SolidBrush(ForeColorB), GetTabRect(i), HopeStringAlign.Center);
                     }
                 }
             }

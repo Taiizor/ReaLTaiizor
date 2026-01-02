@@ -18,7 +18,6 @@ namespace ReaLTaiizor.Controls
         #region Field Region
 
         private readonly string _message;
-        private int _maximumWidth = 350;
 
         #endregion
 
@@ -28,13 +27,13 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(350)]
         public int MaximumWidth
         {
-            get => _maximumWidth;
+            get;
             set
             {
-                _maximumWidth = value;
+                field = value;
                 CalculateSize();
             }
-        }
+        } = 350;
 
         #endregion
 
@@ -139,7 +138,7 @@ namespace ReaLTaiizor.Controls
             int totalWidth = lblText.Right + 25;
 
             // Make sure we're not making the dialog bigger than the maximum size
-            if (totalWidth < _maximumWidth)
+            if (totalWidth < MaximumWidth)
             {
                 // Width is smaller than the maximum width.
                 // This means we can have a single-line message box.
@@ -151,7 +150,7 @@ namespace ReaLTaiizor.Controls
             {
                 // Width is larger than the maximum width.
                 // Change the label size and wrap it.
-                width = _maximumWidth;
+                width = MaximumWidth;
                 int offsetHeight = Height - picIcon.Height;
                 lblText.AutoUpdateHeight = true;
                 lblText.Width = width - lblText.Left - 25;

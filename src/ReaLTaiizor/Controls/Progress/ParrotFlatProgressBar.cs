@@ -27,220 +27,231 @@ namespace ReaLTaiizor.Controls
         [Description("The progress bar style")]
         public Style BarStyle
         {
-            get => barStyle;
+            get;
             set
             {
-                barStyle = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Style.Material;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The progress value")]
         public int Value
         {
-            get => value;
+            get;
             set
             {
-                this.value = value;
-                if (this.value < 0)
+                field = value;
+                if (field < 0)
                 {
-                    this.value = 0;
+                    field = 0;
                 }
-                if (this.value > maxValue)
+                if (field > MaxValue)
                 {
-                    this.value = maxValue;
+                    field = MaxValue;
                 }
                 Invalidate();
             }
-        }
+        } = 50;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The progress complete color")]
         public Color CompleteColor
         {
-            get => completeColor;
+            get;
             set
             {
-                completeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(1, 119, 215);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The progress complete ios back color")]
         public Color CompleteBackColor
         {
-            get => completeBackColor;
+            get;
             set
             {
-                completeBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(0, 120, 250);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The progress bar border color")]
         public Color BorderColor
         {
-            get => borderColor;
+            get;
             set
             {
-                borderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the progress bar border")]
         public bool ShowBorder
         {
-            get => showBorder;
+            get;
             set
             {
-                showBorder = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The progress incompleted color")]
         public Color InocmpletedColor
         {
-            get => incompletedColor;
+            get;
             set
             {
-                incompletedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The progress incompleted ios back color")]
         public Color IncompletedBackColor
         {
-            get => incompletedBackColor;
+            get;
             set
             {
-                incompletedBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(180, 180, 180);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The maximum value")]
         public int MaxValue
         {
-            get => maxValue;
+            get;
             set
             {
-                maxValue = value;
-                if (Value > maxValue)
+                field = value;
+                if (Value > field)
                 {
-                    Value = maxValue;
+                    Value = field;
                 }
                 Invalidate();
             }
-        }
+        } = 100;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The positions")]
         public List<float> Positions
         {
-            get => _Positions;
+            get;
             set
             {
-                _Positions = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } =
+        [
+            0f,
+            0.2f,
+            0.4f,
+            0.6f,
+            0.8f,
+            1f
+        ];
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The colors")]
         public List<Color> Colors
         {
-            get => _Colors;
+            get;
             set
             {
-                _Colors = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } =
+        [
+            Color.FromArgb(76, 217, 100),
+            Color.FromArgb(85, 205, 205),
+            Color.FromArgb(2, 124, 255),
+            Color.FromArgb(130, 75, 180),
+            Color.FromArgb(255, 0, 150),
+            Color.FromArgb(255, 45, 85)
+        ];
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBilinear;
         [Category("Parrot")]
         [Browsable(true)]
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBilinear;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -256,19 +267,19 @@ namespace ReaLTaiizor.Controls
 
             bufferedGraphics.Graphics.Clear(BackColor);
 
-            if (barStyle == Style.Flat)
+            if (BarStyle == Style.Flat)
             {
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), 0, 0, base.Width, base.Height);
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(completeColor), 0, 0, value * base.Width / maxValue, base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(InocmpletedColor), 0, 0, base.Width, base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(CompleteColor), 0, 0, Value * base.Width / MaxValue, base.Height);
             }
 
-            if (barStyle == Style.IOS)
+            if (BarStyle == Style.IOS)
             {
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedBackColor), 0, 0, base.Width, base.Height);
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(completeBackColor), 0, 0, value * base.Width / maxValue, base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(IncompletedBackColor), 0, 0, base.Width, base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(CompleteBackColor), 0, 0, Value * base.Width / MaxValue, base.Height);
             }
 
-            if (barStyle == Style.Material && Positions.Count == Colors.Count)
+            if (BarStyle == Style.Material && Positions.Count == Colors.Count)
             {
                 LinearGradientBrush linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), Color.Black, Color.Black, 0f, false)
                 {
@@ -281,7 +292,7 @@ namespace ReaLTaiizor.Controls
 
                 linearGradientBrush.RotateTransform(1f);
                 bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, new Rectangle(0, 0, base.Width, base.Height));
-                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(incompletedColor), value * base.Width / maxValue, 0, base.Width - (value * base.Width / maxValue), base.Height);
+                bufferedGraphics.Graphics.FillRectangle(new SolidBrush(InocmpletedColor), Value * base.Width / MaxValue, 0, base.Width - (Value * base.Width / MaxValue), base.Height);
             }
 
             if (ShowBorder)
@@ -299,44 +310,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private BufferedGraphics bufferedGraphics;
-
-        private Style barStyle = Style.Material;
-
-        private int value = 50;
-
-        private Color completeColor = Color.FromArgb(1, 119, 215);
-
-        private Color completeBackColor = Color.FromArgb(0, 120, 250);
-
-        private Color borderColor = Color.Black;
-
-        private bool showBorder = true;
-
-        private Color incompletedColor = Color.White;
-
-        private Color incompletedBackColor = Color.FromArgb(180, 180, 180);
-
-        private int maxValue = 100;
-
-        private List<float> _Positions = new()
-        {
-            0f,
-            0.2f,
-            0.4f,
-            0.6f,
-            0.8f,
-            1f
-        };
-
-        private List<Color> _Colors = new()
-        {
-            Color.FromArgb(76, 217, 100),
-            Color.FromArgb(85, 205, 205),
-            Color.FromArgb(2, 124, 255),
-            Color.FromArgb(130, 75, 180),
-            Color.FromArgb(255, 0, 150),
-            Color.FromArgb(255, 45, 85)
-        };
 
         public enum Style
         {

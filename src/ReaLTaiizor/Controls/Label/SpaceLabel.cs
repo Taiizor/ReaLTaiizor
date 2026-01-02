@@ -12,17 +12,15 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceLabel : SpaceControl // Create a Custom Label
     {
-        private HorizontalAlignment _TextAlignment = HorizontalAlignment.Center;
-
         public HorizontalAlignment TextAlignment
         {
-            get => _TextAlignment;
+            get;
             set
             {
-                _TextAlignment = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HorizontalAlignment.Center;
 
         public SpaceLabel()
         { // Create a Label

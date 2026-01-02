@@ -33,10 +33,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -59,8 +59,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -80,17 +80,9 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
         private readonly PointFAnimate _slideAnimator;
         private Graphics _slideGraphics;
         private Bitmap _slideBitmap;
-        private bool _isDerivedStyle = true;
-        private bool _useAnimation = true;
-        private int _speed = 100;
-        private Color _unselectedTextColor;
-        private Color _selectedTextColor;
-        private TabStyle _tabStyle;
 
         #endregion Internal Vars
 
@@ -237,13 +229,13 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(true)]
         public bool UseAnimation
         {
-            get => _useAnimation;
+            get;
             set
             {
-                _useAnimation = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         [Category("Metro"), Description("Gets or sets the size of the control's tabs.")]
         public new Size ItemSize
@@ -266,13 +258,13 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(20)]
         public int Speed
         {
-            get => _speed;
+            get;
             set
             {
-                _speed = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = 100;
 
         [Category("Metro")]
         public override DockStyle Dock
@@ -306,10 +298,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the tabpage text while un-selected.")]
         public Color UnselectedTextColor
         {
-            get => _unselectedTextColor;
+            get;
             set
             {
-                _unselectedTextColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -317,10 +309,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the tabpage text while selected.")]
         public Color SelectedTextColor
         {
-            get => _selectedTextColor;
+            get;
             set
             {
-                _selectedTextColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -329,15 +321,15 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(TabStyle.Style1)]
         public TabStyle TabStyle
         {
-            get => _tabStyle;
+            get;
             set
             {
-                _tabStyle = value;
-                if (_tabStyle == TabStyle.Style1)
+                field = value;
+                if (field == TabStyle.Style1)
                 {
                     SelectedTextColor = Color.White;
                 }
-                else if (_tabStyle == TabStyle.Style2)
+                else if (field == TabStyle.Style2)
                 {
                     SelectedTextColor = ForegroundColor;
                 }
@@ -350,13 +342,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion Properties
 

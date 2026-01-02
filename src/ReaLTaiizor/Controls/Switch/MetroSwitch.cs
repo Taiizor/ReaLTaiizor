@@ -32,10 +32,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -58,8 +58,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -78,22 +78,8 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private MetroStyleManager _styleManager;
-        private bool _switched;
-        private Style _style;
         private int _switchLocation;
         private readonly IntAnimate _animator;
-
-        private bool _isDerivedStyle = true;
-        private Enum.Metro.CheckState _checkState;
-        private Color _borderColor;
-        private Color _checkColor;
-        private Color _disabledBorderColor;
-        private Color _disabledCheckColor;
-        private Color _disabledUnCheckColor;
-        private Color _backgroundColor;
-        private Color _symbolColor;
-        private Color _unCheckColor;
 
         #endregion Internal Vars
 
@@ -273,10 +259,10 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public Enum.Metro.CheckState CheckState
         {
-            get => _checkState;
+            get;
             set
             {
-                _checkState = value;
+                field = value;
                 Refresh();
             }
         }
@@ -284,10 +270,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets a value indicating whether the control is checked.")]
         public bool Switched
         {
-            get => _switched;
+            get;
             set
             {
-                _switched = value;
+                field = value;
                 SwitchedChanged?.Invoke(this);
                 _animator.Reverse(!value);
                 CheckState = value != true ? Enum.Metro.CheckState.Unchecked : Enum.Metro.CheckState.Checked;
@@ -298,10 +284,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color.")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -309,10 +295,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Checkd backColor.")]
         public Color CheckColor
         {
-            get => _checkColor;
+            get;
             set
             {
-                _checkColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -320,10 +306,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get => _disabledBorderColor;
+            get;
             set
             {
-                _disabledBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -331,10 +317,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the CheckdBackColor while disabled.")]
         public Color DisabledCheckColor
         {
-            get => _disabledCheckColor;
+            get;
             set
             {
-                _disabledCheckColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -342,10 +328,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Un-Checkd BackColor while disabled.")]
         public Color DisabledUnCheckColor
         {
-            get => _disabledUnCheckColor;
+            get;
             set
             {
-                _disabledUnCheckColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -360,10 +346,10 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get => _backgroundColor;
+            get;
             set
             {
-                _backgroundColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -371,10 +357,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the color of the check symbol.")]
         public Color SymbolColor
         {
-            get => _symbolColor;
+            get;
             set
             {
-                _symbolColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -382,10 +368,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Un-Checkd backColor.")]
         public Color UnCheckColor
         {
-            get => _unCheckColor;
+            get;
             set
             {
-                _unCheckColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -395,13 +381,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion Properties
 

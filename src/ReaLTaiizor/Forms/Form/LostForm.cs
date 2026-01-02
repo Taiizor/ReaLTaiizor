@@ -32,12 +32,10 @@ namespace ReaLTaiizor.Forms
         private const int htBottom = 15;
         private const int htBottomLeft = 16;
         private const int htBottomRight = 17;
-
-        private Image _Image = Properties.Resources.Taiizor;
         private Size _ImageSize;
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -49,45 +47,40 @@ namespace ReaLTaiizor.Forms
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Properties.Resources.Taiizor;
 
-        private bool _sizable = true;
         public bool Sizable
         {
-            get => _sizable;
-            set { _sizable = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = true;
 
-        private Color _bordercolor = ThemeLost.AccentColor;
         public Color BorderColor
         {
-            get => _bordercolor;
-            set { _bordercolor = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = ThemeLost.AccentColor;
 
-        private ButtonBorderStyle _borderstyle = ButtonBorderStyle.Solid;
         public ButtonBorderStyle BorderStyle
         {
-            get => _borderstyle;
-            set { _borderstyle = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = ButtonBorderStyle.Solid;
 
-        private Color _HeaderColor = ThemeLost.ForeBrush.Color;
         public Color HeaderColor
         {
-            get => _HeaderColor;
-            set { _HeaderColor = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = ThemeLost.ForeBrush.Color;
 
-        private Color _TitleColor = ThemeLost.FontBrush.Color;
         public Color TitleColor
         {
-            get => _TitleColor;
-            set { _TitleColor = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = ThemeLost.FontBrush.Color;
 
         public LostForm()
         {
@@ -115,7 +108,7 @@ namespace ReaLTaiizor.Forms
 
         protected override void WndProc(ref Message m)
         {
-            if (_sizable && m.Msg == wmNcHitTest && WindowState != FormWindowState.Maximized)
+            if (Sizable && m.Msg == wmNcHitTest && WindowState != FormWindowState.Maximized)
             {
                 int gripDist = 10;
                 //int x = (int)(m.LParam.ToInt64() & 0xFFFF);
@@ -358,15 +351,15 @@ namespace ReaLTaiizor.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(new SolidBrush(_HeaderColor), 1, 2, Width - 3, 30);
-            if (_Image == null)
+            e.Graphics.FillRectangle(new SolidBrush(HeaderColor), 1, 2, Width - 3, 30);
+            if (Image == null)
             {
-                e.Graphics.DrawString(Text, Font, new SolidBrush(_TitleColor), 4, 5);
+                e.Graphics.DrawString(Text, Font, new SolidBrush(TitleColor), 4, 5);
             }
             else
             {
-                e.Graphics.DrawImage(_Image, new Rectangle(4, 3, 27, 27));
-                e.Graphics.DrawString(Text, Font, new SolidBrush(_TitleColor), 33, 5);
+                e.Graphics.DrawImage(Image, new Rectangle(4, 3, 27, 27));
+                e.Graphics.DrawString(Text, Font, new SolidBrush(TitleColor), 33, 5);
             }
             DrawShadow(e.Graphics);
             base.OnPaint(e);
@@ -419,7 +412,7 @@ namespace ReaLTaiizor.Forms
 
             if (WindowState != FormWindowState.Maximized)
             {
-                ControlPaint.DrawBorder(e.Graphics, ClientRectangle, _bordercolor, _borderstyle);
+                ControlPaint.DrawBorder(e.Graphics, ClientRectangle, BorderColor, BorderStyle);
             }
         }
     }

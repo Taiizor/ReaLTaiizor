@@ -5,18 +5,18 @@
         <!--<TargetFramework>net8.0-windows</TargetFramework>-->
         <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
         <!--<TargetFrameworks>net48;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>-->
-        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
         <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
         <UseWindowsForms>true</UseWindowsForms>
         <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-        <Version>3.8.0.8</Version>
+        <Version>3.8.1.5</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>ReaLTaiizor</Title>
@@ -69,12 +69,12 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
     </PropertyGroup>
 
     <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-        <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
+        <PackageReference Include="System.Resources.Extensions" Version="9.0.11" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub">
-            <Version>8.0.0</Version>
+            <Version>10.0.0-beta.25556.3</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Backport.System.Threading.Lock" Version="3.1.0" />

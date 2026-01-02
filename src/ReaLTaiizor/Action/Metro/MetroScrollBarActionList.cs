@@ -78,8 +78,8 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            DesignerActionItemCollection items = new()
-            {
+            DesignerActionItemCollection items =
+            [
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
@@ -98,7 +98,7 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("LargeChange", "LargeChange", "Behavior", "Gets or sets the distance to move a scroll bar in response to a large scroll command."),
                 new DesignerActionPropertyItem("SmallChange", "SmallChange", "Behavior", "Gets or sets the distance to move a scroll bar in response to a small scroll command."),
 
-            };
+            ];
             return items;
         }
     }

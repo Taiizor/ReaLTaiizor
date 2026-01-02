@@ -29,8 +29,8 @@ namespace ReaLTaiizor.Native
         private CrownDockGroup _targetGroup;
         private DockInsertType _insertType = DockInsertType.None;
 
-        private Dictionary<CrownDockRegion, DockDropArea> _regionDropAreas = new();
-        private Dictionary<CrownDockGroup, DockDropCollection> _groupDropAreas = new();
+        private Dictionary<CrownDockRegion, DockDropArea> _regionDropAreas = [];
+        private Dictionary<CrownDockGroup, DockDropCollection> _groupDropAreas = [];
 
         #endregion
 
@@ -106,8 +106,8 @@ namespace ReaLTaiizor.Native
 
         public void StartDrag(CrownDockContent content)
         {
-            _regionDropAreas = new Dictionary<CrownDockRegion, DockDropArea>();
-            _groupDropAreas = new Dictionary<CrownDockGroup, DockDropCollection>();
+            _regionDropAreas = [];
+            _groupDropAreas = [];
 
             // Add all regions and groups to the drop collections
             foreach (CrownDockRegion region in _dockPanel.Regions.Values)

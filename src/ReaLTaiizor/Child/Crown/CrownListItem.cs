@@ -19,7 +19,6 @@ namespace ReaLTaiizor.Child.Crown
 
         #region Field Region
 
-        private string _text;
 
         #endregion
 
@@ -27,10 +26,10 @@ namespace ReaLTaiizor.Child.Crown
 
         public string Text
         {
-            get => _text;
+            get;
             set
             {
-                _text = value;
+                field = value;
 
                 TextChanged?.Invoke(this, new EventArgs());
             }

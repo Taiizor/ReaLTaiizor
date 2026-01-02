@@ -7,16 +7,15 @@ namespace ReaLTaiizor.Nerator.CS
         private const string _DefaultStatus = "The application continues to run smoothly.";
         public static string DefaultStatus => _DefaultStatus;
 
-        private static string _Message = _DefaultStatus;
         public static string Message
         {
-            get => _Message;
+            get;
             set
             {
-                _Message = value;
+                field = value;
                 ChangedStatus = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             }
-        }
+        } = _DefaultStatus;
 
         public static long ChangedStatus { get; set; } = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
     }

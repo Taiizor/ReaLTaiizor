@@ -47,11 +47,19 @@ jobs:
       with:
         fetch-depth: 0
 
+    # Ensure .editorconfig exists in the solution's directory
+    - name: Copy .editorconfig for current solution
+      shell: pwsh
+      run: |
+        $solutionPath = "${{ matrix.solution }}"
+        $solutionDir = Split-Path -Path $solutionPath
+        Copy-Item -Path ".editorconfig" -Destination "$solutionDir\.editorconfig" -Force
+
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
         dotnet-quality: preview
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild

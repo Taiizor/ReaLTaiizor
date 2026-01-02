@@ -57,13 +57,12 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private bool _ControlMode;
         protected bool ControlMode
         {
-            get => _ControlMode;
+            get;
             set
             {
-                _ControlMode = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -73,7 +72,7 @@ namespace ReaLTaiizor.Forms
         {
             get
             {
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     return ParentForm.StartPosition;
                 }
@@ -86,7 +85,7 @@ namespace ReaLTaiizor.Forms
             {
                 _StartPosition = value;
 
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     ParentForm.StartPosition = value;
                 }
@@ -108,7 +107,7 @@ namespace ReaLTaiizor.Forms
 
             IsParentForm = Parent is Form;
 
-            if (!_ControlMode)
+            if (!ControlMode)
             {
                 InitializeMessages();
 
@@ -130,7 +129,7 @@ namespace ReaLTaiizor.Forms
         protected sealed override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            if (!_ControlMode)
+            if (!ControlMode)
             {
                 HeaderRect = new(0, 0, Width - 14, MoveHeight - 7);
             }
@@ -146,7 +145,7 @@ namespace ReaLTaiizor.Forms
                 SetState(MouseState.Down);
             }
 
-            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || _ControlMode))
+            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || ControlMode))
             {
                 if (HeaderRect.Contains(e.Location))
                 {
@@ -174,7 +173,7 @@ namespace ReaLTaiizor.Forms
             base.OnMouseMove(e);
             if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
-                if (Sizable && !_ControlMode)
+                if (Sizable && !ControlMode)
                 {
                     InvalidateMouse();
                 }
@@ -204,7 +203,7 @@ namespace ReaLTaiizor.Forms
 
         private void FormShown(object sender, EventArgs e)
         {
-            if (_ControlMode || HasShown)
+            if (ControlMode || HasShown)
             {
                 return;
             }

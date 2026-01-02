@@ -157,7 +157,7 @@ namespace ReaLTaiizor.UI
             this.poisonTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poisonTabControl1.Location = new System.Drawing.Point(20, 60);
             this.poisonTabControl1.Name = "poisonTabControl1";
-            this.poisonTabControl1.SelectedIndex = 0;
+            this.poisonTabControl1.SelectedIndex = 1;
             this.poisonTabControl1.Size = new System.Drawing.Size(680, 302);
             this.poisonTabControl1.TabIndex = 0;
             this.poisonTabControl1.UseSelectable = true;
@@ -210,7 +210,7 @@ namespace ReaLTaiizor.UI
             this.poisonDropDownButton1.Location = new System.Drawing.Point(209, 176);
             this.poisonDropDownButton1.Margin = new System.Windows.Forms.Padding(2);
             this.poisonDropDownButton1.Name = "poisonDropDownButton1";
-            this.poisonDropDownButton1.Size = new System.Drawing.Size(127, 37);
+            this.poisonDropDownButton1.Size = new System.Drawing.Size(128, 37);
             this.poisonDropDownButton1.SplitMenuStrip = this.poisonContextMenu1;
             this.poisonDropDownButton1.TabIndex = 24;
             this.poisonDropDownButton1.Text = "DropDownButton";
@@ -296,7 +296,7 @@ namespace ReaLTaiizor.UI
             this.poisonCheckBox4.Enabled = false;
             this.poisonCheckBox4.Location = new System.Drawing.Point(496, 98);
             this.poisonCheckBox4.Name = "poisonCheckBox4";
-            this.poisonCheckBox4.Size = new System.Drawing.Size(124, 15);
+            this.poisonCheckBox4.Size = new System.Drawing.Size(123, 15);
             this.poisonCheckBox4.TabIndex = 21;
             this.poisonCheckBox4.Text = "Disabled Checkbox";
             this.poisonCheckBox4.UseSelectable = true;
@@ -306,7 +306,7 @@ namespace ReaLTaiizor.UI
             this.poisonCheckBox5.AutoSize = true;
             this.poisonCheckBox5.Location = new System.Drawing.Point(496, 77);
             this.poisonCheckBox5.Name = "poisonCheckBox5";
-            this.poisonCheckBox5.Size = new System.Drawing.Size(111, 15);
+            this.poisonCheckBox5.Size = new System.Drawing.Size(110, 15);
             this.poisonCheckBox5.TabIndex = 20;
             this.poisonCheckBox5.Text = "Styled Checkbox";
             this.poisonCheckBox5.UseSelectable = true;
@@ -347,7 +347,7 @@ namespace ReaLTaiizor.UI
             this.poisonCheckBox6.AutoSize = true;
             this.poisonCheckBox6.Location = new System.Drawing.Point(496, 56);
             this.poisonCheckBox6.Name = "poisonCheckBox6";
-            this.poisonCheckBox6.Size = new System.Drawing.Size(119, 15);
+            this.poisonCheckBox6.Size = new System.Drawing.Size(118, 15);
             this.poisonCheckBox6.TabIndex = 16;
             this.poisonCheckBox6.Text = "Normal Checkbox";
             this.poisonToolTip.SetToolTip(this.poisonCheckBox6, "Checkbox Tooltip");
@@ -432,6 +432,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton2.TabIndex = 6;
             this.poisonButton2.Text = "Highlighted Button";
             this.poisonButton2.UseSelectable = true;
+            this.poisonButton2.Click += new System.EventHandler(this.poisonButton2_Click);
             // 
             // poisonButton1
             // 
@@ -443,6 +444,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton1.Text = "Normal Button";
             this.poisonToolTip.SetToolTip(this.poisonButton1, "Button Tooltip");
             this.poisonButton1.UseSelectable = true;
+            this.poisonButton1.Click += new System.EventHandler(this.poisonButton1_Click);
             // 
             // poisonTileSwitch
             // 
@@ -453,6 +455,7 @@ namespace ReaLTaiizor.UI
             this.poisonTileSwitch.TabIndex = 4;
             this.poisonTileSwitch.Text = "Switch Style";
             this.poisonTileSwitch.UseSelectable = true;
+            this.poisonTileSwitch.Click += new System.EventHandler(this.poisonTileSwitch_Click);
             // 
             // poisonTile2
             // 
@@ -475,6 +478,7 @@ namespace ReaLTaiizor.UI
             this.poisonTile1.Text = "Switch Theme";
             this.poisonToolTip.SetToolTip(this.poisonTile1, "Tile Tooltip");
             this.poisonTile1.UseSelectable = true;
+            this.poisonTile1.Click += new System.EventHandler(this.poisonTile1_Click);
             // 
             // poisonTabPage2
             // 
@@ -549,6 +553,7 @@ namespace ReaLTaiizor.UI
             // poisonDateTime2
             // 
             this.poisonDateTime2.Enabled = false;
+            this.poisonDateTime2.FontSize = ReaLTaiizor.Extension.Poison.PoisonDateTimeSize.Medium;
             this.poisonDateTime2.Location = new System.Drawing.Point(201, 87);
             this.poisonDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
             this.poisonDateTime2.Name = "poisonDateTime2";
@@ -566,6 +571,7 @@ namespace ReaLTaiizor.UI
             // 
             // poisonDateTime1
             // 
+            this.poisonDateTime1.FontSize = ReaLTaiizor.Extension.Poison.PoisonDateTimeSize.Medium;
             this.poisonDateTime1.Location = new System.Drawing.Point(201, 51);
             this.poisonDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.poisonDateTime1.Name = "poisonDateTime1";
@@ -580,6 +586,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton5.TabIndex = 17;
             this.poisonButton5.Text = "&Show Context Menu";
             this.poisonButton5.UseSelectable = true;
+            this.poisonButton5.Click += new System.EventHandler(this.poisonButton5_Click);
             // 
             // poisonToggle3
             // 
@@ -635,7 +642,7 @@ namespace ReaLTaiizor.UI
             this.poisonCheckBox3.Enabled = false;
             this.poisonCheckBox3.Location = new System.Drawing.Point(18, 95);
             this.poisonCheckBox3.Name = "poisonCheckBox3";
-            this.poisonCheckBox3.Size = new System.Drawing.Size(124, 15);
+            this.poisonCheckBox3.Size = new System.Drawing.Size(123, 15);
             this.poisonCheckBox3.TabIndex = 11;
             this.poisonCheckBox3.Text = "Disabled Checkbox";
             this.poisonCheckBox3.UseSelectable = true;
@@ -645,7 +652,7 @@ namespace ReaLTaiizor.UI
             this.poisonCheckBox2.AutoSize = true;
             this.poisonCheckBox2.Location = new System.Drawing.Point(18, 74);
             this.poisonCheckBox2.Name = "poisonCheckBox2";
-            this.poisonCheckBox2.Size = new System.Drawing.Size(111, 15);
+            this.poisonCheckBox2.Size = new System.Drawing.Size(110, 15);
             this.poisonCheckBox2.TabIndex = 10;
             this.poisonCheckBox2.Text = "Styled Checkbox";
             this.poisonCheckBox2.UseSelectable = true;
@@ -732,7 +739,7 @@ namespace ReaLTaiizor.UI
             this.poisonCheckBox1.AutoSize = true;
             this.poisonCheckBox1.Location = new System.Drawing.Point(18, 53);
             this.poisonCheckBox1.Name = "poisonCheckBox1";
-            this.poisonCheckBox1.Size = new System.Drawing.Size(119, 15);
+            this.poisonCheckBox1.Size = new System.Drawing.Size(118, 15);
             this.poisonCheckBox1.TabIndex = 2;
             this.poisonCheckBox1.Text = "Normal Checkbox";
             this.poisonToolTip.SetToolTip(this.poisonCheckBox1, "Checkbox Tooltip");
@@ -1115,6 +1122,7 @@ namespace ReaLTaiizor.UI
             this.poisonTextBox1.MaxLength = 32767;
             this.poisonTextBox1.Name = "poisonTextBox1";
             this.poisonTextBox1.PasswordChar = '\0';
+            this.poisonTextBox1.PromptText = "With WaterMark support!";
             this.poisonTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.poisonTextBox1.SelectedText = "";
             this.poisonTextBox1.SelectionLength = 0;
@@ -1168,6 +1176,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton12.TabIndex = 8;
             this.poisonButton12.Text = "Default";
             this.poisonButton12.UseSelectable = true;
+            this.poisonButton12.Click += new System.EventHandler(this.poisonButton12_Click);
             // 
             // poisonButton11
             // 
@@ -1177,6 +1186,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton11.TabIndex = 7;
             this.poisonButton11.Text = "Retry Cancel";
             this.poisonButton11.UseSelectable = true;
+            this.poisonButton11.Click += new System.EventHandler(this.poisonButton11_Click);
             // 
             // poisonButton10
             // 
@@ -1186,6 +1196,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton10.TabIndex = 6;
             this.poisonButton10.Text = "Ok Cancel";
             this.poisonButton10.UseSelectable = true;
+            this.poisonButton10.Click += new System.EventHandler(this.poisonButton10_Click);
             // 
             // poisonButton9
             // 
@@ -1195,6 +1206,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton9.TabIndex = 5;
             this.poisonButton9.Text = "Abort Retry Ignore";
             this.poisonButton9.UseSelectable = true;
+            this.poisonButton9.Click += new System.EventHandler(this.poisonButton9_Click);
             // 
             // poisonButton8
             // 
@@ -1204,6 +1216,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton8.TabIndex = 4;
             this.poisonButton8.Text = "Yes No Cancel";
             this.poisonButton8.UseSelectable = true;
+            this.poisonButton8.Click += new System.EventHandler(this.poisonButton8_Click);
             // 
             // poisonButton7
             // 
@@ -1213,6 +1226,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton7.TabIndex = 3;
             this.poisonButton7.Text = "Yes No";
             this.poisonButton7.UseSelectable = true;
+            this.poisonButton7.Click += new System.EventHandler(this.poisonButton7_Click);
             // 
             // poisonButton6
             // 
@@ -1222,6 +1236,7 @@ namespace ReaLTaiizor.UI
             this.poisonButton6.TabIndex = 2;
             this.poisonButton6.Text = "Ok";
             this.poisonButton6.UseSelectable = true;
+            this.poisonButton6.Click += new System.EventHandler(this.poisonButton6_Click);
             // 
             // poisonTabPage7
             // 
@@ -1243,6 +1258,7 @@ namespace ReaLTaiizor.UI
             // 
             this.poisonGrid1.AllowUserToResizeRows = false;
             this.poisonGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.poisonGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.poisonGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.poisonGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

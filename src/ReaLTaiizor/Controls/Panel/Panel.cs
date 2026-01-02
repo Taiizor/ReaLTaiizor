@@ -15,27 +15,25 @@ namespace ReaLTaiizor.Controls
     {
         private GraphicsPath Shape;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private Color _EdgeColor = Color.FromArgb(32, 41, 50);
         public Color EdgeColor
         {
-            get => _EdgeColor;
+            get;
             set
             {
-                _EdgeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(32, 41, 50);
 
         public Panel()
         {

@@ -14,192 +14,175 @@ namespace ReaLTaiizor.Controls
 
     public class TabPage : TabControl
     {
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private CompositingMode _CompositingType = CompositingMode.SourceOver;
         public CompositingMode CompositingType
         {
-            get => _CompositingType;
+            get;
             set
             {
-                _CompositingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingMode.SourceOver;
 
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBicubic;
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBicubic;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
-        private StringAlignment _StringType = StringAlignment.Near;
         public StringAlignment StringType
         {
-            get => _StringType;
+            get;
             set
             {
-                _StringType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = StringAlignment.Near;
 
-        private Color _FrameColor = Color.FromArgb(41, 50, 63);
         public Color FrameColor
         {
-            get => _FrameColor;
+            get;
             set
             {
-                _FrameColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(41, 50, 63);
 
-        private Color _PageColor = Color.FromArgb(50, 63, 74);
         public Color PageColor
         {
-            get => _PageColor;
+            get;
             set
             {
-                _PageColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(50, 63, 74);
 
-        private Color _ActiveForeColor = Color.FromArgb(254, 255, 255);
         public Color ActiveForeColor
         {
-            get => _ActiveForeColor;
+            get;
             set
             {
-                _ActiveForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(254, 255, 255);
 
-        private Color _NormalForeColor = Color.FromArgb(159, 162, 167);
         public Color NormalForeColor
         {
-            get => _NormalForeColor;
+            get;
             set
             {
-                _NormalForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(159, 162, 167);
 
-        private Color _ControlBackColor = Color.FromArgb(54, 57, 64);
         public Color ControlBackColor
         {
-            get => _ControlBackColor;
+            get;
             set
             {
-                _ControlBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(54, 57, 64);
 
-        private Color _LineColor = Color.FromArgb(25, 26, 28);
         public Color LineColor
         {
-            get => _LineColor;
+            get;
             set
             {
-                _LineColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(25, 26, 28);
 
-        private Color _ActiveTabColor = Color.FromArgb(35, 36, 38);
         public Color ActiveTabColor
         {
-            get => _ActiveTabColor;
+            get;
             set
             {
-                _ActiveTabColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(35, 36, 38);
 
-        private Color _TabColor = Color.FromArgb(54, 57, 64);
         public Color TabColor
         {
-            get => _TabColor;
+            get;
             set
             {
-                _TabColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(54, 57, 64);
 
-        private Color _ActiveLineTabColor = Color.FromArgb(89, 169, 222);
         public Color ActiveLineTabColor
         {
-            get => _ActiveLineTabColor;
+            get;
             set
             {
-                _ActiveLineTabColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(89, 169, 222);
 
-        private Color _LineTabColor = Color.FromArgb(54, 57, 64);
         public Color LineTabColor
         {
-            get => _LineTabColor;
+            get;
             set
             {
-                _LineTabColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(54, 57, 64);
 
         public TabPage()
         {

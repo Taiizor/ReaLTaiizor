@@ -69,8 +69,8 @@ namespace ReaLTaiizor.Action.Metro
 
         public override DesignerActionItemCollection GetSortedActionItems()
         {
-            DesignerActionItemCollection items = new()
-            {
+            DesignerActionItemCollection items =
+            [
                 new DesignerActionHeaderItem("Metro"),
                 new DesignerActionPropertyItem("StyleManager", "StyleManager", "Metro", "Gets or sets the stylemanager for the control."),
                 new DesignerActionPropertyItem("Style", "Style", "Metro", "Gets or sets the style."),
@@ -85,7 +85,7 @@ namespace ReaLTaiizor.Action.Metro
                 new DesignerActionPropertyItem("MultiSelect", "MultiSelect", "Appearance", "Gets or sets a value indicating whether the ListBox supports multiple rows."),
                 new DesignerActionPropertyItem("ShowScrollBar", "ShowScrollBar", "Appearance", "Gets or sets a value indicating whether the vertical scroll bar is shown or not."),
                 new DesignerActionPropertyItem("ShowBorder", "ShowBorder", "Appearance", "Gets or sets a value indicating whether the border shown or not."),
-            };
+            ];
             return items;
         }
     }

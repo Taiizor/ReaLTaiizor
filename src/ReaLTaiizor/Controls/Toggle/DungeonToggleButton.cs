@@ -37,8 +37,6 @@ namespace ReaLTaiizor.Controls
             remove => ToggledChangedEvent = (ToggledChangedEventHandler)Delegate.Remove(ToggledChangedEvent, value);
         }
 
-        private bool _Toggled;
-        private _Type ToggleType;
         private Rectangle Bar;
 
         #endregion
@@ -78,10 +76,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Toggled
         {
-            get => _Toggled;
+            get;
             set
             {
-                _Toggled = value;
+                field = value;
                 Invalidate();
                 ToggledChangedEvent?.Invoke();
             }
@@ -89,10 +87,10 @@ namespace ReaLTaiizor.Controls
 
         public _Type Type
         {
-            get => ToggleType;
+            get;
             set
             {
-                ToggleType = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -135,7 +133,7 @@ namespace ReaLTaiizor.Controls
             GraphicsPath ControlPath = RoundRectangle.RoundRect(ControlRectangle, 4);
 
             LinearGradientBrush BackgroundLGB;
-            if (_Toggled)
+            if (Toggled)
             {
                 SwitchXLoc = 37;
                 BackgroundLGB = new(ControlRectangle, ToggledColorA, ToggledColorB, 90.0F);
@@ -150,7 +148,7 @@ namespace ReaLTaiizor.Controls
             G.FillPath(BackgroundLGB, ControlPath);
 
             // Draw string
-            switch (ToggleType)
+            switch (Type)
             {
                 case _Type.OnOff:
                     if (Toggled)
@@ -195,7 +193,7 @@ namespace ReaLTaiizor.Controls
             G.FillPath(SwitchButtonLGB, SwitchPath);
 
             // Draw borders
-            if (_Toggled == true)
+            if (Toggled == true)
             {
                 G.DrawPath(new(ToggledBorderColorA), SwitchPath);
                 G.DrawPath(new(ToggledBorderColorB), ControlPath);

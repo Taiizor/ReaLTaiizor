@@ -1,16 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
         <!--<TargetFramework>net48</TargetFramework>-->
         <!--<TargetFramework>net8.0-windows</TargetFramework>-->
         <!--<TargetFrameworks>net48;net6.0-windows</TargetFrameworks>-->
         <!--<TargetFrameworks>net48;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>-->
-        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
         <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -31,7 +31,8 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-        <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
+        <PackageReference Include="System.Resources.Extensions" Version="9.0.11" />
+        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="9.0.11" />
     </ItemGroup>
 
     <ItemGroup>
@@ -41,9 +42,9 @@
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
         <Compile Update="Properties\Settings.Designer.cs">
-          <DesignTimeSharedInput>True</DesignTimeSharedInput>
-          <AutoGen>True</AutoGen>
-          <DependentUpon>Settings.settings</DependentUpon>
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Settings.settings</DependentUpon>
         </Compile>
     </ItemGroup>
 
@@ -55,10 +56,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Properties\Settings.settings">
-        <Generator>SettingsSingleFileGenerator</Generator>
-        <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-      </None>
+        <None Update="Properties\Settings.settings">
+            <Generator>SettingsSingleFileGenerator</Generator>
+            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+        </None>
     </ItemGroup>
 
 </Project>

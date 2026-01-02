@@ -33,14 +33,13 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region Settings
-        private NumericStyle _style = NumericStyle.LeftRight;
         public NumericStyle Style
         {
-            get => _style;
+            get;
             set
             {
-                _style = value;
-                if (_style == NumericStyle.LeftRight)
+                field = value;
+                if (field == NumericStyle.LeftRight)
                 {
                     downRectangleF = new(0, 0, Height, Height);
                     upRectangleF = new(Width - Height, 0, Height, Height);
@@ -52,59 +51,54 @@ namespace ReaLTaiizor.Controls
                 }
                 Invalidate();
             }
-        }
+        } = NumericStyle.LeftRight;
 
-        private float _minNum = 0;
         public float MinNum
         {
-            get => _minNum;
-            set => _minNum = value > _maxNum ? _maxNum : value;
-        }
-
-        private float _maxNum = 10;
+            get;
+            set => field = value > MaxNum ? MaxNum : value;
+        } = 0;
         public float MaxNum
         {
-            get => _maxNum;
-            set => _maxNum = value < _minNum ? _minNum : value;
-        }
+            get;
+            set => field = value < MinNum ? MinNum : value;
+        } = 10;
 
-        private float _value = 0;
         public float ValueNumber
         {
-            get => _value;
+            get;
             set
             {
-                if (value > _maxNum || value < _minNum)
+                if (value > MaxNum || value < MinNum)
                 {
-                    if (value > _maxNum)
+                    if (value > MaxNum)
                     {
-                        value = _maxNum;
+                        value = MaxNum;
                     }
                     else
                     {
-                        value = _minNum;
+                        value = MinNum;
                     }
                 }
 
-                _value = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 0;
 
         public bool EnterKey { get; set; } = true;
 
         public float Step { get; set; } = 1;
 
-        private int _precision = 0;
         public int Precision
         {
-            get => _precision;
+            get;
             set
             {
-                _precision = (value is < 0 or > 6) ? 0 : value;
+                field = (value is < 0 or > 6) ? 0 : value;
                 Invalidate();
             }
-        }
+        } = 0;
 
         public Color BaseColor { get; set; } = HopeColors.FourLevelBorder;
 
@@ -158,7 +152,7 @@ namespace ReaLTaiizor.Controls
                     ValueNumber = f;
                 }
 
-                textBox.Text = Math.Round(_value, Precision).ToString();
+                textBox.Text = Math.Round(ValueNumber, Precision).ToString();
             }
 
             if (upRectangleF.Contains(mousePoint))
@@ -195,12 +189,12 @@ namespace ReaLTaiizor.Controls
 
             if ((!focus && EnterKey) || (!focus && !EnterKey))
             {
-                textBox.Text = Math.Round(_value, Precision).ToString();
+                textBox.Text = Math.Round(ValueNumber, Precision).ToString();
             }
 
             textBox.BackColor = BackColor;
             textBox.ForeColor = ForeColor;
-            switch (_style)
+            switch (Style)
             {
                 case NumericStyle.LeftRight:
                     textBox.Size = new(Width - (2 * Height), Height - 2);
@@ -254,7 +248,7 @@ namespace ReaLTaiizor.Controls
                     ValueNumber = f;
                 }
 
-                textBox.Text = Math.Round(_value, Precision).ToString();
+                textBox.Text = Math.Round(ValueNumber, Precision).ToString();
 
                 base.Focus();
             }
@@ -273,18 +267,18 @@ namespace ReaLTaiizor.Controls
         {
             if (focus)
             {
-                if (!EnterKey && textBox.Text != Math.Round(_value, Precision).ToString())
+                if (!EnterKey && textBox.Text != Math.Round(ValueNumber, Precision).ToString())
                 {
                     if (float.TryParse(textBox.Text, out float f))
                     {
                         ValueNumber = f;
                     }
 
-                    textBox.Text = Math.Round(_value, Precision).ToString();
+                    textBox.Text = Math.Round(ValueNumber, Precision).ToString();
                 }
-                else if (EnterKey && textBox.Text != Math.Round(_value, Precision).ToString())
+                else if (EnterKey && textBox.Text != Math.Round(ValueNumber, Precision).ToString())
                 {
-                    textBox.Text = Math.Round(_value, Precision).ToString();
+                    textBox.Text = Math.Round(ValueNumber, Precision).ToString();
                 }
 
                 focus = false;

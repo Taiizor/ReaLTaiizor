@@ -28,10 +28,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -70,7 +70,6 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
 
         #endregion Internal Vars
 

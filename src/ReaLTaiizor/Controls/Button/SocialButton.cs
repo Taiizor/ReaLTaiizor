@@ -15,14 +15,8 @@ namespace ReaLTaiizor.Controls
     {
         #region Variables
 
-        private Image _Image;
         private Size _ImageSize;
         private Color EllipseColor = Color.FromArgb(66, 76, 85); // VBConversions Note: Initial value cannot be assigned here since it is non-static.  Assignment has been moved to the class constructors.
-
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _HoverEllipseColor = Color.FromArgb(32, 34, 37);
-        private Color _NormalEllipseColor = Color.FromArgb(66, 76, 85);
-        private Color _DownEllipseColor = Color.FromArgb(153, 34, 34);
 
         #endregion
 
@@ -30,7 +24,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -42,7 +36,7 @@ namespace ReaLTaiizor.Controls
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -51,43 +45,43 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public Color HoverEllipseColor
         {
-            get => _HoverEllipseColor;
+            get;
             set
             {
-                _HoverEllipseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(32, 34, 37);
 
         public Color NormalEllipseColor
         {
-            get => _NormalEllipseColor;
+            get;
             set
             {
-                _NormalEllipseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(66, 76, 85);
 
         public Color DownEllipseColor
         {
-            get => _DownEllipseColor;
+            get;
             set
             {
-                _DownEllipseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(153, 34, 34);
 
         #endregion
 
@@ -184,7 +178,7 @@ namespace ReaLTaiizor.Controls
             // The best matching color of drawn image is (RGB: 31, 40, 49)
             if (Image != null)
             {
-                G.DrawImage(_Image, (int)ImgPoint.X, (int)ImgPoint.Y, ImageSize.Width, ImageSize.Height);
+                G.DrawImage(Image, (int)ImgPoint.X, (int)ImgPoint.Y, ImageSize.Width, ImageSize.Height);
             }
         }
     }

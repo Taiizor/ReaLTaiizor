@@ -15,13 +15,13 @@ namespace ReaLTaiizor.Controls
     {
         public ParrotFlatMenuStrip()
         {
-            base.Renderer = new KitMenuStripRenderer(base.BackColor, backColor, selectedBackColor, hoverBackColor, textColor, hoverTextColor, selectedTextColor, separatorColor);
+            base.Renderer = new KitMenuStripRenderer(base.BackColor, ItemBackColor, SelectedBackColor, HoverBackColor, TextColor, HoverTextColor, SelectedTextColor, SeparatorColor);
             base.BackColor = Color.DodgerBlue;
         }
 
         private void RefreshUI()
         {
-            base.Renderer = new KitMenuStripRenderer(base.BackColor, backColor, selectedBackColor, hoverBackColor, textColor, hoverTextColor, selectedTextColor, separatorColor);
+            base.Renderer = new KitMenuStripRenderer(base.BackColor, ItemBackColor, SelectedBackColor, HoverBackColor, TextColor, HoverTextColor, SelectedTextColor, SeparatorColor);
         }
 
         [Category("Parrot")]
@@ -29,105 +29,91 @@ namespace ReaLTaiizor.Controls
         [Description("Item background color")]
         public Color ItemBackColor
         {
-            get => backColor;
+            get;
             set
             {
-                backColor = value;
+                field = value;
                 RefreshUI();
             }
-        }
+        } = Color.DodgerBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Selected item background color")]
         public Color SelectedBackColor
         {
-            get => selectedBackColor;
+            get;
             set
             {
-                selectedBackColor = value;
+                field = value;
                 RefreshUI();
             }
-        }
+        } = Color.DarkOrchid;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Hover item background color")]
         public Color HoverBackColor
         {
-            get => hoverBackColor;
+            get;
             set
             {
-                hoverBackColor = value;
+                field = value;
                 RefreshUI();
             }
-        }
+        } = Color.RoyalBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Item text color")]
         public Color TextColor
         {
-            get => textColor;
+            get;
             set
             {
-                textColor = value;
+                field = value;
                 RefreshUI();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Hover item text color")]
         public Color HoverTextColor
         {
-            get => hoverTextColor;
+            get;
             set
             {
-                hoverTextColor = value;
+                field = value;
                 RefreshUI();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Selected item text color")]
         public Color SelectedTextColor
         {
-            get => selectedTextColor;
+            get;
             set
             {
-                selectedTextColor = value;
+                field = value;
                 RefreshUI();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Separator color")]
         public Color SeparatorColor
         {
-            get => separatorColor;
+            get;
             set
             {
-                separatorColor = value;
+                field = value;
                 RefreshUI();
             }
-        }
-
-        private Color backColor = Color.DodgerBlue;
-
-        private Color selectedBackColor = Color.DarkOrchid;
-
-        private Color hoverBackColor = Color.RoyalBlue;
-
-        private Color textColor = Color.White;
-
-        private Color hoverTextColor = Color.White;
-
-        private Color selectedTextColor = Color.White;
-
-        private Color separatorColor = Color.White;
+        } = Color.White;
     }
 
     #endregion

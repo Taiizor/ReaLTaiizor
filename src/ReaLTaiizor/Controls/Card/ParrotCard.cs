@@ -27,91 +27,89 @@ namespace ReaLTaiizor.Controls
         [Description("The 1st half color of he gradient")]
         public Color Color1
         {
-            get => color1;
+            get;
             set
             {
-                color1 = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DodgerBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The 2nd half color of he gradient")]
         public Color Color2
         {
-            get => color2;
+            get;
             set
             {
-                color2 = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LimeGreen;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The 1st text")]
         public string Text1
         {
-            get => text1;
+            get;
             set
             {
-                text1 = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "Credit Card";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The 2nd text")]
         public string Text2
         {
-            get => text2;
+            get;
             set
             {
-                text2 = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "1357 2468 9013 5724";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The 3rd text")]
         public string Text3
         {
-            get => text3;
+            get;
             set
             {
-                text3 = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "Exp: 01/02 - 03/04";
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -120,7 +118,7 @@ namespace ReaLTaiizor.Controls
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             e.Graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
 
-            Brush brush = new LinearGradientBrush(ClientRectangle, color1, color2, 135f);
+            Brush brush = new LinearGradientBrush(ClientRectangle, Color1, Color2, 135f);
 
             using (GraphicsPath graphicsPath = new())
             {
@@ -143,25 +141,18 @@ namespace ReaLTaiizor.Controls
 
             Rectangle r = new(2, 6, Width - 4, 26);
 
-            e.Graphics.DrawString(text1, new Font(Font.FontFamily, Font.Size + 4f), new SolidBrush(ForeColor), r, stringFormat);
+            e.Graphics.DrawString(Text1, new Font(Font.FontFamily, Font.Size + 4f), new SolidBrush(ForeColor), r, stringFormat);
 
             stringFormat.Alignment = StringAlignment.Near;
 
             r = new Rectangle(2, Height / 2, Width - 4, Height / 4);
-            e.Graphics.DrawString(text2, new Font(Font.FontFamily, (Font.Size * 2f) + 2f), new SolidBrush(ForeColor), r, stringFormat);
+            e.Graphics.DrawString(Text2, new Font(Font.FontFamily, (Font.Size * 2f) + 2f), new SolidBrush(ForeColor), r, stringFormat);
 
             stringFormat.Alignment = StringAlignment.Near;
 
             r = new Rectangle(2, (Height / 2) + (Height / 4), Width - 4, Height / 4);
-            e.Graphics.DrawString(text3, new Font(Font.FontFamily, Font.Size + 2f), new SolidBrush(ForeColor), r, stringFormat);
+            e.Graphics.DrawString(Text3, new Font(Font.FontFamily, Font.Size + 2f), new SolidBrush(ForeColor), r, stringFormat);
         }
-
-        private Color color1 = Color.DodgerBlue;
-        private Color color2 = Color.LimeGreen;
-
-        private string text1 = "Credit Card";
-        private string text2 = "1357 2468 9013 5724";
-        private string text3 = "Exp: 01/02 - 03/04";
     }
 
     #endregion

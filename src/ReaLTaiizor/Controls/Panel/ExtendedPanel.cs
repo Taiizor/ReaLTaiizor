@@ -25,10 +25,9 @@ namespace ReaLTaiizor.Controls
             Debug
         }
 
-        private Drawer _DrawMode = Drawer.Default;
         public Drawer DrawMode
         {
-            get => _DrawMode;
+            get;
             set
             {
                 if (value == Drawer.Image)
@@ -44,26 +43,24 @@ namespace ReaLTaiizor.Controls
                     SetStyle(ControlStyles.SupportsTransparentBackColor, false);
                 }
 
-                _DrawMode = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Drawer.Default;
 
-        private bool _TopMost = true;
         public bool TopMost
         {
-            get => _TopMost;
+            get;
             set
             {
-                _TopMost = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private int _Opacity = 50;
         public int Opacity
         {
-            get => _Opacity;
+            get;
             set
             {
                 if (value is < 0 or > 100)
@@ -71,10 +68,10 @@ namespace ReaLTaiizor.Controls
                     value = 0;
                 }
 
-                _Opacity = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 50;
 
         public int MostInterval
         {

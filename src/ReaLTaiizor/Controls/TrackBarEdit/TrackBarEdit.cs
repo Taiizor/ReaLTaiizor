@@ -38,26 +38,21 @@ namespace ReaLTaiizor.Controls
         private bool Cap;
 
         private int ValueDrawer;
-        private int _Minimum = 0;
-        private int _Maximum = 10;
         private int _Value = 0;
-        private Color _ValueColour = Color.FromArgb(224, 224, 224);
         private bool _DrawHatch = true;
-        private bool _DrawValueString = false;
-        private ValueDivisor DividedValue = ValueDivisor.By1;
 
         #endregion
         #region Custom Properties
 
         public int Minimum
         {
-            get => _Minimum;
+            get;
 
             set
             {
-                if (value >= _Maximum)
+                if (value >= Maximum)
                 {
-                    value = _Maximum - 10;
+                    value = Maximum - 10;
                 }
 
                 if (_Value < value)
@@ -65,20 +60,20 @@ namespace ReaLTaiizor.Controls
                     _Value = value;
                 }
 
-                _Minimum = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 0;
 
         public int Maximum
         {
-            get => _Maximum;
+            get;
 
             set
             {
-                if (value <= _Minimum)
+                if (value <= Minimum)
                 {
-                    value = _Minimum + 10;
+                    value = Minimum + 10;
                 }
 
                 if (_Value > value)
@@ -86,10 +81,10 @@ namespace ReaLTaiizor.Controls
                     _Value = value;
                 }
 
-                _Maximum = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 10;
 
         public event ValueChangedEventHandler ValueChanged;
         public delegate void ValueChangedEventHandler();
@@ -100,15 +95,15 @@ namespace ReaLTaiizor.Controls
             {
                 if (_Value != value)
                 {
-                    if (value < _Minimum)
+                    if (value < Minimum)
                     {
-                        _Value = _Minimum;
+                        _Value = Minimum;
                     }
                     else
                     {
-                        if (value > _Maximum)
+                        if (value > Maximum)
                         {
-                            _Value = _Maximum;
+                            _Value = Maximum;
                         }
                         else
                         {
@@ -123,30 +118,30 @@ namespace ReaLTaiizor.Controls
 
         public ValueDivisor ValueDivison
         {
-            get => DividedValue;
+            get;
             set
             {
-                DividedValue = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ValueDivisor.By1;
 
         [Browsable(false)]
         public float ValueToSet
         {
-            get => (float)(_Value / ((double)DividedValue));
-            set => Value = (int)Math.Round((double)(value * ((float)DividedValue)));
+            get => (float)(_Value / ((double)ValueDivison));
+            set => Value = (int)Math.Round((double)(value * ((float)ValueDivison)));
         }
 
         public Color ValueColour
         {
-            get => _ValueColour;
+            get;
             set
             {
-                _ValueColour = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(224, 224, 224);
 
         public bool DrawHatch
         {
@@ -160,11 +155,11 @@ namespace ReaLTaiizor.Controls
 
         public bool DrawValueString
         {
-            get => _DrawValueString;
+            get;
             set
             {
-                _DrawValueString = value;
-                if (_DrawValueString == true)
+                field = value;
+                if (field == true)
                 {
                     Height = 40;
                 }
@@ -174,7 +169,7 @@ namespace ReaLTaiizor.Controls
                 }
                 Invalidate();
             }
-        }
+        } = false;
 
         public bool JumpToMouse { get; set; } = false;
 
@@ -186,7 +181,7 @@ namespace ReaLTaiizor.Controls
             base.OnMouseMove(e);
             if (Cap && (e.X > -1) && (e.X < (Width + 1)))
             {
-                Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (e.X / ((double)Width)))));
+                Value = Minimum + ((int)Math.Round((double)((Maximum - Minimum) * (e.X / ((double)Width)))));
             }
         }
 
@@ -195,12 +190,12 @@ namespace ReaLTaiizor.Controls
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
-                ValueDrawer = (int)Math.Round((double)((_Value - _Minimum) / ((double)(_Maximum - _Minimum)) * (Width - 11)));
+                ValueDrawer = (int)Math.Round((double)((_Value - Minimum) / ((double)(Maximum - Minimum)) * (Width - 11)));
                 TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
                 Cap = TrackBarHandleRect.Contains(e.Location);
                 if (JumpToMouse)
                 {
-                    Value = _Minimum + ((int)Math.Round((double)((_Maximum - _Minimum) * (e.X / ((double)Width)))));
+                    Value = Minimum + ((int)Math.Round((double)((Maximum - Minimum) * (e.X / ((double)Width)))));
                 }
             }
         }
@@ -226,7 +221,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            if (_DrawValueString == true)
+            if (DrawValueString == true)
             {
                 Height = 40;
             }
@@ -248,7 +243,7 @@ namespace ReaLTaiizor.Controls
                 PipeBorder = RoundRectangle.RoundRect(1, 6, Width - 3, 8, 3);
                 try
                 {
-                    ValueDrawer = (int)Math.Round(unchecked(checked((_Value - _Minimum) / (double)(_Maximum - _Minimum)) * checked(Width - 11)));
+                    ValueDrawer = (int)Math.Round(unchecked(checked((_Value - Minimum) / (double)(Maximum - Minimum)) * checked(Width - 11)));
                 }
                 catch (Exception)
                 {
@@ -256,7 +251,7 @@ namespace ReaLTaiizor.Controls
                 TrackBarHandleRect = new(ValueDrawer, 0, 10, 20);
                 G.SetClip(PipeBorder);
                 ValueRect = new(1, 7, TrackBarHandleRect.X + TrackBarHandleRect.Width - 2, 7);
-                VlaueLGB = new(ValueRect, _ValueColour, _ValueColour, 90f);
+                VlaueLGB = new(ValueRect, ValueColour, ValueColour, 90f);
                 G.FillRectangle(VlaueLGB, ValueRect);
 
                 if (_DrawHatch == true)
@@ -272,7 +267,7 @@ namespace ReaLTaiizor.Controls
                 G.FillPath(TrackBarHandleLGB, TrackBarHandle);
                 G.DrawPath(new(Color.FromArgb(180, 180, 180)), TrackBarHandle);
 
-                if (_DrawValueString == true)
+                if (DrawValueString == true)
                 {
                     G.DrawString(Convert.ToString(ValueToSet), Font, Brushes.Gray, 0, 25);
                 }

@@ -13,16 +13,15 @@ namespace ReaLTaiizor.Controls
     {
         #region Properties
 
-        private Color _LineColor = Color.Gray;
         public Color LineColor
         {
-            get => _LineColor;
+            get;
             set
             {
-                _LineColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Gray;
 
         #endregion
 

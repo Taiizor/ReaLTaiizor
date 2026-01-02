@@ -15,7 +15,7 @@ namespace ReaLTaiizor.Controls
         public ParrotToolStrip()
         {
             Dock = DockStyle.Top;
-            base.Renderer = new StripeRemoval(borderColor);
+            base.Renderer = new StripeRemoval(BorderColor);
             base.BackColor = Color.White;
             base.ForeColor = Color.Black;
             base.GripStyle = ToolStripGripStyle.Hidden;
@@ -23,20 +23,18 @@ namespace ReaLTaiizor.Controls
 
         private void RefreshUI()
         {
-            base.Renderer = new StripeRemoval(borderColor);
+            base.Renderer = new StripeRemoval(BorderColor);
         }
 
         public Color BorderColor
         {
-            get => borderColor;
+            get;
             set
             {
-                borderColor = value;
+                field = value;
                 RefreshUI();
             }
-        }
-
-        private Color borderColor = Color.DodgerBlue;
+        } = Color.DodgerBlue;
     }
 
     #endregion

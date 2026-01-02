@@ -22,9 +22,7 @@ namespace ReaLTaiizor.Manager
 
     public class MaterialSkinManager
     {
-        private static MaterialSkinManager _instance;
-
-        private readonly List<MaterialForm> _formsToManage = new();
+        private readonly List<MaterialForm> _formsToManage = [];
 
         public delegate void SkinManagerEventHandler(object sender);
 
@@ -34,7 +32,7 @@ namespace ReaLTaiizor.Manager
 
         public bool EnforceBackcolorOnAllComponents = true;
 
-        public static MaterialSkinManager Instance => _instance ?? (_instance = new MaterialSkinManager());
+        public static MaterialSkinManager Instance => field ?? (field = new MaterialSkinManager());
 
         public int FORM_PADDING = 14;
 
@@ -56,34 +54,36 @@ namespace ReaLTaiizor.Manager
             addFont(Resources.Roboto_Bold);
             addFont(Resources.Roboto_Black);
 
-            RobotoFontFamilies = new Dictionary<string, FontFamily>();
+            RobotoFontFamilies = [];
             foreach (FontFamily ff in privateFontCollection.Families.ToArray())
             {
                 RobotoFontFamilies.Add(ff.Name.Replace(' ', '_'), ff);
             }
 
             // create and save font handles for GDI
-            logicalFonts = new Dictionary<string, IntPtr>(18);
-            logicalFonts.Add("H1", createLogicalFont("Roboto Light", 96, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT));
-            logicalFonts.Add("H2", createLogicalFont("Roboto Light", 60, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT));
-            logicalFonts.Add("H3", createLogicalFont("Roboto", 48, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("H4", createLogicalFont("Roboto", 34, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("H5", createLogicalFont("Roboto", 24, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("H6", createLogicalFont("Roboto Medium", 20, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
-            logicalFonts.Add("Subtitle1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("Subtitle2", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
-            logicalFonts.Add("SubtleEmphasis", createLogicalFont("Roboto", 12, MaterialNativeTextRenderer.logFontWeight.FW_NORMAL, 1));
-            logicalFonts.Add("Body1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("Body2", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("Button", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
-            logicalFonts.Add("Caption", createLogicalFont("Roboto", 12, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("Overline", createLogicalFont("Roboto", 10, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            // Logical fonts for textbox animation
-            logicalFonts.Add("textBox16", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("textBox15", createLogicalFont("Roboto", 15, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("textBox14", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR));
-            logicalFonts.Add("textBox13", createLogicalFont("Roboto Medium", 13, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
-            logicalFonts.Add("textBox12", createLogicalFont("Roboto Medium", 12, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM));
+            logicalFonts = new Dictionary<string, IntPtr>(18)
+            {
+                { "H1", createLogicalFont("Roboto Light", 96, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT) },
+                { "H2", createLogicalFont("Roboto Light", 60, MaterialNativeTextRenderer.logFontWeight.FW_LIGHT) },
+                { "H3", createLogicalFont("Roboto", 48, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "H4", createLogicalFont("Roboto", 34, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "H5", createLogicalFont("Roboto", 24, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "H6", createLogicalFont("Roboto Medium", 20, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
+                { "Subtitle1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "Subtitle2", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
+                { "SubtleEmphasis", createLogicalFont("Roboto", 12, MaterialNativeTextRenderer.logFontWeight.FW_NORMAL, 1) },
+                { "Body1", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "Body2", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "Button", createLogicalFont("Roboto Medium", 14, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
+                { "Caption", createLogicalFont("Roboto", 12, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "Overline", createLogicalFont("Roboto", 10, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                // Logical fonts for textbox animation
+                { "textBox16", createLogicalFont("Roboto", 16, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "textBox15", createLogicalFont("Roboto", 15, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "textBox14", createLogicalFont("Roboto", 14, MaterialNativeTextRenderer.logFontWeight.FW_REGULAR) },
+                { "textBox13", createLogicalFont("Roboto Medium", 13, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) },
+                { "textBox12", createLogicalFont("Roboto Medium", 12, MaterialNativeTextRenderer.logFontWeight.FW_MEDIUM) }
+            };
         }
 
         // Destructor
@@ -97,27 +97,24 @@ namespace ReaLTaiizor.Manager
         }
 
         // Themes
-        private Themes _theme;
 
         public Themes Theme
         {
-            get => _theme;
+            get;
             set
             {
-                _theme = value;
+                field = value;
                 UpdateBackgrounds();
                 ThemeChanged?.Invoke(this);
             }
         }
 
-        private MaterialColorScheme _colorScheme;
-
         public MaterialColorScheme ColorScheme
         {
-            get => _colorScheme;
+            get;
             set
             {
-                _colorScheme = value;
+                field = value;
                 UpdateBackgrounds();
                 ColorSchemeChanged?.Invoke(this);
             }
@@ -356,11 +353,13 @@ namespace ReaLTaiizor.Manager
         private IntPtr createLogicalFont(string fontName, int size, MaterialNativeTextRenderer.logFontWeight weight, byte lfItalic = 0)
         {
             // Logical font:
-            MaterialNativeTextRenderer.LogFont lfont = new();
-            lfont.lfFaceName = fontName;
-            lfont.lfHeight = -size;
-            lfont.lfWeight = (int)weight;
-            lfont.lfItalic = lfItalic;
+            MaterialNativeTextRenderer.LogFont lfont = new()
+            {
+                lfFaceName = fontName,
+                lfHeight = -size,
+                lfWeight = (int)weight,
+                lfItalic = lfItalic
+            };
             return MaterialNativeTextRenderer.CreateFontIndirect(lfont);
         }
 

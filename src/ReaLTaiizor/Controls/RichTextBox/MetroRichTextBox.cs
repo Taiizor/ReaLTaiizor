@@ -31,10 +31,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -57,8 +57,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -77,8 +77,6 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
         private int _maxLength;
         private bool _readOnly;
         private MouseMode _state;
@@ -89,11 +87,6 @@ namespace ReaLTaiizor.Controls
         private Color _backColor;
         private Color _borderColor;
         private Color _hoverColor;
-
-        private bool _isDerivedStyle = true;
-        private Color _disabledBackColor = Color.FromArgb(204, 204, 204);
-        private Color _disabledForeColor = Color.FromArgb(136, 136, 136);
-        private Color _disabledBorderColor = Color.FromArgb(155, 155, 155);
 
         #region Base RichTextBox
 
@@ -853,50 +846,50 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets back color used by the control while disabled.")]
         public Color DisabledBackColor
         {
-            get => _disabledBackColor;
+            get;
             set
             {
-                _disabledBackColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.FromArgb(204, 204, 204);
 
         [Category("Metro")]
         [Description("Gets or sets the fore color of the control whenever while disabled")]
         public Color DisabledForeColor
         {
-            get => _disabledForeColor;
+            get;
             set
             {
-                _disabledForeColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.FromArgb(136, 136, 136);
 
         [Category("Metro")]
         [Description("Gets or sets the border color of the control while disabled.")]
         public Color DisabledBorderColor
         {
-            get => _disabledBorderColor;
+            get;
             set
             {
-                _disabledBorderColor = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = Color.FromArgb(155, 155, 155);
 
         [Category("Metro")]
         [Description("Gets or sets the whether this control reflect to parent(s) style. \n " +
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion Properties
     }

@@ -17,35 +17,26 @@ namespace ReaLTaiizor.Controls
     [DefaultEvent("TextChanged")]
     public class FoxTextBox : Control
     {
-        private TextBox withEventsField_TB = new();
-
         private TextBox TB
         {
-            get => withEventsField_TB;
+            get;
             set
             {
-                if (withEventsField_TB != null)
+                if (field != null)
                 {
-                    withEventsField_TB.TextChanged -= TextChangeTb;
+                    field.TextChanged -= TextChangeTb;
                 }
 
-                withEventsField_TB = value;
-                if (withEventsField_TB != null)
+                field = value;
+                if (field != null)
                 {
-                    withEventsField_TB.TextChanged += TextChangeTb;
+                    field.TextChanged += TextChangeTb;
                 }
             }
-        }
+        } = new();
 
         private Graphics G;
         private FoxLibrary.MouseState State;
-        private bool _allowpassword = false;
-        private int _maxChars = 32767;
-        private HorizontalAlignment _textAlignment;
-        private bool _multiLine = false;
-
-        private bool _readOnly = false;
-
         private bool IsEnabled;
         public new bool Enabled
         {
@@ -80,60 +71,60 @@ namespace ReaLTaiizor.Controls
 
         public new bool UseSystemPasswordChar
         {
-            get => _allowpassword;
+            get;
             set
             {
                 TB.UseSystemPasswordChar = UseSystemPasswordChar;
-                _allowpassword = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         public new int MaxLength
         {
-            get => _maxChars;
+            get;
             set
             {
-                _maxChars = value;
+                field = value;
                 TB.MaxLength = MaxLength;
                 Invalidate();
             }
-        }
+        } = 32767;
 
         public new HorizontalAlignment TextAlign
         {
-            get => _textAlignment;
+            get;
             set
             {
-                _textAlignment = value;
+                field = value;
                 Invalidate();
             }
         }
 
         public new bool MultiLine
         {
-            get => _multiLine;
+            get;
             set
             {
-                _multiLine = value;
+                field = value;
                 TB.Multiline = value;
                 OnResize(EventArgs.Empty);
                 Invalidate();
             }
-        }
+        } = false;
 
         public new bool ReadOnly
         {
-            get => _readOnly;
+            get;
             set
             {
-                _readOnly = value;
+                field = value;
                 if (TB != null)
                 {
                     TB.ReadOnly = value;
                 }
             }
-        }
+        } = false;
 
         protected override void OnTextChanged(EventArgs e)
         {

@@ -40,9 +40,6 @@ namespace ReaLTaiizor.Controls
         private bool _allowpassword;
 
         private int _maxChars;
-
-        private HorizontalAlignment _textAlignment;
-
         private bool _multiLine;
 
         private bool _readOnly;
@@ -120,10 +117,10 @@ namespace ReaLTaiizor.Controls
 
         public HorizontalAlignment TextAlign
         {
-            get => _textAlignment;
+            get;
             set
             {
-                _textAlignment = value;
+                field = value;
                 Invalidate();
             }
         }

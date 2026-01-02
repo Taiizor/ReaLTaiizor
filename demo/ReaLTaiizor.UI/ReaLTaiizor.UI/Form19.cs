@@ -45,7 +45,7 @@ namespace ReaLTaiizor.UI
             MetroMessageBox.Show(this, "A new update available, do you want to update it now ?", "Available Update", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
-        private void MetroButton7_Click_1(object sender, EventArgs e)
+        private void MetroButton7_Click(object sender, EventArgs e)
         {
             MetroMessageBox.Show(this, "A new update available, do you want to update it now ?", "Available Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }

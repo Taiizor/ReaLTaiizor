@@ -12,27 +12,25 @@ namespace ReaLTaiizor.Controls
 
     public class SpaceClose : SpaceControl // A Close Button for the App
     {
-        private bool _DefaultLocation = true;
         public bool DefaultLocation
         {
-            get => _DefaultLocation;
+            get;
             set
             {
-                _DefaultLocation = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private bool _DefaultAnchor = true;
         public bool DefaultAnchor
         {
-            get => _DefaultAnchor;
+            get;
             set
             {
-                _DefaultAnchor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         public SpaceClose()
         {

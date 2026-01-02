@@ -29,7 +29,7 @@
       ReaLTaiizor
       Newtonsoft.Json
       Skylark.Clipboard
-      System.Diagnostics.DiagnosticSource
+      <!--System.Diagnostics.DiagnosticSource-->
     </IncludeAssemblies>
   </Costura>
 </Weavers>

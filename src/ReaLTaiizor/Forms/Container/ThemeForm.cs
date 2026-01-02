@@ -26,7 +26,6 @@ namespace ReaLTaiizor.Forms
 
         #region Variables
 
-        private Image _Image = Properties.Resources.Taiizor;
         private Size _ImageSize;
         private Rectangle HeaderRect;
         protected MouseState State;
@@ -41,7 +40,7 @@ namespace ReaLTaiizor.Forms
 
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -53,24 +52,23 @@ namespace ReaLTaiizor.Forms
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Properties.Resources.Taiizor;
 
         public bool Sizable { get; set; } = true;
         public bool SmartBounds { get; set; } = true;
 
-        private bool _RoundCorners = true;
         public bool RoundCorners
         {
-            get => _RoundCorners;
+            get;
             set
             {
-                _RoundCorners = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         protected bool IsParentForm { get; private set; }
 
@@ -87,13 +85,12 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private bool _ControlMode;
         protected bool ControlMode
         {
-            get => _ControlMode;
+            get;
             set
             {
-                _ControlMode = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -103,7 +100,7 @@ namespace ReaLTaiizor.Forms
         {
             get
             {
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     return ParentForm.StartPosition;
                 }
@@ -116,7 +113,7 @@ namespace ReaLTaiizor.Forms
             {
                 _StartPosition = value;
 
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     ParentForm.StartPosition = value;
                 }
@@ -138,7 +135,7 @@ namespace ReaLTaiizor.Forms
 
             IsParentForm = Parent is System.Windows.Forms.Form;
 
-            if (!_ControlMode)
+            if (!ControlMode)
             {
                 InitializeMessages();
 
@@ -160,7 +157,7 @@ namespace ReaLTaiizor.Forms
         protected sealed override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            if (!_ControlMode)
+            if (!ControlMode)
             {
                 HeaderRect = new(0, 0, Width - 14, MoveHeight - 7);
             }
@@ -177,7 +174,7 @@ namespace ReaLTaiizor.Forms
                 SetState(MouseState.Down);
             }
 
-            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || _ControlMode))
+            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || ControlMode))
             {
                 if (HeaderRect.Contains(e.Location))
                 {
@@ -205,7 +202,7 @@ namespace ReaLTaiizor.Forms
             base.OnMouseMove(e);
             if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
-                if (Sizable && !_ControlMode)
+                if (Sizable && !ControlMode)
                 {
                     InvalidateMouse();
                 }
@@ -235,7 +232,7 @@ namespace ReaLTaiizor.Forms
 
         private void FormShown(object sender, EventArgs e)
         {
-            if (_ControlMode || HasShown)
+            if (ControlMode || HasShown)
             {
                 return;
             }
@@ -461,7 +458,7 @@ namespace ReaLTaiizor.Forms
             G.Clear(Color.FromArgb(32, 41, 50));
             G.FillRectangle(new SolidBrush(Color.FromArgb(32, 34, 37)), new Rectangle(0, 0, Width, 61));
 
-            if (_RoundCorners == true)
+            if (RoundCorners == true)
             {
                 // Draw Left upper corner
                 G.FillRectangle(Brushes.Fuchsia, 0, 0, 1, 1);
@@ -529,7 +526,7 @@ namespace ReaLTaiizor.Forms
                 G.FillRectangle(new SolidBrush(Color.FromArgb(32, 41, 50)), Width - 3, Height - 2, 1, 1);
             }
 
-            G.DrawImage(_Image, 20, 18, 26, 26);
+            G.DrawImage(Image, 20, 18, 26, 26);
 
             G.DrawString(Text, new Font("Microsoft Sans Serif", 12, FontStyle.Bold), new SolidBrush(Color.FromArgb(255, 254, 255)), new Rectangle(55, 21, Width - 1, Height), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });
         }

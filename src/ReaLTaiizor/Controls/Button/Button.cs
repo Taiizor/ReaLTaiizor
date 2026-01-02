@@ -21,17 +21,9 @@ namespace ReaLTaiizor.Controls
         private LinearGradientBrush PressedGB;
         private LinearGradientBrush EnteredGB;
         private Rectangle R1;
-        private Image _Image;
         private Size _ImageSize;
         private StringAlignment _TextAlignment = StringAlignment.Center;
-        private Color _InactiveColor = Color.FromArgb(32, 34, 37);
-        private Color _PressedColor = Color.FromArgb(165, 37, 37);
-        private Color _EnteredColor = Color.FromArgb(32, 34, 37);
-        private Color _BorderColor = Color.FromArgb(32, 34, 37);
-        private Color _EnteredBorderColor = Color.FromArgb(165, 37, 37);
-        private Color _PressedBorderColor = Color.FromArgb(165, 37, 37);
         private Color _TextColor; // VBConversions Note: Initial value cannot be assigned here since it is non-static.  Assignment has been moved to the class constructors.
-        private ContentAlignment _ImageAlign = ContentAlignment.MiddleLeft;
 
         #endregion
 
@@ -120,7 +112,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -132,7 +124,7 @@ namespace ReaLTaiizor.Controls
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -141,13 +133,13 @@ namespace ReaLTaiizor.Controls
 
         public ContentAlignment ImageAlign
         {
-            get => _ImageAlign;
+            get;
             set
             {
-                _ImageAlign = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ContentAlignment.MiddleLeft;
 
         public StringAlignment TextAlignment
         {
@@ -171,66 +163,66 @@ namespace ReaLTaiizor.Controls
 
         public Color InactiveColor
         {
-            get => _InactiveColor;
+            get;
             set
             {
                 InactiveGB = new(new Rectangle(0, 0, Width, Height), value, value, 90.0F);
-                _InactiveColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(32, 34, 37);
 
         public Color PressedColor
         {
-            get => _PressedColor;
+            get;
             set
             {
                 PressedGB = new(new Rectangle(0, 0, Width, Height), value, value, 90.0F);
-                _PressedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(165, 37, 37);
 
         public Color EnteredColor
         {
-            get => _EnteredColor;
+            get;
             set
             {
                 EnteredGB = new(new Rectangle(0, 0, Width, Height), value, value, 90.0F);
-                _EnteredColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(32, 34, 37);
 
         public Color BorderColor
         {
-            get => _BorderColor;
+            get;
             set
             {
-                _BorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(32, 34, 37);
 
         public Color EnteredBorderColor
         {
-            get => _EnteredBorderColor;
+            get;
             set
             {
-                _EnteredBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(165, 37, 37);
 
         public Color PressedBorderColor
         {
-            get => _PressedBorderColor;
+            get;
             set
             {
-                _PressedBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(165, 37, 37);
 
         #endregion
 
@@ -342,7 +334,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        G.DrawImage(_Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
+                        G.DrawImage(Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
                         G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
                             Alignment = _TextAlignment,
@@ -367,7 +359,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        G.DrawImage(_Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
+                        G.DrawImage(Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
                         G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
                             Alignment = _TextAlignment,
@@ -392,7 +384,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        G.DrawImage(_Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
+                        G.DrawImage(Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
                         G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
                             Alignment = _TextAlignment,

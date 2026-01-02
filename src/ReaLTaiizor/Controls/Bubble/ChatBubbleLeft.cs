@@ -17,11 +17,6 @@ namespace ReaLTaiizor.Controls
 
         private GraphicsPath Shape;
         private Color _TextColor = Color.FromArgb(52, 52, 52);
-        private Color _BubbleColor = Color.FromArgb(217, 217, 217);
-        private bool _DrawBubbleArrow = true;
-        private bool _SizeAuto = true;
-        private bool _SizeAutoW = true;
-        private bool _SizeAutoH = true;
 
         #endregion
 
@@ -39,53 +34,53 @@ namespace ReaLTaiizor.Controls
 
         public Color BubbleColor
         {
-            get => _BubbleColor;
+            get;
             set
             {
-                _BubbleColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(217, 217, 217);
 
         public bool DrawBubbleArrow
         {
-            get => _DrawBubbleArrow;
+            get;
             set
             {
-                _DrawBubbleArrow = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         public bool SizeAuto
         {
-            get => _SizeAuto;
+            get;
             set
             {
-                _SizeAuto = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         public bool SizeAutoW
         {
-            get => _SizeAutoW;
+            get;
             set
             {
-                _SizeAutoW = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         public bool SizeAutoH
         {
-            get => _SizeAutoH;
+            get;
             set
             {
-                _SizeAutoH = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         #endregion
 
@@ -122,14 +117,14 @@ namespace ReaLTaiizor.Controls
 
             Size TS = TextRenderer.MeasureText(Text, Font);
 
-            if (_SizeAuto)
+            if (SizeAuto)
             {
-                if (_SizeAutoW && _SizeAutoH)
+                if (SizeAutoW && SizeAutoH)
                 {
                     Width = TS.Width + 15;
                     Height = TS.Height + 15;
                 }
-                else if (_SizeAutoW)
+                else if (SizeAutoW)
                 {
                     Width = TS.Width + 15;
                 }
@@ -159,13 +154,13 @@ namespace ReaLTaiizor.Controls
             _G.Clear(BackColor);
 
             // Fill the body of the bubble with the specified color
-            _G.FillPath(new SolidBrush(_BubbleColor), Shape);
+            _G.FillPath(new SolidBrush(BubbleColor), Shape);
 
             // Draw the string specified in 'Text' property
             _G.DrawString(Text, Font, new SolidBrush(ForeColor), new Rectangle(15, 7, Width - 17, Height - 5));
 
             // Draw a polygon on the right side of the bubble
-            if (_DrawBubbleArrow == true)
+            if (DrawBubbleArrow == true)
             {
                 Point[] p =
                 {
@@ -174,8 +169,8 @@ namespace ReaLTaiizor.Controls
                     new(9, Height - 30)
                 };
 
-                _G.FillPolygon(new SolidBrush(_BubbleColor), p);
-                _G.DrawPolygon(new(new SolidBrush(_BubbleColor)), p);
+                _G.FillPolygon(new SolidBrush(BubbleColor), p);
+                _G.DrawPolygon(new(new SolidBrush(BubbleColor)), p);
             }
 
             G.Dispose();

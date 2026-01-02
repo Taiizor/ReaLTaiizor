@@ -30,13 +30,11 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        private bool useAccentColor;
-
         [Category("Material"), DefaultValue(false), DisplayName("Use Accent Color")]
         public bool UseAccentColor
         {
-            get => useAccentColor;
-            set { useAccentColor = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [DllImport("user32.dll")]
@@ -116,23 +114,22 @@ namespace ReaLTaiizor.Controls
 
         private readonly Timer progressTimer = new();
 
-        private int mouseWheelBarPartitions = 10;
         [DefaultValue(10)]
         public int MouseWheelBarPartitions
         {
-            get => mouseWheelBarPartitions;
+            get;
             set
             {
                 if (value > 0)
                 {
-                    mouseWheelBarPartitions = value;
+                    field = value;
                 }
                 else
                 {
                     throw new ArgumentOutOfRangeException("value", "MouseWheelBarPartitions has to be greather than zero");
                 }
             }
-        }
+        } = 10;
 
         private bool isHovered;
 
@@ -159,47 +156,45 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool HighlightOnWheel { get; set; } = false;
 
-        private MateScrollOrientation MaterialOrientation = MateScrollOrientation.Vertical;
         private ScrollOrientation scrollOrientation = ScrollOrientation.VerticalScroll;
 
         public MateScrollOrientation Orientation
         {
-            get => MaterialOrientation;
+            get;
             set
             {
-                if (value == MaterialOrientation)
+                if (value == field)
                 {
                     return;
                 }
 
-                MaterialOrientation = value;
+                field = value;
                 scrollOrientation = value == MateScrollOrientation.Vertical ? ScrollOrientation.VerticalScroll : ScrollOrientation.HorizontalScroll;
                 Size = new Size(Height, Width);
                 SetupScrollBar();
             }
-        }
+        } = MateScrollOrientation.Vertical;
 
-        private int minimum = 0;
         [DefaultValue(0)]
         public int Minimum
         {
-            get => minimum;
+            get;
             set
             {
-                if (minimum == value || value < 0 || value >= maximum)
+                if (field == value || value < 0 || value >= Maximum)
                 {
                     return;
                 }
 
-                minimum = value;
+                field = value;
                 if (curValue < value)
                 {
                     curValue = value;
                 }
 
-                if (largeChange > (maximum - minimum))
+                if (largeChange > (Maximum - field))
                 {
-                    largeChange = maximum - minimum;
+                    largeChange = Maximum - field;
                 }
 
                 SetupScrollBar();
@@ -215,24 +210,23 @@ namespace ReaLTaiizor.Controls
                     Refresh();
                 }
             }
-        }
+        } = 0;
 
-        private int maximum = 100;
         [DefaultValue(100)]
         public int Maximum
         {
-            get => maximum;
+            get;
             set
             {
-                if (value == maximum || value < 1 || value <= minimum)
+                if (value == field || value < 1 || value <= Minimum)
                 {
                     return;
                 }
 
-                maximum = value;
-                if (largeChange > (maximum - minimum))
+                field = value;
+                if (largeChange > (field - Minimum))
                 {
-                    largeChange = maximum - minimum;
+                    largeChange = field - Minimum;
                 }
 
                 SetupScrollBar();
@@ -240,7 +234,7 @@ namespace ReaLTaiizor.Controls
                 if (curValue > value)
                 {
                     dontUpdateColor = true;
-                    Value = maximum;
+                    Value = field;
                 }
                 else
                 {
@@ -248,24 +242,23 @@ namespace ReaLTaiizor.Controls
                     Refresh();
                 }
             }
-        }
+        } = 100;
 
-        private int smallChange = 1;
         [DefaultValue(1)]
         public int SmallChange
         {
-            get => smallChange;
+            get;
             set
             {
-                if (value == smallChange || value < 1 || value >= largeChange)
+                if (value == field || value < 1 || value >= largeChange)
                 {
                     return;
                 }
 
-                smallChange = value;
+                field = value;
                 SetupScrollBar();
             }
-        }
+        } = 1;
 
         private int largeChange = 10;
         [DefaultValue(10)]
@@ -274,14 +267,14 @@ namespace ReaLTaiizor.Controls
             get => largeChange;
             set
             {
-                if (value == largeChange || value < smallChange || value < 2)
+                if (value == largeChange || value < SmallChange || value < 2)
                 {
                     return;
                 }
 
-                if (value > (maximum - minimum))
+                if (value > (Maximum - Minimum))
                 {
-                    largeChange = maximum - minimum;
+                    largeChange = Maximum - Minimum;
                 }
                 else
                 {
@@ -310,7 +303,7 @@ namespace ReaLTaiizor.Controls
 
             set
             {
-                if (curValue == value || value < minimum || value > maximum)
+                if (curValue == value || value < Minimum || value > Maximum)
                 {
                     return;
                 }
@@ -330,8 +323,10 @@ namespace ReaLTaiizor.Controls
 
                     if (autoHoverTimer == null)
                     {
-                        autoHoverTimer = new Timer();
-                        autoHoverTimer.Interval = 1000;
+                        autoHoverTimer = new Timer
+                        {
+                            Interval = 1000
+                        };
                         autoHoverTimer.Tick += new EventHandler(autoHoverTimer_Tick);
                         autoHoverTimer.Start();
                     }
@@ -434,7 +429,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            DrawScrollBar(e.Graphics, MaterialSkinManager.Instance.CardsColor, SkinManager.SwitchOffTrackColor, useAccentColor ? MaterialSkinManager.Instance.ColorScheme.AccentColor : MaterialSkinManager.Instance.ColorScheme.PrimaryColor);
+            DrawScrollBar(e.Graphics, MaterialSkinManager.Instance.CardsColor, SkinManager.SwitchOffTrackColor, UseAccentColor ? MaterialSkinManager.Instance.ColorScheme.AccentColor : MaterialSkinManager.Instance.ColorScheme.PrimaryColor);
         }
 
         private void DrawScrollBar(Graphics g, Color backColor, Color thumbColor, Color barColor)
@@ -501,7 +496,7 @@ namespace ReaLTaiizor.Controls
         {
             base.OnMouseWheel(e);
 
-            int v = e.Delta / 120 * (maximum - minimum) / mouseWheelBarPartitions;
+            int v = e.Delta / 120 * (Maximum - Minimum) / MouseWheelBarPartitions;
 
             if (Orientation == MateScrollOrientation.Vertical)
             {
@@ -533,15 +528,15 @@ namespace ReaLTaiizor.Controls
                 if (thumbRectangle.Contains(mouseLocation))
                 {
                     thumbClicked = true;
-                    thumbPosition = MaterialOrientation == MateScrollOrientation.Vertical ? mouseLocation.Y - thumbRectangle.Y : mouseLocation.X - thumbRectangle.X;
+                    thumbPosition = Orientation == MateScrollOrientation.Vertical ? mouseLocation.Y - thumbRectangle.Y : mouseLocation.X - thumbRectangle.X;
 
                     Invalidate(thumbRectangle);
                 }
                 else
                 {
-                    trackPosition = MaterialOrientation == MateScrollOrientation.Vertical ? mouseLocation.Y : mouseLocation.X;
+                    trackPosition = Orientation == MateScrollOrientation.Vertical ? mouseLocation.Y : mouseLocation.X;
 
-                    if (trackPosition < (MaterialOrientation == MateScrollOrientation.Vertical ? thumbRectangle.Y : thumbRectangle.X))
+                    if (trackPosition < (Orientation == MateScrollOrientation.Vertical ? thumbRectangle.Y : thumbRectangle.X))
                     {
                         topBarClicked = true;
                     }
@@ -555,7 +550,7 @@ namespace ReaLTaiizor.Controls
             }
             else if (e.Button == MouseButtons.Right)
             {
-                trackPosition = MaterialOrientation == MateScrollOrientation.Vertical ? e.Y : e.X;
+                trackPosition = Orientation == MateScrollOrientation.Vertical ? e.Y : e.X;
             }
         }
 
@@ -615,19 +610,19 @@ namespace ReaLTaiizor.Controls
                 {
                     int oldScrollValue = curValue;
 
-                    int pos = MaterialOrientation == MateScrollOrientation.Vertical ? e.Location.Y : e.Location.X;
-                    int thumbSize = MaterialOrientation == MateScrollOrientation.Vertical ? pos / Height / thumbHeight : pos / Width / thumbWidth;
+                    int pos = Orientation == MateScrollOrientation.Vertical ? e.Location.Y : e.Location.X;
+                    int thumbSize = Orientation == MateScrollOrientation.Vertical ? pos / Height / thumbHeight : pos / Width / thumbWidth;
 
                     if (pos <= (thumbTopLimit + thumbPosition))
                     {
                         ChangeThumbPosition(thumbTopLimit);
-                        curValue = minimum;
+                        curValue = Minimum;
                         Invalidate();
                     }
                     else if (pos >= (thumbBottomLimitTop + thumbPosition))
                     {
                         ChangeThumbPosition(thumbBottomLimitTop);
-                        curValue = maximum;
+                        curValue = Maximum;
                         Invalidate();
                     }
                     else
@@ -654,7 +649,7 @@ namespace ReaLTaiizor.Controls
                             perc = thumbPos / (float)pixelRange;
                         }
 
-                        curValue = Convert.ToInt32((perc * (maximum - minimum)) + minimum);
+                        curValue = Convert.ToInt32((perc * (Maximum - Minimum)) + Minimum);
                     }
 
                     if (oldScrollValue != curValue)
@@ -736,14 +731,14 @@ namespace ReaLTaiizor.Controls
 
             if (keyData == keyUp)
             {
-                Value -= smallChange;
+                Value -= SmallChange;
 
                 return true;
             }
 
             if (keyData == keyDown)
             {
-                Value += smallChange;
+                Value += SmallChange;
 
                 return true;
             }
@@ -757,9 +752,9 @@ namespace ReaLTaiizor.Controls
 
             if (keyData == Keys.PageDown)
             {
-                if (curValue + largeChange > maximum)
+                if (curValue + largeChange > Maximum)
                 {
-                    Value = maximum;
+                    Value = Maximum;
                 }
                 else
                 {
@@ -771,14 +766,14 @@ namespace ReaLTaiizor.Controls
 
             if (keyData == Keys.Home)
             {
-                Value = minimum;
+                Value = Minimum;
 
                 return true;
             }
 
             if (keyData == Keys.End)
             {
-                Value = maximum;
+                Value = Maximum;
 
                 return true;
             }
@@ -854,20 +849,20 @@ namespace ReaLTaiizor.Controls
 
             if (up)
             {
-                newValue = curValue - (smallIncrement ? smallChange : largeChange);
+                newValue = curValue - (smallIncrement ? SmallChange : largeChange);
 
-                if (newValue < minimum)
+                if (newValue < Minimum)
                 {
-                    newValue = minimum;
+                    newValue = Minimum;
                 }
             }
             else
             {
-                newValue = curValue + (smallIncrement ? smallChange : largeChange);
+                newValue = curValue + (smallIncrement ? SmallChange : largeChange);
 
-                if (newValue > maximum)
+                if (newValue > Maximum)
                 {
-                    newValue = maximum;
+                    newValue = Maximum;
                 }
             }
 
@@ -883,7 +878,7 @@ namespace ReaLTaiizor.Controls
                 return 0;
             }
 
-            int thumbSize = MaterialOrientation == MateScrollOrientation.Vertical ? thumbPosition / Height / thumbHeight : thumbPosition / Width / thumbWidth;
+            int thumbSize = Orientation == MateScrollOrientation.Vertical ? thumbPosition / Height / thumbHeight : thumbPosition / Width / thumbWidth;
 
             if (Orientation == MateScrollOrientation.Vertical)
             {
@@ -894,12 +889,12 @@ namespace ReaLTaiizor.Controls
                 pixelRange = Width - thumbSize;
             }
 
-            int realRange = maximum - minimum;
+            int realRange = Maximum - Minimum;
             float perc = 0f;
 
             if (realRange != 0)
             {
-                perc = (curValue - (float)minimum) / realRange;
+                perc = (curValue - (float)Minimum) / realRange;
             }
 
             return Math.Max(thumbTopLimit, Math.Min(thumbBottomLimitTop, Convert.ToInt32(perc * pixelRange)));
@@ -908,15 +903,15 @@ namespace ReaLTaiizor.Controls
         private int GetThumbSize()
         {
             int trackSize =
-                MaterialOrientation == MateScrollOrientation.Vertical ?
+                Orientation == MateScrollOrientation.Vertical ?
                     Height : Width;
 
-            if (maximum == 0 || largeChange == 0)
+            if (Maximum == 0 || largeChange == 0)
             {
                 return trackSize;
             }
 
-            float newThumbSize = largeChange * (float)trackSize / maximum;
+            float newThumbSize = largeChange * (float)trackSize / Maximum;
 
             return Convert.ToInt32(Math.Min(trackSize, Math.Max(newThumbSize, 10f)));
         }
@@ -974,7 +969,7 @@ namespace ReaLTaiizor.Controls
 
                 curValue = GetValue(false, false);
 
-                if (curValue == maximum)
+                if (curValue == Maximum)
                 {
                     ChangeThumbPosition(thumbBottomLimitTop);
 
@@ -991,7 +986,7 @@ namespace ReaLTaiizor.Controls
 
                 curValue = GetValue(false, true);
 
-                if (curValue == minimum)
+                if (curValue == Minimum)
                 {
                     ChangeThumbPosition(thumbTopLimit);
 

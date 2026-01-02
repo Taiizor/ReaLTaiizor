@@ -62,18 +62,17 @@ namespace ReaLTaiizor.Controls
             base.OnClick(e);
         }
 
-        private bool _Checked = false;
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 InvalidateControls();
                 CheckedChanged?.Invoke(this, EventArgs.Empty);
                 Invalidate();
             }
-        }
+        } = false;
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
@@ -82,7 +81,7 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked)
+            if (!IsHandleCreated || !Checked)
             {
                 return;
             }

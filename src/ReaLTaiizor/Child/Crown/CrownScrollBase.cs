@@ -33,11 +33,7 @@ namespace ReaLTaiizor.Child.Crown
         private Rectangle _viewport;
 
         private Point _offsetMousePosition;
-
-        private int _maxDragChange = 0;
         private readonly Timer _dragTimer;
-
-        private bool _hideScrollBars = true;
 
         #endregion
 
@@ -79,13 +75,13 @@ namespace ReaLTaiizor.Child.Crown
         [DefaultValue(0)]
         public int MaxDragChange
         {
-            get => _maxDragChange;
+            get;
             set
             {
-                _maxDragChange = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 0;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -96,13 +92,13 @@ namespace ReaLTaiizor.Child.Crown
         [DefaultValue(true)]
         public bool HideScrollBars
         {
-            get => _hideScrollBars;
+            get;
             set
             {
-                _hideScrollBars = value;
+                field = value;
                 UpdateScrollBars();
             }
-        }
+        } = true;
 
         #endregion
 
@@ -194,7 +190,7 @@ namespace ReaLTaiizor.Child.Crown
             _vScrollBar.Enabled = _visibleSize.Height < ContentSize.Height;
             _hScrollBar.Enabled = _visibleSize.Width < ContentSize.Width;
 
-            if (_hideScrollBars)
+            if (HideScrollBars)
             {
                 _vScrollBar.Visible = _vScrollBar.Enabled;
                 _hScrollBar.Visible = _hScrollBar.Enabled;

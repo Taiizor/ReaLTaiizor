@@ -36,17 +36,15 @@ namespace ReaLTaiizor.Controls
 
         private const char NonVisualStylePasswordChar = '\u002A';
 
-        private string hint = string.Empty;
-
         public string Hint
         {
-            get => hint;
+            get;
             set
             {
-                hint = value;
+                field = value;
                 SendMessage(Handle, EM_SETCUEBANNER, (int)IntPtr.Zero, Hint);
             }
-        }
+        } = string.Empty;
 
         public new void SelectAll()
         {

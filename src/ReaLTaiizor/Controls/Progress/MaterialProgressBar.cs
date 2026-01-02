@@ -29,15 +29,13 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        private bool useAccentColor;
-
         [Category("Material")]
         public bool UseAccentColor
         {
-            get => useAccentColor;
+            get;
             set
             {
-                useAccentColor = value;
+                field = value;
                 Invalidate();
             }
         }

@@ -31,31 +31,29 @@ namespace ReaLTaiizor.Controls
 
         #region Property Region
 
-        private bool tmp_checked_status;
         [Category("Cyber")]
         [Description("On/Off")]
         public bool Checked
         {
-            get => tmp_checked_status;
+            get;
             set
             {
-                tmp_checked_status = value;
+                field = value;
                 CheckedChanged();
                 Refresh();
             }
         }
 
-        private bool tmp_rgb_status;
         [Category("Cyber")]
         [Description("On/Off RGB")]
         public bool RGB
         {
-            get => tmp_rgb_status;
+            get;
             set
             {
-                tmp_rgb_status = value;
+                field = value;
 
-                if (tmp_rgb_status == true)
+                if (field == true)
                 {
                     timer_rgb.Stop();
                     if (!DrawEngine.GlobalRGB.Enabled)
@@ -81,70 +79,65 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool tmp_background;
         [Category("Cyber")]
         [Description("Background On/Off")]
         public bool Background
         {
-            get => tmp_background;
+            get;
             set
             {
-                tmp_background = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_rounding_status;
         [Category("Cyber")]
         [Description("On/Off Rounding")]
         public bool Rounding
         {
-            get => tmp_rounding_status;
+            get;
             set
             {
-                tmp_rounding_status = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private int tmp_rounding_int;
         [Category("Cyber")]
         [Description("Percentage rounding")]
         public int RoundingInt
         {
-            get => tmp_rounding_int;
+            get;
             set
             {
                 if (value is >= 0 and <= 100)
                 {
-                    tmp_rounding_int = value;
+                    field = value;
                     Refresh();
                 }
             }
         }
 
-        private Color color_value;
         [Category("Cyber")]
         [Description("The color of the circle inside")]
         public Color ColorValue
         {
-            get => color_value;
+            get;
             set
             {
-                color_value = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_background;
         [Category("Cyber")]
         [Description("Background color")]
         public Color ColorBackground
         {
-            get => tmp_color_background;
+            get;
             set
             {
-                tmp_color_background = value;
+                field = value;
                 Refresh();
             }
         }
@@ -158,258 +151,239 @@ namespace ReaLTaiizor.Controls
             set => timer_rgb.Interval = value;
         }
 
-        private bool tmp_background_pen;
         [Category("BorderStyle")]
         [Description("On/Off Border")]
         public bool BackgroundPen
         {
-            get => tmp_background_pen;
+            get;
             set
             {
-                tmp_background_pen = value;
+                field = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private float tmp_background_width_pen;
         [Category("BorderStyle")]
         [Description("Border size")]
         public float Background_WidthPen
         {
-            get => tmp_background_width_pen;
+            get;
             set
             {
-                tmp_background_width_pen = value;
+                field = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private Color tmp_color_background_pen;
         [Category("BorderStyle")]
         [Description("Border color")]
         public Color ColorBackground_Pen
         {
-            get => tmp_color_background_pen;
+            get;
             set
             {
-                tmp_color_background_pen = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_lineargradient_background_status;
         [Category("LinearGradient")]
         [Description("On/Off background gradient")]
         public bool LinearGradient_Background
         {
-            get => tmp_lineargradient_background_status;
+            get;
             set
             {
-                tmp_lineargradient_background_status = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_1_for_gradient_background;
         [Category("LinearGradient")]
         [Description("Color #1 for background gradient")]
         public Color ColorBackground_1
         {
-            get => tmp_color_1_for_gradient_background;
+            get;
             set
             {
-                tmp_color_1_for_gradient_background = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_2_for_gradient_background;
         [Category("LinearGradient")]
         [Description("Color #2 for background gradient")]
         public Color ColorBackground_2
         {
-            get => tmp_color_2_for_gradient_background;
+            get;
             set
             {
-                tmp_color_2_for_gradient_background = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_lineargradient_value_status;
         [Category("LinearGradient")]
         [Description("On/Off Gradient Value")]
         public bool LinearGradient_Value
         {
-            get => tmp_lineargradient_value_status;
+            get;
             set
             {
-                tmp_lineargradient_value_status = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_1_for_gradient_value;
         [Category("LinearGradient")]
         [Description("Color #1 for the value gradient")]
         public Color ColorBackground_Value_1
         {
-            get => tmp_color_1_for_gradient_value;
+            get;
             set
             {
-                tmp_color_1_for_gradient_value = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_2_for_gradient_value;
         [Category("LinearGradient")]
         [Description("Color #2 for the value gradient")]
         public Color ColorBackground_Value_2
         {
-            get => tmp_color_2_for_gradient_value;
+            get;
             set
             {
-                tmp_color_2_for_gradient_value = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool tmp_lighting;
         [Category("Lighting")]
         [Description("On/Off backlight")]
         public bool Lighting
         {
-            get => tmp_lighting;
+            get;
             set
             {
-                tmp_lighting = value;
+                field = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private Color tmp_color_lighting;
         [Category("Lighting")]
         [Description("Backlight / Shadow Color")]
         public Color ColorLighting
         {
-            get => tmp_color_lighting;
+            get;
             set
             {
-                tmp_color_lighting = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private int tmp_alpha;
         [Category("Lighting")]
         [Description("Lighting alpha")]
         public int Alpha
         {
-            get => tmp_alpha;
+            get;
             set
             {
-                tmp_alpha = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private int tmp_pen_width;
         [Category("Lighting")]
         [Description("Lighting width")]
         public int PenWidth
         {
-            get => tmp_pen_width;
+            get;
             set
             {
-                tmp_pen_width = value;
+                field = value;
                 OnSizeChanged(null);
                 Refresh();
             }
         }
 
-        private bool tmp_lineargradient_pen_status;
         [Category("LinearGradient")]
         [Description("On/Off border gradient")]
         public bool LinearGradientPen
         {
-            get => tmp_lineargradient_pen_status;
+            get;
             set
             {
-                tmp_lineargradient_pen_status = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_1_for_gradient_pen;
         [Category("LinearGradient")]
         [Description("Color #1 for border gradient")]
         public Color ColorPen_1
         {
-            get => tmp_color_1_for_gradient_pen;
+            get;
             set
             {
-                tmp_color_1_for_gradient_pen = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private Color tmp_color_2_for_gradient_pen;
         [Category("LinearGradient")]
         [Description("Color #2 for border gradient")]
         public Color ColorPen_2
         {
-            get => tmp_color_2_for_gradient_pen;
+            get;
             set
             {
-                tmp_color_2_for_gradient_pen = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private SmoothingMode tmp_smoothing_mode;
         [Category("Cyber")]
         [Description("Mode <graphics.SmoothingMode>")]
         public SmoothingMode SmoothingMode
         {
-            get => tmp_smoothing_mode;
+            get;
             set
             {
                 if (value != SmoothingMode.Invalid)
                 {
-                    tmp_smoothing_mode = value;
+                    field = value;
                 }
 
                 Refresh();
             }
         }
 
-        private TextRenderingHint tmp_text_rendering_hint;
         [Category("Cyber")]
         [Description("Mode <graphics.TextRenderingHint>")]
         public TextRenderingHint TextRenderingHint
         {
-            get => tmp_text_rendering_hint;
+            get;
             set
             {
-                tmp_text_rendering_hint = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private StateStyle tmp_cyberswitch_style = StateStyle.Default;
         [Category("Cyber")]
         [Description("Switch style")]
         public StateStyle CyberSwitchStyle
         {
-            get => tmp_cyberswitch_style;
+            get;
             set
             {
-                tmp_cyberswitch_style = value;
-                switch (tmp_cyberswitch_style)
+                field = value;
+                switch (field)
                 {
                     case StateStyle.Default:
                         Size = new Size(35, 20);
@@ -500,7 +474,7 @@ namespace ReaLTaiizor.Controls
 
                 Refresh();
             }
-        }
+        } = StateStyle.Default;
 
         #endregion
 

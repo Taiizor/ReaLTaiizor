@@ -59,73 +59,71 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private ColorStyle poisonStyle = ColorStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ColorStyle.Default)]
         public ColorStyle Style
         {
             get
             {
-                if (DesignMode || poisonStyle != ColorStyle.Default)
+                if (DesignMode || field != ColorStyle.Default)
                 {
-                    return poisonStyle;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                if (StyleManager != null && field == ColorStyle.Default)
                 {
                     return StyleManager.Style;
                 }
 
-                if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                if (StyleManager == null && field == ColorStyle.Default)
                 {
                     return PoisonDefaults.Style;
                 }
 
-                return poisonStyle;
+                return field;
             }
             set
             {
-                poisonStyle = value;
+                field = value;
                 if (DesignMode)
                 {
                     Invalidate();
                 }
             }
-        }
+        } = ColorStyle.Default;
 
-        private ThemeStyle poisonTheme = ThemeStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ThemeStyle.Default)]
         public ThemeStyle Theme
         {
             get
             {
-                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                if (DesignMode || field != ThemeStyle.Default)
                 {
-                    return poisonTheme;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager != null && field == ThemeStyle.Default)
                 {
                     return StyleManager.Theme;
                 }
 
-                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager == null && field == ThemeStyle.Default)
                 {
                     return PoisonDefaults.Theme;
                 }
 
-                return poisonTheme;
+                return field;
             }
             set
             {
-                poisonTheme = value;
+                field = value;
                 if (DesignMode)
                 {
                     Invalidate();
                 }
             }
-        }
+        } = ThemeStyle.Default;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -137,21 +135,20 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseCustomForeColor { get; set; } = false;
 
-        private bool useStyleColors = false;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool UseStyleColors
         {
-            get => useStyleColors;
+            get;
             set
             {
-                useStyleColors = value;
+                field = value;
                 if (DesignMode)
                 {
                     Invalidate();
                 }
             }
-        }
+        } = false;
 
         [Browsable(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
@@ -179,19 +176,17 @@ namespace ReaLTaiizor.Controls
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public Image NoFocusImage { get; set; } = null;
 
-        private int _imagesize = 16;
-
         [DefaultValue(16)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int ImageSize
         {
-            get => _imagesize;
+            get;
             set
             {
-                _imagesize = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 16;
 
         public override string Text
         {
@@ -202,8 +197,8 @@ namespace ReaLTaiizor.Controls
 
                 if (AutoSize && _image != null)
                 {
-                    base.Width = TextRenderer.MeasureText(value, PoisonFonts.LinkLabel(poisonLinkSize, poisonLinkWeight)).Width;
-                    base.Width += _imagesize + 2;
+                    base.Width = TextRenderer.MeasureText(value, PoisonFonts.LinkLabel(FontSize, FontWeight)).Width;
+                    base.Width += ImageSize + 2;
                 }
             }
         }
@@ -212,37 +207,35 @@ namespace ReaLTaiizor.Controls
 
         #region Fields
 
-        private PoisonLinkLabelSize poisonLinkSize = PoisonLinkLabelSize.Small;
         [DefaultValue(PoisonLinkLabelSize.Small)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonLinkLabelSize FontSize
         {
-            get => poisonLinkSize;
+            get;
             set
             {
-                poisonLinkSize = value;
+                field = value;
                 if (DesignMode)
                 {
                     Invalidate();
                 }
             }
-        }
+        } = PoisonLinkLabelSize.Small;
 
-        private PoisonLinkLabelWeight poisonLinkWeight = PoisonLinkLabelWeight.Bold;
         [DefaultValue(PoisonLinkLabelWeight.Bold)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public PoisonLinkLabelWeight FontWeight
         {
-            get => poisonLinkWeight;
+            get;
             set
             {
-                poisonLinkWeight = value;
+                field = value;
                 if (DesignMode)
                 {
                     Invalidate();
                 }
             }
-        }
+        } = PoisonLinkLabelWeight.Bold;
 
         [Browsable(false)]
         public override Font Font
@@ -344,11 +337,11 @@ namespace ReaLTaiizor.Controls
                 }
                 else
                 {
-                    foreColor = !useStyleColors ? PoisonPaint.ForeColor.Link.Hover(Theme) : PoisonPaint.GetStyleColor(Style);
+                    foreColor = !UseStyleColors ? PoisonPaint.ForeColor.Link.Hover(Theme) : PoisonPaint.GetStyleColor(Style);
                 }
             }
 
-            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.LinkLabel(poisonLinkSize, poisonLinkWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign, !AutoSize));
+            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.LinkLabel(FontSize, FontWeight), ClientRectangle, foreColor, PoisonPaint.GetTextFormatFlags(TextAlign, !AutoSize));
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
@@ -367,16 +360,16 @@ namespace ReaLTaiizor.Controls
         {
             if (Image != null)
             {
-                int _imgW = _imagesize;
-                int _imgH = _imagesize;
+                int _imgW = ImageSize;
+                int _imgH = ImageSize;
 
-                if (_imagesize == 0)
+                if (ImageSize == 0)
                 {
                     _imgW = _image.Width;
                     _imgH = _image.Height;
                 }
 
-                Point iconLocation = new(2, (ClientRectangle.Height - _imagesize) / 2);
+                Point iconLocation = new(2, (ClientRectangle.Height - ImageSize) / 2);
                 int _filler = 0;
 
                 switch (ImageAlign)

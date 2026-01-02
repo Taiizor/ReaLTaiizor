@@ -31,16 +31,15 @@ namespace ReaLTaiizor.Child.Material
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        private string hint = string.Empty;
         public string Hint
         {
-            get => hint;
+            get;
             set
             {
-                hint = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = string.Empty;
 
         public new void SelectAll()
         {
@@ -134,16 +133,15 @@ namespace ReaLTaiizor.Child.Material
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        private string hint = string.Empty;
         public string Hint
         {
-            get => hint;
+            get;
             set
             {
-                hint = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = string.Empty;
 
         public new void SelectAll()
         {

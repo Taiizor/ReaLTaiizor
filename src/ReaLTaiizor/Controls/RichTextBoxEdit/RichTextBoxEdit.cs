@@ -19,17 +19,7 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         public RichTextBox RT_RTB = new();
-        private bool _ReadOnly;
-        private bool _WordWrap;
-        private bool _AutoWordSelection;
         private GraphicsPath Shape;
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
-        private Color _BaseColor = Color.Transparent;
-        private Color _EdgeColor = Color.White;
-        private Color _BorderColor = Color.FromArgb(180, 180, 180);
-        private Color _TextBackColor = Color.White;
-        private Font _TextFont = new("Tahoma", 10);
-        private BorderStyle _TextBorderStyle = BorderStyle.None;
 
         #endregion
         #region Properties
@@ -46,10 +36,10 @@ namespace ReaLTaiizor.Controls
 
         public bool ReadOnly
         {
-            get => _ReadOnly;
+            get;
             set
             {
-                _ReadOnly = value;
+                field = value;
                 if (RT_RTB != null)
                 {
                     RT_RTB.ReadOnly = value;
@@ -59,10 +49,10 @@ namespace ReaLTaiizor.Controls
 
         public bool WordWrap
         {
-            get => _WordWrap;
+            get;
             set
             {
-                _WordWrap = value;
+                field = value;
                 if (RT_RTB != null)
                 {
                     RT_RTB.WordWrap = value;
@@ -72,10 +62,10 @@ namespace ReaLTaiizor.Controls
 
         public bool AutoWordSelection
         {
-            get => _AutoWordSelection;
+            get;
             set
             {
-                _AutoWordSelection = value;
+                field = value;
                 if (RT_RTB != null)
                 {
                     RT_RTB.AutoWordSelection = value;
@@ -85,73 +75,73 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Transparent;
 
         public Color EdgeColor
         {
-            get => _EdgeColor;
+            get;
             set
             {
-                _EdgeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color BorderColor
         {
-            get => _BorderColor;
+            get;
             set
             {
-                _BorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(180, 180, 180);
 
         public Color TextBackColor
         {
-            get => _TextBackColor;
+            get;
             set
             {
-                _TextBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Font TextFont
         {
-            get => _TextFont;
+            get;
             set
             {
-                _TextFont = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = new("Tahoma", 10);
 
         public BorderStyle TextBorderStyle
         {
-            get => _TextBorderStyle;
+            get;
             set
             {
-                _TextBorderStyle = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = BorderStyle.None;
         #endregion
         #region EventArgs
 

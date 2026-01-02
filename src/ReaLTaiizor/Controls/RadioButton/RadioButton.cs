@@ -18,10 +18,6 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         private int X;
-        private bool _Checked;
-        private Color _CheckedColor = Color.FromArgb(32, 34, 37);
-        private Color _CircleColor = Color.FromArgb(66, 76, 85);
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
 
         #endregion
 
@@ -29,10 +25,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 InvalidateControls();
                 CheckedChangedEvent?.Invoke(this);
                 Invalidate();
@@ -41,33 +37,33 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public Color CircleColor
         {
-            get => _CircleColor;
+            get;
             set
             {
-                _CircleColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(66, 76, 85);
 
         public Color CheckedColor
         {
-            get => _CheckedColor;
+            get;
             set
             {
-                _CheckedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(32, 34, 37);
 
         #endregion
 
@@ -84,7 +80,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (!_Checked)
+            if (!Checked)
             {
                 @Checked = true;
             }
@@ -129,7 +125,7 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked)
+            if (!IsHandleCreated || !Checked)
             {
                 return;
             }
@@ -152,7 +148,7 @@ namespace ReaLTaiizor.Controls
 
             G.FillEllipse(new SolidBrush(CircleColor), new Rectangle(0, 0, 16, 16));
 
-            if (_Checked)
+            if (Checked)
             {
                 G.DrawString("a", new Font("Marlett", 15), new SolidBrush(CheckedColor), new Point(-3, -2));
             }

@@ -18,7 +18,6 @@ namespace ReaLTaiizor.Controls
     {
         private int W;
         private int H;
-        private int _StartIndex = 0;
         private int x;
         private int y;
 
@@ -98,10 +97,10 @@ namespace ReaLTaiizor.Controls
 
         private int StartIndex
         {
-            get => _StartIndex;
+            get;
             set
             {
-                _StartIndex = value;
+                field = value;
                 try
                 {
                     base.SelectedIndex = value;
@@ -112,7 +111,7 @@ namespace ReaLTaiizor.Controls
                 }
                 Invalidate();
             }
-        }
+        } = 0;
 
         public void DrawItem_(object sender, DrawItemEventArgs e)
         {

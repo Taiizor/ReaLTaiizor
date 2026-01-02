@@ -17,51 +17,47 @@ namespace ReaLTaiizor.Controls
 
         #region " Control Help - Properties & Flicker Control "
 
-        private bool _passmask = false;
         public bool UseSystemPasswordChar
         {
-            get => _passmask;
+            get;
             set
             {
                 txtbox.UseSystemPasswordChar = UseSystemPasswordChar;
-                _passmask = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
-        private int _maxchars = 32767;
         public int MaxLength
         {
-            get => _maxchars;
+            get;
             set
             {
-                _maxchars = value;
+                field = value;
                 txtbox.MaxLength = MaxLength;
                 Invalidate();
             }
-        }
+        } = 32767;
 
-        private HorizontalAlignment _align;
         public HorizontalAlignment TextAlignment
         {
-            get => _align;
+            get;
             set
             {
-                _align = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private bool _multiline = false;
         public bool MultiLine
         {
-            get => _multiline;
+            get;
             set
             {
-                _multiline = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         protected override void OnTextChanged(EventArgs e)
         {
@@ -124,19 +120,18 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region Variables
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         #endregion
 
         #region Settings
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public Color BorderColorA { get; set; } = Color.FromArgb(220, 220, 220);
 

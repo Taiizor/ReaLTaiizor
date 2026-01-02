@@ -139,10 +139,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the form backcolor.")]
         public Color BackgroundColor
         {
-            get => _backgroundColor;
+            get;
             set
             {
-                _backgroundColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -153,10 +153,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the form bordercolor.")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -164,10 +164,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the form textcolor.")]
         public Color TextColor
         {
-            get => _textColor;
+            get;
             set
             {
-                _textColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -175,10 +175,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the form small line color 1.")]
         public Color SmallLineColor1
         {
-            get => _smallLineColor1;
+            get;
             set
             {
-                _smallLineColor1 = value;
+                field = value;
                 Refresh();
             }
         }
@@ -186,10 +186,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the form small line color 2.")]
         public Color SmallLineColor2
         {
-            get => _smallLineColor2;
+            get;
             set
             {
-                _smallLineColor2 = value;
+                field = value;
                 Refresh();
             }
         }
@@ -197,10 +197,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the header color.")]
         public Color HeaderColor
         {
-            get => _headerColor;
+            get;
             set
             {
-                _headerColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -209,21 +209,21 @@ namespace ReaLTaiizor.Forms
         [Description("Gets or sets the width of the small rectangle on top left of the window.")]
         public int SmallRectThickness
         {
-            get => _smallRectThickness;
+            get;
             set
             {
-                _smallRectThickness = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = 10;
 
         [Category("Metro"), Description("Gets or sets whether the border be shown."), DefaultValue(true)]
         public bool ShowBorder
         {
-            get => _showBorder;
+            get;
             set
             {
-                _showBorder = value;
+                field = value;
                 Refresh();
             }
         }
@@ -232,13 +232,13 @@ namespace ReaLTaiizor.Forms
         [Description("Gets or sets the border thickness.")]
         public float BorderThickness
         {
-            get => _borderThickness;
+            get;
             set
             {
-                _borderThickness = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = 1;
 
         [DefaultValue(FormBorderStyle.None)]
         [Browsable(false)]
@@ -275,24 +275,24 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets whether the title be shown.")]
         public bool ShowTitle
         {
-            get => _showTitle;
+            get;
             set
             {
-                _showTitle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         [Category("Metro"), Description("Gets or sets the title alignment.")]
         public TextAlign TextAlign
         {
-            get => _textAlign;
+            get;
             set
             {
-                _textAlign = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = TextAlign.Left;
 
         [Category("Metro"), Description("Gets or sets whether show the header.")]
         public bool ShowHeader
@@ -346,21 +346,21 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets whether the form can be move or not."), DefaultValue(true)]
         public bool Moveable
         {
-            get => _movable;
+            get;
             set
             {
-                _movable = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         [Category("Metro"), Description("Gets or sets whether the form use animation.")]
         public bool UseSlideAnimation
         {
-            get => _useSlideAnimation;
+            get;
             set
             {
-                _useSlideAnimation = value;
+                field = value;
                 Refresh();
             }
         }
@@ -391,13 +391,13 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the header height.")]
         public int HeaderHeight
         {
-            get => _headerHeight;
+            get;
             set
             {
-                _headerHeight = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = 40;
 
         [Category("Metro"), Description("Gets or sets the background image displayed in the control.")]
         public override Image BackgroundImage { get => base.BackgroundImage; set => base.BackgroundImage = value; }
@@ -405,10 +405,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets whether the drop shadow effect apply on form.")]
         public bool DropShadowEffect
         {
-            get => _dropShadowEffect;
+            get;
             set
             {
-                _dropShadowEffect = value;
+                field = value;
                 Refresh();
             }
         }
@@ -416,10 +416,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets whether the user be able to resize the form or not.")]
         public bool AllowResize
         {
-            get => _allowResize;
+            get;
             set
             {
-                _allowResize = value;
+                field = value;
                 Refresh();
             }
         }
@@ -508,10 +508,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the style associated with the control."), DefaultValue(Style.Light)]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -533,10 +533,10 @@ namespace ReaLTaiizor.Forms
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
+            get;
             set
             {
-                _styleManager = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -562,28 +562,9 @@ namespace ReaLTaiizor.Forms
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
         private bool _showLeftRect;
         private bool _showHeader;
         private float _backgroundImageTransparency;
-
-        private Color _backgroundColor;
-        private Color _borderColor;
-        private Color _textColor;
-        private Color _smallLineColor1;
-        private Color _smallLineColor2;
-        private Color _headerColor;
-        private int _smallRectThickness = 10;
-        private bool _showBorder;
-        private float _borderThickness = 1;
-        private bool _showTitle = true;
-        private TextAlign _textAlign = TextAlign.Left;
-        private bool _movable = true;
-        private bool _useSlideAnimation;
-        private int _headerHeight = 40;
-        private bool _dropShadowEffect;
-        private bool _allowResize;
 
         #endregion Internal Vars
 

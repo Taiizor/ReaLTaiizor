@@ -13,170 +13,155 @@ namespace ReaLTaiizor.Forms
 
     public class RibbonForm : ContainerControl
     {
-        private Color _BaseColor = Color.Fuchsia;
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Fuchsia;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private string _SubTitle;
         public string SubTitle
         {
-            get => _SubTitle;
+            get;
             set
             {
-                _SubTitle = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private Color _SubTitleColor = Color.WhiteSmoke;
         public Color SubTitleColor
         {
-            get => _SubTitleColor;
+            get;
             set
             {
-                _SubTitleColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.WhiteSmoke;
 
-        private Font _SubTitleFont = new("Tahoma", 10, FontStyle.Bold);
         public Font SubTitleFont
         {
-            get => _SubTitleFont;
+            get;
             set
             {
-                _SubTitleFont = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = new("Tahoma", 10, FontStyle.Bold);
 
-        private Color _HeaderLineColorA = Color.FromArgb(35, 35, 35);
         public Color HeaderLineColorA
         {
-            get => _HeaderLineColorA;
+            get;
             set
             {
-                _HeaderLineColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(35, 35, 35);
 
-        private Color _HeaderLineColorB = Color.FromArgb(50, 50, 50);
         public Color HeaderLineColorB
         {
-            get => _HeaderLineColorB;
+            get;
             set
             {
-                _HeaderLineColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(50, 50, 50);
 
-        private Color _HeaderLineColorC = Color.Black;
         public Color HeaderLineColorC
         {
-            get => _HeaderLineColorC;
+            get;
             set
             {
-                _HeaderLineColorC = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
-        private Color _BottomLineColor = Color.FromArgb(99, 99, 99);
         public Color BottomLineColor
         {
-            get => _BottomLineColor;
+            get;
             set
             {
-                _BottomLineColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(99, 99, 99);
 
-        private Color _RibbonEdgeColorA = Color.Black;
         public Color RibbonEdgeColorA
         {
-            get => _RibbonEdgeColorA;
+            get;
             set
             {
-                _RibbonEdgeColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
-        private Color _RibbonEdgeColorB = Color.Black;
         public Color RibbonEdgeColorB
         {
-            get => _RibbonEdgeColorB;
+            get;
             set
             {
-                _RibbonEdgeColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
-        private Color _RibbonEdgeColorC = Color.Black;
         public Color RibbonEdgeColorC
         {
-            get => _RibbonEdgeColorC;
+            get;
             set
             {
-                _RibbonEdgeColorC = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
-        private Color _RibbonEdgeColorD = Color.FromArgb(86, 86, 86);
         public Color RibbonEdgeColorD
         {
-            get => _RibbonEdgeColorD;
+            get;
             set
             {
-                _RibbonEdgeColorD = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(86, 86, 86);
 
-        private Color _RibbonEdgeColorE = Color.FromArgb(51, 51, 50);
         public Color RibbonEdgeColorE
         {
-            get => _RibbonEdgeColorE;
+            get;
             set
             {
-                _RibbonEdgeColorE = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(51, 51, 50);
 
-        private HatchStyle _HatchType = HatchStyle.SmallGrid;
         public HatchStyle HatchType
         {
-            get => _HatchType;
+            get;
             set
             {
-                _HatchType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HatchStyle.SmallGrid;
 
         public RibbonForm()
         {

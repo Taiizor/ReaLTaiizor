@@ -29,7 +29,6 @@ namespace ReaLTaiizor.Controls
         #endregion
         #region Variables
 
-        private bool _Checked;
 
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
@@ -47,10 +46,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 InvalidateControls();
                 CheckedChanged?.Invoke(this);
                 Invalidate();
@@ -74,7 +73,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (!_Checked)
+            if (!Checked)
             {
                 Checked = true;
             }
@@ -97,7 +96,7 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked)
+            if (!IsHandleCreated || !Checked)
             {
                 return;
             }
@@ -132,7 +131,7 @@ namespace ReaLTaiizor.Controls
             MyDrawer.DrawEllipse(new(BorderColor), new Rectangle(new Point(0, 0), new Size(14, 14)));
 
             // Draw an ellipse inside the body
-            if (_Checked)
+            if (Checked)
             {
                 SolidBrush EllipseColor = new(CheckedColor);
                 MyDrawer.FillEllipse(EllipseColor, new Rectangle(new Point(4, 4), new Size(6, 6)));

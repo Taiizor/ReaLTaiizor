@@ -22,27 +22,25 @@ namespace ReaLTaiizor.Controls
         #endregion
 
         #region Settings
-        private HopeButtonType _buttonType = HopeButtonType.Primary;
         public HopeButtonType ButtonType
         {
-            get => _buttonType;
+            get;
             set
             {
-                _buttonType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeButtonType.Primary;
 
-        private Color _textColor = Color.White;
         public Color TextColor
         {
-            get => _textColor;
+            get;
             set
             {
-                _textColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color DefaultColor { get; set; } = HopeColors.DefaultColor;
 
@@ -104,16 +102,16 @@ namespace ReaLTaiizor.Controls
             graphics.Clear(Parent.BackColor);
 
 
-            if (_buttonType == HopeButtonType.Default)
+            if (ButtonType == HopeButtonType.Default)
             {
                 GraphicsPath BG = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
                 graphics.DrawPath(new(enterFlag ? (clickFlag ? DefaultClickColor : DefaultColor) : BorderColor, 1), BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? (clickFlag ? HoverClickTextColor : HoverTextColor) : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? (clickFlag ? HoverClickTextColor : HoverTextColor) : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
             else
             {
                 Color backColor = DefaultColor;
-                switch (_buttonType)
+                switch (ButtonType)
                 {
                     case HopeButtonType.Primary:
                         backColor = PrimaryColor;
@@ -147,7 +145,7 @@ namespace ReaLTaiizor.Controls
 
                 SolidBrush brush = new(enterFlag ? (clickFlag ? backColor : Color.FromArgb(225, backColor)) : Color.FromArgb(25, backColor));
                 graphics.FillPath(brush, BG);
-                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : _textColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
+                graphics.DrawString(Text, Font, new SolidBrush(enterFlag ? HoverTextColor : TextColor), new RectangleF(0, 0, Width, Height), HopeStringAlign.Center);
             }
         }
 

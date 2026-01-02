@@ -20,7 +20,7 @@ namespace ReaLTaiizor.Controls
             base.Size = new Size(100, 16);
             Text = base.Name;
             ForeColor = Color.White;
-            currentColor = radioColor;
+            currentColor = RadioColor;
             Cursor = Cursors.Hand;
         }
 
@@ -42,91 +42,88 @@ namespace ReaLTaiizor.Controls
         [Description("Radio color")]
         public Color RadioColor
         {
-            get => radioColor;
+            get;
             set
             {
-                radioColor = value;
+                field = value;
                 currentColor = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(0, 162, 250);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Radio color when hovering")]
         public Color RadioHoverColor
         {
-            get => radioHoverColor;
+            get;
             set
             {
-                radioHoverColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(249, 55, 98);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The radio style")]
         public Style RadioStyle
         {
-            get => radioStyle;
+            get;
             set
             {
-                radioStyle = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Style.Material;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            currentColor = radioHoverColor;
+            currentColor = RadioHoverColor;
             Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            currentColor = radioColor;
+            currentColor = RadioColor;
             Invalidate();
         }
 
@@ -152,7 +149,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingType;
-            if (radioStyle == Style.Material)
+            if (RadioStyle == Style.Material)
             {
                 e.Graphics.DrawEllipse(new Pen(currentColor, 2f), 2, 2, base.Height - 4, base.Height - 4);
                 if (isChecked)
@@ -165,7 +162,7 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.FillPie(new SolidBrush(Color.White), new Rectangle(4, 4, base.Height - 2 - 6, base.Height - 2 - 6), 0f, 360f);
                 }
             }
-            if (radioStyle == Style.iOS)
+            if (RadioStyle == Style.iOS)
             {
                 e.Graphics.DrawEllipse(new Pen(Color.FromArgb(30, 150, 240), 2f), 2, 2, base.Height - 4, base.Height - 4);
                 if (isChecked)
@@ -173,7 +170,7 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.FillPie(new SolidBrush(Color.FromArgb(30, 150, 240)), new Rectangle(5, 5, base.Height - 2 - 8, base.Height - 2 - 8), 0f, 360f);
                 }
             }
-            if (radioStyle == Style.Android)
+            if (RadioStyle == Style.Android)
             {
                 e.Graphics.DrawEllipse(new Pen(Color.FromArgb(0, 150, 135), 2f), 2, 2, base.Height - 4, base.Height - 4);
                 if (isChecked)
@@ -195,13 +192,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private bool isChecked;
-
-        private Color radioColor = Color.FromArgb(0, 162, 250);
-
-        private Color radioHoverColor = Color.FromArgb(249, 55, 98);
-
-        private Style radioStyle = Style.Material;
-
         private Color currentColor;
 
         public enum Style

@@ -13,8 +13,6 @@ namespace ReaLTaiizor.Controls
 
     public class ParrotFormHandle : Component
     {
-        private Control _HandleControl;
-
         public const int WM_NCLBUTTONDOWN = 161;
         public const int HT_CAPTION = 2;
 
@@ -23,11 +21,11 @@ namespace ReaLTaiizor.Controls
         [Description("The HandleControl")]
         public Control HandleControl
         {
-            get => _HandleControl;
+            get;
             set
             {
-                _HandleControl = value;
-                _HandleControl.MouseDown += DragForm_MouseDown;
+                field = value;
+                field.MouseDown += DragForm_MouseDown;
             }
         }
 

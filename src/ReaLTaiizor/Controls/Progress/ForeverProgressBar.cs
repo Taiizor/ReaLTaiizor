@@ -20,12 +20,11 @@ namespace ReaLTaiizor.Controls
         private int W;
         private int H;
         private int _Value = 0;
-        private int _Maximum = 100;
 
         [Category("Control")]
         public int Maximum
         {
-            get => _Maximum;
+            get;
             set
             {
                 if (value < _Value)
@@ -33,10 +32,10 @@ namespace ReaLTaiizor.Controls
                     _Value = value;
                 }
 
-                _Maximum = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 100;
 
         [Category("Control")]
         public int Value
@@ -56,9 +55,9 @@ namespace ReaLTaiizor.Controls
 				*/
             set
             {
-                if (value > _Maximum)
+                if (value > Maximum)
                 {
-                    value = _Maximum;
+                    value = Maximum;
                     Invalidate();
                 }
 
@@ -135,7 +134,7 @@ namespace ReaLTaiizor.Controls
 
             //-- Progress Value
             //int iValue = Convert.ToInt32(((float)_Value) / ((float)(_Maximum * Width)));
-            float percent = _Value / ((float)_Maximum);
+            float percent = _Value / ((float)Maximum);
             int iValue = (int)(percent * Width);
 
             switch (Value)
@@ -148,7 +147,7 @@ namespace ReaLTaiizor.Controls
 
                     if (ShowBalloon && !MoveBalloon)
                     {
-                        float percent2 = 50 / ((float)_Maximum);
+                        float percent2 = 50 / ((float)Maximum);
                         iValue = (int)(percent2 * Width);
 
                         //-- Balloon
@@ -186,7 +185,7 @@ namespace ReaLTaiizor.Controls
                     {
                         if (!MoveBalloon)
                         {
-                            float percent2 = 50 / ((float)_Maximum);
+                            float percent2 = 50 / ((float)Maximum);
                             iValue = (int)(percent2 * Width);
                         }
 

@@ -38,15 +38,13 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue(false)]
         public bool Password { get; set; }
 
-        private bool _UseTallSize;
-
         [Category("Material"), DefaultValue(true), Description("Using a larger size enables the hint to always be visible")]
         public bool UseTallSize
         {
-            get => _UseTallSize;
+            get;
             set
             {
-                _UseTallSize = value;
+                field = value;
                 HEIGHT = UseTallSize ? 50 : 36;
                 Size = new Size(Size.Width, HEIGHT);
                 UpdateRects(false);
@@ -57,29 +55,25 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue(true)]
         public bool UseAccent { get; set; }
 
-        private string _hint = string.Empty;
-
         [Category("Material"), DefaultValue(""), Localizable(true)]
         public string Hint
         {
-            get => _hint;
+            get;
             set
             {
-                _hint = value;
+                field = value;
                 hasHint = !string.IsNullOrEmpty(Hint);
                 Invalidate();
             }
-        }
-
-        private Image _leadingIcon;
+        } = string.Empty;
 
         [Category("Material"), Browsable(true), Localizable(false)]
         public Image LeadingIcon
         {
-            get => _leadingIcon;
+            get;
             set
             {
-                _leadingIcon = value;
+                field = value;
                 UpdateRects(false);
                 preProcessIcons();
                 if (AutoSize)
@@ -93,15 +87,13 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private Image _trailingIcon;
-
         [Category("Material"), Browsable(true), Localizable(false)]
         public Image TrailingIcon
         {
-            get => _trailingIcon;
+            get;
             set
             {
-                _trailingIcon = value;
+                field = value;
                 UpdateRects(false);
                 preProcessIcons();
                 if (AutoSize)
@@ -168,29 +160,25 @@ namespace ReaLTaiizor.Controls
         private Dictionary<string, TextureBrush> iconsBrushes;
         private Dictionary<string, TextureBrush> iconsErrorBrushes;
 
-        private bool _animateReadOnly;
-
         [Category("Material")]
         [Browsable(true)]
         public bool AnimateReadOnly
         {
-            get => _animateReadOnly;
+            get;
             set
             {
-                _animateReadOnly = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private bool _leaveOnEnterKey;
-
         [Category("Material"), DefaultValue(false), Description("Select next control which have TabStop property set to True when enter key is pressed.")]
         public bool LeaveOnEnterKey
         {
-            get => _leaveOnEnterKey;
+            get;
             set
             {
-                _leaveOnEnterKey = value;
+                field = value;
                 if (value)
                 {
                     KeyDown += new KeyEventHandler(LeaveOnEnterKey_KeyDown);
@@ -361,7 +349,7 @@ namespace ReaLTaiizor.Controls
 
         private void preProcessIcons()
         {
-            if (_trailingIcon == null && _leadingIcon == null)
+            if (TrailingIcon == null && LeadingIcon == null)
             {
                 return;
             }
@@ -401,15 +389,15 @@ namespace ReaLTaiizor.Controls
             // Image Rect
             Rectangle destRect = new(0, 0, ICON_SIZE, ICON_SIZE);
 
-            if (_leadingIcon != null)
+            if (LeadingIcon != null)
             {
                 // ********************
                 // *** _leadingIcon ***
                 // ********************
 
                 //Resize icon if greater than ICON_SIZE
-                Size newSize_leadingIcon = ResizeIcon(_leadingIcon);
-                Bitmap _leadingIconIconResized = new(_leadingIcon, newSize_leadingIcon.Width, newSize_leadingIcon.Height);
+                Size newSize_leadingIcon = ResizeIcon(LeadingIcon);
+                Bitmap _leadingIconIconResized = new(LeadingIcon, newSize_leadingIcon.Width, newSize_leadingIcon.Height);
 
                 // Create a pre-processed copy of the image (GRAY)
                 Bitmap bgray = new(destRect.Width, destRect.Height);
@@ -425,9 +413,10 @@ namespace ReaLTaiizor.Controls
                 }
 
                 // added processed image to brush for drawing
-                TextureBrush textureBrushGray = new(bgray);
-
-                textureBrushGray.WrapMode = System.Drawing.Drawing2D.WrapMode.Clamp;
+                TextureBrush textureBrushGray = new(bgray)
+                {
+                    WrapMode = System.Drawing.Drawing2D.WrapMode.Clamp
+                };
 
                 Rectangle iconRect = _leadingIconBounds;
 
@@ -438,15 +427,15 @@ namespace ReaLTaiizor.Controls
                 iconsBrushes.Add("_leadingIcon", textureBrushGray);
             }
 
-            if (_trailingIcon != null)
+            if (TrailingIcon != null)
             {
                 // *********************
                 // *** _trailingIcon ***
                 // *********************
 
                 //Resize icon if greater than ICON_SIZE
-                Size newSize_trailingIcon = ResizeIcon(_trailingIcon);
-                Bitmap _trailingIconResized = new(_trailingIcon, newSize_trailingIcon.Width, newSize_trailingIcon.Height);
+                Size newSize_trailingIcon = ResizeIcon(TrailingIcon);
+                Bitmap _trailingIconResized = new(TrailingIcon, newSize_trailingIcon.Width, newSize_trailingIcon.Height);
 
                 // Create a pre-processed copy of the image (GRAY)
                 Bitmap bgray = new(destRect.Width, destRect.Height);
@@ -507,7 +496,7 @@ namespace ReaLTaiizor.Controls
                 _left_padding = SkinManager.FORM_PADDING;
             }
 
-            if (_trailingIcon != null)
+            if (TrailingIcon != null)
             {
                 _right_padding = SkinManager.FORM_PADDING + ICON_SIZE;
             }

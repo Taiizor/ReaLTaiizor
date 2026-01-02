@@ -27,10 +27,7 @@ namespace ReaLTaiizor.Controls
 
         #region Field Region
 
-        private int _itemHeight = 20;
         private readonly int _iconSize = 16;
-
-        private ObservableCollection<CrownListItem> _items;
         private int _anchoredItemStart = -1;
         private int _anchoredItemEnd = -1;
 
@@ -42,17 +39,17 @@ namespace ReaLTaiizor.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ObservableCollection<CrownListItem> Items
         {
-            get => _items;
+            get;
             set
             {
-                if (_items != null)
+                if (field != null)
                 {
-                    _items.CollectionChanged -= Items_CollectionChanged;
+                    field.CollectionChanged -= Items_CollectionChanged;
                 }
 
-                _items = value;
+                field = value;
 
-                _items.CollectionChanged += Items_CollectionChanged;
+                field.CollectionChanged += Items_CollectionChanged;
 
                 UpdateListBox();
             }
@@ -67,13 +64,13 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(20)]
         public int ItemHeight
         {
-            get => _itemHeight;
+            get;
             set
             {
-                _itemHeight = value;
+                field = value;
                 UpdateListBox();
             }
-        }
+        } = 20;
 
         [Category("Behaviour")]
         [Description("Determines whether multiple list view items can be selected at once.")]
@@ -91,8 +88,8 @@ namespace ReaLTaiizor.Controls
 
         public CrownListView()
         {
-            Items = new ObservableCollection<CrownListItem>();
-            SelectedIndices = new List<int>();
+            Items = [];
+            SelectedIndices = [];
         }
 
         #endregion

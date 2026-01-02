@@ -22,7 +22,7 @@ namespace ReaLTaiizor.Child.Poison
         {
             InitializeComponent();
 
-            _properties = new PoisonMessageBoxProperties(this);
+            Properties = new PoisonMessageBoxProperties(this);
 
             StylizeButton(poisonButton1);
             StylizeButton(poisonButton2);
@@ -52,22 +52,18 @@ namespace ReaLTaiizor.Child.Poison
 
         public System.Windows.Forms.Panel Body { get; private set; }
 
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly PoisonMessageBoxProperties _properties = null;
+        [field: DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public PoisonMessageBoxProperties Properties { get; } = null;
 
-        public PoisonMessageBoxProperties Properties => _properties;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private DialogResult _result = DialogResult.None;
-
-        public DialogResult Result => _result;
+        [field: DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public DialogResult Result { get; private set; } = DialogResult.None;
 
         public void ArrangeApperance()
         {
-            titleLabel.Text = _properties.Title;
-            messageLabel.Text = _properties.Message;
+            titleLabel.Text = Properties.Title;
+            messageLabel.Text = Properties.Message;
 
-            switch (_properties.Icon)
+            switch (Properties.Icon)
             {
                 case MessageBoxIcon.Exclamation:
                     Body.BackColor = _warningColor;
@@ -78,7 +74,7 @@ namespace ReaLTaiizor.Child.Poison
                 default: break;
             }
 
-            switch (_properties.Buttons)
+            switch (Properties.Buttons)
             {
                 case MessageBoxButtons.OK:
                     EnableButton(poisonButton1);
@@ -172,7 +168,7 @@ namespace ReaLTaiizor.Child.Poison
                 default: break;
             }
 
-            Body.BackColor = _properties.Icon switch
+            Body.BackColor = Properties.Icon switch
             {
                 MessageBoxIcon.Error => _errorColor,
                 MessageBoxIcon.Warning => _warningColor,
@@ -194,7 +190,7 @@ namespace ReaLTaiizor.Child.Poison
 
         public void SetDefaultButton()
         {
-            switch (_properties.DefaultButton)
+            switch (Properties.DefaultButton)
             {
                 case MessageBoxDefaultButton.Button1:
                     if (poisonButton1 != null)
@@ -290,7 +286,7 @@ namespace ReaLTaiizor.Child.Poison
                 return;
             }
 
-            _result = (DialogResult)button.Tag;
+            Result = (DialogResult)button.Tag;
             Hide();
         }
     }

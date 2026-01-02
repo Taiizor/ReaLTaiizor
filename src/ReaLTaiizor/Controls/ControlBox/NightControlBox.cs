@@ -21,187 +21,173 @@ namespace ReaLTaiizor.Controls
 
         #region Custom Properties
 
-        private bool _EnableMaximize = true;
         [Browsable(true)]
         [Description("Determines whether the control should enable the use of the maximize button.")]
         public bool EnableMaximizeButton
         {
-            get => _EnableMaximize;
+            get;
             set
             {
-                _EnableMaximize = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private bool _EnableMinimize = true;
         [Browsable(true)]
         [Description("Determines whether the control should enable the use of the minimize button.")]
         public bool EnableMinimizeButton
         {
-            get => _EnableMinimize;
+            get;
             set
             {
-                _EnableMinimize = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private bool _DefaultLocation = true;
         [Browsable(true)]
         [Description("ControlBox set location to default.")]
         public bool DefaultLocation
         {
-            get => _DefaultLocation;
+            get;
             set
             {
-                _DefaultLocation = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
-        private Color _EnableMinimizeColor = ColorTranslator.FromHtml("#A0A0A0");
         [Browsable(true)]
         [Description("Enabled is Minimize ForeColor.")]
         public Color EnableMinimizeColor
         {
-            get => _EnableMinimizeColor;
+            get;
             set
             {
-                _EnableMinimizeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#A0A0A0");
 
-        private Color _DisableMinimizeColor = ColorTranslator.FromHtml("#696969");
         [Browsable(true)]
         [Description("Disabled is Minimize ForeColor.")]
         public Color DisableMinimizeColor
         {
-            get => _DisableMinimizeColor;
+            get;
             set
             {
-                _DisableMinimizeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#696969");
 
-        private Color _MinimizeHoverColor = Color.FromArgb(15, Color.White);
         [Browsable(true)]
         [Description("Minimize is HoverColor.")]
         public Color MinimizeHoverColor
         {
-            get => _MinimizeHoverColor;
+            get;
             set
             {
-                _MinimizeHoverColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(15, Color.White);
 
-        private Color _MinimizeHoverForeColor = Color.White;
         [Browsable(true)]
         [Description("Minimize is HoverForeColor.")]
         public Color MinimizeHoverForeColor
         {
-            get => _MinimizeHoverForeColor;
+            get;
             set
             {
-                _MinimizeHoverForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
-        private Color _EnableMaximizeColor = ColorTranslator.FromHtml("#A0A0A0");
         [Browsable(true)]
         [Description("Enabled is Maximize ForeColor.")]
         public Color EnableMaximizeColor
         {
-            get => _EnableMaximizeColor;
+            get;
             set
             {
-                _EnableMaximizeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#A0A0A0");
 
-        private Color _DisableMaximizeColor = ColorTranslator.FromHtml("#696969");
         [Browsable(true)]
         [Description("Disabled is Maximize ForeColor.")]
         public Color DisableMaximizeColor
         {
-            get => _DisableMaximizeColor;
+            get;
             set
             {
-                _DisableMaximizeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#696969");
 
-        private Color _MaximizeHoverColor = Color.FromArgb(15, Color.White);
         [Browsable(true)]
         [Description("Maximize is HoverColor.")]
         public Color MaximizeHoverColor
         {
-            get => _MaximizeHoverColor;
+            get;
             set
             {
-                _MaximizeHoverColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(15, Color.White);
 
-        private Color _MaximizeHoverForeColor = Color.White;
         [Browsable(true)]
         [Description("Maximize is HoverForeColor.")]
         public Color MaximizeHoverForeColor
         {
-            get => _MaximizeHoverForeColor;
+            get;
             set
             {
-                _MaximizeHoverForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
-        private Color _EnableCloseColor = ColorTranslator.FromHtml("#A0A0A0");
         [Browsable(true)]
         [Description("Enabled is Close ForeColor.")]
         public Color EnableCloseColor
         {
-            get => _EnableCloseColor;
+            get;
             set
             {
-                _EnableCloseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#A0A0A0");
 
-        private Color _CloseHoverColor = ColorTranslator.FromHtml("#C75050");
         [Browsable(true)]
         [Description("Close is HoverColor.")]
         public Color CloseHoverColor
         {
-            get => _CloseHoverColor;
+            get;
             set
             {
-                _CloseHoverColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#C75050");
 
-        private Color _CloseHoverForeColor = Color.White;
         [Browsable(true)]
         [Description("Close is HoverForeColor.")]
         public Color CloseHoverForeColor
         {
-            get => _CloseHoverForeColor;
+            get;
             set
             {
-                _CloseHoverForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         #endregion
 
@@ -320,7 +306,7 @@ namespace ReaLTaiizor.Controls
             // Parent form
             Form pf = FindForm();
 
-            if (_EnableMaximize)
+            if (EnableMaximizeButton)
             {
                 if (hover_max & e.Button == MouseButtons.Left)
                 {
@@ -336,7 +322,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            if (_EnableMinimize)
+            if (EnableMinimizeButton)
             {
                 if (hover_min & e.Button == MouseButtons.Left)
                 {
@@ -346,7 +332,7 @@ namespace ReaLTaiizor.Controls
 
             if (hover_close & e.Button == MouseButtons.Left)
             {
-                Application.Exit();
+                pf.Close();
             }
         }
 
@@ -388,16 +374,16 @@ namespace ReaLTaiizor.Controls
             // Minimize button
             Font minimizeBtnFont = new("Tahoma", 12);
             Point minimizeBtnPoint = new(15, 5);
-            SolidBrush minimizeBtnBrush = new(_EnableMinimize ? _EnableMinimizeColor : _DisableMinimizeColor);
+            SolidBrush minimizeBtnBrush = new(EnableMinimizeButton ? EnableMinimizeColor : DisableMinimizeColor);
 
-            if (hover_min && _EnableMinimize)
+            if (hover_min && EnableMinimizeButton)
             {
-                using (SolidBrush backColor = new(_MinimizeHoverColor))
+                using (SolidBrush backColor = new(MinimizeHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(1, 0), btnBackgroundSize));
                 }
 
-                minimizeBtnBrush = new(_MinimizeHoverForeColor);
+                minimizeBtnBrush = new(MinimizeHoverForeColor);
             }
 
             g.DrawString("\u2212", minimizeBtnFont, minimizeBtnBrush, minimizeBtnPoint);
@@ -407,16 +393,16 @@ namespace ReaLTaiizor.Controls
             // Maxmize button
             Font maximizeBtnFont = new("Marlett", 9);
             Point maximizeBtnPoint = new(63, 10);
-            SolidBrush maximizeBtnBrush = new(_EnableMaximize ? _EnableMaximizeColor : _DisableMaximizeColor);
+            SolidBrush maximizeBtnBrush = new(EnableMaximizeButton ? EnableMaximizeColor : DisableMaximizeColor);
 
-            if (hover_max && _EnableMaximize)
+            if (hover_max && EnableMaximizeButton)
             {
-                using (SolidBrush backColor = new(_MaximizeHoverColor))
+                using (SolidBrush backColor = new(MaximizeHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(47, 0), btnBackgroundSize));
                 }
 
-                maximizeBtnBrush = new(_MaximizeHoverForeColor);
+                maximizeBtnBrush = new(MaximizeHoverForeColor);
             }
 
             g.DrawString(FindForm().WindowState != FormWindowState.Maximized ? "1" : "2", maximizeBtnFont, maximizeBtnBrush, maximizeBtnPoint);
@@ -427,16 +413,16 @@ namespace ReaLTaiizor.Controls
             // Close button
             Font closeBtnFont = new("Tahoma", 11);
             Point closeBtnPoint = new(107, 6);
-            SolidBrush closeBtnBrush = new(_EnableCloseColor);
+            SolidBrush closeBtnBrush = new(EnableCloseColor);
 
             if (hover_close)
             {
-                using (SolidBrush backColor = new(_CloseHoverColor))
+                using (SolidBrush backColor = new(CloseHoverColor))
                 {
                     g.FillRectangle(backColor, new Rectangle(new Point(93, 0), btnBackgroundSize));
                 }
 
-                closeBtnBrush = new(_CloseHoverForeColor);
+                closeBtnBrush = new(CloseHoverForeColor);
             }
 
             g.DrawString("\u2A09", closeBtnFont, closeBtnBrush, closeBtnPoint);

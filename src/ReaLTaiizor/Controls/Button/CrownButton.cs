@@ -19,12 +19,10 @@ namespace ReaLTaiizor.Controls
     {
         #region Field Region
 
-        private ButtonStyle _style = ButtonStyle.Normal;
         private bool _isDefault;
         private bool _spacePressed;
 
         private readonly int _padding = ThemeProvider.Theme.Sizes.Padding / 2;
-        private int _imagePadding = 5; // ThemeProvider.Theme.Sizes.Padding / 2
 
         #endregion
 
@@ -55,26 +53,26 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(ButtonStyle.Normal)]
         public ButtonStyle ButtonStyle
         {
-            get => _style;
+            get;
             set
             {
-                _style = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ButtonStyle.Normal;
 
         [Category("Appearance")]
         [Description("Determines the amount of padding between the image and text.")]
         [DefaultValue(5)]
         public int ImagePadding
         {
-            get => _imagePadding;
+            get;
             set
             {
-                _imagePadding = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 5;
 
         #endregion
 

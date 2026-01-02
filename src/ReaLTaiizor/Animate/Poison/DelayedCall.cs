@@ -26,7 +26,7 @@ namespace ReaLTaiizor.Animate.Poison
 
         static DelayedCall()
         {
-            dcList = new List<DelayedCall>();
+            dcList = [];
         }
 
         protected DelayedCall()

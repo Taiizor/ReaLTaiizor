@@ -26,7 +26,6 @@ namespace ReaLTaiizor.Forms
     {
         #region Interface
 
-        private ColorStyle poisonStyle = ColorStyle.Blue;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ColorStyle Style
         {
@@ -37,12 +36,10 @@ namespace ReaLTaiizor.Forms
                     return StyleManager.Style;
                 }
 
-                return poisonStyle;
+                return field;
             }
-            set => poisonStyle = value;
-        }
-
-        private ThemeStyle poisonTheme = ThemeStyle.Light;
+            set;
+        } = ColorStyle.Blue;
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ThemeStyle Theme
@@ -54,10 +51,10 @@ namespace ReaLTaiizor.Forms
                     return StyleManager.Theme;
                 }
 
-                return poisonTheme;
+                return field;
             }
-            set => poisonTheme = value;
-        }
+            set;
+        } = ThemeStyle.Light;
 
         [Browsable(false)]
         public PoisonStyleManager StyleManager { get; set; } = null;
@@ -93,23 +90,22 @@ namespace ReaLTaiizor.Forms
 
         protected override Padding DefaultPadding => new(20, DisplayHeader ? 60 : 20, 20, 20);
 
-        private bool displayHeader = true;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(true)]
         public bool DisplayHeader
         {
-            get => displayHeader;
+            get;
             set
             {
-                if (value != displayHeader)
+                if (value != field)
                 {
                     Padding p = base.Padding;
                     p.Top += value ? 30 : -30;
                     base.Padding = p;
                 }
-                displayHeader = value;
+                field = value;
             }
-        }
+        } = true;
 
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool Resizable { get; set; } = true;
@@ -148,15 +144,15 @@ namespace ReaLTaiizor.Forms
         private const int borderWidth = 5;
 
         private Bitmap _image = null;
-        private Image backImage;
+
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(null)]
         public Image BackImage
         {
-            get => backImage;
+            get;
             set
             {
-                backImage = value;
+                field = value;
                 if (value != null)
                 {
                     _image = ApplyInvert(new Bitmap(value));
@@ -178,40 +174,37 @@ namespace ReaLTaiizor.Forms
             }
         }
 
-        private int backMaxSize;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int BackMaxSize
         {
-            get => backMaxSize;
+            get;
             set
             {
-                backMaxSize = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private BackLocationType backLocation;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(BackLocationType.TopLeft)]
         public BackLocationType BackLocation
         {
-            get => backLocation;
+            get;
             set
             {
-                backLocation = value;
+                field = value;
                 Refresh();
             }
         }
 
-        private bool _imageinvert;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(true)]
         public bool ApplyImageInvert
         {
-            get => _imageinvert;
+            get;
             set
             {
-                _imageinvert = value;
+                field = value;
                 Refresh();
             }
         }
@@ -318,16 +311,16 @@ namespace ReaLTaiizor.Forms
                 );
             }
 
-            if (backImage != null && backMaxSize != 0)
+            if (BackImage != null && BackMaxSize != 0)
             {
-                Image img = PoisonImage.ResizeImage(backImage, new Rectangle(0, 0, backMaxSize, backMaxSize));
+                Image img = PoisonImage.ResizeImage(BackImage, new Rectangle(0, 0, BackMaxSize, BackMaxSize));
 
-                if (_imageinvert)
+                if (ApplyImageInvert)
                 {
-                    img = PoisonImage.ResizeImage((Theme == ThemeStyle.Dark) ? _image : backImage, new Rectangle(0, 0, backMaxSize, backMaxSize));
+                    img = PoisonImage.ResizeImage((Theme == ThemeStyle.Dark) ? _image : BackImage, new Rectangle(0, 0, BackMaxSize, BackMaxSize));
                 }
 
-                switch (backLocation)
+                switch (BackLocation)
                 {
                     case BackLocationType.TopLeft:
                         e.Graphics.DrawImage(img, 0 + backImagePadding.Left, 0 + backImagePadding.Top);
@@ -344,7 +337,7 @@ namespace ReaLTaiizor.Forms
                 }
             }
 
-            if (displayHeader)
+            if (DisplayHeader)
             {
                 Rectangle bounds = new(20, 20, ClientRectangle.Width - (2 * 20), 40);
                 TextFormatFlags flags = TextFormatFlags.EndEllipsis | GetTextFormatFlags();
@@ -685,7 +678,7 @@ namespace ReaLTaiizor.Forms
         {
             if (windowButtonList == null)
             {
-                windowButtonList = new Dictionary<WindowButtons, PoisonFormButton>();
+                windowButtonList = [];
             }
 
             if (windowButtonList.ContainsKey(button))
@@ -720,7 +713,7 @@ namespace ReaLTaiizor.Forms
             newButton.Tag = button;
             newButton.Size = new(25, 20);
             newButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            newButton.TabStop = false; //remove the form controls from the tab stop
+            newButton.TabStop = false; //Remove the form controls from the tab stop
             newButton.Click += WindowButton_Click;
             Controls.Add(newButton);
 
@@ -763,41 +756,43 @@ namespace ReaLTaiizor.Forms
                 return;
             }
 
-            Dictionary<int, WindowButtons> priorityOrder = new(3) { { 0, WindowButtons.Close }, { 1, WindowButtons.Maximize }, { 2, WindowButtons.Minimize } };
-
-            Point firstButtonLocation = new(ClientRectangle.Width - borderWidth - 25, borderWidth);
-            int lastDrawedButtonPosition = firstButtonLocation.X - 25;
-
-            PoisonFormButton firstButton = null;
-
-            if (windowButtonList.Count == 1)
+            Dictionary<int, WindowButtons> priorityOrder = new(3)
             {
-                foreach (KeyValuePair<WindowButtons, PoisonFormButton> button in windowButtonList)
-                {
-                    button.Value.Location = firstButtonLocation;
-                }
+                { 0, WindowButtons.Close },
+                { 1, WindowButtons.Maximize },
+                { 2, WindowButtons.Minimize }
+            };
+
+            int firstButtonPosition = ClientRectangle.Width - borderWidth - 25;
+            int lastDrawedButtonPosition = firstButtonPosition - 25;
+
+            bool firstButtonSet = false;
+
+            void SetButtonPosition(WindowButtons button, int x)
+            {
+                windowButtonList[button].Anchor = AnchorStyles.None; //You need to release the anchor point first; otherwise, a bug may occur where the position setting fails on systems with different scaling settings
+                windowButtonList[button].Location = new(x, borderWidth);
+                windowButtonList[button].Anchor = AnchorStyles.Top | AnchorStyles.Right; //Reset the anchor point after setting the position
             }
-            else
+
+            foreach (KeyValuePair<int, WindowButtons> button in priorityOrder)
             {
-                foreach (KeyValuePair<int, WindowButtons> button in priorityOrder)
+                bool buttonExists = windowButtonList.ContainsKey(button.Value);
+
+                if (firstButtonSet == false && buttonExists)
                 {
-                    bool buttonExists = windowButtonList.ContainsKey(button.Value);
-
-                    if (firstButton == null && buttonExists)
-                    {
-                        firstButton = windowButtonList[button.Value];
-                        firstButton.Location = firstButtonLocation;
-                        continue;
-                    }
-
-                    if (firstButton == null || !buttonExists)
-                    {
-                        continue;
-                    }
-
-                    windowButtonList[button.Value].Location = new(lastDrawedButtonPosition, borderWidth);
-                    lastDrawedButtonPosition -= 25;
+                    SetButtonPosition(button.Value, firstButtonPosition);
+                    firstButtonSet = true;
+                    continue;
                 }
+
+                if (firstButtonSet == false || !buttonExists)
+                {
+                    continue;
+                }
+
+                SetButtonPosition(button.Value, lastDrawedButtonPosition);
+                lastDrawedButtonPosition -= 25;
             }
 
             Refresh();
@@ -837,59 +832,57 @@ namespace ReaLTaiizor.Forms
                 }
             }
 
-            private ColorStyle poisonStyle = ColorStyle.Default;
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
             [DefaultValue(ColorStyle.Default)]
             public ColorStyle Style
             {
                 get
                 {
-                    if (DesignMode || poisonStyle != ColorStyle.Default)
+                    if (DesignMode || field != ColorStyle.Default)
                     {
-                        return poisonStyle;
+                        return field;
                     }
 
-                    if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                    if (StyleManager != null && field == ColorStyle.Default)
                     {
                         return StyleManager.Style;
                     }
 
-                    if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                    if (StyleManager == null && field == ColorStyle.Default)
                     {
                         return PoisonDefaults.Style;
                     }
 
-                    return poisonStyle;
+                    return field;
                 }
-                set => poisonStyle = value;
-            }
+                set;
+            } = ColorStyle.Default;
 
-            private ThemeStyle poisonTheme = ThemeStyle.Default;
             [Category(PoisonDefaults.PropertyCategory.Appearance)]
             [DefaultValue(ThemeStyle.Default)]
             public ThemeStyle Theme
             {
                 get
                 {
-                    if (DesignMode || poisonTheme != ThemeStyle.Default)
+                    if (DesignMode || field != ThemeStyle.Default)
                     {
-                        return poisonTheme;
+                        return field;
                     }
 
-                    if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                    if (StyleManager != null && field == ThemeStyle.Default)
                     {
                         return StyleManager.Theme;
                     }
 
-                    if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                    if (StyleManager == null && field == ThemeStyle.Default)
                     {
                         return PoisonDefaults.Theme;
                     }
 
-                    return poisonTheme;
+                    return field;
                 }
-                set => poisonTheme = value;
-            }
+                set;
+            } = ThemeStyle.Default;
 
             [Browsable(false)]
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -987,7 +980,7 @@ namespace ReaLTaiizor.Forms
                 }
 
                 e.Graphics.Clear(backColor);
-                Font buttonFont = new("Webdings", 9.25f);
+                Font buttonFont = new("Webdings", 9.75f, GraphicsUnit.Pixel);
                 TextRenderer.DrawText(e.Graphics, Text, buttonFont, ClientRectangle, foreColor, backColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
             }
 

@@ -36,68 +36,63 @@ namespace ReaLTaiizor.Forms
 
         #region Custom Properties
 
-        private bool _ControlMode;
         protected bool ControlMode
         {
-            get => _ControlMode;
+            get;
             set
             {
-                _ControlMode = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private Alignment _TextAlignment = Alignment.Left;
         [Browsable(true)]
         [Description("Indicates how the window title should be aligned.")]
         public Alignment TextAlignment
         {
-            get => _TextAlignment;
+            get;
             set
             {
-                _TextAlignment = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Alignment.Left;
 
-        private bool _DrawIcon;
         [Browsable(true)]
         [Description("Determines whether the icon specified in the parent form should be drawn.")]
         public bool DrawIcon
         {
-            get => _DrawIcon;
+            get;
             set
             {
-                _DrawIcon = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private Color _TitleBarTextColor = Color.Gainsboro;
         [Browsable(true)]
         [Description("Sets the title bar title color.")]
         public Color TitleBarTextColor
         {
-            get => _TitleBarTextColor;
+            get;
             set
             {
-                _TitleBarTextColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Gainsboro;
 
-        private Color _HeadColor = ColorTranslator.FromHtml("#323A3D");
         [Browsable(true)]
         [Description("Sets the title bar color.")]
         public Color HeadColor
         {
-            get => _HeadColor;
+            get;
             set
             {
-                _HeadColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#323A3D");
 
         #endregion
 
@@ -168,7 +163,7 @@ namespace ReaLTaiizor.Forms
             }
 
             // Close when double-clicking on the title bar icon
-            if (_DrawIcon && IsOverTitleBarIcon(e))
+            if (DrawIcon && IsOverTitleBarIcon(e))
             {
                 Application.Exit();
             }
@@ -246,9 +241,9 @@ namespace ReaLTaiizor.Forms
 
         private void DrawTitleBarIcon(Graphics g)
         {
-            if (_DrawIcon)
+            if (DrawIcon)
             {
-                titleBarStringLeft = _TextAlignment == Alignment.Left ? 33 : 5;
+                titleBarStringLeft = TextAlignment == Alignment.Left ? 33 : 5;
                 Rectangle iconRect = new(10, 7, 16, 16);
 
                 g.DrawIcon(FindForm().Icon, iconRect);
@@ -263,10 +258,10 @@ namespace ReaLTaiizor.Forms
         {
             Rectangle stringRect = new(titleBarStringLeft, 7, Width - 13, Height);
 
-            switch (_TextAlignment)
+            switch (TextAlignment)
             {
                 case Alignment.Left:
-                    using (SolidBrush stringColor = new(_TitleBarTextColor))
+                    using (SolidBrush stringColor = new(TitleBarTextColor))
                     using (StringFormat sf = new()
                     {
                         Alignment = StringAlignment.Near,
@@ -277,7 +272,7 @@ namespace ReaLTaiizor.Forms
                     }
                     break;
                 case Alignment.Center:
-                    using (SolidBrush stringColor = new(_TitleBarTextColor))
+                    using (SolidBrush stringColor = new(TitleBarTextColor))
                     using (StringFormat sf = new()
                     {
                         Alignment = StringAlignment.Center,

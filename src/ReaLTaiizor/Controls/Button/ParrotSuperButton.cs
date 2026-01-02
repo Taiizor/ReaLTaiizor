@@ -20,8 +20,8 @@ namespace ReaLTaiizor.Controls
         {
             base.SetStyle(ControlStyles.ResizeRedraw, true);
             Cursor = Cursors.Hand;
-            CurrentBackColor = backColor;
-            CurrentForeColor = foreColor;
+            CurrentBackColor = BackgroundColor;
+            CurrentForeColor = TextColor;
             base.Size = new Size(100, 40);
             NormalRegion = base.Region;
             base.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -29,9 +29,9 @@ namespace ReaLTaiizor.Controls
             ButtonImage = new Bitmap(base.Height - 2, base.Height - 2);
             Graphics graphics = Graphics.FromImage(ButtonImage);
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            graphics.DrawArc(new Pen(Color.White, 2f), new Rectangle(1, 1, buttonImage.Width - 3, buttonImage.Height - 3), 0f, 360f);
-            graphics.DrawLine(new Pen(Color.White, 2f), buttonImage.Width / 3, buttonImage.Height / 4, buttonImage.Width / 3 * 2, buttonImage.Height / 2);
-            graphics.DrawLine(new Pen(Color.White, 2f), buttonImage.Width / 3, buttonImage.Height / 4 * 3, buttonImage.Width / 3 * 2, buttonImage.Height / 2);
+            graphics.DrawArc(new Pen(Color.White, 2f), new Rectangle(1, 1, ButtonImage.Width - 3, ButtonImage.Height - 3), 0f, 360f);
+            graphics.DrawLine(new Pen(Color.White, 2f), ButtonImage.Width / 3, ButtonImage.Height / 4, ButtonImage.Width / 3 * 2, ButtonImage.Height / 2);
+            graphics.DrawLine(new Pen(Color.White, 2f), ButtonImage.Width / 3, ButtonImage.Height / 4 * 3, ButtonImage.Width / 3 * 2, ButtonImage.Height / 2);
         }
 
         [Browsable(false)]
@@ -51,60 +51,60 @@ namespace ReaLTaiizor.Controls
         [Description("The button style")]
         public Style ButtonStyle
         {
-            get => buttonStyle;
+            get;
             set
             {
-                buttonStyle = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Style.RoundedEdges;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text color of the button")]
         public Color TextColor
         {
-            get => foreColor;
+            get;
             set
             {
-                foreColor = value;
-                CurrentForeColor = foreColor;
+                field = value;
+                CurrentForeColor = field;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The background color of the button")]
         public Color BackgroundColor
         {
-            get => backColor;
+            get;
             set
             {
-                backColor = value;
-                CurrentBackColor = backColor;
+                field = value;
+                CurrentBackColor = field;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(24, 202, 142);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Is the SuperButton selected")]
         public bool SuperSelected
         {
-            get => superSelected;
+            get;
             set
             {
-                superSelected = value;
-                if (!superSelected)
+                field = value;
+                if (!field)
                 {
-                    CurrentForeColor = foreColor;
-                    CurrentBackColor = backColor;
+                    CurrentForeColor = TextColor;
+                    CurrentBackColor = BackgroundColor;
                 }
                 else
                 {
-                    CurrentForeColor = selectedForecolor;
-                    CurrentBackColor = selectedBackcolor;
+                    CurrentForeColor = SelectedTextColor;
+                    CurrentBackColor = SelectedBackColor;
                 }
                 Invalidate();
             }
@@ -115,114 +115,114 @@ namespace ReaLTaiizor.Controls
         [Description("The text color of the button while the mouse is over it")]
         public Color HoverTextColor
         {
-            get => hoverForeColor;
+            get;
             set
             {
-                hoverForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The background color of the button while the mouse is over it")]
         public Color HoverBackgroundColor
         {
-            get => hoverBackgroundColor;
+            get;
             set
             {
-                hoverBackgroundColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(102, 217, 174);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text color of the button when selected")]
         public Color SelectedTextColor
         {
-            get => selectedForecolor;
+            get;
             set
             {
-                selectedForecolor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The background color of the button when selected")]
         public Color SelectedBackColor
         {
-            get => selectedBackcolor;
+            get;
             set
             {
-                selectedBackcolor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LimeGreen;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The corner radius if rounded edges")]
         public int CornerRadius
         {
-            get => cornerRadius;
+            get;
             set
             {
-                cornerRadius = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 5;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text of the button")]
         public string ButtonText
         {
-            get => buttonText;
+            get;
             set
             {
-                buttonText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "SuperButton";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text horizontal alignment")]
         public StringAlignment Horizontal_Alignment
         {
-            get => horizontalAlignment;
+            get;
             set
             {
-                horizontalAlignment = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = StringAlignment.Center;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The text vertical alignment")]
         public StringAlignment Vertical_Alignment
         {
-            get => verticlAlignment;
+            get;
             set
             {
-                verticlAlignment = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = StringAlignment.Center;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The buttons image")]
         public Image ButtonImage
         {
-            get => buttonImage;
+            get;
             set
             {
-                buttonImage = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -232,13 +232,13 @@ namespace ReaLTaiizor.Controls
         [Description("The smoothing mode of the graphics")]
         public SmoothingMode ButtonSmoothing
         {
-            get => buttonSmoothing;
+            get;
             set
             {
-                buttonSmoothing = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighSpeed;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -253,52 +253,50 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            CurrentForeColor = hoverForeColor;
-            CurrentBackColor = hoverBackgroundColor;
+            CurrentForeColor = HoverTextColor;
+            CurrentBackColor = HoverBackgroundColor;
             Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            if (!superSelected)
+            if (!SuperSelected)
             {
-                CurrentForeColor = foreColor;
-                CurrentBackColor = backColor;
+                CurrentForeColor = TextColor;
+                CurrentBackColor = BackgroundColor;
             }
             else
             {
-                CurrentForeColor = selectedForecolor;
-                CurrentBackColor = selectedBackcolor;
+                CurrentForeColor = SelectedTextColor;
+                CurrentBackColor = SelectedBackColor;
             }
             Invalidate();
         }
@@ -306,8 +304,8 @@ namespace ReaLTaiizor.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            CurrentForeColor = selectedForecolor;
-            CurrentBackColor = selectedBackcolor;
+            CurrentForeColor = SelectedTextColor;
+            CurrentBackColor = SelectedBackColor;
             SuperSelected = true;
             Invalidate();
         }
@@ -317,7 +315,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (superSelected)
+            if (SuperSelected)
             {
                 foreach (object obj in base.Parent.Controls)
                 {
@@ -329,43 +327,43 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            e.Graphics.SmoothingMode = buttonSmoothing;
+            e.Graphics.SmoothingMode = ButtonSmoothing;
 
             e.Graphics.FillRectangle(new SolidBrush(CurrentBackColor), 0, 0, base.Width, base.Height);
 
             Rectangle r = new(0, 0, base.Width, base.Height);
 
-            if (buttonImage != null)
+            if (ButtonImage != null)
             {
                 if (imagePosition == ImgPosition.Left)
                 {
                     r = new Rectangle(base.Height, 0, base.Width - base.Height, base.Height);
-                    e.Graphics.DrawImage(new Bitmap(buttonImage, base.Height - 2, base.Height - 2), 1, 1);
+                    e.Graphics.DrawImage(new Bitmap(ButtonImage, base.Height - 2, base.Height - 2), 1, 1);
                 }
                 if (imagePosition == ImgPosition.Right)
                 {
                     r = new Rectangle(0, 0, base.Width - base.Height, base.Height);
-                    e.Graphics.DrawImage(new Bitmap(buttonImage, base.Height - 2, base.Height - 2), base.Width - base.Height, 1);
+                    e.Graphics.DrawImage(new Bitmap(ButtonImage, base.Height - 2, base.Height - 2), base.Width - base.Height, 1);
                 }
             }
 
             StringFormat stringFormat = new()
             {
-                LineAlignment = verticlAlignment,
-                Alignment = horizontalAlignment
+                LineAlignment = Vertical_Alignment,
+                Alignment = Horizontal_Alignment
             };
 
             e.Graphics.PixelOffsetMode = PixelOffsetType;
             e.Graphics.TextRenderingHint = TextRenderingType;
-            e.Graphics.DrawString(buttonText, Font, new SolidBrush(Color.White), r, stringFormat);
+            e.Graphics.DrawString(ButtonText, Font, new SolidBrush(Color.White), r, stringFormat);
 
-            if (buttonStyle == Style.Elliptical)
+            if (ButtonStyle == Style.Elliptical)
             {
                 base.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, base.Width, base.Height, base.Width, base.Height));
             }
-            else if (buttonStyle == Style.RoundedEdges)
+            else if (ButtonStyle == Style.RoundedEdges)
             {
-                base.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, base.Width, base.Height, cornerRadius, cornerRadius));
+                base.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, base.Width, base.Height, CornerRadius, CornerRadius));
             }
             else
             {
@@ -380,35 +378,6 @@ namespace ReaLTaiizor.Controls
         private Color CurrentForeColor;
 
         private readonly Region NormalRegion;
-
-        private Style buttonStyle = Style.RoundedEdges;
-
-        private Color foreColor = Color.White;
-
-        private Color backColor = Color.FromArgb(24, 202, 142);
-
-        private bool superSelected;
-
-        private Color hoverForeColor = Color.White;
-
-        private Color hoverBackgroundColor = Color.FromArgb(102, 217, 174);
-
-        private Color selectedForecolor = Color.White;
-
-        private Color selectedBackcolor = Color.LimeGreen;
-
-        private int cornerRadius = 5;
-
-        private string buttonText = "SuperButton";
-
-        private StringAlignment horizontalAlignment = StringAlignment.Center;
-
-        private StringAlignment verticlAlignment = StringAlignment.Center;
-
-        private Image buttonImage;
-
-        private SmoothingMode buttonSmoothing = SmoothingMode.HighSpeed;
-
         public ImgPosition imagePosition;
 
         public enum Style

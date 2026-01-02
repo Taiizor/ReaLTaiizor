@@ -22,58 +22,58 @@ namespace ReaLTaiizor.Controls
         [Description("The color of the border")]
         public Color BorderColor
         {
-            get => borderColor;
+            get;
             set
             {
-                borderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DodgerBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the text")]
         public Color TextColor
         {
-            get => textColor;
+            get;
             set
             {
-                textColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DodgerBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The width of the border")]
         public int BorderWidth
         {
-            get => borderWidth;
+            get;
             set
             {
-                borderWidth = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 1;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the text of the groupbox")]
         public bool ShowText
         {
-            get => showText;
+            get;
             set
             {
-                showText = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            groupName.Visible = showText;
+            groupName.Visible = ShowText;
 
-            if (showText)
+            if (ShowText)
             {
                 groupName.BackColor = Color.Transparent;
 
@@ -81,32 +81,24 @@ namespace ReaLTaiizor.Controls
                 groupName.Font = Font;
                 groupName.Location = new Point(9, 0);
                 groupName.AutoSize = true;
-                groupName.ForeColor = textColor;
+                groupName.ForeColor = TextColor;
 
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, 6, 6, 6);
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), base.Width - 2, 6, groupName.Location.X + groupName.Width, 6);
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, base.Height - 2, base.Width - 2, base.Height - 2);
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, 6, 1, base.Height - 2);
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), base.Width - 2, 6, base.Width - 2, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), 1, 6, 6, 6);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), base.Width - 2, 6, groupName.Location.X + groupName.Width, 6);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), 1, base.Height - 2, base.Width - 2, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), 1, 6, 1, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), base.Width - 2, 6, base.Width - 2, base.Height - 2);
             }
             else
             {
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, 1, base.Width - 2, 1);
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, base.Height - 2, base.Width - 2, base.Height - 2);
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), 1, 1, 1, base.Height - 2);
-                e.Graphics.DrawLine(new Pen(borderColor, borderWidth), base.Width - 2, 1, base.Width - 2, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), 1, 1, base.Width - 2, 1);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), 1, base.Height - 2, base.Width - 2, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), 1, 1, 1, base.Height - 2);
+                e.Graphics.DrawLine(new Pen(BorderColor, BorderWidth), base.Width - 2, 1, base.Width - 2, base.Height - 2);
             }
         }
 
         private readonly Label groupName = new();
-
-        private Color borderColor = Color.DodgerBlue;
-
-        private Color textColor = Color.DodgerBlue;
-
-        private int borderWidth = 1;
-
-        private bool showText = true;
     }
 
     #endregion

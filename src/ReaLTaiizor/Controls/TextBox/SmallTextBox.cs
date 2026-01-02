@@ -19,17 +19,8 @@ namespace ReaLTaiizor.Controls
 
         public TextBox RT_TB = new();
         private GraphicsPath Shape;
-        private int _maxchars = 32767;
-        private bool _ReadOnly;
-        private bool _Multiline;
-        private HorizontalAlignment ALNType;
-        private bool isPasswordMasked = false;
         private readonly Pen P1;
         private readonly SolidBrush B1;
-
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
-        private Color _BorderColor = Color.FromArgb(180, 180, 180);
-        private Color _CustomBGColor = Color.White;
 
         #endregion
 
@@ -37,42 +28,42 @@ namespace ReaLTaiizor.Controls
 
         public HorizontalAlignment TextAlignment
         {
-            get => ALNType;
+            get;
             set
             {
-                ALNType = value;
+                field = value;
                 Invalidate();
             }
         }
 
         public int MaxLength
         {
-            get => _maxchars;
+            get;
             set
             {
-                _maxchars = value;
+                field = value;
                 RT_TB.MaxLength = MaxLength;
                 Invalidate();
             }
-        }
+        } = 32767;
 
         public bool UseSystemPasswordChar
         {
-            get => isPasswordMasked;
+            get;
             set
             {
                 RT_TB.UseSystemPasswordChar = UseSystemPasswordChar;
-                isPasswordMasked = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         public bool ReadOnly
         {
-            get => _ReadOnly;
+            get;
             set
             {
-                _ReadOnly = value;
+                field = value;
                 if (RT_TB != null)
                 {
                     RT_TB.ReadOnly = value;
@@ -82,10 +73,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Multiline
         {
-            get => _Multiline;
+            get;
             set
             {
-                _Multiline = value;
+                field = value;
                 if (RT_TB != null)
                 {
                     RT_TB.Multiline = value;
@@ -104,33 +95,33 @@ namespace ReaLTaiizor.Controls
 
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
         public Color BorderColor
         {
-            get => _BorderColor;
+            get;
             set
             {
-                _BorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(180, 180, 180);
 
         public Color CustomBGColor
         {
-            get => _CustomBGColor;
+            get;
             set
             {
-                _CustomBGColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         #endregion
 
@@ -183,7 +174,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            if (_Multiline)
+            if (Multiline)
             {
                 RT_TB.Height = Height - 10;
             }

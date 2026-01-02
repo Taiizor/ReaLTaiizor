@@ -30,10 +30,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -56,8 +56,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -76,21 +76,7 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
-        private int _value;
         private int _currentValue;
-
-        private bool _isDerivedStyle = true;
-        private int _maximum = 100;
-        private int _minimum;
-        private ProgressOrientation _orientation = ProgressOrientation.Horizontal;
-        private Color _backgroundColor;
-        private Color _borderColor;
-        private Color _progressColor;
-        private Color _disabledProgressColor;
-        private Color _disabledBackColor;
-        private Color _disabledBorderColor;
 
         #endregion Internal Vars
 
@@ -225,7 +211,7 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the current position of the progressbar.")]
         public int Value
         {
-            get => _value < 0 ? 0 : _value;
+            get => field < 0 ? 0 : field;
             set
             {
                 if (value > Maximum)
@@ -233,7 +219,7 @@ namespace ReaLTaiizor.Controls
                     value = Maximum;
                 }
 
-                _value = value;
+                field = value;
                 RenewCurrentValue();
                 ValueChanged?.Invoke(this);
                 Invalidate();
@@ -243,21 +229,21 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the maximum value of the progressbar.")]
         public int Maximum
         {
-            get => _maximum;
+            get;
             set
             {
-                _maximum = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = 100;
 
         [Category("Metro"), Description("Gets or sets the minimum value of the progressbar.")]
         public int Minimum
         {
-            get => _minimum;
+            get;
             set
             {
-                _minimum = value;
+                field = value;
                 Refresh();
             }
         }
@@ -269,22 +255,22 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the minimum value of the progressbar.")]
         public ProgressOrientation Orientation
         {
-            get => _orientation;
+            get;
             set
             {
-                _orientation = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = ProgressOrientation.Horizontal;
 
         [Category("Metro"), Description("Gets or sets the control backcolor.")]
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get => _backgroundColor;
+            get;
             set
             {
-                _backgroundColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -292,10 +278,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color.")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -303,10 +289,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the progress color of the control.")]
         public Color ProgressColor
         {
-            get => _progressColor;
+            get;
             set
             {
-                _progressColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -314,10 +300,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the progresscolor of the control whenever while disabled.")]
         public Color DisabledProgressColor
         {
-            get => _disabledProgressColor;
+            get;
             set
             {
-                _disabledProgressColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -325,10 +311,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets disabled backcolor used by the control.")]
         public Color DisabledBackColor
         {
-            get => _disabledBackColor;
+            get;
             set
             {
-                _disabledBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -336,10 +322,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get => _disabledBorderColor;
+            get;
             set
             {
-                _disabledBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -349,13 +335,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion
 

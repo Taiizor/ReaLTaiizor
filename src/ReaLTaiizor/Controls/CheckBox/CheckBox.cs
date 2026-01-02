@@ -18,8 +18,6 @@ namespace ReaLTaiizor.Controls
         #region Variables
 
         private int X;
-        private bool _Enable = true;
-        private bool _Checked = false;
         private GraphicsPath Shape;
 
         #endregion
@@ -28,24 +26,24 @@ namespace ReaLTaiizor.Controls
 
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 CheckedChangedEvent?.Invoke(this);
                 Invalidate();
             }
-        }
+        } = false;
 
         public bool Enable
         {
-            get => _Enable;
+            get;
             set
             {
-                _Enable = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         public Color CheckedEnabledColor { get; set; } = Color.FromArgb(32, 34, 37);
 
@@ -78,7 +76,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (_Enable)
+            if (Enable)
             {
                 Checked = !Checked;
                 Focus();
@@ -119,7 +117,7 @@ namespace ReaLTaiizor.Controls
             Graphics G = e.Graphics;
             G.Clear(BackColor);
 
-            if (_Checked)
+            if (Checked)
             {
                 G.FillRectangle(new SolidBrush(CheckedBorderColor), new Rectangle(0, 0, 16, 16));
                 G.FillRectangle(new SolidBrush(CheckedBackColor), new Rectangle(1, 1, 16 - 2, 16 - 2));
@@ -130,9 +128,9 @@ namespace ReaLTaiizor.Controls
                 G.FillRectangle(new SolidBrush(CheckedBackColor), new Rectangle(1, 1, 16 - 2, 16 - 2));
             }
 
-            if (_Enable)
+            if (Enable)
             {
-                if (_Checked)
+                if (Checked)
                 {
                     G.DrawString("a", new Font("Marlett", 16), new SolidBrush(CheckedEnabledColor), new Point(-5, -3));
                 }
@@ -141,7 +139,7 @@ namespace ReaLTaiizor.Controls
             }
             else
             {
-                if (_Checked)
+                if (Checked)
                 {
                     G.DrawString("a", new Font("Marlett", 16), new SolidBrush(CheckedDisabledColor), new Point(-5, -3));
                 }

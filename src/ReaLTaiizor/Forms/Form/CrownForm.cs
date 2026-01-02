@@ -15,8 +15,6 @@ namespace ReaLTaiizor.Forms
     {
         #region Field Region
 
-        private bool _flatBorder;
-
         #endregion
 
         #region Property Region
@@ -26,10 +24,10 @@ namespace ReaLTaiizor.Forms
         [DefaultValue(false)]
         public bool FlatBorder
         {
-            get => _flatBorder;
+            get;
             set
             {
-                _flatBorder = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -52,7 +50,7 @@ namespace ReaLTaiizor.Forms
         {
             base.OnPaintBackground(e);
 
-            if (!_flatBorder)
+            if (!FlatBorder)
             {
                 return;
             }

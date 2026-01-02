@@ -16,7 +16,6 @@ namespace ReaLTaiizor.Controls
     {
         #region Field Region
 
-        private bool _autoUpdateHeight;
         private bool _isGrowing;
 
         #endregion
@@ -28,12 +27,12 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         public bool AutoUpdateHeight
         {
-            get => _autoUpdateHeight;
+            get;
             set
             {
-                _autoUpdateHeight = value;
+                field = value;
 
-                if (_autoUpdateHeight)
+                if (field)
                 {
                     AutoSize = false;
                     ResizeLabel();
@@ -70,7 +69,7 @@ namespace ReaLTaiizor.Controls
 
         private void ResizeLabel()
         {
-            if (!_autoUpdateHeight || _isGrowing)
+            if (!AutoUpdateHeight || _isGrowing)
             {
                 return;
             }

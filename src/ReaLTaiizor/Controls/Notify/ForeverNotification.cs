@@ -25,21 +25,21 @@ namespace ReaLTaiizor.Controls
         private string _Text;
         private MouseStateForever State = MouseStateForever.None;
         private int X;
-        private Timer withEventsField_T;
+
         private Timer T
         {
-            get => withEventsField_T;
+            get;
             set
             {
-                if (withEventsField_T != null)
+                if (field != null)
                 {
-                    withEventsField_T.Tick -= T_Tick;
+                    field.Tick -= T_Tick;
                 }
 
-                withEventsField_T = value;
-                if (withEventsField_T != null)
+                field = value;
+                if (field != null)
                 {
-                    withEventsField_T.Tick += T_Tick;
+                    field.Tick += T_Tick;
                 }
             }
 

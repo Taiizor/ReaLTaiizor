@@ -17,7 +17,7 @@ namespace ReaLTaiizor.UI
     {
         #region Field Region
 
-        private readonly List<CrownDockContent> _toolWindows = new();
+        private readonly List<CrownDockContent> _toolWindows = [];
 
         private readonly DockProject _dockProject;
         private readonly DockProperties _dockProperties;

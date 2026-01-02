@@ -21,7 +21,6 @@ namespace ReaLTaiizor.Controls
     {
         #region Interface
 
-        private ColorStyle PoisonStyle = ColorStyle.Blue;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ColorStyle Style
         {
@@ -32,12 +31,11 @@ namespace ReaLTaiizor.Controls
                     return StyleManager.Style;
                 }
 
-                return PoisonStyle;
+                return field;
             }
-            set => PoisonStyle = value;
-        }
+            set;
+        } = ColorStyle.Blue;
 
-        private ThemeStyle PoisonTheme = ThemeStyle.Light;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public ThemeStyle Theme
         {
@@ -48,10 +46,10 @@ namespace ReaLTaiizor.Controls
                     return StyleManager.Theme;
                 }
 
-                return PoisonTheme;
+                return field;
             }
-            set => PoisonTheme = value;
-        }
+            set;
+        } = ThemeStyle.Light;
 
         [Browsable(false)]
         public PoisonStyleManager StyleManager { get; set; } = null;

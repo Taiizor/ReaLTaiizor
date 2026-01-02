@@ -13,94 +13,85 @@ namespace ReaLTaiizor.Controls
 
     public class RibbonGroupBox : ContainerControl
     {
-
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private Color _BaseColor = Color.Transparent;
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Transparent;
 
-        private Color _LineColorA = Color.FromArgb(126, 126, 126);
         public Color LineColorA
         {
-            get => _LineColorA;
+            get;
             set
             {
-                _LineColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(126, 126, 126);
 
-        private Color _LineColorB = Color.FromArgb(126, 126, 126);
         public Color LineColorB
         {
-            get => _LineColorB;
+            get;
             set
             {
-                _LineColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(126, 126, 126);
 
-        private Color _BorderColorA = Color.FromArgb(143, 143, 143);
         public Color BorderColorA
         {
-            get => _BorderColorA;
+            get;
             set
             {
-                _BorderColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(143, 143, 143);
 
-        private Color _BorderColorB = Color.FromArgb(174, 178, 172);
         public Color BorderColorB
         {
-            get => _BorderColorB;
+            get;
             set
             {
-                _BorderColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(174, 178, 172);
 
-        private Color _BorderColorC = Color.FromArgb(194, 192, 200);
         public Color BorderColorC
         {
-            get => _BorderColorC;
+            get;
             set
             {
-                _BorderColorC = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(194, 192, 200);
 
         public RibbonGroupBox()
         {

@@ -32,10 +32,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -58,8 +58,8 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
-            set { _styleManager = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [Category("Metro"), Description("Gets or sets the The Author name associated with the theme.")]
@@ -78,18 +78,7 @@ namespace ReaLTaiizor.Controls
 
         #region Internal Vars
 
-        private Style _style;
-        private MetroStyleManager _styleManager;
-        private bool _checked;
         private readonly IntAnimate _animator;
-
-        private bool _isDerivedStyle = true;
-        private SignStyle _signStyle = SignStyle.Sign;
-        private Enum.Metro.CheckState _checkState;
-        private Color _backgroundColor;
-        private Color _borderColor;
-        private Color _disabledBorderColor;
-        private Color _checkSignColor;
 
         #endregion Internal Vars
 
@@ -288,10 +277,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets a value indicating whether the control is checked.")]
         public bool Checked
         {
-            get => _checked;
+            get;
             set
             {
-                _checked = value;
+                field = value;
                 CheckedChanged?.Invoke(this);
                 _animator.Reverse(!value);
                 CheckState = value ? Enum.Metro.CheckState.Checked : Enum.Metro.CheckState.Unchecked;
@@ -302,21 +291,21 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the the sign style of check.")]
         public SignStyle SignStyle
         {
-            get => _signStyle;
+            get;
             set
             {
-                _signStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = SignStyle.Sign;
 
         [Browsable(false)]
         public Enum.Metro.CheckState CheckState
         {
-            get => _checkState;
+            get;
             set
             {
-                _checkState = value;
+                field = value;
                 Refresh();
             }
         }
@@ -331,10 +320,10 @@ namespace ReaLTaiizor.Controls
         [DisplayName("BackColor")]
         public Color BackgroundColor
         {
-            get => _backgroundColor;
+            get;
             set
             {
-                _backgroundColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -342,10 +331,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color.")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -353,10 +342,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the border color while the control disabled.")]
         public Color DisabledBorderColor
         {
-            get => _disabledBorderColor;
+            get;
             set
             {
-                _disabledBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -364,10 +353,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the color of the check symbol.")]
         public Color CheckSignColor
         {
-            get => _checkSignColor;
+            get;
             set
             {
-                _checkSignColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -377,13 +366,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion Properties
 

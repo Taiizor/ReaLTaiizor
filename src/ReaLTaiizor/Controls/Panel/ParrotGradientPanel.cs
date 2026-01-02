@@ -35,143 +35,138 @@ namespace ReaLTaiizor.Controls
         [Description("The primer color")]
         public Color PrimerColor
         {
-            get => primerColor;
+            get;
             set
             {
-                primerColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The top left color")]
         public Color TopLeft
         {
-            get => topLeft;
+            get;
             set
             {
-                topLeft = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DeepSkyBlue;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The top right color")]
         public Color TopRight
         {
-            get => topRight;
+            get;
             set
             {
-                topRight = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Fuchsia;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The bottom left color")]
         public Color BottomLeft
         {
-            get => bottomLeft;
+            get;
             set
             {
-                bottomLeft = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The bottom right color")]
         public Color BottomRight
         {
-            get => bottomRight;
+            get;
             set
             {
-                bottomRight = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Fuchsia;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The gradient orientation")]
         public GradientStyle Style
         {
-            get => style;
+            get;
             set
             {
-                style = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = GradientStyle.Corners;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBilinear;
         [Category("Parrot")]
         [Browsable(true)]
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBilinear;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -184,29 +179,29 @@ namespace ReaLTaiizor.Controls
             bufferedGraphics.Graphics.CompositingQuality = CompositingQualityType;
             bufferedGraphics.Graphics.PixelOffsetMode = PixelOffsetType;
             bufferedGraphics.Graphics.TextRenderingHint = TextRenderingType;
-            bufferedGraphics.Graphics.Clear(primerColor);
-            if (style == GradientStyle.Corners)
+            bufferedGraphics.Graphics.Clear(PrimerColor);
+            if (Style == GradientStyle.Corners)
             {
                 LinearGradientBrush linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), TopLeft, Color.Transparent, 45f);
                 bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, base.ClientRectangle);
-                linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), topRight, Color.Transparent, 135f);
+                linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), TopRight, Color.Transparent, 135f);
                 bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, base.ClientRectangle);
-                linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), bottomRight, Color.Transparent, 225f);
+                linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), BottomRight, Color.Transparent, 225f);
                 bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, base.ClientRectangle);
-                linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), bottomLeft, Color.Transparent, 315f);
+                linearGradientBrush = new(new Rectangle(0, 0, base.Width, base.Height), BottomLeft, Color.Transparent, 315f);
                 bufferedGraphics.Graphics.FillRectangle(linearGradientBrush, base.ClientRectangle);
                 linearGradientBrush.Dispose();
             }
             else
             {
                 Brush brush;
-                if (style == GradientStyle.Vertical)
+                if (Style == GradientStyle.Vertical)
                 {
-                    brush = new LinearGradientBrush(base.ClientRectangle, topLeft, topRight, 720f);
+                    brush = new LinearGradientBrush(base.ClientRectangle, TopLeft, TopRight, 720f);
                 }
                 else
                 {
-                    brush = new LinearGradientBrush(base.ClientRectangle, topLeft, topRight, 90f);
+                    brush = new LinearGradientBrush(base.ClientRectangle, TopLeft, TopRight, 90f);
                 }
                 bufferedGraphics.Graphics.FillRectangle(brush, base.ClientRectangle);
                 brush.Dispose();
@@ -215,18 +210,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private BufferedGraphics bufferedGraphics;
-
-        private Color primerColor = Color.White;
-
-        private Color topLeft = Color.DeepSkyBlue;
-
-        private Color topRight = Color.Fuchsia;
-
-        private Color bottomLeft = Color.Black;
-
-        private Color bottomRight = Color.Fuchsia;
-
-        private GradientStyle style = GradientStyle.Corners;
 
         public enum GradientStyle
         {

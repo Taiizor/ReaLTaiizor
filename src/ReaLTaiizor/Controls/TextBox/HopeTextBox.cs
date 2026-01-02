@@ -79,38 +79,35 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private Color _BaseColor = Color.FromArgb(44, 55, 66);
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(44, 55, 66);
 
-        private Color _BorderColorA = HopeColors.PrimaryColor;
         public Color BorderColorA
         {
-            get => _BorderColorA;
+            get;
             set
             {
-                _BorderColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.PrimaryColor;
 
-        private Color _BorderColorB = HopeColors.OneLevelBorder;
         public Color BorderColorB
         {
-            get => _BorderColorB;
+            get;
             set
             {
-                _BorderColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HopeColors.OneLevelBorder;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -123,11 +120,11 @@ namespace ReaLTaiizor.Controls
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
             g.SmoothingMode = SmoothingMode.HighQuality;
             g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            g.Clear(_BaseColor);
+            g.Clear(BaseColor);
 
             GraphicsPath bg = RoundRectangle.CreateRoundRect(0.5f, 0.5f, Width - 1, Height - 1, 3);
             g.FillPath(new SolidBrush(BackColor), bg);
-            g.DrawPath(new(_baseTextBox.Focused ? _BorderColorA : _BorderColorB, 0.5f), bg);
+            g.DrawPath(new(_baseTextBox.Focused ? BorderColorA : BorderColorB, 0.5f), bg);
         }
 
         public HopeTextBox()
@@ -231,7 +228,7 @@ namespace ReaLTaiizor.Controls
             remove => _baseTextBox.ClientSizeChanged -= value;
         }
 
-#if !NETCOREAPP3_1 && !NET7_0 && !NET8_0 && !NET9_0
+#if !NETCOREAPP3_1 && !NET7_0 && !NET8_0 && !NET9_0 && !NET10_0
         public new event EventHandler ContextMenuChanged
         {
             add => _baseTextBox.ContextMenuChanged += value;
@@ -634,27 +631,25 @@ namespace ReaLTaiizor.Controls
             private const char VisualStylePasswordChar = '\u25CF';
             private const char NonVisualStylePasswordChar = '\u002A';
 
-            private string hint = string.Empty;
             public string Hint
             {
-                get => hint;
+                get;
                 set
                 {
-                    hint = value;
+                    field = value;
                     SendMessage(Handle, EM_SETCUEBANNER, (int)IntPtr.Zero, Hint);
                 }
-            }
+            } = string.Empty;
 
-            private char _passwordChar = EmptyChar;
             public new char PasswordChar
             {
-                get => _passwordChar;
+                get;
                 set
                 {
-                    _passwordChar = value;
+                    field = value;
                     SetBasePasswordChar();
                 }
-            }
+            } = EmptyChar;
 
             public new void SelectAll()
             {
@@ -692,14 +687,14 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0 || NET10_0
             //public EventHandler ContextMenuChanged { get; internal set; }
             public event EventHandler ContextMenuChanged;
 #endif
 
             private void SetBasePasswordChar()
             {
-                base.PasswordChar = UseSystemPasswordChar ? _useSystemPasswordChar : _passwordChar;
+                base.PasswordChar = UseSystemPasswordChar ? _useSystemPasswordChar : PasswordChar;
             }
 
             public TextBoxHopeBase()

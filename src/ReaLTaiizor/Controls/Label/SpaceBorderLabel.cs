@@ -27,17 +27,16 @@ namespace ReaLTaiizor.Controls
         private SolidBrush B1; // A Brush to use text
         private Pen P1; // A Pen used to create borders
         private Pen P2;
-        private HorizontalAlignment _TextAlignment = HorizontalAlignment.Center;
 
         public HorizontalAlignment TextAlignment
         {
-            get => _TextAlignment;
+            get;
             set
             {
-                _TextAlignment = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HorizontalAlignment.Center;
 
         protected override void ColorHook()
         { // Assign Variables

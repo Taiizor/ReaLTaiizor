@@ -50,23 +50,23 @@ namespace ReaLTaiizor.Util
             InvalidateCustimization();
             ColorHook();
 
-            if (!(_LockWidth == 0))
+            if (!(LockWidth == 0))
             {
-                Width = _LockWidth;
+                Width = LockWidth;
             }
 
-            if (!(_LockHeight == 0))
+            if (!(LockHeight == 0))
             {
-                Height = _LockHeight;
+                Height = LockHeight;
             }
 
-            if (!_ControlMode)
+            if (!ControlMode)
             {
                 base.Dock = DockStyle.Fill;
             }
 
-            Transparent = _Transparent;
-            if (_Transparent && _BackColor)
+            Transparent = Transparent;
+            if (Transparent && _BackColor)
             {
                 BackColor = Color.Transparent;
             }
@@ -86,7 +86,7 @@ namespace ReaLTaiizor.Util
 
             IsParentForm = Parent is Form;
 
-            if (!_ControlMode)
+            if (!ControlMode)
             {
                 InitializeMessages();
 
@@ -127,7 +127,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            if (_Transparent && _ControlMode)
+            if (Transparent && ControlMode)
             {
                 PaintHook();
                 e.Graphics.DrawImage(B, 0, 0);
@@ -148,7 +148,7 @@ namespace ReaLTaiizor.Util
         private bool HasShown;
         private void FormShown(object sender, EventArgs e)
         {
-            if (_ControlMode || HasShown)
+            if (ControlMode || HasShown)
             {
                 return;
             }
@@ -168,9 +168,9 @@ namespace ReaLTaiizor.Util
         private Rectangle Frame;
         protected sealed override void OnSizeChanged(EventArgs e)
         {
-            if (Movable && !_ControlMode)
+            if (Movable && !ControlMode)
             {
-                Frame = new(7, 7, Width - 14, _Header - 7);
+                Frame = new(7, 7, Width - 14, Header - 7);
             }
 
             InvalidateBitmap();
@@ -181,14 +181,14 @@ namespace ReaLTaiizor.Util
 
         protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
         {
-            if (!(_LockWidth == 0))
+            if (!(LockWidth == 0))
             {
-                width = _LockWidth;
+                width = LockWidth;
             }
 
-            if (!(_LockHeight == 0))
+            if (!(LockHeight == 0))
             {
-                height = _LockHeight;
+                height = LockHeight;
             }
 
             base.SetBoundsCore(x, y, width, height, specified);
@@ -209,7 +209,7 @@ namespace ReaLTaiizor.Util
         {
             if (!(IsParentForm && ParentForm.WindowState == FormWindowState.Maximized))
             {
-                if (Sizable && !_ControlMode)
+                if (Sizable && !ControlMode)
                 {
                     InvalidateMouse();
                 }
@@ -250,7 +250,7 @@ namespace ReaLTaiizor.Util
 
             if (GetChildAtPoint(PointToClient(MousePosition)) != null)
             {
-                if (Sizable && !_ControlMode)
+                if (Sizable && !ControlMode)
                 {
                     Cursor = Cursors.Default;
                     Previous = 0;
@@ -267,7 +267,7 @@ namespace ReaLTaiizor.Util
                 SetState(MouseStateSpace.Down);
             }
 
-            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || _ControlMode))
+            if (!((IsParentForm && ParentForm.WindowState == FormWindowState.Maximized) || ControlMode))
             {
                 if (Movable && Frame.Contains(e.Location))
                 {
@@ -463,7 +463,7 @@ namespace ReaLTaiizor.Util
             get => base.Dock;
             set
             {
-                if (!_ControlMode)
+                if (!ControlMode)
                 {
                     return;
                 }
@@ -484,7 +484,7 @@ namespace ReaLTaiizor.Util
                     return;
                 }
 
-                if (!IsHandleCreated && _ControlMode && value == Color.Transparent)
+                if (!IsHandleCreated && ControlMode && value == Color.Transparent)
                 {
                     _BackColor = true;
                     return;
@@ -493,7 +493,7 @@ namespace ReaLTaiizor.Util
                 base.BackColor = value;
                 if (Parent != null)
                 {
-                    if (!_ControlMode)
+                    if (!ControlMode)
                     {
                         Parent.BackColor = value;
                     }
@@ -581,7 +581,7 @@ namespace ReaLTaiizor.Util
         {
             get
             {
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     return ParentForm.TransparencyKey;
                 }
@@ -599,7 +599,7 @@ namespace ReaLTaiizor.Util
 
                 _TransparencyKey = value;
 
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     ParentForm.TransparencyKey = value;
                     ColorHook();
@@ -612,7 +612,7 @@ namespace ReaLTaiizor.Util
         {
             get
             {
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     return ParentForm.FormBorderStyle;
                 }
@@ -625,7 +625,7 @@ namespace ReaLTaiizor.Util
             {
                 _BorderStyle = value;
 
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     ParentForm.FormBorderStyle = value;
 
@@ -643,7 +643,7 @@ namespace ReaLTaiizor.Util
         {
             get
             {
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     return ParentForm.StartPosition;
                 }
@@ -656,28 +656,26 @@ namespace ReaLTaiizor.Util
             {
                 _StartPosition = value;
 
-                if (IsParentForm && !_ControlMode)
+                if (IsParentForm && !ControlMode)
                 {
                     ParentForm.StartPosition = value;
                 }
             }
         }
 
-        private bool _NoRounding;
         public bool NoRounding
         {
-            get => _NoRounding;
+            get;
             set
             {
-                _NoRounding = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private Image _Image;
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -689,17 +687,17 @@ namespace ReaLTaiizor.Util
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private readonly Dictionary<string, Color> Items = new();
+        private readonly Dictionary<string, Color> Items = [];
         public BloomSpace[] Colors
         {
             get
             {
-                List<BloomSpace> T = new();
+                List<BloomSpace> T = [];
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
@@ -759,14 +757,13 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private bool _Transparent;
         public bool Transparent
         {
-            get => _Transparent;
+            get;
             set
             {
-                _Transparent = value;
-                if (!(IsHandleCreated || _ControlMode))
+                field = value;
+                if (!(IsHandleCreated || ControlMode))
                 {
                     return;
                 }
@@ -806,13 +803,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private int _LockWidth;
         protected int LockWidth
         {
-            get => _LockWidth;
+            get;
             set
             {
-                _LockWidth = value;
+                field = value;
                 if (!(LockWidth == 0) && IsHandleCreated)
                 {
                     Width = LockWidth;
@@ -820,13 +816,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private int _LockHeight;
         protected int LockHeight
         {
-            get => _LockHeight;
+            get;
             set
             {
-                _LockHeight = value;
+                field = value;
                 if (!(LockHeight == 0) && IsHandleCreated)
                 {
                     Height = LockHeight;
@@ -834,32 +829,30 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private int _Header = 24;
         protected int Header
         {
-            get => _Header;
+            get;
             set
             {
-                _Header = value;
+                field = value;
 
-                if (!_ControlMode)
+                if (!ControlMode)
                 {
                     Frame = new(7, 7, Width - 14, value - 7);
                     Invalidate();
                 }
             }
-        }
+        } = 24;
 
-        private bool _ControlMode;
         protected bool ControlMode
         {
-            get => _ControlMode;
+            get;
             set
             {
-                _ControlMode = value;
+                field = value;
 
-                Transparent = _Transparent;
-                if (_Transparent && _BackColor)
+                Transparent = Transparent;
+                if (Transparent && _BackColor)
                 {
                     BackColor = Color.Transparent;
                 }
@@ -869,13 +862,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private bool _IsAnimated;
         protected bool IsAnimated
         {
-            get => _IsAnimated;
+            get;
             set
             {
-                _IsAnimated = value;
+                field = value;
                 InvalidateTimer();
             }
         }
@@ -929,7 +921,7 @@ namespace ReaLTaiizor.Util
 
         private void InvalidateBitmap()
         {
-            if (_Transparent && _ControlMode)
+            if (Transparent && ControlMode)
             {
                 if (Width == 0 || Height == 0)
                 {
@@ -966,7 +958,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            if (_IsAnimated)
+            if (IsAnimated)
             {
                 ThemeShareSpace.AddAnimationCallback(DoAnimation);
             }
@@ -1086,7 +1078,7 @@ namespace ReaLTaiizor.Util
         private SolidBrush DrawPixelBrush;
         protected void DrawPixel(Color c1, int x, int y)
         {
-            if (_Transparent)
+            if (Transparent)
             {
                 B.SetPixel(x, y, c1);
             }
@@ -1125,12 +1117,12 @@ namespace ReaLTaiizor.Util
         }
         protected void DrawCorners(Color c1, int x, int y, int width, int height)
         {
-            if (_NoRounding)
+            if (NoRounding)
             {
                 return;
             }
 
-            if (_Transparent)
+            if (Transparent)
             {
                 B.SetPixel(x, y, c1);
                 B.SetPixel(x + (width - 1), y, c1);
@@ -1238,7 +1230,7 @@ namespace ReaLTaiizor.Util
         private Point DrawImagePoint;
         protected void DrawImage(HorizontalAlignment a, int x, int y)
         {
-            DrawImage(_Image, a, x, y);
+            DrawImage(Image, a, x, y);
         }
         protected void DrawImage(Image image, HorizontalAlignment a, int x, int y)
         {
@@ -1265,11 +1257,11 @@ namespace ReaLTaiizor.Util
 
         protected void DrawImage(Point p1)
         {
-            DrawImage(_Image, p1.X, p1.Y);
+            DrawImage(Image, p1.X, p1.Y);
         }
         protected void DrawImage(int x, int y)
         {
-            DrawImage(_Image, x, y);
+            DrawImage(Image, x, y);
         }
 
         protected void DrawImage(Image image, Point p1)
@@ -1476,18 +1468,18 @@ namespace ReaLTaiizor.Util
             InvalidateCustimization();
             ColorHook();
 
-            if (!(_LockWidth == 0))
+            if (!(LockWidth == 0))
             {
-                Width = _LockWidth;
+                Width = LockWidth;
             }
 
-            if (!(_LockHeight == 0))
+            if (!(LockHeight == 0))
             {
-                Height = _LockHeight;
+                Height = LockHeight;
             }
 
-            Transparent = _Transparent;
-            if (_Transparent && _BackColor)
+            Transparent = Transparent;
+            if (Transparent && _BackColor)
             {
                 BackColor = Color.Transparent;
             }
@@ -1527,7 +1519,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            if (_Transparent)
+            if (Transparent)
             {
                 PaintHook();
                 e.Graphics.DrawImage(B, 0, 0);
@@ -1549,7 +1541,7 @@ namespace ReaLTaiizor.Util
 
         protected sealed override void OnSizeChanged(EventArgs e)
         {
-            if (_Transparent)
+            if (Transparent)
             {
                 InvalidateBitmap();
             }
@@ -1560,14 +1552,14 @@ namespace ReaLTaiizor.Util
 
         protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
         {
-            if (!(_LockWidth == 0))
+            if (!(LockWidth == 0))
             {
-                width = _LockWidth;
+                width = LockWidth;
             }
 
-            if (!(_LockHeight == 0))
+            if (!(LockHeight == 0))
             {
-                height = _LockHeight;
+                height = LockHeight;
             }
 
             base.SetBoundsCore(x, y, width, height, specified);
@@ -1700,21 +1692,19 @@ namespace ReaLTaiizor.Util
 
         #region " Public Properties "
 
-        private bool _NoRounding;
         public bool NoRounding
         {
-            get => _NoRounding;
+            get;
             set
             {
-                _NoRounding = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private Image _Image;
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -1726,18 +1716,17 @@ namespace ReaLTaiizor.Util
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private bool _Transparent;
         public bool Transparent
         {
-            get => _Transparent;
+            get;
             set
             {
-                _Transparent = value;
+                field = value;
                 if (!IsHandleCreated)
                 {
                     return;
@@ -1764,12 +1753,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private readonly Dictionary<string, Color> Items = new();
+        private readonly Dictionary<string, Color> Items = [];
         public BloomSpace[] Colors
         {
             get
             {
-                List<BloomSpace> T = new();
+                List<BloomSpace> T = [];
                 Dictionary<string, Color>.Enumerator E = Items.GetEnumerator();
 
                 while (E.MoveNext())
@@ -1836,13 +1825,12 @@ namespace ReaLTaiizor.Util
         private Size _ImageSize;
         protected Size ImageSize => _ImageSize;
 
-        private int _LockWidth;
         protected int LockWidth
         {
-            get => _LockWidth;
+            get;
             set
             {
-                _LockWidth = value;
+                field = value;
                 if (!(LockWidth == 0) && IsHandleCreated)
                 {
                     Width = LockWidth;
@@ -1850,13 +1838,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private int _LockHeight;
         protected int LockHeight
         {
-            get => _LockHeight;
+            get;
             set
             {
-                _LockHeight = value;
+                field = value;
                 if (!(LockHeight == 0) && IsHandleCreated)
                 {
                     Height = LockHeight;
@@ -1864,13 +1851,12 @@ namespace ReaLTaiizor.Util
             }
         }
 
-        private bool _IsAnimated;
         protected bool IsAnimated
         {
-            get => _IsAnimated;
+            get;
             set
             {
-                _IsAnimated = value;
+                field = value;
                 InvalidateTimer();
             }
         }
@@ -1953,7 +1939,7 @@ namespace ReaLTaiizor.Util
                 return;
             }
 
-            if (_IsAnimated)
+            if (IsAnimated)
             {
                 ThemeShareSpace.AddAnimationCallback(DoAnimation);
             }
@@ -2068,7 +2054,7 @@ namespace ReaLTaiizor.Util
         private SolidBrush DrawPixelBrush;
         protected void DrawPixel(Color c1, int x, int y)
         {
-            if (_Transparent)
+            if (Transparent)
             {
                 B.SetPixel(x, y, c1);
             }
@@ -2107,12 +2093,12 @@ namespace ReaLTaiizor.Util
         }
         protected void DrawCorners(Color c1, int x, int y, int width, int height)
         {
-            if (_NoRounding)
+            if (NoRounding)
             {
                 return;
             }
 
-            if (_Transparent)
+            if (Transparent)
             {
                 B.SetPixel(x, y, c1);
                 B.SetPixel(x + (width - 1), y, c1);
@@ -2221,7 +2207,7 @@ namespace ReaLTaiizor.Util
         private Point DrawImagePoint;
         protected void DrawImage(HorizontalAlignment a, int x, int y)
         {
-            DrawImage(_Image, a, x, y);
+            DrawImage(Image, a, x, y);
         }
         protected void DrawImage(Image image, HorizontalAlignment a, int x, int y)
         {
@@ -2248,11 +2234,11 @@ namespace ReaLTaiizor.Util
 
         protected void DrawImage(Point p1)
         {
-            DrawImage(_Image, p1.X, p1.Y);
+            DrawImage(Image, p1.X, p1.Y);
         }
         protected void DrawImage(int x, int y)
         {
-            DrawImage(_Image, x, y);
+            DrawImage(Image, x, y);
         }
 
         protected void DrawImage(Image image, Point p1)
@@ -2446,7 +2432,7 @@ namespace ReaLTaiizor.Util
         private const int Rate = 10;
 
         public delegate void AnimationDelegate(bool invalidate);
-        private static readonly List<AnimationDelegate> Callbacks = new();
+        private static readonly List<AnimationDelegate> Callbacks = [];
 
         private static void HandleCallbacks(IntPtr state, bool reserve)
         {

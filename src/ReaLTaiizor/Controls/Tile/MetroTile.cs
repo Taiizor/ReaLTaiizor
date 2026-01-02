@@ -31,10 +31,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the style associated with the control.")]
         public Style Style
         {
-            get => StyleManager?.Style ?? _style;
+            get => StyleManager?.Style ?? field;
             set
             {
-                _style = value;
+                field = value;
                 switch (value)
                 {
                     case Style.Light:
@@ -63,10 +63,10 @@ namespace ReaLTaiizor.Controls
         [Category("Metro"), Description("Gets or sets the Style Manager associated with the control.")]
         public MetroStyleManager StyleManager
         {
-            get => _styleManager;
+            get;
             set
             {
-                _styleManager = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -82,23 +82,6 @@ namespace ReaLTaiizor.Controls
         #region Internal Vars
 
         private MouseMode _state;
-        private Style _style;
-        private MetroStyleManager _styleManager;
-
-        private bool _isDerivedStyle = true;
-        private TileAlign _textAlign;
-        private Color _normalColor;
-        private Color _normalBorderColor;
-        private Color _normalTextColor;
-        private Color _hoverColor;
-        private Color _hoverBorderColor;
-        private Color _hoverTextColor;
-        private Color _pressColor;
-        private Color _pressBorderColor;
-        private Color _pressTextColor;
-        private Color _disabledBackColor;
-        private Color _disabledForeColor;
-        private Color _disabledBorderColor;
 
         #endregion Internal Vars
 
@@ -353,10 +336,10 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(TileAlign.BottmLeft)]
         public TileAlign TileAlign
         {
-            get => _textAlign;
+            get;
             set
             {
-                _textAlign = value;
+                field = value;
                 Refresh();
             }
         }
@@ -365,10 +348,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control background color in normal mouse sate.")]
         public Color NormalColor
         {
-            get => _normalColor;
+            get;
             set
             {
-                _normalColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -377,10 +360,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control border color in normal mouse sate.")]
         public Color NormalBorderColor
         {
-            get => _normalBorderColor;
+            get;
             set
             {
-                _normalBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -389,10 +372,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control Text color in normal mouse sate.")]
         public Color NormalTextColor
         {
-            get => _normalTextColor;
+            get;
             set
             {
-                _normalTextColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -401,10 +384,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control background color in hover mouse sate.")]
         public Color HoverColor
         {
-            get => _hoverColor;
+            get;
             set
             {
-                _hoverColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -413,10 +396,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control border color in hover mouse sate.")]
         public Color HoverBorderColor
         {
-            get => _hoverBorderColor;
+            get;
             set
             {
-                _hoverBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -425,10 +408,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control Text color in hover mouse sate.")]
         public Color HoverTextColor
         {
-            get => _hoverTextColor;
+            get;
             set
             {
-                _hoverTextColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -437,10 +420,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control background color in pushed mouse sate.")]
         public Color PressColor
         {
-            get => _pressColor;
+            get;
             set
             {
-                _pressColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -449,10 +432,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control border color in pushed mouse sate.")]
         public Color PressBorderColor
         {
-            get => _pressBorderColor;
+            get;
             set
             {
-                _pressBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -461,10 +444,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the control Text color in pushed mouse sate.")]
         public Color PressTextColor
         {
-            get => _pressTextColor;
+            get;
             set
             {
-                _pressTextColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -473,10 +456,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets backcolor used by the control while disabled.")]
         public Color DisabledBackColor
         {
-            get => _disabledBackColor;
+            get;
             set
             {
-                _disabledBackColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -485,10 +468,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the forecolor of the control whenever while disabled.")]
         public Color DisabledForeColor
         {
-            get => _disabledForeColor;
+            get;
             set
             {
-                _disabledForeColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -497,10 +480,10 @@ namespace ReaLTaiizor.Controls
         [Description("Gets or sets the border color of the control while disabled.")]
         public Color DisabledBorderColor
         {
-            get => _disabledBorderColor;
+            get;
             set
             {
-                _disabledBorderColor = value;
+                field = value;
                 Refresh();
             }
         }
@@ -510,13 +493,13 @@ namespace ReaLTaiizor.Controls
                      "Set it to false if you want the style of this control be independent. ")]
         public bool IsDerivedStyle
         {
-            get => _isDerivedStyle;
+            get;
             set
             {
-                _isDerivedStyle = value;
+                field = value;
                 Refresh();
             }
-        }
+        } = true;
 
         #endregion
 

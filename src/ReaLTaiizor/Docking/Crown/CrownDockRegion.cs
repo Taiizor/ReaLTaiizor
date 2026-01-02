@@ -54,7 +54,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public CrownDockRegion(CrownDockPanel dockPanel, DockArea dockArea)
         {
-            _groups = new List<CrownDockGroup>();
+            _groups = [];
 
             DockPanel = dockPanel;
             DockArea = dockArea;
@@ -149,7 +149,7 @@ namespace ReaLTaiizor.Docking.Crown
 
         public List<CrownDockContent> GetContents()
         {
-            List<CrownDockContent> result = new();
+            List<CrownDockContent> result = [];
 
             foreach (CrownDockGroup group in _groups)
             {

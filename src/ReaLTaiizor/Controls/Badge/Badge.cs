@@ -12,47 +12,37 @@ namespace ReaLTaiizor.Controls
 
     public class Badge : Control
     {
-        #region Variables
-
-        private int _Value = 0;
-        private int _Maximum = 9;
-        private Color _BorderColor = Color.FromArgb(205, 70, 66);
-        private Color _BGColorA = Color.FromArgb(197, 69, 68);
-        private Color _BGColorB = Color.FromArgb(176, 52, 52);
-
-        #endregion
-
         #region Properties
 
         public int Value
         {
-            get => _Value;
-            set { _Value = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = 0;
 
         public int Maximum
         {
-            get => _Maximum;
-            set { _Maximum = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = 9;
 
         public Color BorderColor
         {
-            get => _BorderColor;
-            set { _BorderColor = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = Color.FromArgb(205, 70, 66);
 
         public Color BGColorA
         {
-            get => _BGColorA;
-            set { _BGColorA = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = Color.FromArgb(197, 69, 68);
 
         public Color BGColorB
         {
-            get => _BGColorB;
-            set { _BGColorB = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = Color.FromArgb(176, 52, 52);
 
         private string Texting
         {
@@ -92,13 +82,13 @@ namespace ReaLTaiizor.Controls
             _G.Clear(BackColor);
             _G.SmoothingMode = SmoothingMode.AntiAlias;
 
-            LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(Width - 2, Height)), _BGColorA, _BGColorB, 90f);
+            LinearGradientBrush LGB = new(new Rectangle(new Point(0, 0), new Size(Width - 2, Height)), BGColorA, BGColorB, 90f);
 
             // Fills the body with LGB gradient
             _G.FillEllipse(LGB, new(new Point(0, 0), new Size(Width - 2, Height - 2)));
 
             // Draw border
-            _G.DrawEllipse(new(_BorderColor), new(new Point(0, 0), new Size(Width - 2, Height - 2)));
+            _G.DrawEllipse(new(BorderColor), new(new Point(0, 0), new Size(Width - 2, Height - 2)));
 
             _G.DrawString(Texting, Font, new SolidBrush(ForeColor), new Rectangle(0, 0, Width - 2, Height), new StringFormat
             {

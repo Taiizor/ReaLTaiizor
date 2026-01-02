@@ -42,148 +42,135 @@ namespace ReaLTaiizor.Controls
         }
         #endregion
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private Color _BaseColorA = Color.FromArgb(214, 162, 68);
         public Color BaseColorA
         {
-            get => _BaseColorA;
+            get;
             set
             {
-                _BaseColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(214, 162, 68);
 
-        private Color _BaseColorB = Color.FromArgb(199, 147, 53);
         public Color BaseColorB
         {
-            get => _BaseColorB;
+            get;
             set
             {
-                _BaseColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(199, 147, 53);
 
-        private Color _BorderColorA = Color.FromArgb(142, 107, 46);
         public Color BorderColorA
         {
-            get => _BorderColorA;
+            get;
             set
             {
-                _BorderColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(142, 107, 46);
 
-        private Color _BorderColorB = Color.FromArgb(75, Color.White);
         public Color BorderColorB
         {
-            get => _BorderColorB;
+            get;
             set
             {
-                _BorderColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(75, Color.White);
 
-        private Color _HoverBaseColorA = Color.FromArgb(204, 152, 58);
         public Color HoverBaseColorA
         {
-            get => _HoverBaseColorA;
+            get;
             set
             {
-                _HoverBaseColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(204, 152, 58);
 
-        private Color _HoverBaseColorB = Color.FromArgb(205, 153, 59);
         public Color HoverBaseColorB
         {
-            get => _HoverBaseColorB;
+            get;
             set
             {
-                _HoverBaseColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(205, 153, 59);
 
-        private Color _HoverBorderColorA = Color.FromArgb(142, 107, 46);
         public Color HoverBorderColorA
         {
-            get => _HoverBorderColorA;
+            get;
             set
             {
-                _HoverBorderColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(142, 107, 46);
 
-        private Color _HoverBorderColorB = Color.FromArgb(75, Color.White);
         public Color HoverBorderColorB
         {
-            get => _HoverBorderColorB;
+            get;
             set
             {
-                _HoverBorderColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(75, Color.White);
 
-        private Color _DownBaseColorA = Color.FromArgb(214, 162, 68);
         public Color DownBaseColorA
         {
-            get => _DownBaseColorA;
+            get;
             set
             {
-                _DownBaseColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(214, 162, 68);
 
-        private Color _DownBaseColorB = Color.FromArgb(199, 147, 53);
         public Color DownBaseColorB
         {
-            get => _DownBaseColorB;
+            get;
             set
             {
-                _DownBaseColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(199, 147, 53);
 
-        private Color _DownBorderColorA = Color.FromArgb(142, 107, 46);
         public Color DownBorderColorA
         {
-            get => _DownBorderColorA;
+            get;
             set
             {
-                _DownBorderColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(142, 107, 46);
 
-        private Color _DownBorderColorB = Color.FromArgb(75, Color.White);
         public Color DownBorderColorB
         {
-            get => _DownBorderColorB;
+            get;
             set
             {
-                _DownBorderColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(75, Color.White);
 
         public RibbonButtonCenter()
         {

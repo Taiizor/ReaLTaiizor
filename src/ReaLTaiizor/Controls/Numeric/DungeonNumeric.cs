@@ -33,8 +33,6 @@ namespace ReaLTaiizor.Controls
         private long _Maximum;
         private int Xval;
         private bool KeyboardNum;
-        private _TextAlignment MyStringAlignment;
-
         private readonly Timer LongPressTimer = new();
 
         #endregion
@@ -105,10 +103,10 @@ namespace ReaLTaiizor.Controls
 
         public _TextAlignment TextAlignment
         {
-            get => MyStringAlignment;
+            get;
             set
             {
-                MyStringAlignment = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -308,7 +306,7 @@ namespace ReaLTaiizor.Controls
             G.DrawString("-", new Font("Tahoma", 14), new SolidBrush(ButtonForeColorB), new Rectangle(Width - 44, 1, 19, 30));
             G.DrawLine(new(BorderColor), Width - 48, 1, Width - 48, Height - 2);
 
-            switch (MyStringAlignment)
+            switch (TextAlignment)
             {
                 case _TextAlignment.Near:
                     G.DrawString(Convert.ToString(Value), Font, new SolidBrush(ForeColor), new Rectangle(5, 0, Width - 1, Height - 1), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });

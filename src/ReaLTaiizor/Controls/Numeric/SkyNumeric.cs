@@ -172,30 +172,29 @@ namespace ReaLTaiizor.Controls
 
         protected void DrawTriangle(Color Clr, Point FirstPoint, Point SecondPoint, Point ThirdPoint, Graphics G)
         {
-            List<Point> points = new()
-            {
+            List<Point> points =
+            [
                 FirstPoint,
                 SecondPoint,
                 ThirdPoint
-            };
+            ];
             G.FillPolygon(new SolidBrush(Clr), points.ToArray());
         }
         #endregion
 
         #region Variables
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         #endregion
 
         #region Settings
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public Color TopTriangleColor { get; set; } = Color.FromArgb(27, 94, 137);
 

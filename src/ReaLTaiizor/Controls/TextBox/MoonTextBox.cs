@@ -11,16 +11,15 @@ namespace ReaLTaiizor.Controls
 
     public class MoonTextBox : System.Windows.Forms.TextBox
     {
-        private Color _BorderColor = Color.LightGray;
         public Color BorderColor
         {
-            get => _BorderColor;
+            get;
             set
             {
-                _BorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LightGray;
 
         protected override void WndProc(ref Message m)
         {

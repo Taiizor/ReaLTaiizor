@@ -67,22 +67,21 @@ namespace ReaLTaiizor.Manager
             }
         }
 
-        private ContainerControl owner;
         public ContainerControl Owner
         {
-            get => owner;
+            get;
             set
             {
-                if (owner != null)
+                if (field != null)
                 {
-                    owner.ControlAdded -= ControlAdded;
+                    field.ControlAdded -= ControlAdded;
                 }
 
-                owner = value;
+                field = value;
 
                 if (value != null)
                 {
-                    owner.ControlAdded += ControlAdded;
+                    field.ControlAdded += ControlAdded;
 
                     if (!isInitializing)
                     {
@@ -198,9 +197,9 @@ namespace ReaLTaiizor.Manager
 
         public void Update()
         {
-            if (owner != null)
+            if (Owner != null)
             {
-                UpdateControl(owner);
+                UpdateControl(Owner);
             }
 
             if (parentContainer == null || parentContainer.Components == null)

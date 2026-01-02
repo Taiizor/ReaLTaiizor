@@ -29,14 +29,13 @@ namespace ReaLTaiizor.Controls
         [Description("The background color of the component.")]
         public override Color BackColor { get; set; }
 
-        private PanelSide _Side = PanelSide.Left;
         public PanelSide Side
         {
-            get => _Side;
+            get;
             set
             {
-                _Side = value;
-                if (_Side == PanelSide.Left)
+                field = value;
+                if (field == PanelSide.Left)
                 {
                     BackColor = LeftSideColor;
                 }
@@ -47,29 +46,27 @@ namespace ReaLTaiizor.Controls
 
                 Invalidate();
             }
-        }
+        } = PanelSide.Left;
 
-        private Color _LeftSideColor = ColorTranslator.FromHtml("#F25D59");
         public Color LeftSideColor
         {
-            get => _LeftSideColor;
+            get;
             set
             {
-                _LeftSideColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#F25D59");
 
-        private Color _RightSideColor = ColorTranslator.FromHtml("#292C3D");
         public Color RightSideColor
         {
-            get => _RightSideColor;
+            get;
             set
             {
-                _RightSideColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#292C3D");
 
         #endregion
 

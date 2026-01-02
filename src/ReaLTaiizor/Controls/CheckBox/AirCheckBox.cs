@@ -82,13 +82,12 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _Checked;
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 CheckedChanged?.Invoke(this);
                 Invalidate();
             }

@@ -44,10 +44,18 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    # Ensure .editorconfig exists in the solution's directory
+    - name: Copy .editorconfig for current solution
+      shell: pwsh
+      run: |
+        $solutionPath = "${{ matrix.solution }}"
+        $solutionDir = Split-Path -Path $solutionPath
+        Copy-Item -Path ".editorconfig" -Destination "$solutionDir\.editorconfig" -Force
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
         dotnet-quality: preview
 
     - name: Restore the ReaLTaiizor

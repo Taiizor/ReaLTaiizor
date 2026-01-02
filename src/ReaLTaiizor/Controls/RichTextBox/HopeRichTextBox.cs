@@ -172,7 +172,7 @@ namespace ReaLTaiizor.Controls
         {
             if (e.KeyChar == '\x1')
             {
-                ((System.Windows.Forms.TextBox)sender).SelectAll();
+                ((TextBox)sender).SelectAll();
                 e.Handled = true;
             }
         }
@@ -238,7 +238,7 @@ namespace ReaLTaiizor.Controls
             remove => _baseTextBox.ClientSizeChanged -= value;
         }
 
-#if !NETCOREAPP3_1 && !NET7_0 && !NET8_0 && !NET9_0
+#if !NETCOREAPP3_1 && !NET7_0 && !NET8_0 && !NET9_0 && !NET10_0
         public new event EventHandler ContextMenuChanged
         {
             add => _baseTextBox.ContextMenuChanged += value;
@@ -631,7 +631,7 @@ namespace ReaLTaiizor.Controls
         }
         #endregion
 
-        private class BaseTextBox : System.Windows.Forms.TextBox
+        private class BaseTextBox : TextBox
         {
             [DllImport("user32.dll", CharSet = CharSet.Unicode)]
             private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
@@ -641,27 +641,25 @@ namespace ReaLTaiizor.Controls
             private const char VisualStylePasswordChar = '\u25CF';
             private const char NonVisualStylePasswordChar = '\u002A';
 
-            private string hint = string.Empty;
             public string Hint
             {
-                get => hint;
+                get;
                 set
                 {
-                    hint = value;
+                    field = value;
                     SendMessage(Handle, EM_SETCUEBANNER, (int)IntPtr.Zero, Hint);
                 }
-            }
+            } = string.Empty;
 
-            private char _passwordChar = EmptyChar;
             public new char PasswordChar
             {
-                get => _passwordChar;
+                get;
                 set
                 {
-                    _passwordChar = value;
+                    field = value;
                     SetBasePasswordChar();
                 }
-            }
+            } = EmptyChar;
 
             public new void SelectAll()
             {
@@ -699,14 +697,14 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0
+#if NETCOREAPP3_1 || NET6_0 || NET7_0 || NET8_0 || NET9_0 || NET10_0
             //public EventHandler ContextMenuChanged { get; internal set; }
             public event EventHandler ContextMenuChanged;
 #endif
 
             private void SetBasePasswordChar()
             {
-                base.PasswordChar = UseSystemPasswordChar ? _useSystemPasswordChar : _passwordChar;
+                base.PasswordChar = UseSystemPasswordChar ? _useSystemPasswordChar : PasswordChar;
             }
 
             public BaseTextBox()

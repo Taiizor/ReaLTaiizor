@@ -34,28 +34,12 @@ namespace ReaLTaiizor.Controls
         private const int _footerButtonHeight = 36;
         private const int _minHeight = 200;
         private int _headerHeight;
-
-        private bool _collapse;
-        private bool _useAccentColor;
         private int _expandHeight;
-
-
-        private string _titleHeader;
-        private string _descriptionHeader;
-        private string _validationButtonText;
-        private string _cancelButtonText;
-
-
-
-        private bool _showValidationButtons;
-        private bool _showCollapseExpand;
-        private bool _drawShadows;
         private bool _shadowDrawEventSubscribed = false;
         private Rectangle _headerBounds;
         private Rectangle _expandcollapseBounds;
         private Rectangle _savebuttonBounds;
         private Rectangle _cancelbuttonBounds;
-        private bool _savebuttonEnable;
 
         private enum ButtonState
         {
@@ -84,8 +68,8 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue(false), DisplayName("Use Accent Color")]
         public bool UseAccentColor
         {
-            get => _useAccentColor;
-            set { _useAccentColor = value; UpdateRects(); Invalidate(); }
+            get;
+            set { field = value; UpdateRects(); Invalidate(); }
         }
 
         [DefaultValue(false)]
@@ -93,10 +77,10 @@ namespace ReaLTaiizor.Controls
         [Category("Material")]
         public bool Collapse
         {
-            get => _collapse;
+            get;
             set
             {
-                _collapse = value;
+                field = value;
                 CollapseOrExpand();
                 Invalidate();
             }
@@ -107,10 +91,10 @@ namespace ReaLTaiizor.Controls
         [Description("Title to show in expansion panel's header")]
         public string Title
         {
-            get => _titleHeader;
+            get;
             set
             {
-                _titleHeader = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -120,10 +104,10 @@ namespace ReaLTaiizor.Controls
         [Description("Description to show in expansion panel's header")]
         public string Description
         {
-            get => _descriptionHeader;
+            get;
             set
             {
-                _descriptionHeader = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -133,8 +117,8 @@ namespace ReaLTaiizor.Controls
         [Description("Draw Shadows around control")]
         public bool DrawShadows
         {
-            get => _drawShadows;
-            set { _drawShadows = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [DefaultValue(240)]
@@ -151,8 +135,8 @@ namespace ReaLTaiizor.Controls
         [Description("Show collapse/expand indicator")]
         public bool ShowCollapseExpand
         {
-            get => _showCollapseExpand;
-            set { _showCollapseExpand = value; Invalidate(); }
+            get;
+            set { field = value; Invalidate(); }
         }
 
         [DefaultValue(true)]
@@ -160,8 +144,8 @@ namespace ReaLTaiizor.Controls
         [Description("Show save/cancel button")]
         public bool ShowValidationButtons
         {
-            get => _showValidationButtons;
-            set { _showValidationButtons = value; UpdateRects(); Invalidate(); }
+            get;
+            set { field = value; UpdateRects(); Invalidate(); }
         }
 
         [DefaultValue("SAVE")]
@@ -169,8 +153,8 @@ namespace ReaLTaiizor.Controls
         [Description("Set Validation button text")]
         public string ValidationButtonText
         {
-            get => _validationButtonText;
-            set { _validationButtonText = value; UpdateRects(); Invalidate(); }
+            get;
+            set { field = value; UpdateRects(); Invalidate(); }
         }
 
         [DefaultValue("CANCEL")]
@@ -178,8 +162,8 @@ namespace ReaLTaiizor.Controls
         [Description("Set Cancel button text")]
         public string CancelButtonText
         {
-            get => _cancelButtonText;
-            set { _cancelButtonText = value; UpdateRects(); Invalidate(); }
+            get;
+            set { field = value; UpdateRects(); Invalidate(); }
         }
 
         [DefaultValue(false)]
@@ -187,8 +171,8 @@ namespace ReaLTaiizor.Controls
         [Description("Enable validation button")]
         public bool ValidationButtonEnable
         {
-            get => _savebuttonEnable;
-            set { _savebuttonEnable = value; UpdateRects(); Invalidate(); }
+            get;
+            set { field = value; UpdateRects(); Invalidate(); }
         }
 
         #endregion
@@ -241,17 +225,17 @@ namespace ReaLTaiizor.Controls
             {
                 DrawShadows = false,
                 Type = MaterialButton.MaterialButtonType.Text,
-                UseAccentColor = _useAccentColor,
+                UseAccentColor = UseAccentColor,
                 Enabled = ValidationButtonEnable,
-                Visible = _showValidationButtons,
+                Visible = ShowValidationButtons,
                 Text = "SAVE"
             };
             _cancelButton = new MaterialButton
             {
                 DrawShadows = false,
                 Type = MaterialButton.MaterialButtonType.Text,
-                UseAccentColor = _useAccentColor,
-                Visible = _showValidationButtons,
+                UseAccentColor = UseAccentColor,
+                Visible = ShowValidationButtons,
                 Text = "CANCEL"
             };
 
@@ -342,7 +326,7 @@ namespace ReaLTaiizor.Controls
                 return;
             }
 
-            if (!_drawShadows || Parent == null)
+            if (!DrawShadows || Parent == null)
             {
                 return;
             }
@@ -387,7 +371,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnResize(EventArgs e)
         {
-            if (!_collapse)
+            if (!Collapse)
             {
                 if (DesignMode)
                 {
@@ -516,7 +500,7 @@ namespace ReaLTaiizor.Controls
             // Mormal
             else
             {
-                if ((_buttonState == ButtonState.HeaderOver | _buttonState == ButtonState.ColapseExpandOver) && _collapse)
+                if ((_buttonState == ButtonState.HeaderOver | _buttonState == ButtonState.ColapseExpandOver) && Collapse)
                 {
                     RectangleF expansionPanelBorderRectF = new(ClientRectangle.X + 1, ClientRectangle.Y + 1, ClientRectangle.Width - 2, ClientRectangle.Height - 2);
                     expansionPanelBorderRectF.X -= 0.5f;
@@ -536,7 +520,7 @@ namespace ReaLTaiizor.Controls
             Rectangle headerRect = new(
                 _leftrightPadding,
                 (_headerHeight - _textHeaderHeight) / 2,
-                TextRenderer.MeasureText(_titleHeader, Font).Width + _expansionPanelDefaultPadding,
+                TextRenderer.MeasureText(Title, Font).Width + _expansionPanelDefaultPadding,
                 _textHeaderHeight);
 
             //Draw  headers
@@ -544,7 +528,7 @@ namespace ReaLTaiizor.Controls
             {
                 // Draw header text
                 NativeText.DrawTransparentText(
-                    _titleHeader,
+                    Title,
                     SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     headerRect.Location,
@@ -552,7 +536,7 @@ namespace ReaLTaiizor.Controls
                     MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
 
-            if (!string.IsNullOrEmpty(_descriptionHeader))
+            if (!string.IsNullOrEmpty(Description))
             {
                 //Draw description header text 
 
@@ -565,7 +549,7 @@ namespace ReaLTaiizor.Controls
                 using MaterialNativeTextRenderer NativeText = new(g);
                 // Draw description header text 
                 NativeText.DrawTransparentText(
-                _descriptionHeader,
+                Description,
                 SkinManager.GetLogFontByType(MaterialSkinManager.FontType.Body1),
                  SkinManager.TextDisabledOrHintColor,
                 headerDescriptionRect.Location,
@@ -573,10 +557,10 @@ namespace ReaLTaiizor.Controls
                 MaterialNativeTextRenderer.TextAlignFlags.Left | MaterialNativeTextRenderer.TextAlignFlags.Middle);
             }
 
-            if (_showCollapseExpand == true)
+            if (ShowCollapseExpand == true)
             {
-                using Pen formButtonsPen = new(_useAccentColor && Enabled ? SkinManager.ColorScheme.AccentColor : SkinManager.TextDisabledOrHintColor, 2);
-                if (_collapse)
+                using Pen formButtonsPen = new(UseAccentColor && Enabled ? SkinManager.ColorScheme.AccentColor : SkinManager.TextDisabledOrHintColor, 2);
+                if (Collapse)
                 {
                     //Draw Expand button
                     System.Drawing.Drawing2D.GraphicsPath pth = new();
@@ -600,7 +584,7 @@ namespace ReaLTaiizor.Controls
                 }
             }
 
-            if (!_collapse && _showValidationButtons)
+            if (!Collapse && ShowValidationButtons)
             {
                 //Draw divider
                 g.DrawLine(new Pen(SkinManager.DividersColor, 1), new Point(0, Height - _footerHeight), new Point(Width, Height - _footerHeight));
@@ -611,7 +595,7 @@ namespace ReaLTaiizor.Controls
         {
             //if (!useAnimation)
             //{
-            if (_collapse)
+            if (Collapse)
             {
                 _headerHeight = _headerHeightCollapse;
                 this.Height = _headerHeightCollapse;
@@ -643,7 +627,7 @@ namespace ReaLTaiizor.Controls
 
         private void UpdateRects()
         {
-            if (!_collapse && _showValidationButtons)
+            if (!Collapse && ShowValidationButtons)
             {
                 int _buttonWidth = TextRenderer.MeasureText(ValidationButtonText, SkinManager.GetFontByType(MaterialSkinManager.FontType.Button)).Width + 32;
                 _savebuttonBounds = new Rectangle(Width - _buttonPadding - _buttonWidth, Height - _expansionPanelDefaultPadding - _footerButtonHeight, _buttonWidth, _footerButtonHeight);
@@ -656,9 +640,9 @@ namespace ReaLTaiizor.Controls
                     _validationButton.Left = Width - _buttonPadding - _validationButton.Width;  //Button minimum width management
                     _validationButton.Top = _savebuttonBounds.Top;
                     _validationButton.Height = _savebuttonBounds.Height;
-                    _validationButton.Text = _validationButtonText;
-                    _validationButton.Enabled = _savebuttonEnable;
-                    _validationButton.UseAccentColor = _useAccentColor;
+                    _validationButton.Text = ValidationButtonText;
+                    _validationButton.Enabled = ValidationButtonEnable;
+                    _validationButton.UseAccentColor = UseAccentColor;
                 }
                 if (_cancelButton != null)
                 {
@@ -666,17 +650,17 @@ namespace ReaLTaiizor.Controls
                     _cancelButton.Left = _validationButton.Left - _buttonPadding - _cancelbuttonBounds.Width;  //Button minimum width management
                     _cancelButton.Top = _cancelbuttonBounds.Top;
                     _cancelButton.Height = _cancelbuttonBounds.Height;
-                    _cancelButton.Text = _cancelButtonText;
-                    _cancelButton.UseAccentColor = _useAccentColor;
+                    _cancelButton.Text = CancelButtonText;
+                    _cancelButton.UseAccentColor = UseAccentColor;
                 }
             }
             if (_validationButton != null)
             {
-                _validationButton.Visible = _showValidationButtons;
+                _validationButton.Visible = ShowValidationButtons;
             }
             if (_cancelButton != null)
             {
-                _cancelButton.Visible = _showValidationButtons;
+                _cancelButton.Visible = ShowValidationButtons;
             }
         }
 

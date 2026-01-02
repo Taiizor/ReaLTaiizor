@@ -18,102 +18,94 @@ namespace ReaLTaiizor.Controls
         private Color BG;
         private Color FC;
 
-        private bool _Checked;
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 InvalidateControls();
                 CheckedChanged?.Invoke(this);
                 Invalidate();
             }
         }
 
-        private Color _CheckedColor = Color.Gray;
         public Color CheckedColor
         {
-            get => _CheckedColor;
+            get;
             set
             {
-                _CheckedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Gray;
 
-        private Color _HoverColor = Color.White;
         public Color HoverColor
         {
-            get => _HoverColor;
+            get;
             set
             {
-                _HoverColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
-        private Color _HoverBackColor = Color.Gray;
         public Color HoverBackColor
         {
-            get => _HoverBackColor;
+            get;
             set
             {
-                _HoverBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Gray;
 
-        private Color _CircleColorA = Color.White;
         public Color CircleColorA
         {
-            get => _CircleColorA;
+            get;
             set
             {
-                _CircleColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
-        private Color _CircleColorB = Color.LightGray;
         public Color CircleColorB
         {
-            get => _CircleColorB;
+            get;
             set
             {
-                _CircleColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LightGray;
 
-        private Color _CircleColorC = Color.LightGray;
         public Color CircleColorC
         {
-            get => _CircleColorC;
+            get;
             set
             {
-                _CircleColorC = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LightGray;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public event CheckedChangedEventHandler CheckedChanged;
         public delegate void CheckedChangedEventHandler(object sender);
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked)
+            if (!IsHandleCreated || !Checked)
             {
                 return;
             }
@@ -129,7 +121,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (!_Checked)
+            if (!Checked)
             {
                 Checked = true;
             }
@@ -159,7 +151,7 @@ namespace ReaLTaiizor.Controls
 
             G.SmoothingMode = SmoothingType;
 
-            if (_Checked)
+            if (Checked)
             {
                 G.FillEllipse(new SolidBrush(CheckedColor), new Rectangle(new Point(7, 7), new Size(8, 8)));
             }
@@ -167,7 +159,7 @@ namespace ReaLTaiizor.Controls
             if (State == MouseStateMoon.Over)
             {
                 G.FillEllipse(new SolidBrush(HoverColor), new Rectangle(new Point(4, 4), new Size(14, 14)));
-                if (_Checked)
+                if (Checked)
                 {
                     G.FillEllipse(new SolidBrush(HoverBackColor), new Rectangle(new Point(7, 7), new Size(8, 8)));
                 }

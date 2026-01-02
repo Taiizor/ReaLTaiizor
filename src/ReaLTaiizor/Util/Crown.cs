@@ -98,7 +98,7 @@ namespace ReaLTaiizor.Util
         {
             base.Add(item);
 
-            ItemsAdded?.Invoke(this, new ObservableListModified<T>(new List<T> { item }));
+            ItemsAdded?.Invoke(this, new ObservableListModified<T>([item]));
         }
 
         public new void AddRange(IEnumerable<T> collection)
@@ -114,7 +114,7 @@ namespace ReaLTaiizor.Util
         {
             base.Remove(item);
 
-            ItemsRemoved?.Invoke(this, new ObservableListModified<T>(new List<T> { item }));
+            ItemsRemoved?.Invoke(this, new ObservableListModified<T>([item]));
         }
 
         public new void Clear()

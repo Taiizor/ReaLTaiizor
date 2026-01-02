@@ -17,49 +17,45 @@ namespace ReaLTaiizor.Forms
         private Color G2;
         private Color BG;
 
-        private Color _TitleColor = Color.Black;
         public Color TitleColor
         {
-            get => _TitleColor;
+            get;
             set
             {
-                _TitleColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
-        private Color _BorderColor = Color.LightGray;
         public Color BorderColor
         {
-            get => _BorderColor;
+            get;
             set
             {
-                _BorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LightGray;
 
-        private Color _FirstEdge = Color.LightGray;
         public Color FirstEdge
         {
-            get => _FirstEdge;
+            get;
             set
             {
-                _FirstEdge = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.LightGray;
 
-        private Color _SecondEdge = Color.White;
         public Color SecondEdge
         {
-            get => _SecondEdge;
+            get;
             set
             {
-                _SecondEdge = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public MoonForm()
         {
@@ -71,7 +67,7 @@ namespace ReaLTaiizor.Forms
             Padding = new Padding(0, 0, 0, 0);
             Font = new("Segoe UI", 9);
             ForeColor = Color.Gray;
-            TitleColor = _TitleColor;
+            TitleColor = TitleColor;
             MinimumSize = new(100, 50);
         }
 

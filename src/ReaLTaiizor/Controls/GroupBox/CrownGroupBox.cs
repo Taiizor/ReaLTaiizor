@@ -16,19 +16,17 @@ namespace ReaLTaiizor.Controls
     {
         #region Properties
 
-        private Color _borderColor = ThemeProvider.Theme.Colors.DarkBorder;
-
         [Category("Appearance")]
         [Description("Determines the color of the border.")]
         public Color BorderColor
         {
-            get => _borderColor;
+            get;
             set
             {
-                _borderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ThemeProvider.Theme.Colors.DarkBorder;
 
         #endregion
 

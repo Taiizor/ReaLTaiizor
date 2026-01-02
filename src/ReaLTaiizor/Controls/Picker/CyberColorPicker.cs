@@ -30,15 +30,15 @@ namespace ReaLTaiizor.Controls
 
         #region Property Region
 
-        private Color tmp_selectedcolor;
         [Category("Cyber")]
         [Description("Selected color")]
         public Color SelectedColor
         {
-            get => tmp_selectedcolor;
+            get;
             set
             {
-                tmp_selectedcolor = value;
+                field = value;
+                UpdateColorPickerFromColor(value);
                 ColorChanged(value);
             }
         }
@@ -236,8 +236,9 @@ namespace ReaLTaiizor.Controls
                 return Color.Empty;
             }
 
-            label1.Text = $"RGB: {Color.R}, {Color.G}, {Color.B}";
             label2.Text = $"HEX: #{Color.ToArgb():X}";
+            label1.Text = $"RGB: {Color.R}, {Color.G}, {Color.B}";
+
             CursorPos = new PointF(x1 + ((float)pictureBox1.Width / 2), y1 + ((float)pictureBox1.Height / 2));
             pictureBox2.BackColor = Color;
             ((ValueBox)pictureBox3.Tag).Color = Color;
@@ -314,6 +315,70 @@ namespace ReaLTaiizor.Controls
             }
 
             return Color.FromArgb((int)R, (int)G, (int)B);
+        }
+
+        private void UpdateColorPickerFromColor(Color color)
+        {
+            if (color.IsEmpty || color == Color.Transparent)
+            {
+                return;
+            }
+
+            RGBtoHSV(color.R, color.G, color.B, out double h, out double s, out double v);
+
+            float radius = (float)pictureBox1.Width / 2;
+            float saturationRadius = (float)(s * radius);
+            double angleRad = h * 2 * Math.PI;
+
+            float x = (float)(saturationRadius * Math.Cos(angleRad)) + radius;
+            float y = (float)(saturationRadius * Math.Sin(angleRad)) + radius;
+
+            ((ValueBox)pictureBox3.Tag).Value = (float)v;
+            ((ValueBox)pictureBox3.Tag).Color = HSVtoRGB(h, s, 1.0);
+
+            CursorPos = new PointF(x, y);
+            pictureBox1.Tag = new PointF(x, y);
+
+            label1.Text = $"RGB: {color.R}, {color.G}, {color.B}";
+            label2.Text = $"HEX: #{color.ToArgb():X}";
+            pictureBox2.BackColor = color;
+
+            pictureBox1.Invalidate();
+            pictureBox2.Invalidate();
+            pictureBox3.Invalidate();
+        }
+
+        private void RGBtoHSV(int r, int g, int b, out double h, out double s, out double v)
+        {
+            double red = r / 255.0;
+            double green = g / 255.0;
+            double blue = b / 255.0;
+
+            double max = Math.Max(red, Math.Max(green, blue));
+            double min = Math.Min(red, Math.Min(green, blue));
+            double delta = max - min;
+
+            v = max;
+
+            s = max == 0 ? 0 : delta / max;
+
+            h = 0;
+            if (delta != 0)
+            {
+                if (max == red)
+                {
+                    h = ((green - blue) / delta) + (green < blue ? 6 : 0);
+                }
+                else if (max == green)
+                {
+                    h = ((blue - red) / delta) + 2;
+                }
+                else
+                {
+                    h = ((red - green) / delta) + 4;
+                }
+                h /= 6;
+            }
         }
 
         #endregion

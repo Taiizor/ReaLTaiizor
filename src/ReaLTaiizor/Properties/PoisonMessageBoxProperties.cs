@@ -14,7 +14,7 @@ namespace ReaLTaiizor.Properties
     {
         public PoisonMessageBoxProperties(PoisonMessageBoxControl owner)
         {
-            _owner = owner;
+            Owner = owner;
         }
 
         public MessageBoxButtons Buttons
@@ -37,10 +37,8 @@ namespace ReaLTaiizor.Properties
             get; set;
         }
 
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly PoisonMessageBoxControl _owner = null;
-
-        public PoisonMessageBoxControl Owner => _owner;
+        [field: DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public PoisonMessageBoxControl Owner { get; } = null;
 
         public string Title
         {

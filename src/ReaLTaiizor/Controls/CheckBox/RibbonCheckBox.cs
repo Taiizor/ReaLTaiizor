@@ -24,116 +24,106 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        private bool _Checked = false;
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 CheckedChangedEvent?.Invoke(this);
                 Invalidate();
             }
-        }
+        } = false;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.AntiAliasGridFit;
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.AntiAliasGridFit;
 
-        private Color _BaseColor = Color.Transparent;
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Transparent;
 
-        private Color _CheckedColor = Color.Black;
         public Color CheckedColor
         {
-            get => _CheckedColor;
+            get;
             set
             {
-                _CheckedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
-        private Color _CheckBorderColorA = Color.FromArgb(117, 120, 117);
         public Color CheckBorderColorA
         {
-            get => _CheckBorderColorA;
+            get;
             set
             {
-                _CheckBorderColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(117, 120, 117);
 
-        private Color _CheckBorderColorB = Color.WhiteSmoke;
         public Color CheckBorderColorB
         {
-            get => _CheckBorderColorB;
+            get;
             set
             {
-                _CheckBorderColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.WhiteSmoke;
 
-        private Color _CheckBackColorA = Color.FromArgb(203, 201, 205);
         public Color CheckBackColorA
         {
-            get => _CheckBackColorA;
+            get;
             set
             {
-                _CheckBackColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(203, 201, 205);
 
-        private Color _CheckBackColorB = Color.FromArgb(188, 186, 190);
         public Color CheckBackColorB
         {
-            get => _CheckBackColorB;
+            get;
             set
             {
-                _CheckBackColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(188, 186, 190);
 
         protected override void OnResize(EventArgs e)
         {

@@ -63,22 +63,18 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DisplayName("Animate Show HideButton")]
         public bool AnimateShowHideButton
         {
-            get => _animateShowButton;
-            set { _animateShowButton = value; Refresh(); }
+            get;
+            set { field = value; Refresh(); }
         }
-
-        private bool _animateShowButton;
 
         [DefaultValue(false)]
         [Category("Material")]
         [Description("Define icon to display")]
         public Image Icon
         {
-            get => _icon;
-            set { _icon = value; Refresh(); }
+            get;
+            set { field = value; Refresh(); }
         }
-
-        private Image _icon;
 
         private bool _isHiding = false;
 

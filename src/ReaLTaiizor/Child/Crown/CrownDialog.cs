@@ -18,7 +18,6 @@ namespace ReaLTaiizor.Child.Crown
     {
         #region Field Region
 
-        private DialogButton _dialogButtons = DialogButton.Ok;
         private readonly List<CrownButton> _buttons;
 
         #endregion
@@ -42,18 +41,18 @@ namespace ReaLTaiizor.Child.Crown
         [DefaultValue(DialogButton.Ok)]
         public DialogButton DialogButtons
         {
-            get => _dialogButtons;
+            get;
             set
             {
-                if (_dialogButtons == value)
+                if (field == value)
                 {
                     return;
                 }
 
-                _dialogButtons = value;
+                field = value;
                 SetButtons();
             }
-        }
+        } = DialogButton.Ok;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -83,11 +82,11 @@ namespace ReaLTaiizor.Child.Crown
         {
             InitializeComponent();
 
-            _buttons = new List<CrownButton>
-            {
+            _buttons =
+            [
                 btnAbort, btnRetry, btnIgnore, btnOk,
                 btnCancel, btnClose, btnYes, btnNo
-            };
+            ];
         }
 
         #endregion
@@ -112,7 +111,7 @@ namespace ReaLTaiizor.Child.Crown
                 btn.Visible = false;
             }
 
-            switch (_dialogButtons)
+            switch (DialogButtons)
             {
                 case DialogButton.Ok:
                     ShowButton(btnOk, true);

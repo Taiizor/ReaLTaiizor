@@ -12,78 +12,67 @@ namespace ReaLTaiizor.Controls
 
     public class GroupBox : ContainerControl
     {
-        #region Variables
-
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
-        private Color _HeaderColor = Color.CornflowerBlue;
-        private Color _BorderColorH = Color.FromArgb(182, 180, 186);
-        private Color _BorderColorG = Color.FromArgb(159, 159, 161);
-        private Color _BackGColor = Color.DodgerBlue;
-        private Color _BaseColor = Color.Transparent;
-
-        #endregion
-
         #region Custom Properties
 
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
         public Color HeaderColor
         {
-            get => _HeaderColor;
+            get;
             set
             {
-                _HeaderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.CornflowerBlue;
 
         public Color BorderColorH
         {
-            get => _BorderColorH;
+            get;
             set
             {
-                _BorderColorH = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(182, 180, 186);
 
         public Color BorderColorG
         {
-            get => _BorderColorG;
+            get;
             set
             {
-                _BorderColorG = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(159, 159, 161);
 
         public Color BackGColor
         {
-            get => _BackGColor;
+            get;
             set
             {
-                _BackGColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DodgerBlue;
 
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Transparent;
 
         #endregion
 
@@ -111,14 +100,14 @@ namespace ReaLTaiizor.Controls
             G.SmoothingMode = SmoothingType;
 
             // Draw the body of the GroupBox
-            G.FillPath(new SolidBrush(_BackGColor), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, box.Height - 1), 8));
+            G.FillPath(new SolidBrush(BackGColor), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, box.Height - 1), 8));
             // Draw the border of the GroupBox
-            G.DrawPath(new(_BorderColorG), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, Height - 13), 8));
+            G.DrawPath(new(BorderColorG), RoundRectangle.RoundRect(new Rectangle(1, 12, Width - 3, Height - 13), 8));
 
             // Draw the background of the title box
-            G.FillPath(new SolidBrush(_HeaderColor), RoundRectangle.RoundRect(TitleBox, 1));
+            G.FillPath(new SolidBrush(HeaderColor), RoundRectangle.RoundRect(TitleBox, 1));
             // Draw the border of the title box
-            G.DrawPath(new(_BorderColorH), RoundRectangle.RoundRect(TitleBox, 4));
+            G.DrawPath(new(BorderColorH), RoundRectangle.RoundRect(TitleBox, 4));
             // Draw the specified string from 'Text' property inside the title box
             G.DrawString(Text, Font, new SolidBrush(ForeColor), TitleBox, new StringFormat
             {

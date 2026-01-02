@@ -130,7 +130,6 @@ namespace ReaLTaiizor.Util
             public FoxLibrary.MouseState State;
             private bool IsEnabled;
 
-            private bool IsChecked;
             public new bool Enabled
             {
                 get => EnabledCalc;
@@ -164,10 +163,10 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get => IsChecked;
+                get;
                 set
                 {
-                    IsChecked = value;
+                    field = value;
                     CheckedChanged?.Invoke(this, null);
                     Invalidate();
                 }
@@ -224,7 +223,6 @@ namespace ReaLTaiizor.Util
             public FoxLibrary.MouseState State;
             private bool IsEnabled;
 
-            private bool IsChecked;
             public new bool Enabled
             {
                 get => EnabledCalc;
@@ -258,10 +256,10 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get => IsChecked;
+                get;
                 set
                 {
-                    IsChecked = value;
+                    field = value;
                     CheckedChanged?.Invoke(this, null);
                     Invalidate();
                 }
@@ -321,7 +319,6 @@ namespace ReaLTaiizor.Util
             public FoxLibrary.MouseState State;
             private bool IsEnabled;
 
-            private bool IsChecked;
             public new bool Enabled
             {
                 get => EnabledCalc;
@@ -355,10 +352,10 @@ namespace ReaLTaiizor.Util
 
             public bool Checked
             {
-                get => IsChecked;
+                get;
                 set
                 {
-                    IsChecked = value;
+                    field = value;
                     Invalidate();
                 }
             }

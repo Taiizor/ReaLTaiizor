@@ -21,15 +21,13 @@ namespace ReaLTaiizor.Controls
     public class MaterialComboBox : ComboBox, MaterialControlI
     {
         // For some reason, even when overriding the AutoSize property, it doesn't appear on the properties panel, so we have to create a new one.
-        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Category("Layout")]
-        private bool _AutoResize;
-
+        [field: Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Category("Layout")]
         public bool AutoResize
         {
-            get => _AutoResize;
+            get;
             set
             {
-                _AutoResize = value;
+                field = value;
                 recalculateAutoSize();
             }
         }
@@ -44,15 +42,13 @@ namespace ReaLTaiizor.Controls
         [Browsable(false)]
         public MaterialMouseState MouseState { get; set; }
 
-        private bool _UseTallSize;
-
         [Category("Material"), DefaultValue(true), Description("Using a larger size enables the hint to always be visible")]
         public bool UseTallSize
         {
-            get => _UseTallSize;
+            get;
             set
             {
-                _UseTallSize = value;
+                field = value;
                 setHeightVars();
                 Invalidate();
             }
@@ -61,27 +57,24 @@ namespace ReaLTaiizor.Controls
         [Category("Material"), DefaultValue(true)]
         public bool UseAccent { get; set; }
 
-        private string _hint = string.Empty;
-
         [Category("Material"), DefaultValue(""), Localizable(true)]
         public string Hint
         {
-            get => _hint;
+            get;
             set
             {
-                _hint = value;
+                field = value;
                 hasHint = !string.IsNullOrEmpty(Hint);
                 Invalidate();
             }
-        }
+        } = string.Empty;
 
-        private int _startIndex;
         public int StartIndex
         {
-            get => _startIndex;
+            get;
             set
             {
-                _startIndex = value;
+                field = value;
                 try
                 {
                     if (base.Items.Count > 0)

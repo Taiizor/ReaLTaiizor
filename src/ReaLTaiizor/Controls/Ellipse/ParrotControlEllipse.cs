@@ -55,7 +55,7 @@ namespace ReaLTaiizor.Controls
         {
             if (effectedControl != null)
             {
-                effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, cornerRadius, cornerRadius));
+                effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, CornerRadius, CornerRadius));
                 effectedControl.SizeChanged += Container_SizeChanged;
             }
         }
@@ -91,7 +91,7 @@ namespace ReaLTaiizor.Controls
         {
             if (effectedControl != null)
             {
-                effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, cornerRadius, cornerRadius));
+                effectedControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, effectedControl.Width, effectedControl.Height, CornerRadius, CornerRadius));
             }
         }
 
@@ -100,13 +100,13 @@ namespace ReaLTaiizor.Controls
         [Description("The corner radius")]
         public int CornerRadius
         {
-            get => cornerRadius;
+            get;
             set
             {
-                cornerRadius = value;
+                field = value;
                 SetCustomRegion();
             }
-        }
+        } = 10;
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -140,9 +140,6 @@ namespace ReaLTaiizor.Controls
         private Control DefaultControl = null;
 
         private Region DefaultControlRegion = null;
-
-        private int cornerRadius = 10;
-
         private Control effectedControl = null;
     }
 

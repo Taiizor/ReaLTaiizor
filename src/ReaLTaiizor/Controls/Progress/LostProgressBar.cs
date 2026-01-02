@@ -15,36 +15,32 @@ namespace ReaLTaiizor.Controls
 
     public class LostProgressBar : ControlLostBase
     {
-        private int _progress = 50;
-        private Color _color = ThemeLost.AccentBrush.Color;
-        private bool _hover = false;
-
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public int Progress
         {
-            get => _progress;
-            set { _progress = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = 50;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color Color
         {
-            get => _color;
-            set { _color = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = ThemeLost.AccentBrush.Color;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool Hover
         {
-            get => _hover;
-            set { _hover = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = false;
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
             pevent.Graphics.FillRectangle(new SolidBrush(BackColor), ClientRectangle);
 
-            if (MouseOver && _hover)
+            if (MouseOver && Hover)
             {
                 pevent.Graphics.FillRectangle(new SolidBrush(ThemeLost.ForeColor.Shade(ThemeLost.ShadowSize, 0)), ClientRectangle);
             }
@@ -53,7 +49,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(ThemeLost.FontPen, 1, 1, Width - 2, Height - 2);
-            e.Graphics.FillRectangle(new SolidBrush(_color), 5, 5, (Width - 10) * (_progress / 100f), Height - 9);
+            e.Graphics.FillRectangle(new SolidBrush(Color), 5, 5, (Width - 10) * (Progress / 100f), Height - 9);
         }
 
         protected override void OnMouseEnter(EventArgs e)

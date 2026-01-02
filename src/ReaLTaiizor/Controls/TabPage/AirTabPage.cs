@@ -40,82 +40,75 @@ namespace ReaLTaiizor.Controls
             Alignment = TabAlignment.Left;
         }
 
-        private Color C1 = Color.FromArgb(78, 87, 100);
         public Color SquareColor
         {
-            get => C1;
+            get;
             set
             {
-                C1 = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(78, 87, 100);
 
-        private Color _BaseColor = Color.White;
         public Color BaseColor
         {
-            get => _BaseColor;
+            get;
             set
             {
-                _BaseColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
-        private Color _NormalTextColor = Color.DimGray;
         public Color NormalTextColor
         {
-            get => _NormalTextColor;
+            get;
             set
             {
-                _NormalTextColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DimGray;
 
-        private Color _SelectedTextColor = Color.Black;
         public Color SelectedTextColor
         {
-            get => _SelectedTextColor;
+            get;
             set
             {
-                _SelectedTextColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.Black;
 
-        private Color _SelectedTabBackColor = Color.White;
         public Color SelectedTabBackColor
         {
-            get => _SelectedTabBackColor;
+            get;
             set
             {
-                _SelectedTabBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
-        private Cursor _TabCursor = Cursors.Hand;
         public Cursor TabCursor
         {
-            get => _TabCursor;
+            get;
             set
             {
-                _TabCursor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Cursors.Hand;
 
-        private bool OB = false;
         public bool ShowOuterBorders
         {
-            get => OB;
+            get;
             set
             {
-                OB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -142,7 +135,7 @@ namespace ReaLTaiizor.Controls
 
                 if (i == SelectedIndex)
                 {
-                    G.FillRectangle(new SolidBrush(C1), new Rectangle(x2.Location, new Size(9, x2.Height)));
+                    G.FillRectangle(new SolidBrush(SquareColor), new Rectangle(x2.Location, new Size(9, x2.Height)));
 
                     if (ImageList != null)
                     {

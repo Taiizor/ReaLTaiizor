@@ -15,27 +15,26 @@ namespace ReaLTaiizor.Controls
     public class LostCheckBox : ControlLostBase
     {
         public event EventHandler CheckedChanged;
-        private bool _checked = false;
-        private Color _checkedcolor = ThemeLost.FontBrush.Color;
+
         public bool Checked
         {
-            get => _checked;
+            get;
             set
             {
-                _checked = value;
+                field = value;
                 Invalidate();
                 CheckedChanged?.Invoke(this, null);
             }
-        }
+        } = false;
         public Color CheckedColor
         {
-            get => _checkedcolor;
+            get;
             set
             {
-                _checkedcolor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ThemeLost.FontBrush.Color;
 
         public LostCheckBox() : base()
         {
@@ -60,7 +59,7 @@ namespace ReaLTaiizor.Controls
 
             if (Checked)
             {
-                e.Graphics.FillRectangle(new SolidBrush(_checkedcolor), 4, 4, Height - 7, Height - 7);
+                e.Graphics.FillRectangle(new SolidBrush(CheckedColor), 4, 4, Height - 7, Height - 7);
             }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);

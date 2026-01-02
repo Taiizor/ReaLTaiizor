@@ -52,59 +52,57 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private ColorStyle poisonStyle = ColorStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ColorStyle.Default)]
         public ColorStyle Style
         {
             get
             {
-                if (DesignMode || poisonStyle != ColorStyle.Default)
+                if (DesignMode || field != ColorStyle.Default)
                 {
-                    return poisonStyle;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                if (StyleManager != null && field == ColorStyle.Default)
                 {
                     return StyleManager.Style;
                 }
 
-                if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                if (StyleManager == null && field == ColorStyle.Default)
                 {
                     return PoisonDefaults.Style;
                 }
 
-                return poisonStyle;
+                return field;
             }
-            set => poisonStyle = value;
-        }
+            set;
+        } = ColorStyle.Default;
 
-        private ThemeStyle poisonTheme = ThemeStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ThemeStyle.Default)]
         public ThemeStyle Theme
         {
             get
             {
-                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                if (DesignMode || field != ThemeStyle.Default)
                 {
-                    return poisonTheme;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager != null && field == ThemeStyle.Default)
                 {
                     return StyleManager.Theme;
                 }
 
-                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager == null && field == ThemeStyle.Default)
                 {
                     return PoisonDefaults.Theme;
                 }
 
-                return poisonTheme;
+                return field;
             }
-            set => poisonTheme = value;
-        }
+            set;
+        } = ThemeStyle.Default;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -135,8 +133,21 @@ namespace ReaLTaiizor.Controls
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool DisplayFocus { get; set; } = false;
-        [DefaultValue(PoisonDateTimeSize.Medium)]
+
+        [field: DefaultValue(PoisonDateTimeSize.Medium)]
+        [field: Category(PoisonDefaults.PropertyCategory.Appearance)]
+        [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
+        public bool UseCustomFont
+        {
+            get;
+            set
+            {
+                field = value;
+                Refresh();
+            }
+        } = false;
+
         public PoisonDateTimeSize FontSize { get; set; } = PoisonDateTimeSize.Medium;
         [DefaultValue(PoisonDateTimeWeight.Regular)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
@@ -150,16 +161,33 @@ namespace ReaLTaiizor.Controls
             set => base.ShowUpDown = false;
         }
 
-        [Browsable(false)]
-        public override Font Font
-        {
-            get => base.Font;
-            set => base.Font = value;
-        }
-
         private bool isHovered = false;
         private bool isPressed = false;
         private bool isFocused = false;
+
+        #endregion
+
+        #region Routing Fields
+
+        public override Font Font
+        {
+            get
+            {
+                if (UseCustomFont)
+                {
+                    return base.Font;
+                }
+                else
+                {
+                    return PoisonFonts.DateTime(FontSize, FontWeight);
+                }
+            }
+            set
+            {
+                base.Font = value;
+                Refresh();
+            }
+        }
 
         #endregion
 
@@ -291,7 +319,7 @@ namespace ReaLTaiizor.Controls
 
             Rectangle textRect = new(2 + _check, 2, Width - 20, Height - 4);
 
-            TextRenderer.DrawText(e.Graphics, Text, PoisonFonts.DateTime(FontSize, FontWeight), textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+            TextRenderer.DrawText(e.Graphics, Text, Font, textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
 
             OnCustomPaintForeground(new PoisonPaintEventArgs(Color.Empty, foreColor, e.Graphics));
 
@@ -430,7 +458,7 @@ namespace ReaLTaiizor.Controls
             {
                 string measureText = Text.Length > 0 ? Text : "MeasureText";
                 proposedSize = new(int.MaxValue, int.MaxValue);
-                preferredSize = TextRenderer.MeasureText(g, measureText, PoisonFonts.DateTime(FontSize, FontWeight), proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
+                preferredSize = TextRenderer.MeasureText(g, measureText, Font, proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
                 preferredSize.Height += 10;
             }
 

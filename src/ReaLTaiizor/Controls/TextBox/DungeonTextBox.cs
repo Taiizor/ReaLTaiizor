@@ -19,11 +19,6 @@ namespace ReaLTaiizor.Controls
 
         public TextBox DungeonTB = new();
         private GraphicsPath Shape;
-        private int _maxchars = 32767;
-        private bool _ReadOnly;
-        private bool _Multiline;
-        private HorizontalAlignment ALNType;
-        private bool isPasswordMasked = false;
         private Pen P1;
         private readonly SolidBrush B1;
 
@@ -37,41 +32,41 @@ namespace ReaLTaiizor.Controls
 
         public HorizontalAlignment TextAlignment
         {
-            get => ALNType;
+            get;
             set
             {
-                ALNType = value;
+                field = value;
                 Invalidate();
             }
         }
         public int MaxLength
         {
-            get => _maxchars;
+            get;
             set
             {
-                _maxchars = value;
+                field = value;
                 DungeonTB.MaxLength = MaxLength;
                 Invalidate();
             }
-        }
+        } = 32767;
 
         public bool UseSystemPasswordChar
         {
-            get => isPasswordMasked;
+            get;
             set
             {
                 DungeonTB.UseSystemPasswordChar = UseSystemPasswordChar;
-                isPasswordMasked = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = false;
 
         public bool ReadOnly
         {
-            get => _ReadOnly;
+            get;
             set
             {
-                _ReadOnly = value;
+                field = value;
                 if (DungeonTB != null)
                 {
                     DungeonTB.ReadOnly = value;
@@ -81,10 +76,10 @@ namespace ReaLTaiizor.Controls
 
         public bool Multiline
         {
-            get => _Multiline;
+            get;
             set
             {
-                _Multiline = value;
+                field = value;
                 if (DungeonTB != null)
                 {
                     DungeonTB.Multiline = value;
@@ -164,7 +159,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            if (_Multiline)
+            if (Multiline)
             {
                 DungeonTB.Height = Height - 10;
             }

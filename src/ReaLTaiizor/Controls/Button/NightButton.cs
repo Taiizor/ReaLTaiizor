@@ -17,7 +17,6 @@ namespace ReaLTaiizor.Controls
     {
         #region Fields
 
-        private int _Radius = 20;
 
         private readonly Timer animationTimer;
         private int buttonGlow;
@@ -25,21 +24,10 @@ namespace ReaLTaiizor.Controls
         private bool hoverButton;
 
         private int mouseState;
-
-        private Color _NormalBackColor = ColorTranslator.FromHtml("#F25D59");
-        private Color _PressedBackColor = Color.FromArgb(100, ColorTranslator.FromHtml("#F25D59"));
-        private Color _HoverBackColor = Color.FromArgb(50, ColorTranslator.FromHtml("#F25D59"));
-        private Color _PressedForeColor = Color.White;
-        private Color _HoverForeColor = Color.White;
-
         private float margin, width, height;
         private Rectangle stringRect;
         private RectangleF buttonRect;
         private GraphicsPath roundRectPath;
-
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBicubic;
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
 
         #endregion
 
@@ -49,12 +37,12 @@ namespace ReaLTaiizor.Controls
         [Description("Sets the radius of curvature for the control.")]
         public int Radius
         {
-            get => _Radius;
+            get;
             set
             {
                 if (value is not (< 1 or > 20))
                 {
-                    _Radius = value;
+                    field = value;
                 }
                 else
                 {
@@ -63,92 +51,91 @@ namespace ReaLTaiizor.Controls
 
                 Invalidate();
             }
-        }
+        } = 20;
 
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBicubic;
 
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
         public Color PressedForeColor
         {
-            get => _PressedForeColor;
+            get;
             set
             {
-                _PressedForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color HoverForeColor
         {
-            get => _HoverForeColor;
+            get;
             set
             {
-                _HoverForeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         public Color NormalBackColor
         {
-            get => _NormalBackColor;
+            get;
             set
             {
-                _NormalBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ColorTranslator.FromHtml("#F25D59");
 
         public Color PressedBackColor
         {
-            get => _PressedBackColor;
+            get;
             set
             {
-                _PressedBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(100, ColorTranslator.FromHtml("#F25D59"));
 
         public Color HoverBackColor
         {
-            get => _HoverBackColor;
+            get;
             set
             {
-                _HoverBackColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(50, ColorTranslator.FromHtml("#F25D59"));
 
         #endregion
 
         #region IButtonControl
 
-        private DialogResult dlgResult;
 
         [Browsable(false)]
         private bool IsDefault { get; set; }
@@ -158,12 +145,12 @@ namespace ReaLTaiizor.Controls
         /// </summary>
         public DialogResult DialogResult
         {
-            get => dlgResult;
+            get;
             set
             {
                 if (System.Enum.IsDefined(typeof(DialogResult), value))
                 {
-                    dlgResult = value;
+                    field = value;
                 }
             }
         }
@@ -452,16 +439,16 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.SmoothingMode = _SmoothingType;
-            g.InterpolationMode = _InterpolationType;
-            g.PixelOffsetMode = _PixelOffsetType;
+            g.SmoothingMode = SmoothingType;
+            g.InterpolationMode = InterpolationType;
+            g.PixelOffsetMode = PixelOffsetType;
 
             margin = 3;
             width = ClientSize.Width - (2 * margin);
             height = ClientSize.Height - 6;
 
             buttonRect = new(margin, margin, width, height);
-            roundRectPath = RoundedRect(buttonRect, _Radius, _Radius, false, true, true, false);
+            roundRectPath = RoundedRect(buttonRect, Radius, Radius, false, true, true, false);
 
             FillButton(g);
             DrawButton(g);

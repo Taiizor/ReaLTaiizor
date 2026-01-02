@@ -1,105 +1,106 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <!--<TargetFramework>net48</TargetFramework>-->
-    <!--<TargetFrameworks>net48;net8.0-windows</TargetFrameworks>-->
-    <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
-    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
-    <OutputType>WinExe</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWindowsForms>true</UseWindowsForms>
-    <AnalysisLevel>preview</AnalysisLevel>
-    <LangVersion>preview</LangVersion>
-    <NeutralLanguage>en-GB</NeutralLanguage>
-    <NoWarn>CA1416</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>ReaLTaiizor.UI.Program</StartupObject>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Update="Forms\Docking\DockConsole.cs" />
-    <Compile Update="Forms\Docking\DockDocument.cs" />
-    <Compile Update="Forms\Docking\DockHistory.cs" />
-    <Compile Update="Forms\Docking\DockLayers.cs" />
-    <Compile Update="Forms\Docking\DockProject.cs" />
-    <Compile Update="Forms\Docking\DockProperties.cs" />
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="TaskWindowControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Data\Books.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <EmbeddedResource Include="Localization\Poison\de\PoisonMessageBoxControl.xml" />
-    <EmbeddedResource Include="Localization\Poison\de\PoisonToggle.xml" />
-    <EmbeddedResource Include="Localization\Poison\en\PoisonToggle.xml" />
-    <EmbeddedResource Include="Localization\Poison\es\PoisonToggle.xml" />
-    <EmbeddedResource Include="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
-    <EmbeddedResource Include="Localization\Poison\tr\PoisonToggle.xml" />
-    <EmbeddedResource Include="Localization\Poison\zh\PoisonMessageBoxControl.xml" />
-    <EmbeddedResource Include="Localization\Poison\zh\PoisonToggle.xml" />
-    <Content Include="Resources\application_16x.png" />
-    <Content Include="Resources\AttachOrDetach_7014.png" />
-    <Content Include="Resources\baseline_thumb_up_black_24dp.png" />
-    <Content Include="Resources\baseline_bluetooth_black_24dp.png" />
-    <Content Include="Resources\baseline_build_black_24dp.png" />
-    <Content Include="Resources\baseline_favorite_border_black_24dp.png" />
-    <Content Include="Resources\baseline_fingerprint_black_24dp.png" />
-    <Content Include="Resources\document_16xLG.png" />
-    <Content Include="Resources\Files_7954.png" />
-    <Content Include="Resources\folder_16x.png" />
-    <Content Include="Resources\folder_Closed_16xLG.png" />
-    <Content Include="Resources\Close_16xLG.png" />
-    <Content Include="Resources\Collection_16xLG.png" />
-    <Content Include="Resources\Console.png" />
-    <Content Include="Resources\GitHub-Mark.png" />
-    <Content Include="Resources\Google.png" />
-    <Content Include="Resources\minus.png" />
-    <Content Include="Resources\NewFile_6276.png" />
-    <Content Include="Resources\plus.png" />
-    <Content Include="Resources\properties_16xLG.png" />
-    <Content Include="Resources\RefactoringLog_12810.png" />
-    <Content Include="Resources\round_assessment_white_24dp.png" />
-    <Content Include="Resources\round_backup_white_24dp.png" />
-    <Content Include="Resources\round_bluetooth_white_24dp.png" />
-    <Content Include="Resources\round_bookmark_white_24dp.png" />
-    <Content Include="Resources\round_build_white_24dp.png" />
-    <Content Include="Resources\round_gps_fixed_white_24dp.png" />
-    <Content Include="Resources\round_http_white_24dp.png" />
-    <Content Include="Resources\round_report_problem_white_24dp.png" />
-    <Content Include="Resources\round_swap_vert_white_24dp.png" />
-    <Content Include="Resources\round_add_black_24dp.png" />
-    <Content Include="Resources\round_phone_black_24dp.png" />
-    <Content Include="Resources\StatusAnnotations_Information_16xLG_color.png" />
-    <Content Include="Resources\StatusAnnotations_Information_16xMD_color.png" />
-    <Content Include="Resources\Taiizor.ico" />
-    <Content Include="Resources\Twitter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="ReaLTaiizor" Version="3.8.0.7" />
-    <!--<Reference Include="ReaLTaiizor">
-      <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\$(TargetFramework)\ReaLTaiizor.dll</HintPath>
-    </Reference>-->
-  </ItemGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
-    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-  </PropertyGroup>
-  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
-    <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <!--<TargetFramework>net48</TargetFramework>-->
+        <!--<TargetFrameworks>net48;net8.0-windows</TargetFrameworks>-->
+        <TargetFrameworks>net48;net481;netcoreapp3.1-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
+        <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+        <OutputType>WinExe</OutputType>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <UseWindowsForms>true</UseWindowsForms>
+        <AnalysisLevel>preview</AnalysisLevel>
+        <LangVersion>preview</LangVersion>
+        <NeutralLanguage>en-GB</NeutralLanguage>
+        <NoWarn>CA1416</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup>
+        <StartupObject>ReaLTaiizor.UI.Program</StartupObject>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Update="Forms\Docking\DockConsole.cs" />
+        <Compile Update="Forms\Docking\DockDocument.cs" />
+        <Compile Update="Forms\Docking\DockHistory.cs" />
+        <Compile Update="Forms\Docking\DockLayers.cs" />
+        <Compile Update="Forms\Docking\DockProject.cs" />
+        <Compile Update="Forms\Docking\DockProperties.cs" />
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Update="TaskWindowControl.cs">
+            <SubType>UserControl</SubType>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="Data\Books.xml">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <EmbeddedResource Include="Localization\Poison\de\PoisonMessageBoxControl.xml" />
+        <EmbeddedResource Include="Localization\Poison\de\PoisonToggle.xml" />
+        <EmbeddedResource Include="Localization\Poison\en\PoisonToggle.xml" />
+        <EmbeddedResource Include="Localization\Poison\es\PoisonToggle.xml" />
+        <EmbeddedResource Include="Localization\Poison\tr\PoisonMessageBoxControl.xml" />
+        <EmbeddedResource Include="Localization\Poison\tr\PoisonToggle.xml" />
+        <EmbeddedResource Include="Localization\Poison\zh\PoisonMessageBoxControl.xml" />
+        <EmbeddedResource Include="Localization\Poison\zh\PoisonToggle.xml" />
+        <Content Include="Resources\application_16x.png" />
+        <Content Include="Resources\AttachOrDetach_7014.png" />
+        <Content Include="Resources\baseline_thumb_up_black_24dp.png" />
+        <Content Include="Resources\baseline_bluetooth_black_24dp.png" />
+        <Content Include="Resources\baseline_build_black_24dp.png" />
+        <Content Include="Resources\baseline_favorite_border_black_24dp.png" />
+        <Content Include="Resources\baseline_fingerprint_black_24dp.png" />
+        <Content Include="Resources\document_16xLG.png" />
+        <Content Include="Resources\Files_7954.png" />
+        <Content Include="Resources\folder_16x.png" />
+        <Content Include="Resources\folder_Closed_16xLG.png" />
+        <Content Include="Resources\Close_16xLG.png" />
+        <Content Include="Resources\Collection_16xLG.png" />
+        <Content Include="Resources\Console.png" />
+        <Content Include="Resources\GitHub-Mark.png" />
+        <Content Include="Resources\Google.png" />
+        <Content Include="Resources\minus.png" />
+        <Content Include="Resources\NewFile_6276.png" />
+        <Content Include="Resources\plus.png" />
+        <Content Include="Resources\properties_16xLG.png" />
+        <Content Include="Resources\RefactoringLog_12810.png" />
+        <Content Include="Resources\round_assessment_white_24dp.png" />
+        <Content Include="Resources\round_backup_white_24dp.png" />
+        <Content Include="Resources\round_bluetooth_white_24dp.png" />
+        <Content Include="Resources\round_bookmark_white_24dp.png" />
+        <Content Include="Resources\round_build_white_24dp.png" />
+        <Content Include="Resources\round_gps_fixed_white_24dp.png" />
+        <Content Include="Resources\round_http_white_24dp.png" />
+        <Content Include="Resources\round_report_problem_white_24dp.png" />
+        <Content Include="Resources\round_swap_vert_white_24dp.png" />
+        <Content Include="Resources\round_add_black_24dp.png" />
+        <Content Include="Resources\round_phone_black_24dp.png" />
+        <Content Include="Resources\StatusAnnotations_Information_16xLG_color.png" />
+        <Content Include="Resources\StatusAnnotations_Information_16xMD_color.png" />
+        <Content Include="Resources\Taiizor.ico" />
+        <Content Include="Resources\Twitter.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+        <PackageReference Include="ReaLTaiizor" Version="3.8.1.4" />
+        <!--<Reference Include="ReaLTaiizor">
+            <HintPath>..\..\..\src\ReaLTaiizor\bin\Release\$(TargetFramework)\ReaLTaiizor.dll</HintPath>
+        </Reference>-->
+    </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+        <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
+        <PackageReference Include="System.Resources.Extensions" Version="9.0.11" />
+        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="9.0.11" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
 </Project>

@@ -24,10 +24,8 @@ namespace ReaLTaiizor.Controls
         private Rectangle R1;
         private readonly Pen P1;
         private Pen P3;
-        private Image _Image;
         private Size _ImageSize;
         private StringAlignment _TextAlignment = StringAlignment.Center;
-        private ContentAlignment _ImageAlign = ContentAlignment.MiddleLeft;
 
         #endregion
         #region Image Designer
@@ -113,7 +111,7 @@ namespace ReaLTaiizor.Controls
 
         public Image Image
         {
-            get => _Image;
+            get;
             set
             {
                 if (value == null)
@@ -125,7 +123,7 @@ namespace ReaLTaiizor.Controls
                     _ImageSize = value.Size;
                 }
 
-                _Image = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -144,13 +142,13 @@ namespace ReaLTaiizor.Controls
 
         public ContentAlignment ImageAlign
         {
-            get => _ImageAlign;
+            get;
             set
             {
-                _ImageAlign = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = ContentAlignment.MiddleLeft;
 
         #endregion
         #region EventArgs
@@ -258,7 +256,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        _G.DrawImage(_Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
+                        _G.DrawImage(Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
                         _G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
                             Alignment = _TextAlignment,
@@ -279,7 +277,7 @@ namespace ReaLTaiizor.Controls
                     }
                     else
                     {
-                        _G.DrawImage(_Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
+                        _G.DrawImage(Image, ipt.X, ipt.Y, ImageSize.Width, ImageSize.Height);
                         _G.DrawString(Text, Font, new SolidBrush(ForeColor), R1, new StringFormat
                         {
                             Alignment = _TextAlignment,

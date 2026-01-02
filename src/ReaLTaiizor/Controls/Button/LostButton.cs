@@ -13,19 +13,17 @@ namespace ReaLTaiizor.Controls
 
     public class LostButton : ControlLostBase
     {
-        private Image _image = null;
         public Image Image
         {
-            get => _image;
-            set { _image = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = null;
 
-        private Color _hovercolor = ThemeLost.AccentBrush.Color;
         public Color HoverColor
         {
-            get => _hovercolor;
-            set { _hovercolor = value; Invalidate(); }
-        }
+            get;
+            set { field = value; Invalidate(); }
+        } = ThemeLost.AccentBrush.Color;
 
         public LostButton() : base()
         {
@@ -37,14 +35,14 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
-            pevent.Graphics.FillRectangle(MouseOver ? new SolidBrush(_hovercolor) : new SolidBrush(BackColor), ClientRectangle);
+            pevent.Graphics.FillRectangle(MouseOver ? new SolidBrush(HoverColor) : new SolidBrush(BackColor), ClientRectangle);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (_image != null)
+            if (Image != null)
             {
-                e.Graphics.DrawImage(_image, (Width / 2) - (_image.Width / 2), (Height / 2) - (_image.Height / 2), _image.Width, _image.Height);
+                e.Graphics.DrawImage(Image, (Width / 2) - (Image.Width / 2), (Height / 2) - (Image.Height / 2), Image.Width, Image.Height);
             }
 
             SizeF textSize = e.Graphics.MeasureString(Text, Font);

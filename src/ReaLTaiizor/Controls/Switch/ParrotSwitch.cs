@@ -27,10 +27,10 @@ namespace ReaLTaiizor.Controls
         [Description("The text of the button")]
         public Style SwitchStyle
         {
-            get => switchStyle;
+            get;
             set
             {
-                switchStyle = value;
+                field = value;
                 SetSwitchColor = true;
                 if (value == Style.iOS)
                 {
@@ -42,17 +42,17 @@ namespace ReaLTaiizor.Controls
                 }
                 Invalidate();
             }
-        }
+        } = Style.Horizontal;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The smoothing mode of the graphics")]
         public State SwitchState
         {
-            get => switchState;
+            get;
             set
             {
-                switchState = value;
+                field = value;
                 OnSwitchStateChanged();
                 Invalidate();
             }
@@ -135,7 +135,7 @@ namespace ReaLTaiizor.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
-            if (switchStyle == Style.iOS)
+            if (SwitchStyle == Style.iOS)
             {
                 if (SetSwitchColor)
                 {
@@ -144,7 +144,7 @@ namespace ReaLTaiizor.Controls
                     offColor = Color.FromArgb(255, 255, 255);
                     handleOffColor = Color.FromArgb(255, 255, 255);
                 }
-                if (switchState == State.On)
+                if (SwitchState == State.On)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(onColor), 15, 0, 30, 29);
                     e.Graphics.FillPie(new SolidBrush(onColor), new Rectangle(1, 0, 30, 29), 0f, 360f);
@@ -161,7 +161,7 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.FillPie(new SolidBrush(handleOffColor), new Rectangle(3, 2, 27, 25), 0f, 360f);
                 }
             }
-            if (switchStyle == Style.Android)
+            if (SwitchStyle == Style.Android)
             {
                 if (SetSwitchColor)
                 {
@@ -170,7 +170,7 @@ namespace ReaLTaiizor.Controls
                     offColor = Color.FromArgb(77, 77, 77);
                     handleOffColor = Color.FromArgb(185, 185, 185);
                 }
-                if (switchState == State.On)
+                if (SwitchState == State.On)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(onColor), 10, 5, 30, 20);
                     e.Graphics.FillPie(new SolidBrush(onColor), new Rectangle(3, 5, 20, 20), 0f, 360f);
@@ -183,9 +183,9 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.FillPie(new SolidBrush(handleOffColor), new Rectangle(0, 0, 29, 29), 0f, 360f);
                 }
             }
-            if (switchStyle == Style.Horizontal)
+            if (SwitchStyle == Style.Horizontal)
             {
-                if (switchState == State.On)
+                if (SwitchState == State.On)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(onColor), 0, 5, base.Width, base.Height - 10);
                     e.Graphics.FillRectangle(new SolidBrush(handleOnColor), (base.Width / 2) + 2, 7, (base.Width / 2) - 5, base.Height - 14);
@@ -196,9 +196,9 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.FillRectangle(new SolidBrush(handleOffColor), 2, 7, (base.Width / 2) - 5, base.Height - 14);
                 }
             }
-            if (switchStyle == Style.Vertical)
+            if (SwitchStyle == Style.Vertical)
             {
-                if (switchState == State.On)
+                if (SwitchState == State.On)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(onColor), 5, 0, base.Width - 10, base.Height);
                     e.Graphics.FillRectangle(new SolidBrush(handleOnColor), 7, (base.Height / 2) + 2, base.Width - 14, (base.Height / 2) - 5);
@@ -209,7 +209,7 @@ namespace ReaLTaiizor.Controls
                     e.Graphics.FillRectangle(new SolidBrush(handleOffColor), 7, 2, base.Width - 14, (base.Height / 2) - 5);
                 }
             }
-            if (switchStyle == Style.Dark)
+            if (SwitchStyle == Style.Dark)
             {
                 if (SetSwitchColor)
                 {
@@ -218,7 +218,7 @@ namespace ReaLTaiizor.Controls
                     offColor = Color.FromArgb(75, 75, 75);
                     handleOffColor = Color.FromArgb(255, 255, 255);
                 }
-                if (switchState == State.On)
+                if (SwitchState == State.On)
                 {
                     e.Graphics.FillRectangle(new SolidBrush(onColor), 15, 0, 30, 29);
                     e.Graphics.FillPie(new SolidBrush(onColor), new Rectangle(1, 0, 30, 29), 0f, 360f);
@@ -239,11 +239,6 @@ namespace ReaLTaiizor.Controls
         }
 
         private bool SetSwitchColor = true;
-
-        private Style switchStyle = Style.Horizontal;
-
-        private State switchState;
-
         private Color onColor = Color.FromArgb(102, 217, 174);
 
         private Color offColor = Color.FromArgb(234, 129, 136);

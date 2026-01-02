@@ -29,57 +29,55 @@ namespace ReaLTaiizor.Controls
         [Description("The banner border color")]
         public Color BorderColor
         {
-            get => borderColor;
+            get;
             set
             {
-                borderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.White;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The color of the banner")]
         public Color BannerColor
         {
-            get => bannerColor;
+            get;
             set
             {
-                bannerColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(230, 71, 89);
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            List<Point> list = new();
-            List<PointF> list2 = new();
+            List<Point> list = [];
+            List<PointF> list2 = [];
             list.Add(new Point(0, base.Height / 10 * 5));
             list.Add(new Point(base.Height / 10, base.Height / 10 * 4));
             list.Add(new Point(base.Height / 10 * 2, base.Height / 10 * 3));
@@ -103,7 +101,7 @@ namespace ReaLTaiizor.Controls
             list.Add(new Point(base.Height / 10 * 2, base.Height / 10 * 7));
             list.Add(new Point(base.Height / 10, base.Height / 10 * 6));
             list.Add(new Point(0, base.Height / 10 * 5));
-            SolidBrush brush = new(bannerColor);
+            SolidBrush brush = new(BannerColor);
             e.Graphics.FillPolygon(brush, list.ToArray());
             list2.Add(new Point(0, base.Height / 10 * 5));
             list2.Add(new Point(base.Height / 10, base.Height / 10 * 4));
@@ -128,7 +126,7 @@ namespace ReaLTaiizor.Controls
             list2.Add(new Point(base.Height / 10 * 2, base.Height / 10 * 7));
             list2.Add(new Point(base.Height / 10, base.Height / 10 * 6));
             list2.Add(new Point(0, base.Height / 10 * 5));
-            Pen pen = new(borderColor, 1f);
+            Pen pen = new(BorderColor, 1f);
             e.Graphics.DrawPolygon(pen, list2.ToArray());
             StringFormat stringFormat = new()
             {
@@ -142,10 +140,6 @@ namespace ReaLTaiizor.Controls
             e.Graphics.DrawString(Text, Font, brush2, layoutRectangle, stringFormat);
             base.OnPaint(e);
         }
-
-        private Color borderColor = Color.White;
-
-        private Color bannerColor = Color.FromArgb(230, 71, 89);
     }
 
     #endregion

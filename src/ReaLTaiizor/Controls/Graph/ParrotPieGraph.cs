@@ -20,19 +20,26 @@ namespace ReaLTaiizor.Controls
             base.Size = new Size(100, 100);
         }
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
-        private List<Color> _Colors = new()
+        public List<Color> Colors
         {
+            get;
+            set
+            {
+                field = value;
+                Invalidate();
+            }
+        } =
+        [
             Color.FromArgb(249, 55, 98),
             Color.FromArgb(219, 55, 128),
             Color.FromArgb(193, 58, 151),
@@ -47,19 +54,26 @@ namespace ReaLTaiizor.Controls
             Color.FromArgb(0, 152, 250),
             Color.FromArgb(0, 162, 250),
             Color.FromArgb(0, 150, 212)
-        };
-        public List<Color> Colors
+        ];
+
+        public List<int> Numbers
         {
-            get => _Colors;
+            get;
             set
             {
-                _Colors = value;
+                int num = 0;
+                foreach (int num2 in value)
+                {
+                    num += num2;
+                }
+                if (num == 100)
+                {
+                    field = value;
+                }
                 Invalidate();
             }
-        }
-
-        private List<int> _Numbers = new()
-        {
+        } =
+        [
             5,
             10,
             6,
@@ -73,24 +87,7 @@ namespace ReaLTaiizor.Controls
             3,
             4,
             6
-        };
-        public List<int> Numbers
-        {
-            get => _Numbers;
-            set
-            {
-                int num = 0;
-                foreach (int num2 in value)
-                {
-                    num += num2;
-                }
-                if (num == 100)
-                {
-                    _Numbers = value;
-                }
-                Invalidate();
-            }
-        }
+        ];
 
         protected override void OnPaint(PaintEventArgs e)
         {

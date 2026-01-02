@@ -23,45 +23,41 @@ namespace ReaLTaiizor.Controls
         private MouseStateForever State = MouseStateForever.None;
         private readonly System.Windows.Forms.TextBox TB;
 
-        private HorizontalAlignment _TextAlign = HorizontalAlignment.Left;
-
         [Category("Options")]
         public HorizontalAlignment TextAlign
         {
-            get => _TextAlign;
+            get;
             set
             {
-                _TextAlign = value;
+                field = value;
                 if (TB != null)
                 {
                     TB.TextAlign = value;
                 }
             }
-        }
+        } = HorizontalAlignment.Left;
 
-        private int _MaxLength = 32767;
         [Category("Options")]
         public int MaxLength
         {
-            get => _MaxLength;
+            get;
             set
             {
-                _MaxLength = value;
+                field = value;
                 if (TB != null)
                 {
                     TB.MaxLength = value;
                 }
             }
-        }
+        } = 32767;
 
-        private bool _ReadOnly;
         [Category("Options")]
         public bool ReadOnly
         {
-            get => _ReadOnly;
+            get;
             set
             {
-                _ReadOnly = value;
+                field = value;
                 if (TB != null)
                 {
                     TB.ReadOnly = value;
@@ -69,14 +65,13 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _UseSystemPasswordChar;
         [Category("Options")]
         public bool UseSystemPasswordChar
         {
-            get => _UseSystemPasswordChar;
+            get;
             set
             {
-                _UseSystemPasswordChar = value;
+                field = value;
                 if (TB != null)
                 {
                     TB.UseSystemPasswordChar = value;
@@ -84,14 +79,13 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool _Multiline;
         [Category("Options")]
         public bool Multiline
         {
-            get => _Multiline;
+            get;
             set
             {
-                _Multiline = value;
+                field = value;
                 if (TB != null)
                 {
                     TB.Multiline = value;
@@ -138,7 +132,7 @@ namespace ReaLTaiizor.Controls
                     TB.Location = new(3, 5);
                     TB.Width = Width - 6;
 
-                    if (!_Multiline)
+                    if (!Multiline)
                     {
                         Height = TB.Height + 11;
                     }
@@ -179,7 +173,7 @@ namespace ReaLTaiizor.Controls
             TB.Location = new(5, 5);
             TB.Width = Width - 10;
 
-            if (_Multiline)
+            if (Multiline)
             {
                 TB.Height = Height - 11;
             }
@@ -243,10 +237,10 @@ namespace ReaLTaiizor.Controls
                 Text = Text,
                 BackColor = BaseColor,
                 ForeColor = ForeColor,
-                MaxLength = _MaxLength,
-                Multiline = _Multiline,
-                ReadOnly = _ReadOnly,
-                UseSystemPasswordChar = _UseSystemPasswordChar,
+                MaxLength = MaxLength,
+                Multiline = Multiline,
+                ReadOnly = ReadOnly,
+                UseSystemPasswordChar = UseSystemPasswordChar,
                 BorderStyle = BorderStyle.None,
                 Location = new(6, 6),
                 Width = Width - 10,
@@ -254,7 +248,7 @@ namespace ReaLTaiizor.Controls
                 Cursor = Cursors.IBeam
             };
 
-            if (_Multiline)
+            if (Multiline)
             {
                 TB.Height = Height - 11;
             }

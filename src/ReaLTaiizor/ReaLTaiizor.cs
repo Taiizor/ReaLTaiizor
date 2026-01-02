@@ -13,8 +13,8 @@ using System.Windows.Forms;
 //     Creator: Taiizor
 //     Website: www.vegalya.com
 //     Created: 15.May.2019
-//     Changed: 29.Aug.2024
-//     Version: 3.8.0.8
+//     Changed: 12.Nov.2025
+//     Version: 3.8.1.5
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -253,19 +253,18 @@ namespace ReaLTaiizor
             thisis.ColorTable = ColorTable;
         }
 
-        private ColorTable _ColorTable;
         public new ColorTable ColorTable
         {
             get
             {
-                if (_ColorTable == null)
+                if (field == null)
                 {
-                    _ColorTable = new MSColorTable();
+                    field = new MSColorTable();
                 }
 
-                return _ColorTable;
+                return field;
             }
-            set => _ColorTable = value;
+            set;
         }
 
         protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)

@@ -54,59 +54,57 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private ColorStyle poisonStyle = ColorStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ColorStyle.Default)]
         public ColorStyle Style
         {
             get
             {
-                if (DesignMode || poisonStyle != ColorStyle.Default)
+                if (DesignMode || field != ColorStyle.Default)
                 {
-                    return poisonStyle;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonStyle == ColorStyle.Default)
+                if (StyleManager != null && field == ColorStyle.Default)
                 {
                     return StyleManager.Style;
                 }
 
-                if (StyleManager == null && poisonStyle == ColorStyle.Default)
+                if (StyleManager == null && field == ColorStyle.Default)
                 {
                     return PoisonDefaults.Style;
                 }
 
-                return poisonStyle;
+                return field;
             }
-            set => poisonStyle = value;
-        }
+            set;
+        } = ColorStyle.Default;
 
-        private ThemeStyle poisonTheme = ThemeStyle.Default;
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         [DefaultValue(ThemeStyle.Default)]
         public ThemeStyle Theme
         {
             get
             {
-                if (DesignMode || poisonTheme != ThemeStyle.Default)
+                if (DesignMode || field != ThemeStyle.Default)
                 {
-                    return poisonTheme;
+                    return field;
                 }
 
-                if (StyleManager != null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager != null && field == ThemeStyle.Default)
                 {
                     return StyleManager.Theme;
                 }
 
-                if (StyleManager == null && poisonTheme == ThemeStyle.Default)
+                if (StyleManager == null && field == ThemeStyle.Default)
                 {
                     return PoisonDefaults.Theme;
                 }
 
-                return poisonTheme;
+                return field;
             }
-            set => poisonTheme = value;
-        }
+            set;
+        } = ThemeStyle.Default;
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -153,7 +151,7 @@ namespace ReaLTaiizor.Controls
             get => progress;
             set
             {
-                if (value != -1 && (value < minimum || value > maximum))
+                if (value != -1 && (value < Minimum || value > Maximum))
                 {
                     throw new ArgumentOutOfRangeException("Progress value must be -1 or between Minimum and Maximum.", (Exception)null);
                 }
@@ -163,12 +161,11 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private int minimum = 0;
         [DefaultValue(0)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int Minimum
         {
-            get => minimum;
+            get;
             set
             {
                 if (value < 0)
@@ -176,52 +173,50 @@ namespace ReaLTaiizor.Controls
                     throw new ArgumentOutOfRangeException("Minimum value must be >= 0.", (Exception)null);
                 }
 
-                if (value >= maximum)
+                if (value >= Maximum)
                 {
                     throw new ArgumentOutOfRangeException("Minimum value must be < Maximum.", (Exception)null);
                 }
 
-                minimum = value;
-                if (progress != -1 && progress < minimum)
+                field = value;
+                if (progress != -1 && progress < field)
                 {
-                    progress = minimum;
+                    progress = field;
                 }
 
                 Refresh();
             }
-        }
+        } = 0;
 
-        private int maximum = 100;
         [DefaultValue(0)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public int Maximum
         {
-            get => maximum;
+            get;
             set
             {
-                if (value <= minimum)
+                if (value <= Minimum)
                 {
                     throw new ArgumentOutOfRangeException("Maximum value must be > Minimum.", (Exception)null);
                 }
 
-                maximum = value;
-                if (progress > maximum)
+                field = value;
+                if (progress > field)
                 {
-                    progress = maximum;
+                    progress = field;
                 }
 
                 Refresh();
             }
-        }
+        } = 100;
 
-        private bool ensureVisible = true;
         [DefaultValue(true)]
         [Category(PoisonDefaults.PropertyCategory.Appearance)]
         public bool EnsureVisible
         {
-            get => ensureVisible;
-            set { ensureVisible = value; Refresh(); }
-        }
+            get;
+            set { field = value; Refresh(); }
+        } = true;
 
         private float speed;
         [DefaultValue(1f)]
@@ -240,13 +235,12 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private bool backwards;
         [DefaultValue(false)]
         [Category(PoisonDefaults.PropertyCategory.Behaviour)]
         public bool Backwards
         {
-            get => backwards;
-            set { backwards = value; Refresh(); }
+            get;
+            set { field = value; Refresh(); }
         }
 
         [DefaultValue(false)]
@@ -278,7 +272,7 @@ namespace ReaLTaiizor.Controls
 
         public void Reset()
         {
-            progress = minimum;
+            progress = Minimum;
             angle = 270;
             Refresh();
         }
@@ -291,7 +285,7 @@ namespace ReaLTaiizor.Controls
         {
             if (!DesignMode)
             {
-                angle += 6f * speed * (backwards ? -1 : 1);
+                angle += 6f * speed * (Backwards ? -1 : 1);
                 Refresh();
             }
         }
@@ -381,9 +375,9 @@ namespace ReaLTaiizor.Controls
                 if (progress != -1)
                 {
                     float sweepAngle;
-                    float progFrac = (progress - minimum) / (float)(maximum - minimum);
+                    float progFrac = (progress - Minimum) / (float)(Maximum - Minimum);
 
-                    if (ensureVisible)
+                    if (EnsureVisible)
                     {
                         sweepAngle = 30 + (300f * progFrac);
                     }
@@ -392,7 +386,7 @@ namespace ReaLTaiizor.Controls
                         sweepAngle = 360f * progFrac;
                     }
 
-                    if (backwards)
+                    if (Backwards)
                     {
                         sweepAngle = -sweepAngle;
                     }
@@ -418,8 +412,8 @@ namespace ReaLTaiizor.Controls
 
                         Color col = Color.FromArgb(alpha, forePen.Color);
                         using Pen gradPen = new(col, forePen.Width);
-                        float startAngle = angle + ((offset - (ensureVisible ? 30 : 0)) * (backwards ? 1 : -1));
-                        float sweepAngle = 15 * (backwards ? 1 : -1);
+                        float startAngle = angle + ((offset - (EnsureVisible ? 30 : 0)) * (Backwards ? 1 : -1));
+                        float sweepAngle = 15 * (Backwards ? 1 : -1);
                         e.Graphics.DrawArc(gradPen, padding, padding, Width - (2 * padding) - 1, Height - (2 * padding) - 1, startAngle, sweepAngle);
                     }
                 }

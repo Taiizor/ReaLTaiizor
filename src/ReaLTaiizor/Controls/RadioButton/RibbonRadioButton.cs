@@ -29,13 +29,12 @@ namespace ReaLTaiizor.Controls
             Invalidate();
         }
 
-        private bool _Checked;
         public bool Checked
         {
-            get => _Checked;
+            get;
             set
             {
-                _Checked = value;
+                field = value;
                 InvalidateControls();
                 CheckedChanged?.Invoke(this);
                 Invalidate();
@@ -44,7 +43,7 @@ namespace ReaLTaiizor.Controls
 
         protected override void OnClick(EventArgs e)
         {
-            if (!_Checked)
+            if (!Checked)
             {
                 @Checked = true;
             }
@@ -66,7 +65,7 @@ namespace ReaLTaiizor.Controls
 
         private void InvalidateControls()
         {
-            if (!IsHandleCreated || !_Checked)
+            if (!IsHandleCreated || !Checked)
             {
                 return;
             }
@@ -80,93 +79,85 @@ namespace ReaLTaiizor.Controls
             }
         }
 
-        private SmoothingMode _SmoothingType = SmoothingMode.HighQuality;
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.HighQuality;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.AntiAliasGridFit;
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.AntiAliasGridFit;
 
-        private Color _CheckedColor = Color.FromArgb(40, 40, 40);
         public Color CheckedColor
         {
-            get => _CheckedColor;
+            get;
             set
             {
-                _CheckedColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(40, 40, 40);
 
-        private Color _CircleBorderColor = Color.FromArgb(117, 120, 117);
         public Color CircleBorderColor
         {
-            get => _CircleBorderColor;
+            get;
             set
             {
-                _CircleBorderColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(117, 120, 117);
 
-        private Color _CircleEdgeColor = Color.WhiteSmoke;
         public Color CircleEdgeColor
         {
-            get => _CircleEdgeColor;
+            get;
             set
             {
-                _CircleEdgeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.WhiteSmoke;
 
-        private Color _CheckedBorderColorA = Color.FromArgb(203, 201, 205);
         public Color CheckedBorderColorA
         {
-            get => _CheckedBorderColorA;
+            get;
             set
             {
-                _CheckedBorderColorA = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(203, 201, 205);
 
-        private Color _CheckedBorderColorB = Color.FromArgb(188, 186, 190);
         public Color CheckedBorderColorB
         {
-            get => _CheckedBorderColorB;
+            get;
             set
             {
-                _CheckedBorderColorB = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(188, 186, 190);
         #endregion
 
         public RibbonRadioButton() : base()

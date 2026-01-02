@@ -90,6 +90,41 @@ Bu harika insanlara teşekkürler ([emoji anahtarı](https://allcontributors.org
             <br />
             <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Oxara" title="İncelenen Çekme İstekleri">👀</a>
         </td>
+        <td align="center">
+            <a href="https://github.com/toolgood">
+                <img src="https://avatars3.githubusercontent.com/u/17310407?s=460&v=4" width="80px;" alt="toolgood" />
+                <br />
+                <sub>
+                    <b>toolgood</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=toolgood" title="İncelenen Çekme İstekleri">👀</a>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/gmono">
+                <img src="https://avatars3.githubusercontent.com/u/19236339?s=460&v=4" width="80px;" alt="gmono" />
+                <br />
+                <sub>
+                    <b>gmono</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=gmono" title="İncelenen Çekme İstekleri">👀</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/Hgnim">
+                <img src="https://avatars3.githubusercontent.com/u/112072873?s=460&v=4" width="80px;" alt="Hgnim" />
+                <br />
+                <sub>
+                    <b>Hgnim</b>
+                </sub>
+            </a>
+            <br />
+            <a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Hgnim" title="İncelenen Çekme İstekleri">👀</a>
+        </td>
     </tr>
 </table>
 

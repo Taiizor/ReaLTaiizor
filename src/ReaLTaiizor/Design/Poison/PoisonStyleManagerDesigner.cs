@@ -27,45 +27,45 @@ namespace ReaLTaiizor.Design.Poison
                     return designerVerbs;
                 }
 
-                designerVerbs = new DesignerVerbCollection
-                {
+                designerVerbs =
+                [
                     new DesignerVerb("Reset Styles to Default", OnResetStyles)
-                };
+                ];
 
                 return designerVerbs;
             }
         }
 
-        private IDesignerHost designerHost;
         public IDesignerHost DesignerHost
         {
             get
             {
-                if (designerHost != null)
+                if (field != null)
                 {
-                    return designerHost;
+                    return field;
                 }
 
-                designerHost = (IDesignerHost)GetService(typeof(IDesignerHost));
+                field = (IDesignerHost)GetService(typeof(IDesignerHost));
 
-                return designerHost;
+                return field;
             }
         }
 
-        private IComponentChangeService componentChangeService;
         public IComponentChangeService ComponentChangeService
         {
             get
             {
-                if (componentChangeService != null)
+                if (field != null)
                 {
-                    return componentChangeService;
+                    return field;
                 }
 
-                componentChangeService = (IComponentChangeService)GetService(typeof(IComponentChangeService));
+                field = (IComponentChangeService)GetService(typeof(IComponentChangeService));
 
-                return componentChangeService;
+                return field;
             }
+
+            private set;
         }
 
         private void OnResetStyles(object sender, EventArgs args)

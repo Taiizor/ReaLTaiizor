@@ -20,62 +20,59 @@ namespace ReaLTaiizor.Controls
 
         private bool IsEnabled;
 
-        private int _Value;
         public int Value
         {
-            get => _Value;
+            get;
             set
             {
-                if (value > _Max)
+                if (value > Max)
                 {
-                    _Value = _Max;
+                    field = Max;
                     return;
                 }
                 if (value < Min)
                 {
-                    _Value = _Min;
+                    field = Min;
                     return;
                 }
-                _Value = value;
+                field = value;
                 Invalidate();
             }
         }
 
-        private int _Max = 100;
         public int Max
         {
-            get => _Max;
+            get;
             set
             {
-                if (value == _Min || value < _Min)
+                if (value == Min || value < Min)
                 {
-                    _Max = _Min + 1;
+                    field = Min + 1;
                     Invalidate();
                 }
                 else
                 {
-                    _Max = value;
+                    field = value;
                 }
             }
-        }
+        } = 100;
 
-        private int _Min = 0;
         public int Min
         {
-            get => _Min;
+            get;
             set
             {
-                if (value > _Max || value == _Max)
+                if (value > Max || value == Max)
                 {
-                    _Min = _Max - 1;
+                    field = Max - 1;
                     Invalidate();
                 }
                 else
                 {
-                    _Min = value;
+                    field = value;
                 }
             }
-        }
+        } = 0;
 
         public new bool Enabled
         {

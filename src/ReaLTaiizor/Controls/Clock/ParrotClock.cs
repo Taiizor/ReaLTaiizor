@@ -37,39 +37,39 @@ namespace ReaLTaiizor.Controls
         [Description("The circle thickness")]
         public int CircleThickness
         {
-            get => circleThickness;
+            get;
             set
             {
-                circleThickness = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = 6;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The unfilled hour circle color")]
         public Color UnfilledHourColor
         {
-            get => unfilledHourColor;
+            get;
             set
             {
-                unfilledHourColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(75, 70, 85);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The filled hour circle color")]
         public Color FilledHourColor
         {
-            get => filledHourColor;
+            get;
             set
             {
-                filledHourColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(105, 190, 155);
 
         [Category("Parrot")]
         [Browsable(true)]
@@ -102,101 +102,101 @@ namespace ReaLTaiizor.Controls
         [Description("The unfilled second circle color")]
         public Color UnfilledSecondColor
         {
-            get => unfilledSecondColor;
+            get;
             set
             {
-                unfilledSecondColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(60, 60, 70);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The filled second circle color")]
         public Color FilledSecondColor
         {
-            get => filledSecondColor;
+            get;
             set
             {
-                filledSecondColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.DarkOrchid;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The hexagon color")]
         public Color HexagonColor
         {
-            get => hexagonColor;
+            get;
             set
             {
-                hexagonColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(60, 60, 70);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The time color")]
         public Color TimeColor
         {
-            get => timeColor;
+            get;
             set
             {
-                timeColor = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = Color.FromArgb(220, 220, 220);
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the seconds circle")]
         public bool ShowSecondsCircle
         {
-            get => showSecondsCircle;
+            get;
             set
             {
-                showSecondsCircle = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the minutes circle")]
         public bool ShowMinutesCircle
         {
-            get => showMinutesCircle;
+            get;
             set
             {
-                showMinutesCircle = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show the hexagon")]
         public bool ShowHexagon
         {
-            get => showHexagon;
+            get;
             set
             {
-                showHexagon = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = true;
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Show AM/PM")]
         public bool ShowAmPm
         {
-            get => showAMPM;
+            get;
             set
             {
-                showAMPM = value;
+                field = value;
                 Invalidate();
             }
         }
@@ -206,104 +206,99 @@ namespace ReaLTaiizor.Controls
         [Description("Time (AM) format")]
         public string TimeAMFormat
         {
-            get => timeAMFormat;
+            get;
             set
             {
-                timeAMFormat = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "hh:mm";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("Time (PM) format")]
         public string TimePMFormat
         {
-            get => timePMFormat;
+            get;
             set
             {
-                timePMFormat = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = "HH:mm";
 
         [Category("Parrot")]
         [Browsable(true)]
         [Description("The time display format")]
         public HourFormat DisplayFormat
         {
-            get => displayFormat;
+            get;
             set
             {
-                displayFormat = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = HourFormat.TwentyFourHour;
 
-        private SmoothingMode _SmoothingType = SmoothingMode.AntiAlias;
         [Category("Parrot")]
         [Browsable(true)]
         public SmoothingMode SmoothingType
         {
-            get => _SmoothingType;
+            get;
             set
             {
-                _SmoothingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = SmoothingMode.AntiAlias;
 
-        private PixelOffsetMode _PixelOffsetType = PixelOffsetMode.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public PixelOffsetMode PixelOffsetType
         {
-            get => _PixelOffsetType;
+            get;
             set
             {
-                _PixelOffsetType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = PixelOffsetMode.HighQuality;
 
-        private CompositingQuality _CompositingQualityType = CompositingQuality.HighQuality;
         [Category("Parrot")]
         [Browsable(true)]
         public CompositingQuality CompositingQualityType
         {
-            get => _CompositingQualityType;
+            get;
             set
             {
-                _CompositingQualityType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = CompositingQuality.HighQuality;
 
-        private TextRenderingHint _TextRenderingType = TextRenderingHint.ClearTypeGridFit;
         [Category("Parrot")]
         [Browsable(true)]
         public TextRenderingHint TextRenderingType
         {
-            get => _TextRenderingType;
+            get;
             set
             {
-                _TextRenderingType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = TextRenderingHint.ClearTypeGridFit;
 
-        private InterpolationMode _InterpolationType = InterpolationMode.HighQualityBilinear;
         [Category("Parrot")]
         [Browsable(true)]
         public InterpolationMode InterpolationType
         {
-            get => _InterpolationType;
+            get;
             set
             {
-                _InterpolationType = value;
+                field = value;
                 Invalidate();
             }
-        }
+        } = InterpolationMode.HighQualityBilinear;
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -322,8 +317,8 @@ namespace ReaLTaiizor.Controls
 
             if (ShowHexagon)
             {
-                List<Point> list = new()
-                {
+                List<Point> list =
+                [
                     new Point(0, Height / 4),
                     new Point(Width / 2, 0),
                     new Point(Width, Height / 4),
@@ -331,8 +326,8 @@ namespace ReaLTaiizor.Controls
                     new Point(Width / 2, Height),
                     new Point(0, Height / 4 * 3),
                     new Point(0, Height / 4)
-                };
-                bufferedGraphics.Graphics.FillPolygon(new SolidBrush(hexagonColor), list.ToArray());
+                ];
+                bufferedGraphics.Graphics.FillPolygon(new SolidBrush(HexagonColor), list.ToArray());
             }
 
             int num = (int)Math.Round(DateTime.Now.Hour * 100 / 24.0);
@@ -341,23 +336,23 @@ namespace ReaLTaiizor.Controls
 
             Rectangle rectangle;
 
-            if (showSecondsCircle && showMinutesCircle)
+            if (ShowSecondsCircle && ShowMinutesCircle)
             {
-                rectangle = new Rectangle((Width / 8) + (circleThickness * 2) - 2, (Height / 6) + (circleThickness * 2) - 1, (Width / 8 * 6) - (circleThickness * 4) + 4, (Height / 6 * 4) - (circleThickness * 4) + 2);
-                bufferedGraphics.Graphics.DrawArc(new Pen(unfilledSecondColor, circleThickness), rectangle, 270f, 360f);
-                bufferedGraphics.Graphics.DrawArc(new Pen(filledSecondColor, circleThickness), rectangle, 270f, (int)(num3 * 3.6));
+                rectangle = new Rectangle((Width / 8) + (CircleThickness * 2) - 2, (Height / 6) + (CircleThickness * 2) - 1, (Width / 8 * 6) - (CircleThickness * 4) + 4, (Height / 6 * 4) - (CircleThickness * 4) + 2);
+                bufferedGraphics.Graphics.DrawArc(new Pen(UnfilledSecondColor, CircleThickness), rectangle, 270f, 360f);
+                bufferedGraphics.Graphics.DrawArc(new Pen(FilledSecondColor, CircleThickness), rectangle, 270f, (int)(num3 * 3.6));
             }
-            if (showMinutesCircle)
+            if (ShowMinutesCircle)
             {
-                rectangle = new Rectangle((Width / 8) + circleThickness - 1, (Height / 6) + circleThickness - 1, (Width / 8 * 6) - (circleThickness * 2) + 2, (Height / 6 * 4) - (circleThickness * 2) + 2);
-                bufferedGraphics.Graphics.DrawArc(new Pen(unfilledMinuteColor, circleThickness), rectangle, 270f, 360f);
-                bufferedGraphics.Graphics.DrawArc(new Pen(filledMinuteColor, circleThickness), rectangle, 270f, (int)(num2 * 3.6));
+                rectangle = new Rectangle((Width / 8) + CircleThickness - 1, (Height / 6) + CircleThickness - 1, (Width / 8 * 6) - (CircleThickness * 2) + 2, (Height / 6 * 4) - (CircleThickness * 2) + 2);
+                bufferedGraphics.Graphics.DrawArc(new Pen(unfilledMinuteColor, CircleThickness), rectangle, 270f, 360f);
+                bufferedGraphics.Graphics.DrawArc(new Pen(filledMinuteColor, CircleThickness), rectangle, 270f, (int)(num2 * 3.6));
             }
 
             rectangle = new Rectangle(Width / 8, Height / 6, Width / 8 * 6, Height / 6 * 4);
 
-            bufferedGraphics.Graphics.DrawArc(new Pen(unfilledHourColor, circleThickness), rectangle, 270f, 360f);
-            bufferedGraphics.Graphics.DrawArc(new Pen(filledHourColor, circleThickness), rectangle, 270f, (int)(num * 3.6));
+            bufferedGraphics.Graphics.DrawArc(new Pen(UnfilledHourColor, CircleThickness), rectangle, 270f, 360f);
+            bufferedGraphics.Graphics.DrawArc(new Pen(FilledHourColor, CircleThickness), rectangle, 270f, (int)(num * 3.6));
 
             rectangle.Inflate(0, -5);
 
@@ -367,20 +362,20 @@ namespace ReaLTaiizor.Controls
                 Alignment = StringAlignment.Center
             };
 
-            if (displayFormat == HourFormat.TwelveHour)
+            if (DisplayFormat == HourFormat.TwelveHour)
             {
-                if (showAMPM)
+                if (ShowAmPm)
                 {
-                    bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(timeAMFormat) + "\n" + DateTime.Now.ToString("tt", CultureInfo.InvariantCulture), Font, new SolidBrush(timeColor), rectangle, stringFormat);
+                    bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(TimeAMFormat) + "\n" + DateTime.Now.ToString("tt", CultureInfo.InvariantCulture), Font, new SolidBrush(TimeColor), rectangle, stringFormat);
                 }
                 else
                 {
-                    bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(timeAMFormat), Font, new SolidBrush(timeColor), rectangle, stringFormat);
+                    bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(TimeAMFormat), Font, new SolidBrush(TimeColor), rectangle, stringFormat);
                 }
             }
             else
             {
-                bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(timePMFormat), Font, new SolidBrush(timeColor), rectangle, stringFormat);
+                bufferedGraphics.Graphics.DrawString(DateTime.Now.ToString(TimePMFormat), Font, new SolidBrush(TimeColor), rectangle, stringFormat);
             }
 
             bufferedGraphics.Render(e.Graphics);
@@ -390,38 +385,9 @@ namespace ReaLTaiizor.Controls
         private readonly Timer RefreshUI = new();
 
         private BufferedGraphics bufferedGraphics;
-
-        private int circleThickness = 6;
-
-        private Color unfilledHourColor = Color.FromArgb(75, 70, 85);
-
-        private Color filledHourColor = Color.FromArgb(105, 190, 155);
-
         private Color unfilledMinuteColor = Color.FromArgb(60, 60, 70);
 
         private readonly Color filledMinuteColor = Color.DodgerBlue;
-
-        private Color unfilledSecondColor = Color.FromArgb(60, 60, 70);
-
-        private Color filledSecondColor = Color.DarkOrchid;
-
-        private Color hexagonColor = Color.FromArgb(60, 60, 70);
-
-        private Color timeColor = Color.FromArgb(220, 220, 220);
-
-        private bool showSecondsCircle = true;
-
-        private bool showMinutesCircle = true;
-
-        private bool showHexagon = true;
-
-        private bool showAMPM;
-
-        private string timeAMFormat = "hh:mm";
-
-        private string timePMFormat = "HH:mm";
-
-        private HourFormat displayFormat = HourFormat.TwentyFourHour;
 
         public enum HourFormat
         {

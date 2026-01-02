@@ -51,51 +51,49 @@ namespace ReaLTaiizor.Controls
         public Color NMHoverColor { get; set; } = HopeColors.PrimaryColor;
         public Color NMColor { get; set; } = HopeColors.PlaceholderText;
 
-        private string _HeaderFormat = "{0} Y - {1} M"; //"{0} Y - {1,2} M"
         public string HeaderFormat
         {
-            get => _HeaderFormat;
+            get;
             set
             {
                 try
                 {
                     if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) || value.Length < 9)
                     {
-                        _HeaderFormat = "{0} Y - {1} M";
+                        field = "{0} Y - {1} M";
                     }
                     else
                     {
                         string.Format(value, CurrentDate.Year, CurrentDate.Month);
-                        _HeaderFormat = value;
+                        field = value;
                     }
                 }
                 catch
                 {
-                    _HeaderFormat = "{0} Y - {1} M";
+                    field = "{0} Y - {1} M";
                 }
             }
-        }
+        } = "{0} Y - {1} M";
 
-        private string _DayNames = "MTWTFSS";
         public string DayNames
         {
-            get => _DayNames;
+            get;
             set
             {
                 if (value.Length == 7)
                 {
-                    _DayNames = value;
+                    field = value;
                 }
                 else if (value.Length > 7)
                 {
-                    _DayNames = value.Substring(0, 7);
+                    field = value.Substring(0, 7);
                 }
                 else
                 {
-                    _DayNames = "MTWTFSS";
+                    field = "MTWTFSS";
                 }
             }
-        }
+        } = "MTWTFSS";
 
         private readonly int DateRectDefaultSize;
         private int HoverX;
@@ -235,10 +233,10 @@ namespace ReaLTaiizor.Controls
 
         private void CalculateRectangles()
         {
-            DateRectangles = new List<List<Util.HopeBase.DateRectHopeBase>>();
+            DateRectangles = [];
             for (int i = 0; i < 7; i++)
             {
-                DateRectangles.Add(new List<Util.HopeBase.DateRectHopeBase>());
+                DateRectangles.Add([]);
                 for (int j = 0; j < 7; j++)
                 {
                     DateRectangles[i].Add(new Util.HopeBase.DateRectHopeBase(new RectangleF(10 + (j * (Width - 20) / 7), WeekRect.Y + WeekRect.Height + (i * DateRectDefaultSize), DateRectDefaultSize, DateRectDefaultSize)));
@@ -314,14 +312,14 @@ namespace ReaLTaiizor.Controls
             graphics.FillPath(new SolidBrush(BackColor), bg);
             graphics.DrawPath(new(BorderColor), bg);
 
-            graphics.DrawString(string.Format(_HeaderFormat, CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(HeaderTextColor), TopDateRect, HopeStringAlign.Center);
+            graphics.DrawString(string.Format(HeaderFormat, CurrentDate.Year, CurrentDate.Month), new Font("Segoe UI", 12f), new SolidBrush(HeaderTextColor), TopDateRect, HopeStringAlign.Center);
 
             graphics.DrawString("7", new Font("webdings", 12f), new SolidBrush(previousYearHovered ? PYHoverColor : PYColor), PreviousYearRect, HopeStringAlign.Center);
             graphics.DrawString("3", new Font("webdings", 12f), new SolidBrush(previousMonthHovered ? PMHoverColor : PMColor), PreviousMonthRect, HopeStringAlign.Center);
             graphics.DrawString("4", new Font("webdings", 12f), new SolidBrush(nextMonthHovered ? NMHoverColor : NMColor), NextMonthRect, HopeStringAlign.Center);
             graphics.DrawString("8", new Font("webdings", 12f), new SolidBrush(nextYearHovered ? NYHoverColor : NYColor), NextYearRect, HopeStringAlign.Center);
 
-            string s = _DayNames;
+            string s = DayNames;
             for (int i = 0; i < 7; i++)
             {
                 graphics.DrawString(s[i].ToString(), new Font("Segoe UI", 10f), new SolidBrush(DaysTextColor), new RectangleF(10 + (i * (Width - 20) / 7), WeekRect.Y, WeekRect.Width, WeekRect.Height), HopeStringAlign.Center);
