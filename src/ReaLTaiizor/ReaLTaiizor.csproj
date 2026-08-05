@@ -68,7 +68,7 @@ Changes are detailed at https://github.com/Taiizor/ReaLTaiizor/releases</Package
 
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub">
-            <Version>11.0.100-preview.26078.110</Version>
+            <Version>11.0.100-rc.1.26404.101</Version>
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
     </ItemGroup>
