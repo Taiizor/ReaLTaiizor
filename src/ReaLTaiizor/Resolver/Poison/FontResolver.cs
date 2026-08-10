@@ -34,6 +34,7 @@ namespace ReaLTaiizor.Resolver.Poison
         private const string OPEN_SANS_LIGHT = "Open Sans Light";
         private const string OPEN_SANS_BOLD = "Open Sans Bold";
 
+        private readonly Lock syncRoot = LockFactory.Create();
         private readonly PrivateFontCollection fontCollection = new();
 
         private static bool TryResolve(ref string familyName, ref FontStyle fontStyle)
@@ -66,7 +67,7 @@ namespace ReaLTaiizor.Resolver.Poison
 
         private FontFamily GetFontFamily(string familyName)
         {
-            lock (fontCollection)
+            lock (syncRoot)
             {
                 foreach (FontFamily fontFamily in fontCollection.Families)
                 {
