@@ -22,7 +22,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive; compile</IncludeAssets>
         </PackageReference>
         <PackageReference Include="ReaLTaiizor" Version="3.8.2.1" />
-        <PackageReference Include="Skylark.Standard" Version="3.1.8.6" />
+        <PackageReference Include="Skylark.Standard" Version="3.1.8.7" />
         <PackageReference Include="Skylark.Clipboard" Version="3.1.6.1" />
     </ItemGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
